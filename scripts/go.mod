@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-xyz/scripts/
+module github.com/pulumi/pulumi-pagerduty/scripts/
 
 go 1.13
 

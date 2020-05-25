@@ -59,20 +59,6 @@ func makeResource(mod string, res string) tokens.Type {
 	return makeType(mod+"/"+fn, res)
 }
 
-// boolRef returns a reference to the bool argument.
-func boolRef(b bool) *bool {
-	return &b
-}
-
-// stringValue gets a string value from a property map if present, else ""
-func stringValue(vars resource.PropertyMap, prop resource.PropertyKey) string {
-	val, ok := vars[prop]
-	if ok && val.IsString() {
-		return val.StringValue()
-	}
-	return ""
-}
-
 // preConfigureCallback is called before the providerConfigure function of the underlying provider.
 // It should validate that the provider can be configured, and provide actionable errors in the case
 // it cannot be. Configuration variables can be read from `vars` using the `stringValue` function -
@@ -80,9 +66,6 @@ func stringValue(vars resource.PropertyMap, prop resource.PropertyKey) string {
 func preConfigureCallback(vars resource.PropertyMap, c *terraform.ResourceConfig) error {
 	return nil
 }
-
-// managedByPulumi is a default used for some managed resources, in the absence of something more meaningful.
-var managedByPulumi = &tfbridge.DefaultInfo{Value: "Managed by Pulumi"}
 
 // Provider returns additional overlaid schema and metadata associated with the provider..
 func Provider() tfbridge.ProviderInfo {
@@ -98,15 +81,7 @@ func Provider() tfbridge.ProviderInfo {
 		License:     "Apache-2.0",
 		Homepage:    "https://pulumi.io",
 		Repository:  "https://github.com/pulumi/pulumi-pagerduty",
-		Config:      map[string]*tfbridge.SchemaInfo{
-			// Add any required configuration here, or remove the example below if
-			// no additional points are required.
-			// "region": {
-			// 	Type: makeType("region", "Region"),
-			// 	Default: &tfbridge.DefaultInfo{
-			// 		EnvVars: []string{"AWS_REGION", "AWS_DEFAULT_REGION"},
-			// 	},
-			// },
+		Config: map[string]*tfbridge.SchemaInfo{
 			"token": {
 				Default: &tfbridge.DefaultInfo{
 					EnvVars: []string{"PAGERDUTY_TOKEN"},
@@ -120,35 +95,35 @@ func Provider() tfbridge.ProviderInfo {
 			},
 		},
 		PreConfigureCallback: preConfigureCallback,
-		Resources:            map[string]*tfbridge.ResourceInfo{
-			"pagerduty_addon":					{Tok: makeResource(mainMod, "Addon")},
-			"pagerduty_business_service":		{Tok: makeResource(mainMod, "BusinessService")},
-			"pagerduty_escalation_policy":		{Tok: makeResource(mainMod, "EscalationPolicy")},
-			"pagerduty_event_rule":				{Tok: makeResource(mainMod, "EventRule")},
-			"pagerduty_extension":				{Tok: makeResource(mainMod, "Extension")},
-			"pagerduty_maintenance_window":		{Tok: makeResource(mainMod, "MaintenanceWindow")},
-			"pagerduty_ruleset":				{Tok: makeResource(mainMod, "Ruleset")},
-			"pagerduty_ruleset_rule":			{Tok: makeResource(mainMod, "RulesetRule")},
-			"pagerduty_schedule":				{Tok: makeResource(mainMod, "Schedule")},
-			"pagerduty_service":				{Tok: makeResource(mainMod, "Service")},
-			"pagerduty_service_dependency":		{Tok: makeResource(mainMod, "ServiceDependency")},
-			"pagerduty_service_integration":	{Tok: makeResource(mainMod, "ServiceIntegration")},
-			"pagerduty_team":					{Tok: makeResource(mainMod, "Team")},
-			"pagerduty_team_membership":		{Tok: makeResource(mainMod, "TeamMembership")},
-			"pagerduty_user":					{Tok: makeResource(mainMod, "User")},
-			"pagerduty_user_contact_method":	{Tok: makeResource(mainMod, "UserContactMethod")},
-			"pagerduty_user_notification_rule":	{Tok: makeResource(mainMod, "UserNotificationRule")},
+		Resources: map[string]*tfbridge.ResourceInfo{
+			"pagerduty_addon":                  {Tok: makeResource(mainMod, "Addon")},
+			"pagerduty_business_service":       {Tok: makeResource(mainMod, "BusinessService")},
+			"pagerduty_escalation_policy":      {Tok: makeResource(mainMod, "EscalationPolicy")},
+			"pagerduty_event_rule":             {Tok: makeResource(mainMod, "EventRule")},
+			"pagerduty_extension":              {Tok: makeResource(mainMod, "Extension")},
+			"pagerduty_maintenance_window":     {Tok: makeResource(mainMod, "MaintenanceWindow")},
+			"pagerduty_ruleset":                {Tok: makeResource(mainMod, "Ruleset")},
+			"pagerduty_ruleset_rule":           {Tok: makeResource(mainMod, "RulesetRule")},
+			"pagerduty_schedule":               {Tok: makeResource(mainMod, "Schedule")},
+			"pagerduty_service":                {Tok: makeResource(mainMod, "Service")},
+			"pagerduty_service_dependency":     {Tok: makeResource(mainMod, "ServiceDependency")},
+			"pagerduty_service_integration":    {Tok: makeResource(mainMod, "ServiceIntegration")},
+			"pagerduty_team":                   {Tok: makeResource(mainMod, "Team")},
+			"pagerduty_team_membership":        {Tok: makeResource(mainMod, "TeamMembership")},
+			"pagerduty_user":                   {Tok: makeResource(mainMod, "User")},
+			"pagerduty_user_contact_method":    {Tok: makeResource(mainMod, "UserContactMethod")},
+			"pagerduty_user_notification_rule": {Tok: makeResource(mainMod, "UserNotificationRule")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
-			"pagerduty_escalation_policy":	{Tok: makeDataSource(mainMod, "getEscalationPolicy")},
-			"pagerduty_extension_schema":	{Tok: makeDataSource(mainMod, "getExtensionSchema")},
-			"pagerduty_schedule":			{Tok: makeDataSource(mainMod, "getSchedule")},
-			"pagerduty_service":			{Tok: makeDataSource(mainMod, "getService")},
-			"pagerduty_user":				{Tok: makeDataSource(mainMod, "getUser")},
-			"pagerduty_team":				{Tok: makeDataSource(mainMod, "getTeam")},
-			"pagerduty_vendor":				{Tok: makeDataSource(mainMod, "getVendor")},
-			"pagerduty_business_service":	{Tok: makeDataSource(mainMod, "getBusinessService")},
-			"pagerduty_priority":			{Tok: makeDataSource(mainMod, "getPriority")},
+			"pagerduty_escalation_policy": {Tok: makeDataSource(mainMod, "getEscalationPolicy")},
+			"pagerduty_extension_schema":  {Tok: makeDataSource(mainMod, "getExtensionSchema")},
+			"pagerduty_schedule":          {Tok: makeDataSource(mainMod, "getSchedule")},
+			"pagerduty_service":           {Tok: makeDataSource(mainMod, "getService")},
+			"pagerduty_user":              {Tok: makeDataSource(mainMod, "getUser")},
+			"pagerduty_team":              {Tok: makeDataSource(mainMod, "getTeam")},
+			"pagerduty_vendor":            {Tok: makeDataSource(mainMod, "getVendor")},
+			"pagerduty_business_service":  {Tok: makeDataSource(mainMod, "getBusinessService")},
+			"pagerduty_priority":          {Tok: makeDataSource(mainMod, "getPriority")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			// List any npm dependencies and their versions

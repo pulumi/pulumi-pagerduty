@@ -12,7 +12,7 @@ namespace Pulumi.Pagerduty
     public static class GetService
     {
         /// <summary>
-        /// Use this data source to get information about a specific [service][1].
+        /// Use this data source to get information about a specific [service](https://api-reference.pagerduty.com/#!/Services/get_services).
         /// 
         /// {{% examples %}}
         /// {{% /examples %}}
@@ -40,7 +40,7 @@ namespace Pulumi.Pagerduty
     public sealed class GetServiceResult
     {
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>

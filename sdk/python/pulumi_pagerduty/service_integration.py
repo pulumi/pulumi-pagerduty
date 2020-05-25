@@ -51,6 +51,42 @@ class ServiceIntegration(pulumi.CustomResource):
         """
         A [service integration](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Services/post_services_id_integrations) is an integration that belongs to a service.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        example_user = pagerduty.User("exampleUser",
+            email="125.greenholt.earline@graham.name",
+            teams=[pagerduty_team["example"]["id"]])
+        foo = pagerduty.EscalationPolicy("foo",
+            num_loops=2,
+            rules=[{
+                "escalationDelayInMinutes": 10,
+                "target": [{
+                    "id": example_user.id,
+                    "type": "user",
+                }],
+            }])
+        example_service = pagerduty.Service("exampleService",
+            acknowledgement_timeout=600,
+            auto_resolve_timeout=14400,
+            escalation_policy=pagerduty_escalation_policy["example"]["id"])
+        example_service_integration = pagerduty.ServiceIntegration("exampleServiceIntegration",
+            service=example_service.id,
+            type="generic_events_api_inbound_integration")
+        datadog_vendor = pagerduty.get_vendor(name="Datadog")
+        datadog_service_integration = pagerduty.ServiceIntegration("datadogServiceIntegration",
+            service=example_service.id,
+            vendor=datadog_vendor.id)
+        cloudwatch_vendor = pagerduty.get_vendor(name="Cloudwatch")
+        cloudwatch_service_integration = pagerduty.ServiceIntegration("cloudwatchServiceIntegration",
+            service=example_service.id,
+            vendor=cloudwatch_vendor.id)
+        ```
 
 
         :param str resource_name: The name of the resource.

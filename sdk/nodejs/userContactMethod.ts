@@ -8,16 +8,16 @@ import * as utilities from "./utilities";
 
 /**
  * A [contact method](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Users/get_users_id_contact_methods) is a contact method for a PagerDuty user (email, phone or SMS).
- * 
- * 
+ *
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
- * 
+ *
  * const example = new pagerduty.User("example", {
  *     email: "125.greenholt.earline@graham.name",
  *     teams: [pagerduty_team_example.id],
@@ -43,8 +43,6 @@ import * as utilities from "./utilities";
  *     userId: example.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-pagerduty/blob/master/website/docs/r/user_contact_method.html.markdown.
  */
 export class UserContactMethod extends pulumi.CustomResource {
     /**

@@ -9,47 +9,47 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Pagerduty
 {
-    public static class GetSchedule
+    public static class GetBusinessService
     {
         /// <summary>
-        /// Use this data source to get information about a specific [schedule](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Schedules/get_schedules) that you can use for other PagerDuty resources.
+        /// Use this data source to get information about a specific [business service](https://api-reference.pagerduty.com/#!/Business_Services/get_business_services).
         /// 
         /// {{% examples %}}
         /// {{% /examples %}}
         /// </summary>
-        public static Task<GetScheduleResult> InvokeAsync(GetScheduleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScheduleResult>("pagerduty:index/getSchedule:getSchedule", args ?? new GetScheduleArgs(), options.WithVersion());
+        public static Task<GetBusinessServiceResult> InvokeAsync(GetBusinessServiceArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBusinessServiceResult>("pagerduty:index/getBusinessService:getBusinessService", args ?? new GetBusinessServiceArgs(), options.WithVersion());
     }
 
 
-    public sealed class GetScheduleArgs : Pulumi.InvokeArgs
+    public sealed class GetBusinessServiceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name to use to find a schedule in the PagerDuty API.
+        /// The business service name to use to find a business service in the PagerDuty API.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        public GetScheduleArgs()
+        public GetBusinessServiceArgs()
         {
         }
     }
 
 
     [OutputType]
-    public sealed class GetScheduleResult
+    public sealed class GetBusinessServiceResult
     {
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The short name of the found schedule.
+        /// The short name of the found business service.
         /// </summary>
         public readonly string Name;
 
         [OutputConstructor]
-        private GetScheduleResult(
+        private GetBusinessServiceResult(
             string id,
 
             string name)

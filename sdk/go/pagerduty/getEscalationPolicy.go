@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Use this data source to get information about a specific [escalation policy][1] that you can use for other PagerDuty resources.
+// Use this data source to get information about a specific [escalation policy](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Escalation_Policies/get_escalation_policies) that you can use for other PagerDuty resources.
 func LookupEscalationPolicy(ctx *pulumi.Context, args *LookupEscalationPolicyArgs, opts ...pulumi.InvokeOption) (*LookupEscalationPolicyResult, error) {
 	var rv LookupEscalationPolicyResult
 	err := ctx.Invoke("pagerduty:index/getEscalationPolicy:getEscalationPolicy", args, &rv, opts...)
@@ -25,7 +25,7 @@ type LookupEscalationPolicyArgs struct {
 
 // A collection of values returned by getEscalationPolicy.
 type LookupEscalationPolicyResult struct {
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The short name of the found escalation policy.
 	Name string `pulumi:"name"`

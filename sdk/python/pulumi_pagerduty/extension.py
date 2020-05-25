@@ -40,6 +40,47 @@ class Extension(pulumi.CustomResource):
         """
         An [extension](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Extensions/post_extensions) can be associated with a service.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        webhook = pagerduty.get_extension_schema(name="Generic V2 Webhook")
+        example_user = pagerduty.User("exampleUser",
+            email="howard.james@example.domain",
+            teams=[pagerduty_team["example"]["id"]])
+        foo = pagerduty.EscalationPolicy("foo",
+            num_loops=2,
+            rules=[{
+                "escalationDelayInMinutes": 10,
+                "target": [{
+                    "id": example_user.id,
+                    "type": "user",
+                }],
+            }])
+        example_service = pagerduty.Service("exampleService",
+            acknowledgement_timeout=600,
+            auto_resolve_timeout=14400,
+            escalation_policy=pagerduty_escalation_policy["example"]["id"])
+        slack = pagerduty.Extension("slack",
+            config=\"\"\"{
+        	"restrict": "any",
+        	"notify_types": {
+        			"resolve": false,
+        			"acknowledge": false,
+        			"assignments": false
+        	},
+        	"access_token": "XXX"
+        }
+
+        \"\"\",
+            endpoint_url="https://generic_webhook_url/XXXXXX/BBBBBB",
+            extension_objects=[example_service.id],
+            extension_schema=webhook.id)
+        ```
 
 
         :param str resource_name: The name of the resource.

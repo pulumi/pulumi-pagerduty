@@ -6,12 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * An [event rule](https://support.pagerduty.com/docs/rulesets#section-create-event-rules) allows you to set actions that should be taken on events that meet your designated rule criteria.
- * 
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-pagerduty/blob/master/website/docs/r/ruleset_rule.html.markdown.
- */
 export class RulesetRule extends pulumi.CustomResource {
     /**
      * Get an existing RulesetRule resource's state with the given name, ID, and optional extra

@@ -51,6 +51,32 @@ class Schedule(pulumi.CustomResource):
         A [schedule](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Schedules/get_schedules) determines the time periods that users are on call. Only on-call users are eligible to receive notifications from incidents.
 
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        example = pagerduty.User("example",
+            email="125.greenholt.earline@graham.name",
+            teams=[pagerduty_team["example"]["id"]])
+        foo = pagerduty.Schedule("foo",
+            layers=[{
+                "name": "Night Shift",
+                "restriction": [{
+                    "durationSeconds": 32400,
+                    "startTimeOfDay": "08:00:00",
+                    "type": "daily_restriction",
+                }],
+                "rotationTurnLengthSeconds": 86400,
+                "rotationVirtualStart": "2015-11-06T20:00:00-05:00",
+                "start": "2015-11-06T20:00:00-05:00",
+                "users": [pagerduty_user["foo"]["id"]],
+            }],
+            time_zone="America/New_York")
+        ```
 
 
         :param str resource_name: The name of the resource.

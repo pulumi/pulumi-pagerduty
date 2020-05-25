@@ -8,16 +8,16 @@ import * as utilities from "./utilities";
 
 /**
  * A [schedule](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Schedules/get_schedules) determines the time periods that users are on call. Only on-call users are eligible to receive notifications from incidents.
- * 
- * 
+ *
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
- * 
+ *
  * const example = new pagerduty.User("example", {
  *     email: "125.greenholt.earline@graham.name",
  *     teams: [pagerduty_team_example.id],
@@ -38,8 +38,6 @@ import * as utilities from "./utilities";
  *     timeZone: "America/New_York",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-pagerduty/blob/master/website/docs/r/schedule.html.markdown.
  */
 export class Schedule extends pulumi.CustomResource {
     /**

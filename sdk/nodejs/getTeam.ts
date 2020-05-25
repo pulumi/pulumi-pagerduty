@@ -7,22 +7,22 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Use this data source to get information about a specific [team][1] that you can use for other PagerDuty resources.
- * 
+ * Use this data source to get information about a specific [team](https://v1.developer.pagerduty.com/documentation/rest/teams/list) that you can use for other PagerDuty resources.
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
- * 
- * const me = pagerduty.getUser({
+ *
+ * const me = pulumi.output(pagerduty.getUser({
  *     email: "me@example.com",
- * });
- * const devops = pagerduty.getTeam({
+ * }, { async: true }));
+ * const devops = pulumi.output(pagerduty.getTeam({
  *     name: "devops",
- * });
+ * }, { async: true }));
  * const foo = new pagerduty.EscalationPolicy("foo", {
  *     numLoops: 2,
  *     rules: [{
@@ -35,8 +35,6 @@ import * as utilities from "./utilities";
  *     teams: [devops.id],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-pagerduty/blob/master/website/docs/d/team.html.markdown.
  */
 export function getTeam(args: GetTeamArgs, opts?: pulumi.InvokeOptions): Promise<GetTeamResult> {
     if (!opts) {
@@ -74,7 +72,7 @@ export interface GetTeamResult {
      */
     readonly name: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

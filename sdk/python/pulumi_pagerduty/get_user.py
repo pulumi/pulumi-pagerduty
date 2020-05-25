@@ -21,7 +21,7 @@ class GetUserResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -41,8 +41,27 @@ class AwaitableGetUserResult(GetUserResult):
 
 def get_user(email=None,opts=None):
     """
-    Use this data source to get information about a specific [user][1] that you can use for other PagerDuty resources.
+    Use this data source to get information about a specific [user](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Users/get_users) that you can use for other PagerDuty resources.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_pagerduty as pagerduty
+
+    me = pagerduty.get_user(email="me@example.com")
+    foo = pagerduty.EscalationPolicy("foo",
+        num_loops=2,
+        rules=[{
+            "escalationDelayInMinutes": 10,
+            "target": [{
+                "id": me.id,
+                "type": "user",
+            }],
+        }])
+    ```
 
 
 

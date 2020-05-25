@@ -7,19 +7,19 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Use this data source to get information about a specific [vendor][1] that you can use for a service integration (e.g Amazon Cloudwatch, Splunk, Datadog).
- * 
+ * Use this data source to get information about a specific [vendor](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Vendors/get_vendors) that you can use for a service integration (e.g Amazon Cloudwatch, Splunk, Datadog).
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
- * 
- * const datadog = pagerduty.getVendor({
+ *
+ * const datadog = pulumi.output(pagerduty.getVendor({
  *     name: "Datadog",
- * });
+ * }, { async: true }));
  * const exampleUser = new pagerduty.User("example", {
  *     email: "125.greenholt.earline@graham.name",
  *     teams: [pagerduty_team_example.id],
@@ -45,8 +45,6 @@ import * as utilities from "./utilities";
  *     vendor: datadog.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-pagerduty/blob/master/website/docs/d/vendor.html.markdown.
  */
 export function getVendor(args: GetVendorArgs, opts?: pulumi.InvokeOptions): Promise<GetVendorResult> {
     if (!opts) {
@@ -84,7 +82,7 @@ export interface GetVendorResult {
      */
     readonly type: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

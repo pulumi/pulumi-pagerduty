@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Use this data source to get information about a specific [extension][1] vendor that you can use for a service (e.g: Slack, Generic Webhook, ServiceNow).
+// Use this data source to get information about a specific [extension](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Extension_Schemas/get_extension_schemas) vendor that you can use for a service (e.g: Slack, Generic Webhook, ServiceNow).
 func GetExtensionSchema(ctx *pulumi.Context, args *GetExtensionSchemaArgs, opts ...pulumi.InvokeOption) (*GetExtensionSchemaResult, error) {
 	var rv GetExtensionSchemaResult
 	err := ctx.Invoke("pagerduty:index/getExtensionSchema:getExtensionSchema", args, &rv, opts...)
@@ -25,7 +25,7 @@ type GetExtensionSchemaArgs struct {
 
 // A collection of values returned by getExtensionSchema.
 type GetExtensionSchemaResult struct {
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The short name of the found extension vendor.
 	Name string `pulumi:"name"`

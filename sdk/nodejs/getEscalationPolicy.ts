@@ -7,27 +7,25 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Use this data source to get information about a specific [escalation policy][1] that you can use for other PagerDuty resources.
- * 
+ * Use this data source to get information about a specific [escalation policy](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Escalation_Policies/get_escalation_policies) that you can use for other PagerDuty resources.
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
- * 
- * const testEscalationPolicy = pagerduty.getEscalationPolicy({
+ *
+ * const testEscalationPolicy = pulumi.output(pagerduty.getEscalationPolicy({
  *     name: "Engineering Escalation Policy",
- * });
+ * }, { async: true }));
  * const testService = new pagerduty.Service("test", {
  *     acknowledgementTimeout: "600",
  *     autoResolveTimeout: "14400",
  *     escalationPolicy: testEscalationPolicy.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-pagerduty/blob/master/website/docs/d/escalation_policy.html.markdown.
  */
 export function getEscalationPolicy(args: GetEscalationPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetEscalationPolicyResult> {
     if (!opts) {
@@ -61,7 +59,7 @@ export interface GetEscalationPolicyResult {
      */
     readonly name: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

@@ -26,7 +26,7 @@ class RulesetRule(pulumi.CustomResource):
         * `source` (`str`) - Field where the data is being copied from.
         * `target` (`str`) - Field where the data is being copied to.
 
-      * `priorities` (`list`)
+      * `priorities` (`list`) - The ID of the priority applied to the event.
         * `value` (`str`) - Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 
       * `routes` (`list`) - The ID of the service where the event will be routed.
@@ -80,10 +80,7 @@ class RulesetRule(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, actions=None, conditions=None, disabled=None, position=None, ruleset=None, time_frame=None, __props__=None, __name__=None, __opts__=None):
         """
-        An [event rule](https://support.pagerduty.com/docs/rulesets#section-create-event-rules) allows you to set actions that should be taken on events that meet your designated rule criteria.
-
-
-
+        Create a RulesetRule resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] actions: Actions to apply to an event if the conditions match.
@@ -107,7 +104,7 @@ class RulesetRule(pulumi.CustomResource):
             * `source` (`pulumi.Input[str]`) - Field where the data is being copied from.
             * `target` (`pulumi.Input[str]`) - Field where the data is being copied to.
 
-          * `priorities` (`pulumi.Input[list]`)
+          * `priorities` (`pulumi.Input[list]`) - The ID of the priority applied to the event.
             * `value` (`pulumi.Input[str]`) - Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 
           * `routes` (`pulumi.Input[list]`) - The ID of the service where the event will be routed.
@@ -204,7 +201,7 @@ class RulesetRule(pulumi.CustomResource):
             * `source` (`pulumi.Input[str]`) - Field where the data is being copied from.
             * `target` (`pulumi.Input[str]`) - Field where the data is being copied to.
 
-          * `priorities` (`pulumi.Input[list]`)
+          * `priorities` (`pulumi.Input[list]`) - The ID of the priority applied to the event.
             * `value` (`pulumi.Input[str]`) - Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 
           * `routes` (`pulumi.Input[list]`) - The ID of the service where the event will be routed.

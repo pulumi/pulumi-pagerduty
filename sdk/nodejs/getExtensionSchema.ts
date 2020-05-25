@@ -7,19 +7,19 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Use this data source to get information about a specific [extension][1] vendor that you can use for a service (e.g: Slack, Generic Webhook, ServiceNow).
- * 
+ * Use this data source to get information about a specific [extension](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Extension_Schemas/get_extension_schemas) vendor that you can use for a service (e.g: Slack, Generic Webhook, ServiceNow).
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
- * 
- * const webhook = pagerduty.getExtensionSchema({
+ *
+ * const webhook = pulumi.output(pagerduty.getExtensionSchema({
  *     name: "Generic V2 Webhook",
- * });
+ * }, { async: true }));
  * const exampleUser = new pagerduty.User("example", {
  *     email: "howard.james@example.domain",
  *     teams: [pagerduty_team_example.id],
@@ -45,8 +45,6 @@ import * as utilities from "./utilities";
  *     extensionSchema: webhook.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-pagerduty/blob/master/website/docs/d/extension_schema.html.markdown.
  */
 export function getExtensionSchema(args: GetExtensionSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetExtensionSchemaResult> {
     if (!opts) {
@@ -84,7 +82,7 @@ export interface GetExtensionSchemaResult {
      */
     readonly type: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

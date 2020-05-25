@@ -12,7 +12,7 @@ namespace Pulumi.Pagerduty
     public static class GetUser
     {
         /// <summary>
-        /// Use this data source to get information about a specific [user][1] that you can use for other PagerDuty resources.
+        /// Use this data source to get information about a specific [user](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Users/get_users) that you can use for other PagerDuty resources.
         /// 
         /// {{% examples %}}
         /// {{% /examples %}}
@@ -41,7 +41,7 @@ namespace Pulumi.Pagerduty
     {
         public readonly string Email;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>

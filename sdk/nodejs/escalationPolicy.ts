@@ -8,16 +8,16 @@ import * as utilities from "./utilities";
 
 /**
  * An [escalation policy](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Escalation_Policies/get_escalation_policies) determines what user or schedule will be notified first, second, and so on when an incident is triggered. Escalation policies are used by one or more services.
- * 
- * 
+ *
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
- * 
+ *
  * const exampleTeam = new pagerduty.Team("example", {
  *     description: "All engineering",
  * });
@@ -37,8 +37,6 @@ import * as utilities from "./utilities";
  *     teams: [exampleTeam.id],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-pagerduty/blob/master/website/docs/r/escalation_policy.html.markdown.
  */
 export class EscalationPolicy extends pulumi.CustomResource {
     /**

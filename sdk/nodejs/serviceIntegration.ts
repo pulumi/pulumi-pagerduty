@@ -8,15 +8,15 @@ import * as utilities from "./utilities";
 
 /**
  * A [service integration](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Services/post_services_id_integrations) is an integration that belongs to a service.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
- * 
+ *
  * const exampleUser = new pagerduty.User("example", {
  *     email: "125.greenholt.earline@graham.name",
  *     teams: [pagerduty_team_example.id],
@@ -40,23 +40,21 @@ import * as utilities from "./utilities";
  *     service: exampleService.id,
  *     type: "genericEventsApiInboundIntegration",
  * });
- * const datadogVendor = pagerduty.getVendor({
+ * const datadogVendor = pulumi.output(pagerduty.getVendor({
  *     name: "Datadog",
- * });
+ * }, { async: true }));
  * const datadogServiceIntegration = new pagerduty.ServiceIntegration("datadog", {
  *     service: exampleService.id,
  *     vendor: datadogVendor.id,
  * });
- * const cloudwatchVendor = pagerduty.getVendor({
+ * const cloudwatchVendor = pulumi.output(pagerduty.getVendor({
  *     name: "Cloudwatch",
- * });
+ * }, { async: true }));
  * const cloudwatchServiceIntegration = new pagerduty.ServiceIntegration("cloudwatch", {
  *     service: exampleService.id,
  *     vendor: cloudwatchVendor.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-pagerduty/blob/master/website/docs/r/service_integration.html.markdown.
  */
 export class ServiceIntegration extends pulumi.CustomResource {
     /**

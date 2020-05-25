@@ -7,10 +7,28 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Use this data source to get information about a specific [service][1].
- * 
+ * Use this data source to get information about a specific [service](https://api-reference.pagerduty.com/#!/Services/get_services).
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-pagerduty/blob/master/website/docs/d/service.html.markdown.
+ * ## Example Usage
+ *
+ *
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const exampleService = pagerduty.getService({
+ *     name: "My Service",
+ * });
+ * const datadog = pagerduty.getVendor({
+ *     name: "Datadog",
+ * });
+ * const exampleServiceIntegration = new pagerduty.ServiceIntegration("exampleServiceIntegration", {
+ *     vendor: datadog.then(datadog => datadog.id),
+ *     service: exampleService.then(exampleService => exampleService.id),
+ *     type: "genericEventsApiInboundIntegration",
+ * });
+ * ```
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
     if (!opts) {
@@ -44,7 +62,7 @@ export interface GetServiceResult {
      */
     readonly name: string;
     /**
-     * id is the provider-assigned unique ID for this managed resource.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }

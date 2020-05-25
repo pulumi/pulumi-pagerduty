@@ -6,16 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * *NOTE: The `pagerduty..EventRule` resource has been deprecated in favor the the pagerduty..Ruleset and pagerduty..RulesetRule resources. Please use the `ruleset` based resources for working with Event Rules.*
- * 
- * 
- * An [event rule](https://v2.developer.pagerduty.com/docs/global-event-rules-api) determines what happens to an event that is sent to PagerDuty by monitoring tools and other integrations.
- * 
- * 
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-pagerduty/blob/master/website/docs/r/event_rule.html.markdown.
- */
 export class EventRule extends pulumi.CustomResource {
     /**
      * Get an existing EventRule resource's state with the given name, ID, and optional extra

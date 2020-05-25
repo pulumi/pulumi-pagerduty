@@ -8,10 +8,21 @@ import * as utilities from "./utilities";
 
 /**
  * [Rulesets](https://support.pagerduty.com/docs/rulesets) allow you to route events to an endpoint and create collections of event rules, which define sets of actions to take based on event content.
- * 
- * 
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-pagerduty/blob/master/website/docs/r/ruleset.html.markdown.
+ *
+ * ## Example Usage
+ *
+ *
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const fooTeam = new pagerduty.Team("fooTeam", {});
+ * const fooRuleset = new pagerduty.Ruleset("fooRuleset", {team: {
+ *     id: fooTeam.id,
+ * }});
+ * ```
  */
 export class Ruleset extends pulumi.CustomResource {
     /**

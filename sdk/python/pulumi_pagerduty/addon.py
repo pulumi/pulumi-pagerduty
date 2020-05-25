@@ -22,6 +22,16 @@ class Addon(pulumi.CustomResource):
         """
         With [add-ons](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Add-ons/get_addons), third-party developers can write their own add-ons to PagerDuty's UI. Given a configuration containing a src parameter, that URL will be embedded in an iframe on a page that's available to users from a drop-down menu.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        example = pagerduty.Addon("example", src="https://intranet.example.com/status")
+        ```
 
 
         :param str resource_name: The name of the resource.

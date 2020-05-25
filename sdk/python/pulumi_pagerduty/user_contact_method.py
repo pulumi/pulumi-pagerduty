@@ -47,6 +47,35 @@ class UserContactMethod(pulumi.CustomResource):
         A [contact method](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Users/get_users_id_contact_methods) is a contact method for a PagerDuty user (email, phone or SMS).
 
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        example = pagerduty.User("example",
+            email="125.greenholt.earline@graham.name",
+            teams=[pagerduty_team["example"]["id"]])
+        email = pagerduty.UserContactMethod("email",
+            address="foo@bar.com",
+            label="Work",
+            type="email_contact_method",
+            user_id=example.id)
+        phone = pagerduty.UserContactMethod("phone",
+            address="2025550199",
+            country_code="+1",
+            label="Work",
+            type="phone_contact_method",
+            user_id=example.id)
+        sms = pagerduty.UserContactMethod("sms",
+            address="2025550199",
+            country_code="+1",
+            label="Work",
+            type="sms_contact_method",
+            user_id=example.id)
+        ```
 
 
         :param str resource_name: The name of the resource.

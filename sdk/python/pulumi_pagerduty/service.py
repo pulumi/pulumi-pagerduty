@@ -51,6 +51,32 @@ class Service(pulumi.CustomResource):
         A [service](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Services/get_services) represents something you monitor (like a web service, email service, or database service). It is a container for related incidents that associates them with escalation policies.
 
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        example_user = pagerduty.User("exampleUser",
+            email="125.greenholt.earline@graham.name",
+            teams=[pagerduty_team["example"]["id"]])
+        foo = pagerduty.EscalationPolicy("foo",
+            num_loops=2,
+            rules=[{
+                "escalationDelayInMinutes": 10,
+                "target": [{
+                    "id": example_user.id,
+                    "type": "user",
+                }],
+            }])
+        example_service = pagerduty.Service("exampleService",
+            acknowledgement_timeout=600,
+            alert_creation="create_incidents",
+            auto_resolve_timeout=14400,
+            escalation_policy=pagerduty_escalation_policy["example"]["id"])
+        ```
 
 
         :param str resource_name: The name of the resource.

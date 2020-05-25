@@ -46,6 +46,10 @@ namespace Pulumi.Pagerduty.Inputs
 
         [Input("priorities")]
         private InputList<Inputs.RulesetRuleActionsPriorityGetArgs>? _priorities;
+
+        /// <summary>
+        /// The ID of the priority applied to the event.
+        /// </summary>
         public InputList<Inputs.RulesetRuleActionsPriorityGetArgs> Priorities
         {
             get => _priorities ?? (_priorities = new InputList<Inputs.RulesetRuleActionsPriorityGetArgs>());

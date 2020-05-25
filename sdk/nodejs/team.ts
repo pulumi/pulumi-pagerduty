@@ -8,23 +8,21 @@ import * as utilities from "./utilities";
 
 /**
  * A [team](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Teams/get_teams) is a collection of users and escalation policies that represent a group of people within an organization.
- * 
+ *
  * The account must have the `teams` ability to use the following resource.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
- * 
+ *
  * const example = new pagerduty.Team("example", {
  *     description: "All engineering",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-pagerduty/blob/master/website/docs/r/team.html.markdown.
  */
 export class Team extends pulumi.CustomResource {
     /**

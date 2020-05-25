@@ -33,6 +33,57 @@ class UserNotificationRule(pulumi.CustomResource):
         """
         A [notification rule](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Users/get_users_id_notification_rules_notification_rule_id) configures where and when a PagerDuty user is notified when a triggered incident is assigned to him. Unique notification rules can be created for both high and low-urgency incidents.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        example = pagerduty.User("example", email="125.greenholt.earline@graham.name")
+        email = pagerduty.UserContactMethod("email",
+            user_id=example.id,
+            type="email_contact_method",
+            address="foo@bar.com",
+            label="Work")
+        phone = pagerduty.UserContactMethod("phone",
+            user_id=example.id,
+            type="phone_contact_method",
+            country_code="+1",
+            address="2025550199",
+            label="Work")
+        sms = pagerduty.UserContactMethod("sms",
+            user_id=example.id,
+            type="sms_contact_method",
+            country_code="+1",
+            address="2025550199",
+            label="Work")
+        high_urgency_phone = pagerduty.UserNotificationRule("highUrgencyPhone",
+            user_id=example.id,
+            start_delay_in_minutes=1,
+            urgency="high",
+            contact_method={
+                "type": "phone_contact_method",
+                "id": phone.id,
+            })
+        low_urgency_email = pagerduty.UserNotificationRule("lowUrgencyEmail",
+            user_id=example.id,
+            start_delay_in_minutes=1,
+            urgency="low",
+            contact_method={
+                "type": "email_contact_method",
+                "id": email.id,
+            })
+        low_urgency_sms = pagerduty.UserNotificationRule("lowUrgencySms",
+            user_id=example.id,
+            start_delay_in_minutes=10,
+            urgency="low",
+            contact_method={
+                "type": "sms_contact_method",
+                "id": sms.id,
+            })
+        ```
 
 
         :param str resource_name: The name of the resource.

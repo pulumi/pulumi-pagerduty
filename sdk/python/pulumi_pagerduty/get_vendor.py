@@ -18,7 +18,7 @@ class GetVendorResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -44,8 +44,38 @@ class AwaitableGetVendorResult(GetVendorResult):
 
 def get_vendor(name=None,opts=None):
     """
-    Use this data source to get information about a specific [vendor][1] that you can use for a service integration (e.g Amazon Cloudwatch, Splunk, Datadog).
+    Use this data source to get information about a specific [vendor](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Vendors/get_vendors) that you can use for a service integration (e.g Amazon Cloudwatch, Splunk, Datadog).
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_pagerduty as pagerduty
+
+    datadog = pagerduty.get_vendor(name="Datadog")
+    example_user = pagerduty.User("exampleUser",
+        email="125.greenholt.earline@graham.name",
+        teams=[pagerduty_team["example"]["id"]])
+    foo = pagerduty.EscalationPolicy("foo",
+        num_loops=2,
+        rules=[{
+            "escalationDelayInMinutes": 10,
+            "target": [{
+                "id": example_user.id,
+                "type": "user",
+            }],
+        }])
+    example_service = pagerduty.Service("exampleService",
+        acknowledgement_timeout=600,
+        auto_resolve_timeout=14400,
+        escalation_policy=pagerduty_escalation_policy["example"]["id"])
+    example_service_integration = pagerduty.ServiceIntegration("exampleServiceIntegration",
+        service=example_service.id,
+        type="generic_events_api_inbound_integration",
+        vendor=datadog.id)
+    ```
 
 
 

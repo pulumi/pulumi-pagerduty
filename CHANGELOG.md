@@ -2,8 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Prepare for 2.0 release
-* Add prepare command to rename the `pagerduty` occurrences
+* Initial release of the provider against v1.7.1 of the Pagerduty Terraform Provider
 
 ---
 

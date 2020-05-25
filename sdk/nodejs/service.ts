@@ -8,16 +8,16 @@ import * as utilities from "./utilities";
 
 /**
  * A [service](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Services/get_services) represents something you monitor (like a web service, email service, or database service). It is a container for related incidents that associates them with escalation policies.
- * 
- * 
+ *
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
- * 
+ *
  * const exampleUser = new pagerduty.User("example", {
  *     email: "125.greenholt.earline@graham.name",
  *     teams: [pagerduty_team_example.id],
@@ -39,8 +39,6 @@ import * as utilities from "./utilities";
  *     escalationPolicy: pagerduty_escalation_policy_example.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-pagerduty/blob/master/website/docs/r/service.html.markdown.
  */
 export class Service extends pulumi.CustomResource {
     /**

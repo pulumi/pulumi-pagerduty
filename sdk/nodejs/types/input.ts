@@ -37,6 +37,9 @@ export interface RulesetRuleActions {
      * Allows you to copy important data from one event field to another. Extraction rules must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax). Extraction objects consist of the following fields:
      */
     extractions?: pulumi.Input<pulumi.Input<inputs.RulesetRuleActionsExtraction>[]>;
+    /**
+     * The ID of the priority applied to the event.
+     */
     priorities?: pulumi.Input<pulumi.Input<inputs.RulesetRuleActionsPriority>[]>;
     /**
      * The ID of the service where the event will be routed.

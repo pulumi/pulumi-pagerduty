@@ -8,18 +8,18 @@ import * as utilities from "./utilities";
 
 /**
  * An [extension](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Extensions/post_extensions) can be associated with a service.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
- * 
- * const webhook = pagerduty.getExtensionSchema({
+ *
+ * const webhook = pulumi.output(pagerduty.getExtensionSchema({
  *     name: "Generic V2 Webhook",
- * });
+ * }, { async: true }));
  * const exampleUser = new pagerduty.User("example", {
  *     email: "howard.james@example.domain",
  *     teams: [pagerduty_team_example.id],
@@ -55,8 +55,6 @@ import * as utilities from "./utilities";
  *     extensionSchema: webhook.id,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-pagerduty/blob/master/website/docs/r/extension.html.markdown.
  */
 export class Extension extends pulumi.CustomResource {
     /**

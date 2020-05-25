@@ -38,6 +38,29 @@ class EscalationPolicy(pulumi.CustomResource):
         An [escalation policy](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Escalation_Policies/get_escalation_policies) determines what user or schedule will be notified first, second, and so on when an incident is triggered. Escalation policies are used by one or more services.
 
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        example_team = pagerduty.Team("exampleTeam", description="All engineering")
+        example_user = pagerduty.User("exampleUser",
+            email="125.greenholt.earline@graham.name",
+            teams=[example_team.id])
+        example_escalation_policy = pagerduty.EscalationPolicy("exampleEscalationPolicy",
+            num_loops=2,
+            rules=[{
+                "escalationDelayInMinutes": 10,
+                "target": [{
+                    "id": example_user.id,
+                    "type": "user",
+                }],
+            }],
+            teams=[example_team.id])
+        ```
 
 
         :param str resource_name: The name of the resource.

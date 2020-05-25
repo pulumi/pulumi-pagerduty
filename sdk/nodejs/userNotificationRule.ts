@@ -8,9 +8,64 @@ import * as utilities from "./utilities";
 
 /**
  * A [notification rule](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Users/get_users_id_notification_rules_notification_rule_id) configures where and when a PagerDuty user is notified when a triggered incident is assigned to him. Unique notification rules can be created for both high and low-urgency incidents.
- * 
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-pagerduty/blob/master/website/docs/r/user_notification_rule.html.markdown.
+ * ## Example Usage
+ *
+ *
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const example = new pagerduty.User("example", {email: "125.greenholt.earline@graham.name"});
+ * const email = new pagerduty.UserContactMethod("email", {
+ *     userId: example.id,
+ *     type: "emailContactMethod",
+ *     address: "foo@bar.com",
+ *     label: "Work",
+ * });
+ * const phone = new pagerduty.UserContactMethod("phone", {
+ *     userId: example.id,
+ *     type: "phoneContactMethod",
+ *     countryCode: "+1",
+ *     address: "2025550199",
+ *     label: "Work",
+ * });
+ * const sms = new pagerduty.UserContactMethod("sms", {
+ *     userId: example.id,
+ *     type: "smsContactMethod",
+ *     countryCode: "+1",
+ *     address: "2025550199",
+ *     label: "Work",
+ * });
+ * const highUrgencyPhone = new pagerduty.UserNotificationRule("highUrgencyPhone", {
+ *     userId: example.id,
+ *     startDelayInMinutes: 1,
+ *     urgency: "high",
+ *     contactMethod: {
+ *         type: "phoneContactMethod",
+ *         id: phone.id,
+ *     },
+ * });
+ * const lowUrgencyEmail = new pagerduty.UserNotificationRule("lowUrgencyEmail", {
+ *     userId: example.id,
+ *     startDelayInMinutes: 1,
+ *     urgency: "low",
+ *     contactMethod: {
+ *         type: "emailContactMethod",
+ *         id: email.id,
+ *     },
+ * });
+ * const lowUrgencySms = new pagerduty.UserNotificationRule("lowUrgencySms", {
+ *     userId: example.id,
+ *     startDelayInMinutes: 10,
+ *     urgency: "low",
+ *     contactMethod: {
+ *         type: "smsContactMethod",
+ *         id: sms.id,
+ *     },
+ * });
+ * ```
  */
 export class UserNotificationRule extends pulumi.CustomResource {
     /**

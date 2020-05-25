@@ -12,7 +12,7 @@ namespace Pulumi.Pagerduty
     public static class GetEscalationPolicy
     {
         /// <summary>
-        /// Use this data source to get information about a specific [escalation policy][1] that you can use for other PagerDuty resources.
+        /// Use this data source to get information about a specific [escalation policy](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Escalation_Policies/get_escalation_policies) that you can use for other PagerDuty resources.
         /// 
         /// {{% examples %}}
         /// {{% /examples %}}
@@ -40,7 +40,7 @@ namespace Pulumi.Pagerduty
     public sealed class GetEscalationPolicyResult
     {
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>

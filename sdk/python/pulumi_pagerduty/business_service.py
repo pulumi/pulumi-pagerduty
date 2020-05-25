@@ -31,6 +31,18 @@ class BusinessService(pulumi.CustomResource):
         A [business service](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Business_Services/get_business_services) allows you to model capabilities that span multiple technical services and that may be owned by several different teams. 
 
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        example = pagerduty.BusinessService("example",
+            description="A very descriptive description of this business service",
+            point_of_contact="PagerDuty Admin")
+        ```
 
 
         :param str resource_name: The name of the resource.

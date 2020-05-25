@@ -12,7 +12,7 @@ namespace Pulumi.Pagerduty
     public static class GetTeam
     {
         /// <summary>
-        /// Use this data source to get information about a specific [team][1] that you can use for other PagerDuty resources.
+        /// Use this data source to get information about a specific [team](https://v1.developer.pagerduty.com/documentation/rest/teams/list) that you can use for other PagerDuty resources.
         /// 
         /// {{% examples %}}
         /// {{% /examples %}}
@@ -44,7 +44,7 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>

@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Use this data source to get information about a specific [team][1] that you can use for other PagerDuty resources.
+// Use this data source to get information about a specific [team](https://v1.developer.pagerduty.com/documentation/rest/teams/list) that you can use for other PagerDuty resources.
 func LookupTeam(ctx *pulumi.Context, args *LookupTeamArgs, opts ...pulumi.InvokeOption) (*LookupTeamResult, error) {
 	var rv LookupTeamResult
 	err := ctx.Invoke("pagerduty:index/getTeam:getTeam", args, &rv, opts...)
@@ -27,7 +27,7 @@ type LookupTeamArgs struct {
 type LookupTeamResult struct {
 	// A description of the found team.
 	Description string `pulumi:"description"`
-	// id is the provider-assigned unique ID for this managed resource.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The name of the found team.
 	Name string `pulumi:"name"`

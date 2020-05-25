@@ -238,7 +238,8 @@ type RulesetRuleActions struct {
 	EventActions []RulesetRuleActionsEventAction `pulumi:"eventActions"`
 	// Allows you to copy important data from one event field to another. Extraction rules must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax). Extraction objects consist of the following fields:
 	Extractions []RulesetRuleActionsExtraction `pulumi:"extractions"`
-	Priorities  []RulesetRuleActionsPriority   `pulumi:"priorities"`
+	// The ID of the priority applied to the event.
+	Priorities []RulesetRuleActionsPriority `pulumi:"priorities"`
 	// The ID of the service where the event will be routed.
 	Routes []RulesetRuleActionsRoute `pulumi:"routes"`
 	// The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`error`,`warning`, or `critical`.
@@ -265,7 +266,8 @@ type RulesetRuleActionsArgs struct {
 	EventActions RulesetRuleActionsEventActionArrayInput `pulumi:"eventActions"`
 	// Allows you to copy important data from one event field to another. Extraction rules must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax). Extraction objects consist of the following fields:
 	Extractions RulesetRuleActionsExtractionArrayInput `pulumi:"extractions"`
-	Priorities  RulesetRuleActionsPriorityArrayInput   `pulumi:"priorities"`
+	// The ID of the priority applied to the event.
+	Priorities RulesetRuleActionsPriorityArrayInput `pulumi:"priorities"`
 	// The ID of the service where the event will be routed.
 	Routes RulesetRuleActionsRouteArrayInput `pulumi:"routes"`
 	// The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`error`,`warning`, or `critical`.
@@ -366,6 +368,7 @@ func (o RulesetRuleActionsOutput) Extractions() RulesetRuleActionsExtractionArra
 	return o.ApplyT(func(v RulesetRuleActions) []RulesetRuleActionsExtraction { return v.Extractions }).(RulesetRuleActionsExtractionArrayOutput)
 }
 
+// The ID of the priority applied to the event.
 func (o RulesetRuleActionsOutput) Priorities() RulesetRuleActionsPriorityArrayOutput {
 	return o.ApplyT(func(v RulesetRuleActions) []RulesetRuleActionsPriority { return v.Priorities }).(RulesetRuleActionsPriorityArrayOutput)
 }
@@ -405,35 +408,71 @@ func (o RulesetRuleActionsPtrOutput) Elem() RulesetRuleActionsOutput {
 
 // Note added to the event.
 func (o RulesetRuleActionsPtrOutput) Annotates() RulesetRuleActionsAnnotateArrayOutput {
-	return o.ApplyT(func(v RulesetRuleActions) []RulesetRuleActionsAnnotate { return v.Annotates }).(RulesetRuleActionsAnnotateArrayOutput)
+	return o.ApplyT(func(v *RulesetRuleActions) []RulesetRuleActionsAnnotate {
+		if v == nil {
+			return nil
+		}
+		return v.Annotates
+	}).(RulesetRuleActionsAnnotateArrayOutput)
 }
 
 func (o RulesetRuleActionsPtrOutput) EventActions() RulesetRuleActionsEventActionArrayOutput {
-	return o.ApplyT(func(v RulesetRuleActions) []RulesetRuleActionsEventAction { return v.EventActions }).(RulesetRuleActionsEventActionArrayOutput)
+	return o.ApplyT(func(v *RulesetRuleActions) []RulesetRuleActionsEventAction {
+		if v == nil {
+			return nil
+		}
+		return v.EventActions
+	}).(RulesetRuleActionsEventActionArrayOutput)
 }
 
 // Allows you to copy important data from one event field to another. Extraction rules must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax). Extraction objects consist of the following fields:
 func (o RulesetRuleActionsPtrOutput) Extractions() RulesetRuleActionsExtractionArrayOutput {
-	return o.ApplyT(func(v RulesetRuleActions) []RulesetRuleActionsExtraction { return v.Extractions }).(RulesetRuleActionsExtractionArrayOutput)
+	return o.ApplyT(func(v *RulesetRuleActions) []RulesetRuleActionsExtraction {
+		if v == nil {
+			return nil
+		}
+		return v.Extractions
+	}).(RulesetRuleActionsExtractionArrayOutput)
 }
 
+// The ID of the priority applied to the event.
 func (o RulesetRuleActionsPtrOutput) Priorities() RulesetRuleActionsPriorityArrayOutput {
-	return o.ApplyT(func(v RulesetRuleActions) []RulesetRuleActionsPriority { return v.Priorities }).(RulesetRuleActionsPriorityArrayOutput)
+	return o.ApplyT(func(v *RulesetRuleActions) []RulesetRuleActionsPriority {
+		if v == nil {
+			return nil
+		}
+		return v.Priorities
+	}).(RulesetRuleActionsPriorityArrayOutput)
 }
 
 // The ID of the service where the event will be routed.
 func (o RulesetRuleActionsPtrOutput) Routes() RulesetRuleActionsRouteArrayOutput {
-	return o.ApplyT(func(v RulesetRuleActions) []RulesetRuleActionsRoute { return v.Routes }).(RulesetRuleActionsRouteArrayOutput)
+	return o.ApplyT(func(v *RulesetRuleActions) []RulesetRuleActionsRoute {
+		if v == nil {
+			return nil
+		}
+		return v.Routes
+	}).(RulesetRuleActionsRouteArrayOutput)
 }
 
 // The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`error`,`warning`, or `critical`.
 func (o RulesetRuleActionsPtrOutput) Severities() RulesetRuleActionsSeverityArrayOutput {
-	return o.ApplyT(func(v RulesetRuleActions) []RulesetRuleActionsSeverity { return v.Severities }).(RulesetRuleActionsSeverityArrayOutput)
+	return o.ApplyT(func(v *RulesetRuleActions) []RulesetRuleActionsSeverity {
+		if v == nil {
+			return nil
+		}
+		return v.Severities
+	}).(RulesetRuleActionsSeverityArrayOutput)
 }
 
 // Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident).
 func (o RulesetRuleActionsPtrOutput) Suppresses() RulesetRuleActionsSuppressArrayOutput {
-	return o.ApplyT(func(v RulesetRuleActions) []RulesetRuleActionsSuppress { return v.Suppresses }).(RulesetRuleActionsSuppressArrayOutput)
+	return o.ApplyT(func(v *RulesetRuleActions) []RulesetRuleActionsSuppress {
+		if v == nil {
+			return nil
+		}
+		return v.Suppresses
+	}).(RulesetRuleActionsSuppressArrayOutput)
 }
 
 type RulesetRuleActionsAnnotate struct {
@@ -1311,12 +1350,22 @@ func (o RulesetRuleConditionsPtrOutput) Elem() RulesetRuleConditionsOutput {
 
 // Operator to combine sub-conditions. Can be `and` or `or`.
 func (o RulesetRuleConditionsPtrOutput) Operator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RulesetRuleConditions) *string { return v.Operator }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *RulesetRuleConditions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Operator
+	}).(pulumi.StringPtrOutput)
 }
 
 // List of sub-conditions that define the the condition.
 func (o RulesetRuleConditionsPtrOutput) Subconditions() RulesetRuleConditionsSubconditionArrayOutput {
-	return o.ApplyT(func(v RulesetRuleConditions) []RulesetRuleConditionsSubcondition { return v.Subconditions }).(RulesetRuleConditionsSubconditionArrayOutput)
+	return o.ApplyT(func(v *RulesetRuleConditions) []RulesetRuleConditionsSubcondition {
+		if v == nil {
+			return nil
+		}
+		return v.Subconditions
+	}).(RulesetRuleConditionsSubconditionArrayOutput)
 }
 
 type RulesetRuleConditionsSubcondition struct {
@@ -1668,12 +1717,22 @@ func (o RulesetRuleTimeFramePtrOutput) Elem() RulesetRuleTimeFrameOutput {
 
 // Values for executing the rule during a specific time period.
 func (o RulesetRuleTimeFramePtrOutput) ActiveBetweens() RulesetRuleTimeFrameActiveBetweenArrayOutput {
-	return o.ApplyT(func(v RulesetRuleTimeFrame) []RulesetRuleTimeFrameActiveBetween { return v.ActiveBetweens }).(RulesetRuleTimeFrameActiveBetweenArrayOutput)
+	return o.ApplyT(func(v *RulesetRuleTimeFrame) []RulesetRuleTimeFrameActiveBetween {
+		if v == nil {
+			return nil
+		}
+		return v.ActiveBetweens
+	}).(RulesetRuleTimeFrameActiveBetweenArrayOutput)
 }
 
 // Values for executing the rule on a recurring schedule.
 func (o RulesetRuleTimeFramePtrOutput) ScheduledWeeklies() RulesetRuleTimeFrameScheduledWeeklyArrayOutput {
-	return o.ApplyT(func(v RulesetRuleTimeFrame) []RulesetRuleTimeFrameScheduledWeekly { return v.ScheduledWeeklies }).(RulesetRuleTimeFrameScheduledWeeklyArrayOutput)
+	return o.ApplyT(func(v *RulesetRuleTimeFrame) []RulesetRuleTimeFrameScheduledWeekly {
+		if v == nil {
+			return nil
+		}
+		return v.ScheduledWeeklies
+	}).(RulesetRuleTimeFrameScheduledWeeklyArrayOutput)
 }
 
 type RulesetRuleTimeFrameActiveBetween struct {
@@ -2034,8 +2093,13 @@ func (o RulesetTeamPtrOutput) Elem() RulesetTeamOutput {
 }
 
 // The ID of the ruleset.
-func (o RulesetTeamPtrOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v RulesetTeam) string { return v.Id }).(pulumi.StringOutput)
+func (o RulesetTeamPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RulesetTeam) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 type ScheduleLayer struct {
@@ -2810,26 +2874,42 @@ func (o ServiceIncidentUrgencyRulePtrOutput) Elem() ServiceIncidentUrgencyRuleOu
 
 // Incidents' urgency during support hours.
 func (o ServiceIncidentUrgencyRulePtrOutput) DuringSupportHours() ServiceIncidentUrgencyRuleDuringSupportHoursPtrOutput {
-	return o.ApplyT(func(v ServiceIncidentUrgencyRule) *ServiceIncidentUrgencyRuleDuringSupportHours {
+	return o.ApplyT(func(v *ServiceIncidentUrgencyRule) *ServiceIncidentUrgencyRuleDuringSupportHours {
+		if v == nil {
+			return nil
+		}
 		return v.DuringSupportHours
 	}).(ServiceIncidentUrgencyRuleDuringSupportHoursPtrOutput)
 }
 
 // Incidents' urgency outside of support hours.
 func (o ServiceIncidentUrgencyRulePtrOutput) OutsideSupportHours() ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput {
-	return o.ApplyT(func(v ServiceIncidentUrgencyRule) *ServiceIncidentUrgencyRuleOutsideSupportHours {
+	return o.ApplyT(func(v *ServiceIncidentUrgencyRule) *ServiceIncidentUrgencyRuleOutsideSupportHours {
+		if v == nil {
+			return nil
+		}
 		return v.OutsideSupportHours
 	}).(ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput)
 }
 
 // The type of scheduled action. Currently, this must be set to `urgencyChange`.
-func (o ServiceIncidentUrgencyRulePtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceIncidentUrgencyRule) string { return v.Type }).(pulumi.StringOutput)
+func (o ServiceIncidentUrgencyRulePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceIncidentUrgencyRule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 // The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
 func (o ServiceIncidentUrgencyRulePtrOutput) Urgency() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceIncidentUrgencyRule) *string { return v.Urgency }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ServiceIncidentUrgencyRule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Urgency
+	}).(pulumi.StringPtrOutput)
 }
 
 type ServiceIncidentUrgencyRuleDuringSupportHours struct {
@@ -2968,12 +3048,22 @@ func (o ServiceIncidentUrgencyRuleDuringSupportHoursPtrOutput) Elem() ServiceInc
 
 // The type of scheduled action. Currently, this must be set to `urgencyChange`.
 func (o ServiceIncidentUrgencyRuleDuringSupportHoursPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceIncidentUrgencyRuleDuringSupportHours) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ServiceIncidentUrgencyRuleDuringSupportHours) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 // The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
 func (o ServiceIncidentUrgencyRuleDuringSupportHoursPtrOutput) Urgency() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceIncidentUrgencyRuleDuringSupportHours) *string { return v.Urgency }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ServiceIncidentUrgencyRuleDuringSupportHours) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Urgency
+	}).(pulumi.StringPtrOutput)
 }
 
 type ServiceIncidentUrgencyRuleOutsideSupportHours struct {
@@ -3112,12 +3202,22 @@ func (o ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput) Elem() ServiceIn
 
 // The type of scheduled action. Currently, this must be set to `urgencyChange`.
 func (o ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceIncidentUrgencyRuleOutsideSupportHours) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ServiceIncidentUrgencyRuleOutsideSupportHours) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 // The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
 func (o ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput) Urgency() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceIncidentUrgencyRuleOutsideSupportHours) *string { return v.Urgency }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ServiceIncidentUrgencyRuleOutsideSupportHours) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Urgency
+	}).(pulumi.StringPtrOutput)
 }
 
 type ServiceScheduledAction struct {
@@ -3510,27 +3610,52 @@ func (o ServiceSupportHoursPtrOutput) Elem() ServiceSupportHoursOutput {
 // Array of days of week as integers. `1` to `7`, `1` being
 // Monday and `7` being Sunday.
 func (o ServiceSupportHoursPtrOutput) DaysOfWeeks() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v ServiceSupportHours) []int { return v.DaysOfWeeks }).(pulumi.IntArrayOutput)
+	return o.ApplyT(func(v *ServiceSupportHours) []int {
+		if v == nil {
+			return nil
+		}
+		return v.DaysOfWeeks
+	}).(pulumi.IntArrayOutput)
 }
 
 // The support hours' ending time of day.
 func (o ServiceSupportHoursPtrOutput) EndTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceSupportHours) *string { return v.EndTime }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ServiceSupportHours) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndTime
+	}).(pulumi.StringPtrOutput)
 }
 
 // The support hours' starting time of day.
 func (o ServiceSupportHoursPtrOutput) StartTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceSupportHours) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ServiceSupportHours) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartTime
+	}).(pulumi.StringPtrOutput)
 }
 
 // The time zone for the support hours.
 func (o ServiceSupportHoursPtrOutput) TimeZone() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceSupportHours) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ServiceSupportHours) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeZone
+	}).(pulumi.StringPtrOutput)
 }
 
 // The type of scheduled action. Currently, this must be set to `urgencyChange`.
 func (o ServiceSupportHoursPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceSupportHours) *string { return v.Type }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *ServiceSupportHours) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type UserNotificationRuleContactMethod struct {
@@ -3666,13 +3791,23 @@ func (o UserNotificationRuleContactMethodPtrOutput) Elem() UserNotificationRuleC
 }
 
 // The id of the referenced contact method.
-func (o UserNotificationRuleContactMethodPtrOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v UserNotificationRuleContactMethod) string { return v.Id }).(pulumi.StringOutput)
+func (o UserNotificationRuleContactMethodPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserNotificationRuleContactMethod) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 // The type of contact method. Can be `emailContactMethod`, `phoneContactMethod`, `pushNotificationContactMethod` or `smsContactMethod`.
-func (o UserNotificationRuleContactMethodPtrOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v UserNotificationRuleContactMethod) string { return v.Type }).(pulumi.StringOutput)
+func (o UserNotificationRuleContactMethodPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserNotificationRuleContactMethod) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {

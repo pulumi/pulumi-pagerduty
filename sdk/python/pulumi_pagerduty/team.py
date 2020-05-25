@@ -25,6 +25,16 @@ class Team(pulumi.CustomResource):
 
         The account must have the `teams` ability to use the following resource.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        example = pagerduty.Team("example", description="All engineering")
+        ```
 
 
         :param str resource_name: The name of the resource.

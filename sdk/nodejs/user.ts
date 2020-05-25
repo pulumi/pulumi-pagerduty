@@ -8,22 +8,20 @@ import * as utilities from "./utilities";
 
 /**
  * A [user](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Users/get_users) is a member of a PagerDuty account that have the ability to interact with incidents and other data on the account.
- * 
- * 
+ *
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
- * 
+ *
  * const example = new pagerduty.User("example", {
  *     email: "125.greenholt.earline@graham.name",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-pagerduty/blob/master/website/docs/r/user.html.markdown.
  */
 export class User extends pulumi.CustomResource {
     /**
@@ -184,7 +182,6 @@ export interface UserState {
     readonly role?: pulumi.Input<string>;
     /**
      * A list of teams the user should belong to. Please use `pagerduty..TeamMembership` instead.
-     * 
      * @deprecated Use the 'pagerduty_team_membership' resource instead.
      */
     readonly teams?: pulumi.Input<pulumi.Input<string>[]>;
@@ -221,7 +218,6 @@ export interface UserArgs {
     readonly role?: pulumi.Input<string>;
     /**
      * A list of teams the user should belong to. Please use `pagerduty..TeamMembership` instead.
-     * 
      * @deprecated Use the 'pagerduty_team_membership' resource instead.
      */
     readonly teams?: pulumi.Input<pulumi.Input<string>[]>;

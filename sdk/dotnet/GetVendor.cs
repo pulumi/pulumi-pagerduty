@@ -12,7 +12,7 @@ namespace Pulumi.Pagerduty
     public static class GetVendor
     {
         /// <summary>
-        /// Use this data source to get information about a specific [vendor][1] that you can use for a service integration (e.g Amazon Cloudwatch, Splunk, Datadog).
+        /// Use this data source to get information about a specific [vendor](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Vendors/get_vendors) that you can use for a service integration (e.g Amazon Cloudwatch, Splunk, Datadog).
         /// 
         /// {{% examples %}}
         /// {{% /examples %}}
@@ -40,7 +40,7 @@ namespace Pulumi.Pagerduty
     public sealed class GetVendorResult
     {
         /// <summary>
-        /// id is the provider-assigned unique ID for this managed resource.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>

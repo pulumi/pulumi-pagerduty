@@ -22,6 +22,9 @@ namespace Pulumi.Pagerduty.Outputs
         /// Allows you to copy important data from one event field to another. Extraction rules must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax). Extraction objects consist of the following fields:
         /// </summary>
         public readonly ImmutableArray<Outputs.RulesetRuleActionsExtraction> Extractions;
+        /// <summary>
+        /// The ID of the priority applied to the event.
+        /// </summary>
         public readonly ImmutableArray<Outputs.RulesetRuleActionsPriority> Priorities;
         /// <summary>
         /// The ID of the service where the event will be routed.

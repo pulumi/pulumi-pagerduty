@@ -29,6 +29,35 @@ class ServiceDependency(pulumi.CustomResource):
         A [service dependency](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1service_dependencies~1associate/post) is a relationship between a business service and technical and business services that this service uses, or that are used by this service, and are critical for successful operation.
 
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        foo = pagerduty.ServiceDependency("foo", dependency=[{
+            "dependent_service": [{
+                "id": pagerduty_business_service["foo"]["id"],
+                "type": "business_service",
+            }],
+            "supporting_service": [{
+                "id": pagerduty_service["foo"]["id"],
+                "type": "service",
+            }],
+        }])
+        bar = pagerduty.ServiceDependency("bar", dependency=[{
+            "dependent_service": [{
+                "id": pagerduty_business_service["foo"]["id"],
+                "type": "business_service",
+            }],
+            "supporting_service": [{
+                "id": pagerduty_service["two"]["id"],
+                "type": "service",
+            }],
+        }])
+        ```
 
 
         :param str resource_name: The name of the resource.

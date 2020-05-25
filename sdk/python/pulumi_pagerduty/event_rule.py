@@ -28,14 +28,7 @@ class EventRule(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, action_json=None, advanced_condition_json=None, condition_json=None, __props__=None, __name__=None, __opts__=None):
         """
-        *NOTE: The `.EventRule` resource has been deprecated in favor the the .Ruleset and .RulesetRule resources. Please use the `ruleset` based resources for working with Event Rules.*
-
-
-        An [event rule](https://v2.developer.pagerduty.com/docs/global-event-rules-api) determines what happens to an event that is sent to PagerDuty by monitoring tools and other integrations.
-
-
-
-
+        Create a EventRule resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action_json: A list of one or more actions for each rule. Each action within the list is itself a list.

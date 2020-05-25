@@ -9,9 +9,9 @@ import pulumi.runtime
 from typing import Union
 from . import utilities, tables
 
-class GetScheduleResult:
+class GetBusinessServiceResult:
     """
-    A collection of values returned by getSchedule.
+    A collection of values returned by getBusinessService.
     """
     def __init__(__self__, id=None, name=None):
         if id and not isinstance(id, str):
@@ -24,20 +24,20 @@ class GetScheduleResult:
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
-        The short name of the found schedule.
+        The short name of the found business service.
         """
-class AwaitableGetScheduleResult(GetScheduleResult):
+class AwaitableGetBusinessServiceResult(GetBusinessServiceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetScheduleResult(
+        return GetBusinessServiceResult(
             id=self.id,
             name=self.name)
 
-def get_schedule(name=None,opts=None):
+def get_business_service(name=None,opts=None):
     """
-    Use this data source to get information about a specific [schedule](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Schedules/get_schedules) that you can use for other PagerDuty resources.
+    Use this data source to get information about a specific [business service](https://api-reference.pagerduty.com/#!/Business_Services/get_business_services).
 
     ## Example Usage
 
@@ -47,21 +47,12 @@ def get_schedule(name=None,opts=None):
     import pulumi
     import pulumi_pagerduty as pagerduty
 
-    test = pagerduty.get_schedule(name="Daily Engineering Rotation")
-    foo = pagerduty.EscalationPolicy("foo",
-        num_loops=2,
-        rules=[{
-            "escalationDelayInMinutes": 10,
-            "target": [{
-                "id": test.id,
-                "type": "schedule",
-            }],
-        }])
+    example = pagerduty.get_business_service(name="My Service")
     ```
 
 
 
-    :param str name: The name to use to find a schedule in the PagerDuty API.
+    :param str name: The business service name to use to find a business service in the PagerDuty API.
     """
     __args__ = dict()
 
@@ -71,8 +62,8 @@ def get_schedule(name=None,opts=None):
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('pagerduty:index/getSchedule:getSchedule', __args__, opts=opts).value
+    __ret__ = pulumi.runtime.invoke('pagerduty:index/getBusinessService:getBusinessService', __args__, opts=opts).value
 
-    return AwaitableGetScheduleResult(
+    return AwaitableGetBusinessServiceResult(
         id=__ret__.get('id'),
         name=__ret__.get('name'))

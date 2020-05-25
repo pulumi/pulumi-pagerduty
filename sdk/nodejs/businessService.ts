@@ -6,23 +6,21 @@ import * as utilities from "./utilities";
 
 /**
  * A [business service](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Business_Services/get_business_services) allows you to model capabilities that span multiple technical services and that may be owned by several different teams. 
- * 
- * 
+ *
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
- * 
+ *
  * const example = new pagerduty.BusinessService("example", {
  *     description: "A very descriptive description of this business service",
  *     pointOfContact: "PagerDuty Admin",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-pagerduty/blob/master/website/docs/r/business_service.html.markdown.
  */
 export class BusinessService extends pulumi.CustomResource {
     /**

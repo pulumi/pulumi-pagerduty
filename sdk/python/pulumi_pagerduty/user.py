@@ -56,6 +56,16 @@ class User(pulumi.CustomResource):
         A [user](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Users/get_users) is a member of a PagerDuty account that have the ability to interact with incidents and other data on the account.
 
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        example = pagerduty.User("example", email="125.greenholt.earline@graham.name")
+        ```
 
 
         :param str resource_name: The name of the resource.

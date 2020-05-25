@@ -26,6 +26,21 @@ class TeamMembership(pulumi.CustomResource):
         """
         A [team membership](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Teams/put_teams_id_users_user_id) manages memberships within a team.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        foo_user = pagerduty.User("fooUser", email="foo@bar.com")
+        foo_team = pagerduty.Team("fooTeam", description="foo")
+        foo_team_membership = pagerduty.TeamMembership("fooTeamMembership",
+            role="manager",
+            team_id=foo_team.id,
+            user_id=foo_user.id)
+        ```
 
 
         :param str resource_name: The name of the resource.

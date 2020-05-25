@@ -121,18 +121,6 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		PreConfigureCallback: preConfigureCallback,
 		Resources:            map[string]*tfbridge.ResourceInfo{
-			// Map each resource in the Terraform provider to a Pulumi type. Two examples
-			// are below - the single line form is the common case. The multi-line form is
-			// needed only if you wish to override types or other default options.
-			//
-			// "aws_iam_role": {Tok: makeResource(mainMod, "IamRole")}
-			//
-			// "aws_acm_certificate": {
-			// 	Tok: makeResource(mainMod, "Certificate"),
-			// 	Fields: map[string]*tfbridge.SchemaInfo{
-			// 		"tags": {Type: makeType(mainPkg, "Tags")},
-			// 	},
-			// },
 			"pagerduty_addon":					{Tok: makeResource(mainMod, "Addon")},
 			"pagerduty_business_service":		{Tok: makeResource(mainMod, "BusinessService")},
 			"pagerduty_escalation_policy":		{Tok: makeResource(mainMod, "EscalationPolicy")},
@@ -152,9 +140,6 @@ func Provider() tfbridge.ProviderInfo {
 			"pagerduty_user_notification_rule":	{Tok: makeResource(mainMod, "UserNotificationRule")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
-			// Map each resource in the Terraform provider to a Pulumi function. An example
-			// is below.
-			// "aws_ami": {Tok: makeDataSource(mainMod, "getAmi")},
 			"pagerduty_escalation_policy":	{Tok: makeDataSource(mainMod, "getEscalationPolicy")},
 			"pagerduty_extension_schema":	{Tok: makeDataSource(mainMod, "getExtensionSchema")},
 			"pagerduty_schedule":			{Tok: makeDataSource(mainMod, "getSchedule")},
@@ -162,12 +147,13 @@ func Provider() tfbridge.ProviderInfo {
 			"pagerduty_user":				{Tok: makeDataSource(mainMod, "getUser")},
 			"pagerduty_team":				{Tok: makeDataSource(mainMod, "getTeam")},
 			"pagerduty_vendor":				{Tok: makeDataSource(mainMod, "getVendor")},
+			"pagerduty_business_service":	{Tok: makeDataSource(mainMod, "getBusinessService")},
+			"pagerduty_priority":			{Tok: makeDataSource(mainMod, "getPriority")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
-			AsyncDataSources: true,
 			// List any npm dependencies and their versions
 			Dependencies: map[string]string{
-				"@pulumi/pulumi": "latest",
+				"@pulumi/pulumi": "^2.0.0",
 			},
 			DevDependencies: map[string]string{
 				"@types/node": "^8.0.25", // so we can access strongly typed node definitions.
@@ -181,12 +167,12 @@ func Provider() tfbridge.ProviderInfo {
 		Python: &tfbridge.PythonInfo{
 			// List any Python dependencies and their version ranges
 			Requires: map[string]string{
-				"pulumi": ">=1.0.0,<2.0.0",
+				"pulumi": ">=2.0.0,<3.0.0",
 			},
 		},
 		CSharp: &tfbridge.CSharpInfo{
 			PackageReferences: map[string]string{
-				"Pulumi":                       "1.7.0-preview",
+				"Pulumi":                       "2.*",
 				"System.Collections.Immutable": "1.6.0",
 			},
 		},

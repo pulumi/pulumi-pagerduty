@@ -18,7 +18,7 @@ class GetServiceResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -37,8 +37,23 @@ class AwaitableGetServiceResult(GetServiceResult):
 
 def get_service(name=None,opts=None):
     """
-    Use this data source to get information about a specific [service][1].
+    Use this data source to get information about a specific [service](https://api-reference.pagerduty.com/#!/Services/get_services).
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_pagerduty as pagerduty
+
+    example_service = pagerduty.get_service(name="My Service")
+    datadog = pagerduty.get_vendor(name="Datadog")
+    example_service_integration = pagerduty.ServiceIntegration("exampleServiceIntegration",
+        vendor=datadog.id,
+        service=example_service.id,
+        type="generic_events_api_inbound_integration")
+    ```
 
 
 

@@ -18,7 +18,7 @@ class GetEscalationPolicyResult:
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
-        id is the provider-assigned unique ID for this managed resource.
+        The provider-assigned unique ID for this managed resource.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -37,8 +37,22 @@ class AwaitableGetEscalationPolicyResult(GetEscalationPolicyResult):
 
 def get_escalation_policy(name=None,opts=None):
     """
-    Use this data source to get information about a specific [escalation policy][1] that you can use for other PagerDuty resources.
+    Use this data source to get information about a specific [escalation policy](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Escalation_Policies/get_escalation_policies) that you can use for other PagerDuty resources.
 
+    ## Example Usage
+
+
+
+    ```python
+    import pulumi
+    import pulumi_pagerduty as pagerduty
+
+    test_escalation_policy = pagerduty.get_escalation_policy(name="Engineering Escalation Policy")
+    test_service = pagerduty.Service("testService",
+        acknowledgement_timeout=600,
+        auto_resolve_timeout=14400,
+        escalation_policy=test_escalation_policy.id)
+    ```
 
 
 

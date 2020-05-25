@@ -33,6 +33,19 @@ class Ruleset(pulumi.CustomResource):
         [Rulesets](https://support.pagerduty.com/docs/rulesets) allow you to route events to an endpoint and create collections of event rules, which define sets of actions to take based on event content.
 
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        foo_team = pagerduty.Team("fooTeam")
+        foo_ruleset = pagerduty.Ruleset("fooRuleset", team={
+            "id": foo_team.id,
+        })
+        ```
 
 
         :param str resource_name: The name of the resource.

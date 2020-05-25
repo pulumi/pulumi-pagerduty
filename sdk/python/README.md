@@ -38,11 +38,11 @@ To use from .NET, install using `dotnet add package`:
 
 The following configuration points are available:
 
-- `auth0:domain` - (Required) Your Auth0 domain name. It can also be sourced from the `AUTH0_DOMAIN` environment variable.
-- `auth0:client_id` - (Required) Your Auth0 client ID. It can also be sourced from the `AUTH0_CLIENT_ID` environment variable.
-- `auth0:client_secret` - (Required) Your Auth0 client secret. It can also be sourced from the `AUTH0_CLIENT_SECRET` environment variable.
-- `auth0:debug` - (Optional) Indicates whether or not to turn on debug mode.
+- `pagerduty:token` - (Required) The v2 authorization token. It can also be sourced from the `PAGERDUTY_TOKEN` 
+  environment variable. See [API Documentation](https://v2.developer.pagerduty.com/docs/authentication) for more information.
+- `pageduty:skipCredentialsValidation` - (Optional) Skip validation of the token against the PagerDuty API.
 
 ## Reference
 
-For further information, please visit [the Auth0 provider docs](https://www.pulumi.com/docs/intro/cloud-providers/auth0) or for detailed reference documentation, please visit [the API docs](https://www.pulumi.com/docs/reference/pkg/auth0).
+For further information, please visit [the Pagerduty provider docs](https://www.pulumi.com/docs/intro/cloud-providers/pagerduty)
+or for detailed reference documentation, please visit [the API docs](https://www.pulumi.com/docs/reference/pkg/pagerduty).

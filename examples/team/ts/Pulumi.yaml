@@ -1,0 +1,3 @@
+name: team-ts
+runtime: nodejs
+description: A minimal TypeScript Pulumi program to create a Pagerduty team

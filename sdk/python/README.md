@@ -46,4 +46,3 @@ The following configuration points are available:
 
 For further information, please visit [the PagerDuty provider docs](https://www.pulumi.com/docs/intro/cloud-providers/pagerduty)
 or for detailed reference documentation, please visit [the API docs](https://www.pulumi.com/docs/reference/pkg/pagerduty).
-

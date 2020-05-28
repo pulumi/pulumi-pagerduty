@@ -15,6 +15,54 @@ namespace Pulumi.Pagerduty
         /// Use this data source to get information about a specific [team](https://v1.developer.pagerduty.com/documentation/rest/teams/list) that you can use for other PagerDuty resources.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var me = Output.Create(Pagerduty.GetUser.InvokeAsync(new Pagerduty.GetUserArgs
+        ///         {
+        ///             Email = "me@example.com",
+        ///         }));
+        ///         var devops = Output.Create(Pagerduty.GetTeam.InvokeAsync(new Pagerduty.GetTeamArgs
+        ///         {
+        ///             Name = "devops",
+        ///         }));
+        ///         var foo = new Pagerduty.EscalationPolicy("foo", new Pagerduty.EscalationPolicyArgs
+        ///         {
+        ///             NumLoops = 2,
+        ///             Rules = 
+        ///             {
+        ///                 new Pagerduty.Inputs.EscalationPolicyRuleArgs
+        ///                 {
+        ///                     EscalationDelayInMinutes = 10,
+        ///                     Target = 
+        ///                     {
+        ///                         
+        ///                         {
+        ///                             { "id", me.Apply(me =&gt; me.Id) },
+        ///                             { "type", "user" },
+        ///                         },
+        ///                     },
+        ///                 },
+        ///             },
+        ///             Teams = 
+        ///             {
+        ///                 devops.Apply(devops =&gt; devops.Id),
+        ///             },
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetTeamResult> InvokeAsync(GetTeamArgs args, InvokeOptions? options = null)

@@ -11,6 +11,59 @@ namespace Pulumi.Pagerduty
 {
     /// <summary>
     /// An [escalation policy](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Escalation_Policies/get_escalation_policies) determines what user or schedule will be notified first, second, and so on when an incident is triggered. Escalation policies are used by one or more services.
+    /// 
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Pagerduty = Pulumi.Pagerduty;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleTeam = new Pagerduty.Team("exampleTeam", new Pagerduty.TeamArgs
+    ///         {
+    ///             Description = "All engineering",
+    ///         });
+    ///         var exampleUser = new Pagerduty.User("exampleUser", new Pagerduty.UserArgs
+    ///         {
+    ///             Email = "125.greenholt.earline@graham.name",
+    ///             Teams = 
+    ///             {
+    ///                 exampleTeam.Id,
+    ///             },
+    ///         });
+    ///         var exampleEscalationPolicy = new Pagerduty.EscalationPolicy("exampleEscalationPolicy", new Pagerduty.EscalationPolicyArgs
+    ///         {
+    ///             NumLoops = 2,
+    ///             Rules = 
+    ///             {
+    ///                 new Pagerduty.Inputs.EscalationPolicyRuleArgs
+    ///                 {
+    ///                     EscalationDelayInMinutes = 10,
+    ///                     Target = 
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "id", exampleUser.Id },
+    ///                             { "type", "user" },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Teams = 
+    ///             {
+    ///                 exampleTeam.Id,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class EscalationPolicy : Pulumi.CustomResource
     {

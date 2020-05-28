@@ -11,6 +11,37 @@ namespace Pulumi.Pagerduty
 {
     /// <summary>
     /// A [team membership](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Teams/put_teams_id_users_user_id) manages memberships within a team.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Pagerduty = Pulumi.Pagerduty;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var fooUser = new Pagerduty.User("fooUser", new Pagerduty.UserArgs
+    ///         {
+    ///             Email = "foo@bar.com",
+    ///         });
+    ///         var fooTeam = new Pagerduty.Team("fooTeam", new Pagerduty.TeamArgs
+    ///         {
+    ///             Description = "foo",
+    ///         });
+    ///         var fooTeamMembership = new Pagerduty.TeamMembership("fooTeamMembership", new Pagerduty.TeamMembershipArgs
+    ///         {
+    ///             Role = "manager",
+    ///             TeamId = fooTeam.Id,
+    ///             UserId = fooUser.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class TeamMembership : Pulumi.CustomResource
     {

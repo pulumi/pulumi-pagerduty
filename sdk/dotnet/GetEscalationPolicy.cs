@@ -15,6 +15,33 @@ namespace Pulumi.Pagerduty
         /// Use this data source to get information about a specific [escalation policy](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Escalation_Policies/get_escalation_policies) that you can use for other PagerDuty resources.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var testEscalationPolicy = Output.Create(Pagerduty.GetEscalationPolicy.InvokeAsync(new Pagerduty.GetEscalationPolicyArgs
+        ///         {
+        ///             Name = "Engineering Escalation Policy",
+        ///         }));
+        ///         var testService = new Pagerduty.Service("testService", new Pagerduty.ServiceArgs
+        ///         {
+        ///             AcknowledgementTimeout = 600,
+        ///             AutoResolveTimeout = 14400,
+        ///             EscalationPolicy = testEscalationPolicy.Apply(testEscalationPolicy =&gt; testEscalationPolicy.Id),
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetEscalationPolicyResult> InvokeAsync(GetEscalationPolicyArgs args, InvokeOptions? options = null)

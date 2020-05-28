@@ -11,6 +11,34 @@ namespace Pulumi.Pagerduty
 {
     /// <summary>
     /// [Rulesets](https://support.pagerduty.com/docs/rulesets) allow you to route events to an endpoint and create collections of event rules, which define sets of actions to take based on event content.
+    /// 
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Pagerduty = Pulumi.Pagerduty;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var fooTeam = new Pagerduty.Team("fooTeam", new Pagerduty.TeamArgs
+    ///         {
+    ///         });
+    ///         var fooRuleset = new Pagerduty.Ruleset("fooRuleset", new Pagerduty.RulesetArgs
+    ///         {
+    ///             Team = new Pagerduty.Inputs.RulesetTeamArgs
+    ///             {
+    ///                 Id = fooTeam.Id,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Ruleset : Pulumi.CustomResource
     {

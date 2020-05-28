@@ -15,6 +15,46 @@ namespace Pulumi.Pagerduty
         /// Use this data source to get information about a specific [user](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Users/get_users) that you can use for other PagerDuty resources.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var me = Output.Create(Pagerduty.GetUser.InvokeAsync(new Pagerduty.GetUserArgs
+        ///         {
+        ///             Email = "me@example.com",
+        ///         }));
+        ///         var foo = new Pagerduty.EscalationPolicy("foo", new Pagerduty.EscalationPolicyArgs
+        ///         {
+        ///             NumLoops = 2,
+        ///             Rules = 
+        ///             {
+        ///                 new Pagerduty.Inputs.EscalationPolicyRuleArgs
+        ///                 {
+        ///                     EscalationDelayInMinutes = 10,
+        ///                     Target = 
+        ///                     {
+        ///                         
+        ///                         {
+        ///                             { "id", me.Apply(me =&gt; me.Id) },
+        ///                             { "type", "user" },
+        ///                         },
+        ///                     },
+        ///                 },
+        ///             },
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)

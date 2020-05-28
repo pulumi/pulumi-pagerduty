@@ -15,6 +15,37 @@ namespace Pulumi.Pagerduty
         /// Use this data source to get information about a specific [service](https://api-reference.pagerduty.com/#!/Services/get_services).
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var exampleService = Output.Create(Pagerduty.GetService.InvokeAsync(new Pagerduty.GetServiceArgs
+        ///         {
+        ///             Name = "My Service",
+        ///         }));
+        ///         var datadog = Output.Create(Pagerduty.GetVendor.InvokeAsync(new Pagerduty.GetVendorArgs
+        ///         {
+        ///             Name = "Datadog",
+        ///         }));
+        ///         var exampleServiceIntegration = new Pagerduty.ServiceIntegration("exampleServiceIntegration", new Pagerduty.ServiceIntegrationArgs
+        ///         {
+        ///             Vendor = datadog.Apply(datadog =&gt; datadog.Id),
+        ///             Service = exampleService.Apply(exampleService =&gt; exampleService.Id),
+        ///             Type = "generic_events_api_inbound_integration",
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)

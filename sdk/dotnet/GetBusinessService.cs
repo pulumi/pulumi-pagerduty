@@ -15,6 +15,27 @@ namespace Pulumi.Pagerduty
         /// Use this data source to get information about a specific [business service](https://api-reference.pagerduty.com/#!/Business_Services/get_business_services).
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Pagerduty.GetBusinessService.InvokeAsync(new Pagerduty.GetBusinessServiceArgs
+        ///         {
+        ///             Name = "My Service",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetBusinessServiceResult> InvokeAsync(GetBusinessServiceArgs args, InvokeOptions? options = null)

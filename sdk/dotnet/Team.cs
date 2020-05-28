@@ -13,6 +13,27 @@ namespace Pulumi.Pagerduty
     /// A [team](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Teams/get_teams) is a collection of users and escalation policies that represent a group of people within an organization.
     /// 
     /// The account must have the `teams` ability to use the following resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Pagerduty = Pulumi.Pagerduty;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Pagerduty.Team("example", new Pagerduty.TeamArgs
+    ///         {
+    ///             Description = "All engineering",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Team : Pulumi.CustomResource
     {

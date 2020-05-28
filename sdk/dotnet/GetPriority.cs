@@ -15,6 +15,84 @@ namespace Pulumi.Pagerduty
         /// Use this data source to get information about a specific [priority](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1priorities/get) that you can use for other PagerDuty resources.
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var p1 = Output.Create(Pagerduty.GetPriority.InvokeAsync(new Pagerduty.GetPriorityArgs
+        ///         {
+        ///             Name = "P1",
+        ///         }));
+        ///         var fooRuleset = new Pagerduty.Ruleset("fooRuleset", new Pagerduty.RulesetArgs
+        ///         {
+        ///         });
+        ///         var fooRulesetRule = new Pagerduty.RulesetRule("fooRulesetRule", new Pagerduty.RulesetRuleArgs
+        ///         {
+        ///             Ruleset = fooRuleset.Id,
+        ///             Position = 0,
+        ///             Disabled = "false",
+        ///             Conditions = new Pagerduty.Inputs.RulesetRuleConditionsArgs
+        ///             {
+        ///                 Operator = "and",
+        ///                 Subconditions = 
+        ///                 {
+        ///                     new Pagerduty.Inputs.RulesetRuleConditionsSubconditionArgs
+        ///                     {
+        ///                         Operator = "contains",
+        ///                         Parameter = 
+        ///                         {
+        ///                             
+        ///                             {
+        ///                                 { "value", "disk space" },
+        ///                                 { "path", "payload.summary" },
+        ///                             },
+        ///                         },
+        ///                     },
+        ///                     new Pagerduty.Inputs.RulesetRuleConditionsSubconditionArgs
+        ///                     {
+        ///                         Operator = "contains",
+        ///                         Parameter = 
+        ///                         {
+        ///                             
+        ///                             {
+        ///                                 { "value", "db" },
+        ///                                 { "path", "payload.source" },
+        ///                             },
+        ///                         },
+        ///                     },
+        ///                 },
+        ///             },
+        ///             Actions = new Pagerduty.Inputs.RulesetRuleActionsArgs
+        ///             {
+        ///                 Route = 
+        ///                 {
+        ///                     
+        ///                     {
+        ///                         { "value", "P5DTL0K" },
+        ///                     },
+        ///                 },
+        ///                 Priority = 
+        ///                 {
+        ///                     
+        ///                     {
+        ///                         { "value", pagerduty_priority.P1.Id },
+        ///                     },
+        ///                 },
+        ///             },
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPriorityResult> InvokeAsync(GetPriorityArgs args, InvokeOptions? options = null)

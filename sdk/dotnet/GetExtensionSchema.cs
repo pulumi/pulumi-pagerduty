@@ -15,6 +15,69 @@ namespace Pulumi.Pagerduty
         /// Use this data source to get information about a specific [extension](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Extension_Schemas/get_extension_schemas) vendor that you can use for a service (e.g: Slack, Generic Webhook, ServiceNow).
         /// 
         /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var webhook = Output.Create(Pagerduty.GetExtensionSchema.InvokeAsync(new Pagerduty.GetExtensionSchemaArgs
+        ///         {
+        ///             Name = "Generic V2 Webhook",
+        ///         }));
+        ///         var exampleUser = new Pagerduty.User("exampleUser", new Pagerduty.UserArgs
+        ///         {
+        ///             Email = "howard.james@example.domain",
+        ///             Teams = 
+        ///             {
+        ///                 pagerduty_team.Example.Id,
+        ///             },
+        ///         });
+        ///         var foo = new Pagerduty.EscalationPolicy("foo", new Pagerduty.EscalationPolicyArgs
+        ///         {
+        ///             NumLoops = 2,
+        ///             Rules = 
+        ///             {
+        ///                 new Pagerduty.Inputs.EscalationPolicyRuleArgs
+        ///                 {
+        ///                     EscalationDelayInMinutes = 10,
+        ///                     Target = 
+        ///                     {
+        ///                         
+        ///                         {
+        ///                             { "id", exampleUser.Id },
+        ///                             { "type", "user" },
+        ///                         },
+        ///                     },
+        ///                 },
+        ///             },
+        ///         });
+        ///         var exampleService = new Pagerduty.Service("exampleService", new Pagerduty.ServiceArgs
+        ///         {
+        ///             AcknowledgementTimeout = 600,
+        ///             AutoResolveTimeout = 14400,
+        ///             EscalationPolicy = pagerduty_escalation_policy.Example.Id,
+        ///         });
+        ///         var slack = new Pagerduty.Extension("slack", new Pagerduty.ExtensionArgs
+        ///         {
+        ///             EndpointUrl = "https://generic_webhook_url/XXXXXX/BBBBBB",
+        ///             ExtensionObjects = 
+        ///             {
+        ///                 exampleService.Id,
+        ///             },
+        ///             ExtensionSchema = webhook.Apply(webhook =&gt; webhook.Id),
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetExtensionSchemaResult> InvokeAsync(GetExtensionSchemaArgs args, InvokeOptions? options = null)

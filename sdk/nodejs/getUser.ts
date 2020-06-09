@@ -61,11 +61,11 @@ export interface GetUserArgs {
 export interface GetUserResult {
     readonly email: string;
     /**
-     * The short name of the found user.
-     */
-    readonly name: string;
-    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The short name of the found user.
+     */
+    readonly name: string;
 }

@@ -58,11 +58,11 @@ export interface GetServiceArgs {
  */
 export interface GetServiceResult {
     /**
-     * The short name of the found service.
-     */
-    readonly name: string;
-    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The short name of the found service.
+     */
+    readonly name: string;
 }

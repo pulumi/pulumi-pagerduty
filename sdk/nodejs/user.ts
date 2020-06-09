@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -31,6 +29,7 @@ export class User extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: UserState, opts?: pulumi.CustomResourceOptions): User {
         return new User(name, <any>state, { ...opts, id: id });
@@ -85,6 +84,8 @@ export class User extends pulumi.CustomResource {
     public readonly role!: pulumi.Output<string | undefined>;
     /**
      * A list of teams the user should belong to. Please use `pagerduty..TeamMembership` instead.
+     *
+     * @deprecated Use the 'pagerduty_team_membership' resource instead.
      */
     public readonly teams!: pulumi.Output<string[]>;
     /**
@@ -182,6 +183,7 @@ export interface UserState {
     readonly role?: pulumi.Input<string>;
     /**
      * A list of teams the user should belong to. Please use `pagerduty..TeamMembership` instead.
+     *
      * @deprecated Use the 'pagerduty_team_membership' resource instead.
      */
     readonly teams?: pulumi.Input<pulumi.Input<string>[]>;
@@ -218,6 +220,7 @@ export interface UserArgs {
     readonly role?: pulumi.Input<string>;
     /**
      * A list of teams the user should belong to. Please use `pagerduty..TeamMembership` instead.
+     *
      * @deprecated Use the 'pagerduty_team_membership' resource instead.
      */
     readonly teams?: pulumi.Input<pulumi.Input<string>[]>;

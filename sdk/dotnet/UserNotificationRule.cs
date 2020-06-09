@@ -39,7 +39,7 @@ namespace Pulumi.Pagerduty
     ///         {
     ///             UserId = example.Id,
     ///             Type = "phone_contact_method",
-    ///             CountryCode = "+1",
+    ///             CountryCode = 1,
     ///             Address = "2025550199",
     ///             Label = "Work",
     ///         });
@@ -47,7 +47,7 @@ namespace Pulumi.Pagerduty
     ///         {
     ///             UserId = example.Id,
     ///             Type = "sms_contact_method",
-    ///             CountryCode = "+1",
+    ///             CountryCode = 1,
     ///             Address = "2025550199",
     ///             Label = "Work",
     ///         });

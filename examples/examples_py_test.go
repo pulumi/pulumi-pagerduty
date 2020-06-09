@@ -11,10 +11,10 @@ import (
 	"github.com/pulumi/pulumi/pkg/v2/testing/integration"
 )
 
-func TestAccTeamPython(t *testing.T) {
+func TestAccAddonPython(t *testing.T) {
 	test := getPythonBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "team", "python"),
+			Dir: path.Join(getCwd(t), "addons", "python"),
 		})
 
 	integration.ProgramTest(t, &test)

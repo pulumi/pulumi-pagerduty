@@ -87,11 +87,11 @@ export interface GetPriorityResult {
      */
     readonly description: string;
     /**
-     * The name of the found priority.
-     */
-    readonly name: string;
-    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The name of the found priority.
+     */
+    readonly name: string;
 }

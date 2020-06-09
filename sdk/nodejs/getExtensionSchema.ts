@@ -74,6 +74,10 @@ export interface GetExtensionSchemaArgs {
  */
 export interface GetExtensionSchemaResult {
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The short name of the found extension vendor.
      */
     readonly name: string;
@@ -81,8 +85,4 @@ export interface GetExtensionSchemaResult {
      * The generic service type for this extension vendor.
      */
     readonly type: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -68,11 +68,11 @@ export interface GetTeamResult {
      */
     readonly description: string;
     /**
-     * The name of the found team.
-     */
-    readonly name: string;
-    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The name of the found team.
+     */
+    readonly name: string;
 }

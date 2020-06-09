@@ -103,6 +103,9 @@ class User(pulumi.CustomResource):
             __props__['job_title'] = job_title
             __props__['name'] = name
             __props__['role'] = role
+            if teams is not None:
+                warnings.warn("Use the 'pagerduty_team_membership' resource instead.", DeprecationWarning)
+                pulumi.log.warn("teams is deprecated: Use the 'pagerduty_team_membership' resource instead.")
             __props__['teams'] = teams
             __props__['time_zone'] = time_zone
             __props__['avatar_url'] = None

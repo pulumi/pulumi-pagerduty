@@ -57,8 +57,8 @@ namespace Pulumi.Pagerduty
     ///         });
     ///         var exampleService = new Pagerduty.Service("exampleService", new Pagerduty.ServiceArgs
     ///         {
-    ///             AcknowledgementTimeout = 600,
-    ///             AutoResolveTimeout = 14400,
+    ///             AcknowledgementTimeout = "600",
+    ///             AutoResolveTimeout = "14400",
     ///             EscalationPolicy = pagerduty_escalation_policy.Example.Id,
     ///         });
     ///         var slack = new Pagerduty.Extension("slack", new Pagerduty.ExtensionArgs

@@ -50,11 +50,11 @@ export interface GetBusinessServiceArgs {
  */
 export interface GetBusinessServiceResult {
     /**
-     * The short name of the found business service.
-     */
-    readonly name: string;
-    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The short name of the found business service.
+     */
+    readonly name: string;
 }

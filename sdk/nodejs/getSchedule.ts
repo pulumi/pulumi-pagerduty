@@ -60,11 +60,11 @@ export interface GetScheduleArgs {
  */
 export interface GetScheduleResult {
     /**
-     * The short name of the found schedule.
-     */
-    readonly name: string;
-    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The short name of the found schedule.
+     */
+    readonly name: string;
 }

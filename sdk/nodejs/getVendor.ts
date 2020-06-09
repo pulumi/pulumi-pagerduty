@@ -74,6 +74,10 @@ export interface GetVendorArgs {
  */
 export interface GetVendorResult {
     /**
+     * The provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
+    /**
      * The short name of the found vendor.
      */
     readonly name: string;
@@ -81,8 +85,4 @@ export interface GetVendorResult {
      * The generic service type for this vendor.
      */
     readonly type: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }

@@ -55,11 +55,11 @@ export interface GetEscalationPolicyArgs {
  */
 export interface GetEscalationPolicyResult {
     /**
-     * The short name of the found escalation policy.
-     */
-    readonly name: string;
-    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The short name of the found escalation policy.
+     */
+    readonly name: string;
 }

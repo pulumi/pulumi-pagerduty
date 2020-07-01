@@ -9,10 +9,7 @@ import * as utilities from "./utilities";
 /**
  * A [service](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Services/get_services) represents something you monitor (like a web service, email service, or database service). It is a container for related incidents that associates them with escalation policies.
  *
- *
  * ## Example Usage
- *
- *
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -34,7 +31,7 @@ import * as utilities from "./utilities";
  * });
  * const exampleService = new pagerduty.Service("example", {
  *     acknowledgementTimeout: "600",
- *     alertCreation: "createIncidents",
+ *     alertCreation: "create_incidents",
  *     autoResolveTimeout: "14400",
  *     escalationPolicy: pagerduty_escalation_policy_example.id,
  * });

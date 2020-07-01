@@ -11,6 +11,29 @@ import (
 )
 
 // A [user](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Users/get_users) is a member of a PagerDuty account that have the ability to interact with incidents and other data on the account.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-pagerduty/sdk/go/pagerduty"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := pagerduty.NewUser(ctx, "example", &pagerduty.UserArgs{
+// 			Email: pulumi.String("125.greenholt.earline@graham.name"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type User struct {
 	pulumi.CustomResourceState
 
@@ -31,7 +54,7 @@ type User struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The user role. Account must have the `readOnlyUsers` ability to set a user as a `readOnlyUser`. Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser` or `user`
 	Role pulumi.StringPtrOutput `pulumi:"role"`
-	// A list of teams the user should belong to. Please use `.TeamMembership` instead.
+	// A list of teams the user should belong to. Please use `TeamMembership` instead.
 	//
 	// Deprecated: Use the 'pagerduty_team_membership' resource instead.
 	Teams pulumi.StringArrayOutput `pulumi:"teams"`
@@ -87,7 +110,7 @@ type userState struct {
 	Name *string `pulumi:"name"`
 	// The user role. Account must have the `readOnlyUsers` ability to set a user as a `readOnlyUser`. Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser` or `user`
 	Role *string `pulumi:"role"`
-	// A list of teams the user should belong to. Please use `.TeamMembership` instead.
+	// A list of teams the user should belong to. Please use `TeamMembership` instead.
 	//
 	// Deprecated: Use the 'pagerduty_team_membership' resource instead.
 	Teams []string `pulumi:"teams"`
@@ -113,7 +136,7 @@ type UserState struct {
 	Name pulumi.StringPtrInput
 	// The user role. Account must have the `readOnlyUsers` ability to set a user as a `readOnlyUser`. Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser` or `user`
 	Role pulumi.StringPtrInput
-	// A list of teams the user should belong to. Please use `.TeamMembership` instead.
+	// A list of teams the user should belong to. Please use `TeamMembership` instead.
 	//
 	// Deprecated: Use the 'pagerduty_team_membership' resource instead.
 	Teams pulumi.StringArrayInput
@@ -137,7 +160,7 @@ type userArgs struct {
 	Name *string `pulumi:"name"`
 	// The user role. Account must have the `readOnlyUsers` ability to set a user as a `readOnlyUser`. Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser` or `user`
 	Role *string `pulumi:"role"`
-	// A list of teams the user should belong to. Please use `.TeamMembership` instead.
+	// A list of teams the user should belong to. Please use `TeamMembership` instead.
 	//
 	// Deprecated: Use the 'pagerduty_team_membership' resource instead.
 	Teams []string `pulumi:"teams"`
@@ -158,7 +181,7 @@ type UserArgs struct {
 	Name pulumi.StringPtrInput
 	// The user role. Account must have the `readOnlyUsers` ability to set a user as a `readOnlyUser`. Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser` or `user`
 	Role pulumi.StringPtrInput
-	// A list of teams the user should belong to. Please use `.TeamMembership` instead.
+	// A list of teams the user should belong to. Please use `TeamMembership` instead.
 	//
 	// Deprecated: Use the 'pagerduty_team_membership' resource instead.
 	Teams pulumi.StringArrayInput

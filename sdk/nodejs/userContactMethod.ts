@@ -7,10 +7,7 @@ import * as utilities from "./utilities";
 /**
  * A [contact method](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Users/get_users_id_contact_methods) is a contact method for a PagerDuty user (email, phone or SMS).
  *
- *
  * ## Example Usage
- *
- *
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -23,21 +20,21 @@ import * as utilities from "./utilities";
  * const email = new pagerduty.UserContactMethod("email", {
  *     address: "foo@bar.com",
  *     label: "Work",
- *     type: "emailContactMethod",
+ *     type: "email_contact_method",
  *     userId: example.id,
  * });
  * const phone = new pagerduty.UserContactMethod("phone", {
  *     address: "2025550199",
  *     countryCode: 1,
  *     label: "Work",
- *     type: "phoneContactMethod",
+ *     type: "phone_contact_method",
  *     userId: example.id,
  * });
  * const sms = new pagerduty.UserContactMethod("sms", {
  *     address: "2025550199",
  *     countryCode: 1,
  *     label: "Work",
- *     type: "smsContactMethod",
+ *     type: "sms_contact_method",
  *     userId: example.id,
  * });
  * ```

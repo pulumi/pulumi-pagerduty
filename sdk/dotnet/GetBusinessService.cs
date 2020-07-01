@@ -34,7 +34,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

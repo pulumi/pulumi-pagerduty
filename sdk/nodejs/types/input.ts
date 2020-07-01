@@ -113,7 +113,7 @@ export interface RulesetRuleActionsSuppress {
      */
     thresholdTimeAmount?: pulumi.Input<number>;
     /**
-     * The `minutes`,`hours`, or `days` that the `thresholdTimeAmount` should be measured. 
+     * The `minutes`,`hours`, or `days` that the `thresholdTimeAmount` should be measured.
      */
     thresholdTimeUnit?: pulumi.Input<string>;
     /**
@@ -132,7 +132,7 @@ export interface RulesetRuleConditions {
      */
     operator?: pulumi.Input<string>;
     /**
-     * List of sub-conditions that define the the condition. 
+     * List of sub-conditions that define the the condition.
      */
     subconditions?: pulumi.Input<pulumi.Input<inputs.RulesetRuleConditionsSubcondition>[]>;
 }

@@ -9,31 +9,28 @@ import * as utilities from "./utilities";
 /**
  * A [service dependency](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1service_dependencies~1associate/post) is a relationship between a business service and technical and business services that this service uses, or that are used by this service, and are critical for successful operation.
  *
- *
  * ## Example Usage
- *
- *
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const foo = new pagerduty.ServiceDependency("foo", {dependency: [{
- *     dependent_service: [{
+ * const foo = new pagerduty.ServiceDependency("foo", {dependencies: [{
+ *     dependentServices: [{
  *         id: pagerduty_business_service.foo.id,
- *         type: "businessService",
+ *         type: "business_service",
  *     }],
- *     supporting_service: [{
+ *     supportingServices: [{
  *         id: pagerduty_service.foo.id,
  *         type: "service",
  *     }],
  * }]});
- * const bar = new pagerduty.ServiceDependency("bar", {dependency: [{
- *     dependent_service: [{
+ * const bar = new pagerduty.ServiceDependency("bar", {dependencies: [{
+ *     dependentServices: [{
  *         id: pagerduty_business_service.foo.id,
- *         type: "businessService",
+ *         type: "business_service",
  *     }],
- *     supporting_service: [{
+ *     supportingServices: [{
  *         id: pagerduty_service.two.id,
  *         type: "service",
  *     }],

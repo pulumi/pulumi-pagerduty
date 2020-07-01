@@ -16,8 +16,8 @@ type Extension struct {
 
 	// The configuration of the service extension as string containing plain JSON-encoded data.
 	Config pulumi.StringPtrOutput `pulumi:"config"`
-	// The url of the extension.
-	// **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `.getExtensionSchema` named `Generic V2 Webhook` doesn't accept `.Extension` with no `endpointUrl`, but one with named `Slack` accepts.
+	// The url of the extension.\
+	// **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `getExtensionSchema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpointUrl`, but one with named `Slack` accepts.
 	EndpointUrl pulumi.StringPtrOutput `pulumi:"endpointUrl"`
 	// This is the objects for which the extension applies (An array of service ids).
 	ExtensionObjects pulumi.StringArrayOutput `pulumi:"extensionObjects"`
@@ -66,8 +66,8 @@ func GetExtension(ctx *pulumi.Context,
 type extensionState struct {
 	// The configuration of the service extension as string containing plain JSON-encoded data.
 	Config *string `pulumi:"config"`
-	// The url of the extension.
-	// **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `.getExtensionSchema` named `Generic V2 Webhook` doesn't accept `.Extension` with no `endpointUrl`, but one with named `Slack` accepts.
+	// The url of the extension.\
+	// **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `getExtensionSchema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpointUrl`, but one with named `Slack` accepts.
 	EndpointUrl *string `pulumi:"endpointUrl"`
 	// This is the objects for which the extension applies (An array of service ids).
 	ExtensionObjects []string `pulumi:"extensionObjects"`
@@ -83,8 +83,8 @@ type extensionState struct {
 type ExtensionState struct {
 	// The configuration of the service extension as string containing plain JSON-encoded data.
 	Config pulumi.StringPtrInput
-	// The url of the extension.
-	// **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `.getExtensionSchema` named `Generic V2 Webhook` doesn't accept `.Extension` with no `endpointUrl`, but one with named `Slack` accepts.
+	// The url of the extension.\
+	// **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `getExtensionSchema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpointUrl`, but one with named `Slack` accepts.
 	EndpointUrl pulumi.StringPtrInput
 	// This is the objects for which the extension applies (An array of service ids).
 	ExtensionObjects pulumi.StringArrayInput
@@ -104,8 +104,8 @@ func (ExtensionState) ElementType() reflect.Type {
 type extensionArgs struct {
 	// The configuration of the service extension as string containing plain JSON-encoded data.
 	Config *string `pulumi:"config"`
-	// The url of the extension.
-	// **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `.getExtensionSchema` named `Generic V2 Webhook` doesn't accept `.Extension` with no `endpointUrl`, but one with named `Slack` accepts.
+	// The url of the extension.\
+	// **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `getExtensionSchema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpointUrl`, but one with named `Slack` accepts.
 	EndpointUrl *string `pulumi:"endpointUrl"`
 	// This is the objects for which the extension applies (An array of service ids).
 	ExtensionObjects []string `pulumi:"extensionObjects"`
@@ -120,8 +120,8 @@ type extensionArgs struct {
 type ExtensionArgs struct {
 	// The configuration of the service extension as string containing plain JSON-encoded data.
 	Config pulumi.StringPtrInput
-	// The url of the extension.
-	// **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `.getExtensionSchema` named `Generic V2 Webhook` doesn't accept `.Extension` with no `endpointUrl`, but one with named `Slack` accepts.
+	// The url of the extension.\
+	// **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `getExtensionSchema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpointUrl`, but one with named `Slack` accepts.
 	EndpointUrl pulumi.StringPtrInput
 	// This is the objects for which the extension applies (An array of service ids).
 	ExtensionObjects pulumi.StringArrayInput

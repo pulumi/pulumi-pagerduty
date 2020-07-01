@@ -10,6 +10,30 @@ import (
 )
 
 // A [business service](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Business_Services/get_business_services) allows you to model capabilities that span multiple technical services and that may be owned by several different teams.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-pagerduty/sdk/go/pagerduty"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := pagerduty.NewBusinessService(ctx, "example", &pagerduty.BusinessServiceArgs{
+// 			Description:    pulumi.String("A very descriptive description of this business service"),
+// 			PointOfContact: pulumi.String("PagerDuty Admin"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type BusinessService struct {
 	pulumi.CustomResourceState
 

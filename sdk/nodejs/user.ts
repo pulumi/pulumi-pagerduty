@@ -7,10 +7,7 @@ import * as utilities from "./utilities";
 /**
  * A [user](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Users/get_users) is a member of a PagerDuty account that have the ability to interact with incidents and other data on the account.
  *
- *
  * ## Example Usage
- *
- *
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -83,7 +80,7 @@ export class User extends pulumi.CustomResource {
      */
     public readonly role!: pulumi.Output<string | undefined>;
     /**
-     * A list of teams the user should belong to. Please use `pagerduty..TeamMembership` instead.
+     * A list of teams the user should belong to. Please use `pagerduty.TeamMembership` instead.
      *
      * @deprecated Use the 'pagerduty_team_membership' resource instead.
      */
@@ -182,7 +179,7 @@ export interface UserState {
      */
     readonly role?: pulumi.Input<string>;
     /**
-     * A list of teams the user should belong to. Please use `pagerduty..TeamMembership` instead.
+     * A list of teams the user should belong to. Please use `pagerduty.TeamMembership` instead.
      *
      * @deprecated Use the 'pagerduty_team_membership' resource instead.
      */
@@ -219,7 +216,7 @@ export interface UserArgs {
      */
     readonly role?: pulumi.Input<string>;
     /**
-     * A list of teams the user should belong to. Please use `pagerduty..TeamMembership` instead.
+     * A list of teams the user should belong to. Please use `pagerduty.TeamMembership` instead.
      *
      * @deprecated Use the 'pagerduty_team_membership' resource instead.
      */

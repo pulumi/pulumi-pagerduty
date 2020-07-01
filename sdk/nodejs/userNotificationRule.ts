@@ -11,8 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -20,20 +18,20 @@ import * as utilities from "./utilities";
  * const example = new pagerduty.User("example", {email: "125.greenholt.earline@graham.name"});
  * const email = new pagerduty.UserContactMethod("email", {
  *     userId: example.id,
- *     type: "emailContactMethod",
+ *     type: "email_contact_method",
  *     address: "foo@bar.com",
  *     label: "Work",
  * });
  * const phone = new pagerduty.UserContactMethod("phone", {
  *     userId: example.id,
- *     type: "phoneContactMethod",
+ *     type: "phone_contact_method",
  *     countryCode: "+1",
  *     address: "2025550199",
  *     label: "Work",
  * });
  * const sms = new pagerduty.UserContactMethod("sms", {
  *     userId: example.id,
- *     type: "smsContactMethod",
+ *     type: "sms_contact_method",
  *     countryCode: "+1",
  *     address: "2025550199",
  *     label: "Work",
@@ -43,7 +41,7 @@ import * as utilities from "./utilities";
  *     startDelayInMinutes: 1,
  *     urgency: "high",
  *     contactMethod: {
- *         type: "phoneContactMethod",
+ *         type: "phone_contact_method",
  *         id: phone.id,
  *     },
  * });
@@ -52,7 +50,7 @@ import * as utilities from "./utilities";
  *     startDelayInMinutes: 1,
  *     urgency: "low",
  *     contactMethod: {
- *         type: "emailContactMethod",
+ *         type: "email_contact_method",
  *         id: email.id,
  *     },
  * });
@@ -61,7 +59,7 @@ import * as utilities from "./utilities";
  *     startDelayInMinutes: 10,
  *     urgency: "low",
  *     contactMethod: {
- *         type: "smsContactMethod",
+ *         type: "sms_contact_method",
  *         id: sms.id,
  *     },
  * });

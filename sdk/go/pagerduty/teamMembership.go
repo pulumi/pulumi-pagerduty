@@ -11,6 +11,43 @@ import (
 )
 
 // A [team membership](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Teams/put_teams_id_users_user_id) manages memberships within a team.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-pagerduty/sdk/go/pagerduty"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		fooUser, err := pagerduty.NewUser(ctx, "fooUser", &pagerduty.UserArgs{
+// 			Email: pulumi.String("foo@bar.com"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		fooTeam, err := pagerduty.NewTeam(ctx, "fooTeam", &pagerduty.TeamArgs{
+// 			Description: pulumi.String("foo"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = pagerduty.NewTeamMembership(ctx, "fooTeamMembership", &pagerduty.TeamMembershipArgs{
+// 			Role:   pulumi.String("manager"),
+// 			TeamId: fooTeam.ID(),
+// 			UserId: fooUser.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type TeamMembership struct {
 	pulumi.CustomResourceState
 

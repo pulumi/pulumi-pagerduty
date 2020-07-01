@@ -11,6 +11,58 @@ import (
 )
 
 // An [escalation policy](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Escalation_Policies/get_escalation_policies) determines what user or schedule will be notified first, second, and so on when an incident is triggered. Escalation policies are used by one or more services.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-pagerduty/sdk/go/pagerduty"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleTeam, err := pagerduty.NewTeam(ctx, "exampleTeam", &pagerduty.TeamArgs{
+// 			Description: pulumi.String("All engineering"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
+// 			Email: pulumi.String("125.greenholt.earline@graham.name"),
+// 			Teams: pulumi.StringArray{
+// 				exampleTeam.ID(),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = pagerduty.NewEscalationPolicy(ctx, "exampleEscalationPolicy", &pagerduty.EscalationPolicyArgs{
+// 			NumLoops: pulumi.Int(2),
+// 			Rules: pagerduty.EscalationPolicyRuleArray{
+// 				&pagerduty.EscalationPolicyRuleArgs{
+// 					EscalationDelayInMinutes: pulumi.Int(10),
+// 					Targets: pagerduty.EscalationPolicyRuleTargetArray{
+// 						&pagerduty.EscalationPolicyRuleTargetArgs{
+// 							Id:   exampleUser.ID(),
+// 							Type: pulumi.String("user"),
+// 						},
+// 					},
+// 				},
+// 			},
+// 			Teams: pulumi.StringArray{
+// 				exampleTeam.ID(),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type EscalationPolicy struct {
 	pulumi.CustomResourceState
 

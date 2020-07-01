@@ -11,8 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -41,7 +39,7 @@ import * as utilities from "./utilities";
  * });
  * const exampleServiceIntegration = new pagerduty.ServiceIntegration("example", {
  *     service: exampleService.id,
- *     type: "genericEventsApiInboundIntegration",
+ *     type: "generic_events_api_inbound_integration",
  *     vendor: datadog.id,
  * });
  * ```

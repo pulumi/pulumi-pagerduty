@@ -8,6 +8,46 @@ import (
 )
 
 // Use this data source to get information about a specific [schedule](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Schedules/get_schedules) that you can use for other PagerDuty resources.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-pagerduty/sdk/go/pagerduty"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		test, err := pagerduty.LookupSchedule(ctx, &pagerduty.LookupScheduleArgs{
+// 			Name: "Daily Engineering Rotation",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = pagerduty.NewEscalationPolicy(ctx, "foo", &pagerduty.EscalationPolicyArgs{
+// 			NumLoops: pulumi.Int(2),
+// 			Rules: pagerduty.EscalationPolicyRuleArray{
+// 				&pagerduty.EscalationPolicyRuleArgs{
+// 					EscalationDelayInMinutes: pulumi.Int(10),
+// 					Targets: pagerduty.EscalationPolicyRuleTargetArray{
+// 						&pagerduty.EscalationPolicyRuleTargetArgs{
+// 							Id:   pulumi.String(test.Id),
+// 							Type: pulumi.String("schedule"),
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupSchedule(ctx *pulumi.Context, args *LookupScheduleArgs, opts ...pulumi.InvokeOption) (*LookupScheduleResult, error) {
 	var rv LookupScheduleResult
 	err := ctx.Invoke("pagerduty:index/getSchedule:getSchedule", args, &rv, opts...)

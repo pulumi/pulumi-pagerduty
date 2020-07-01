@@ -46,24 +46,24 @@ namespace Pulumi.Pagerduty
         ///                     new Pagerduty.Inputs.RulesetRuleConditionsSubconditionArgs
         ///                     {
         ///                         Operator = "contains",
-        ///                         Parameter = 
+        ///                         Parameters = 
         ///                         {
-        ///                             
+        ///                             new Pagerduty.Inputs.RulesetRuleConditionsSubconditionParameterArgs
         ///                             {
-        ///                                 { "value", "disk space" },
-        ///                                 { "path", "payload.summary" },
+        ///                                 Value = "disk space",
+        ///                                 Path = "payload.summary",
         ///                             },
         ///                         },
         ///                     },
         ///                     new Pagerduty.Inputs.RulesetRuleConditionsSubconditionArgs
         ///                     {
         ///                         Operator = "contains",
-        ///                         Parameter = 
+        ///                         Parameters = 
         ///                         {
-        ///                             
+        ///                             new Pagerduty.Inputs.RulesetRuleConditionsSubconditionParameterArgs
         ///                             {
-        ///                                 { "value", "db" },
-        ///                                 { "path", "payload.source" },
+        ///                                 Value = "db",
+        ///                                 Path = "payload.source",
         ///                             },
         ///                         },
         ///                     },
@@ -71,18 +71,18 @@ namespace Pulumi.Pagerduty
         ///             },
         ///             Actions = new Pagerduty.Inputs.RulesetRuleActionsArgs
         ///             {
-        ///                 Route = 
+        ///                 Routes = 
         ///                 {
-        ///                     
+        ///                     new Pagerduty.Inputs.RulesetRuleActionsRouteArgs
         ///                     {
-        ///                         { "value", "P5DTL0K" },
+        ///                         Value = "P5DTL0K",
         ///                     },
         ///                 },
-        ///                 Priority = 
+        ///                 Priorities = 
         ///                 {
-        ///                     
+        ///                     new Pagerduty.Inputs.RulesetRuleActionsPriorityArgs
         ///                     {
-        ///                         { "value", pagerduty_priority.P1.Id },
+        ///                         Value = pagerduty_priority.P1.Id,
         ///                     },
         ///                 },
         ///             },
@@ -91,7 +91,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// }
         /// ```
-        /// 
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>

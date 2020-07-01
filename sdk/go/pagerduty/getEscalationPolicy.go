@@ -8,6 +8,37 @@ import (
 )
 
 // Use this data source to get information about a specific [escalation policy](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Escalation_Policies/get_escalation_policies) that you can use for other PagerDuty resources.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-pagerduty/sdk/go/pagerduty"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		testEscalationPolicy, err := pagerduty.LookupEscalationPolicy(ctx, &pagerduty.LookupEscalationPolicyArgs{
+// 			Name: "Engineering Escalation Policy",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = pagerduty.NewService(ctx, "testService", &pagerduty.ServiceArgs{
+// 			AcknowledgementTimeout: pulumi.String("600"),
+// 			AutoResolveTimeout:     pulumi.String("14400"),
+// 			EscalationPolicy:       pulumi.String(testEscalationPolicy.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupEscalationPolicy(ctx *pulumi.Context, args *LookupEscalationPolicyArgs, opts ...pulumi.InvokeOption) (*LookupEscalationPolicyResult, error) {
 	var rv LookupEscalationPolicyResult
 	err := ctx.Invoke("pagerduty:index/getEscalationPolicy:getEscalationPolicy", args, &rv, opts...)

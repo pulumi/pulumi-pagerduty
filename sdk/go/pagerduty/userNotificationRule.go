@@ -11,6 +11,94 @@ import (
 )
 
 // A [notification rule](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Users/get_users_id_notification_rules_notification_rule_id) configures where and when a PagerDuty user is notified when a triggered incident is assigned to him. Unique notification rules can be created for both high and low-urgency incidents.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-pagerduty/sdk/go/pagerduty"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := pagerduty.NewUser(ctx, "example", &pagerduty.UserArgs{
+// 			Email: pulumi.String("125.greenholt.earline@graham.name"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		email, err := pagerduty.NewUserContactMethod(ctx, "email", &pagerduty.UserContactMethodArgs{
+// 			UserId:  example.ID(),
+// 			Type:    pulumi.String("email_contact_method"),
+// 			Address: pulumi.String("foo@bar.com"),
+// 			Label:   pulumi.String("Work"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		phone, err := pagerduty.NewUserContactMethod(ctx, "phone", &pagerduty.UserContactMethodArgs{
+// 			UserId:      example.ID(),
+// 			Type:        pulumi.String("phone_contact_method"),
+// 			CountryCode: pulumi.Int(1),
+// 			Address:     pulumi.String("2025550199"),
+// 			Label:       pulumi.String("Work"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		sms, err := pagerduty.NewUserContactMethod(ctx, "sms", &pagerduty.UserContactMethodArgs{
+// 			UserId:      example.ID(),
+// 			Type:        pulumi.String("sms_contact_method"),
+// 			CountryCode: pulumi.Int(1),
+// 			Address:     pulumi.String("2025550199"),
+// 			Label:       pulumi.String("Work"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = pagerduty.NewUserNotificationRule(ctx, "highUrgencyPhone", &pagerduty.UserNotificationRuleArgs{
+// 			UserId:              example.ID(),
+// 			StartDelayInMinutes: pulumi.Int(1),
+// 			Urgency:             pulumi.String("high"),
+// 			ContactMethod: &pagerduty.UserNotificationRuleContactMethodArgs{
+// 				Type: pulumi.String("phone_contact_method"),
+// 				Id:   phone.ID(),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = pagerduty.NewUserNotificationRule(ctx, "lowUrgencyEmail", &pagerduty.UserNotificationRuleArgs{
+// 			UserId:              example.ID(),
+// 			StartDelayInMinutes: pulumi.Int(1),
+// 			Urgency:             pulumi.String("low"),
+// 			ContactMethod: &pagerduty.UserNotificationRuleContactMethodArgs{
+// 				Type: pulumi.String("email_contact_method"),
+// 				Id:   email.ID(),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = pagerduty.NewUserNotificationRule(ctx, "lowUrgencySms", &pagerduty.UserNotificationRuleArgs{
+// 			UserId:              example.ID(),
+// 			StartDelayInMinutes: pulumi.Int(10),
+// 			Urgency:             pulumi.String("low"),
+// 			ContactMethod: &pagerduty.UserNotificationRuleContactMethodArgs{
+// 				Type: pulumi.String("sms_contact_method"),
+// 				Id:   sms.ID(),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type UserNotificationRule struct {
 	pulumi.CustomResourceState
 

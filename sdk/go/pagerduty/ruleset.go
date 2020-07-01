@@ -10,6 +10,35 @@ import (
 )
 
 // [Rulesets](https://support.pagerduty.com/docs/rulesets) allow you to route events to an endpoint and create collections of event rules, which define sets of actions to take based on event content.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-pagerduty/sdk/go/pagerduty"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		fooTeam, err := pagerduty.NewTeam(ctx, "fooTeam", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = pagerduty.NewRuleset(ctx, "fooRuleset", &pagerduty.RulesetArgs{
+// 			Team: &pagerduty.RulesetTeamArgs{
+// 				Id: fooTeam.ID(),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Ruleset struct {
 	pulumi.CustomResourceState
 

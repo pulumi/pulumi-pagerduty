@@ -4,6 +4,120 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * *NOTE: The `pagerduty.EventRule` resource has been deprecated in favor the the pagerduty.Ruleset and pagerduty.RulesetRule resources. Please use the `ruleset` based resources for working with Event Rules.*
+ *
+ * An [event rule](https://v2.developer.pagerduty.com/docs/global-event-rules-api) determines what happens to an event that is sent to PagerDuty by monitoring tools and other integrations.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const second = new pagerduty.EventRule("second", {
+ *     actionJson: JSON.stringify([
+ *         [
+ *             "route",
+ *             "P5DTL0K",
+ *         ],
+ *         [
+ *             "severity",
+ *             "warning",
+ *         ],
+ *         [
+ *             "annotate",
+ *             "2 Managed by terraform",
+ *         ],
+ *         [
+ *             "priority",
+ *             "PL451DT",
+ *         ],
+ *     ]),
+ *     conditionJson: JSON.stringify([
+ *         "and",
+ *         [
+ *             "contains",
+ *             [
+ *                 "path",
+ *                 "payload",
+ *                 "source",
+ *             ],
+ *             "website",
+ *         ],
+ *         [
+ *             "contains",
+ *             [
+ *                 "path",
+ *                 "headers",
+ *                 "from",
+ *                 "0",
+ *                 "address",
+ *             ],
+ *             "homer",
+ *         ],
+ *     ]),
+ *     advancedConditionJson: JSON.stringify([[
+ *         "scheduled-weekly",
+ *         1565392127032,
+ *         3600000,
+ *         "America/Los_Angeles",
+ *         [
+ *             1,
+ *             2,
+ *             3,
+ *             5,
+ *             7,
+ *         ],
+ *     ]]),
+ * });
+ * const third = new pagerduty.EventRule("third", {
+ *     actionJson: JSON.stringify([
+ *         [
+ *             "route",
+ *             "P5DTL0K",
+ *         ],
+ *         [
+ *             "severity",
+ *             "warning",
+ *         ],
+ *         [
+ *             "annotate",
+ *             "3 Managed by terraform",
+ *         ],
+ *         [
+ *             "priority",
+ *             "PL451DT",
+ *         ],
+ *     ]),
+ *     conditionJson: JSON.stringify([
+ *         "and",
+ *         [
+ *             "contains",
+ *             [
+ *                 "path",
+ *                 "payload",
+ *                 "source",
+ *             ],
+ *             "website",
+ *         ],
+ *         [
+ *             "contains",
+ *             [
+ *                 "path",
+ *                 "headers",
+ *                 "from",
+ *                 "0",
+ *                 "address",
+ *             ],
+ *             "homer",
+ *         ],
+ *     ]),
+ * }, {
+ *     dependsOn: [pagerduty_event_rule.two],
+ * });
+ * ```
+ */
 export class EventRule extends pulumi.CustomResource {
     /**
      * Get an existing EventRule resource's state with the given name, ID, and optional extra

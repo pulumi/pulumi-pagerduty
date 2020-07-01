@@ -6,6 +6,72 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * An [event rule](https://support.pagerduty.com/docs/rulesets#section-create-event-rules) allows you to set actions that should be taken on events that meet your designated rule criteria.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const fooTeam = new pagerduty.Team("fooTeam", {});
+ * const fooRuleset = new pagerduty.Ruleset("fooRuleset", {team: {
+ *     id: fooTeam.id,
+ * }});
+ * const fooRulesetRule = new pagerduty.RulesetRule("fooRulesetRule", {
+ *     ruleset: fooRuleset.id,
+ *     position: 0,
+ *     disabled: "false",
+ *     timeFrame: {
+ *         scheduledWeeklies: [{
+ *             weekdays: [
+ *                 3,
+ *                 7,
+ *             ],
+ *             timezone: "America/Los_Angeles",
+ *             startTime: "1000000",
+ *             duration: "3600000",
+ *         }],
+ *     },
+ *     conditions: {
+ *         operator: "and",
+ *         subconditions: [
+ *             {
+ *                 operator: "contains",
+ *                 parameters: [{
+ *                     value: "disk space",
+ *                     path: "payload.summary",
+ *                 }],
+ *             },
+ *             {
+ *                 operator: "contains",
+ *                 parameters: [{
+ *                     value: "db",
+ *                     path: "payload.source",
+ *                 }],
+ *             },
+ *         ],
+ *     },
+ *     actions: {
+ *         routes: [{
+ *             value: "P5DTL0K",
+ *         }],
+ *         severities: [{
+ *             value: "warning",
+ *         }],
+ *         annotates: [{
+ *             value: "From Terraform",
+ *         }],
+ *         extractions: [{
+ *             target: "dedup_key",
+ *             source: "details.host",
+ *             regex: "(.*)",
+ *         }],
+ *     },
+ * });
+ * ```
+ */
 export class RulesetRule extends pulumi.CustomResource {
     /**
      * Get an existing RulesetRule resource's state with the given name, ID, and optional extra
@@ -55,7 +121,7 @@ export class RulesetRule extends pulumi.CustomResource {
      */
     public readonly ruleset!: pulumi.Output<string>;
     /**
-     * Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules). 
+     * Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
      */
     public readonly timeFrame!: pulumi.Output<outputs.RulesetRuleTimeFrame | undefined>;
 
@@ -125,7 +191,7 @@ export interface RulesetRuleState {
      */
     readonly ruleset?: pulumi.Input<string>;
     /**
-     * Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules). 
+     * Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
      */
     readonly timeFrame?: pulumi.Input<inputs.RulesetRuleTimeFrame>;
 }
@@ -155,7 +221,7 @@ export interface RulesetRuleArgs {
      */
     readonly ruleset: pulumi.Input<string>;
     /**
-     * Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules). 
+     * Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
      */
     readonly timeFrame?: pulumi.Input<inputs.RulesetRuleTimeFrame>;
 }

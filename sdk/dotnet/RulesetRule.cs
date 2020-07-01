@@ -11,6 +11,118 @@ namespace Pulumi.Pagerduty
 {
     /// <summary>
     /// An [event rule](https://support.pagerduty.com/docs/rulesets#section-create-event-rules) allows you to set actions that should be taken on events that meet your designated rule criteria.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Pagerduty = Pulumi.Pagerduty;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var fooTeam = new Pagerduty.Team("fooTeam", new Pagerduty.TeamArgs
+    ///         {
+    ///         });
+    ///         var fooRuleset = new Pagerduty.Ruleset("fooRuleset", new Pagerduty.RulesetArgs
+    ///         {
+    ///             Team = new Pagerduty.Inputs.RulesetTeamArgs
+    ///             {
+    ///                 Id = fooTeam.Id,
+    ///             },
+    ///         });
+    ///         var fooRulesetRule = new Pagerduty.RulesetRule("fooRulesetRule", new Pagerduty.RulesetRuleArgs
+    ///         {
+    ///             Ruleset = fooRuleset.Id,
+    ///             Position = 0,
+    ///             Disabled = false,
+    ///             TimeFrame = new Pagerduty.Inputs.RulesetRuleTimeFrameArgs
+    ///             {
+    ///                 ScheduledWeeklies = 
+    ///                 {
+    ///                     new Pagerduty.Inputs.RulesetRuleTimeFrameScheduledWeeklyArgs
+    ///                     {
+    ///                         Weekdays = 
+    ///                         {
+    ///                             3,
+    ///                             7,
+    ///                         },
+    ///                         Timezone = "America/Los_Angeles",
+    ///                         StartTime = 1000000,
+    ///                         Duration = 3600000,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Conditions = new Pagerduty.Inputs.RulesetRuleConditionsArgs
+    ///             {
+    ///                 Operator = "and",
+    ///                 Subconditions = 
+    ///                 {
+    ///                     new Pagerduty.Inputs.RulesetRuleConditionsSubconditionArgs
+    ///                     {
+    ///                         Operator = "contains",
+    ///                         Parameters = 
+    ///                         {
+    ///                             new Pagerduty.Inputs.RulesetRuleConditionsSubconditionParameterArgs
+    ///                             {
+    ///                                 Value = "disk space",
+    ///                                 Path = "payload.summary",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     new Pagerduty.Inputs.RulesetRuleConditionsSubconditionArgs
+    ///                     {
+    ///                         Operator = "contains",
+    ///                         Parameters = 
+    ///                         {
+    ///                             new Pagerduty.Inputs.RulesetRuleConditionsSubconditionParameterArgs
+    ///                             {
+    ///                                 Value = "db",
+    ///                                 Path = "payload.source",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Actions = new Pagerduty.Inputs.RulesetRuleActionsArgs
+    ///             {
+    ///                 Routes = 
+    ///                 {
+    ///                     new Pagerduty.Inputs.RulesetRuleActionsRouteArgs
+    ///                     {
+    ///                         Value = "P5DTL0K",
+    ///                     },
+    ///                 },
+    ///                 Severities = 
+    ///                 {
+    ///                     new Pagerduty.Inputs.RulesetRuleActionsSeverityArgs
+    ///                     {
+    ///                         Value = "warning",
+    ///                     },
+    ///                 },
+    ///                 Annotates = 
+    ///                 {
+    ///                     new Pagerduty.Inputs.RulesetRuleActionsAnnotateArgs
+    ///                     {
+    ///                         Value = "From Terraform",
+    ///                     },
+    ///                 },
+    ///                 Extractions = 
+    ///                 {
+    ///                     new Pagerduty.Inputs.RulesetRuleActionsExtractionArgs
+    ///                     {
+    ///                         Target = "dedup_key",
+    ///                         Source = "details.host",
+    ///                         Regex = "(.*)",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class RulesetRule : Pulumi.CustomResource
     {
@@ -45,7 +157,7 @@ namespace Pulumi.Pagerduty
         public Output<string> Ruleset { get; private set; } = null!;
 
         /// <summary>
-        /// Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules). 
+        /// Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
         /// </summary>
         [Output("timeFrame")]
         public Output<Outputs.RulesetRuleTimeFrame?> TimeFrame { get; private set; } = null!;
@@ -127,7 +239,7 @@ namespace Pulumi.Pagerduty
         public Input<string> Ruleset { get; set; } = null!;
 
         /// <summary>
-        /// Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules). 
+        /// Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
         /// </summary>
         [Input("timeFrame")]
         public Input<Inputs.RulesetRuleTimeFrameArgs>? TimeFrame { get; set; }
@@ -170,7 +282,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? Ruleset { get; set; }
 
         /// <summary>
-        /// Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules). 
+        /// Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
         /// </summary>
         [Input("timeFrame")]
         public Input<Inputs.RulesetRuleTimeFrameGetArgs>? TimeFrame { get; set; }

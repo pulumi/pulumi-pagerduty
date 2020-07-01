@@ -22,7 +22,7 @@ namespace Pulumi.Pagerduty.Inputs
         private InputList<Inputs.RulesetRuleConditionsSubconditionGetArgs>? _subconditions;
 
         /// <summary>
-        /// List of sub-conditions that define the the condition. 
+        /// List of sub-conditions that define the the condition.
         /// </summary>
         public InputList<Inputs.RulesetRuleConditionsSubconditionGetArgs> Subconditions
         {

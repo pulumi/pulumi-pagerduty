@@ -11,8 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -30,14 +28,14 @@ import * as utilities from "./utilities";
  *         subconditions: [
  *             {
  *                 operator: "contains",
- *                 parameter: [{
+ *                 parameters: [{
  *                     value: "disk space",
  *                     path: "payload.summary",
  *                 }],
  *             },
  *             {
  *                 operator: "contains",
- *                 parameter: [{
+ *                 parameters: [{
  *                     value: "db",
  *                     path: "payload.source",
  *                 }],
@@ -45,10 +43,10 @@ import * as utilities from "./utilities";
  *         ],
  *     },
  *     actions: {
- *         route: [{
+ *         routes: [{
  *             value: "P5DTL0K",
  *         }],
- *         priority: [{
+ *         priorities: [{
  *             value: pagerduty_priority.p1.id,
  *         }],
  *     },

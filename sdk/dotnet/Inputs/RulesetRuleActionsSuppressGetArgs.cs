@@ -19,7 +19,7 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<int>? ThresholdTimeAmount { get; set; }
 
         /// <summary>
-        /// The `minutes`,`hours`, or `days` that the `threshold_time_amount` should be measured. 
+        /// The `minutes`,`hours`, or `days` that the `threshold_time_amount` should be measured.
         /// </summary>
         [Input("thresholdTimeUnit")]
         public Input<string>? ThresholdTimeUnit { get; set; }

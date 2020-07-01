@@ -14,8 +14,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Pagerduty = Pulumi.Pagerduty;
@@ -40,12 +38,12 @@ namespace Pulumi.Pagerduty
     ///                 new Pagerduty.Inputs.EscalationPolicyRuleArgs
     ///                 {
     ///                     EscalationDelayInMinutes = 10,
-    ///                     Target = 
+    ///                     Targets = 
     ///                     {
-    ///                         
+    ///                         new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
     ///                         {
-    ///                             { "id", exampleUser.Id },
-    ///                             { "type", "user" },
+    ///                             Id = exampleUser.Id,
+    ///                             Type = "user",
     ///                         },
     ///                     },
     ///                 },

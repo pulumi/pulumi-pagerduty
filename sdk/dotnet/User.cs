@@ -12,10 +12,7 @@ namespace Pulumi.Pagerduty
     /// <summary>
     /// A [user](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Users/get_users) is a member of a PagerDuty account that have the ability to interact with incidents and other data on the account.
     /// 
-    /// 
     /// ## Example Usage
-    /// 
-    /// 
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -88,7 +85,7 @@ namespace Pulumi.Pagerduty
         public Output<string?> Role { get; private set; } = null!;
 
         /// <summary>
-        /// A list of teams the user should belong to. Please use `pagerduty..TeamMembership` instead.
+        /// A list of teams the user should belong to. Please use `pagerduty.TeamMembership` instead.
         /// </summary>
         [Output("teams")]
         public Output<ImmutableArray<string>> Teams { get; private set; } = null!;
@@ -182,7 +179,7 @@ namespace Pulumi.Pagerduty
         private InputList<string>? _teams;
 
         /// <summary>
-        /// A list of teams the user should belong to. Please use `pagerduty..TeamMembership` instead.
+        /// A list of teams the user should belong to. Please use `pagerduty.TeamMembership` instead.
         /// </summary>
         [Obsolete(@"Use the 'pagerduty_team_membership' resource instead.")]
         public InputList<string> Teams
@@ -259,7 +256,7 @@ namespace Pulumi.Pagerduty
         private InputList<string>? _teams;
 
         /// <summary>
-        /// A list of teams the user should belong to. Please use `pagerduty..TeamMembership` instead.
+        /// A list of teams the user should belong to. Please use `pagerduty.TeamMembership` instead.
         /// </summary>
         [Obsolete(@"Use the 'pagerduty_team_membership' resource instead.")]
         public InputList<string> Teams

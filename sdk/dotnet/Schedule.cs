@@ -12,10 +12,7 @@ namespace Pulumi.Pagerduty
     /// <summary>
     /// A [schedule](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Schedules/get_schedules) determines the time periods that users are on call. Only on-call users are eligible to receive notifications from incidents.
     /// 
-    /// 
     /// ## Example Usage
-    /// 
-    /// 
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -40,13 +37,13 @@ namespace Pulumi.Pagerduty
     ///                 new Pagerduty.Inputs.ScheduleLayerArgs
     ///                 {
     ///                     Name = "Night Shift",
-    ///                     Restriction = 
+    ///                     Restrictions = 
     ///                     {
-    ///                         
+    ///                         new Pagerduty.Inputs.ScheduleLayerRestrictionArgs
     ///                         {
-    ///                             { "durationSeconds", 32400 },
-    ///                             { "startTimeOfDay", "08:00:00" },
-    ///                             { "type", "daily_restriction" },
+    ///                             DurationSeconds = 32400,
+    ///                             StartTimeOfDay = "08:00:00",
+    ///                             Type = "daily_restriction",
     ///                         },
     ///                     },
     ///                     RotationTurnLengthSeconds = 86400,

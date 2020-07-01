@@ -11,6 +11,71 @@ namespace Pulumi.Pagerduty
 {
     /// <summary>
     /// A [service dependency](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1service_dependencies~1associate/post) is a relationship between a business service and technical and business services that this service uses, or that are used by this service, and are critical for successful operation.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Pagerduty = Pulumi.Pagerduty;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new Pagerduty.ServiceDependency("foo", new Pagerduty.ServiceDependencyArgs
+    ///         {
+    ///             Dependencies = 
+    ///             {
+    ///                 new Pagerduty.Inputs.ServiceDependencyDependencyArgs
+    ///                 {
+    ///                     DependentServices = 
+    ///                     {
+    ///                         new Pagerduty.Inputs.ServiceDependencyDependencyDependentServiceArgs
+    ///                         {
+    ///                             Id = pagerduty_business_service.Foo.Id,
+    ///                             Type = "business_service",
+    ///                         },
+    ///                     },
+    ///                     SupportingServices = 
+    ///                     {
+    ///                         new Pagerduty.Inputs.ServiceDependencyDependencySupportingServiceArgs
+    ///                         {
+    ///                             Id = pagerduty_service.Foo.Id,
+    ///                             Type = "service",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///         var bar = new Pagerduty.ServiceDependency("bar", new Pagerduty.ServiceDependencyArgs
+    ///         {
+    ///             Dependencies = 
+    ///             {
+    ///                 new Pagerduty.Inputs.ServiceDependencyDependencyArgs
+    ///                 {
+    ///                     DependentServices = 
+    ///                     {
+    ///                         new Pagerduty.Inputs.ServiceDependencyDependencyDependentServiceArgs
+    ///                         {
+    ///                             Id = pagerduty_business_service.Foo.Id,
+    ///                             Type = "business_service",
+    ///                         },
+    ///                     },
+    ///                     SupportingServices = 
+    ///                     {
+    ///                         new Pagerduty.Inputs.ServiceDependencyDependencySupportingServiceArgs
+    ///                         {
+    ///                             Id = pagerduty_service.Two.Id,
+    ///                             Type = "service",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ServiceDependency : Pulumi.CustomResource
     {

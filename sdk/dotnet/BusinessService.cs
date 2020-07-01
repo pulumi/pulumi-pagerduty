@@ -10,12 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty
 {
     /// <summary>
-    /// A [business service](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Business_Services/get_business_services) allows you to model capabilities that span multiple technical services and that may be owned by several different teams. 
-    /// 
+    /// A [business service](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Business_Services/get_business_services) allows you to model capabilities that span multiple technical services and that may be owned by several different teams.
     /// 
     /// ## Example Usage
-    /// 
-    /// 
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -50,7 +47,7 @@ namespace Pulumi.Pagerduty
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The owner of the business service. 
+        /// The owner of the business service.
         /// </summary>
         [Output("pointOfContact")]
         public Output<string?> PointOfContact { get; private set; } = null!;
@@ -123,7 +120,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The owner of the business service. 
+        /// The owner of the business service.
         /// </summary>
         [Input("pointOfContact")]
         public Input<string>? PointOfContact { get; set; }
@@ -154,7 +151,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The owner of the business service. 
+        /// The owner of the business service.
         /// </summary>
         [Input("pointOfContact")]
         public Input<string>? PointOfContact { get; set; }

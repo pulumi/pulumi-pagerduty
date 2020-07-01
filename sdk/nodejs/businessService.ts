@@ -5,12 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * A [business service](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Business_Services/get_business_services) allows you to model capabilities that span multiple technical services and that may be owned by several different teams. 
- *
+ * A [business service](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Business_Services/get_business_services) allows you to model capabilities that span multiple technical services and that may be owned by several different teams.
  *
  * ## Example Usage
- *
- *
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -57,7 +54,7 @@ export class BusinessService extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The owner of the business service. 
+     * The owner of the business service.
      */
     public readonly pointOfContact!: pulumi.Output<string | undefined>;
     public /*out*/ readonly self!: pulumi.Output<string>;
@@ -118,7 +115,7 @@ export interface BusinessServiceState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The owner of the business service. 
+     * The owner of the business service.
      */
     readonly pointOfContact?: pulumi.Input<string>;
     readonly self?: pulumi.Input<string>;
@@ -139,7 +136,7 @@ export interface BusinessServiceArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The owner of the business service. 
+     * The owner of the business service.
      */
     readonly pointOfContact?: pulumi.Input<string>;
     /**

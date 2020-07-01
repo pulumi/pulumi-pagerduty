@@ -113,7 +113,7 @@ export interface RulesetRuleActionsSuppress {
      */
     thresholdTimeAmount?: number;
     /**
-     * The `minutes`,`hours`, or `days` that the `thresholdTimeAmount` should be measured. 
+     * The `minutes`,`hours`, or `days` that the `thresholdTimeAmount` should be measured.
      */
     thresholdTimeUnit?: string;
     /**
@@ -132,7 +132,7 @@ export interface RulesetRuleConditions {
      */
     operator?: string;
     /**
-     * List of sub-conditions that define the the condition. 
+     * List of sub-conditions that define the the condition.
      */
     subconditions?: outputs.RulesetRuleConditionsSubcondition[];
 }

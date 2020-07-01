@@ -11,6 +11,65 @@ import (
 )
 
 // A [service dependency](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1service_dependencies~1associate/post) is a relationship between a business service and technical and business services that this service uses, or that are used by this service, and are critical for successful operation.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-pagerduty/sdk/go/pagerduty"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := pagerduty.NewServiceDependency(ctx, "foo", &pagerduty.ServiceDependencyArgs{
+// 			Dependencies: pagerduty.ServiceDependencyDependencyArray{
+// 				&pagerduty.ServiceDependencyDependencyArgs{
+// 					DependentServices: pagerduty.ServiceDependencyDependencyDependentServiceArray{
+// 						&pagerduty.ServiceDependencyDependencyDependentServiceArgs{
+// 							Id:   pulumi.String(pagerduty_business_service.Foo.Id),
+// 							Type: pulumi.String("business_service"),
+// 						},
+// 					},
+// 					SupportingServices: pagerduty.ServiceDependencyDependencySupportingServiceArray{
+// 						&pagerduty.ServiceDependencyDependencySupportingServiceArgs{
+// 							Id:   pulumi.String(pagerduty_service.Foo.Id),
+// 							Type: pulumi.String("service"),
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = pagerduty.NewServiceDependency(ctx, "bar", &pagerduty.ServiceDependencyArgs{
+// 			Dependencies: pagerduty.ServiceDependencyDependencyArray{
+// 				&pagerduty.ServiceDependencyDependencyArgs{
+// 					DependentServices: pagerduty.ServiceDependencyDependencyDependentServiceArray{
+// 						&pagerduty.ServiceDependencyDependencyDependentServiceArgs{
+// 							Id:   pulumi.String(pagerduty_business_service.Foo.Id),
+// 							Type: pulumi.String("business_service"),
+// 						},
+// 					},
+// 					SupportingServices: pagerduty.ServiceDependencyDependencySupportingServiceArray{
+// 						&pagerduty.ServiceDependencyDependencySupportingServiceArgs{
+// 							Id:   pulumi.String(pagerduty_service.Two.Id),
+// 							Type: pulumi.String("service"),
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ServiceDependency struct {
 	pulumi.CustomResourceState
 

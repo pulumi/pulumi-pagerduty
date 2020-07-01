@@ -9,10 +9,7 @@ import * as utilities from "./utilities";
 /**
  * A [schedule](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Schedules/get_schedules) determines the time periods that users are on call. Only on-call users are eligible to receive notifications from incidents.
  *
- *
  * ## Example Usage
- *
- *
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -28,7 +25,7 @@ import * as utilities from "./utilities";
  *         restrictions: [{
  *             durationSeconds: 32400,
  *             startTimeOfDay: "08:00:00",
- *             type: "dailyRestriction",
+ *             type: "daily_restriction",
  *         }],
  *         rotationTurnLengthSeconds: 86400,
  *         rotationVirtualStart: "2015-11-06T20:00:00-05:00",

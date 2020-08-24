@@ -30,3 +30,10 @@ from .team_membership import *
 from .user import *
 from .user_contact_method import *
 from .user_notification_rule import *
+from ._inputs import *
+from . import outputs
+
+# Make subpackages available:
+from . import (
+    config,
+)

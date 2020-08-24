@@ -5,49 +5,25 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+
+__all__ = ['ServiceIntegration']
 
 
 class ServiceIntegration(pulumi.CustomResource):
-    html_url: pulumi.Output[str]
-    """
-    URL at which the entity is uniquely displayed in the Web app
-    """
-    integration_email: pulumi.Output[str]
-    """
-    This is the unique fully-qualified email address used for routing emails to this integration for processing.
-    """
-    integration_key: pulumi.Output[str]
-    """
-    This is the unique key used to route events to this integration when received via the PagerDuty Events API.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the service integration.
-    """
-    service: pulumi.Output[str]
-    """
-    The ID of the service the integration should belong to.
-    """
-    type: pulumi.Output[str]
-    """
-    The service type. Can be:
-    `aws_cloudwatch_inbound_integration`,
-    `cloudkick_inbound_integration`,
-    `event_transformer_api_inbound_integration`,
-    `events_api_v2_inbound_integration` (requires service `alert_creation` to be `create_alerts_and_incidents`),
-    `generic_email_inbound_integration`,
-    `generic_events_api_inbound_integration`,
-    `keynote_inbound_integration`,
-    `nagios_inbound_integration`,
-    `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
-    """
-    vendor: pulumi.Output[str]
-    """
-    The ID of the vendor the integration should integrate with (e.g Datadog or Amazon Cloudwatch).
-    """
-    def __init__(__self__, resource_name, opts=None, integration_email=None, integration_key=None, name=None, service=None, type=None, vendor=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 integration_email: Optional[pulumi.Input[str]] = None,
+                 integration_key: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 service: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 vendor: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         A [service integration](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Services/post_services_id_integrations) is an integration that belongs to a service.
 
@@ -62,16 +38,16 @@ class ServiceIntegration(pulumi.CustomResource):
             teams=[pagerduty_team["example"]["id"]])
         foo = pagerduty.EscalationPolicy("foo",
             num_loops=2,
-            rules=[{
-                "escalationDelayInMinutes": 10,
-                "targets": [{
-                    "id": example_user.id,
-                    "type": "user",
-                }],
-            }])
+            rules=[pagerduty.EscalationPolicyRuleArgs(
+                escalation_delay_in_minutes=10,
+                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
+                    id=example_user.id,
+                    type="user",
+                )],
+            )])
         example_service = pagerduty.Service("exampleService",
-            acknowledgement_timeout=600,
-            auto_resolve_timeout=14400,
+            acknowledgement_timeout="600",
+            auto_resolve_timeout="14400",
             escalation_policy=pagerduty_escalation_policy["example"]["id"])
         example_service_integration = pagerduty.ServiceIntegration("exampleServiceIntegration",
             service=example_service.id,
@@ -115,7 +91,7 @@ class ServiceIntegration(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -137,13 +113,22 @@ class ServiceIntegration(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, html_url=None, integration_email=None, integration_key=None, name=None, service=None, type=None, vendor=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            html_url: Optional[pulumi.Input[str]] = None,
+            integration_email: Optional[pulumi.Input[str]] = None,
+            integration_key: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            service: Optional[pulumi.Input[str]] = None,
+            type: Optional[pulumi.Input[str]] = None,
+            vendor: Optional[pulumi.Input[str]] = None) -> 'ServiceIntegration':
         """
         Get an existing ServiceIntegration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app
         :param pulumi.Input[str] integration_email: This is the unique fully-qualified email address used for routing emails to this integration for processing.
@@ -175,8 +160,74 @@ class ServiceIntegration(pulumi.CustomResource):
         __props__["vendor"] = vendor
         return ServiceIntegration(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="htmlUrl")
+    def html_url(self) -> str:
+        """
+        URL at which the entity is uniquely displayed in the Web app
+        """
+        return pulumi.get(self, "html_url")
+
+    @property
+    @pulumi.getter(name="integrationEmail")
+    def integration_email(self) -> str:
+        """
+        This is the unique fully-qualified email address used for routing emails to this integration for processing.
+        """
+        return pulumi.get(self, "integration_email")
+
+    @property
+    @pulumi.getter(name="integrationKey")
+    def integration_key(self) -> str:
+        """
+        This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+        """
+        return pulumi.get(self, "integration_key")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the service integration.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def service(self) -> str:
+        """
+        The ID of the service the integration should belong to.
+        """
+        return pulumi.get(self, "service")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The service type. Can be:
+        `aws_cloudwatch_inbound_integration`,
+        `cloudkick_inbound_integration`,
+        `event_transformer_api_inbound_integration`,
+        `events_api_v2_inbound_integration` (requires service `alert_creation` to be `create_alerts_and_incidents`),
+        `generic_email_inbound_integration`,
+        `generic_events_api_inbound_integration`,
+        `keynote_inbound_integration`,
+        `nagios_inbound_integration`,
+        `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def vendor(self) -> str:
+        """
+        The ID of the vendor the integration should integrate with (e.g Datadog or Amazon Cloudwatch).
+        """
+        return pulumi.get(self, "vendor")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

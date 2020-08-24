@@ -5,48 +5,32 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Service']
 
 
 class Service(pulumi.CustomResource):
-    acknowledgement_timeout: pulumi.Output[str]
-    """
-    Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.
-    """
-    alert_creation: pulumi.Output[str]
-    """
-    Must be one of two values. PagerDuty receives events from your monitoring systems and can then create incidents in different ways. Value "create_incidents" is default: events will create an incident that cannot be merged. Value "create_alerts_and_incidents" is the alternative: events will create an alert and then add it to a new incident, these incidents can be merged.
-    """
-    alert_grouping: pulumi.Output[str]
-    """
-    Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan.
-    """
-    alert_grouping_timeout: pulumi.Output[float]
-    """
-    The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
-    """
-    auto_resolve_timeout: pulumi.Output[str]
-    """
-    Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
-    """
-    created_at: pulumi.Output[str]
-    description: pulumi.Output[str]
-    escalation_policy: pulumi.Output[str]
-    """
-    The escalation policy used by this service.
-    """
-    html_url: pulumi.Output[str]
-    incident_urgency_rule: pulumi.Output[dict]
-    last_incident_timestamp: pulumi.Output[str]
-    name: pulumi.Output[str]
-    """
-    The name of the service.
-    """
-    scheduled_actions: pulumi.Output[list]
-    status: pulumi.Output[str]
-    support_hours: pulumi.Output[dict]
-    def __init__(__self__, resource_name, opts=None, acknowledgement_timeout=None, alert_creation=None, alert_grouping=None, alert_grouping_timeout=None, auto_resolve_timeout=None, description=None, escalation_policy=None, incident_urgency_rule=None, name=None, scheduled_actions=None, support_hours=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 acknowledgement_timeout: Optional[pulumi.Input[str]] = None,
+                 alert_creation: Optional[pulumi.Input[str]] = None,
+                 alert_grouping: Optional[pulumi.Input[str]] = None,
+                 alert_grouping_timeout: Optional[pulumi.Input[float]] = None,
+                 auto_resolve_timeout: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 escalation_policy: Optional[pulumi.Input[str]] = None,
+                 incident_urgency_rule: Optional[pulumi.Input[pulumi.InputType['ServiceIncidentUrgencyRuleArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 scheduled_actions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceScheduledActionArgs']]]]] = None,
+                 support_hours: Optional[pulumi.Input[pulumi.InputType['ServiceSupportHoursArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         A [service](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Services/get_services) represents something you monitor (like a web service, email service, or database service). It is a container for related incidents that associates them with escalation policies.
 
@@ -61,17 +45,17 @@ class Service(pulumi.CustomResource):
             teams=[pagerduty_team["example"]["id"]])
         foo = pagerduty.EscalationPolicy("foo",
             num_loops=2,
-            rules=[{
-                "escalationDelayInMinutes": 10,
-                "targets": [{
-                    "id": example_user.id,
-                    "type": "user",
-                }],
-            }])
+            rules=[pagerduty.EscalationPolicyRuleArgs(
+                escalation_delay_in_minutes=10,
+                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
+                    id=example_user.id,
+                    type="user",
+                )],
+            )])
         example_service = pagerduty.Service("exampleService",
-            acknowledgement_timeout=600,
+            acknowledgement_timeout="600",
             alert_creation="create_incidents",
-            auto_resolve_timeout=14400,
+            auto_resolve_timeout="14400",
             escalation_policy=pagerduty_escalation_policy["example"]["id"])
         ```
 
@@ -84,37 +68,6 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] auto_resolve_timeout: Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
         :param pulumi.Input[str] escalation_policy: The escalation policy used by this service.
         :param pulumi.Input[str] name: The name of the service.
-
-        The **incident_urgency_rule** object supports the following:
-
-          * `duringSupportHours` (`pulumi.Input[dict]`) - Incidents' urgency during support hours.
-            * `type` (`pulumi.Input[str]`) - The type of scheduled action. Currently, this must be set to `urgency_change`.
-            * `urgency` (`pulumi.Input[str]`) - The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
-
-          * `outsideSupportHours` (`pulumi.Input[dict]`) - Incidents' urgency outside of support hours.
-            * `type` (`pulumi.Input[str]`) - The type of scheduled action. Currently, this must be set to `urgency_change`.
-            * `urgency` (`pulumi.Input[str]`) - The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
-
-          * `type` (`pulumi.Input[str]`) - The type of scheduled action. Currently, this must be set to `urgency_change`.
-          * `urgency` (`pulumi.Input[str]`) - The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
-
-        The **scheduled_actions** object supports the following:
-
-          * `ats` (`pulumi.Input[list]`) - A block representing when the scheduled action will occur.
-            * `name` (`pulumi.Input[str]`) - Designates either the start or the end of the scheduled action. Can be `support_hours_start` or `support_hours_end`.
-            * `type` (`pulumi.Input[str]`) - The type of time specification. Currently, this must be set to `named_time`.
-
-          * `toUrgency` (`pulumi.Input[str]`) - The urgency to change to: `low` (does not escalate), or `high` (follows escalation rules).
-          * `type` (`pulumi.Input[str]`) - The type of scheduled action. Currently, this must be set to `urgency_change`.
-
-        The **support_hours** object supports the following:
-
-          * `daysOfWeeks` (`pulumi.Input[list]`) - Array of days of week as integers. `1` to `7`, `1` being
-            Monday and `7` being Sunday.
-          * `end_time` (`pulumi.Input[str]`) - The support hours' ending time of day.
-          * `start_time` (`pulumi.Input[str]`) - The support hours' starting time of day.
-          * `time_zone` (`pulumi.Input[str]`) - The time zone for the support hours.
-          * `type` (`pulumi.Input[str]`) - The type of scheduled action. Currently, this must be set to `urgency_change`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -127,7 +80,7 @@ class Service(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -157,13 +110,30 @@ class Service(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, acknowledgement_timeout=None, alert_creation=None, alert_grouping=None, alert_grouping_timeout=None, auto_resolve_timeout=None, created_at=None, description=None, escalation_policy=None, html_url=None, incident_urgency_rule=None, last_incident_timestamp=None, name=None, scheduled_actions=None, status=None, support_hours=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            acknowledgement_timeout: Optional[pulumi.Input[str]] = None,
+            alert_creation: Optional[pulumi.Input[str]] = None,
+            alert_grouping: Optional[pulumi.Input[str]] = None,
+            alert_grouping_timeout: Optional[pulumi.Input[float]] = None,
+            auto_resolve_timeout: Optional[pulumi.Input[str]] = None,
+            created_at: Optional[pulumi.Input[str]] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            escalation_policy: Optional[pulumi.Input[str]] = None,
+            html_url: Optional[pulumi.Input[str]] = None,
+            incident_urgency_rule: Optional[pulumi.Input[pulumi.InputType['ServiceIncidentUrgencyRuleArgs']]] = None,
+            last_incident_timestamp: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            scheduled_actions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceScheduledActionArgs']]]]] = None,
+            status: Optional[pulumi.Input[str]] = None,
+            support_hours: Optional[pulumi.Input[pulumi.InputType['ServiceSupportHoursArgs']]] = None) -> 'Service':
         """
         Get an existing Service resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] acknowledgement_timeout: Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.
         :param pulumi.Input[str] alert_creation: Must be one of two values. PagerDuty receives events from your monitoring systems and can then create incidents in different ways. Value "create_incidents" is default: events will create an incident that cannot be merged. Value "create_alerts_and_incidents" is the alternative: events will create an alert and then add it to a new incident, these incidents can be merged.
@@ -172,37 +142,6 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] auto_resolve_timeout: Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
         :param pulumi.Input[str] escalation_policy: The escalation policy used by this service.
         :param pulumi.Input[str] name: The name of the service.
-
-        The **incident_urgency_rule** object supports the following:
-
-          * `duringSupportHours` (`pulumi.Input[dict]`) - Incidents' urgency during support hours.
-            * `type` (`pulumi.Input[str]`) - The type of scheduled action. Currently, this must be set to `urgency_change`.
-            * `urgency` (`pulumi.Input[str]`) - The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
-
-          * `outsideSupportHours` (`pulumi.Input[dict]`) - Incidents' urgency outside of support hours.
-            * `type` (`pulumi.Input[str]`) - The type of scheduled action. Currently, this must be set to `urgency_change`.
-            * `urgency` (`pulumi.Input[str]`) - The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
-
-          * `type` (`pulumi.Input[str]`) - The type of scheduled action. Currently, this must be set to `urgency_change`.
-          * `urgency` (`pulumi.Input[str]`) - The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
-
-        The **scheduled_actions** object supports the following:
-
-          * `ats` (`pulumi.Input[list]`) - A block representing when the scheduled action will occur.
-            * `name` (`pulumi.Input[str]`) - Designates either the start or the end of the scheduled action. Can be `support_hours_start` or `support_hours_end`.
-            * `type` (`pulumi.Input[str]`) - The type of time specification. Currently, this must be set to `named_time`.
-
-          * `toUrgency` (`pulumi.Input[str]`) - The urgency to change to: `low` (does not escalate), or `high` (follows escalation rules).
-          * `type` (`pulumi.Input[str]`) - The type of scheduled action. Currently, this must be set to `urgency_change`.
-
-        The **support_hours** object supports the following:
-
-          * `daysOfWeeks` (`pulumi.Input[list]`) - Array of days of week as integers. `1` to `7`, `1` being
-            Monday and `7` being Sunday.
-          * `end_time` (`pulumi.Input[str]`) - The support hours' ending time of day.
-          * `start_time` (`pulumi.Input[str]`) - The support hours' starting time of day.
-          * `time_zone` (`pulumi.Input[str]`) - The time zone for the support hours.
-          * `type` (`pulumi.Input[str]`) - The type of scheduled action. Currently, this must be set to `urgency_change`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -225,8 +164,105 @@ class Service(pulumi.CustomResource):
         __props__["support_hours"] = support_hours
         return Service(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="acknowledgementTimeout")
+    def acknowledgement_timeout(self) -> Optional[str]:
+        """
+        Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.
+        """
+        return pulumi.get(self, "acknowledgement_timeout")
+
+    @property
+    @pulumi.getter(name="alertCreation")
+    def alert_creation(self) -> Optional[str]:
+        """
+        Must be one of two values. PagerDuty receives events from your monitoring systems and can then create incidents in different ways. Value "create_incidents" is default: events will create an incident that cannot be merged. Value "create_alerts_and_incidents" is the alternative: events will create an alert and then add it to a new incident, these incidents can be merged.
+        """
+        return pulumi.get(self, "alert_creation")
+
+    @property
+    @pulumi.getter(name="alertGrouping")
+    def alert_grouping(self) -> Optional[str]:
+        """
+        Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan.
+        """
+        return pulumi.get(self, "alert_grouping")
+
+    @property
+    @pulumi.getter(name="alertGroupingTimeout")
+    def alert_grouping_timeout(self) -> Optional[float]:
+        """
+        The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
+        """
+        return pulumi.get(self, "alert_grouping_timeout")
+
+    @property
+    @pulumi.getter(name="autoResolveTimeout")
+    def auto_resolve_timeout(self) -> Optional[str]:
+        """
+        Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
+        """
+        return pulumi.get(self, "auto_resolve_timeout")
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> str:
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="escalationPolicy")
+    def escalation_policy(self) -> str:
+        """
+        The escalation policy used by this service.
+        """
+        return pulumi.get(self, "escalation_policy")
+
+    @property
+    @pulumi.getter(name="htmlUrl")
+    def html_url(self) -> str:
+        return pulumi.get(self, "html_url")
+
+    @property
+    @pulumi.getter(name="incidentUrgencyRule")
+    def incident_urgency_rule(self) -> 'outputs.ServiceIncidentUrgencyRule':
+        return pulumi.get(self, "incident_urgency_rule")
+
+    @property
+    @pulumi.getter(name="lastIncidentTimestamp")
+    def last_incident_timestamp(self) -> str:
+        return pulumi.get(self, "last_incident_timestamp")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the service.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="scheduledActions")
+    def scheduled_actions(self) -> Optional[List['outputs.ServiceScheduledAction']]:
+        return pulumi.get(self, "scheduled_actions")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="supportHours")
+    def support_hours(self) -> Optional['outputs.ServiceSupportHours']:
+        return pulumi.get(self, "support_hours")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

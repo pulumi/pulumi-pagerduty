@@ -5,9 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
 
+__all__ = [
+    'GetVendorResult',
+    'AwaitableGetVendorResult',
+    'get_vendor',
+]
+
+@pulumi.output_type
 class GetVendorResult:
     """
     A collection of values returned by getVendor.
@@ -15,22 +22,39 @@ class GetVendorResult:
     def __init__(__self__, id=None, name=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The short name of the found vendor.
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The generic service type for this vendor.
         """
+        return pulumi.get(self, "type")
+
+
 class AwaitableGetVendorResult(GetVendorResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -41,7 +65,9 @@ class AwaitableGetVendorResult(GetVendorResult):
             name=self.name,
             type=self.type)
 
-def get_vendor(name=None,opts=None):
+
+def get_vendor(name: Optional[str] = None,
+               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVendorResult:
     """
     Use this data source to get information about a specific [vendor](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Vendors/get_vendors) that you can use for a service integration (e.g Amazon Cloudwatch, Splunk, Datadog).
 
@@ -57,16 +83,16 @@ def get_vendor(name=None,opts=None):
         teams=[pagerduty_team["example"]["id"]])
     foo = pagerduty.EscalationPolicy("foo",
         num_loops=2,
-        rules=[{
-            "escalationDelayInMinutes": 10,
-            "targets": [{
-                "id": example_user.id,
-                "type": "user",
-            }],
-        }])
+        rules=[pagerduty.EscalationPolicyRuleArgs(
+            escalation_delay_in_minutes=10,
+            targets=[pagerduty.EscalationPolicyRuleTargetArgs(
+                id=example_user.id,
+                type="user",
+            )],
+        )])
     example_service = pagerduty.Service("exampleService",
-        acknowledgement_timeout=600,
-        auto_resolve_timeout=14400,
+        acknowledgement_timeout="600",
+        auto_resolve_timeout="14400",
         escalation_policy=pagerduty_escalation_policy["example"]["id"])
     example_service_integration = pagerduty.ServiceIntegration("exampleServiceIntegration",
         service=example_service.id,
@@ -78,16 +104,14 @@ def get_vendor(name=None,opts=None):
     :param str name: The vendor name to use to find a vendor in the PagerDuty API.
     """
     __args__ = dict()
-
-
     __args__['name'] = name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('pagerduty:index/getVendor:getVendor', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('pagerduty:index/getVendor:getVendor', __args__, opts=opts, typ=GetVendorResult).value
 
     return AwaitableGetVendorResult(
-        id=__ret__.get('id'),
-        name=__ret__.get('name'),
-        type=__ret__.get('type'))
+        id=__ret__.id,
+        name=__ret__.name,
+        type=__ret__.type)

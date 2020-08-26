@@ -5,28 +5,23 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+
+__all__ = ['BusinessService']
 
 
 class BusinessService(pulumi.CustomResource):
-    description: pulumi.Output[str]
-    html_url: pulumi.Output[str]
-    name: pulumi.Output[str]
-    """
-    The name of the business service.
-    """
-    point_of_contact: pulumi.Output[str]
-    """
-    The owner of the business service.
-    """
-    self: pulumi.Output[str]
-    summary: pulumi.Output[str]
-    type: pulumi.Output[str]
-    """
-    Default value is `business_service`. Can also be set as `business_service_reference`.
-    """
-    def __init__(__self__, resource_name, opts=None, description=None, name=None, point_of_contact=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 point_of_contact: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         A [business service](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Business_Services/get_business_services) allows you to model capabilities that span multiple technical services and that may be owned by several different teams.
 
@@ -58,7 +53,7 @@ class BusinessService(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -78,13 +73,22 @@ class BusinessService(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, description=None, html_url=None, name=None, point_of_contact=None, self=None, summary=None, type=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            html_url: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            point_of_contact: Optional[pulumi.Input[str]] = None,
+            self: Optional[pulumi.Input[str]] = None,
+            summary: Optional[pulumi.Input[str]] = None,
+            type: Optional[pulumi.Input[str]] = None) -> 'BusinessService':
         """
         Get an existing BusinessService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the business service.
         :param pulumi.Input[str] point_of_contact: The owner of the business service.
@@ -103,8 +107,53 @@ class BusinessService(pulumi.CustomResource):
         __props__["type"] = type
         return BusinessService(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="htmlUrl")
+    def html_url(self) -> str:
+        return pulumi.get(self, "html_url")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the business service.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="pointOfContact")
+    def point_of_contact(self) -> Optional[str]:
+        """
+        The owner of the business service.
+        """
+        return pulumi.get(self, "point_of_contact")
+
+    @property
+    @pulumi.getter
+    def self(self) -> str:
+        return pulumi.get(self, "self")
+
+    @property
+    @pulumi.getter
+    def summary(self) -> str:
+        return pulumi.get(self, "summary")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Default value is `business_service`. Can also be set as `business_service_reference`.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

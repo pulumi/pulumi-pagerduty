@@ -1,3 +1,11 @@
+[![Actions Status](https://github.com/pulumi/pulumi-pagerduty/workflows/master/badge.svg)](https://github.com/pulumi/pulumi-pagerduty/actions)
+[![Slack](http://www.pulumi.com/images/docs/badges/slack.svg)](https://slack.pulumi.com)
+[![NPM version](https://badge.fury.io/js/%40pulumi%2Fpagerduty.svg)](https://www.npmjs.com/package/@pulumi/pagerduty)
+[![Python version](https://badge.fury.io/py/pulumi-pagerduty.svg)](https://pypi.org/project/pulumi-pagerduty)
+[![NuGet version](https://badge.fury.io/nu/pulumi.pagerduty.svg)](https://badge.fury.io/nu/pulumi.pagerduty)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/pulumi/pulumi-pagerduty/sdk/go)](https://pkg.go.dev/github.com/pulumi/pulumi-pagerduty/sdk/go)
+[![License](https://img.shields.io/npm/l/%40pulumi%2Fpulumi.svg)](https://github.com/pulumi/pulumi-pagerduty/blob/master/LICENSE)
+
 # PagerDuty Resource Provider
 
 The PagerDuty Resource Provider lets you manage PagerDuty resources.

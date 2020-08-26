@@ -29,7 +29,7 @@ import (
 // 		_, err := pagerduty.NewMaintenanceWindow(ctx, "example", &pagerduty.MaintenanceWindowArgs{
 // 			EndTime: pulumi.String("2015-11-09T22:00:00-05:00"),
 // 			Services: pulumi.StringArray{
-// 				pulumi.String(pagerduty_service.Example.Id),
+// 				pulumi.Any(pagerduty_service.Example.Id),
 // 			},
 // 			StartTime: pulumi.String("2015-11-09T20:00:00-05:00"),
 // 		})

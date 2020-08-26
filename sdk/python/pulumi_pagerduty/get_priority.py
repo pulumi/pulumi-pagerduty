@@ -5,9 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
 
+__all__ = [
+    'GetPriorityResult',
+    'AwaitableGetPriorityResult',
+    'get_priority',
+]
+
+@pulumi.output_type
 class GetPriorityResult:
     """
     A collection of values returned by getPriority.
@@ -15,22 +22,39 @@ class GetPriorityResult:
     def __init__(__self__, description=None, id=None, name=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        pulumi.set(__self__, "description", description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
         """
         A description of the found priority.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the found priority.
         """
+        return pulumi.get(self, "name")
+
+
 class AwaitableGetPriorityResult(GetPriorityResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -41,7 +65,9 @@ class AwaitableGetPriorityResult(GetPriorityResult):
             id=self.id,
             name=self.name)
 
-def get_priority(name=None,opts=None):
+
+def get_priority(name: Optional[str] = None,
+                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPriorityResult:
     """
     Use this data source to get information about a specific [priority](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1priorities/get) that you can use for other PagerDuty resources.
 
@@ -56,50 +82,48 @@ def get_priority(name=None,opts=None):
     foo_ruleset_rule = pagerduty.RulesetRule("fooRulesetRule",
         ruleset=foo_ruleset.id,
         position=0,
-        disabled="false",
-        conditions={
-            "operator": "and",
-            "subconditions": [
-                {
-                    "operator": "contains",
-                    "parameters": [{
-                        "value": "disk space",
-                        "path": "payload.summary",
-                    }],
-                },
-                {
-                    "operator": "contains",
-                    "parameters": [{
-                        "value": "db",
-                        "path": "payload.source",
-                    }],
-                },
+        disabled=False,
+        conditions=pagerduty.RulesetRuleConditionsArgs(
+            operator="and",
+            subconditions=[
+                pagerduty.RulesetRuleConditionsSubconditionArgs(
+                    operator="contains",
+                    parameters=[pagerduty.RulesetRuleConditionsSubconditionParameterArgs(
+                        value="disk space",
+                        path="payload.summary",
+                    )],
+                ),
+                pagerduty.RulesetRuleConditionsSubconditionArgs(
+                    operator="contains",
+                    parameters=[pagerduty.RulesetRuleConditionsSubconditionParameterArgs(
+                        value="db",
+                        path="payload.source",
+                    )],
+                ),
             ],
-        },
-        actions={
-            "routes": [{
-                "value": "P5DTL0K",
-            }],
-            "priorities": [{
-                "value": pagerduty_priority["p1"]["id"],
-            }],
-        })
+        ),
+        actions=pagerduty.RulesetRuleActionsArgs(
+            routes=[pagerduty.RulesetRuleActionsRouteArgs(
+                value="P5DTL0K",
+            )],
+            priorities=[pagerduty.RulesetRuleActionsPriorityArgs(
+                value=pagerduty_priority["p1"]["id"],
+            )],
+        ))
     ```
 
 
     :param str name: The name of the priority to find in the PagerDuty API.
     """
     __args__ = dict()
-
-
     __args__['name'] = name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('pagerduty:index/getPriority:getPriority', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('pagerduty:index/getPriority:getPriority', __args__, opts=opts, typ=GetPriorityResult).value
 
     return AwaitableGetPriorityResult(
-        description=__ret__.get('description'),
-        id=__ret__.get('id'),
-        name=__ret__.get('name'))
+        description=__ret__.description,
+        id=__ret__.id,
+        name=__ret__.name)

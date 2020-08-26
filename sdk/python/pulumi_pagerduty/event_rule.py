@@ -5,28 +5,22 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+
+__all__ = ['EventRule']
 
 
 class EventRule(pulumi.CustomResource):
-    action_json: pulumi.Output[str]
-    """
-    A list of one or more actions for each rule. Each action within the list is itself a list.
-    """
-    advanced_condition_json: pulumi.Output[str]
-    """
-    Contains a list of specific conditions including `active-between`,`scheduled-weekly`, and `frequency-over`. The first element in the list is the label for the condition, followed by a list of values for the specific condition. For more details on these conditions see [Advanced Condition](https://v2.developer.pagerduty.com/docs/global-event-rules-api#section-advanced-condition) in the PagerDuty API documentation.
-    """
-    catch_all: pulumi.Output[bool]
-    """
-    A boolean that indicates whether the rule is a catch all for the account. This field is read-only through the PagerDuty API.
-    """
-    condition_json: pulumi.Output[str]
-    """
-    Contains a list of conditions. The first field in the list is `and` or `or`, followed by a list of operators and values.
-    """
-    def __init__(__self__, resource_name, opts=None, action_json=None, advanced_condition_json=None, condition_json=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 action_json: Optional[pulumi.Input[str]] = None,
+                 advanced_condition_json: Optional[pulumi.Input[str]] = None,
+                 condition_json: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         *NOTE: The `EventRule` resource has been deprecated in favor the the Ruleset and RulesetRule resources. Please use the `ruleset` based resources for working with Event Rules.*
 
@@ -156,7 +150,7 @@ class EventRule(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -177,13 +171,19 @@ class EventRule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, action_json=None, advanced_condition_json=None, catch_all=None, condition_json=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            action_json: Optional[pulumi.Input[str]] = None,
+            advanced_condition_json: Optional[pulumi.Input[str]] = None,
+            catch_all: Optional[pulumi.Input[bool]] = None,
+            condition_json: Optional[pulumi.Input[str]] = None) -> 'EventRule':
         """
         Get an existing EventRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action_json: A list of one or more actions for each rule. Each action within the list is itself a list.
         :param pulumi.Input[str] advanced_condition_json: Contains a list of specific conditions including `active-between`,`scheduled-weekly`, and `frequency-over`. The first element in the list is the label for the condition, followed by a list of values for the specific condition. For more details on these conditions see [Advanced Condition](https://v2.developer.pagerduty.com/docs/global-event-rules-api#section-advanced-condition) in the PagerDuty API documentation.
@@ -200,8 +200,41 @@ class EventRule(pulumi.CustomResource):
         __props__["condition_json"] = condition_json
         return EventRule(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="actionJson")
+    def action_json(self) -> str:
+        """
+        A list of one or more actions for each rule. Each action within the list is itself a list.
+        """
+        return pulumi.get(self, "action_json")
+
+    @property
+    @pulumi.getter(name="advancedConditionJson")
+    def advanced_condition_json(self) -> Optional[str]:
+        """
+        Contains a list of specific conditions including `active-between`,`scheduled-weekly`, and `frequency-over`. The first element in the list is the label for the condition, followed by a list of values for the specific condition. For more details on these conditions see [Advanced Condition](https://v2.developer.pagerduty.com/docs/global-event-rules-api#section-advanced-condition) in the PagerDuty API documentation.
+        """
+        return pulumi.get(self, "advanced_condition_json")
+
+    @property
+    @pulumi.getter(name="catchAll")
+    def catch_all(self) -> bool:
+        """
+        A boolean that indicates whether the rule is a catch all for the account. This field is read-only through the PagerDuty API.
+        """
+        return pulumi.get(self, "catch_all")
+
+    @property
+    @pulumi.getter(name="conditionJson")
+    def condition_json(self) -> str:
+        """
+        Contains a list of conditions. The first field in the list is `and` or `or`, followed by a list of operators and values.
+        """
+        return pulumi.get(self, "condition_json")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

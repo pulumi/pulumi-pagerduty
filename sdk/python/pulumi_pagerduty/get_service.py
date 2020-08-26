@@ -5,9 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
 
+__all__ = [
+    'GetServiceResult',
+    'AwaitableGetServiceResult',
+    'get_service',
+]
+
+@pulumi.output_type
 class GetServiceResult:
     """
     A collection of values returned by getService.
@@ -15,16 +22,28 @@ class GetServiceResult:
     def __init__(__self__, id=None, name=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The short name of the found service.
         """
+        return pulumi.get(self, "name")
+
+
 class AwaitableGetServiceResult(GetServiceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -34,7 +53,9 @@ class AwaitableGetServiceResult(GetServiceResult):
             id=self.id,
             name=self.name)
 
-def get_service(name=None,opts=None):
+
+def get_service(name: Optional[str] = None,
+                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
     Use this data source to get information about a specific [service](https://api-reference.pagerduty.com/#!/Services/get_services).
 
@@ -56,15 +77,13 @@ def get_service(name=None,opts=None):
     :param str name: The service name to use to find a service in the PagerDuty API.
     """
     __args__ = dict()
-
-
     __args__['name'] = name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('pagerduty:index/getService:getService', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('pagerduty:index/getService:getService', __args__, opts=opts, typ=GetServiceResult).value
 
     return AwaitableGetServiceResult(
-        id=__ret__.get('id'),
-        name=__ret__.get('name'))
+        id=__ret__.id,
+        name=__ret__.name)

@@ -5,9 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
 
+__all__ = [
+    'GetTeamResult',
+    'AwaitableGetTeamResult',
+    'get_team',
+]
+
+@pulumi.output_type
 class GetTeamResult:
     """
     A collection of values returned by getTeam.
@@ -15,22 +22,39 @@ class GetTeamResult:
     def __init__(__self__, description=None, id=None, name=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        pulumi.set(__self__, "description", description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
         """
         A description of the found team.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the found team.
         """
+        return pulumi.get(self, "name")
+
+
 class AwaitableGetTeamResult(GetTeamResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -41,7 +65,9 @@ class AwaitableGetTeamResult(GetTeamResult):
             id=self.id,
             name=self.name)
 
-def get_team(name=None,opts=None):
+
+def get_team(name: Optional[str] = None,
+             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTeamResult:
     """
     Use this data source to get information about a specific [team](https://v1.developer.pagerduty.com/documentation/rest/teams/list) that you can use for other PagerDuty resources.
 
@@ -55,13 +81,13 @@ def get_team(name=None,opts=None):
     devops = pagerduty.get_team(name="devops")
     foo = pagerduty.EscalationPolicy("foo",
         num_loops=2,
-        rules=[{
-            "escalationDelayInMinutes": 10,
-            "targets": [{
-                "id": me.id,
-                "type": "user",
-            }],
-        }],
+        rules=[pagerduty.EscalationPolicyRuleArgs(
+            escalation_delay_in_minutes=10,
+            targets=[pagerduty.EscalationPolicyRuleTargetArgs(
+                id=me.id,
+                type="user",
+            )],
+        )],
         teams=[devops.id])
     ```
 
@@ -69,16 +95,14 @@ def get_team(name=None,opts=None):
     :param str name: The name of the team to find in the PagerDuty API.
     """
     __args__ = dict()
-
-
     __args__['name'] = name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('pagerduty:index/getTeam:getTeam', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('pagerduty:index/getTeam:getTeam', __args__, opts=opts, typ=GetTeamResult).value
 
     return AwaitableGetTeamResult(
-        description=__ret__.get('description'),
-        id=__ret__.get('id'),
-        name=__ret__.get('name'))
+        description=__ret__.description,
+        id=__ret__.id,
+        name=__ret__.name)

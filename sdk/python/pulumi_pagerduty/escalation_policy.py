@@ -5,35 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['EscalationPolicy']
 
 
 class EscalationPolicy(pulumi.CustomResource):
-    description: pulumi.Output[str]
-    name: pulumi.Output[str]
-    """
-    The name of the escalation policy.
-    """
-    num_loops: pulumi.Output[float]
-    """
-    The number of times the escalation policy will repeat after reaching the end of its escalation.
-    """
-    rules: pulumi.Output[list]
-    """
-    An Escalation rule block. Escalation rules documented below.
-
-      * `escalationDelayInMinutes` (`float`) - The number of minutes before an unacknowledged incident escalates away from this rule.
-      * `id` (`str`) - A target ID
-      * `targets` (`list`)
-        * `id` (`str`) - A target ID
-        * `type` (`str`) - Can be `user`, `schedule`, `user_reference` or `schedule_reference`. Defaults to `user_reference`
-    """
-    teams: pulumi.Output[list]
-    """
-    Teams associated with the policy. Account must have the `teams` ability to use this parameter.
-    """
-    def __init__(__self__, resource_name, opts=None, description=None, name=None, num_loops=None, rules=None, teams=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 num_loops: Optional[pulumi.Input[float]] = None,
+                 rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EscalationPolicyRuleArgs']]]]] = None,
+                 teams: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         An [escalation policy](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Escalation_Policies/get_escalation_policies) determines what user or schedule will be notified first, second, and so on when an incident is triggered. Escalation policies are used by one or more services.
 
@@ -49,13 +40,13 @@ class EscalationPolicy(pulumi.CustomResource):
             teams=[example_team.id])
         example_escalation_policy = pagerduty.EscalationPolicy("exampleEscalationPolicy",
             num_loops=2,
-            rules=[{
-                "escalationDelayInMinutes": 10,
-                "targets": [{
-                    "id": example_user.id,
-                    "type": "user",
-                }],
-            }],
+            rules=[pagerduty.EscalationPolicyRuleArgs(
+                escalation_delay_in_minutes=10,
+                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
+                    id=example_user.id,
+                    type="user",
+                )],
+            )],
             teams=[example_team.id])
         ```
 
@@ -63,16 +54,8 @@ class EscalationPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the escalation policy.
         :param pulumi.Input[float] num_loops: The number of times the escalation policy will repeat after reaching the end of its escalation.
-        :param pulumi.Input[list] rules: An Escalation rule block. Escalation rules documented below.
-        :param pulumi.Input[list] teams: Teams associated with the policy. Account must have the `teams` ability to use this parameter.
-
-        The **rules** object supports the following:
-
-          * `escalationDelayInMinutes` (`pulumi.Input[float]`) - The number of minutes before an unacknowledged incident escalates away from this rule.
-          * `id` (`pulumi.Input[str]`) - A target ID
-          * `targets` (`pulumi.Input[list]`)
-            * `id` (`pulumi.Input[str]`) - A target ID
-            * `type` (`pulumi.Input[str]`) - Can be `user`, `schedule`, `user_reference` or `schedule_reference`. Defaults to `user_reference`
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['EscalationPolicyRuleArgs']]]] rules: An Escalation rule block. Escalation rules documented below.
+        :param pulumi.Input[List[pulumi.Input[str]]] teams: Teams associated with the policy. Account must have the `teams` ability to use this parameter.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -85,7 +68,7 @@ class EscalationPolicy(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -105,26 +88,25 @@ class EscalationPolicy(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, description=None, name=None, num_loops=None, rules=None, teams=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            num_loops: Optional[pulumi.Input[float]] = None,
+            rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EscalationPolicyRuleArgs']]]]] = None,
+            teams: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None) -> 'EscalationPolicy':
         """
         Get an existing EscalationPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the escalation policy.
         :param pulumi.Input[float] num_loops: The number of times the escalation policy will repeat after reaching the end of its escalation.
-        :param pulumi.Input[list] rules: An Escalation rule block. Escalation rules documented below.
-        :param pulumi.Input[list] teams: Teams associated with the policy. Account must have the `teams` ability to use this parameter.
-
-        The **rules** object supports the following:
-
-          * `escalationDelayInMinutes` (`pulumi.Input[float]`) - The number of minutes before an unacknowledged incident escalates away from this rule.
-          * `id` (`pulumi.Input[str]`) - A target ID
-          * `targets` (`pulumi.Input[list]`)
-            * `id` (`pulumi.Input[str]`) - A target ID
-            * `type` (`pulumi.Input[str]`) - Can be `user`, `schedule`, `user_reference` or `schedule_reference`. Defaults to `user_reference`
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['EscalationPolicyRuleArgs']]]] rules: An Escalation rule block. Escalation rules documented below.
+        :param pulumi.Input[List[pulumi.Input[str]]] teams: Teams associated with the policy. Account must have the `teams` ability to use this parameter.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -137,8 +119,46 @@ class EscalationPolicy(pulumi.CustomResource):
         __props__["teams"] = teams
         return EscalationPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the escalation policy.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="numLoops")
+    def num_loops(self) -> Optional[float]:
+        """
+        The number of times the escalation policy will repeat after reaching the end of its escalation.
+        """
+        return pulumi.get(self, "num_loops")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> List['outputs.EscalationPolicyRule']:
+        """
+        An Escalation rule block. Escalation rules documented below.
+        """
+        return pulumi.get(self, "rules")
+
+    @property
+    @pulumi.getter
+    def teams(self) -> Optional[List[str]]:
+        """
+        Teams associated with the policy. Account must have the `teams` ability to use this parameter.
+        """
+        return pulumi.get(self, "teams")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

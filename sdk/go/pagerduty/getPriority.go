@@ -66,7 +66,7 @@ import (
 // 				},
 // 				Priorities: pagerduty.RulesetRuleActionsPriorityArray{
 // 					&pagerduty.RulesetRuleActionsPriorityArgs{
-// 						Value: pulumi.String(pagerduty_priority.P1.Id),
+// 						Value: pulumi.Any(pagerduty_priority.P1.Id),
 // 					},
 // 				},
 // 			},

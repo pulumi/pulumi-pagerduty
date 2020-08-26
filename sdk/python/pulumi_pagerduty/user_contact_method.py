@@ -5,44 +5,25 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+
+__all__ = ['UserContactMethod']
 
 
 class UserContactMethod(pulumi.CustomResource):
-    address: pulumi.Output[str]
-    """
-    The "address" to deliver to: `email`, `phone number`, etc., depending on the type.
-    """
-    blacklisted: pulumi.Output[bool]
-    """
-    If true, this phone has been blacklisted by PagerDuty and no messages will be sent to it.
-    """
-    country_code: pulumi.Output[float]
-    """
-    The 1-to-3 digit country calling code. Required when using `phone_contact_method` or `sms_contact_method`.
-    """
-    enabled: pulumi.Output[bool]
-    """
-    If true, this phone is capable of receiving SMS messages.
-    """
-    label: pulumi.Output[str]
-    """
-    The label (e.g., "Work", "Mobile", etc.).
-    """
-    send_short_email: pulumi.Output[bool]
-    """
-    Send an abbreviated email message instead of the standard email output.
-    """
-    type: pulumi.Output[str]
-    """
-    The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
-    """
-    user_id: pulumi.Output[str]
-    """
-    The ID of the user.
-    """
-    def __init__(__self__, resource_name, opts=None, address=None, country_code=None, label=None, send_short_email=None, type=None, user_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 address: Optional[pulumi.Input[str]] = None,
+                 country_code: Optional[pulumi.Input[float]] = None,
+                 label: Optional[pulumi.Input[str]] = None,
+                 send_short_email: Optional[pulumi.Input[bool]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 user_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         A [contact method](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Users/get_users_id_contact_methods) is a contact method for a PagerDuty user (email, phone or SMS).
 
@@ -62,13 +43,13 @@ class UserContactMethod(pulumi.CustomResource):
             user_id=example.id)
         phone = pagerduty.UserContactMethod("phone",
             address="2025550199",
-            country_code="+1",
+            country_code=1,
             label="Work",
             type="phone_contact_method",
             user_id=example.id)
         sms = pagerduty.UserContactMethod("sms",
             address="2025550199",
-            country_code="+1",
+            country_code=1,
             label="Work",
             type="sms_contact_method",
             user_id=example.id)
@@ -94,7 +75,7 @@ class UserContactMethod(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -123,13 +104,23 @@ class UserContactMethod(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, address=None, blacklisted=None, country_code=None, enabled=None, label=None, send_short_email=None, type=None, user_id=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            address: Optional[pulumi.Input[str]] = None,
+            blacklisted: Optional[pulumi.Input[bool]] = None,
+            country_code: Optional[pulumi.Input[float]] = None,
+            enabled: Optional[pulumi.Input[bool]] = None,
+            label: Optional[pulumi.Input[str]] = None,
+            send_short_email: Optional[pulumi.Input[bool]] = None,
+            type: Optional[pulumi.Input[str]] = None,
+            user_id: Optional[pulumi.Input[str]] = None) -> 'UserContactMethod':
         """
         Get an existing UserContactMethod resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address: The "address" to deliver to: `email`, `phone number`, etc., depending on the type.
         :param pulumi.Input[bool] blacklisted: If true, this phone has been blacklisted by PagerDuty and no messages will be sent to it.
@@ -154,8 +145,73 @@ class UserContactMethod(pulumi.CustomResource):
         __props__["user_id"] = user_id
         return UserContactMethod(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def address(self) -> str:
+        """
+        The "address" to deliver to: `email`, `phone number`, etc., depending on the type.
+        """
+        return pulumi.get(self, "address")
+
+    @property
+    @pulumi.getter
+    def blacklisted(self) -> bool:
+        """
+        If true, this phone has been blacklisted by PagerDuty and no messages will be sent to it.
+        """
+        return pulumi.get(self, "blacklisted")
+
+    @property
+    @pulumi.getter(name="countryCode")
+    def country_code(self) -> Optional[float]:
+        """
+        The 1-to-3 digit country calling code. Required when using `phone_contact_method` or `sms_contact_method`.
+        """
+        return pulumi.get(self, "country_code")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        If true, this phone is capable of receiving SMS messages.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        """
+        The label (e.g., "Work", "Mobile", etc.).
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter(name="sendShortEmail")
+    def send_short_email(self) -> Optional[bool]:
+        """
+        Send an abbreviated email message instead of the standard email output.
+        """
+        return pulumi.get(self, "send_short_email")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> str:
+        """
+        The ID of the user.
+        """
+        return pulumi.get(self, "user_id")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

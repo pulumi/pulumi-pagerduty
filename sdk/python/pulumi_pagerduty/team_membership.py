@@ -5,24 +5,22 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+
+__all__ = ['TeamMembership']
 
 
 class TeamMembership(pulumi.CustomResource):
-    role: pulumi.Output[str]
-    """
-    The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.
-    """
-    team_id: pulumi.Output[str]
-    """
-    The ID of the team in which the user will belong.
-    """
-    user_id: pulumi.Output[str]
-    """
-    The ID of the user to add to the team.
-    """
-    def __init__(__self__, resource_name, opts=None, role=None, team_id=None, user_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 role: Optional[pulumi.Input[str]] = None,
+                 team_id: Optional[pulumi.Input[str]] = None,
+                 user_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         A [team membership](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Teams/put_teams_id_users_user_id) manages memberships within a team.
 
@@ -57,7 +55,7 @@ class TeamMembership(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -77,13 +75,18 @@ class TeamMembership(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, role=None, team_id=None, user_id=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            role: Optional[pulumi.Input[str]] = None,
+            team_id: Optional[pulumi.Input[str]] = None,
+            user_id: Optional[pulumi.Input[str]] = None) -> 'TeamMembership':
         """
         Get an existing TeamMembership resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] role: The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.
         :param pulumi.Input[str] team_id: The ID of the team in which the user will belong.
@@ -98,8 +101,33 @@ class TeamMembership(pulumi.CustomResource):
         __props__["user_id"] = user_id
         return TeamMembership(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[str]:
+        """
+        The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.
+        """
+        return pulumi.get(self, "role")
+
+    @property
+    @pulumi.getter(name="teamId")
+    def team_id(self) -> str:
+        """
+        The ID of the team in which the user will belong.
+        """
+        return pulumi.get(self, "team_id")
+
+    @property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> str:
+        """
+        The ID of the user to add to the team.
+        """
+        return pulumi.get(self, "user_id")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

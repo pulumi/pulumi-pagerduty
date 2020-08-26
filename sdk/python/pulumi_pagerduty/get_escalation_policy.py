@@ -5,9 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
 
+__all__ = [
+    'GetEscalationPolicyResult',
+    'AwaitableGetEscalationPolicyResult',
+    'get_escalation_policy',
+]
+
+@pulumi.output_type
 class GetEscalationPolicyResult:
     """
     A collection of values returned by getEscalationPolicy.
@@ -15,16 +22,28 @@ class GetEscalationPolicyResult:
     def __init__(__self__, id=None, name=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The short name of the found escalation policy.
         """
+        return pulumi.get(self, "name")
+
+
 class AwaitableGetEscalationPolicyResult(GetEscalationPolicyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -34,7 +53,9 @@ class AwaitableGetEscalationPolicyResult(GetEscalationPolicyResult):
             id=self.id,
             name=self.name)
 
-def get_escalation_policy(name=None,opts=None):
+
+def get_escalation_policy(name: Optional[str] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEscalationPolicyResult:
     """
     Use this data source to get information about a specific [escalation policy](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Escalation_Policies/get_escalation_policies) that you can use for other PagerDuty resources.
 
@@ -46,8 +67,8 @@ def get_escalation_policy(name=None,opts=None):
 
     test_escalation_policy = pagerduty.get_escalation_policy(name="Engineering Escalation Policy")
     test_service = pagerduty.Service("testService",
-        acknowledgement_timeout=600,
-        auto_resolve_timeout=14400,
+        acknowledgement_timeout="600",
+        auto_resolve_timeout="14400",
         escalation_policy=test_escalation_policy.id)
     ```
 
@@ -55,15 +76,13 @@ def get_escalation_policy(name=None,opts=None):
     :param str name: The name to use to find an escalation policy in the PagerDuty API.
     """
     __args__ = dict()
-
-
     __args__['name'] = name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('pagerduty:index/getEscalationPolicy:getEscalationPolicy', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('pagerduty:index/getEscalationPolicy:getEscalationPolicy', __args__, opts=opts, typ=GetEscalationPolicyResult).value
 
     return AwaitableGetEscalationPolicyResult(
-        id=__ret__.get('id'),
-        name=__ret__.get('name'))
+        id=__ret__.id,
+        name=__ret__.name)

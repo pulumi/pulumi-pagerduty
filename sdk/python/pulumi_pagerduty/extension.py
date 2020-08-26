@@ -5,38 +5,25 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+
+__all__ = ['Extension']
 
 
 class Extension(pulumi.CustomResource):
-    config: pulumi.Output[str]
-    """
-    The configuration of the service extension as string containing plain JSON-encoded data.
-    """
-    endpoint_url: pulumi.Output[str]
-    """
-    The url of the extension.  
-    **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `getExtensionSchema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpoint_url`, but one with named `Slack` accepts.
-    """
-    extension_objects: pulumi.Output[list]
-    """
-    This is the objects for which the extension applies (An array of service ids).
-    """
-    extension_schema: pulumi.Output[str]
-    """
-    This is the schema for this extension.
-    """
-    html_url: pulumi.Output[str]
-    """
-    URL at which the entity is uniquely displayed in the Web app
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the service extension.
-    """
-    type: pulumi.Output[str]
-    def __init__(__self__, resource_name, opts=None, config=None, endpoint_url=None, extension_objects=None, extension_schema=None, name=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 config: Optional[pulumi.Input[str]] = None,
+                 endpoint_url: Optional[pulumi.Input[str]] = None,
+                 extension_objects: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 extension_schema: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         An [extension](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Extensions/post_extensions) can be associated with a service.
 
@@ -52,16 +39,16 @@ class Extension(pulumi.CustomResource):
             teams=[pagerduty_team["example"]["id"]])
         foo = pagerduty.EscalationPolicy("foo",
             num_loops=2,
-            rules=[{
-                "escalationDelayInMinutes": 10,
-                "targets": [{
-                    "id": example_user.id,
-                    "type": "user",
-                }],
-            }])
+            rules=[pagerduty.EscalationPolicyRuleArgs(
+                escalation_delay_in_minutes=10,
+                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
+                    id=example_user.id,
+                    type="user",
+                )],
+            )])
         example_service = pagerduty.Service("exampleService",
-            acknowledgement_timeout=600,
-            auto_resolve_timeout=14400,
+            acknowledgement_timeout="600",
+            auto_resolve_timeout="14400",
             escalation_policy=pagerduty_escalation_policy["example"]["id"])
         slack = pagerduty.Extension("slack",
             config=\"\"\"{
@@ -85,7 +72,7 @@ class Extension(pulumi.CustomResource):
         :param pulumi.Input[str] config: The configuration of the service extension as string containing plain JSON-encoded data.
         :param pulumi.Input[str] endpoint_url: The url of the extension.  
                **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `getExtensionSchema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpoint_url`, but one with named `Slack` accepts.
-        :param pulumi.Input[list] extension_objects: This is the objects for which the extension applies (An array of service ids).
+        :param pulumi.Input[List[pulumi.Input[str]]] extension_objects: This is the objects for which the extension applies (An array of service ids).
         :param pulumi.Input[str] extension_schema: This is the schema for this extension.
         :param pulumi.Input[str] name: The name of the service extension.
         """
@@ -100,7 +87,7 @@ class Extension(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -124,18 +111,27 @@ class Extension(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, config=None, endpoint_url=None, extension_objects=None, extension_schema=None, html_url=None, name=None, type=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            config: Optional[pulumi.Input[str]] = None,
+            endpoint_url: Optional[pulumi.Input[str]] = None,
+            extension_objects: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            extension_schema: Optional[pulumi.Input[str]] = None,
+            html_url: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            type: Optional[pulumi.Input[str]] = None) -> 'Extension':
         """
         Get an existing Extension resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] config: The configuration of the service extension as string containing plain JSON-encoded data.
         :param pulumi.Input[str] endpoint_url: The url of the extension.  
                **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `getExtensionSchema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpoint_url`, but one with named `Slack` accepts.
-        :param pulumi.Input[list] extension_objects: This is the objects for which the extension applies (An array of service ids).
+        :param pulumi.Input[List[pulumi.Input[str]]] extension_objects: This is the objects for which the extension applies (An array of service ids).
         :param pulumi.Input[str] extension_schema: This is the schema for this extension.
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app
         :param pulumi.Input[str] name: The name of the service extension.
@@ -153,8 +149,63 @@ class Extension(pulumi.CustomResource):
         __props__["type"] = type
         return Extension(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def config(self) -> Optional[str]:
+        """
+        The configuration of the service extension as string containing plain JSON-encoded data.
+        """
+        return pulumi.get(self, "config")
+
+    @property
+    @pulumi.getter(name="endpointUrl")
+    def endpoint_url(self) -> Optional[str]:
+        """
+        The url of the extension.  
+        **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `getExtensionSchema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpoint_url`, but one with named `Slack` accepts.
+        """
+        return pulumi.get(self, "endpoint_url")
+
+    @property
+    @pulumi.getter(name="extensionObjects")
+    def extension_objects(self) -> List[str]:
+        """
+        This is the objects for which the extension applies (An array of service ids).
+        """
+        return pulumi.get(self, "extension_objects")
+
+    @property
+    @pulumi.getter(name="extensionSchema")
+    def extension_schema(self) -> str:
+        """
+        This is the schema for this extension.
+        """
+        return pulumi.get(self, "extension_schema")
+
+    @property
+    @pulumi.getter(name="htmlUrl")
+    def html_url(self) -> str:
+        """
+        URL at which the entity is uniquely displayed in the Web app
+        """
+        return pulumi.get(self, "html_url")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the service extension.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

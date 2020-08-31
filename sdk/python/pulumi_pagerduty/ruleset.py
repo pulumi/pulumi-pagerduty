@@ -15,7 +15,7 @@ __all__ = ['Ruleset']
 
 class Ruleset(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  team: Optional[pulumi.Input[pulumi.InputType['RulesetTeamArgs']]] = None,
@@ -101,7 +101,7 @@ class Ruleset(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the ruleset.
         """
@@ -109,7 +109,7 @@ class Ruleset(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routingKeys")
-    def routing_keys(self) -> List[str]:
+    def routing_keys(self) -> pulumi.Output[List[str]]:
         """
         Routing keys routed to this ruleset.
         """
@@ -117,7 +117,7 @@ class Ruleset(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def team(self) -> Optional['outputs.RulesetTeam']:
+    def team(self) -> pulumi.Output[Optional['outputs.RulesetTeam']]:
         """
         Reference to the team that owns the ruleset. If none is specified, only admins have access.
         """
@@ -125,7 +125,7 @@ class Ruleset(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Type of ruleset. Currently only sets to `global`.
         """

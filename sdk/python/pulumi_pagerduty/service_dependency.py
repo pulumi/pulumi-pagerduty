@@ -15,7 +15,7 @@ __all__ = ['ServiceDependency']
 
 class ServiceDependency(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dependencies: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceDependencyDependencyArgs']]]]] = None,
                  __props__=None,
@@ -105,7 +105,7 @@ class ServiceDependency(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def dependencies(self) -> List['outputs.ServiceDependencyDependency']:
+    def dependencies(self) -> pulumi.Output[List['outputs.ServiceDependencyDependency']]:
         """
         The relationship between the `supporting_service` and `dependent_service`.
         """

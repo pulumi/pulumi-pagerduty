@@ -13,7 +13,7 @@ __all__ = ['UserContactMethod']
 
 class UserContactMethod(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address: Optional[pulumi.Input[str]] = None,
                  country_code: Optional[pulumi.Input[float]] = None,
@@ -147,7 +147,7 @@ class UserContactMethod(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def address(self) -> str:
+    def address(self) -> pulumi.Output[str]:
         """
         The "address" to deliver to: `email`, `phone number`, etc., depending on the type.
         """
@@ -155,7 +155,7 @@ class UserContactMethod(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def blacklisted(self) -> bool:
+    def blacklisted(self) -> pulumi.Output[bool]:
         """
         If true, this phone has been blacklisted by PagerDuty and no messages will be sent to it.
         """
@@ -163,7 +163,7 @@ class UserContactMethod(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="countryCode")
-    def country_code(self) -> Optional[float]:
+    def country_code(self) -> pulumi.Output[Optional[float]]:
         """
         The 1-to-3 digit country calling code. Required when using `phone_contact_method` or `sms_contact_method`.
         """
@@ -171,7 +171,7 @@ class UserContactMethod(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> bool:
+    def enabled(self) -> pulumi.Output[bool]:
         """
         If true, this phone is capable of receiving SMS messages.
         """
@@ -179,7 +179,7 @@ class UserContactMethod(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def label(self) -> str:
+    def label(self) -> pulumi.Output[str]:
         """
         The label (e.g., "Work", "Mobile", etc.).
         """
@@ -187,7 +187,7 @@ class UserContactMethod(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sendShortEmail")
-    def send_short_email(self) -> Optional[bool]:
+    def send_short_email(self) -> pulumi.Output[Optional[bool]]:
         """
         Send an abbreviated email message instead of the standard email output.
         """
@@ -195,7 +195,7 @@ class UserContactMethod(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
         """
@@ -203,7 +203,7 @@ class UserContactMethod(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userId")
-    def user_id(self) -> str:
+    def user_id(self) -> pulumi.Output[str]:
         """
         The ID of the user.
         """

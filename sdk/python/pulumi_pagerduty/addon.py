@@ -13,7 +13,7 @@ __all__ = ['Addon']
 
 class Addon(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  src: Optional[pulumi.Input[str]] = None,
@@ -90,7 +90,7 @@ class Addon(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the add-on.
         """
@@ -98,7 +98,7 @@ class Addon(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def src(self) -> str:
+    def src(self) -> pulumi.Output[str]:
         """
         The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.
         """

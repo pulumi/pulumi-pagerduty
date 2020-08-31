@@ -13,7 +13,7 @@ __all__ = ['ServiceIntegration']
 
 class ServiceIntegration(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  integration_email: Optional[pulumi.Input[str]] = None,
                  integration_key: Optional[pulumi.Input[str]] = None,
@@ -162,7 +162,7 @@ class ServiceIntegration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="htmlUrl")
-    def html_url(self) -> str:
+    def html_url(self) -> pulumi.Output[str]:
         """
         URL at which the entity is uniquely displayed in the Web app
         """
@@ -170,7 +170,7 @@ class ServiceIntegration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="integrationEmail")
-    def integration_email(self) -> str:
+    def integration_email(self) -> pulumi.Output[str]:
         """
         This is the unique fully-qualified email address used for routing emails to this integration for processing.
         """
@@ -178,7 +178,7 @@ class ServiceIntegration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="integrationKey")
-    def integration_key(self) -> str:
+    def integration_key(self) -> pulumi.Output[str]:
         """
         This is the unique key used to route events to this integration when received via the PagerDuty Events API.
         """
@@ -186,7 +186,7 @@ class ServiceIntegration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the service integration.
         """
@@ -194,7 +194,7 @@ class ServiceIntegration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def service(self) -> str:
+    def service(self) -> pulumi.Output[str]:
         """
         The ID of the service the integration should belong to.
         """
@@ -202,7 +202,7 @@ class ServiceIntegration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The service type. Can be:
         `aws_cloudwatch_inbound_integration`,
@@ -219,7 +219,7 @@ class ServiceIntegration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def vendor(self) -> str:
+    def vendor(self) -> pulumi.Output[str]:
         """
         The ID of the vendor the integration should integrate with (e.g Datadog or Amazon Cloudwatch).
         """

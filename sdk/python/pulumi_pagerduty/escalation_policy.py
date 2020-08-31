@@ -15,7 +15,7 @@ __all__ = ['EscalationPolicy']
 
 class EscalationPolicy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -121,12 +121,12 @@ class EscalationPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the escalation policy.
         """
@@ -134,7 +134,7 @@ class EscalationPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="numLoops")
-    def num_loops(self) -> Optional[float]:
+    def num_loops(self) -> pulumi.Output[Optional[float]]:
         """
         The number of times the escalation policy will repeat after reaching the end of its escalation.
         """
@@ -142,7 +142,7 @@ class EscalationPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def rules(self) -> List['outputs.EscalationPolicyRule']:
+    def rules(self) -> pulumi.Output[List['outputs.EscalationPolicyRule']]:
         """
         An Escalation rule block. Escalation rules documented below.
         """
@@ -150,7 +150,7 @@ class EscalationPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def teams(self) -> Optional[List[str]]:
+    def teams(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Teams associated with the policy. Account must have the `teams` ability to use this parameter.
         """

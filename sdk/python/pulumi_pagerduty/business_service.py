@@ -13,7 +13,7 @@ __all__ = ['BusinessService']
 
 class BusinessService(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -109,17 +109,17 @@ class BusinessService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="htmlUrl")
-    def html_url(self) -> str:
+    def html_url(self) -> pulumi.Output[str]:
         return pulumi.get(self, "html_url")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the business service.
         """
@@ -127,7 +127,7 @@ class BusinessService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pointOfContact")
-    def point_of_contact(self) -> Optional[str]:
+    def point_of_contact(self) -> pulumi.Output[Optional[str]]:
         """
         The owner of the business service.
         """
@@ -135,17 +135,17 @@ class BusinessService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def self(self) -> str:
+    def self(self) -> pulumi.Output[str]:
         return pulumi.get(self, "self")
 
     @property
     @pulumi.getter
-    def summary(self) -> str:
+    def summary(self) -> pulumi.Output[str]:
         return pulumi.get(self, "summary")
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         Default value is `business_service`. Can also be set as `business_service_reference`.
         """

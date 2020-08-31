@@ -13,7 +13,7 @@ __all__ = ['TeamMembership']
 
 class TeamMembership(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  team_id: Optional[pulumi.Input[str]] = None,
@@ -103,7 +103,7 @@ class TeamMembership(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def role(self) -> Optional[str]:
+    def role(self) -> pulumi.Output[Optional[str]]:
         """
         The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.
         """
@@ -111,7 +111,7 @@ class TeamMembership(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="teamId")
-    def team_id(self) -> str:
+    def team_id(self) -> pulumi.Output[str]:
         """
         The ID of the team in which the user will belong.
         """
@@ -119,7 +119,7 @@ class TeamMembership(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userId")
-    def user_id(self) -> str:
+    def user_id(self) -> pulumi.Output[str]:
         """
         The ID of the user to add to the team.
         """

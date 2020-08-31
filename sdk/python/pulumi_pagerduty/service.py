@@ -15,7 +15,7 @@ __all__ = ['Service']
 
 class Service(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  acknowledgement_timeout: Optional[pulumi.Input[str]] = None,
                  alert_creation: Optional[pulumi.Input[str]] = None,
@@ -166,7 +166,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="acknowledgementTimeout")
-    def acknowledgement_timeout(self) -> Optional[str]:
+    def acknowledgement_timeout(self) -> pulumi.Output[Optional[str]]:
         """
         Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.
         """
@@ -174,7 +174,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="alertCreation")
-    def alert_creation(self) -> Optional[str]:
+    def alert_creation(self) -> pulumi.Output[Optional[str]]:
         """
         Must be one of two values. PagerDuty receives events from your monitoring systems and can then create incidents in different ways. Value "create_incidents" is default: events will create an incident that cannot be merged. Value "create_alerts_and_incidents" is the alternative: events will create an alert and then add it to a new incident, these incidents can be merged.
         """
@@ -182,7 +182,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="alertGrouping")
-    def alert_grouping(self) -> Optional[str]:
+    def alert_grouping(self) -> pulumi.Output[Optional[str]]:
         """
         Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan.
         """
@@ -190,7 +190,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="alertGroupingTimeout")
-    def alert_grouping_timeout(self) -> Optional[float]:
+    def alert_grouping_timeout(self) -> pulumi.Output[Optional[float]]:
         """
         The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
         """
@@ -198,7 +198,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoResolveTimeout")
-    def auto_resolve_timeout(self) -> Optional[str]:
+    def auto_resolve_timeout(self) -> pulumi.Output[Optional[str]]:
         """
         Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
         """
@@ -206,17 +206,17 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> str:
+    def created_at(self) -> pulumi.Output[str]:
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="escalationPolicy")
-    def escalation_policy(self) -> str:
+    def escalation_policy(self) -> pulumi.Output[str]:
         """
         The escalation policy used by this service.
         """
@@ -224,22 +224,22 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="htmlUrl")
-    def html_url(self) -> str:
+    def html_url(self) -> pulumi.Output[str]:
         return pulumi.get(self, "html_url")
 
     @property
     @pulumi.getter(name="incidentUrgencyRule")
-    def incident_urgency_rule(self) -> 'outputs.ServiceIncidentUrgencyRule':
+    def incident_urgency_rule(self) -> pulumi.Output['outputs.ServiceIncidentUrgencyRule']:
         return pulumi.get(self, "incident_urgency_rule")
 
     @property
     @pulumi.getter(name="lastIncidentTimestamp")
-    def last_incident_timestamp(self) -> str:
+    def last_incident_timestamp(self) -> pulumi.Output[str]:
         return pulumi.get(self, "last_incident_timestamp")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the service.
         """
@@ -247,17 +247,17 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scheduledActions")
-    def scheduled_actions(self) -> Optional[List['outputs.ServiceScheduledAction']]:
+    def scheduled_actions(self) -> pulumi.Output[Optional[List['outputs.ServiceScheduledAction']]]:
         return pulumi.get(self, "scheduled_actions")
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> pulumi.Output[str]:
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="supportHours")
-    def support_hours(self) -> Optional['outputs.ServiceSupportHours']:
+    def support_hours(self) -> pulumi.Output[Optional['outputs.ServiceSupportHours']]:
         return pulumi.get(self, "support_hours")
 
     def translate_output_property(self, prop):

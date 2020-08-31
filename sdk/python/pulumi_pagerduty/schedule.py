@@ -15,7 +15,7 @@ __all__ = ['Schedule']
 
 class Schedule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  layers: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ScheduleLayerArgs']]]]] = None,
@@ -132,7 +132,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the schedule
         """
@@ -140,7 +140,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def layers(self) -> List['outputs.ScheduleLayer']:
+    def layers(self) -> pulumi.Output[List['outputs.ScheduleLayer']]:
         """
         A schedule layer block. Schedule layers documented below.
         """
@@ -148,7 +148,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the schedule.
         """
@@ -156,7 +156,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def overflow(self) -> Optional[bool]:
+    def overflow(self) -> pulumi.Output[Optional[bool]]:
         """
         Any on-call schedule entries that pass the date range bounds will be truncated at the bounds, unless the parameter `overflow` is passed. For instance, if your schedule is a rotation that changes daily at midnight UTC, and your date range is from `2011-06-01T10:00:00Z` to `2011-06-01T14:00:00Z`:
         If you don't pass the overflow=true parameter, you will get one schedule entry returned with a start of `2011-06-01T10:00:00Z` and end of `2011-06-01T14:00:00Z`.
@@ -166,7 +166,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timeZone")
-    def time_zone(self) -> str:
+    def time_zone(self) -> pulumi.Output[str]:
         """
         The time zone of the schedule (e.g Europe/Berlin).
         """

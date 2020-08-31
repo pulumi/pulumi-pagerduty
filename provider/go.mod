@@ -6,7 +6,7 @@ replace github.com/Azure/go-autorest => github.com/Azure/go-autorest v12.4.3+inc
 
 require (
 	github.com/hashicorp/terraform-plugin-sdk v1.9.1
-	github.com/pulumi/pulumi-terraform-bridge/v2 v2.7.2
-	github.com/pulumi/pulumi/sdk/v2 v2.9.1-0.20200821035132-629254334213
+	github.com/pulumi/pulumi-terraform-bridge/v2 v2.7.3
+	github.com/pulumi/pulumi/sdk/v2 v2.9.1-0.20200825190708-910aa96016cd
 	github.com/terraform-providers/terraform-provider-pagerduty v1.7.1
 )

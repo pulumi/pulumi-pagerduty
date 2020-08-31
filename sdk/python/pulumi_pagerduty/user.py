@@ -13,7 +13,7 @@ __all__ = ['User']
 
 class User(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  color: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -139,7 +139,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="avatarUrl")
-    def avatar_url(self) -> str:
+    def avatar_url(self) -> pulumi.Output[str]:
         """
         The URL of the user's avatar.
         """
@@ -147,7 +147,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def color(self) -> str:
+    def color(self) -> pulumi.Output[str]:
         """
         The schedule color for the user. Valid options are purple, red, green, blue, teal, orange, brown, turquoise, dark-slate-blue, cayenne, orange-red, dark-orchid, dark-slate-grey, lime, dark-magenta, lime-green, midnight-blue, deep-pink, dark-green, dark-orange, dark-cyan, darkolive-green, dark-slate-gray, grey20, firebrick, maroon, crimson, dark-red, dark-goldenrod, chocolate, medium-violet-red, sea-green, olivedrab, forest-green, dark-olive-green, blue-violet, royal-blue, indigo, slate-blue, saddle-brown, or steel-blue.
         """
@@ -155,12 +155,12 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
-    def email(self) -> str:
+    def email(self) -> pulumi.Output[str]:
         """
         The user's email address.
         """
@@ -168,7 +168,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="htmlUrl")
-    def html_url(self) -> str:
+    def html_url(self) -> pulumi.Output[str]:
         """
         URL at which the entity is uniquely displayed in the Web app
         """
@@ -176,7 +176,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="invitationSent")
-    def invitation_sent(self) -> bool:
+    def invitation_sent(self) -> pulumi.Output[bool]:
         """
         If true, the user has an outstanding invitation.
         """
@@ -184,7 +184,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="jobTitle")
-    def job_title(self) -> Optional[str]:
+    def job_title(self) -> pulumi.Output[Optional[str]]:
         """
         The user's title.
         """
@@ -192,7 +192,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the user.
         """
@@ -200,7 +200,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def role(self) -> Optional[str]:
+    def role(self) -> pulumi.Output[Optional[str]]:
         """
         The user role. Account must have the `read_only_users` ability to set a user as a `read_only_user`. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user` or `user`
         """
@@ -208,7 +208,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def teams(self) -> List[str]:
+    def teams(self) -> pulumi.Output[List[str]]:
         """
         A list of teams the user should belong to. Please use `TeamMembership` instead.
         """
@@ -216,7 +216,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timeZone")
-    def time_zone(self) -> str:
+    def time_zone(self) -> pulumi.Output[str]:
         """
         The timezone of the user
         """

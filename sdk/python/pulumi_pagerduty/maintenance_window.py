@@ -13,7 +13,7 @@ __all__ = ['MaintenanceWindow']
 
 class MaintenanceWindow(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  end_time: Optional[pulumi.Input[str]] = None,
@@ -111,7 +111,7 @@ class MaintenanceWindow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description for the maintenance window.
         """
@@ -119,7 +119,7 @@ class MaintenanceWindow(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endTime")
-    def end_time(self) -> str:
+    def end_time(self) -> pulumi.Output[str]:
         """
         The maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `start_time`.
         """
@@ -127,7 +127,7 @@ class MaintenanceWindow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def services(self) -> List[str]:
+    def services(self) -> pulumi.Output[List[str]]:
         """
         A list of service IDs to include in the maintenance window.
         """
@@ -135,7 +135,7 @@ class MaintenanceWindow(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> str:
+    def start_time(self) -> pulumi.Output[str]:
         """
         The maintenance window's start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
         """

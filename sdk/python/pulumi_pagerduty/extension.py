@@ -13,7 +13,7 @@ __all__ = ['Extension']
 
 class Extension(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  config: Optional[pulumi.Input[str]] = None,
                  endpoint_url: Optional[pulumi.Input[str]] = None,
@@ -151,7 +151,7 @@ class Extension(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def config(self) -> Optional[str]:
+    def config(self) -> pulumi.Output[Optional[str]]:
         """
         The configuration of the service extension as string containing plain JSON-encoded data.
         """
@@ -159,7 +159,7 @@ class Extension(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endpointUrl")
-    def endpoint_url(self) -> Optional[str]:
+    def endpoint_url(self) -> pulumi.Output[Optional[str]]:
         """
         The url of the extension.  
         **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `getExtensionSchema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpoint_url`, but one with named `Slack` accepts.
@@ -168,7 +168,7 @@ class Extension(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="extensionObjects")
-    def extension_objects(self) -> List[str]:
+    def extension_objects(self) -> pulumi.Output[List[str]]:
         """
         This is the objects for which the extension applies (An array of service ids).
         """
@@ -176,7 +176,7 @@ class Extension(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="extensionSchema")
-    def extension_schema(self) -> str:
+    def extension_schema(self) -> pulumi.Output[str]:
         """
         This is the schema for this extension.
         """
@@ -184,7 +184,7 @@ class Extension(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="htmlUrl")
-    def html_url(self) -> str:
+    def html_url(self) -> pulumi.Output[str]:
         """
         URL at which the entity is uniquely displayed in the Web app
         """
@@ -192,7 +192,7 @@ class Extension(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the service extension.
         """
@@ -200,7 +200,7 @@ class Extension(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         return pulumi.get(self, "type")
 
     def translate_output_property(self, prop):

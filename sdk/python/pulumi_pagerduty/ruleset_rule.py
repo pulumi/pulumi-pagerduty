@@ -15,7 +15,7 @@ __all__ = ['RulesetRule']
 
 class RulesetRule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  actions: Optional[pulumi.Input[pulumi.InputType['RulesetRuleActionsArgs']]] = None,
                  conditions: Optional[pulumi.Input[pulumi.InputType['RulesetRuleConditionsArgs']]] = None,
@@ -169,7 +169,7 @@ class RulesetRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional['outputs.RulesetRuleActions']:
+    def actions(self) -> pulumi.Output[Optional['outputs.RulesetRuleActions']]:
         """
         Actions to apply to an event if the conditions match.
         """
@@ -177,7 +177,7 @@ class RulesetRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def conditions(self) -> Optional['outputs.RulesetRuleConditions']:
+    def conditions(self) -> pulumi.Output[Optional['outputs.RulesetRuleConditions']]:
         """
         Conditions evaluated to check if an event matches this event rule. Is always empty for the catch all rule, though.
         """
@@ -185,7 +185,7 @@ class RulesetRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def disabled(self) -> Optional[bool]:
+    def disabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether the rule is disabled and would therefore not be evaluated.
         """
@@ -193,7 +193,7 @@ class RulesetRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def position(self) -> Optional[float]:
+    def position(self) -> pulumi.Output[Optional[float]]:
         """
         Position/index of the rule within the ruleset.
         """
@@ -201,7 +201,7 @@ class RulesetRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def ruleset(self) -> str:
+    def ruleset(self) -> pulumi.Output[str]:
         """
         The ID of the ruleset that the rule belongs to.
         """
@@ -209,7 +209,7 @@ class RulesetRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timeFrame")
-    def time_frame(self) -> Optional['outputs.RulesetRuleTimeFrame']:
+    def time_frame(self) -> pulumi.Output[Optional['outputs.RulesetRuleTimeFrame']]:
         """
         Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
         """

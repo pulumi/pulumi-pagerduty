@@ -15,7 +15,7 @@ __all__ = ['UserNotificationRule']
 
 class UserNotificationRule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_method: Optional[pulumi.Input[pulumi.InputType['UserNotificationRuleContactMethodArgs']]] = None,
                  start_delay_in_minutes: Optional[pulumi.Input[float]] = None,
@@ -151,7 +151,7 @@ class UserNotificationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contactMethod")
-    def contact_method(self) -> 'outputs.UserNotificationRuleContactMethod':
+    def contact_method(self) -> pulumi.Output['outputs.UserNotificationRuleContactMethod']:
         """
         A contact method block, configured as a block described below.
         """
@@ -159,7 +159,7 @@ class UserNotificationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="startDelayInMinutes")
-    def start_delay_in_minutes(self) -> float:
+    def start_delay_in_minutes(self) -> pulumi.Output[float]:
         """
         The delay before firing the rule, in minutes.
         """
@@ -167,7 +167,7 @@ class UserNotificationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def urgency(self) -> str:
+    def urgency(self) -> pulumi.Output[str]:
         """
         Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
         """
@@ -175,7 +175,7 @@ class UserNotificationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userId")
-    def user_id(self) -> str:
+    def user_id(self) -> pulumi.Output[str]:
         """
         The ID of the user.
         """

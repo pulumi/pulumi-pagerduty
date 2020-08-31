@@ -13,7 +13,7 @@ __all__ = ['EventRule']
 
 class EventRule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action_json: Optional[pulumi.Input[str]] = None,
                  advanced_condition_json: Optional[pulumi.Input[str]] = None,
@@ -202,7 +202,7 @@ class EventRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="actionJson")
-    def action_json(self) -> str:
+    def action_json(self) -> pulumi.Output[str]:
         """
         A list of one or more actions for each rule. Each action within the list is itself a list.
         """
@@ -210,7 +210,7 @@ class EventRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="advancedConditionJson")
-    def advanced_condition_json(self) -> Optional[str]:
+    def advanced_condition_json(self) -> pulumi.Output[Optional[str]]:
         """
         Contains a list of specific conditions including `active-between`,`scheduled-weekly`, and `frequency-over`. The first element in the list is the label for the condition, followed by a list of values for the specific condition. For more details on these conditions see [Advanced Condition](https://v2.developer.pagerduty.com/docs/global-event-rules-api#section-advanced-condition) in the PagerDuty API documentation.
         """
@@ -218,7 +218,7 @@ class EventRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="catchAll")
-    def catch_all(self) -> bool:
+    def catch_all(self) -> pulumi.Output[bool]:
         """
         A boolean that indicates whether the rule is a catch all for the account. This field is read-only through the PagerDuty API.
         """
@@ -226,7 +226,7 @@ class EventRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="conditionJson")
-    def condition_json(self) -> str:
+    def condition_json(self) -> pulumi.Output[str]:
         """
         Contains a list of conditions. The first field in the list is `and` or `or`, followed by a list of operators and values.
         """

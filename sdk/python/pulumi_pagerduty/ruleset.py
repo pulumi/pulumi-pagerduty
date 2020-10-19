@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -74,7 +74,7 @@ class Ruleset(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             name: Optional[pulumi.Input[str]] = None,
-            routing_keys: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            routing_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             team: Optional[pulumi.Input[pulumi.InputType['RulesetTeamArgs']]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'Ruleset':
         """
@@ -85,7 +85,7 @@ class Ruleset(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Name of the ruleset.
-        :param pulumi.Input[List[pulumi.Input[str]]] routing_keys: Routing keys routed to this ruleset.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] routing_keys: Routing keys routed to this ruleset.
         :param pulumi.Input[pulumi.InputType['RulesetTeamArgs']] team: Reference to the team that owns the ruleset. If none is specified, only admins have access.
         :param pulumi.Input[str] type: Type of ruleset. Currently only sets to `global`.
         """
@@ -109,7 +109,7 @@ class Ruleset(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routingKeys")
-    def routing_keys(self) -> pulumi.Output[List[str]]:
+    def routing_keys(self) -> pulumi.Output[Sequence[str]]:
         """
         Routing keys routed to this ruleset.
         """

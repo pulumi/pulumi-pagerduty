@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,7 +18,7 @@ class Schedule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 layers: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ScheduleLayerArgs']]]]] = None,
+                 layers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleLayerArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  overflow: Optional[pulumi.Input[bool]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
@@ -56,7 +56,7 @@ class Schedule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the schedule
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ScheduleLayerArgs']]]] layers: A schedule layer block. Schedule layers documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleLayerArgs']]]] layers: A schedule layer block. Schedule layers documented below.
         :param pulumi.Input[str] name: The name of the schedule.
         :param pulumi.Input[bool] overflow: Any on-call schedule entries that pass the date range bounds will be truncated at the bounds, unless the parameter `overflow` is passed. For instance, if your schedule is a rotation that changes daily at midnight UTC, and your date range is from `2011-06-01T10:00:00Z` to `2011-06-01T14:00:00Z`:
                If you don't pass the overflow=true parameter, you will get one schedule entry returned with a start of `2011-06-01T10:00:00Z` and end of `2011-06-01T14:00:00Z`.
@@ -100,7 +100,7 @@ class Schedule(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[str]] = None,
-            layers: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ScheduleLayerArgs']]]]] = None,
+            layers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleLayerArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             overflow: Optional[pulumi.Input[bool]] = None,
             time_zone: Optional[pulumi.Input[str]] = None) -> 'Schedule':
@@ -112,7 +112,7 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the schedule
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ScheduleLayerArgs']]]] layers: A schedule layer block. Schedule layers documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleLayerArgs']]]] layers: A schedule layer block. Schedule layers documented below.
         :param pulumi.Input[str] name: The name of the schedule.
         :param pulumi.Input[bool] overflow: Any on-call schedule entries that pass the date range bounds will be truncated at the bounds, unless the parameter `overflow` is passed. For instance, if your schedule is a rotation that changes daily at midnight UTC, and your date range is from `2011-06-01T10:00:00Z` to `2011-06-01T14:00:00Z`:
                If you don't pass the overflow=true parameter, you will get one schedule entry returned with a start of `2011-06-01T10:00:00Z` and end of `2011-06-01T14:00:00Z`.
@@ -140,7 +140,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def layers(self) -> pulumi.Output[List['outputs.ScheduleLayer']]:
+    def layers(self) -> pulumi.Output[Sequence['outputs.ScheduleLayer']]:
         """
         A schedule layer block. Schedule layers documented below.
         """

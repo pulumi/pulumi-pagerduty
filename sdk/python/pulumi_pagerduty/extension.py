@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = ['Extension']
@@ -17,7 +17,7 @@ class Extension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  config: Optional[pulumi.Input[str]] = None,
                  endpoint_url: Optional[pulumi.Input[str]] = None,
-                 extension_objects: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 extension_objects: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  extension_schema: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -72,7 +72,7 @@ class Extension(pulumi.CustomResource):
         :param pulumi.Input[str] config: The configuration of the service extension as string containing plain JSON-encoded data.
         :param pulumi.Input[str] endpoint_url: The url of the extension.  
                **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `getExtensionSchema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpoint_url`, but one with named `Slack` accepts.
-        :param pulumi.Input[List[pulumi.Input[str]]] extension_objects: This is the objects for which the extension applies (An array of service ids).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] extension_objects: This is the objects for which the extension applies (An array of service ids).
         :param pulumi.Input[str] extension_schema: This is the schema for this extension.
         :param pulumi.Input[str] name: The name of the service extension.
         """
@@ -116,7 +116,7 @@ class Extension(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             config: Optional[pulumi.Input[str]] = None,
             endpoint_url: Optional[pulumi.Input[str]] = None,
-            extension_objects: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            extension_objects: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             extension_schema: Optional[pulumi.Input[str]] = None,
             html_url: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -131,7 +131,7 @@ class Extension(pulumi.CustomResource):
         :param pulumi.Input[str] config: The configuration of the service extension as string containing plain JSON-encoded data.
         :param pulumi.Input[str] endpoint_url: The url of the extension.  
                **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `getExtensionSchema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpoint_url`, but one with named `Slack` accepts.
-        :param pulumi.Input[List[pulumi.Input[str]]] extension_objects: This is the objects for which the extension applies (An array of service ids).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] extension_objects: This is the objects for which the extension applies (An array of service ids).
         :param pulumi.Input[str] extension_schema: This is the schema for this extension.
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app
         :param pulumi.Input[str] name: The name of the service extension.
@@ -168,7 +168,7 @@ class Extension(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="extensionObjects")
-    def extension_objects(self) -> pulumi.Output[List[str]]:
+    def extension_objects(self) -> pulumi.Output[Sequence[str]]:
         """
         This is the objects for which the extension applies (An array of service ids).
         """

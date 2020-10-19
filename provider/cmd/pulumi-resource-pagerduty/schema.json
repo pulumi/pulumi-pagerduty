@@ -32,7 +32,7 @@
         ]
     },
     "types": {
-        "pagerduty:/EscalationPolicyRule:EscalationPolicyRule": {
+        "pagerduty:index/EscalationPolicyRule:EscalationPolicyRule": {
             "properties": {
                 "escalationDelayInMinutes": {
                     "type": "integer",
@@ -55,7 +55,7 @@
                 "targets": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/pagerduty:/EscalationPolicyRuleTarget:EscalationPolicyRuleTarget"
+                        "$ref": "#/types/pagerduty:index/EscalationPolicyRuleTarget:EscalationPolicyRuleTarget"
                     },
                     "language": {
                         "python": {
@@ -79,7 +79,7 @@
                 }
             }
         },
-        "pagerduty:/EscalationPolicyRuleTarget:EscalationPolicyRuleTarget": {
+        "pagerduty:index/EscalationPolicyRuleTarget:EscalationPolicyRuleTarget": {
             "properties": {
                 "id": {
                     "type": "string",
@@ -105,12 +105,12 @@
                 "id"
             ]
         },
-        "pagerduty:/RulesetRuleActions:RulesetRuleActions": {
+        "pagerduty:index/RulesetRuleActions:RulesetRuleActions": {
             "properties": {
                 "annotates": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/pagerduty:/RulesetRuleActionsAnnotate:RulesetRuleActionsAnnotate"
+                        "$ref": "#/types/pagerduty:index/RulesetRuleActionsAnnotate:RulesetRuleActionsAnnotate"
                     },
                     "description": "Note added to the event.\n",
                     "language": {
@@ -122,7 +122,7 @@
                 "eventActions": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/pagerduty:/RulesetRuleActionsEventAction:RulesetRuleActionsEventAction"
+                        "$ref": "#/types/pagerduty:index/RulesetRuleActionsEventAction:RulesetRuleActionsEventAction"
                     },
                     "language": {
                         "python": {
@@ -133,7 +133,7 @@
                 "extractions": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/pagerduty:/RulesetRuleActionsExtraction:RulesetRuleActionsExtraction"
+                        "$ref": "#/types/pagerduty:index/RulesetRuleActionsExtraction:RulesetRuleActionsExtraction"
                     },
                     "description": "Allows you to copy important data from one event field to another. Extraction rules must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax). Extraction objects consist of the following fields:\n",
                     "language": {
@@ -145,7 +145,7 @@
                 "priorities": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/pagerduty:/RulesetRuleActionsPriority:RulesetRuleActionsPriority"
+                        "$ref": "#/types/pagerduty:index/RulesetRuleActionsPriority:RulesetRuleActionsPriority"
                     },
                     "description": "The ID of the priority applied to the event.\n",
                     "language": {
@@ -157,7 +157,7 @@
                 "routes": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/pagerduty:/RulesetRuleActionsRoute:RulesetRuleActionsRoute"
+                        "$ref": "#/types/pagerduty:index/RulesetRuleActionsRoute:RulesetRuleActionsRoute"
                     },
                     "description": "The ID of the service where the event will be routed.\n",
                     "language": {
@@ -169,7 +169,7 @@
                 "severities": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/pagerduty:/RulesetRuleActionsSeverity:RulesetRuleActionsSeverity"
+                        "$ref": "#/types/pagerduty:index/RulesetRuleActionsSeverity:RulesetRuleActionsSeverity"
                     },
                     "description": "The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`error`,`warning`, or `critical`.\n",
                     "language": {
@@ -181,7 +181,7 @@
                 "suppresses": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/pagerduty:/RulesetRuleActionsSuppress:RulesetRuleActionsSuppress"
+                        "$ref": "#/types/pagerduty:index/RulesetRuleActionsSuppress:RulesetRuleActionsSuppress"
                     },
                     "description": "Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident).\n",
                     "language": {
@@ -193,7 +193,7 @@
             },
             "type": "object"
         },
-        "pagerduty:/RulesetRuleActionsAnnotate:RulesetRuleActionsAnnotate": {
+        "pagerduty:index/RulesetRuleActionsAnnotate:RulesetRuleActionsAnnotate": {
             "properties": {
                 "value": {
                     "type": "string",
@@ -207,7 +207,7 @@
             },
             "type": "object"
         },
-        "pagerduty:/RulesetRuleActionsEventAction:RulesetRuleActionsEventAction": {
+        "pagerduty:index/RulesetRuleActionsEventAction:RulesetRuleActionsEventAction": {
             "properties": {
                 "value": {
                     "type": "string",
@@ -221,7 +221,7 @@
             },
             "type": "object"
         },
-        "pagerduty:/RulesetRuleActionsExtraction:RulesetRuleActionsExtraction": {
+        "pagerduty:index/RulesetRuleActionsExtraction:RulesetRuleActionsExtraction": {
             "properties": {
                 "regex": {
                     "type": "string",
@@ -253,7 +253,7 @@
             },
             "type": "object"
         },
-        "pagerduty:/RulesetRuleActionsPriority:RulesetRuleActionsPriority": {
+        "pagerduty:index/RulesetRuleActionsPriority:RulesetRuleActionsPriority": {
             "properties": {
                 "value": {
                     "type": "string",
@@ -267,7 +267,7 @@
             },
             "type": "object"
         },
-        "pagerduty:/RulesetRuleActionsRoute:RulesetRuleActionsRoute": {
+        "pagerduty:index/RulesetRuleActionsRoute:RulesetRuleActionsRoute": {
             "properties": {
                 "value": {
                     "type": "string",
@@ -281,7 +281,7 @@
             },
             "type": "object"
         },
-        "pagerduty:/RulesetRuleActionsSeverity:RulesetRuleActionsSeverity": {
+        "pagerduty:index/RulesetRuleActionsSeverity:RulesetRuleActionsSeverity": {
             "properties": {
                 "value": {
                     "type": "string",
@@ -295,7 +295,7 @@
             },
             "type": "object"
         },
-        "pagerduty:/RulesetRuleActionsSuppress:RulesetRuleActionsSuppress": {
+        "pagerduty:index/RulesetRuleActionsSuppress:RulesetRuleActionsSuppress": {
             "properties": {
                 "thresholdTimeAmount": {
                     "type": "integer",
@@ -336,7 +336,7 @@
             },
             "type": "object"
         },
-        "pagerduty:/RulesetRuleConditions:RulesetRuleConditions": {
+        "pagerduty:index/RulesetRuleConditions:RulesetRuleConditions": {
             "properties": {
                 "operator": {
                     "type": "string",
@@ -350,7 +350,7 @@
                 "subconditions": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/pagerduty:/RulesetRuleConditionsSubcondition:RulesetRuleConditionsSubcondition"
+                        "$ref": "#/types/pagerduty:index/RulesetRuleConditionsSubcondition:RulesetRuleConditionsSubcondition"
                     },
                     "description": "List of sub-conditions that define the the condition.\n",
                     "language": {
@@ -362,7 +362,7 @@
             },
             "type": "object"
         },
-        "pagerduty:/RulesetRuleConditionsSubcondition:RulesetRuleConditionsSubcondition": {
+        "pagerduty:index/RulesetRuleConditionsSubcondition:RulesetRuleConditionsSubcondition": {
             "properties": {
                 "operator": {
                     "type": "string",
@@ -376,7 +376,7 @@
                 "parameters": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/pagerduty:/RulesetRuleConditionsSubconditionParameter:RulesetRuleConditionsSubconditionParameter"
+                        "$ref": "#/types/pagerduty:index/RulesetRuleConditionsSubconditionParameter:RulesetRuleConditionsSubconditionParameter"
                     },
                     "description": "Parameter for the sub-condition. It requires both a `path` and `value` to be set.\n",
                     "language": {
@@ -388,7 +388,7 @@
             },
             "type": "object"
         },
-        "pagerduty:/RulesetRuleConditionsSubconditionParameter:RulesetRuleConditionsSubconditionParameter": {
+        "pagerduty:index/RulesetRuleConditionsSubconditionParameter:RulesetRuleConditionsSubconditionParameter": {
             "properties": {
                 "path": {
                     "type": "string",
@@ -410,12 +410,12 @@
             },
             "type": "object"
         },
-        "pagerduty:/RulesetRuleTimeFrame:RulesetRuleTimeFrame": {
+        "pagerduty:index/RulesetRuleTimeFrame:RulesetRuleTimeFrame": {
             "properties": {
                 "activeBetweens": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/pagerduty:/RulesetRuleTimeFrameActiveBetween:RulesetRuleTimeFrameActiveBetween"
+                        "$ref": "#/types/pagerduty:index/RulesetRuleTimeFrameActiveBetween:RulesetRuleTimeFrameActiveBetween"
                     },
                     "description": "Values for executing the rule during a specific time period.\n",
                     "language": {
@@ -427,7 +427,7 @@
                 "scheduledWeeklies": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/pagerduty:/RulesetRuleTimeFrameScheduledWeekly:RulesetRuleTimeFrameScheduledWeekly"
+                        "$ref": "#/types/pagerduty:index/RulesetRuleTimeFrameScheduledWeekly:RulesetRuleTimeFrameScheduledWeekly"
                     },
                     "description": "Values for executing the rule on a recurring schedule.\n",
                     "language": {
@@ -439,7 +439,7 @@
             },
             "type": "object"
         },
-        "pagerduty:/RulesetRuleTimeFrameActiveBetween:RulesetRuleTimeFrameActiveBetween": {
+        "pagerduty:index/RulesetRuleTimeFrameActiveBetween:RulesetRuleTimeFrameActiveBetween": {
             "properties": {
                 "endTime": {
                     "type": "integer",
@@ -462,7 +462,7 @@
             },
             "type": "object"
         },
-        "pagerduty:/RulesetRuleTimeFrameScheduledWeekly:RulesetRuleTimeFrameScheduledWeekly": {
+        "pagerduty:index/RulesetRuleTimeFrameScheduledWeekly:RulesetRuleTimeFrameScheduledWeekly": {
             "properties": {
                 "duration": {
                     "type": "integer",
@@ -506,7 +506,7 @@
             },
             "type": "object"
         },
-        "pagerduty:/RulesetTeam:RulesetTeam": {
+        "pagerduty:index/RulesetTeam:RulesetTeam": {
             "properties": {
                 "id": {
                     "type": "string",
@@ -523,7 +523,7 @@
                 "id"
             ]
         },
-        "pagerduty:/ScheduleLayer:ScheduleLayer": {
+        "pagerduty:index/ScheduleLayer:ScheduleLayer": {
             "properties": {
                 "end": {
                     "type": "string",
@@ -555,7 +555,7 @@
                 "restrictions": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/pagerduty:/ScheduleLayerRestriction:ScheduleLayerRestriction"
+                        "$ref": "#/types/pagerduty:index/ScheduleLayerRestriction:ScheduleLayerRestriction"
                     },
                     "description": "A schedule layer restriction block. Restriction blocks documented below.\n",
                     "language": {
@@ -624,7 +624,7 @@
                 }
             }
         },
-        "pagerduty:/ScheduleLayerRestriction:ScheduleLayerRestriction": {
+        "pagerduty:index/ScheduleLayerRestriction:ScheduleLayerRestriction": {
             "properties": {
                 "durationSeconds": {
                     "type": "integer",
@@ -670,12 +670,12 @@
                 "type"
             ]
         },
-        "pagerduty:/ServiceDependencyDependency:ServiceDependencyDependency": {
+        "pagerduty:index/ServiceDependencyDependency:ServiceDependencyDependency": {
             "properties": {
                 "dependentServices": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/pagerduty:/ServiceDependencyDependencyDependentService:ServiceDependencyDependencyDependentService"
+                        "$ref": "#/types/pagerduty:index/ServiceDependencyDependencyDependentService:ServiceDependencyDependencyDependentService"
                     },
                     "description": "The service that id dependent on the supporting service.\n",
                     "language": {
@@ -687,7 +687,7 @@
                 "supportingServices": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/pagerduty:/ServiceDependencyDependencySupportingService:ServiceDependencyDependencySupportingService"
+                        "$ref": "#/types/pagerduty:index/ServiceDependencyDependencySupportingService:ServiceDependencyDependencySupportingService"
                     },
                     "description": "The service that supports  the  dependent service.\n",
                     "language": {
@@ -711,7 +711,7 @@
                 "supportingServices"
             ]
         },
-        "pagerduty:/ServiceDependencyDependencyDependentService:ServiceDependencyDependencyDependentService": {
+        "pagerduty:index/ServiceDependencyDependencyDependentService:ServiceDependencyDependencyDependentService": {
             "properties": {
                 "id": {
                     "type": "string",
@@ -737,7 +737,7 @@
                 "type"
             ]
         },
-        "pagerduty:/ServiceDependencyDependencySupportingService:ServiceDependencyDependencySupportingService": {
+        "pagerduty:index/ServiceDependencyDependencySupportingService:ServiceDependencyDependencySupportingService": {
             "properties": {
                 "id": {
                     "type": "string",
@@ -763,10 +763,10 @@
                 "type"
             ]
         },
-        "pagerduty:/ServiceIncidentUrgencyRule:ServiceIncidentUrgencyRule": {
+        "pagerduty:index/ServiceIncidentUrgencyRule:ServiceIncidentUrgencyRule": {
             "properties": {
                 "duringSupportHours": {
-                    "$ref": "#/types/pagerduty:/ServiceIncidentUrgencyRuleDuringSupportHours:ServiceIncidentUrgencyRuleDuringSupportHours",
+                    "$ref": "#/types/pagerduty:index/ServiceIncidentUrgencyRuleDuringSupportHours:ServiceIncidentUrgencyRuleDuringSupportHours",
                     "description": "Incidents' urgency during support hours.\n",
                     "language": {
                         "python": {
@@ -775,7 +775,7 @@
                     }
                 },
                 "outsideSupportHours": {
-                    "$ref": "#/types/pagerduty:/ServiceIncidentUrgencyRuleOutsideSupportHours:ServiceIncidentUrgencyRuleOutsideSupportHours",
+                    "$ref": "#/types/pagerduty:index/ServiceIncidentUrgencyRuleOutsideSupportHours:ServiceIncidentUrgencyRuleOutsideSupportHours",
                     "description": "Incidents' urgency outside of support hours.\n",
                     "language": {
                         "python": {
@@ -807,7 +807,7 @@
                 "type"
             ]
         },
-        "pagerduty:/ServiceIncidentUrgencyRuleDuringSupportHours:ServiceIncidentUrgencyRuleDuringSupportHours": {
+        "pagerduty:index/ServiceIncidentUrgencyRuleDuringSupportHours:ServiceIncidentUrgencyRuleDuringSupportHours": {
             "properties": {
                 "type": {
                     "type": "string",
@@ -830,7 +830,7 @@
             },
             "type": "object"
         },
-        "pagerduty:/ServiceIncidentUrgencyRuleOutsideSupportHours:ServiceIncidentUrgencyRuleOutsideSupportHours": {
+        "pagerduty:index/ServiceIncidentUrgencyRuleOutsideSupportHours:ServiceIncidentUrgencyRuleOutsideSupportHours": {
             "properties": {
                 "type": {
                     "type": "string",
@@ -853,12 +853,12 @@
             },
             "type": "object"
         },
-        "pagerduty:/ServiceScheduledAction:ServiceScheduledAction": {
+        "pagerduty:index/ServiceScheduledAction:ServiceScheduledAction": {
             "properties": {
                 "ats": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/pagerduty:/ServiceScheduledActionAt:ServiceScheduledActionAt"
+                        "$ref": "#/types/pagerduty:index/ServiceScheduledActionAt:ServiceScheduledActionAt"
                     },
                     "description": "A block representing when the scheduled action will occur.\n",
                     "language": {
@@ -888,7 +888,7 @@
             },
             "type": "object"
         },
-        "pagerduty:/ServiceScheduledActionAt:ServiceScheduledActionAt": {
+        "pagerduty:index/ServiceScheduledActionAt:ServiceScheduledActionAt": {
             "properties": {
                 "name": {
                     "type": "string",
@@ -911,7 +911,7 @@
             },
             "type": "object"
         },
-        "pagerduty:/ServiceSupportHours:ServiceSupportHours": {
+        "pagerduty:index/ServiceSupportHours:ServiceSupportHours": {
             "properties": {
                 "daysOfWeeks": {
                     "type": "array",
@@ -964,7 +964,7 @@
             },
             "type": "object"
         },
-        "pagerduty:/UserNotificationRuleContactMethod:UserNotificationRuleContactMethod": {
+        "pagerduty:index/UserNotificationRuleContactMethod:UserNotificationRuleContactMethod": {
             "properties": {
                 "id": {
                     "type": "string",
@@ -1143,7 +1143,7 @@
                 "rules": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/pagerduty:/EscalationPolicyRule:EscalationPolicyRule"
+                        "$ref": "#/types/pagerduty:index/EscalationPolicyRule:EscalationPolicyRule"
                     },
                     "description": "An Escalation rule block. Escalation rules documented below.\n"
                 },
@@ -1174,7 +1174,7 @@
                 "rules": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/pagerduty:/EscalationPolicyRule:EscalationPolicyRule"
+                        "$ref": "#/types/pagerduty:index/EscalationPolicyRule:EscalationPolicyRule"
                     },
                     "description": "An Escalation rule block. Escalation rules documented below.\n"
                 },
@@ -1206,7 +1206,7 @@
                     "rules": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/pagerduty:/EscalationPolicyRule:EscalationPolicyRule"
+                            "$ref": "#/types/pagerduty:index/EscalationPolicyRule:EscalationPolicyRule"
                         },
                         "description": "An Escalation rule block. Escalation rules documented below.\n"
                     },
@@ -1492,7 +1492,7 @@
                     "description": "Routing keys routed to this ruleset.\n"
                 },
                 "team": {
-                    "$ref": "#/types/pagerduty:/RulesetTeam:RulesetTeam",
+                    "$ref": "#/types/pagerduty:index/RulesetTeam:RulesetTeam",
                     "description": "Reference to the team that owns the ruleset. If none is specified, only admins have access.\n"
                 },
                 "type": {
@@ -1511,7 +1511,7 @@
                     "description": "Name of the ruleset.\n"
                 },
                 "team": {
-                    "$ref": "#/types/pagerduty:/RulesetTeam:RulesetTeam",
+                    "$ref": "#/types/pagerduty:index/RulesetTeam:RulesetTeam",
                     "description": "Reference to the team that owns the ruleset. If none is specified, only admins have access.\n"
                 }
             },
@@ -1530,7 +1530,7 @@
                         "description": "Routing keys routed to this ruleset.\n"
                     },
                     "team": {
-                        "$ref": "#/types/pagerduty:/RulesetTeam:RulesetTeam",
+                        "$ref": "#/types/pagerduty:index/RulesetTeam:RulesetTeam",
                         "description": "Reference to the team that owns the ruleset. If none is specified, only admins have access.\n"
                     },
                     "type": {
@@ -1545,11 +1545,11 @@
             "description": "An [event rule](https://support.pagerduty.com/docs/rulesets#section-create-event-rules) allows you to set actions that should be taken on events that meet your designated rule criteria.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst fooTeam = new pagerduty.Team(\"fooTeam\", {});\nconst fooRuleset = new pagerduty.Ruleset(\"fooRuleset\", {team: {\n    id: fooTeam.id,\n}});\nconst fooRulesetRule = new pagerduty.RulesetRule(\"fooRulesetRule\", {\n    ruleset: fooRuleset.id,\n    position: 0,\n    disabled: \"false\",\n    timeFrame: {\n        scheduledWeeklies: [{\n            weekdays: [\n                3,\n                7,\n            ],\n            timezone: \"America/Los_Angeles\",\n            startTime: \"1000000\",\n            duration: \"3600000\",\n        }],\n    },\n    conditions: {\n        operator: \"and\",\n        subconditions: [\n            {\n                operator: \"contains\",\n                parameters: [{\n                    value: \"disk space\",\n                    path: \"payload.summary\",\n                }],\n            },\n            {\n                operator: \"contains\",\n                parameters: [{\n                    value: \"db\",\n                    path: \"payload.source\",\n                }],\n            },\n        ],\n    },\n    actions: {\n        routes: [{\n            value: \"P5DTL0K\",\n        }],\n        severities: [{\n            value: \"warning\",\n        }],\n        annotates: [{\n            value: \"From Terraform\",\n        }],\n        extractions: [{\n            target: \"dedup_key\",\n            source: \"details.host\",\n            regex: \"(.*)\",\n        }],\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nfoo_team = pagerduty.Team(\"fooTeam\")\nfoo_ruleset = pagerduty.Ruleset(\"fooRuleset\", team=pagerduty.RulesetTeamArgs(\n    id=foo_team.id,\n))\nfoo_ruleset_rule = pagerduty.RulesetRule(\"fooRulesetRule\",\n    ruleset=foo_ruleset.id,\n    position=0,\n    disabled=False,\n    time_frame=pagerduty.RulesetRuleTimeFrameArgs(\n        scheduled_weeklies=[pagerduty.RulesetRuleTimeFrameScheduledWeeklyArgs(\n            weekdays=[\n                3,\n                7,\n            ],\n            timezone=\"America/Los_Angeles\",\n            start_time=\"1000000\",\n            duration=3600000,\n        )],\n    ),\n    conditions=pagerduty.RulesetRuleConditionsArgs(\n        operator=\"and\",\n        subconditions=[\n            pagerduty.RulesetRuleConditionsSubconditionArgs(\n                operator=\"contains\",\n                parameters=[pagerduty.RulesetRuleConditionsSubconditionParameterArgs(\n                    value=\"disk space\",\n                    path=\"payload.summary\",\n                )],\n            ),\n            pagerduty.RulesetRuleConditionsSubconditionArgs(\n                operator=\"contains\",\n                parameters=[pagerduty.RulesetRuleConditionsSubconditionParameterArgs(\n                    value=\"db\",\n                    path=\"payload.source\",\n                )],\n            ),\n        ],\n    ),\n    actions=pagerduty.RulesetRuleActionsArgs(\n        routes=[pagerduty.RulesetRuleActionsRouteArgs(\n            value=\"P5DTL0K\",\n        )],\n        severities=[pagerduty.RulesetRuleActionsSeverityArgs(\n            value=\"warning\",\n        )],\n        annotates=[pagerduty.RulesetRuleActionsAnnotateArgs(\n            value=\"From Terraform\",\n        )],\n        extractions=[pagerduty.RulesetRuleActionsExtractionArgs(\n            target=\"dedup_key\",\n            source=\"details.host\",\n            regex=\"(.*)\",\n        )],\n    ))\n```\n```csharp\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var fooTeam = new Pagerduty.Team(\"fooTeam\", new Pagerduty.TeamArgs\n        {\n        });\n        var fooRuleset = new Pagerduty.Ruleset(\"fooRuleset\", new Pagerduty.RulesetArgs\n        {\n            Team = new Pagerduty.Inputs.RulesetTeamArgs\n            {\n                Id = fooTeam.Id,\n            },\n        });\n        var fooRulesetRule = new Pagerduty.RulesetRule(\"fooRulesetRule\", new Pagerduty.RulesetRuleArgs\n        {\n            Ruleset = fooRuleset.Id,\n            Position = 0,\n            Disabled = false,\n            TimeFrame = new Pagerduty.Inputs.RulesetRuleTimeFrameArgs\n            {\n                ScheduledWeeklies = \n                {\n                    new Pagerduty.Inputs.RulesetRuleTimeFrameScheduledWeeklyArgs\n                    {\n                        Weekdays = \n                        {\n                            3,\n                            7,\n                        },\n                        Timezone = \"America/Los_Angeles\",\n                        StartTime = 1000000,\n                        Duration = 3600000,\n                    },\n                },\n            },\n            Conditions = new Pagerduty.Inputs.RulesetRuleConditionsArgs\n            {\n                Operator = \"and\",\n                Subconditions = \n                {\n                    new Pagerduty.Inputs.RulesetRuleConditionsSubconditionArgs\n                    {\n                        Operator = \"contains\",\n                        Parameters = \n                        {\n                            new Pagerduty.Inputs.RulesetRuleConditionsSubconditionParameterArgs\n                            {\n                                Value = \"disk space\",\n                                Path = \"payload.summary\",\n                            },\n                        },\n                    },\n                    new Pagerduty.Inputs.RulesetRuleConditionsSubconditionArgs\n                    {\n                        Operator = \"contains\",\n                        Parameters = \n                        {\n                            new Pagerduty.Inputs.RulesetRuleConditionsSubconditionParameterArgs\n                            {\n                                Value = \"db\",\n                                Path = \"payload.source\",\n                            },\n                        },\n                    },\n                },\n            },\n            Actions = new Pagerduty.Inputs.RulesetRuleActionsArgs\n            {\n                Routes = \n                {\n                    new Pagerduty.Inputs.RulesetRuleActionsRouteArgs\n                    {\n                        Value = \"P5DTL0K\",\n                    },\n                },\n                Severities = \n                {\n                    new Pagerduty.Inputs.RulesetRuleActionsSeverityArgs\n                    {\n                        Value = \"warning\",\n                    },\n                },\n                Annotates = \n                {\n                    new Pagerduty.Inputs.RulesetRuleActionsAnnotateArgs\n                    {\n                        Value = \"From Terraform\",\n                    },\n                },\n                Extractions = \n                {\n                    new Pagerduty.Inputs.RulesetRuleActionsExtractionArgs\n                    {\n                        Target = \"dedup_key\",\n                        Source = \"details.host\",\n                        Regex = \"(.*)\",\n                    },\n                },\n            },\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "actions": {
-                    "$ref": "#/types/pagerduty:/RulesetRuleActions:RulesetRuleActions",
+                    "$ref": "#/types/pagerduty:index/RulesetRuleActions:RulesetRuleActions",
                     "description": "Actions to apply to an event if the conditions match.\n"
                 },
                 "conditions": {
-                    "$ref": "#/types/pagerduty:/RulesetRuleConditions:RulesetRuleConditions",
+                    "$ref": "#/types/pagerduty:index/RulesetRuleConditions:RulesetRuleConditions",
                     "description": "Conditions evaluated to check if an event matches this event rule. Is always empty for the catch all rule, though.\n"
                 },
                 "disabled": {
@@ -1565,7 +1565,7 @@
                     "description": "The ID of the ruleset that the rule belongs to.\n"
                 },
                 "timeFrame": {
-                    "$ref": "#/types/pagerduty:/RulesetRuleTimeFrame:RulesetRuleTimeFrame",
+                    "$ref": "#/types/pagerduty:index/RulesetRuleTimeFrame:RulesetRuleTimeFrame",
                     "description": "Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).\n"
                 }
             },
@@ -1574,11 +1574,11 @@
             ],
             "inputProperties": {
                 "actions": {
-                    "$ref": "#/types/pagerduty:/RulesetRuleActions:RulesetRuleActions",
+                    "$ref": "#/types/pagerduty:index/RulesetRuleActions:RulesetRuleActions",
                     "description": "Actions to apply to an event if the conditions match.\n"
                 },
                 "conditions": {
-                    "$ref": "#/types/pagerduty:/RulesetRuleConditions:RulesetRuleConditions",
+                    "$ref": "#/types/pagerduty:index/RulesetRuleConditions:RulesetRuleConditions",
                     "description": "Conditions evaluated to check if an event matches this event rule. Is always empty for the catch all rule, though.\n"
                 },
                 "disabled": {
@@ -1594,7 +1594,7 @@
                     "description": "The ID of the ruleset that the rule belongs to.\n"
                 },
                 "timeFrame": {
-                    "$ref": "#/types/pagerduty:/RulesetRuleTimeFrame:RulesetRuleTimeFrame",
+                    "$ref": "#/types/pagerduty:index/RulesetRuleTimeFrame:RulesetRuleTimeFrame",
                     "description": "Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).\n"
                 }
             },
@@ -1605,11 +1605,11 @@
                 "description": "Input properties used for looking up and filtering RulesetRule resources.\n",
                 "properties": {
                     "actions": {
-                        "$ref": "#/types/pagerduty:/RulesetRuleActions:RulesetRuleActions",
+                        "$ref": "#/types/pagerduty:index/RulesetRuleActions:RulesetRuleActions",
                         "description": "Actions to apply to an event if the conditions match.\n"
                     },
                     "conditions": {
-                        "$ref": "#/types/pagerduty:/RulesetRuleConditions:RulesetRuleConditions",
+                        "$ref": "#/types/pagerduty:index/RulesetRuleConditions:RulesetRuleConditions",
                         "description": "Conditions evaluated to check if an event matches this event rule. Is always empty for the catch all rule, though.\n"
                     },
                     "disabled": {
@@ -1625,7 +1625,7 @@
                         "description": "The ID of the ruleset that the rule belongs to.\n"
                     },
                     "timeFrame": {
-                        "$ref": "#/types/pagerduty:/RulesetRuleTimeFrame:RulesetRuleTimeFrame",
+                        "$ref": "#/types/pagerduty:index/RulesetRuleTimeFrame:RulesetRuleTimeFrame",
                         "description": "Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).\n"
                     }
                 },
@@ -1642,7 +1642,7 @@
                 "layers": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/pagerduty:/ScheduleLayer:ScheduleLayer"
+                        "$ref": "#/types/pagerduty:index/ScheduleLayer:ScheduleLayer"
                     },
                     "description": "A schedule layer block. Schedule layers documented below.\n"
                 },
@@ -1672,7 +1672,7 @@
                 "layers": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/pagerduty:/ScheduleLayer:ScheduleLayer"
+                        "$ref": "#/types/pagerduty:index/ScheduleLayer:ScheduleLayer"
                     },
                     "description": "A schedule layer block. Schedule layers documented below.\n"
                 },
@@ -1703,7 +1703,7 @@
                     "layers": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/pagerduty:/ScheduleLayer:ScheduleLayer"
+                            "$ref": "#/types/pagerduty:index/ScheduleLayer:ScheduleLayer"
                         },
                         "description": "A schedule layer block. Schedule layers documented below.\n"
                     },
@@ -1760,7 +1760,7 @@
                     "type": "string"
                 },
                 "incidentUrgencyRule": {
-                    "$ref": "#/types/pagerduty:/ServiceIncidentUrgencyRule:ServiceIncidentUrgencyRule"
+                    "$ref": "#/types/pagerduty:index/ServiceIncidentUrgencyRule:ServiceIncidentUrgencyRule"
                 },
                 "lastIncidentTimestamp": {
                     "type": "string"
@@ -1772,14 +1772,14 @@
                 "scheduledActions": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/pagerduty:/ServiceScheduledAction:ServiceScheduledAction"
+                        "$ref": "#/types/pagerduty:index/ServiceScheduledAction:ServiceScheduledAction"
                     }
                 },
                 "status": {
                     "type": "string"
                 },
                 "supportHours": {
-                    "$ref": "#/types/pagerduty:/ServiceSupportHours:ServiceSupportHours"
+                    "$ref": "#/types/pagerduty:index/ServiceSupportHours:ServiceSupportHours"
                 }
             },
             "required": [
@@ -1820,7 +1820,7 @@
                     "description": "The escalation policy used by this service.\n"
                 },
                 "incidentUrgencyRule": {
-                    "$ref": "#/types/pagerduty:/ServiceIncidentUrgencyRule:ServiceIncidentUrgencyRule"
+                    "$ref": "#/types/pagerduty:index/ServiceIncidentUrgencyRule:ServiceIncidentUrgencyRule"
                 },
                 "name": {
                     "type": "string",
@@ -1829,11 +1829,11 @@
                 "scheduledActions": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/pagerduty:/ServiceScheduledAction:ServiceScheduledAction"
+                        "$ref": "#/types/pagerduty:index/ServiceScheduledAction:ServiceScheduledAction"
                     }
                 },
                 "supportHours": {
-                    "$ref": "#/types/pagerduty:/ServiceSupportHours:ServiceSupportHours"
+                    "$ref": "#/types/pagerduty:index/ServiceSupportHours:ServiceSupportHours"
                 }
             },
             "requiredInputs": [
@@ -1876,7 +1876,7 @@
                         "type": "string"
                     },
                     "incidentUrgencyRule": {
-                        "$ref": "#/types/pagerduty:/ServiceIncidentUrgencyRule:ServiceIncidentUrgencyRule"
+                        "$ref": "#/types/pagerduty:index/ServiceIncidentUrgencyRule:ServiceIncidentUrgencyRule"
                     },
                     "lastIncidentTimestamp": {
                         "type": "string"
@@ -1888,14 +1888,14 @@
                     "scheduledActions": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/pagerduty:/ServiceScheduledAction:ServiceScheduledAction"
+                            "$ref": "#/types/pagerduty:index/ServiceScheduledAction:ServiceScheduledAction"
                         }
                     },
                     "status": {
                         "type": "string"
                     },
                     "supportHours": {
-                        "$ref": "#/types/pagerduty:/ServiceSupportHours:ServiceSupportHours"
+                        "$ref": "#/types/pagerduty:index/ServiceSupportHours:ServiceSupportHours"
                     }
                 },
                 "type": "object"
@@ -1907,7 +1907,7 @@
                 "dependencies": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/pagerduty:/ServiceDependencyDependency:ServiceDependencyDependency"
+                        "$ref": "#/types/pagerduty:index/ServiceDependencyDependency:ServiceDependencyDependency"
                     },
                     "description": "The relationship between the `supporting_service` and `dependent_service`.\n"
                 }
@@ -1919,7 +1919,7 @@
                 "dependencies": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/pagerduty:/ServiceDependencyDependency:ServiceDependencyDependency"
+                        "$ref": "#/types/pagerduty:index/ServiceDependencyDependency:ServiceDependencyDependency"
                     },
                     "description": "The relationship between the `supporting_service` and `dependent_service`.\n"
                 }
@@ -1933,7 +1933,7 @@
                     "dependencies": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/pagerduty:/ServiceDependencyDependency:ServiceDependencyDependency"
+                            "$ref": "#/types/pagerduty:index/ServiceDependencyDependency:ServiceDependencyDependency"
                         },
                         "description": "The relationship between the `supporting_service` and `dependent_service`.\n"
                     }
@@ -2423,7 +2423,7 @@
             "description": "A [notification rule](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Users/get_users_id_notification_rules_notification_rule_id) configures where and when a PagerDuty user is notified when a triggered incident is assigned to him. Unique notification rules can be created for both high and low-urgency incidents.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst example = new pagerduty.User(\"example\", {email: \"125.greenholt.earline@graham.name\"});\nconst email = new pagerduty.UserContactMethod(\"email\", {\n    userId: example.id,\n    type: \"email_contact_method\",\n    address: \"foo@bar.com\",\n    label: \"Work\",\n});\nconst phone = new pagerduty.UserContactMethod(\"phone\", {\n    userId: example.id,\n    type: \"phone_contact_method\",\n    countryCode: \"+1\",\n    address: \"2025550199\",\n    label: \"Work\",\n});\nconst sms = new pagerduty.UserContactMethod(\"sms\", {\n    userId: example.id,\n    type: \"sms_contact_method\",\n    countryCode: \"+1\",\n    address: \"2025550199\",\n    label: \"Work\",\n});\nconst highUrgencyPhone = new pagerduty.UserNotificationRule(\"highUrgencyPhone\", {\n    userId: example.id,\n    startDelayInMinutes: 1,\n    urgency: \"high\",\n    contactMethod: {\n        type: \"phone_contact_method\",\n        id: phone.id,\n    },\n});\nconst lowUrgencyEmail = new pagerduty.UserNotificationRule(\"lowUrgencyEmail\", {\n    userId: example.id,\n    startDelayInMinutes: 1,\n    urgency: \"low\",\n    contactMethod: {\n        type: \"email_contact_method\",\n        id: email.id,\n    },\n});\nconst lowUrgencySms = new pagerduty.UserNotificationRule(\"lowUrgencySms\", {\n    userId: example.id,\n    startDelayInMinutes: 10,\n    urgency: \"low\",\n    contactMethod: {\n        type: \"sms_contact_method\",\n        id: sms.id,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nexample = pagerduty.User(\"example\", email=\"125.greenholt.earline@graham.name\")\nemail = pagerduty.UserContactMethod(\"email\",\n    user_id=example.id,\n    type=\"email_contact_method\",\n    address=\"foo@bar.com\",\n    label=\"Work\")\nphone = pagerduty.UserContactMethod(\"phone\",\n    user_id=example.id,\n    type=\"phone_contact_method\",\n    country_code=1,\n    address=\"2025550199\",\n    label=\"Work\")\nsms = pagerduty.UserContactMethod(\"sms\",\n    user_id=example.id,\n    type=\"sms_contact_method\",\n    country_code=1,\n    address=\"2025550199\",\n    label=\"Work\")\nhigh_urgency_phone = pagerduty.UserNotificationRule(\"highUrgencyPhone\",\n    user_id=example.id,\n    start_delay_in_minutes=1,\n    urgency=\"high\",\n    contact_method=pagerduty.UserNotificationRuleContactMethodArgs(\n        type=\"phone_contact_method\",\n        id=phone.id,\n    ))\nlow_urgency_email = pagerduty.UserNotificationRule(\"lowUrgencyEmail\",\n    user_id=example.id,\n    start_delay_in_minutes=1,\n    urgency=\"low\",\n    contact_method=pagerduty.UserNotificationRuleContactMethodArgs(\n        type=\"email_contact_method\",\n        id=email.id,\n    ))\nlow_urgency_sms = pagerduty.UserNotificationRule(\"lowUrgencySms\",\n    user_id=example.id,\n    start_delay_in_minutes=10,\n    urgency=\"low\",\n    contact_method=pagerduty.UserNotificationRuleContactMethodArgs(\n        type=\"sms_contact_method\",\n        id=sms.id,\n    ))\n```\n```csharp\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Pagerduty.User(\"example\", new Pagerduty.UserArgs\n        {\n            Email = \"125.greenholt.earline@graham.name\",\n        });\n        var email = new Pagerduty.UserContactMethod(\"email\", new Pagerduty.UserContactMethodArgs\n        {\n            UserId = example.Id,\n            Type = \"email_contact_method\",\n            Address = \"foo@bar.com\",\n            Label = \"Work\",\n        });\n        var phone = new Pagerduty.UserContactMethod(\"phone\", new Pagerduty.UserContactMethodArgs\n        {\n            UserId = example.Id,\n            Type = \"phone_contact_method\",\n            CountryCode = 1,\n            Address = \"2025550199\",\n            Label = \"Work\",\n        });\n        var sms = new Pagerduty.UserContactMethod(\"sms\", new Pagerduty.UserContactMethodArgs\n        {\n            UserId = example.Id,\n            Type = \"sms_contact_method\",\n            CountryCode = 1,\n            Address = \"2025550199\",\n            Label = \"Work\",\n        });\n        var highUrgencyPhone = new Pagerduty.UserNotificationRule(\"highUrgencyPhone\", new Pagerduty.UserNotificationRuleArgs\n        {\n            UserId = example.Id,\n            StartDelayInMinutes = 1,\n            Urgency = \"high\",\n            ContactMethod = new Pagerduty.Inputs.UserNotificationRuleContactMethodArgs\n            {\n                Type = \"phone_contact_method\",\n                Id = phone.Id,\n            },\n        });\n        var lowUrgencyEmail = new Pagerduty.UserNotificationRule(\"lowUrgencyEmail\", new Pagerduty.UserNotificationRuleArgs\n        {\n            UserId = example.Id,\n            StartDelayInMinutes = 1,\n            Urgency = \"low\",\n            ContactMethod = new Pagerduty.Inputs.UserNotificationRuleContactMethodArgs\n            {\n                Type = \"email_contact_method\",\n                Id = email.Id,\n            },\n        });\n        var lowUrgencySms = new Pagerduty.UserNotificationRule(\"lowUrgencySms\", new Pagerduty.UserNotificationRuleArgs\n        {\n            UserId = example.Id,\n            StartDelayInMinutes = 10,\n            Urgency = \"low\",\n            ContactMethod = new Pagerduty.Inputs.UserNotificationRuleContactMethodArgs\n            {\n                Type = \"sms_contact_method\",\n                Id = sms.Id,\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := pagerduty.NewUser(ctx, \"example\", \u0026pagerduty.UserArgs{\n\t\t\tEmail: pulumi.String(\"125.greenholt.earline@graham.name\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\temail, err := pagerduty.NewUserContactMethod(ctx, \"email\", \u0026pagerduty.UserContactMethodArgs{\n\t\t\tUserId:  example.ID(),\n\t\t\tType:    pulumi.String(\"email_contact_method\"),\n\t\t\tAddress: pulumi.String(\"foo@bar.com\"),\n\t\t\tLabel:   pulumi.String(\"Work\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tphone, err := pagerduty.NewUserContactMethod(ctx, \"phone\", \u0026pagerduty.UserContactMethodArgs{\n\t\t\tUserId:      example.ID(),\n\t\t\tType:        pulumi.String(\"phone_contact_method\"),\n\t\t\tCountryCode: pulumi.Int(1),\n\t\t\tAddress:     pulumi.String(\"2025550199\"),\n\t\t\tLabel:       pulumi.String(\"Work\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tsms, err := pagerduty.NewUserContactMethod(ctx, \"sms\", \u0026pagerduty.UserContactMethodArgs{\n\t\t\tUserId:      example.ID(),\n\t\t\tType:        pulumi.String(\"sms_contact_method\"),\n\t\t\tCountryCode: pulumi.Int(1),\n\t\t\tAddress:     pulumi.String(\"2025550199\"),\n\t\t\tLabel:       pulumi.String(\"Work\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewUserNotificationRule(ctx, \"highUrgencyPhone\", \u0026pagerduty.UserNotificationRuleArgs{\n\t\t\tUserId:              example.ID(),\n\t\t\tStartDelayInMinutes: pulumi.Int(1),\n\t\t\tUrgency:             pulumi.String(\"high\"),\n\t\t\tContactMethod: \u0026pagerduty.UserNotificationRuleContactMethodArgs{\n\t\t\t\tType: pulumi.String(\"phone_contact_method\"),\n\t\t\t\tId:   phone.ID(),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewUserNotificationRule(ctx, \"lowUrgencyEmail\", \u0026pagerduty.UserNotificationRuleArgs{\n\t\t\tUserId:              example.ID(),\n\t\t\tStartDelayInMinutes: pulumi.Int(1),\n\t\t\tUrgency:             pulumi.String(\"low\"),\n\t\t\tContactMethod: \u0026pagerduty.UserNotificationRuleContactMethodArgs{\n\t\t\t\tType: pulumi.String(\"email_contact_method\"),\n\t\t\t\tId:   email.ID(),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewUserNotificationRule(ctx, \"lowUrgencySms\", \u0026pagerduty.UserNotificationRuleArgs{\n\t\t\tUserId:              example.ID(),\n\t\t\tStartDelayInMinutes: pulumi.Int(10),\n\t\t\tUrgency:             pulumi.String(\"low\"),\n\t\t\tContactMethod: \u0026pagerduty.UserNotificationRuleContactMethodArgs{\n\t\t\t\tType: pulumi.String(\"sms_contact_method\"),\n\t\t\t\tId:   sms.ID(),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "contactMethod": {
-                    "$ref": "#/types/pagerduty:/UserNotificationRuleContactMethod:UserNotificationRuleContactMethod",
+                    "$ref": "#/types/pagerduty:index/UserNotificationRuleContactMethod:UserNotificationRuleContactMethod",
                     "description": "A contact method block, configured as a block described below.\n"
                 },
                 "startDelayInMinutes": {
@@ -2447,7 +2447,7 @@
             ],
             "inputProperties": {
                 "contactMethod": {
-                    "$ref": "#/types/pagerduty:/UserNotificationRuleContactMethod:UserNotificationRuleContactMethod",
+                    "$ref": "#/types/pagerduty:index/UserNotificationRuleContactMethod:UserNotificationRuleContactMethod",
                     "description": "A contact method block, configured as a block described below.\n"
                 },
                 "startDelayInMinutes": {
@@ -2473,7 +2473,7 @@
                 "description": "Input properties used for looking up and filtering UserNotificationRule resources.\n",
                 "properties": {
                     "contactMethod": {
-                        "$ref": "#/types/pagerduty:/UserNotificationRuleContactMethod:UserNotificationRuleContactMethod",
+                        "$ref": "#/types/pagerduty:index/UserNotificationRuleContactMethod:UserNotificationRuleContactMethod",
                         "description": "A contact method block, configured as a block described below.\n"
                     },
                     "startDelayInMinutes": {

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = [
@@ -43,11 +43,11 @@ __all__ = [
 @pulumi.input_type
 class EscalationPolicyRuleArgs:
     def __init__(__self__, *,
-                 escalation_delay_in_minutes: pulumi.Input[float],
-                 targets: pulumi.Input[List[pulumi.Input['EscalationPolicyRuleTargetArgs']]],
+                 escalation_delay_in_minutes: pulumi.Input[int],
+                 targets: pulumi.Input[Sequence[pulumi.Input['EscalationPolicyRuleTargetArgs']]],
                  id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[float] escalation_delay_in_minutes: The number of minutes before an unacknowledged incident escalates away from this rule.
+        :param pulumi.Input[int] escalation_delay_in_minutes: The number of minutes before an unacknowledged incident escalates away from this rule.
         :param pulumi.Input[str] id: A target ID
         """
         pulumi.set(__self__, "escalation_delay_in_minutes", escalation_delay_in_minutes)
@@ -57,23 +57,23 @@ class EscalationPolicyRuleArgs:
 
     @property
     @pulumi.getter(name="escalationDelayInMinutes")
-    def escalation_delay_in_minutes(self) -> pulumi.Input[float]:
+    def escalation_delay_in_minutes(self) -> pulumi.Input[int]:
         """
         The number of minutes before an unacknowledged incident escalates away from this rule.
         """
         return pulumi.get(self, "escalation_delay_in_minutes")
 
     @escalation_delay_in_minutes.setter
-    def escalation_delay_in_minutes(self, value: pulumi.Input[float]):
+    def escalation_delay_in_minutes(self, value: pulumi.Input[int]):
         pulumi.set(self, "escalation_delay_in_minutes", value)
 
     @property
     @pulumi.getter
-    def targets(self) -> pulumi.Input[List[pulumi.Input['EscalationPolicyRuleTargetArgs']]]:
+    def targets(self) -> pulumi.Input[Sequence[pulumi.Input['EscalationPolicyRuleTargetArgs']]]:
         return pulumi.get(self, "targets")
 
     @targets.setter
-    def targets(self, value: pulumi.Input[List[pulumi.Input['EscalationPolicyRuleTargetArgs']]]):
+    def targets(self, value: pulumi.Input[Sequence[pulumi.Input['EscalationPolicyRuleTargetArgs']]]):
         pulumi.set(self, "targets", value)
 
     @property
@@ -130,20 +130,20 @@ class EscalationPolicyRuleTargetArgs:
 @pulumi.input_type
 class RulesetRuleActionsArgs:
     def __init__(__self__, *,
-                 annotates: Optional[pulumi.Input[List[pulumi.Input['RulesetRuleActionsAnnotateArgs']]]] = None,
-                 event_actions: Optional[pulumi.Input[List[pulumi.Input['RulesetRuleActionsEventActionArgs']]]] = None,
-                 extractions: Optional[pulumi.Input[List[pulumi.Input['RulesetRuleActionsExtractionArgs']]]] = None,
-                 priorities: Optional[pulumi.Input[List[pulumi.Input['RulesetRuleActionsPriorityArgs']]]] = None,
-                 routes: Optional[pulumi.Input[List[pulumi.Input['RulesetRuleActionsRouteArgs']]]] = None,
-                 severities: Optional[pulumi.Input[List[pulumi.Input['RulesetRuleActionsSeverityArgs']]]] = None,
-                 suppresses: Optional[pulumi.Input[List[pulumi.Input['RulesetRuleActionsSuppressArgs']]]] = None):
+                 annotates: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsAnnotateArgs']]]] = None,
+                 event_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsEventActionArgs']]]] = None,
+                 extractions: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsExtractionArgs']]]] = None,
+                 priorities: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsPriorityArgs']]]] = None,
+                 routes: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsRouteArgs']]]] = None,
+                 severities: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsSeverityArgs']]]] = None,
+                 suppresses: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsSuppressArgs']]]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input['RulesetRuleActionsAnnotateArgs']]] annotates: Note added to the event.
-        :param pulumi.Input[List[pulumi.Input['RulesetRuleActionsExtractionArgs']]] extractions: Allows you to copy important data from one event field to another. Extraction rules must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax). Extraction objects consist of the following fields:
-        :param pulumi.Input[List[pulumi.Input['RulesetRuleActionsPriorityArgs']]] priorities: The ID of the priority applied to the event.
-        :param pulumi.Input[List[pulumi.Input['RulesetRuleActionsRouteArgs']]] routes: The ID of the service where the event will be routed.
-        :param pulumi.Input[List[pulumi.Input['RulesetRuleActionsSeverityArgs']]] severities: The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`error`,`warning`, or `critical`.
-        :param pulumi.Input[List[pulumi.Input['RulesetRuleActionsSuppressArgs']]] suppresses: Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident).
+        :param pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsAnnotateArgs']]] annotates: Note added to the event.
+        :param pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsExtractionArgs']]] extractions: Allows you to copy important data from one event field to another. Extraction rules must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax). Extraction objects consist of the following fields:
+        :param pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsPriorityArgs']]] priorities: The ID of the priority applied to the event.
+        :param pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsRouteArgs']]] routes: The ID of the service where the event will be routed.
+        :param pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsSeverityArgs']]] severities: The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`error`,`warning`, or `critical`.
+        :param pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsSuppressArgs']]] suppresses: Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident).
         """
         if annotates is not None:
             pulumi.set(__self__, "annotates", annotates)
@@ -162,83 +162,83 @@ class RulesetRuleActionsArgs:
 
     @property
     @pulumi.getter
-    def annotates(self) -> Optional[pulumi.Input[List[pulumi.Input['RulesetRuleActionsAnnotateArgs']]]]:
+    def annotates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsAnnotateArgs']]]]:
         """
         Note added to the event.
         """
         return pulumi.get(self, "annotates")
 
     @annotates.setter
-    def annotates(self, value: Optional[pulumi.Input[List[pulumi.Input['RulesetRuleActionsAnnotateArgs']]]]):
+    def annotates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsAnnotateArgs']]]]):
         pulumi.set(self, "annotates", value)
 
     @property
     @pulumi.getter(name="eventActions")
-    def event_actions(self) -> Optional[pulumi.Input[List[pulumi.Input['RulesetRuleActionsEventActionArgs']]]]:
+    def event_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsEventActionArgs']]]]:
         return pulumi.get(self, "event_actions")
 
     @event_actions.setter
-    def event_actions(self, value: Optional[pulumi.Input[List[pulumi.Input['RulesetRuleActionsEventActionArgs']]]]):
+    def event_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsEventActionArgs']]]]):
         pulumi.set(self, "event_actions", value)
 
     @property
     @pulumi.getter
-    def extractions(self) -> Optional[pulumi.Input[List[pulumi.Input['RulesetRuleActionsExtractionArgs']]]]:
+    def extractions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsExtractionArgs']]]]:
         """
         Allows you to copy important data from one event field to another. Extraction rules must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax). Extraction objects consist of the following fields:
         """
         return pulumi.get(self, "extractions")
 
     @extractions.setter
-    def extractions(self, value: Optional[pulumi.Input[List[pulumi.Input['RulesetRuleActionsExtractionArgs']]]]):
+    def extractions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsExtractionArgs']]]]):
         pulumi.set(self, "extractions", value)
 
     @property
     @pulumi.getter
-    def priorities(self) -> Optional[pulumi.Input[List[pulumi.Input['RulesetRuleActionsPriorityArgs']]]]:
+    def priorities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsPriorityArgs']]]]:
         """
         The ID of the priority applied to the event.
         """
         return pulumi.get(self, "priorities")
 
     @priorities.setter
-    def priorities(self, value: Optional[pulumi.Input[List[pulumi.Input['RulesetRuleActionsPriorityArgs']]]]):
+    def priorities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsPriorityArgs']]]]):
         pulumi.set(self, "priorities", value)
 
     @property
     @pulumi.getter
-    def routes(self) -> Optional[pulumi.Input[List[pulumi.Input['RulesetRuleActionsRouteArgs']]]]:
+    def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsRouteArgs']]]]:
         """
         The ID of the service where the event will be routed.
         """
         return pulumi.get(self, "routes")
 
     @routes.setter
-    def routes(self, value: Optional[pulumi.Input[List[pulumi.Input['RulesetRuleActionsRouteArgs']]]]):
+    def routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsRouteArgs']]]]):
         pulumi.set(self, "routes", value)
 
     @property
     @pulumi.getter
-    def severities(self) -> Optional[pulumi.Input[List[pulumi.Input['RulesetRuleActionsSeverityArgs']]]]:
+    def severities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsSeverityArgs']]]]:
         """
         The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`error`,`warning`, or `critical`.
         """
         return pulumi.get(self, "severities")
 
     @severities.setter
-    def severities(self, value: Optional[pulumi.Input[List[pulumi.Input['RulesetRuleActionsSeverityArgs']]]]):
+    def severities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsSeverityArgs']]]]):
         pulumi.set(self, "severities", value)
 
     @property
     @pulumi.getter
-    def suppresses(self) -> Optional[pulumi.Input[List[pulumi.Input['RulesetRuleActionsSuppressArgs']]]]:
+    def suppresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsSuppressArgs']]]]:
         """
         Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident).
         """
         return pulumi.get(self, "suppresses")
 
     @suppresses.setter
-    def suppresses(self, value: Optional[pulumi.Input[List[pulumi.Input['RulesetRuleActionsSuppressArgs']]]]):
+    def suppresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsSuppressArgs']]]]):
         pulumi.set(self, "suppresses", value)
 
 
@@ -417,14 +417,14 @@ class RulesetRuleActionsSeverityArgs:
 @pulumi.input_type
 class RulesetRuleActionsSuppressArgs:
     def __init__(__self__, *,
-                 threshold_time_amount: Optional[pulumi.Input[float]] = None,
+                 threshold_time_amount: Optional[pulumi.Input[int]] = None,
                  threshold_time_unit: Optional[pulumi.Input[str]] = None,
-                 threshold_value: Optional[pulumi.Input[float]] = None,
+                 threshold_value: Optional[pulumi.Input[int]] = None,
                  value: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[float] threshold_time_amount: The number value of the `threshold_time_unit` before an incident is created.
+        :param pulumi.Input[int] threshold_time_amount: The number value of the `threshold_time_unit` before an incident is created.
         :param pulumi.Input[str] threshold_time_unit: The `minutes`,`hours`, or `days` that the `threshold_time_amount` should be measured.
-        :param pulumi.Input[float] threshold_value: The number of alerts that should be suppressed.
+        :param pulumi.Input[int] threshold_value: The number of alerts that should be suppressed.
         :param pulumi.Input[bool] value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
         """
         if threshold_time_amount is not None:
@@ -438,14 +438,14 @@ class RulesetRuleActionsSuppressArgs:
 
     @property
     @pulumi.getter(name="thresholdTimeAmount")
-    def threshold_time_amount(self) -> Optional[pulumi.Input[float]]:
+    def threshold_time_amount(self) -> Optional[pulumi.Input[int]]:
         """
         The number value of the `threshold_time_unit` before an incident is created.
         """
         return pulumi.get(self, "threshold_time_amount")
 
     @threshold_time_amount.setter
-    def threshold_time_amount(self, value: Optional[pulumi.Input[float]]):
+    def threshold_time_amount(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "threshold_time_amount", value)
 
     @property
@@ -462,14 +462,14 @@ class RulesetRuleActionsSuppressArgs:
 
     @property
     @pulumi.getter(name="thresholdValue")
-    def threshold_value(self) -> Optional[pulumi.Input[float]]:
+    def threshold_value(self) -> Optional[pulumi.Input[int]]:
         """
         The number of alerts that should be suppressed.
         """
         return pulumi.get(self, "threshold_value")
 
     @threshold_value.setter
-    def threshold_value(self, value: Optional[pulumi.Input[float]]):
+    def threshold_value(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "threshold_value", value)
 
     @property
@@ -489,10 +489,10 @@ class RulesetRuleActionsSuppressArgs:
 class RulesetRuleConditionsArgs:
     def __init__(__self__, *,
                  operator: Optional[pulumi.Input[str]] = None,
-                 subconditions: Optional[pulumi.Input[List[pulumi.Input['RulesetRuleConditionsSubconditionArgs']]]] = None):
+                 subconditions: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleConditionsSubconditionArgs']]]] = None):
         """
         :param pulumi.Input[str] operator: Operator to combine sub-conditions. Can be `and` or `or`.
-        :param pulumi.Input[List[pulumi.Input['RulesetRuleConditionsSubconditionArgs']]] subconditions: List of sub-conditions that define the the condition.
+        :param pulumi.Input[Sequence[pulumi.Input['RulesetRuleConditionsSubconditionArgs']]] subconditions: List of sub-conditions that define the the condition.
         """
         if operator is not None:
             pulumi.set(__self__, "operator", operator)
@@ -513,14 +513,14 @@ class RulesetRuleConditionsArgs:
 
     @property
     @pulumi.getter
-    def subconditions(self) -> Optional[pulumi.Input[List[pulumi.Input['RulesetRuleConditionsSubconditionArgs']]]]:
+    def subconditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleConditionsSubconditionArgs']]]]:
         """
         List of sub-conditions that define the the condition.
         """
         return pulumi.get(self, "subconditions")
 
     @subconditions.setter
-    def subconditions(self, value: Optional[pulumi.Input[List[pulumi.Input['RulesetRuleConditionsSubconditionArgs']]]]):
+    def subconditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleConditionsSubconditionArgs']]]]):
         pulumi.set(self, "subconditions", value)
 
 
@@ -528,10 +528,10 @@ class RulesetRuleConditionsArgs:
 class RulesetRuleConditionsSubconditionArgs:
     def __init__(__self__, *,
                  operator: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[List[pulumi.Input['RulesetRuleConditionsSubconditionParameterArgs']]]] = None):
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleConditionsSubconditionParameterArgs']]]] = None):
         """
         :param pulumi.Input[str] operator: Type of operator to apply to the sub-condition. Can be `exists`,`nexists`,`equals`,`nequals`,`contains`,`ncontains`,`matches`, or `nmatches`.
-        :param pulumi.Input[List[pulumi.Input['RulesetRuleConditionsSubconditionParameterArgs']]] parameters: Parameter for the sub-condition. It requires both a `path` and `value` to be set.
+        :param pulumi.Input[Sequence[pulumi.Input['RulesetRuleConditionsSubconditionParameterArgs']]] parameters: Parameter for the sub-condition. It requires both a `path` and `value` to be set.
         """
         if operator is not None:
             pulumi.set(__self__, "operator", operator)
@@ -552,14 +552,14 @@ class RulesetRuleConditionsSubconditionArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[List[pulumi.Input['RulesetRuleConditionsSubconditionParameterArgs']]]]:
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleConditionsSubconditionParameterArgs']]]]:
         """
         Parameter for the sub-condition. It requires both a `path` and `value` to be set.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[List[pulumi.Input['RulesetRuleConditionsSubconditionParameterArgs']]]]):
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleConditionsSubconditionParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -601,11 +601,11 @@ class RulesetRuleConditionsSubconditionParameterArgs:
 @pulumi.input_type
 class RulesetRuleTimeFrameArgs:
     def __init__(__self__, *,
-                 active_betweens: Optional[pulumi.Input[List[pulumi.Input['RulesetRuleTimeFrameActiveBetweenArgs']]]] = None,
-                 scheduled_weeklies: Optional[pulumi.Input[List[pulumi.Input['RulesetRuleTimeFrameScheduledWeeklyArgs']]]] = None):
+                 active_betweens: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleTimeFrameActiveBetweenArgs']]]] = None,
+                 scheduled_weeklies: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleTimeFrameScheduledWeeklyArgs']]]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input['RulesetRuleTimeFrameActiveBetweenArgs']]] active_betweens: Values for executing the rule during a specific time period.
-        :param pulumi.Input[List[pulumi.Input['RulesetRuleTimeFrameScheduledWeeklyArgs']]] scheduled_weeklies: Values for executing the rule on a recurring schedule.
+        :param pulumi.Input[Sequence[pulumi.Input['RulesetRuleTimeFrameActiveBetweenArgs']]] active_betweens: Values for executing the rule during a specific time period.
+        :param pulumi.Input[Sequence[pulumi.Input['RulesetRuleTimeFrameScheduledWeeklyArgs']]] scheduled_weeklies: Values for executing the rule on a recurring schedule.
         """
         if active_betweens is not None:
             pulumi.set(__self__, "active_betweens", active_betweens)
@@ -614,37 +614,37 @@ class RulesetRuleTimeFrameArgs:
 
     @property
     @pulumi.getter(name="activeBetweens")
-    def active_betweens(self) -> Optional[pulumi.Input[List[pulumi.Input['RulesetRuleTimeFrameActiveBetweenArgs']]]]:
+    def active_betweens(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleTimeFrameActiveBetweenArgs']]]]:
         """
         Values for executing the rule during a specific time period.
         """
         return pulumi.get(self, "active_betweens")
 
     @active_betweens.setter
-    def active_betweens(self, value: Optional[pulumi.Input[List[pulumi.Input['RulesetRuleTimeFrameActiveBetweenArgs']]]]):
+    def active_betweens(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleTimeFrameActiveBetweenArgs']]]]):
         pulumi.set(self, "active_betweens", value)
 
     @property
     @pulumi.getter(name="scheduledWeeklies")
-    def scheduled_weeklies(self) -> Optional[pulumi.Input[List[pulumi.Input['RulesetRuleTimeFrameScheduledWeeklyArgs']]]]:
+    def scheduled_weeklies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleTimeFrameScheduledWeeklyArgs']]]]:
         """
         Values for executing the rule on a recurring schedule.
         """
         return pulumi.get(self, "scheduled_weeklies")
 
     @scheduled_weeklies.setter
-    def scheduled_weeklies(self, value: Optional[pulumi.Input[List[pulumi.Input['RulesetRuleTimeFrameScheduledWeeklyArgs']]]]):
+    def scheduled_weeklies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleTimeFrameScheduledWeeklyArgs']]]]):
         pulumi.set(self, "scheduled_weeklies", value)
 
 
 @pulumi.input_type
 class RulesetRuleTimeFrameActiveBetweenArgs:
     def __init__(__self__, *,
-                 end_time: Optional[pulumi.Input[float]] = None,
-                 start_time: Optional[pulumi.Input[float]] = None):
+                 end_time: Optional[pulumi.Input[int]] = None,
+                 start_time: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[float] end_time: Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
-        :param pulumi.Input[float] start_time: Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `start_time` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `start_time` was `3,600,000` the it would be active starting at `01:00`.
+        :param pulumi.Input[int] end_time: Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
+        :param pulumi.Input[int] start_time: Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `start_time` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `start_time` was `3,600,000` the it would be active starting at `01:00`.
         """
         if end_time is not None:
             pulumi.set(__self__, "end_time", end_time)
@@ -653,41 +653,41 @@ class RulesetRuleTimeFrameActiveBetweenArgs:
 
     @property
     @pulumi.getter(name="endTime")
-    def end_time(self) -> Optional[pulumi.Input[float]]:
+    def end_time(self) -> Optional[pulumi.Input[int]]:
         """
         Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
         """
         return pulumi.get(self, "end_time")
 
     @end_time.setter
-    def end_time(self, value: Optional[pulumi.Input[float]]):
+    def end_time(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "end_time", value)
 
     @property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> Optional[pulumi.Input[float]]:
+    def start_time(self) -> Optional[pulumi.Input[int]]:
         """
         Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `start_time` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `start_time` was `3,600,000` the it would be active starting at `01:00`.
         """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
-    def start_time(self, value: Optional[pulumi.Input[float]]):
+    def start_time(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "start_time", value)
 
 
 @pulumi.input_type
 class RulesetRuleTimeFrameScheduledWeeklyArgs:
     def __init__(__self__, *,
-                 duration: Optional[pulumi.Input[float]] = None,
-                 start_time: Optional[pulumi.Input[float]] = None,
+                 duration: Optional[pulumi.Input[int]] = None,
+                 start_time: Optional[pulumi.Input[int]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
-                 weekdays: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None):
+                 weekdays: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
         """
-        :param pulumi.Input[float] duration: Length of time the schedule will be active.  Unix timestamp in milliseconds.
-        :param pulumi.Input[float] start_time: Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `start_time` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `start_time` was `3,600,000` the it would be active starting at `01:00`.
+        :param pulumi.Input[int] duration: Length of time the schedule will be active.  Unix timestamp in milliseconds.
+        :param pulumi.Input[int] start_time: Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `start_time` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `start_time` was `3,600,000` the it would be active starting at `01:00`.
         :param pulumi.Input[str] timezone: Timezone for the given schedule.
-        :param pulumi.Input[List[pulumi.Input[float]]] weekdays: An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] weekdays: An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
         """
         if duration is not None:
             pulumi.set(__self__, "duration", duration)
@@ -700,26 +700,26 @@ class RulesetRuleTimeFrameScheduledWeeklyArgs:
 
     @property
     @pulumi.getter
-    def duration(self) -> Optional[pulumi.Input[float]]:
+    def duration(self) -> Optional[pulumi.Input[int]]:
         """
         Length of time the schedule will be active.  Unix timestamp in milliseconds.
         """
         return pulumi.get(self, "duration")
 
     @duration.setter
-    def duration(self, value: Optional[pulumi.Input[float]]):
+    def duration(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "duration", value)
 
     @property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> Optional[pulumi.Input[float]]:
+    def start_time(self) -> Optional[pulumi.Input[int]]:
         """
         Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `start_time` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `start_time` was `3,600,000` the it would be active starting at `01:00`.
         """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
-    def start_time(self, value: Optional[pulumi.Input[float]]):
+    def start_time(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "start_time", value)
 
     @property
@@ -736,14 +736,14 @@ class RulesetRuleTimeFrameScheduledWeeklyArgs:
 
     @property
     @pulumi.getter
-    def weekdays(self) -> Optional[pulumi.Input[List[pulumi.Input[float]]]]:
+    def weekdays(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
         An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
         """
         return pulumi.get(self, "weekdays")
 
     @weekdays.setter
-    def weekdays(self, value: Optional[pulumi.Input[List[pulumi.Input[float]]]]):
+    def weekdays(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "weekdays", value)
 
 
@@ -772,23 +772,23 @@ class RulesetTeamArgs:
 @pulumi.input_type
 class ScheduleLayerArgs:
     def __init__(__self__, *,
-                 rotation_turn_length_seconds: pulumi.Input[float],
+                 rotation_turn_length_seconds: pulumi.Input[int],
                  rotation_virtual_start: pulumi.Input[str],
                  start: pulumi.Input[str],
-                 users: pulumi.Input[List[pulumi.Input[str]]],
+                 users: pulumi.Input[Sequence[pulumi.Input[str]]],
                  end: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 restrictions: Optional[pulumi.Input[List[pulumi.Input['ScheduleLayerRestrictionArgs']]]] = None):
+                 restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleLayerRestrictionArgs']]]] = None):
         """
-        :param pulumi.Input[float] rotation_turn_length_seconds: The duration of each on-call shift in `seconds`.
+        :param pulumi.Input[int] rotation_turn_length_seconds: The duration of each on-call shift in `seconds`.
         :param pulumi.Input[str] rotation_virtual_start: The effective start time of the schedule layer. This can be before the start time of the schedule.
         :param pulumi.Input[str] start: The start time of the schedule layer. This value will not be read back from the PagerDuty API because the API will always return a new `start` time, which represents the last updated time of the schedule layer.
-        :param pulumi.Input[List[pulumi.Input[str]]] users: The ordered list of users on this layer. The position of the user on the list determines their order in the layer.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] users: The ordered list of users on this layer. The position of the user on the list determines their order in the layer.
         :param pulumi.Input[str] end: The end time of the schedule layer. If not specified, the layer does not end.
         :param pulumi.Input[str] id: The ID of the schedule
         :param pulumi.Input[str] name: The name of the schedule layer.
-        :param pulumi.Input[List[pulumi.Input['ScheduleLayerRestrictionArgs']]] restrictions: A schedule layer restriction block. Restriction blocks documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['ScheduleLayerRestrictionArgs']]] restrictions: A schedule layer restriction block. Restriction blocks documented below.
         """
         pulumi.set(__self__, "rotation_turn_length_seconds", rotation_turn_length_seconds)
         pulumi.set(__self__, "rotation_virtual_start", rotation_virtual_start)
@@ -805,14 +805,14 @@ class ScheduleLayerArgs:
 
     @property
     @pulumi.getter(name="rotationTurnLengthSeconds")
-    def rotation_turn_length_seconds(self) -> pulumi.Input[float]:
+    def rotation_turn_length_seconds(self) -> pulumi.Input[int]:
         """
         The duration of each on-call shift in `seconds`.
         """
         return pulumi.get(self, "rotation_turn_length_seconds")
 
     @rotation_turn_length_seconds.setter
-    def rotation_turn_length_seconds(self, value: pulumi.Input[float]):
+    def rotation_turn_length_seconds(self, value: pulumi.Input[int]):
         pulumi.set(self, "rotation_turn_length_seconds", value)
 
     @property
@@ -841,14 +841,14 @@ class ScheduleLayerArgs:
 
     @property
     @pulumi.getter
-    def users(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def users(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The ordered list of users on this layer. The position of the user on the list determines their order in the layer.
         """
         return pulumi.get(self, "users")
 
     @users.setter
-    def users(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def users(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "users", value)
 
     @property
@@ -889,29 +889,29 @@ class ScheduleLayerArgs:
 
     @property
     @pulumi.getter
-    def restrictions(self) -> Optional[pulumi.Input[List[pulumi.Input['ScheduleLayerRestrictionArgs']]]]:
+    def restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleLayerRestrictionArgs']]]]:
         """
         A schedule layer restriction block. Restriction blocks documented below.
         """
         return pulumi.get(self, "restrictions")
 
     @restrictions.setter
-    def restrictions(self, value: Optional[pulumi.Input[List[pulumi.Input['ScheduleLayerRestrictionArgs']]]]):
+    def restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleLayerRestrictionArgs']]]]):
         pulumi.set(self, "restrictions", value)
 
 
 @pulumi.input_type
 class ScheduleLayerRestrictionArgs:
     def __init__(__self__, *,
-                 duration_seconds: pulumi.Input[float],
+                 duration_seconds: pulumi.Input[int],
                  start_time_of_day: pulumi.Input[str],
                  type: pulumi.Input[str],
-                 start_day_of_week: Optional[pulumi.Input[float]] = None):
+                 start_day_of_week: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[float] duration_seconds: The duration of the restriction in `seconds`.
+        :param pulumi.Input[int] duration_seconds: The duration of the restriction in `seconds`.
         :param pulumi.Input[str] start_time_of_day: The start time in `HH:mm:ss` format.
         :param pulumi.Input[str] type: Can be `daily_restriction` or `weekly_restriction`
-        :param pulumi.Input[float] start_day_of_week: Number of the day when restriction starts. From 1 to 7 where 1 is Monday and 7 is Sunday.
+        :param pulumi.Input[int] start_day_of_week: Number of the day when restriction starts. From 1 to 7 where 1 is Monday and 7 is Sunday.
         """
         pulumi.set(__self__, "duration_seconds", duration_seconds)
         pulumi.set(__self__, "start_time_of_day", start_time_of_day)
@@ -921,14 +921,14 @@ class ScheduleLayerRestrictionArgs:
 
     @property
     @pulumi.getter(name="durationSeconds")
-    def duration_seconds(self) -> pulumi.Input[float]:
+    def duration_seconds(self) -> pulumi.Input[int]:
         """
         The duration of the restriction in `seconds`.
         """
         return pulumi.get(self, "duration_seconds")
 
     @duration_seconds.setter
-    def duration_seconds(self, value: pulumi.Input[float]):
+    def duration_seconds(self, value: pulumi.Input[int]):
         pulumi.set(self, "duration_seconds", value)
 
     @property
@@ -957,26 +957,26 @@ class ScheduleLayerRestrictionArgs:
 
     @property
     @pulumi.getter(name="startDayOfWeek")
-    def start_day_of_week(self) -> Optional[pulumi.Input[float]]:
+    def start_day_of_week(self) -> Optional[pulumi.Input[int]]:
         """
         Number of the day when restriction starts. From 1 to 7 where 1 is Monday and 7 is Sunday.
         """
         return pulumi.get(self, "start_day_of_week")
 
     @start_day_of_week.setter
-    def start_day_of_week(self, value: Optional[pulumi.Input[float]]):
+    def start_day_of_week(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "start_day_of_week", value)
 
 
 @pulumi.input_type
 class ServiceDependencyDependencyArgs:
     def __init__(__self__, *,
-                 dependent_services: pulumi.Input[List[pulumi.Input['ServiceDependencyDependencyDependentServiceArgs']]],
-                 supporting_services: pulumi.Input[List[pulumi.Input['ServiceDependencyDependencySupportingServiceArgs']]],
+                 dependent_services: pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencyDependentServiceArgs']]],
+                 supporting_services: pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencySupportingServiceArgs']]],
                  type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input['ServiceDependencyDependencyDependentServiceArgs']]] dependent_services: The service that id dependent on the supporting service.
-        :param pulumi.Input[List[pulumi.Input['ServiceDependencyDependencySupportingServiceArgs']]] supporting_services: The service that supports  the  dependent service.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencyDependentServiceArgs']]] dependent_services: The service that id dependent on the supporting service.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencySupportingServiceArgs']]] supporting_services: The service that supports  the  dependent service.
         """
         pulumi.set(__self__, "dependent_services", dependent_services)
         pulumi.set(__self__, "supporting_services", supporting_services)
@@ -985,26 +985,26 @@ class ServiceDependencyDependencyArgs:
 
     @property
     @pulumi.getter(name="dependentServices")
-    def dependent_services(self) -> pulumi.Input[List[pulumi.Input['ServiceDependencyDependencyDependentServiceArgs']]]:
+    def dependent_services(self) -> pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencyDependentServiceArgs']]]:
         """
         The service that id dependent on the supporting service.
         """
         return pulumi.get(self, "dependent_services")
 
     @dependent_services.setter
-    def dependent_services(self, value: pulumi.Input[List[pulumi.Input['ServiceDependencyDependencyDependentServiceArgs']]]):
+    def dependent_services(self, value: pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencyDependentServiceArgs']]]):
         pulumi.set(self, "dependent_services", value)
 
     @property
     @pulumi.getter(name="supportingServices")
-    def supporting_services(self) -> pulumi.Input[List[pulumi.Input['ServiceDependencyDependencySupportingServiceArgs']]]:
+    def supporting_services(self) -> pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencySupportingServiceArgs']]]:
         """
         The service that supports  the  dependent service.
         """
         return pulumi.get(self, "supporting_services")
 
     @supporting_services.setter
-    def supporting_services(self, value: pulumi.Input[List[pulumi.Input['ServiceDependencyDependencySupportingServiceArgs']]]):
+    def supporting_services(self, value: pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencySupportingServiceArgs']]]):
         pulumi.set(self, "supporting_services", value)
 
     @property
@@ -1234,11 +1234,11 @@ class ServiceIncidentUrgencyRuleOutsideSupportHoursArgs:
 @pulumi.input_type
 class ServiceScheduledActionArgs:
     def __init__(__self__, *,
-                 ats: Optional[pulumi.Input[List[pulumi.Input['ServiceScheduledActionAtArgs']]]] = None,
+                 ats: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceScheduledActionAtArgs']]]] = None,
                  to_urgency: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input['ServiceScheduledActionAtArgs']]] ats: A block representing when the scheduled action will occur.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceScheduledActionAtArgs']]] ats: A block representing when the scheduled action will occur.
         :param pulumi.Input[str] to_urgency: The urgency to change to: `low` (does not escalate), or `high` (follows escalation rules).
         :param pulumi.Input[str] type: The type of scheduled action. Currently, this must be set to `urgency_change`.
         """
@@ -1251,14 +1251,14 @@ class ServiceScheduledActionArgs:
 
     @property
     @pulumi.getter
-    def ats(self) -> Optional[pulumi.Input[List[pulumi.Input['ServiceScheduledActionAtArgs']]]]:
+    def ats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceScheduledActionAtArgs']]]]:
         """
         A block representing when the scheduled action will occur.
         """
         return pulumi.get(self, "ats")
 
     @ats.setter
-    def ats(self, value: Optional[pulumi.Input[List[pulumi.Input['ServiceScheduledActionAtArgs']]]]):
+    def ats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceScheduledActionAtArgs']]]]):
         pulumi.set(self, "ats", value)
 
     @property
@@ -1328,13 +1328,13 @@ class ServiceScheduledActionAtArgs:
 @pulumi.input_type
 class ServiceSupportHoursArgs:
     def __init__(__self__, *,
-                 days_of_weeks: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
+                 days_of_weeks: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  end_time: Optional[pulumi.Input[str]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input[float]]] days_of_weeks: Array of days of week as integers. `1` to `7`, `1` being
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] days_of_weeks: Array of days of week as integers. `1` to `7`, `1` being
                Monday and `7` being Sunday.
         :param pulumi.Input[str] end_time: The support hours' ending time of day.
         :param pulumi.Input[str] start_time: The support hours' starting time of day.
@@ -1354,7 +1354,7 @@ class ServiceSupportHoursArgs:
 
     @property
     @pulumi.getter(name="daysOfWeeks")
-    def days_of_weeks(self) -> Optional[pulumi.Input[List[pulumi.Input[float]]]]:
+    def days_of_weeks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
         Array of days of week as integers. `1` to `7`, `1` being
         Monday and `7` being Sunday.
@@ -1362,7 +1362,7 @@ class ServiceSupportHoursArgs:
         return pulumi.get(self, "days_of_weeks")
 
     @days_of_weeks.setter
-    def days_of_weeks(self, value: Optional[pulumi.Input[List[pulumi.Input[float]]]]):
+    def days_of_weeks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "days_of_weeks", value)
 
     @property

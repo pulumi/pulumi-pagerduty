@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,13 +20,13 @@ class Service(pulumi.CustomResource):
                  acknowledgement_timeout: Optional[pulumi.Input[str]] = None,
                  alert_creation: Optional[pulumi.Input[str]] = None,
                  alert_grouping: Optional[pulumi.Input[str]] = None,
-                 alert_grouping_timeout: Optional[pulumi.Input[float]] = None,
+                 alert_grouping_timeout: Optional[pulumi.Input[int]] = None,
                  auto_resolve_timeout: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  escalation_policy: Optional[pulumi.Input[str]] = None,
                  incident_urgency_rule: Optional[pulumi.Input[pulumi.InputType['ServiceIncidentUrgencyRuleArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 scheduled_actions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceScheduledActionArgs']]]]] = None,
+                 scheduled_actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceScheduledActionArgs']]]]] = None,
                  support_hours: Optional[pulumi.Input[pulumi.InputType['ServiceSupportHoursArgs']]] = None,
                  __props__=None,
                  __name__=None,
@@ -64,7 +64,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] acknowledgement_timeout: Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.
         :param pulumi.Input[str] alert_creation: Must be one of two values. PagerDuty receives events from your monitoring systems and can then create incidents in different ways. Value "create_incidents" is default: events will create an incident that cannot be merged. Value "create_alerts_and_incidents" is the alternative: events will create an alert and then add it to a new incident, these incidents can be merged.
         :param pulumi.Input[str] alert_grouping: Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan.
-        :param pulumi.Input[float] alert_grouping_timeout: The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
+        :param pulumi.Input[int] alert_grouping_timeout: The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
         :param pulumi.Input[str] auto_resolve_timeout: Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
         :param pulumi.Input[str] escalation_policy: The escalation policy used by this service.
         :param pulumi.Input[str] name: The name of the service.
@@ -116,7 +116,7 @@ class Service(pulumi.CustomResource):
             acknowledgement_timeout: Optional[pulumi.Input[str]] = None,
             alert_creation: Optional[pulumi.Input[str]] = None,
             alert_grouping: Optional[pulumi.Input[str]] = None,
-            alert_grouping_timeout: Optional[pulumi.Input[float]] = None,
+            alert_grouping_timeout: Optional[pulumi.Input[int]] = None,
             auto_resolve_timeout: Optional[pulumi.Input[str]] = None,
             created_at: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
@@ -125,7 +125,7 @@ class Service(pulumi.CustomResource):
             incident_urgency_rule: Optional[pulumi.Input[pulumi.InputType['ServiceIncidentUrgencyRuleArgs']]] = None,
             last_incident_timestamp: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            scheduled_actions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceScheduledActionArgs']]]]] = None,
+            scheduled_actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceScheduledActionArgs']]]]] = None,
             status: Optional[pulumi.Input[str]] = None,
             support_hours: Optional[pulumi.Input[pulumi.InputType['ServiceSupportHoursArgs']]] = None) -> 'Service':
         """
@@ -138,7 +138,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] acknowledgement_timeout: Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.
         :param pulumi.Input[str] alert_creation: Must be one of two values. PagerDuty receives events from your monitoring systems and can then create incidents in different ways. Value "create_incidents" is default: events will create an incident that cannot be merged. Value "create_alerts_and_incidents" is the alternative: events will create an alert and then add it to a new incident, these incidents can be merged.
         :param pulumi.Input[str] alert_grouping: Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan.
-        :param pulumi.Input[float] alert_grouping_timeout: The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
+        :param pulumi.Input[int] alert_grouping_timeout: The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
         :param pulumi.Input[str] auto_resolve_timeout: Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
         :param pulumi.Input[str] escalation_policy: The escalation policy used by this service.
         :param pulumi.Input[str] name: The name of the service.
@@ -190,7 +190,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="alertGroupingTimeout")
-    def alert_grouping_timeout(self) -> pulumi.Output[Optional[float]]:
+    def alert_grouping_timeout(self) -> pulumi.Output[Optional[int]]:
         """
         The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
         """
@@ -247,7 +247,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scheduledActions")
-    def scheduled_actions(self) -> pulumi.Output[Optional[List['outputs.ServiceScheduledAction']]]:
+    def scheduled_actions(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceScheduledAction']]]:
         return pulumi.get(self, "scheduled_actions")
 
     @property

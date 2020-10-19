@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,7 +17,7 @@ class ServiceDependency(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dependencies: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceDependencyDependencyArgs']]]]] = None,
+                 dependencies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceDependencyDependencyArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -54,7 +54,7 @@ class ServiceDependency(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceDependencyDependencyArgs']]]] dependencies: The relationship between the `supporting_service` and `dependent_service`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceDependencyDependencyArgs']]]] dependencies: The relationship between the `supporting_service` and `dependent_service`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -86,7 +86,7 @@ class ServiceDependency(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            dependencies: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceDependencyDependencyArgs']]]]] = None) -> 'ServiceDependency':
+            dependencies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceDependencyDependencyArgs']]]]] = None) -> 'ServiceDependency':
         """
         Get an existing ServiceDependency resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -94,7 +94,7 @@ class ServiceDependency(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceDependencyDependencyArgs']]]] dependencies: The relationship between the `supporting_service` and `dependent_service`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceDependencyDependencyArgs']]]] dependencies: The relationship between the `supporting_service` and `dependent_service`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -105,7 +105,7 @@ class ServiceDependency(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def dependencies(self) -> pulumi.Output[List['outputs.ServiceDependencyDependency']]:
+    def dependencies(self) -> pulumi.Output[Sequence['outputs.ServiceDependencyDependency']]:
         """
         The relationship between the `supporting_service` and `dependent_service`.
         """

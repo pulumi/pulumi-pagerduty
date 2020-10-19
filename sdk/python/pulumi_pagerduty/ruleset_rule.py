@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,7 +20,7 @@ class RulesetRule(pulumi.CustomResource):
                  actions: Optional[pulumi.Input[pulumi.InputType['RulesetRuleActionsArgs']]] = None,
                  conditions: Optional[pulumi.Input[pulumi.InputType['RulesetRuleConditionsArgs']]] = None,
                  disabled: Optional[pulumi.Input[bool]] = None,
-                 position: Optional[pulumi.Input[float]] = None,
+                 position: Optional[pulumi.Input[int]] = None,
                  ruleset: Optional[pulumi.Input[str]] = None,
                  time_frame: Optional[pulumi.Input[pulumi.InputType['RulesetRuleTimeFrameArgs']]] = None,
                  __props__=None,
@@ -96,7 +96,7 @@ class RulesetRule(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['RulesetRuleActionsArgs']] actions: Actions to apply to an event if the conditions match.
         :param pulumi.Input[pulumi.InputType['RulesetRuleConditionsArgs']] conditions: Conditions evaluated to check if an event matches this event rule. Is always empty for the catch all rule, though.
         :param pulumi.Input[bool] disabled: Indicates whether the rule is disabled and would therefore not be evaluated.
-        :param pulumi.Input[float] position: Position/index of the rule within the ruleset.
+        :param pulumi.Input[int] position: Position/index of the rule within the ruleset.
         :param pulumi.Input[str] ruleset: The ID of the ruleset that the rule belongs to.
         :param pulumi.Input[pulumi.InputType['RulesetRuleTimeFrameArgs']] time_frame: Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
         """
@@ -138,7 +138,7 @@ class RulesetRule(pulumi.CustomResource):
             actions: Optional[pulumi.Input[pulumi.InputType['RulesetRuleActionsArgs']]] = None,
             conditions: Optional[pulumi.Input[pulumi.InputType['RulesetRuleConditionsArgs']]] = None,
             disabled: Optional[pulumi.Input[bool]] = None,
-            position: Optional[pulumi.Input[float]] = None,
+            position: Optional[pulumi.Input[int]] = None,
             ruleset: Optional[pulumi.Input[str]] = None,
             time_frame: Optional[pulumi.Input[pulumi.InputType['RulesetRuleTimeFrameArgs']]] = None) -> 'RulesetRule':
         """
@@ -151,7 +151,7 @@ class RulesetRule(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['RulesetRuleActionsArgs']] actions: Actions to apply to an event if the conditions match.
         :param pulumi.Input[pulumi.InputType['RulesetRuleConditionsArgs']] conditions: Conditions evaluated to check if an event matches this event rule. Is always empty for the catch all rule, though.
         :param pulumi.Input[bool] disabled: Indicates whether the rule is disabled and would therefore not be evaluated.
-        :param pulumi.Input[float] position: Position/index of the rule within the ruleset.
+        :param pulumi.Input[int] position: Position/index of the rule within the ruleset.
         :param pulumi.Input[str] ruleset: The ID of the ruleset that the rule belongs to.
         :param pulumi.Input[pulumi.InputType['RulesetRuleTimeFrameArgs']] time_frame: Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
         """
@@ -193,7 +193,7 @@ class RulesetRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def position(self) -> pulumi.Output[Optional[float]]:
+    def position(self) -> pulumi.Output[Optional[int]]:
         """
         Position/index of the rule within the ruleset.
         """

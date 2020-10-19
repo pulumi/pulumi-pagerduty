@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = ['UserContactMethod']
@@ -16,7 +16,7 @@ class UserContactMethod(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address: Optional[pulumi.Input[str]] = None,
-                 country_code: Optional[pulumi.Input[float]] = None,
+                 country_code: Optional[pulumi.Input[int]] = None,
                  label: Optional[pulumi.Input[str]] = None,
                  send_short_email: Optional[pulumi.Input[bool]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -58,7 +58,7 @@ class UserContactMethod(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address: The "address" to deliver to: `email`, `phone number`, etc., depending on the type.
-        :param pulumi.Input[float] country_code: The 1-to-3 digit country calling code. Required when using `phone_contact_method` or `sms_contact_method`.
+        :param pulumi.Input[int] country_code: The 1-to-3 digit country calling code. Required when using `phone_contact_method` or `sms_contact_method`.
         :param pulumi.Input[str] label: The label (e.g., "Work", "Mobile", etc.).
         :param pulumi.Input[bool] send_short_email: Send an abbreviated email message instead of the standard email output.
         :param pulumi.Input[str] type: The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
@@ -109,7 +109,7 @@ class UserContactMethod(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             address: Optional[pulumi.Input[str]] = None,
             blacklisted: Optional[pulumi.Input[bool]] = None,
-            country_code: Optional[pulumi.Input[float]] = None,
+            country_code: Optional[pulumi.Input[int]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             label: Optional[pulumi.Input[str]] = None,
             send_short_email: Optional[pulumi.Input[bool]] = None,
@@ -124,7 +124,7 @@ class UserContactMethod(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address: The "address" to deliver to: `email`, `phone number`, etc., depending on the type.
         :param pulumi.Input[bool] blacklisted: If true, this phone has been blacklisted by PagerDuty and no messages will be sent to it.
-        :param pulumi.Input[float] country_code: The 1-to-3 digit country calling code. Required when using `phone_contact_method` or `sms_contact_method`.
+        :param pulumi.Input[int] country_code: The 1-to-3 digit country calling code. Required when using `phone_contact_method` or `sms_contact_method`.
         :param pulumi.Input[bool] enabled: If true, this phone is capable of receiving SMS messages.
         :param pulumi.Input[str] label: The label (e.g., "Work", "Mobile", etc.).
         :param pulumi.Input[bool] send_short_email: Send an abbreviated email message instead of the standard email output.
@@ -163,7 +163,7 @@ class UserContactMethod(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="countryCode")
-    def country_code(self) -> pulumi.Output[Optional[float]]:
+    def country_code(self) -> pulumi.Output[Optional[int]]:
         """
         The 1-to-3 digit country calling code. Required when using `phone_contact_method` or `sms_contact_method`.
         """

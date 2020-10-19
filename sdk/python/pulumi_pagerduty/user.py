@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = ['User']
@@ -21,7 +21,7 @@ class User(pulumi.CustomResource):
                  job_title: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[str]] = None,
-                 teams: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -45,7 +45,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] job_title: The user's title.
         :param pulumi.Input[str] name: The name of the user.
         :param pulumi.Input[str] role: The user role. Account must have the `read_only_users` ability to set a user as a `read_only_user`. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user` or `user`
-        :param pulumi.Input[List[pulumi.Input[str]]] teams: A list of teams the user should belong to. Please use `TeamMembership` instead.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] teams: A list of teams the user should belong to. Please use `TeamMembership` instead.
         :param pulumi.Input[str] time_zone: The timezone of the user
         """
         if __name__ is not None:
@@ -100,7 +100,7 @@ class User(pulumi.CustomResource):
             job_title: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             role: Optional[pulumi.Input[str]] = None,
-            teams: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             time_zone: Optional[pulumi.Input[str]] = None) -> 'User':
         """
         Get an existing User resource's state with the given name, id, and optional extra
@@ -117,7 +117,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] job_title: The user's title.
         :param pulumi.Input[str] name: The name of the user.
         :param pulumi.Input[str] role: The user role. Account must have the `read_only_users` ability to set a user as a `read_only_user`. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user` or `user`
-        :param pulumi.Input[List[pulumi.Input[str]]] teams: A list of teams the user should belong to. Please use `TeamMembership` instead.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] teams: A list of teams the user should belong to. Please use `TeamMembership` instead.
         :param pulumi.Input[str] time_zone: The timezone of the user
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -208,7 +208,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def teams(self) -> pulumi.Output[List[str]]:
+    def teams(self) -> pulumi.Output[Sequence[str]]:
         """
         A list of teams the user should belong to. Please use `TeamMembership` instead.
         """

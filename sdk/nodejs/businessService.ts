@@ -18,6 +18,14 @@ import * as utilities from "./utilities";
  *     pointOfContact: "PagerDuty Admin",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Services can be imported using the `id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import pagerduty:index/businessService:BusinessService main PLBP09X
+ * ```
  */
 export class BusinessService extends pulumi.CustomResource {
     /**

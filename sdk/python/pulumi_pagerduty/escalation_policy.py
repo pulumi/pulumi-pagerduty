@@ -50,6 +50,14 @@ class EscalationPolicy(pulumi.CustomResource):
             teams=[example_team.id])
         ```
 
+        ## Import
+
+        Escalation policies can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import pagerduty:index/escalationPolicy:EscalationPolicy main PLBP09X
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the escalation policy.

@@ -82,6 +82,14 @@ namespace Pulumi.Pagerduty
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Services can be imported using their related `service` id and service integration `id` separated by a dot, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import pagerduty:index/serviceIntegration:ServiceIntegration main PLSSSSS.PLIIIII
+    /// ```
     /// </summary>
     public partial class ServiceIntegration : Pulumi.CustomResource
     {

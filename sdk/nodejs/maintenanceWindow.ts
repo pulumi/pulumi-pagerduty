@@ -21,6 +21,14 @@ import * as utilities from "./utilities";
  *     startTime: "2015-11-09T20:00:00-05:00",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Maintenance windows can be imported using the `id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import pagerduty:index/maintenanceWindow:MaintenanceWindow main PLBP09X
+ * ```
  */
 export class MaintenanceWindow extends pulumi.CustomResource {
     /**

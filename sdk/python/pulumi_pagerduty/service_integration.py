@@ -62,6 +62,14 @@ class ServiceIntegration(pulumi.CustomResource):
             vendor=cloudwatch_vendor.id)
         ```
 
+        ## Import
+
+        Services can be imported using their related `service` id and service integration `id` separated by a dot, e.g.
+
+        ```sh
+         $ pulumi import pagerduty:index/serviceIntegration:ServiceIntegration main PLSSSSS.PLIIIII
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] integration_email: This is the unique fully-qualified email address used for routing emails to this integration for processing.

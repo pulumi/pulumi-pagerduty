@@ -59,6 +59,14 @@ class Service(pulumi.CustomResource):
             escalation_policy=pagerduty_escalation_policy["example"]["id"])
         ```
 
+        ## Import
+
+        Services can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import pagerduty:index/service:Service main PLBP09X
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] acknowledgement_timeout: Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.

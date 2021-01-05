@@ -4,6 +4,7 @@
 package pagerduty
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -62,6 +63,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Escalation policies can be imported using the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import pagerduty:index/escalationPolicy:EscalationPolicy main PLBP09X
 // ```
 type EscalationPolicy struct {
 	pulumi.CustomResourceState
@@ -162,4 +171,43 @@ type EscalationPolicyArgs struct {
 
 func (EscalationPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*escalationPolicyArgs)(nil)).Elem()
+}
+
+type EscalationPolicyInput interface {
+	pulumi.Input
+
+	ToEscalationPolicyOutput() EscalationPolicyOutput
+	ToEscalationPolicyOutputWithContext(ctx context.Context) EscalationPolicyOutput
+}
+
+func (EscalationPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*EscalationPolicy)(nil)).Elem()
+}
+
+func (i EscalationPolicy) ToEscalationPolicyOutput() EscalationPolicyOutput {
+	return i.ToEscalationPolicyOutputWithContext(context.Background())
+}
+
+func (i EscalationPolicy) ToEscalationPolicyOutputWithContext(ctx context.Context) EscalationPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EscalationPolicyOutput)
+}
+
+type EscalationPolicyOutput struct {
+	*pulumi.OutputState
+}
+
+func (EscalationPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EscalationPolicyOutput)(nil)).Elem()
+}
+
+func (o EscalationPolicyOutput) ToEscalationPolicyOutput() EscalationPolicyOutput {
+	return o
+}
+
+func (o EscalationPolicyOutput) ToEscalationPolicyOutputWithContext(ctx context.Context) EscalationPolicyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(EscalationPolicyOutput{})
 }

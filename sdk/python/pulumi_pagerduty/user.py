@@ -38,6 +38,14 @@ class User(pulumi.CustomResource):
         example = pagerduty.User("example", email="125.greenholt.earline@graham.name")
         ```
 
+        ## Import
+
+        Users can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import pagerduty:index/user:User main PLBP09X
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] color: The schedule color for the user. Valid options are purple, red, green, blue, teal, orange, brown, turquoise, dark-slate-blue, cayenne, orange-red, dark-orchid, dark-slate-grey, lime, dark-magenta, lime-green, midnight-blue, deep-pink, dark-green, dark-orange, dark-cyan, darkolive-green, dark-slate-gray, grey20, firebrick, maroon, crimson, dark-red, dark-goldenrod, chocolate, medium-violet-red, sea-green, olivedrab, forest-green, dark-olive-green, blue-violet, royal-blue, indigo, slate-blue, saddle-brown, or steel-blue.
@@ -74,7 +82,7 @@ class User(pulumi.CustomResource):
             __props__['name'] = name
             __props__['role'] = role
             if teams is not None:
-                warnings.warn("Use the 'pagerduty_team_membership' resource instead.", DeprecationWarning)
+                warnings.warn("""Use the 'pagerduty_team_membership' resource instead.""", DeprecationWarning)
                 pulumi.log.warn("teams is deprecated: Use the 'pagerduty_team_membership' resource instead.")
             __props__['teams'] = teams
             __props__['time_zone'] = time_zone

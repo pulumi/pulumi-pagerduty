@@ -36,6 +36,14 @@ class BusinessService(pulumi.CustomResource):
             point_of_contact="PagerDuty Admin")
         ```
 
+        ## Import
+
+        Services can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import pagerduty:index/businessService:BusinessService main PLBP09X
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the business service.

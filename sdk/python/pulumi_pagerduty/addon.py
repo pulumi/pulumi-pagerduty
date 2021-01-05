@@ -32,6 +32,14 @@ class Addon(pulumi.CustomResource):
         example = pagerduty.Addon("example", src="https://intranet.example.com/status")
         ```
 
+        ## Import
+
+        Add-ons can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import pagerduty:index/addon:Addon example P3DH5M6
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the add-on.

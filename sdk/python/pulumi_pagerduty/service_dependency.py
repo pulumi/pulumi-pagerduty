@@ -52,6 +52,14 @@ class ServiceDependency(pulumi.CustomResource):
         )])
         ```
 
+        ## Import
+
+        Service dependencies can be imported using the related business service id and the dependency id separated by a dot, e.g.
+
+        ```sh
+         $ pulumi import pagerduty:index/serviceDependency:ServiceDependency main P4B2Z7G.D5RTHKRNGU4PYE90PJ
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceDependencyDependencyArgs']]]] dependencies: The relationship between the `supporting_service` and `dependent_service`.

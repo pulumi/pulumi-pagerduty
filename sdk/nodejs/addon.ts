@@ -17,6 +17,14 @@ import * as utilities from "./utilities";
  *     src: "https://intranet.example.com/status",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Add-ons can be imported using the `id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import pagerduty:index/addon:Addon example P3DH5M6
+ * ```
  */
 export class Addon extends pulumi.CustomResource {
     /**

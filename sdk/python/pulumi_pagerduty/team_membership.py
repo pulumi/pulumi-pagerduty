@@ -38,6 +38,14 @@ class TeamMembership(pulumi.CustomResource):
             user_id=foo_user.id)
         ```
 
+        ## Import
+
+        Team memberships can be imported using the `user_id` and `team_id`, e.g.
+
+        ```sh
+         $ pulumi import pagerduty:index/teamMembership:TeamMembership main PLBP09X:PLB09Z
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] role: The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.

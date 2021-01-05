@@ -67,6 +67,14 @@ class Extension(pulumi.CustomResource):
             extension_schema=webhook.id)
         ```
 
+        ## Import
+
+        Extensions can be imported using the id.e.g.
+
+        ```sh
+         $ pulumi import pagerduty:index/extension:Extension main PLBP09X
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] config: The configuration of the service extension as string containing plain JSON-encoded data.

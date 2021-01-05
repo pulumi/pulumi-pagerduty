@@ -83,6 +83,14 @@ namespace Pulumi.Pagerduty
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Extensions can be imported using the id.e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import pagerduty:index/extension:Extension main PLBP09X
+    /// ```
     /// </summary>
     public partial class Extension : Pulumi.CustomResource
     {

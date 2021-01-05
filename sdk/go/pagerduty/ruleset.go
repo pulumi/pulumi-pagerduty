@@ -4,6 +4,7 @@
 package pagerduty
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -38,6 +39,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Rulesets can be imported using the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import pagerduty:index/ruleset:Ruleset main 19acac92-027a-4ea0-b06c-bbf516519601
 // ```
 type Ruleset struct {
 	pulumi.CustomResourceState
@@ -122,4 +131,43 @@ type RulesetArgs struct {
 
 func (RulesetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*rulesetArgs)(nil)).Elem()
+}
+
+type RulesetInput interface {
+	pulumi.Input
+
+	ToRulesetOutput() RulesetOutput
+	ToRulesetOutputWithContext(ctx context.Context) RulesetOutput
+}
+
+func (Ruleset) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ruleset)(nil)).Elem()
+}
+
+func (i Ruleset) ToRulesetOutput() RulesetOutput {
+	return i.ToRulesetOutputWithContext(context.Background())
+}
+
+func (i Ruleset) ToRulesetOutputWithContext(ctx context.Context) RulesetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulesetOutput)
+}
+
+type RulesetOutput struct {
+	*pulumi.OutputState
+}
+
+func (RulesetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesetOutput)(nil)).Elem()
+}
+
+func (o RulesetOutput) ToRulesetOutput() RulesetOutput {
+	return o
+}
+
+func (o RulesetOutput) ToRulesetOutputWithContext(ctx context.Context) RulesetOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RulesetOutput{})
 }

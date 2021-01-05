@@ -53,6 +53,14 @@ class Schedule(pulumi.CustomResource):
             time_zone="America/New_York")
         ```
 
+        ## Import
+
+        Schedules can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import pagerduty:index/schedule:Schedule main PLBP09X
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the schedule

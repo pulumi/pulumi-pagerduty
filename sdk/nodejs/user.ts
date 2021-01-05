@@ -17,6 +17,14 @@ import * as utilities from "./utilities";
  *     email: "125.greenholt.earline@graham.name",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Users can be imported using the `id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import pagerduty:index/user:User main PLBP09X
+ * ```
  */
 export class User extends pulumi.CustomResource {
     /**

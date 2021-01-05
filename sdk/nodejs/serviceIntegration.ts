@@ -51,6 +51,14 @@ import * as utilities from "./utilities";
  *     vendor: cloudwatchVendor.id,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Services can be imported using their related `service` id and service integration `id` separated by a dot, e.g.
+ *
+ * ```sh
+ *  $ pulumi import pagerduty:index/serviceIntegration:ServiceIntegration main PLSSSSS.PLIIIII
+ * ```
  */
 export class ServiceIntegration extends pulumi.CustomResource {
     /**

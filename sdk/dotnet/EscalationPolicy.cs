@@ -61,6 +61,14 @@ namespace Pulumi.Pagerduty
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Escalation policies can be imported using the `id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import pagerduty:index/escalationPolicy:EscalationPolicy main PLBP09X
+    /// ```
     /// </summary>
     public partial class EscalationPolicy : Pulumi.CustomResource
     {

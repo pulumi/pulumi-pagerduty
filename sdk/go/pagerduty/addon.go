@@ -4,6 +4,7 @@
 package pagerduty
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -33,6 +34,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Add-ons can be imported using the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import pagerduty:index/addon:Addon example P3DH5M6
 // ```
 type Addon struct {
 	pulumi.CustomResourceState
@@ -108,4 +117,43 @@ type AddonArgs struct {
 
 func (AddonArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*addonArgs)(nil)).Elem()
+}
+
+type AddonInput interface {
+	pulumi.Input
+
+	ToAddonOutput() AddonOutput
+	ToAddonOutputWithContext(ctx context.Context) AddonOutput
+}
+
+func (Addon) ElementType() reflect.Type {
+	return reflect.TypeOf((*Addon)(nil)).Elem()
+}
+
+func (i Addon) ToAddonOutput() AddonOutput {
+	return i.ToAddonOutputWithContext(context.Background())
+}
+
+func (i Addon) ToAddonOutputWithContext(ctx context.Context) AddonOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AddonOutput)
+}
+
+type AddonOutput struct {
+	*pulumi.OutputState
+}
+
+func (AddonOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AddonOutput)(nil)).Elem()
+}
+
+func (o AddonOutput) ToAddonOutput() AddonOutput {
+	return o
+}
+
+func (o AddonOutput) ToAddonOutputWithContext(ctx context.Context) AddonOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AddonOutput{})
 }

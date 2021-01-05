@@ -25,6 +25,14 @@ import * as utilities from "./utilities";
  *     userId: fooUser.id,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Team memberships can be imported using the `user_id` and `team_id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import pagerduty:index/teamMembership:TeamMembership main PLBP09X:PLB09Z
+ * ```
  */
 export class TeamMembership extends pulumi.CustomResource {
     /**

@@ -185,6 +185,14 @@ namespace Pulumi.Pagerduty
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Event rules can be imported using the `id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import pagerduty:index/eventRule:EventRule main 19acac92-027a-4ea0-b06c-bbf516519601
+    /// ```
     /// </summary>
     public partial class EventRule : Pulumi.CustomResource
     {

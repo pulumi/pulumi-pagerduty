@@ -61,6 +61,14 @@ namespace Pulumi.Pagerduty
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Schedules can be imported using the `id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import pagerduty:index/schedule:Schedule main PLBP09X
+    /// ```
     /// </summary>
     public partial class Schedule : Pulumi.CustomResource
     {

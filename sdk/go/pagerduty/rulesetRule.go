@@ -4,6 +4,7 @@
 package pagerduty
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -11,6 +12,14 @@ import (
 )
 
 // An [event rule](https://support.pagerduty.com/docs/rulesets#section-create-event-rules) allows you to set actions that should be taken on events that meet your designated rule criteria.
+//
+// ## Import
+//
+// Ruleset rules can be imported using using the related `ruleset` id and the `ruleset_rule` id separated by a dot, e.g.
+//
+// ```sh
+//  $ pulumi import pagerduty:index/rulesetRule:RulesetRule main a19cdca1-3d5e-4b52-bfea-8c8de04da243.19acac92-027a-4ea0-b06c-bbf516519601
+// ```
 type RulesetRule struct {
 	pulumi.CustomResourceState
 
@@ -125,4 +134,43 @@ type RulesetRuleArgs struct {
 
 func (RulesetRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*rulesetRuleArgs)(nil)).Elem()
+}
+
+type RulesetRuleInput interface {
+	pulumi.Input
+
+	ToRulesetRuleOutput() RulesetRuleOutput
+	ToRulesetRuleOutputWithContext(ctx context.Context) RulesetRuleOutput
+}
+
+func (RulesetRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesetRule)(nil)).Elem()
+}
+
+func (i RulesetRule) ToRulesetRuleOutput() RulesetRuleOutput {
+	return i.ToRulesetRuleOutputWithContext(context.Background())
+}
+
+func (i RulesetRule) ToRulesetRuleOutputWithContext(ctx context.Context) RulesetRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleOutput)
+}
+
+type RulesetRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (RulesetRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesetRuleOutput)(nil)).Elem()
+}
+
+func (o RulesetRuleOutput) ToRulesetRuleOutput() RulesetRuleOutput {
+	return o
+}
+
+func (o RulesetRuleOutput) ToRulesetRuleOutputWithContext(ctx context.Context) RulesetRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(RulesetRuleOutput{})
 }

@@ -57,6 +57,14 @@ namespace Pulumi.Pagerduty
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Contact methods can be imported using the `user_id` and the `id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import pagerduty:index/userContactMethod:UserContactMethod main PLBP09X:PLBP09X
+    /// ```
     /// </summary>
     public partial class UserContactMethod : Pulumi.CustomResource
     {

@@ -4,6 +4,7 @@
 package pagerduty
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -98,6 +99,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// User notification rules can be imported using the `user_id` and the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import pagerduty:index/userNotificationRule:UserNotificationRule main PXPGF42:PPSCXAN
 // ```
 type UserNotificationRule struct {
 	pulumi.CustomResourceState
@@ -202,4 +211,43 @@ type UserNotificationRuleArgs struct {
 
 func (UserNotificationRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userNotificationRuleArgs)(nil)).Elem()
+}
+
+type UserNotificationRuleInput interface {
+	pulumi.Input
+
+	ToUserNotificationRuleOutput() UserNotificationRuleOutput
+	ToUserNotificationRuleOutputWithContext(ctx context.Context) UserNotificationRuleOutput
+}
+
+func (UserNotificationRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserNotificationRule)(nil)).Elem()
+}
+
+func (i UserNotificationRule) ToUserNotificationRuleOutput() UserNotificationRuleOutput {
+	return i.ToUserNotificationRuleOutputWithContext(context.Background())
+}
+
+func (i UserNotificationRule) ToUserNotificationRuleOutputWithContext(ctx context.Context) UserNotificationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserNotificationRuleOutput)
+}
+
+type UserNotificationRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (UserNotificationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserNotificationRuleOutput)(nil)).Elem()
+}
+
+func (o UserNotificationRuleOutput) ToUserNotificationRuleOutput() UserNotificationRuleOutput {
+	return o
+}
+
+func (o UserNotificationRuleOutput) ToUserNotificationRuleOutputWithContext(ctx context.Context) UserNotificationRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(UserNotificationRuleOutput{})
 }

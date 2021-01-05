@@ -86,6 +86,14 @@ namespace Pulumi.Pagerduty
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// User notification rules can be imported using the `user_id` and the `id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import pagerduty:index/userNotificationRule:UserNotificationRule main PXPGF42:PPSCXAN
+    /// ```
     /// </summary>
     public partial class UserNotificationRule : Pulumi.CustomResource
     {

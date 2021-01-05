@@ -4,6 +4,7 @@
 package pagerduty
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -11,6 +12,14 @@ import (
 )
 
 // A [service](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Services/get_services) represents something you monitor (like a web service, email service, or database service). It is a container for related incidents that associates them with escalation policies.
+//
+// ## Import
+//
+// Services can be imported using the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import pagerduty:index/service:Service main PLBP09X
+// ```
 type Service struct {
 	pulumi.CustomResourceState
 
@@ -167,4 +176,43 @@ type ServiceArgs struct {
 
 func (ServiceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceArgs)(nil)).Elem()
+}
+
+type ServiceInput interface {
+	pulumi.Input
+
+	ToServiceOutput() ServiceOutput
+	ToServiceOutputWithContext(ctx context.Context) ServiceOutput
+}
+
+func (Service) ElementType() reflect.Type {
+	return reflect.TypeOf((*Service)(nil)).Elem()
+}
+
+func (i Service) ToServiceOutput() ServiceOutput {
+	return i.ToServiceOutputWithContext(context.Background())
+}
+
+func (i Service) ToServiceOutputWithContext(ctx context.Context) ServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceOutput)
+}
+
+type ServiceOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceOutput)(nil)).Elem()
+}
+
+func (o ServiceOutput) ToServiceOutput() ServiceOutput {
+	return o
+}
+
+func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServiceOutput{})
 }

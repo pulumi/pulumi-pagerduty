@@ -55,6 +55,14 @@ class UserContactMethod(pulumi.CustomResource):
             user_id=example.id)
         ```
 
+        ## Import
+
+        Contact methods can be imported using the `user_id` and the `id`, e.g.
+
+        ```sh
+         $ pulumi import pagerduty:index/userContactMethod:UserContactMethod main PLBP09X:PLBP09X
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address: The "address" to deliver to: `email`, `phone number`, etc., depending on the type.

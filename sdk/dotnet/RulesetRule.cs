@@ -123,6 +123,14 @@ namespace Pulumi.Pagerduty
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Ruleset rules can be imported using using the related `ruleset` id and the `ruleset_rule` id separated by a dot, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import pagerduty:index/rulesetRule:RulesetRule main a19cdca1-3d5e-4b52-bfea-8c8de04da243.19acac92-027a-4ea0-b06c-bbf516519601
+    /// ```
     /// </summary>
     public partial class RulesetRule : Pulumi.CustomResource
     {

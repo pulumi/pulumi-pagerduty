@@ -4,6 +4,7 @@
 package pagerduty
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -70,6 +71,14 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Service dependencies can be imported using the related business service id and the dependency id separated by a dot, e.g.
+//
+// ```sh
+//  $ pulumi import pagerduty:index/serviceDependency:ServiceDependency main P4B2Z7G.D5RTHKRNGU4PYE90PJ
+// ```
 type ServiceDependency struct {
 	pulumi.CustomResourceState
 
@@ -134,4 +143,43 @@ type ServiceDependencyArgs struct {
 
 func (ServiceDependencyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceDependencyArgs)(nil)).Elem()
+}
+
+type ServiceDependencyInput interface {
+	pulumi.Input
+
+	ToServiceDependencyOutput() ServiceDependencyOutput
+	ToServiceDependencyOutputWithContext(ctx context.Context) ServiceDependencyOutput
+}
+
+func (ServiceDependency) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDependency)(nil)).Elem()
+}
+
+func (i ServiceDependency) ToServiceDependencyOutput() ServiceDependencyOutput {
+	return i.ToServiceDependencyOutputWithContext(context.Background())
+}
+
+func (i ServiceDependency) ToServiceDependencyOutputWithContext(ctx context.Context) ServiceDependencyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDependencyOutput)
+}
+
+type ServiceDependencyOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServiceDependencyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDependencyOutput)(nil)).Elem()
+}
+
+func (o ServiceDependencyOutput) ToServiceDependencyOutput() ServiceDependencyOutput {
+	return o
+}
+
+func (o ServiceDependencyOutput) ToServiceDependencyOutputWithContext(ctx context.Context) ServiceDependencyOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServiceDependencyOutput{})
 }

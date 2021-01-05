@@ -4,6 +4,7 @@
 package pagerduty
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -47,6 +48,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Team memberships can be imported using the `user_id` and `team_id`, e.g.
+//
+// ```sh
+//  $ pulumi import pagerduty:index/teamMembership:TeamMembership main PLBP09X:PLB09Z
 // ```
 type TeamMembership struct {
 	pulumi.CustomResourceState
@@ -135,4 +144,43 @@ type TeamMembershipArgs struct {
 
 func (TeamMembershipArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*teamMembershipArgs)(nil)).Elem()
+}
+
+type TeamMembershipInput interface {
+	pulumi.Input
+
+	ToTeamMembershipOutput() TeamMembershipOutput
+	ToTeamMembershipOutputWithContext(ctx context.Context) TeamMembershipOutput
+}
+
+func (TeamMembership) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamMembership)(nil)).Elem()
+}
+
+func (i TeamMembership) ToTeamMembershipOutput() TeamMembershipOutput {
+	return i.ToTeamMembershipOutputWithContext(context.Background())
+}
+
+func (i TeamMembership) ToTeamMembershipOutputWithContext(ctx context.Context) TeamMembershipOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamMembershipOutput)
+}
+
+type TeamMembershipOutput struct {
+	*pulumi.OutputState
+}
+
+func (TeamMembershipOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamMembershipOutput)(nil)).Elem()
+}
+
+func (o TeamMembershipOutput) ToTeamMembershipOutput() TeamMembershipOutput {
+	return o
+}
+
+func (o TeamMembershipOutput) ToTeamMembershipOutputWithContext(ctx context.Context) TeamMembershipOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(TeamMembershipOutput{})
 }

@@ -4,6 +4,7 @@
 package pagerduty
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -11,6 +12,14 @@ import (
 )
 
 // A [contact method](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Users/get_users_id_contact_methods) is a contact method for a PagerDuty user (email, phone or SMS).
+//
+// ## Import
+//
+// Contact methods can be imported using the `user_id` and the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import pagerduty:index/userContactMethod:UserContactMethod main PLBP09X:PLBP09X
+// ```
 type UserContactMethod struct {
 	pulumi.CustomResourceState
 
@@ -146,4 +155,43 @@ type UserContactMethodArgs struct {
 
 func (UserContactMethodArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*userContactMethodArgs)(nil)).Elem()
+}
+
+type UserContactMethodInput interface {
+	pulumi.Input
+
+	ToUserContactMethodOutput() UserContactMethodOutput
+	ToUserContactMethodOutputWithContext(ctx context.Context) UserContactMethodOutput
+}
+
+func (UserContactMethod) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserContactMethod)(nil)).Elem()
+}
+
+func (i UserContactMethod) ToUserContactMethodOutput() UserContactMethodOutput {
+	return i.ToUserContactMethodOutputWithContext(context.Background())
+}
+
+func (i UserContactMethod) ToUserContactMethodOutputWithContext(ctx context.Context) UserContactMethodOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserContactMethodOutput)
+}
+
+type UserContactMethodOutput struct {
+	*pulumi.OutputState
+}
+
+func (UserContactMethodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserContactMethodOutput)(nil)).Elem()
+}
+
+func (o UserContactMethodOutput) ToUserContactMethodOutput() UserContactMethodOutput {
+	return o
+}
+
+func (o UserContactMethodOutput) ToUserContactMethodOutputWithContext(ctx context.Context) UserContactMethodOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(UserContactMethodOutput{})
 }

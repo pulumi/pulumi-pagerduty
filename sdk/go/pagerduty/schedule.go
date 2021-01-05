@@ -4,6 +4,7 @@
 package pagerduty
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -11,6 +12,14 @@ import (
 )
 
 // A [schedule](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Schedules/get_schedules) determines the time periods that users are on call. Only on-call users are eligible to receive notifications from incidents.
+//
+// ## Import
+//
+// Schedules can be imported using the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import pagerduty:index/schedule:Schedule main PLBP09X
+// ```
 type Schedule struct {
 	pulumi.CustomResourceState
 
@@ -128,4 +137,43 @@ type ScheduleArgs struct {
 
 func (ScheduleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*scheduleArgs)(nil)).Elem()
+}
+
+type ScheduleInput interface {
+	pulumi.Input
+
+	ToScheduleOutput() ScheduleOutput
+	ToScheduleOutputWithContext(ctx context.Context) ScheduleOutput
+}
+
+func (Schedule) ElementType() reflect.Type {
+	return reflect.TypeOf((*Schedule)(nil)).Elem()
+}
+
+func (i Schedule) ToScheduleOutput() ScheduleOutput {
+	return i.ToScheduleOutputWithContext(context.Background())
+}
+
+func (i Schedule) ToScheduleOutputWithContext(ctx context.Context) ScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduleOutput)
+}
+
+type ScheduleOutput struct {
+	*pulumi.OutputState
+}
+
+func (ScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduleOutput)(nil)).Elem()
+}
+
+func (o ScheduleOutput) ToScheduleOutput() ScheduleOutput {
+	return o
+}
+
+func (o ScheduleOutput) ToScheduleOutputWithContext(ctx context.Context) ScheduleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ScheduleOutput{})
 }

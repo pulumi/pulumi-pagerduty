@@ -40,6 +40,14 @@ namespace Pulumi.Pagerduty
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Team memberships can be imported using the `user_id` and `team_id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import pagerduty:index/teamMembership:TeamMembership main PLBP09X:PLB09Z
+    /// ```
     /// </summary>
     public partial class TeamMembership : Pulumi.CustomResource
     {

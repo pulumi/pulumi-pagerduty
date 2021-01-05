@@ -77,6 +77,14 @@ class UserNotificationRule(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        User notification rules can be imported using the `user_id` and the `id`, e.g.
+
+        ```sh
+         $ pulumi import pagerduty:index/userNotificationRule:UserNotificationRule main PXPGF42:PPSCXAN
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['UserNotificationRuleContactMethodArgs']] contact_method: A contact method block, configured as a block described below.

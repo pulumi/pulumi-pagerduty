@@ -19,6 +19,14 @@ import * as utilities from "./utilities";
  *     description: "All engineering",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Teams can be imported using the `id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import pagerduty:index/team:Team main PLBP09X
+ * ```
  */
 export class Team extends pulumi.CustomResource {
     /**

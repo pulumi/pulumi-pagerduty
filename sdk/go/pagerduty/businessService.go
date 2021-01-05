@@ -4,6 +4,7 @@
 package pagerduty
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -33,6 +34,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// Services can be imported using the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import pagerduty:index/businessService:BusinessService main PLBP09X
 // ```
 type BusinessService struct {
 	pulumi.CustomResourceState
@@ -129,4 +138,43 @@ type BusinessServiceArgs struct {
 
 func (BusinessServiceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*businessServiceArgs)(nil)).Elem()
+}
+
+type BusinessServiceInput interface {
+	pulumi.Input
+
+	ToBusinessServiceOutput() BusinessServiceOutput
+	ToBusinessServiceOutputWithContext(ctx context.Context) BusinessServiceOutput
+}
+
+func (BusinessService) ElementType() reflect.Type {
+	return reflect.TypeOf((*BusinessService)(nil)).Elem()
+}
+
+func (i BusinessService) ToBusinessServiceOutput() BusinessServiceOutput {
+	return i.ToBusinessServiceOutputWithContext(context.Background())
+}
+
+func (i BusinessService) ToBusinessServiceOutputWithContext(ctx context.Context) BusinessServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BusinessServiceOutput)
+}
+
+type BusinessServiceOutput struct {
+	*pulumi.OutputState
+}
+
+func (BusinessServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BusinessServiceOutput)(nil)).Elem()
+}
+
+func (o BusinessServiceOutput) ToBusinessServiceOutput() BusinessServiceOutput {
+	return o
+}
+
+func (o BusinessServiceOutput) ToBusinessServiceOutputWithContext(ctx context.Context) BusinessServiceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BusinessServiceOutput{})
 }

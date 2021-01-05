@@ -38,6 +38,14 @@ import * as utilities from "./utilities";
  *     userId: example.id,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Contact methods can be imported using the `user_id` and the `id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import pagerduty:index/userContactMethod:UserContactMethod main PLBP09X:PLBP09X
+ * ```
  */
 export class UserContactMethod extends pulumi.CustomResource {
     /**

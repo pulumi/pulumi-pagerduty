@@ -133,6 +133,14 @@ class EventRule(pulumi.CustomResource):
             opts=ResourceOptions(depends_on=[pagerduty_event_rule["two"]]))
         ```
 
+        ## Import
+
+        Event rules can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import pagerduty:index/eventRule:EventRule main 19acac92-027a-4ea0-b06c-bbf516519601
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action_json: A list of one or more actions for each rule. Each action within the list is itself a list.

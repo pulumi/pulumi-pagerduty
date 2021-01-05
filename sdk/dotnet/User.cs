@@ -30,6 +30,14 @@ namespace Pulumi.Pagerduty
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Users can be imported using the `id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import pagerduty:index/user:User main PLBP09X
+    /// ```
     /// </summary>
     public partial class User : Pulumi.CustomResource
     {

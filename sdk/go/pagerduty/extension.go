@@ -42,14 +42,15 @@ type Extension struct {
 // NewExtension registers a new resource with the given unique name, arguments, and options.
 func NewExtension(ctx *pulumi.Context,
 	name string, args *ExtensionArgs, opts ...pulumi.ResourceOption) (*Extension, error) {
-	if args == nil || args.ExtensionObjects == nil {
-		return nil, errors.New("missing required argument 'ExtensionObjects'")
-	}
-	if args == nil || args.ExtensionSchema == nil {
-		return nil, errors.New("missing required argument 'ExtensionSchema'")
-	}
 	if args == nil {
-		args = &ExtensionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ExtensionObjects == nil {
+		return nil, errors.New("invalid value for required argument 'ExtensionObjects'")
+	}
+	if args.ExtensionSchema == nil {
+		return nil, errors.New("invalid value for required argument 'ExtensionSchema'")
 	}
 	var resource Extension
 	err := ctx.RegisterResource("pagerduty:index/extension:Extension", name, args, &resource, opts...)

@@ -135,16 +135,16 @@ export class UserNotificationRule extends pulumi.CustomResource {
             inputs["userId"] = state ? state.userId : undefined;
         } else {
             const args = argsOrState as UserNotificationRuleArgs | undefined;
-            if (!args || args.contactMethod === undefined) {
+            if ((!args || args.contactMethod === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'contactMethod'");
             }
-            if (!args || args.startDelayInMinutes === undefined) {
+            if ((!args || args.startDelayInMinutes === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'startDelayInMinutes'");
             }
-            if (!args || args.urgency === undefined) {
+            if ((!args || args.urgency === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'urgency'");
             }
-            if (!args || args.userId === undefined) {
+            if ((!args || args.userId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'userId'");
             }
             inputs["contactMethod"] = args ? args.contactMethod : undefined;

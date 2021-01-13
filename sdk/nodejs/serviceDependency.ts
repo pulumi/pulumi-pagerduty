@@ -92,7 +92,7 @@ export class ServiceDependency extends pulumi.CustomResource {
             inputs["dependencies"] = state ? state.dependencies : undefined;
         } else {
             const args = argsOrState as ServiceDependencyArgs | undefined;
-            if (!args || args.dependencies === undefined) {
+            if ((!args || args.dependencies === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dependencies'");
             }
             inputs["dependencies"] = args ? args.dependencies : undefined;

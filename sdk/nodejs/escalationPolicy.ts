@@ -107,7 +107,7 @@ export class EscalationPolicy extends pulumi.CustomResource {
             inputs["teams"] = state ? state.teams : undefined;
         } else {
             const args = argsOrState as EscalationPolicyArgs | undefined;
-            if (!args || args.rules === undefined) {
+            if ((!args || args.rules === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'rules'");
             }
             inputs["description"] = args ? args.description : undefined;

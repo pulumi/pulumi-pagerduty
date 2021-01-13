@@ -67,6 +67,7 @@ func NewRuleset(ctx *pulumi.Context,
 	if args == nil {
 		args = &RulesetArgs{}
 	}
+
 	var resource Ruleset
 	err := ctx.RegisterResource("pagerduty:index/ruleset:Ruleset", name, args, &resource, opts...)
 	if err != nil {

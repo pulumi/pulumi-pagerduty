@@ -100,7 +100,7 @@ class Service(pulumi.CustomResource):
             __props__['alert_grouping_timeout'] = alert_grouping_timeout
             __props__['auto_resolve_timeout'] = auto_resolve_timeout
             __props__['description'] = description
-            if escalation_policy is None:
+            if escalation_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'escalation_policy'")
             __props__['escalation_policy'] = escalation_policy
             __props__['incident_urgency_rule'] = incident_urgency_rule

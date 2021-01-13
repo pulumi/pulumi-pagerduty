@@ -63,7 +63,7 @@ class Addon(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['name'] = name
-            if src is None:
+            if src is None and not opts.urn:
                 raise TypeError("Missing required property 'src'")
             __props__['src'] = src
         super(Addon, __self__).__init__(

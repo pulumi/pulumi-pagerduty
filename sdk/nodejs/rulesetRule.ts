@@ -152,7 +152,7 @@ export class RulesetRule extends pulumi.CustomResource {
             inputs["timeFrame"] = state ? state.timeFrame : undefined;
         } else {
             const args = argsOrState as RulesetRuleArgs | undefined;
-            if (!args || args.ruleset === undefined) {
+            if ((!args || args.ruleset === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ruleset'");
             }
             inputs["actions"] = args ? args.actions : undefined;

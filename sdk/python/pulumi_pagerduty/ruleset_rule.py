@@ -129,7 +129,7 @@ class RulesetRule(pulumi.CustomResource):
             __props__['conditions'] = conditions
             __props__['disabled'] = disabled
             __props__['position'] = position
-            if ruleset is None:
+            if ruleset is None and not opts.urn:
                 raise TypeError("Missing required property 'ruleset'")
             __props__['ruleset'] = ruleset
             __props__['time_frame'] = time_frame

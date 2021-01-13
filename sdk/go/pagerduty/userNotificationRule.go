@@ -124,20 +124,21 @@ type UserNotificationRule struct {
 // NewUserNotificationRule registers a new resource with the given unique name, arguments, and options.
 func NewUserNotificationRule(ctx *pulumi.Context,
 	name string, args *UserNotificationRuleArgs, opts ...pulumi.ResourceOption) (*UserNotificationRule, error) {
-	if args == nil || args.ContactMethod == nil {
-		return nil, errors.New("missing required argument 'ContactMethod'")
-	}
-	if args == nil || args.StartDelayInMinutes == nil {
-		return nil, errors.New("missing required argument 'StartDelayInMinutes'")
-	}
-	if args == nil || args.Urgency == nil {
-		return nil, errors.New("missing required argument 'Urgency'")
-	}
-	if args == nil || args.UserId == nil {
-		return nil, errors.New("missing required argument 'UserId'")
-	}
 	if args == nil {
-		args = &UserNotificationRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ContactMethod == nil {
+		return nil, errors.New("invalid value for required argument 'ContactMethod'")
+	}
+	if args.StartDelayInMinutes == nil {
+		return nil, errors.New("invalid value for required argument 'StartDelayInMinutes'")
+	}
+	if args.Urgency == nil {
+		return nil, errors.New("invalid value for required argument 'Urgency'")
+	}
+	if args.UserId == nil {
+		return nil, errors.New("invalid value for required argument 'UserId'")
 	}
 	var resource UserNotificationRule
 	err := ctx.RegisterResource("pagerduty:index/userNotificationRule:UserNotificationRule", name, args, &resource, opts...)

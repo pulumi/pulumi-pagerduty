@@ -147,7 +147,7 @@ export class ServiceIntegration extends pulumi.CustomResource {
             inputs["vendor"] = state ? state.vendor : undefined;
         } else {
             const args = argsOrState as ServiceIntegrationArgs | undefined;
-            if (!args || args.service === undefined) {
+            if ((!args || args.service === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'service'");
             }
             inputs["integrationEmail"] = args ? args.integrationEmail : undefined;

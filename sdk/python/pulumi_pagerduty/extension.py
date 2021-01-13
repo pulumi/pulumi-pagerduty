@@ -103,10 +103,10 @@ class Extension(pulumi.CustomResource):
 
             __props__['config'] = config
             __props__['endpoint_url'] = endpoint_url
-            if extension_objects is None:
+            if extension_objects is None and not opts.urn:
                 raise TypeError("Missing required property 'extension_objects'")
             __props__['extension_objects'] = extension_objects
-            if extension_schema is None:
+            if extension_schema is None and not opts.urn:
                 raise TypeError("Missing required property 'extension_schema'")
             __props__['extension_schema'] = extension_schema
             __props__['name'] = name

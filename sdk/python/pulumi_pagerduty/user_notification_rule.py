@@ -109,16 +109,16 @@ class UserNotificationRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if contact_method is None:
+            if contact_method is None and not opts.urn:
                 raise TypeError("Missing required property 'contact_method'")
             __props__['contact_method'] = contact_method
-            if start_delay_in_minutes is None:
+            if start_delay_in_minutes is None and not opts.urn:
                 raise TypeError("Missing required property 'start_delay_in_minutes'")
             __props__['start_delay_in_minutes'] = start_delay_in_minutes
-            if urgency is None:
+            if urgency is None and not opts.urn:
                 raise TypeError("Missing required property 'urgency'")
             __props__['urgency'] = urgency
-            if user_id is None:
+            if user_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_id'")
             __props__['user_id'] = user_id
         super(UserNotificationRule, __self__).__init__(

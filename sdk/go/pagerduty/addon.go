@@ -55,11 +55,12 @@ type Addon struct {
 // NewAddon registers a new resource with the given unique name, arguments, and options.
 func NewAddon(ctx *pulumi.Context,
 	name string, args *AddonArgs, opts ...pulumi.ResourceOption) (*Addon, error) {
-	if args == nil || args.Src == nil {
-		return nil, errors.New("missing required argument 'Src'")
-	}
 	if args == nil {
-		args = &AddonArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Src == nil {
+		return nil, errors.New("invalid value for required argument 'Src'")
 	}
 	var resource Addon
 	err := ctx.RegisterResource("pagerduty:index/addon:Addon", name, args, &resource, opts...)

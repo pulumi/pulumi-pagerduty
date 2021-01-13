@@ -75,13 +75,13 @@ class User(pulumi.CustomResource):
 
             __props__['color'] = color
             __props__['description'] = description
-            if email is None:
+            if email is None and not opts.urn:
                 raise TypeError("Missing required property 'email'")
             __props__['email'] = email
             __props__['job_title'] = job_title
             __props__['name'] = name
             __props__['role'] = role
-            if teams is not None:
+            if teams is not None and not opts.urn:
                 warnings.warn("""Use the 'pagerduty_team_membership' resource instead.""", DeprecationWarning)
                 pulumi.log.warn("teams is deprecated: Use the 'pagerduty_team_membership' resource instead.")
             __props__['teams'] = teams

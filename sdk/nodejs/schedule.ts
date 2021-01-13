@@ -113,10 +113,10 @@ export class Schedule extends pulumi.CustomResource {
             inputs["timeZone"] = state ? state.timeZone : undefined;
         } else {
             const args = argsOrState as ScheduleArgs | undefined;
-            if (!args || args.layers === undefined) {
+            if ((!args || args.layers === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'layers'");
             }
-            if (!args || args.timeZone === undefined) {
+            if ((!args || args.timeZone === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'timeZone'");
             }
             inputs["description"] = args ? args.description : undefined;

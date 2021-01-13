@@ -40,14 +40,15 @@ type Schedule struct {
 // NewSchedule registers a new resource with the given unique name, arguments, and options.
 func NewSchedule(ctx *pulumi.Context,
 	name string, args *ScheduleArgs, opts ...pulumi.ResourceOption) (*Schedule, error) {
-	if args == nil || args.Layers == nil {
-		return nil, errors.New("missing required argument 'Layers'")
-	}
-	if args == nil || args.TimeZone == nil {
-		return nil, errors.New("missing required argument 'TimeZone'")
-	}
 	if args == nil {
-		args = &ScheduleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Layers == nil {
+		return nil, errors.New("invalid value for required argument 'Layers'")
+	}
+	if args.TimeZone == nil {
+		return nil, errors.New("invalid value for required argument 'TimeZone'")
 	}
 	var resource Schedule
 	err := ctx.RegisterResource("pagerduty:index/schedule:Schedule", name, args, &resource, opts...)

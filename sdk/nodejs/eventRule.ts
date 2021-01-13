@@ -189,10 +189,10 @@ export class EventRule extends pulumi.CustomResource {
             inputs["conditionJson"] = state ? state.conditionJson : undefined;
         } else {
             const args = argsOrState as EventRuleArgs | undefined;
-            if (!args || args.actionJson === undefined) {
+            if ((!args || args.actionJson === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'actionJson'");
             }
-            if (!args || args.conditionJson === undefined) {
+            if ((!args || args.conditionJson === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'conditionJson'");
             }
             inputs["actionJson"] = args ? args.actionJson : undefined;

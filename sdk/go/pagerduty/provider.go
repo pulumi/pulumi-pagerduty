@@ -24,6 +24,7 @@ func NewProvider(ctx *pulumi.Context,
 	if args == nil {
 		args = &ProviderArgs{}
 	}
+
 	if args.SkipCredentialsValidation == nil {
 		args.SkipCredentialsValidation = pulumi.BoolPtr(false)
 	}

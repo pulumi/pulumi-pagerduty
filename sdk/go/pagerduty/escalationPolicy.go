@@ -89,11 +89,12 @@ type EscalationPolicy struct {
 // NewEscalationPolicy registers a new resource with the given unique name, arguments, and options.
 func NewEscalationPolicy(ctx *pulumi.Context,
 	name string, args *EscalationPolicyArgs, opts ...pulumi.ResourceOption) (*EscalationPolicy, error) {
-	if args == nil || args.Rules == nil {
-		return nil, errors.New("missing required argument 'Rules'")
-	}
 	if args == nil {
-		args = &EscalationPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Rules == nil {
+		return nil, errors.New("invalid value for required argument 'Rules'")
 	}
 	var resource EscalationPolicy
 	err := ctx.RegisterResource("pagerduty:index/escalationPolicy:EscalationPolicy", name, args, &resource, opts...)

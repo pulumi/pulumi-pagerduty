@@ -64,6 +64,7 @@ func NewBusinessService(ctx *pulumi.Context,
 	if args == nil {
 		args = &BusinessServiceArgs{}
 	}
+
 	var resource BusinessService
 	err := ctx.RegisterResource("pagerduty:index/businessService:BusinessService", name, args, &resource, opts...)
 	if err != nil {

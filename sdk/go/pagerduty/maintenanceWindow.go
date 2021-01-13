@@ -65,17 +65,18 @@ type MaintenanceWindow struct {
 // NewMaintenanceWindow registers a new resource with the given unique name, arguments, and options.
 func NewMaintenanceWindow(ctx *pulumi.Context,
 	name string, args *MaintenanceWindowArgs, opts ...pulumi.ResourceOption) (*MaintenanceWindow, error) {
-	if args == nil || args.EndTime == nil {
-		return nil, errors.New("missing required argument 'EndTime'")
-	}
-	if args == nil || args.Services == nil {
-		return nil, errors.New("missing required argument 'Services'")
-	}
-	if args == nil || args.StartTime == nil {
-		return nil, errors.New("missing required argument 'StartTime'")
-	}
 	if args == nil {
-		args = &MaintenanceWindowArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.EndTime == nil {
+		return nil, errors.New("invalid value for required argument 'EndTime'")
+	}
+	if args.Services == nil {
+		return nil, errors.New("invalid value for required argument 'Services'")
+	}
+	if args.StartTime == nil {
+		return nil, errors.New("invalid value for required argument 'StartTime'")
 	}
 	var resource MaintenanceWindow
 	err := ctx.RegisterResource("pagerduty:index/maintenanceWindow:MaintenanceWindow", name, args, &resource, opts...)

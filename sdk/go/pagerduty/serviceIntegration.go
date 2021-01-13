@@ -51,11 +51,12 @@ type ServiceIntegration struct {
 // NewServiceIntegration registers a new resource with the given unique name, arguments, and options.
 func NewServiceIntegration(ctx *pulumi.Context,
 	name string, args *ServiceIntegrationArgs, opts ...pulumi.ResourceOption) (*ServiceIntegration, error) {
-	if args == nil || args.Service == nil {
-		return nil, errors.New("missing required argument 'Service'")
-	}
 	if args == nil {
-		args = &ServiceIntegrationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Service == nil {
+		return nil, errors.New("invalid value for required argument 'Service'")
 	}
 	var resource ServiceIntegration
 	err := ctx.RegisterResource("pagerduty:index/serviceIntegration:ServiceIntegration", name, args, &resource, opts...)

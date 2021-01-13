@@ -72,13 +72,13 @@ class MaintenanceWindow(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['description'] = description
-            if end_time is None:
+            if end_time is None and not opts.urn:
                 raise TypeError("Missing required property 'end_time'")
             __props__['end_time'] = end_time
-            if services is None:
+            if services is None and not opts.urn:
                 raise TypeError("Missing required property 'services'")
             __props__['services'] = services
-            if start_time is None:
+            if start_time is None and not opts.urn:
                 raise TypeError("Missing required property 'start_time'")
             __props__['start_time'] = start_time
         super(MaintenanceWindow, __self__).__init__(

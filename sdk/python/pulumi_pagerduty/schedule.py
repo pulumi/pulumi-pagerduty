@@ -89,12 +89,12 @@ class Schedule(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['description'] = description
-            if layers is None:
+            if layers is None and not opts.urn:
                 raise TypeError("Missing required property 'layers'")
             __props__['layers'] = layers
             __props__['name'] = name
             __props__['overflow'] = overflow
-            if time_zone is None:
+            if time_zone is None and not opts.urn:
                 raise TypeError("Missing required property 'time_zone'")
             __props__['time_zone'] = time_zone
         super(Schedule, __self__).__init__(

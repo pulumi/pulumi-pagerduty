@@ -79,7 +79,7 @@ export class Addon extends pulumi.CustomResource {
             inputs["src"] = state ? state.src : undefined;
         } else {
             const args = argsOrState as AddonArgs | undefined;
-            if (!args || args.src === undefined) {
+            if ((!args || args.src === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'src'");
             }
             inputs["name"] = args ? args.name : undefined;

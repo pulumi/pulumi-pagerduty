@@ -40,11 +40,12 @@ type RulesetRule struct {
 // NewRulesetRule registers a new resource with the given unique name, arguments, and options.
 func NewRulesetRule(ctx *pulumi.Context,
 	name string, args *RulesetRuleArgs, opts ...pulumi.ResourceOption) (*RulesetRule, error) {
-	if args == nil || args.Ruleset == nil {
-		return nil, errors.New("missing required argument 'Ruleset'")
-	}
 	if args == nil {
-		args = &RulesetRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Ruleset == nil {
+		return nil, errors.New("invalid value for required argument 'Ruleset'")
 	}
 	var resource RulesetRule
 	err := ctx.RegisterResource("pagerduty:index/rulesetRule:RulesetRule", name, args, &resource, opts...)

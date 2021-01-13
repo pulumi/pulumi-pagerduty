@@ -191,14 +191,15 @@ type EventRule struct {
 // NewEventRule registers a new resource with the given unique name, arguments, and options.
 func NewEventRule(ctx *pulumi.Context,
 	name string, args *EventRuleArgs, opts ...pulumi.ResourceOption) (*EventRule, error) {
-	if args == nil || args.ActionJson == nil {
-		return nil, errors.New("missing required argument 'ActionJson'")
-	}
-	if args == nil || args.ConditionJson == nil {
-		return nil, errors.New("missing required argument 'ConditionJson'")
-	}
 	if args == nil {
-		args = &EventRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ActionJson == nil {
+		return nil, errors.New("invalid value for required argument 'ActionJson'")
+	}
+	if args.ConditionJson == nil {
+		return nil, errors.New("invalid value for required argument 'ConditionJson'")
 	}
 	var resource EventRule
 	err := ctx.RegisterResource("pagerduty:index/eventRule:EventRule", name, args, &resource, opts...)

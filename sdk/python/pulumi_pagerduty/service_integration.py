@@ -108,7 +108,7 @@ class ServiceIntegration(pulumi.CustomResource):
             __props__['integration_email'] = integration_email
             __props__['integration_key'] = integration_key
             __props__['name'] = name
-            if service is None:
+            if service is None and not opts.urn:
                 raise TypeError("Missing required property 'service'")
             __props__['service'] = service
             __props__['type'] = type

@@ -89,11 +89,12 @@ type ServiceDependency struct {
 // NewServiceDependency registers a new resource with the given unique name, arguments, and options.
 func NewServiceDependency(ctx *pulumi.Context,
 	name string, args *ServiceDependencyArgs, opts ...pulumi.ResourceOption) (*ServiceDependency, error) {
-	if args == nil || args.Dependencies == nil {
-		return nil, errors.New("missing required argument 'Dependencies'")
-	}
 	if args == nil {
-		args = &ServiceDependencyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Dependencies == nil {
+		return nil, errors.New("invalid value for required argument 'Dependencies'")
 	}
 	var resource ServiceDependency
 	err := ctx.RegisterResource("pagerduty:index/serviceDependency:ServiceDependency", name, args, &resource, opts...)

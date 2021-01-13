@@ -71,14 +71,15 @@ type TeamMembership struct {
 // NewTeamMembership registers a new resource with the given unique name, arguments, and options.
 func NewTeamMembership(ctx *pulumi.Context,
 	name string, args *TeamMembershipArgs, opts ...pulumi.ResourceOption) (*TeamMembership, error) {
-	if args == nil || args.TeamId == nil {
-		return nil, errors.New("missing required argument 'TeamId'")
-	}
-	if args == nil || args.UserId == nil {
-		return nil, errors.New("missing required argument 'UserId'")
-	}
 	if args == nil {
-		args = &TeamMembershipArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.TeamId == nil {
+		return nil, errors.New("invalid value for required argument 'TeamId'")
+	}
+	if args.UserId == nil {
+		return nil, errors.New("invalid value for required argument 'UserId'")
 	}
 	var resource TeamMembership
 	err := ctx.RegisterResource("pagerduty:index/teamMembership:TeamMembership", name, args, &resource, opts...)

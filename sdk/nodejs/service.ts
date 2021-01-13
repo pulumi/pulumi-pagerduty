@@ -138,7 +138,7 @@ export class Service extends pulumi.CustomResource {
             inputs["supportHours"] = state ? state.supportHours : undefined;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
-            if (!args || args.escalationPolicy === undefined) {
+            if ((!args || args.escalationPolicy === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'escalationPolicy'");
             }
             inputs["acknowledgementTimeout"] = args ? args.acknowledgementTimeout : undefined;

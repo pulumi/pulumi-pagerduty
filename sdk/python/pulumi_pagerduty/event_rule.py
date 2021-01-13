@@ -130,7 +130,7 @@ class EventRule(pulumi.CustomResource):
                     "homer",
                 ],
             ]),
-            opts=ResourceOptions(depends_on=[pagerduty_event_rule["two"]]))
+            opts=pulumi.ResourceOptions(depends_on=[pagerduty_event_rule["two"]]))
         ```
 
         ## Import
@@ -164,11 +164,11 @@ class EventRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if action_json is None:
+            if action_json is None and not opts.urn:
                 raise TypeError("Missing required property 'action_json'")
             __props__['action_json'] = action_json
             __props__['advanced_condition_json'] = advanced_condition_json
-            if condition_json is None:
+            if condition_json is None and not opts.urn:
                 raise TypeError("Missing required property 'condition_json'")
             __props__['condition_json'] = condition_json
             __props__['catch_all'] = None

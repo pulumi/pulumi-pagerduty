@@ -44,20 +44,21 @@ type UserContactMethod struct {
 // NewUserContactMethod registers a new resource with the given unique name, arguments, and options.
 func NewUserContactMethod(ctx *pulumi.Context,
 	name string, args *UserContactMethodArgs, opts ...pulumi.ResourceOption) (*UserContactMethod, error) {
-	if args == nil || args.Address == nil {
-		return nil, errors.New("missing required argument 'Address'")
-	}
-	if args == nil || args.Label == nil {
-		return nil, errors.New("missing required argument 'Label'")
-	}
-	if args == nil || args.Type == nil {
-		return nil, errors.New("missing required argument 'Type'")
-	}
-	if args == nil || args.UserId == nil {
-		return nil, errors.New("missing required argument 'UserId'")
-	}
 	if args == nil {
-		args = &UserContactMethodArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Address == nil {
+		return nil, errors.New("invalid value for required argument 'Address'")
+	}
+	if args.Label == nil {
+		return nil, errors.New("invalid value for required argument 'Label'")
+	}
+	if args.Type == nil {
+		return nil, errors.New("invalid value for required argument 'Type'")
+	}
+	if args.UserId == nil {
+		return nil, errors.New("invalid value for required argument 'UserId'")
 	}
 	var resource UserContactMethod
 	err := ctx.RegisterResource("pagerduty:index/userContactMethod:UserContactMethod", name, args, &resource, opts...)

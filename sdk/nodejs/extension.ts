@@ -136,10 +136,10 @@ export class Extension extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ExtensionArgs | undefined;
-            if (!args || args.extensionObjects === undefined) {
+            if ((!args || args.extensionObjects === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'extensionObjects'");
             }
-            if (!args || args.extensionSchema === undefined) {
+            if ((!args || args.extensionSchema === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'extensionSchema'");
             }
             inputs["config"] = args ? args.config : undefined;

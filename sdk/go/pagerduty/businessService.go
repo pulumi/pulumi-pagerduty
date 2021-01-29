@@ -18,7 +18,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/go/pagerduty"
+// 	"github.com/pulumi/pulumi-pagerduty/sdk/go/pagerduty/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -148,15 +148,15 @@ type BusinessServiceInput interface {
 	ToBusinessServiceOutputWithContext(ctx context.Context) BusinessServiceOutput
 }
 
-func (BusinessService) ElementType() reflect.Type {
-	return reflect.TypeOf((*BusinessService)(nil)).Elem()
+func (*BusinessService) ElementType() reflect.Type {
+	return reflect.TypeOf((*BusinessService)(nil))
 }
 
-func (i BusinessService) ToBusinessServiceOutput() BusinessServiceOutput {
+func (i *BusinessService) ToBusinessServiceOutput() BusinessServiceOutput {
 	return i.ToBusinessServiceOutputWithContext(context.Background())
 }
 
-func (i BusinessService) ToBusinessServiceOutputWithContext(ctx context.Context) BusinessServiceOutput {
+func (i *BusinessService) ToBusinessServiceOutputWithContext(ctx context.Context) BusinessServiceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BusinessServiceOutput)
 }
 
@@ -165,7 +165,7 @@ type BusinessServiceOutput struct {
 }
 
 func (BusinessServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BusinessServiceOutput)(nil)).Elem()
+	return reflect.TypeOf((*BusinessService)(nil))
 }
 
 func (o BusinessServiceOutput) ToBusinessServiceOutput() BusinessServiceOutput {

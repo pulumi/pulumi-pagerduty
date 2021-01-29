@@ -165,15 +165,15 @@ type UserContactMethodInput interface {
 	ToUserContactMethodOutputWithContext(ctx context.Context) UserContactMethodOutput
 }
 
-func (UserContactMethod) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserContactMethod)(nil)).Elem()
+func (*UserContactMethod) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserContactMethod)(nil))
 }
 
-func (i UserContactMethod) ToUserContactMethodOutput() UserContactMethodOutput {
+func (i *UserContactMethod) ToUserContactMethodOutput() UserContactMethodOutput {
 	return i.ToUserContactMethodOutputWithContext(context.Background())
 }
 
-func (i UserContactMethod) ToUserContactMethodOutputWithContext(ctx context.Context) UserContactMethodOutput {
+func (i *UserContactMethod) ToUserContactMethodOutputWithContext(ctx context.Context) UserContactMethodOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserContactMethodOutput)
 }
 
@@ -182,7 +182,7 @@ type UserContactMethodOutput struct {
 }
 
 func (UserContactMethodOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserContactMethodOutput)(nil)).Elem()
+	return reflect.TypeOf((*UserContactMethod)(nil))
 }
 
 func (o UserContactMethodOutput) ToUserContactMethodOutput() UserContactMethodOutput {

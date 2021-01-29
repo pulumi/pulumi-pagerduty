@@ -39,6 +39,7 @@ namespace Pulumi.Pagerduty
     ///  $ pulumi import pagerduty:index/user:User main PLBP09X
     /// ```
     /// </summary>
+    [PagerdutyResourceType("pagerduty:index/user:User")]
     public partial class User : Pulumi.CustomResource
     {
         /// <summary>

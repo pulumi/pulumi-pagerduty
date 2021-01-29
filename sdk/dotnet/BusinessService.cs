@@ -40,6 +40,7 @@ namespace Pulumi.Pagerduty
     ///  $ pulumi import pagerduty:index/businessService:BusinessService main PLBP09X
     /// ```
     /// </summary>
+    [PagerdutyResourceType("pagerduty:index/businessService:BusinessService")]
     public partial class BusinessService : Pulumi.CustomResource
     {
         [Output("description")]

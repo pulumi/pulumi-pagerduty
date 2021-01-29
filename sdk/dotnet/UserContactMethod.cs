@@ -66,6 +66,7 @@ namespace Pulumi.Pagerduty
     ///  $ pulumi import pagerduty:index/userContactMethod:UserContactMethod main PLBP09X:PLBP09X
     /// ```
     /// </summary>
+    [PagerdutyResourceType("pagerduty:index/userContactMethod:UserContactMethod")]
     public partial class UserContactMethod : Pulumi.CustomResource
     {
         /// <summary>

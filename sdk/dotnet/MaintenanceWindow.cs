@@ -46,6 +46,7 @@ namespace Pulumi.Pagerduty
     ///  $ pulumi import pagerduty:index/maintenanceWindow:MaintenanceWindow main PLBP09X
     /// ```
     /// </summary>
+    [PagerdutyResourceType("pagerduty:index/maintenanceWindow:MaintenanceWindow")]
     public partial class MaintenanceWindow : Pulumi.CustomResource
     {
         /// <summary>

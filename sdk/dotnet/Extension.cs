@@ -92,6 +92,7 @@ namespace Pulumi.Pagerduty
     ///  $ pulumi import pagerduty:index/extension:Extension main PLBP09X
     /// ```
     /// </summary>
+    [PagerdutyResourceType("pagerduty:index/extension:Extension")]
     public partial class Extension : Pulumi.CustomResource
     {
         /// <summary>

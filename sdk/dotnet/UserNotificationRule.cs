@@ -95,6 +95,7 @@ namespace Pulumi.Pagerduty
     ///  $ pulumi import pagerduty:index/userNotificationRule:UserNotificationRule main PXPGF42:PPSCXAN
     /// ```
     /// </summary>
+    [PagerdutyResourceType("pagerduty:index/userNotificationRule:UserNotificationRule")]
     public partial class UserNotificationRule : Pulumi.CustomResource
     {
         /// <summary>

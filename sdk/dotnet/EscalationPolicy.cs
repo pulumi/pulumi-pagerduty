@@ -70,6 +70,7 @@ namespace Pulumi.Pagerduty
     ///  $ pulumi import pagerduty:index/escalationPolicy:EscalationPolicy main PLBP09X
     /// ```
     /// </summary>
+    [PagerdutyResourceType("pagerduty:index/escalationPolicy:EscalationPolicy")]
     public partial class EscalationPolicy : Pulumi.CustomResource
     {
         [Output("description")]

@@ -19,6 +19,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-pagerduty/sdk/go/pagerduty"
+// 	"github.com/pulumi/pulumi-pagerduty/sdk/go/pagerduty/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -141,15 +142,15 @@ type RulesetInput interface {
 	ToRulesetOutputWithContext(ctx context.Context) RulesetOutput
 }
 
-func (Ruleset) ElementType() reflect.Type {
-	return reflect.TypeOf((*Ruleset)(nil)).Elem()
+func (*Ruleset) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ruleset)(nil))
 }
 
-func (i Ruleset) ToRulesetOutput() RulesetOutput {
+func (i *Ruleset) ToRulesetOutput() RulesetOutput {
 	return i.ToRulesetOutputWithContext(context.Background())
 }
 
-func (i Ruleset) ToRulesetOutputWithContext(ctx context.Context) RulesetOutput {
+func (i *Ruleset) ToRulesetOutputWithContext(ctx context.Context) RulesetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetOutput)
 }
 
@@ -158,7 +159,7 @@ type RulesetOutput struct {
 }
 
 func (RulesetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RulesetOutput)(nil)).Elem()
+	return reflect.TypeOf((*Ruleset)(nil))
 }
 
 func (o RulesetOutput) ToRulesetOutput() RulesetOutput {

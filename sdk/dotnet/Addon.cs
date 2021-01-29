@@ -39,6 +39,7 @@ namespace Pulumi.Pagerduty
     ///  $ pulumi import pagerduty:index/addon:Addon example P3DH5M6
     /// ```
     /// </summary>
+    [PagerdutyResourceType("pagerduty:index/addon:Addon")]
     public partial class Addon : Pulumi.CustomResource
     {
         /// <summary>

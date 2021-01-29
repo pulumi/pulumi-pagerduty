@@ -15,9 +15,12 @@
 package pagerduty
 
 import (
+	"fmt"
+	"path/filepath"
 	"unicode"
 
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
+	"github.com/pulumi/pulumi-pagerduty/provider/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfbridge"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfshim"
 	shimv1 "github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfshim/sdk-v1"
@@ -135,6 +138,15 @@ func Provider() tfbridge.ProviderInfo {
 				"@types/node": "^8.0.25", // so we can access strongly typed node definitions.
 				"@types/mime": "^2.0.0",
 			},
+		},
+		Golang: &tfbridge.GolangInfo{
+			ImportBasePath: filepath.Join(
+				fmt.Sprintf("github.com/pulumi/pulumi-%[1]s/sdk/", mainPkg),
+				tfbridge.GetModuleMajorVersion(version.Version),
+				"go",
+				mainPkg,
+			),
+			GenerateResourceContainerTypes: true,
 		},
 		Python: &tfbridge.PythonInfo{
 			Requires: map[string]string{

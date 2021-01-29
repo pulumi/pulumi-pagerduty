@@ -20,6 +20,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-pagerduty/sdk/go/pagerduty"
+// 	"github.com/pulumi/pulumi-pagerduty/sdk/go/pagerduty/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -221,15 +222,15 @@ type UserNotificationRuleInput interface {
 	ToUserNotificationRuleOutputWithContext(ctx context.Context) UserNotificationRuleOutput
 }
 
-func (UserNotificationRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserNotificationRule)(nil)).Elem()
+func (*UserNotificationRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserNotificationRule)(nil))
 }
 
-func (i UserNotificationRule) ToUserNotificationRuleOutput() UserNotificationRuleOutput {
+func (i *UserNotificationRule) ToUserNotificationRuleOutput() UserNotificationRuleOutput {
 	return i.ToUserNotificationRuleOutputWithContext(context.Background())
 }
 
-func (i UserNotificationRule) ToUserNotificationRuleOutputWithContext(ctx context.Context) UserNotificationRuleOutput {
+func (i *UserNotificationRule) ToUserNotificationRuleOutputWithContext(ctx context.Context) UserNotificationRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserNotificationRuleOutput)
 }
 
@@ -238,7 +239,7 @@ type UserNotificationRuleOutput struct {
 }
 
 func (UserNotificationRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserNotificationRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*UserNotificationRule)(nil))
 }
 
 func (o UserNotificationRuleOutput) ToUserNotificationRuleOutput() UserNotificationRuleOutput {

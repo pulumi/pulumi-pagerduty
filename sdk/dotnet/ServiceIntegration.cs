@@ -91,6 +91,7 @@ namespace Pulumi.Pagerduty
     ///  $ pulumi import pagerduty:index/serviceIntegration:ServiceIntegration main PLSSSSS.PLIIIII
     /// ```
     /// </summary>
+    [PagerdutyResourceType("pagerduty:index/serviceIntegration:ServiceIntegration")]
     public partial class ServiceIntegration : Pulumi.CustomResource
     {
         /// <summary>

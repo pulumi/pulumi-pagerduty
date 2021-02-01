@@ -69,6 +69,7 @@ namespace Pulumi.Pagerduty
     ///  $ pulumi import pagerduty:index/service:Service main PLBP09X
     /// ```
     /// </summary>
+    [PagerdutyResourceType("pagerduty:index/service:Service")]
     public partial class Service : Pulumi.CustomResource
     {
         /// <summary>

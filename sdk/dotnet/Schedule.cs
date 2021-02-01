@@ -70,6 +70,7 @@ namespace Pulumi.Pagerduty
     ///  $ pulumi import pagerduty:index/schedule:Schedule main PLBP09X
     /// ```
     /// </summary>
+    [PagerdutyResourceType("pagerduty:index/schedule:Schedule")]
     public partial class Schedule : Pulumi.CustomResource
     {
         /// <summary>

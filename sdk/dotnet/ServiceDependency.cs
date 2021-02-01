@@ -85,6 +85,7 @@ namespace Pulumi.Pagerduty
     ///  $ pulumi import pagerduty:index/serviceDependency:ServiceDependency main P4B2Z7G.D5RTHKRNGU4PYE90PJ
     /// ```
     /// </summary>
+    [PagerdutyResourceType("pagerduty:index/serviceDependency:ServiceDependency")]
     public partial class ServiceDependency : Pulumi.CustomResource
     {
         /// <summary>

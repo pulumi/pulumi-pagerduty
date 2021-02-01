@@ -49,6 +49,7 @@ namespace Pulumi.Pagerduty
     ///  $ pulumi import pagerduty:index/teamMembership:TeamMembership main PLBP09X:PLB09Z
     /// ```
     /// </summary>
+    [PagerdutyResourceType("pagerduty:index/teamMembership:TeamMembership")]
     public partial class TeamMembership : Pulumi.CustomResource
     {
         /// <summary>

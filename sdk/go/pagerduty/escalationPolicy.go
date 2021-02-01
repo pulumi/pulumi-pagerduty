@@ -20,6 +20,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-pagerduty/sdk/go/pagerduty"
+// 	"github.com/pulumi/pulumi-pagerduty/sdk/go/pagerduty/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -181,15 +182,15 @@ type EscalationPolicyInput interface {
 	ToEscalationPolicyOutputWithContext(ctx context.Context) EscalationPolicyOutput
 }
 
-func (EscalationPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*EscalationPolicy)(nil)).Elem()
+func (*EscalationPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*EscalationPolicy)(nil))
 }
 
-func (i EscalationPolicy) ToEscalationPolicyOutput() EscalationPolicyOutput {
+func (i *EscalationPolicy) ToEscalationPolicyOutput() EscalationPolicyOutput {
 	return i.ToEscalationPolicyOutputWithContext(context.Background())
 }
 
-func (i EscalationPolicy) ToEscalationPolicyOutputWithContext(ctx context.Context) EscalationPolicyOutput {
+func (i *EscalationPolicy) ToEscalationPolicyOutputWithContext(ctx context.Context) EscalationPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EscalationPolicyOutput)
 }
 
@@ -198,7 +199,7 @@ type EscalationPolicyOutput struct {
 }
 
 func (EscalationPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EscalationPolicyOutput)(nil)).Elem()
+	return reflect.TypeOf((*EscalationPolicy)(nil))
 }
 
 func (o EscalationPolicyOutput) ToEscalationPolicyOutput() EscalationPolicyOutput {

@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/go/pagerduty"
+// 	"github.com/pulumi/pulumi-pagerduty/sdk/go/pagerduty/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -127,15 +127,15 @@ type AddonInput interface {
 	ToAddonOutputWithContext(ctx context.Context) AddonOutput
 }
 
-func (Addon) ElementType() reflect.Type {
-	return reflect.TypeOf((*Addon)(nil)).Elem()
+func (*Addon) ElementType() reflect.Type {
+	return reflect.TypeOf((*Addon)(nil))
 }
 
-func (i Addon) ToAddonOutput() AddonOutput {
+func (i *Addon) ToAddonOutput() AddonOutput {
 	return i.ToAddonOutputWithContext(context.Background())
 }
 
-func (i Addon) ToAddonOutputWithContext(ctx context.Context) AddonOutput {
+func (i *Addon) ToAddonOutputWithContext(ctx context.Context) AddonOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AddonOutput)
 }
 
@@ -144,7 +144,7 @@ type AddonOutput struct {
 }
 
 func (AddonOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AddonOutput)(nil)).Elem()
+	return reflect.TypeOf((*Addon)(nil))
 }
 
 func (o AddonOutput) ToAddonOutput() AddonOutput {

@@ -45,6 +45,7 @@ namespace Pulumi.Pagerduty
     ///  $ pulumi import pagerduty:index/ruleset:Ruleset main 19acac92-027a-4ea0-b06c-bbf516519601
     /// ```
     /// </summary>
+    [PagerdutyResourceType("pagerduty:index/ruleset:Ruleset")]
     public partial class Ruleset : Pulumi.CustomResource
     {
         /// <summary>

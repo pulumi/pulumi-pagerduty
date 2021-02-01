@@ -41,6 +41,7 @@ namespace Pulumi.Pagerduty
     ///  $ pulumi import pagerduty:index/team:Team main PLBP09X
     /// ```
     /// </summary>
+    [PagerdutyResourceType("pagerduty:index/team:Team")]
     public partial class Team : Pulumi.CustomResource
     {
         [Output("description")]

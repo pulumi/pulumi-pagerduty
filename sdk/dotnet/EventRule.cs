@@ -194,6 +194,7 @@ namespace Pulumi.Pagerduty
     ///  $ pulumi import pagerduty:index/eventRule:EventRule main 19acac92-027a-4ea0-b06c-bbf516519601
     /// ```
     /// </summary>
+    [PagerdutyResourceType("pagerduty:index/eventRule:EventRule")]
     public partial class EventRule : Pulumi.CustomResource
     {
         /// <summary>

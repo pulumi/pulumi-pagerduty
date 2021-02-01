@@ -48,7 +48,7 @@ setup(name='pulumi_pagerduty',
       packages=find_packages(),
       package_data={
           'pulumi_pagerduty': [
-              'py.typed'
+              'py.typed',
           ]
       },
       install_requires=[

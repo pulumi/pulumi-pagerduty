@@ -20,6 +20,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-pagerduty/sdk/go/pagerduty"
+// 	"github.com/pulumi/pulumi-pagerduty/sdk/go/pagerduty/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -153,15 +154,15 @@ type ServiceDependencyInput interface {
 	ToServiceDependencyOutputWithContext(ctx context.Context) ServiceDependencyOutput
 }
 
-func (ServiceDependency) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceDependency)(nil)).Elem()
+func (*ServiceDependency) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDependency)(nil))
 }
 
-func (i ServiceDependency) ToServiceDependencyOutput() ServiceDependencyOutput {
+func (i *ServiceDependency) ToServiceDependencyOutput() ServiceDependencyOutput {
 	return i.ToServiceDependencyOutputWithContext(context.Background())
 }
 
-func (i ServiceDependency) ToServiceDependencyOutputWithContext(ctx context.Context) ServiceDependencyOutput {
+func (i *ServiceDependency) ToServiceDependencyOutputWithContext(ctx context.Context) ServiceDependencyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDependencyOutput)
 }
 
@@ -170,7 +171,7 @@ type ServiceDependencyOutput struct {
 }
 
 func (ServiceDependencyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceDependencyOutput)(nil)).Elem()
+	return reflect.TypeOf((*ServiceDependency)(nil))
 }
 
 func (o ServiceDependencyOutput) ToServiceDependencyOutput() ServiceDependencyOutput {

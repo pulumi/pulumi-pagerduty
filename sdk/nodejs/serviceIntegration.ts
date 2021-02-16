@@ -136,7 +136,8 @@ export class ServiceIntegration extends pulumi.CustomResource {
     constructor(name: string, args: ServiceIntegrationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceIntegrationArgs | ServiceIntegrationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ServiceIntegrationState | undefined;
             inputs["htmlUrl"] = state ? state.htmlUrl : undefined;
             inputs["integrationEmail"] = state ? state.integrationEmail : undefined;
@@ -147,7 +148,7 @@ export class ServiceIntegration extends pulumi.CustomResource {
             inputs["vendor"] = state ? state.vendor : undefined;
         } else {
             const args = argsOrState as ServiceIntegrationArgs | undefined;
-            if ((!args || args.service === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.service === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'service'");
             }
             inputs["integrationEmail"] = args ? args.integrationEmail : undefined;
@@ -158,12 +159,8 @@ export class ServiceIntegration extends pulumi.CustomResource {
             inputs["vendor"] = args ? args.vendor : undefined;
             inputs["htmlUrl"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ServiceIntegration.__pulumiType, name, inputs, opts);
     }

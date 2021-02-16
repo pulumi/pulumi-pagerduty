@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/go/pagerduty/"
+// 	"github.com/pulumi/pulumi-pagerduty/sdk/go/pagerduty"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -139,6 +139,85 @@ func (i *Addon) ToAddonOutputWithContext(ctx context.Context) AddonOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AddonOutput)
 }
 
+func (i *Addon) ToAddonPtrOutput() AddonPtrOutput {
+	return i.ToAddonPtrOutputWithContext(context.Background())
+}
+
+func (i *Addon) ToAddonPtrOutputWithContext(ctx context.Context) AddonPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AddonPtrOutput)
+}
+
+type AddonPtrInput interface {
+	pulumi.Input
+
+	ToAddonPtrOutput() AddonPtrOutput
+	ToAddonPtrOutputWithContext(ctx context.Context) AddonPtrOutput
+}
+
+type addonPtrType AddonArgs
+
+func (*addonPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Addon)(nil))
+}
+
+func (i *addonPtrType) ToAddonPtrOutput() AddonPtrOutput {
+	return i.ToAddonPtrOutputWithContext(context.Background())
+}
+
+func (i *addonPtrType) ToAddonPtrOutputWithContext(ctx context.Context) AddonPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AddonPtrOutput)
+}
+
+// AddonArrayInput is an input type that accepts AddonArray and AddonArrayOutput values.
+// You can construct a concrete instance of `AddonArrayInput` via:
+//
+//          AddonArray{ AddonArgs{...} }
+type AddonArrayInput interface {
+	pulumi.Input
+
+	ToAddonArrayOutput() AddonArrayOutput
+	ToAddonArrayOutputWithContext(context.Context) AddonArrayOutput
+}
+
+type AddonArray []AddonInput
+
+func (AddonArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Addon)(nil))
+}
+
+func (i AddonArray) ToAddonArrayOutput() AddonArrayOutput {
+	return i.ToAddonArrayOutputWithContext(context.Background())
+}
+
+func (i AddonArray) ToAddonArrayOutputWithContext(ctx context.Context) AddonArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AddonArrayOutput)
+}
+
+// AddonMapInput is an input type that accepts AddonMap and AddonMapOutput values.
+// You can construct a concrete instance of `AddonMapInput` via:
+//
+//          AddonMap{ "key": AddonArgs{...} }
+type AddonMapInput interface {
+	pulumi.Input
+
+	ToAddonMapOutput() AddonMapOutput
+	ToAddonMapOutputWithContext(context.Context) AddonMapOutput
+}
+
+type AddonMap map[string]AddonInput
+
+func (AddonMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Addon)(nil))
+}
+
+func (i AddonMap) ToAddonMapOutput() AddonMapOutput {
+	return i.ToAddonMapOutputWithContext(context.Background())
+}
+
+func (i AddonMap) ToAddonMapOutputWithContext(ctx context.Context) AddonMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AddonMapOutput)
+}
+
 type AddonOutput struct {
 	*pulumi.OutputState
 }
@@ -155,6 +234,75 @@ func (o AddonOutput) ToAddonOutputWithContext(ctx context.Context) AddonOutput {
 	return o
 }
 
+func (o AddonOutput) ToAddonPtrOutput() AddonPtrOutput {
+	return o.ToAddonPtrOutputWithContext(context.Background())
+}
+
+func (o AddonOutput) ToAddonPtrOutputWithContext(ctx context.Context) AddonPtrOutput {
+	return o.ApplyT(func(v Addon) *Addon {
+		return &v
+	}).(AddonPtrOutput)
+}
+
+type AddonPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (AddonPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Addon)(nil))
+}
+
+func (o AddonPtrOutput) ToAddonPtrOutput() AddonPtrOutput {
+	return o
+}
+
+func (o AddonPtrOutput) ToAddonPtrOutputWithContext(ctx context.Context) AddonPtrOutput {
+	return o
+}
+
+type AddonArrayOutput struct{ *pulumi.OutputState }
+
+func (AddonArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Addon)(nil))
+}
+
+func (o AddonArrayOutput) ToAddonArrayOutput() AddonArrayOutput {
+	return o
+}
+
+func (o AddonArrayOutput) ToAddonArrayOutputWithContext(ctx context.Context) AddonArrayOutput {
+	return o
+}
+
+func (o AddonArrayOutput) Index(i pulumi.IntInput) AddonOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Addon {
+		return vs[0].([]Addon)[vs[1].(int)]
+	}).(AddonOutput)
+}
+
+type AddonMapOutput struct{ *pulumi.OutputState }
+
+func (AddonMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Addon)(nil))
+}
+
+func (o AddonMapOutput) ToAddonMapOutput() AddonMapOutput {
+	return o
+}
+
+func (o AddonMapOutput) ToAddonMapOutputWithContext(ctx context.Context) AddonMapOutput {
+	return o
+}
+
+func (o AddonMapOutput) MapIndex(k pulumi.StringInput) AddonOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Addon {
+		return vs[0].(map[string]Addon)[vs[1].(string)]
+	}).(AddonOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AddonOutput{})
+	pulumi.RegisterOutputType(AddonPtrOutput{})
+	pulumi.RegisterOutputType(AddonArrayOutput{})
+	pulumi.RegisterOutputType(AddonMapOutput{})
 }

@@ -83,7 +83,8 @@ export class Ruleset extends pulumi.CustomResource {
     constructor(name: string, args?: RulesetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RulesetArgs | RulesetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as RulesetState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["routingKeys"] = state ? state.routingKeys : undefined;
@@ -96,12 +97,8 @@ export class Ruleset extends pulumi.CustomResource {
             inputs["routingKeys"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Ruleset.__pulumiType, name, inputs, opts);
     }

@@ -181,7 +181,8 @@ export class EventRule extends pulumi.CustomResource {
     constructor(name: string, args: EventRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EventRuleArgs | EventRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as EventRuleState | undefined;
             inputs["actionJson"] = state ? state.actionJson : undefined;
             inputs["advancedConditionJson"] = state ? state.advancedConditionJson : undefined;
@@ -189,10 +190,10 @@ export class EventRule extends pulumi.CustomResource {
             inputs["conditionJson"] = state ? state.conditionJson : undefined;
         } else {
             const args = argsOrState as EventRuleArgs | undefined;
-            if ((!args || args.actionJson === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.actionJson === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'actionJson'");
             }
-            if ((!args || args.conditionJson === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.conditionJson === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'conditionJson'");
             }
             inputs["actionJson"] = args ? args.actionJson : undefined;
@@ -200,12 +201,8 @@ export class EventRule extends pulumi.CustomResource {
             inputs["conditionJson"] = args ? args.conditionJson : undefined;
             inputs["catchAll"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(EventRule.__pulumiType, name, inputs, opts);
     }

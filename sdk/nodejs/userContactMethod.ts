@@ -118,7 +118,8 @@ export class UserContactMethod extends pulumi.CustomResource {
     constructor(name: string, args: UserContactMethodArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserContactMethodArgs | UserContactMethodState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as UserContactMethodState | undefined;
             inputs["address"] = state ? state.address : undefined;
             inputs["blacklisted"] = state ? state.blacklisted : undefined;
@@ -130,16 +131,16 @@ export class UserContactMethod extends pulumi.CustomResource {
             inputs["userId"] = state ? state.userId : undefined;
         } else {
             const args = argsOrState as UserContactMethodArgs | undefined;
-            if ((!args || args.address === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.address === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'address'");
             }
-            if ((!args || args.label === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.label === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'label'");
             }
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            if ((!args || args.userId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.userId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userId'");
             }
             inputs["address"] = args ? args.address : undefined;
@@ -151,12 +152,8 @@ export class UserContactMethod extends pulumi.CustomResource {
             inputs["blacklisted"] = undefined /*out*/;
             inputs["enabled"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(UserContactMethod.__pulumiType, name, inputs, opts);
     }

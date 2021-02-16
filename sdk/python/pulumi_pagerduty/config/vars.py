@@ -17,5 +17,5 @@ __config__ = pulumi.Config('pagerduty')
 
 skip_credentials_validation = __config__.get('skipCredentialsValidation') or False
 
-token = __config__.get('token') or _utilities.get_env('PAGERDUTY_TOKEN')
+token = __config__.get('token')
 

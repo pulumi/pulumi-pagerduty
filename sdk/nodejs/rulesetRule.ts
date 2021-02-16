@@ -142,7 +142,8 @@ export class RulesetRule extends pulumi.CustomResource {
     constructor(name: string, args: RulesetRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RulesetRuleArgs | RulesetRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as RulesetRuleState | undefined;
             inputs["actions"] = state ? state.actions : undefined;
             inputs["conditions"] = state ? state.conditions : undefined;
@@ -152,7 +153,7 @@ export class RulesetRule extends pulumi.CustomResource {
             inputs["timeFrame"] = state ? state.timeFrame : undefined;
         } else {
             const args = argsOrState as RulesetRuleArgs | undefined;
-            if ((!args || args.ruleset === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.ruleset === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ruleset'");
             }
             inputs["actions"] = args ? args.actions : undefined;
@@ -162,12 +163,8 @@ export class RulesetRule extends pulumi.CustomResource {
             inputs["ruleset"] = args ? args.ruleset : undefined;
             inputs["timeFrame"] = args ? args.timeFrame : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(RulesetRule.__pulumiType, name, inputs, opts);
     }

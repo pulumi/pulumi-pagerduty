@@ -20,7 +20,6 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-pagerduty/sdk/go/pagerduty"
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/go/pagerduty/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -166,6 +165,85 @@ func (i *ServiceDependency) ToServiceDependencyOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDependencyOutput)
 }
 
+func (i *ServiceDependency) ToServiceDependencyPtrOutput() ServiceDependencyPtrOutput {
+	return i.ToServiceDependencyPtrOutputWithContext(context.Background())
+}
+
+func (i *ServiceDependency) ToServiceDependencyPtrOutputWithContext(ctx context.Context) ServiceDependencyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDependencyPtrOutput)
+}
+
+type ServiceDependencyPtrInput interface {
+	pulumi.Input
+
+	ToServiceDependencyPtrOutput() ServiceDependencyPtrOutput
+	ToServiceDependencyPtrOutputWithContext(ctx context.Context) ServiceDependencyPtrOutput
+}
+
+type serviceDependencyPtrType ServiceDependencyArgs
+
+func (*serviceDependencyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceDependency)(nil))
+}
+
+func (i *serviceDependencyPtrType) ToServiceDependencyPtrOutput() ServiceDependencyPtrOutput {
+	return i.ToServiceDependencyPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceDependencyPtrType) ToServiceDependencyPtrOutputWithContext(ctx context.Context) ServiceDependencyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDependencyPtrOutput)
+}
+
+// ServiceDependencyArrayInput is an input type that accepts ServiceDependencyArray and ServiceDependencyArrayOutput values.
+// You can construct a concrete instance of `ServiceDependencyArrayInput` via:
+//
+//          ServiceDependencyArray{ ServiceDependencyArgs{...} }
+type ServiceDependencyArrayInput interface {
+	pulumi.Input
+
+	ToServiceDependencyArrayOutput() ServiceDependencyArrayOutput
+	ToServiceDependencyArrayOutputWithContext(context.Context) ServiceDependencyArrayOutput
+}
+
+type ServiceDependencyArray []ServiceDependencyInput
+
+func (ServiceDependencyArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ServiceDependency)(nil))
+}
+
+func (i ServiceDependencyArray) ToServiceDependencyArrayOutput() ServiceDependencyArrayOutput {
+	return i.ToServiceDependencyArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceDependencyArray) ToServiceDependencyArrayOutputWithContext(ctx context.Context) ServiceDependencyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDependencyArrayOutput)
+}
+
+// ServiceDependencyMapInput is an input type that accepts ServiceDependencyMap and ServiceDependencyMapOutput values.
+// You can construct a concrete instance of `ServiceDependencyMapInput` via:
+//
+//          ServiceDependencyMap{ "key": ServiceDependencyArgs{...} }
+type ServiceDependencyMapInput interface {
+	pulumi.Input
+
+	ToServiceDependencyMapOutput() ServiceDependencyMapOutput
+	ToServiceDependencyMapOutputWithContext(context.Context) ServiceDependencyMapOutput
+}
+
+type ServiceDependencyMap map[string]ServiceDependencyInput
+
+func (ServiceDependencyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ServiceDependency)(nil))
+}
+
+func (i ServiceDependencyMap) ToServiceDependencyMapOutput() ServiceDependencyMapOutput {
+	return i.ToServiceDependencyMapOutputWithContext(context.Background())
+}
+
+func (i ServiceDependencyMap) ToServiceDependencyMapOutputWithContext(ctx context.Context) ServiceDependencyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDependencyMapOutput)
+}
+
 type ServiceDependencyOutput struct {
 	*pulumi.OutputState
 }
@@ -182,6 +260,75 @@ func (o ServiceDependencyOutput) ToServiceDependencyOutputWithContext(ctx contex
 	return o
 }
 
+func (o ServiceDependencyOutput) ToServiceDependencyPtrOutput() ServiceDependencyPtrOutput {
+	return o.ToServiceDependencyPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceDependencyOutput) ToServiceDependencyPtrOutputWithContext(ctx context.Context) ServiceDependencyPtrOutput {
+	return o.ApplyT(func(v ServiceDependency) *ServiceDependency {
+		return &v
+	}).(ServiceDependencyPtrOutput)
+}
+
+type ServiceDependencyPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServiceDependencyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceDependency)(nil))
+}
+
+func (o ServiceDependencyPtrOutput) ToServiceDependencyPtrOutput() ServiceDependencyPtrOutput {
+	return o
+}
+
+func (o ServiceDependencyPtrOutput) ToServiceDependencyPtrOutputWithContext(ctx context.Context) ServiceDependencyPtrOutput {
+	return o
+}
+
+type ServiceDependencyArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceDependencyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceDependency)(nil))
+}
+
+func (o ServiceDependencyArrayOutput) ToServiceDependencyArrayOutput() ServiceDependencyArrayOutput {
+	return o
+}
+
+func (o ServiceDependencyArrayOutput) ToServiceDependencyArrayOutputWithContext(ctx context.Context) ServiceDependencyArrayOutput {
+	return o
+}
+
+func (o ServiceDependencyArrayOutput) Index(i pulumi.IntInput) ServiceDependencyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceDependency {
+		return vs[0].([]ServiceDependency)[vs[1].(int)]
+	}).(ServiceDependencyOutput)
+}
+
+type ServiceDependencyMapOutput struct{ *pulumi.OutputState }
+
+func (ServiceDependencyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ServiceDependency)(nil))
+}
+
+func (o ServiceDependencyMapOutput) ToServiceDependencyMapOutput() ServiceDependencyMapOutput {
+	return o
+}
+
+func (o ServiceDependencyMapOutput) ToServiceDependencyMapOutputWithContext(ctx context.Context) ServiceDependencyMapOutput {
+	return o
+}
+
+func (o ServiceDependencyMapOutput) MapIndex(k pulumi.StringInput) ServiceDependencyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServiceDependency {
+		return vs[0].(map[string]ServiceDependency)[vs[1].(string)]
+	}).(ServiceDependencyOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServiceDependencyOutput{})
+	pulumi.RegisterOutputType(ServiceDependencyPtrOutput{})
+	pulumi.RegisterOutputType(ServiceDependencyArrayOutput{})
+	pulumi.RegisterOutputType(ServiceDependencyMapOutput{})
 }

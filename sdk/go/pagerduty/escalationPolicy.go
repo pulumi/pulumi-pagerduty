@@ -20,7 +20,6 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-pagerduty/sdk/go/pagerduty"
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/go/pagerduty/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -194,6 +193,85 @@ func (i *EscalationPolicy) ToEscalationPolicyOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(EscalationPolicyOutput)
 }
 
+func (i *EscalationPolicy) ToEscalationPolicyPtrOutput() EscalationPolicyPtrOutput {
+	return i.ToEscalationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *EscalationPolicy) ToEscalationPolicyPtrOutputWithContext(ctx context.Context) EscalationPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EscalationPolicyPtrOutput)
+}
+
+type EscalationPolicyPtrInput interface {
+	pulumi.Input
+
+	ToEscalationPolicyPtrOutput() EscalationPolicyPtrOutput
+	ToEscalationPolicyPtrOutputWithContext(ctx context.Context) EscalationPolicyPtrOutput
+}
+
+type escalationPolicyPtrType EscalationPolicyArgs
+
+func (*escalationPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EscalationPolicy)(nil))
+}
+
+func (i *escalationPolicyPtrType) ToEscalationPolicyPtrOutput() EscalationPolicyPtrOutput {
+	return i.ToEscalationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *escalationPolicyPtrType) ToEscalationPolicyPtrOutputWithContext(ctx context.Context) EscalationPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EscalationPolicyPtrOutput)
+}
+
+// EscalationPolicyArrayInput is an input type that accepts EscalationPolicyArray and EscalationPolicyArrayOutput values.
+// You can construct a concrete instance of `EscalationPolicyArrayInput` via:
+//
+//          EscalationPolicyArray{ EscalationPolicyArgs{...} }
+type EscalationPolicyArrayInput interface {
+	pulumi.Input
+
+	ToEscalationPolicyArrayOutput() EscalationPolicyArrayOutput
+	ToEscalationPolicyArrayOutputWithContext(context.Context) EscalationPolicyArrayOutput
+}
+
+type EscalationPolicyArray []EscalationPolicyInput
+
+func (EscalationPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*EscalationPolicy)(nil))
+}
+
+func (i EscalationPolicyArray) ToEscalationPolicyArrayOutput() EscalationPolicyArrayOutput {
+	return i.ToEscalationPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i EscalationPolicyArray) ToEscalationPolicyArrayOutputWithContext(ctx context.Context) EscalationPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EscalationPolicyArrayOutput)
+}
+
+// EscalationPolicyMapInput is an input type that accepts EscalationPolicyMap and EscalationPolicyMapOutput values.
+// You can construct a concrete instance of `EscalationPolicyMapInput` via:
+//
+//          EscalationPolicyMap{ "key": EscalationPolicyArgs{...} }
+type EscalationPolicyMapInput interface {
+	pulumi.Input
+
+	ToEscalationPolicyMapOutput() EscalationPolicyMapOutput
+	ToEscalationPolicyMapOutputWithContext(context.Context) EscalationPolicyMapOutput
+}
+
+type EscalationPolicyMap map[string]EscalationPolicyInput
+
+func (EscalationPolicyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*EscalationPolicy)(nil))
+}
+
+func (i EscalationPolicyMap) ToEscalationPolicyMapOutput() EscalationPolicyMapOutput {
+	return i.ToEscalationPolicyMapOutputWithContext(context.Background())
+}
+
+func (i EscalationPolicyMap) ToEscalationPolicyMapOutputWithContext(ctx context.Context) EscalationPolicyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EscalationPolicyMapOutput)
+}
+
 type EscalationPolicyOutput struct {
 	*pulumi.OutputState
 }
@@ -210,6 +288,75 @@ func (o EscalationPolicyOutput) ToEscalationPolicyOutputWithContext(ctx context.
 	return o
 }
 
+func (o EscalationPolicyOutput) ToEscalationPolicyPtrOutput() EscalationPolicyPtrOutput {
+	return o.ToEscalationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o EscalationPolicyOutput) ToEscalationPolicyPtrOutputWithContext(ctx context.Context) EscalationPolicyPtrOutput {
+	return o.ApplyT(func(v EscalationPolicy) *EscalationPolicy {
+		return &v
+	}).(EscalationPolicyPtrOutput)
+}
+
+type EscalationPolicyPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (EscalationPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EscalationPolicy)(nil))
+}
+
+func (o EscalationPolicyPtrOutput) ToEscalationPolicyPtrOutput() EscalationPolicyPtrOutput {
+	return o
+}
+
+func (o EscalationPolicyPtrOutput) ToEscalationPolicyPtrOutputWithContext(ctx context.Context) EscalationPolicyPtrOutput {
+	return o
+}
+
+type EscalationPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (EscalationPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EscalationPolicy)(nil))
+}
+
+func (o EscalationPolicyArrayOutput) ToEscalationPolicyArrayOutput() EscalationPolicyArrayOutput {
+	return o
+}
+
+func (o EscalationPolicyArrayOutput) ToEscalationPolicyArrayOutputWithContext(ctx context.Context) EscalationPolicyArrayOutput {
+	return o
+}
+
+func (o EscalationPolicyArrayOutput) Index(i pulumi.IntInput) EscalationPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EscalationPolicy {
+		return vs[0].([]EscalationPolicy)[vs[1].(int)]
+	}).(EscalationPolicyOutput)
+}
+
+type EscalationPolicyMapOutput struct{ *pulumi.OutputState }
+
+func (EscalationPolicyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]EscalationPolicy)(nil))
+}
+
+func (o EscalationPolicyMapOutput) ToEscalationPolicyMapOutput() EscalationPolicyMapOutput {
+	return o
+}
+
+func (o EscalationPolicyMapOutput) ToEscalationPolicyMapOutputWithContext(ctx context.Context) EscalationPolicyMapOutput {
+	return o
+}
+
+func (o EscalationPolicyMapOutput) MapIndex(k pulumi.StringInput) EscalationPolicyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EscalationPolicy {
+		return vs[0].(map[string]EscalationPolicy)[vs[1].(string)]
+	}).(EscalationPolicyOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EscalationPolicyOutput{})
+	pulumi.RegisterOutputType(EscalationPolicyPtrOutput{})
+	pulumi.RegisterOutputType(EscalationPolicyArrayOutput{})
+	pulumi.RegisterOutputType(EscalationPolicyMapOutput{})
 }

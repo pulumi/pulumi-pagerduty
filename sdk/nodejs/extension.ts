@@ -125,7 +125,8 @@ export class Extension extends pulumi.CustomResource {
     constructor(name: string, args: ExtensionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ExtensionArgs | ExtensionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ExtensionState | undefined;
             inputs["config"] = state ? state.config : undefined;
             inputs["endpointUrl"] = state ? state.endpointUrl : undefined;
@@ -136,10 +137,10 @@ export class Extension extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ExtensionArgs | undefined;
-            if ((!args || args.extensionObjects === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.extensionObjects === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'extensionObjects'");
             }
-            if ((!args || args.extensionSchema === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.extensionSchema === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'extensionSchema'");
             }
             inputs["config"] = args ? args.config : undefined;
@@ -150,12 +151,8 @@ export class Extension extends pulumi.CustomResource {
             inputs["type"] = args ? args.type : undefined;
             inputs["htmlUrl"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Extension.__pulumiType, name, inputs, opts);
     }

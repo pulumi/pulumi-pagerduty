@@ -87,22 +87,19 @@ export class ServiceDependency extends pulumi.CustomResource {
     constructor(name: string, args: ServiceDependencyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceDependencyArgs | ServiceDependencyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ServiceDependencyState | undefined;
             inputs["dependencies"] = state ? state.dependencies : undefined;
         } else {
             const args = argsOrState as ServiceDependencyArgs | undefined;
-            if ((!args || args.dependencies === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dependencies === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dependencies'");
             }
             inputs["dependencies"] = args ? args.dependencies : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ServiceDependency.__pulumiType, name, inputs, opts);
     }

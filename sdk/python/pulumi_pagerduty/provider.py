@@ -49,8 +49,8 @@ class Provider(pulumi.ProviderResource):
             if skip_credentials_validation is None:
                 skip_credentials_validation = False
             __props__['skip_credentials_validation'] = pulumi.Output.from_input(skip_credentials_validation).apply(pulumi.runtime.to_json) if skip_credentials_validation is not None else None
-            if token is None:
-                token = _utilities.get_env('PAGERDUTY_TOKEN')
+            if token is None and not opts.urn:
+                raise TypeError("Missing required property 'token'")
             __props__['token'] = token
         super(Provider, __self__).__init__(
             'pagerduty',

@@ -16,9 +16,5 @@ func GetSkipCredentialsValidation(ctx *pulumi.Context) bool {
 	return false
 }
 func GetToken(ctx *pulumi.Context) string {
-	v, err := config.Try(ctx, "pagerduty:token")
-	if err == nil {
-		return v
-	}
-	return getEnvOrDefault("", nil, "PAGERDUTY_TOKEN").(string)
+	return config.Get(ctx, "pagerduty:token")
 }

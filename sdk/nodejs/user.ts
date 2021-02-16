@@ -108,7 +108,8 @@ export class User extends pulumi.CustomResource {
     constructor(name: string, args: UserArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserArgs | UserState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as UserState | undefined;
             inputs["avatarUrl"] = state ? state.avatarUrl : undefined;
             inputs["color"] = state ? state.color : undefined;
@@ -123,7 +124,7 @@ export class User extends pulumi.CustomResource {
             inputs["timeZone"] = state ? state.timeZone : undefined;
         } else {
             const args = argsOrState as UserArgs | undefined;
-            if ((!args || args.email === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.email === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
             inputs["color"] = args ? args.color : undefined;
@@ -138,12 +139,8 @@ export class User extends pulumi.CustomResource {
             inputs["htmlUrl"] = undefined /*out*/;
             inputs["invitationSent"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(User.__pulumiType, name, inputs, opts);
     }

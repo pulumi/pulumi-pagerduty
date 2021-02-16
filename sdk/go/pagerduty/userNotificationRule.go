@@ -20,7 +20,6 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-pagerduty/sdk/go/pagerduty"
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/go/pagerduty/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -234,6 +233,85 @@ func (i *UserNotificationRule) ToUserNotificationRuleOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(UserNotificationRuleOutput)
 }
 
+func (i *UserNotificationRule) ToUserNotificationRulePtrOutput() UserNotificationRulePtrOutput {
+	return i.ToUserNotificationRulePtrOutputWithContext(context.Background())
+}
+
+func (i *UserNotificationRule) ToUserNotificationRulePtrOutputWithContext(ctx context.Context) UserNotificationRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserNotificationRulePtrOutput)
+}
+
+type UserNotificationRulePtrInput interface {
+	pulumi.Input
+
+	ToUserNotificationRulePtrOutput() UserNotificationRulePtrOutput
+	ToUserNotificationRulePtrOutputWithContext(ctx context.Context) UserNotificationRulePtrOutput
+}
+
+type userNotificationRulePtrType UserNotificationRuleArgs
+
+func (*userNotificationRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserNotificationRule)(nil))
+}
+
+func (i *userNotificationRulePtrType) ToUserNotificationRulePtrOutput() UserNotificationRulePtrOutput {
+	return i.ToUserNotificationRulePtrOutputWithContext(context.Background())
+}
+
+func (i *userNotificationRulePtrType) ToUserNotificationRulePtrOutputWithContext(ctx context.Context) UserNotificationRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserNotificationRulePtrOutput)
+}
+
+// UserNotificationRuleArrayInput is an input type that accepts UserNotificationRuleArray and UserNotificationRuleArrayOutput values.
+// You can construct a concrete instance of `UserNotificationRuleArrayInput` via:
+//
+//          UserNotificationRuleArray{ UserNotificationRuleArgs{...} }
+type UserNotificationRuleArrayInput interface {
+	pulumi.Input
+
+	ToUserNotificationRuleArrayOutput() UserNotificationRuleArrayOutput
+	ToUserNotificationRuleArrayOutputWithContext(context.Context) UserNotificationRuleArrayOutput
+}
+
+type UserNotificationRuleArray []UserNotificationRuleInput
+
+func (UserNotificationRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*UserNotificationRule)(nil))
+}
+
+func (i UserNotificationRuleArray) ToUserNotificationRuleArrayOutput() UserNotificationRuleArrayOutput {
+	return i.ToUserNotificationRuleArrayOutputWithContext(context.Background())
+}
+
+func (i UserNotificationRuleArray) ToUserNotificationRuleArrayOutputWithContext(ctx context.Context) UserNotificationRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserNotificationRuleArrayOutput)
+}
+
+// UserNotificationRuleMapInput is an input type that accepts UserNotificationRuleMap and UserNotificationRuleMapOutput values.
+// You can construct a concrete instance of `UserNotificationRuleMapInput` via:
+//
+//          UserNotificationRuleMap{ "key": UserNotificationRuleArgs{...} }
+type UserNotificationRuleMapInput interface {
+	pulumi.Input
+
+	ToUserNotificationRuleMapOutput() UserNotificationRuleMapOutput
+	ToUserNotificationRuleMapOutputWithContext(context.Context) UserNotificationRuleMapOutput
+}
+
+type UserNotificationRuleMap map[string]UserNotificationRuleInput
+
+func (UserNotificationRuleMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*UserNotificationRule)(nil))
+}
+
+func (i UserNotificationRuleMap) ToUserNotificationRuleMapOutput() UserNotificationRuleMapOutput {
+	return i.ToUserNotificationRuleMapOutputWithContext(context.Background())
+}
+
+func (i UserNotificationRuleMap) ToUserNotificationRuleMapOutputWithContext(ctx context.Context) UserNotificationRuleMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserNotificationRuleMapOutput)
+}
+
 type UserNotificationRuleOutput struct {
 	*pulumi.OutputState
 }
@@ -250,6 +328,75 @@ func (o UserNotificationRuleOutput) ToUserNotificationRuleOutputWithContext(ctx 
 	return o
 }
 
+func (o UserNotificationRuleOutput) ToUserNotificationRulePtrOutput() UserNotificationRulePtrOutput {
+	return o.ToUserNotificationRulePtrOutputWithContext(context.Background())
+}
+
+func (o UserNotificationRuleOutput) ToUserNotificationRulePtrOutputWithContext(ctx context.Context) UserNotificationRulePtrOutput {
+	return o.ApplyT(func(v UserNotificationRule) *UserNotificationRule {
+		return &v
+	}).(UserNotificationRulePtrOutput)
+}
+
+type UserNotificationRulePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (UserNotificationRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserNotificationRule)(nil))
+}
+
+func (o UserNotificationRulePtrOutput) ToUserNotificationRulePtrOutput() UserNotificationRulePtrOutput {
+	return o
+}
+
+func (o UserNotificationRulePtrOutput) ToUserNotificationRulePtrOutputWithContext(ctx context.Context) UserNotificationRulePtrOutput {
+	return o
+}
+
+type UserNotificationRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (UserNotificationRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserNotificationRule)(nil))
+}
+
+func (o UserNotificationRuleArrayOutput) ToUserNotificationRuleArrayOutput() UserNotificationRuleArrayOutput {
+	return o
+}
+
+func (o UserNotificationRuleArrayOutput) ToUserNotificationRuleArrayOutputWithContext(ctx context.Context) UserNotificationRuleArrayOutput {
+	return o
+}
+
+func (o UserNotificationRuleArrayOutput) Index(i pulumi.IntInput) UserNotificationRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserNotificationRule {
+		return vs[0].([]UserNotificationRule)[vs[1].(int)]
+	}).(UserNotificationRuleOutput)
+}
+
+type UserNotificationRuleMapOutput struct{ *pulumi.OutputState }
+
+func (UserNotificationRuleMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserNotificationRule)(nil))
+}
+
+func (o UserNotificationRuleMapOutput) ToUserNotificationRuleMapOutput() UserNotificationRuleMapOutput {
+	return o
+}
+
+func (o UserNotificationRuleMapOutput) ToUserNotificationRuleMapOutputWithContext(ctx context.Context) UserNotificationRuleMapOutput {
+	return o
+}
+
+func (o UserNotificationRuleMapOutput) MapIndex(k pulumi.StringInput) UserNotificationRuleOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserNotificationRule {
+		return vs[0].(map[string]UserNotificationRule)[vs[1].(string)]
+	}).(UserNotificationRuleOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(UserNotificationRuleOutput{})
+	pulumi.RegisterOutputType(UserNotificationRulePtrOutput{})
+	pulumi.RegisterOutputType(UserNotificationRuleArrayOutput{})
+	pulumi.RegisterOutputType(UserNotificationRuleMapOutput{})
 }

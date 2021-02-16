@@ -104,7 +104,8 @@ export class Schedule extends pulumi.CustomResource {
     constructor(name: string, args: ScheduleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ScheduleArgs | ScheduleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ScheduleState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["layers"] = state ? state.layers : undefined;
@@ -113,10 +114,10 @@ export class Schedule extends pulumi.CustomResource {
             inputs["timeZone"] = state ? state.timeZone : undefined;
         } else {
             const args = argsOrState as ScheduleArgs | undefined;
-            if ((!args || args.layers === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.layers === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'layers'");
             }
-            if ((!args || args.timeZone === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.timeZone === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'timeZone'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -125,12 +126,8 @@ export class Schedule extends pulumi.CustomResource {
             inputs["overflow"] = args ? args.overflow : undefined;
             inputs["timeZone"] = args ? args.timeZone : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Schedule.__pulumiType, name, inputs, opts);
     }

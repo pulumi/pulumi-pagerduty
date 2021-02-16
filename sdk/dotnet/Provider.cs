@@ -25,7 +25,7 @@ namespace Pulumi.Pagerduty
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Provider(string name, ProviderArgs? args = null, CustomResourceOptions? options = null)
+        public Provider(string name, ProviderArgs args, CustomResourceOptions? options = null)
             : base("pagerduty", name, args ?? new ProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -48,13 +48,12 @@ namespace Pulumi.Pagerduty
         [Input("skipCredentialsValidation", json: true)]
         public Input<bool>? SkipCredentialsValidation { get; set; }
 
-        [Input("token")]
-        public Input<string>? Token { get; set; }
+        [Input("token", required: true)]
+        public Input<string> Token { get; set; } = null!;
 
         public ProviderArgs()
         {
             SkipCredentialsValidation = false;
-            Token = Utilities.GetEnv("PAGERDUTY_TOKEN");
         }
     }
 }

@@ -98,7 +98,8 @@ export class EscalationPolicy extends pulumi.CustomResource {
     constructor(name: string, args: EscalationPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EscalationPolicyArgs | EscalationPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as EscalationPolicyState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -107,7 +108,7 @@ export class EscalationPolicy extends pulumi.CustomResource {
             inputs["teams"] = state ? state.teams : undefined;
         } else {
             const args = argsOrState as EscalationPolicyArgs | undefined;
-            if ((!args || args.rules === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.rules === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rules'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -116,12 +117,8 @@ export class EscalationPolicy extends pulumi.CustomResource {
             inputs["rules"] = args ? args.rules : undefined;
             inputs["teams"] = args ? args.teams : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(EscalationPolicy.__pulumiType, name, inputs, opts);
     }

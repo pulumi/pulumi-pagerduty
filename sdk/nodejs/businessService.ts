@@ -82,7 +82,8 @@ export class BusinessService extends pulumi.CustomResource {
     constructor(name: string, args?: BusinessServiceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BusinessServiceArgs | BusinessServiceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as BusinessServiceState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["htmlUrl"] = state ? state.htmlUrl : undefined;
@@ -101,12 +102,8 @@ export class BusinessService extends pulumi.CustomResource {
             inputs["self"] = undefined /*out*/;
             inputs["summary"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(BusinessService.__pulumiType, name, inputs, opts);
     }

@@ -18,7 +18,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/go/pagerduty/"
+// 	"github.com/pulumi/pulumi-pagerduty/sdk/go/pagerduty"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -160,6 +160,85 @@ func (i *BusinessService) ToBusinessServiceOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(BusinessServiceOutput)
 }
 
+func (i *BusinessService) ToBusinessServicePtrOutput() BusinessServicePtrOutput {
+	return i.ToBusinessServicePtrOutputWithContext(context.Background())
+}
+
+func (i *BusinessService) ToBusinessServicePtrOutputWithContext(ctx context.Context) BusinessServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BusinessServicePtrOutput)
+}
+
+type BusinessServicePtrInput interface {
+	pulumi.Input
+
+	ToBusinessServicePtrOutput() BusinessServicePtrOutput
+	ToBusinessServicePtrOutputWithContext(ctx context.Context) BusinessServicePtrOutput
+}
+
+type businessServicePtrType BusinessServiceArgs
+
+func (*businessServicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BusinessService)(nil))
+}
+
+func (i *businessServicePtrType) ToBusinessServicePtrOutput() BusinessServicePtrOutput {
+	return i.ToBusinessServicePtrOutputWithContext(context.Background())
+}
+
+func (i *businessServicePtrType) ToBusinessServicePtrOutputWithContext(ctx context.Context) BusinessServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BusinessServicePtrOutput)
+}
+
+// BusinessServiceArrayInput is an input type that accepts BusinessServiceArray and BusinessServiceArrayOutput values.
+// You can construct a concrete instance of `BusinessServiceArrayInput` via:
+//
+//          BusinessServiceArray{ BusinessServiceArgs{...} }
+type BusinessServiceArrayInput interface {
+	pulumi.Input
+
+	ToBusinessServiceArrayOutput() BusinessServiceArrayOutput
+	ToBusinessServiceArrayOutputWithContext(context.Context) BusinessServiceArrayOutput
+}
+
+type BusinessServiceArray []BusinessServiceInput
+
+func (BusinessServiceArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*BusinessService)(nil))
+}
+
+func (i BusinessServiceArray) ToBusinessServiceArrayOutput() BusinessServiceArrayOutput {
+	return i.ToBusinessServiceArrayOutputWithContext(context.Background())
+}
+
+func (i BusinessServiceArray) ToBusinessServiceArrayOutputWithContext(ctx context.Context) BusinessServiceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BusinessServiceArrayOutput)
+}
+
+// BusinessServiceMapInput is an input type that accepts BusinessServiceMap and BusinessServiceMapOutput values.
+// You can construct a concrete instance of `BusinessServiceMapInput` via:
+//
+//          BusinessServiceMap{ "key": BusinessServiceArgs{...} }
+type BusinessServiceMapInput interface {
+	pulumi.Input
+
+	ToBusinessServiceMapOutput() BusinessServiceMapOutput
+	ToBusinessServiceMapOutputWithContext(context.Context) BusinessServiceMapOutput
+}
+
+type BusinessServiceMap map[string]BusinessServiceInput
+
+func (BusinessServiceMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*BusinessService)(nil))
+}
+
+func (i BusinessServiceMap) ToBusinessServiceMapOutput() BusinessServiceMapOutput {
+	return i.ToBusinessServiceMapOutputWithContext(context.Background())
+}
+
+func (i BusinessServiceMap) ToBusinessServiceMapOutputWithContext(ctx context.Context) BusinessServiceMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BusinessServiceMapOutput)
+}
+
 type BusinessServiceOutput struct {
 	*pulumi.OutputState
 }
@@ -176,6 +255,75 @@ func (o BusinessServiceOutput) ToBusinessServiceOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o BusinessServiceOutput) ToBusinessServicePtrOutput() BusinessServicePtrOutput {
+	return o.ToBusinessServicePtrOutputWithContext(context.Background())
+}
+
+func (o BusinessServiceOutput) ToBusinessServicePtrOutputWithContext(ctx context.Context) BusinessServicePtrOutput {
+	return o.ApplyT(func(v BusinessService) *BusinessService {
+		return &v
+	}).(BusinessServicePtrOutput)
+}
+
+type BusinessServicePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (BusinessServicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BusinessService)(nil))
+}
+
+func (o BusinessServicePtrOutput) ToBusinessServicePtrOutput() BusinessServicePtrOutput {
+	return o
+}
+
+func (o BusinessServicePtrOutput) ToBusinessServicePtrOutputWithContext(ctx context.Context) BusinessServicePtrOutput {
+	return o
+}
+
+type BusinessServiceArrayOutput struct{ *pulumi.OutputState }
+
+func (BusinessServiceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BusinessService)(nil))
+}
+
+func (o BusinessServiceArrayOutput) ToBusinessServiceArrayOutput() BusinessServiceArrayOutput {
+	return o
+}
+
+func (o BusinessServiceArrayOutput) ToBusinessServiceArrayOutputWithContext(ctx context.Context) BusinessServiceArrayOutput {
+	return o
+}
+
+func (o BusinessServiceArrayOutput) Index(i pulumi.IntInput) BusinessServiceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BusinessService {
+		return vs[0].([]BusinessService)[vs[1].(int)]
+	}).(BusinessServiceOutput)
+}
+
+type BusinessServiceMapOutput struct{ *pulumi.OutputState }
+
+func (BusinessServiceMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]BusinessService)(nil))
+}
+
+func (o BusinessServiceMapOutput) ToBusinessServiceMapOutput() BusinessServiceMapOutput {
+	return o
+}
+
+func (o BusinessServiceMapOutput) ToBusinessServiceMapOutputWithContext(ctx context.Context) BusinessServiceMapOutput {
+	return o
+}
+
+func (o BusinessServiceMapOutput) MapIndex(k pulumi.StringInput) BusinessServiceOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BusinessService {
+		return vs[0].(map[string]BusinessService)[vs[1].(string)]
+	}).(BusinessServiceOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BusinessServiceOutput{})
+	pulumi.RegisterOutputType(BusinessServicePtrOutput{})
+	pulumi.RegisterOutputType(BusinessServiceArrayOutput{})
+	pulumi.RegisterOutputType(BusinessServiceMapOutput{})
 }

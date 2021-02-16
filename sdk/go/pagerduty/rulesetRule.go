@@ -156,6 +156,85 @@ func (i *RulesetRule) ToRulesetRuleOutputWithContext(ctx context.Context) Rulese
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleOutput)
 }
 
+func (i *RulesetRule) ToRulesetRulePtrOutput() RulesetRulePtrOutput {
+	return i.ToRulesetRulePtrOutputWithContext(context.Background())
+}
+
+func (i *RulesetRule) ToRulesetRulePtrOutputWithContext(ctx context.Context) RulesetRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulesetRulePtrOutput)
+}
+
+type RulesetRulePtrInput interface {
+	pulumi.Input
+
+	ToRulesetRulePtrOutput() RulesetRulePtrOutput
+	ToRulesetRulePtrOutputWithContext(ctx context.Context) RulesetRulePtrOutput
+}
+
+type rulesetRulePtrType RulesetRuleArgs
+
+func (*rulesetRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RulesetRule)(nil))
+}
+
+func (i *rulesetRulePtrType) ToRulesetRulePtrOutput() RulesetRulePtrOutput {
+	return i.ToRulesetRulePtrOutputWithContext(context.Background())
+}
+
+func (i *rulesetRulePtrType) ToRulesetRulePtrOutputWithContext(ctx context.Context) RulesetRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulesetRulePtrOutput)
+}
+
+// RulesetRuleArrayInput is an input type that accepts RulesetRuleArray and RulesetRuleArrayOutput values.
+// You can construct a concrete instance of `RulesetRuleArrayInput` via:
+//
+//          RulesetRuleArray{ RulesetRuleArgs{...} }
+type RulesetRuleArrayInput interface {
+	pulumi.Input
+
+	ToRulesetRuleArrayOutput() RulesetRuleArrayOutput
+	ToRulesetRuleArrayOutputWithContext(context.Context) RulesetRuleArrayOutput
+}
+
+type RulesetRuleArray []RulesetRuleInput
+
+func (RulesetRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*RulesetRule)(nil))
+}
+
+func (i RulesetRuleArray) ToRulesetRuleArrayOutput() RulesetRuleArrayOutput {
+	return i.ToRulesetRuleArrayOutputWithContext(context.Background())
+}
+
+func (i RulesetRuleArray) ToRulesetRuleArrayOutputWithContext(ctx context.Context) RulesetRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleArrayOutput)
+}
+
+// RulesetRuleMapInput is an input type that accepts RulesetRuleMap and RulesetRuleMapOutput values.
+// You can construct a concrete instance of `RulesetRuleMapInput` via:
+//
+//          RulesetRuleMap{ "key": RulesetRuleArgs{...} }
+type RulesetRuleMapInput interface {
+	pulumi.Input
+
+	ToRulesetRuleMapOutput() RulesetRuleMapOutput
+	ToRulesetRuleMapOutputWithContext(context.Context) RulesetRuleMapOutput
+}
+
+type RulesetRuleMap map[string]RulesetRuleInput
+
+func (RulesetRuleMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*RulesetRule)(nil))
+}
+
+func (i RulesetRuleMap) ToRulesetRuleMapOutput() RulesetRuleMapOutput {
+	return i.ToRulesetRuleMapOutputWithContext(context.Background())
+}
+
+func (i RulesetRuleMap) ToRulesetRuleMapOutputWithContext(ctx context.Context) RulesetRuleMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleMapOutput)
+}
+
 type RulesetRuleOutput struct {
 	*pulumi.OutputState
 }
@@ -172,6 +251,75 @@ func (o RulesetRuleOutput) ToRulesetRuleOutputWithContext(ctx context.Context) R
 	return o
 }
 
+func (o RulesetRuleOutput) ToRulesetRulePtrOutput() RulesetRulePtrOutput {
+	return o.ToRulesetRulePtrOutputWithContext(context.Background())
+}
+
+func (o RulesetRuleOutput) ToRulesetRulePtrOutputWithContext(ctx context.Context) RulesetRulePtrOutput {
+	return o.ApplyT(func(v RulesetRule) *RulesetRule {
+		return &v
+	}).(RulesetRulePtrOutput)
+}
+
+type RulesetRulePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (RulesetRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RulesetRule)(nil))
+}
+
+func (o RulesetRulePtrOutput) ToRulesetRulePtrOutput() RulesetRulePtrOutput {
+	return o
+}
+
+func (o RulesetRulePtrOutput) ToRulesetRulePtrOutputWithContext(ctx context.Context) RulesetRulePtrOutput {
+	return o
+}
+
+type RulesetRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (RulesetRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RulesetRule)(nil))
+}
+
+func (o RulesetRuleArrayOutput) ToRulesetRuleArrayOutput() RulesetRuleArrayOutput {
+	return o
+}
+
+func (o RulesetRuleArrayOutput) ToRulesetRuleArrayOutputWithContext(ctx context.Context) RulesetRuleArrayOutput {
+	return o
+}
+
+func (o RulesetRuleArrayOutput) Index(i pulumi.IntInput) RulesetRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RulesetRule {
+		return vs[0].([]RulesetRule)[vs[1].(int)]
+	}).(RulesetRuleOutput)
+}
+
+type RulesetRuleMapOutput struct{ *pulumi.OutputState }
+
+func (RulesetRuleMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RulesetRule)(nil))
+}
+
+func (o RulesetRuleMapOutput) ToRulesetRuleMapOutput() RulesetRuleMapOutput {
+	return o
+}
+
+func (o RulesetRuleMapOutput) ToRulesetRuleMapOutputWithContext(ctx context.Context) RulesetRuleMapOutput {
+	return o
+}
+
+func (o RulesetRuleMapOutput) MapIndex(k pulumi.StringInput) RulesetRuleOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RulesetRule {
+		return vs[0].(map[string]RulesetRule)[vs[1].(string)]
+	}).(RulesetRuleOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RulesetRuleOutput{})
+	pulumi.RegisterOutputType(RulesetRulePtrOutput{})
+	pulumi.RegisterOutputType(RulesetRuleArrayOutput{})
+	pulumi.RegisterOutputType(RulesetRuleMapOutput{})
 }

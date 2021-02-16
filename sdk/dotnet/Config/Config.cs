@@ -10,7 +10,7 @@ namespace Pulumi.Pagerduty
         private static readonly Pulumi.Config __config = new Pulumi.Config("pagerduty");
         public static bool? SkipCredentialsValidation { get; set; } = __config.GetBoolean("skipCredentialsValidation") ?? false;
 
-        public static string? Token { get; set; } = __config.Get("token") ?? Utilities.GetEnv("PAGERDUTY_TOKEN");
+        public static string? Token { get; set; } = __config.Get("token");
 
     }
 }

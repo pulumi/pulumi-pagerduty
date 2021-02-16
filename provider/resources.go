@@ -86,11 +86,6 @@ func Provider() tfbridge.ProviderInfo {
 		Homepage:    "https://pulumi.io",
 		Repository:  "https://github.com/pulumi/pulumi-pagerduty",
 		Config: map[string]*tfbridge.SchemaInfo{
-			"token": {
-				Default: &tfbridge.DefaultInfo{
-					EnvVars: []string{"PAGERDUTY_TOKEN"},
-				},
-			},
 			"skip_credentials_validation": {
 				Type: "boolean",
 				Default: &tfbridge.DefaultInfo{

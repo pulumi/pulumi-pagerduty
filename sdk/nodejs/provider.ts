@@ -40,7 +40,7 @@ export class Provider extends pulumi.ProviderResource {
             if ((!args || args.token === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'token'");
             }
-            inputs["skipCredentialsValidation"] = pulumi.output((args ? args.skipCredentialsValidation : undefined) || false).apply(JSON.stringify);
+            inputs["skipCredentialsValidation"] = pulumi.output((args ? args.skipCredentialsValidation : undefined) ?? false).apply(JSON.stringify);
             inputs["token"] = args ? args.token : undefined;
         }
         if (!opts.version) {

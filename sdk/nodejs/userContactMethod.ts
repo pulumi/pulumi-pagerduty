@@ -15,27 +15,27 @@ import * as utilities from "./utilities";
  *
  * const example = new pagerduty.User("example", {
  *     email: "125.greenholt.earline@graham.name",
- *     teams: [pagerduty_team_example.id],
+ *     teams: [pagerduty_team.example.id],
  * });
  * const email = new pagerduty.UserContactMethod("email", {
+ *     userId: example.id,
+ *     type: "email_contact_method",
  *     address: "foo@bar.com",
  *     label: "Work",
- *     type: "email_contact_method",
- *     userId: example.id,
  * });
  * const phone = new pagerduty.UserContactMethod("phone", {
- *     address: "2025550199",
- *     countryCode: 1,
- *     label: "Work",
- *     type: "phone_contact_method",
  *     userId: example.id,
+ *     type: "phone_contact_method",
+ *     countryCode: "+1",
+ *     address: "2025550199",
+ *     label: "Work",
  * });
  * const sms = new pagerduty.UserContactMethod("sms", {
- *     address: "2025550199",
- *     countryCode: 1,
- *     label: "Work",
- *     type: "sms_contact_method",
  *     userId: example.id,
+ *     type: "sms_contact_method",
+ *     countryCode: "+1",
+ *     address: "2025550199",
+ *     label: "Work",
  * });
  * ```
  *

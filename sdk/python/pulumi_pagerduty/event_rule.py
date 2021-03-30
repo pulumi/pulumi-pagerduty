@@ -22,7 +22,7 @@ class EventRule(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        *NOTE: The `EventRule` resource has been deprecated in favor the the Ruleset and RulesetRule resources. Please use the `ruleset` based resources for working with Event Rules.*
+        *NOTE: The `EventRule` resource has been deprecated in favor of the Ruleset and RulesetRule resources. Please use the `ruleset` based resources for working with Event Rules.*
 
         An [event rule](https://v2.developer.pagerduty.com/docs/global-event-rules-api) determines what happens to an event that is sent to PagerDuty by monitoring tools and other integrations.
 

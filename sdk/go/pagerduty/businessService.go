@@ -27,6 +27,7 @@ import (
 // 		_, err := pagerduty.NewBusinessService(ctx, "example", &pagerduty.BusinessServiceArgs{
 // 			Description:    pulumi.String("A very descriptive description of this business service"),
 // 			PointOfContact: pulumi.String("PagerDuty Admin"),
+// 			Team:           pulumi.String("P37RSRS"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -54,6 +55,8 @@ type BusinessService struct {
 	PointOfContact pulumi.StringPtrOutput `pulumi:"pointOfContact"`
 	Self           pulumi.StringOutput    `pulumi:"self"`
 	Summary        pulumi.StringOutput    `pulumi:"summary"`
+	// ID of the team that owns the business service.
+	Team pulumi.StringPtrOutput `pulumi:"team"`
 	// Default value is `businessService`. Can also be set as `businessServiceReference`.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
@@ -95,6 +98,8 @@ type businessServiceState struct {
 	PointOfContact *string `pulumi:"pointOfContact"`
 	Self           *string `pulumi:"self"`
 	Summary        *string `pulumi:"summary"`
+	// ID of the team that owns the business service.
+	Team *string `pulumi:"team"`
 	// Default value is `businessService`. Can also be set as `businessServiceReference`.
 	Type *string `pulumi:"type"`
 }
@@ -108,6 +113,8 @@ type BusinessServiceState struct {
 	PointOfContact pulumi.StringPtrInput
 	Self           pulumi.StringPtrInput
 	Summary        pulumi.StringPtrInput
+	// ID of the team that owns the business service.
+	Team pulumi.StringPtrInput
 	// Default value is `businessService`. Can also be set as `businessServiceReference`.
 	Type pulumi.StringPtrInput
 }
@@ -122,6 +129,8 @@ type businessServiceArgs struct {
 	Name *string `pulumi:"name"`
 	// The owner of the business service.
 	PointOfContact *string `pulumi:"pointOfContact"`
+	// ID of the team that owns the business service.
+	Team *string `pulumi:"team"`
 	// Default value is `businessService`. Can also be set as `businessServiceReference`.
 	Type *string `pulumi:"type"`
 }
@@ -133,6 +142,8 @@ type BusinessServiceArgs struct {
 	Name pulumi.StringPtrInput
 	// The owner of the business service.
 	PointOfContact pulumi.StringPtrInput
+	// ID of the team that owns the business service.
+	Team pulumi.StringPtrInput
 	// Default value is `businessService`. Can also be set as `businessServiceReference`.
 	Type pulumi.StringPtrInput
 }

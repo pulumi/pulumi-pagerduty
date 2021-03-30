@@ -35,19 +35,19 @@ import (
 // 		}
 // 		_, err = pagerduty.NewEscalationPolicy(ctx, "foo", &pagerduty.EscalationPolicyArgs{
 // 			NumLoops: pulumi.Int(2),
+// 			Teams: pulumi.StringArray{
+// 				pulumi.String(devops.Id),
+// 			},
 // 			Rules: pagerduty.EscalationPolicyRuleArray{
 // 				&pagerduty.EscalationPolicyRuleArgs{
 // 					EscalationDelayInMinutes: pulumi.Int(10),
 // 					Targets: pagerduty.EscalationPolicyRuleTargetArray{
 // 						&pagerduty.EscalationPolicyRuleTargetArgs{
-// 							Id:   pulumi.String(me.Id),
 // 							Type: pulumi.String("user"),
+// 							Id:   pulumi.String(me.Id),
 // 						},
 // 					},
 // 				},
-// 			},
-// 			Teams: pulumi.StringArray{
-// 				pulumi.String(devops.Id),
 // 			},
 // 		})
 // 		if err != nil {

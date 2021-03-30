@@ -67,8 +67,8 @@ def get_escalation_policy(name: Optional[str] = None,
 
     test_escalation_policy = pagerduty.get_escalation_policy(name="Engineering Escalation Policy")
     test_service = pagerduty.Service("testService",
-        acknowledgement_timeout="600",
         auto_resolve_timeout="14400",
+        acknowledgement_timeout="600",
         escalation_policy=test_escalation_policy.id)
     ```
 

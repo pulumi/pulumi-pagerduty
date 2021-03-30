@@ -14,16 +14,16 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const me = pulumi.output(pagerduty.getUser({
+ * const me = pagerduty.getUser({
  *     email: "me@example.com",
- * }, { async: true }));
+ * });
  * const foo = new pagerduty.EscalationPolicy("foo", {
  *     numLoops: 2,
  *     rules: [{
  *         escalationDelayInMinutes: 10,
  *         targets: [{
- *             id: me.id,
  *             type: "user",
+ *             id: me.then(me => me.id),
  *         }],
  *     }],
  * });

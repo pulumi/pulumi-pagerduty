@@ -40,14 +40,20 @@ class EscalationPolicy(pulumi.CustomResource):
             teams=[example_team.id])
         example_escalation_policy = pagerduty.EscalationPolicy("exampleEscalationPolicy",
             num_loops=2,
+            teams=[example_team.id],
             rules=[pagerduty.EscalationPolicyRuleArgs(
                 escalation_delay_in_minutes=10,
-                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                    id=example_user.id,
-                    type="user",
-                )],
-            )],
-            teams=[example_team.id])
+                targets=[
+                    pagerduty.EscalationPolicyRuleTargetArgs(
+                        type="user",
+                        id=example_user.id,
+                    ),
+                    pagerduty.EscalationPolicyRuleTargetArgs(
+                        type="user",
+                        id=pagerduty_user["example2"]["id"],
+                    ),
+                ],
+            )])
         ```
 
         ## Import

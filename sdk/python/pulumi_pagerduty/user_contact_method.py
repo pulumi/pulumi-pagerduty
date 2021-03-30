@@ -37,22 +37,22 @@ class UserContactMethod(pulumi.CustomResource):
             email="125.greenholt.earline@graham.name",
             teams=[pagerduty_team["example"]["id"]])
         email = pagerduty.UserContactMethod("email",
-            address="foo@bar.com",
-            label="Work",
+            user_id=example.id,
             type="email_contact_method",
-            user_id=example.id)
+            address="foo@bar.com",
+            label="Work")
         phone = pagerduty.UserContactMethod("phone",
-            address="2025550199",
-            country_code=1,
-            label="Work",
+            user_id=example.id,
             type="phone_contact_method",
-            user_id=example.id)
-        sms = pagerduty.UserContactMethod("sms",
-            address="2025550199",
             country_code=1,
-            label="Work",
+            address="2025550199",
+            label="Work")
+        sms = pagerduty.UserContactMethod("sms",
+            user_id=example.id,
             type="sms_contact_method",
-            user_id=example.id)
+            country_code=1,
+            address="2025550199",
+            label="Work")
         ```
 
         ## Import

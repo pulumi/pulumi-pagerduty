@@ -12,6 +12,12 @@ from . import outputs
 __all__ = [
     'EscalationPolicyRule',
     'EscalationPolicyRuleTarget',
+    'ResponsePlayResponder',
+    'ResponsePlayResponderEscalationRule',
+    'ResponsePlayResponderEscalationRuleTarget',
+    'ResponsePlayResponderService',
+    'ResponsePlayResponderTeam',
+    'ResponsePlaySubscriber',
     'RulesetRuleActions',
     'RulesetRuleActionsAnnotate',
     'RulesetRuleActionsEventAction',
@@ -20,18 +26,37 @@ __all__ = [
     'RulesetRuleActionsRoute',
     'RulesetRuleActionsSeverity',
     'RulesetRuleActionsSuppress',
+    'RulesetRuleActionsSuspend',
     'RulesetRuleConditions',
     'RulesetRuleConditionsSubcondition',
     'RulesetRuleConditionsSubconditionParameter',
     'RulesetRuleTimeFrame',
     'RulesetRuleTimeFrameActiveBetween',
     'RulesetRuleTimeFrameScheduledWeekly',
+    'RulesetRuleVariable',
+    'RulesetRuleVariableParameter',
     'RulesetTeam',
     'ScheduleLayer',
     'ScheduleLayerRestriction',
     'ServiceDependencyDependency',
     'ServiceDependencyDependencyDependentService',
     'ServiceDependencyDependencySupportingService',
+    'ServiceEventRuleActions',
+    'ServiceEventRuleActionsAnnotate',
+    'ServiceEventRuleActionsEventAction',
+    'ServiceEventRuleActionsExtraction',
+    'ServiceEventRuleActionsPriority',
+    'ServiceEventRuleActionsSeverity',
+    'ServiceEventRuleActionsSuppress',
+    'ServiceEventRuleActionsSuspend',
+    'ServiceEventRuleConditions',
+    'ServiceEventRuleConditionsSubcondition',
+    'ServiceEventRuleConditionsSubconditionParameter',
+    'ServiceEventRuleTimeFrame',
+    'ServiceEventRuleTimeFrameActiveBetween',
+    'ServiceEventRuleTimeFrameScheduledWeekly',
+    'ServiceEventRuleVariable',
+    'ServiceEventRuleVariableParameter',
     'ServiceIncidentUrgencyRule',
     'ServiceIncidentUrgencyRuleDuringSupportHours',
     'ServiceIncidentUrgencyRuleOutsideSupportHours',
@@ -88,7 +113,7 @@ class EscalationPolicyRuleTarget(dict):
                  type: Optional[str] = None):
         """
         :param str id: A target ID
-        :param str type: Can be `user`, `schedule`, `user_reference` or `schedule_reference`. Defaults to `user_reference`
+        :param str type: Can be `user`, `schedule`, `user_reference` or `schedule_reference`. Defaults to `user_reference`. For multiple users as example, repeat the target.
         """
         pulumi.set(__self__, "id", id)
         if type is not None:
@@ -106,7 +131,305 @@ class EscalationPolicyRuleTarget(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        Can be `user`, `schedule`, `user_reference` or `schedule_reference`. Defaults to `user_reference`
+        Can be `user`, `schedule`, `user_reference` or `schedule_reference`. Defaults to `user_reference`. For multiple users as example, repeat the target.
+        """
+        return pulumi.get(self, "type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ResponsePlayResponder(dict):
+    def __init__(__self__, *,
+                 description: Optional[str] = None,
+                 escalation_rules: Optional[Sequence['outputs.ResponsePlayResponderEscalationRule']] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 num_loops: Optional[int] = None,
+                 on_call_handoff_notifications: Optional[str] = None,
+                 services: Optional[Sequence['outputs.ResponsePlayResponderService']] = None,
+                 teams: Optional[Sequence['outputs.ResponsePlayResponderTeam']] = None,
+                 type: Optional[str] = None):
+        """
+        :param str description: Description of escalation policy
+        :param Sequence['ResponsePlayResponderEscalationRuleArgs'] escalation_rules: The escalation rules
+        :param str id: ID of the user defined as the responder
+        :param str name: Name of the escalation policy
+        :param int num_loops: The number of times the escalation policy will repeat after reaching the end of its escalation.
+        :param str on_call_handoff_notifications: Determines how on call handoff notifications will be sent for users on the escalation policy. Defaults to "if_has_services". Could be "if_has_services", "always
+        :param Sequence['ResponsePlayResponderServiceArgs'] services: There can be multiple services associated with a policy.
+        :param Sequence['ResponsePlayResponderTeamArgs'] teams: Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
+        :param str type: Type of object of the target. Supported types are `user`, `schedule`, `user_reference`, `schedule_reference`.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if escalation_rules is not None:
+            pulumi.set(__self__, "escalation_rules", escalation_rules)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if num_loops is not None:
+            pulumi.set(__self__, "num_loops", num_loops)
+        if on_call_handoff_notifications is not None:
+            pulumi.set(__self__, "on_call_handoff_notifications", on_call_handoff_notifications)
+        if services is not None:
+            pulumi.set(__self__, "services", services)
+        if teams is not None:
+            pulumi.set(__self__, "teams", teams)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of escalation policy
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="escalationRules")
+    def escalation_rules(self) -> Optional[Sequence['outputs.ResponsePlayResponderEscalationRule']]:
+        """
+        The escalation rules
+        """
+        return pulumi.get(self, "escalation_rules")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        ID of the user defined as the responder
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the escalation policy
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="numLoops")
+    def num_loops(self) -> Optional[int]:
+        """
+        The number of times the escalation policy will repeat after reaching the end of its escalation.
+        """
+        return pulumi.get(self, "num_loops")
+
+    @property
+    @pulumi.getter(name="onCallHandoffNotifications")
+    def on_call_handoff_notifications(self) -> Optional[str]:
+        """
+        Determines how on call handoff notifications will be sent for users on the escalation policy. Defaults to "if_has_services". Could be "if_has_services", "always
+        """
+        return pulumi.get(self, "on_call_handoff_notifications")
+
+    @property
+    @pulumi.getter
+    def services(self) -> Optional[Sequence['outputs.ResponsePlayResponderService']]:
+        """
+        There can be multiple services associated with a policy.
+        """
+        return pulumi.get(self, "services")
+
+    @property
+    @pulumi.getter
+    def teams(self) -> Optional[Sequence['outputs.ResponsePlayResponderTeam']]:
+        """
+        Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
+        """
+        return pulumi.get(self, "teams")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of object of the target. Supported types are `user`, `schedule`, `user_reference`, `schedule_reference`.
+        """
+        return pulumi.get(self, "type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ResponsePlayResponderEscalationRule(dict):
+    def __init__(__self__, *,
+                 targets: Sequence['outputs.ResponsePlayResponderEscalationRuleTarget'],
+                 escalation_delay_in_minutes: Optional[int] = None,
+                 id: Optional[str] = None):
+        """
+        :param Sequence['ResponsePlayResponderEscalationRuleTargetArgs'] targets: The targets an incident should be assigned to upon reaching this rule.
+        :param int escalation_delay_in_minutes: The number of minutes before an unacknowledged incident escalates away from this rule.
+        :param str id: ID of the user defined as the responder
+        """
+        pulumi.set(__self__, "targets", targets)
+        if escalation_delay_in_minutes is not None:
+            pulumi.set(__self__, "escalation_delay_in_minutes", escalation_delay_in_minutes)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def targets(self) -> Sequence['outputs.ResponsePlayResponderEscalationRuleTarget']:
+        """
+        The targets an incident should be assigned to upon reaching this rule.
+        """
+        return pulumi.get(self, "targets")
+
+    @property
+    @pulumi.getter(name="escalationDelayInMinutes")
+    def escalation_delay_in_minutes(self) -> Optional[int]:
+        """
+        The number of minutes before an unacknowledged incident escalates away from this rule.
+        """
+        return pulumi.get(self, "escalation_delay_in_minutes")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        ID of the user defined as the responder
+        """
+        return pulumi.get(self, "id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ResponsePlayResponderEscalationRuleTarget(dict):
+    def __init__(__self__, *,
+                 id: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        :param str id: ID of the user defined as the responder
+        :param str type: A string that determines the schema of the object. If not set, the default value is "response_play".
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        ID of the user defined as the responder
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        A string that determines the schema of the object. If not set, the default value is "response_play".
+        """
+        return pulumi.get(self, "type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ResponsePlayResponderService(dict):
+    def __init__(__self__, *,
+                 id: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        :param str id: ID of the user defined as the responder
+        :param str type: A string that determines the schema of the object. If not set, the default value is "response_play".
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        ID of the user defined as the responder
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        A string that determines the schema of the object. If not set, the default value is "response_play".
+        """
+        return pulumi.get(self, "type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ResponsePlayResponderTeam(dict):
+    def __init__(__self__, *,
+                 type: str,
+                 id: Optional[str] = None):
+        """
+        :param str type: A string that determines the schema of the object. If not set, the default value is "response_play".
+        :param str id: ID of the user defined as the responder
+        """
+        pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        A string that determines the schema of the object. If not set, the default value is "response_play".
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        ID of the user defined as the responder
+        """
+        return pulumi.get(self, "id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ResponsePlaySubscriber(dict):
+    def __init__(__self__, *,
+                 id: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        :param str id: ID of the user defined as the responder
+        :param str type: A string that determines the schema of the object. If not set, the default value is "response_play".
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        ID of the user defined as the responder
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        A string that determines the schema of the object. If not set, the default value is "response_play".
         """
         return pulumi.get(self, "type")
 
@@ -123,14 +446,17 @@ class RulesetRuleActions(dict):
                  priorities: Optional[Sequence['outputs.RulesetRuleActionsPriority']] = None,
                  routes: Optional[Sequence['outputs.RulesetRuleActionsRoute']] = None,
                  severities: Optional[Sequence['outputs.RulesetRuleActionsSeverity']] = None,
-                 suppresses: Optional[Sequence['outputs.RulesetRuleActionsSuppress']] = None):
+                 suppresses: Optional[Sequence['outputs.RulesetRuleActionsSuppress']] = None,
+                 suspends: Optional[Sequence['outputs.RulesetRuleActionsSuspend']] = None):
         """
         :param Sequence['RulesetRuleActionsAnnotateArgs'] annotates: Note added to the event.
-        :param Sequence['RulesetRuleActionsExtractionArgs'] extractions: Allows you to copy important data from one event field to another. Extraction rules must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax). Extraction objects consist of the following fields:
+        :param Sequence['RulesetRuleActionsEventActionArgs'] event_actions: An object with a single `value` field. The value sets whether the resulting alert status is `trigger` or `resolve`.
+        :param Sequence['RulesetRuleActionsExtractionArgs'] extractions: Allows you to copy important data from one event field to another. Extraction objects may use *either* of the following field structures:
         :param Sequence['RulesetRuleActionsPriorityArgs'] priorities: The ID of the priority applied to the event.
         :param Sequence['RulesetRuleActionsRouteArgs'] routes: The ID of the service where the event will be routed.
         :param Sequence['RulesetRuleActionsSeverityArgs'] severities: The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`error`,`warning`, or `critical`.
         :param Sequence['RulesetRuleActionsSuppressArgs'] suppresses: Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident).
+        :param Sequence['RulesetRuleActionsSuspendArgs'] suspends: An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering.
         """
         if annotates is not None:
             pulumi.set(__self__, "annotates", annotates)
@@ -146,6 +472,8 @@ class RulesetRuleActions(dict):
             pulumi.set(__self__, "severities", severities)
         if suppresses is not None:
             pulumi.set(__self__, "suppresses", suppresses)
+        if suspends is not None:
+            pulumi.set(__self__, "suspends", suspends)
 
     @property
     @pulumi.getter
@@ -158,13 +486,16 @@ class RulesetRuleActions(dict):
     @property
     @pulumi.getter(name="eventActions")
     def event_actions(self) -> Optional[Sequence['outputs.RulesetRuleActionsEventAction']]:
+        """
+        An object with a single `value` field. The value sets whether the resulting alert status is `trigger` or `resolve`.
+        """
         return pulumi.get(self, "event_actions")
 
     @property
     @pulumi.getter
     def extractions(self) -> Optional[Sequence['outputs.RulesetRuleActionsExtraction']]:
         """
-        Allows you to copy important data from one event field to another. Extraction rules must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax). Extraction objects consist of the following fields:
+        Allows you to copy important data from one event field to another. Extraction objects may use *either* of the following field structures:
         """
         return pulumi.get(self, "extractions")
 
@@ -199,6 +530,14 @@ class RulesetRuleActions(dict):
         Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident).
         """
         return pulumi.get(self, "suppresses")
+
+    @property
+    @pulumi.getter
+    def suspends(self) -> Optional[Sequence['outputs.RulesetRuleActionsSuspend']]:
+        """
+        An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering.
+        """
+        return pulumi.get(self, "suspends")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -253,12 +592,13 @@ class RulesetRuleActionsExtraction(dict):
     def __init__(__self__, *,
                  regex: Optional[str] = None,
                  source: Optional[str] = None,
-                 target: Optional[str] = None):
+                 target: Optional[str] = None,
+                 template: Optional[str] = None):
         """
-        :param str regex: The conditions that need to be met for the extraction to happen.
-               * *NOTE: A rule can have multiple `extraction` objects attributed to it.*
-        :param str source: Field where the data is being copied from.
-        :param str target: Field where the data is being copied to.
+        :param str regex: The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
+        :param str source: Field where the data is being copied from. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+        :param str target: Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+        :param str template: A customized field message. This can also include variables extracted from the payload by using string interpolation.
         """
         if regex is not None:
             pulumi.set(__self__, "regex", regex)
@@ -266,13 +606,14 @@ class RulesetRuleActionsExtraction(dict):
             pulumi.set(__self__, "source", source)
         if target is not None:
             pulumi.set(__self__, "target", target)
+        if template is not None:
+            pulumi.set(__self__, "template", template)
 
     @property
     @pulumi.getter
     def regex(self) -> Optional[str]:
         """
-        The conditions that need to be met for the extraction to happen.
-        * *NOTE: A rule can have multiple `extraction` objects attributed to it.*
+        The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
         """
         return pulumi.get(self, "regex")
 
@@ -280,7 +621,7 @@ class RulesetRuleActionsExtraction(dict):
     @pulumi.getter
     def source(self) -> Optional[str]:
         """
-        Field where the data is being copied from.
+        Field where the data is being copied from. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
         """
         return pulumi.get(self, "source")
 
@@ -288,9 +629,17 @@ class RulesetRuleActionsExtraction(dict):
     @pulumi.getter
     def target(self) -> Optional[str]:
         """
-        Field where the data is being copied to.
+        Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
         """
         return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter
+    def template(self) -> Optional[str]:
+        """
+        A customized field message. This can also include variables extracted from the payload by using string interpolation.
+        """
+        return pulumi.get(self, "template")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -411,6 +760,28 @@ class RulesetRuleActionsSuppress(dict):
     @property
     @pulumi.getter
     def value(self) -> Optional[bool]:
+        """
+        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RulesetRuleActionsSuspend(dict):
+    def __init__(__self__, *,
+                 value: Optional[int] = None):
+        """
+        :param int value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[int]:
         """
         Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
         """
@@ -639,6 +1010,68 @@ class RulesetRuleTimeFrameScheduledWeekly(dict):
         An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
         """
         return pulumi.get(self, "weekdays")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RulesetRuleVariable(dict):
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 parameters: Optional[Sequence['outputs.RulesetRuleVariableParameter']] = None,
+                 type: Optional[str] = None):
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Sequence['outputs.RulesetRuleVariableParameter']]:
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RulesetRuleVariableParameter(dict):
+    def __init__(__self__, *,
+                 path: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+        """
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+        """
+        return pulumi.get(self, "value")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -913,6 +1346,634 @@ class ServiceDependencyDependencySupportingService(dict):
     @pulumi.getter
     def type(self) -> str:
         return pulumi.get(self, "type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ServiceEventRuleActions(dict):
+    def __init__(__self__, *,
+                 annotates: Optional[Sequence['outputs.ServiceEventRuleActionsAnnotate']] = None,
+                 event_actions: Optional[Sequence['outputs.ServiceEventRuleActionsEventAction']] = None,
+                 extractions: Optional[Sequence['outputs.ServiceEventRuleActionsExtraction']] = None,
+                 priorities: Optional[Sequence['outputs.ServiceEventRuleActionsPriority']] = None,
+                 severities: Optional[Sequence['outputs.ServiceEventRuleActionsSeverity']] = None,
+                 suppresses: Optional[Sequence['outputs.ServiceEventRuleActionsSuppress']] = None,
+                 suspends: Optional[Sequence['outputs.ServiceEventRuleActionsSuspend']] = None):
+        """
+        :param Sequence['ServiceEventRuleActionsAnnotateArgs'] annotates: Note added to the event.
+        :param Sequence['ServiceEventRuleActionsEventActionArgs'] event_actions: An object with a single `value` field. The value sets whether the resulting alert status is `trigger` or `resolve`.
+        :param Sequence['ServiceEventRuleActionsExtractionArgs'] extractions: Allows you to copy important data from one event field to another. Extraction objects may use *either* of the following field structures:
+        :param Sequence['ServiceEventRuleActionsPriorityArgs'] priorities: The ID of the priority applied to the event.
+        :param Sequence['ServiceEventRuleActionsSeverityArgs'] severities: The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`error`,`warning`, or `critical`.
+        :param Sequence['ServiceEventRuleActionsSuppressArgs'] suppresses: Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident).
+        :param Sequence['ServiceEventRuleActionsSuspendArgs'] suspends: An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering.
+        """
+        if annotates is not None:
+            pulumi.set(__self__, "annotates", annotates)
+        if event_actions is not None:
+            pulumi.set(__self__, "event_actions", event_actions)
+        if extractions is not None:
+            pulumi.set(__self__, "extractions", extractions)
+        if priorities is not None:
+            pulumi.set(__self__, "priorities", priorities)
+        if severities is not None:
+            pulumi.set(__self__, "severities", severities)
+        if suppresses is not None:
+            pulumi.set(__self__, "suppresses", suppresses)
+        if suspends is not None:
+            pulumi.set(__self__, "suspends", suspends)
+
+    @property
+    @pulumi.getter
+    def annotates(self) -> Optional[Sequence['outputs.ServiceEventRuleActionsAnnotate']]:
+        """
+        Note added to the event.
+        """
+        return pulumi.get(self, "annotates")
+
+    @property
+    @pulumi.getter(name="eventActions")
+    def event_actions(self) -> Optional[Sequence['outputs.ServiceEventRuleActionsEventAction']]:
+        """
+        An object with a single `value` field. The value sets whether the resulting alert status is `trigger` or `resolve`.
+        """
+        return pulumi.get(self, "event_actions")
+
+    @property
+    @pulumi.getter
+    def extractions(self) -> Optional[Sequence['outputs.ServiceEventRuleActionsExtraction']]:
+        """
+        Allows you to copy important data from one event field to another. Extraction objects may use *either* of the following field structures:
+        """
+        return pulumi.get(self, "extractions")
+
+    @property
+    @pulumi.getter
+    def priorities(self) -> Optional[Sequence['outputs.ServiceEventRuleActionsPriority']]:
+        """
+        The ID of the priority applied to the event.
+        """
+        return pulumi.get(self, "priorities")
+
+    @property
+    @pulumi.getter
+    def severities(self) -> Optional[Sequence['outputs.ServiceEventRuleActionsSeverity']]:
+        """
+        The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`error`,`warning`, or `critical`.
+        """
+        return pulumi.get(self, "severities")
+
+    @property
+    @pulumi.getter
+    def suppresses(self) -> Optional[Sequence['outputs.ServiceEventRuleActionsSuppress']]:
+        """
+        Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident).
+        """
+        return pulumi.get(self, "suppresses")
+
+    @property
+    @pulumi.getter
+    def suspends(self) -> Optional[Sequence['outputs.ServiceEventRuleActionsSuspend']]:
+        """
+        An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering.
+        """
+        return pulumi.get(self, "suspends")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ServiceEventRuleActionsAnnotate(dict):
+    def __init__(__self__, *,
+                 value: Optional[str] = None):
+        """
+        :param str value: The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ServiceEventRuleActionsEventAction(dict):
+    def __init__(__self__, *,
+                 value: Optional[str] = None):
+        """
+        :param str value: The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ServiceEventRuleActionsExtraction(dict):
+    def __init__(__self__, *,
+                 regex: Optional[str] = None,
+                 source: Optional[str] = None,
+                 target: Optional[str] = None,
+                 template: Optional[str] = None):
+        """
+        :param str regex: The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
+        :param str source: Field where the data is being copied from. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+        :param str target: Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+        :param str template: A customized field message. This can also include variables extracted from the payload by using string interpolation.
+        """
+        if regex is not None:
+            pulumi.set(__self__, "regex", regex)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+        if template is not None:
+            pulumi.set(__self__, "template", template)
+
+    @property
+    @pulumi.getter
+    def regex(self) -> Optional[str]:
+        """
+        The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
+        """
+        return pulumi.get(self, "regex")
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[str]:
+        """
+        Field where the data is being copied from. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+        """
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[str]:
+        """
+        Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+        """
+        return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter
+    def template(self) -> Optional[str]:
+        """
+        A customized field message. This can also include variables extracted from the payload by using string interpolation.
+        """
+        return pulumi.get(self, "template")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ServiceEventRuleActionsPriority(dict):
+    def __init__(__self__, *,
+                 value: Optional[str] = None):
+        """
+        :param str value: The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ServiceEventRuleActionsSeverity(dict):
+    def __init__(__self__, *,
+                 value: Optional[str] = None):
+        """
+        :param str value: The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ServiceEventRuleActionsSuppress(dict):
+    def __init__(__self__, *,
+                 threshold_time_amount: Optional[int] = None,
+                 threshold_time_unit: Optional[str] = None,
+                 threshold_value: Optional[int] = None,
+                 value: Optional[bool] = None):
+        """
+        :param int threshold_time_amount: The number value of the `threshold_time_unit` before an incident is created.
+        :param str threshold_time_unit: The `minutes`,`hours`, or `days` that the `threshold_time_amount` should be measured.
+        :param int threshold_value: The number of alerts that should be suppressed.
+        :param bool value: The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        """
+        if threshold_time_amount is not None:
+            pulumi.set(__self__, "threshold_time_amount", threshold_time_amount)
+        if threshold_time_unit is not None:
+            pulumi.set(__self__, "threshold_time_unit", threshold_time_unit)
+        if threshold_value is not None:
+            pulumi.set(__self__, "threshold_value", threshold_value)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="thresholdTimeAmount")
+    def threshold_time_amount(self) -> Optional[int]:
+        """
+        The number value of the `threshold_time_unit` before an incident is created.
+        """
+        return pulumi.get(self, "threshold_time_amount")
+
+    @property
+    @pulumi.getter(name="thresholdTimeUnit")
+    def threshold_time_unit(self) -> Optional[str]:
+        """
+        The `minutes`,`hours`, or `days` that the `threshold_time_amount` should be measured.
+        """
+        return pulumi.get(self, "threshold_time_unit")
+
+    @property
+    @pulumi.getter(name="thresholdValue")
+    def threshold_value(self) -> Optional[int]:
+        """
+        The number of alerts that should be suppressed.
+        """
+        return pulumi.get(self, "threshold_value")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[bool]:
+        """
+        The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ServiceEventRuleActionsSuspend(dict):
+    def __init__(__self__, *,
+                 value: Optional[int] = None):
+        """
+        :param int value: The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[int]:
+        """
+        The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ServiceEventRuleConditions(dict):
+    def __init__(__self__, *,
+                 operator: Optional[str] = None,
+                 subconditions: Optional[Sequence['outputs.ServiceEventRuleConditionsSubcondition']] = None):
+        """
+        :param str operator: Operator to combine sub-conditions. Can be `and` or `or`.
+        :param Sequence['ServiceEventRuleConditionsSubconditionArgs'] subconditions: List of sub-conditions that define the the condition.
+        """
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+        if subconditions is not None:
+            pulumi.set(__self__, "subconditions", subconditions)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[str]:
+        """
+        Operator to combine sub-conditions. Can be `and` or `or`.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def subconditions(self) -> Optional[Sequence['outputs.ServiceEventRuleConditionsSubcondition']]:
+        """
+        List of sub-conditions that define the the condition.
+        """
+        return pulumi.get(self, "subconditions")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ServiceEventRuleConditionsSubcondition(dict):
+    def __init__(__self__, *,
+                 operator: Optional[str] = None,
+                 parameters: Optional[Sequence['outputs.ServiceEventRuleConditionsSubconditionParameter']] = None):
+        """
+        :param str operator: Type of operator to apply to the sub-condition. Can be `exists`,`nexists`,`equals`,`nequals`,`contains`,`ncontains`,`matches`, or `nmatches`.
+        :param Sequence['ServiceEventRuleConditionsSubconditionParameterArgs'] parameters: Parameter for the sub-condition. It requires both a `path` and `value` to be set. The `path` value must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+        """
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[str]:
+        """
+        Type of operator to apply to the sub-condition. Can be `exists`,`nexists`,`equals`,`nequals`,`contains`,`ncontains`,`matches`, or `nmatches`.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Sequence['outputs.ServiceEventRuleConditionsSubconditionParameter']]:
+        """
+        Parameter for the sub-condition. It requires both a `path` and `value` to be set. The `path` value must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+        """
+        return pulumi.get(self, "parameters")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ServiceEventRuleConditionsSubconditionParameter(dict):
+    def __init__(__self__, *,
+                 path: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str path: Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
+        :param str value: The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        """
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        """
+        return pulumi.get(self, "value")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ServiceEventRuleTimeFrame(dict):
+    def __init__(__self__, *,
+                 active_betweens: Optional[Sequence['outputs.ServiceEventRuleTimeFrameActiveBetween']] = None,
+                 scheduled_weeklies: Optional[Sequence['outputs.ServiceEventRuleTimeFrameScheduledWeekly']] = None):
+        """
+        :param Sequence['ServiceEventRuleTimeFrameActiveBetweenArgs'] active_betweens: Values for executing the rule during a specific time period.
+        :param Sequence['ServiceEventRuleTimeFrameScheduledWeeklyArgs'] scheduled_weeklies: Values for executing the rule on a recurring schedule.
+        """
+        if active_betweens is not None:
+            pulumi.set(__self__, "active_betweens", active_betweens)
+        if scheduled_weeklies is not None:
+            pulumi.set(__self__, "scheduled_weeklies", scheduled_weeklies)
+
+    @property
+    @pulumi.getter(name="activeBetweens")
+    def active_betweens(self) -> Optional[Sequence['outputs.ServiceEventRuleTimeFrameActiveBetween']]:
+        """
+        Values for executing the rule during a specific time period.
+        """
+        return pulumi.get(self, "active_betweens")
+
+    @property
+    @pulumi.getter(name="scheduledWeeklies")
+    def scheduled_weeklies(self) -> Optional[Sequence['outputs.ServiceEventRuleTimeFrameScheduledWeekly']]:
+        """
+        Values for executing the rule on a recurring schedule.
+        """
+        return pulumi.get(self, "scheduled_weeklies")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ServiceEventRuleTimeFrameActiveBetween(dict):
+    def __init__(__self__, *,
+                 end_time: Optional[int] = None,
+                 start_time: Optional[int] = None):
+        """
+        :param int end_time: Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
+        :param int start_time: Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `start_time` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `start_time` was `3,600,000` the it would be active starting at `01:00`.
+        """
+        if end_time is not None:
+            pulumi.set(__self__, "end_time", end_time)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> Optional[int]:
+        """
+        Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
+        """
+        return pulumi.get(self, "end_time")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[int]:
+        """
+        Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `start_time` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `start_time` was `3,600,000` the it would be active starting at `01:00`.
+        """
+        return pulumi.get(self, "start_time")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ServiceEventRuleTimeFrameScheduledWeekly(dict):
+    def __init__(__self__, *,
+                 duration: Optional[int] = None,
+                 start_time: Optional[int] = None,
+                 timezone: Optional[str] = None,
+                 weekdays: Optional[Sequence[int]] = None):
+        """
+        :param int duration: Length of time the schedule will be active.  Unix timestamp in milliseconds.
+        :param int start_time: Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `start_time` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `start_time` was `3,600,000` the it would be active starting at `01:00`.
+        :param str timezone: Timezone for the given schedule.
+        :param Sequence[int] weekdays: An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
+        """
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
+        if weekdays is not None:
+            pulumi.set(__self__, "weekdays", weekdays)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> Optional[int]:
+        """
+        Length of time the schedule will be active.  Unix timestamp in milliseconds.
+        """
+        return pulumi.get(self, "duration")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[int]:
+        """
+        Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `start_time` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `start_time` was `3,600,000` the it would be active starting at `01:00`.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> Optional[str]:
+        """
+        Timezone for the given schedule.
+        """
+        return pulumi.get(self, "timezone")
+
+    @property
+    @pulumi.getter
+    def weekdays(self) -> Optional[Sequence[int]]:
+        """
+        An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
+        """
+        return pulumi.get(self, "weekdays")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ServiceEventRuleVariable(dict):
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 parameters: Optional[Sequence['outputs.ServiceEventRuleVariableParameter']] = None,
+                 type: Optional[str] = None):
+        """
+        :param str name: The name of the variable.
+        :param Sequence['ServiceEventRuleVariableParameterArgs'] parameters: The parameters for performing the operation to populate the variable.
+        :param str type: Type of operation to populate the variable. Usually `regex`.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the variable.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Sequence['outputs.ServiceEventRuleVariableParameter']]:
+        """
+        The parameters for performing the operation to populate the variable.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of operation to populate the variable. Usually `regex`.
+        """
+        return pulumi.get(self, "type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ServiceEventRuleVariableParameter(dict):
+    def __init__(__self__, *,
+                 path: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str path: Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
+        :param str value: The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        """
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        """
+        return pulumi.get(self, "value")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

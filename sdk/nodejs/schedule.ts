@@ -16,22 +16,22 @@ import * as utilities from "./utilities";
  *
  * const example = new pagerduty.User("example", {
  *     email: "125.greenholt.earline@graham.name",
- *     teams: [pagerduty_team_example.id],
+ *     teams: [pagerduty_team.example.id],
  * });
  * const foo = new pagerduty.Schedule("foo", {
+ *     timeZone: "America/New_York",
  *     layers: [{
  *         name: "Night Shift",
- *         restrictions: [{
- *             durationSeconds: 32400,
- *             startTimeOfDay: "08:00:00",
- *             type: "daily_restriction",
- *         }],
- *         rotationTurnLengthSeconds: 86400,
- *         rotationVirtualStart: "2015-11-06T20:00:00-05:00",
  *         start: "2015-11-06T20:00:00-05:00",
- *         users: [pagerduty_user_foo.id],
+ *         rotationVirtualStart: "2015-11-06T20:00:00-05:00",
+ *         rotationTurnLengthSeconds: 86400,
+ *         users: [pagerduty_user.foo.id],
+ *         restrictions: [{
+ *             type: "daily_restriction",
+ *             startTimeOfDay: "08:00:00",
+ *             durationSeconds: 32400,
+ *         }],
  *     }],
- *     timeZone: "America/New_York",
  * });
  * ```
  *

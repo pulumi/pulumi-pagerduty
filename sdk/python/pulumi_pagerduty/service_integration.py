@@ -41,17 +41,25 @@ class ServiceIntegration(pulumi.CustomResource):
             rules=[pagerduty.EscalationPolicyRuleArgs(
                 escalation_delay_in_minutes=10,
                 targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                    id=example_user.id,
                     type="user",
+                    id=example_user.id,
                 )],
             )])
         example_service = pagerduty.Service("exampleService",
-            acknowledgement_timeout="600",
             auto_resolve_timeout="14400",
+            acknowledgement_timeout="600",
             escalation_policy=pagerduty_escalation_policy["example"]["id"])
         example_service_integration = pagerduty.ServiceIntegration("exampleServiceIntegration",
-            service=example_service.id,
-            type="generic_events_api_inbound_integration")
+            type="generic_events_api_inbound_integration",
+            service=example_service.id)
+        apiv2 = pagerduty.ServiceIntegration("apiv2",
+            type="events_api_v2_inbound_integration",
+            integration_key="12345678910testtesttesttesttes",
+            service=example_service.id)
+        email_x = pagerduty.ServiceIntegration("emailX",
+            type="generic_email_inbound_integration",
+            integration_email="ecommerce@subdomain.pagerduty.com",
+            service=example_service.id)
         datadog_vendor = pagerduty.get_vendor(name="Datadog")
         datadog_service_integration = pagerduty.ServiceIntegration("datadogServiceIntegration",
             service=example_service.id,

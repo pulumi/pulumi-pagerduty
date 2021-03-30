@@ -32,9 +32,9 @@ namespace Pulumi.Pagerduty
     ///         });
     ///         var fooTeamMembership = new Pagerduty.TeamMembership("fooTeamMembership", new Pagerduty.TeamMembershipArgs
     ///         {
-    ///             Role = "manager",
-    ///             TeamId = fooTeam.Id,
     ///             UserId = fooUser.Id,
+    ///             TeamId = fooTeam.Id,
+    ///             Role = "manager",
     ///         });
     ///     }
     /// 
@@ -53,7 +53,9 @@ namespace Pulumi.Pagerduty
     public partial class TeamMembership : Pulumi.CustomResource
     {
         /// <summary>
-        /// The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.
+        /// The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`. These roles match up to user roles in the following ways:
+        /// * User role of `user` is a Team role of `manager`
+        /// * User role of `limited_user` is a Team role of `responder`
         /// </summary>
         [Output("role")]
         public Output<string?> Role { get; private set; } = null!;
@@ -117,7 +119,9 @@ namespace Pulumi.Pagerduty
     public sealed class TeamMembershipArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.
+        /// The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`. These roles match up to user roles in the following ways:
+        /// * User role of `user` is a Team role of `manager`
+        /// * User role of `limited_user` is a Team role of `responder`
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
@@ -142,7 +146,9 @@ namespace Pulumi.Pagerduty
     public sealed class TeamMembershipState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.
+        /// The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`. These roles match up to user roles in the following ways:
+        /// * User role of `user` is a Team role of `manager`
+        /// * User role of `limited_user` is a Team role of `responder`
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }

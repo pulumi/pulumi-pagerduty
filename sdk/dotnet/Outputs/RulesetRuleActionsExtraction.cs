@@ -14,18 +14,21 @@ namespace Pulumi.Pagerduty.Outputs
     public sealed class RulesetRuleActionsExtraction
     {
         /// <summary>
-        /// The conditions that need to be met for the extraction to happen.
-        /// * *NOTE: A rule can have multiple `extraction` objects attributed to it.*
+        /// The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
         /// </summary>
         public readonly string? Regex;
         /// <summary>
-        /// Field where the data is being copied from.
+        /// Field where the data is being copied from. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
         /// </summary>
         public readonly string? Source;
         /// <summary>
-        /// Field where the data is being copied to.
+        /// Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
         /// </summary>
         public readonly string? Target;
+        /// <summary>
+        /// A customized field message. This can also include variables extracted from the payload by using string interpolation.
+        /// </summary>
+        public readonly string? Template;
 
         [OutputConstructor]
         private RulesetRuleActionsExtraction(
@@ -33,11 +36,14 @@ namespace Pulumi.Pagerduty.Outputs
 
             string? source,
 
-            string? target)
+            string? target,
+
+            string? template)
         {
             Regex = regex;
             Source = source;
             Target = target;
+            Template = template;
         }
     }
 }

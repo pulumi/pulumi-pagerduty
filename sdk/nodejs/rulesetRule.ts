@@ -52,6 +52,14 @@ import * as utilities from "./utilities";
  *             },
  *         ],
  *     },
+ *     variables: [{
+ *         type: "regex",
+ *         name: "Src",
+ *         parameters: [{
+ *             value: "(.*)",
+ *             path: "payload.source",
+ *         }],
+ *     }],
  *     actions: {
  *         routes: [{
  *             value: "P5DTL0K",
@@ -62,11 +70,17 @@ import * as utilities from "./utilities";
  *         annotates: [{
  *             value: "From Terraform",
  *         }],
- *         extractions: [{
- *             target: "dedup_key",
- *             source: "details.host",
- *             regex: "(.*)",
- *         }],
+ *         extractions: [
+ *             {
+ *                 target: "dedup_key",
+ *                 source: "details.host",
+ *                 regex: "(.*)",
+ *             },
+ *             {
+ *                 target: "summary",
+ *                 template: "Warning: Disk Space Low on {{Src}}",
+ *             },
+ *         ],
  *     },
  * });
  * ```
@@ -131,6 +145,10 @@ export class RulesetRule extends pulumi.CustomResource {
      * Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
      */
     public readonly timeFrame!: pulumi.Output<outputs.RulesetRuleTimeFrame | undefined>;
+    /**
+     * Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
+     */
+    public readonly variables!: pulumi.Output<outputs.RulesetRuleVariable[] | undefined>;
 
     /**
      * Create a RulesetRule resource with the given unique name, arguments, and options.
@@ -151,6 +169,7 @@ export class RulesetRule extends pulumi.CustomResource {
             inputs["position"] = state ? state.position : undefined;
             inputs["ruleset"] = state ? state.ruleset : undefined;
             inputs["timeFrame"] = state ? state.timeFrame : undefined;
+            inputs["variables"] = state ? state.variables : undefined;
         } else {
             const args = argsOrState as RulesetRuleArgs | undefined;
             if ((!args || args.ruleset === undefined) && !opts.urn) {
@@ -162,6 +181,7 @@ export class RulesetRule extends pulumi.CustomResource {
             inputs["position"] = args ? args.position : undefined;
             inputs["ruleset"] = args ? args.ruleset : undefined;
             inputs["timeFrame"] = args ? args.timeFrame : undefined;
+            inputs["variables"] = args ? args.variables : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -198,6 +218,10 @@ export interface RulesetRuleState {
      * Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
      */
     readonly timeFrame?: pulumi.Input<inputs.RulesetRuleTimeFrame>;
+    /**
+     * Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
+     */
+    readonly variables?: pulumi.Input<pulumi.Input<inputs.RulesetRuleVariable>[]>;
 }
 
 /**
@@ -228,4 +252,8 @@ export interface RulesetRuleArgs {
      * Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
      */
     readonly timeFrame?: pulumi.Input<inputs.RulesetRuleTimeFrame>;
+    /**
+     * Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
+     */
+    readonly variables?: pulumi.Input<pulumi.Input<inputs.RulesetRuleVariable>[]>;
 }

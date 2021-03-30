@@ -37,6 +37,10 @@ namespace Pulumi.Pagerduty
     ///         var exampleEscalationPolicy = new Pagerduty.EscalationPolicy("exampleEscalationPolicy", new Pagerduty.EscalationPolicyArgs
     ///         {
     ///             NumLoops = 2,
+    ///             Teams = 
+    ///             {
+    ///                 exampleTeam.Id,
+    ///             },
     ///             Rules = 
     ///             {
     ///                 new Pagerduty.Inputs.EscalationPolicyRuleArgs
@@ -46,15 +50,16 @@ namespace Pulumi.Pagerduty
     ///                     {
     ///                         new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
     ///                         {
-    ///                             Id = exampleUser.Id,
     ///                             Type = "user",
+    ///                             Id = exampleUser.Id,
+    ///                         },
+    ///                         new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
+    ///                         {
+    ///                             Type = "user",
+    ///                             Id = pagerduty_user.Example2.Id,
     ///                         },
     ///                     },
     ///                 },
-    ///             },
-    ///             Teams = 
-    ///             {
-    ///                 exampleTeam.Id,
     ///             },
     ///         });
     ///     }

@@ -26,6 +26,7 @@ namespace Pulumi.Pagerduty
     ///         {
     ///             Description = "A very descriptive description of this business service",
     ///             PointOfContact = "PagerDuty Admin",
+    ///             Team = "P37RSRS",
     ///         });
     ///     }
     /// 
@@ -66,6 +67,12 @@ namespace Pulumi.Pagerduty
 
         [Output("summary")]
         public Output<string> Summary { get; private set; } = null!;
+
+        /// <summary>
+        /// ID of the team that owns the business service.
+        /// </summary>
+        [Output("team")]
+        public Output<string?> Team { get; private set; } = null!;
 
         /// <summary>
         /// Default value is `business_service`. Can also be set as `business_service_reference`.
@@ -135,6 +142,12 @@ namespace Pulumi.Pagerduty
         public Input<string>? PointOfContact { get; set; }
 
         /// <summary>
+        /// ID of the team that owns the business service.
+        /// </summary>
+        [Input("team")]
+        public Input<string>? Team { get; set; }
+
+        /// <summary>
         /// Default value is `business_service`. Can also be set as `business_service_reference`.
         /// </summary>
         [Input("type")]
@@ -170,6 +183,12 @@ namespace Pulumi.Pagerduty
 
         [Input("summary")]
         public Input<string>? Summary { get; set; }
+
+        /// <summary>
+        /// ID of the team that owns the business service.
+        /// </summary>
+        [Input("team")]
+        public Input<string>? Team { get; set; }
 
         /// <summary>
         /// Default value is `business_service`. Can also be set as `business_service_reference`.

@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Use this data source to get information about a specific [priority](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1priorities/get) that you can use for other PagerDuty resources.
+// Use this data source to get information about a specific [priority](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1priorities/get) that you can use for other PagerDuty resources. A priority is a label representing the importance and impact of an incident. This feature is only available on Standard and Enterprise plans.
 //
 // ## Example Usage
 //
@@ -21,7 +21,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := pagerduty.GetPriority(ctx, &pagerduty.GetPriorityArgs{
+// 		p1, err := pagerduty.GetPriority(ctx, &pagerduty.GetPriorityArgs{
 // 			Name: "P1",
 // 		}, nil)
 // 		if err != nil {
@@ -66,7 +66,7 @@ import (
 // 				},
 // 				Priorities: pagerduty.RulesetRuleActionsPriorityArray{
 // 					&pagerduty.RulesetRuleActionsPriorityArgs{
-// 						Value: pulumi.Any(pagerduty_priority.P1.Id),
+// 						Value: pulumi.String(p1.Id),
 // 					},
 // 				},
 // 			},

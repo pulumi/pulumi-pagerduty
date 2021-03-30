@@ -14,22 +14,22 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const me = pulumi.output(pagerduty.getUser({
+ * const me = pagerduty.getUser({
  *     email: "me@example.com",
- * }, { async: true }));
- * const devops = pulumi.output(pagerduty.getTeam({
+ * });
+ * const devops = pagerduty.getTeam({
  *     name: "devops",
- * }, { async: true }));
+ * });
  * const foo = new pagerduty.EscalationPolicy("foo", {
  *     numLoops: 2,
+ *     teams: [devops.then(devops => devops.id)],
  *     rules: [{
  *         escalationDelayInMinutes: 10,
  *         targets: [{
- *             id: me.id,
  *             type: "user",
+ *             id: me.then(me => me.id),
  *         }],
  *     }],
- *     teams: [devops.id],
  * });
  * ```
  */

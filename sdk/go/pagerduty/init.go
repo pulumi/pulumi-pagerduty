@@ -32,6 +32,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewExtension(ctx, name, nil, pulumi.URN_(urn))
 	case "pagerduty:index/maintenanceWindow:MaintenanceWindow":
 		r, err = NewMaintenanceWindow(ctx, name, nil, pulumi.URN_(urn))
+	case "pagerduty:index/responsePlay:ResponsePlay":
+		r, err = NewResponsePlay(ctx, name, nil, pulumi.URN_(urn))
 	case "pagerduty:index/ruleset:Ruleset":
 		r, err = NewRuleset(ctx, name, nil, pulumi.URN_(urn))
 	case "pagerduty:index/rulesetRule:RulesetRule":
@@ -42,6 +44,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewService(ctx, name, nil, pulumi.URN_(urn))
 	case "pagerduty:index/serviceDependency:ServiceDependency":
 		r, err = NewServiceDependency(ctx, name, nil, pulumi.URN_(urn))
+	case "pagerduty:index/serviceEventRule:ServiceEventRule":
+		r, err = NewServiceEventRule(ctx, name, nil, pulumi.URN_(urn))
 	case "pagerduty:index/serviceIntegration:ServiceIntegration":
 		r, err = NewServiceIntegration(ctx, name, nil, pulumi.URN_(urn))
 	case "pagerduty:index/team:Team":
@@ -114,6 +118,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"pagerduty",
+		"index/responsePlay",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"pagerduty",
 		"index/ruleset",
 		&module{version},
 	)
@@ -135,6 +144,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"pagerduty",
 		"index/serviceDependency",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"pagerduty",
+		"index/serviceEventRule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

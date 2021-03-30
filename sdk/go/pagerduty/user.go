@@ -61,13 +61,13 @@ type User struct {
 	JobTitle pulumi.StringPtrOutput `pulumi:"jobTitle"`
 	// The name of the user.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The user role. Account must have the `readOnlyUsers` ability to set a user as a `readOnlyUser`. Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser` or `user`
+	// The user role. Account must have the `readOnlyUsers` ability to set a user as a `readOnlyUser` or a `readOnlyLimitedUser`, and must have advanced permissions abilities to set a user as `observer` or `restrictedAccess`.  Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser`, `readOnlyLimitedUser`, `restrictedAccess`, or `user`.
 	Role pulumi.StringPtrOutput `pulumi:"role"`
 	// A list of teams the user should belong to. Please use `TeamMembership` instead.
 	//
 	// Deprecated: Use the 'pagerduty_team_membership' resource instead.
 	Teams pulumi.StringArrayOutput `pulumi:"teams"`
-	// The timezone of the user
+	// The time zone of the user. Default is account default timezone.
 	TimeZone pulumi.StringOutput `pulumi:"timeZone"`
 }
 
@@ -118,13 +118,13 @@ type userState struct {
 	JobTitle *string `pulumi:"jobTitle"`
 	// The name of the user.
 	Name *string `pulumi:"name"`
-	// The user role. Account must have the `readOnlyUsers` ability to set a user as a `readOnlyUser`. Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser` or `user`
+	// The user role. Account must have the `readOnlyUsers` ability to set a user as a `readOnlyUser` or a `readOnlyLimitedUser`, and must have advanced permissions abilities to set a user as `observer` or `restrictedAccess`.  Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser`, `readOnlyLimitedUser`, `restrictedAccess`, or `user`.
 	Role *string `pulumi:"role"`
 	// A list of teams the user should belong to. Please use `TeamMembership` instead.
 	//
 	// Deprecated: Use the 'pagerduty_team_membership' resource instead.
 	Teams []string `pulumi:"teams"`
-	// The timezone of the user
+	// The time zone of the user. Default is account default timezone.
 	TimeZone *string `pulumi:"timeZone"`
 }
 
@@ -144,13 +144,13 @@ type UserState struct {
 	JobTitle pulumi.StringPtrInput
 	// The name of the user.
 	Name pulumi.StringPtrInput
-	// The user role. Account must have the `readOnlyUsers` ability to set a user as a `readOnlyUser`. Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser` or `user`
+	// The user role. Account must have the `readOnlyUsers` ability to set a user as a `readOnlyUser` or a `readOnlyLimitedUser`, and must have advanced permissions abilities to set a user as `observer` or `restrictedAccess`.  Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser`, `readOnlyLimitedUser`, `restrictedAccess`, or `user`.
 	Role pulumi.StringPtrInput
 	// A list of teams the user should belong to. Please use `TeamMembership` instead.
 	//
 	// Deprecated: Use the 'pagerduty_team_membership' resource instead.
 	Teams pulumi.StringArrayInput
-	// The timezone of the user
+	// The time zone of the user. Default is account default timezone.
 	TimeZone pulumi.StringPtrInput
 }
 
@@ -168,13 +168,13 @@ type userArgs struct {
 	JobTitle *string `pulumi:"jobTitle"`
 	// The name of the user.
 	Name *string `pulumi:"name"`
-	// The user role. Account must have the `readOnlyUsers` ability to set a user as a `readOnlyUser`. Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser` or `user`
+	// The user role. Account must have the `readOnlyUsers` ability to set a user as a `readOnlyUser` or a `readOnlyLimitedUser`, and must have advanced permissions abilities to set a user as `observer` or `restrictedAccess`.  Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser`, `readOnlyLimitedUser`, `restrictedAccess`, or `user`.
 	Role *string `pulumi:"role"`
 	// A list of teams the user should belong to. Please use `TeamMembership` instead.
 	//
 	// Deprecated: Use the 'pagerduty_team_membership' resource instead.
 	Teams []string `pulumi:"teams"`
-	// The timezone of the user
+	// The time zone of the user. Default is account default timezone.
 	TimeZone *string `pulumi:"timeZone"`
 }
 
@@ -189,13 +189,13 @@ type UserArgs struct {
 	JobTitle pulumi.StringPtrInput
 	// The name of the user.
 	Name pulumi.StringPtrInput
-	// The user role. Account must have the `readOnlyUsers` ability to set a user as a `readOnlyUser`. Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser` or `user`
+	// The user role. Account must have the `readOnlyUsers` ability to set a user as a `readOnlyUser` or a `readOnlyLimitedUser`, and must have advanced permissions abilities to set a user as `observer` or `restrictedAccess`.  Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser`, `readOnlyLimitedUser`, `restrictedAccess`, or `user`.
 	Role pulumi.StringPtrInput
 	// A list of teams the user should belong to. Please use `TeamMembership` instead.
 	//
 	// Deprecated: Use the 'pagerduty_team_membership' resource instead.
 	Teams pulumi.StringArrayInput
-	// The timezone of the user
+	// The time zone of the user. Default is account default timezone.
 	TimeZone pulumi.StringPtrInput
 }
 

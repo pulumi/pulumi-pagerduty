@@ -26,6 +26,10 @@ namespace Pulumi.Pagerduty.Inputs
 
         [Input("eventActions")]
         private InputList<Inputs.RulesetRuleActionsEventActionArgs>? _eventActions;
+
+        /// <summary>
+        /// An object with a single `value` field. The value sets whether the resulting alert status is `trigger` or `resolve`.
+        /// </summary>
         public InputList<Inputs.RulesetRuleActionsEventActionArgs> EventActions
         {
             get => _eventActions ?? (_eventActions = new InputList<Inputs.RulesetRuleActionsEventActionArgs>());
@@ -36,7 +40,7 @@ namespace Pulumi.Pagerduty.Inputs
         private InputList<Inputs.RulesetRuleActionsExtractionArgs>? _extractions;
 
         /// <summary>
-        /// Allows you to copy important data from one event field to another. Extraction rules must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax). Extraction objects consist of the following fields:
+        /// Allows you to copy important data from one event field to another. Extraction objects may use *either* of the following field structures:
         /// </summary>
         public InputList<Inputs.RulesetRuleActionsExtractionArgs> Extractions
         {
@@ -90,6 +94,18 @@ namespace Pulumi.Pagerduty.Inputs
         {
             get => _suppresses ?? (_suppresses = new InputList<Inputs.RulesetRuleActionsSuppressArgs>());
             set => _suppresses = value;
+        }
+
+        [Input("suspends")]
+        private InputList<Inputs.RulesetRuleActionsSuspendArgs>? _suspends;
+
+        /// <summary>
+        /// An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering.
+        /// </summary>
+        public InputList<Inputs.RulesetRuleActionsSuspendArgs> Suspends
+        {
+            get => _suspends ?? (_suspends = new InputList<Inputs.RulesetRuleActionsSuspendArgs>());
+            set => _suspends = value;
         }
 
         public RulesetRuleActionsArgs()

@@ -19,6 +19,7 @@ import (
 	"path/filepath"
 	"unicode"
 
+	"github.com/PagerDuty/terraform-provider-pagerduty/pagerduty"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/pulumi/pulumi-pagerduty/provider/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfbridge"
@@ -26,7 +27,6 @@ import (
 	shimv1 "github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfshim/sdk-v1"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/tokens"
-	"github.com/terraform-providers/terraform-provider-pagerduty/pagerduty"
 )
 
 // all of the token components used below.
@@ -84,6 +84,7 @@ func Provider() tfbridge.ProviderInfo {
 		Keywords:    []string{"pulumi", "pagerduty"},
 		License:     "Apache-2.0",
 		Homepage:    "https://pulumi.io",
+		GitHubOrg:   "PagerDuty",
 		Repository:  "https://github.com/pulumi/pulumi-pagerduty",
 		Config: map[string]*tfbridge.SchemaInfo{
 			"skip_credentials_validation": {
@@ -112,17 +113,21 @@ func Provider() tfbridge.ProviderInfo {
 			"pagerduty_user":                   {Tok: makeResource(mainMod, "User")},
 			"pagerduty_user_contact_method":    {Tok: makeResource(mainMod, "UserContactMethod")},
 			"pagerduty_user_notification_rule": {Tok: makeResource(mainMod, "UserNotificationRule")},
+			"pagerduty_response_play":          {Tok: makeResource(mainMod, "ResponsePlay")},
+			"pagerduty_service_event_rule":     {Tok: makeResource(mainMod, "ServiceEventRule")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
-			"pagerduty_escalation_policy": {Tok: makeDataSource(mainMod, "getEscalationPolicy")},
-			"pagerduty_extension_schema":  {Tok: makeDataSource(mainMod, "getExtensionSchema")},
-			"pagerduty_schedule":          {Tok: makeDataSource(mainMod, "getSchedule")},
-			"pagerduty_service":           {Tok: makeDataSource(mainMod, "getService")},
-			"pagerduty_user":              {Tok: makeDataSource(mainMod, "getUser")},
-			"pagerduty_team":              {Tok: makeDataSource(mainMod, "getTeam")},
-			"pagerduty_vendor":            {Tok: makeDataSource(mainMod, "getVendor")},
-			"pagerduty_business_service":  {Tok: makeDataSource(mainMod, "getBusinessService")},
-			"pagerduty_priority":          {Tok: makeDataSource(mainMod, "getPriority")},
+			"pagerduty_escalation_policy":   {Tok: makeDataSource(mainMod, "getEscalationPolicy")},
+			"pagerduty_extension_schema":    {Tok: makeDataSource(mainMod, "getExtensionSchema")},
+			"pagerduty_schedule":            {Tok: makeDataSource(mainMod, "getSchedule")},
+			"pagerduty_service":             {Tok: makeDataSource(mainMod, "getService")},
+			"pagerduty_user":                {Tok: makeDataSource(mainMod, "getUser")},
+			"pagerduty_team":                {Tok: makeDataSource(mainMod, "getTeam")},
+			"pagerduty_vendor":              {Tok: makeDataSource(mainMod, "getVendor")},
+			"pagerduty_business_service":    {Tok: makeDataSource(mainMod, "getBusinessService")},
+			"pagerduty_priority":            {Tok: makeDataSource(mainMod, "getPriority")},
+			"pagerduty_ruleset":             {Tok: makeDataSource(mainMod, "getRuleset")},
+			"pagerduty_user_contact_method": {Tok: makeDataSource(mainMod, "getUserContactMethod")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			// List any npm dependencies and their versions

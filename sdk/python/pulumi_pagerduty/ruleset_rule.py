@@ -23,6 +23,7 @@ class RulesetRule(pulumi.CustomResource):
                  position: Optional[pulumi.Input[int]] = None,
                  ruleset: Optional[pulumi.Input[str]] = None,
                  time_frame: Optional[pulumi.Input[pulumi.InputType['RulesetRuleTimeFrameArgs']]] = None,
+                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulesetRuleVariableArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -73,6 +74,14 @@ class RulesetRule(pulumi.CustomResource):
                     ),
                 ],
             ),
+            variables=[pagerduty.RulesetRuleVariableArgs(
+                type="regex",
+                name="Src",
+                parameters=[pagerduty.RulesetRuleVariableParameterArgs(
+                    value="(.*)",
+                    path="payload.source",
+                )],
+            )],
             actions=pagerduty.RulesetRuleActionsArgs(
                 routes=[pagerduty.RulesetRuleActionsRouteArgs(
                     value="P5DTL0K",
@@ -83,11 +92,17 @@ class RulesetRule(pulumi.CustomResource):
                 annotates=[pagerduty.RulesetRuleActionsAnnotateArgs(
                     value="From Terraform",
                 )],
-                extractions=[pagerduty.RulesetRuleActionsExtractionArgs(
-                    target="dedup_key",
-                    source="details.host",
-                    regex="(.*)",
-                )],
+                extractions=[
+                    pagerduty.RulesetRuleActionsExtractionArgs(
+                        target="dedup_key",
+                        source="details.host",
+                        regex="(.*)",
+                    ),
+                    pagerduty.RulesetRuleActionsExtractionArgs(
+                        target="summary",
+                        template="Warning: Disk Space Low on {{Src}}",
+                    ),
+                ],
             ))
         ```
 
@@ -107,6 +122,7 @@ class RulesetRule(pulumi.CustomResource):
         :param pulumi.Input[int] position: Position/index of the rule within the ruleset.
         :param pulumi.Input[str] ruleset: The ID of the ruleset that the rule belongs to.
         :param pulumi.Input[pulumi.InputType['RulesetRuleTimeFrameArgs']] time_frame: Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulesetRuleVariableArgs']]]] variables: Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -133,6 +149,7 @@ class RulesetRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'ruleset'")
             __props__['ruleset'] = ruleset
             __props__['time_frame'] = time_frame
+            __props__['variables'] = variables
         super(RulesetRule, __self__).__init__(
             'pagerduty:index/rulesetRule:RulesetRule',
             resource_name,
@@ -148,7 +165,8 @@ class RulesetRule(pulumi.CustomResource):
             disabled: Optional[pulumi.Input[bool]] = None,
             position: Optional[pulumi.Input[int]] = None,
             ruleset: Optional[pulumi.Input[str]] = None,
-            time_frame: Optional[pulumi.Input[pulumi.InputType['RulesetRuleTimeFrameArgs']]] = None) -> 'RulesetRule':
+            time_frame: Optional[pulumi.Input[pulumi.InputType['RulesetRuleTimeFrameArgs']]] = None,
+            variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulesetRuleVariableArgs']]]]] = None) -> 'RulesetRule':
         """
         Get an existing RulesetRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -162,6 +180,7 @@ class RulesetRule(pulumi.CustomResource):
         :param pulumi.Input[int] position: Position/index of the rule within the ruleset.
         :param pulumi.Input[str] ruleset: The ID of the ruleset that the rule belongs to.
         :param pulumi.Input[pulumi.InputType['RulesetRuleTimeFrameArgs']] time_frame: Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulesetRuleVariableArgs']]]] variables: Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -173,6 +192,7 @@ class RulesetRule(pulumi.CustomResource):
         __props__["position"] = position
         __props__["ruleset"] = ruleset
         __props__["time_frame"] = time_frame
+        __props__["variables"] = variables
         return RulesetRule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -222,6 +242,14 @@ class RulesetRule(pulumi.CustomResource):
         Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
         """
         return pulumi.get(self, "time_frame")
+
+    @property
+    @pulumi.getter
+    def variables(self) -> pulumi.Output[Optional[Sequence['outputs.RulesetRuleVariable']]]:
+        """
+        Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
+        """
+        return pulumi.get(self, "variables")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

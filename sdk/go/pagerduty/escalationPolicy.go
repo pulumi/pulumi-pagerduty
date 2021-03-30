@@ -42,19 +42,23 @@ import (
 // 		}
 // 		_, err = pagerduty.NewEscalationPolicy(ctx, "exampleEscalationPolicy", &pagerduty.EscalationPolicyArgs{
 // 			NumLoops: pulumi.Int(2),
+// 			Teams: pulumi.StringArray{
+// 				exampleTeam.ID(),
+// 			},
 // 			Rules: pagerduty.EscalationPolicyRuleArray{
 // 				&pagerduty.EscalationPolicyRuleArgs{
 // 					EscalationDelayInMinutes: pulumi.Int(10),
 // 					Targets: pagerduty.EscalationPolicyRuleTargetArray{
 // 						&pagerduty.EscalationPolicyRuleTargetArgs{
-// 							Id:   exampleUser.ID(),
 // 							Type: pulumi.String("user"),
+// 							Id:   exampleUser.ID(),
+// 						},
+// 						&pagerduty.EscalationPolicyRuleTargetArgs{
+// 							Type: pulumi.String("user"),
+// 							Id:   pulumi.Any(pagerduty_user.Example2.Id),
 // 						},
 // 					},
 // 				},
-// 			},
-// 			Teams: pulumi.StringArray{
-// 				exampleTeam.ID(),
 // 			},
 // 		})
 // 		if err != nil {

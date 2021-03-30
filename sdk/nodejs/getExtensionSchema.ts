@@ -14,32 +14,32 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const webhook = pulumi.output(pagerduty.getExtensionSchema({
+ * const webhook = pagerduty.getExtensionSchema({
  *     name: "Generic V2 Webhook",
- * }, { async: true }));
- * const exampleUser = new pagerduty.User("example", {
+ * });
+ * const exampleUser = new pagerduty.User("exampleUser", {
  *     email: "howard.james@example.domain",
- *     teams: [pagerduty_team_example.id],
+ *     teams: [pagerduty_team.example.id],
  * });
  * const foo = new pagerduty.EscalationPolicy("foo", {
  *     numLoops: 2,
  *     rules: [{
  *         escalationDelayInMinutes: 10,
  *         targets: [{
- *             id: exampleUser.id,
  *             type: "user",
+ *             id: exampleUser.id,
  *         }],
  *     }],
  * });
- * const exampleService = new pagerduty.Service("example", {
- *     acknowledgementTimeout: "600",
- *     autoResolveTimeout: "14400",
- *     escalationPolicy: pagerduty_escalation_policy_example.id,
+ * const exampleService = new pagerduty.Service("exampleService", {
+ *     autoResolveTimeout: 14400,
+ *     acknowledgementTimeout: 600,
+ *     escalationPolicy: pagerduty_escalation_policy.example.id,
  * });
  * const slack = new pagerduty.Extension("slack", {
  *     endpointUrl: "https://generic_webhook_url/XXXXXX/BBBBBB",
+ *     extensionSchema: webhook.then(webhook => webhook.id),
  *     extensionObjects: [exampleService.id],
- *     extensionSchema: webhook.id,
  * });
  * ```
  */

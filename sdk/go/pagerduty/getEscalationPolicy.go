@@ -28,8 +28,8 @@ import (
 // 			return err
 // 		}
 // 		_, err = pagerduty.NewService(ctx, "testService", &pagerduty.ServiceArgs{
-// 			AcknowledgementTimeout: pulumi.String("600"),
 // 			AutoResolveTimeout:     pulumi.String("14400"),
+// 			AcknowledgementTimeout: pulumi.String("600"),
 // 			EscalationPolicy:       pulumi.String(testEscalationPolicy.Id),
 // 		})
 // 		if err != nil {

@@ -38,9 +38,9 @@ import (
 // 			return err
 // 		}
 // 		_, err = pagerduty.NewTeamMembership(ctx, "fooTeamMembership", &pagerduty.TeamMembershipArgs{
-// 			Role:   pulumi.String("manager"),
-// 			TeamId: fooTeam.ID(),
 // 			UserId: fooUser.ID(),
+// 			TeamId: fooTeam.ID(),
+// 			Role:   pulumi.String("manager"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -60,7 +60,9 @@ import (
 type TeamMembership struct {
 	pulumi.CustomResourceState
 
-	// The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.
+	// The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`. These roles match up to user roles in the following ways:
+	// * User role of `user` is a Team role of `manager`
+	// * User role of `limitedUser` is a Team role of `responder`
 	Role pulumi.StringPtrOutput `pulumi:"role"`
 	// The ID of the team in which the user will belong.
 	TeamId pulumi.StringOutput `pulumi:"teamId"`
@@ -103,7 +105,9 @@ func GetTeamMembership(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TeamMembership resources.
 type teamMembershipState struct {
-	// The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.
+	// The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`. These roles match up to user roles in the following ways:
+	// * User role of `user` is a Team role of `manager`
+	// * User role of `limitedUser` is a Team role of `responder`
 	Role *string `pulumi:"role"`
 	// The ID of the team in which the user will belong.
 	TeamId *string `pulumi:"teamId"`
@@ -112,7 +116,9 @@ type teamMembershipState struct {
 }
 
 type TeamMembershipState struct {
-	// The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.
+	// The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`. These roles match up to user roles in the following ways:
+	// * User role of `user` is a Team role of `manager`
+	// * User role of `limitedUser` is a Team role of `responder`
 	Role pulumi.StringPtrInput
 	// The ID of the team in which the user will belong.
 	TeamId pulumi.StringPtrInput
@@ -125,7 +131,9 @@ func (TeamMembershipState) ElementType() reflect.Type {
 }
 
 type teamMembershipArgs struct {
-	// The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.
+	// The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`. These roles match up to user roles in the following ways:
+	// * User role of `user` is a Team role of `manager`
+	// * User role of `limitedUser` is a Team role of `responder`
 	Role *string `pulumi:"role"`
 	// The ID of the team in which the user will belong.
 	TeamId string `pulumi:"teamId"`
@@ -135,7 +143,9 @@ type teamMembershipArgs struct {
 
 // The set of arguments for constructing a TeamMembership resource.
 type TeamMembershipArgs struct {
-	// The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.
+	// The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`. These roles match up to user roles in the following ways:
+	// * User role of `user` is a Team role of `manager`
+	// * User role of `limitedUser` is a Team role of `responder`
 	Role pulumi.StringPtrInput
 	// The ID of the team in which the user will belong.
 	TeamId pulumi.StringInput

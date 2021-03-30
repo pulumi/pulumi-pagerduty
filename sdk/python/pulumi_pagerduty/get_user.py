@@ -80,8 +80,8 @@ def get_user(email: Optional[str] = None,
         rules=[pagerduty.EscalationPolicyRuleArgs(
             escalation_delay_in_minutes=10,
             targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                id=me.id,
                 type="user",
+                id=me.id,
             )],
         )])
     ```

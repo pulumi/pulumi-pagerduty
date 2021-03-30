@@ -32,30 +32,30 @@ namespace Pulumi.Pagerduty
     ///         });
     ///         var foo = new Pagerduty.Schedule("foo", new Pagerduty.ScheduleArgs
     ///         {
+    ///             TimeZone = "America/New_York",
     ///             Layers = 
     ///             {
     ///                 new Pagerduty.Inputs.ScheduleLayerArgs
     ///                 {
     ///                     Name = "Night Shift",
-    ///                     Restrictions = 
-    ///                     {
-    ///                         new Pagerduty.Inputs.ScheduleLayerRestrictionArgs
-    ///                         {
-    ///                             DurationSeconds = 32400,
-    ///                             StartTimeOfDay = "08:00:00",
-    ///                             Type = "daily_restriction",
-    ///                         },
-    ///                     },
-    ///                     RotationTurnLengthSeconds = 86400,
-    ///                     RotationVirtualStart = "2015-11-06T20:00:00-05:00",
     ///                     Start = "2015-11-06T20:00:00-05:00",
+    ///                     RotationVirtualStart = "2015-11-06T20:00:00-05:00",
+    ///                     RotationTurnLengthSeconds = 86400,
     ///                     Users = 
     ///                     {
     ///                         pagerduty_user.Foo.Id,
     ///                     },
+    ///                     Restrictions = 
+    ///                     {
+    ///                         new Pagerduty.Inputs.ScheduleLayerRestrictionArgs
+    ///                         {
+    ///                             Type = "daily_restriction",
+    ///                             StartTimeOfDay = "08:00:00",
+    ///                             DurationSeconds = 32400,
+    ///                         },
+    ///                     },
     ///                 },
     ///             },
-    ///             TimeZone = "America/New_York",
     ///         });
     ///     }
     /// 

@@ -33,9 +33,9 @@ class TeamMembership(pulumi.CustomResource):
         foo_user = pagerduty.User("fooUser", email="foo@bar.com")
         foo_team = pagerduty.Team("fooTeam", description="foo")
         foo_team_membership = pagerduty.TeamMembership("fooTeamMembership",
-            role="manager",
+            user_id=foo_user.id,
             team_id=foo_team.id,
-            user_id=foo_user.id)
+            role="manager")
         ```
 
         ## Import
@@ -48,7 +48,9 @@ class TeamMembership(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] role: The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.
+        :param pulumi.Input[str] role: The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`. These roles match up to user roles in the following ways:
+               * User role of `user` is a Team role of `manager`
+               * User role of `limited_user` is a Team role of `responder`
         :param pulumi.Input[str] team_id: The ID of the team in which the user will belong.
         :param pulumi.Input[str] user_id: The ID of the user to add to the team.
         """
@@ -96,7 +98,9 @@ class TeamMembership(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] role: The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.
+        :param pulumi.Input[str] role: The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`. These roles match up to user roles in the following ways:
+               * User role of `user` is a Team role of `manager`
+               * User role of `limited_user` is a Team role of `responder`
         :param pulumi.Input[str] team_id: The ID of the team in which the user will belong.
         :param pulumi.Input[str] user_id: The ID of the user to add to the team.
         """
@@ -113,7 +117,9 @@ class TeamMembership(pulumi.CustomResource):
     @pulumi.getter
     def role(self) -> pulumi.Output[Optional[str]]:
         """
-        The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.
+        The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`. These roles match up to user roles in the following ways:
+        * User role of `user` is a Team role of `manager`
+        * User role of `limited_user` is a Team role of `responder`
         """
         return pulumi.get(self, "role")
 

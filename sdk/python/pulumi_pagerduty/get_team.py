@@ -81,14 +81,14 @@ def get_team(name: Optional[str] = None,
     devops = pagerduty.get_team(name="devops")
     foo = pagerduty.EscalationPolicy("foo",
         num_loops=2,
+        teams=[devops.id],
         rules=[pagerduty.EscalationPolicyRuleArgs(
             escalation_delay_in_minutes=10,
             targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                id=me.id,
                 type="user",
+                id=me.id,
             )],
-        )],
-        teams=[devops.id])
+        )])
     ```
 
 

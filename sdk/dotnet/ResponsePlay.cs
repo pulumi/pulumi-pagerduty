@@ -228,7 +228,7 @@ namespace Pulumi.Pagerduty
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("responders", required: true)]
+        [Input("responders")]
         private InputList<Inputs.ResponsePlayResponderArgs>? _responders;
 
         /// <summary>

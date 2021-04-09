@@ -98,7 +98,7 @@ export class ResponsePlay extends pulumi.CustomResource {
     /**
      * A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
      */
-    public readonly responders!: pulumi.Output<outputs.ResponsePlayResponder[]>;
+    public readonly responders!: pulumi.Output<outputs.ResponsePlayResponder[] | undefined>;
     /**
      * The message body of the notification that will be sent to this response play's set of responders. If empty, a default response request notification will be sent.
      */
@@ -153,9 +153,6 @@ export class ResponsePlay extends pulumi.CustomResource {
             const args = argsOrState as ResponsePlayArgs | undefined;
             if ((!args || args.from === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'from'");
-            }
-            if ((!args || args.responders === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'responders'");
             }
             inputs["conferenceNumber"] = args ? args.conferenceNumber : undefined;
             inputs["conferenceUrl"] = args ? args.conferenceUrl : undefined;
@@ -252,7 +249,7 @@ export interface ResponsePlayArgs {
     /**
      * A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
      */
-    readonly responders: pulumi.Input<pulumi.Input<inputs.ResponsePlayResponder>[]>;
+    readonly responders?: pulumi.Input<pulumi.Input<inputs.ResponsePlayResponder>[]>;
     /**
      * The message body of the notification that will be sent to this response play's set of responders. If empty, a default response request notification will be sent.
      */

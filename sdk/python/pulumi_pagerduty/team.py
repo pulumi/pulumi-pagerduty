@@ -17,6 +17,7 @@ class Team(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 parent: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -24,15 +25,6 @@ class Team(pulumi.CustomResource):
         A [team](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Teams/get_teams) is a collection of users and escalation policies that represent a group of people within an organization.
 
         The account must have the `teams` ability to use the following resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        example = pagerduty.Team("example", description="All engineering")
-        ```
 
         ## Import
 
@@ -45,6 +37,7 @@ class Team(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the group.
+        :param pulumi.Input[str] parent: ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -65,6 +58,7 @@ class Team(pulumi.CustomResource):
 
             __props__['description'] = description
             __props__['name'] = name
+            __props__['parent'] = parent
             __props__['html_url'] = None
         super(Team, __self__).__init__(
             'pagerduty:index/team:Team',
@@ -78,7 +72,8 @@ class Team(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[str]] = None,
             html_url: Optional[pulumi.Input[str]] = None,
-            name: Optional[pulumi.Input[str]] = None) -> 'Team':
+            name: Optional[pulumi.Input[str]] = None,
+            parent: Optional[pulumi.Input[str]] = None) -> 'Team':
         """
         Get an existing Team resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -88,6 +83,7 @@ class Team(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app
         :param pulumi.Input[str] name: The name of the group.
+        :param pulumi.Input[str] parent: ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -96,6 +92,7 @@ class Team(pulumi.CustomResource):
         __props__["description"] = description
         __props__["html_url"] = html_url
         __props__["name"] = name
+        __props__["parent"] = parent
         return Team(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -118,6 +115,14 @@ class Team(pulumi.CustomResource):
         The name of the group.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parent(self) -> pulumi.Output[Optional[str]]:
+        """
+        ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
+        """
+        return pulumi.get(self, "parent")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

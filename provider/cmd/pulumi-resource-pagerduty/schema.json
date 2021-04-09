@@ -451,7 +451,7 @@
                     "items": {
                         "$ref": "#/types/pagerduty:index/RulesetRuleActionsSuppress:RulesetRuleActionsSuppress"
                     },
-                    "description": "Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident).\n",
+                    "description": "Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident). Note: If a threshold is set, the rule must also have a `route` action.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -463,7 +463,7 @@
                     "items": {
                         "$ref": "#/types/pagerduty:index/RulesetRuleActionsSuspend:RulesetRuleActionsSuspend"
                     },
-                    "description": "An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering.\n",
+                    "description": "An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering. Note: A rule with a `suspend` action must also have a `route` action.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -588,7 +588,7 @@
             "properties": {
                 "thresholdTimeAmount": {
                     "type": "integer",
-                    "description": "The number value of the `threshold_time_unit` before an incident is created.\n",
+                    "description": "The number value of the `threshold_time_unit` before an incident is created. Must be greater than 0.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -606,7 +606,7 @@
                 },
                 "thresholdValue": {
                     "type": "integer",
-                    "description": "The number of alerts that should be suppressed.\n",
+                    "description": "The number of alerts that should be suppressed. Must be greater than 0.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2373,8 +2373,7 @@
             },
             "required": [
                 "from",
-                "name",
-                "responders"
+                "name"
             ],
             "inputProperties": {
                 "conferenceNumber": {
@@ -2432,8 +2431,7 @@
                 }
             },
             "requiredInputs": [
-                "from",
-                "responders"
+                "from"
             ],
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering ResponsePlay resources.\n",
@@ -3198,7 +3196,7 @@
             }
         },
         "pagerduty:index/team:Team": {
-            "description": "A [team](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Teams/get_teams) is a collection of users and escalation policies that represent a group of people within an organization.\n\nThe account must have the `teams` ability to use the following resource.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst example = new pagerduty.Team(\"example\", {\n    description: \"All engineering\",\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nexample = pagerduty.Team(\"example\", description=\"All engineering\")\n```\n```csharp\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Pagerduty.Team(\"example\", new Pagerduty.TeamArgs\n        {\n            Description = \"All engineering\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := pagerduty.NewTeam(ctx, \"example\", \u0026pagerduty.TeamArgs{\n\t\t\tDescription: pulumi.String(\"All engineering\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nTeams can be imported using the `id`, e.g.\n\n```sh\n $ pulumi import pagerduty:index/team:Team main PLBP09X\n```\n\n ",
+            "description": "A [team](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Teams/get_teams) is a collection of users and escalation policies that represent a group of people within an organization.\n\nThe account must have the `teams` ability to use the following resource.\n\n\n## Import\n\nTeams can be imported using the `id`, e.g.\n\n```sh\n $ pulumi import pagerduty:index/team:Team main PLBP09X\n```\n\n ",
             "properties": {
                 "description": {
                     "type": "string"
@@ -3210,6 +3208,10 @@
                 "name": {
                     "type": "string",
                     "description": "The name of the group.\n"
+                },
+                "parent": {
+                    "type": "string",
+                    "description": "ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.\n"
                 }
             },
             "required": [
@@ -3223,6 +3225,10 @@
                 "name": {
                     "type": "string",
                     "description": "The name of the group.\n"
+                },
+                "parent": {
+                    "type": "string",
+                    "description": "ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.\n"
                 }
             },
             "stateInputs": {
@@ -3238,6 +3244,10 @@
                     "name": {
                         "type": "string",
                         "description": "The name of the group.\n"
+                    },
+                    "parent": {
+                        "type": "string",
+                        "description": "ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.\n"
                     }
                 },
                 "type": "object"
@@ -3909,6 +3919,10 @@
                     "name": {
                         "type": "string",
                         "description": "The name of the team to find in the PagerDuty API.\n"
+                    },
+                    "parent": {
+                        "type": "string",
+                        "description": "ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.\n"
                     }
                 },
                 "type": "object",
@@ -3930,6 +3944,10 @@
                     "name": {
                         "type": "string",
                         "description": "The name of the found team.\n"
+                    },
+                    "parent": {
+                        "type": "string",
+                        "description": "ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.\n"
                     }
                 },
                 "type": "object",

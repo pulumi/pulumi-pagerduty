@@ -455,8 +455,8 @@ class RulesetRuleActions(dict):
         :param Sequence['RulesetRuleActionsPriorityArgs'] priorities: The ID of the priority applied to the event.
         :param Sequence['RulesetRuleActionsRouteArgs'] routes: The ID of the service where the event will be routed.
         :param Sequence['RulesetRuleActionsSeverityArgs'] severities: The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`error`,`warning`, or `critical`.
-        :param Sequence['RulesetRuleActionsSuppressArgs'] suppresses: Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident).
-        :param Sequence['RulesetRuleActionsSuspendArgs'] suspends: An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering.
+        :param Sequence['RulesetRuleActionsSuppressArgs'] suppresses: Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident). Note: If a threshold is set, the rule must also have a `route` action.
+        :param Sequence['RulesetRuleActionsSuspendArgs'] suspends: An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering. Note: A rule with a `suspend` action must also have a `route` action.
         """
         if annotates is not None:
             pulumi.set(__self__, "annotates", annotates)
@@ -527,7 +527,7 @@ class RulesetRuleActions(dict):
     @pulumi.getter
     def suppresses(self) -> Optional[Sequence['outputs.RulesetRuleActionsSuppress']]:
         """
-        Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident).
+        Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident). Note: If a threshold is set, the rule must also have a `route` action.
         """
         return pulumi.get(self, "suppresses")
 
@@ -535,7 +535,7 @@ class RulesetRuleActions(dict):
     @pulumi.getter
     def suspends(self) -> Optional[Sequence['outputs.RulesetRuleActionsSuspend']]:
         """
-        An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering.
+        An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering. Note: A rule with a `suspend` action must also have a `route` action.
         """
         return pulumi.get(self, "suspends")
 
@@ -719,9 +719,9 @@ class RulesetRuleActionsSuppress(dict):
                  threshold_value: Optional[int] = None,
                  value: Optional[bool] = None):
         """
-        :param int threshold_time_amount: The number value of the `threshold_time_unit` before an incident is created.
+        :param int threshold_time_amount: The number value of the `threshold_time_unit` before an incident is created. Must be greater than 0.
         :param str threshold_time_unit: The `minutes`,`hours`, or `days` that the `threshold_time_amount` should be measured.
-        :param int threshold_value: The number of alerts that should be suppressed.
+        :param int threshold_value: The number of alerts that should be suppressed. Must be greater than 0.
         :param bool value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
         """
         if threshold_time_amount is not None:
@@ -737,7 +737,7 @@ class RulesetRuleActionsSuppress(dict):
     @pulumi.getter(name="thresholdTimeAmount")
     def threshold_time_amount(self) -> Optional[int]:
         """
-        The number value of the `threshold_time_unit` before an incident is created.
+        The number value of the `threshold_time_unit` before an incident is created. Must be greater than 0.
         """
         return pulumi.get(self, "threshold_time_amount")
 
@@ -753,7 +753,7 @@ class RulesetRuleActionsSuppress(dict):
     @pulumi.getter(name="thresholdValue")
     def threshold_value(self) -> Optional[int]:
         """
-        The number of alerts that should be suppressed.
+        The number of alerts that should be suppressed. Must be greater than 0.
         """
         return pulumi.get(self, "threshold_value")
 

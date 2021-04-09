@@ -951,9 +951,9 @@ type RulesetRuleActions struct {
 	Routes []RulesetRuleActionsRoute `pulumi:"routes"`
 	// The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`error`,`warning`, or `critical`.
 	Severities []RulesetRuleActionsSeverity `pulumi:"severities"`
-	// Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident).
+	// Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident). Note: If a threshold is set, the rule must also have a `route` action.
 	Suppresses []RulesetRuleActionsSuppress `pulumi:"suppresses"`
-	// An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering.
+	// An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering. Note: A rule with a `suspend` action must also have a `route` action.
 	Suspends []RulesetRuleActionsSuspend `pulumi:"suspends"`
 }
 
@@ -981,9 +981,9 @@ type RulesetRuleActionsArgs struct {
 	Routes RulesetRuleActionsRouteArrayInput `pulumi:"routes"`
 	// The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`error`,`warning`, or `critical`.
 	Severities RulesetRuleActionsSeverityArrayInput `pulumi:"severities"`
-	// Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident).
+	// Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident). Note: If a threshold is set, the rule must also have a `route` action.
 	Suppresses RulesetRuleActionsSuppressArrayInput `pulumi:"suppresses"`
-	// An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering.
+	// An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering. Note: A rule with a `suspend` action must also have a `route` action.
 	Suspends RulesetRuleActionsSuspendArrayInput `pulumi:"suspends"`
 }
 
@@ -1094,12 +1094,12 @@ func (o RulesetRuleActionsOutput) Severities() RulesetRuleActionsSeverityArrayOu
 	return o.ApplyT(func(v RulesetRuleActions) []RulesetRuleActionsSeverity { return v.Severities }).(RulesetRuleActionsSeverityArrayOutput)
 }
 
-// Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident).
+// Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident). Note: If a threshold is set, the rule must also have a `route` action.
 func (o RulesetRuleActionsOutput) Suppresses() RulesetRuleActionsSuppressArrayOutput {
 	return o.ApplyT(func(v RulesetRuleActions) []RulesetRuleActionsSuppress { return v.Suppresses }).(RulesetRuleActionsSuppressArrayOutput)
 }
 
-// An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering.
+// An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering. Note: A rule with a `suspend` action must also have a `route` action.
 func (o RulesetRuleActionsOutput) Suspends() RulesetRuleActionsSuspendArrayOutput {
 	return o.ApplyT(func(v RulesetRuleActions) []RulesetRuleActionsSuspend { return v.Suspends }).(RulesetRuleActionsSuspendArrayOutput)
 }
@@ -1182,7 +1182,7 @@ func (o RulesetRuleActionsPtrOutput) Severities() RulesetRuleActionsSeverityArra
 	}).(RulesetRuleActionsSeverityArrayOutput)
 }
 
-// Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident).
+// Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident). Note: If a threshold is set, the rule must also have a `route` action.
 func (o RulesetRuleActionsPtrOutput) Suppresses() RulesetRuleActionsSuppressArrayOutput {
 	return o.ApplyT(func(v *RulesetRuleActions) []RulesetRuleActionsSuppress {
 		if v == nil {
@@ -1192,7 +1192,7 @@ func (o RulesetRuleActionsPtrOutput) Suppresses() RulesetRuleActionsSuppressArra
 	}).(RulesetRuleActionsSuppressArrayOutput)
 }
 
-// An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering.
+// An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering. Note: A rule with a `suspend` action must also have a `route` action.
 func (o RulesetRuleActionsPtrOutput) Suspends() RulesetRuleActionsSuspendArrayOutput {
 	return o.ApplyT(func(v *RulesetRuleActions) []RulesetRuleActionsSuspend {
 		if v == nil {
@@ -1812,11 +1812,11 @@ func (o RulesetRuleActionsSeverityArrayOutput) Index(i pulumi.IntInput) RulesetR
 }
 
 type RulesetRuleActionsSuppress struct {
-	// The number value of the `thresholdTimeUnit` before an incident is created.
+	// The number value of the `thresholdTimeUnit` before an incident is created. Must be greater than 0.
 	ThresholdTimeAmount *int `pulumi:"thresholdTimeAmount"`
 	// The `minutes`,`hours`, or `days` that the `thresholdTimeAmount` should be measured.
 	ThresholdTimeUnit *string `pulumi:"thresholdTimeUnit"`
-	// The number of alerts that should be suppressed.
+	// The number of alerts that should be suppressed. Must be greater than 0.
 	ThresholdValue *int `pulumi:"thresholdValue"`
 	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value *bool `pulumi:"value"`
@@ -1834,11 +1834,11 @@ type RulesetRuleActionsSuppressInput interface {
 }
 
 type RulesetRuleActionsSuppressArgs struct {
-	// The number value of the `thresholdTimeUnit` before an incident is created.
+	// The number value of the `thresholdTimeUnit` before an incident is created. Must be greater than 0.
 	ThresholdTimeAmount pulumi.IntPtrInput `pulumi:"thresholdTimeAmount"`
 	// The `minutes`,`hours`, or `days` that the `thresholdTimeAmount` should be measured.
 	ThresholdTimeUnit pulumi.StringPtrInput `pulumi:"thresholdTimeUnit"`
-	// The number of alerts that should be suppressed.
+	// The number of alerts that should be suppressed. Must be greater than 0.
 	ThresholdValue pulumi.IntPtrInput `pulumi:"thresholdValue"`
 	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value pulumi.BoolPtrInput `pulumi:"value"`
@@ -1895,7 +1895,7 @@ func (o RulesetRuleActionsSuppressOutput) ToRulesetRuleActionsSuppressOutputWith
 	return o
 }
 
-// The number value of the `thresholdTimeUnit` before an incident is created.
+// The number value of the `thresholdTimeUnit` before an incident is created. Must be greater than 0.
 func (o RulesetRuleActionsSuppressOutput) ThresholdTimeAmount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RulesetRuleActionsSuppress) *int { return v.ThresholdTimeAmount }).(pulumi.IntPtrOutput)
 }
@@ -1905,7 +1905,7 @@ func (o RulesetRuleActionsSuppressOutput) ThresholdTimeUnit() pulumi.StringPtrOu
 	return o.ApplyT(func(v RulesetRuleActionsSuppress) *string { return v.ThresholdTimeUnit }).(pulumi.StringPtrOutput)
 }
 
-// The number of alerts that should be suppressed.
+// The number of alerts that should be suppressed. Must be greater than 0.
 func (o RulesetRuleActionsSuppressOutput) ThresholdValue() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RulesetRuleActionsSuppress) *int { return v.ThresholdValue }).(pulumi.IntPtrOutput)
 }

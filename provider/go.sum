@@ -379,8 +379,8 @@ github.com/hashicorp/vault/sdk v0.1.13/go.mod h1:B+hVj7TpuQY1Y/GPbCpffmgd+tSEwvh
 github.com/hashicorp/yamux v0.0.0-20180604194846-3520598351bb/go.mod h1:+NfK9FKeTrX5uv1uIXGdwYDTeHna2qgaIlx54MXqjAM=
 github.com/hashicorp/yamux v0.0.0-20181012175058-2f1d1f20f75d h1:kJCB4vdITiW1eC1vq2e6IsrXKrZit1bv/TDYFGMp4BQ=
 github.com/hashicorp/yamux v0.0.0-20181012175058-2f1d1f20f75d/go.mod h1:+NfK9FKeTrX5uv1uIXGdwYDTeHna2qgaIlx54MXqjAM=
-github.com/heimweh/go-pagerduty v0.0.0-20210309231526-3275f6c029e3 h1:W26FTjH1Sg3ngrdGuep+t6a0fpoELVEGbZh62ykkw7k=
-github.com/heimweh/go-pagerduty v0.0.0-20210309231526-3275f6c029e3/go.mod h1:6+bccpjQ/PM8uQY9m8avM4MJea+3vo3ta9r8kGQ4XFY=
+github.com/heimweh/go-pagerduty v0.0.0-20210401200608-e772e426d1d0 h1:fF/STDApEmPMx5pxXOrliPnWim3K1w0f9Ma06OqrKeI=
+github.com/heimweh/go-pagerduty v0.0.0-20210401200608-e772e426d1d0/go.mod h1:6+bccpjQ/PM8uQY9m8avM4MJea+3vo3ta9r8kGQ4XFY=
 github.com/hinshun/vt10x v0.0.0-20180616224451-1954e6464174/go.mod h1:DqJ97dSdRW1W22yXSB90986pcOyQ7r45iio1KN2ez1A=
 github.com/hpcloud/tail v1.0.0/go.mod h1:ab1qPbhIpdTxEkNHXyeSf5vhxWSCs/tWer42PpOxQnU=
 github.com/ianlancetaylor/demangle v0.0.0-20181102032728-5e5cf60278f6/go.mod h1:aSSvb/t6k1mPoxDqO4vJh6VOCGPwU4O0C2/Eqndh1Sc=
@@ -537,8 +537,8 @@ github.com/pulumi/pulumi/sdk/v2 v2.22.1-0.20210310211618-1f16423ede4c h1:fQ8iJ0A
 github.com/pulumi/pulumi/sdk/v2 v2.22.1-0.20210310211618-1f16423ede4c/go.mod h1:fCFhRV6NmidWetmgDPA76efL+s0JqLlS54JJIwfOt+o=
 github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e h1:Dik4Qe/+xguB8JagPyXNlbOnRiXGmq/PSPQTGunYnTk=
 github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e/go.mod h1:sZ9FUzGO+yM41hsQHs/yIcj/Y993qMdBxBU5mpDmAfQ=
-github.com/pulumi/terraform-provider-pagerduty v1.9.6-0.20210330170452-e51991a8c208 h1:y9ckEIlxTabif5Xw+svcFvFp+7XNsuZ6xSrCr2r6O8s=
-github.com/pulumi/terraform-provider-pagerduty v1.9.6-0.20210330170452-e51991a8c208/go.mod h1:og54wxr2BiYS5TbwzFQdHlXyD9durLHf+/GdvVApazA=
+github.com/pulumi/terraform-provider-pagerduty v1.9.6-0.20210409090701-255591deceb9 h1:xLMEmHtYMQAxE+v6ky+nL8QKc16H7LmcIgjwHGcEf5Y=
+github.com/pulumi/terraform-provider-pagerduty v1.9.6-0.20210409090701-255591deceb9/go.mod h1:AtgGo3weZSvy02DPgWotVlgqHzpFaFJR44R/2v04azc=
 github.com/rjeczalik/notify v0.9.2/go.mod h1:aErll2f0sUX9PXZnVNyeiObbmTlk5jnMoCa4QEjJeqM=
 github.com/rogpeppe/fastuuid v0.0.0-20150106093220-6724a57986af/go.mod h1:XWv6SoW27p1b0cqNHllgS5HIMJraePCO15w5zCzIWYg=
 github.com/rogpeppe/go-internal v1.3.0/go.mod h1:M8bDsm7K2OlrFYOpmOWEs/qY81heoFRclV5y23lUDJ4=

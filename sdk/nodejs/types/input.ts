@@ -151,11 +151,11 @@ export interface RulesetRuleActions {
      */
     severities?: pulumi.Input<pulumi.Input<inputs.RulesetRuleActionsSeverity>[]>;
     /**
-     * Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident).
+     * Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident). Note: If a threshold is set, the rule must also have a `route` action.
      */
     suppresses?: pulumi.Input<pulumi.Input<inputs.RulesetRuleActionsSuppress>[]>;
     /**
-     * An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering.
+     * An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering. Note: A rule with a `suspend` action must also have a `route` action.
      */
     suspends?: pulumi.Input<pulumi.Input<inputs.RulesetRuleActionsSuspend>[]>;
 }
@@ -216,7 +216,7 @@ export interface RulesetRuleActionsSeverity {
 
 export interface RulesetRuleActionsSuppress {
     /**
-     * The number value of the `thresholdTimeUnit` before an incident is created.
+     * The number value of the `thresholdTimeUnit` before an incident is created. Must be greater than 0.
      */
     thresholdTimeAmount?: pulumi.Input<number>;
     /**
@@ -224,7 +224,7 @@ export interface RulesetRuleActionsSuppress {
      */
     thresholdTimeUnit?: pulumi.Input<string>;
     /**
-     * The number of alerts that should be suppressed.
+     * The number of alerts that should be suppressed. Must be greater than 0.
      */
     thresholdValue?: pulumi.Input<number>;
     /**

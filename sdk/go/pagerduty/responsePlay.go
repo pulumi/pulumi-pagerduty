@@ -58,9 +58,6 @@ func NewResponsePlay(ctx *pulumi.Context,
 	if args.From == nil {
 		return nil, errors.New("invalid value for required argument 'From'")
 	}
-	if args.Responders == nil {
-		return nil, errors.New("invalid value for required argument 'Responders'")
-	}
 	var resource ResponsePlay
 	err := ctx.RegisterResource("pagerduty:index/responsePlay:ResponsePlay", name, args, &resource, opts...)
 	if err != nil {

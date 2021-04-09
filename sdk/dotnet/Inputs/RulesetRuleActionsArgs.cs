@@ -88,7 +88,7 @@ namespace Pulumi.Pagerduty.Inputs
         private InputList<Inputs.RulesetRuleActionsSuppressArgs>? _suppresses;
 
         /// <summary>
-        /// Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident).
+        /// Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident). Note: If a threshold is set, the rule must also have a `route` action.
         /// </summary>
         public InputList<Inputs.RulesetRuleActionsSuppressArgs> Suppresses
         {
@@ -100,7 +100,7 @@ namespace Pulumi.Pagerduty.Inputs
         private InputList<Inputs.RulesetRuleActionsSuspendArgs>? _suspends;
 
         /// <summary>
-        /// An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering.
+        /// An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering. Note: A rule with a `suspend` action must also have a `route` action.
         /// </summary>
         public InputList<Inputs.RulesetRuleActionsSuspendArgs> Suspends
         {

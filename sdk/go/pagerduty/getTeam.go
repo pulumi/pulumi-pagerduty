@@ -70,6 +70,8 @@ func LookupTeam(ctx *pulumi.Context, args *LookupTeamArgs, opts ...pulumi.Invoke
 type LookupTeamArgs struct {
 	// The name of the team to find in the PagerDuty API.
 	Name string `pulumi:"name"`
+	// ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
+	Parent *string `pulumi:"parent"`
 }
 
 // A collection of values returned by getTeam.
@@ -80,4 +82,6 @@ type LookupTeamResult struct {
 	Id string `pulumi:"id"`
 	// The name of the found team.
 	Name string `pulumi:"name"`
+	// ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
+	Parent *string `pulumi:"parent"`
 }

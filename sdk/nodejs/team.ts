@@ -9,17 +9,6 @@ import * as utilities from "./utilities";
  *
  * The account must have the `teams` ability to use the following resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as pagerduty from "@pulumi/pagerduty";
- *
- * const example = new pagerduty.Team("example", {
- *     description: "All engineering",
- * });
- * ```
- *
  * ## Import
  *
  * Teams can be imported using the `id`, e.g.
@@ -65,6 +54,10 @@ export class Team extends pulumi.CustomResource {
      * The name of the group.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
+     */
+    public readonly parent!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Team resource with the given unique name, arguments, and options.
@@ -82,10 +75,12 @@ export class Team extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["htmlUrl"] = state ? state.htmlUrl : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["parent"] = state ? state.parent : undefined;
         } else {
             const args = argsOrState as TeamArgs | undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["parent"] = args ? args.parent : undefined;
             inputs["htmlUrl"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -108,6 +103,10 @@ export interface TeamState {
      * The name of the group.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
+     */
+    readonly parent?: pulumi.Input<string>;
 }
 
 /**
@@ -119,4 +118,8 @@ export interface TeamArgs {
      * The name of the group.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
+     */
+    readonly parent?: pulumi.Input<string>;
 }

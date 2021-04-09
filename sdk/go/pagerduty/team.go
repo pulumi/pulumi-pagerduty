@@ -14,29 +14,6 @@ import (
 //
 // The account must have the `teams` ability to use the following resource.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/go/pagerduty"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := pagerduty.NewTeam(ctx, "example", &pagerduty.TeamArgs{
-// 			Description: pulumi.String("All engineering"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
 // ## Import
 //
 // Teams can be imported using the `id`, e.g.
@@ -52,6 +29,8 @@ type Team struct {
 	HtmlUrl pulumi.StringOutput `pulumi:"htmlUrl"`
 	// The name of the group.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
+	Parent pulumi.StringPtrOutput `pulumi:"parent"`
 }
 
 // NewTeam registers a new resource with the given unique name, arguments, and options.
@@ -88,6 +67,8 @@ type teamState struct {
 	HtmlUrl *string `pulumi:"htmlUrl"`
 	// The name of the group.
 	Name *string `pulumi:"name"`
+	// ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
+	Parent *string `pulumi:"parent"`
 }
 
 type TeamState struct {
@@ -96,6 +77,8 @@ type TeamState struct {
 	HtmlUrl pulumi.StringPtrInput
 	// The name of the group.
 	Name pulumi.StringPtrInput
+	// ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
+	Parent pulumi.StringPtrInput
 }
 
 func (TeamState) ElementType() reflect.Type {
@@ -106,6 +89,8 @@ type teamArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of the group.
 	Name *string `pulumi:"name"`
+	// ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
+	Parent *string `pulumi:"parent"`
 }
 
 // The set of arguments for constructing a Team resource.
@@ -113,6 +98,8 @@ type TeamArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the group.
 	Name pulumi.StringPtrInput
+	// ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
+	Parent pulumi.StringPtrInput
 }
 
 func (TeamArgs) ElementType() reflect.Type {

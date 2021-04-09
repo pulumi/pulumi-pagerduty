@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v1.9.5 of the PagerDuty Terraform Provider
+* Upgrade to v1.9.6 of the PagerDuty Terraform Provider
 
 ---
 

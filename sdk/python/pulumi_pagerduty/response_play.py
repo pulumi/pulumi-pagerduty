@@ -112,8 +112,6 @@ class ResponsePlay(pulumi.CustomResource):
                 raise TypeError("Missing required property 'from_'")
             __props__['from_'] = from_
             __props__['name'] = name
-            if responders is None and not opts.urn:
-                raise TypeError("Missing required property 'responders'")
             __props__['responders'] = responders
             __props__['responders_message'] = responders_message
             __props__['runnability'] = runnability
@@ -219,7 +217,7 @@ class ResponsePlay(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def responders(self) -> pulumi.Output[Sequence['outputs.ResponsePlayResponder']]:
+    def responders(self) -> pulumi.Output[Optional[Sequence['outputs.ResponsePlayResponder']]]:
         """
         A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
         """

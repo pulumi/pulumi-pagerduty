@@ -4,7 +4,7 @@ go 1.16
 
 replace (
 	github.com/Azure/go-autorest => github.com/Azure/go-autorest v12.4.3+incompatible
-	github.com/PagerDuty/terraform-provider-pagerduty => github.com/pulumi/terraform-provider-pagerduty v1.9.6-0.20210330170452-e51991a8c208
+	github.com/PagerDuty/terraform-provider-pagerduty => github.com/pulumi/terraform-provider-pagerduty v1.9.6-0.20210409090701-255591deceb9
 	github.com/hashicorp/go-getter v1.5.0 => github.com/hashicorp/go-getter v1.4.0
 )
 

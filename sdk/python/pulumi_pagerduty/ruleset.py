@@ -5,15 +5,55 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Ruleset']
+__all__ = ['RulesetArgs', 'Ruleset']
+
+@pulumi.input_type
+class RulesetArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 team: Optional[pulumi.Input['RulesetTeamArgs']] = None):
+        """
+        The set of arguments for constructing a Ruleset resource.
+        :param pulumi.Input[str] name: Name of the ruleset.
+        :param pulumi.Input['RulesetTeamArgs'] team: Reference to the team that owns the ruleset. If none is specified, only admins have access.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if team is not None:
+            pulumi.set(__self__, "team", team)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the ruleset.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def team(self) -> Optional[pulumi.Input['RulesetTeamArgs']]:
+        """
+        Reference to the team that owns the ruleset. If none is specified, only admins have access.
+        """
+        return pulumi.get(self, "team")
+
+    @team.setter
+    def team(self, value: Optional[pulumi.Input['RulesetTeamArgs']]):
+        pulumi.set(self, "team", value)
 
 
 class Ruleset(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -50,6 +90,55 @@ class Ruleset(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the ruleset.
         :param pulumi.Input[pulumi.InputType['RulesetTeamArgs']] team: Reference to the team that owns the ruleset. If none is specified, only admins have access.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[RulesetArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        [Rulesets](https://support.pagerduty.com/docs/rulesets) allow you to route events to an endpoint and create collections of event rules, which define sets of actions to take based on event content.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        foo_team = pagerduty.Team("fooTeam")
+        foo_ruleset = pagerduty.Ruleset("fooRuleset", team=pagerduty.RulesetTeamArgs(
+            id=foo_team.id,
+        ))
+        ```
+
+        ## Import
+
+        Rulesets can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import pagerduty:index/ruleset:Ruleset main 19acac92-027a-4ea0-b06c-bbf516519601
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param RulesetArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RulesetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 team: Optional[pulumi.Input[pulumi.InputType['RulesetTeamArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

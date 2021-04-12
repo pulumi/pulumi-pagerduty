@@ -5,13 +5,97 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['BusinessService']
+__all__ = ['BusinessServiceArgs', 'BusinessService']
+
+@pulumi.input_type
+class BusinessServiceArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 point_of_contact: Optional[pulumi.Input[str]] = None,
+                 team: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a BusinessService resource.
+        :param pulumi.Input[str] name: The name of the business service.
+        :param pulumi.Input[str] point_of_contact: The owner of the business service.
+        :param pulumi.Input[str] team: ID of the team that owns the business service.
+        :param pulumi.Input[str] type: Default value is `business_service`. Can also be set as `business_service_reference`.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if point_of_contact is not None:
+            pulumi.set(__self__, "point_of_contact", point_of_contact)
+        if team is not None:
+            pulumi.set(__self__, "team", team)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the business service.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="pointOfContact")
+    def point_of_contact(self) -> Optional[pulumi.Input[str]]:
+        """
+        The owner of the business service.
+        """
+        return pulumi.get(self, "point_of_contact")
+
+    @point_of_contact.setter
+    def point_of_contact(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "point_of_contact", value)
+
+    @property
+    @pulumi.getter
+    def team(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the team that owns the business service.
+        """
+        return pulumi.get(self, "team")
+
+    @team.setter
+    def team(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "team", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Default value is `business_service`. Can also be set as `business_service_reference`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 class BusinessService(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -53,6 +137,58 @@ class BusinessService(pulumi.CustomResource):
         :param pulumi.Input[str] team: ID of the team that owns the business service.
         :param pulumi.Input[str] type: Default value is `business_service`. Can also be set as `business_service_reference`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[BusinessServiceArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A [business service](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Business_Services/get_business_services) allows you to model capabilities that span multiple technical services and that may be owned by several different teams.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        example = pagerduty.BusinessService("example",
+            description="A very descriptive description of this business service",
+            point_of_contact="PagerDuty Admin",
+            team="P37RSRS")
+        ```
+
+        ## Import
+
+        Services can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import pagerduty:index/businessService:BusinessService main PLBP09X
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param BusinessServiceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(BusinessServiceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 point_of_contact: Optional[pulumi.Input[str]] = None,
+                 team: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,13 +5,113 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['Extension']
+__all__ = ['ExtensionArgs', 'Extension']
+
+@pulumi.input_type
+class ExtensionArgs:
+    def __init__(__self__, *,
+                 extension_objects: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 extension_schema: pulumi.Input[str],
+                 config: Optional[pulumi.Input[str]] = None,
+                 endpoint_url: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Extension resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] extension_objects: This is the objects for which the extension applies (An array of service ids).
+        :param pulumi.Input[str] extension_schema: This is the schema for this extension.
+        :param pulumi.Input[str] config: The configuration of the service extension as string containing plain JSON-encoded data.
+        :param pulumi.Input[str] endpoint_url: The url of the extension.
+               **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `getExtensionSchema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpoint_url`, but one with named `Slack` accepts.
+        :param pulumi.Input[str] name: The name of the service extension.
+        """
+        pulumi.set(__self__, "extension_objects", extension_objects)
+        pulumi.set(__self__, "extension_schema", extension_schema)
+        if config is not None:
+            pulumi.set(__self__, "config", config)
+        if endpoint_url is not None:
+            pulumi.set(__self__, "endpoint_url", endpoint_url)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="extensionObjects")
+    def extension_objects(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        This is the objects for which the extension applies (An array of service ids).
+        """
+        return pulumi.get(self, "extension_objects")
+
+    @extension_objects.setter
+    def extension_objects(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "extension_objects", value)
+
+    @property
+    @pulumi.getter(name="extensionSchema")
+    def extension_schema(self) -> pulumi.Input[str]:
+        """
+        This is the schema for this extension.
+        """
+        return pulumi.get(self, "extension_schema")
+
+    @extension_schema.setter
+    def extension_schema(self, value: pulumi.Input[str]):
+        pulumi.set(self, "extension_schema", value)
+
+    @property
+    @pulumi.getter
+    def config(self) -> Optional[pulumi.Input[str]]:
+        """
+        The configuration of the service extension as string containing plain JSON-encoded data.
+        """
+        return pulumi.get(self, "config")
+
+    @config.setter
+    def config(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "config", value)
+
+    @property
+    @pulumi.getter(name="endpointUrl")
+    def endpoint_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The url of the extension.
+        **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `getExtensionSchema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpoint_url`, but one with named `Slack` accepts.
+        """
+        return pulumi.get(self, "endpoint_url")
+
+    @endpoint_url.setter
+    def endpoint_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint_url", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the service extension.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 class Extension(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -83,6 +183,86 @@ class Extension(pulumi.CustomResource):
         :param pulumi.Input[str] extension_schema: This is the schema for this extension.
         :param pulumi.Input[str] name: The name of the service extension.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ExtensionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        An [extension](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Extensions/post_extensions) can be associated with a service.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        webhook = pagerduty.get_extension_schema(name="Generic V2 Webhook")
+        example_user = pagerduty.User("exampleUser",
+            email="howard.james@example.domain",
+            teams=[pagerduty_team["example"]["id"]])
+        foo = pagerduty.EscalationPolicy("foo",
+            num_loops=2,
+            rules=[pagerduty.EscalationPolicyRuleArgs(
+                escalation_delay_in_minutes=10,
+                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
+                    type="user",
+                    id=example_user.id,
+                )],
+            )])
+        example_service = pagerduty.Service("exampleService",
+            auto_resolve_timeout="14400",
+            acknowledgement_timeout="600",
+            escalation_policy=pagerduty_escalation_policy["example"]["id"])
+        slack = pagerduty.Extension("slack",
+            endpoint_url="https://generic_webhook_url/XXXXXX/BBBBBB",
+            extension_schema=webhook.id,
+            extension_objects=[example_service.id],
+            config=\"\"\"{
+        	"restrict": "any",
+        	"notify_types": {
+        			"resolve": false,
+        			"acknowledge": false,
+        			"assignments": false
+        	},
+        	"access_token": "XXX"
+        }
+        \"\"\")
+        ```
+
+        ## Import
+
+        Extensions can be imported using the id.e.g.
+
+        ```sh
+         $ pulumi import pagerduty:index/extension:Extension main PLBP09X
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ExtensionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ExtensionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 config: Optional[pulumi.Input[str]] = None,
+                 endpoint_url: Optional[pulumi.Input[str]] = None,
+                 extension_objects: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 extension_schema: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,13 +5,67 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['EventRule']
+__all__ = ['EventRuleArgs', 'EventRule']
+
+@pulumi.input_type
+class EventRuleArgs:
+    def __init__(__self__, *,
+                 action_json: pulumi.Input[str],
+                 condition_json: pulumi.Input[str],
+                 advanced_condition_json: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a EventRule resource.
+        :param pulumi.Input[str] action_json: A list of one or more actions for each rule. Each action within the list is itself a list.
+        :param pulumi.Input[str] condition_json: Contains a list of conditions. The first field in the list is `and` or `or`, followed by a list of operators and values.
+        :param pulumi.Input[str] advanced_condition_json: Contains a list of specific conditions including `active-between`,`scheduled-weekly`, and `frequency-over`. The first element in the list is the label for the condition, followed by a list of values for the specific condition. For more details on these conditions see [Advanced Condition](https://v2.developer.pagerduty.com/docs/global-event-rules-api#section-advanced-condition) in the PagerDuty API documentation.
+        """
+        pulumi.set(__self__, "action_json", action_json)
+        pulumi.set(__self__, "condition_json", condition_json)
+        if advanced_condition_json is not None:
+            pulumi.set(__self__, "advanced_condition_json", advanced_condition_json)
+
+    @property
+    @pulumi.getter(name="actionJson")
+    def action_json(self) -> pulumi.Input[str]:
+        """
+        A list of one or more actions for each rule. Each action within the list is itself a list.
+        """
+        return pulumi.get(self, "action_json")
+
+    @action_json.setter
+    def action_json(self, value: pulumi.Input[str]):
+        pulumi.set(self, "action_json", value)
+
+    @property
+    @pulumi.getter(name="conditionJson")
+    def condition_json(self) -> pulumi.Input[str]:
+        """
+        Contains a list of conditions. The first field in the list is `and` or `or`, followed by a list of operators and values.
+        """
+        return pulumi.get(self, "condition_json")
+
+    @condition_json.setter
+    def condition_json(self, value: pulumi.Input[str]):
+        pulumi.set(self, "condition_json", value)
+
+    @property
+    @pulumi.getter(name="advancedConditionJson")
+    def advanced_condition_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        Contains a list of specific conditions including `active-between`,`scheduled-weekly`, and `frequency-over`. The first element in the list is the label for the condition, followed by a list of values for the specific condition. For more details on these conditions see [Advanced Condition](https://v2.developer.pagerduty.com/docs/global-event-rules-api#section-advanced-condition) in the PagerDuty API documentation.
+        """
+        return pulumi.get(self, "advanced_condition_json")
+
+    @advanced_condition_json.setter
+    def advanced_condition_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "advanced_condition_json", value)
 
 
 class EventRule(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -147,6 +201,153 @@ class EventRule(pulumi.CustomResource):
         :param pulumi.Input[str] advanced_condition_json: Contains a list of specific conditions including `active-between`,`scheduled-weekly`, and `frequency-over`. The first element in the list is the label for the condition, followed by a list of values for the specific condition. For more details on these conditions see [Advanced Condition](https://v2.developer.pagerduty.com/docs/global-event-rules-api#section-advanced-condition) in the PagerDuty API documentation.
         :param pulumi.Input[str] condition_json: Contains a list of conditions. The first field in the list is `and` or `or`, followed by a list of operators and values.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: EventRuleArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        *NOTE: The `EventRule` resource has been deprecated in favor of the Ruleset and RulesetRule resources. Please use the `ruleset` based resources for working with Event Rules.*
+
+        An [event rule](https://v2.developer.pagerduty.com/docs/global-event-rules-api) determines what happens to an event that is sent to PagerDuty by monitoring tools and other integrations.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_pagerduty as pagerduty
+
+        second = pagerduty.EventRule("second",
+            action_json=json.dumps([
+                [
+                    "route",
+                    "P5DTL0K",
+                ],
+                [
+                    "severity",
+                    "warning",
+                ],
+                [
+                    "annotate",
+                    "2 Managed by terraform",
+                ],
+                [
+                    "priority",
+                    "PL451DT",
+                ],
+            ]),
+            condition_json=json.dumps([
+                "and",
+                [
+                    "contains",
+                    [
+                        "path",
+                        "payload",
+                        "source",
+                    ],
+                    "website",
+                ],
+                [
+                    "contains",
+                    [
+                        "path",
+                        "headers",
+                        "from",
+                        "0",
+                        "address",
+                    ],
+                    "homer",
+                ],
+            ]),
+            advanced_condition_json=json.dumps([[
+                "scheduled-weekly",
+                1565392127032,
+                3600000,
+                "America/Los_Angeles",
+                [
+                    1,
+                    2,
+                    3,
+                    5,
+                    7,
+                ],
+            ]]))
+        third = pagerduty.EventRule("third",
+            action_json=json.dumps([
+                [
+                    "route",
+                    "P5DTL0K",
+                ],
+                [
+                    "severity",
+                    "warning",
+                ],
+                [
+                    "annotate",
+                    "3 Managed by terraform",
+                ],
+                [
+                    "priority",
+                    "PL451DT",
+                ],
+            ]),
+            condition_json=json.dumps([
+                "and",
+                [
+                    "contains",
+                    [
+                        "path",
+                        "payload",
+                        "source",
+                    ],
+                    "website",
+                ],
+                [
+                    "contains",
+                    [
+                        "path",
+                        "headers",
+                        "from",
+                        "0",
+                        "address",
+                    ],
+                    "homer",
+                ],
+            ]),
+            opts=pulumi.ResourceOptions(depends_on=[pagerduty_event_rule["two"]]))
+        ```
+
+        ## Import
+
+        Event rules can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import pagerduty:index/eventRule:EventRule main 19acac92-027a-4ea0-b06c-bbf516519601
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param EventRuleArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(EventRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 action_json: Optional[pulumi.Input[str]] = None,
+                 advanced_condition_json: Optional[pulumi.Input[str]] = None,
+                 condition_json: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

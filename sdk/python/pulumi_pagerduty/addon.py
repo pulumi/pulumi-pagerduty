@@ -5,13 +5,52 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['Addon']
+__all__ = ['AddonArgs', 'Addon']
+
+@pulumi.input_type
+class AddonArgs:
+    def __init__(__self__, *,
+                 src: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Addon resource.
+        :param pulumi.Input[str] src: The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.
+        :param pulumi.Input[str] name: The name of the add-on.
+        """
+        pulumi.set(__self__, "src", src)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def src(self) -> pulumi.Input[str]:
+        """
+        The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.
+        """
+        return pulumi.get(self, "src")
+
+    @src.setter
+    def src(self, value: pulumi.Input[str]):
+        pulumi.set(self, "src", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the add-on.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class Addon(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -45,6 +84,52 @@ class Addon(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the add-on.
         :param pulumi.Input[str] src: The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AddonArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        With [add-ons](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Add-ons/get_addons), third-party developers can write their own add-ons to PagerDuty's UI. Given a configuration containing a src parameter, that URL will be embedded in an iframe on a page that's available to users from a drop-down menu.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        example = pagerduty.Addon("example", src="https://intranet.example.com/status")
+        ```
+
+        ## Import
+
+        Add-ons can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import pagerduty:index/addon:Addon example P3DH5M6
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param AddonArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AddonArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 src: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

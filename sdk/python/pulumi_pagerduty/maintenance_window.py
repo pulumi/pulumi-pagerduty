@@ -5,13 +5,82 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['MaintenanceWindow']
+__all__ = ['MaintenanceWindowArgs', 'MaintenanceWindow']
+
+@pulumi.input_type
+class MaintenanceWindowArgs:
+    def __init__(__self__, *,
+                 end_time: pulumi.Input[str],
+                 services: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 start_time: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a MaintenanceWindow resource.
+        :param pulumi.Input[str] end_time: The maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `start_time`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] services: A list of service IDs to include in the maintenance window.
+        :param pulumi.Input[str] start_time: The maintenance window's start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
+        :param pulumi.Input[str] description: A description for the maintenance window.
+        """
+        pulumi.set(__self__, "end_time", end_time)
+        pulumi.set(__self__, "services", services)
+        pulumi.set(__self__, "start_time", start_time)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> pulumi.Input[str]:
+        """
+        The maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `start_time`.
+        """
+        return pulumi.get(self, "end_time")
+
+    @end_time.setter
+    def end_time(self, value: pulumi.Input[str]):
+        pulumi.set(self, "end_time", value)
+
+    @property
+    @pulumi.getter
+    def services(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of service IDs to include in the maintenance window.
+        """
+        return pulumi.get(self, "services")
+
+    @services.setter
+    def services(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "services", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> pulumi.Input[str]:
+        """
+        The maintenance window's start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: pulumi.Input[str]):
+        pulumi.set(self, "start_time", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description for the maintenance window.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
 
 class MaintenanceWindow(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -54,6 +123,59 @@ class MaintenanceWindow(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] services: A list of service IDs to include in the maintenance window.
         :param pulumi.Input[str] start_time: The maintenance window's start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: MaintenanceWindowArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A [maintenance window](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Maintenance_Windows/get_maintenance_windows) is used to temporarily disable one or more services for a set period of time. No incidents will be triggered and no notifications will be received while a service is disabled by a maintenance window.
+
+        Maintenance windows are specified to start at a certain time and end after they have begun. Once started, a maintenance window cannot be deleted; it can only be ended immediately to re-enable the service.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        example = pagerduty.MaintenanceWindow("example",
+            start_time="2015-11-09T20:00:00-05:00",
+            end_time="2015-11-09T22:00:00-05:00",
+            services=[pagerduty_service["example"]["id"]])
+        ```
+
+        ## Import
+
+        Maintenance windows can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import pagerduty:index/maintenanceWindow:MaintenanceWindow main PLBP09X
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param MaintenanceWindowArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(MaintenanceWindowArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 end_time: Optional[pulumi.Input[str]] = None,
+                 services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 start_time: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

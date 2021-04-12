@@ -5,15 +5,38 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ServiceDependency']
+__all__ = ['ServiceDependencyArgs', 'ServiceDependency']
+
+@pulumi.input_type
+class ServiceDependencyArgs:
+    def __init__(__self__, *,
+                 dependencies: pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencyArgs']]]):
+        """
+        The set of arguments for constructing a ServiceDependency resource.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencyArgs']]] dependencies: The relationship between the `supporting_service` and `dependent_service`.
+        """
+        pulumi.set(__self__, "dependencies", dependencies)
+
+    @property
+    @pulumi.getter
+    def dependencies(self) -> pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencyArgs']]]:
+        """
+        The relationship between the `supporting_service` and `dependent_service`.
+        """
+        return pulumi.get(self, "dependencies")
+
+    @dependencies.setter
+    def dependencies(self, value: pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencyArgs']]]):
+        pulumi.set(self, "dependencies", value)
 
 
 class ServiceDependency(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -64,6 +87,70 @@ class ServiceDependency(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceDependencyDependencyArgs']]]] dependencies: The relationship between the `supporting_service` and `dependent_service`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ServiceDependencyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A [service dependency](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1service_dependencies~1associate/post) is a relationship between two services that this service uses, or that are used by this service, and are critical for successful operation.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        foo = pagerduty.ServiceDependency("foo", dependencies=[pagerduty.ServiceDependencyDependencyArgs(
+            dependent_services=[pagerduty.ServiceDependencyDependencyDependentServiceArgs(
+                id=pagerduty_business_service["foo"]["id"],
+                type="business_service",
+            )],
+            supporting_services=[pagerduty.ServiceDependencyDependencySupportingServiceArgs(
+                id=pagerduty_service["foo"]["id"],
+                type="service",
+            )],
+        )])
+        bar = pagerduty.ServiceDependency("bar", dependencies=[pagerduty.ServiceDependencyDependencyArgs(
+            dependent_services=[pagerduty.ServiceDependencyDependencyDependentServiceArgs(
+                id=pagerduty_business_service["foo"]["id"],
+                type="business_service",
+            )],
+            supporting_services=[pagerduty.ServiceDependencyDependencySupportingServiceArgs(
+                id=pagerduty_service["two"]["id"],
+                type="service",
+            )],
+        )])
+        ```
+
+        ## Import
+
+        Service dependencies can be imported using the related supporting service id, supporting service type (`business_service` or `service`) and the dependency id separated by a dot, e.g.
+
+        ```sh
+         $ pulumi import pagerduty:index/serviceDependency:ServiceDependency main P4B2Z7G.business_service.D5RTHKRNGU4PYE90PJ
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ServiceDependencyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ServiceDependencyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 dependencies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceDependencyDependencyArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

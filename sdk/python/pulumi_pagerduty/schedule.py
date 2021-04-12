@@ -5,15 +5,105 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Schedule']
+__all__ = ['ScheduleArgs', 'Schedule']
+
+@pulumi.input_type
+class ScheduleArgs:
+    def __init__(__self__, *,
+                 layers: pulumi.Input[Sequence[pulumi.Input['ScheduleLayerArgs']]],
+                 time_zone: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 overflow: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a Schedule resource.
+        :param pulumi.Input[Sequence[pulumi.Input['ScheduleLayerArgs']]] layers: A schedule layer block. Schedule layers documented below.
+        :param pulumi.Input[str] time_zone: The time zone of the schedule (e.g Europe/Berlin).
+        :param pulumi.Input[str] description: The description of the schedule
+        :param pulumi.Input[str] name: The name of the schedule.
+        :param pulumi.Input[bool] overflow: Any on-call schedule entries that pass the date range bounds will be truncated at the bounds, unless the parameter `overflow` is passed. For instance, if your schedule is a rotation that changes daily at midnight UTC, and your date range is from `2011-06-01T10:00:00Z` to `2011-06-01T14:00:00Z`:
+               If you don't pass the overflow=true parameter, you will get one schedule entry returned with a start of `2011-06-01T10:00:00Z` and end of `2011-06-01T14:00:00Z`.
+               If you do pass the `overflow` parameter, you will get one schedule entry returned with a start of `2011-06-01T00:00:00Z` and end of `2011-06-02T00:00:00Z`.
+        """
+        pulumi.set(__self__, "layers", layers)
+        pulumi.set(__self__, "time_zone", time_zone)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if overflow is not None:
+            pulumi.set(__self__, "overflow", overflow)
+
+    @property
+    @pulumi.getter
+    def layers(self) -> pulumi.Input[Sequence[pulumi.Input['ScheduleLayerArgs']]]:
+        """
+        A schedule layer block. Schedule layers documented below.
+        """
+        return pulumi.get(self, "layers")
+
+    @layers.setter
+    def layers(self, value: pulumi.Input[Sequence[pulumi.Input['ScheduleLayerArgs']]]):
+        pulumi.set(self, "layers", value)
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> pulumi.Input[str]:
+        """
+        The time zone of the schedule (e.g Europe/Berlin).
+        """
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: pulumi.Input[str]):
+        pulumi.set(self, "time_zone", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the schedule
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the schedule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def overflow(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Any on-call schedule entries that pass the date range bounds will be truncated at the bounds, unless the parameter `overflow` is passed. For instance, if your schedule is a rotation that changes daily at midnight UTC, and your date range is from `2011-06-01T10:00:00Z` to `2011-06-01T14:00:00Z`:
+        If you don't pass the overflow=true parameter, you will get one schedule entry returned with a start of `2011-06-01T10:00:00Z` and end of `2011-06-01T14:00:00Z`.
+        If you do pass the `overflow` parameter, you will get one schedule entry returned with a start of `2011-06-01T00:00:00Z` and end of `2011-06-02T00:00:00Z`.
+        """
+        return pulumi.get(self, "overflow")
+
+    @overflow.setter
+    def overflow(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "overflow", value)
 
 
 class Schedule(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -71,6 +161,71 @@ class Schedule(pulumi.CustomResource):
                If you do pass the `overflow` parameter, you will get one schedule entry returned with a start of `2011-06-01T00:00:00Z` and end of `2011-06-02T00:00:00Z`.
         :param pulumi.Input[str] time_zone: The time zone of the schedule (e.g Europe/Berlin).
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ScheduleArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        A [schedule](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Schedules/get_schedules) determines the time periods that users are on call. Only on-call users are eligible to receive notifications from incidents.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        example = pagerduty.User("example",
+            email="125.greenholt.earline@graham.name",
+            teams=[pagerduty_team["example"]["id"]])
+        foo = pagerduty.Schedule("foo",
+            time_zone="America/New_York",
+            layers=[pagerduty.ScheduleLayerArgs(
+                name="Night Shift",
+                start="2015-11-06T20:00:00-05:00",
+                rotation_virtual_start="2015-11-06T20:00:00-05:00",
+                rotation_turn_length_seconds=86400,
+                users=[pagerduty_user["foo"]["id"]],
+                restrictions=[pagerduty.ScheduleLayerRestrictionArgs(
+                    type="daily_restriction",
+                    start_time_of_day="08:00:00",
+                    duration_seconds=32400,
+                )],
+            )])
+        ```
+
+        ## Import
+
+        Schedules can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import pagerduty:index/schedule:Schedule main PLBP09X
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ScheduleArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ScheduleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 layers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleLayerArgs']]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 overflow: Optional[pulumi.Input[bool]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

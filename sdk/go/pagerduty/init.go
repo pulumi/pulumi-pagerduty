@@ -21,47 +21,48 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "pagerduty:index/addon:Addon":
-		r, err = NewAddon(ctx, name, nil, pulumi.URN_(urn))
+		r = &Addon{}
 	case "pagerduty:index/businessService:BusinessService":
-		r, err = NewBusinessService(ctx, name, nil, pulumi.URN_(urn))
+		r = &BusinessService{}
 	case "pagerduty:index/escalationPolicy:EscalationPolicy":
-		r, err = NewEscalationPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &EscalationPolicy{}
 	case "pagerduty:index/eventRule:EventRule":
-		r, err = NewEventRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &EventRule{}
 	case "pagerduty:index/extension:Extension":
-		r, err = NewExtension(ctx, name, nil, pulumi.URN_(urn))
+		r = &Extension{}
 	case "pagerduty:index/maintenanceWindow:MaintenanceWindow":
-		r, err = NewMaintenanceWindow(ctx, name, nil, pulumi.URN_(urn))
+		r = &MaintenanceWindow{}
 	case "pagerduty:index/responsePlay:ResponsePlay":
-		r, err = NewResponsePlay(ctx, name, nil, pulumi.URN_(urn))
+		r = &ResponsePlay{}
 	case "pagerduty:index/ruleset:Ruleset":
-		r, err = NewRuleset(ctx, name, nil, pulumi.URN_(urn))
+		r = &Ruleset{}
 	case "pagerduty:index/rulesetRule:RulesetRule":
-		r, err = NewRulesetRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &RulesetRule{}
 	case "pagerduty:index/schedule:Schedule":
-		r, err = NewSchedule(ctx, name, nil, pulumi.URN_(urn))
+		r = &Schedule{}
 	case "pagerduty:index/service:Service":
-		r, err = NewService(ctx, name, nil, pulumi.URN_(urn))
+		r = &Service{}
 	case "pagerduty:index/serviceDependency:ServiceDependency":
-		r, err = NewServiceDependency(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServiceDependency{}
 	case "pagerduty:index/serviceEventRule:ServiceEventRule":
-		r, err = NewServiceEventRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServiceEventRule{}
 	case "pagerduty:index/serviceIntegration:ServiceIntegration":
-		r, err = NewServiceIntegration(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServiceIntegration{}
 	case "pagerduty:index/team:Team":
-		r, err = NewTeam(ctx, name, nil, pulumi.URN_(urn))
+		r = &Team{}
 	case "pagerduty:index/teamMembership:TeamMembership":
-		r, err = NewTeamMembership(ctx, name, nil, pulumi.URN_(urn))
+		r = &TeamMembership{}
 	case "pagerduty:index/user:User":
-		r, err = NewUser(ctx, name, nil, pulumi.URN_(urn))
+		r = &User{}
 	case "pagerduty:index/userContactMethod:UserContactMethod":
-		r, err = NewUserContactMethod(ctx, name, nil, pulumi.URN_(urn))
+		r = &UserContactMethod{}
 	case "pagerduty:index/userNotificationRule:UserNotificationRule":
-		r, err = NewUserNotificationRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &UserNotificationRule{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 
@@ -78,7 +79,9 @@ func (p *pkg) ConstructProvider(ctx *pulumi.Context, name, typ, urn string) (pul
 		return nil, fmt.Errorf("unknown provider type: %s", typ)
 	}
 
-	return NewProvider(ctx, name, nil, pulumi.URN_(urn))
+	r := &Provider{}
+	err := ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
+	return r, err
 }
 
 func init() {

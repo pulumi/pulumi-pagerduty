@@ -17,9 +17,12 @@ namespace Pulumi.Pagerduty.Outputs
         /// Note added to the event.
         /// </summary>
         public readonly ImmutableArray<Outputs.RulesetRuleActionsAnnotate> Annotates;
+        /// <summary>
+        /// An object with a single `value` field. The value sets whether the resulting alert status is `trigger` or `resolve`.
+        /// </summary>
         public readonly ImmutableArray<Outputs.RulesetRuleActionsEventAction> EventActions;
         /// <summary>
-        /// Allows you to copy important data from one event field to another. Extraction rules must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax). Extraction objects consist of the following fields:
+        /// Allows you to copy important data from one event field to another. Extraction objects may use *either* of the following field structures:
         /// </summary>
         public readonly ImmutableArray<Outputs.RulesetRuleActionsExtraction> Extractions;
         /// <summary>
@@ -35,9 +38,13 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.RulesetRuleActionsSeverity> Severities;
         /// <summary>
-        /// Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident).
+        /// Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident). Note: If a threshold is set, the rule must also have a `route` action.
         /// </summary>
         public readonly ImmutableArray<Outputs.RulesetRuleActionsSuppress> Suppresses;
+        /// <summary>
+        /// An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering. Note: A rule with a `suspend` action must also have a `route` action.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RulesetRuleActionsSuspend> Suspends;
 
         [OutputConstructor]
         private RulesetRuleActions(
@@ -53,7 +60,9 @@ namespace Pulumi.Pagerduty.Outputs
 
             ImmutableArray<Outputs.RulesetRuleActionsSeverity> severities,
 
-            ImmutableArray<Outputs.RulesetRuleActionsSuppress> suppresses)
+            ImmutableArray<Outputs.RulesetRuleActionsSuppress> suppresses,
+
+            ImmutableArray<Outputs.RulesetRuleActionsSuspend> suspends)
         {
             Annotates = annotates;
             EventActions = eventActions;
@@ -62,6 +71,7 @@ namespace Pulumi.Pagerduty.Outputs
             Routes = routes;
             Severities = severities;
             Suppresses = suppresses;
+            Suspends = suspends;
         }
     }
 }

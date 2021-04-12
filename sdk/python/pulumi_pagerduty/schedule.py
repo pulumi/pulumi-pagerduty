@@ -38,19 +38,19 @@ class Schedule(pulumi.CustomResource):
             email="125.greenholt.earline@graham.name",
             teams=[pagerduty_team["example"]["id"]])
         foo = pagerduty.Schedule("foo",
+            time_zone="America/New_York",
             layers=[pagerduty.ScheduleLayerArgs(
                 name="Night Shift",
-                restrictions=[pagerduty.ScheduleLayerRestrictionArgs(
-                    duration_seconds=32400,
-                    start_time_of_day="08:00:00",
-                    type="daily_restriction",
-                )],
-                rotation_turn_length_seconds=86400,
-                rotation_virtual_start="2015-11-06T20:00:00-05:00",
                 start="2015-11-06T20:00:00-05:00",
+                rotation_virtual_start="2015-11-06T20:00:00-05:00",
+                rotation_turn_length_seconds=86400,
                 users=[pagerduty_user["foo"]["id"]],
-            )],
-            time_zone="America/New_York")
+                restrictions=[pagerduty.ScheduleLayerRestrictionArgs(
+                    type="daily_restriction",
+                    start_time_of_day="08:00:00",
+                    duration_seconds=32400,
+                )],
+            )])
         ```
 
         ## Import

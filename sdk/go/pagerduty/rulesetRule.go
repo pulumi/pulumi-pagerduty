@@ -35,6 +35,8 @@ type RulesetRule struct {
 	Ruleset pulumi.StringOutput `pulumi:"ruleset"`
 	// Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
 	TimeFrame RulesetRuleTimeFramePtrOutput `pulumi:"timeFrame"`
+	// Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
+	Variables RulesetRuleVariableArrayOutput `pulumi:"variables"`
 }
 
 // NewRulesetRule registers a new resource with the given unique name, arguments, and options.
@@ -81,6 +83,8 @@ type rulesetRuleState struct {
 	Ruleset *string `pulumi:"ruleset"`
 	// Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
 	TimeFrame *RulesetRuleTimeFrame `pulumi:"timeFrame"`
+	// Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
+	Variables []RulesetRuleVariable `pulumi:"variables"`
 }
 
 type RulesetRuleState struct {
@@ -96,6 +100,8 @@ type RulesetRuleState struct {
 	Ruleset pulumi.StringPtrInput
 	// Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
 	TimeFrame RulesetRuleTimeFramePtrInput
+	// Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
+	Variables RulesetRuleVariableArrayInput
 }
 
 func (RulesetRuleState) ElementType() reflect.Type {
@@ -115,6 +121,8 @@ type rulesetRuleArgs struct {
 	Ruleset string `pulumi:"ruleset"`
 	// Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
 	TimeFrame *RulesetRuleTimeFrame `pulumi:"timeFrame"`
+	// Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
+	Variables []RulesetRuleVariable `pulumi:"variables"`
 }
 
 // The set of arguments for constructing a RulesetRule resource.
@@ -131,6 +139,8 @@ type RulesetRuleArgs struct {
 	Ruleset pulumi.StringInput
 	// Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
 	TimeFrame RulesetRuleTimeFramePtrInput
+	// Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
+	Variables RulesetRuleVariableArrayInput
 }
 
 func (RulesetRuleArgs) ElementType() reflect.Type {

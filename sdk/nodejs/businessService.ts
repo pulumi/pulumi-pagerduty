@@ -16,6 +16,7 @@ import * as utilities from "./utilities";
  * const example = new pagerduty.BusinessService("example", {
  *     description: "A very descriptive description of this business service",
  *     pointOfContact: "PagerDuty Admin",
+ *     team: "P37RSRS",
  * });
  * ```
  *
@@ -68,6 +69,10 @@ export class BusinessService extends pulumi.CustomResource {
     public /*out*/ readonly self!: pulumi.Output<string>;
     public /*out*/ readonly summary!: pulumi.Output<string>;
     /**
+     * ID of the team that owns the business service.
+     */
+    public readonly team!: pulumi.Output<string | undefined>;
+    /**
      * Default value is `businessService`. Can also be set as `businessServiceReference`.
      */
     public readonly type!: pulumi.Output<string | undefined>;
@@ -91,12 +96,14 @@ export class BusinessService extends pulumi.CustomResource {
             inputs["pointOfContact"] = state ? state.pointOfContact : undefined;
             inputs["self"] = state ? state.self : undefined;
             inputs["summary"] = state ? state.summary : undefined;
+            inputs["team"] = state ? state.team : undefined;
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as BusinessServiceArgs | undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["pointOfContact"] = args ? args.pointOfContact : undefined;
+            inputs["team"] = args ? args.team : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["htmlUrl"] = undefined /*out*/;
             inputs["self"] = undefined /*out*/;
@@ -126,6 +133,10 @@ export interface BusinessServiceState {
     readonly self?: pulumi.Input<string>;
     readonly summary?: pulumi.Input<string>;
     /**
+     * ID of the team that owns the business service.
+     */
+    readonly team?: pulumi.Input<string>;
+    /**
      * Default value is `businessService`. Can also be set as `businessServiceReference`.
      */
     readonly type?: pulumi.Input<string>;
@@ -144,6 +155,10 @@ export interface BusinessServiceArgs {
      * The owner of the business service.
      */
     readonly pointOfContact?: pulumi.Input<string>;
+    /**
+     * ID of the team that owns the business service.
+     */
+    readonly team?: pulumi.Input<string>;
     /**
      * Default value is `businessService`. Can also be set as `businessServiceReference`.
      */

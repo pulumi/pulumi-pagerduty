@@ -12,18 +12,22 @@ from .get_business_service import *
 from .get_escalation_policy import *
 from .get_extension_schema import *
 from .get_priority import *
+from .get_ruleset import *
 from .get_schedule import *
 from .get_service import *
 from .get_team import *
 from .get_user import *
+from .get_user_contact_method import *
 from .get_vendor import *
 from .maintenance_window import *
 from .provider import *
+from .response_play import *
 from .ruleset import *
 from .ruleset_rule import *
 from .schedule import *
 from .service import *
 from .service_dependency import *
+from .service_event_rule import *
 from .service_integration import *
 from .team import *
 from .team_membership import *
@@ -62,6 +66,8 @@ def _register_module():
                 return Extension(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "pagerduty:index/maintenanceWindow:MaintenanceWindow":
                 return MaintenanceWindow(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "pagerduty:index/responsePlay:ResponsePlay":
+                return ResponsePlay(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "pagerduty:index/ruleset:Ruleset":
                 return Ruleset(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "pagerduty:index/rulesetRule:RulesetRule":
@@ -72,6 +78,8 @@ def _register_module():
                 return Service(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "pagerduty:index/serviceDependency:ServiceDependency":
                 return ServiceDependency(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "pagerduty:index/serviceEventRule:ServiceEventRule":
+                return ServiceEventRule(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "pagerduty:index/serviceIntegration:ServiceIntegration":
                 return ServiceIntegration(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "pagerduty:index/team:Team":
@@ -95,11 +103,13 @@ def _register_module():
     pulumi.runtime.register_resource_module("pagerduty", "index/eventRule", _module_instance)
     pulumi.runtime.register_resource_module("pagerduty", "index/extension", _module_instance)
     pulumi.runtime.register_resource_module("pagerduty", "index/maintenanceWindow", _module_instance)
+    pulumi.runtime.register_resource_module("pagerduty", "index/responsePlay", _module_instance)
     pulumi.runtime.register_resource_module("pagerduty", "index/ruleset", _module_instance)
     pulumi.runtime.register_resource_module("pagerduty", "index/rulesetRule", _module_instance)
     pulumi.runtime.register_resource_module("pagerduty", "index/schedule", _module_instance)
     pulumi.runtime.register_resource_module("pagerduty", "index/service", _module_instance)
     pulumi.runtime.register_resource_module("pagerduty", "index/serviceDependency", _module_instance)
+    pulumi.runtime.register_resource_module("pagerduty", "index/serviceEventRule", _module_instance)
     pulumi.runtime.register_resource_module("pagerduty", "index/serviceIntegration", _module_instance)
     pulumi.runtime.register_resource_module("pagerduty", "index/team", _module_instance)
     pulumi.runtime.register_resource_module("pagerduty", "index/teamMembership", _module_instance)

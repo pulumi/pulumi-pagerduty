@@ -85,6 +85,22 @@ namespace Pulumi.Pagerduty
     ///                     },
     ///                 },
     ///             },
+    ///             Variables = 
+    ///             {
+    ///                 new Pagerduty.Inputs.RulesetRuleVariableArgs
+    ///                 {
+    ///                     Type = "regex",
+    ///                     Name = "Src",
+    ///                     Parameters = 
+    ///                     {
+    ///                         new Pagerduty.Inputs.RulesetRuleVariableParameterArgs
+    ///                         {
+    ///                             Value = "(.*)",
+    ///                             Path = "payload.source",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
     ///             Actions = new Pagerduty.Inputs.RulesetRuleActionsArgs
     ///             {
     ///                 Routes = 
@@ -115,6 +131,11 @@ namespace Pulumi.Pagerduty
     ///                         Target = "dedup_key",
     ///                         Source = "details.host",
     ///                         Regex = "(.*)",
+    ///                     },
+    ///                     new Pagerduty.Inputs.RulesetRuleActionsExtractionArgs
+    ///                     {
+    ///                         Target = "summary",
+    ///                         Template = "Warning: Disk Space Low on {{Src}}",
     ///                     },
     ///                 },
     ///             },
@@ -170,6 +191,12 @@ namespace Pulumi.Pagerduty
         /// </summary>
         [Output("timeFrame")]
         public Output<Outputs.RulesetRuleTimeFrame?> TimeFrame { get; private set; } = null!;
+
+        /// <summary>
+        /// Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
+        /// </summary>
+        [Output("variables")]
+        public Output<ImmutableArray<Outputs.RulesetRuleVariable>> Variables { get; private set; } = null!;
 
 
         /// <summary>
@@ -253,6 +280,18 @@ namespace Pulumi.Pagerduty
         [Input("timeFrame")]
         public Input<Inputs.RulesetRuleTimeFrameArgs>? TimeFrame { get; set; }
 
+        [Input("variables")]
+        private InputList<Inputs.RulesetRuleVariableArgs>? _variables;
+
+        /// <summary>
+        /// Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
+        /// </summary>
+        public InputList<Inputs.RulesetRuleVariableArgs> Variables
+        {
+            get => _variables ?? (_variables = new InputList<Inputs.RulesetRuleVariableArgs>());
+            set => _variables = value;
+        }
+
         public RulesetRuleArgs()
         {
         }
@@ -295,6 +334,18 @@ namespace Pulumi.Pagerduty
         /// </summary>
         [Input("timeFrame")]
         public Input<Inputs.RulesetRuleTimeFrameGetArgs>? TimeFrame { get; set; }
+
+        [Input("variables")]
+        private InputList<Inputs.RulesetRuleVariableGetArgs>? _variables;
+
+        /// <summary>
+        /// Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
+        /// </summary>
+        public InputList<Inputs.RulesetRuleVariableGetArgs> Variables
+        {
+            get => _variables ?? (_variables = new InputList<Inputs.RulesetRuleVariableGetArgs>());
+            set => _variables = value;
+        }
 
         public RulesetRuleState()
         {

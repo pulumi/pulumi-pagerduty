@@ -13,16 +13,12 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const fooUser = new pagerduty.User("foo", {
- *     email: "foo@bar.com",
- * });
- * const fooTeam = new pagerduty.Team("foo", {
- *     description: "foo",
- * });
- * const fooTeamMembership = new pagerduty.TeamMembership("foo", {
- *     role: "manager",
- *     teamId: fooTeam.id,
+ * const fooUser = new pagerduty.User("fooUser", {email: "foo@bar.com"});
+ * const fooTeam = new pagerduty.Team("fooTeam", {description: "foo"});
+ * const fooTeamMembership = new pagerduty.TeamMembership("fooTeamMembership", {
  *     userId: fooUser.id,
+ *     teamId: fooTeam.id,
+ *     role: "manager",
  * });
  * ```
  *
@@ -63,7 +59,9 @@ export class TeamMembership extends pulumi.CustomResource {
     }
 
     /**
-     * The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.
+     * The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`. These roles match up to user roles in the following ways:
+     * * User role of `user` is a Team role of `manager`
+     * * User role of `limitedUser` is a Team role of `responder`
      */
     public readonly role!: pulumi.Output<string | undefined>;
     /**
@@ -115,7 +113,9 @@ export class TeamMembership extends pulumi.CustomResource {
  */
 export interface TeamMembershipState {
     /**
-     * The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.
+     * The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`. These roles match up to user roles in the following ways:
+     * * User role of `user` is a Team role of `manager`
+     * * User role of `limitedUser` is a Team role of `responder`
      */
     readonly role?: pulumi.Input<string>;
     /**
@@ -133,7 +133,9 @@ export interface TeamMembershipState {
  */
 export interface TeamMembershipArgs {
     /**
-     * The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.
+     * The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`. These roles match up to user roles in the following ways:
+     * * User role of `user` is a Team role of `manager`
+     * * User role of `limitedUser` is a Team role of `responder`
      */
     readonly role?: pulumi.Input<string>;
     /**

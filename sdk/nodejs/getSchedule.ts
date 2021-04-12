@@ -14,16 +14,16 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const test = pulumi.output(pagerduty.getSchedule({
+ * const test = pagerduty.getSchedule({
  *     name: "Daily Engineering Rotation",
- * }, { async: true }));
+ * });
  * const foo = new pagerduty.EscalationPolicy("foo", {
  *     numLoops: 2,
  *     rules: [{
  *         escalationDelayInMinutes: 10,
  *         targets: [{
- *             id: test.id,
  *             type: "schedule",
+ *             id: test.then(test => test.id),
  *         }],
  *     }],
  * });

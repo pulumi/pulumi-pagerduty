@@ -71,8 +71,8 @@ def get_schedule(name: Optional[str] = None,
         rules=[pagerduty.EscalationPolicyRuleArgs(
             escalation_delay_in_minutes=10,
             targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                id=test.id,
                 type="schedule",
+                id=test.id,
             )],
         )])
     ```

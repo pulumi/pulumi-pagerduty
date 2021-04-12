@@ -69,7 +69,7 @@ class AwaitableGetPriorityResult(GetPriorityResult):
 def get_priority(name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPriorityResult:
     """
-    Use this data source to get information about a specific [priority](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1priorities/get) that you can use for other PagerDuty resources.
+    Use this data source to get information about a specific [priority](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1priorities/get) that you can use for other PagerDuty resources. A priority is a label representing the importance and impact of an incident. This feature is only available on Standard and Enterprise plans.
 
     ## Example Usage
 
@@ -107,7 +107,7 @@ def get_priority(name: Optional[str] = None,
                 value="P5DTL0K",
             )],
             priorities=[pagerduty.RulesetRuleActionsPriorityArgs(
-                value=pagerduty_priority["p1"]["id"],
+                value=p1.id,
             )],
         ))
     ```

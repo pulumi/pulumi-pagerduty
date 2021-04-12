@@ -14,22 +14,22 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const me = pulumi.output(pagerduty.getUser({
+ * const me = pagerduty.getUser({
  *     email: "me@example.com",
- * }, { async: true }));
- * const devops = pulumi.output(pagerduty.getTeam({
+ * });
+ * const devops = pagerduty.getTeam({
  *     name: "devops",
- * }, { async: true }));
+ * });
  * const foo = new pagerduty.EscalationPolicy("foo", {
  *     numLoops: 2,
+ *     teams: [devops.then(devops => devops.id)],
  *     rules: [{
  *         escalationDelayInMinutes: 10,
  *         targets: [{
- *             id: me.id,
  *             type: "user",
+ *             id: me.then(me => me.id),
  *         }],
  *     }],
- *     teams: [devops.id],
  * });
  * ```
  */
@@ -43,6 +43,7 @@ export function getTeam(args: GetTeamArgs, opts?: pulumi.InvokeOptions): Promise
     }
     return pulumi.runtime.invoke("pagerduty:index/getTeam:getTeam", {
         "name": args.name,
+        "parent": args.parent,
     }, opts);
 }
 
@@ -54,6 +55,10 @@ export interface GetTeamArgs {
      * The name of the team to find in the PagerDuty API.
      */
     readonly name: string;
+    /**
+     * ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
+     */
+    readonly parent?: string;
 }
 
 /**
@@ -72,4 +77,8 @@ export interface GetTeamResult {
      * The name of the found team.
      */
     readonly name: string;
+    /**
+     * ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
+     */
+    readonly parent?: string;
 }

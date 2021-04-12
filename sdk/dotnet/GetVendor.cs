@@ -50,8 +50,8 @@ namespace Pulumi.Pagerduty
         ///                     {
         ///                         new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
         ///                         {
-        ///                             Id = exampleUser.Id,
         ///                             Type = "user",
+        ///                             Id = exampleUser.Id,
         ///                         },
         ///                     },
         ///                 },
@@ -59,15 +59,15 @@ namespace Pulumi.Pagerduty
         ///         });
         ///         var exampleService = new Pagerduty.Service("exampleService", new Pagerduty.ServiceArgs
         ///         {
-        ///             AcknowledgementTimeout = "600",
         ///             AutoResolveTimeout = "14400",
+        ///             AcknowledgementTimeout = "600",
         ///             EscalationPolicy = pagerduty_escalation_policy.Example.Id,
         ///         });
         ///         var exampleServiceIntegration = new Pagerduty.ServiceIntegration("exampleServiceIntegration", new Pagerduty.ServiceIntegrationArgs
         ///         {
+        ///             Vendor = datadog.Apply(datadog =&gt; datadog.Id),
         ///             Service = exampleService.Id,
         ///             Type = "generic_events_api_inbound_integration",
-        ///             Vendor = datadog.Apply(datadog =&gt; datadog.Id),
         ///         });
         ///     }
         /// 

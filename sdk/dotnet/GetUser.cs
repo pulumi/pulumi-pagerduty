@@ -42,8 +42,8 @@ namespace Pulumi.Pagerduty
         ///                     {
         ///                         new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
         ///                         {
-        ///                             Id = me.Apply(me =&gt; me.Id),
         ///                             Type = "user",
+        ///                             Id = me.Apply(me =&gt; me.Id),
         ///                         },
         ///                     },
         ///                 },

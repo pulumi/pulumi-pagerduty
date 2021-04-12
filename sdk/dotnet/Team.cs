@@ -14,25 +14,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// The account must have the `teams` ability to use the following resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Pagerduty = Pulumi.Pagerduty;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Pagerduty.Team("example", new Pagerduty.TeamArgs
-    ///         {
-    ///             Description = "All engineering",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Teams can be imported using the `id`, e.g.
@@ -58,6 +39,12 @@ namespace Pulumi.Pagerduty
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
+        /// </summary>
+        [Output("parent")]
+        public Output<string?> Parent { get; private set; } = null!;
 
 
         /// <summary>
@@ -114,6 +101,12 @@ namespace Pulumi.Pagerduty
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
+        /// </summary>
+        [Input("parent")]
+        public Input<string>? Parent { get; set; }
+
         public TeamArgs()
         {
         }
@@ -135,6 +128,12 @@ namespace Pulumi.Pagerduty
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
+        /// </summary>
+        [Input("parent")]
+        public Input<string>? Parent { get; set; }
 
         public TeamState()
         {

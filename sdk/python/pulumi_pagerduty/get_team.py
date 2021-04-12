@@ -19,7 +19,7 @@ class GetTeamResult:
     """
     A collection of values returned by getTeam.
     """
-    def __init__(__self__, description=None, id=None, name=None):
+    def __init__(__self__, description=None, id=None, name=None, parent=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -29,6 +29,9 @@ class GetTeamResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if parent and not isinstance(parent, str):
+            raise TypeError("Expected argument 'parent' to be a str")
+        pulumi.set(__self__, "parent", parent)
 
     @property
     @pulumi.getter
@@ -54,6 +57,14 @@ class GetTeamResult:
         """
         return pulumi.get(self, "name")
 
+    @property
+    @pulumi.getter
+    def parent(self) -> Optional[str]:
+        """
+        ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
+        """
+        return pulumi.get(self, "parent")
+
 
 class AwaitableGetTeamResult(GetTeamResult):
     # pylint: disable=using-constant-test
@@ -63,10 +74,12 @@ class AwaitableGetTeamResult(GetTeamResult):
         return GetTeamResult(
             description=self.description,
             id=self.id,
-            name=self.name)
+            name=self.name,
+            parent=self.parent)
 
 
 def get_team(name: Optional[str] = None,
+             parent: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTeamResult:
     """
     Use this data source to get information about a specific [team](https://v1.developer.pagerduty.com/documentation/rest/teams/list) that you can use for other PagerDuty resources.
@@ -81,21 +94,23 @@ def get_team(name: Optional[str] = None,
     devops = pagerduty.get_team(name="devops")
     foo = pagerduty.EscalationPolicy("foo",
         num_loops=2,
+        teams=[devops.id],
         rules=[pagerduty.EscalationPolicyRuleArgs(
             escalation_delay_in_minutes=10,
             targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                id=me.id,
                 type="user",
+                id=me.id,
             )],
-        )],
-        teams=[devops.id])
+        )])
     ```
 
 
     :param str name: The name of the team to find in the PagerDuty API.
+    :param str parent: ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['parent'] = parent
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -105,4 +120,5 @@ def get_team(name: Optional[str] = None,
     return AwaitableGetTeamResult(
         description=__ret__.description,
         id=__ret__.id,
-        name=__ret__.name)
+        name=__ret__.name,
+        parent=__ret__.parent)

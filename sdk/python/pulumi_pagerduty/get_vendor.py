@@ -86,18 +86,18 @@ def get_vendor(name: Optional[str] = None,
         rules=[pagerduty.EscalationPolicyRuleArgs(
             escalation_delay_in_minutes=10,
             targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                id=example_user.id,
                 type="user",
+                id=example_user.id,
             )],
         )])
     example_service = pagerduty.Service("exampleService",
-        acknowledgement_timeout="600",
         auto_resolve_timeout="14400",
+        acknowledgement_timeout="600",
         escalation_policy=pagerduty_escalation_policy["example"]["id"])
     example_service_integration = pagerduty.ServiceIntegration("exampleServiceIntegration",
+        vendor=datadog.id,
         service=example_service.id,
-        type="generic_events_api_inbound_integration",
-        vendor=datadog.id)
+        type="generic_events_api_inbound_integration")
     ```
 
 

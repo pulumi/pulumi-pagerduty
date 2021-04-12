@@ -14,7 +14,7 @@ namespace Pulumi.Pagerduty.Outputs
     public sealed class RulesetRuleActionsSuppress
     {
         /// <summary>
-        /// The number value of the `threshold_time_unit` before an incident is created.
+        /// The number value of the `threshold_time_unit` before an incident is created. Must be greater than 0.
         /// </summary>
         public readonly int? ThresholdTimeAmount;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly string? ThresholdTimeUnit;
         /// <summary>
-        /// The number of alerts that should be suppressed.
+        /// The number of alerts that should be suppressed. Must be greater than 0.
         /// </summary>
         public readonly int? ThresholdValue;
         /// <summary>

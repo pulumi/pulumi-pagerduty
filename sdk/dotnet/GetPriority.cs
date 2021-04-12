@@ -12,7 +12,7 @@ namespace Pulumi.Pagerduty
     public static class GetPriority
     {
         /// <summary>
-        /// Use this data source to get information about a specific [priority](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1priorities/get) that you can use for other PagerDuty resources.
+        /// Use this data source to get information about a specific [priority](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1priorities/get) that you can use for other PagerDuty resources. A priority is a label representing the importance and impact of an incident. This feature is only available on Standard and Enterprise plans.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -82,7 +82,7 @@ namespace Pulumi.Pagerduty
         ///                 {
         ///                     new Pagerduty.Inputs.RulesetRuleActionsPriorityArgs
         ///                     {
-        ///                         Value = pagerduty_priority.P1.Id,
+        ///                         Value = p1.Apply(p1 =&gt; p1.Id),
         ///                     },
         ///                 },
         ///             },

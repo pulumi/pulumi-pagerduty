@@ -42,8 +42,8 @@ namespace Pulumi.Pagerduty
     ///                     {
     ///                         new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
     ///                         {
-    ///                             Id = exampleUser.Id,
     ///                             Type = "user",
+    ///                             Id = exampleUser.Id,
     ///                         },
     ///                     },
     ///                 },
@@ -51,10 +51,10 @@ namespace Pulumi.Pagerduty
     ///         });
     ///         var exampleService = new Pagerduty.Service("exampleService", new Pagerduty.ServiceArgs
     ///         {
-    ///             AcknowledgementTimeout = "600",
-    ///             AlertCreation = "create_incidents",
     ///             AutoResolveTimeout = "14400",
+    ///             AcknowledgementTimeout = "600",
     ///             EscalationPolicy = pagerduty_escalation_policy.Example.Id,
+    ///             AlertCreation = "create_alerts_and_incidents",
     ///         });
     ///     }
     /// 
@@ -79,7 +79,7 @@ namespace Pulumi.Pagerduty
         public Output<string?> AcknowledgementTimeout { get; private set; } = null!;
 
         /// <summary>
-        /// Must be one of two values. PagerDuty receives events from your monitoring systems and can then create incidents in different ways. Value "create_incidents" is default: events will create an incident that cannot be merged. Value "create_alerts_and_incidents" is the alternative: events will create an alert and then add it to a new incident, these incidents can be merged.
+        /// Must be one of two values. PagerDuty receives events from your monitoring systems and can then create incidents in different ways. Value "create_incidents" is default: events will create an incident that cannot be merged. Value "create_alerts_and_incidents" is the alternative: events will create an alert and then add it to a new incident, these incidents can be merged. This option is recommended.
         /// </summary>
         [Output("alertCreation")]
         public Output<string?> AlertCreation { get; private set; } = null!;
@@ -191,7 +191,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? AcknowledgementTimeout { get; set; }
 
         /// <summary>
-        /// Must be one of two values. PagerDuty receives events from your monitoring systems and can then create incidents in different ways. Value "create_incidents" is default: events will create an incident that cannot be merged. Value "create_alerts_and_incidents" is the alternative: events will create an alert and then add it to a new incident, these incidents can be merged.
+        /// Must be one of two values. PagerDuty receives events from your monitoring systems and can then create incidents in different ways. Value "create_incidents" is default: events will create an incident that cannot be merged. Value "create_alerts_and_incidents" is the alternative: events will create an alert and then add it to a new incident, these incidents can be merged. This option is recommended.
         /// </summary>
         [Input("alertCreation")]
         public Input<string>? AlertCreation { get; set; }
@@ -257,7 +257,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? AcknowledgementTimeout { get; set; }
 
         /// <summary>
-        /// Must be one of two values. PagerDuty receives events from your monitoring systems and can then create incidents in different ways. Value "create_incidents" is default: events will create an incident that cannot be merged. Value "create_alerts_and_incidents" is the alternative: events will create an alert and then add it to a new incident, these incidents can be merged.
+        /// Must be one of two values. PagerDuty receives events from your monitoring systems and can then create incidents in different ways. Value "create_incidents" is default: events will create an incident that cannot be merged. Value "create_alerts_and_incidents" is the alternative: events will create an alert and then add it to a new incident, these incidents can be merged. This option is recommended.
         /// </summary>
         [Input("alertCreation")]
         public Input<string>? AlertCreation { get; set; }

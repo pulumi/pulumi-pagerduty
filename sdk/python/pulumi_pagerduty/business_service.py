@@ -18,6 +18,7 @@ class BusinessService(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  point_of_contact: Optional[pulumi.Input[str]] = None,
+                 team: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -33,7 +34,8 @@ class BusinessService(pulumi.CustomResource):
 
         example = pagerduty.BusinessService("example",
             description="A very descriptive description of this business service",
-            point_of_contact="PagerDuty Admin")
+            point_of_contact="PagerDuty Admin",
+            team="P37RSRS")
         ```
 
         ## Import
@@ -48,6 +50,7 @@ class BusinessService(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the business service.
         :param pulumi.Input[str] point_of_contact: The owner of the business service.
+        :param pulumi.Input[str] team: ID of the team that owns the business service.
         :param pulumi.Input[str] type: Default value is `business_service`. Can also be set as `business_service_reference`.
         """
         if __name__ is not None:
@@ -70,6 +73,7 @@ class BusinessService(pulumi.CustomResource):
             __props__['description'] = description
             __props__['name'] = name
             __props__['point_of_contact'] = point_of_contact
+            __props__['team'] = team
             __props__['type'] = type
             __props__['html_url'] = None
             __props__['self'] = None
@@ -90,6 +94,7 @@ class BusinessService(pulumi.CustomResource):
             point_of_contact: Optional[pulumi.Input[str]] = None,
             self: Optional[pulumi.Input[str]] = None,
             summary: Optional[pulumi.Input[str]] = None,
+            team: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'BusinessService':
         """
         Get an existing BusinessService resource's state with the given name, id, and optional extra
@@ -100,6 +105,7 @@ class BusinessService(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the business service.
         :param pulumi.Input[str] point_of_contact: The owner of the business service.
+        :param pulumi.Input[str] team: ID of the team that owns the business service.
         :param pulumi.Input[str] type: Default value is `business_service`. Can also be set as `business_service_reference`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -112,6 +118,7 @@ class BusinessService(pulumi.CustomResource):
         __props__["point_of_contact"] = point_of_contact
         __props__["self"] = self
         __props__["summary"] = summary
+        __props__["team"] = team
         __props__["type"] = type
         return BusinessService(resource_name, opts=opts, __props__=__props__)
 
@@ -150,6 +157,14 @@ class BusinessService(pulumi.CustomResource):
     @pulumi.getter
     def summary(self) -> pulumi.Output[str]:
         return pulumi.get(self, "summary")
+
+    @property
+    @pulumi.getter
+    def team(self) -> pulumi.Output[Optional[str]]:
+        """
+        ID of the team that owns the business service.
+        """
+        return pulumi.get(self, "team")
 
     @property
     @pulumi.getter

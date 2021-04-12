@@ -14,13 +14,13 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const testEscalationPolicy = pulumi.output(pagerduty.getEscalationPolicy({
+ * const testEscalationPolicy = pagerduty.getEscalationPolicy({
  *     name: "Engineering Escalation Policy",
- * }, { async: true }));
- * const testService = new pagerduty.Service("test", {
- *     acknowledgementTimeout: "600",
- *     autoResolveTimeout: "14400",
- *     escalationPolicy: testEscalationPolicy.id,
+ * });
+ * const testService = new pagerduty.Service("testService", {
+ *     autoResolveTimeout: 14400,
+ *     acknowledgementTimeout: 600,
+ *     escalationPolicy: testEscalationPolicy.then(testEscalationPolicy => testEscalationPolicy.id),
  * });
  * ```
  */

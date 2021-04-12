@@ -13,29 +13,32 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const webhook = pulumi.output(pagerduty.getExtensionSchema({
+ * const webhook = pagerduty.getExtensionSchema({
  *     name: "Generic V2 Webhook",
- * }, { async: true }));
- * const exampleUser = new pagerduty.User("example", {
+ * });
+ * const exampleUser = new pagerduty.User("exampleUser", {
  *     email: "howard.james@example.domain",
- *     teams: [pagerduty_team_example.id],
+ *     teams: [pagerduty_team.example.id],
  * });
  * const foo = new pagerduty.EscalationPolicy("foo", {
  *     numLoops: 2,
  *     rules: [{
  *         escalationDelayInMinutes: 10,
  *         targets: [{
- *             id: exampleUser.id,
  *             type: "user",
+ *             id: exampleUser.id,
  *         }],
  *     }],
  * });
- * const exampleService = new pagerduty.Service("example", {
- *     acknowledgementTimeout: "600",
- *     autoResolveTimeout: "14400",
- *     escalationPolicy: pagerduty_escalation_policy_example.id,
+ * const exampleService = new pagerduty.Service("exampleService", {
+ *     autoResolveTimeout: 14400,
+ *     acknowledgementTimeout: 600,
+ *     escalationPolicy: pagerduty_escalation_policy.example.id,
  * });
  * const slack = new pagerduty.Extension("slack", {
+ *     endpointUrl: "https://generic_webhook_url/XXXXXX/BBBBBB",
+ *     extensionSchema: webhook.then(webhook => webhook.id),
+ *     extensionObjects: [exampleService.id],
  *     config: `{
  * 	"restrict": "any",
  * 	"notify_types": {
@@ -46,9 +49,6 @@ import * as utilities from "./utilities";
  * 	"access_token": "XXX"
  * }
  * `,
- *     endpointUrl: "https://generic_webhook_url/XXXXXX/BBBBBB",
- *     extensionObjects: [exampleService.id],
- *     extensionSchema: webhook.id,
  * });
  * ```
  *
@@ -93,7 +93,7 @@ export class Extension extends pulumi.CustomResource {
      */
     public readonly config!: pulumi.Output<string | undefined>;
     /**
-     * The url of the extension.  
+     * The url of the extension.
      * **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `pagerduty.getExtensionSchema` named `Generic V2 Webhook` doesn't accept `pagerduty.Extension` with no `endpointUrl`, but one with named `Slack` accepts.
      */
     public readonly endpointUrl!: pulumi.Output<string | undefined>;
@@ -167,7 +167,7 @@ export interface ExtensionState {
      */
     readonly config?: pulumi.Input<string>;
     /**
-     * The url of the extension.  
+     * The url of the extension.
      * **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `pagerduty.getExtensionSchema` named `Generic V2 Webhook` doesn't accept `pagerduty.Extension` with no `endpointUrl`, but one with named `Slack` accepts.
      */
     readonly endpointUrl?: pulumi.Input<string>;
@@ -199,7 +199,7 @@ export interface ExtensionArgs {
      */
     readonly config?: pulumi.Input<string>;
     /**
-     * The url of the extension.  
+     * The url of the extension.
      * **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `pagerduty.getExtensionSchema` named `Generic V2 Webhook` doesn't accept `pagerduty.Extension` with no `endpointUrl`, but one with named `Slack` accepts.
      */
     readonly endpointUrl?: pulumi.Input<string>;

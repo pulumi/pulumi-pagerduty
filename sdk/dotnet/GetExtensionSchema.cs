@@ -50,8 +50,8 @@ namespace Pulumi.Pagerduty
         ///                     {
         ///                         new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
         ///                         {
-        ///                             Id = exampleUser.Id,
         ///                             Type = "user",
+        ///                             Id = exampleUser.Id,
         ///                         },
         ///                     },
         ///                 },
@@ -59,18 +59,18 @@ namespace Pulumi.Pagerduty
         ///         });
         ///         var exampleService = new Pagerduty.Service("exampleService", new Pagerduty.ServiceArgs
         ///         {
-        ///             AcknowledgementTimeout = "600",
         ///             AutoResolveTimeout = "14400",
+        ///             AcknowledgementTimeout = "600",
         ///             EscalationPolicy = pagerduty_escalation_policy.Example.Id,
         ///         });
         ///         var slack = new Pagerduty.Extension("slack", new Pagerduty.ExtensionArgs
         ///         {
         ///             EndpointUrl = "https://generic_webhook_url/XXXXXX/BBBBBB",
+        ///             ExtensionSchema = webhook.Apply(webhook =&gt; webhook.Id),
         ///             ExtensionObjects = 
         ///             {
         ///                 exampleService.Id,
         ///             },
-        ///             ExtensionSchema = webhook.Apply(webhook =&gt; webhook.Id),
         ///         });
         ///     }
         /// 

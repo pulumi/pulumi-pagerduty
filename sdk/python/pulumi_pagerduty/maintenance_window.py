@@ -34,9 +34,9 @@ class MaintenanceWindow(pulumi.CustomResource):
         import pulumi_pagerduty as pagerduty
 
         example = pagerduty.MaintenanceWindow("example",
+            start_time="2015-11-09T20:00:00-05:00",
             end_time="2015-11-09T22:00:00-05:00",
-            services=[pagerduty_service["example"]["id"]],
-            start_time="2015-11-09T20:00:00-05:00")
+            services=[pagerduty_service["example"]["id"]])
         ```
 
         ## Import

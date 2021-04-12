@@ -28,11 +28,11 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := pagerduty.NewMaintenanceWindow(ctx, "example", &pagerduty.MaintenanceWindowArgs{
-// 			EndTime: pulumi.String("2015-11-09T22:00:00-05:00"),
+// 			StartTime: pulumi.String("2015-11-09T20:00:00-05:00"),
+// 			EndTime:   pulumi.String("2015-11-09T22:00:00-05:00"),
 // 			Services: pulumi.StringArray{
 // 				pulumi.Any(pagerduty_service.Example.Id),
 // 			},
-// 			StartTime: pulumi.String("2015-11-09T20:00:00-05:00"),
 // 		})
 // 		if err != nil {
 // 			return err

@@ -26,12 +26,12 @@ namespace Pulumi.Pagerduty
     ///     {
     ///         var example = new Pagerduty.MaintenanceWindow("example", new Pagerduty.MaintenanceWindowArgs
     ///         {
+    ///             StartTime = "2015-11-09T20:00:00-05:00",
     ///             EndTime = "2015-11-09T22:00:00-05:00",
     ///             Services = 
     ///             {
     ///                 pagerduty_service.Example.Id,
     ///             },
-    ///             StartTime = "2015-11-09T20:00:00-05:00",
     ///         });
     ///     }
     /// 

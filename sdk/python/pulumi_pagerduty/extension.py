@@ -42,15 +42,18 @@ class Extension(pulumi.CustomResource):
             rules=[pagerduty.EscalationPolicyRuleArgs(
                 escalation_delay_in_minutes=10,
                 targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                    id=example_user.id,
                     type="user",
+                    id=example_user.id,
                 )],
             )])
         example_service = pagerduty.Service("exampleService",
-            acknowledgement_timeout="600",
             auto_resolve_timeout="14400",
+            acknowledgement_timeout="600",
             escalation_policy=pagerduty_escalation_policy["example"]["id"])
         slack = pagerduty.Extension("slack",
+            endpoint_url="https://generic_webhook_url/XXXXXX/BBBBBB",
+            extension_schema=webhook.id,
+            extension_objects=[example_service.id],
             config=\"\"\"{
         	"restrict": "any",
         	"notify_types": {
@@ -60,11 +63,7 @@ class Extension(pulumi.CustomResource):
         	},
         	"access_token": "XXX"
         }
-
-        \"\"\",
-            endpoint_url="https://generic_webhook_url/XXXXXX/BBBBBB",
-            extension_objects=[example_service.id],
-            extension_schema=webhook.id)
+        \"\"\")
         ```
 
         ## Import
@@ -78,7 +77,7 @@ class Extension(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] config: The configuration of the service extension as string containing plain JSON-encoded data.
-        :param pulumi.Input[str] endpoint_url: The url of the extension.  
+        :param pulumi.Input[str] endpoint_url: The url of the extension.
                **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `getExtensionSchema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpoint_url`, but one with named `Slack` accepts.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extension_objects: This is the objects for which the extension applies (An array of service ids).
         :param pulumi.Input[str] extension_schema: This is the schema for this extension.
@@ -137,7 +136,7 @@ class Extension(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] config: The configuration of the service extension as string containing plain JSON-encoded data.
-        :param pulumi.Input[str] endpoint_url: The url of the extension.  
+        :param pulumi.Input[str] endpoint_url: The url of the extension.
                **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `getExtensionSchema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpoint_url`, but one with named `Slack` accepts.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extension_objects: This is the objects for which the extension applies (An array of service ids).
         :param pulumi.Input[str] extension_schema: This is the schema for this extension.
@@ -169,7 +168,7 @@ class Extension(pulumi.CustomResource):
     @pulumi.getter(name="endpointUrl")
     def endpoint_url(self) -> pulumi.Output[Optional[str]]:
         """
-        The url of the extension.  
+        The url of the extension.
         **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `getExtensionSchema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpoint_url`, but one with named `Slack` accepts.
         """
         return pulumi.get(self, "endpoint_url")

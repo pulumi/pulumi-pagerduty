@@ -11,6 +11,12 @@ from . import _utilities, _tables
 __all__ = [
     'EscalationPolicyRuleArgs',
     'EscalationPolicyRuleTargetArgs',
+    'ResponsePlayResponderArgs',
+    'ResponsePlayResponderEscalationRuleArgs',
+    'ResponsePlayResponderEscalationRuleTargetArgs',
+    'ResponsePlayResponderServiceArgs',
+    'ResponsePlayResponderTeamArgs',
+    'ResponsePlaySubscriberArgs',
     'RulesetRuleActionsArgs',
     'RulesetRuleActionsAnnotateArgs',
     'RulesetRuleActionsEventActionArgs',
@@ -19,18 +25,37 @@ __all__ = [
     'RulesetRuleActionsRouteArgs',
     'RulesetRuleActionsSeverityArgs',
     'RulesetRuleActionsSuppressArgs',
+    'RulesetRuleActionsSuspendArgs',
     'RulesetRuleConditionsArgs',
     'RulesetRuleConditionsSubconditionArgs',
     'RulesetRuleConditionsSubconditionParameterArgs',
     'RulesetRuleTimeFrameArgs',
     'RulesetRuleTimeFrameActiveBetweenArgs',
     'RulesetRuleTimeFrameScheduledWeeklyArgs',
+    'RulesetRuleVariableArgs',
+    'RulesetRuleVariableParameterArgs',
     'RulesetTeamArgs',
     'ScheduleLayerArgs',
     'ScheduleLayerRestrictionArgs',
     'ServiceDependencyDependencyArgs',
     'ServiceDependencyDependencyDependentServiceArgs',
     'ServiceDependencyDependencySupportingServiceArgs',
+    'ServiceEventRuleActionsArgs',
+    'ServiceEventRuleActionsAnnotateArgs',
+    'ServiceEventRuleActionsEventActionArgs',
+    'ServiceEventRuleActionsExtractionArgs',
+    'ServiceEventRuleActionsPriorityArgs',
+    'ServiceEventRuleActionsSeverityArgs',
+    'ServiceEventRuleActionsSuppressArgs',
+    'ServiceEventRuleActionsSuspendArgs',
+    'ServiceEventRuleConditionsArgs',
+    'ServiceEventRuleConditionsSubconditionArgs',
+    'ServiceEventRuleConditionsSubconditionParameterArgs',
+    'ServiceEventRuleTimeFrameArgs',
+    'ServiceEventRuleTimeFrameActiveBetweenArgs',
+    'ServiceEventRuleTimeFrameScheduledWeeklyArgs',
+    'ServiceEventRuleVariableArgs',
+    'ServiceEventRuleVariableParameterArgs',
     'ServiceIncidentUrgencyRuleArgs',
     'ServiceIncidentUrgencyRuleDuringSupportHoursArgs',
     'ServiceIncidentUrgencyRuleOutsideSupportHoursArgs',
@@ -96,7 +121,7 @@ class EscalationPolicyRuleTargetArgs:
                  type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] id: A target ID
-        :param pulumi.Input[str] type: Can be `user`, `schedule`, `user_reference` or `schedule_reference`. Defaults to `user_reference`
+        :param pulumi.Input[str] type: Can be `user`, `schedule`, `user_reference` or `schedule_reference`. Defaults to `user_reference`. For multiple users as example, repeat the target.
         """
         pulumi.set(__self__, "id", id)
         if type is not None:
@@ -118,7 +143,367 @@ class EscalationPolicyRuleTargetArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Can be `user`, `schedule`, `user_reference` or `schedule_reference`. Defaults to `user_reference`
+        Can be `user`, `schedule`, `user_reference` or `schedule_reference`. Defaults to `user_reference`. For multiple users as example, repeat the target.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class ResponsePlayResponderArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 escalation_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderEscalationRuleArgs']]]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 num_loops: Optional[pulumi.Input[int]] = None,
+                 on_call_handoff_notifications: Optional[pulumi.Input[str]] = None,
+                 services: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderServiceArgs']]]] = None,
+                 teams: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderTeamArgs']]]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] description: Description of escalation policy
+        :param pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderEscalationRuleArgs']]] escalation_rules: The escalation rules
+        :param pulumi.Input[str] id: ID of the user defined as the responder
+        :param pulumi.Input[str] name: Name of the escalation policy
+        :param pulumi.Input[int] num_loops: The number of times the escalation policy will repeat after reaching the end of its escalation.
+        :param pulumi.Input[str] on_call_handoff_notifications: Determines how on call handoff notifications will be sent for users on the escalation policy. Defaults to "if_has_services". Could be "if_has_services", "always
+        :param pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderServiceArgs']]] services: There can be multiple services associated with a policy.
+        :param pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderTeamArgs']]] teams: Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
+        :param pulumi.Input[str] type: Type of object of the target. Supported types are `user`, `schedule`, `user_reference`, `schedule_reference`.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if escalation_rules is not None:
+            pulumi.set(__self__, "escalation_rules", escalation_rules)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if num_loops is not None:
+            pulumi.set(__self__, "num_loops", num_loops)
+        if on_call_handoff_notifications is not None:
+            pulumi.set(__self__, "on_call_handoff_notifications", on_call_handoff_notifications)
+        if services is not None:
+            pulumi.set(__self__, "services", services)
+        if teams is not None:
+            pulumi.set(__self__, "teams", teams)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of escalation policy
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="escalationRules")
+    def escalation_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderEscalationRuleArgs']]]]:
+        """
+        The escalation rules
+        """
+        return pulumi.get(self, "escalation_rules")
+
+    @escalation_rules.setter
+    def escalation_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderEscalationRuleArgs']]]]):
+        pulumi.set(self, "escalation_rules", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the user defined as the responder
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the escalation policy
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="numLoops")
+    def num_loops(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of times the escalation policy will repeat after reaching the end of its escalation.
+        """
+        return pulumi.get(self, "num_loops")
+
+    @num_loops.setter
+    def num_loops(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "num_loops", value)
+
+    @property
+    @pulumi.getter(name="onCallHandoffNotifications")
+    def on_call_handoff_notifications(self) -> Optional[pulumi.Input[str]]:
+        """
+        Determines how on call handoff notifications will be sent for users on the escalation policy. Defaults to "if_has_services". Could be "if_has_services", "always
+        """
+        return pulumi.get(self, "on_call_handoff_notifications")
+
+    @on_call_handoff_notifications.setter
+    def on_call_handoff_notifications(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "on_call_handoff_notifications", value)
+
+    @property
+    @pulumi.getter
+    def services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderServiceArgs']]]]:
+        """
+        There can be multiple services associated with a policy.
+        """
+        return pulumi.get(self, "services")
+
+    @services.setter
+    def services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderServiceArgs']]]]):
+        pulumi.set(self, "services", value)
+
+    @property
+    @pulumi.getter
+    def teams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderTeamArgs']]]]:
+        """
+        Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
+        """
+        return pulumi.get(self, "teams")
+
+    @teams.setter
+    def teams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderTeamArgs']]]]):
+        pulumi.set(self, "teams", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of object of the target. Supported types are `user`, `schedule`, `user_reference`, `schedule_reference`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class ResponsePlayResponderEscalationRuleArgs:
+    def __init__(__self__, *,
+                 targets: pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderEscalationRuleTargetArgs']]],
+                 escalation_delay_in_minutes: Optional[pulumi.Input[int]] = None,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderEscalationRuleTargetArgs']]] targets: The targets an incident should be assigned to upon reaching this rule.
+        :param pulumi.Input[int] escalation_delay_in_minutes: The number of minutes before an unacknowledged incident escalates away from this rule.
+        :param pulumi.Input[str] id: ID of the user defined as the responder
+        """
+        pulumi.set(__self__, "targets", targets)
+        if escalation_delay_in_minutes is not None:
+            pulumi.set(__self__, "escalation_delay_in_minutes", escalation_delay_in_minutes)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def targets(self) -> pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderEscalationRuleTargetArgs']]]:
+        """
+        The targets an incident should be assigned to upon reaching this rule.
+        """
+        return pulumi.get(self, "targets")
+
+    @targets.setter
+    def targets(self, value: pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderEscalationRuleTargetArgs']]]):
+        pulumi.set(self, "targets", value)
+
+    @property
+    @pulumi.getter(name="escalationDelayInMinutes")
+    def escalation_delay_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of minutes before an unacknowledged incident escalates away from this rule.
+        """
+        return pulumi.get(self, "escalation_delay_in_minutes")
+
+    @escalation_delay_in_minutes.setter
+    def escalation_delay_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "escalation_delay_in_minutes", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the user defined as the responder
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class ResponsePlayResponderEscalationRuleTargetArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] id: ID of the user defined as the responder
+        :param pulumi.Input[str] type: A string that determines the schema of the object. If not set, the default value is "response_play".
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the user defined as the responder
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that determines the schema of the object. If not set, the default value is "response_play".
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class ResponsePlayResponderServiceArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] id: ID of the user defined as the responder
+        :param pulumi.Input[str] type: A string that determines the schema of the object. If not set, the default value is "response_play".
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the user defined as the responder
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that determines the schema of the object. If not set, the default value is "response_play".
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class ResponsePlayResponderTeamArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: A string that determines the schema of the object. If not set, the default value is "response_play".
+        :param pulumi.Input[str] id: ID of the user defined as the responder
+        """
+        pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        A string that determines the schema of the object. If not set, the default value is "response_play".
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the user defined as the responder
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class ResponsePlaySubscriberArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] id: ID of the user defined as the responder
+        :param pulumi.Input[str] type: A string that determines the schema of the object. If not set, the default value is "response_play".
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the user defined as the responder
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that determines the schema of the object. If not set, the default value is "response_play".
         """
         return pulumi.get(self, "type")
 
@@ -136,14 +521,17 @@ class RulesetRuleActionsArgs:
                  priorities: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsPriorityArgs']]]] = None,
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsRouteArgs']]]] = None,
                  severities: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsSeverityArgs']]]] = None,
-                 suppresses: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsSuppressArgs']]]] = None):
+                 suppresses: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsSuppressArgs']]]] = None,
+                 suspends: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsSuspendArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsAnnotateArgs']]] annotates: Note added to the event.
-        :param pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsExtractionArgs']]] extractions: Allows you to copy important data from one event field to another. Extraction rules must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax). Extraction objects consist of the following fields:
+        :param pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsEventActionArgs']]] event_actions: An object with a single `value` field. The value sets whether the resulting alert status is `trigger` or `resolve`.
+        :param pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsExtractionArgs']]] extractions: Allows you to copy important data from one event field to another. Extraction objects may use *either* of the following field structures:
         :param pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsPriorityArgs']]] priorities: The ID of the priority applied to the event.
         :param pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsRouteArgs']]] routes: The ID of the service where the event will be routed.
         :param pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsSeverityArgs']]] severities: The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`error`,`warning`, or `critical`.
-        :param pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsSuppressArgs']]] suppresses: Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident).
+        :param pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsSuppressArgs']]] suppresses: Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident). Note: If a threshold is set, the rule must also have a `route` action.
+        :param pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsSuspendArgs']]] suspends: An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering. Note: A rule with a `suspend` action must also have a `route` action.
         """
         if annotates is not None:
             pulumi.set(__self__, "annotates", annotates)
@@ -159,6 +547,8 @@ class RulesetRuleActionsArgs:
             pulumi.set(__self__, "severities", severities)
         if suppresses is not None:
             pulumi.set(__self__, "suppresses", suppresses)
+        if suspends is not None:
+            pulumi.set(__self__, "suspends", suspends)
 
     @property
     @pulumi.getter
@@ -175,6 +565,9 @@ class RulesetRuleActionsArgs:
     @property
     @pulumi.getter(name="eventActions")
     def event_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsEventActionArgs']]]]:
+        """
+        An object with a single `value` field. The value sets whether the resulting alert status is `trigger` or `resolve`.
+        """
         return pulumi.get(self, "event_actions")
 
     @event_actions.setter
@@ -185,7 +578,7 @@ class RulesetRuleActionsArgs:
     @pulumi.getter
     def extractions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsExtractionArgs']]]]:
         """
-        Allows you to copy important data from one event field to another. Extraction rules must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax). Extraction objects consist of the following fields:
+        Allows you to copy important data from one event field to another. Extraction objects may use *either* of the following field structures:
         """
         return pulumi.get(self, "extractions")
 
@@ -233,13 +626,25 @@ class RulesetRuleActionsArgs:
     @pulumi.getter
     def suppresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsSuppressArgs']]]]:
         """
-        Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident).
+        Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident). Note: If a threshold is set, the rule must also have a `route` action.
         """
         return pulumi.get(self, "suppresses")
 
     @suppresses.setter
     def suppresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsSuppressArgs']]]]):
         pulumi.set(self, "suppresses", value)
+
+    @property
+    @pulumi.getter
+    def suspends(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsSuspendArgs']]]]:
+        """
+        An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering. Note: A rule with a `suspend` action must also have a `route` action.
+        """
+        return pulumi.get(self, "suspends")
+
+    @suspends.setter
+    def suspends(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsSuspendArgs']]]]):
+        pulumi.set(self, "suspends", value)
 
 
 @pulumi.input_type
@@ -293,12 +698,13 @@ class RulesetRuleActionsExtractionArgs:
     def __init__(__self__, *,
                  regex: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[str]] = None,
-                 target: Optional[pulumi.Input[str]] = None):
+                 target: Optional[pulumi.Input[str]] = None,
+                 template: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] regex: The conditions that need to be met for the extraction to happen.
-               * *NOTE: A rule can have multiple `extraction` objects attributed to it.*
-        :param pulumi.Input[str] source: Field where the data is being copied from.
-        :param pulumi.Input[str] target: Field where the data is being copied to.
+        :param pulumi.Input[str] regex: The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
+        :param pulumi.Input[str] source: Field where the data is being copied from. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+        :param pulumi.Input[str] target: Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+        :param pulumi.Input[str] template: A customized field message. This can also include variables extracted from the payload by using string interpolation.
         """
         if regex is not None:
             pulumi.set(__self__, "regex", regex)
@@ -306,13 +712,14 @@ class RulesetRuleActionsExtractionArgs:
             pulumi.set(__self__, "source", source)
         if target is not None:
             pulumi.set(__self__, "target", target)
+        if template is not None:
+            pulumi.set(__self__, "template", template)
 
     @property
     @pulumi.getter
     def regex(self) -> Optional[pulumi.Input[str]]:
         """
-        The conditions that need to be met for the extraction to happen.
-        * *NOTE: A rule can have multiple `extraction` objects attributed to it.*
+        The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
         """
         return pulumi.get(self, "regex")
 
@@ -324,7 +731,7 @@ class RulesetRuleActionsExtractionArgs:
     @pulumi.getter
     def source(self) -> Optional[pulumi.Input[str]]:
         """
-        Field where the data is being copied from.
+        Field where the data is being copied from. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
         """
         return pulumi.get(self, "source")
 
@@ -336,13 +743,25 @@ class RulesetRuleActionsExtractionArgs:
     @pulumi.getter
     def target(self) -> Optional[pulumi.Input[str]]:
         """
-        Field where the data is being copied to.
+        Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
         """
         return pulumi.get(self, "target")
 
     @target.setter
     def target(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter
+    def template(self) -> Optional[pulumi.Input[str]]:
+        """
+        A customized field message. This can also include variables extracted from the payload by using string interpolation.
+        """
+        return pulumi.get(self, "template")
+
+    @template.setter
+    def template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "template", value)
 
 
 @pulumi.input_type
@@ -422,9 +841,9 @@ class RulesetRuleActionsSuppressArgs:
                  threshold_value: Optional[pulumi.Input[int]] = None,
                  value: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[int] threshold_time_amount: The number value of the `threshold_time_unit` before an incident is created.
+        :param pulumi.Input[int] threshold_time_amount: The number value of the `threshold_time_unit` before an incident is created. Must be greater than 0.
         :param pulumi.Input[str] threshold_time_unit: The `minutes`,`hours`, or `days` that the `threshold_time_amount` should be measured.
-        :param pulumi.Input[int] threshold_value: The number of alerts that should be suppressed.
+        :param pulumi.Input[int] threshold_value: The number of alerts that should be suppressed. Must be greater than 0.
         :param pulumi.Input[bool] value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
         """
         if threshold_time_amount is not None:
@@ -440,7 +859,7 @@ class RulesetRuleActionsSuppressArgs:
     @pulumi.getter(name="thresholdTimeAmount")
     def threshold_time_amount(self) -> Optional[pulumi.Input[int]]:
         """
-        The number value of the `threshold_time_unit` before an incident is created.
+        The number value of the `threshold_time_unit` before an incident is created. Must be greater than 0.
         """
         return pulumi.get(self, "threshold_time_amount")
 
@@ -464,7 +883,7 @@ class RulesetRuleActionsSuppressArgs:
     @pulumi.getter(name="thresholdValue")
     def threshold_value(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of alerts that should be suppressed.
+        The number of alerts that should be suppressed. Must be greater than 0.
         """
         return pulumi.get(self, "threshold_value")
 
@@ -482,6 +901,29 @@ class RulesetRuleActionsSuppressArgs:
 
     @value.setter
     def value(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class RulesetRuleActionsSuspendArgs:
+    def __init__(__self__, *,
+                 value: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[int]]:
+        """
+        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "value", value)
 
 
@@ -745,6 +1187,82 @@ class RulesetRuleTimeFrameScheduledWeeklyArgs:
     @weekdays.setter
     def weekdays(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "weekdays", value)
+
+
+@pulumi.input_type
+class RulesetRuleVariableArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleVariableParameterArgs']]]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleVariableParameterArgs']]]]:
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleVariableParameterArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class RulesetRuleVariableParameterArgs:
+    def __init__(__self__, *,
+                 path: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+        """
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -1081,6 +1599,742 @@ class ServiceDependencyDependencySupportingServiceArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class ServiceEventRuleActionsArgs:
+    def __init__(__self__, *,
+                 annotates: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleActionsAnnotateArgs']]]] = None,
+                 event_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleActionsEventActionArgs']]]] = None,
+                 extractions: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleActionsExtractionArgs']]]] = None,
+                 priorities: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleActionsPriorityArgs']]]] = None,
+                 severities: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleActionsSeverityArgs']]]] = None,
+                 suppresses: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleActionsSuppressArgs']]]] = None,
+                 suspends: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleActionsSuspendArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleActionsAnnotateArgs']]] annotates: Note added to the event.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleActionsEventActionArgs']]] event_actions: An object with a single `value` field. The value sets whether the resulting alert status is `trigger` or `resolve`.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleActionsExtractionArgs']]] extractions: Allows you to copy important data from one event field to another. Extraction objects may use *either* of the following field structures:
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleActionsPriorityArgs']]] priorities: The ID of the priority applied to the event.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleActionsSeverityArgs']]] severities: The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`error`,`warning`, or `critical`.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleActionsSuppressArgs']]] suppresses: Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident).
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleActionsSuspendArgs']]] suspends: An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering.
+        """
+        if annotates is not None:
+            pulumi.set(__self__, "annotates", annotates)
+        if event_actions is not None:
+            pulumi.set(__self__, "event_actions", event_actions)
+        if extractions is not None:
+            pulumi.set(__self__, "extractions", extractions)
+        if priorities is not None:
+            pulumi.set(__self__, "priorities", priorities)
+        if severities is not None:
+            pulumi.set(__self__, "severities", severities)
+        if suppresses is not None:
+            pulumi.set(__self__, "suppresses", suppresses)
+        if suspends is not None:
+            pulumi.set(__self__, "suspends", suspends)
+
+    @property
+    @pulumi.getter
+    def annotates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleActionsAnnotateArgs']]]]:
+        """
+        Note added to the event.
+        """
+        return pulumi.get(self, "annotates")
+
+    @annotates.setter
+    def annotates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleActionsAnnotateArgs']]]]):
+        pulumi.set(self, "annotates", value)
+
+    @property
+    @pulumi.getter(name="eventActions")
+    def event_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleActionsEventActionArgs']]]]:
+        """
+        An object with a single `value` field. The value sets whether the resulting alert status is `trigger` or `resolve`.
+        """
+        return pulumi.get(self, "event_actions")
+
+    @event_actions.setter
+    def event_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleActionsEventActionArgs']]]]):
+        pulumi.set(self, "event_actions", value)
+
+    @property
+    @pulumi.getter
+    def extractions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleActionsExtractionArgs']]]]:
+        """
+        Allows you to copy important data from one event field to another. Extraction objects may use *either* of the following field structures:
+        """
+        return pulumi.get(self, "extractions")
+
+    @extractions.setter
+    def extractions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleActionsExtractionArgs']]]]):
+        pulumi.set(self, "extractions", value)
+
+    @property
+    @pulumi.getter
+    def priorities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleActionsPriorityArgs']]]]:
+        """
+        The ID of the priority applied to the event.
+        """
+        return pulumi.get(self, "priorities")
+
+    @priorities.setter
+    def priorities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleActionsPriorityArgs']]]]):
+        pulumi.set(self, "priorities", value)
+
+    @property
+    @pulumi.getter
+    def severities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleActionsSeverityArgs']]]]:
+        """
+        The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`error`,`warning`, or `critical`.
+        """
+        return pulumi.get(self, "severities")
+
+    @severities.setter
+    def severities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleActionsSeverityArgs']]]]):
+        pulumi.set(self, "severities", value)
+
+    @property
+    @pulumi.getter
+    def suppresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleActionsSuppressArgs']]]]:
+        """
+        Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident).
+        """
+        return pulumi.get(self, "suppresses")
+
+    @suppresses.setter
+    def suppresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleActionsSuppressArgs']]]]):
+        pulumi.set(self, "suppresses", value)
+
+    @property
+    @pulumi.getter
+    def suspends(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleActionsSuspendArgs']]]]:
+        """
+        An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering.
+        """
+        return pulumi.get(self, "suspends")
+
+    @suspends.setter
+    def suspends(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleActionsSuspendArgs']]]]):
+        pulumi.set(self, "suspends", value)
+
+
+@pulumi.input_type
+class ServiceEventRuleActionsAnnotateArgs:
+    def __init__(__self__, *,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] value: The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ServiceEventRuleActionsEventActionArgs:
+    def __init__(__self__, *,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] value: The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ServiceEventRuleActionsExtractionArgs:
+    def __init__(__self__, *,
+                 regex: Optional[pulumi.Input[str]] = None,
+                 source: Optional[pulumi.Input[str]] = None,
+                 target: Optional[pulumi.Input[str]] = None,
+                 template: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] regex: The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
+        :param pulumi.Input[str] source: Field where the data is being copied from. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+        :param pulumi.Input[str] target: Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+        :param pulumi.Input[str] template: A customized field message. This can also include variables extracted from the payload by using string interpolation.
+        """
+        if regex is not None:
+            pulumi.set(__self__, "regex", regex)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+        if template is not None:
+            pulumi.set(__self__, "template", template)
+
+    @property
+    @pulumi.getter
+    def regex(self) -> Optional[pulumi.Input[str]]:
+        """
+        The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
+        """
+        return pulumi.get(self, "regex")
+
+    @regex.setter
+    def regex(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "regex", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input[str]]:
+        """
+        Field where the data is being copied from. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input[str]]:
+        """
+        Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter
+    def template(self) -> Optional[pulumi.Input[str]]:
+        """
+        A customized field message. This can also include variables extracted from the payload by using string interpolation.
+        """
+        return pulumi.get(self, "template")
+
+    @template.setter
+    def template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "template", value)
+
+
+@pulumi.input_type
+class ServiceEventRuleActionsPriorityArgs:
+    def __init__(__self__, *,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] value: The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ServiceEventRuleActionsSeverityArgs:
+    def __init__(__self__, *,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] value: The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ServiceEventRuleActionsSuppressArgs:
+    def __init__(__self__, *,
+                 threshold_time_amount: Optional[pulumi.Input[int]] = None,
+                 threshold_time_unit: Optional[pulumi.Input[str]] = None,
+                 threshold_value: Optional[pulumi.Input[int]] = None,
+                 value: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[int] threshold_time_amount: The number value of the `threshold_time_unit` before an incident is created.
+        :param pulumi.Input[str] threshold_time_unit: The `minutes`,`hours`, or `days` that the `threshold_time_amount` should be measured.
+        :param pulumi.Input[int] threshold_value: The number of alerts that should be suppressed.
+        :param pulumi.Input[bool] value: The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        """
+        if threshold_time_amount is not None:
+            pulumi.set(__self__, "threshold_time_amount", threshold_time_amount)
+        if threshold_time_unit is not None:
+            pulumi.set(__self__, "threshold_time_unit", threshold_time_unit)
+        if threshold_value is not None:
+            pulumi.set(__self__, "threshold_value", threshold_value)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="thresholdTimeAmount")
+    def threshold_time_amount(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number value of the `threshold_time_unit` before an incident is created.
+        """
+        return pulumi.get(self, "threshold_time_amount")
+
+    @threshold_time_amount.setter
+    def threshold_time_amount(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "threshold_time_amount", value)
+
+    @property
+    @pulumi.getter(name="thresholdTimeUnit")
+    def threshold_time_unit(self) -> Optional[pulumi.Input[str]]:
+        """
+        The `minutes`,`hours`, or `days` that the `threshold_time_amount` should be measured.
+        """
+        return pulumi.get(self, "threshold_time_unit")
+
+    @threshold_time_unit.setter
+    def threshold_time_unit(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "threshold_time_unit", value)
+
+    @property
+    @pulumi.getter(name="thresholdValue")
+    def threshold_value(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of alerts that should be suppressed.
+        """
+        return pulumi.get(self, "threshold_value")
+
+    @threshold_value.setter
+    def threshold_value(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "threshold_value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ServiceEventRuleActionsSuspendArgs:
+    def __init__(__self__, *,
+                 value: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] value: The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[int]]:
+        """
+        The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ServiceEventRuleConditionsArgs:
+    def __init__(__self__, *,
+                 operator: Optional[pulumi.Input[str]] = None,
+                 subconditions: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleConditionsSubconditionArgs']]]] = None):
+        """
+        :param pulumi.Input[str] operator: Operator to combine sub-conditions. Can be `and` or `or`.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleConditionsSubconditionArgs']]] subconditions: List of sub-conditions that define the the condition.
+        """
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+        if subconditions is not None:
+            pulumi.set(__self__, "subconditions", subconditions)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[pulumi.Input[str]]:
+        """
+        Operator to combine sub-conditions. Can be `and` or `or`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def subconditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleConditionsSubconditionArgs']]]]:
+        """
+        List of sub-conditions that define the the condition.
+        """
+        return pulumi.get(self, "subconditions")
+
+    @subconditions.setter
+    def subconditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleConditionsSubconditionArgs']]]]):
+        pulumi.set(self, "subconditions", value)
+
+
+@pulumi.input_type
+class ServiceEventRuleConditionsSubconditionArgs:
+    def __init__(__self__, *,
+                 operator: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleConditionsSubconditionParameterArgs']]]] = None):
+        """
+        :param pulumi.Input[str] operator: Type of operator to apply to the sub-condition. Can be `exists`,`nexists`,`equals`,`nequals`,`contains`,`ncontains`,`matches`, or `nmatches`.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleConditionsSubconditionParameterArgs']]] parameters: Parameter for the sub-condition. It requires both a `path` and `value` to be set. The `path` value must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+        """
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of operator to apply to the sub-condition. Can be `exists`,`nexists`,`equals`,`nequals`,`contains`,`ncontains`,`matches`, or `nmatches`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleConditionsSubconditionParameterArgs']]]]:
+        """
+        Parameter for the sub-condition. It requires both a `path` and `value` to be set. The `path` value must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleConditionsSubconditionParameterArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
+class ServiceEventRuleConditionsSubconditionParameterArgs:
+    def __init__(__self__, *,
+                 path: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] path: Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
+        :param pulumi.Input[str] value: The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        """
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ServiceEventRuleTimeFrameArgs:
+    def __init__(__self__, *,
+                 active_betweens: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleTimeFrameActiveBetweenArgs']]]] = None,
+                 scheduled_weeklies: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleTimeFrameScheduledWeeklyArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleTimeFrameActiveBetweenArgs']]] active_betweens: Values for executing the rule during a specific time period.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleTimeFrameScheduledWeeklyArgs']]] scheduled_weeklies: Values for executing the rule on a recurring schedule.
+        """
+        if active_betweens is not None:
+            pulumi.set(__self__, "active_betweens", active_betweens)
+        if scheduled_weeklies is not None:
+            pulumi.set(__self__, "scheduled_weeklies", scheduled_weeklies)
+
+    @property
+    @pulumi.getter(name="activeBetweens")
+    def active_betweens(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleTimeFrameActiveBetweenArgs']]]]:
+        """
+        Values for executing the rule during a specific time period.
+        """
+        return pulumi.get(self, "active_betweens")
+
+    @active_betweens.setter
+    def active_betweens(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleTimeFrameActiveBetweenArgs']]]]):
+        pulumi.set(self, "active_betweens", value)
+
+    @property
+    @pulumi.getter(name="scheduledWeeklies")
+    def scheduled_weeklies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleTimeFrameScheduledWeeklyArgs']]]]:
+        """
+        Values for executing the rule on a recurring schedule.
+        """
+        return pulumi.get(self, "scheduled_weeklies")
+
+    @scheduled_weeklies.setter
+    def scheduled_weeklies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleTimeFrameScheduledWeeklyArgs']]]]):
+        pulumi.set(self, "scheduled_weeklies", value)
+
+
+@pulumi.input_type
+class ServiceEventRuleTimeFrameActiveBetweenArgs:
+    def __init__(__self__, *,
+                 end_time: Optional[pulumi.Input[int]] = None,
+                 start_time: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] end_time: Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
+        :param pulumi.Input[int] start_time: Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `start_time` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `start_time` was `3,600,000` the it would be active starting at `01:00`.
+        """
+        if end_time is not None:
+            pulumi.set(__self__, "end_time", end_time)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> Optional[pulumi.Input[int]]:
+        """
+        Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
+        """
+        return pulumi.get(self, "end_time")
+
+    @end_time.setter
+    def end_time(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "end_time", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[pulumi.Input[int]]:
+        """
+        Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `start_time` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `start_time` was `3,600,000` the it would be active starting at `01:00`.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "start_time", value)
+
+
+@pulumi.input_type
+class ServiceEventRuleTimeFrameScheduledWeeklyArgs:
+    def __init__(__self__, *,
+                 duration: Optional[pulumi.Input[int]] = None,
+                 start_time: Optional[pulumi.Input[int]] = None,
+                 timezone: Optional[pulumi.Input[str]] = None,
+                 weekdays: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        """
+        :param pulumi.Input[int] duration: Length of time the schedule will be active.  Unix timestamp in milliseconds.
+        :param pulumi.Input[int] start_time: Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `start_time` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `start_time` was `3,600,000` the it would be active starting at `01:00`.
+        :param pulumi.Input[str] timezone: Timezone for the given schedule.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] weekdays: An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
+        """
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
+        if weekdays is not None:
+            pulumi.set(__self__, "weekdays", weekdays)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> Optional[pulumi.Input[int]]:
+        """
+        Length of time the schedule will be active.  Unix timestamp in milliseconds.
+        """
+        return pulumi.get(self, "duration")
+
+    @duration.setter
+    def duration(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "duration", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[pulumi.Input[int]]:
+        """
+        Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `start_time` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `start_time` was `3,600,000` the it would be active starting at `01:00`.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "start_time", value)
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Timezone for the given schedule.
+        """
+        return pulumi.get(self, "timezone")
+
+    @timezone.setter
+    def timezone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timezone", value)
+
+    @property
+    @pulumi.getter
+    def weekdays(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
+        """
+        return pulumi.get(self, "weekdays")
+
+    @weekdays.setter
+    def weekdays(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "weekdays", value)
+
+
+@pulumi.input_type
+class ServiceEventRuleVariableArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleVariableParameterArgs']]]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the variable.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleVariableParameterArgs']]] parameters: The parameters for performing the operation to populate the variable.
+        :param pulumi.Input[str] type: Type of operation to populate the variable. Usually `regex`.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the variable.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleVariableParameterArgs']]]]:
+        """
+        The parameters for performing the operation to populate the variable.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleVariableParameterArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of operation to populate the variable. Usually `regex`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class ServiceEventRuleVariableParameterArgs:
+    def __init__(__self__, *,
+                 path: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] path: Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
+        :param pulumi.Input[str] value: The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        """
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

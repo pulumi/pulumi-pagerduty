@@ -13,7 +13,7 @@ namespace Pulumi.Pagerduty.Inputs
     public sealed class RulesetRuleActionsSuppressArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number value of the `threshold_time_unit` before an incident is created.
+        /// The number value of the `threshold_time_unit` before an incident is created. Must be greater than 0.
         /// </summary>
         [Input("thresholdTimeAmount")]
         public Input<int>? ThresholdTimeAmount { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<string>? ThresholdTimeUnit { get; set; }
 
         /// <summary>
-        /// The number of alerts that should be suppressed.
+        /// The number of alerts that should be suppressed. Must be greater than 0.
         /// </summary>
         [Input("thresholdValue")]
         public Input<int>? ThresholdValue { get; set; }

@@ -14,25 +14,25 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const exampleUser = new pagerduty.User("example", {
+ * const exampleUser = new pagerduty.User("exampleUser", {
  *     email: "125.greenholt.earline@graham.name",
- *     teams: [pagerduty_team_example.id],
+ *     teams: [pagerduty_team.example.id],
  * });
  * const foo = new pagerduty.EscalationPolicy("foo", {
  *     numLoops: 2,
  *     rules: [{
  *         escalationDelayInMinutes: 10,
  *         targets: [{
- *             id: exampleUser.id,
  *             type: "user",
+ *             id: exampleUser.id,
  *         }],
  *     }],
  * });
- * const exampleService = new pagerduty.Service("example", {
- *     acknowledgementTimeout: "600",
- *     alertCreation: "create_incidents",
- *     autoResolveTimeout: "14400",
- *     escalationPolicy: pagerduty_escalation_policy_example.id,
+ * const exampleService = new pagerduty.Service("exampleService", {
+ *     autoResolveTimeout: 14400,
+ *     acknowledgementTimeout: 600,
+ *     escalationPolicy: pagerduty_escalation_policy.example.id,
+ *     alertCreation: "create_alerts_and_incidents",
  * });
  * ```
  *
@@ -77,7 +77,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly acknowledgementTimeout!: pulumi.Output<string | undefined>;
     /**
-     * Must be one of two values. PagerDuty receives events from your monitoring systems and can then create incidents in different ways. Value "createIncidents" is default: events will create an incident that cannot be merged. Value "createAlertsAndIncidents" is the alternative: events will create an alert and then add it to a new incident, these incidents can be merged.
+     * Must be one of two values. PagerDuty receives events from your monitoring systems and can then create incidents in different ways. Value "createIncidents" is default: events will create an incident that cannot be merged. Value "createAlertsAndIncidents" is the alternative: events will create an alert and then add it to a new incident, these incidents can be merged. This option is recommended.
      */
     public readonly alertCreation!: pulumi.Output<string | undefined>;
     /**
@@ -174,7 +174,7 @@ export interface ServiceState {
      */
     readonly acknowledgementTimeout?: pulumi.Input<string>;
     /**
-     * Must be one of two values. PagerDuty receives events from your monitoring systems and can then create incidents in different ways. Value "createIncidents" is default: events will create an incident that cannot be merged. Value "createAlertsAndIncidents" is the alternative: events will create an alert and then add it to a new incident, these incidents can be merged.
+     * Must be one of two values. PagerDuty receives events from your monitoring systems and can then create incidents in different ways. Value "createIncidents" is default: events will create an incident that cannot be merged. Value "createAlertsAndIncidents" is the alternative: events will create an alert and then add it to a new incident, these incidents can be merged. This option is recommended.
      */
     readonly alertCreation?: pulumi.Input<string>;
     /**
@@ -216,7 +216,7 @@ export interface ServiceArgs {
      */
     readonly acknowledgementTimeout?: pulumi.Input<string>;
     /**
-     * Must be one of two values. PagerDuty receives events from your monitoring systems and can then create incidents in different ways. Value "createIncidents" is default: events will create an incident that cannot be merged. Value "createAlertsAndIncidents" is the alternative: events will create an alert and then add it to a new incident, these incidents can be merged.
+     * Must be one of two values. PagerDuty receives events from your monitoring systems and can then create incidents in different ways. Value "createIncidents" is default: events will create an incident that cannot be merged. Value "createAlertsAndIncidents" is the alternative: events will create an alert and then add it to a new incident, these incidents can be merged. This option is recommended.
      */
     readonly alertCreation?: pulumi.Input<string>;
     /**

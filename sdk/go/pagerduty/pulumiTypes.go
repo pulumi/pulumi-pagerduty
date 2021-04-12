@@ -125,7 +125,7 @@ func (o EscalationPolicyRuleArrayOutput) Index(i pulumi.IntInput) EscalationPoli
 type EscalationPolicyRuleTarget struct {
 	// A target ID
 	Id string `pulumi:"id"`
-	// Can be `user`, `schedule`, `userReference` or `scheduleReference`. Defaults to `userReference`
+	// Can be `user`, `schedule`, `userReference` or `scheduleReference`. Defaults to `userReference`. For multiple users as example, repeat the target.
 	Type *string `pulumi:"type"`
 }
 
@@ -143,7 +143,7 @@ type EscalationPolicyRuleTargetInput interface {
 type EscalationPolicyRuleTargetArgs struct {
 	// A target ID
 	Id pulumi.StringInput `pulumi:"id"`
-	// Can be `user`, `schedule`, `userReference` or `scheduleReference`. Defaults to `userReference`
+	// Can be `user`, `schedule`, `userReference` or `scheduleReference`. Defaults to `userReference`. For multiple users as example, repeat the target.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -203,7 +203,7 @@ func (o EscalationPolicyRuleTargetOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v EscalationPolicyRuleTarget) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Can be `user`, `schedule`, `userReference` or `scheduleReference`. Defaults to `userReference`
+// Can be `user`, `schedule`, `userReference` or `scheduleReference`. Defaults to `userReference`. For multiple users as example, repeat the target.
 func (o EscalationPolicyRuleTargetOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EscalationPolicyRuleTarget) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -228,11 +228,722 @@ func (o EscalationPolicyRuleTargetArrayOutput) Index(i pulumi.IntInput) Escalati
 	}).(EscalationPolicyRuleTargetOutput)
 }
 
+type ResponsePlayResponder struct {
+	// Description of escalation policy
+	Description *string `pulumi:"description"`
+	// The escalation rules
+	EscalationRules []ResponsePlayResponderEscalationRule `pulumi:"escalationRules"`
+	// ID of the user defined as the responder
+	Id *string `pulumi:"id"`
+	// Name of the escalation policy
+	Name *string `pulumi:"name"`
+	// The number of times the escalation policy will repeat after reaching the end of its escalation.
+	NumLoops *int `pulumi:"numLoops"`
+	// Determines how on call handoff notifications will be sent for users on the escalation policy. Defaults to "ifHasServices". Could be "ifHasServices", "always
+	OnCallHandoffNotifications *string `pulumi:"onCallHandoffNotifications"`
+	// There can be multiple services associated with a policy.
+	Services []ResponsePlayResponderService `pulumi:"services"`
+	// Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
+	Teams []ResponsePlayResponderTeam `pulumi:"teams"`
+	// Type of object of the target. Supported types are `user`, `schedule`, `userReference`, `scheduleReference`.
+	Type *string `pulumi:"type"`
+}
+
+// ResponsePlayResponderInput is an input type that accepts ResponsePlayResponderArgs and ResponsePlayResponderOutput values.
+// You can construct a concrete instance of `ResponsePlayResponderInput` via:
+//
+//          ResponsePlayResponderArgs{...}
+type ResponsePlayResponderInput interface {
+	pulumi.Input
+
+	ToResponsePlayResponderOutput() ResponsePlayResponderOutput
+	ToResponsePlayResponderOutputWithContext(context.Context) ResponsePlayResponderOutput
+}
+
+type ResponsePlayResponderArgs struct {
+	// Description of escalation policy
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The escalation rules
+	EscalationRules ResponsePlayResponderEscalationRuleArrayInput `pulumi:"escalationRules"`
+	// ID of the user defined as the responder
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Name of the escalation policy
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The number of times the escalation policy will repeat after reaching the end of its escalation.
+	NumLoops pulumi.IntPtrInput `pulumi:"numLoops"`
+	// Determines how on call handoff notifications will be sent for users on the escalation policy. Defaults to "ifHasServices". Could be "ifHasServices", "always
+	OnCallHandoffNotifications pulumi.StringPtrInput `pulumi:"onCallHandoffNotifications"`
+	// There can be multiple services associated with a policy.
+	Services ResponsePlayResponderServiceArrayInput `pulumi:"services"`
+	// Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
+	Teams ResponsePlayResponderTeamArrayInput `pulumi:"teams"`
+	// Type of object of the target. Supported types are `user`, `schedule`, `userReference`, `scheduleReference`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ResponsePlayResponderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponsePlayResponder)(nil)).Elem()
+}
+
+func (i ResponsePlayResponderArgs) ToResponsePlayResponderOutput() ResponsePlayResponderOutput {
+	return i.ToResponsePlayResponderOutputWithContext(context.Background())
+}
+
+func (i ResponsePlayResponderArgs) ToResponsePlayResponderOutputWithContext(ctx context.Context) ResponsePlayResponderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlayResponderOutput)
+}
+
+// ResponsePlayResponderArrayInput is an input type that accepts ResponsePlayResponderArray and ResponsePlayResponderArrayOutput values.
+// You can construct a concrete instance of `ResponsePlayResponderArrayInput` via:
+//
+//          ResponsePlayResponderArray{ ResponsePlayResponderArgs{...} }
+type ResponsePlayResponderArrayInput interface {
+	pulumi.Input
+
+	ToResponsePlayResponderArrayOutput() ResponsePlayResponderArrayOutput
+	ToResponsePlayResponderArrayOutputWithContext(context.Context) ResponsePlayResponderArrayOutput
+}
+
+type ResponsePlayResponderArray []ResponsePlayResponderInput
+
+func (ResponsePlayResponderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResponsePlayResponder)(nil)).Elem()
+}
+
+func (i ResponsePlayResponderArray) ToResponsePlayResponderArrayOutput() ResponsePlayResponderArrayOutput {
+	return i.ToResponsePlayResponderArrayOutputWithContext(context.Background())
+}
+
+func (i ResponsePlayResponderArray) ToResponsePlayResponderArrayOutputWithContext(ctx context.Context) ResponsePlayResponderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlayResponderArrayOutput)
+}
+
+type ResponsePlayResponderOutput struct{ *pulumi.OutputState }
+
+func (ResponsePlayResponderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponsePlayResponder)(nil)).Elem()
+}
+
+func (o ResponsePlayResponderOutput) ToResponsePlayResponderOutput() ResponsePlayResponderOutput {
+	return o
+}
+
+func (o ResponsePlayResponderOutput) ToResponsePlayResponderOutputWithContext(ctx context.Context) ResponsePlayResponderOutput {
+	return o
+}
+
+// Description of escalation policy
+func (o ResponsePlayResponderOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResponsePlayResponder) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The escalation rules
+func (o ResponsePlayResponderOutput) EscalationRules() ResponsePlayResponderEscalationRuleArrayOutput {
+	return o.ApplyT(func(v ResponsePlayResponder) []ResponsePlayResponderEscalationRule { return v.EscalationRules }).(ResponsePlayResponderEscalationRuleArrayOutput)
+}
+
+// ID of the user defined as the responder
+func (o ResponsePlayResponderOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResponsePlayResponder) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Name of the escalation policy
+func (o ResponsePlayResponderOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResponsePlayResponder) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The number of times the escalation policy will repeat after reaching the end of its escalation.
+func (o ResponsePlayResponderOutput) NumLoops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ResponsePlayResponder) *int { return v.NumLoops }).(pulumi.IntPtrOutput)
+}
+
+// Determines how on call handoff notifications will be sent for users on the escalation policy. Defaults to "ifHasServices". Could be "ifHasServices", "always
+func (o ResponsePlayResponderOutput) OnCallHandoffNotifications() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResponsePlayResponder) *string { return v.OnCallHandoffNotifications }).(pulumi.StringPtrOutput)
+}
+
+// There can be multiple services associated with a policy.
+func (o ResponsePlayResponderOutput) Services() ResponsePlayResponderServiceArrayOutput {
+	return o.ApplyT(func(v ResponsePlayResponder) []ResponsePlayResponderService { return v.Services }).(ResponsePlayResponderServiceArrayOutput)
+}
+
+// Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
+func (o ResponsePlayResponderOutput) Teams() ResponsePlayResponderTeamArrayOutput {
+	return o.ApplyT(func(v ResponsePlayResponder) []ResponsePlayResponderTeam { return v.Teams }).(ResponsePlayResponderTeamArrayOutput)
+}
+
+// Type of object of the target. Supported types are `user`, `schedule`, `userReference`, `scheduleReference`.
+func (o ResponsePlayResponderOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResponsePlayResponder) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ResponsePlayResponderArrayOutput struct{ *pulumi.OutputState }
+
+func (ResponsePlayResponderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResponsePlayResponder)(nil)).Elem()
+}
+
+func (o ResponsePlayResponderArrayOutput) ToResponsePlayResponderArrayOutput() ResponsePlayResponderArrayOutput {
+	return o
+}
+
+func (o ResponsePlayResponderArrayOutput) ToResponsePlayResponderArrayOutputWithContext(ctx context.Context) ResponsePlayResponderArrayOutput {
+	return o
+}
+
+func (o ResponsePlayResponderArrayOutput) Index(i pulumi.IntInput) ResponsePlayResponderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResponsePlayResponder {
+		return vs[0].([]ResponsePlayResponder)[vs[1].(int)]
+	}).(ResponsePlayResponderOutput)
+}
+
+type ResponsePlayResponderEscalationRule struct {
+	// The number of minutes before an unacknowledged incident escalates away from this rule.
+	EscalationDelayInMinutes *int `pulumi:"escalationDelayInMinutes"`
+	// ID of the user defined as the responder
+	Id *string `pulumi:"id"`
+	// The targets an incident should be assigned to upon reaching this rule.
+	Targets []ResponsePlayResponderEscalationRuleTarget `pulumi:"targets"`
+}
+
+// ResponsePlayResponderEscalationRuleInput is an input type that accepts ResponsePlayResponderEscalationRuleArgs and ResponsePlayResponderEscalationRuleOutput values.
+// You can construct a concrete instance of `ResponsePlayResponderEscalationRuleInput` via:
+//
+//          ResponsePlayResponderEscalationRuleArgs{...}
+type ResponsePlayResponderEscalationRuleInput interface {
+	pulumi.Input
+
+	ToResponsePlayResponderEscalationRuleOutput() ResponsePlayResponderEscalationRuleOutput
+	ToResponsePlayResponderEscalationRuleOutputWithContext(context.Context) ResponsePlayResponderEscalationRuleOutput
+}
+
+type ResponsePlayResponderEscalationRuleArgs struct {
+	// The number of minutes before an unacknowledged incident escalates away from this rule.
+	EscalationDelayInMinutes pulumi.IntPtrInput `pulumi:"escalationDelayInMinutes"`
+	// ID of the user defined as the responder
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The targets an incident should be assigned to upon reaching this rule.
+	Targets ResponsePlayResponderEscalationRuleTargetArrayInput `pulumi:"targets"`
+}
+
+func (ResponsePlayResponderEscalationRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponsePlayResponderEscalationRule)(nil)).Elem()
+}
+
+func (i ResponsePlayResponderEscalationRuleArgs) ToResponsePlayResponderEscalationRuleOutput() ResponsePlayResponderEscalationRuleOutput {
+	return i.ToResponsePlayResponderEscalationRuleOutputWithContext(context.Background())
+}
+
+func (i ResponsePlayResponderEscalationRuleArgs) ToResponsePlayResponderEscalationRuleOutputWithContext(ctx context.Context) ResponsePlayResponderEscalationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlayResponderEscalationRuleOutput)
+}
+
+// ResponsePlayResponderEscalationRuleArrayInput is an input type that accepts ResponsePlayResponderEscalationRuleArray and ResponsePlayResponderEscalationRuleArrayOutput values.
+// You can construct a concrete instance of `ResponsePlayResponderEscalationRuleArrayInput` via:
+//
+//          ResponsePlayResponderEscalationRuleArray{ ResponsePlayResponderEscalationRuleArgs{...} }
+type ResponsePlayResponderEscalationRuleArrayInput interface {
+	pulumi.Input
+
+	ToResponsePlayResponderEscalationRuleArrayOutput() ResponsePlayResponderEscalationRuleArrayOutput
+	ToResponsePlayResponderEscalationRuleArrayOutputWithContext(context.Context) ResponsePlayResponderEscalationRuleArrayOutput
+}
+
+type ResponsePlayResponderEscalationRuleArray []ResponsePlayResponderEscalationRuleInput
+
+func (ResponsePlayResponderEscalationRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResponsePlayResponderEscalationRule)(nil)).Elem()
+}
+
+func (i ResponsePlayResponderEscalationRuleArray) ToResponsePlayResponderEscalationRuleArrayOutput() ResponsePlayResponderEscalationRuleArrayOutput {
+	return i.ToResponsePlayResponderEscalationRuleArrayOutputWithContext(context.Background())
+}
+
+func (i ResponsePlayResponderEscalationRuleArray) ToResponsePlayResponderEscalationRuleArrayOutputWithContext(ctx context.Context) ResponsePlayResponderEscalationRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlayResponderEscalationRuleArrayOutput)
+}
+
+type ResponsePlayResponderEscalationRuleOutput struct{ *pulumi.OutputState }
+
+func (ResponsePlayResponderEscalationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponsePlayResponderEscalationRule)(nil)).Elem()
+}
+
+func (o ResponsePlayResponderEscalationRuleOutput) ToResponsePlayResponderEscalationRuleOutput() ResponsePlayResponderEscalationRuleOutput {
+	return o
+}
+
+func (o ResponsePlayResponderEscalationRuleOutput) ToResponsePlayResponderEscalationRuleOutputWithContext(ctx context.Context) ResponsePlayResponderEscalationRuleOutput {
+	return o
+}
+
+// The number of minutes before an unacknowledged incident escalates away from this rule.
+func (o ResponsePlayResponderEscalationRuleOutput) EscalationDelayInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ResponsePlayResponderEscalationRule) *int { return v.EscalationDelayInMinutes }).(pulumi.IntPtrOutput)
+}
+
+// ID of the user defined as the responder
+func (o ResponsePlayResponderEscalationRuleOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResponsePlayResponderEscalationRule) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The targets an incident should be assigned to upon reaching this rule.
+func (o ResponsePlayResponderEscalationRuleOutput) Targets() ResponsePlayResponderEscalationRuleTargetArrayOutput {
+	return o.ApplyT(func(v ResponsePlayResponderEscalationRule) []ResponsePlayResponderEscalationRuleTarget {
+		return v.Targets
+	}).(ResponsePlayResponderEscalationRuleTargetArrayOutput)
+}
+
+type ResponsePlayResponderEscalationRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (ResponsePlayResponderEscalationRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResponsePlayResponderEscalationRule)(nil)).Elem()
+}
+
+func (o ResponsePlayResponderEscalationRuleArrayOutput) ToResponsePlayResponderEscalationRuleArrayOutput() ResponsePlayResponderEscalationRuleArrayOutput {
+	return o
+}
+
+func (o ResponsePlayResponderEscalationRuleArrayOutput) ToResponsePlayResponderEscalationRuleArrayOutputWithContext(ctx context.Context) ResponsePlayResponderEscalationRuleArrayOutput {
+	return o
+}
+
+func (o ResponsePlayResponderEscalationRuleArrayOutput) Index(i pulumi.IntInput) ResponsePlayResponderEscalationRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResponsePlayResponderEscalationRule {
+		return vs[0].([]ResponsePlayResponderEscalationRule)[vs[1].(int)]
+	}).(ResponsePlayResponderEscalationRuleOutput)
+}
+
+type ResponsePlayResponderEscalationRuleTarget struct {
+	// ID of the user defined as the responder
+	Id *string `pulumi:"id"`
+	// A string that determines the schema of the object. If not set, the default value is "responsePlay".
+	Type *string `pulumi:"type"`
+}
+
+// ResponsePlayResponderEscalationRuleTargetInput is an input type that accepts ResponsePlayResponderEscalationRuleTargetArgs and ResponsePlayResponderEscalationRuleTargetOutput values.
+// You can construct a concrete instance of `ResponsePlayResponderEscalationRuleTargetInput` via:
+//
+//          ResponsePlayResponderEscalationRuleTargetArgs{...}
+type ResponsePlayResponderEscalationRuleTargetInput interface {
+	pulumi.Input
+
+	ToResponsePlayResponderEscalationRuleTargetOutput() ResponsePlayResponderEscalationRuleTargetOutput
+	ToResponsePlayResponderEscalationRuleTargetOutputWithContext(context.Context) ResponsePlayResponderEscalationRuleTargetOutput
+}
+
+type ResponsePlayResponderEscalationRuleTargetArgs struct {
+	// ID of the user defined as the responder
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// A string that determines the schema of the object. If not set, the default value is "responsePlay".
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ResponsePlayResponderEscalationRuleTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponsePlayResponderEscalationRuleTarget)(nil)).Elem()
+}
+
+func (i ResponsePlayResponderEscalationRuleTargetArgs) ToResponsePlayResponderEscalationRuleTargetOutput() ResponsePlayResponderEscalationRuleTargetOutput {
+	return i.ToResponsePlayResponderEscalationRuleTargetOutputWithContext(context.Background())
+}
+
+func (i ResponsePlayResponderEscalationRuleTargetArgs) ToResponsePlayResponderEscalationRuleTargetOutputWithContext(ctx context.Context) ResponsePlayResponderEscalationRuleTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlayResponderEscalationRuleTargetOutput)
+}
+
+// ResponsePlayResponderEscalationRuleTargetArrayInput is an input type that accepts ResponsePlayResponderEscalationRuleTargetArray and ResponsePlayResponderEscalationRuleTargetArrayOutput values.
+// You can construct a concrete instance of `ResponsePlayResponderEscalationRuleTargetArrayInput` via:
+//
+//          ResponsePlayResponderEscalationRuleTargetArray{ ResponsePlayResponderEscalationRuleTargetArgs{...} }
+type ResponsePlayResponderEscalationRuleTargetArrayInput interface {
+	pulumi.Input
+
+	ToResponsePlayResponderEscalationRuleTargetArrayOutput() ResponsePlayResponderEscalationRuleTargetArrayOutput
+	ToResponsePlayResponderEscalationRuleTargetArrayOutputWithContext(context.Context) ResponsePlayResponderEscalationRuleTargetArrayOutput
+}
+
+type ResponsePlayResponderEscalationRuleTargetArray []ResponsePlayResponderEscalationRuleTargetInput
+
+func (ResponsePlayResponderEscalationRuleTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResponsePlayResponderEscalationRuleTarget)(nil)).Elem()
+}
+
+func (i ResponsePlayResponderEscalationRuleTargetArray) ToResponsePlayResponderEscalationRuleTargetArrayOutput() ResponsePlayResponderEscalationRuleTargetArrayOutput {
+	return i.ToResponsePlayResponderEscalationRuleTargetArrayOutputWithContext(context.Background())
+}
+
+func (i ResponsePlayResponderEscalationRuleTargetArray) ToResponsePlayResponderEscalationRuleTargetArrayOutputWithContext(ctx context.Context) ResponsePlayResponderEscalationRuleTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlayResponderEscalationRuleTargetArrayOutput)
+}
+
+type ResponsePlayResponderEscalationRuleTargetOutput struct{ *pulumi.OutputState }
+
+func (ResponsePlayResponderEscalationRuleTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponsePlayResponderEscalationRuleTarget)(nil)).Elem()
+}
+
+func (o ResponsePlayResponderEscalationRuleTargetOutput) ToResponsePlayResponderEscalationRuleTargetOutput() ResponsePlayResponderEscalationRuleTargetOutput {
+	return o
+}
+
+func (o ResponsePlayResponderEscalationRuleTargetOutput) ToResponsePlayResponderEscalationRuleTargetOutputWithContext(ctx context.Context) ResponsePlayResponderEscalationRuleTargetOutput {
+	return o
+}
+
+// ID of the user defined as the responder
+func (o ResponsePlayResponderEscalationRuleTargetOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResponsePlayResponderEscalationRuleTarget) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// A string that determines the schema of the object. If not set, the default value is "responsePlay".
+func (o ResponsePlayResponderEscalationRuleTargetOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResponsePlayResponderEscalationRuleTarget) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ResponsePlayResponderEscalationRuleTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (ResponsePlayResponderEscalationRuleTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResponsePlayResponderEscalationRuleTarget)(nil)).Elem()
+}
+
+func (o ResponsePlayResponderEscalationRuleTargetArrayOutput) ToResponsePlayResponderEscalationRuleTargetArrayOutput() ResponsePlayResponderEscalationRuleTargetArrayOutput {
+	return o
+}
+
+func (o ResponsePlayResponderEscalationRuleTargetArrayOutput) ToResponsePlayResponderEscalationRuleTargetArrayOutputWithContext(ctx context.Context) ResponsePlayResponderEscalationRuleTargetArrayOutput {
+	return o
+}
+
+func (o ResponsePlayResponderEscalationRuleTargetArrayOutput) Index(i pulumi.IntInput) ResponsePlayResponderEscalationRuleTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResponsePlayResponderEscalationRuleTarget {
+		return vs[0].([]ResponsePlayResponderEscalationRuleTarget)[vs[1].(int)]
+	}).(ResponsePlayResponderEscalationRuleTargetOutput)
+}
+
+type ResponsePlayResponderService struct {
+	// ID of the user defined as the responder
+	Id *string `pulumi:"id"`
+	// A string that determines the schema of the object. If not set, the default value is "responsePlay".
+	Type *string `pulumi:"type"`
+}
+
+// ResponsePlayResponderServiceInput is an input type that accepts ResponsePlayResponderServiceArgs and ResponsePlayResponderServiceOutput values.
+// You can construct a concrete instance of `ResponsePlayResponderServiceInput` via:
+//
+//          ResponsePlayResponderServiceArgs{...}
+type ResponsePlayResponderServiceInput interface {
+	pulumi.Input
+
+	ToResponsePlayResponderServiceOutput() ResponsePlayResponderServiceOutput
+	ToResponsePlayResponderServiceOutputWithContext(context.Context) ResponsePlayResponderServiceOutput
+}
+
+type ResponsePlayResponderServiceArgs struct {
+	// ID of the user defined as the responder
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// A string that determines the schema of the object. If not set, the default value is "responsePlay".
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ResponsePlayResponderServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponsePlayResponderService)(nil)).Elem()
+}
+
+func (i ResponsePlayResponderServiceArgs) ToResponsePlayResponderServiceOutput() ResponsePlayResponderServiceOutput {
+	return i.ToResponsePlayResponderServiceOutputWithContext(context.Background())
+}
+
+func (i ResponsePlayResponderServiceArgs) ToResponsePlayResponderServiceOutputWithContext(ctx context.Context) ResponsePlayResponderServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlayResponderServiceOutput)
+}
+
+// ResponsePlayResponderServiceArrayInput is an input type that accepts ResponsePlayResponderServiceArray and ResponsePlayResponderServiceArrayOutput values.
+// You can construct a concrete instance of `ResponsePlayResponderServiceArrayInput` via:
+//
+//          ResponsePlayResponderServiceArray{ ResponsePlayResponderServiceArgs{...} }
+type ResponsePlayResponderServiceArrayInput interface {
+	pulumi.Input
+
+	ToResponsePlayResponderServiceArrayOutput() ResponsePlayResponderServiceArrayOutput
+	ToResponsePlayResponderServiceArrayOutputWithContext(context.Context) ResponsePlayResponderServiceArrayOutput
+}
+
+type ResponsePlayResponderServiceArray []ResponsePlayResponderServiceInput
+
+func (ResponsePlayResponderServiceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResponsePlayResponderService)(nil)).Elem()
+}
+
+func (i ResponsePlayResponderServiceArray) ToResponsePlayResponderServiceArrayOutput() ResponsePlayResponderServiceArrayOutput {
+	return i.ToResponsePlayResponderServiceArrayOutputWithContext(context.Background())
+}
+
+func (i ResponsePlayResponderServiceArray) ToResponsePlayResponderServiceArrayOutputWithContext(ctx context.Context) ResponsePlayResponderServiceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlayResponderServiceArrayOutput)
+}
+
+type ResponsePlayResponderServiceOutput struct{ *pulumi.OutputState }
+
+func (ResponsePlayResponderServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponsePlayResponderService)(nil)).Elem()
+}
+
+func (o ResponsePlayResponderServiceOutput) ToResponsePlayResponderServiceOutput() ResponsePlayResponderServiceOutput {
+	return o
+}
+
+func (o ResponsePlayResponderServiceOutput) ToResponsePlayResponderServiceOutputWithContext(ctx context.Context) ResponsePlayResponderServiceOutput {
+	return o
+}
+
+// ID of the user defined as the responder
+func (o ResponsePlayResponderServiceOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResponsePlayResponderService) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// A string that determines the schema of the object. If not set, the default value is "responsePlay".
+func (o ResponsePlayResponderServiceOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResponsePlayResponderService) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ResponsePlayResponderServiceArrayOutput struct{ *pulumi.OutputState }
+
+func (ResponsePlayResponderServiceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResponsePlayResponderService)(nil)).Elem()
+}
+
+func (o ResponsePlayResponderServiceArrayOutput) ToResponsePlayResponderServiceArrayOutput() ResponsePlayResponderServiceArrayOutput {
+	return o
+}
+
+func (o ResponsePlayResponderServiceArrayOutput) ToResponsePlayResponderServiceArrayOutputWithContext(ctx context.Context) ResponsePlayResponderServiceArrayOutput {
+	return o
+}
+
+func (o ResponsePlayResponderServiceArrayOutput) Index(i pulumi.IntInput) ResponsePlayResponderServiceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResponsePlayResponderService {
+		return vs[0].([]ResponsePlayResponderService)[vs[1].(int)]
+	}).(ResponsePlayResponderServiceOutput)
+}
+
+type ResponsePlayResponderTeam struct {
+	// ID of the user defined as the responder
+	Id *string `pulumi:"id"`
+	// A string that determines the schema of the object. If not set, the default value is "responsePlay".
+	Type string `pulumi:"type"`
+}
+
+// ResponsePlayResponderTeamInput is an input type that accepts ResponsePlayResponderTeamArgs and ResponsePlayResponderTeamOutput values.
+// You can construct a concrete instance of `ResponsePlayResponderTeamInput` via:
+//
+//          ResponsePlayResponderTeamArgs{...}
+type ResponsePlayResponderTeamInput interface {
+	pulumi.Input
+
+	ToResponsePlayResponderTeamOutput() ResponsePlayResponderTeamOutput
+	ToResponsePlayResponderTeamOutputWithContext(context.Context) ResponsePlayResponderTeamOutput
+}
+
+type ResponsePlayResponderTeamArgs struct {
+	// ID of the user defined as the responder
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// A string that determines the schema of the object. If not set, the default value is "responsePlay".
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ResponsePlayResponderTeamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponsePlayResponderTeam)(nil)).Elem()
+}
+
+func (i ResponsePlayResponderTeamArgs) ToResponsePlayResponderTeamOutput() ResponsePlayResponderTeamOutput {
+	return i.ToResponsePlayResponderTeamOutputWithContext(context.Background())
+}
+
+func (i ResponsePlayResponderTeamArgs) ToResponsePlayResponderTeamOutputWithContext(ctx context.Context) ResponsePlayResponderTeamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlayResponderTeamOutput)
+}
+
+// ResponsePlayResponderTeamArrayInput is an input type that accepts ResponsePlayResponderTeamArray and ResponsePlayResponderTeamArrayOutput values.
+// You can construct a concrete instance of `ResponsePlayResponderTeamArrayInput` via:
+//
+//          ResponsePlayResponderTeamArray{ ResponsePlayResponderTeamArgs{...} }
+type ResponsePlayResponderTeamArrayInput interface {
+	pulumi.Input
+
+	ToResponsePlayResponderTeamArrayOutput() ResponsePlayResponderTeamArrayOutput
+	ToResponsePlayResponderTeamArrayOutputWithContext(context.Context) ResponsePlayResponderTeamArrayOutput
+}
+
+type ResponsePlayResponderTeamArray []ResponsePlayResponderTeamInput
+
+func (ResponsePlayResponderTeamArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResponsePlayResponderTeam)(nil)).Elem()
+}
+
+func (i ResponsePlayResponderTeamArray) ToResponsePlayResponderTeamArrayOutput() ResponsePlayResponderTeamArrayOutput {
+	return i.ToResponsePlayResponderTeamArrayOutputWithContext(context.Background())
+}
+
+func (i ResponsePlayResponderTeamArray) ToResponsePlayResponderTeamArrayOutputWithContext(ctx context.Context) ResponsePlayResponderTeamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlayResponderTeamArrayOutput)
+}
+
+type ResponsePlayResponderTeamOutput struct{ *pulumi.OutputState }
+
+func (ResponsePlayResponderTeamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponsePlayResponderTeam)(nil)).Elem()
+}
+
+func (o ResponsePlayResponderTeamOutput) ToResponsePlayResponderTeamOutput() ResponsePlayResponderTeamOutput {
+	return o
+}
+
+func (o ResponsePlayResponderTeamOutput) ToResponsePlayResponderTeamOutputWithContext(ctx context.Context) ResponsePlayResponderTeamOutput {
+	return o
+}
+
+// ID of the user defined as the responder
+func (o ResponsePlayResponderTeamOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResponsePlayResponderTeam) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// A string that determines the schema of the object. If not set, the default value is "responsePlay".
+func (o ResponsePlayResponderTeamOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ResponsePlayResponderTeam) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ResponsePlayResponderTeamArrayOutput struct{ *pulumi.OutputState }
+
+func (ResponsePlayResponderTeamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResponsePlayResponderTeam)(nil)).Elem()
+}
+
+func (o ResponsePlayResponderTeamArrayOutput) ToResponsePlayResponderTeamArrayOutput() ResponsePlayResponderTeamArrayOutput {
+	return o
+}
+
+func (o ResponsePlayResponderTeamArrayOutput) ToResponsePlayResponderTeamArrayOutputWithContext(ctx context.Context) ResponsePlayResponderTeamArrayOutput {
+	return o
+}
+
+func (o ResponsePlayResponderTeamArrayOutput) Index(i pulumi.IntInput) ResponsePlayResponderTeamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResponsePlayResponderTeam {
+		return vs[0].([]ResponsePlayResponderTeam)[vs[1].(int)]
+	}).(ResponsePlayResponderTeamOutput)
+}
+
+type ResponsePlaySubscriber struct {
+	// ID of the user defined as the responder
+	Id *string `pulumi:"id"`
+	// A string that determines the schema of the object. If not set, the default value is "responsePlay".
+	Type *string `pulumi:"type"`
+}
+
+// ResponsePlaySubscriberInput is an input type that accepts ResponsePlaySubscriberArgs and ResponsePlaySubscriberOutput values.
+// You can construct a concrete instance of `ResponsePlaySubscriberInput` via:
+//
+//          ResponsePlaySubscriberArgs{...}
+type ResponsePlaySubscriberInput interface {
+	pulumi.Input
+
+	ToResponsePlaySubscriberOutput() ResponsePlaySubscriberOutput
+	ToResponsePlaySubscriberOutputWithContext(context.Context) ResponsePlaySubscriberOutput
+}
+
+type ResponsePlaySubscriberArgs struct {
+	// ID of the user defined as the responder
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// A string that determines the schema of the object. If not set, the default value is "responsePlay".
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ResponsePlaySubscriberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponsePlaySubscriber)(nil)).Elem()
+}
+
+func (i ResponsePlaySubscriberArgs) ToResponsePlaySubscriberOutput() ResponsePlaySubscriberOutput {
+	return i.ToResponsePlaySubscriberOutputWithContext(context.Background())
+}
+
+func (i ResponsePlaySubscriberArgs) ToResponsePlaySubscriberOutputWithContext(ctx context.Context) ResponsePlaySubscriberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlaySubscriberOutput)
+}
+
+// ResponsePlaySubscriberArrayInput is an input type that accepts ResponsePlaySubscriberArray and ResponsePlaySubscriberArrayOutput values.
+// You can construct a concrete instance of `ResponsePlaySubscriberArrayInput` via:
+//
+//          ResponsePlaySubscriberArray{ ResponsePlaySubscriberArgs{...} }
+type ResponsePlaySubscriberArrayInput interface {
+	pulumi.Input
+
+	ToResponsePlaySubscriberArrayOutput() ResponsePlaySubscriberArrayOutput
+	ToResponsePlaySubscriberArrayOutputWithContext(context.Context) ResponsePlaySubscriberArrayOutput
+}
+
+type ResponsePlaySubscriberArray []ResponsePlaySubscriberInput
+
+func (ResponsePlaySubscriberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResponsePlaySubscriber)(nil)).Elem()
+}
+
+func (i ResponsePlaySubscriberArray) ToResponsePlaySubscriberArrayOutput() ResponsePlaySubscriberArrayOutput {
+	return i.ToResponsePlaySubscriberArrayOutputWithContext(context.Background())
+}
+
+func (i ResponsePlaySubscriberArray) ToResponsePlaySubscriberArrayOutputWithContext(ctx context.Context) ResponsePlaySubscriberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlaySubscriberArrayOutput)
+}
+
+type ResponsePlaySubscriberOutput struct{ *pulumi.OutputState }
+
+func (ResponsePlaySubscriberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponsePlaySubscriber)(nil)).Elem()
+}
+
+func (o ResponsePlaySubscriberOutput) ToResponsePlaySubscriberOutput() ResponsePlaySubscriberOutput {
+	return o
+}
+
+func (o ResponsePlaySubscriberOutput) ToResponsePlaySubscriberOutputWithContext(ctx context.Context) ResponsePlaySubscriberOutput {
+	return o
+}
+
+// ID of the user defined as the responder
+func (o ResponsePlaySubscriberOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResponsePlaySubscriber) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// A string that determines the schema of the object. If not set, the default value is "responsePlay".
+func (o ResponsePlaySubscriberOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResponsePlaySubscriber) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ResponsePlaySubscriberArrayOutput struct{ *pulumi.OutputState }
+
+func (ResponsePlaySubscriberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResponsePlaySubscriber)(nil)).Elem()
+}
+
+func (o ResponsePlaySubscriberArrayOutput) ToResponsePlaySubscriberArrayOutput() ResponsePlaySubscriberArrayOutput {
+	return o
+}
+
+func (o ResponsePlaySubscriberArrayOutput) ToResponsePlaySubscriberArrayOutputWithContext(ctx context.Context) ResponsePlaySubscriberArrayOutput {
+	return o
+}
+
+func (o ResponsePlaySubscriberArrayOutput) Index(i pulumi.IntInput) ResponsePlaySubscriberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResponsePlaySubscriber {
+		return vs[0].([]ResponsePlaySubscriber)[vs[1].(int)]
+	}).(ResponsePlaySubscriberOutput)
+}
+
 type RulesetRuleActions struct {
 	// Note added to the event.
-	Annotates    []RulesetRuleActionsAnnotate    `pulumi:"annotates"`
+	Annotates []RulesetRuleActionsAnnotate `pulumi:"annotates"`
+	// An object with a single `value` field. The value sets whether the resulting alert status is `trigger` or `resolve`.
 	EventActions []RulesetRuleActionsEventAction `pulumi:"eventActions"`
-	// Allows you to copy important data from one event field to another. Extraction rules must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax). Extraction objects consist of the following fields:
+	// Allows you to copy important data from one event field to another. Extraction objects may use *either* of the following field structures:
 	Extractions []RulesetRuleActionsExtraction `pulumi:"extractions"`
 	// The ID of the priority applied to the event.
 	Priorities []RulesetRuleActionsPriority `pulumi:"priorities"`
@@ -240,8 +951,10 @@ type RulesetRuleActions struct {
 	Routes []RulesetRuleActionsRoute `pulumi:"routes"`
 	// The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`error`,`warning`, or `critical`.
 	Severities []RulesetRuleActionsSeverity `pulumi:"severities"`
-	// Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident).
+	// Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident). Note: If a threshold is set, the rule must also have a `route` action.
 	Suppresses []RulesetRuleActionsSuppress `pulumi:"suppresses"`
+	// An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering. Note: A rule with a `suspend` action must also have a `route` action.
+	Suspends []RulesetRuleActionsSuspend `pulumi:"suspends"`
 }
 
 // RulesetRuleActionsInput is an input type that accepts RulesetRuleActionsArgs and RulesetRuleActionsOutput values.
@@ -257,9 +970,10 @@ type RulesetRuleActionsInput interface {
 
 type RulesetRuleActionsArgs struct {
 	// Note added to the event.
-	Annotates    RulesetRuleActionsAnnotateArrayInput    `pulumi:"annotates"`
+	Annotates RulesetRuleActionsAnnotateArrayInput `pulumi:"annotates"`
+	// An object with a single `value` field. The value sets whether the resulting alert status is `trigger` or `resolve`.
 	EventActions RulesetRuleActionsEventActionArrayInput `pulumi:"eventActions"`
-	// Allows you to copy important data from one event field to another. Extraction rules must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax). Extraction objects consist of the following fields:
+	// Allows you to copy important data from one event field to another. Extraction objects may use *either* of the following field structures:
 	Extractions RulesetRuleActionsExtractionArrayInput `pulumi:"extractions"`
 	// The ID of the priority applied to the event.
 	Priorities RulesetRuleActionsPriorityArrayInput `pulumi:"priorities"`
@@ -267,8 +981,10 @@ type RulesetRuleActionsArgs struct {
 	Routes RulesetRuleActionsRouteArrayInput `pulumi:"routes"`
 	// The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`error`,`warning`, or `critical`.
 	Severities RulesetRuleActionsSeverityArrayInput `pulumi:"severities"`
-	// Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident).
+	// Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident). Note: If a threshold is set, the rule must also have a `route` action.
 	Suppresses RulesetRuleActionsSuppressArrayInput `pulumi:"suppresses"`
+	// An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering. Note: A rule with a `suspend` action must also have a `route` action.
+	Suspends RulesetRuleActionsSuspendArrayInput `pulumi:"suspends"`
 }
 
 func (RulesetRuleActionsArgs) ElementType() reflect.Type {
@@ -353,11 +1069,12 @@ func (o RulesetRuleActionsOutput) Annotates() RulesetRuleActionsAnnotateArrayOut
 	return o.ApplyT(func(v RulesetRuleActions) []RulesetRuleActionsAnnotate { return v.Annotates }).(RulesetRuleActionsAnnotateArrayOutput)
 }
 
+// An object with a single `value` field. The value sets whether the resulting alert status is `trigger` or `resolve`.
 func (o RulesetRuleActionsOutput) EventActions() RulesetRuleActionsEventActionArrayOutput {
 	return o.ApplyT(func(v RulesetRuleActions) []RulesetRuleActionsEventAction { return v.EventActions }).(RulesetRuleActionsEventActionArrayOutput)
 }
 
-// Allows you to copy important data from one event field to another. Extraction rules must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax). Extraction objects consist of the following fields:
+// Allows you to copy important data from one event field to another. Extraction objects may use *either* of the following field structures:
 func (o RulesetRuleActionsOutput) Extractions() RulesetRuleActionsExtractionArrayOutput {
 	return o.ApplyT(func(v RulesetRuleActions) []RulesetRuleActionsExtraction { return v.Extractions }).(RulesetRuleActionsExtractionArrayOutput)
 }
@@ -377,9 +1094,14 @@ func (o RulesetRuleActionsOutput) Severities() RulesetRuleActionsSeverityArrayOu
 	return o.ApplyT(func(v RulesetRuleActions) []RulesetRuleActionsSeverity { return v.Severities }).(RulesetRuleActionsSeverityArrayOutput)
 }
 
-// Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident).
+// Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident). Note: If a threshold is set, the rule must also have a `route` action.
 func (o RulesetRuleActionsOutput) Suppresses() RulesetRuleActionsSuppressArrayOutput {
 	return o.ApplyT(func(v RulesetRuleActions) []RulesetRuleActionsSuppress { return v.Suppresses }).(RulesetRuleActionsSuppressArrayOutput)
+}
+
+// An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering. Note: A rule with a `suspend` action must also have a `route` action.
+func (o RulesetRuleActionsOutput) Suspends() RulesetRuleActionsSuspendArrayOutput {
+	return o.ApplyT(func(v RulesetRuleActions) []RulesetRuleActionsSuspend { return v.Suspends }).(RulesetRuleActionsSuspendArrayOutput)
 }
 
 type RulesetRuleActionsPtrOutput struct{ *pulumi.OutputState }
@@ -410,6 +1132,7 @@ func (o RulesetRuleActionsPtrOutput) Annotates() RulesetRuleActionsAnnotateArray
 	}).(RulesetRuleActionsAnnotateArrayOutput)
 }
 
+// An object with a single `value` field. The value sets whether the resulting alert status is `trigger` or `resolve`.
 func (o RulesetRuleActionsPtrOutput) EventActions() RulesetRuleActionsEventActionArrayOutput {
 	return o.ApplyT(func(v *RulesetRuleActions) []RulesetRuleActionsEventAction {
 		if v == nil {
@@ -419,7 +1142,7 @@ func (o RulesetRuleActionsPtrOutput) EventActions() RulesetRuleActionsEventActio
 	}).(RulesetRuleActionsEventActionArrayOutput)
 }
 
-// Allows you to copy important data from one event field to another. Extraction rules must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax). Extraction objects consist of the following fields:
+// Allows you to copy important data from one event field to another. Extraction objects may use *either* of the following field structures:
 func (o RulesetRuleActionsPtrOutput) Extractions() RulesetRuleActionsExtractionArrayOutput {
 	return o.ApplyT(func(v *RulesetRuleActions) []RulesetRuleActionsExtraction {
 		if v == nil {
@@ -459,7 +1182,7 @@ func (o RulesetRuleActionsPtrOutput) Severities() RulesetRuleActionsSeverityArra
 	}).(RulesetRuleActionsSeverityArrayOutput)
 }
 
-// Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident).
+// Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident). Note: If a threshold is set, the rule must also have a `route` action.
 func (o RulesetRuleActionsPtrOutput) Suppresses() RulesetRuleActionsSuppressArrayOutput {
 	return o.ApplyT(func(v *RulesetRuleActions) []RulesetRuleActionsSuppress {
 		if v == nil {
@@ -467,6 +1190,16 @@ func (o RulesetRuleActionsPtrOutput) Suppresses() RulesetRuleActionsSuppressArra
 		}
 		return v.Suppresses
 	}).(RulesetRuleActionsSuppressArrayOutput)
+}
+
+// An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering. Note: A rule with a `suspend` action must also have a `route` action.
+func (o RulesetRuleActionsPtrOutput) Suspends() RulesetRuleActionsSuspendArrayOutput {
+	return o.ApplyT(func(v *RulesetRuleActions) []RulesetRuleActionsSuspend {
+		if v == nil {
+			return nil
+		}
+		return v.Suspends
+	}).(RulesetRuleActionsSuspendArrayOutput)
 }
 
 type RulesetRuleActionsAnnotate struct {
@@ -664,13 +1397,14 @@ func (o RulesetRuleActionsEventActionArrayOutput) Index(i pulumi.IntInput) Rules
 }
 
 type RulesetRuleActionsExtraction struct {
-	// The conditions that need to be met for the extraction to happen.
-	// * *NOTE: A rule can have multiple `extraction` objects attributed to it.*
+	// The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
 	Regex *string `pulumi:"regex"`
-	// Field where the data is being copied from.
+	// Field where the data is being copied from. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
 	Source *string `pulumi:"source"`
-	// Field where the data is being copied to.
+	// Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
 	Target *string `pulumi:"target"`
+	// A customized field message. This can also include variables extracted from the payload by using string interpolation.
+	Template *string `pulumi:"template"`
 }
 
 // RulesetRuleActionsExtractionInput is an input type that accepts RulesetRuleActionsExtractionArgs and RulesetRuleActionsExtractionOutput values.
@@ -685,13 +1419,14 @@ type RulesetRuleActionsExtractionInput interface {
 }
 
 type RulesetRuleActionsExtractionArgs struct {
-	// The conditions that need to be met for the extraction to happen.
-	// * *NOTE: A rule can have multiple `extraction` objects attributed to it.*
+	// The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
 	Regex pulumi.StringPtrInput `pulumi:"regex"`
-	// Field where the data is being copied from.
+	// Field where the data is being copied from. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
 	Source pulumi.StringPtrInput `pulumi:"source"`
-	// Field where the data is being copied to.
+	// Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
 	Target pulumi.StringPtrInput `pulumi:"target"`
+	// A customized field message. This can also include variables extracted from the payload by using string interpolation.
+	Template pulumi.StringPtrInput `pulumi:"template"`
 }
 
 func (RulesetRuleActionsExtractionArgs) ElementType() reflect.Type {
@@ -745,20 +1480,24 @@ func (o RulesetRuleActionsExtractionOutput) ToRulesetRuleActionsExtractionOutput
 	return o
 }
 
-// The conditions that need to be met for the extraction to happen.
-// * *NOTE: A rule can have multiple `extraction` objects attributed to it.*
+// The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
 func (o RulesetRuleActionsExtractionOutput) Regex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RulesetRuleActionsExtraction) *string { return v.Regex }).(pulumi.StringPtrOutput)
 }
 
-// Field where the data is being copied from.
+// Field where the data is being copied from. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
 func (o RulesetRuleActionsExtractionOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RulesetRuleActionsExtraction) *string { return v.Source }).(pulumi.StringPtrOutput)
 }
 
-// Field where the data is being copied to.
+// Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
 func (o RulesetRuleActionsExtractionOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RulesetRuleActionsExtraction) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+// A customized field message. This can also include variables extracted from the payload by using string interpolation.
+func (o RulesetRuleActionsExtractionOutput) Template() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RulesetRuleActionsExtraction) *string { return v.Template }).(pulumi.StringPtrOutput)
 }
 
 type RulesetRuleActionsExtractionArrayOutput struct{ *pulumi.OutputState }
@@ -1073,11 +1812,11 @@ func (o RulesetRuleActionsSeverityArrayOutput) Index(i pulumi.IntInput) RulesetR
 }
 
 type RulesetRuleActionsSuppress struct {
-	// The number value of the `thresholdTimeUnit` before an incident is created.
+	// The number value of the `thresholdTimeUnit` before an incident is created. Must be greater than 0.
 	ThresholdTimeAmount *int `pulumi:"thresholdTimeAmount"`
 	// The `minutes`,`hours`, or `days` that the `thresholdTimeAmount` should be measured.
 	ThresholdTimeUnit *string `pulumi:"thresholdTimeUnit"`
-	// The number of alerts that should be suppressed.
+	// The number of alerts that should be suppressed. Must be greater than 0.
 	ThresholdValue *int `pulumi:"thresholdValue"`
 	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value *bool `pulumi:"value"`
@@ -1095,11 +1834,11 @@ type RulesetRuleActionsSuppressInput interface {
 }
 
 type RulesetRuleActionsSuppressArgs struct {
-	// The number value of the `thresholdTimeUnit` before an incident is created.
+	// The number value of the `thresholdTimeUnit` before an incident is created. Must be greater than 0.
 	ThresholdTimeAmount pulumi.IntPtrInput `pulumi:"thresholdTimeAmount"`
 	// The `minutes`,`hours`, or `days` that the `thresholdTimeAmount` should be measured.
 	ThresholdTimeUnit pulumi.StringPtrInput `pulumi:"thresholdTimeUnit"`
-	// The number of alerts that should be suppressed.
+	// The number of alerts that should be suppressed. Must be greater than 0.
 	ThresholdValue pulumi.IntPtrInput `pulumi:"thresholdValue"`
 	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value pulumi.BoolPtrInput `pulumi:"value"`
@@ -1156,7 +1895,7 @@ func (o RulesetRuleActionsSuppressOutput) ToRulesetRuleActionsSuppressOutputWith
 	return o
 }
 
-// The number value of the `thresholdTimeUnit` before an incident is created.
+// The number value of the `thresholdTimeUnit` before an incident is created. Must be greater than 0.
 func (o RulesetRuleActionsSuppressOutput) ThresholdTimeAmount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RulesetRuleActionsSuppress) *int { return v.ThresholdTimeAmount }).(pulumi.IntPtrOutput)
 }
@@ -1166,7 +1905,7 @@ func (o RulesetRuleActionsSuppressOutput) ThresholdTimeUnit() pulumi.StringPtrOu
 	return o.ApplyT(func(v RulesetRuleActionsSuppress) *string { return v.ThresholdTimeUnit }).(pulumi.StringPtrOutput)
 }
 
-// The number of alerts that should be suppressed.
+// The number of alerts that should be suppressed. Must be greater than 0.
 func (o RulesetRuleActionsSuppressOutput) ThresholdValue() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RulesetRuleActionsSuppress) *int { return v.ThresholdValue }).(pulumi.IntPtrOutput)
 }
@@ -1194,6 +1933,103 @@ func (o RulesetRuleActionsSuppressArrayOutput) Index(i pulumi.IntInput) RulesetR
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RulesetRuleActionsSuppress {
 		return vs[0].([]RulesetRuleActionsSuppress)[vs[1].(int)]
 	}).(RulesetRuleActionsSuppressOutput)
+}
+
+type RulesetRuleActionsSuspend struct {
+	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+	Value *int `pulumi:"value"`
+}
+
+// RulesetRuleActionsSuspendInput is an input type that accepts RulesetRuleActionsSuspendArgs and RulesetRuleActionsSuspendOutput values.
+// You can construct a concrete instance of `RulesetRuleActionsSuspendInput` via:
+//
+//          RulesetRuleActionsSuspendArgs{...}
+type RulesetRuleActionsSuspendInput interface {
+	pulumi.Input
+
+	ToRulesetRuleActionsSuspendOutput() RulesetRuleActionsSuspendOutput
+	ToRulesetRuleActionsSuspendOutputWithContext(context.Context) RulesetRuleActionsSuspendOutput
+}
+
+type RulesetRuleActionsSuspendArgs struct {
+	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+	Value pulumi.IntPtrInput `pulumi:"value"`
+}
+
+func (RulesetRuleActionsSuspendArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesetRuleActionsSuspend)(nil)).Elem()
+}
+
+func (i RulesetRuleActionsSuspendArgs) ToRulesetRuleActionsSuspendOutput() RulesetRuleActionsSuspendOutput {
+	return i.ToRulesetRuleActionsSuspendOutputWithContext(context.Background())
+}
+
+func (i RulesetRuleActionsSuspendArgs) ToRulesetRuleActionsSuspendOutputWithContext(ctx context.Context) RulesetRuleActionsSuspendOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleActionsSuspendOutput)
+}
+
+// RulesetRuleActionsSuspendArrayInput is an input type that accepts RulesetRuleActionsSuspendArray and RulesetRuleActionsSuspendArrayOutput values.
+// You can construct a concrete instance of `RulesetRuleActionsSuspendArrayInput` via:
+//
+//          RulesetRuleActionsSuspendArray{ RulesetRuleActionsSuspendArgs{...} }
+type RulesetRuleActionsSuspendArrayInput interface {
+	pulumi.Input
+
+	ToRulesetRuleActionsSuspendArrayOutput() RulesetRuleActionsSuspendArrayOutput
+	ToRulesetRuleActionsSuspendArrayOutputWithContext(context.Context) RulesetRuleActionsSuspendArrayOutput
+}
+
+type RulesetRuleActionsSuspendArray []RulesetRuleActionsSuspendInput
+
+func (RulesetRuleActionsSuspendArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RulesetRuleActionsSuspend)(nil)).Elem()
+}
+
+func (i RulesetRuleActionsSuspendArray) ToRulesetRuleActionsSuspendArrayOutput() RulesetRuleActionsSuspendArrayOutput {
+	return i.ToRulesetRuleActionsSuspendArrayOutputWithContext(context.Background())
+}
+
+func (i RulesetRuleActionsSuspendArray) ToRulesetRuleActionsSuspendArrayOutputWithContext(ctx context.Context) RulesetRuleActionsSuspendArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleActionsSuspendArrayOutput)
+}
+
+type RulesetRuleActionsSuspendOutput struct{ *pulumi.OutputState }
+
+func (RulesetRuleActionsSuspendOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesetRuleActionsSuspend)(nil)).Elem()
+}
+
+func (o RulesetRuleActionsSuspendOutput) ToRulesetRuleActionsSuspendOutput() RulesetRuleActionsSuspendOutput {
+	return o
+}
+
+func (o RulesetRuleActionsSuspendOutput) ToRulesetRuleActionsSuspendOutputWithContext(ctx context.Context) RulesetRuleActionsSuspendOutput {
+	return o
+}
+
+// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+func (o RulesetRuleActionsSuspendOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RulesetRuleActionsSuspend) *int { return v.Value }).(pulumi.IntPtrOutput)
+}
+
+type RulesetRuleActionsSuspendArrayOutput struct{ *pulumi.OutputState }
+
+func (RulesetRuleActionsSuspendArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RulesetRuleActionsSuspend)(nil)).Elem()
+}
+
+func (o RulesetRuleActionsSuspendArrayOutput) ToRulesetRuleActionsSuspendArrayOutput() RulesetRuleActionsSuspendArrayOutput {
+	return o
+}
+
+func (o RulesetRuleActionsSuspendArrayOutput) ToRulesetRuleActionsSuspendArrayOutputWithContext(ctx context.Context) RulesetRuleActionsSuspendArrayOutput {
+	return o
+}
+
+func (o RulesetRuleActionsSuspendArrayOutput) Index(i pulumi.IntInput) RulesetRuleActionsSuspendOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RulesetRuleActionsSuspend {
+		return vs[0].([]RulesetRuleActionsSuspend)[vs[1].(int)]
+	}).(RulesetRuleActionsSuspendOutput)
 }
 
 type RulesetRuleConditions struct {
@@ -1937,6 +2773,215 @@ func (o RulesetRuleTimeFrameScheduledWeeklyArrayOutput) Index(i pulumi.IntInput)
 	}).(RulesetRuleTimeFrameScheduledWeeklyOutput)
 }
 
+type RulesetRuleVariable struct {
+	Name       *string                        `pulumi:"name"`
+	Parameters []RulesetRuleVariableParameter `pulumi:"parameters"`
+	Type       *string                        `pulumi:"type"`
+}
+
+// RulesetRuleVariableInput is an input type that accepts RulesetRuleVariableArgs and RulesetRuleVariableOutput values.
+// You can construct a concrete instance of `RulesetRuleVariableInput` via:
+//
+//          RulesetRuleVariableArgs{...}
+type RulesetRuleVariableInput interface {
+	pulumi.Input
+
+	ToRulesetRuleVariableOutput() RulesetRuleVariableOutput
+	ToRulesetRuleVariableOutputWithContext(context.Context) RulesetRuleVariableOutput
+}
+
+type RulesetRuleVariableArgs struct {
+	Name       pulumi.StringPtrInput                  `pulumi:"name"`
+	Parameters RulesetRuleVariableParameterArrayInput `pulumi:"parameters"`
+	Type       pulumi.StringPtrInput                  `pulumi:"type"`
+}
+
+func (RulesetRuleVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesetRuleVariable)(nil)).Elem()
+}
+
+func (i RulesetRuleVariableArgs) ToRulesetRuleVariableOutput() RulesetRuleVariableOutput {
+	return i.ToRulesetRuleVariableOutputWithContext(context.Background())
+}
+
+func (i RulesetRuleVariableArgs) ToRulesetRuleVariableOutputWithContext(ctx context.Context) RulesetRuleVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleVariableOutput)
+}
+
+// RulesetRuleVariableArrayInput is an input type that accepts RulesetRuleVariableArray and RulesetRuleVariableArrayOutput values.
+// You can construct a concrete instance of `RulesetRuleVariableArrayInput` via:
+//
+//          RulesetRuleVariableArray{ RulesetRuleVariableArgs{...} }
+type RulesetRuleVariableArrayInput interface {
+	pulumi.Input
+
+	ToRulesetRuleVariableArrayOutput() RulesetRuleVariableArrayOutput
+	ToRulesetRuleVariableArrayOutputWithContext(context.Context) RulesetRuleVariableArrayOutput
+}
+
+type RulesetRuleVariableArray []RulesetRuleVariableInput
+
+func (RulesetRuleVariableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RulesetRuleVariable)(nil)).Elem()
+}
+
+func (i RulesetRuleVariableArray) ToRulesetRuleVariableArrayOutput() RulesetRuleVariableArrayOutput {
+	return i.ToRulesetRuleVariableArrayOutputWithContext(context.Background())
+}
+
+func (i RulesetRuleVariableArray) ToRulesetRuleVariableArrayOutputWithContext(ctx context.Context) RulesetRuleVariableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleVariableArrayOutput)
+}
+
+type RulesetRuleVariableOutput struct{ *pulumi.OutputState }
+
+func (RulesetRuleVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesetRuleVariable)(nil)).Elem()
+}
+
+func (o RulesetRuleVariableOutput) ToRulesetRuleVariableOutput() RulesetRuleVariableOutput {
+	return o
+}
+
+func (o RulesetRuleVariableOutput) ToRulesetRuleVariableOutputWithContext(ctx context.Context) RulesetRuleVariableOutput {
+	return o
+}
+
+func (o RulesetRuleVariableOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RulesetRuleVariable) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o RulesetRuleVariableOutput) Parameters() RulesetRuleVariableParameterArrayOutput {
+	return o.ApplyT(func(v RulesetRuleVariable) []RulesetRuleVariableParameter { return v.Parameters }).(RulesetRuleVariableParameterArrayOutput)
+}
+
+func (o RulesetRuleVariableOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RulesetRuleVariable) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type RulesetRuleVariableArrayOutput struct{ *pulumi.OutputState }
+
+func (RulesetRuleVariableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RulesetRuleVariable)(nil)).Elem()
+}
+
+func (o RulesetRuleVariableArrayOutput) ToRulesetRuleVariableArrayOutput() RulesetRuleVariableArrayOutput {
+	return o
+}
+
+func (o RulesetRuleVariableArrayOutput) ToRulesetRuleVariableArrayOutputWithContext(ctx context.Context) RulesetRuleVariableArrayOutput {
+	return o
+}
+
+func (o RulesetRuleVariableArrayOutput) Index(i pulumi.IntInput) RulesetRuleVariableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RulesetRuleVariable {
+		return vs[0].([]RulesetRuleVariable)[vs[1].(int)]
+	}).(RulesetRuleVariableOutput)
+}
+
+type RulesetRuleVariableParameter struct {
+	Path *string `pulumi:"path"`
+	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+	Value *string `pulumi:"value"`
+}
+
+// RulesetRuleVariableParameterInput is an input type that accepts RulesetRuleVariableParameterArgs and RulesetRuleVariableParameterOutput values.
+// You can construct a concrete instance of `RulesetRuleVariableParameterInput` via:
+//
+//          RulesetRuleVariableParameterArgs{...}
+type RulesetRuleVariableParameterInput interface {
+	pulumi.Input
+
+	ToRulesetRuleVariableParameterOutput() RulesetRuleVariableParameterOutput
+	ToRulesetRuleVariableParameterOutputWithContext(context.Context) RulesetRuleVariableParameterOutput
+}
+
+type RulesetRuleVariableParameterArgs struct {
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (RulesetRuleVariableParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesetRuleVariableParameter)(nil)).Elem()
+}
+
+func (i RulesetRuleVariableParameterArgs) ToRulesetRuleVariableParameterOutput() RulesetRuleVariableParameterOutput {
+	return i.ToRulesetRuleVariableParameterOutputWithContext(context.Background())
+}
+
+func (i RulesetRuleVariableParameterArgs) ToRulesetRuleVariableParameterOutputWithContext(ctx context.Context) RulesetRuleVariableParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleVariableParameterOutput)
+}
+
+// RulesetRuleVariableParameterArrayInput is an input type that accepts RulesetRuleVariableParameterArray and RulesetRuleVariableParameterArrayOutput values.
+// You can construct a concrete instance of `RulesetRuleVariableParameterArrayInput` via:
+//
+//          RulesetRuleVariableParameterArray{ RulesetRuleVariableParameterArgs{...} }
+type RulesetRuleVariableParameterArrayInput interface {
+	pulumi.Input
+
+	ToRulesetRuleVariableParameterArrayOutput() RulesetRuleVariableParameterArrayOutput
+	ToRulesetRuleVariableParameterArrayOutputWithContext(context.Context) RulesetRuleVariableParameterArrayOutput
+}
+
+type RulesetRuleVariableParameterArray []RulesetRuleVariableParameterInput
+
+func (RulesetRuleVariableParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RulesetRuleVariableParameter)(nil)).Elem()
+}
+
+func (i RulesetRuleVariableParameterArray) ToRulesetRuleVariableParameterArrayOutput() RulesetRuleVariableParameterArrayOutput {
+	return i.ToRulesetRuleVariableParameterArrayOutputWithContext(context.Background())
+}
+
+func (i RulesetRuleVariableParameterArray) ToRulesetRuleVariableParameterArrayOutputWithContext(ctx context.Context) RulesetRuleVariableParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleVariableParameterArrayOutput)
+}
+
+type RulesetRuleVariableParameterOutput struct{ *pulumi.OutputState }
+
+func (RulesetRuleVariableParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulesetRuleVariableParameter)(nil)).Elem()
+}
+
+func (o RulesetRuleVariableParameterOutput) ToRulesetRuleVariableParameterOutput() RulesetRuleVariableParameterOutput {
+	return o
+}
+
+func (o RulesetRuleVariableParameterOutput) ToRulesetRuleVariableParameterOutputWithContext(ctx context.Context) RulesetRuleVariableParameterOutput {
+	return o
+}
+
+func (o RulesetRuleVariableParameterOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RulesetRuleVariableParameter) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+func (o RulesetRuleVariableParameterOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RulesetRuleVariableParameter) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type RulesetRuleVariableParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (RulesetRuleVariableParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RulesetRuleVariableParameter)(nil)).Elem()
+}
+
+func (o RulesetRuleVariableParameterArrayOutput) ToRulesetRuleVariableParameterArrayOutput() RulesetRuleVariableParameterArrayOutput {
+	return o
+}
+
+func (o RulesetRuleVariableParameterArrayOutput) ToRulesetRuleVariableParameterArrayOutputWithContext(ctx context.Context) RulesetRuleVariableParameterArrayOutput {
+	return o
+}
+
+func (o RulesetRuleVariableParameterArrayOutput) Index(i pulumi.IntInput) RulesetRuleVariableParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RulesetRuleVariableParameter {
+		return vs[0].([]RulesetRuleVariableParameter)[vs[1].(int)]
+	}).(RulesetRuleVariableParameterOutput)
+}
+
 type RulesetTeam struct {
 	// The ID of the ruleset.
 	Id string `pulumi:"id"`
@@ -2672,6 +3717,1951 @@ func (o ServiceDependencyDependencySupportingServiceArrayOutput) Index(i pulumi.
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceDependencyDependencySupportingService {
 		return vs[0].([]ServiceDependencyDependencySupportingService)[vs[1].(int)]
 	}).(ServiceDependencyDependencySupportingServiceOutput)
+}
+
+type ServiceEventRuleActions struct {
+	// Note added to the event.
+	Annotates []ServiceEventRuleActionsAnnotate `pulumi:"annotates"`
+	// An object with a single `value` field. The value sets whether the resulting alert status is `trigger` or `resolve`.
+	EventActions []ServiceEventRuleActionsEventAction `pulumi:"eventActions"`
+	// Allows you to copy important data from one event field to another. Extraction objects may use *either* of the following field structures:
+	Extractions []ServiceEventRuleActionsExtraction `pulumi:"extractions"`
+	// The ID of the priority applied to the event.
+	Priorities []ServiceEventRuleActionsPriority `pulumi:"priorities"`
+	// The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`error`,`warning`, or `critical`.
+	Severities []ServiceEventRuleActionsSeverity `pulumi:"severities"`
+	// Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident).
+	Suppresses []ServiceEventRuleActionsSuppress `pulumi:"suppresses"`
+	// An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering.
+	Suspends []ServiceEventRuleActionsSuspend `pulumi:"suspends"`
+}
+
+// ServiceEventRuleActionsInput is an input type that accepts ServiceEventRuleActionsArgs and ServiceEventRuleActionsOutput values.
+// You can construct a concrete instance of `ServiceEventRuleActionsInput` via:
+//
+//          ServiceEventRuleActionsArgs{...}
+type ServiceEventRuleActionsInput interface {
+	pulumi.Input
+
+	ToServiceEventRuleActionsOutput() ServiceEventRuleActionsOutput
+	ToServiceEventRuleActionsOutputWithContext(context.Context) ServiceEventRuleActionsOutput
+}
+
+type ServiceEventRuleActionsArgs struct {
+	// Note added to the event.
+	Annotates ServiceEventRuleActionsAnnotateArrayInput `pulumi:"annotates"`
+	// An object with a single `value` field. The value sets whether the resulting alert status is `trigger` or `resolve`.
+	EventActions ServiceEventRuleActionsEventActionArrayInput `pulumi:"eventActions"`
+	// Allows you to copy important data from one event field to another. Extraction objects may use *either* of the following field structures:
+	Extractions ServiceEventRuleActionsExtractionArrayInput `pulumi:"extractions"`
+	// The ID of the priority applied to the event.
+	Priorities ServiceEventRuleActionsPriorityArrayInput `pulumi:"priorities"`
+	// The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`error`,`warning`, or `critical`.
+	Severities ServiceEventRuleActionsSeverityArrayInput `pulumi:"severities"`
+	// Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident).
+	Suppresses ServiceEventRuleActionsSuppressArrayInput `pulumi:"suppresses"`
+	// An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering.
+	Suspends ServiceEventRuleActionsSuspendArrayInput `pulumi:"suspends"`
+}
+
+func (ServiceEventRuleActionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEventRuleActions)(nil)).Elem()
+}
+
+func (i ServiceEventRuleActionsArgs) ToServiceEventRuleActionsOutput() ServiceEventRuleActionsOutput {
+	return i.ToServiceEventRuleActionsOutputWithContext(context.Background())
+}
+
+func (i ServiceEventRuleActionsArgs) ToServiceEventRuleActionsOutputWithContext(ctx context.Context) ServiceEventRuleActionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleActionsOutput)
+}
+
+func (i ServiceEventRuleActionsArgs) ToServiceEventRuleActionsPtrOutput() ServiceEventRuleActionsPtrOutput {
+	return i.ToServiceEventRuleActionsPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceEventRuleActionsArgs) ToServiceEventRuleActionsPtrOutputWithContext(ctx context.Context) ServiceEventRuleActionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleActionsOutput).ToServiceEventRuleActionsPtrOutputWithContext(ctx)
+}
+
+// ServiceEventRuleActionsPtrInput is an input type that accepts ServiceEventRuleActionsArgs, ServiceEventRuleActionsPtr and ServiceEventRuleActionsPtrOutput values.
+// You can construct a concrete instance of `ServiceEventRuleActionsPtrInput` via:
+//
+//          ServiceEventRuleActionsArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceEventRuleActionsPtrInput interface {
+	pulumi.Input
+
+	ToServiceEventRuleActionsPtrOutput() ServiceEventRuleActionsPtrOutput
+	ToServiceEventRuleActionsPtrOutputWithContext(context.Context) ServiceEventRuleActionsPtrOutput
+}
+
+type serviceEventRuleActionsPtrType ServiceEventRuleActionsArgs
+
+func ServiceEventRuleActionsPtr(v *ServiceEventRuleActionsArgs) ServiceEventRuleActionsPtrInput {
+	return (*serviceEventRuleActionsPtrType)(v)
+}
+
+func (*serviceEventRuleActionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEventRuleActions)(nil)).Elem()
+}
+
+func (i *serviceEventRuleActionsPtrType) ToServiceEventRuleActionsPtrOutput() ServiceEventRuleActionsPtrOutput {
+	return i.ToServiceEventRuleActionsPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceEventRuleActionsPtrType) ToServiceEventRuleActionsPtrOutputWithContext(ctx context.Context) ServiceEventRuleActionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleActionsPtrOutput)
+}
+
+type ServiceEventRuleActionsOutput struct{ *pulumi.OutputState }
+
+func (ServiceEventRuleActionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEventRuleActions)(nil)).Elem()
+}
+
+func (o ServiceEventRuleActionsOutput) ToServiceEventRuleActionsOutput() ServiceEventRuleActionsOutput {
+	return o
+}
+
+func (o ServiceEventRuleActionsOutput) ToServiceEventRuleActionsOutputWithContext(ctx context.Context) ServiceEventRuleActionsOutput {
+	return o
+}
+
+func (o ServiceEventRuleActionsOutput) ToServiceEventRuleActionsPtrOutput() ServiceEventRuleActionsPtrOutput {
+	return o.ToServiceEventRuleActionsPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceEventRuleActionsOutput) ToServiceEventRuleActionsPtrOutputWithContext(ctx context.Context) ServiceEventRuleActionsPtrOutput {
+	return o.ApplyT(func(v ServiceEventRuleActions) *ServiceEventRuleActions {
+		return &v
+	}).(ServiceEventRuleActionsPtrOutput)
+}
+
+// Note added to the event.
+func (o ServiceEventRuleActionsOutput) Annotates() ServiceEventRuleActionsAnnotateArrayOutput {
+	return o.ApplyT(func(v ServiceEventRuleActions) []ServiceEventRuleActionsAnnotate { return v.Annotates }).(ServiceEventRuleActionsAnnotateArrayOutput)
+}
+
+// An object with a single `value` field. The value sets whether the resulting alert status is `trigger` or `resolve`.
+func (o ServiceEventRuleActionsOutput) EventActions() ServiceEventRuleActionsEventActionArrayOutput {
+	return o.ApplyT(func(v ServiceEventRuleActions) []ServiceEventRuleActionsEventAction { return v.EventActions }).(ServiceEventRuleActionsEventActionArrayOutput)
+}
+
+// Allows you to copy important data from one event field to another. Extraction objects may use *either* of the following field structures:
+func (o ServiceEventRuleActionsOutput) Extractions() ServiceEventRuleActionsExtractionArrayOutput {
+	return o.ApplyT(func(v ServiceEventRuleActions) []ServiceEventRuleActionsExtraction { return v.Extractions }).(ServiceEventRuleActionsExtractionArrayOutput)
+}
+
+// The ID of the priority applied to the event.
+func (o ServiceEventRuleActionsOutput) Priorities() ServiceEventRuleActionsPriorityArrayOutput {
+	return o.ApplyT(func(v ServiceEventRuleActions) []ServiceEventRuleActionsPriority { return v.Priorities }).(ServiceEventRuleActionsPriorityArrayOutput)
+}
+
+// The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`error`,`warning`, or `critical`.
+func (o ServiceEventRuleActionsOutput) Severities() ServiceEventRuleActionsSeverityArrayOutput {
+	return o.ApplyT(func(v ServiceEventRuleActions) []ServiceEventRuleActionsSeverity { return v.Severities }).(ServiceEventRuleActionsSeverityArrayOutput)
+}
+
+// Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident).
+func (o ServiceEventRuleActionsOutput) Suppresses() ServiceEventRuleActionsSuppressArrayOutput {
+	return o.ApplyT(func(v ServiceEventRuleActions) []ServiceEventRuleActionsSuppress { return v.Suppresses }).(ServiceEventRuleActionsSuppressArrayOutput)
+}
+
+// An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering.
+func (o ServiceEventRuleActionsOutput) Suspends() ServiceEventRuleActionsSuspendArrayOutput {
+	return o.ApplyT(func(v ServiceEventRuleActions) []ServiceEventRuleActionsSuspend { return v.Suspends }).(ServiceEventRuleActionsSuspendArrayOutput)
+}
+
+type ServiceEventRuleActionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceEventRuleActionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEventRuleActions)(nil)).Elem()
+}
+
+func (o ServiceEventRuleActionsPtrOutput) ToServiceEventRuleActionsPtrOutput() ServiceEventRuleActionsPtrOutput {
+	return o
+}
+
+func (o ServiceEventRuleActionsPtrOutput) ToServiceEventRuleActionsPtrOutputWithContext(ctx context.Context) ServiceEventRuleActionsPtrOutput {
+	return o
+}
+
+func (o ServiceEventRuleActionsPtrOutput) Elem() ServiceEventRuleActionsOutput {
+	return o.ApplyT(func(v *ServiceEventRuleActions) ServiceEventRuleActions { return *v }).(ServiceEventRuleActionsOutput)
+}
+
+// Note added to the event.
+func (o ServiceEventRuleActionsPtrOutput) Annotates() ServiceEventRuleActionsAnnotateArrayOutput {
+	return o.ApplyT(func(v *ServiceEventRuleActions) []ServiceEventRuleActionsAnnotate {
+		if v == nil {
+			return nil
+		}
+		return v.Annotates
+	}).(ServiceEventRuleActionsAnnotateArrayOutput)
+}
+
+// An object with a single `value` field. The value sets whether the resulting alert status is `trigger` or `resolve`.
+func (o ServiceEventRuleActionsPtrOutput) EventActions() ServiceEventRuleActionsEventActionArrayOutput {
+	return o.ApplyT(func(v *ServiceEventRuleActions) []ServiceEventRuleActionsEventAction {
+		if v == nil {
+			return nil
+		}
+		return v.EventActions
+	}).(ServiceEventRuleActionsEventActionArrayOutput)
+}
+
+// Allows you to copy important data from one event field to another. Extraction objects may use *either* of the following field structures:
+func (o ServiceEventRuleActionsPtrOutput) Extractions() ServiceEventRuleActionsExtractionArrayOutput {
+	return o.ApplyT(func(v *ServiceEventRuleActions) []ServiceEventRuleActionsExtraction {
+		if v == nil {
+			return nil
+		}
+		return v.Extractions
+	}).(ServiceEventRuleActionsExtractionArrayOutput)
+}
+
+// The ID of the priority applied to the event.
+func (o ServiceEventRuleActionsPtrOutput) Priorities() ServiceEventRuleActionsPriorityArrayOutput {
+	return o.ApplyT(func(v *ServiceEventRuleActions) []ServiceEventRuleActionsPriority {
+		if v == nil {
+			return nil
+		}
+		return v.Priorities
+	}).(ServiceEventRuleActionsPriorityArrayOutput)
+}
+
+// The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`error`,`warning`, or `critical`.
+func (o ServiceEventRuleActionsPtrOutput) Severities() ServiceEventRuleActionsSeverityArrayOutput {
+	return o.ApplyT(func(v *ServiceEventRuleActions) []ServiceEventRuleActionsSeverity {
+		if v == nil {
+			return nil
+		}
+		return v.Severities
+	}).(ServiceEventRuleActionsSeverityArrayOutput)
+}
+
+// Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident).
+func (o ServiceEventRuleActionsPtrOutput) Suppresses() ServiceEventRuleActionsSuppressArrayOutput {
+	return o.ApplyT(func(v *ServiceEventRuleActions) []ServiceEventRuleActionsSuppress {
+		if v == nil {
+			return nil
+		}
+		return v.Suppresses
+	}).(ServiceEventRuleActionsSuppressArrayOutput)
+}
+
+// An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering.
+func (o ServiceEventRuleActionsPtrOutput) Suspends() ServiceEventRuleActionsSuspendArrayOutput {
+	return o.ApplyT(func(v *ServiceEventRuleActions) []ServiceEventRuleActionsSuspend {
+		if v == nil {
+			return nil
+		}
+		return v.Suspends
+	}).(ServiceEventRuleActionsSuspendArrayOutput)
+}
+
+type ServiceEventRuleActionsAnnotate struct {
+	// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+	Value *string `pulumi:"value"`
+}
+
+// ServiceEventRuleActionsAnnotateInput is an input type that accepts ServiceEventRuleActionsAnnotateArgs and ServiceEventRuleActionsAnnotateOutput values.
+// You can construct a concrete instance of `ServiceEventRuleActionsAnnotateInput` via:
+//
+//          ServiceEventRuleActionsAnnotateArgs{...}
+type ServiceEventRuleActionsAnnotateInput interface {
+	pulumi.Input
+
+	ToServiceEventRuleActionsAnnotateOutput() ServiceEventRuleActionsAnnotateOutput
+	ToServiceEventRuleActionsAnnotateOutputWithContext(context.Context) ServiceEventRuleActionsAnnotateOutput
+}
+
+type ServiceEventRuleActionsAnnotateArgs struct {
+	// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ServiceEventRuleActionsAnnotateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEventRuleActionsAnnotate)(nil)).Elem()
+}
+
+func (i ServiceEventRuleActionsAnnotateArgs) ToServiceEventRuleActionsAnnotateOutput() ServiceEventRuleActionsAnnotateOutput {
+	return i.ToServiceEventRuleActionsAnnotateOutputWithContext(context.Background())
+}
+
+func (i ServiceEventRuleActionsAnnotateArgs) ToServiceEventRuleActionsAnnotateOutputWithContext(ctx context.Context) ServiceEventRuleActionsAnnotateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleActionsAnnotateOutput)
+}
+
+// ServiceEventRuleActionsAnnotateArrayInput is an input type that accepts ServiceEventRuleActionsAnnotateArray and ServiceEventRuleActionsAnnotateArrayOutput values.
+// You can construct a concrete instance of `ServiceEventRuleActionsAnnotateArrayInput` via:
+//
+//          ServiceEventRuleActionsAnnotateArray{ ServiceEventRuleActionsAnnotateArgs{...} }
+type ServiceEventRuleActionsAnnotateArrayInput interface {
+	pulumi.Input
+
+	ToServiceEventRuleActionsAnnotateArrayOutput() ServiceEventRuleActionsAnnotateArrayOutput
+	ToServiceEventRuleActionsAnnotateArrayOutputWithContext(context.Context) ServiceEventRuleActionsAnnotateArrayOutput
+}
+
+type ServiceEventRuleActionsAnnotateArray []ServiceEventRuleActionsAnnotateInput
+
+func (ServiceEventRuleActionsAnnotateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEventRuleActionsAnnotate)(nil)).Elem()
+}
+
+func (i ServiceEventRuleActionsAnnotateArray) ToServiceEventRuleActionsAnnotateArrayOutput() ServiceEventRuleActionsAnnotateArrayOutput {
+	return i.ToServiceEventRuleActionsAnnotateArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceEventRuleActionsAnnotateArray) ToServiceEventRuleActionsAnnotateArrayOutputWithContext(ctx context.Context) ServiceEventRuleActionsAnnotateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleActionsAnnotateArrayOutput)
+}
+
+type ServiceEventRuleActionsAnnotateOutput struct{ *pulumi.OutputState }
+
+func (ServiceEventRuleActionsAnnotateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEventRuleActionsAnnotate)(nil)).Elem()
+}
+
+func (o ServiceEventRuleActionsAnnotateOutput) ToServiceEventRuleActionsAnnotateOutput() ServiceEventRuleActionsAnnotateOutput {
+	return o
+}
+
+func (o ServiceEventRuleActionsAnnotateOutput) ToServiceEventRuleActionsAnnotateOutputWithContext(ctx context.Context) ServiceEventRuleActionsAnnotateOutput {
+	return o
+}
+
+// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+func (o ServiceEventRuleActionsAnnotateOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEventRuleActionsAnnotate) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ServiceEventRuleActionsAnnotateArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceEventRuleActionsAnnotateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEventRuleActionsAnnotate)(nil)).Elem()
+}
+
+func (o ServiceEventRuleActionsAnnotateArrayOutput) ToServiceEventRuleActionsAnnotateArrayOutput() ServiceEventRuleActionsAnnotateArrayOutput {
+	return o
+}
+
+func (o ServiceEventRuleActionsAnnotateArrayOutput) ToServiceEventRuleActionsAnnotateArrayOutputWithContext(ctx context.Context) ServiceEventRuleActionsAnnotateArrayOutput {
+	return o
+}
+
+func (o ServiceEventRuleActionsAnnotateArrayOutput) Index(i pulumi.IntInput) ServiceEventRuleActionsAnnotateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceEventRuleActionsAnnotate {
+		return vs[0].([]ServiceEventRuleActionsAnnotate)[vs[1].(int)]
+	}).(ServiceEventRuleActionsAnnotateOutput)
+}
+
+type ServiceEventRuleActionsEventAction struct {
+	// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+	Value *string `pulumi:"value"`
+}
+
+// ServiceEventRuleActionsEventActionInput is an input type that accepts ServiceEventRuleActionsEventActionArgs and ServiceEventRuleActionsEventActionOutput values.
+// You can construct a concrete instance of `ServiceEventRuleActionsEventActionInput` via:
+//
+//          ServiceEventRuleActionsEventActionArgs{...}
+type ServiceEventRuleActionsEventActionInput interface {
+	pulumi.Input
+
+	ToServiceEventRuleActionsEventActionOutput() ServiceEventRuleActionsEventActionOutput
+	ToServiceEventRuleActionsEventActionOutputWithContext(context.Context) ServiceEventRuleActionsEventActionOutput
+}
+
+type ServiceEventRuleActionsEventActionArgs struct {
+	// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ServiceEventRuleActionsEventActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEventRuleActionsEventAction)(nil)).Elem()
+}
+
+func (i ServiceEventRuleActionsEventActionArgs) ToServiceEventRuleActionsEventActionOutput() ServiceEventRuleActionsEventActionOutput {
+	return i.ToServiceEventRuleActionsEventActionOutputWithContext(context.Background())
+}
+
+func (i ServiceEventRuleActionsEventActionArgs) ToServiceEventRuleActionsEventActionOutputWithContext(ctx context.Context) ServiceEventRuleActionsEventActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleActionsEventActionOutput)
+}
+
+// ServiceEventRuleActionsEventActionArrayInput is an input type that accepts ServiceEventRuleActionsEventActionArray and ServiceEventRuleActionsEventActionArrayOutput values.
+// You can construct a concrete instance of `ServiceEventRuleActionsEventActionArrayInput` via:
+//
+//          ServiceEventRuleActionsEventActionArray{ ServiceEventRuleActionsEventActionArgs{...} }
+type ServiceEventRuleActionsEventActionArrayInput interface {
+	pulumi.Input
+
+	ToServiceEventRuleActionsEventActionArrayOutput() ServiceEventRuleActionsEventActionArrayOutput
+	ToServiceEventRuleActionsEventActionArrayOutputWithContext(context.Context) ServiceEventRuleActionsEventActionArrayOutput
+}
+
+type ServiceEventRuleActionsEventActionArray []ServiceEventRuleActionsEventActionInput
+
+func (ServiceEventRuleActionsEventActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEventRuleActionsEventAction)(nil)).Elem()
+}
+
+func (i ServiceEventRuleActionsEventActionArray) ToServiceEventRuleActionsEventActionArrayOutput() ServiceEventRuleActionsEventActionArrayOutput {
+	return i.ToServiceEventRuleActionsEventActionArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceEventRuleActionsEventActionArray) ToServiceEventRuleActionsEventActionArrayOutputWithContext(ctx context.Context) ServiceEventRuleActionsEventActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleActionsEventActionArrayOutput)
+}
+
+type ServiceEventRuleActionsEventActionOutput struct{ *pulumi.OutputState }
+
+func (ServiceEventRuleActionsEventActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEventRuleActionsEventAction)(nil)).Elem()
+}
+
+func (o ServiceEventRuleActionsEventActionOutput) ToServiceEventRuleActionsEventActionOutput() ServiceEventRuleActionsEventActionOutput {
+	return o
+}
+
+func (o ServiceEventRuleActionsEventActionOutput) ToServiceEventRuleActionsEventActionOutputWithContext(ctx context.Context) ServiceEventRuleActionsEventActionOutput {
+	return o
+}
+
+// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+func (o ServiceEventRuleActionsEventActionOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEventRuleActionsEventAction) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ServiceEventRuleActionsEventActionArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceEventRuleActionsEventActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEventRuleActionsEventAction)(nil)).Elem()
+}
+
+func (o ServiceEventRuleActionsEventActionArrayOutput) ToServiceEventRuleActionsEventActionArrayOutput() ServiceEventRuleActionsEventActionArrayOutput {
+	return o
+}
+
+func (o ServiceEventRuleActionsEventActionArrayOutput) ToServiceEventRuleActionsEventActionArrayOutputWithContext(ctx context.Context) ServiceEventRuleActionsEventActionArrayOutput {
+	return o
+}
+
+func (o ServiceEventRuleActionsEventActionArrayOutput) Index(i pulumi.IntInput) ServiceEventRuleActionsEventActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceEventRuleActionsEventAction {
+		return vs[0].([]ServiceEventRuleActionsEventAction)[vs[1].(int)]
+	}).(ServiceEventRuleActionsEventActionOutput)
+}
+
+type ServiceEventRuleActionsExtraction struct {
+	// The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
+	Regex *string `pulumi:"regex"`
+	// Field where the data is being copied from. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+	Source *string `pulumi:"source"`
+	// Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+	Target *string `pulumi:"target"`
+	// A customized field message. This can also include variables extracted from the payload by using string interpolation.
+	Template *string `pulumi:"template"`
+}
+
+// ServiceEventRuleActionsExtractionInput is an input type that accepts ServiceEventRuleActionsExtractionArgs and ServiceEventRuleActionsExtractionOutput values.
+// You can construct a concrete instance of `ServiceEventRuleActionsExtractionInput` via:
+//
+//          ServiceEventRuleActionsExtractionArgs{...}
+type ServiceEventRuleActionsExtractionInput interface {
+	pulumi.Input
+
+	ToServiceEventRuleActionsExtractionOutput() ServiceEventRuleActionsExtractionOutput
+	ToServiceEventRuleActionsExtractionOutputWithContext(context.Context) ServiceEventRuleActionsExtractionOutput
+}
+
+type ServiceEventRuleActionsExtractionArgs struct {
+	// The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
+	Regex pulumi.StringPtrInput `pulumi:"regex"`
+	// Field where the data is being copied from. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+	Source pulumi.StringPtrInput `pulumi:"source"`
+	// Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+	Target pulumi.StringPtrInput `pulumi:"target"`
+	// A customized field message. This can also include variables extracted from the payload by using string interpolation.
+	Template pulumi.StringPtrInput `pulumi:"template"`
+}
+
+func (ServiceEventRuleActionsExtractionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEventRuleActionsExtraction)(nil)).Elem()
+}
+
+func (i ServiceEventRuleActionsExtractionArgs) ToServiceEventRuleActionsExtractionOutput() ServiceEventRuleActionsExtractionOutput {
+	return i.ToServiceEventRuleActionsExtractionOutputWithContext(context.Background())
+}
+
+func (i ServiceEventRuleActionsExtractionArgs) ToServiceEventRuleActionsExtractionOutputWithContext(ctx context.Context) ServiceEventRuleActionsExtractionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleActionsExtractionOutput)
+}
+
+// ServiceEventRuleActionsExtractionArrayInput is an input type that accepts ServiceEventRuleActionsExtractionArray and ServiceEventRuleActionsExtractionArrayOutput values.
+// You can construct a concrete instance of `ServiceEventRuleActionsExtractionArrayInput` via:
+//
+//          ServiceEventRuleActionsExtractionArray{ ServiceEventRuleActionsExtractionArgs{...} }
+type ServiceEventRuleActionsExtractionArrayInput interface {
+	pulumi.Input
+
+	ToServiceEventRuleActionsExtractionArrayOutput() ServiceEventRuleActionsExtractionArrayOutput
+	ToServiceEventRuleActionsExtractionArrayOutputWithContext(context.Context) ServiceEventRuleActionsExtractionArrayOutput
+}
+
+type ServiceEventRuleActionsExtractionArray []ServiceEventRuleActionsExtractionInput
+
+func (ServiceEventRuleActionsExtractionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEventRuleActionsExtraction)(nil)).Elem()
+}
+
+func (i ServiceEventRuleActionsExtractionArray) ToServiceEventRuleActionsExtractionArrayOutput() ServiceEventRuleActionsExtractionArrayOutput {
+	return i.ToServiceEventRuleActionsExtractionArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceEventRuleActionsExtractionArray) ToServiceEventRuleActionsExtractionArrayOutputWithContext(ctx context.Context) ServiceEventRuleActionsExtractionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleActionsExtractionArrayOutput)
+}
+
+type ServiceEventRuleActionsExtractionOutput struct{ *pulumi.OutputState }
+
+func (ServiceEventRuleActionsExtractionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEventRuleActionsExtraction)(nil)).Elem()
+}
+
+func (o ServiceEventRuleActionsExtractionOutput) ToServiceEventRuleActionsExtractionOutput() ServiceEventRuleActionsExtractionOutput {
+	return o
+}
+
+func (o ServiceEventRuleActionsExtractionOutput) ToServiceEventRuleActionsExtractionOutputWithContext(ctx context.Context) ServiceEventRuleActionsExtractionOutput {
+	return o
+}
+
+// The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
+func (o ServiceEventRuleActionsExtractionOutput) Regex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEventRuleActionsExtraction) *string { return v.Regex }).(pulumi.StringPtrOutput)
+}
+
+// Field where the data is being copied from. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+func (o ServiceEventRuleActionsExtractionOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEventRuleActionsExtraction) *string { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+// Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+func (o ServiceEventRuleActionsExtractionOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEventRuleActionsExtraction) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+// A customized field message. This can also include variables extracted from the payload by using string interpolation.
+func (o ServiceEventRuleActionsExtractionOutput) Template() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEventRuleActionsExtraction) *string { return v.Template }).(pulumi.StringPtrOutput)
+}
+
+type ServiceEventRuleActionsExtractionArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceEventRuleActionsExtractionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEventRuleActionsExtraction)(nil)).Elem()
+}
+
+func (o ServiceEventRuleActionsExtractionArrayOutput) ToServiceEventRuleActionsExtractionArrayOutput() ServiceEventRuleActionsExtractionArrayOutput {
+	return o
+}
+
+func (o ServiceEventRuleActionsExtractionArrayOutput) ToServiceEventRuleActionsExtractionArrayOutputWithContext(ctx context.Context) ServiceEventRuleActionsExtractionArrayOutput {
+	return o
+}
+
+func (o ServiceEventRuleActionsExtractionArrayOutput) Index(i pulumi.IntInput) ServiceEventRuleActionsExtractionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceEventRuleActionsExtraction {
+		return vs[0].([]ServiceEventRuleActionsExtraction)[vs[1].(int)]
+	}).(ServiceEventRuleActionsExtractionOutput)
+}
+
+type ServiceEventRuleActionsPriority struct {
+	// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+	Value *string `pulumi:"value"`
+}
+
+// ServiceEventRuleActionsPriorityInput is an input type that accepts ServiceEventRuleActionsPriorityArgs and ServiceEventRuleActionsPriorityOutput values.
+// You can construct a concrete instance of `ServiceEventRuleActionsPriorityInput` via:
+//
+//          ServiceEventRuleActionsPriorityArgs{...}
+type ServiceEventRuleActionsPriorityInput interface {
+	pulumi.Input
+
+	ToServiceEventRuleActionsPriorityOutput() ServiceEventRuleActionsPriorityOutput
+	ToServiceEventRuleActionsPriorityOutputWithContext(context.Context) ServiceEventRuleActionsPriorityOutput
+}
+
+type ServiceEventRuleActionsPriorityArgs struct {
+	// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ServiceEventRuleActionsPriorityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEventRuleActionsPriority)(nil)).Elem()
+}
+
+func (i ServiceEventRuleActionsPriorityArgs) ToServiceEventRuleActionsPriorityOutput() ServiceEventRuleActionsPriorityOutput {
+	return i.ToServiceEventRuleActionsPriorityOutputWithContext(context.Background())
+}
+
+func (i ServiceEventRuleActionsPriorityArgs) ToServiceEventRuleActionsPriorityOutputWithContext(ctx context.Context) ServiceEventRuleActionsPriorityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleActionsPriorityOutput)
+}
+
+// ServiceEventRuleActionsPriorityArrayInput is an input type that accepts ServiceEventRuleActionsPriorityArray and ServiceEventRuleActionsPriorityArrayOutput values.
+// You can construct a concrete instance of `ServiceEventRuleActionsPriorityArrayInput` via:
+//
+//          ServiceEventRuleActionsPriorityArray{ ServiceEventRuleActionsPriorityArgs{...} }
+type ServiceEventRuleActionsPriorityArrayInput interface {
+	pulumi.Input
+
+	ToServiceEventRuleActionsPriorityArrayOutput() ServiceEventRuleActionsPriorityArrayOutput
+	ToServiceEventRuleActionsPriorityArrayOutputWithContext(context.Context) ServiceEventRuleActionsPriorityArrayOutput
+}
+
+type ServiceEventRuleActionsPriorityArray []ServiceEventRuleActionsPriorityInput
+
+func (ServiceEventRuleActionsPriorityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEventRuleActionsPriority)(nil)).Elem()
+}
+
+func (i ServiceEventRuleActionsPriorityArray) ToServiceEventRuleActionsPriorityArrayOutput() ServiceEventRuleActionsPriorityArrayOutput {
+	return i.ToServiceEventRuleActionsPriorityArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceEventRuleActionsPriorityArray) ToServiceEventRuleActionsPriorityArrayOutputWithContext(ctx context.Context) ServiceEventRuleActionsPriorityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleActionsPriorityArrayOutput)
+}
+
+type ServiceEventRuleActionsPriorityOutput struct{ *pulumi.OutputState }
+
+func (ServiceEventRuleActionsPriorityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEventRuleActionsPriority)(nil)).Elem()
+}
+
+func (o ServiceEventRuleActionsPriorityOutput) ToServiceEventRuleActionsPriorityOutput() ServiceEventRuleActionsPriorityOutput {
+	return o
+}
+
+func (o ServiceEventRuleActionsPriorityOutput) ToServiceEventRuleActionsPriorityOutputWithContext(ctx context.Context) ServiceEventRuleActionsPriorityOutput {
+	return o
+}
+
+// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+func (o ServiceEventRuleActionsPriorityOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEventRuleActionsPriority) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ServiceEventRuleActionsPriorityArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceEventRuleActionsPriorityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEventRuleActionsPriority)(nil)).Elem()
+}
+
+func (o ServiceEventRuleActionsPriorityArrayOutput) ToServiceEventRuleActionsPriorityArrayOutput() ServiceEventRuleActionsPriorityArrayOutput {
+	return o
+}
+
+func (o ServiceEventRuleActionsPriorityArrayOutput) ToServiceEventRuleActionsPriorityArrayOutputWithContext(ctx context.Context) ServiceEventRuleActionsPriorityArrayOutput {
+	return o
+}
+
+func (o ServiceEventRuleActionsPriorityArrayOutput) Index(i pulumi.IntInput) ServiceEventRuleActionsPriorityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceEventRuleActionsPriority {
+		return vs[0].([]ServiceEventRuleActionsPriority)[vs[1].(int)]
+	}).(ServiceEventRuleActionsPriorityOutput)
+}
+
+type ServiceEventRuleActionsSeverity struct {
+	// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+	Value *string `pulumi:"value"`
+}
+
+// ServiceEventRuleActionsSeverityInput is an input type that accepts ServiceEventRuleActionsSeverityArgs and ServiceEventRuleActionsSeverityOutput values.
+// You can construct a concrete instance of `ServiceEventRuleActionsSeverityInput` via:
+//
+//          ServiceEventRuleActionsSeverityArgs{...}
+type ServiceEventRuleActionsSeverityInput interface {
+	pulumi.Input
+
+	ToServiceEventRuleActionsSeverityOutput() ServiceEventRuleActionsSeverityOutput
+	ToServiceEventRuleActionsSeverityOutputWithContext(context.Context) ServiceEventRuleActionsSeverityOutput
+}
+
+type ServiceEventRuleActionsSeverityArgs struct {
+	// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ServiceEventRuleActionsSeverityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEventRuleActionsSeverity)(nil)).Elem()
+}
+
+func (i ServiceEventRuleActionsSeverityArgs) ToServiceEventRuleActionsSeverityOutput() ServiceEventRuleActionsSeverityOutput {
+	return i.ToServiceEventRuleActionsSeverityOutputWithContext(context.Background())
+}
+
+func (i ServiceEventRuleActionsSeverityArgs) ToServiceEventRuleActionsSeverityOutputWithContext(ctx context.Context) ServiceEventRuleActionsSeverityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleActionsSeverityOutput)
+}
+
+// ServiceEventRuleActionsSeverityArrayInput is an input type that accepts ServiceEventRuleActionsSeverityArray and ServiceEventRuleActionsSeverityArrayOutput values.
+// You can construct a concrete instance of `ServiceEventRuleActionsSeverityArrayInput` via:
+//
+//          ServiceEventRuleActionsSeverityArray{ ServiceEventRuleActionsSeverityArgs{...} }
+type ServiceEventRuleActionsSeverityArrayInput interface {
+	pulumi.Input
+
+	ToServiceEventRuleActionsSeverityArrayOutput() ServiceEventRuleActionsSeverityArrayOutput
+	ToServiceEventRuleActionsSeverityArrayOutputWithContext(context.Context) ServiceEventRuleActionsSeverityArrayOutput
+}
+
+type ServiceEventRuleActionsSeverityArray []ServiceEventRuleActionsSeverityInput
+
+func (ServiceEventRuleActionsSeverityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEventRuleActionsSeverity)(nil)).Elem()
+}
+
+func (i ServiceEventRuleActionsSeverityArray) ToServiceEventRuleActionsSeverityArrayOutput() ServiceEventRuleActionsSeverityArrayOutput {
+	return i.ToServiceEventRuleActionsSeverityArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceEventRuleActionsSeverityArray) ToServiceEventRuleActionsSeverityArrayOutputWithContext(ctx context.Context) ServiceEventRuleActionsSeverityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleActionsSeverityArrayOutput)
+}
+
+type ServiceEventRuleActionsSeverityOutput struct{ *pulumi.OutputState }
+
+func (ServiceEventRuleActionsSeverityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEventRuleActionsSeverity)(nil)).Elem()
+}
+
+func (o ServiceEventRuleActionsSeverityOutput) ToServiceEventRuleActionsSeverityOutput() ServiceEventRuleActionsSeverityOutput {
+	return o
+}
+
+func (o ServiceEventRuleActionsSeverityOutput) ToServiceEventRuleActionsSeverityOutputWithContext(ctx context.Context) ServiceEventRuleActionsSeverityOutput {
+	return o
+}
+
+// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+func (o ServiceEventRuleActionsSeverityOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEventRuleActionsSeverity) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ServiceEventRuleActionsSeverityArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceEventRuleActionsSeverityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEventRuleActionsSeverity)(nil)).Elem()
+}
+
+func (o ServiceEventRuleActionsSeverityArrayOutput) ToServiceEventRuleActionsSeverityArrayOutput() ServiceEventRuleActionsSeverityArrayOutput {
+	return o
+}
+
+func (o ServiceEventRuleActionsSeverityArrayOutput) ToServiceEventRuleActionsSeverityArrayOutputWithContext(ctx context.Context) ServiceEventRuleActionsSeverityArrayOutput {
+	return o
+}
+
+func (o ServiceEventRuleActionsSeverityArrayOutput) Index(i pulumi.IntInput) ServiceEventRuleActionsSeverityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceEventRuleActionsSeverity {
+		return vs[0].([]ServiceEventRuleActionsSeverity)[vs[1].(int)]
+	}).(ServiceEventRuleActionsSeverityOutput)
+}
+
+type ServiceEventRuleActionsSuppress struct {
+	// The number value of the `thresholdTimeUnit` before an incident is created.
+	ThresholdTimeAmount *int `pulumi:"thresholdTimeAmount"`
+	// The `minutes`,`hours`, or `days` that the `thresholdTimeAmount` should be measured.
+	ThresholdTimeUnit *string `pulumi:"thresholdTimeUnit"`
+	// The number of alerts that should be suppressed.
+	ThresholdValue *int `pulumi:"thresholdValue"`
+	// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+	Value *bool `pulumi:"value"`
+}
+
+// ServiceEventRuleActionsSuppressInput is an input type that accepts ServiceEventRuleActionsSuppressArgs and ServiceEventRuleActionsSuppressOutput values.
+// You can construct a concrete instance of `ServiceEventRuleActionsSuppressInput` via:
+//
+//          ServiceEventRuleActionsSuppressArgs{...}
+type ServiceEventRuleActionsSuppressInput interface {
+	pulumi.Input
+
+	ToServiceEventRuleActionsSuppressOutput() ServiceEventRuleActionsSuppressOutput
+	ToServiceEventRuleActionsSuppressOutputWithContext(context.Context) ServiceEventRuleActionsSuppressOutput
+}
+
+type ServiceEventRuleActionsSuppressArgs struct {
+	// The number value of the `thresholdTimeUnit` before an incident is created.
+	ThresholdTimeAmount pulumi.IntPtrInput `pulumi:"thresholdTimeAmount"`
+	// The `minutes`,`hours`, or `days` that the `thresholdTimeAmount` should be measured.
+	ThresholdTimeUnit pulumi.StringPtrInput `pulumi:"thresholdTimeUnit"`
+	// The number of alerts that should be suppressed.
+	ThresholdValue pulumi.IntPtrInput `pulumi:"thresholdValue"`
+	// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+	Value pulumi.BoolPtrInput `pulumi:"value"`
+}
+
+func (ServiceEventRuleActionsSuppressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEventRuleActionsSuppress)(nil)).Elem()
+}
+
+func (i ServiceEventRuleActionsSuppressArgs) ToServiceEventRuleActionsSuppressOutput() ServiceEventRuleActionsSuppressOutput {
+	return i.ToServiceEventRuleActionsSuppressOutputWithContext(context.Background())
+}
+
+func (i ServiceEventRuleActionsSuppressArgs) ToServiceEventRuleActionsSuppressOutputWithContext(ctx context.Context) ServiceEventRuleActionsSuppressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleActionsSuppressOutput)
+}
+
+// ServiceEventRuleActionsSuppressArrayInput is an input type that accepts ServiceEventRuleActionsSuppressArray and ServiceEventRuleActionsSuppressArrayOutput values.
+// You can construct a concrete instance of `ServiceEventRuleActionsSuppressArrayInput` via:
+//
+//          ServiceEventRuleActionsSuppressArray{ ServiceEventRuleActionsSuppressArgs{...} }
+type ServiceEventRuleActionsSuppressArrayInput interface {
+	pulumi.Input
+
+	ToServiceEventRuleActionsSuppressArrayOutput() ServiceEventRuleActionsSuppressArrayOutput
+	ToServiceEventRuleActionsSuppressArrayOutputWithContext(context.Context) ServiceEventRuleActionsSuppressArrayOutput
+}
+
+type ServiceEventRuleActionsSuppressArray []ServiceEventRuleActionsSuppressInput
+
+func (ServiceEventRuleActionsSuppressArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEventRuleActionsSuppress)(nil)).Elem()
+}
+
+func (i ServiceEventRuleActionsSuppressArray) ToServiceEventRuleActionsSuppressArrayOutput() ServiceEventRuleActionsSuppressArrayOutput {
+	return i.ToServiceEventRuleActionsSuppressArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceEventRuleActionsSuppressArray) ToServiceEventRuleActionsSuppressArrayOutputWithContext(ctx context.Context) ServiceEventRuleActionsSuppressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleActionsSuppressArrayOutput)
+}
+
+type ServiceEventRuleActionsSuppressOutput struct{ *pulumi.OutputState }
+
+func (ServiceEventRuleActionsSuppressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEventRuleActionsSuppress)(nil)).Elem()
+}
+
+func (o ServiceEventRuleActionsSuppressOutput) ToServiceEventRuleActionsSuppressOutput() ServiceEventRuleActionsSuppressOutput {
+	return o
+}
+
+func (o ServiceEventRuleActionsSuppressOutput) ToServiceEventRuleActionsSuppressOutputWithContext(ctx context.Context) ServiceEventRuleActionsSuppressOutput {
+	return o
+}
+
+// The number value of the `thresholdTimeUnit` before an incident is created.
+func (o ServiceEventRuleActionsSuppressOutput) ThresholdTimeAmount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceEventRuleActionsSuppress) *int { return v.ThresholdTimeAmount }).(pulumi.IntPtrOutput)
+}
+
+// The `minutes`,`hours`, or `days` that the `thresholdTimeAmount` should be measured.
+func (o ServiceEventRuleActionsSuppressOutput) ThresholdTimeUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEventRuleActionsSuppress) *string { return v.ThresholdTimeUnit }).(pulumi.StringPtrOutput)
+}
+
+// The number of alerts that should be suppressed.
+func (o ServiceEventRuleActionsSuppressOutput) ThresholdValue() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceEventRuleActionsSuppress) *int { return v.ThresholdValue }).(pulumi.IntPtrOutput)
+}
+
+// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+func (o ServiceEventRuleActionsSuppressOutput) Value() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceEventRuleActionsSuppress) *bool { return v.Value }).(pulumi.BoolPtrOutput)
+}
+
+type ServiceEventRuleActionsSuppressArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceEventRuleActionsSuppressArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEventRuleActionsSuppress)(nil)).Elem()
+}
+
+func (o ServiceEventRuleActionsSuppressArrayOutput) ToServiceEventRuleActionsSuppressArrayOutput() ServiceEventRuleActionsSuppressArrayOutput {
+	return o
+}
+
+func (o ServiceEventRuleActionsSuppressArrayOutput) ToServiceEventRuleActionsSuppressArrayOutputWithContext(ctx context.Context) ServiceEventRuleActionsSuppressArrayOutput {
+	return o
+}
+
+func (o ServiceEventRuleActionsSuppressArrayOutput) Index(i pulumi.IntInput) ServiceEventRuleActionsSuppressOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceEventRuleActionsSuppress {
+		return vs[0].([]ServiceEventRuleActionsSuppress)[vs[1].(int)]
+	}).(ServiceEventRuleActionsSuppressOutput)
+}
+
+type ServiceEventRuleActionsSuspend struct {
+	// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+	Value *int `pulumi:"value"`
+}
+
+// ServiceEventRuleActionsSuspendInput is an input type that accepts ServiceEventRuleActionsSuspendArgs and ServiceEventRuleActionsSuspendOutput values.
+// You can construct a concrete instance of `ServiceEventRuleActionsSuspendInput` via:
+//
+//          ServiceEventRuleActionsSuspendArgs{...}
+type ServiceEventRuleActionsSuspendInput interface {
+	pulumi.Input
+
+	ToServiceEventRuleActionsSuspendOutput() ServiceEventRuleActionsSuspendOutput
+	ToServiceEventRuleActionsSuspendOutputWithContext(context.Context) ServiceEventRuleActionsSuspendOutput
+}
+
+type ServiceEventRuleActionsSuspendArgs struct {
+	// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+	Value pulumi.IntPtrInput `pulumi:"value"`
+}
+
+func (ServiceEventRuleActionsSuspendArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEventRuleActionsSuspend)(nil)).Elem()
+}
+
+func (i ServiceEventRuleActionsSuspendArgs) ToServiceEventRuleActionsSuspendOutput() ServiceEventRuleActionsSuspendOutput {
+	return i.ToServiceEventRuleActionsSuspendOutputWithContext(context.Background())
+}
+
+func (i ServiceEventRuleActionsSuspendArgs) ToServiceEventRuleActionsSuspendOutputWithContext(ctx context.Context) ServiceEventRuleActionsSuspendOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleActionsSuspendOutput)
+}
+
+// ServiceEventRuleActionsSuspendArrayInput is an input type that accepts ServiceEventRuleActionsSuspendArray and ServiceEventRuleActionsSuspendArrayOutput values.
+// You can construct a concrete instance of `ServiceEventRuleActionsSuspendArrayInput` via:
+//
+//          ServiceEventRuleActionsSuspendArray{ ServiceEventRuleActionsSuspendArgs{...} }
+type ServiceEventRuleActionsSuspendArrayInput interface {
+	pulumi.Input
+
+	ToServiceEventRuleActionsSuspendArrayOutput() ServiceEventRuleActionsSuspendArrayOutput
+	ToServiceEventRuleActionsSuspendArrayOutputWithContext(context.Context) ServiceEventRuleActionsSuspendArrayOutput
+}
+
+type ServiceEventRuleActionsSuspendArray []ServiceEventRuleActionsSuspendInput
+
+func (ServiceEventRuleActionsSuspendArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEventRuleActionsSuspend)(nil)).Elem()
+}
+
+func (i ServiceEventRuleActionsSuspendArray) ToServiceEventRuleActionsSuspendArrayOutput() ServiceEventRuleActionsSuspendArrayOutput {
+	return i.ToServiceEventRuleActionsSuspendArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceEventRuleActionsSuspendArray) ToServiceEventRuleActionsSuspendArrayOutputWithContext(ctx context.Context) ServiceEventRuleActionsSuspendArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleActionsSuspendArrayOutput)
+}
+
+type ServiceEventRuleActionsSuspendOutput struct{ *pulumi.OutputState }
+
+func (ServiceEventRuleActionsSuspendOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEventRuleActionsSuspend)(nil)).Elem()
+}
+
+func (o ServiceEventRuleActionsSuspendOutput) ToServiceEventRuleActionsSuspendOutput() ServiceEventRuleActionsSuspendOutput {
+	return o
+}
+
+func (o ServiceEventRuleActionsSuspendOutput) ToServiceEventRuleActionsSuspendOutputWithContext(ctx context.Context) ServiceEventRuleActionsSuspendOutput {
+	return o
+}
+
+// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+func (o ServiceEventRuleActionsSuspendOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceEventRuleActionsSuspend) *int { return v.Value }).(pulumi.IntPtrOutput)
+}
+
+type ServiceEventRuleActionsSuspendArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceEventRuleActionsSuspendArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEventRuleActionsSuspend)(nil)).Elem()
+}
+
+func (o ServiceEventRuleActionsSuspendArrayOutput) ToServiceEventRuleActionsSuspendArrayOutput() ServiceEventRuleActionsSuspendArrayOutput {
+	return o
+}
+
+func (o ServiceEventRuleActionsSuspendArrayOutput) ToServiceEventRuleActionsSuspendArrayOutputWithContext(ctx context.Context) ServiceEventRuleActionsSuspendArrayOutput {
+	return o
+}
+
+func (o ServiceEventRuleActionsSuspendArrayOutput) Index(i pulumi.IntInput) ServiceEventRuleActionsSuspendOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceEventRuleActionsSuspend {
+		return vs[0].([]ServiceEventRuleActionsSuspend)[vs[1].(int)]
+	}).(ServiceEventRuleActionsSuspendOutput)
+}
+
+type ServiceEventRuleConditions struct {
+	// Operator to combine sub-conditions. Can be `and` or `or`.
+	Operator *string `pulumi:"operator"`
+	// List of sub-conditions that define the the condition.
+	Subconditions []ServiceEventRuleConditionsSubcondition `pulumi:"subconditions"`
+}
+
+// ServiceEventRuleConditionsInput is an input type that accepts ServiceEventRuleConditionsArgs and ServiceEventRuleConditionsOutput values.
+// You can construct a concrete instance of `ServiceEventRuleConditionsInput` via:
+//
+//          ServiceEventRuleConditionsArgs{...}
+type ServiceEventRuleConditionsInput interface {
+	pulumi.Input
+
+	ToServiceEventRuleConditionsOutput() ServiceEventRuleConditionsOutput
+	ToServiceEventRuleConditionsOutputWithContext(context.Context) ServiceEventRuleConditionsOutput
+}
+
+type ServiceEventRuleConditionsArgs struct {
+	// Operator to combine sub-conditions. Can be `and` or `or`.
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+	// List of sub-conditions that define the the condition.
+	Subconditions ServiceEventRuleConditionsSubconditionArrayInput `pulumi:"subconditions"`
+}
+
+func (ServiceEventRuleConditionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEventRuleConditions)(nil)).Elem()
+}
+
+func (i ServiceEventRuleConditionsArgs) ToServiceEventRuleConditionsOutput() ServiceEventRuleConditionsOutput {
+	return i.ToServiceEventRuleConditionsOutputWithContext(context.Background())
+}
+
+func (i ServiceEventRuleConditionsArgs) ToServiceEventRuleConditionsOutputWithContext(ctx context.Context) ServiceEventRuleConditionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleConditionsOutput)
+}
+
+func (i ServiceEventRuleConditionsArgs) ToServiceEventRuleConditionsPtrOutput() ServiceEventRuleConditionsPtrOutput {
+	return i.ToServiceEventRuleConditionsPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceEventRuleConditionsArgs) ToServiceEventRuleConditionsPtrOutputWithContext(ctx context.Context) ServiceEventRuleConditionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleConditionsOutput).ToServiceEventRuleConditionsPtrOutputWithContext(ctx)
+}
+
+// ServiceEventRuleConditionsPtrInput is an input type that accepts ServiceEventRuleConditionsArgs, ServiceEventRuleConditionsPtr and ServiceEventRuleConditionsPtrOutput values.
+// You can construct a concrete instance of `ServiceEventRuleConditionsPtrInput` via:
+//
+//          ServiceEventRuleConditionsArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceEventRuleConditionsPtrInput interface {
+	pulumi.Input
+
+	ToServiceEventRuleConditionsPtrOutput() ServiceEventRuleConditionsPtrOutput
+	ToServiceEventRuleConditionsPtrOutputWithContext(context.Context) ServiceEventRuleConditionsPtrOutput
+}
+
+type serviceEventRuleConditionsPtrType ServiceEventRuleConditionsArgs
+
+func ServiceEventRuleConditionsPtr(v *ServiceEventRuleConditionsArgs) ServiceEventRuleConditionsPtrInput {
+	return (*serviceEventRuleConditionsPtrType)(v)
+}
+
+func (*serviceEventRuleConditionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEventRuleConditions)(nil)).Elem()
+}
+
+func (i *serviceEventRuleConditionsPtrType) ToServiceEventRuleConditionsPtrOutput() ServiceEventRuleConditionsPtrOutput {
+	return i.ToServiceEventRuleConditionsPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceEventRuleConditionsPtrType) ToServiceEventRuleConditionsPtrOutputWithContext(ctx context.Context) ServiceEventRuleConditionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleConditionsPtrOutput)
+}
+
+type ServiceEventRuleConditionsOutput struct{ *pulumi.OutputState }
+
+func (ServiceEventRuleConditionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEventRuleConditions)(nil)).Elem()
+}
+
+func (o ServiceEventRuleConditionsOutput) ToServiceEventRuleConditionsOutput() ServiceEventRuleConditionsOutput {
+	return o
+}
+
+func (o ServiceEventRuleConditionsOutput) ToServiceEventRuleConditionsOutputWithContext(ctx context.Context) ServiceEventRuleConditionsOutput {
+	return o
+}
+
+func (o ServiceEventRuleConditionsOutput) ToServiceEventRuleConditionsPtrOutput() ServiceEventRuleConditionsPtrOutput {
+	return o.ToServiceEventRuleConditionsPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceEventRuleConditionsOutput) ToServiceEventRuleConditionsPtrOutputWithContext(ctx context.Context) ServiceEventRuleConditionsPtrOutput {
+	return o.ApplyT(func(v ServiceEventRuleConditions) *ServiceEventRuleConditions {
+		return &v
+	}).(ServiceEventRuleConditionsPtrOutput)
+}
+
+// Operator to combine sub-conditions. Can be `and` or `or`.
+func (o ServiceEventRuleConditionsOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEventRuleConditions) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+// List of sub-conditions that define the the condition.
+func (o ServiceEventRuleConditionsOutput) Subconditions() ServiceEventRuleConditionsSubconditionArrayOutput {
+	return o.ApplyT(func(v ServiceEventRuleConditions) []ServiceEventRuleConditionsSubcondition { return v.Subconditions }).(ServiceEventRuleConditionsSubconditionArrayOutput)
+}
+
+type ServiceEventRuleConditionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceEventRuleConditionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEventRuleConditions)(nil)).Elem()
+}
+
+func (o ServiceEventRuleConditionsPtrOutput) ToServiceEventRuleConditionsPtrOutput() ServiceEventRuleConditionsPtrOutput {
+	return o
+}
+
+func (o ServiceEventRuleConditionsPtrOutput) ToServiceEventRuleConditionsPtrOutputWithContext(ctx context.Context) ServiceEventRuleConditionsPtrOutput {
+	return o
+}
+
+func (o ServiceEventRuleConditionsPtrOutput) Elem() ServiceEventRuleConditionsOutput {
+	return o.ApplyT(func(v *ServiceEventRuleConditions) ServiceEventRuleConditions { return *v }).(ServiceEventRuleConditionsOutput)
+}
+
+// Operator to combine sub-conditions. Can be `and` or `or`.
+func (o ServiceEventRuleConditionsPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEventRuleConditions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of sub-conditions that define the the condition.
+func (o ServiceEventRuleConditionsPtrOutput) Subconditions() ServiceEventRuleConditionsSubconditionArrayOutput {
+	return o.ApplyT(func(v *ServiceEventRuleConditions) []ServiceEventRuleConditionsSubcondition {
+		if v == nil {
+			return nil
+		}
+		return v.Subconditions
+	}).(ServiceEventRuleConditionsSubconditionArrayOutput)
+}
+
+type ServiceEventRuleConditionsSubcondition struct {
+	// Type of operator to apply to the sub-condition. Can be `exists`,`nexists`,`equals`,`nequals`,`contains`,`ncontains`,`matches`, or `nmatches`.
+	Operator *string `pulumi:"operator"`
+	// Parameter for the sub-condition. It requires both a `path` and `value` to be set. The `path` value must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+	Parameters []ServiceEventRuleConditionsSubconditionParameter `pulumi:"parameters"`
+}
+
+// ServiceEventRuleConditionsSubconditionInput is an input type that accepts ServiceEventRuleConditionsSubconditionArgs and ServiceEventRuleConditionsSubconditionOutput values.
+// You can construct a concrete instance of `ServiceEventRuleConditionsSubconditionInput` via:
+//
+//          ServiceEventRuleConditionsSubconditionArgs{...}
+type ServiceEventRuleConditionsSubconditionInput interface {
+	pulumi.Input
+
+	ToServiceEventRuleConditionsSubconditionOutput() ServiceEventRuleConditionsSubconditionOutput
+	ToServiceEventRuleConditionsSubconditionOutputWithContext(context.Context) ServiceEventRuleConditionsSubconditionOutput
+}
+
+type ServiceEventRuleConditionsSubconditionArgs struct {
+	// Type of operator to apply to the sub-condition. Can be `exists`,`nexists`,`equals`,`nequals`,`contains`,`ncontains`,`matches`, or `nmatches`.
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+	// Parameter for the sub-condition. It requires both a `path` and `value` to be set. The `path` value must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+	Parameters ServiceEventRuleConditionsSubconditionParameterArrayInput `pulumi:"parameters"`
+}
+
+func (ServiceEventRuleConditionsSubconditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEventRuleConditionsSubcondition)(nil)).Elem()
+}
+
+func (i ServiceEventRuleConditionsSubconditionArgs) ToServiceEventRuleConditionsSubconditionOutput() ServiceEventRuleConditionsSubconditionOutput {
+	return i.ToServiceEventRuleConditionsSubconditionOutputWithContext(context.Background())
+}
+
+func (i ServiceEventRuleConditionsSubconditionArgs) ToServiceEventRuleConditionsSubconditionOutputWithContext(ctx context.Context) ServiceEventRuleConditionsSubconditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleConditionsSubconditionOutput)
+}
+
+// ServiceEventRuleConditionsSubconditionArrayInput is an input type that accepts ServiceEventRuleConditionsSubconditionArray and ServiceEventRuleConditionsSubconditionArrayOutput values.
+// You can construct a concrete instance of `ServiceEventRuleConditionsSubconditionArrayInput` via:
+//
+//          ServiceEventRuleConditionsSubconditionArray{ ServiceEventRuleConditionsSubconditionArgs{...} }
+type ServiceEventRuleConditionsSubconditionArrayInput interface {
+	pulumi.Input
+
+	ToServiceEventRuleConditionsSubconditionArrayOutput() ServiceEventRuleConditionsSubconditionArrayOutput
+	ToServiceEventRuleConditionsSubconditionArrayOutputWithContext(context.Context) ServiceEventRuleConditionsSubconditionArrayOutput
+}
+
+type ServiceEventRuleConditionsSubconditionArray []ServiceEventRuleConditionsSubconditionInput
+
+func (ServiceEventRuleConditionsSubconditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEventRuleConditionsSubcondition)(nil)).Elem()
+}
+
+func (i ServiceEventRuleConditionsSubconditionArray) ToServiceEventRuleConditionsSubconditionArrayOutput() ServiceEventRuleConditionsSubconditionArrayOutput {
+	return i.ToServiceEventRuleConditionsSubconditionArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceEventRuleConditionsSubconditionArray) ToServiceEventRuleConditionsSubconditionArrayOutputWithContext(ctx context.Context) ServiceEventRuleConditionsSubconditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleConditionsSubconditionArrayOutput)
+}
+
+type ServiceEventRuleConditionsSubconditionOutput struct{ *pulumi.OutputState }
+
+func (ServiceEventRuleConditionsSubconditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEventRuleConditionsSubcondition)(nil)).Elem()
+}
+
+func (o ServiceEventRuleConditionsSubconditionOutput) ToServiceEventRuleConditionsSubconditionOutput() ServiceEventRuleConditionsSubconditionOutput {
+	return o
+}
+
+func (o ServiceEventRuleConditionsSubconditionOutput) ToServiceEventRuleConditionsSubconditionOutputWithContext(ctx context.Context) ServiceEventRuleConditionsSubconditionOutput {
+	return o
+}
+
+// Type of operator to apply to the sub-condition. Can be `exists`,`nexists`,`equals`,`nequals`,`contains`,`ncontains`,`matches`, or `nmatches`.
+func (o ServiceEventRuleConditionsSubconditionOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEventRuleConditionsSubcondition) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+// Parameter for the sub-condition. It requires both a `path` and `value` to be set. The `path` value must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+func (o ServiceEventRuleConditionsSubconditionOutput) Parameters() ServiceEventRuleConditionsSubconditionParameterArrayOutput {
+	return o.ApplyT(func(v ServiceEventRuleConditionsSubcondition) []ServiceEventRuleConditionsSubconditionParameter {
+		return v.Parameters
+	}).(ServiceEventRuleConditionsSubconditionParameterArrayOutput)
+}
+
+type ServiceEventRuleConditionsSubconditionArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceEventRuleConditionsSubconditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEventRuleConditionsSubcondition)(nil)).Elem()
+}
+
+func (o ServiceEventRuleConditionsSubconditionArrayOutput) ToServiceEventRuleConditionsSubconditionArrayOutput() ServiceEventRuleConditionsSubconditionArrayOutput {
+	return o
+}
+
+func (o ServiceEventRuleConditionsSubconditionArrayOutput) ToServiceEventRuleConditionsSubconditionArrayOutputWithContext(ctx context.Context) ServiceEventRuleConditionsSubconditionArrayOutput {
+	return o
+}
+
+func (o ServiceEventRuleConditionsSubconditionArrayOutput) Index(i pulumi.IntInput) ServiceEventRuleConditionsSubconditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceEventRuleConditionsSubcondition {
+		return vs[0].([]ServiceEventRuleConditionsSubcondition)[vs[1].(int)]
+	}).(ServiceEventRuleConditionsSubconditionOutput)
+}
+
+type ServiceEventRuleConditionsSubconditionParameter struct {
+	// Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
+	Path *string `pulumi:"path"`
+	// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+	Value *string `pulumi:"value"`
+}
+
+// ServiceEventRuleConditionsSubconditionParameterInput is an input type that accepts ServiceEventRuleConditionsSubconditionParameterArgs and ServiceEventRuleConditionsSubconditionParameterOutput values.
+// You can construct a concrete instance of `ServiceEventRuleConditionsSubconditionParameterInput` via:
+//
+//          ServiceEventRuleConditionsSubconditionParameterArgs{...}
+type ServiceEventRuleConditionsSubconditionParameterInput interface {
+	pulumi.Input
+
+	ToServiceEventRuleConditionsSubconditionParameterOutput() ServiceEventRuleConditionsSubconditionParameterOutput
+	ToServiceEventRuleConditionsSubconditionParameterOutputWithContext(context.Context) ServiceEventRuleConditionsSubconditionParameterOutput
+}
+
+type ServiceEventRuleConditionsSubconditionParameterArgs struct {
+	// Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ServiceEventRuleConditionsSubconditionParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEventRuleConditionsSubconditionParameter)(nil)).Elem()
+}
+
+func (i ServiceEventRuleConditionsSubconditionParameterArgs) ToServiceEventRuleConditionsSubconditionParameterOutput() ServiceEventRuleConditionsSubconditionParameterOutput {
+	return i.ToServiceEventRuleConditionsSubconditionParameterOutputWithContext(context.Background())
+}
+
+func (i ServiceEventRuleConditionsSubconditionParameterArgs) ToServiceEventRuleConditionsSubconditionParameterOutputWithContext(ctx context.Context) ServiceEventRuleConditionsSubconditionParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleConditionsSubconditionParameterOutput)
+}
+
+// ServiceEventRuleConditionsSubconditionParameterArrayInput is an input type that accepts ServiceEventRuleConditionsSubconditionParameterArray and ServiceEventRuleConditionsSubconditionParameterArrayOutput values.
+// You can construct a concrete instance of `ServiceEventRuleConditionsSubconditionParameterArrayInput` via:
+//
+//          ServiceEventRuleConditionsSubconditionParameterArray{ ServiceEventRuleConditionsSubconditionParameterArgs{...} }
+type ServiceEventRuleConditionsSubconditionParameterArrayInput interface {
+	pulumi.Input
+
+	ToServiceEventRuleConditionsSubconditionParameterArrayOutput() ServiceEventRuleConditionsSubconditionParameterArrayOutput
+	ToServiceEventRuleConditionsSubconditionParameterArrayOutputWithContext(context.Context) ServiceEventRuleConditionsSubconditionParameterArrayOutput
+}
+
+type ServiceEventRuleConditionsSubconditionParameterArray []ServiceEventRuleConditionsSubconditionParameterInput
+
+func (ServiceEventRuleConditionsSubconditionParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEventRuleConditionsSubconditionParameter)(nil)).Elem()
+}
+
+func (i ServiceEventRuleConditionsSubconditionParameterArray) ToServiceEventRuleConditionsSubconditionParameterArrayOutput() ServiceEventRuleConditionsSubconditionParameterArrayOutput {
+	return i.ToServiceEventRuleConditionsSubconditionParameterArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceEventRuleConditionsSubconditionParameterArray) ToServiceEventRuleConditionsSubconditionParameterArrayOutputWithContext(ctx context.Context) ServiceEventRuleConditionsSubconditionParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleConditionsSubconditionParameterArrayOutput)
+}
+
+type ServiceEventRuleConditionsSubconditionParameterOutput struct{ *pulumi.OutputState }
+
+func (ServiceEventRuleConditionsSubconditionParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEventRuleConditionsSubconditionParameter)(nil)).Elem()
+}
+
+func (o ServiceEventRuleConditionsSubconditionParameterOutput) ToServiceEventRuleConditionsSubconditionParameterOutput() ServiceEventRuleConditionsSubconditionParameterOutput {
+	return o
+}
+
+func (o ServiceEventRuleConditionsSubconditionParameterOutput) ToServiceEventRuleConditionsSubconditionParameterOutputWithContext(ctx context.Context) ServiceEventRuleConditionsSubconditionParameterOutput {
+	return o
+}
+
+// Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
+func (o ServiceEventRuleConditionsSubconditionParameterOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEventRuleConditionsSubconditionParameter) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+func (o ServiceEventRuleConditionsSubconditionParameterOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEventRuleConditionsSubconditionParameter) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ServiceEventRuleConditionsSubconditionParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceEventRuleConditionsSubconditionParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEventRuleConditionsSubconditionParameter)(nil)).Elem()
+}
+
+func (o ServiceEventRuleConditionsSubconditionParameterArrayOutput) ToServiceEventRuleConditionsSubconditionParameterArrayOutput() ServiceEventRuleConditionsSubconditionParameterArrayOutput {
+	return o
+}
+
+func (o ServiceEventRuleConditionsSubconditionParameterArrayOutput) ToServiceEventRuleConditionsSubconditionParameterArrayOutputWithContext(ctx context.Context) ServiceEventRuleConditionsSubconditionParameterArrayOutput {
+	return o
+}
+
+func (o ServiceEventRuleConditionsSubconditionParameterArrayOutput) Index(i pulumi.IntInput) ServiceEventRuleConditionsSubconditionParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceEventRuleConditionsSubconditionParameter {
+		return vs[0].([]ServiceEventRuleConditionsSubconditionParameter)[vs[1].(int)]
+	}).(ServiceEventRuleConditionsSubconditionParameterOutput)
+}
+
+type ServiceEventRuleTimeFrame struct {
+	// Values for executing the rule during a specific time period.
+	ActiveBetweens []ServiceEventRuleTimeFrameActiveBetween `pulumi:"activeBetweens"`
+	// Values for executing the rule on a recurring schedule.
+	ScheduledWeeklies []ServiceEventRuleTimeFrameScheduledWeekly `pulumi:"scheduledWeeklies"`
+}
+
+// ServiceEventRuleTimeFrameInput is an input type that accepts ServiceEventRuleTimeFrameArgs and ServiceEventRuleTimeFrameOutput values.
+// You can construct a concrete instance of `ServiceEventRuleTimeFrameInput` via:
+//
+//          ServiceEventRuleTimeFrameArgs{...}
+type ServiceEventRuleTimeFrameInput interface {
+	pulumi.Input
+
+	ToServiceEventRuleTimeFrameOutput() ServiceEventRuleTimeFrameOutput
+	ToServiceEventRuleTimeFrameOutputWithContext(context.Context) ServiceEventRuleTimeFrameOutput
+}
+
+type ServiceEventRuleTimeFrameArgs struct {
+	// Values for executing the rule during a specific time period.
+	ActiveBetweens ServiceEventRuleTimeFrameActiveBetweenArrayInput `pulumi:"activeBetweens"`
+	// Values for executing the rule on a recurring schedule.
+	ScheduledWeeklies ServiceEventRuleTimeFrameScheduledWeeklyArrayInput `pulumi:"scheduledWeeklies"`
+}
+
+func (ServiceEventRuleTimeFrameArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEventRuleTimeFrame)(nil)).Elem()
+}
+
+func (i ServiceEventRuleTimeFrameArgs) ToServiceEventRuleTimeFrameOutput() ServiceEventRuleTimeFrameOutput {
+	return i.ToServiceEventRuleTimeFrameOutputWithContext(context.Background())
+}
+
+func (i ServiceEventRuleTimeFrameArgs) ToServiceEventRuleTimeFrameOutputWithContext(ctx context.Context) ServiceEventRuleTimeFrameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleTimeFrameOutput)
+}
+
+func (i ServiceEventRuleTimeFrameArgs) ToServiceEventRuleTimeFramePtrOutput() ServiceEventRuleTimeFramePtrOutput {
+	return i.ToServiceEventRuleTimeFramePtrOutputWithContext(context.Background())
+}
+
+func (i ServiceEventRuleTimeFrameArgs) ToServiceEventRuleTimeFramePtrOutputWithContext(ctx context.Context) ServiceEventRuleTimeFramePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleTimeFrameOutput).ToServiceEventRuleTimeFramePtrOutputWithContext(ctx)
+}
+
+// ServiceEventRuleTimeFramePtrInput is an input type that accepts ServiceEventRuleTimeFrameArgs, ServiceEventRuleTimeFramePtr and ServiceEventRuleTimeFramePtrOutput values.
+// You can construct a concrete instance of `ServiceEventRuleTimeFramePtrInput` via:
+//
+//          ServiceEventRuleTimeFrameArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceEventRuleTimeFramePtrInput interface {
+	pulumi.Input
+
+	ToServiceEventRuleTimeFramePtrOutput() ServiceEventRuleTimeFramePtrOutput
+	ToServiceEventRuleTimeFramePtrOutputWithContext(context.Context) ServiceEventRuleTimeFramePtrOutput
+}
+
+type serviceEventRuleTimeFramePtrType ServiceEventRuleTimeFrameArgs
+
+func ServiceEventRuleTimeFramePtr(v *ServiceEventRuleTimeFrameArgs) ServiceEventRuleTimeFramePtrInput {
+	return (*serviceEventRuleTimeFramePtrType)(v)
+}
+
+func (*serviceEventRuleTimeFramePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEventRuleTimeFrame)(nil)).Elem()
+}
+
+func (i *serviceEventRuleTimeFramePtrType) ToServiceEventRuleTimeFramePtrOutput() ServiceEventRuleTimeFramePtrOutput {
+	return i.ToServiceEventRuleTimeFramePtrOutputWithContext(context.Background())
+}
+
+func (i *serviceEventRuleTimeFramePtrType) ToServiceEventRuleTimeFramePtrOutputWithContext(ctx context.Context) ServiceEventRuleTimeFramePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleTimeFramePtrOutput)
+}
+
+type ServiceEventRuleTimeFrameOutput struct{ *pulumi.OutputState }
+
+func (ServiceEventRuleTimeFrameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEventRuleTimeFrame)(nil)).Elem()
+}
+
+func (o ServiceEventRuleTimeFrameOutput) ToServiceEventRuleTimeFrameOutput() ServiceEventRuleTimeFrameOutput {
+	return o
+}
+
+func (o ServiceEventRuleTimeFrameOutput) ToServiceEventRuleTimeFrameOutputWithContext(ctx context.Context) ServiceEventRuleTimeFrameOutput {
+	return o
+}
+
+func (o ServiceEventRuleTimeFrameOutput) ToServiceEventRuleTimeFramePtrOutput() ServiceEventRuleTimeFramePtrOutput {
+	return o.ToServiceEventRuleTimeFramePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceEventRuleTimeFrameOutput) ToServiceEventRuleTimeFramePtrOutputWithContext(ctx context.Context) ServiceEventRuleTimeFramePtrOutput {
+	return o.ApplyT(func(v ServiceEventRuleTimeFrame) *ServiceEventRuleTimeFrame {
+		return &v
+	}).(ServiceEventRuleTimeFramePtrOutput)
+}
+
+// Values for executing the rule during a specific time period.
+func (o ServiceEventRuleTimeFrameOutput) ActiveBetweens() ServiceEventRuleTimeFrameActiveBetweenArrayOutput {
+	return o.ApplyT(func(v ServiceEventRuleTimeFrame) []ServiceEventRuleTimeFrameActiveBetween { return v.ActiveBetweens }).(ServiceEventRuleTimeFrameActiveBetweenArrayOutput)
+}
+
+// Values for executing the rule on a recurring schedule.
+func (o ServiceEventRuleTimeFrameOutput) ScheduledWeeklies() ServiceEventRuleTimeFrameScheduledWeeklyArrayOutput {
+	return o.ApplyT(func(v ServiceEventRuleTimeFrame) []ServiceEventRuleTimeFrameScheduledWeekly {
+		return v.ScheduledWeeklies
+	}).(ServiceEventRuleTimeFrameScheduledWeeklyArrayOutput)
+}
+
+type ServiceEventRuleTimeFramePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceEventRuleTimeFramePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEventRuleTimeFrame)(nil)).Elem()
+}
+
+func (o ServiceEventRuleTimeFramePtrOutput) ToServiceEventRuleTimeFramePtrOutput() ServiceEventRuleTimeFramePtrOutput {
+	return o
+}
+
+func (o ServiceEventRuleTimeFramePtrOutput) ToServiceEventRuleTimeFramePtrOutputWithContext(ctx context.Context) ServiceEventRuleTimeFramePtrOutput {
+	return o
+}
+
+func (o ServiceEventRuleTimeFramePtrOutput) Elem() ServiceEventRuleTimeFrameOutput {
+	return o.ApplyT(func(v *ServiceEventRuleTimeFrame) ServiceEventRuleTimeFrame { return *v }).(ServiceEventRuleTimeFrameOutput)
+}
+
+// Values for executing the rule during a specific time period.
+func (o ServiceEventRuleTimeFramePtrOutput) ActiveBetweens() ServiceEventRuleTimeFrameActiveBetweenArrayOutput {
+	return o.ApplyT(func(v *ServiceEventRuleTimeFrame) []ServiceEventRuleTimeFrameActiveBetween {
+		if v == nil {
+			return nil
+		}
+		return v.ActiveBetweens
+	}).(ServiceEventRuleTimeFrameActiveBetweenArrayOutput)
+}
+
+// Values for executing the rule on a recurring schedule.
+func (o ServiceEventRuleTimeFramePtrOutput) ScheduledWeeklies() ServiceEventRuleTimeFrameScheduledWeeklyArrayOutput {
+	return o.ApplyT(func(v *ServiceEventRuleTimeFrame) []ServiceEventRuleTimeFrameScheduledWeekly {
+		if v == nil {
+			return nil
+		}
+		return v.ScheduledWeeklies
+	}).(ServiceEventRuleTimeFrameScheduledWeeklyArrayOutput)
+}
+
+type ServiceEventRuleTimeFrameActiveBetween struct {
+	// Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
+	EndTime *int `pulumi:"endTime"`
+	// Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `startTime` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `startTime` was `3,600,000` the it would be active starting at `01:00`.
+	StartTime *int `pulumi:"startTime"`
+}
+
+// ServiceEventRuleTimeFrameActiveBetweenInput is an input type that accepts ServiceEventRuleTimeFrameActiveBetweenArgs and ServiceEventRuleTimeFrameActiveBetweenOutput values.
+// You can construct a concrete instance of `ServiceEventRuleTimeFrameActiveBetweenInput` via:
+//
+//          ServiceEventRuleTimeFrameActiveBetweenArgs{...}
+type ServiceEventRuleTimeFrameActiveBetweenInput interface {
+	pulumi.Input
+
+	ToServiceEventRuleTimeFrameActiveBetweenOutput() ServiceEventRuleTimeFrameActiveBetweenOutput
+	ToServiceEventRuleTimeFrameActiveBetweenOutputWithContext(context.Context) ServiceEventRuleTimeFrameActiveBetweenOutput
+}
+
+type ServiceEventRuleTimeFrameActiveBetweenArgs struct {
+	// Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
+	EndTime pulumi.IntPtrInput `pulumi:"endTime"`
+	// Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `startTime` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `startTime` was `3,600,000` the it would be active starting at `01:00`.
+	StartTime pulumi.IntPtrInput `pulumi:"startTime"`
+}
+
+func (ServiceEventRuleTimeFrameActiveBetweenArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEventRuleTimeFrameActiveBetween)(nil)).Elem()
+}
+
+func (i ServiceEventRuleTimeFrameActiveBetweenArgs) ToServiceEventRuleTimeFrameActiveBetweenOutput() ServiceEventRuleTimeFrameActiveBetweenOutput {
+	return i.ToServiceEventRuleTimeFrameActiveBetweenOutputWithContext(context.Background())
+}
+
+func (i ServiceEventRuleTimeFrameActiveBetweenArgs) ToServiceEventRuleTimeFrameActiveBetweenOutputWithContext(ctx context.Context) ServiceEventRuleTimeFrameActiveBetweenOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleTimeFrameActiveBetweenOutput)
+}
+
+// ServiceEventRuleTimeFrameActiveBetweenArrayInput is an input type that accepts ServiceEventRuleTimeFrameActiveBetweenArray and ServiceEventRuleTimeFrameActiveBetweenArrayOutput values.
+// You can construct a concrete instance of `ServiceEventRuleTimeFrameActiveBetweenArrayInput` via:
+//
+//          ServiceEventRuleTimeFrameActiveBetweenArray{ ServiceEventRuleTimeFrameActiveBetweenArgs{...} }
+type ServiceEventRuleTimeFrameActiveBetweenArrayInput interface {
+	pulumi.Input
+
+	ToServiceEventRuleTimeFrameActiveBetweenArrayOutput() ServiceEventRuleTimeFrameActiveBetweenArrayOutput
+	ToServiceEventRuleTimeFrameActiveBetweenArrayOutputWithContext(context.Context) ServiceEventRuleTimeFrameActiveBetweenArrayOutput
+}
+
+type ServiceEventRuleTimeFrameActiveBetweenArray []ServiceEventRuleTimeFrameActiveBetweenInput
+
+func (ServiceEventRuleTimeFrameActiveBetweenArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEventRuleTimeFrameActiveBetween)(nil)).Elem()
+}
+
+func (i ServiceEventRuleTimeFrameActiveBetweenArray) ToServiceEventRuleTimeFrameActiveBetweenArrayOutput() ServiceEventRuleTimeFrameActiveBetweenArrayOutput {
+	return i.ToServiceEventRuleTimeFrameActiveBetweenArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceEventRuleTimeFrameActiveBetweenArray) ToServiceEventRuleTimeFrameActiveBetweenArrayOutputWithContext(ctx context.Context) ServiceEventRuleTimeFrameActiveBetweenArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleTimeFrameActiveBetweenArrayOutput)
+}
+
+type ServiceEventRuleTimeFrameActiveBetweenOutput struct{ *pulumi.OutputState }
+
+func (ServiceEventRuleTimeFrameActiveBetweenOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEventRuleTimeFrameActiveBetween)(nil)).Elem()
+}
+
+func (o ServiceEventRuleTimeFrameActiveBetweenOutput) ToServiceEventRuleTimeFrameActiveBetweenOutput() ServiceEventRuleTimeFrameActiveBetweenOutput {
+	return o
+}
+
+func (o ServiceEventRuleTimeFrameActiveBetweenOutput) ToServiceEventRuleTimeFrameActiveBetweenOutputWithContext(ctx context.Context) ServiceEventRuleTimeFrameActiveBetweenOutput {
+	return o
+}
+
+// Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
+func (o ServiceEventRuleTimeFrameActiveBetweenOutput) EndTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceEventRuleTimeFrameActiveBetween) *int { return v.EndTime }).(pulumi.IntPtrOutput)
+}
+
+// Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `startTime` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `startTime` was `3,600,000` the it would be active starting at `01:00`.
+func (o ServiceEventRuleTimeFrameActiveBetweenOutput) StartTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceEventRuleTimeFrameActiveBetween) *int { return v.StartTime }).(pulumi.IntPtrOutput)
+}
+
+type ServiceEventRuleTimeFrameActiveBetweenArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceEventRuleTimeFrameActiveBetweenArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEventRuleTimeFrameActiveBetween)(nil)).Elem()
+}
+
+func (o ServiceEventRuleTimeFrameActiveBetweenArrayOutput) ToServiceEventRuleTimeFrameActiveBetweenArrayOutput() ServiceEventRuleTimeFrameActiveBetweenArrayOutput {
+	return o
+}
+
+func (o ServiceEventRuleTimeFrameActiveBetweenArrayOutput) ToServiceEventRuleTimeFrameActiveBetweenArrayOutputWithContext(ctx context.Context) ServiceEventRuleTimeFrameActiveBetweenArrayOutput {
+	return o
+}
+
+func (o ServiceEventRuleTimeFrameActiveBetweenArrayOutput) Index(i pulumi.IntInput) ServiceEventRuleTimeFrameActiveBetweenOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceEventRuleTimeFrameActiveBetween {
+		return vs[0].([]ServiceEventRuleTimeFrameActiveBetween)[vs[1].(int)]
+	}).(ServiceEventRuleTimeFrameActiveBetweenOutput)
+}
+
+type ServiceEventRuleTimeFrameScheduledWeekly struct {
+	// Length of time the schedule will be active.  Unix timestamp in milliseconds.
+	Duration *int `pulumi:"duration"`
+	// Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `startTime` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `startTime` was `3,600,000` the it would be active starting at `01:00`.
+	StartTime *int `pulumi:"startTime"`
+	// Timezone for the given schedule.
+	Timezone *string `pulumi:"timezone"`
+	// An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
+	Weekdays []int `pulumi:"weekdays"`
+}
+
+// ServiceEventRuleTimeFrameScheduledWeeklyInput is an input type that accepts ServiceEventRuleTimeFrameScheduledWeeklyArgs and ServiceEventRuleTimeFrameScheduledWeeklyOutput values.
+// You can construct a concrete instance of `ServiceEventRuleTimeFrameScheduledWeeklyInput` via:
+//
+//          ServiceEventRuleTimeFrameScheduledWeeklyArgs{...}
+type ServiceEventRuleTimeFrameScheduledWeeklyInput interface {
+	pulumi.Input
+
+	ToServiceEventRuleTimeFrameScheduledWeeklyOutput() ServiceEventRuleTimeFrameScheduledWeeklyOutput
+	ToServiceEventRuleTimeFrameScheduledWeeklyOutputWithContext(context.Context) ServiceEventRuleTimeFrameScheduledWeeklyOutput
+}
+
+type ServiceEventRuleTimeFrameScheduledWeeklyArgs struct {
+	// Length of time the schedule will be active.  Unix timestamp in milliseconds.
+	Duration pulumi.IntPtrInput `pulumi:"duration"`
+	// Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `startTime` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `startTime` was `3,600,000` the it would be active starting at `01:00`.
+	StartTime pulumi.IntPtrInput `pulumi:"startTime"`
+	// Timezone for the given schedule.
+	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
+	// An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
+	Weekdays pulumi.IntArrayInput `pulumi:"weekdays"`
+}
+
+func (ServiceEventRuleTimeFrameScheduledWeeklyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEventRuleTimeFrameScheduledWeekly)(nil)).Elem()
+}
+
+func (i ServiceEventRuleTimeFrameScheduledWeeklyArgs) ToServiceEventRuleTimeFrameScheduledWeeklyOutput() ServiceEventRuleTimeFrameScheduledWeeklyOutput {
+	return i.ToServiceEventRuleTimeFrameScheduledWeeklyOutputWithContext(context.Background())
+}
+
+func (i ServiceEventRuleTimeFrameScheduledWeeklyArgs) ToServiceEventRuleTimeFrameScheduledWeeklyOutputWithContext(ctx context.Context) ServiceEventRuleTimeFrameScheduledWeeklyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleTimeFrameScheduledWeeklyOutput)
+}
+
+// ServiceEventRuleTimeFrameScheduledWeeklyArrayInput is an input type that accepts ServiceEventRuleTimeFrameScheduledWeeklyArray and ServiceEventRuleTimeFrameScheduledWeeklyArrayOutput values.
+// You can construct a concrete instance of `ServiceEventRuleTimeFrameScheduledWeeklyArrayInput` via:
+//
+//          ServiceEventRuleTimeFrameScheduledWeeklyArray{ ServiceEventRuleTimeFrameScheduledWeeklyArgs{...} }
+type ServiceEventRuleTimeFrameScheduledWeeklyArrayInput interface {
+	pulumi.Input
+
+	ToServiceEventRuleTimeFrameScheduledWeeklyArrayOutput() ServiceEventRuleTimeFrameScheduledWeeklyArrayOutput
+	ToServiceEventRuleTimeFrameScheduledWeeklyArrayOutputWithContext(context.Context) ServiceEventRuleTimeFrameScheduledWeeklyArrayOutput
+}
+
+type ServiceEventRuleTimeFrameScheduledWeeklyArray []ServiceEventRuleTimeFrameScheduledWeeklyInput
+
+func (ServiceEventRuleTimeFrameScheduledWeeklyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEventRuleTimeFrameScheduledWeekly)(nil)).Elem()
+}
+
+func (i ServiceEventRuleTimeFrameScheduledWeeklyArray) ToServiceEventRuleTimeFrameScheduledWeeklyArrayOutput() ServiceEventRuleTimeFrameScheduledWeeklyArrayOutput {
+	return i.ToServiceEventRuleTimeFrameScheduledWeeklyArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceEventRuleTimeFrameScheduledWeeklyArray) ToServiceEventRuleTimeFrameScheduledWeeklyArrayOutputWithContext(ctx context.Context) ServiceEventRuleTimeFrameScheduledWeeklyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleTimeFrameScheduledWeeklyArrayOutput)
+}
+
+type ServiceEventRuleTimeFrameScheduledWeeklyOutput struct{ *pulumi.OutputState }
+
+func (ServiceEventRuleTimeFrameScheduledWeeklyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEventRuleTimeFrameScheduledWeekly)(nil)).Elem()
+}
+
+func (o ServiceEventRuleTimeFrameScheduledWeeklyOutput) ToServiceEventRuleTimeFrameScheduledWeeklyOutput() ServiceEventRuleTimeFrameScheduledWeeklyOutput {
+	return o
+}
+
+func (o ServiceEventRuleTimeFrameScheduledWeeklyOutput) ToServiceEventRuleTimeFrameScheduledWeeklyOutputWithContext(ctx context.Context) ServiceEventRuleTimeFrameScheduledWeeklyOutput {
+	return o
+}
+
+// Length of time the schedule will be active.  Unix timestamp in milliseconds.
+func (o ServiceEventRuleTimeFrameScheduledWeeklyOutput) Duration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceEventRuleTimeFrameScheduledWeekly) *int { return v.Duration }).(pulumi.IntPtrOutput)
+}
+
+// Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `startTime` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `startTime` was `3,600,000` the it would be active starting at `01:00`.
+func (o ServiceEventRuleTimeFrameScheduledWeeklyOutput) StartTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceEventRuleTimeFrameScheduledWeekly) *int { return v.StartTime }).(pulumi.IntPtrOutput)
+}
+
+// Timezone for the given schedule.
+func (o ServiceEventRuleTimeFrameScheduledWeeklyOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEventRuleTimeFrameScheduledWeekly) *string { return v.Timezone }).(pulumi.StringPtrOutput)
+}
+
+// An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
+func (o ServiceEventRuleTimeFrameScheduledWeeklyOutput) Weekdays() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v ServiceEventRuleTimeFrameScheduledWeekly) []int { return v.Weekdays }).(pulumi.IntArrayOutput)
+}
+
+type ServiceEventRuleTimeFrameScheduledWeeklyArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceEventRuleTimeFrameScheduledWeeklyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEventRuleTimeFrameScheduledWeekly)(nil)).Elem()
+}
+
+func (o ServiceEventRuleTimeFrameScheduledWeeklyArrayOutput) ToServiceEventRuleTimeFrameScheduledWeeklyArrayOutput() ServiceEventRuleTimeFrameScheduledWeeklyArrayOutput {
+	return o
+}
+
+func (o ServiceEventRuleTimeFrameScheduledWeeklyArrayOutput) ToServiceEventRuleTimeFrameScheduledWeeklyArrayOutputWithContext(ctx context.Context) ServiceEventRuleTimeFrameScheduledWeeklyArrayOutput {
+	return o
+}
+
+func (o ServiceEventRuleTimeFrameScheduledWeeklyArrayOutput) Index(i pulumi.IntInput) ServiceEventRuleTimeFrameScheduledWeeklyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceEventRuleTimeFrameScheduledWeekly {
+		return vs[0].([]ServiceEventRuleTimeFrameScheduledWeekly)[vs[1].(int)]
+	}).(ServiceEventRuleTimeFrameScheduledWeeklyOutput)
+}
+
+type ServiceEventRuleVariable struct {
+	// The name of the variable.
+	Name *string `pulumi:"name"`
+	// The parameters for performing the operation to populate the variable.
+	Parameters []ServiceEventRuleVariableParameter `pulumi:"parameters"`
+	// Type of operation to populate the variable. Usually `regex`.
+	Type *string `pulumi:"type"`
+}
+
+// ServiceEventRuleVariableInput is an input type that accepts ServiceEventRuleVariableArgs and ServiceEventRuleVariableOutput values.
+// You can construct a concrete instance of `ServiceEventRuleVariableInput` via:
+//
+//          ServiceEventRuleVariableArgs{...}
+type ServiceEventRuleVariableInput interface {
+	pulumi.Input
+
+	ToServiceEventRuleVariableOutput() ServiceEventRuleVariableOutput
+	ToServiceEventRuleVariableOutputWithContext(context.Context) ServiceEventRuleVariableOutput
+}
+
+type ServiceEventRuleVariableArgs struct {
+	// The name of the variable.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The parameters for performing the operation to populate the variable.
+	Parameters ServiceEventRuleVariableParameterArrayInput `pulumi:"parameters"`
+	// Type of operation to populate the variable. Usually `regex`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ServiceEventRuleVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEventRuleVariable)(nil)).Elem()
+}
+
+func (i ServiceEventRuleVariableArgs) ToServiceEventRuleVariableOutput() ServiceEventRuleVariableOutput {
+	return i.ToServiceEventRuleVariableOutputWithContext(context.Background())
+}
+
+func (i ServiceEventRuleVariableArgs) ToServiceEventRuleVariableOutputWithContext(ctx context.Context) ServiceEventRuleVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleVariableOutput)
+}
+
+// ServiceEventRuleVariableArrayInput is an input type that accepts ServiceEventRuleVariableArray and ServiceEventRuleVariableArrayOutput values.
+// You can construct a concrete instance of `ServiceEventRuleVariableArrayInput` via:
+//
+//          ServiceEventRuleVariableArray{ ServiceEventRuleVariableArgs{...} }
+type ServiceEventRuleVariableArrayInput interface {
+	pulumi.Input
+
+	ToServiceEventRuleVariableArrayOutput() ServiceEventRuleVariableArrayOutput
+	ToServiceEventRuleVariableArrayOutputWithContext(context.Context) ServiceEventRuleVariableArrayOutput
+}
+
+type ServiceEventRuleVariableArray []ServiceEventRuleVariableInput
+
+func (ServiceEventRuleVariableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEventRuleVariable)(nil)).Elem()
+}
+
+func (i ServiceEventRuleVariableArray) ToServiceEventRuleVariableArrayOutput() ServiceEventRuleVariableArrayOutput {
+	return i.ToServiceEventRuleVariableArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceEventRuleVariableArray) ToServiceEventRuleVariableArrayOutputWithContext(ctx context.Context) ServiceEventRuleVariableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleVariableArrayOutput)
+}
+
+type ServiceEventRuleVariableOutput struct{ *pulumi.OutputState }
+
+func (ServiceEventRuleVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEventRuleVariable)(nil)).Elem()
+}
+
+func (o ServiceEventRuleVariableOutput) ToServiceEventRuleVariableOutput() ServiceEventRuleVariableOutput {
+	return o
+}
+
+func (o ServiceEventRuleVariableOutput) ToServiceEventRuleVariableOutputWithContext(ctx context.Context) ServiceEventRuleVariableOutput {
+	return o
+}
+
+// The name of the variable.
+func (o ServiceEventRuleVariableOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEventRuleVariable) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The parameters for performing the operation to populate the variable.
+func (o ServiceEventRuleVariableOutput) Parameters() ServiceEventRuleVariableParameterArrayOutput {
+	return o.ApplyT(func(v ServiceEventRuleVariable) []ServiceEventRuleVariableParameter { return v.Parameters }).(ServiceEventRuleVariableParameterArrayOutput)
+}
+
+// Type of operation to populate the variable. Usually `regex`.
+func (o ServiceEventRuleVariableOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEventRuleVariable) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ServiceEventRuleVariableArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceEventRuleVariableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEventRuleVariable)(nil)).Elem()
+}
+
+func (o ServiceEventRuleVariableArrayOutput) ToServiceEventRuleVariableArrayOutput() ServiceEventRuleVariableArrayOutput {
+	return o
+}
+
+func (o ServiceEventRuleVariableArrayOutput) ToServiceEventRuleVariableArrayOutputWithContext(ctx context.Context) ServiceEventRuleVariableArrayOutput {
+	return o
+}
+
+func (o ServiceEventRuleVariableArrayOutput) Index(i pulumi.IntInput) ServiceEventRuleVariableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceEventRuleVariable {
+		return vs[0].([]ServiceEventRuleVariable)[vs[1].(int)]
+	}).(ServiceEventRuleVariableOutput)
+}
+
+type ServiceEventRuleVariableParameter struct {
+	// Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
+	Path *string `pulumi:"path"`
+	// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+	Value *string `pulumi:"value"`
+}
+
+// ServiceEventRuleVariableParameterInput is an input type that accepts ServiceEventRuleVariableParameterArgs and ServiceEventRuleVariableParameterOutput values.
+// You can construct a concrete instance of `ServiceEventRuleVariableParameterInput` via:
+//
+//          ServiceEventRuleVariableParameterArgs{...}
+type ServiceEventRuleVariableParameterInput interface {
+	pulumi.Input
+
+	ToServiceEventRuleVariableParameterOutput() ServiceEventRuleVariableParameterOutput
+	ToServiceEventRuleVariableParameterOutputWithContext(context.Context) ServiceEventRuleVariableParameterOutput
+}
+
+type ServiceEventRuleVariableParameterArgs struct {
+	// Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ServiceEventRuleVariableParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEventRuleVariableParameter)(nil)).Elem()
+}
+
+func (i ServiceEventRuleVariableParameterArgs) ToServiceEventRuleVariableParameterOutput() ServiceEventRuleVariableParameterOutput {
+	return i.ToServiceEventRuleVariableParameterOutputWithContext(context.Background())
+}
+
+func (i ServiceEventRuleVariableParameterArgs) ToServiceEventRuleVariableParameterOutputWithContext(ctx context.Context) ServiceEventRuleVariableParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleVariableParameterOutput)
+}
+
+// ServiceEventRuleVariableParameterArrayInput is an input type that accepts ServiceEventRuleVariableParameterArray and ServiceEventRuleVariableParameterArrayOutput values.
+// You can construct a concrete instance of `ServiceEventRuleVariableParameterArrayInput` via:
+//
+//          ServiceEventRuleVariableParameterArray{ ServiceEventRuleVariableParameterArgs{...} }
+type ServiceEventRuleVariableParameterArrayInput interface {
+	pulumi.Input
+
+	ToServiceEventRuleVariableParameterArrayOutput() ServiceEventRuleVariableParameterArrayOutput
+	ToServiceEventRuleVariableParameterArrayOutputWithContext(context.Context) ServiceEventRuleVariableParameterArrayOutput
+}
+
+type ServiceEventRuleVariableParameterArray []ServiceEventRuleVariableParameterInput
+
+func (ServiceEventRuleVariableParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEventRuleVariableParameter)(nil)).Elem()
+}
+
+func (i ServiceEventRuleVariableParameterArray) ToServiceEventRuleVariableParameterArrayOutput() ServiceEventRuleVariableParameterArrayOutput {
+	return i.ToServiceEventRuleVariableParameterArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceEventRuleVariableParameterArray) ToServiceEventRuleVariableParameterArrayOutputWithContext(ctx context.Context) ServiceEventRuleVariableParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleVariableParameterArrayOutput)
+}
+
+type ServiceEventRuleVariableParameterOutput struct{ *pulumi.OutputState }
+
+func (ServiceEventRuleVariableParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEventRuleVariableParameter)(nil)).Elem()
+}
+
+func (o ServiceEventRuleVariableParameterOutput) ToServiceEventRuleVariableParameterOutput() ServiceEventRuleVariableParameterOutput {
+	return o
+}
+
+func (o ServiceEventRuleVariableParameterOutput) ToServiceEventRuleVariableParameterOutputWithContext(ctx context.Context) ServiceEventRuleVariableParameterOutput {
+	return o
+}
+
+// Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
+func (o ServiceEventRuleVariableParameterOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEventRuleVariableParameter) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+func (o ServiceEventRuleVariableParameterOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEventRuleVariableParameter) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ServiceEventRuleVariableParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceEventRuleVariableParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEventRuleVariableParameter)(nil)).Elem()
+}
+
+func (o ServiceEventRuleVariableParameterArrayOutput) ToServiceEventRuleVariableParameterArrayOutput() ServiceEventRuleVariableParameterArrayOutput {
+	return o
+}
+
+func (o ServiceEventRuleVariableParameterArrayOutput) ToServiceEventRuleVariableParameterArrayOutputWithContext(ctx context.Context) ServiceEventRuleVariableParameterArrayOutput {
+	return o
+}
+
+func (o ServiceEventRuleVariableParameterArrayOutput) Index(i pulumi.IntInput) ServiceEventRuleVariableParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceEventRuleVariableParameter {
+		return vs[0].([]ServiceEventRuleVariableParameter)[vs[1].(int)]
+	}).(ServiceEventRuleVariableParameterOutput)
 }
 
 type ServiceIncidentUrgencyRule struct {
@@ -3757,6 +6747,18 @@ func init() {
 	pulumi.RegisterOutputType(EscalationPolicyRuleArrayOutput{})
 	pulumi.RegisterOutputType(EscalationPolicyRuleTargetOutput{})
 	pulumi.RegisterOutputType(EscalationPolicyRuleTargetArrayOutput{})
+	pulumi.RegisterOutputType(ResponsePlayResponderOutput{})
+	pulumi.RegisterOutputType(ResponsePlayResponderArrayOutput{})
+	pulumi.RegisterOutputType(ResponsePlayResponderEscalationRuleOutput{})
+	pulumi.RegisterOutputType(ResponsePlayResponderEscalationRuleArrayOutput{})
+	pulumi.RegisterOutputType(ResponsePlayResponderEscalationRuleTargetOutput{})
+	pulumi.RegisterOutputType(ResponsePlayResponderEscalationRuleTargetArrayOutput{})
+	pulumi.RegisterOutputType(ResponsePlayResponderServiceOutput{})
+	pulumi.RegisterOutputType(ResponsePlayResponderServiceArrayOutput{})
+	pulumi.RegisterOutputType(ResponsePlayResponderTeamOutput{})
+	pulumi.RegisterOutputType(ResponsePlayResponderTeamArrayOutput{})
+	pulumi.RegisterOutputType(ResponsePlaySubscriberOutput{})
+	pulumi.RegisterOutputType(ResponsePlaySubscriberArrayOutput{})
 	pulumi.RegisterOutputType(RulesetRuleActionsOutput{})
 	pulumi.RegisterOutputType(RulesetRuleActionsPtrOutput{})
 	pulumi.RegisterOutputType(RulesetRuleActionsAnnotateOutput{})
@@ -3773,6 +6775,8 @@ func init() {
 	pulumi.RegisterOutputType(RulesetRuleActionsSeverityArrayOutput{})
 	pulumi.RegisterOutputType(RulesetRuleActionsSuppressOutput{})
 	pulumi.RegisterOutputType(RulesetRuleActionsSuppressArrayOutput{})
+	pulumi.RegisterOutputType(RulesetRuleActionsSuspendOutput{})
+	pulumi.RegisterOutputType(RulesetRuleActionsSuspendArrayOutput{})
 	pulumi.RegisterOutputType(RulesetRuleConditionsOutput{})
 	pulumi.RegisterOutputType(RulesetRuleConditionsPtrOutput{})
 	pulumi.RegisterOutputType(RulesetRuleConditionsSubconditionOutput{})
@@ -3785,6 +6789,10 @@ func init() {
 	pulumi.RegisterOutputType(RulesetRuleTimeFrameActiveBetweenArrayOutput{})
 	pulumi.RegisterOutputType(RulesetRuleTimeFrameScheduledWeeklyOutput{})
 	pulumi.RegisterOutputType(RulesetRuleTimeFrameScheduledWeeklyArrayOutput{})
+	pulumi.RegisterOutputType(RulesetRuleVariableOutput{})
+	pulumi.RegisterOutputType(RulesetRuleVariableArrayOutput{})
+	pulumi.RegisterOutputType(RulesetRuleVariableParameterOutput{})
+	pulumi.RegisterOutputType(RulesetRuleVariableParameterArrayOutput{})
 	pulumi.RegisterOutputType(RulesetTeamOutput{})
 	pulumi.RegisterOutputType(RulesetTeamPtrOutput{})
 	pulumi.RegisterOutputType(ScheduleLayerOutput{})
@@ -3797,6 +6805,38 @@ func init() {
 	pulumi.RegisterOutputType(ServiceDependencyDependencyDependentServiceArrayOutput{})
 	pulumi.RegisterOutputType(ServiceDependencyDependencySupportingServiceOutput{})
 	pulumi.RegisterOutputType(ServiceDependencyDependencySupportingServiceArrayOutput{})
+	pulumi.RegisterOutputType(ServiceEventRuleActionsOutput{})
+	pulumi.RegisterOutputType(ServiceEventRuleActionsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceEventRuleActionsAnnotateOutput{})
+	pulumi.RegisterOutputType(ServiceEventRuleActionsAnnotateArrayOutput{})
+	pulumi.RegisterOutputType(ServiceEventRuleActionsEventActionOutput{})
+	pulumi.RegisterOutputType(ServiceEventRuleActionsEventActionArrayOutput{})
+	pulumi.RegisterOutputType(ServiceEventRuleActionsExtractionOutput{})
+	pulumi.RegisterOutputType(ServiceEventRuleActionsExtractionArrayOutput{})
+	pulumi.RegisterOutputType(ServiceEventRuleActionsPriorityOutput{})
+	pulumi.RegisterOutputType(ServiceEventRuleActionsPriorityArrayOutput{})
+	pulumi.RegisterOutputType(ServiceEventRuleActionsSeverityOutput{})
+	pulumi.RegisterOutputType(ServiceEventRuleActionsSeverityArrayOutput{})
+	pulumi.RegisterOutputType(ServiceEventRuleActionsSuppressOutput{})
+	pulumi.RegisterOutputType(ServiceEventRuleActionsSuppressArrayOutput{})
+	pulumi.RegisterOutputType(ServiceEventRuleActionsSuspendOutput{})
+	pulumi.RegisterOutputType(ServiceEventRuleActionsSuspendArrayOutput{})
+	pulumi.RegisterOutputType(ServiceEventRuleConditionsOutput{})
+	pulumi.RegisterOutputType(ServiceEventRuleConditionsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceEventRuleConditionsSubconditionOutput{})
+	pulumi.RegisterOutputType(ServiceEventRuleConditionsSubconditionArrayOutput{})
+	pulumi.RegisterOutputType(ServiceEventRuleConditionsSubconditionParameterOutput{})
+	pulumi.RegisterOutputType(ServiceEventRuleConditionsSubconditionParameterArrayOutput{})
+	pulumi.RegisterOutputType(ServiceEventRuleTimeFrameOutput{})
+	pulumi.RegisterOutputType(ServiceEventRuleTimeFramePtrOutput{})
+	pulumi.RegisterOutputType(ServiceEventRuleTimeFrameActiveBetweenOutput{})
+	pulumi.RegisterOutputType(ServiceEventRuleTimeFrameActiveBetweenArrayOutput{})
+	pulumi.RegisterOutputType(ServiceEventRuleTimeFrameScheduledWeeklyOutput{})
+	pulumi.RegisterOutputType(ServiceEventRuleTimeFrameScheduledWeeklyArrayOutput{})
+	pulumi.RegisterOutputType(ServiceEventRuleVariableOutput{})
+	pulumi.RegisterOutputType(ServiceEventRuleVariableArrayOutput{})
+	pulumi.RegisterOutputType(ServiceEventRuleVariableParameterOutput{})
+	pulumi.RegisterOutputType(ServiceEventRuleVariableParameterArrayOutput{})
 	pulumi.RegisterOutputType(ServiceIncidentUrgencyRuleOutput{})
 	pulumi.RegisterOutputType(ServiceIncidentUrgencyRulePtrOutput{})
 	pulumi.RegisterOutputType(ServiceIncidentUrgencyRuleDuringSupportHoursOutput{})

@@ -22,7 +22,105 @@ export interface EscalationPolicyRuleTarget {
      */
     id: string;
     /**
-     * Can be `user`, `schedule`, `userReference` or `scheduleReference`. Defaults to `userReference`
+     * Can be `user`, `schedule`, `userReference` or `scheduleReference`. Defaults to `userReference`. For multiple users as example, repeat the target.
+     */
+    type?: string;
+}
+
+export interface ResponsePlayResponder {
+    /**
+     * Description of escalation policy
+     */
+    description?: string;
+    /**
+     * The escalation rules
+     */
+    escalationRules: outputs.ResponsePlayResponderEscalationRule[];
+    /**
+     * ID of the user defined as the responder
+     */
+    id?: string;
+    /**
+     * Name of the escalation policy
+     */
+    name?: string;
+    /**
+     * The number of times the escalation policy will repeat after reaching the end of its escalation.
+     */
+    numLoops: number;
+    /**
+     * Determines how on call handoff notifications will be sent for users on the escalation policy. Defaults to "ifHasServices". Could be "ifHasServices", "always
+     */
+    onCallHandoffNotifications: string;
+    /**
+     * There can be multiple services associated with a policy.
+     */
+    services: outputs.ResponsePlayResponderService[];
+    /**
+     * Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
+     */
+    teams: outputs.ResponsePlayResponderTeam[];
+    /**
+     * Type of object of the target. Supported types are `user`, `schedule`, `userReference`, `scheduleReference`.
+     */
+    type?: string;
+}
+
+export interface ResponsePlayResponderEscalationRule {
+    /**
+     * The number of minutes before an unacknowledged incident escalates away from this rule.
+     */
+    escalationDelayInMinutes: number;
+    /**
+     * ID of the user defined as the responder
+     */
+    id: string;
+    /**
+     * The targets an incident should be assigned to upon reaching this rule.
+     */
+    targets: outputs.ResponsePlayResponderEscalationRuleTarget[];
+}
+
+export interface ResponsePlayResponderEscalationRuleTarget {
+    /**
+     * ID of the user defined as the responder
+     */
+    id: string;
+    /**
+     * A string that determines the schema of the object. If not set, the default value is "responsePlay".
+     */
+    type: string;
+}
+
+export interface ResponsePlayResponderService {
+    /**
+     * ID of the user defined as the responder
+     */
+    id: string;
+    /**
+     * A string that determines the schema of the object. If not set, the default value is "responsePlay".
+     */
+    type: string;
+}
+
+export interface ResponsePlayResponderTeam {
+    /**
+     * ID of the user defined as the responder
+     */
+    id: string;
+    /**
+     * A string that determines the schema of the object. If not set, the default value is "responsePlay".
+     */
+    type: string;
+}
+
+export interface ResponsePlaySubscriber {
+    /**
+     * ID of the user defined as the responder
+     */
+    id?: string;
+    /**
+     * A string that determines the schema of the object. If not set, the default value is "responsePlay".
      */
     type?: string;
 }
@@ -32,9 +130,12 @@ export interface RulesetRuleActions {
      * Note added to the event.
      */
     annotates?: outputs.RulesetRuleActionsAnnotate[];
+    /**
+     * An object with a single `value` field. The value sets whether the resulting alert status is `trigger` or `resolve`.
+     */
     eventActions?: outputs.RulesetRuleActionsEventAction[];
     /**
-     * Allows you to copy important data from one event field to another. Extraction rules must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax). Extraction objects consist of the following fields:
+     * Allows you to copy important data from one event field to another. Extraction objects may use *either* of the following field structures:
      */
     extractions?: outputs.RulesetRuleActionsExtraction[];
     /**
@@ -50,9 +151,13 @@ export interface RulesetRuleActions {
      */
     severities?: outputs.RulesetRuleActionsSeverity[];
     /**
-     * Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident).
+     * Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident). Note: If a threshold is set, the rule must also have a `route` action.
      */
     suppresses?: outputs.RulesetRuleActionsSuppress[];
+    /**
+     * An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering. Note: A rule with a `suspend` action must also have a `route` action.
+     */
+    suspends?: outputs.RulesetRuleActionsSuspend[];
 }
 
 export interface RulesetRuleActionsAnnotate {
@@ -71,18 +176,21 @@ export interface RulesetRuleActionsEventAction {
 
 export interface RulesetRuleActionsExtraction {
     /**
-     * The conditions that need to be met for the extraction to happen.
-     * * *NOTE: A rule can have multiple `extraction` objects attributed to it.*
+     * The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
      */
     regex?: string;
     /**
-     * Field where the data is being copied from.
+     * Field where the data is being copied from. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
      */
     source?: string;
     /**
-     * Field where the data is being copied to.
+     * Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
      */
     target?: string;
+    /**
+     * A customized field message. This can also include variables extracted from the payload by using string interpolation.
+     */
+    template?: string;
 }
 
 export interface RulesetRuleActionsPriority {
@@ -108,7 +216,7 @@ export interface RulesetRuleActionsSeverity {
 
 export interface RulesetRuleActionsSuppress {
     /**
-     * The number value of the `thresholdTimeUnit` before an incident is created.
+     * The number value of the `thresholdTimeUnit` before an incident is created. Must be greater than 0.
      */
     thresholdTimeAmount?: number;
     /**
@@ -116,13 +224,20 @@ export interface RulesetRuleActionsSuppress {
      */
     thresholdTimeUnit?: string;
     /**
-     * The number of alerts that should be suppressed.
+     * The number of alerts that should be suppressed. Must be greater than 0.
      */
     thresholdValue?: number;
     /**
      * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
      */
     value?: boolean;
+}
+
+export interface RulesetRuleActionsSuspend {
+    /**
+     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+     */
+    value?: number;
 }
 
 export interface RulesetRuleConditions {
@@ -194,6 +309,20 @@ export interface RulesetRuleTimeFrameScheduledWeekly {
      * An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
      */
     weekdays?: number[];
+}
+
+export interface RulesetRuleVariable {
+    name?: string;
+    parameters?: outputs.RulesetRuleVariableParameter[];
+    type?: string;
+}
+
+export interface RulesetRuleVariableParameter {
+    path?: string;
+    /**
+     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
+     */
+    value?: string;
 }
 
 export interface RulesetTeam {
@@ -283,6 +412,210 @@ export interface ServiceDependencyDependencySupportingService {
      */
     id: string;
     type: string;
+}
+
+export interface ServiceEventRuleActions {
+    /**
+     * Note added to the event.
+     */
+    annotates?: outputs.ServiceEventRuleActionsAnnotate[];
+    /**
+     * An object with a single `value` field. The value sets whether the resulting alert status is `trigger` or `resolve`.
+     */
+    eventActions?: outputs.ServiceEventRuleActionsEventAction[];
+    /**
+     * Allows you to copy important data from one event field to another. Extraction objects may use *either* of the following field structures:
+     */
+    extractions?: outputs.ServiceEventRuleActionsExtraction[];
+    /**
+     * The ID of the priority applied to the event.
+     */
+    priorities?: outputs.ServiceEventRuleActionsPriority[];
+    /**
+     * The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`error`,`warning`, or `critical`.
+     */
+    severities?: outputs.ServiceEventRuleActionsSeverity[];
+    /**
+     * Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident).
+     */
+    suppresses?: outputs.ServiceEventRuleActionsSuppress[];
+    /**
+     * An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering.
+     */
+    suspends?: outputs.ServiceEventRuleActionsSuspend[];
+}
+
+export interface ServiceEventRuleActionsAnnotate {
+    /**
+     * The value for the operation. For example, an RE2 regular expression for regex-type variables.
+     */
+    value?: string;
+}
+
+export interface ServiceEventRuleActionsEventAction {
+    /**
+     * The value for the operation. For example, an RE2 regular expression for regex-type variables.
+     */
+    value?: string;
+}
+
+export interface ServiceEventRuleActionsExtraction {
+    /**
+     * The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
+     */
+    regex?: string;
+    /**
+     * Field where the data is being copied from. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+     */
+    source?: string;
+    /**
+     * Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+     */
+    target?: string;
+    /**
+     * A customized field message. This can also include variables extracted from the payload by using string interpolation.
+     */
+    template?: string;
+}
+
+export interface ServiceEventRuleActionsPriority {
+    /**
+     * The value for the operation. For example, an RE2 regular expression for regex-type variables.
+     */
+    value?: string;
+}
+
+export interface ServiceEventRuleActionsSeverity {
+    /**
+     * The value for the operation. For example, an RE2 regular expression for regex-type variables.
+     */
+    value?: string;
+}
+
+export interface ServiceEventRuleActionsSuppress {
+    /**
+     * The number value of the `thresholdTimeUnit` before an incident is created.
+     */
+    thresholdTimeAmount?: number;
+    /**
+     * The `minutes`,`hours`, or `days` that the `thresholdTimeAmount` should be measured.
+     */
+    thresholdTimeUnit?: string;
+    /**
+     * The number of alerts that should be suppressed.
+     */
+    thresholdValue?: number;
+    /**
+     * The value for the operation. For example, an RE2 regular expression for regex-type variables.
+     */
+    value?: boolean;
+}
+
+export interface ServiceEventRuleActionsSuspend {
+    /**
+     * The value for the operation. For example, an RE2 regular expression for regex-type variables.
+     */
+    value?: number;
+}
+
+export interface ServiceEventRuleConditions {
+    /**
+     * Operator to combine sub-conditions. Can be `and` or `or`.
+     */
+    operator?: string;
+    /**
+     * List of sub-conditions that define the the condition.
+     */
+    subconditions?: outputs.ServiceEventRuleConditionsSubcondition[];
+}
+
+export interface ServiceEventRuleConditionsSubcondition {
+    /**
+     * Type of operator to apply to the sub-condition. Can be `exists`,`nexists`,`equals`,`nequals`,`contains`,`ncontains`,`matches`, or `nmatches`.
+     */
+    operator?: string;
+    /**
+     * Parameter for the sub-condition. It requires both a `path` and `value` to be set. The `path` value must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+     */
+    parameters?: outputs.ServiceEventRuleConditionsSubconditionParameter[];
+}
+
+export interface ServiceEventRuleConditionsSubconditionParameter {
+    /**
+     * Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
+     */
+    path?: string;
+    /**
+     * The value for the operation. For example, an RE2 regular expression for regex-type variables.
+     */
+    value?: string;
+}
+
+export interface ServiceEventRuleTimeFrame {
+    /**
+     * Values for executing the rule during a specific time period.
+     */
+    activeBetweens?: outputs.ServiceEventRuleTimeFrameActiveBetween[];
+    /**
+     * Values for executing the rule on a recurring schedule.
+     */
+    scheduledWeeklies?: outputs.ServiceEventRuleTimeFrameScheduledWeekly[];
+}
+
+export interface ServiceEventRuleTimeFrameActiveBetween {
+    /**
+     * Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
+     */
+    endTime?: number;
+    /**
+     * Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `startTime` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `startTime` was `3,600,000` the it would be active starting at `01:00`.
+     */
+    startTime?: number;
+}
+
+export interface ServiceEventRuleTimeFrameScheduledWeekly {
+    /**
+     * Length of time the schedule will be active.  Unix timestamp in milliseconds.
+     */
+    duration?: number;
+    /**
+     * Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `startTime` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `startTime` was `3,600,000` the it would be active starting at `01:00`.
+     */
+    startTime?: number;
+    /**
+     * Timezone for the given schedule.
+     */
+    timezone?: string;
+    /**
+     * An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
+     */
+    weekdays?: number[];
+}
+
+export interface ServiceEventRuleVariable {
+    /**
+     * The name of the variable.
+     */
+    name?: string;
+    /**
+     * The parameters for performing the operation to populate the variable.
+     */
+    parameters?: outputs.ServiceEventRuleVariableParameter[];
+    /**
+     * Type of operation to populate the variable. Usually `regex`.
+     */
+    type?: string;
+}
+
+export interface ServiceEventRuleVariableParameter {
+    /**
+     * Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
+     */
+    path?: string;
+    /**
+     * The value for the operation. For example, an RE2 regular expression for regex-type variables.
+     */
+    value?: string;
 }
 
 export interface ServiceIncidentUrgencyRule {

@@ -14,32 +14,32 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const datadog = pulumi.output(pagerduty.getVendor({
+ * const datadog = pagerduty.getVendor({
  *     name: "Datadog",
- * }, { async: true }));
- * const exampleUser = new pagerduty.User("example", {
+ * });
+ * const exampleUser = new pagerduty.User("exampleUser", {
  *     email: "125.greenholt.earline@graham.name",
- *     teams: [pagerduty_team_example.id],
+ *     teams: [pagerduty_team.example.id],
  * });
  * const foo = new pagerduty.EscalationPolicy("foo", {
  *     numLoops: 2,
  *     rules: [{
  *         escalationDelayInMinutes: 10,
  *         targets: [{
- *             id: exampleUser.id,
  *             type: "user",
+ *             id: exampleUser.id,
  *         }],
  *     }],
  * });
- * const exampleService = new pagerduty.Service("example", {
- *     acknowledgementTimeout: "600",
- *     autoResolveTimeout: "14400",
- *     escalationPolicy: pagerduty_escalation_policy_example.id,
+ * const exampleService = new pagerduty.Service("exampleService", {
+ *     autoResolveTimeout: 14400,
+ *     acknowledgementTimeout: 600,
+ *     escalationPolicy: pagerduty_escalation_policy.example.id,
  * });
- * const exampleServiceIntegration = new pagerduty.ServiceIntegration("example", {
+ * const exampleServiceIntegration = new pagerduty.ServiceIntegration("exampleServiceIntegration", {
+ *     vendor: datadog.then(datadog => datadog.id),
  *     service: exampleService.id,
  *     type: "generic_events_api_inbound_integration",
- *     vendor: datadog.id,
  * });
  * ```
  */

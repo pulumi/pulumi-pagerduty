@@ -34,8 +34,8 @@ import (
 // 					EscalationDelayInMinutes: pulumi.Int(10),
 // 					Targets: pagerduty.EscalationPolicyRuleTargetArray{
 // 						&pagerduty.EscalationPolicyRuleTargetArgs{
-// 							Id:   pulumi.String(me.Id),
 // 							Type: pulumi.String("user"),
+// 							Id:   pulumi.String(me.Id),
 // 						},
 // 					},
 // 				},

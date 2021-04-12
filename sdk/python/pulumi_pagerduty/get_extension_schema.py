@@ -86,18 +86,18 @@ def get_extension_schema(name: Optional[str] = None,
         rules=[pagerduty.EscalationPolicyRuleArgs(
             escalation_delay_in_minutes=10,
             targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                id=example_user.id,
                 type="user",
+                id=example_user.id,
             )],
         )])
     example_service = pagerduty.Service("exampleService",
-        acknowledgement_timeout="600",
         auto_resolve_timeout="14400",
+        acknowledgement_timeout="600",
         escalation_policy=pagerduty_escalation_policy["example"]["id"])
     slack = pagerduty.Extension("slack",
         endpoint_url="https://generic_webhook_url/XXXXXX/BBBBBB",
-        extension_objects=[example_service.id],
-        extension_schema=webhook.id)
+        extension_schema=webhook.id,
+        extension_objects=[example_service.id])
     ```
 
 

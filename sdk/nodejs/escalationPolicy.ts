@@ -14,23 +14,27 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const exampleTeam = new pagerduty.Team("example", {
- *     description: "All engineering",
- * });
- * const exampleUser = new pagerduty.User("example", {
+ * const exampleTeam = new pagerduty.Team("exampleTeam", {description: "All engineering"});
+ * const exampleUser = new pagerduty.User("exampleUser", {
  *     email: "125.greenholt.earline@graham.name",
  *     teams: [exampleTeam.id],
  * });
- * const exampleEscalationPolicy = new pagerduty.EscalationPolicy("example", {
+ * const exampleEscalationPolicy = new pagerduty.EscalationPolicy("exampleEscalationPolicy", {
  *     numLoops: 2,
+ *     teams: [exampleTeam.id],
  *     rules: [{
  *         escalationDelayInMinutes: 10,
- *         targets: [{
- *             id: exampleUser.id,
- *             type: "user",
- *         }],
+ *         targets: [
+ *             {
+ *                 type: "user",
+ *                 id: exampleUser.id,
+ *             },
+ *             {
+ *                 type: "user",
+ *                 id: pagerduty_user.example2.id,
+ *             },
+ *         ],
  *     }],
- *     teams: [exampleTeam.id],
  * });
  * ```
  *

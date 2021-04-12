@@ -46,8 +46,8 @@ namespace Pulumi.Pagerduty
     ///                     {
     ///                         new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
     ///                         {
-    ///                             Id = exampleUser.Id,
     ///                             Type = "user",
+    ///                             Id = exampleUser.Id,
     ///                         },
     ///                     },
     ///                 },
@@ -55,12 +55,18 @@ namespace Pulumi.Pagerduty
     ///         });
     ///         var exampleService = new Pagerduty.Service("exampleService", new Pagerduty.ServiceArgs
     ///         {
-    ///             AcknowledgementTimeout = "600",
     ///             AutoResolveTimeout = "14400",
+    ///             AcknowledgementTimeout = "600",
     ///             EscalationPolicy = pagerduty_escalation_policy.Example.Id,
     ///         });
     ///         var slack = new Pagerduty.Extension("slack", new Pagerduty.ExtensionArgs
     ///         {
+    ///             EndpointUrl = "https://generic_webhook_url/XXXXXX/BBBBBB",
+    ///             ExtensionSchema = webhook.Apply(webhook =&gt; webhook.Id),
+    ///             ExtensionObjects = 
+    ///             {
+    ///                 exampleService.Id,
+    ///             },
     ///             Config = @"{
     /// 	""restrict"": ""any"",
     /// 	""notify_types"": {
@@ -70,14 +76,7 @@ namespace Pulumi.Pagerduty
     /// 	},
     /// 	""access_token"": ""XXX""
     /// }
-    /// 
     /// ",
-    ///             EndpointUrl = "https://generic_webhook_url/XXXXXX/BBBBBB",
-    ///             ExtensionObjects = 
-    ///             {
-    ///                 exampleService.Id,
-    ///             },
-    ///             ExtensionSchema = webhook.Apply(webhook =&gt; webhook.Id),
     ///         });
     ///     }
     /// 
@@ -102,7 +101,7 @@ namespace Pulumi.Pagerduty
         public Output<string?> Config { get; private set; } = null!;
 
         /// <summary>
-        /// The url of the extension.  
+        /// The url of the extension.
         /// **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `pagerduty.getExtensionSchema` named `Generic V2 Webhook` doesn't accept `pagerduty.Extension` with no `endpoint_url`, but one with named `Slack` accepts.
         /// </summary>
         [Output("endpointUrl")]
@@ -188,7 +187,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? Config { get; set; }
 
         /// <summary>
-        /// The url of the extension.  
+        /// The url of the extension.
         /// **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `pagerduty.getExtensionSchema` named `Generic V2 Webhook` doesn't accept `pagerduty.Extension` with no `endpoint_url`, but one with named `Slack` accepts.
         /// </summary>
         [Input("endpointUrl")]
@@ -235,7 +234,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? Config { get; set; }
 
         /// <summary>
-        /// The url of the extension.  
+        /// The url of the extension.
         /// **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `pagerduty.getExtensionSchema` named `Generic V2 Webhook` doesn't accept `pagerduty.Extension` with no `endpoint_url`, but one with named `Slack` accepts.
         /// </summary>
         [Input("endpointUrl")]

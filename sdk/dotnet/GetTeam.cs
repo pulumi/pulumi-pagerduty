@@ -37,6 +37,10 @@ namespace Pulumi.Pagerduty
         ///         var foo = new Pagerduty.EscalationPolicy("foo", new Pagerduty.EscalationPolicyArgs
         ///         {
         ///             NumLoops = 2,
+        ///             Teams = 
+        ///             {
+        ///                 devops.Apply(devops =&gt; devops.Id),
+        ///             },
         ///             Rules = 
         ///             {
         ///                 new Pagerduty.Inputs.EscalationPolicyRuleArgs
@@ -46,15 +50,11 @@ namespace Pulumi.Pagerduty
         ///                     {
         ///                         new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
         ///                         {
-        ///                             Id = me.Apply(me =&gt; me.Id),
         ///                             Type = "user",
+        ///                             Id = me.Apply(me =&gt; me.Id),
         ///                         },
         ///                     },
         ///                 },
-        ///             },
-        ///             Teams = 
-        ///             {
-        ///                 devops.Apply(devops =&gt; devops.Id),
         ///             },
         ///         });
         ///     }
@@ -77,6 +77,12 @@ namespace Pulumi.Pagerduty
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
+        /// </summary>
+        [Input("parent")]
+        public string? Parent { get; set; }
+
         public GetTeamArgs()
         {
         }
@@ -98,6 +104,10 @@ namespace Pulumi.Pagerduty
         /// The name of the found team.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
+        /// </summary>
+        public readonly string? Parent;
 
         [OutputConstructor]
         private GetTeamResult(
@@ -105,11 +115,14 @@ namespace Pulumi.Pagerduty
 
             string id,
 
-            string name)
+            string name,
+
+            string? parent)
         {
             Description = description;
             Id = id;
             Name = name;
+            Parent = parent;
         }
     }
 }

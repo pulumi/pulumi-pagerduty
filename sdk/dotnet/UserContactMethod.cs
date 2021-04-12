@@ -32,26 +32,26 @@ namespace Pulumi.Pagerduty
     ///         });
     ///         var email = new Pagerduty.UserContactMethod("email", new Pagerduty.UserContactMethodArgs
     ///         {
+    ///             UserId = example.Id,
+    ///             Type = "email_contact_method",
     ///             Address = "foo@bar.com",
     ///             Label = "Work",
-    ///             Type = "email_contact_method",
-    ///             UserId = example.Id,
     ///         });
     ///         var phone = new Pagerduty.UserContactMethod("phone", new Pagerduty.UserContactMethodArgs
     ///         {
-    ///             Address = "2025550199",
-    ///             CountryCode = 1,
-    ///             Label = "Work",
-    ///             Type = "phone_contact_method",
     ///             UserId = example.Id,
+    ///             Type = "phone_contact_method",
+    ///             CountryCode = 1,
+    ///             Address = "2025550199",
+    ///             Label = "Work",
     ///         });
     ///         var sms = new Pagerduty.UserContactMethod("sms", new Pagerduty.UserContactMethodArgs
     ///         {
-    ///             Address = "2025550199",
-    ///             CountryCode = 1,
-    ///             Label = "Work",
-    ///             Type = "sms_contact_method",
     ///             UserId = example.Id,
+    ///             Type = "sms_contact_method",
+    ///             CountryCode = 1,
+    ///             Address = "2025550199",
+    ///             Label = "Work",
     ///         });
     ///     }
     /// 

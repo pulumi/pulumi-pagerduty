@@ -13,42 +13,52 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const exampleUser = new pagerduty.User("example", {
+ * const exampleUser = new pagerduty.User("exampleUser", {
  *     email: "125.greenholt.earline@graham.name",
- *     teams: [pagerduty_team_example.id],
+ *     teams: [pagerduty_team.example.id],
  * });
  * const foo = new pagerduty.EscalationPolicy("foo", {
  *     numLoops: 2,
  *     rules: [{
  *         escalationDelayInMinutes: 10,
  *         targets: [{
- *             id: exampleUser.id,
  *             type: "user",
+ *             id: exampleUser.id,
  *         }],
  *     }],
  * });
- * const exampleService = new pagerduty.Service("example", {
- *     acknowledgementTimeout: "600",
- *     autoResolveTimeout: "14400",
- *     escalationPolicy: pagerduty_escalation_policy_example.id,
+ * const exampleService = new pagerduty.Service("exampleService", {
+ *     autoResolveTimeout: 14400,
+ *     acknowledgementTimeout: 600,
+ *     escalationPolicy: pagerduty_escalation_policy.example.id,
  * });
- * const exampleServiceIntegration = new pagerduty.ServiceIntegration("example", {
- *     service: exampleService.id,
+ * const exampleServiceIntegration = new pagerduty.ServiceIntegration("exampleServiceIntegration", {
  *     type: "generic_events_api_inbound_integration",
+ *     service: exampleService.id,
  * });
- * const datadogVendor = pulumi.output(pagerduty.getVendor({
+ * const apiv2 = new pagerduty.ServiceIntegration("apiv2", {
+ *     type: "events_api_v2_inbound_integration",
+ *     integrationKey: "12345678910testtesttesttesttes",
+ *     service: exampleService.id,
+ * });
+ * const emailX = new pagerduty.ServiceIntegration("emailX", {
+ *     type: "generic_email_inbound_integration",
+ *     integrationEmail: "ecommerce@subdomain.pagerduty.com",
+ *     service: exampleService.id,
+ * });
+ * const datadogVendor = pagerduty.getVendor({
  *     name: "Datadog",
- * }, { async: true }));
- * const datadogServiceIntegration = new pagerduty.ServiceIntegration("datadog", {
- *     service: exampleService.id,
- *     vendor: datadogVendor.id,
  * });
- * const cloudwatchVendor = pulumi.output(pagerduty.getVendor({
- *     name: "Cloudwatch",
- * }, { async: true }));
- * const cloudwatchServiceIntegration = new pagerduty.ServiceIntegration("cloudwatch", {
+ * const datadogServiceIntegration = new pagerduty.ServiceIntegration("datadogServiceIntegration", {
  *     service: exampleService.id,
- *     vendor: cloudwatchVendor.id,
+ *     vendor: datadogVendor.then(datadogVendor => datadogVendor.id),
+ * });
+ * const cloudwatchVendor = pagerduty.getVendor({
+ *     name: "Cloudwatch",
+ * });
+ * const cloudwatchServiceIntegration = new pagerduty.ServiceIntegration("cloudwatchServiceIntegration", {
+ *     service: exampleService.id,
+ *     vendor: cloudwatchVendor.then(cloudwatchVendor => cloudwatchVendor.id),
  * });
  * ```
  *

@@ -88,7 +88,7 @@ namespace Pulumi.Pagerduty
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The user role. Account must have the `read_only_users` ability to set a user as a `read_only_user`. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user` or `user`
+        /// The user role. Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.  Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.
         /// </summary>
         [Output("role")]
         public Output<string?> Role { get; private set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.Pagerduty
         public Output<ImmutableArray<string>> Teams { get; private set; } = null!;
 
         /// <summary>
-        /// The timezone of the user
+        /// The time zone of the user. Default is account default timezone.
         /// </summary>
         [Output("timeZone")]
         public Output<string> TimeZone { get; private set; } = null!;
@@ -179,7 +179,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The user role. Account must have the `read_only_users` ability to set a user as a `read_only_user`. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user` or `user`
+        /// The user role. Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.  Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
@@ -198,7 +198,7 @@ namespace Pulumi.Pagerduty
         }
 
         /// <summary>
-        /// The timezone of the user
+        /// The time zone of the user. Default is account default timezone.
         /// </summary>
         [Input("timeZone")]
         public Input<string>? TimeZone { get; set; }
@@ -256,7 +256,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The user role. Account must have the `read_only_users` ability to set a user as a `read_only_user`. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user` or `user`
+        /// The user role. Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.  Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
@@ -275,7 +275,7 @@ namespace Pulumi.Pagerduty
         }
 
         /// <summary>
-        /// The timezone of the user
+        /// The time zone of the user. Default is account default timezone.
         /// </summary>
         [Input("timeZone")]
         public Input<string>? TimeZone { get; set; }

@@ -84,7 +84,7 @@ export class User extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The user role. Account must have the `readOnlyUsers` ability to set a user as a `readOnlyUser`. Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser` or `user`
+     * The user role. Account must have the `readOnlyUsers` ability to set a user as a `readOnlyUser` or a `readOnlyLimitedUser`, and must have advanced permissions abilities to set a user as `observer` or `restrictedAccess`.  Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser`, `readOnlyLimitedUser`, `restrictedAccess`, or `user`.
      */
     public readonly role!: pulumi.Output<string | undefined>;
     /**
@@ -94,7 +94,7 @@ export class User extends pulumi.CustomResource {
      */
     public readonly teams!: pulumi.Output<string[]>;
     /**
-     * The timezone of the user
+     * The time zone of the user. Default is account default timezone.
      */
     public readonly timeZone!: pulumi.Output<string>;
 
@@ -180,7 +180,7 @@ export interface UserState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The user role. Account must have the `readOnlyUsers` ability to set a user as a `readOnlyUser`. Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser` or `user`
+     * The user role. Account must have the `readOnlyUsers` ability to set a user as a `readOnlyUser` or a `readOnlyLimitedUser`, and must have advanced permissions abilities to set a user as `observer` or `restrictedAccess`.  Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser`, `readOnlyLimitedUser`, `restrictedAccess`, or `user`.
      */
     readonly role?: pulumi.Input<string>;
     /**
@@ -190,7 +190,7 @@ export interface UserState {
      */
     readonly teams?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The timezone of the user
+     * The time zone of the user. Default is account default timezone.
      */
     readonly timeZone?: pulumi.Input<string>;
 }
@@ -217,7 +217,7 @@ export interface UserArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The user role. Account must have the `readOnlyUsers` ability to set a user as a `readOnlyUser`. Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser` or `user`
+     * The user role. Account must have the `readOnlyUsers` ability to set a user as a `readOnlyUser` or a `readOnlyLimitedUser`, and must have advanced permissions abilities to set a user as `observer` or `restrictedAccess`.  Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser`, `readOnlyLimitedUser`, `restrictedAccess`, or `user`.
      */
     readonly role?: pulumi.Input<string>;
     /**
@@ -227,7 +227,7 @@ export interface UserArgs {
      */
     readonly teams?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The timezone of the user
+     * The time zone of the user. Default is account default timezone.
      */
     readonly timeZone?: pulumi.Input<string>;
 }

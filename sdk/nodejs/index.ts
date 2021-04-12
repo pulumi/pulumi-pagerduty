@@ -14,18 +14,22 @@ export * from "./getBusinessService";
 export * from "./getEscalationPolicy";
 export * from "./getExtensionSchema";
 export * from "./getPriority";
+export * from "./getRuleset";
 export * from "./getSchedule";
 export * from "./getService";
 export * from "./getTeam";
 export * from "./getUser";
+export * from "./getUserContactMethod";
 export * from "./getVendor";
 export * from "./maintenanceWindow";
 export * from "./provider";
+export * from "./responsePlay";
 export * from "./ruleset";
 export * from "./rulesetRule";
 export * from "./schedule";
 export * from "./service";
 export * from "./serviceDependency";
+export * from "./serviceEventRule";
 export * from "./serviceIntegration";
 export * from "./team";
 export * from "./teamMembership";
@@ -49,11 +53,13 @@ import { EscalationPolicy } from "./escalationPolicy";
 import { EventRule } from "./eventRule";
 import { Extension } from "./extension";
 import { MaintenanceWindow } from "./maintenanceWindow";
+import { ResponsePlay } from "./responsePlay";
 import { Ruleset } from "./ruleset";
 import { RulesetRule } from "./rulesetRule";
 import { Schedule } from "./schedule";
 import { Service } from "./service";
 import { ServiceDependency } from "./serviceDependency";
+import { ServiceEventRule } from "./serviceEventRule";
 import { ServiceIntegration } from "./serviceIntegration";
 import { Team } from "./team";
 import { TeamMembership } from "./teamMembership";
@@ -77,6 +83,8 @@ const _module = {
                 return new Extension(name, <any>undefined, { urn })
             case "pagerduty:index/maintenanceWindow:MaintenanceWindow":
                 return new MaintenanceWindow(name, <any>undefined, { urn })
+            case "pagerduty:index/responsePlay:ResponsePlay":
+                return new ResponsePlay(name, <any>undefined, { urn })
             case "pagerduty:index/ruleset:Ruleset":
                 return new Ruleset(name, <any>undefined, { urn })
             case "pagerduty:index/rulesetRule:RulesetRule":
@@ -87,6 +95,8 @@ const _module = {
                 return new Service(name, <any>undefined, { urn })
             case "pagerduty:index/serviceDependency:ServiceDependency":
                 return new ServiceDependency(name, <any>undefined, { urn })
+            case "pagerduty:index/serviceEventRule:ServiceEventRule":
+                return new ServiceEventRule(name, <any>undefined, { urn })
             case "pagerduty:index/serviceIntegration:ServiceIntegration":
                 return new ServiceIntegration(name, <any>undefined, { urn })
             case "pagerduty:index/team:Team":
@@ -110,11 +120,13 @@ pulumi.runtime.registerResourceModule("pagerduty", "index/escalationPolicy", _mo
 pulumi.runtime.registerResourceModule("pagerduty", "index/eventRule", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/extension", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/maintenanceWindow", _module)
+pulumi.runtime.registerResourceModule("pagerduty", "index/responsePlay", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/ruleset", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/rulesetRule", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/schedule", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/service", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/serviceDependency", _module)
+pulumi.runtime.registerResourceModule("pagerduty", "index/serviceEventRule", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/serviceIntegration", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/team", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/teamMembership", _module)

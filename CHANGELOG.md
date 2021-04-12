@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v1.9.6 of the PagerDuty Terraform Provider
-* Upgrade to pulumi-terraform-bridge v2.23.0
+_(none)_
 
 ---
+
+## 1.5.0 (2021-04-12)
+* Upgrade to v1.9.6 of the PagerDuty Terraform Provider
+* Upgrade to pulumi-terraform-bridge v2.23.0
 
 ## 1.4.1 (2021-03-23)
 * Upgrade to pulumi-terraform-bridge v2.22.1  

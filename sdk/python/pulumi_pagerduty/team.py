@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['TeamArgs', 'Team']
 
@@ -36,6 +36,74 @@ class TeamArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def parent(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
+        """
+        return pulumi.get(self, "parent")
+
+    @parent.setter
+    def parent(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parent", value)
+
+
+@pulumi.input_type
+class _TeamState:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 html_url: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parent: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Team resources.
+        :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app
+        :param pulumi.Input[str] name: The name of the group.
+        :param pulumi.Input[str] parent: ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if html_url is not None:
+            pulumi.set(__self__, "html_url", html_url)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if parent is not None:
+            pulumi.set(__self__, "parent", parent)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="htmlUrl")
+    def html_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        URL at which the entity is uniquely displayed in the Web app
+        """
+        return pulumi.get(self, "html_url")
+
+    @html_url.setter
+    def html_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "html_url", value)
 
     @property
     @pulumi.getter
@@ -146,12 +214,12 @@ class Team(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = TeamArgs.__new__(TeamArgs)
 
-            __props__['description'] = description
-            __props__['name'] = name
-            __props__['parent'] = parent
-            __props__['html_url'] = None
+            __props__.__dict__["description"] = description
+            __props__.__dict__["name"] = name
+            __props__.__dict__["parent"] = parent
+            __props__.__dict__["html_url"] = None
         super(Team, __self__).__init__(
             'pagerduty:index/team:Team',
             resource_name,
@@ -179,12 +247,12 @@ class Team(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _TeamState.__new__(_TeamState)
 
-        __props__["description"] = description
-        __props__["html_url"] = html_url
-        __props__["name"] = name
-        __props__["parent"] = parent
+        __props__.__dict__["description"] = description
+        __props__.__dict__["html_url"] = html_url
+        __props__.__dict__["name"] = name
+        __props__.__dict__["parent"] = parent
         return Team(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -215,10 +283,4 @@ class Team(pulumi.CustomResource):
         ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
         """
         return pulumi.get(self, "parent")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

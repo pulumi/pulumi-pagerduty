@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['EventRuleArgs', 'EventRule']
 
@@ -62,6 +62,78 @@ class EventRuleArgs:
     @advanced_condition_json.setter
     def advanced_condition_json(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "advanced_condition_json", value)
+
+
+@pulumi.input_type
+class _EventRuleState:
+    def __init__(__self__, *,
+                 action_json: Optional[pulumi.Input[str]] = None,
+                 advanced_condition_json: Optional[pulumi.Input[str]] = None,
+                 catch_all: Optional[pulumi.Input[bool]] = None,
+                 condition_json: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering EventRule resources.
+        :param pulumi.Input[str] action_json: A list of one or more actions for each rule. Each action within the list is itself a list.
+        :param pulumi.Input[str] advanced_condition_json: Contains a list of specific conditions including `active-between`,`scheduled-weekly`, and `frequency-over`. The first element in the list is the label for the condition, followed by a list of values for the specific condition. For more details on these conditions see [Advanced Condition](https://v2.developer.pagerduty.com/docs/global-event-rules-api#section-advanced-condition) in the PagerDuty API documentation.
+        :param pulumi.Input[bool] catch_all: A boolean that indicates whether the rule is a catch all for the account. This field is read-only through the PagerDuty API.
+        :param pulumi.Input[str] condition_json: Contains a list of conditions. The first field in the list is `and` or `or`, followed by a list of operators and values.
+        """
+        if action_json is not None:
+            pulumi.set(__self__, "action_json", action_json)
+        if advanced_condition_json is not None:
+            pulumi.set(__self__, "advanced_condition_json", advanced_condition_json)
+        if catch_all is not None:
+            pulumi.set(__self__, "catch_all", catch_all)
+        if condition_json is not None:
+            pulumi.set(__self__, "condition_json", condition_json)
+
+    @property
+    @pulumi.getter(name="actionJson")
+    def action_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        A list of one or more actions for each rule. Each action within the list is itself a list.
+        """
+        return pulumi.get(self, "action_json")
+
+    @action_json.setter
+    def action_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "action_json", value)
+
+    @property
+    @pulumi.getter(name="advancedConditionJson")
+    def advanced_condition_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        Contains a list of specific conditions including `active-between`,`scheduled-weekly`, and `frequency-over`. The first element in the list is the label for the condition, followed by a list of values for the specific condition. For more details on these conditions see [Advanced Condition](https://v2.developer.pagerduty.com/docs/global-event-rules-api#section-advanced-condition) in the PagerDuty API documentation.
+        """
+        return pulumi.get(self, "advanced_condition_json")
+
+    @advanced_condition_json.setter
+    def advanced_condition_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "advanced_condition_json", value)
+
+    @property
+    @pulumi.getter(name="catchAll")
+    def catch_all(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean that indicates whether the rule is a catch all for the account. This field is read-only through the PagerDuty API.
+        """
+        return pulumi.get(self, "catch_all")
+
+    @catch_all.setter
+    def catch_all(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "catch_all", value)
+
+    @property
+    @pulumi.getter(name="conditionJson")
+    def condition_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        Contains a list of conditions. The first field in the list is `and` or `or`, followed by a list of operators and values.
+        """
+        return pulumi.get(self, "condition_json")
+
+    @condition_json.setter
+    def condition_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "condition_json", value)
 
 
 class EventRule(pulumi.CustomResource):
@@ -363,16 +435,16 @@ class EventRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = EventRuleArgs.__new__(EventRuleArgs)
 
             if action_json is None and not opts.urn:
                 raise TypeError("Missing required property 'action_json'")
-            __props__['action_json'] = action_json
-            __props__['advanced_condition_json'] = advanced_condition_json
+            __props__.__dict__["action_json"] = action_json
+            __props__.__dict__["advanced_condition_json"] = advanced_condition_json
             if condition_json is None and not opts.urn:
                 raise TypeError("Missing required property 'condition_json'")
-            __props__['condition_json'] = condition_json
-            __props__['catch_all'] = None
+            __props__.__dict__["condition_json"] = condition_json
+            __props__.__dict__["catch_all"] = None
         super(EventRule, __self__).__init__(
             'pagerduty:index/eventRule:EventRule',
             resource_name,
@@ -401,12 +473,12 @@ class EventRule(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _EventRuleState.__new__(_EventRuleState)
 
-        __props__["action_json"] = action_json
-        __props__["advanced_condition_json"] = advanced_condition_json
-        __props__["catch_all"] = catch_all
-        __props__["condition_json"] = condition_json
+        __props__.__dict__["action_json"] = action_json
+        __props__.__dict__["advanced_condition_json"] = advanced_condition_json
+        __props__.__dict__["catch_all"] = catch_all
+        __props__.__dict__["condition_json"] = condition_json
         return EventRule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -440,10 +512,4 @@ class EventRule(pulumi.CustomResource):
         Contains a list of conditions. The first field in the list is `and` or `or`, followed by a list of operators and values.
         """
         return pulumi.get(self, "condition_json")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

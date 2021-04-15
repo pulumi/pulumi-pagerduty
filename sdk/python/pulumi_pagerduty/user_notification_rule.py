@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -77,6 +77,78 @@ class UserNotificationRuleArgs:
 
     @user_id.setter
     def user_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "user_id", value)
+
+
+@pulumi.input_type
+class _UserNotificationRuleState:
+    def __init__(__self__, *,
+                 contact_method: Optional[pulumi.Input['UserNotificationRuleContactMethodArgs']] = None,
+                 start_delay_in_minutes: Optional[pulumi.Input[int]] = None,
+                 urgency: Optional[pulumi.Input[str]] = None,
+                 user_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering UserNotificationRule resources.
+        :param pulumi.Input['UserNotificationRuleContactMethodArgs'] contact_method: A contact method block, configured as a block described below.
+        :param pulumi.Input[int] start_delay_in_minutes: The delay before firing the rule, in minutes.
+        :param pulumi.Input[str] urgency: Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
+        :param pulumi.Input[str] user_id: The ID of the user.
+        """
+        if contact_method is not None:
+            pulumi.set(__self__, "contact_method", contact_method)
+        if start_delay_in_minutes is not None:
+            pulumi.set(__self__, "start_delay_in_minutes", start_delay_in_minutes)
+        if urgency is not None:
+            pulumi.set(__self__, "urgency", urgency)
+        if user_id is not None:
+            pulumi.set(__self__, "user_id", user_id)
+
+    @property
+    @pulumi.getter(name="contactMethod")
+    def contact_method(self) -> Optional[pulumi.Input['UserNotificationRuleContactMethodArgs']]:
+        """
+        A contact method block, configured as a block described below.
+        """
+        return pulumi.get(self, "contact_method")
+
+    @contact_method.setter
+    def contact_method(self, value: Optional[pulumi.Input['UserNotificationRuleContactMethodArgs']]):
+        pulumi.set(self, "contact_method", value)
+
+    @property
+    @pulumi.getter(name="startDelayInMinutes")
+    def start_delay_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The delay before firing the rule, in minutes.
+        """
+        return pulumi.get(self, "start_delay_in_minutes")
+
+    @start_delay_in_minutes.setter
+    def start_delay_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "start_delay_in_minutes", value)
+
+    @property
+    @pulumi.getter
+    def urgency(self) -> Optional[pulumi.Input[str]]:
+        """
+        Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
+        """
+        return pulumi.get(self, "urgency")
+
+    @urgency.setter
+    def urgency(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "urgency", value)
+
+    @property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the user.
+        """
+        return pulumi.get(self, "user_id")
+
+    @user_id.setter
+    def user_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_id", value)
 
 
@@ -264,20 +336,20 @@ class UserNotificationRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = UserNotificationRuleArgs.__new__(UserNotificationRuleArgs)
 
             if contact_method is None and not opts.urn:
                 raise TypeError("Missing required property 'contact_method'")
-            __props__['contact_method'] = contact_method
+            __props__.__dict__["contact_method"] = contact_method
             if start_delay_in_minutes is None and not opts.urn:
                 raise TypeError("Missing required property 'start_delay_in_minutes'")
-            __props__['start_delay_in_minutes'] = start_delay_in_minutes
+            __props__.__dict__["start_delay_in_minutes"] = start_delay_in_minutes
             if urgency is None and not opts.urn:
                 raise TypeError("Missing required property 'urgency'")
-            __props__['urgency'] = urgency
+            __props__.__dict__["urgency"] = urgency
             if user_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_id'")
-            __props__['user_id'] = user_id
+            __props__.__dict__["user_id"] = user_id
         super(UserNotificationRule, __self__).__init__(
             'pagerduty:index/userNotificationRule:UserNotificationRule',
             resource_name,
@@ -306,12 +378,12 @@ class UserNotificationRule(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _UserNotificationRuleState.__new__(_UserNotificationRuleState)
 
-        __props__["contact_method"] = contact_method
-        __props__["start_delay_in_minutes"] = start_delay_in_minutes
-        __props__["urgency"] = urgency
-        __props__["user_id"] = user_id
+        __props__.__dict__["contact_method"] = contact_method
+        __props__.__dict__["start_delay_in_minutes"] = start_delay_in_minutes
+        __props__.__dict__["urgency"] = urgency
+        __props__.__dict__["user_id"] = user_id
         return UserNotificationRule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -345,10 +417,4 @@ class UserNotificationRule(pulumi.CustomResource):
         The ID of the user.
         """
         return pulumi.get(self, "user_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

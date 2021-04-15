@@ -21,12 +21,10 @@ import (
 
 	"github.com/PagerDuty/terraform-provider-pagerduty/pagerduty"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
-	"github.com/pulumi/pulumi-pagerduty/provider/pkg/version"
-	"github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfbridge"
-	shim "github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfshim"
-	shimv1 "github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfshim/sdk-v1"
-	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
-	"github.com/pulumi/pulumi/sdk/v2/go/common/tokens"
+	"github.com/pulumi/pulumi-pagerduty/provider/v2/pkg/version"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
+	shimv1 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v1"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 )
 
 // all of the token components used below.
@@ -63,14 +61,6 @@ func makeResource(mod string, res string) tokens.Type {
 	return makeType(mod+"/"+fn, res)
 }
 
-// preConfigureCallback is called before the providerConfigure function of the underlying provider.
-// It should validate that the provider can be configured, and provide actionable errors in the case
-// it cannot be. Configuration variables can be read from `vars` using the `stringValue` function -
-// for example `stringValue(vars, "accessKey")`.
-func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) error {
-	return nil
-}
-
 // Provider returns additional overlaid schema and metadata associated with the provider..
 func Provider() tfbridge.ProviderInfo {
 	// Instantiate the Terraform provider
@@ -94,7 +84,6 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 		},
-		PreConfigureCallback: preConfigureCallback,
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"pagerduty_addon":                  {Tok: makeResource(mainMod, "Addon")},
 			"pagerduty_business_service":       {Tok: makeResource(mainMod, "BusinessService")},
@@ -132,10 +121,10 @@ func Provider() tfbridge.ProviderInfo {
 		JavaScript: &tfbridge.JavaScriptInfo{
 			// List any npm dependencies and their versions
 			Dependencies: map[string]string{
-				"@pulumi/pulumi": "^2.15.0",
+				"@pulumi/pulumi": "^3.0.0-alpha.0",
 			},
 			DevDependencies: map[string]string{
-				"@types/node": "^8.0.25", // so we can access strongly typed node definitions.
+				"@types/node": "^10.0.0", // so we can access strongly typed node definitions.
 				"@types/mime": "^2.0.0",
 			},
 		},
@@ -150,12 +139,12 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		Python: &tfbridge.PythonInfo{
 			Requires: map[string]string{
-				"pulumi": ">=2.15.0,<3.0.0",
+				"pulumi": ">=3.0.0a1,<4.0.0",
 			},
 		},
 		CSharp: &tfbridge.CSharpInfo{
 			PackageReferences: map[string]string{
-				"Pulumi":                       "2.*",
+				"Pulumi":                       "3.*-*",
 				"System.Collections.Immutable": "1.6.0",
 			},
 		},

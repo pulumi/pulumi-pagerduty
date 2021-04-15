@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -50,6 +50,78 @@ class RulesetArgs:
     @team.setter
     def team(self, value: Optional[pulumi.Input['RulesetTeamArgs']]):
         pulumi.set(self, "team", value)
+
+
+@pulumi.input_type
+class _RulesetState:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 routing_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 team: Optional[pulumi.Input['RulesetTeamArgs']] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Ruleset resources.
+        :param pulumi.Input[str] name: Name of the ruleset.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] routing_keys: Routing keys routed to this ruleset.
+        :param pulumi.Input['RulesetTeamArgs'] team: Reference to the team that owns the ruleset. If none is specified, only admins have access.
+        :param pulumi.Input[str] type: Type of ruleset. Currently only sets to `global`.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if routing_keys is not None:
+            pulumi.set(__self__, "routing_keys", routing_keys)
+        if team is not None:
+            pulumi.set(__self__, "team", team)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the ruleset.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="routingKeys")
+    def routing_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Routing keys routed to this ruleset.
+        """
+        return pulumi.get(self, "routing_keys")
+
+    @routing_keys.setter
+    def routing_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "routing_keys", value)
+
+    @property
+    @pulumi.getter
+    def team(self) -> Optional[pulumi.Input['RulesetTeamArgs']]:
+        """
+        Reference to the team that owns the ruleset. If none is specified, only admins have access.
+        """
+        return pulumi.get(self, "team")
+
+    @team.setter
+    def team(self, value: Optional[pulumi.Input['RulesetTeamArgs']]):
+        pulumi.set(self, "team", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of ruleset. Currently only sets to `global`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 class Ruleset(pulumi.CustomResource):
@@ -154,12 +226,12 @@ class Ruleset(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = RulesetArgs.__new__(RulesetArgs)
 
-            __props__['name'] = name
-            __props__['team'] = team
-            __props__['routing_keys'] = None
-            __props__['type'] = None
+            __props__.__dict__["name"] = name
+            __props__.__dict__["team"] = team
+            __props__.__dict__["routing_keys"] = None
+            __props__.__dict__["type"] = None
         super(Ruleset, __self__).__init__(
             'pagerduty:index/ruleset:Ruleset',
             resource_name,
@@ -188,12 +260,12 @@ class Ruleset(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _RulesetState.__new__(_RulesetState)
 
-        __props__["name"] = name
-        __props__["routing_keys"] = routing_keys
-        __props__["team"] = team
-        __props__["type"] = type
+        __props__.__dict__["name"] = name
+        __props__.__dict__["routing_keys"] = routing_keys
+        __props__.__dict__["team"] = team
+        __props__.__dict__["type"] = type
         return Ruleset(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -227,10 +299,4 @@ class Ruleset(pulumi.CustomResource):
         Type of ruleset. Currently only sets to `global`.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 from . import outputs
 
 __all__ = [
@@ -68,6 +68,23 @@ __all__ = [
 
 @pulumi.output_type
 class EscalationPolicyRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "escalationDelayInMinutes":
+            suggest = "escalation_delay_in_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EscalationPolicyRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EscalationPolicyRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EscalationPolicyRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  escalation_delay_in_minutes: int,
                  targets: Sequence['outputs.EscalationPolicyRuleTarget'],
@@ -102,9 +119,6 @@ class EscalationPolicyRule(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EscalationPolicyRuleTarget(dict):
@@ -135,12 +149,30 @@ class EscalationPolicyRuleTarget(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResponsePlayResponder(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "escalationRules":
+            suggest = "escalation_rules"
+        elif key == "numLoops":
+            suggest = "num_loops"
+        elif key == "onCallHandoffNotifications":
+            suggest = "on_call_handoff_notifications"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResponsePlayResponder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResponsePlayResponder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResponsePlayResponder.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  description: Optional[str] = None,
                  escalation_rules: Optional[Sequence['outputs.ResponsePlayResponderEscalationRule']] = None,
@@ -253,12 +285,26 @@ class ResponsePlayResponder(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResponsePlayResponderEscalationRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "escalationDelayInMinutes":
+            suggest = "escalation_delay_in_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResponsePlayResponderEscalationRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResponsePlayResponderEscalationRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResponsePlayResponderEscalationRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  targets: Sequence['outputs.ResponsePlayResponderEscalationRuleTarget'],
                  escalation_delay_in_minutes: Optional[int] = None,
@@ -298,9 +344,6 @@ class ResponsePlayResponderEscalationRule(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResponsePlayResponderEscalationRuleTarget(dict):
@@ -331,9 +374,6 @@ class ResponsePlayResponderEscalationRuleTarget(dict):
         A string that determines the schema of the object. If not set, the default value is "response_play".
         """
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -366,9 +406,6 @@ class ResponsePlayResponderService(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResponsePlayResponderTeam(dict):
@@ -398,9 +435,6 @@ class ResponsePlayResponderTeam(dict):
         ID of the user defined as the responder
         """
         return pulumi.get(self, "id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -433,12 +467,26 @@ class ResponsePlaySubscriber(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RulesetRuleActions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventActions":
+            suggest = "event_actions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RulesetRuleActions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RulesetRuleActions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RulesetRuleActions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  annotates: Optional[Sequence['outputs.RulesetRuleActionsAnnotate']] = None,
                  event_actions: Optional[Sequence['outputs.RulesetRuleActionsEventAction']] = None,
@@ -539,9 +587,6 @@ class RulesetRuleActions(dict):
         """
         return pulumi.get(self, "suspends")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RulesetRuleActionsAnnotate(dict):
@@ -561,9 +606,6 @@ class RulesetRuleActionsAnnotate(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RulesetRuleActionsEventAction(dict):
@@ -582,9 +624,6 @@ class RulesetRuleActionsEventAction(dict):
         Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
         """
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -641,9 +680,6 @@ class RulesetRuleActionsExtraction(dict):
         """
         return pulumi.get(self, "template")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RulesetRuleActionsPriority(dict):
@@ -662,9 +698,6 @@ class RulesetRuleActionsPriority(dict):
         Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
         """
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -685,9 +718,6 @@ class RulesetRuleActionsRoute(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RulesetRuleActionsSeverity(dict):
@@ -707,12 +737,30 @@ class RulesetRuleActionsSeverity(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RulesetRuleActionsSuppress(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "thresholdTimeAmount":
+            suggest = "threshold_time_amount"
+        elif key == "thresholdTimeUnit":
+            suggest = "threshold_time_unit"
+        elif key == "thresholdValue":
+            suggest = "threshold_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RulesetRuleActionsSuppress. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RulesetRuleActionsSuppress.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RulesetRuleActionsSuppress.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  threshold_time_amount: Optional[int] = None,
                  threshold_time_unit: Optional[str] = None,
@@ -765,9 +813,6 @@ class RulesetRuleActionsSuppress(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RulesetRuleActionsSuspend(dict):
@@ -786,9 +831,6 @@ class RulesetRuleActionsSuspend(dict):
         Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
         """
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -821,9 +863,6 @@ class RulesetRuleConditions(dict):
         """
         return pulumi.get(self, "subconditions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RulesetRuleConditionsSubcondition(dict):
@@ -855,9 +894,6 @@ class RulesetRuleConditionsSubcondition(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RulesetRuleConditionsSubconditionParameter(dict):
@@ -885,12 +921,28 @@ class RulesetRuleConditionsSubconditionParameter(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RulesetRuleTimeFrame(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "activeBetweens":
+            suggest = "active_betweens"
+        elif key == "scheduledWeeklies":
+            suggest = "scheduled_weeklies"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RulesetRuleTimeFrame. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RulesetRuleTimeFrame.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RulesetRuleTimeFrame.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  active_betweens: Optional[Sequence['outputs.RulesetRuleTimeFrameActiveBetween']] = None,
                  scheduled_weeklies: Optional[Sequence['outputs.RulesetRuleTimeFrameScheduledWeekly']] = None):
@@ -919,12 +971,28 @@ class RulesetRuleTimeFrame(dict):
         """
         return pulumi.get(self, "scheduled_weeklies")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RulesetRuleTimeFrameActiveBetween(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endTime":
+            suggest = "end_time"
+        elif key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RulesetRuleTimeFrameActiveBetween. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RulesetRuleTimeFrameActiveBetween.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RulesetRuleTimeFrameActiveBetween.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  end_time: Optional[int] = None,
                  start_time: Optional[int] = None):
@@ -953,12 +1021,26 @@ class RulesetRuleTimeFrameActiveBetween(dict):
         """
         return pulumi.get(self, "start_time")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RulesetRuleTimeFrameScheduledWeekly(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RulesetRuleTimeFrameScheduledWeekly. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RulesetRuleTimeFrameScheduledWeekly.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RulesetRuleTimeFrameScheduledWeekly.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  duration: Optional[int] = None,
                  start_time: Optional[int] = None,
@@ -1011,9 +1093,6 @@ class RulesetRuleTimeFrameScheduledWeekly(dict):
         """
         return pulumi.get(self, "weekdays")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RulesetRuleVariable(dict):
@@ -1043,9 +1122,6 @@ class RulesetRuleVariable(dict):
     def type(self) -> Optional[str]:
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RulesetRuleVariableParameter(dict):
@@ -1073,9 +1149,6 @@ class RulesetRuleVariableParameter(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RulesetTeam(dict):
@@ -1094,12 +1167,28 @@ class RulesetTeam(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScheduleLayer(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rotationTurnLengthSeconds":
+            suggest = "rotation_turn_length_seconds"
+        elif key == "rotationVirtualStart":
+            suggest = "rotation_virtual_start"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduleLayer. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduleLayer.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduleLayer.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  rotation_turn_length_seconds: int,
                  rotation_virtual_start: str,
@@ -1196,12 +1285,30 @@ class ScheduleLayer(dict):
         """
         return pulumi.get(self, "restrictions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScheduleLayerRestriction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "durationSeconds":
+            suggest = "duration_seconds"
+        elif key == "startTimeOfDay":
+            suggest = "start_time_of_day"
+        elif key == "startDayOfWeek":
+            suggest = "start_day_of_week"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduleLayerRestriction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduleLayerRestriction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduleLayerRestriction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  duration_seconds: int,
                  start_time_of_day: str,
@@ -1251,12 +1358,28 @@ class ScheduleLayerRestriction(dict):
         """
         return pulumi.get(self, "start_day_of_week")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceDependencyDependency(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dependentServices":
+            suggest = "dependent_services"
+        elif key == "supportingServices":
+            suggest = "supporting_services"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceDependencyDependency. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceDependencyDependency.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceDependencyDependency.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  dependent_services: Sequence['outputs.ServiceDependencyDependencyDependentService'],
                  supporting_services: Sequence['outputs.ServiceDependencyDependencySupportingService'],
@@ -1291,9 +1414,6 @@ class ServiceDependencyDependency(dict):
     def type(self) -> Optional[str]:
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceDependencyDependencyDependentService(dict):
@@ -1318,9 +1438,6 @@ class ServiceDependencyDependencyDependentService(dict):
     @pulumi.getter
     def type(self) -> str:
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1347,12 +1464,26 @@ class ServiceDependencyDependencySupportingService(dict):
     def type(self) -> str:
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceEventRuleActions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventActions":
+            suggest = "event_actions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceEventRuleActions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceEventRuleActions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceEventRuleActions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  annotates: Optional[Sequence['outputs.ServiceEventRuleActionsAnnotate']] = None,
                  event_actions: Optional[Sequence['outputs.ServiceEventRuleActionsEventAction']] = None,
@@ -1441,9 +1572,6 @@ class ServiceEventRuleActions(dict):
         """
         return pulumi.get(self, "suspends")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceEventRuleActionsAnnotate(dict):
@@ -1463,9 +1591,6 @@ class ServiceEventRuleActionsAnnotate(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceEventRuleActionsEventAction(dict):
@@ -1484,9 +1609,6 @@ class ServiceEventRuleActionsEventAction(dict):
         The value for the operation. For example, an RE2 regular expression for regex-type variables.
         """
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1543,9 +1665,6 @@ class ServiceEventRuleActionsExtraction(dict):
         """
         return pulumi.get(self, "template")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceEventRuleActionsPriority(dict):
@@ -1564,9 +1683,6 @@ class ServiceEventRuleActionsPriority(dict):
         The value for the operation. For example, an RE2 regular expression for regex-type variables.
         """
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1587,12 +1703,30 @@ class ServiceEventRuleActionsSeverity(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceEventRuleActionsSuppress(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "thresholdTimeAmount":
+            suggest = "threshold_time_amount"
+        elif key == "thresholdTimeUnit":
+            suggest = "threshold_time_unit"
+        elif key == "thresholdValue":
+            suggest = "threshold_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceEventRuleActionsSuppress. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceEventRuleActionsSuppress.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceEventRuleActionsSuppress.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  threshold_time_amount: Optional[int] = None,
                  threshold_time_unit: Optional[str] = None,
@@ -1645,9 +1779,6 @@ class ServiceEventRuleActionsSuppress(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceEventRuleActionsSuspend(dict):
@@ -1666,9 +1797,6 @@ class ServiceEventRuleActionsSuspend(dict):
         The value for the operation. For example, an RE2 regular expression for regex-type variables.
         """
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1701,9 +1829,6 @@ class ServiceEventRuleConditions(dict):
         """
         return pulumi.get(self, "subconditions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceEventRuleConditionsSubcondition(dict):
@@ -1734,9 +1859,6 @@ class ServiceEventRuleConditionsSubcondition(dict):
         Parameter for the sub-condition. It requires both a `path` and `value` to be set. The `path` value must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
         """
         return pulumi.get(self, "parameters")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1769,12 +1891,28 @@ class ServiceEventRuleConditionsSubconditionParameter(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceEventRuleTimeFrame(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "activeBetweens":
+            suggest = "active_betweens"
+        elif key == "scheduledWeeklies":
+            suggest = "scheduled_weeklies"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceEventRuleTimeFrame. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceEventRuleTimeFrame.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceEventRuleTimeFrame.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  active_betweens: Optional[Sequence['outputs.ServiceEventRuleTimeFrameActiveBetween']] = None,
                  scheduled_weeklies: Optional[Sequence['outputs.ServiceEventRuleTimeFrameScheduledWeekly']] = None):
@@ -1803,12 +1941,28 @@ class ServiceEventRuleTimeFrame(dict):
         """
         return pulumi.get(self, "scheduled_weeklies")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceEventRuleTimeFrameActiveBetween(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endTime":
+            suggest = "end_time"
+        elif key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceEventRuleTimeFrameActiveBetween. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceEventRuleTimeFrameActiveBetween.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceEventRuleTimeFrameActiveBetween.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  end_time: Optional[int] = None,
                  start_time: Optional[int] = None):
@@ -1837,12 +1991,26 @@ class ServiceEventRuleTimeFrameActiveBetween(dict):
         """
         return pulumi.get(self, "start_time")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceEventRuleTimeFrameScheduledWeekly(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceEventRuleTimeFrameScheduledWeekly. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceEventRuleTimeFrameScheduledWeekly.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceEventRuleTimeFrameScheduledWeekly.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  duration: Optional[int] = None,
                  start_time: Optional[int] = None,
@@ -1895,9 +2063,6 @@ class ServiceEventRuleTimeFrameScheduledWeekly(dict):
         """
         return pulumi.get(self, "weekdays")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceEventRuleVariable(dict):
@@ -1941,9 +2106,6 @@ class ServiceEventRuleVariable(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceEventRuleVariableParameter(dict):
@@ -1975,12 +2137,28 @@ class ServiceEventRuleVariableParameter(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceIncidentUrgencyRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "duringSupportHours":
+            suggest = "during_support_hours"
+        elif key == "outsideSupportHours":
+            suggest = "outside_support_hours"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceIncidentUrgencyRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceIncidentUrgencyRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceIncidentUrgencyRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  during_support_hours: Optional['outputs.ServiceIncidentUrgencyRuleDuringSupportHours'] = None,
@@ -2032,9 +2210,6 @@ class ServiceIncidentUrgencyRule(dict):
         """
         return pulumi.get(self, "urgency")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceIncidentUrgencyRuleDuringSupportHours(dict):
@@ -2065,9 +2240,6 @@ class ServiceIncidentUrgencyRuleDuringSupportHours(dict):
         The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
         """
         return pulumi.get(self, "urgency")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2100,12 +2272,26 @@ class ServiceIncidentUrgencyRuleOutsideSupportHours(dict):
         """
         return pulumi.get(self, "urgency")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceScheduledAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "toUrgency":
+            suggest = "to_urgency"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceScheduledAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceScheduledAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceScheduledAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ats: Optional[Sequence['outputs.ServiceScheduledActionAt']] = None,
                  to_urgency: Optional[str] = None,
@@ -2146,9 +2332,6 @@ class ServiceScheduledAction(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceScheduledActionAt(dict):
@@ -2180,12 +2363,32 @@ class ServiceScheduledActionAt(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceSupportHours(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "daysOfWeeks":
+            suggest = "days_of_weeks"
+        elif key == "endTime":
+            suggest = "end_time"
+        elif key == "startTime":
+            suggest = "start_time"
+        elif key == "timeZone":
+            suggest = "time_zone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceSupportHours. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceSupportHours.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceSupportHours.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  days_of_weeks: Optional[Sequence[int]] = None,
                  end_time: Optional[str] = None,
@@ -2252,9 +2455,6 @@ class ServiceSupportHours(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class UserNotificationRuleContactMethod(dict):
@@ -2283,8 +2483,5 @@ class UserNotificationRuleContactMethod(dict):
         The type of contact method. Can be `email_contact_method`, `phone_contact_method`, `push_notification_contact_method` or `sms_contact_method`.
         """
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -179,6 +179,222 @@ class ServiceArgs:
         pulumi.set(self, "support_hours", value)
 
 
+@pulumi.input_type
+class _ServiceState:
+    def __init__(__self__, *,
+                 acknowledgement_timeout: Optional[pulumi.Input[str]] = None,
+                 alert_creation: Optional[pulumi.Input[str]] = None,
+                 alert_grouping: Optional[pulumi.Input[str]] = None,
+                 alert_grouping_timeout: Optional[pulumi.Input[int]] = None,
+                 auto_resolve_timeout: Optional[pulumi.Input[str]] = None,
+                 created_at: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 escalation_policy: Optional[pulumi.Input[str]] = None,
+                 html_url: Optional[pulumi.Input[str]] = None,
+                 incident_urgency_rule: Optional[pulumi.Input['ServiceIncidentUrgencyRuleArgs']] = None,
+                 last_incident_timestamp: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 scheduled_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceScheduledActionArgs']]]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 support_hours: Optional[pulumi.Input['ServiceSupportHoursArgs']] = None):
+        """
+        Input properties used for looking up and filtering Service resources.
+        :param pulumi.Input[str] acknowledgement_timeout: Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.
+        :param pulumi.Input[str] alert_creation: Must be one of two values. PagerDuty receives events from your monitoring systems and can then create incidents in different ways. Value "create_incidents" is default: events will create an incident that cannot be merged. Value "create_alerts_and_incidents" is the alternative: events will create an alert and then add it to a new incident, these incidents can be merged. This option is recommended.
+        :param pulumi.Input[str] alert_grouping: Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan.
+        :param pulumi.Input[int] alert_grouping_timeout: The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
+        :param pulumi.Input[str] auto_resolve_timeout: Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
+        :param pulumi.Input[str] escalation_policy: The escalation policy used by this service.
+        :param pulumi.Input[str] name: The name of the service.
+        """
+        if acknowledgement_timeout is not None:
+            pulumi.set(__self__, "acknowledgement_timeout", acknowledgement_timeout)
+        if alert_creation is not None:
+            pulumi.set(__self__, "alert_creation", alert_creation)
+        if alert_grouping is not None:
+            pulumi.set(__self__, "alert_grouping", alert_grouping)
+        if alert_grouping_timeout is not None:
+            pulumi.set(__self__, "alert_grouping_timeout", alert_grouping_timeout)
+        if auto_resolve_timeout is not None:
+            pulumi.set(__self__, "auto_resolve_timeout", auto_resolve_timeout)
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if escalation_policy is not None:
+            pulumi.set(__self__, "escalation_policy", escalation_policy)
+        if html_url is not None:
+            pulumi.set(__self__, "html_url", html_url)
+        if incident_urgency_rule is not None:
+            pulumi.set(__self__, "incident_urgency_rule", incident_urgency_rule)
+        if last_incident_timestamp is not None:
+            pulumi.set(__self__, "last_incident_timestamp", last_incident_timestamp)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if scheduled_actions is not None:
+            pulumi.set(__self__, "scheduled_actions", scheduled_actions)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if support_hours is not None:
+            pulumi.set(__self__, "support_hours", support_hours)
+
+    @property
+    @pulumi.getter(name="acknowledgementTimeout")
+    def acknowledgement_timeout(self) -> Optional[pulumi.Input[str]]:
+        """
+        Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.
+        """
+        return pulumi.get(self, "acknowledgement_timeout")
+
+    @acknowledgement_timeout.setter
+    def acknowledgement_timeout(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "acknowledgement_timeout", value)
+
+    @property
+    @pulumi.getter(name="alertCreation")
+    def alert_creation(self) -> Optional[pulumi.Input[str]]:
+        """
+        Must be one of two values. PagerDuty receives events from your monitoring systems and can then create incidents in different ways. Value "create_incidents" is default: events will create an incident that cannot be merged. Value "create_alerts_and_incidents" is the alternative: events will create an alert and then add it to a new incident, these incidents can be merged. This option is recommended.
+        """
+        return pulumi.get(self, "alert_creation")
+
+    @alert_creation.setter
+    def alert_creation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alert_creation", value)
+
+    @property
+    @pulumi.getter(name="alertGrouping")
+    def alert_grouping(self) -> Optional[pulumi.Input[str]]:
+        """
+        Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan.
+        """
+        return pulumi.get(self, "alert_grouping")
+
+    @alert_grouping.setter
+    def alert_grouping(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alert_grouping", value)
+
+    @property
+    @pulumi.getter(name="alertGroupingTimeout")
+    def alert_grouping_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
+        """
+        return pulumi.get(self, "alert_grouping_timeout")
+
+    @alert_grouping_timeout.setter
+    def alert_grouping_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "alert_grouping_timeout", value)
+
+    @property
+    @pulumi.getter(name="autoResolveTimeout")
+    def auto_resolve_timeout(self) -> Optional[pulumi.Input[str]]:
+        """
+        Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
+        """
+        return pulumi.get(self, "auto_resolve_timeout")
+
+    @auto_resolve_timeout.setter
+    def auto_resolve_timeout(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auto_resolve_timeout", value)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "created_at")
+
+    @created_at.setter
+    def created_at(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "created_at", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="escalationPolicy")
+    def escalation_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The escalation policy used by this service.
+        """
+        return pulumi.get(self, "escalation_policy")
+
+    @escalation_policy.setter
+    def escalation_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "escalation_policy", value)
+
+    @property
+    @pulumi.getter(name="htmlUrl")
+    def html_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "html_url")
+
+    @html_url.setter
+    def html_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "html_url", value)
+
+    @property
+    @pulumi.getter(name="incidentUrgencyRule")
+    def incident_urgency_rule(self) -> Optional[pulumi.Input['ServiceIncidentUrgencyRuleArgs']]:
+        return pulumi.get(self, "incident_urgency_rule")
+
+    @incident_urgency_rule.setter
+    def incident_urgency_rule(self, value: Optional[pulumi.Input['ServiceIncidentUrgencyRuleArgs']]):
+        pulumi.set(self, "incident_urgency_rule", value)
+
+    @property
+    @pulumi.getter(name="lastIncidentTimestamp")
+    def last_incident_timestamp(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "last_incident_timestamp")
+
+    @last_incident_timestamp.setter
+    def last_incident_timestamp(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_incident_timestamp", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the service.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="scheduledActions")
+    def scheduled_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceScheduledActionArgs']]]]:
+        return pulumi.get(self, "scheduled_actions")
+
+    @scheduled_actions.setter
+    def scheduled_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceScheduledActionArgs']]]]):
+        pulumi.set(self, "scheduled_actions", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="supportHours")
+    def support_hours(self) -> Optional[pulumi.Input['ServiceSupportHoursArgs']]:
+        return pulumi.get(self, "support_hours")
+
+    @support_hours.setter
+    def support_hours(self, value: Optional[pulumi.Input['ServiceSupportHoursArgs']]):
+        pulumi.set(self, "support_hours", value)
+
+
 class Service(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -330,25 +546,25 @@ class Service(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ServiceArgs.__new__(ServiceArgs)
 
-            __props__['acknowledgement_timeout'] = acknowledgement_timeout
-            __props__['alert_creation'] = alert_creation
-            __props__['alert_grouping'] = alert_grouping
-            __props__['alert_grouping_timeout'] = alert_grouping_timeout
-            __props__['auto_resolve_timeout'] = auto_resolve_timeout
-            __props__['description'] = description
+            __props__.__dict__["acknowledgement_timeout"] = acknowledgement_timeout
+            __props__.__dict__["alert_creation"] = alert_creation
+            __props__.__dict__["alert_grouping"] = alert_grouping
+            __props__.__dict__["alert_grouping_timeout"] = alert_grouping_timeout
+            __props__.__dict__["auto_resolve_timeout"] = auto_resolve_timeout
+            __props__.__dict__["description"] = description
             if escalation_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'escalation_policy'")
-            __props__['escalation_policy'] = escalation_policy
-            __props__['incident_urgency_rule'] = incident_urgency_rule
-            __props__['name'] = name
-            __props__['scheduled_actions'] = scheduled_actions
-            __props__['support_hours'] = support_hours
-            __props__['created_at'] = None
-            __props__['html_url'] = None
-            __props__['last_incident_timestamp'] = None
-            __props__['status'] = None
+            __props__.__dict__["escalation_policy"] = escalation_policy
+            __props__.__dict__["incident_urgency_rule"] = incident_urgency_rule
+            __props__.__dict__["name"] = name
+            __props__.__dict__["scheduled_actions"] = scheduled_actions
+            __props__.__dict__["support_hours"] = support_hours
+            __props__.__dict__["created_at"] = None
+            __props__.__dict__["html_url"] = None
+            __props__.__dict__["last_incident_timestamp"] = None
+            __props__.__dict__["status"] = None
         super(Service, __self__).__init__(
             'pagerduty:index/service:Service',
             resource_name,
@@ -391,23 +607,23 @@ class Service(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ServiceState.__new__(_ServiceState)
 
-        __props__["acknowledgement_timeout"] = acknowledgement_timeout
-        __props__["alert_creation"] = alert_creation
-        __props__["alert_grouping"] = alert_grouping
-        __props__["alert_grouping_timeout"] = alert_grouping_timeout
-        __props__["auto_resolve_timeout"] = auto_resolve_timeout
-        __props__["created_at"] = created_at
-        __props__["description"] = description
-        __props__["escalation_policy"] = escalation_policy
-        __props__["html_url"] = html_url
-        __props__["incident_urgency_rule"] = incident_urgency_rule
-        __props__["last_incident_timestamp"] = last_incident_timestamp
-        __props__["name"] = name
-        __props__["scheduled_actions"] = scheduled_actions
-        __props__["status"] = status
-        __props__["support_hours"] = support_hours
+        __props__.__dict__["acknowledgement_timeout"] = acknowledgement_timeout
+        __props__.__dict__["alert_creation"] = alert_creation
+        __props__.__dict__["alert_grouping"] = alert_grouping
+        __props__.__dict__["alert_grouping_timeout"] = alert_grouping_timeout
+        __props__.__dict__["auto_resolve_timeout"] = auto_resolve_timeout
+        __props__.__dict__["created_at"] = created_at
+        __props__.__dict__["description"] = description
+        __props__.__dict__["escalation_policy"] = escalation_policy
+        __props__.__dict__["html_url"] = html_url
+        __props__.__dict__["incident_urgency_rule"] = incident_urgency_rule
+        __props__.__dict__["last_incident_timestamp"] = last_incident_timestamp
+        __props__.__dict__["name"] = name
+        __props__.__dict__["scheduled_actions"] = scheduled_actions
+        __props__.__dict__["status"] = status
+        __props__.__dict__["support_hours"] = support_hours
         return Service(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -505,10 +721,4 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="supportHours")
     def support_hours(self) -> pulumi.Output[Optional['outputs.ServiceSupportHours']]:
         return pulumi.get(self, "support_hours")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

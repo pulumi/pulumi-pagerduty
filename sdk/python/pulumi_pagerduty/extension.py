@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['ExtensionArgs', 'Extension']
 
@@ -87,6 +87,124 @@ class ExtensionArgs:
     @endpoint_url.setter
     def endpoint_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "endpoint_url", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the service extension.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class _ExtensionState:
+    def __init__(__self__, *,
+                 config: Optional[pulumi.Input[str]] = None,
+                 endpoint_url: Optional[pulumi.Input[str]] = None,
+                 extension_objects: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 extension_schema: Optional[pulumi.Input[str]] = None,
+                 html_url: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Extension resources.
+        :param pulumi.Input[str] config: The configuration of the service extension as string containing plain JSON-encoded data.
+        :param pulumi.Input[str] endpoint_url: The url of the extension.
+               **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `getExtensionSchema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpoint_url`, but one with named `Slack` accepts.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] extension_objects: This is the objects for which the extension applies (An array of service ids).
+        :param pulumi.Input[str] extension_schema: This is the schema for this extension.
+        :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app
+        :param pulumi.Input[str] name: The name of the service extension.
+        """
+        if config is not None:
+            pulumi.set(__self__, "config", config)
+        if endpoint_url is not None:
+            pulumi.set(__self__, "endpoint_url", endpoint_url)
+        if extension_objects is not None:
+            pulumi.set(__self__, "extension_objects", extension_objects)
+        if extension_schema is not None:
+            pulumi.set(__self__, "extension_schema", extension_schema)
+        if html_url is not None:
+            pulumi.set(__self__, "html_url", html_url)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def config(self) -> Optional[pulumi.Input[str]]:
+        """
+        The configuration of the service extension as string containing plain JSON-encoded data.
+        """
+        return pulumi.get(self, "config")
+
+    @config.setter
+    def config(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "config", value)
+
+    @property
+    @pulumi.getter(name="endpointUrl")
+    def endpoint_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The url of the extension.
+        **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `getExtensionSchema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpoint_url`, but one with named `Slack` accepts.
+        """
+        return pulumi.get(self, "endpoint_url")
+
+    @endpoint_url.setter
+    def endpoint_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint_url", value)
+
+    @property
+    @pulumi.getter(name="extensionObjects")
+    def extension_objects(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        This is the objects for which the extension applies (An array of service ids).
+        """
+        return pulumi.get(self, "extension_objects")
+
+    @extension_objects.setter
+    def extension_objects(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "extension_objects", value)
+
+    @property
+    @pulumi.getter(name="extensionSchema")
+    def extension_schema(self) -> Optional[pulumi.Input[str]]:
+        """
+        This is the schema for this extension.
+        """
+        return pulumi.get(self, "extension_schema")
+
+    @extension_schema.setter
+    def extension_schema(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "extension_schema", value)
+
+    @property
+    @pulumi.getter(name="htmlUrl")
+    def html_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        URL at which the entity is uniquely displayed in the Web app
+        """
+        return pulumi.get(self, "html_url")
+
+    @html_url.setter
+    def html_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "html_url", value)
 
     @property
     @pulumi.getter
@@ -278,19 +396,19 @@ class Extension(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ExtensionArgs.__new__(ExtensionArgs)
 
-            __props__['config'] = config
-            __props__['endpoint_url'] = endpoint_url
+            __props__.__dict__["config"] = config
+            __props__.__dict__["endpoint_url"] = endpoint_url
             if extension_objects is None and not opts.urn:
                 raise TypeError("Missing required property 'extension_objects'")
-            __props__['extension_objects'] = extension_objects
+            __props__.__dict__["extension_objects"] = extension_objects
             if extension_schema is None and not opts.urn:
                 raise TypeError("Missing required property 'extension_schema'")
-            __props__['extension_schema'] = extension_schema
-            __props__['name'] = name
-            __props__['type'] = type
-            __props__['html_url'] = None
+            __props__.__dict__["extension_schema"] = extension_schema
+            __props__.__dict__["name"] = name
+            __props__.__dict__["type"] = type
+            __props__.__dict__["html_url"] = None
         super(Extension, __self__).__init__(
             'pagerduty:index/extension:Extension',
             resource_name,
@@ -325,15 +443,15 @@ class Extension(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ExtensionState.__new__(_ExtensionState)
 
-        __props__["config"] = config
-        __props__["endpoint_url"] = endpoint_url
-        __props__["extension_objects"] = extension_objects
-        __props__["extension_schema"] = extension_schema
-        __props__["html_url"] = html_url
-        __props__["name"] = name
-        __props__["type"] = type
+        __props__.__dict__["config"] = config
+        __props__.__dict__["endpoint_url"] = endpoint_url
+        __props__.__dict__["extension_objects"] = extension_objects
+        __props__.__dict__["extension_schema"] = extension_schema
+        __props__.__dict__["html_url"] = html_url
+        __props__.__dict__["name"] = name
+        __props__.__dict__["type"] = type
         return Extension(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -389,10 +507,4 @@ class Extension(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

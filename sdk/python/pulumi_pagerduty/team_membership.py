@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['TeamMembershipArgs', 'TeamMembership']
 
@@ -66,6 +66,66 @@ class TeamMembershipArgs:
     @role.setter
     def role(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "role", value)
+
+
+@pulumi.input_type
+class _TeamMembershipState:
+    def __init__(__self__, *,
+                 role: Optional[pulumi.Input[str]] = None,
+                 team_id: Optional[pulumi.Input[str]] = None,
+                 user_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering TeamMembership resources.
+        :param pulumi.Input[str] role: The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`. These roles match up to user roles in the following ways:
+               * User role of `user` is a Team role of `manager`
+               * User role of `limited_user` is a Team role of `responder`
+        :param pulumi.Input[str] team_id: The ID of the team in which the user will belong.
+        :param pulumi.Input[str] user_id: The ID of the user to add to the team.
+        """
+        if role is not None:
+            pulumi.set(__self__, "role", role)
+        if team_id is not None:
+            pulumi.set(__self__, "team_id", team_id)
+        if user_id is not None:
+            pulumi.set(__self__, "user_id", user_id)
+
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`. These roles match up to user roles in the following ways:
+        * User role of `user` is a Team role of `manager`
+        * User role of `limited_user` is a Team role of `responder`
+        """
+        return pulumi.get(self, "role")
+
+    @role.setter
+    def role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role", value)
+
+    @property
+    @pulumi.getter(name="teamId")
+    def team_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the team in which the user will belong.
+        """
+        return pulumi.get(self, "team_id")
+
+    @team_id.setter
+    def team_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "team_id", value)
+
+    @property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the user to add to the team.
+        """
+        return pulumi.get(self, "user_id")
+
+    @user_id.setter
+    def user_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_id", value)
 
 
 class TeamMembership(pulumi.CustomResource):
@@ -179,15 +239,15 @@ class TeamMembership(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = TeamMembershipArgs.__new__(TeamMembershipArgs)
 
-            __props__['role'] = role
+            __props__.__dict__["role"] = role
             if team_id is None and not opts.urn:
                 raise TypeError("Missing required property 'team_id'")
-            __props__['team_id'] = team_id
+            __props__.__dict__["team_id"] = team_id
             if user_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_id'")
-            __props__['user_id'] = user_id
+            __props__.__dict__["user_id"] = user_id
         super(TeamMembership, __self__).__init__(
             'pagerduty:index/teamMembership:TeamMembership',
             resource_name,
@@ -216,11 +276,11 @@ class TeamMembership(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _TeamMembershipState.__new__(_TeamMembershipState)
 
-        __props__["role"] = role
-        __props__["team_id"] = team_id
-        __props__["user_id"] = user_id
+        __props__.__dict__["role"] = role
+        __props__.__dict__["team_id"] = team_id
+        __props__.__dict__["user_id"] = user_id
         return TeamMembership(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -248,10 +308,4 @@ class TeamMembership(pulumi.CustomResource):
         The ID of the user to add to the team.
         """
         return pulumi.get(self, "user_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

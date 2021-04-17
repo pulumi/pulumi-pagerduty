@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -100,6 +100,98 @@ class ScheduleArgs:
     @overflow.setter
     def overflow(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "overflow", value)
+
+
+@pulumi.input_type
+class _ScheduleState:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 layers: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleLayerArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 overflow: Optional[pulumi.Input[bool]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Schedule resources.
+        :param pulumi.Input[str] description: The description of the schedule
+        :param pulumi.Input[Sequence[pulumi.Input['ScheduleLayerArgs']]] layers: A schedule layer block. Schedule layers documented below.
+        :param pulumi.Input[str] name: The name of the schedule.
+        :param pulumi.Input[bool] overflow: Any on-call schedule entries that pass the date range bounds will be truncated at the bounds, unless the parameter `overflow` is passed. For instance, if your schedule is a rotation that changes daily at midnight UTC, and your date range is from `2011-06-01T10:00:00Z` to `2011-06-01T14:00:00Z`:
+               If you don't pass the overflow=true parameter, you will get one schedule entry returned with a start of `2011-06-01T10:00:00Z` and end of `2011-06-01T14:00:00Z`.
+               If you do pass the `overflow` parameter, you will get one schedule entry returned with a start of `2011-06-01T00:00:00Z` and end of `2011-06-02T00:00:00Z`.
+        :param pulumi.Input[str] time_zone: The time zone of the schedule (e.g Europe/Berlin).
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if layers is not None:
+            pulumi.set(__self__, "layers", layers)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if overflow is not None:
+            pulumi.set(__self__, "overflow", overflow)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the schedule
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def layers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleLayerArgs']]]]:
+        """
+        A schedule layer block. Schedule layers documented below.
+        """
+        return pulumi.get(self, "layers")
+
+    @layers.setter
+    def layers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleLayerArgs']]]]):
+        pulumi.set(self, "layers", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the schedule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def overflow(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Any on-call schedule entries that pass the date range bounds will be truncated at the bounds, unless the parameter `overflow` is passed. For instance, if your schedule is a rotation that changes daily at midnight UTC, and your date range is from `2011-06-01T10:00:00Z` to `2011-06-01T14:00:00Z`:
+        If you don't pass the overflow=true parameter, you will get one schedule entry returned with a start of `2011-06-01T10:00:00Z` and end of `2011-06-01T14:00:00Z`.
+        If you do pass the `overflow` parameter, you will get one schedule entry returned with a start of `2011-06-01T00:00:00Z` and end of `2011-06-02T00:00:00Z`.
+        """
+        return pulumi.get(self, "overflow")
+
+    @overflow.setter
+    def overflow(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "overflow", value)
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time zone of the schedule (e.g Europe/Berlin).
+        """
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_zone", value)
 
 
 class Schedule(pulumi.CustomResource):
@@ -241,17 +333,17 @@ class Schedule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ScheduleArgs.__new__(ScheduleArgs)
 
-            __props__['description'] = description
+            __props__.__dict__["description"] = description
             if layers is None and not opts.urn:
                 raise TypeError("Missing required property 'layers'")
-            __props__['layers'] = layers
-            __props__['name'] = name
-            __props__['overflow'] = overflow
+            __props__.__dict__["layers"] = layers
+            __props__.__dict__["name"] = name
+            __props__.__dict__["overflow"] = overflow
             if time_zone is None and not opts.urn:
                 raise TypeError("Missing required property 'time_zone'")
-            __props__['time_zone'] = time_zone
+            __props__.__dict__["time_zone"] = time_zone
         super(Schedule, __self__).__init__(
             'pagerduty:index/schedule:Schedule',
             resource_name,
@@ -284,13 +376,13 @@ class Schedule(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ScheduleState.__new__(_ScheduleState)
 
-        __props__["description"] = description
-        __props__["layers"] = layers
-        __props__["name"] = name
-        __props__["overflow"] = overflow
-        __props__["time_zone"] = time_zone
+        __props__.__dict__["description"] = description
+        __props__.__dict__["layers"] = layers
+        __props__.__dict__["name"] = name
+        __props__.__dict__["overflow"] = overflow
+        __props__.__dict__["time_zone"] = time_zone
         return Schedule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -334,10 +426,4 @@ class Schedule(pulumi.CustomResource):
         The time zone of the schedule (e.g Europe/Berlin).
         """
         return pulumi.get(self, "time_zone")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

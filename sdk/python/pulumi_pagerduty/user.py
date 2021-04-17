@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['UserArgs', 'User']
 
@@ -82,6 +82,189 @@ class UserArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="jobTitle")
+    def job_title(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user's title.
+        """
+        return pulumi.get(self, "job_title")
+
+    @job_title.setter
+    def job_title(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "job_title", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the user.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user role. Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.  Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.
+        """
+        return pulumi.get(self, "role")
+
+    @role.setter
+    def role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role", value)
+
+    @property
+    @pulumi.getter
+    def teams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of teams the user should belong to. Please use `TeamMembership` instead.
+        """
+        return pulumi.get(self, "teams")
+
+    @teams.setter
+    def teams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "teams", value)
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time zone of the user. Default is account default timezone.
+        """
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_zone", value)
+
+
+@pulumi.input_type
+class _UserState:
+    def __init__(__self__, *,
+                 avatar_url: Optional[pulumi.Input[str]] = None,
+                 color: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 email: Optional[pulumi.Input[str]] = None,
+                 html_url: Optional[pulumi.Input[str]] = None,
+                 invitation_sent: Optional[pulumi.Input[bool]] = None,
+                 job_title: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 role: Optional[pulumi.Input[str]] = None,
+                 teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering User resources.
+        :param pulumi.Input[str] avatar_url: The URL of the user's avatar.
+        :param pulumi.Input[str] color: The schedule color for the user. Valid options are purple, red, green, blue, teal, orange, brown, turquoise, dark-slate-blue, cayenne, orange-red, dark-orchid, dark-slate-grey, lime, dark-magenta, lime-green, midnight-blue, deep-pink, dark-green, dark-orange, dark-cyan, darkolive-green, dark-slate-gray, grey20, firebrick, maroon, crimson, dark-red, dark-goldenrod, chocolate, medium-violet-red, sea-green, olivedrab, forest-green, dark-olive-green, blue-violet, royal-blue, indigo, slate-blue, saddle-brown, or steel-blue.
+        :param pulumi.Input[str] email: The user's email address.
+        :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app
+        :param pulumi.Input[bool] invitation_sent: If true, the user has an outstanding invitation.
+        :param pulumi.Input[str] job_title: The user's title.
+        :param pulumi.Input[str] name: The name of the user.
+        :param pulumi.Input[str] role: The user role. Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.  Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] teams: A list of teams the user should belong to. Please use `TeamMembership` instead.
+        :param pulumi.Input[str] time_zone: The time zone of the user. Default is account default timezone.
+        """
+        if avatar_url is not None:
+            pulumi.set(__self__, "avatar_url", avatar_url)
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if html_url is not None:
+            pulumi.set(__self__, "html_url", html_url)
+        if invitation_sent is not None:
+            pulumi.set(__self__, "invitation_sent", invitation_sent)
+        if job_title is not None:
+            pulumi.set(__self__, "job_title", job_title)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if role is not None:
+            pulumi.set(__self__, "role", role)
+        if teams is not None:
+            warnings.warn("""Use the 'pagerduty_team_membership' resource instead.""", DeprecationWarning)
+            pulumi.log.warn("""teams is deprecated: Use the 'pagerduty_team_membership' resource instead.""")
+        if teams is not None:
+            pulumi.set(__self__, "teams", teams)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter(name="avatarUrl")
+    def avatar_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL of the user's avatar.
+        """
+        return pulumi.get(self, "avatar_url")
+
+    @avatar_url.setter
+    def avatar_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "avatar_url", value)
+
+    @property
+    @pulumi.getter
+    def color(self) -> Optional[pulumi.Input[str]]:
+        """
+        The schedule color for the user. Valid options are purple, red, green, blue, teal, orange, brown, turquoise, dark-slate-blue, cayenne, orange-red, dark-orchid, dark-slate-grey, lime, dark-magenta, lime-green, midnight-blue, deep-pink, dark-green, dark-orange, dark-cyan, darkolive-green, dark-slate-gray, grey20, firebrick, maroon, crimson, dark-red, dark-goldenrod, chocolate, medium-violet-red, sea-green, olivedrab, forest-green, dark-olive-green, blue-violet, royal-blue, indigo, slate-blue, saddle-brown, or steel-blue.
+        """
+        return pulumi.get(self, "color")
+
+    @color.setter
+    def color(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "color", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def email(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user's email address.
+        """
+        return pulumi.get(self, "email")
+
+    @email.setter
+    def email(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "email", value)
+
+    @property
+    @pulumi.getter(name="htmlUrl")
+    def html_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        URL at which the entity is uniquely displayed in the Web app
+        """
+        return pulumi.get(self, "html_url")
+
+    @html_url.setter
+    def html_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "html_url", value)
+
+    @property
+    @pulumi.getter(name="invitationSent")
+    def invitation_sent(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, the user has an outstanding invitation.
+        """
+        return pulumi.get(self, "invitation_sent")
+
+    @invitation_sent.setter
+    def invitation_sent(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "invitation_sent", value)
 
     @property
     @pulumi.getter(name="jobTitle")
@@ -257,24 +440,24 @@ class User(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = UserArgs.__new__(UserArgs)
 
-            __props__['color'] = color
-            __props__['description'] = description
+            __props__.__dict__["color"] = color
+            __props__.__dict__["description"] = description
             if email is None and not opts.urn:
                 raise TypeError("Missing required property 'email'")
-            __props__['email'] = email
-            __props__['job_title'] = job_title
-            __props__['name'] = name
-            __props__['role'] = role
+            __props__.__dict__["email"] = email
+            __props__.__dict__["job_title"] = job_title
+            __props__.__dict__["name"] = name
+            __props__.__dict__["role"] = role
             if teams is not None and not opts.urn:
                 warnings.warn("""Use the 'pagerduty_team_membership' resource instead.""", DeprecationWarning)
                 pulumi.log.warn("""teams is deprecated: Use the 'pagerduty_team_membership' resource instead.""")
-            __props__['teams'] = teams
-            __props__['time_zone'] = time_zone
-            __props__['avatar_url'] = None
-            __props__['html_url'] = None
-            __props__['invitation_sent'] = None
+            __props__.__dict__["teams"] = teams
+            __props__.__dict__["time_zone"] = time_zone
+            __props__.__dict__["avatar_url"] = None
+            __props__.__dict__["html_url"] = None
+            __props__.__dict__["invitation_sent"] = None
         super(User, __self__).__init__(
             'pagerduty:index/user:User',
             resource_name,
@@ -316,19 +499,19 @@ class User(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _UserState.__new__(_UserState)
 
-        __props__["avatar_url"] = avatar_url
-        __props__["color"] = color
-        __props__["description"] = description
-        __props__["email"] = email
-        __props__["html_url"] = html_url
-        __props__["invitation_sent"] = invitation_sent
-        __props__["job_title"] = job_title
-        __props__["name"] = name
-        __props__["role"] = role
-        __props__["teams"] = teams
-        __props__["time_zone"] = time_zone
+        __props__.__dict__["avatar_url"] = avatar_url
+        __props__.__dict__["color"] = color
+        __props__.__dict__["description"] = description
+        __props__.__dict__["email"] = email
+        __props__.__dict__["html_url"] = html_url
+        __props__.__dict__["invitation_sent"] = invitation_sent
+        __props__.__dict__["job_title"] = job_title
+        __props__.__dict__["name"] = name
+        __props__.__dict__["role"] = role
+        __props__.__dict__["teams"] = teams
+        __props__.__dict__["time_zone"] = time_zone
         return User(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -415,10 +598,4 @@ class User(pulumi.CustomResource):
         The time zone of the user. Default is account default timezone.
         """
         return pulumi.get(self, "time_zone")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

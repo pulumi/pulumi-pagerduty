@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // A [user](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Users/get_users) is a member of a PagerDuty account that have the ability to interact with incidents and other data on the account.
@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/go/pagerduty"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi-pagerduty/sdk/v2/go/pagerduty"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {

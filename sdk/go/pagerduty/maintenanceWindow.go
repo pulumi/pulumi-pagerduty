@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // A [maintenance window](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Maintenance_Windows/get_maintenance_windows) is used to temporarily disable one or more services for a set period of time. No incidents will be triggered and no notifications will be received while a service is disabled by a maintenance window.
@@ -21,8 +21,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/go/pagerduty"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi-pagerduty/sdk/v2/go/pagerduty"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {

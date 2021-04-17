@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // A [business service](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Business_Services/get_business_services) allows you to model capabilities that span multiple technical services and that may be owned by several different teams.
@@ -18,8 +18,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/go/pagerduty"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi-pagerduty/sdk/v2/go/pagerduty"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {

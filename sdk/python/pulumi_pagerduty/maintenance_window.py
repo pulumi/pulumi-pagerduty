@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['MaintenanceWindowArgs', 'MaintenanceWindow']
 
@@ -77,6 +77,78 @@ class MaintenanceWindowArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+
+@pulumi.input_type
+class _MaintenanceWindowState:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 end_time: Optional[pulumi.Input[str]] = None,
+                 services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 start_time: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering MaintenanceWindow resources.
+        :param pulumi.Input[str] description: A description for the maintenance window.
+        :param pulumi.Input[str] end_time: The maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `start_time`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] services: A list of service IDs to include in the maintenance window.
+        :param pulumi.Input[str] start_time: The maintenance window's start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if end_time is not None:
+            pulumi.set(__self__, "end_time", end_time)
+        if services is not None:
+            pulumi.set(__self__, "services", services)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description for the maintenance window.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `start_time`.
+        """
+        return pulumi.get(self, "end_time")
+
+    @end_time.setter
+    def end_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "end_time", value)
+
+    @property
+    @pulumi.getter
+    def services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of service IDs to include in the maintenance window.
+        """
+        return pulumi.get(self, "services")
+
+    @services.setter
+    def services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "services", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The maintenance window's start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_time", value)
 
 
 class MaintenanceWindow(pulumi.CustomResource):
@@ -191,18 +263,18 @@ class MaintenanceWindow(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = MaintenanceWindowArgs.__new__(MaintenanceWindowArgs)
 
-            __props__['description'] = description
+            __props__.__dict__["description"] = description
             if end_time is None and not opts.urn:
                 raise TypeError("Missing required property 'end_time'")
-            __props__['end_time'] = end_time
+            __props__.__dict__["end_time"] = end_time
             if services is None and not opts.urn:
                 raise TypeError("Missing required property 'services'")
-            __props__['services'] = services
+            __props__.__dict__["services"] = services
             if start_time is None and not opts.urn:
                 raise TypeError("Missing required property 'start_time'")
-            __props__['start_time'] = start_time
+            __props__.__dict__["start_time"] = start_time
         super(MaintenanceWindow, __self__).__init__(
             'pagerduty:index/maintenanceWindow:MaintenanceWindow',
             resource_name,
@@ -231,12 +303,12 @@ class MaintenanceWindow(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _MaintenanceWindowState.__new__(_MaintenanceWindowState)
 
-        __props__["description"] = description
-        __props__["end_time"] = end_time
-        __props__["services"] = services
-        __props__["start_time"] = start_time
+        __props__.__dict__["description"] = description
+        __props__.__dict__["end_time"] = end_time
+        __props__.__dict__["services"] = services
+        __props__.__dict__["start_time"] = start_time
         return MaintenanceWindow(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -270,10 +342,4 @@ class MaintenanceWindow(pulumi.CustomResource):
         The maintenance window's start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
         """
         return pulumi.get(self, "start_time")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

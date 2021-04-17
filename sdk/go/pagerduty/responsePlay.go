@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // A [response play](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Services/get_services) allows you to create packages of Incident Actions that can be applied during an Incident's life cycle.

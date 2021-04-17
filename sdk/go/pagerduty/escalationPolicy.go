@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // An [escalation policy](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Escalation_Policies/get_escalation_policies) determines what user or schedule will be notified first, second, and so on when an incident is triggered. Escalation policies are used by one or more services.
@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/go/pagerduty"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi-pagerduty/sdk/v2/go/pagerduty"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {

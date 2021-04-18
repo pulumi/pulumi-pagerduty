@@ -32,6 +32,8 @@ class ScheduleArgs:
         """
         pulumi.set(__self__, "layers", layers)
         pulumi.set(__self__, "time_zone", time_zone)
+        if description is None:
+            description = 'Managed by Pulumi'
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
@@ -120,6 +122,8 @@ class _ScheduleState:
                If you do pass the `overflow` parameter, you will get one schedule entry returned with a start of `2011-06-01T00:00:00Z` and end of `2011-06-02T00:00:00Z`.
         :param pulumi.Input[str] time_zone: The time zone of the schedule (e.g Europe/Berlin).
         """
+        if description is None:
+            description = 'Managed by Pulumi'
         if description is not None:
             pulumi.set(__self__, "description", description)
         if layers is not None:
@@ -335,6 +339,8 @@ class Schedule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ScheduleArgs.__new__(ScheduleArgs)
 
+            if description is None:
+                description = 'Managed by Pulumi'
             __props__.__dict__["description"] = description
             if layers is None and not opts.urn:
                 raise TypeError("Missing required property 'layers'")
@@ -387,7 +393,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
+    def description(self) -> pulumi.Output[str]:
         """
         The description of the schedule
         """

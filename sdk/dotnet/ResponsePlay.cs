@@ -99,7 +99,7 @@ namespace Pulumi.Pagerduty
         public Output<string?> ConferenceUrl { get; private set; } = null!;
 
         [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
+        public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
         /// The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
@@ -284,6 +284,7 @@ namespace Pulumi.Pagerduty
 
         public ResponsePlayArgs()
         {
+            Description = "Managed by Pulumi";
         }
     }
 
@@ -372,6 +373,7 @@ namespace Pulumi.Pagerduty
 
         public ResponsePlayState()
         {
+            Description = "Managed by Pulumi";
         }
     }
 }

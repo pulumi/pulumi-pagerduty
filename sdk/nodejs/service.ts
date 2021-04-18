@@ -93,7 +93,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly autoResolveTimeout!: pulumi.Output<string | undefined>;
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
-    public readonly description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * The escalation policy used by this service.
      */
@@ -147,7 +147,7 @@ export class Service extends pulumi.CustomResource {
             inputs["alertGrouping"] = args ? args.alertGrouping : undefined;
             inputs["alertGroupingTimeout"] = args ? args.alertGroupingTimeout : undefined;
             inputs["autoResolveTimeout"] = args ? args.autoResolveTimeout : undefined;
-            inputs["description"] = args ? args.description : undefined;
+            inputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
             inputs["escalationPolicy"] = args ? args.escalationPolicy : undefined;
             inputs["incidentUrgencyRule"] = args ? args.incidentUrgencyRule : undefined;
             inputs["name"] = args ? args.name : undefined;

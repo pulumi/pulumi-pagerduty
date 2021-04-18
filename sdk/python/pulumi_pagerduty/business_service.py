@@ -25,6 +25,8 @@ class BusinessServiceArgs:
         :param pulumi.Input[str] team: ID of the team that owns the business service.
         :param pulumi.Input[str] type: Default value is `business_service`. Can also be set as `business_service_reference`.
         """
+        if description is None:
+            description = 'Managed by Pulumi'
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
@@ -112,6 +114,8 @@ class _BusinessServiceState:
         :param pulumi.Input[str] team: ID of the team that owns the business service.
         :param pulumi.Input[str] type: Default value is `business_service`. Can also be set as `business_service_reference`.
         """
+        if description is None:
+            description = 'Managed by Pulumi'
         if description is not None:
             pulumi.set(__self__, "description", description)
         if html_url is not None:
@@ -326,6 +330,8 @@ class BusinessService(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BusinessServiceArgs.__new__(BusinessServiceArgs)
 
+            if description is None:
+                description = 'Managed by Pulumi'
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
             __props__.__dict__["point_of_contact"] = point_of_contact
@@ -380,7 +386,7 @@ class BusinessService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
+    def description(self) -> pulumi.Output[str]:
         return pulumi.get(self, "description")
 
     @property

@@ -1873,7 +1873,8 @@
             "description": "A [business service](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Business_Services/get_business_services) allows you to model capabilities that span multiple technical services and that may be owned by several different teams. \n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst example = new pagerduty.BusinessService(\"example\", {\n    description: \"A very descriptive description of this business service\",\n    pointOfContact: \"PagerDuty Admin\",\n    team: \"P37RSRS\",\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nexample = pagerduty.BusinessService(\"example\",\n    description=\"A very descriptive description of this business service\",\n    point_of_contact=\"PagerDuty Admin\",\n    team=\"P37RSRS\")\n```\n```csharp\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = new Pagerduty.BusinessService(\"example\", new Pagerduty.BusinessServiceArgs\n        {\n            Description = \"A very descriptive description of this business service\",\n            PointOfContact = \"PagerDuty Admin\",\n            Team = \"P37RSRS\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v2/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := pagerduty.NewBusinessService(ctx, \"example\", \u0026pagerduty.BusinessServiceArgs{\n\t\t\tDescription:    pulumi.String(\"A very descriptive description of this business service\"),\n\t\t\tPointOfContact: pulumi.String(\"PagerDuty Admin\"),\n\t\t\tTeam:           pulumi.String(\"P37RSRS\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nServices can be imported using the `id`, e.g.\n\n```sh\n $ pulumi import pagerduty:index/businessService:BusinessService main PLBP09X\n```\n\n ",
             "properties": {
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "default": "Managed by Pulumi"
                 },
                 "htmlUrl": {
                     "type": "string"
@@ -1902,6 +1903,7 @@
                 }
             },
             "required": [
+                "description",
                 "htmlUrl",
                 "name",
                 "self",
@@ -1909,7 +1911,8 @@
             ],
             "inputProperties": {
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "default": "Managed by Pulumi"
                 },
                 "name": {
                     "type": "string",
@@ -1932,7 +1935,8 @@
                 "description": "Input properties used for looking up and filtering BusinessService resources.\n",
                 "properties": {
                     "description": {
-                        "type": "string"
+                        "type": "string",
+                        "default": "Managed by Pulumi"
                     },
                     "htmlUrl": {
                         "type": "string"
@@ -1967,7 +1971,8 @@
             "description": "An [escalation policy](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Escalation_Policies/get_escalation_policies) determines what user or schedule will be notified first, second, and so on when an incident is triggered. Escalation policies are used by one or more services.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst exampleTeam = new pagerduty.Team(\"exampleTeam\", {description: \"All engineering\"});\nconst exampleUser = new pagerduty.User(\"exampleUser\", {\n    email: \"125.greenholt.earline@graham.name\",\n    teams: [exampleTeam.id],\n});\nconst exampleEscalationPolicy = new pagerduty.EscalationPolicy(\"exampleEscalationPolicy\", {\n    numLoops: 2,\n    teams: [exampleTeam.id],\n    rules: [{\n        escalationDelayInMinutes: 10,\n        targets: [\n            {\n                type: \"user\",\n                id: exampleUser.id,\n            },\n            {\n                type: \"user\",\n                id: pagerduty_user.example2.id,\n            },\n        ],\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nexample_team = pagerduty.Team(\"exampleTeam\", description=\"All engineering\")\nexample_user = pagerduty.User(\"exampleUser\",\n    email=\"125.greenholt.earline@graham.name\",\n    teams=[example_team.id])\nexample_escalation_policy = pagerduty.EscalationPolicy(\"exampleEscalationPolicy\",\n    num_loops=2,\n    teams=[example_team.id],\n    rules=[pagerduty.EscalationPolicyRuleArgs(\n        escalation_delay_in_minutes=10,\n        targets=[\n            pagerduty.EscalationPolicyRuleTargetArgs(\n                type=\"user\",\n                id=example_user.id,\n            ),\n            pagerduty.EscalationPolicyRuleTargetArgs(\n                type=\"user\",\n                id=pagerduty_user[\"example2\"][\"id\"],\n            ),\n        ],\n    )])\n```\n```csharp\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var exampleTeam = new Pagerduty.Team(\"exampleTeam\", new Pagerduty.TeamArgs\n        {\n            Description = \"All engineering\",\n        });\n        var exampleUser = new Pagerduty.User(\"exampleUser\", new Pagerduty.UserArgs\n        {\n            Email = \"125.greenholt.earline@graham.name\",\n            Teams = \n            {\n                exampleTeam.Id,\n            },\n        });\n        var exampleEscalationPolicy = new Pagerduty.EscalationPolicy(\"exampleEscalationPolicy\", new Pagerduty.EscalationPolicyArgs\n        {\n            NumLoops = 2,\n            Teams = \n            {\n                exampleTeam.Id,\n            },\n            Rules = \n            {\n                new Pagerduty.Inputs.EscalationPolicyRuleArgs\n                {\n                    EscalationDelayInMinutes = 10,\n                    Targets = \n                    {\n                        new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs\n                        {\n                            Type = \"user\",\n                            Id = exampleUser.Id,\n                        },\n                        new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs\n                        {\n                            Type = \"user\",\n                            Id = pagerduty_user.Example2.Id,\n                        },\n                    },\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v2/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleTeam, err := pagerduty.NewTeam(ctx, \"exampleTeam\", \u0026pagerduty.TeamArgs{\n\t\t\tDescription: pulumi.String(\"All engineering\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleUser, err := pagerduty.NewUser(ctx, \"exampleUser\", \u0026pagerduty.UserArgs{\n\t\t\tEmail: pulumi.String(\"125.greenholt.earline@graham.name\"),\n\t\t\tTeams: pulumi.StringArray{\n\t\t\t\texampleTeam.ID(),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewEscalationPolicy(ctx, \"exampleEscalationPolicy\", \u0026pagerduty.EscalationPolicyArgs{\n\t\t\tNumLoops: pulumi.Int(2),\n\t\t\tTeams: pulumi.StringArray{\n\t\t\t\texampleTeam.ID(),\n\t\t\t},\n\t\t\tRules: pagerduty.EscalationPolicyRuleArray{\n\t\t\t\t\u0026pagerduty.EscalationPolicyRuleArgs{\n\t\t\t\t\tEscalationDelayInMinutes: pulumi.Int(10),\n\t\t\t\t\tTargets: pagerduty.EscalationPolicyRuleTargetArray{\n\t\t\t\t\t\t\u0026pagerduty.EscalationPolicyRuleTargetArgs{\n\t\t\t\t\t\t\tType: pulumi.String(\"user\"),\n\t\t\t\t\t\t\tId:   exampleUser.ID(),\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026pagerduty.EscalationPolicyRuleTargetArgs{\n\t\t\t\t\t\t\tType: pulumi.String(\"user\"),\n\t\t\t\t\t\t\tId:   pulumi.Any(pagerduty_user.Example2.Id),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nEscalation policies can be imported using the `id`, e.g.\n\n```sh\n $ pulumi import pagerduty:index/escalationPolicy:EscalationPolicy main PLBP09X\n```\n\n ",
             "properties": {
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "default": "Managed by Pulumi"
                 },
                 "name": {
                     "type": "string",
@@ -1993,12 +1998,14 @@
                 }
             },
             "required": [
+                "description",
                 "name",
                 "rules"
             ],
             "inputProperties": {
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "default": "Managed by Pulumi"
                 },
                 "name": {
                     "type": "string",
@@ -2030,7 +2037,8 @@
                 "description": "Input properties used for looking up and filtering EscalationPolicy resources.\n",
                 "properties": {
                     "description": {
-                        "type": "string"
+                        "type": "string",
+                        "default": "Managed by Pulumi"
                     },
                     "name": {
                         "type": "string",
@@ -2239,7 +2247,8 @@
             "properties": {
                 "description": {
                     "type": "string",
-                    "description": "A description for the maintenance window.\n"
+                    "description": "A description for the maintenance window.\n",
+                    "default": "Managed by Pulumi"
                 },
                 "endTime": {
                     "type": "string",
@@ -2258,6 +2267,7 @@
                 }
             },
             "required": [
+                "description",
                 "endTime",
                 "services",
                 "startTime"
@@ -2265,7 +2275,8 @@
             "inputProperties": {
                 "description": {
                     "type": "string",
-                    "description": "A description for the maintenance window.\n"
+                    "description": "A description for the maintenance window.\n",
+                    "default": "Managed by Pulumi"
                 },
                 "endTime": {
                     "type": "string",
@@ -2293,7 +2304,8 @@
                 "properties": {
                     "description": {
                         "type": "string",
-                        "description": "A description for the maintenance window.\n"
+                        "description": "A description for the maintenance window.\n",
+                        "default": "Managed by Pulumi"
                     },
                     "endTime": {
                         "type": "string",
@@ -2326,7 +2338,8 @@
                     "description": "The URL that will be set as the conference URL for any incident on which this response play is run.\n"
                 },
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "default": "Managed by Pulumi"
                 },
                 "from": {
                     "type": "string",
@@ -2372,6 +2385,7 @@
                 }
             },
             "required": [
+                "description",
                 "from",
                 "name"
             ],
@@ -2385,7 +2399,8 @@
                     "description": "The URL that will be set as the conference URL for any incident on which this response play is run.\n"
                 },
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "default": "Managed by Pulumi"
                 },
                 "from": {
                     "type": "string",
@@ -2445,7 +2460,8 @@
                         "description": "The URL that will be set as the conference URL for any incident on which this response play is run.\n"
                     },
                     "description": {
-                        "type": "string"
+                        "type": "string",
+                        "default": "Managed by Pulumi"
                     },
                     "from": {
                         "type": "string",
@@ -2674,7 +2690,8 @@
             "properties": {
                 "description": {
                     "type": "string",
-                    "description": "The description of the schedule\n"
+                    "description": "The description of the schedule\n",
+                    "default": "Managed by Pulumi"
                 },
                 "layers": {
                     "type": "array",
@@ -2697,6 +2714,7 @@
                 }
             },
             "required": [
+                "description",
                 "layers",
                 "name",
                 "timeZone"
@@ -2704,7 +2722,8 @@
             "inputProperties": {
                 "description": {
                     "type": "string",
-                    "description": "The description of the schedule\n"
+                    "description": "The description of the schedule\n",
+                    "default": "Managed by Pulumi"
                 },
                 "layers": {
                     "type": "array",
@@ -2735,7 +2754,8 @@
                 "properties": {
                     "description": {
                         "type": "string",
-                        "description": "The description of the schedule\n"
+                        "description": "The description of the schedule\n",
+                        "default": "Managed by Pulumi"
                     },
                     "layers": {
                         "type": "array",
@@ -2787,7 +2807,8 @@
                     "type": "string"
                 },
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "default": "Managed by Pulumi"
                 },
                 "escalationPolicy": {
                     "type": "string",
@@ -2821,6 +2842,7 @@
             },
             "required": [
                 "createdAt",
+                "description",
                 "escalationPolicy",
                 "htmlUrl",
                 "incidentUrgencyRule",
@@ -2850,7 +2872,8 @@
                     "description": "Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `\"null\"` string.\n"
                 },
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "default": "Managed by Pulumi"
                 },
                 "escalationPolicy": {
                     "type": "string",
@@ -2903,7 +2926,8 @@
                         "type": "string"
                     },
                     "description": {
-                        "type": "string"
+                        "type": "string",
+                        "default": "Managed by Pulumi"
                     },
                     "escalationPolicy": {
                         "type": "string",
@@ -3199,7 +3223,8 @@
             "description": "A [team](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Teams/get_teams) is a collection of users and escalation policies that represent a group of people within an organization.\n\nThe account must have the `teams` ability to use the following resource.\n\n\n## Import\n\nTeams can be imported using the `id`, e.g.\n\n```sh\n $ pulumi import pagerduty:index/team:Team main PLBP09X\n```\n\n ",
             "properties": {
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "default": "Managed by Pulumi"
                 },
                 "htmlUrl": {
                     "type": "string",
@@ -3215,12 +3240,14 @@
                 }
             },
             "required": [
+                "description",
                 "htmlUrl",
                 "name"
             ],
             "inputProperties": {
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "default": "Managed by Pulumi"
                 },
                 "name": {
                     "type": "string",
@@ -3235,7 +3262,8 @@
                 "description": "Input properties used for looking up and filtering Team resources.\n",
                 "properties": {
                     "description": {
-                        "type": "string"
+                        "type": "string",
+                        "default": "Managed by Pulumi"
                     },
                     "htmlUrl": {
                         "type": "string",
@@ -3322,7 +3350,8 @@
                     "description": "The schedule color for the user. Valid options are purple, red, green, blue, teal, orange, brown, turquoise, dark-slate-blue, cayenne, orange-red, dark-orchid, dark-slate-grey, lime, dark-magenta, lime-green, midnight-blue, deep-pink, dark-green, dark-orange, dark-cyan, darkolive-green, dark-slate-gray, grey20, firebrick, maroon, crimson, dark-red, dark-goldenrod, chocolate, medium-violet-red, sea-green, olivedrab, forest-green, dark-olive-green, blue-violet, royal-blue, indigo, slate-blue, saddle-brown, or steel-blue.\n"
                 },
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "default": "Managed by Pulumi"
                 },
                 "email": {
                     "type": "string",
@@ -3364,6 +3393,7 @@
             "required": [
                 "avatarUrl",
                 "color",
+                "description",
                 "email",
                 "htmlUrl",
                 "invitationSent",
@@ -3377,7 +3407,8 @@
                     "description": "The schedule color for the user. Valid options are purple, red, green, blue, teal, orange, brown, turquoise, dark-slate-blue, cayenne, orange-red, dark-orchid, dark-slate-grey, lime, dark-magenta, lime-green, midnight-blue, deep-pink, dark-green, dark-orange, dark-cyan, darkolive-green, dark-slate-gray, grey20, firebrick, maroon, crimson, dark-red, dark-goldenrod, chocolate, medium-violet-red, sea-green, olivedrab, forest-green, dark-olive-green, blue-violet, royal-blue, indigo, slate-blue, saddle-brown, or steel-blue.\n"
                 },
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "default": "Managed by Pulumi"
                 },
                 "email": {
                     "type": "string",
@@ -3423,7 +3454,8 @@
                         "description": "The schedule color for the user. Valid options are purple, red, green, blue, teal, orange, brown, turquoise, dark-slate-blue, cayenne, orange-red, dark-orchid, dark-slate-grey, lime, dark-magenta, lime-green, midnight-blue, deep-pink, dark-green, dark-orange, dark-cyan, darkolive-green, dark-slate-gray, grey20, firebrick, maroon, crimson, dark-red, dark-goldenrod, chocolate, medium-violet-red, sea-green, olivedrab, forest-green, dark-olive-green, blue-violet, royal-blue, indigo, slate-blue, saddle-brown, or steel-blue.\n"
                     },
                     "description": {
-                        "type": "string"
+                        "type": "string",
+                        "default": "Managed by Pulumi"
                     },
                     "email": {
                         "type": "string",

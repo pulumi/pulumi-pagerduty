@@ -49,8 +49,8 @@ type User struct {
 	// The URL of the user's avatar.
 	AvatarUrl pulumi.StringOutput `pulumi:"avatarUrl"`
 	// The schedule color for the user. Valid options are purple, red, green, blue, teal, orange, brown, turquoise, dark-slate-blue, cayenne, orange-red, dark-orchid, dark-slate-grey, lime, dark-magenta, lime-green, midnight-blue, deep-pink, dark-green, dark-orange, dark-cyan, darkolive-green, dark-slate-gray, grey20, firebrick, maroon, crimson, dark-red, dark-goldenrod, chocolate, medium-violet-red, sea-green, olivedrab, forest-green, dark-olive-green, blue-violet, royal-blue, indigo, slate-blue, saddle-brown, or steel-blue.
-	Color       pulumi.StringOutput    `pulumi:"color"`
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Color       pulumi.StringOutput `pulumi:"color"`
+	Description pulumi.StringOutput `pulumi:"description"`
 	// The user's email address.
 	Email pulumi.StringOutput `pulumi:"email"`
 	// URL at which the entity is uniquely displayed in the Web app
@@ -80,6 +80,9 @@ func NewUser(ctx *pulumi.Context,
 
 	if args.Email == nil {
 		return nil, errors.New("invalid value for required argument 'Email'")
+	}
+	if args.Description == nil {
+		args.Description = pulumi.StringPtr("Managed by Pulumi")
 	}
 	var resource User
 	err := ctx.RegisterResource("pagerduty:index/user:User", name, args, &resource, opts...)

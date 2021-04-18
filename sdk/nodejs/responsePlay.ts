@@ -86,7 +86,7 @@ export class ResponsePlay extends pulumi.CustomResource {
      * The URL that will be set as the conference URL for any incident on which this response play is run.
      */
     public readonly conferenceUrl!: pulumi.Output<string | undefined>;
-    public readonly description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
      */
@@ -156,7 +156,7 @@ export class ResponsePlay extends pulumi.CustomResource {
             }
             inputs["conferenceNumber"] = args ? args.conferenceNumber : undefined;
             inputs["conferenceUrl"] = args ? args.conferenceUrl : undefined;
-            inputs["description"] = args ? args.description : undefined;
+            inputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
             inputs["from"] = args ? args.from : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["responders"] = args ? args.responders : undefined;

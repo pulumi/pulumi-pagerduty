@@ -79,7 +79,7 @@ import (
 type EscalationPolicy struct {
 	pulumi.CustomResourceState
 
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Description pulumi.StringOutput `pulumi:"description"`
 	// The name of the escalation policy.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The number of times the escalation policy will repeat after reaching the end of its escalation.
@@ -99,6 +99,9 @@ func NewEscalationPolicy(ctx *pulumi.Context,
 
 	if args.Rules == nil {
 		return nil, errors.New("invalid value for required argument 'Rules'")
+	}
+	if args.Description == nil {
+		args.Description = pulumi.StringPtr("Managed by Pulumi")
 	}
 	var resource EscalationPolicy
 	err := ctx.RegisterResource("pagerduty:index/escalationPolicy:EscalationPolicy", name, args, &resource, opts...)

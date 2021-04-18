@@ -24,7 +24,7 @@ import (
 type Team struct {
 	pulumi.CustomResourceState
 
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Description pulumi.StringOutput `pulumi:"description"`
 	// URL at which the entity is uniquely displayed in the Web app
 	HtmlUrl pulumi.StringOutput `pulumi:"htmlUrl"`
 	// The name of the group.
@@ -40,6 +40,9 @@ func NewTeam(ctx *pulumi.Context,
 		args = &TeamArgs{}
 	}
 
+	if args.Description == nil {
+		args.Description = pulumi.StringPtr("Managed by Pulumi")
+	}
 	var resource Team
 	err := ctx.RegisterResource("pagerduty:index/team:Team", name, args, &resource, opts...)
 	if err != nil {

@@ -74,7 +74,7 @@ export class Schedule extends pulumi.CustomResource {
     /**
      * The description of the schedule
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * A schedule layer block. Schedule layers documented below.
      */
@@ -120,7 +120,7 @@ export class Schedule extends pulumi.CustomResource {
             if ((!args || args.timeZone === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'timeZone'");
             }
-            inputs["description"] = args ? args.description : undefined;
+            inputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
             inputs["layers"] = args ? args.layers : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["overflow"] = args ? args.overflow : undefined;

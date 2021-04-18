@@ -74,7 +74,7 @@ export class EscalationPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === EscalationPolicy.__pulumiType;
     }
 
-    public readonly description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * The name of the escalation policy.
      */
@@ -115,7 +115,7 @@ export class EscalationPolicy extends pulumi.CustomResource {
             if ((!args || args.rules === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rules'");
             }
-            inputs["description"] = args ? args.description : undefined;
+            inputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
             inputs["name"] = args ? args.name : undefined;
             inputs["numLoops"] = args ? args.numLoops : undefined;
             inputs["rules"] = args ? args.rules : undefined;

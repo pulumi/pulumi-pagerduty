@@ -46,6 +46,8 @@ class ResponsePlayArgs:
             pulumi.set(__self__, "conference_number", conference_number)
         if conference_url is not None:
             pulumi.set(__self__, "conference_url", conference_url)
+        if description is None:
+            description = 'Managed by Pulumi'
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
@@ -240,6 +242,8 @@ class _ResponsePlayState:
             pulumi.set(__self__, "conference_number", conference_number)
         if conference_url is not None:
             pulumi.set(__self__, "conference_url", conference_url)
+        if description is None:
+            description = 'Managed by Pulumi'
         if description is not None:
             pulumi.set(__self__, "description", description)
         if from_ is not None:
@@ -576,6 +580,8 @@ class ResponsePlay(pulumi.CustomResource):
 
             __props__.__dict__["conference_number"] = conference_number
             __props__.__dict__["conference_url"] = conference_url
+            if description is None:
+                description = 'Managed by Pulumi'
             __props__.__dict__["description"] = description
             if from_ is None and not opts.urn:
                 raise TypeError("Missing required property 'from_'")
@@ -665,7 +671,7 @@ class ResponsePlay(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
+    def description(self) -> pulumi.Output[str]:
         return pulumi.get(self, "description")
 
     @property

@@ -27,6 +27,8 @@ class MaintenanceWindowArgs:
         pulumi.set(__self__, "end_time", end_time)
         pulumi.set(__self__, "services", services)
         pulumi.set(__self__, "start_time", start_time)
+        if description is None:
+            description = 'Managed by Pulumi'
         if description is not None:
             pulumi.set(__self__, "description", description)
 
@@ -93,6 +95,8 @@ class _MaintenanceWindowState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] services: A list of service IDs to include in the maintenance window.
         :param pulumi.Input[str] start_time: The maintenance window's start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
         """
+        if description is None:
+            description = 'Managed by Pulumi'
         if description is not None:
             pulumi.set(__self__, "description", description)
         if end_time is not None:
@@ -265,6 +269,8 @@ class MaintenanceWindow(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MaintenanceWindowArgs.__new__(MaintenanceWindowArgs)
 
+            if description is None:
+                description = 'Managed by Pulumi'
             __props__.__dict__["description"] = description
             if end_time is None and not opts.urn:
                 raise TypeError("Missing required property 'end_time'")
@@ -313,7 +319,7 @@ class MaintenanceWindow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
+    def description(self) -> pulumi.Output[str]:
         """
         A description for the maintenance window.
         """

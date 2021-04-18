@@ -28,6 +28,8 @@ class EscalationPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] teams: Teams associated with the policy. Account must have the `teams` ability to use this parameter.
         """
         pulumi.set(__self__, "rules", rules)
+        if description is None:
+            description = 'Managed by Pulumi'
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
@@ -110,6 +112,8 @@ class _EscalationPolicyState:
         :param pulumi.Input[Sequence[pulumi.Input['EscalationPolicyRuleArgs']]] rules: An Escalation rule block. Escalation rules documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] teams: Teams associated with the policy. Account must have the `teams` ability to use this parameter.
         """
+        if description is None:
+            description = 'Managed by Pulumi'
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
@@ -323,6 +327,8 @@ class EscalationPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EscalationPolicyArgs.__new__(EscalationPolicyArgs)
 
+            if description is None:
+                description = 'Managed by Pulumi'
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
             __props__.__dict__["num_loops"] = num_loops
@@ -370,7 +376,7 @@ class EscalationPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
+    def description(self) -> pulumi.Output[str]:
         return pulumi.get(self, "description")
 
     @property

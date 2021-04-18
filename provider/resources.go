@@ -61,6 +61,9 @@ func makeResource(mod string, res string) tokens.Type {
 	return makeType(mod+"/"+fn, res)
 }
 
+// managedByPulumi is a default used for some managed resources, in the absence of something more meaningful.
+var managedByPulumi = &tfbridge.DefaultInfo{Value: "Managed by Pulumi"}
+
 // Provider returns additional overlaid schema and metadata associated with the provider..
 func Provider() tfbridge.ProviderInfo {
 	// Instantiate the Terraform provider
@@ -85,25 +88,81 @@ func Provider() tfbridge.ProviderInfo {
 			},
 		},
 		Resources: map[string]*tfbridge.ResourceInfo{
-			"pagerduty_addon":                  {Tok: makeResource(mainMod, "Addon")},
-			"pagerduty_business_service":       {Tok: makeResource(mainMod, "BusinessService")},
-			"pagerduty_escalation_policy":      {Tok: makeResource(mainMod, "EscalationPolicy")},
-			"pagerduty_event_rule":             {Tok: makeResource(mainMod, "EventRule")},
-			"pagerduty_extension":              {Tok: makeResource(mainMod, "Extension")},
-			"pagerduty_maintenance_window":     {Tok: makeResource(mainMod, "MaintenanceWindow")},
-			"pagerduty_ruleset":                {Tok: makeResource(mainMod, "Ruleset")},
-			"pagerduty_ruleset_rule":           {Tok: makeResource(mainMod, "RulesetRule")},
-			"pagerduty_schedule":               {Tok: makeResource(mainMod, "Schedule")},
-			"pagerduty_service":                {Tok: makeResource(mainMod, "Service")},
-			"pagerduty_service_dependency":     {Tok: makeResource(mainMod, "ServiceDependency")},
-			"pagerduty_service_integration":    {Tok: makeResource(mainMod, "ServiceIntegration")},
-			"pagerduty_team":                   {Tok: makeResource(mainMod, "Team")},
-			"pagerduty_team_membership":        {Tok: makeResource(mainMod, "TeamMembership")},
-			"pagerduty_user":                   {Tok: makeResource(mainMod, "User")},
+			"pagerduty_addon": {Tok: makeResource(mainMod, "Addon")},
+			"pagerduty_business_service": {
+				Tok: makeResource(mainMod, "BusinessService"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"description": {
+						Default: managedByPulumi,
+					},
+				},
+			},
+			"pagerduty_escalation_policy": {
+				Tok: makeResource(mainMod, "EscalationPolicy"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"description": {
+						Default: managedByPulumi,
+					},
+				},
+			},
+			"pagerduty_event_rule": {Tok: makeResource(mainMod, "EventRule")},
+			"pagerduty_extension":  {Tok: makeResource(mainMod, "Extension")},
+			"pagerduty_maintenance_window": {
+				Tok: makeResource(mainMod, "MaintenanceWindow"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"description": {
+						Default: managedByPulumi,
+					},
+				},
+			},
+			"pagerduty_ruleset":      {Tok: makeResource(mainMod, "Ruleset")},
+			"pagerduty_ruleset_rule": {Tok: makeResource(mainMod, "RulesetRule")},
+			"pagerduty_schedule": {
+				Tok: makeResource(mainMod, "Schedule"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"description": {
+						Default: managedByPulumi,
+					},
+				},
+			},
+			"pagerduty_service": {
+				Tok: makeResource(mainMod, "Service"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"description": {
+						Default: managedByPulumi,
+					},
+				},
+			},
+			"pagerduty_service_dependency":  {Tok: makeResource(mainMod, "ServiceDependency")},
+			"pagerduty_service_integration": {Tok: makeResource(mainMod, "ServiceIntegration")},
+			"pagerduty_team": {
+				Tok: makeResource(mainMod, "Team"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"description": {
+						Default: managedByPulumi,
+					},
+				},
+			},
+			"pagerduty_team_membership": {Tok: makeResource(mainMod, "TeamMembership")},
+			"pagerduty_user": {
+				Tok: makeResource(mainMod, "User"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"description": {
+						Default: managedByPulumi,
+					},
+				},
+			},
 			"pagerduty_user_contact_method":    {Tok: makeResource(mainMod, "UserContactMethod")},
 			"pagerduty_user_notification_rule": {Tok: makeResource(mainMod, "UserNotificationRule")},
-			"pagerduty_response_play":          {Tok: makeResource(mainMod, "ResponsePlay")},
-			"pagerduty_service_event_rule":     {Tok: makeResource(mainMod, "ServiceEventRule")},
+			"pagerduty_response_play": {
+				Tok: makeResource(mainMod, "ResponsePlay"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"description": {
+						Default: managedByPulumi,
+					},
+				},
+			},
+			"pagerduty_service_event_rule": {Tok: makeResource(mainMod, "ServiceEventRule")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"pagerduty_escalation_policy":   {Tok: makeDataSource(mainMod, "getEscalationPolicy")},

@@ -55,7 +55,7 @@ namespace Pulumi.Pagerduty
         public Output<string> Color { get; private set; } = null!;
 
         [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
+        public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
         /// The user's email address.
@@ -205,6 +205,7 @@ namespace Pulumi.Pagerduty
 
         public UserArgs()
         {
+            Description = "Managed by Pulumi";
         }
     }
 
@@ -282,6 +283,7 @@ namespace Pulumi.Pagerduty
 
         public UserState()
         {
+            Description = "Managed by Pulumi";
         }
     }
 }

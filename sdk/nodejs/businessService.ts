@@ -56,7 +56,7 @@ export class BusinessService extends pulumi.CustomResource {
         return obj['__pulumiType'] === BusinessService.__pulumiType;
     }
 
-    public readonly description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string>;
     public /*out*/ readonly htmlUrl!: pulumi.Output<string>;
     /**
      * The name of the business service.
@@ -100,7 +100,7 @@ export class BusinessService extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as BusinessServiceArgs | undefined;
-            inputs["description"] = args ? args.description : undefined;
+            inputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
             inputs["name"] = args ? args.name : undefined;
             inputs["pointOfContact"] = args ? args.pointOfContact : undefined;
             inputs["team"] = args ? args.team : undefined;

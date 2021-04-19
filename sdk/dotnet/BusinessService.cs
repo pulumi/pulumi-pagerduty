@@ -45,7 +45,7 @@ namespace Pulumi.Pagerduty
     public partial class BusinessService : Pulumi.CustomResource
     {
         [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
+        public Output<string> Description { get; private set; } = null!;
 
         [Output("htmlUrl")]
         public Output<string> HtmlUrl { get; private set; } = null!;
@@ -155,6 +155,7 @@ namespace Pulumi.Pagerduty
 
         public BusinessServiceArgs()
         {
+            Description = "Managed by Pulumi";
         }
     }
 
@@ -198,6 +199,7 @@ namespace Pulumi.Pagerduty
 
         public BusinessServiceState()
         {
+            Description = "Managed by Pulumi";
         }
     }
 }

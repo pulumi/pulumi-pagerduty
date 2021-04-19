@@ -53,7 +53,7 @@ type MaintenanceWindow struct {
 	pulumi.CustomResourceState
 
 	// A description for the maintenance window.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Description pulumi.StringOutput `pulumi:"description"`
 	// The maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `startTime`.
 	EndTime pulumi.StringOutput `pulumi:"endTime"`
 	// A list of service IDs to include in the maintenance window.
@@ -77,6 +77,9 @@ func NewMaintenanceWindow(ctx *pulumi.Context,
 	}
 	if args.StartTime == nil {
 		return nil, errors.New("invalid value for required argument 'StartTime'")
+	}
+	if args.Description == nil {
+		args.Description = pulumi.StringPtr("Managed by Pulumi")
 	}
 	var resource MaintenanceWindow
 	err := ctx.RegisterResource("pagerduty:index/maintenanceWindow:MaintenanceWindow", name, args, &resource, opts...)

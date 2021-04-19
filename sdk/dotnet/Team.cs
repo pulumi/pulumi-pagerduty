@@ -26,7 +26,7 @@ namespace Pulumi.Pagerduty
     public partial class Team : Pulumi.CustomResource
     {
         [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
+        public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
         /// URL at which the entity is uniquely displayed in the Web app
@@ -109,6 +109,7 @@ namespace Pulumi.Pagerduty
 
         public TeamArgs()
         {
+            Description = "Managed by Pulumi";
         }
     }
 
@@ -137,6 +138,7 @@ namespace Pulumi.Pagerduty
 
         public TeamState()
         {
+            Description = "Managed by Pulumi";
         }
     }
 }

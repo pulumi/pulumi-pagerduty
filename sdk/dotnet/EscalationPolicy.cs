@@ -79,7 +79,7 @@ namespace Pulumi.Pagerduty
     public partial class EscalationPolicy : Pulumi.CustomResource
     {
         [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
+        public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
         /// The name of the escalation policy.
@@ -192,6 +192,7 @@ namespace Pulumi.Pagerduty
 
         public EscalationPolicyArgs()
         {
+            Description = "Managed by Pulumi";
         }
     }
 
@@ -238,6 +239,7 @@ namespace Pulumi.Pagerduty
 
         public EscalationPolicyState()
         {
+            Description = "Managed by Pulumi";
         }
     }
 }

@@ -62,7 +62,7 @@ export class User extends pulumi.CustomResource {
      * The schedule color for the user. Valid options are purple, red, green, blue, teal, orange, brown, turquoise, dark-slate-blue, cayenne, orange-red, dark-orchid, dark-slate-grey, lime, dark-magenta, lime-green, midnight-blue, deep-pink, dark-green, dark-orange, dark-cyan, darkolive-green, dark-slate-gray, grey20, firebrick, maroon, crimson, dark-red, dark-goldenrod, chocolate, medium-violet-red, sea-green, olivedrab, forest-green, dark-olive-green, blue-violet, royal-blue, indigo, slate-blue, saddle-brown, or steel-blue.
      */
     public readonly color!: pulumi.Output<string>;
-    public readonly description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * The user's email address.
      */
@@ -128,7 +128,7 @@ export class User extends pulumi.CustomResource {
                 throw new Error("Missing required property 'email'");
             }
             inputs["color"] = args ? args.color : undefined;
-            inputs["description"] = args ? args.description : undefined;
+            inputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
             inputs["email"] = args ? args.email : undefined;
             inputs["jobTitle"] = args ? args.jobTitle : undefined;
             inputs["name"] = args ? args.name : undefined;

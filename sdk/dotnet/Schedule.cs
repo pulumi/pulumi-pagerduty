@@ -77,7 +77,7 @@ namespace Pulumi.Pagerduty
         /// The description of the schedule
         /// </summary>
         [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
+        public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
         /// A schedule layer block. Schedule layers documented below.
@@ -191,6 +191,7 @@ namespace Pulumi.Pagerduty
 
         public ScheduleArgs()
         {
+            Description = "Managed by Pulumi";
         }
     }
 
@@ -236,6 +237,7 @@ namespace Pulumi.Pagerduty
 
         public ScheduleState()
         {
+            Description = "Managed by Pulumi";
         }
     }
 }

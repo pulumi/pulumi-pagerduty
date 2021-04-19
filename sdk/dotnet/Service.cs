@@ -106,7 +106,7 @@ namespace Pulumi.Pagerduty
         public Output<string> CreatedAt { get; private set; } = null!;
 
         [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
+        public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
         /// The escalation policy used by this service.
@@ -245,6 +245,7 @@ namespace Pulumi.Pagerduty
 
         public ServiceArgs()
         {
+            Description = "Managed by Pulumi";
         }
     }
 
@@ -323,6 +324,7 @@ namespace Pulumi.Pagerduty
 
         public ServiceState()
         {
+            Description = "Managed by Pulumi";
         }
     }
 }

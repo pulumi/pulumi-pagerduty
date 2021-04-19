@@ -53,7 +53,7 @@ namespace Pulumi.Pagerduty
         /// A description for the maintenance window.
         /// </summary>
         [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
+        public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
         /// The maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `start_time`.
@@ -151,6 +151,7 @@ namespace Pulumi.Pagerduty
 
         public MaintenanceWindowArgs()
         {
+            Description = "Managed by Pulumi";
         }
     }
 
@@ -188,6 +189,7 @@ namespace Pulumi.Pagerduty
 
         public MaintenanceWindowState()
         {
+            Description = "Managed by Pulumi";
         }
     }
 }

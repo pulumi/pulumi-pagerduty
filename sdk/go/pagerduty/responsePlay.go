@@ -27,7 +27,7 @@ type ResponsePlay struct {
 	ConferenceNumber pulumi.StringPtrOutput `pulumi:"conferenceNumber"`
 	// The URL that will be set as the conference URL for any incident on which this response play is run.
 	ConferenceUrl pulumi.StringPtrOutput `pulumi:"conferenceUrl"`
-	Description   pulumi.StringPtrOutput `pulumi:"description"`
+	Description   pulumi.StringOutput    `pulumi:"description"`
 	// The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
 	From pulumi.StringOutput `pulumi:"from"`
 	// The name of the response play.
@@ -57,6 +57,9 @@ func NewResponsePlay(ctx *pulumi.Context,
 
 	if args.From == nil {
 		return nil, errors.New("invalid value for required argument 'From'")
+	}
+	if args.Description == nil {
+		args.Description = pulumi.StringPtr("Managed by Pulumi")
 	}
 	var resource ResponsePlay
 	err := ctx.RegisterResource("pagerduty:index/responsePlay:ResponsePlay", name, args, &resource, opts...)

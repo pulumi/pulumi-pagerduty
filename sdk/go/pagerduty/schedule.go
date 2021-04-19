@@ -24,7 +24,7 @@ type Schedule struct {
 	pulumi.CustomResourceState
 
 	// The description of the schedule
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Description pulumi.StringOutput `pulumi:"description"`
 	// A schedule layer block. Schedule layers documented below.
 	Layers ScheduleLayerArrayOutput `pulumi:"layers"`
 	// The name of the schedule.
@@ -49,6 +49,9 @@ func NewSchedule(ctx *pulumi.Context,
 	}
 	if args.TimeZone == nil {
 		return nil, errors.New("invalid value for required argument 'TimeZone'")
+	}
+	if args.Description == nil {
+		args.Description = pulumi.StringPtr("Managed by Pulumi")
 	}
 	var resource Schedule
 	err := ctx.RegisterResource("pagerduty:index/schedule:Schedule", name, args, &resource, opts...)

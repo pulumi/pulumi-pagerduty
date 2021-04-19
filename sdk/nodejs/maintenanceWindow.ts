@@ -61,7 +61,7 @@ export class MaintenanceWindow extends pulumi.CustomResource {
     /**
      * A description for the maintenance window.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * The maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `startTime`.
      */
@@ -103,7 +103,7 @@ export class MaintenanceWindow extends pulumi.CustomResource {
             if ((!args || args.startTime === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'startTime'");
             }
-            inputs["description"] = args ? args.description : undefined;
+            inputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
             inputs["endTime"] = args ? args.endTime : undefined;
             inputs["services"] = args ? args.services : undefined;
             inputs["startTime"] = args ? args.startTime : undefined;

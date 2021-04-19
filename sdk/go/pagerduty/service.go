@@ -34,7 +34,7 @@ type Service struct {
 	// Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
 	AutoResolveTimeout pulumi.StringPtrOutput `pulumi:"autoResolveTimeout"`
 	CreatedAt          pulumi.StringOutput    `pulumi:"createdAt"`
-	Description        pulumi.StringPtrOutput `pulumi:"description"`
+	Description        pulumi.StringOutput    `pulumi:"description"`
 	// The escalation policy used by this service.
 	EscalationPolicy      pulumi.StringOutput              `pulumi:"escalationPolicy"`
 	HtmlUrl               pulumi.StringOutput              `pulumi:"htmlUrl"`
@@ -56,6 +56,9 @@ func NewService(ctx *pulumi.Context,
 
 	if args.EscalationPolicy == nil {
 		return nil, errors.New("invalid value for required argument 'EscalationPolicy'")
+	}
+	if args.Description == nil {
+		args.Description = pulumi.StringPtr("Managed by Pulumi")
 	}
 	var resource Service
 	err := ctx.RegisterResource("pagerduty:index/service:Service", name, args, &resource, opts...)

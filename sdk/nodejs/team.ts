@@ -45,7 +45,7 @@ export class Team extends pulumi.CustomResource {
         return obj['__pulumiType'] === Team.__pulumiType;
     }
 
-    public readonly description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * URL at which the entity is uniquely displayed in the Web app
      */
@@ -78,7 +78,7 @@ export class Team extends pulumi.CustomResource {
             inputs["parent"] = state ? state.parent : undefined;
         } else {
             const args = argsOrState as TeamArgs | undefined;
-            inputs["description"] = args ? args.description : undefined;
+            inputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
             inputs["name"] = args ? args.name : undefined;
             inputs["parent"] = args ? args.parent : undefined;
             inputs["htmlUrl"] = undefined /*out*/;

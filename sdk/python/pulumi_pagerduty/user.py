@@ -34,6 +34,8 @@ class UserArgs:
         pulumi.set(__self__, "email", email)
         if color is not None:
             pulumi.set(__self__, "color", color)
+        if description is None:
+            description = 'Managed by Pulumi'
         if description is not None:
             pulumi.set(__self__, "description", description)
         if job_title is not None:
@@ -175,6 +177,8 @@ class _UserState:
             pulumi.set(__self__, "avatar_url", avatar_url)
         if color is not None:
             pulumi.set(__self__, "color", color)
+        if description is None:
+            description = 'Managed by Pulumi'
         if description is not None:
             pulumi.set(__self__, "description", description)
         if email is not None:
@@ -443,6 +447,8 @@ class User(pulumi.CustomResource):
             __props__ = UserArgs.__new__(UserArgs)
 
             __props__.__dict__["color"] = color
+            if description is None:
+                description = 'Managed by Pulumi'
             __props__.__dict__["description"] = description
             if email is None and not opts.urn:
                 raise TypeError("Missing required property 'email'")
@@ -532,7 +538,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
+    def description(self) -> pulumi.Output[str]:
         return pulumi.get(self, "description")
 
     @property

@@ -47,6 +47,8 @@ class ServiceArgs:
             pulumi.set(__self__, "alert_grouping_timeout", alert_grouping_timeout)
         if auto_resolve_timeout is not None:
             pulumi.set(__self__, "auto_resolve_timeout", auto_resolve_timeout)
+        if description is None:
+            description = 'Managed by Pulumi'
         if description is not None:
             pulumi.set(__self__, "description", description)
         if incident_urgency_rule is not None:
@@ -219,6 +221,8 @@ class _ServiceState:
             pulumi.set(__self__, "auto_resolve_timeout", auto_resolve_timeout)
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
+        if description is None:
+            description = 'Managed by Pulumi'
         if description is not None:
             pulumi.set(__self__, "description", description)
         if escalation_policy is not None:
@@ -553,6 +557,8 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["alert_grouping"] = alert_grouping
             __props__.__dict__["alert_grouping_timeout"] = alert_grouping_timeout
             __props__.__dict__["auto_resolve_timeout"] = auto_resolve_timeout
+            if description is None:
+                description = 'Managed by Pulumi'
             __props__.__dict__["description"] = description
             if escalation_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'escalation_policy'")
@@ -673,7 +679,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
+    def description(self) -> pulumi.Output[str]:
         return pulumi.get(self, "description")
 
     @property

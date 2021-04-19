@@ -47,8 +47,8 @@ import (
 type BusinessService struct {
 	pulumi.CustomResourceState
 
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	HtmlUrl     pulumi.StringOutput    `pulumi:"htmlUrl"`
+	Description pulumi.StringOutput `pulumi:"description"`
+	HtmlUrl     pulumi.StringOutput `pulumi:"htmlUrl"`
 	// The name of the business service.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The owner of the business service.
@@ -68,6 +68,9 @@ func NewBusinessService(ctx *pulumi.Context,
 		args = &BusinessServiceArgs{}
 	}
 
+	if args.Description == nil {
+		args.Description = pulumi.StringPtr("Managed by Pulumi")
+	}
 	var resource BusinessService
 	err := ctx.RegisterResource("pagerduty:index/businessService:BusinessService", name, args, &resource, opts...)
 	if err != nil {

@@ -21,6 +21,8 @@ class TeamArgs:
         :param pulumi.Input[str] name: The name of the group.
         :param pulumi.Input[str] parent: ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
         """
+        if description is None:
+            description = 'Managed by Pulumi'
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
@@ -75,6 +77,8 @@ class _TeamState:
         :param pulumi.Input[str] name: The name of the group.
         :param pulumi.Input[str] parent: ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
         """
+        if description is None:
+            description = 'Managed by Pulumi'
         if description is not None:
             pulumi.set(__self__, "description", description)
         if html_url is not None:
@@ -216,6 +220,8 @@ class Team(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TeamArgs.__new__(TeamArgs)
 
+            if description is None:
+                description = 'Managed by Pulumi'
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
             __props__.__dict__["parent"] = parent
@@ -257,7 +263,7 @@ class Team(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
+    def description(self) -> pulumi.Output[str]:
         return pulumi.get(self, "description")
 
     @property

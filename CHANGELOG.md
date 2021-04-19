@@ -2,7 +2,15 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade `description` of the following resources to be "Managed by Pulumi":
+  - `pagerduty.BusinessService`
+  - `pagerduty.EscalationPolicy`
+  - `pagerduty.MaintenanceWindow`
+  - `pagerduty.Schedule`
+  - `pagerduty.Service`
+  - `pagerduty.Team`
+  - `pagerduty.User`
+  - `pagerduty.ResponsePlay`
 
 ---
 

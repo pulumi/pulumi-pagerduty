@@ -263,9 +263,7 @@ class RulesetRule(pulumi.CustomResource):
                  ruleset: Optional[pulumi.Input[str]] = None,
                  time_frame: Optional[pulumi.Input[pulumi.InputType['RulesetRuleTimeFrameArgs']]] = None,
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulesetRuleVariableArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         An [event rule](https://support.pagerduty.com/docs/rulesets#section-create-event-rules) allows you to set actions that should be taken on events that meet your designated rule criteria.
 
@@ -478,15 +476,7 @@ class RulesetRule(pulumi.CustomResource):
                  ruleset: Optional[pulumi.Input[str]] = None,
                  time_frame: Optional[pulumi.Input[pulumi.InputType['RulesetRuleTimeFrameArgs']]] = None,
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulesetRuleVariableArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

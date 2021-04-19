@@ -415,9 +415,7 @@ class Service(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  scheduled_actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceScheduledActionArgs']]]]] = None,
                  support_hours: Optional[pulumi.Input[pulumi.InputType['ServiceSupportHoursArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         A [service](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Services/get_services) represents something you monitor (like a web service, email service, or database service). It is a container for related incidents that associates them with escalation policies.
 
@@ -532,15 +530,7 @@ class Service(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  scheduled_actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceScheduledActionArgs']]]]] = None,
                  support_hours: Optional[pulumi.Input[pulumi.InputType['ServiceSupportHoursArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

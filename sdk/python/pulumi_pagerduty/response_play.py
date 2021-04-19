@@ -424,9 +424,7 @@ class ResponsePlay(pulumi.CustomResource):
                  subscribers_message: Optional[pulumi.Input[str]] = None,
                  team: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         A [response play](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Services/get_services) allows you to create packages of Incident Actions that can be applied during an Incident's life cycle.
 
@@ -558,15 +556,7 @@ class ResponsePlay(pulumi.CustomResource):
                  subscribers_message: Optional[pulumi.Input[str]] = None,
                  team: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

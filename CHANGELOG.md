@@ -2,6 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 2.0.0 (2021-04-19)
+* Depend on Pulumi 3.0, which includes improvements to Python resource arguments and key translation, Go SDK performance,
+  Node SDK performance, general availability of Automation API, and more.
 * Upgrade `description` of the following resources to be "Managed by Pulumi":
   - `pagerduty.BusinessService`
   - `pagerduty.EscalationPolicy`
@@ -11,8 +18,6 @@ CHANGELOG
   - `pagerduty.Team`
   - `pagerduty.User`
   - `pagerduty.ResponsePlay`
-
----
 
 ## 1.5.0 (2021-04-12)
 * Upgrade to v1.9.6 of the PagerDuty Terraform Provider

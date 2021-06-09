@@ -220,7 +220,7 @@ export interface RulesetRuleActionsSuppress {
      */
     thresholdTimeAmount?: pulumi.Input<number>;
     /**
-     * The `minutes`,`hours`, or `days` that the `thresholdTimeAmount` should be measured.
+     * The `seconds`,`minutes`, or `hours` the `thresholdTimeAmount` should be measured.
      */
     thresholdTimeUnit?: pulumi.Input<string>;
     /**
@@ -286,23 +286,17 @@ export interface RulesetRuleTimeFrameActiveBetween {
      * Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
      */
     endTime?: pulumi.Input<number>;
-    /**
-     * Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `startTime` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `startTime` was `3,600,000` the it would be active starting at `01:00`.
-     */
     startTime?: pulumi.Input<number>;
 }
 
 export interface RulesetRuleTimeFrameScheduledWeekly {
     /**
-     * Length of time the schedule will be active.  Unix timestamp in milliseconds.
+     * Length of time the schedule will be active in milliseconds. For example `duration = 2 * 60 * 60 * 1000` if you want your rule to apply for 2 hours, from the specified `startTime`.
      */
     duration?: pulumi.Input<number>;
-    /**
-     * Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `startTime` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `startTime` was `3,600,000` the it would be active starting at `01:00`.
-     */
     startTime?: pulumi.Input<number>;
     /**
-     * Timezone for the given schedule.
+     * [The name of the timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for the given schedule, which will be used to determine UTC offset including adjustment for daylight saving time. For example: `timezone = "America/Toronto"`
      */
     timezone?: pulumi.Input<string>;
     /**
@@ -358,7 +352,7 @@ export interface ScheduleLayer {
      */
     rotationVirtualStart: pulumi.Input<string>;
     /**
-     * The start time of the schedule layer. This value will not be read back from the PagerDuty API because the API will always return a new `start` time, which represents the last updated time of the schedule layer.
+     * The start time of the schedule layer.
      */
     start: pulumi.Input<string>;
     /**
@@ -498,7 +492,7 @@ export interface ServiceEventRuleActionsSuppress {
      */
     thresholdTimeAmount?: pulumi.Input<number>;
     /**
-     * The `minutes`,`hours`, or `days` that the `thresholdTimeAmount` should be measured.
+     * The `seconds`,`minutes`, or `hours` the `thresholdTimeAmount` should be measured.
      */
     thresholdTimeUnit?: pulumi.Input<string>;
     /**

@@ -18,7 +18,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly int? ThresholdTimeAmount;
         /// <summary>
-        /// The `minutes`,`hours`, or `days` that the `threshold_time_amount` should be measured.
+        /// The `seconds`,`minutes`, or `hours` the `threshold_time_amount` should be measured.
         /// </summary>
         public readonly string? ThresholdTimeUnit;
         /// <summary>

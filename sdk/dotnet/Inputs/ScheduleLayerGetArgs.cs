@@ -55,7 +55,7 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<string> RotationVirtualStart { get; set; } = null!;
 
         /// <summary>
-        /// The start time of the schedule layer. This value will not be read back from the PagerDuty API because the API will always return a new `start` time, which represents the last updated time of the schedule layer.
+        /// The start time of the schedule layer.
         /// </summary>
         [Input("start", required: true)]
         public Input<string> Start { get; set; } = null!;

@@ -14,6 +14,30 @@ namespace Pulumi.Pagerduty
     /// 
     /// The account must have the `teams` ability to use the following resource.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Pagerduty = Pulumi.Pagerduty;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var parent = new Pagerduty.Team("parent", new Pagerduty.TeamArgs
+    ///         {
+    ///             Description = "Product and Engineering",
+    ///         });
+    ///         var example = new Pagerduty.Team("example", new Pagerduty.TeamArgs
+    ///         {
+    ///             Description = "All engineering",
+    ///             Parent = pagerduty.Team.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Teams can be imported using the `id`, e.g.

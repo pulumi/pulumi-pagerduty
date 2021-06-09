@@ -768,7 +768,7 @@ class RulesetRuleActionsSuppress(dict):
                  value: Optional[bool] = None):
         """
         :param int threshold_time_amount: The number value of the `threshold_time_unit` before an incident is created. Must be greater than 0.
-        :param str threshold_time_unit: The `minutes`,`hours`, or `days` that the `threshold_time_amount` should be measured.
+        :param str threshold_time_unit: The `seconds`,`minutes`, or `hours` the `threshold_time_amount` should be measured.
         :param int threshold_value: The number of alerts that should be suppressed. Must be greater than 0.
         :param bool value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
         """
@@ -793,7 +793,7 @@ class RulesetRuleActionsSuppress(dict):
     @pulumi.getter(name="thresholdTimeUnit")
     def threshold_time_unit(self) -> Optional[str]:
         """
-        The `minutes`,`hours`, or `days` that the `threshold_time_amount` should be measured.
+        The `seconds`,`minutes`, or `hours` the `threshold_time_amount` should be measured.
         """
         return pulumi.get(self, "threshold_time_unit")
 
@@ -998,7 +998,6 @@ class RulesetRuleTimeFrameActiveBetween(dict):
                  start_time: Optional[int] = None):
         """
         :param int end_time: Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
-        :param int start_time: Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `start_time` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `start_time` was `3,600,000` the it would be active starting at `01:00`.
         """
         if end_time is not None:
             pulumi.set(__self__, "end_time", end_time)
@@ -1016,9 +1015,6 @@ class RulesetRuleTimeFrameActiveBetween(dict):
     @property
     @pulumi.getter(name="startTime")
     def start_time(self) -> Optional[int]:
-        """
-        Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `start_time` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `start_time` was `3,600,000` the it would be active starting at `01:00`.
-        """
         return pulumi.get(self, "start_time")
 
 
@@ -1047,9 +1043,8 @@ class RulesetRuleTimeFrameScheduledWeekly(dict):
                  timezone: Optional[str] = None,
                  weekdays: Optional[Sequence[int]] = None):
         """
-        :param int duration: Length of time the schedule will be active.  Unix timestamp in milliseconds.
-        :param int start_time: Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `start_time` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `start_time` was `3,600,000` the it would be active starting at `01:00`.
-        :param str timezone: Timezone for the given schedule.
+        :param int duration: Length of time the schedule will be active in milliseconds. For example `duration = 2 * 60 * 60 * 1000` if you want your rule to apply for 2 hours, from the specified `start_time`.
+        :param str timezone: [The name of the timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for the given schedule, which will be used to determine UTC offset including adjustment for daylight saving time. For example: `timezone = "America/Toronto"`
         :param Sequence[int] weekdays: An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
         """
         if duration is not None:
@@ -1065,23 +1060,20 @@ class RulesetRuleTimeFrameScheduledWeekly(dict):
     @pulumi.getter
     def duration(self) -> Optional[int]:
         """
-        Length of time the schedule will be active.  Unix timestamp in milliseconds.
+        Length of time the schedule will be active in milliseconds. For example `duration = 2 * 60 * 60 * 1000` if you want your rule to apply for 2 hours, from the specified `start_time`.
         """
         return pulumi.get(self, "duration")
 
     @property
     @pulumi.getter(name="startTime")
     def start_time(self) -> Optional[int]:
-        """
-        Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `start_time` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `start_time` was `3,600,000` the it would be active starting at `01:00`.
-        """
         return pulumi.get(self, "start_time")
 
     @property
     @pulumi.getter
     def timezone(self) -> Optional[str]:
         """
-        Timezone for the given schedule.
+        [The name of the timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for the given schedule, which will be used to determine UTC offset including adjustment for daylight saving time. For example: `timezone = "America/Toronto"`
         """
         return pulumi.get(self, "timezone")
 
@@ -1201,7 +1193,7 @@ class ScheduleLayer(dict):
         """
         :param int rotation_turn_length_seconds: The duration of each on-call shift in `seconds`.
         :param str rotation_virtual_start: The effective start time of the schedule layer. This can be before the start time of the schedule.
-        :param str start: The start time of the schedule layer. This value will not be read back from the PagerDuty API because the API will always return a new `start` time, which represents the last updated time of the schedule layer.
+        :param str start: The start time of the schedule layer.
         :param Sequence[str] users: The ordered list of users on this layer. The position of the user on the list determines their order in the layer.
         :param str end: The end time of the schedule layer. If not specified, the layer does not end.
         :param str id: The ID of the schedule
@@ -1241,7 +1233,7 @@ class ScheduleLayer(dict):
     @pulumi.getter
     def start(self) -> str:
         """
-        The start time of the schedule layer. This value will not be read back from the PagerDuty API because the API will always return a new `start` time, which represents the last updated time of the schedule layer.
+        The start time of the schedule layer.
         """
         return pulumi.get(self, "start")
 
@@ -1734,7 +1726,7 @@ class ServiceEventRuleActionsSuppress(dict):
                  value: Optional[bool] = None):
         """
         :param int threshold_time_amount: The number value of the `threshold_time_unit` before an incident is created.
-        :param str threshold_time_unit: The `minutes`,`hours`, or `days` that the `threshold_time_amount` should be measured.
+        :param str threshold_time_unit: The `seconds`,`minutes`, or `hours` the `threshold_time_amount` should be measured.
         :param int threshold_value: The number of alerts that should be suppressed.
         :param bool value: The value for the operation. For example, an RE2 regular expression for regex-type variables.
         """
@@ -1759,7 +1751,7 @@ class ServiceEventRuleActionsSuppress(dict):
     @pulumi.getter(name="thresholdTimeUnit")
     def threshold_time_unit(self) -> Optional[str]:
         """
-        The `minutes`,`hours`, or `days` that the `threshold_time_amount` should be measured.
+        The `seconds`,`minutes`, or `hours` the `threshold_time_amount` should be measured.
         """
         return pulumi.get(self, "threshold_time_unit")
 

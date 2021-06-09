@@ -27,7 +27,11 @@ class UserArgs:
         :param pulumi.Input[str] color: The schedule color for the user. Valid options are purple, red, green, blue, teal, orange, brown, turquoise, dark-slate-blue, cayenne, orange-red, dark-orchid, dark-slate-grey, lime, dark-magenta, lime-green, midnight-blue, deep-pink, dark-green, dark-orange, dark-cyan, darkolive-green, dark-slate-gray, grey20, firebrick, maroon, crimson, dark-red, dark-goldenrod, chocolate, medium-violet-red, sea-green, olivedrab, forest-green, dark-olive-green, blue-violet, royal-blue, indigo, slate-blue, saddle-brown, or steel-blue.
         :param pulumi.Input[str] job_title: The user's title.
         :param pulumi.Input[str] name: The name of the user.
-        :param pulumi.Input[str] role: The user role. Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.  Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.
+        :param pulumi.Input[str] role: The user role. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.  
+               Notes:
+               * Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.
+               * With advanced permissions, users can have both a user role (base role) and a team role. The team role can configured in the `TeamMembership` resource.
+               * Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] teams: A list of teams the user should belong to. Please use `TeamMembership` instead.
         :param pulumi.Input[str] time_zone: The time zone of the user. Default is account default timezone.
         """
@@ -113,7 +117,11 @@ class UserArgs:
     @pulumi.getter
     def role(self) -> Optional[pulumi.Input[str]]:
         """
-        The user role. Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.  Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.
+        The user role. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.  
+        Notes:
+        * Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.
+        * With advanced permissions, users can have both a user role (base role) and a team role. The team role can configured in the `TeamMembership` resource.
+        * Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).
         """
         return pulumi.get(self, "role")
 
@@ -169,7 +177,11 @@ class _UserState:
         :param pulumi.Input[bool] invitation_sent: If true, the user has an outstanding invitation.
         :param pulumi.Input[str] job_title: The user's title.
         :param pulumi.Input[str] name: The name of the user.
-        :param pulumi.Input[str] role: The user role. Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.  Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.
+        :param pulumi.Input[str] role: The user role. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.  
+               Notes:
+               * Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.
+               * With advanced permissions, users can have both a user role (base role) and a team role. The team role can configured in the `TeamMembership` resource.
+               * Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] teams: A list of teams the user should belong to. Please use `TeamMembership` instead.
         :param pulumi.Input[str] time_zone: The time zone of the user. Default is account default timezone.
         """
@@ -298,7 +310,11 @@ class _UserState:
     @pulumi.getter
     def role(self) -> Optional[pulumi.Input[str]]:
         """
-        The user role. Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.  Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.
+        The user role. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.  
+        Notes:
+        * Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.
+        * With advanced permissions, users can have both a user role (base role) and a team role. The team role can configured in the `TeamMembership` resource.
+        * Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).
         """
         return pulumi.get(self, "role")
 
@@ -371,7 +387,11 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] email: The user's email address.
         :param pulumi.Input[str] job_title: The user's title.
         :param pulumi.Input[str] name: The name of the user.
-        :param pulumi.Input[str] role: The user role. Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.  Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.
+        :param pulumi.Input[str] role: The user role. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.  
+               Notes:
+               * Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.
+               * With advanced permissions, users can have both a user role (base role) and a team role. The team role can configured in the `TeamMembership` resource.
+               * Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] teams: A list of teams the user should belong to. Please use `TeamMembership` instead.
         :param pulumi.Input[str] time_zone: The time zone of the user. Default is account default timezone.
         """
@@ -489,7 +509,11 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[bool] invitation_sent: If true, the user has an outstanding invitation.
         :param pulumi.Input[str] job_title: The user's title.
         :param pulumi.Input[str] name: The name of the user.
-        :param pulumi.Input[str] role: The user role. Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.  Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.
+        :param pulumi.Input[str] role: The user role. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.  
+               Notes:
+               * Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.
+               * With advanced permissions, users can have both a user role (base role) and a team role. The team role can configured in the `TeamMembership` resource.
+               * Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] teams: A list of teams the user should belong to. Please use `TeamMembership` instead.
         :param pulumi.Input[str] time_zone: The time zone of the user. Default is account default timezone.
         """
@@ -575,7 +599,11 @@ class User(pulumi.CustomResource):
     @pulumi.getter
     def role(self) -> pulumi.Output[Optional[str]]:
         """
-        The user role. Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.  Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.
+        The user role. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.  
+        Notes:
+        * Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.
+        * With advanced permissions, users can have both a user role (base role) and a team role. The team role can configured in the `TeamMembership` resource.
+        * Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).
         """
         return pulumi.get(self, "role")
 

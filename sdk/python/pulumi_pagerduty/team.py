@@ -148,6 +148,18 @@ class Team(pulumi.CustomResource):
 
         The account must have the `teams` ability to use the following resource.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        parent = pagerduty.Team("parent", description="Product and Engineering")
+        example = pagerduty.Team("example",
+            description="All engineering",
+            parent=pagerduty["team"]["id"])
+        ```
+
         ## Import
 
         Teams can be imported using the `id`, e.g.
@@ -171,6 +183,18 @@ class Team(pulumi.CustomResource):
         A [team](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Teams/get_teams) is a collection of users and escalation policies that represent a group of people within an organization.
 
         The account must have the `teams` ability to use the following resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        parent = pagerduty.Team("parent", description="Product and Engineering")
+        example = pagerduty.Team("example",
+            description="All engineering",
+            parent=pagerduty["team"]["id"])
+        ```
 
         ## Import
 

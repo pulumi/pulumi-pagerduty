@@ -1814,7 +1814,7 @@ func (o RulesetRuleActionsSeverityArrayOutput) Index(i pulumi.IntInput) RulesetR
 type RulesetRuleActionsSuppress struct {
 	// The number value of the `thresholdTimeUnit` before an incident is created. Must be greater than 0.
 	ThresholdTimeAmount *int `pulumi:"thresholdTimeAmount"`
-	// The `minutes`,`hours`, or `days` that the `thresholdTimeAmount` should be measured.
+	// The `seconds`,`minutes`, or `hours` the `thresholdTimeAmount` should be measured.
 	ThresholdTimeUnit *string `pulumi:"thresholdTimeUnit"`
 	// The number of alerts that should be suppressed. Must be greater than 0.
 	ThresholdValue *int `pulumi:"thresholdValue"`
@@ -1836,7 +1836,7 @@ type RulesetRuleActionsSuppressInput interface {
 type RulesetRuleActionsSuppressArgs struct {
 	// The number value of the `thresholdTimeUnit` before an incident is created. Must be greater than 0.
 	ThresholdTimeAmount pulumi.IntPtrInput `pulumi:"thresholdTimeAmount"`
-	// The `minutes`,`hours`, or `days` that the `thresholdTimeAmount` should be measured.
+	// The `seconds`,`minutes`, or `hours` the `thresholdTimeAmount` should be measured.
 	ThresholdTimeUnit pulumi.StringPtrInput `pulumi:"thresholdTimeUnit"`
 	// The number of alerts that should be suppressed. Must be greater than 0.
 	ThresholdValue pulumi.IntPtrInput `pulumi:"thresholdValue"`
@@ -1900,7 +1900,7 @@ func (o RulesetRuleActionsSuppressOutput) ThresholdTimeAmount() pulumi.IntPtrOut
 	return o.ApplyT(func(v RulesetRuleActionsSuppress) *int { return v.ThresholdTimeAmount }).(pulumi.IntPtrOutput)
 }
 
-// The `minutes`,`hours`, or `days` that the `thresholdTimeAmount` should be measured.
+// The `seconds`,`minutes`, or `hours` the `thresholdTimeAmount` should be measured.
 func (o RulesetRuleActionsSuppressOutput) ThresholdTimeUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RulesetRuleActionsSuppress) *string { return v.ThresholdTimeUnit }).(pulumi.StringPtrOutput)
 }
@@ -2545,8 +2545,7 @@ func (o RulesetRuleTimeFramePtrOutput) ScheduledWeeklies() RulesetRuleTimeFrameS
 
 type RulesetRuleTimeFrameActiveBetween struct {
 	// Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
-	EndTime *int `pulumi:"endTime"`
-	// Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `startTime` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `startTime` was `3,600,000` the it would be active starting at `01:00`.
+	EndTime   *int `pulumi:"endTime"`
 	StartTime *int `pulumi:"startTime"`
 }
 
@@ -2563,8 +2562,7 @@ type RulesetRuleTimeFrameActiveBetweenInput interface {
 
 type RulesetRuleTimeFrameActiveBetweenArgs struct {
 	// Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
-	EndTime pulumi.IntPtrInput `pulumi:"endTime"`
-	// Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `startTime` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `startTime` was `3,600,000` the it would be active starting at `01:00`.
+	EndTime   pulumi.IntPtrInput `pulumi:"endTime"`
 	StartTime pulumi.IntPtrInput `pulumi:"startTime"`
 }
 
@@ -2624,7 +2622,6 @@ func (o RulesetRuleTimeFrameActiveBetweenOutput) EndTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RulesetRuleTimeFrameActiveBetween) *int { return v.EndTime }).(pulumi.IntPtrOutput)
 }
 
-// Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `startTime` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `startTime` was `3,600,000` the it would be active starting at `01:00`.
 func (o RulesetRuleTimeFrameActiveBetweenOutput) StartTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RulesetRuleTimeFrameActiveBetween) *int { return v.StartTime }).(pulumi.IntPtrOutput)
 }
@@ -2650,11 +2647,10 @@ func (o RulesetRuleTimeFrameActiveBetweenArrayOutput) Index(i pulumi.IntInput) R
 }
 
 type RulesetRuleTimeFrameScheduledWeekly struct {
-	// Length of time the schedule will be active.  Unix timestamp in milliseconds.
-	Duration *int `pulumi:"duration"`
-	// Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `startTime` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `startTime` was `3,600,000` the it would be active starting at `01:00`.
+	// Length of time the schedule will be active in milliseconds. For example `duration = 2 * 60 * 60 * 1000` if you want your rule to apply for 2 hours, from the specified `startTime`.
+	Duration  *int `pulumi:"duration"`
 	StartTime *int `pulumi:"startTime"`
-	// Timezone for the given schedule.
+	// [The name of the timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for the given schedule, which will be used to determine UTC offset including adjustment for daylight saving time. For example: `timezone = "America/Toronto"`
 	Timezone *string `pulumi:"timezone"`
 	// An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
 	Weekdays []int `pulumi:"weekdays"`
@@ -2672,11 +2668,10 @@ type RulesetRuleTimeFrameScheduledWeeklyInput interface {
 }
 
 type RulesetRuleTimeFrameScheduledWeeklyArgs struct {
-	// Length of time the schedule will be active.  Unix timestamp in milliseconds.
-	Duration pulumi.IntPtrInput `pulumi:"duration"`
-	// Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `startTime` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `startTime` was `3,600,000` the it would be active starting at `01:00`.
+	// Length of time the schedule will be active in milliseconds. For example `duration = 2 * 60 * 60 * 1000` if you want your rule to apply for 2 hours, from the specified `startTime`.
+	Duration  pulumi.IntPtrInput `pulumi:"duration"`
 	StartTime pulumi.IntPtrInput `pulumi:"startTime"`
-	// Timezone for the given schedule.
+	// [The name of the timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for the given schedule, which will be used to determine UTC offset including adjustment for daylight saving time. For example: `timezone = "America/Toronto"`
 	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
 	// An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
 	Weekdays pulumi.IntArrayInput `pulumi:"weekdays"`
@@ -2733,17 +2728,16 @@ func (o RulesetRuleTimeFrameScheduledWeeklyOutput) ToRulesetRuleTimeFrameSchedul
 	return o
 }
 
-// Length of time the schedule will be active.  Unix timestamp in milliseconds.
+// Length of time the schedule will be active in milliseconds. For example `duration = 2 * 60 * 60 * 1000` if you want your rule to apply for 2 hours, from the specified `startTime`.
 func (o RulesetRuleTimeFrameScheduledWeeklyOutput) Duration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RulesetRuleTimeFrameScheduledWeekly) *int { return v.Duration }).(pulumi.IntPtrOutput)
 }
 
-// Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `startTime` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `startTime` was `3,600,000` the it would be active starting at `01:00`.
 func (o RulesetRuleTimeFrameScheduledWeeklyOutput) StartTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RulesetRuleTimeFrameScheduledWeekly) *int { return v.StartTime }).(pulumi.IntPtrOutput)
 }
 
-// Timezone for the given schedule.
+// [The name of the timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for the given schedule, which will be used to determine UTC offset including adjustment for daylight saving time. For example: `timezone = "America/Toronto"`
 func (o RulesetRuleTimeFrameScheduledWeeklyOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RulesetRuleTimeFrameScheduledWeekly) *string { return v.Timezone }).(pulumi.StringPtrOutput)
 }
@@ -3126,7 +3120,7 @@ type ScheduleLayer struct {
 	RotationTurnLengthSeconds int `pulumi:"rotationTurnLengthSeconds"`
 	// The effective start time of the schedule layer. This can be before the start time of the schedule.
 	RotationVirtualStart string `pulumi:"rotationVirtualStart"`
-	// The start time of the schedule layer. This value will not be read back from the PagerDuty API because the API will always return a new `start` time, which represents the last updated time of the schedule layer.
+	// The start time of the schedule layer.
 	Start string `pulumi:"start"`
 	// The ordered list of users on this layer. The position of the user on the list determines their order in the layer.
 	Users []string `pulumi:"users"`
@@ -3156,7 +3150,7 @@ type ScheduleLayerArgs struct {
 	RotationTurnLengthSeconds pulumi.IntInput `pulumi:"rotationTurnLengthSeconds"`
 	// The effective start time of the schedule layer. This can be before the start time of the schedule.
 	RotationVirtualStart pulumi.StringInput `pulumi:"rotationVirtualStart"`
-	// The start time of the schedule layer. This value will not be read back from the PagerDuty API because the API will always return a new `start` time, which represents the last updated time of the schedule layer.
+	// The start time of the schedule layer.
 	Start pulumi.StringInput `pulumi:"start"`
 	// The ordered list of users on this layer. The position of the user on the list determines their order in the layer.
 	Users pulumi.StringArrayInput `pulumi:"users"`
@@ -3243,7 +3237,7 @@ func (o ScheduleLayerOutput) RotationVirtualStart() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleLayer) string { return v.RotationVirtualStart }).(pulumi.StringOutput)
 }
 
-// The start time of the schedule layer. This value will not be read back from the PagerDuty API because the API will always return a new `start` time, which represents the last updated time of the schedule layer.
+// The start time of the schedule layer.
 func (o ScheduleLayerOutput) Start() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleLayer) string { return v.Start }).(pulumi.StringOutput)
 }
@@ -4479,7 +4473,7 @@ func (o ServiceEventRuleActionsSeverityArrayOutput) Index(i pulumi.IntInput) Ser
 type ServiceEventRuleActionsSuppress struct {
 	// The number value of the `thresholdTimeUnit` before an incident is created.
 	ThresholdTimeAmount *int `pulumi:"thresholdTimeAmount"`
-	// The `minutes`,`hours`, or `days` that the `thresholdTimeAmount` should be measured.
+	// The `seconds`,`minutes`, or `hours` the `thresholdTimeAmount` should be measured.
 	ThresholdTimeUnit *string `pulumi:"thresholdTimeUnit"`
 	// The number of alerts that should be suppressed.
 	ThresholdValue *int `pulumi:"thresholdValue"`
@@ -4501,7 +4495,7 @@ type ServiceEventRuleActionsSuppressInput interface {
 type ServiceEventRuleActionsSuppressArgs struct {
 	// The number value of the `thresholdTimeUnit` before an incident is created.
 	ThresholdTimeAmount pulumi.IntPtrInput `pulumi:"thresholdTimeAmount"`
-	// The `minutes`,`hours`, or `days` that the `thresholdTimeAmount` should be measured.
+	// The `seconds`,`minutes`, or `hours` the `thresholdTimeAmount` should be measured.
 	ThresholdTimeUnit pulumi.StringPtrInput `pulumi:"thresholdTimeUnit"`
 	// The number of alerts that should be suppressed.
 	ThresholdValue pulumi.IntPtrInput `pulumi:"thresholdValue"`
@@ -4565,7 +4559,7 @@ func (o ServiceEventRuleActionsSuppressOutput) ThresholdTimeAmount() pulumi.IntP
 	return o.ApplyT(func(v ServiceEventRuleActionsSuppress) *int { return v.ThresholdTimeAmount }).(pulumi.IntPtrOutput)
 }
 
-// The `minutes`,`hours`, or `days` that the `thresholdTimeAmount` should be measured.
+// The `seconds`,`minutes`, or `hours` the `thresholdTimeAmount` should be measured.
 func (o ServiceEventRuleActionsSuppressOutput) ThresholdTimeUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceEventRuleActionsSuppress) *string { return v.ThresholdTimeUnit }).(pulumi.StringPtrOutput)
 }

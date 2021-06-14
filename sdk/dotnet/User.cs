@@ -88,7 +88,11 @@ namespace Pulumi.Pagerduty
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The user role. Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.  Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.
+        /// The user role. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.  
+        /// Notes:
+        /// * Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.
+        /// * With advanced permissions, users can have both a user role (base role) and a team role. The team role can configured in the `pagerduty.TeamMembership` resource.
+        /// * Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).
         /// </summary>
         [Output("role")]
         public Output<string?> Role { get; private set; } = null!;
@@ -179,7 +183,11 @@ namespace Pulumi.Pagerduty
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The user role. Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.  Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.
+        /// The user role. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.  
+        /// Notes:
+        /// * Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.
+        /// * With advanced permissions, users can have both a user role (base role) and a team role. The team role can configured in the `pagerduty.TeamMembership` resource.
+        /// * Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
@@ -257,7 +265,11 @@ namespace Pulumi.Pagerduty
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The user role. Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.  Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.
+        /// The user role. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.  
+        /// Notes:
+        /// * Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.
+        /// * With advanced permissions, users can have both a user role (base role) and a team role. The team role can configured in the `pagerduty.TeamMembership` resource.
+        /// * Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }

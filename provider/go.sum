@@ -504,6 +504,8 @@ github.com/hashicorp/yamux v0.0.0-20181012175058-2f1d1f20f75d h1:kJCB4vdITiW1eC1
 github.com/hashicorp/yamux v0.0.0-20181012175058-2f1d1f20f75d/go.mod h1:+NfK9FKeTrX5uv1uIXGdwYDTeHna2qgaIlx54MXqjAM=
 github.com/heimweh/go-pagerduty v0.0.0-20210401200608-e772e426d1d0 h1:fF/STDApEmPMx5pxXOrliPnWim3K1w0f9Ma06OqrKeI=
 github.com/heimweh/go-pagerduty v0.0.0-20210401200608-e772e426d1d0/go.mod h1:6+bccpjQ/PM8uQY9m8avM4MJea+3vo3ta9r8kGQ4XFY=
+github.com/heimweh/go-pagerduty v0.0.0-20210412205347-cc0e5d3c14d4 h1:uyHgKwTluKHt2ctmyZfdVxECwSqYflYDo+RwyZZEdR0=
+github.com/heimweh/go-pagerduty v0.0.0-20210412205347-cc0e5d3c14d4/go.mod h1:6+bccpjQ/PM8uQY9m8avM4MJea+3vo3ta9r8kGQ4XFY=
 github.com/hinshun/vt10x v0.0.0-20180616224451-1954e6464174 h1:WlZsjVhE8Af9IcZDGgJGQpNflI3+MJSBhsgT5PCtzBQ=
 github.com/hinshun/vt10x v0.0.0-20180616224451-1954e6464174/go.mod h1:DqJ97dSdRW1W22yXSB90986pcOyQ7r45iio1KN2ez1A=
 github.com/hpcloud/tail v1.0.0 h1:nfCOvKYfkgYP8hkirhJocXT2+zOD8yUNjXaWfTlyFKI=
@@ -707,6 +709,8 @@ github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e h1:Di
 github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e/go.mod h1:sZ9FUzGO+yM41hsQHs/yIcj/Y993qMdBxBU5mpDmAfQ=
 github.com/pulumi/terraform-provider-pagerduty v1.9.6-0.20210409090701-255591deceb9 h1:xLMEmHtYMQAxE+v6ky+nL8QKc16H7LmcIgjwHGcEf5Y=
 github.com/pulumi/terraform-provider-pagerduty v1.9.6-0.20210409090701-255591deceb9/go.mod h1:AtgGo3weZSvy02DPgWotVlgqHzpFaFJR44R/2v04azc=
+github.com/pulumi/terraform-provider-pagerduty v1.9.6-0.20210609155524-d7766c8b445b h1:boDyPaCAMkxC1nP4+8/VB+8g42sGkzY8RXL/468FsZg=
+github.com/pulumi/terraform-provider-pagerduty v1.9.6-0.20210609155524-d7766c8b445b/go.mod h1:Iv5gQQj6tzsj/1pC/ETiNqvY4esWapzK8hceUjfT8XY=
 github.com/rjeczalik/notify v0.9.2 h1:MiTWrPj55mNDHEiIX5YUSKefw/+lCQVoAFmD6oQm5w8=
 github.com/rjeczalik/notify v0.9.2/go.mod h1:aErll2f0sUX9PXZnVNyeiObbmTlk5jnMoCa4QEjJeqM=
 github.com/rogpeppe/fastuuid v0.0.0-20150106093220-6724a57986af h1:gu+uRPtBe88sKxUCEXRoeCvVG90TJmwhiqRpvdhQFng=

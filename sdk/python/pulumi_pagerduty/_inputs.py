@@ -842,7 +842,7 @@ class RulesetRuleActionsSuppressArgs:
                  value: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[int] threshold_time_amount: The number value of the `threshold_time_unit` before an incident is created. Must be greater than 0.
-        :param pulumi.Input[str] threshold_time_unit: The `minutes`,`hours`, or `days` that the `threshold_time_amount` should be measured.
+        :param pulumi.Input[str] threshold_time_unit: The `seconds`,`minutes`, or `hours` the `threshold_time_amount` should be measured.
         :param pulumi.Input[int] threshold_value: The number of alerts that should be suppressed. Must be greater than 0.
         :param pulumi.Input[bool] value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
         """
@@ -871,7 +871,7 @@ class RulesetRuleActionsSuppressArgs:
     @pulumi.getter(name="thresholdTimeUnit")
     def threshold_time_unit(self) -> Optional[pulumi.Input[str]]:
         """
-        The `minutes`,`hours`, or `days` that the `threshold_time_amount` should be measured.
+        The `seconds`,`minutes`, or `hours` the `threshold_time_amount` should be measured.
         """
         return pulumi.get(self, "threshold_time_unit")
 
@@ -1086,7 +1086,6 @@ class RulesetRuleTimeFrameActiveBetweenArgs:
                  start_time: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] end_time: Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
-        :param pulumi.Input[int] start_time: Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `start_time` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `start_time` was `3,600,000` the it would be active starting at `01:00`.
         """
         if end_time is not None:
             pulumi.set(__self__, "end_time", end_time)
@@ -1108,9 +1107,6 @@ class RulesetRuleTimeFrameActiveBetweenArgs:
     @property
     @pulumi.getter(name="startTime")
     def start_time(self) -> Optional[pulumi.Input[int]]:
-        """
-        Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `start_time` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `start_time` was `3,600,000` the it would be active starting at `01:00`.
-        """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
@@ -1126,9 +1122,8 @@ class RulesetRuleTimeFrameScheduledWeeklyArgs:
                  timezone: Optional[pulumi.Input[str]] = None,
                  weekdays: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
         """
-        :param pulumi.Input[int] duration: Length of time the schedule will be active.  Unix timestamp in milliseconds.
-        :param pulumi.Input[int] start_time: Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `start_time` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `start_time` was `3,600,000` the it would be active starting at `01:00`.
-        :param pulumi.Input[str] timezone: Timezone for the given schedule.
+        :param pulumi.Input[int] duration: Length of time the schedule will be active in milliseconds. For example `duration = 2 * 60 * 60 * 1000` if you want your rule to apply for 2 hours, from the specified `start_time`.
+        :param pulumi.Input[str] timezone: [The name of the timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for the given schedule, which will be used to determine UTC offset including adjustment for daylight saving time. For example: `timezone = "America/Toronto"`
         :param pulumi.Input[Sequence[pulumi.Input[int]]] weekdays: An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
         """
         if duration is not None:
@@ -1144,7 +1139,7 @@ class RulesetRuleTimeFrameScheduledWeeklyArgs:
     @pulumi.getter
     def duration(self) -> Optional[pulumi.Input[int]]:
         """
-        Length of time the schedule will be active.  Unix timestamp in milliseconds.
+        Length of time the schedule will be active in milliseconds. For example `duration = 2 * 60 * 60 * 1000` if you want your rule to apply for 2 hours, from the specified `start_time`.
         """
         return pulumi.get(self, "duration")
 
@@ -1155,9 +1150,6 @@ class RulesetRuleTimeFrameScheduledWeeklyArgs:
     @property
     @pulumi.getter(name="startTime")
     def start_time(self) -> Optional[pulumi.Input[int]]:
-        """
-        Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `start_time` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `start_time` was `3,600,000` the it would be active starting at `01:00`.
-        """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
@@ -1168,7 +1160,7 @@ class RulesetRuleTimeFrameScheduledWeeklyArgs:
     @pulumi.getter
     def timezone(self) -> Optional[pulumi.Input[str]]:
         """
-        Timezone for the given schedule.
+        [The name of the timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for the given schedule, which will be used to determine UTC offset including adjustment for daylight saving time. For example: `timezone = "America/Toronto"`
         """
         return pulumi.get(self, "timezone")
 
@@ -1301,7 +1293,7 @@ class ScheduleLayerArgs:
         """
         :param pulumi.Input[int] rotation_turn_length_seconds: The duration of each on-call shift in `seconds`.
         :param pulumi.Input[str] rotation_virtual_start: The effective start time of the schedule layer. This can be before the start time of the schedule.
-        :param pulumi.Input[str] start: The start time of the schedule layer. This value will not be read back from the PagerDuty API because the API will always return a new `start` time, which represents the last updated time of the schedule layer.
+        :param pulumi.Input[str] start: The start time of the schedule layer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users: The ordered list of users on this layer. The position of the user on the list determines their order in the layer.
         :param pulumi.Input[str] end: The end time of the schedule layer. If not specified, the layer does not end.
         :param pulumi.Input[str] id: The ID of the schedule
@@ -1349,7 +1341,7 @@ class ScheduleLayerArgs:
     @pulumi.getter
     def start(self) -> pulumi.Input[str]:
         """
-        The start time of the schedule layer. This value will not be read back from the PagerDuty API because the API will always return a new `start` time, which represents the last updated time of the schedule layer.
+        The start time of the schedule layer.
         """
         return pulumi.get(self, "start")
 
@@ -1892,7 +1884,7 @@ class ServiceEventRuleActionsSuppressArgs:
                  value: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[int] threshold_time_amount: The number value of the `threshold_time_unit` before an incident is created.
-        :param pulumi.Input[str] threshold_time_unit: The `minutes`,`hours`, or `days` that the `threshold_time_amount` should be measured.
+        :param pulumi.Input[str] threshold_time_unit: The `seconds`,`minutes`, or `hours` the `threshold_time_amount` should be measured.
         :param pulumi.Input[int] threshold_value: The number of alerts that should be suppressed.
         :param pulumi.Input[bool] value: The value for the operation. For example, an RE2 regular expression for regex-type variables.
         """
@@ -1921,7 +1913,7 @@ class ServiceEventRuleActionsSuppressArgs:
     @pulumi.getter(name="thresholdTimeUnit")
     def threshold_time_unit(self) -> Optional[pulumi.Input[str]]:
         """
-        The `minutes`,`hours`, or `days` that the `threshold_time_amount` should be measured.
+        The `seconds`,`minutes`, or `hours` the `threshold_time_amount` should be measured.
         """
         return pulumi.get(self, "threshold_time_unit")
 

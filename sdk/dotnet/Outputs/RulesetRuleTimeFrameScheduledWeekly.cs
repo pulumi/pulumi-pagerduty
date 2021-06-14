@@ -14,15 +14,12 @@ namespace Pulumi.Pagerduty.Outputs
     public sealed class RulesetRuleTimeFrameScheduledWeekly
     {
         /// <summary>
-        /// Length of time the schedule will be active.  Unix timestamp in milliseconds.
+        /// Length of time the schedule will be active in milliseconds. For example `duration = 2 * 60 * 60 * 1000` if you want your rule to apply for 2 hours, from the specified `start_time`.
         /// </summary>
         public readonly int? Duration;
-        /// <summary>
-        /// Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `start_time` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `start_time` was `3,600,000` the it would be active starting at `01:00`.
-        /// </summary>
         public readonly int? StartTime;
         /// <summary>
-        /// Timezone for the given schedule.
+        /// [The name of the timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for the given schedule, which will be used to determine UTC offset including adjustment for daylight saving time. For example: `timezone = "America/Toronto"`
         /// </summary>
         public readonly string? Timezone;
         /// <summary>

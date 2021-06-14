@@ -4,7 +4,6 @@
 package examples
 
 import (
-	"path"
 	"path/filepath"
 	"testing"
 
@@ -14,7 +13,7 @@ import (
 func TestAccAddonPython(t *testing.T) {
 	test := getPythonBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "addons", "python"),
+			Dir: filepath.Join(getCwd(t), "addons", "python"),
 		})
 
 	integration.ProgramTest(t, &test)

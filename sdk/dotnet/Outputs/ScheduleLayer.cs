@@ -38,7 +38,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly string RotationVirtualStart;
         /// <summary>
-        /// The start time of the schedule layer. This value will not be read back from the PagerDuty API because the API will always return a new `start` time, which represents the last updated time of the schedule layer.
+        /// The start time of the schedule layer.
         /// </summary>
         public readonly string Start;
         /// <summary>

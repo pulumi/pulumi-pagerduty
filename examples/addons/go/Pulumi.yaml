@@ -1,0 +1,3 @@
+name: addon-go
+runtime: go
+description: A minimal Go Pulumi program to create a Pagerduty addon

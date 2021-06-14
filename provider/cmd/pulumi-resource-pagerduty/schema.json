@@ -597,7 +597,7 @@
                 },
                 "thresholdTimeUnit": {
                     "type": "string",
-                    "description": "The `minutes`,`hours`, or `days` that the `threshold_time_amount` should be measured.\n",
+                    "description": "The `seconds`,`minutes`, or `hours` the `threshold_time_amount` should be measured.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -755,7 +755,6 @@
                 },
                 "startTime": {
                     "type": "integer",
-                    "description": "Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `start_time` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `start_time` was `3,600,000` the it would be active starting at `01:00`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -769,7 +768,7 @@
             "properties": {
                 "duration": {
                     "type": "integer",
-                    "description": "Length of time the schedule will be active.  Unix timestamp in milliseconds.\n",
+                    "description": "Length of time the schedule will be active in milliseconds. For example `duration = 2 * 60 * 60 * 1000` if you want your rule to apply for 2 hours, from the specified `start_time`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -778,7 +777,6 @@
                 },
                 "startTime": {
                     "type": "integer",
-                    "description": "Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `start_time` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `start_time` was `3,600,000` the it would be active starting at `01:00`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -787,7 +785,7 @@
                 },
                 "timezone": {
                     "type": "string",
-                    "description": "Timezone for the given schedule.\n",
+                    "description": "[The name of the timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for the given schedule, which will be used to determine UTC offset including adjustment for daylight saving time. For example: `timezone = \"America/Toronto\"`\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -941,7 +939,7 @@
                 },
                 "start": {
                     "type": "string",
-                    "description": "The start time of the schedule layer. This value will not be read back from the PagerDuty API because the API will always return a new `start` time, which represents the last updated time of the schedule layer.\n",
+                    "description": "The start time of the schedule layer.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1319,7 +1317,7 @@
                 },
                 "thresholdTimeUnit": {
                     "type": "string",
-                    "description": "The `minutes`,`hours`, or `days` that the `threshold_time_amount` should be measured.\n",
+                    "description": "The `seconds`,`minutes`, or `hours` the `threshold_time_amount` should be measured.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2574,7 +2572,7 @@
             }
         },
         "pagerduty:index/rulesetRule:RulesetRule": {
-            "description": "An [event rule](https://support.pagerduty.com/docs/rulesets#section-create-event-rules) allows you to set actions that should be taken on events that meet your designated rule criteria.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst fooTeam = new pagerduty.Team(\"fooTeam\", {});\nconst fooRuleset = new pagerduty.Ruleset(\"fooRuleset\", {team: {\n    id: fooTeam.id,\n}});\nconst fooRulesetRule = new pagerduty.RulesetRule(\"fooRulesetRule\", {\n    ruleset: fooRuleset.id,\n    position: 0,\n    disabled: \"false\",\n    timeFrame: {\n        scheduledWeeklies: [{\n            weekdays: [\n                3,\n                7,\n            ],\n            timezone: \"America/Los_Angeles\",\n            startTime: \"1000000\",\n            duration: \"3600000\",\n        }],\n    },\n    conditions: {\n        operator: \"and\",\n        subconditions: [\n            {\n                operator: \"contains\",\n                parameters: [{\n                    value: \"disk space\",\n                    path: \"payload.summary\",\n                }],\n            },\n            {\n                operator: \"contains\",\n                parameters: [{\n                    value: \"db\",\n                    path: \"payload.source\",\n                }],\n            },\n        ],\n    },\n    variables: [{\n        type: \"regex\",\n        name: \"Src\",\n        parameters: [{\n            value: \"(.*)\",\n            path: \"payload.source\",\n        }],\n    }],\n    actions: {\n        routes: [{\n            value: \"P5DTL0K\",\n        }],\n        severities: [{\n            value: \"warning\",\n        }],\n        annotates: [{\n            value: \"From Terraform\",\n        }],\n        extractions: [\n            {\n                target: \"dedup_key\",\n                source: \"details.host\",\n                regex: \"(.*)\",\n            },\n            {\n                target: \"summary\",\n                template: \"Warning: Disk Space Low on {{Src}}\",\n            },\n        ],\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nfoo_team = pagerduty.Team(\"fooTeam\")\nfoo_ruleset = pagerduty.Ruleset(\"fooRuleset\", team=pagerduty.RulesetTeamArgs(\n    id=foo_team.id,\n))\nfoo_ruleset_rule = pagerduty.RulesetRule(\"fooRulesetRule\",\n    ruleset=foo_ruleset.id,\n    position=0,\n    disabled=False,\n    time_frame=pagerduty.RulesetRuleTimeFrameArgs(\n        scheduled_weeklies=[pagerduty.RulesetRuleTimeFrameScheduledWeeklyArgs(\n            weekdays=[\n                3,\n                7,\n            ],\n            timezone=\"America/Los_Angeles\",\n            start_time=\"1000000\",\n            duration=3600000,\n        )],\n    ),\n    conditions=pagerduty.RulesetRuleConditionsArgs(\n        operator=\"and\",\n        subconditions=[\n            pagerduty.RulesetRuleConditionsSubconditionArgs(\n                operator=\"contains\",\n                parameters=[pagerduty.RulesetRuleConditionsSubconditionParameterArgs(\n                    value=\"disk space\",\n                    path=\"payload.summary\",\n                )],\n            ),\n            pagerduty.RulesetRuleConditionsSubconditionArgs(\n                operator=\"contains\",\n                parameters=[pagerduty.RulesetRuleConditionsSubconditionParameterArgs(\n                    value=\"db\",\n                    path=\"payload.source\",\n                )],\n            ),\n        ],\n    ),\n    variables=[pagerduty.RulesetRuleVariableArgs(\n        type=\"regex\",\n        name=\"Src\",\n        parameters=[pagerduty.RulesetRuleVariableParameterArgs(\n            value=\"(.*)\",\n            path=\"payload.source\",\n        )],\n    )],\n    actions=pagerduty.RulesetRuleActionsArgs(\n        routes=[pagerduty.RulesetRuleActionsRouteArgs(\n            value=\"P5DTL0K\",\n        )],\n        severities=[pagerduty.RulesetRuleActionsSeverityArgs(\n            value=\"warning\",\n        )],\n        annotates=[pagerduty.RulesetRuleActionsAnnotateArgs(\n            value=\"From Terraform\",\n        )],\n        extractions=[\n            pagerduty.RulesetRuleActionsExtractionArgs(\n                target=\"dedup_key\",\n                source=\"details.host\",\n                regex=\"(.*)\",\n            ),\n            pagerduty.RulesetRuleActionsExtractionArgs(\n                target=\"summary\",\n                template=\"Warning: Disk Space Low on {{Src}}\",\n            ),\n        ],\n    ))\n```\n```csharp\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var fooTeam = new Pagerduty.Team(\"fooTeam\", new Pagerduty.TeamArgs\n        {\n        });\n        var fooRuleset = new Pagerduty.Ruleset(\"fooRuleset\", new Pagerduty.RulesetArgs\n        {\n            Team = new Pagerduty.Inputs.RulesetTeamArgs\n            {\n                Id = fooTeam.Id,\n            },\n        });\n        var fooRulesetRule = new Pagerduty.RulesetRule(\"fooRulesetRule\", new Pagerduty.RulesetRuleArgs\n        {\n            Ruleset = fooRuleset.Id,\n            Position = 0,\n            Disabled = false,\n            TimeFrame = new Pagerduty.Inputs.RulesetRuleTimeFrameArgs\n            {\n                ScheduledWeeklies = \n                {\n                    new Pagerduty.Inputs.RulesetRuleTimeFrameScheduledWeeklyArgs\n                    {\n                        Weekdays = \n                        {\n                            3,\n                            7,\n                        },\n                        Timezone = \"America/Los_Angeles\",\n                        StartTime = 1000000,\n                        Duration = 3600000,\n                    },\n                },\n            },\n            Conditions = new Pagerduty.Inputs.RulesetRuleConditionsArgs\n            {\n                Operator = \"and\",\n                Subconditions = \n                {\n                    new Pagerduty.Inputs.RulesetRuleConditionsSubconditionArgs\n                    {\n                        Operator = \"contains\",\n                        Parameters = \n                        {\n                            new Pagerduty.Inputs.RulesetRuleConditionsSubconditionParameterArgs\n                            {\n                                Value = \"disk space\",\n                                Path = \"payload.summary\",\n                            },\n                        },\n                    },\n                    new Pagerduty.Inputs.RulesetRuleConditionsSubconditionArgs\n                    {\n                        Operator = \"contains\",\n                        Parameters = \n                        {\n                            new Pagerduty.Inputs.RulesetRuleConditionsSubconditionParameterArgs\n                            {\n                                Value = \"db\",\n                                Path = \"payload.source\",\n                            },\n                        },\n                    },\n                },\n            },\n            Variables = \n            {\n                new Pagerduty.Inputs.RulesetRuleVariableArgs\n                {\n                    Type = \"regex\",\n                    Name = \"Src\",\n                    Parameters = \n                    {\n                        new Pagerduty.Inputs.RulesetRuleVariableParameterArgs\n                        {\n                            Value = \"(.*)\",\n                            Path = \"payload.source\",\n                        },\n                    },\n                },\n            },\n            Actions = new Pagerduty.Inputs.RulesetRuleActionsArgs\n            {\n                Routes = \n                {\n                    new Pagerduty.Inputs.RulesetRuleActionsRouteArgs\n                    {\n                        Value = \"P5DTL0K\",\n                    },\n                },\n                Severities = \n                {\n                    new Pagerduty.Inputs.RulesetRuleActionsSeverityArgs\n                    {\n                        Value = \"warning\",\n                    },\n                },\n                Annotates = \n                {\n                    new Pagerduty.Inputs.RulesetRuleActionsAnnotateArgs\n                    {\n                        Value = \"From Terraform\",\n                    },\n                },\n                Extractions = \n                {\n                    new Pagerduty.Inputs.RulesetRuleActionsExtractionArgs\n                    {\n                        Target = \"dedup_key\",\n                        Source = \"details.host\",\n                        Regex = \"(.*)\",\n                    },\n                    new Pagerduty.Inputs.RulesetRuleActionsExtractionArgs\n                    {\n                        Target = \"summary\",\n                        Template = \"Warning: Disk Space Low on {{Src}}\",\n                    },\n                },\n            },\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nRuleset rules can be imported using using the related `ruleset` id and the `ruleset_rule` id separated by a dot, e.g.\n\n```sh\n $ pulumi import pagerduty:index/rulesetRule:RulesetRule main a19cdca1-3d5e-4b52-bfea-8c8de04da243.19acac92-027a-4ea0-b06c-bbf516519601\n```\n\n ",
+            "description": "An [event rule](https://support.pagerduty.com/docs/rulesets#section-create-event-rules) allows you to set actions that should be taken on events that meet your designated rule criteria.\n\n\n## Import\n\nRuleset rules can be imported using using the related `ruleset` id and the `ruleset_rule` id separated by a dot, e.g.\n\n```sh\n $ pulumi import pagerduty:index/rulesetRule:RulesetRule main a19cdca1-3d5e-4b52-bfea-8c8de04da243.19acac92-027a-4ea0-b06c-bbf516519601\n```\n\n ",
             "properties": {
                 "actions": {
                     "$ref": "#/types/pagerduty:index/RulesetRuleActions:RulesetRuleActions",
@@ -3220,7 +3218,7 @@
             }
         },
         "pagerduty:index/team:Team": {
-            "description": "A [team](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Teams/get_teams) is a collection of users and escalation policies that represent a group of people within an organization.\n\nThe account must have the `teams` ability to use the following resource.\n\n\n## Import\n\nTeams can be imported using the `id`, e.g.\n\n```sh\n $ pulumi import pagerduty:index/team:Team main PLBP09X\n```\n\n ",
+            "description": "A [team](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Teams/get_teams) is a collection of users and escalation policies that represent a group of people within an organization.\n\nThe account must have the `teams` ability to use the following resource.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst parent = new pagerduty.Team(\"parent\", {description: \"Product and Engineering\"});\nconst example = new pagerduty.Team(\"example\", {\n    description: \"All engineering\",\n    parent: pagerduty.team.id,\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nparent = pagerduty.Team(\"parent\", description=\"Product and Engineering\")\nexample = pagerduty.Team(\"example\",\n    description=\"All engineering\",\n    parent=pagerduty[\"team\"][\"id\"])\n```\n```csharp\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var parent = new Pagerduty.Team(\"parent\", new Pagerduty.TeamArgs\n        {\n            Description = \"Product and Engineering\",\n        });\n        var example = new Pagerduty.Team(\"example\", new Pagerduty.TeamArgs\n        {\n            Description = \"All engineering\",\n            Parent = pagerduty.Team.Id,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v2/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := pagerduty.NewTeam(ctx, \"parent\", \u0026pagerduty.TeamArgs{\n\t\t\tDescription: pulumi.String(\"Product and Engineering\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewTeam(ctx, \"example\", \u0026pagerduty.TeamArgs{\n\t\t\tDescription: pulumi.String(\"All engineering\"),\n\t\t\tParent:      pulumi.Any(pagerduty.Team.Id),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nTeams can be imported using the `id`, e.g.\n\n```sh\n $ pulumi import pagerduty:index/team:Team main PLBP09X\n```\n\n ",
             "properties": {
                 "description": {
                     "type": "string",
@@ -3286,7 +3284,7 @@
             "properties": {
                 "role": {
                     "type": "string",
-                    "description": "The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`. These roles match up to user roles in the following ways:\n* User role of `user` is a Team role of `manager`\n* User role of `limited_user` is a Team role of `responder`\n"
+                    "description": "The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  \nThese roles match up to user roles in the following ways:\n* User role of `user` is a Team role of `manager`\n* User role of `limited_user` is a Team role of `responder`\n"
                 },
                 "teamId": {
                     "type": "string",
@@ -3304,7 +3302,7 @@
             "inputProperties": {
                 "role": {
                     "type": "string",
-                    "description": "The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`. These roles match up to user roles in the following ways:\n* User role of `user` is a Team role of `manager`\n* User role of `limited_user` is a Team role of `responder`\n"
+                    "description": "The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  \nThese roles match up to user roles in the following ways:\n* User role of `user` is a Team role of `manager`\n* User role of `limited_user` is a Team role of `responder`\n"
                 },
                 "teamId": {
                     "type": "string",
@@ -3324,7 +3322,7 @@
                 "properties": {
                     "role": {
                         "type": "string",
-                        "description": "The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`. These roles match up to user roles in the following ways:\n* User role of `user` is a Team role of `manager`\n* User role of `limited_user` is a Team role of `responder`\n"
+                        "description": "The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  \nThese roles match up to user roles in the following ways:\n* User role of `user` is a Team role of `manager`\n* User role of `limited_user` is a Team role of `responder`\n"
                     },
                     "teamId": {
                         "type": "string",
@@ -3375,7 +3373,7 @@
                 },
                 "role": {
                     "type": "string",
-                    "description": "The user role. Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.  Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.\n"
+                    "description": "The user role. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.  \nNotes:\n* Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.\n* With advanced permissions, users can have both a user role (base role) and a team role. The team role can configured in the `pagerduty.TeamMembership` resource.\n* Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).\n"
                 },
                 "teams": {
                     "type": "array",
@@ -3424,7 +3422,7 @@
                 },
                 "role": {
                     "type": "string",
-                    "description": "The user role. Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.  Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.\n"
+                    "description": "The user role. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.  \nNotes:\n* Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.\n* With advanced permissions, users can have both a user role (base role) and a team role. The team role can configured in the `pagerduty.TeamMembership` resource.\n* Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).\n"
                 },
                 "teams": {
                     "type": "array",
@@ -3479,7 +3477,7 @@
                     },
                     "role": {
                         "type": "string",
-                        "description": "The user role. Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.  Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.\n"
+                        "description": "The user role. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.  \nNotes:\n* Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.\n* With advanced permissions, users can have both a user role (base role) and a team role. The team role can configured in the `pagerduty.TeamMembership` resource.\n* Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).\n"
                     },
                     "teams": {
                         "type": "array",
@@ -4126,7 +4124,7 @@
             "compatibility": "tfbridge20",
             "namespaces": null,
             "packageReferences": {
-                "Pulumi": "3.*-*",
+                "Pulumi": "3.*",
                 "System.Collections.Immutable": "1.6.0"
             }
         },
@@ -4137,7 +4135,7 @@
         "nodejs": {
             "compatibility": "tfbridge20",
             "dependencies": {
-                "@pulumi/pulumi": "^3.0.0-alpha.0"
+                "@pulumi/pulumi": "^3.0.0"
             },
             "devDependencies": {
                 "@types/mime": "^2.0.0",
@@ -4153,7 +4151,7 @@
             "compatibility": "tfbridge20",
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/PagerDuty/terraform-provider-pagerduty)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-pagerduty` repo](https://github.com/pulumi/pulumi-pagerduty/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`PagerDuty/terraform-provider-pagerduty` repo](https://github.com/PagerDuty/terraform-provider-pagerduty/issues).",
             "requires": {
-                "pulumi": "\u003e=3.0.0a1,\u003c4.0.0"
+                "pulumi": "\u003e=3.0.0,\u003c4.0.0"
             }
         }
     }

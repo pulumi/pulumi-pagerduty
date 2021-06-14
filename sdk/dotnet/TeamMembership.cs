@@ -53,7 +53,8 @@ namespace Pulumi.Pagerduty
     public partial class TeamMembership : Pulumi.CustomResource
     {
         /// <summary>
-        /// The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`. These roles match up to user roles in the following ways:
+        /// The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  
+        /// These roles match up to user roles in the following ways:
         /// * User role of `user` is a Team role of `manager`
         /// * User role of `limited_user` is a Team role of `responder`
         /// </summary>
@@ -119,7 +120,8 @@ namespace Pulumi.Pagerduty
     public sealed class TeamMembershipArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`. These roles match up to user roles in the following ways:
+        /// The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  
+        /// These roles match up to user roles in the following ways:
         /// * User role of `user` is a Team role of `manager`
         /// * User role of `limited_user` is a Team role of `responder`
         /// </summary>
@@ -146,7 +148,8 @@ namespace Pulumi.Pagerduty
     public sealed class TeamMembershipState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`. These roles match up to user roles in the following ways:
+        /// The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  
+        /// These roles match up to user roles in the following ways:
         /// * User role of `user` is a Team role of `manager`
         /// * User role of `limited_user` is a Team role of `responder`
         /// </summary>

@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v1.9.7 of the PagerDuty Terraform Provider
+_(none)_
 
 ---
+
+## 2.0.1 (2021-06-14)
+* Upgrade to v1.9.7 of the PagerDuty Terraform Provider
 
 ## 2.0.0 (2021-04-19)
 * Depend on Pulumi 3.0, which includes improvements to Python resource arguments and key translation, Go SDK performance,

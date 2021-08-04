@@ -3391,6 +3391,325 @@ func (o ScheduleLayerRestrictionArrayOutput) Index(i pulumi.IntInput) ScheduleLa
 	}).(ScheduleLayerRestrictionOutput)
 }
 
+type ServiceAlertGroupingParameters struct {
+	// Alert grouping parameters dependant on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
+	Config *ServiceAlertGroupingParametersConfig `pulumi:"config"`
+	// The type of scheduled action. Currently, this must be set to `urgencyChange`.
+	Type *string `pulumi:"type"`
+}
+
+// ServiceAlertGroupingParametersInput is an input type that accepts ServiceAlertGroupingParametersArgs and ServiceAlertGroupingParametersOutput values.
+// You can construct a concrete instance of `ServiceAlertGroupingParametersInput` via:
+//
+//          ServiceAlertGroupingParametersArgs{...}
+type ServiceAlertGroupingParametersInput interface {
+	pulumi.Input
+
+	ToServiceAlertGroupingParametersOutput() ServiceAlertGroupingParametersOutput
+	ToServiceAlertGroupingParametersOutputWithContext(context.Context) ServiceAlertGroupingParametersOutput
+}
+
+type ServiceAlertGroupingParametersArgs struct {
+	// Alert grouping parameters dependant on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
+	Config ServiceAlertGroupingParametersConfigPtrInput `pulumi:"config"`
+	// The type of scheduled action. Currently, this must be set to `urgencyChange`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ServiceAlertGroupingParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceAlertGroupingParameters)(nil)).Elem()
+}
+
+func (i ServiceAlertGroupingParametersArgs) ToServiceAlertGroupingParametersOutput() ServiceAlertGroupingParametersOutput {
+	return i.ToServiceAlertGroupingParametersOutputWithContext(context.Background())
+}
+
+func (i ServiceAlertGroupingParametersArgs) ToServiceAlertGroupingParametersOutputWithContext(ctx context.Context) ServiceAlertGroupingParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAlertGroupingParametersOutput)
+}
+
+func (i ServiceAlertGroupingParametersArgs) ToServiceAlertGroupingParametersPtrOutput() ServiceAlertGroupingParametersPtrOutput {
+	return i.ToServiceAlertGroupingParametersPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceAlertGroupingParametersArgs) ToServiceAlertGroupingParametersPtrOutputWithContext(ctx context.Context) ServiceAlertGroupingParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAlertGroupingParametersOutput).ToServiceAlertGroupingParametersPtrOutputWithContext(ctx)
+}
+
+// ServiceAlertGroupingParametersPtrInput is an input type that accepts ServiceAlertGroupingParametersArgs, ServiceAlertGroupingParametersPtr and ServiceAlertGroupingParametersPtrOutput values.
+// You can construct a concrete instance of `ServiceAlertGroupingParametersPtrInput` via:
+//
+//          ServiceAlertGroupingParametersArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceAlertGroupingParametersPtrInput interface {
+	pulumi.Input
+
+	ToServiceAlertGroupingParametersPtrOutput() ServiceAlertGroupingParametersPtrOutput
+	ToServiceAlertGroupingParametersPtrOutputWithContext(context.Context) ServiceAlertGroupingParametersPtrOutput
+}
+
+type serviceAlertGroupingParametersPtrType ServiceAlertGroupingParametersArgs
+
+func ServiceAlertGroupingParametersPtr(v *ServiceAlertGroupingParametersArgs) ServiceAlertGroupingParametersPtrInput {
+	return (*serviceAlertGroupingParametersPtrType)(v)
+}
+
+func (*serviceAlertGroupingParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceAlertGroupingParameters)(nil)).Elem()
+}
+
+func (i *serviceAlertGroupingParametersPtrType) ToServiceAlertGroupingParametersPtrOutput() ServiceAlertGroupingParametersPtrOutput {
+	return i.ToServiceAlertGroupingParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceAlertGroupingParametersPtrType) ToServiceAlertGroupingParametersPtrOutputWithContext(ctx context.Context) ServiceAlertGroupingParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAlertGroupingParametersPtrOutput)
+}
+
+type ServiceAlertGroupingParametersOutput struct{ *pulumi.OutputState }
+
+func (ServiceAlertGroupingParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceAlertGroupingParameters)(nil)).Elem()
+}
+
+func (o ServiceAlertGroupingParametersOutput) ToServiceAlertGroupingParametersOutput() ServiceAlertGroupingParametersOutput {
+	return o
+}
+
+func (o ServiceAlertGroupingParametersOutput) ToServiceAlertGroupingParametersOutputWithContext(ctx context.Context) ServiceAlertGroupingParametersOutput {
+	return o
+}
+
+func (o ServiceAlertGroupingParametersOutput) ToServiceAlertGroupingParametersPtrOutput() ServiceAlertGroupingParametersPtrOutput {
+	return o.ToServiceAlertGroupingParametersPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceAlertGroupingParametersOutput) ToServiceAlertGroupingParametersPtrOutputWithContext(ctx context.Context) ServiceAlertGroupingParametersPtrOutput {
+	return o.ApplyT(func(v ServiceAlertGroupingParameters) *ServiceAlertGroupingParameters {
+		return &v
+	}).(ServiceAlertGroupingParametersPtrOutput)
+}
+
+// Alert grouping parameters dependant on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
+func (o ServiceAlertGroupingParametersOutput) Config() ServiceAlertGroupingParametersConfigPtrOutput {
+	return o.ApplyT(func(v ServiceAlertGroupingParameters) *ServiceAlertGroupingParametersConfig { return v.Config }).(ServiceAlertGroupingParametersConfigPtrOutput)
+}
+
+// The type of scheduled action. Currently, this must be set to `urgencyChange`.
+func (o ServiceAlertGroupingParametersOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceAlertGroupingParameters) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ServiceAlertGroupingParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceAlertGroupingParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceAlertGroupingParameters)(nil)).Elem()
+}
+
+func (o ServiceAlertGroupingParametersPtrOutput) ToServiceAlertGroupingParametersPtrOutput() ServiceAlertGroupingParametersPtrOutput {
+	return o
+}
+
+func (o ServiceAlertGroupingParametersPtrOutput) ToServiceAlertGroupingParametersPtrOutputWithContext(ctx context.Context) ServiceAlertGroupingParametersPtrOutput {
+	return o
+}
+
+func (o ServiceAlertGroupingParametersPtrOutput) Elem() ServiceAlertGroupingParametersOutput {
+	return o.ApplyT(func(v *ServiceAlertGroupingParameters) ServiceAlertGroupingParameters { return *v }).(ServiceAlertGroupingParametersOutput)
+}
+
+// Alert grouping parameters dependant on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
+func (o ServiceAlertGroupingParametersPtrOutput) Config() ServiceAlertGroupingParametersConfigPtrOutput {
+	return o.ApplyT(func(v *ServiceAlertGroupingParameters) *ServiceAlertGroupingParametersConfig {
+		if v == nil {
+			return nil
+		}
+		return v.Config
+	}).(ServiceAlertGroupingParametersConfigPtrOutput)
+}
+
+// The type of scheduled action. Currently, this must be set to `urgencyChange`.
+func (o ServiceAlertGroupingParametersPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceAlertGroupingParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceAlertGroupingParametersConfig struct {
+	// One of `any` or `all`. This setting applies only when `type` is set to `contentBased`. Group alerts based on one or all of `fields` value(s).
+	Aggregate *string `pulumi:"aggregate"`
+	// Alerts will be grouped together if the content of these fields match. This setting applies only when `type` is set to `contentBased`.
+	Fields []string `pulumi:"fields"`
+	// The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
+	Timeout *int `pulumi:"timeout"`
+}
+
+// ServiceAlertGroupingParametersConfigInput is an input type that accepts ServiceAlertGroupingParametersConfigArgs and ServiceAlertGroupingParametersConfigOutput values.
+// You can construct a concrete instance of `ServiceAlertGroupingParametersConfigInput` via:
+//
+//          ServiceAlertGroupingParametersConfigArgs{...}
+type ServiceAlertGroupingParametersConfigInput interface {
+	pulumi.Input
+
+	ToServiceAlertGroupingParametersConfigOutput() ServiceAlertGroupingParametersConfigOutput
+	ToServiceAlertGroupingParametersConfigOutputWithContext(context.Context) ServiceAlertGroupingParametersConfigOutput
+}
+
+type ServiceAlertGroupingParametersConfigArgs struct {
+	// One of `any` or `all`. This setting applies only when `type` is set to `contentBased`. Group alerts based on one or all of `fields` value(s).
+	Aggregate pulumi.StringPtrInput `pulumi:"aggregate"`
+	// Alerts will be grouped together if the content of these fields match. This setting applies only when `type` is set to `contentBased`.
+	Fields pulumi.StringArrayInput `pulumi:"fields"`
+	// The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
+	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
+}
+
+func (ServiceAlertGroupingParametersConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceAlertGroupingParametersConfig)(nil)).Elem()
+}
+
+func (i ServiceAlertGroupingParametersConfigArgs) ToServiceAlertGroupingParametersConfigOutput() ServiceAlertGroupingParametersConfigOutput {
+	return i.ToServiceAlertGroupingParametersConfigOutputWithContext(context.Background())
+}
+
+func (i ServiceAlertGroupingParametersConfigArgs) ToServiceAlertGroupingParametersConfigOutputWithContext(ctx context.Context) ServiceAlertGroupingParametersConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAlertGroupingParametersConfigOutput)
+}
+
+func (i ServiceAlertGroupingParametersConfigArgs) ToServiceAlertGroupingParametersConfigPtrOutput() ServiceAlertGroupingParametersConfigPtrOutput {
+	return i.ToServiceAlertGroupingParametersConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceAlertGroupingParametersConfigArgs) ToServiceAlertGroupingParametersConfigPtrOutputWithContext(ctx context.Context) ServiceAlertGroupingParametersConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAlertGroupingParametersConfigOutput).ToServiceAlertGroupingParametersConfigPtrOutputWithContext(ctx)
+}
+
+// ServiceAlertGroupingParametersConfigPtrInput is an input type that accepts ServiceAlertGroupingParametersConfigArgs, ServiceAlertGroupingParametersConfigPtr and ServiceAlertGroupingParametersConfigPtrOutput values.
+// You can construct a concrete instance of `ServiceAlertGroupingParametersConfigPtrInput` via:
+//
+//          ServiceAlertGroupingParametersConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceAlertGroupingParametersConfigPtrInput interface {
+	pulumi.Input
+
+	ToServiceAlertGroupingParametersConfigPtrOutput() ServiceAlertGroupingParametersConfigPtrOutput
+	ToServiceAlertGroupingParametersConfigPtrOutputWithContext(context.Context) ServiceAlertGroupingParametersConfigPtrOutput
+}
+
+type serviceAlertGroupingParametersConfigPtrType ServiceAlertGroupingParametersConfigArgs
+
+func ServiceAlertGroupingParametersConfigPtr(v *ServiceAlertGroupingParametersConfigArgs) ServiceAlertGroupingParametersConfigPtrInput {
+	return (*serviceAlertGroupingParametersConfigPtrType)(v)
+}
+
+func (*serviceAlertGroupingParametersConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceAlertGroupingParametersConfig)(nil)).Elem()
+}
+
+func (i *serviceAlertGroupingParametersConfigPtrType) ToServiceAlertGroupingParametersConfigPtrOutput() ServiceAlertGroupingParametersConfigPtrOutput {
+	return i.ToServiceAlertGroupingParametersConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceAlertGroupingParametersConfigPtrType) ToServiceAlertGroupingParametersConfigPtrOutputWithContext(ctx context.Context) ServiceAlertGroupingParametersConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAlertGroupingParametersConfigPtrOutput)
+}
+
+type ServiceAlertGroupingParametersConfigOutput struct{ *pulumi.OutputState }
+
+func (ServiceAlertGroupingParametersConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceAlertGroupingParametersConfig)(nil)).Elem()
+}
+
+func (o ServiceAlertGroupingParametersConfigOutput) ToServiceAlertGroupingParametersConfigOutput() ServiceAlertGroupingParametersConfigOutput {
+	return o
+}
+
+func (o ServiceAlertGroupingParametersConfigOutput) ToServiceAlertGroupingParametersConfigOutputWithContext(ctx context.Context) ServiceAlertGroupingParametersConfigOutput {
+	return o
+}
+
+func (o ServiceAlertGroupingParametersConfigOutput) ToServiceAlertGroupingParametersConfigPtrOutput() ServiceAlertGroupingParametersConfigPtrOutput {
+	return o.ToServiceAlertGroupingParametersConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceAlertGroupingParametersConfigOutput) ToServiceAlertGroupingParametersConfigPtrOutputWithContext(ctx context.Context) ServiceAlertGroupingParametersConfigPtrOutput {
+	return o.ApplyT(func(v ServiceAlertGroupingParametersConfig) *ServiceAlertGroupingParametersConfig {
+		return &v
+	}).(ServiceAlertGroupingParametersConfigPtrOutput)
+}
+
+// One of `any` or `all`. This setting applies only when `type` is set to `contentBased`. Group alerts based on one or all of `fields` value(s).
+func (o ServiceAlertGroupingParametersConfigOutput) Aggregate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceAlertGroupingParametersConfig) *string { return v.Aggregate }).(pulumi.StringPtrOutput)
+}
+
+// Alerts will be grouped together if the content of these fields match. This setting applies only when `type` is set to `contentBased`.
+func (o ServiceAlertGroupingParametersConfigOutput) Fields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServiceAlertGroupingParametersConfig) []string { return v.Fields }).(pulumi.StringArrayOutput)
+}
+
+// The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
+func (o ServiceAlertGroupingParametersConfigOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceAlertGroupingParametersConfig) *int { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
+type ServiceAlertGroupingParametersConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceAlertGroupingParametersConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceAlertGroupingParametersConfig)(nil)).Elem()
+}
+
+func (o ServiceAlertGroupingParametersConfigPtrOutput) ToServiceAlertGroupingParametersConfigPtrOutput() ServiceAlertGroupingParametersConfigPtrOutput {
+	return o
+}
+
+func (o ServiceAlertGroupingParametersConfigPtrOutput) ToServiceAlertGroupingParametersConfigPtrOutputWithContext(ctx context.Context) ServiceAlertGroupingParametersConfigPtrOutput {
+	return o
+}
+
+func (o ServiceAlertGroupingParametersConfigPtrOutput) Elem() ServiceAlertGroupingParametersConfigOutput {
+	return o.ApplyT(func(v *ServiceAlertGroupingParametersConfig) ServiceAlertGroupingParametersConfig { return *v }).(ServiceAlertGroupingParametersConfigOutput)
+}
+
+// One of `any` or `all`. This setting applies only when `type` is set to `contentBased`. Group alerts based on one or all of `fields` value(s).
+func (o ServiceAlertGroupingParametersConfigPtrOutput) Aggregate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceAlertGroupingParametersConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Aggregate
+	}).(pulumi.StringPtrOutput)
+}
+
+// Alerts will be grouped together if the content of these fields match. This setting applies only when `type` is set to `contentBased`.
+func (o ServiceAlertGroupingParametersConfigPtrOutput) Fields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServiceAlertGroupingParametersConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Fields
+	}).(pulumi.StringArrayOutput)
+}
+
+// The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
+func (o ServiceAlertGroupingParametersConfigPtrOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceAlertGroupingParametersConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Timeout
+	}).(pulumi.IntPtrOutput)
+}
+
 type ServiceDependencyDependency struct {
 	// The service that id dependent on the supporting service.
 	DependentServices []ServiceDependencyDependencyDependentService `pulumi:"dependentServices"`
@@ -5663,7 +5982,7 @@ type ServiceIncidentUrgencyRule struct {
 	DuringSupportHours *ServiceIncidentUrgencyRuleDuringSupportHours `pulumi:"duringSupportHours"`
 	// Incidents' urgency outside of support hours.
 	OutsideSupportHours *ServiceIncidentUrgencyRuleOutsideSupportHours `pulumi:"outsideSupportHours"`
-	// The type of scheduled action. Currently, this must be set to `urgencyChange`.
+	// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
 	Type string `pulumi:"type"`
 	// The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
 	Urgency *string `pulumi:"urgency"`
@@ -5685,7 +6004,7 @@ type ServiceIncidentUrgencyRuleArgs struct {
 	DuringSupportHours ServiceIncidentUrgencyRuleDuringSupportHoursPtrInput `pulumi:"duringSupportHours"`
 	// Incidents' urgency outside of support hours.
 	OutsideSupportHours ServiceIncidentUrgencyRuleOutsideSupportHoursPtrInput `pulumi:"outsideSupportHours"`
-	// The type of scheduled action. Currently, this must be set to `urgencyChange`.
+	// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
 	Urgency pulumi.StringPtrInput `pulumi:"urgency"`
@@ -5782,7 +6101,7 @@ func (o ServiceIncidentUrgencyRuleOutput) OutsideSupportHours() ServiceIncidentU
 	}).(ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput)
 }
 
-// The type of scheduled action. Currently, this must be set to `urgencyChange`.
+// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
 func (o ServiceIncidentUrgencyRuleOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceIncidentUrgencyRule) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5830,7 +6149,7 @@ func (o ServiceIncidentUrgencyRulePtrOutput) OutsideSupportHours() ServiceIncide
 	}).(ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput)
 }
 
-// The type of scheduled action. Currently, this must be set to `urgencyChange`.
+// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
 func (o ServiceIncidentUrgencyRulePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceIncidentUrgencyRule) *string {
 		if v == nil {
@@ -5851,7 +6170,7 @@ func (o ServiceIncidentUrgencyRulePtrOutput) Urgency() pulumi.StringPtrOutput {
 }
 
 type ServiceIncidentUrgencyRuleDuringSupportHours struct {
-	// The type of scheduled action. Currently, this must be set to `urgencyChange`.
+	// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
 	Type *string `pulumi:"type"`
 	// The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
 	Urgency *string `pulumi:"urgency"`
@@ -5869,7 +6188,7 @@ type ServiceIncidentUrgencyRuleDuringSupportHoursInput interface {
 }
 
 type ServiceIncidentUrgencyRuleDuringSupportHoursArgs struct {
-	// The type of scheduled action. Currently, this must be set to `urgencyChange`.
+	// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
 	Urgency pulumi.StringPtrInput `pulumi:"urgency"`
@@ -5952,7 +6271,7 @@ func (o ServiceIncidentUrgencyRuleDuringSupportHoursOutput) ToServiceIncidentUrg
 	}).(ServiceIncidentUrgencyRuleDuringSupportHoursPtrOutput)
 }
 
-// The type of scheduled action. Currently, this must be set to `urgencyChange`.
+// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
 func (o ServiceIncidentUrgencyRuleDuringSupportHoursOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceIncidentUrgencyRuleDuringSupportHours) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -5982,7 +6301,7 @@ func (o ServiceIncidentUrgencyRuleDuringSupportHoursPtrOutput) Elem() ServiceInc
 	}).(ServiceIncidentUrgencyRuleDuringSupportHoursOutput)
 }
 
-// The type of scheduled action. Currently, this must be set to `urgencyChange`.
+// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
 func (o ServiceIncidentUrgencyRuleDuringSupportHoursPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceIncidentUrgencyRuleDuringSupportHours) *string {
 		if v == nil {
@@ -6003,7 +6322,7 @@ func (o ServiceIncidentUrgencyRuleDuringSupportHoursPtrOutput) Urgency() pulumi.
 }
 
 type ServiceIncidentUrgencyRuleOutsideSupportHours struct {
-	// The type of scheduled action. Currently, this must be set to `urgencyChange`.
+	// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
 	Type *string `pulumi:"type"`
 	// The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
 	Urgency *string `pulumi:"urgency"`
@@ -6021,7 +6340,7 @@ type ServiceIncidentUrgencyRuleOutsideSupportHoursInput interface {
 }
 
 type ServiceIncidentUrgencyRuleOutsideSupportHoursArgs struct {
-	// The type of scheduled action. Currently, this must be set to `urgencyChange`.
+	// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
 	Urgency pulumi.StringPtrInput `pulumi:"urgency"`
@@ -6104,7 +6423,7 @@ func (o ServiceIncidentUrgencyRuleOutsideSupportHoursOutput) ToServiceIncidentUr
 	}).(ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput)
 }
 
-// The type of scheduled action. Currently, this must be set to `urgencyChange`.
+// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
 func (o ServiceIncidentUrgencyRuleOutsideSupportHoursOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceIncidentUrgencyRuleOutsideSupportHours) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -6134,7 +6453,7 @@ func (o ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput) Elem() ServiceIn
 	}).(ServiceIncidentUrgencyRuleOutsideSupportHoursOutput)
 }
 
-// The type of scheduled action. Currently, this must be set to `urgencyChange`.
+// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
 func (o ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceIncidentUrgencyRuleOutsideSupportHours) *string {
 		if v == nil {
@@ -6159,7 +6478,7 @@ type ServiceScheduledAction struct {
 	Ats []ServiceScheduledActionAt `pulumi:"ats"`
 	// The urgency to change to: `low` (does not escalate), or `high` (follows escalation rules).
 	ToUrgency *string `pulumi:"toUrgency"`
-	// The type of scheduled action. Currently, this must be set to `urgencyChange`.
+	// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
 	Type *string `pulumi:"type"`
 }
 
@@ -6179,7 +6498,7 @@ type ServiceScheduledActionArgs struct {
 	Ats ServiceScheduledActionAtArrayInput `pulumi:"ats"`
 	// The urgency to change to: `low` (does not escalate), or `high` (follows escalation rules).
 	ToUrgency pulumi.StringPtrInput `pulumi:"toUrgency"`
-	// The type of scheduled action. Currently, this must be set to `urgencyChange`.
+	// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -6244,7 +6563,7 @@ func (o ServiceScheduledActionOutput) ToUrgency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceScheduledAction) *string { return v.ToUrgency }).(pulumi.StringPtrOutput)
 }
 
-// The type of scheduled action. Currently, this must be set to `urgencyChange`.
+// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
 func (o ServiceScheduledActionOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceScheduledAction) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -6385,7 +6704,7 @@ type ServiceSupportHours struct {
 	StartTime *string `pulumi:"startTime"`
 	// The time zone for the support hours.
 	TimeZone *string `pulumi:"timeZone"`
-	// The type of scheduled action. Currently, this must be set to `urgencyChange`.
+	// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
 	Type *string `pulumi:"type"`
 }
 
@@ -6410,7 +6729,7 @@ type ServiceSupportHoursArgs struct {
 	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
 	// The time zone for the support hours.
 	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
-	// The type of scheduled action. Currently, this must be set to `urgencyChange`.
+	// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -6512,7 +6831,7 @@ func (o ServiceSupportHoursOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceSupportHours) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
 }
 
-// The type of scheduled action. Currently, this must be set to `urgencyChange`.
+// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
 func (o ServiceSupportHoursOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceSupportHours) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -6576,7 +6895,7 @@ func (o ServiceSupportHoursPtrOutput) TimeZone() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of scheduled action. Currently, this must be set to `urgencyChange`.
+// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
 func (o ServiceSupportHoursPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceSupportHours) *string {
 		if v == nil {
@@ -6793,6 +7112,10 @@ func init() {
 	pulumi.RegisterOutputType(ScheduleLayerArrayOutput{})
 	pulumi.RegisterOutputType(ScheduleLayerRestrictionOutput{})
 	pulumi.RegisterOutputType(ScheduleLayerRestrictionArrayOutput{})
+	pulumi.RegisterOutputType(ServiceAlertGroupingParametersOutput{})
+	pulumi.RegisterOutputType(ServiceAlertGroupingParametersPtrOutput{})
+	pulumi.RegisterOutputType(ServiceAlertGroupingParametersConfigOutput{})
+	pulumi.RegisterOutputType(ServiceAlertGroupingParametersConfigPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDependencyDependencyOutput{})
 	pulumi.RegisterOutputType(ServiceDependencyDependencyArrayOutput{})
 	pulumi.RegisterOutputType(ServiceDependencyDependencyDependentServiceOutput{})

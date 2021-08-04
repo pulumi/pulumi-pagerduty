@@ -19,6 +19,7 @@ class ServiceArgs:
                  acknowledgement_timeout: Optional[pulumi.Input[str]] = None,
                  alert_creation: Optional[pulumi.Input[str]] = None,
                  alert_grouping: Optional[pulumi.Input[str]] = None,
+                 alert_grouping_parameters: Optional[pulumi.Input['ServiceAlertGroupingParametersArgs']] = None,
                  alert_grouping_timeout: Optional[pulumi.Input[int]] = None,
                  auto_resolve_timeout: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -31,8 +32,9 @@ class ServiceArgs:
         :param pulumi.Input[str] escalation_policy: The escalation policy used by this service.
         :param pulumi.Input[str] acknowledgement_timeout: Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.
         :param pulumi.Input[str] alert_creation: Must be one of two values. PagerDuty receives events from your monitoring systems and can then create incidents in different ways. Value "create_incidents" is default: events will create an incident that cannot be merged. Value "create_alerts_and_incidents" is the alternative: events will create an alert and then add it to a new incident, these incidents can be merged. This option is recommended.
-        :param pulumi.Input[str] alert_grouping: Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan.
-        :param pulumi.Input[int] alert_grouping_timeout: The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
+        :param pulumi.Input[str] alert_grouping: (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan.
+        :param pulumi.Input['ServiceAlertGroupingParametersArgs'] alert_grouping_parameters: Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
+        :param pulumi.Input[int] alert_grouping_timeout: (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
         :param pulumi.Input[str] auto_resolve_timeout: Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
         :param pulumi.Input[str] name: The name of the service.
         """
@@ -43,6 +45,8 @@ class ServiceArgs:
             pulumi.set(__self__, "alert_creation", alert_creation)
         if alert_grouping is not None:
             pulumi.set(__self__, "alert_grouping", alert_grouping)
+        if alert_grouping_parameters is not None:
+            pulumi.set(__self__, "alert_grouping_parameters", alert_grouping_parameters)
         if alert_grouping_timeout is not None:
             pulumi.set(__self__, "alert_grouping_timeout", alert_grouping_timeout)
         if auto_resolve_timeout is not None:
@@ -100,7 +104,7 @@ class ServiceArgs:
     @pulumi.getter(name="alertGrouping")
     def alert_grouping(self) -> Optional[pulumi.Input[str]]:
         """
-        Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan.
+        (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan.
         """
         return pulumi.get(self, "alert_grouping")
 
@@ -109,10 +113,22 @@ class ServiceArgs:
         pulumi.set(self, "alert_grouping", value)
 
     @property
+    @pulumi.getter(name="alertGroupingParameters")
+    def alert_grouping_parameters(self) -> Optional[pulumi.Input['ServiceAlertGroupingParametersArgs']]:
+        """
+        Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
+        """
+        return pulumi.get(self, "alert_grouping_parameters")
+
+    @alert_grouping_parameters.setter
+    def alert_grouping_parameters(self, value: Optional[pulumi.Input['ServiceAlertGroupingParametersArgs']]):
+        pulumi.set(self, "alert_grouping_parameters", value)
+
+    @property
     @pulumi.getter(name="alertGroupingTimeout")
     def alert_grouping_timeout(self) -> Optional[pulumi.Input[int]]:
         """
-        The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
+        (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
         """
         return pulumi.get(self, "alert_grouping_timeout")
 
@@ -187,6 +203,7 @@ class _ServiceState:
                  acknowledgement_timeout: Optional[pulumi.Input[str]] = None,
                  alert_creation: Optional[pulumi.Input[str]] = None,
                  alert_grouping: Optional[pulumi.Input[str]] = None,
+                 alert_grouping_parameters: Optional[pulumi.Input['ServiceAlertGroupingParametersArgs']] = None,
                  alert_grouping_timeout: Optional[pulumi.Input[int]] = None,
                  auto_resolve_timeout: Optional[pulumi.Input[str]] = None,
                  created_at: Optional[pulumi.Input[str]] = None,
@@ -203,8 +220,9 @@ class _ServiceState:
         Input properties used for looking up and filtering Service resources.
         :param pulumi.Input[str] acknowledgement_timeout: Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.
         :param pulumi.Input[str] alert_creation: Must be one of two values. PagerDuty receives events from your monitoring systems and can then create incidents in different ways. Value "create_incidents" is default: events will create an incident that cannot be merged. Value "create_alerts_and_incidents" is the alternative: events will create an alert and then add it to a new incident, these incidents can be merged. This option is recommended.
-        :param pulumi.Input[str] alert_grouping: Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan.
-        :param pulumi.Input[int] alert_grouping_timeout: The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
+        :param pulumi.Input[str] alert_grouping: (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan.
+        :param pulumi.Input['ServiceAlertGroupingParametersArgs'] alert_grouping_parameters: Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
+        :param pulumi.Input[int] alert_grouping_timeout: (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
         :param pulumi.Input[str] auto_resolve_timeout: Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
         :param pulumi.Input[str] escalation_policy: The escalation policy used by this service.
         :param pulumi.Input[str] name: The name of the service.
@@ -215,6 +233,8 @@ class _ServiceState:
             pulumi.set(__self__, "alert_creation", alert_creation)
         if alert_grouping is not None:
             pulumi.set(__self__, "alert_grouping", alert_grouping)
+        if alert_grouping_parameters is not None:
+            pulumi.set(__self__, "alert_grouping_parameters", alert_grouping_parameters)
         if alert_grouping_timeout is not None:
             pulumi.set(__self__, "alert_grouping_timeout", alert_grouping_timeout)
         if auto_resolve_timeout is not None:
@@ -270,7 +290,7 @@ class _ServiceState:
     @pulumi.getter(name="alertGrouping")
     def alert_grouping(self) -> Optional[pulumi.Input[str]]:
         """
-        Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan.
+        (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan.
         """
         return pulumi.get(self, "alert_grouping")
 
@@ -279,10 +299,22 @@ class _ServiceState:
         pulumi.set(self, "alert_grouping", value)
 
     @property
+    @pulumi.getter(name="alertGroupingParameters")
+    def alert_grouping_parameters(self) -> Optional[pulumi.Input['ServiceAlertGroupingParametersArgs']]:
+        """
+        Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
+        """
+        return pulumi.get(self, "alert_grouping_parameters")
+
+    @alert_grouping_parameters.setter
+    def alert_grouping_parameters(self, value: Optional[pulumi.Input['ServiceAlertGroupingParametersArgs']]):
+        pulumi.set(self, "alert_grouping_parameters", value)
+
+    @property
     @pulumi.getter(name="alertGroupingTimeout")
     def alert_grouping_timeout(self) -> Optional[pulumi.Input[int]]:
         """
-        The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
+        (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
         """
         return pulumi.get(self, "alert_grouping_timeout")
 
@@ -407,6 +439,7 @@ class Service(pulumi.CustomResource):
                  acknowledgement_timeout: Optional[pulumi.Input[str]] = None,
                  alert_creation: Optional[pulumi.Input[str]] = None,
                  alert_grouping: Optional[pulumi.Input[str]] = None,
+                 alert_grouping_parameters: Optional[pulumi.Input[pulumi.InputType['ServiceAlertGroupingParametersArgs']]] = None,
                  alert_grouping_timeout: Optional[pulumi.Input[int]] = None,
                  auto_resolve_timeout: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -456,8 +489,9 @@ class Service(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] acknowledgement_timeout: Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.
         :param pulumi.Input[str] alert_creation: Must be one of two values. PagerDuty receives events from your monitoring systems and can then create incidents in different ways. Value "create_incidents" is default: events will create an incident that cannot be merged. Value "create_alerts_and_incidents" is the alternative: events will create an alert and then add it to a new incident, these incidents can be merged. This option is recommended.
-        :param pulumi.Input[str] alert_grouping: Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan.
-        :param pulumi.Input[int] alert_grouping_timeout: The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
+        :param pulumi.Input[str] alert_grouping: (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan.
+        :param pulumi.Input[pulumi.InputType['ServiceAlertGroupingParametersArgs']] alert_grouping_parameters: Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
+        :param pulumi.Input[int] alert_grouping_timeout: (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
         :param pulumi.Input[str] auto_resolve_timeout: Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
         :param pulumi.Input[str] escalation_policy: The escalation policy used by this service.
         :param pulumi.Input[str] name: The name of the service.
@@ -522,6 +556,7 @@ class Service(pulumi.CustomResource):
                  acknowledgement_timeout: Optional[pulumi.Input[str]] = None,
                  alert_creation: Optional[pulumi.Input[str]] = None,
                  alert_grouping: Optional[pulumi.Input[str]] = None,
+                 alert_grouping_parameters: Optional[pulumi.Input[pulumi.InputType['ServiceAlertGroupingParametersArgs']]] = None,
                  alert_grouping_timeout: Optional[pulumi.Input[int]] = None,
                  auto_resolve_timeout: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -545,6 +580,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["acknowledgement_timeout"] = acknowledgement_timeout
             __props__.__dict__["alert_creation"] = alert_creation
             __props__.__dict__["alert_grouping"] = alert_grouping
+            __props__.__dict__["alert_grouping_parameters"] = alert_grouping_parameters
             __props__.__dict__["alert_grouping_timeout"] = alert_grouping_timeout
             __props__.__dict__["auto_resolve_timeout"] = auto_resolve_timeout
             if description is None:
@@ -574,6 +610,7 @@ class Service(pulumi.CustomResource):
             acknowledgement_timeout: Optional[pulumi.Input[str]] = None,
             alert_creation: Optional[pulumi.Input[str]] = None,
             alert_grouping: Optional[pulumi.Input[str]] = None,
+            alert_grouping_parameters: Optional[pulumi.Input[pulumi.InputType['ServiceAlertGroupingParametersArgs']]] = None,
             alert_grouping_timeout: Optional[pulumi.Input[int]] = None,
             auto_resolve_timeout: Optional[pulumi.Input[str]] = None,
             created_at: Optional[pulumi.Input[str]] = None,
@@ -595,8 +632,9 @@ class Service(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] acknowledgement_timeout: Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.
         :param pulumi.Input[str] alert_creation: Must be one of two values. PagerDuty receives events from your monitoring systems and can then create incidents in different ways. Value "create_incidents" is default: events will create an incident that cannot be merged. Value "create_alerts_and_incidents" is the alternative: events will create an alert and then add it to a new incident, these incidents can be merged. This option is recommended.
-        :param pulumi.Input[str] alert_grouping: Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan.
-        :param pulumi.Input[int] alert_grouping_timeout: The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
+        :param pulumi.Input[str] alert_grouping: (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan.
+        :param pulumi.Input[pulumi.InputType['ServiceAlertGroupingParametersArgs']] alert_grouping_parameters: Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
+        :param pulumi.Input[int] alert_grouping_timeout: (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
         :param pulumi.Input[str] auto_resolve_timeout: Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
         :param pulumi.Input[str] escalation_policy: The escalation policy used by this service.
         :param pulumi.Input[str] name: The name of the service.
@@ -608,6 +646,7 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["acknowledgement_timeout"] = acknowledgement_timeout
         __props__.__dict__["alert_creation"] = alert_creation
         __props__.__dict__["alert_grouping"] = alert_grouping
+        __props__.__dict__["alert_grouping_parameters"] = alert_grouping_parameters
         __props__.__dict__["alert_grouping_timeout"] = alert_grouping_timeout
         __props__.__dict__["auto_resolve_timeout"] = auto_resolve_timeout
         __props__.__dict__["created_at"] = created_at
@@ -640,17 +679,25 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="alertGrouping")
-    def alert_grouping(self) -> pulumi.Output[Optional[str]]:
+    def alert_grouping(self) -> pulumi.Output[str]:
         """
-        Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan.
+        (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan.
         """
         return pulumi.get(self, "alert_grouping")
+
+    @property
+    @pulumi.getter(name="alertGroupingParameters")
+    def alert_grouping_parameters(self) -> pulumi.Output['outputs.ServiceAlertGroupingParameters']:
+        """
+        Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
+        """
+        return pulumi.get(self, "alert_grouping_parameters")
 
     @property
     @pulumi.getter(name="alertGroupingTimeout")
     def alert_grouping_timeout(self) -> pulumi.Output[Optional[int]]:
         """
-        The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
+        (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
         """
         return pulumi.get(self, "alert_grouping_timeout")
 

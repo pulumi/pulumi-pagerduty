@@ -81,11 +81,15 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly alertCreation!: pulumi.Output<string | undefined>;
     /**
-     * Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alertGroupingTimeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan.
+     * (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alertGroupingTimeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan.
      */
-    public readonly alertGrouping!: pulumi.Output<string | undefined>;
+    public readonly alertGrouping!: pulumi.Output<string>;
     /**
-     * The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alertGrouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
+     * Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
+     */
+    public readonly alertGroupingParameters!: pulumi.Output<outputs.ServiceAlertGroupingParameters>;
+    /**
+     * (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alertGrouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
      */
     public readonly alertGroupingTimeout!: pulumi.Output<number | undefined>;
     /**
@@ -125,6 +129,7 @@ export class Service extends pulumi.CustomResource {
             inputs["acknowledgementTimeout"] = state ? state.acknowledgementTimeout : undefined;
             inputs["alertCreation"] = state ? state.alertCreation : undefined;
             inputs["alertGrouping"] = state ? state.alertGrouping : undefined;
+            inputs["alertGroupingParameters"] = state ? state.alertGroupingParameters : undefined;
             inputs["alertGroupingTimeout"] = state ? state.alertGroupingTimeout : undefined;
             inputs["autoResolveTimeout"] = state ? state.autoResolveTimeout : undefined;
             inputs["createdAt"] = state ? state.createdAt : undefined;
@@ -145,6 +150,7 @@ export class Service extends pulumi.CustomResource {
             inputs["acknowledgementTimeout"] = args ? args.acknowledgementTimeout : undefined;
             inputs["alertCreation"] = args ? args.alertCreation : undefined;
             inputs["alertGrouping"] = args ? args.alertGrouping : undefined;
+            inputs["alertGroupingParameters"] = args ? args.alertGroupingParameters : undefined;
             inputs["alertGroupingTimeout"] = args ? args.alertGroupingTimeout : undefined;
             inputs["autoResolveTimeout"] = args ? args.autoResolveTimeout : undefined;
             inputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
@@ -178,11 +184,15 @@ export interface ServiceState {
      */
     readonly alertCreation?: pulumi.Input<string>;
     /**
-     * Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alertGroupingTimeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan.
+     * (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alertGroupingTimeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan.
      */
     readonly alertGrouping?: pulumi.Input<string>;
     /**
-     * The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alertGrouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
+     * Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
+     */
+    readonly alertGroupingParameters?: pulumi.Input<inputs.ServiceAlertGroupingParameters>;
+    /**
+     * (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alertGrouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
      */
     readonly alertGroupingTimeout?: pulumi.Input<number>;
     /**
@@ -220,11 +230,15 @@ export interface ServiceArgs {
      */
     readonly alertCreation?: pulumi.Input<string>;
     /**
-     * Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alertGroupingTimeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan.
+     * (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alertGroupingTimeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan.
      */
     readonly alertGrouping?: pulumi.Input<string>;
     /**
-     * The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alertGrouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
+     * Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
+     */
+    readonly alertGroupingParameters?: pulumi.Input<inputs.ServiceAlertGroupingParameters>;
+    /**
+     * (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alertGrouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
      */
     readonly alertGroupingTimeout?: pulumi.Input<number>;
     /**

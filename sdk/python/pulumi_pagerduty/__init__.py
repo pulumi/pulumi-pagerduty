@@ -8,6 +8,7 @@ from .business_service import *
 from .escalation_policy import *
 from .event_rule import *
 from .extension import *
+from .extension_service_now import *
 from .get_business_service import *
 from .get_escalation_policy import *
 from .get_extension_schema import *
@@ -64,6 +65,8 @@ def _register_module():
                 return EventRule(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "pagerduty:index/extension:Extension":
                 return Extension(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "pagerduty:index/extensionServiceNow:ExtensionServiceNow":
+                return ExtensionServiceNow(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "pagerduty:index/maintenanceWindow:MaintenanceWindow":
                 return MaintenanceWindow(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "pagerduty:index/responsePlay:ResponsePlay":
@@ -102,6 +105,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("pagerduty", "index/escalationPolicy", _module_instance)
     pulumi.runtime.register_resource_module("pagerduty", "index/eventRule", _module_instance)
     pulumi.runtime.register_resource_module("pagerduty", "index/extension", _module_instance)
+    pulumi.runtime.register_resource_module("pagerduty", "index/extensionServiceNow", _module_instance)
     pulumi.runtime.register_resource_module("pagerduty", "index/maintenanceWindow", _module_instance)
     pulumi.runtime.register_resource_module("pagerduty", "index/responsePlay", _module_instance)
     pulumi.runtime.register_resource_module("pagerduty", "index/ruleset", _module_instance)

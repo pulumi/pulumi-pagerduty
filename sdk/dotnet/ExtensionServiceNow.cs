@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty
 {
     /// <summary>
-    /// An [extension](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Extensions/post_extensions) can be associated with a service.
+    /// A special case for [extension](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Extensions/post_extensions) for ServiceNow.
     /// 
     /// ## Example Usage
     /// 
@@ -55,24 +55,19 @@ namespace Pulumi.Pagerduty
     ///             AcknowledgementTimeout = "600",
     ///             EscalationPolicy = exampleEscalationPolicy.Id,
     ///         });
-    ///         var slack = new Pagerduty.Extension("slack", new Pagerduty.ExtensionArgs
+    ///         var snow = new Pagerduty.ExtensionServiceNow("snow", new Pagerduty.ExtensionServiceNowArgs
     ///         {
-    ///             EndpointUrl = "https://generic_webhook_url/XXXXXX/BBBBBB",
     ///             ExtensionSchema = webhook.Apply(webhook =&gt; webhook.Id),
     ///             ExtensionObjects = 
     ///             {
     ///                 exampleService.Id,
     ///             },
-    ///             Config = @"{
-    /// 	""restrict"": ""any"",
-    /// 	""notify_types"": {
-    /// 			""resolve"": false,
-    /// 			""acknowledge"": false,
-    /// 			""assignments"": false
-    /// 	},
-    /// 	""access_token"": ""XXX""
-    /// }
-    /// ",
+    ///             SnowUser = "meeps",
+    ///             SnowPassword = "zorz",
+    ///             SyncOptions = "manual_sync",
+    ///             Target = "https://foo.servicenow.com/webhook_foo",
+    ///             TaskType = "incident",
+    ///             Referer = "None",
     ///         });
     ///     }
     /// 
@@ -84,22 +79,12 @@ namespace Pulumi.Pagerduty
     /// Extensions can be imported using the id.e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import pagerduty:index/extension:Extension main PLBP09X
+    ///  $ pulumi import pagerduty:index/extensionServiceNow:ExtensionServiceNow main PLBP09X
     /// ```
     /// </summary>
-    [PagerdutyResourceType("pagerduty:index/extension:Extension")]
-    public partial class Extension : Pulumi.CustomResource
+    [PagerdutyResourceType("pagerduty:index/extensionServiceNow:ExtensionServiceNow")]
+    public partial class ExtensionServiceNow : Pulumi.CustomResource
     {
-        /// <summary>
-        /// The configuration of the service extension as string containing plain JSON-encoded data.
-        /// </summary>
-        [Output("config")]
-        public Output<string?> Config { get; private set; } = null!;
-
-        /// <summary>
-        /// The url of the extension.
-        /// **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `pagerduty.getExtensionSchema` named `Generic V2 Webhook` doesn't accept `pagerduty.Extension` with no `endpoint_url`, but one with named `Slack` accepts.
-        /// </summary>
         [Output("endpointUrl")]
         public Output<string?> EndpointUrl { get; private set; } = null!;
 
@@ -127,24 +112,60 @@ namespace Pulumi.Pagerduty
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The ServiceNow referer.
+        /// </summary>
+        [Output("referer")]
+        public Output<string> Referer { get; private set; } = null!;
+
+        /// <summary>
+        /// The ServiceNow password.
+        /// </summary>
+        [Output("snowPassword")]
+        public Output<string> SnowPassword { get; private set; } = null!;
+
+        /// <summary>
+        /// The ServiceNow username.
+        /// </summary>
+        [Output("snowUser")]
+        public Output<string> SnowUser { get; private set; } = null!;
+
+        /// <summary>
+        /// The ServiceNow sync option.
+        /// </summary>
+        [Output("syncOptions")]
+        public Output<string> SyncOptions { get; private set; } = null!;
+
+        /// <summary>
+        /// Target Webhook URL
+        /// </summary>
+        [Output("target")]
+        public Output<string> Target { get; private set; } = null!;
+
+        /// <summary>
+        /// The ServiceNow task type, typically `incident`.
+        /// </summary>
+        [Output("taskType")]
+        public Output<string> TaskType { get; private set; } = null!;
+
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
 
         /// <summary>
-        /// Create a Extension resource with the given unique name, arguments, and options.
+        /// Create a ExtensionServiceNow resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Extension(string name, ExtensionArgs args, CustomResourceOptions? options = null)
-            : base("pagerduty:index/extension:Extension", name, args ?? new ExtensionArgs(), MakeResourceOptions(options, ""))
+        public ExtensionServiceNow(string name, ExtensionServiceNowArgs args, CustomResourceOptions? options = null)
+            : base("pagerduty:index/extensionServiceNow:ExtensionServiceNow", name, args ?? new ExtensionServiceNowArgs(), MakeResourceOptions(options, ""))
         {
         }
 
-        private Extension(string name, Input<string> id, ExtensionState? state = null, CustomResourceOptions? options = null)
-            : base("pagerduty:index/extension:Extension", name, state, MakeResourceOptions(options, id))
+        private ExtensionServiceNow(string name, Input<string> id, ExtensionServiceNowState? state = null, CustomResourceOptions? options = null)
+            : base("pagerduty:index/extensionServiceNow:ExtensionServiceNow", name, state, MakeResourceOptions(options, id))
         {
         }
 
@@ -160,7 +181,7 @@ namespace Pulumi.Pagerduty
             return merged;
         }
         /// <summary>
-        /// Get an existing Extension resource's state with the given name, ID, and optional extra
+        /// Get an existing ExtensionServiceNow resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
@@ -168,24 +189,14 @@ namespace Pulumi.Pagerduty
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static Extension Get(string name, Input<string> id, ExtensionState? state = null, CustomResourceOptions? options = null)
+        public static ExtensionServiceNow Get(string name, Input<string> id, ExtensionServiceNowState? state = null, CustomResourceOptions? options = null)
         {
-            return new Extension(name, id, state, options);
+            return new ExtensionServiceNow(name, id, state, options);
         }
     }
 
-    public sealed class ExtensionArgs : Pulumi.ResourceArgs
+    public sealed class ExtensionServiceNowArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The configuration of the service extension as string containing plain JSON-encoded data.
-        /// </summary>
-        [Input("config")]
-        public Input<string>? Config { get; set; }
-
-        /// <summary>
-        /// The url of the extension.
-        /// **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `pagerduty.getExtensionSchema` named `Generic V2 Webhook` doesn't accept `pagerduty.Extension` with no `endpoint_url`, but one with named `Slack` accepts.
-        /// </summary>
         [Input("endpointUrl")]
         public Input<string>? EndpointUrl { get; set; }
 
@@ -213,26 +224,52 @@ namespace Pulumi.Pagerduty
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The ServiceNow referer.
+        /// </summary>
+        [Input("referer", required: true)]
+        public Input<string> Referer { get; set; } = null!;
+
+        /// <summary>
+        /// The ServiceNow password.
+        /// </summary>
+        [Input("snowPassword", required: true)]
+        public Input<string> SnowPassword { get; set; } = null!;
+
+        /// <summary>
+        /// The ServiceNow username.
+        /// </summary>
+        [Input("snowUser", required: true)]
+        public Input<string> SnowUser { get; set; } = null!;
+
+        /// <summary>
+        /// The ServiceNow sync option.
+        /// </summary>
+        [Input("syncOptions", required: true)]
+        public Input<string> SyncOptions { get; set; } = null!;
+
+        /// <summary>
+        /// Target Webhook URL
+        /// </summary>
+        [Input("target", required: true)]
+        public Input<string> Target { get; set; } = null!;
+
+        /// <summary>
+        /// The ServiceNow task type, typically `incident`.
+        /// </summary>
+        [Input("taskType", required: true)]
+        public Input<string> TaskType { get; set; } = null!;
+
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        public ExtensionArgs()
+        public ExtensionServiceNowArgs()
         {
         }
     }
 
-    public sealed class ExtensionState : Pulumi.ResourceArgs
+    public sealed class ExtensionServiceNowState : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The configuration of the service extension as string containing plain JSON-encoded data.
-        /// </summary>
-        [Input("config")]
-        public Input<string>? Config { get; set; }
-
-        /// <summary>
-        /// The url of the extension.
-        /// **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `pagerduty.getExtensionSchema` named `Generic V2 Webhook` doesn't accept `pagerduty.Extension` with no `endpoint_url`, but one with named `Slack` accepts.
-        /// </summary>
         [Input("endpointUrl")]
         public Input<string>? EndpointUrl { get; set; }
 
@@ -266,10 +303,46 @@ namespace Pulumi.Pagerduty
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The ServiceNow referer.
+        /// </summary>
+        [Input("referer")]
+        public Input<string>? Referer { get; set; }
+
+        /// <summary>
+        /// The ServiceNow password.
+        /// </summary>
+        [Input("snowPassword")]
+        public Input<string>? SnowPassword { get; set; }
+
+        /// <summary>
+        /// The ServiceNow username.
+        /// </summary>
+        [Input("snowUser")]
+        public Input<string>? SnowUser { get; set; }
+
+        /// <summary>
+        /// The ServiceNow sync option.
+        /// </summary>
+        [Input("syncOptions")]
+        public Input<string>? SyncOptions { get; set; }
+
+        /// <summary>
+        /// Target Webhook URL
+        /// </summary>
+        [Input("target")]
+        public Input<string>? Target { get; set; }
+
+        /// <summary>
+        /// The ServiceNow task type, typically `incident`.
+        /// </summary>
+        [Input("taskType")]
+        public Input<string>? TaskType { get; set; }
+
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        public ExtensionState()
+        public ExtensionServiceNowState()
         {
         }
     }

@@ -8,30 +8,42 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
-__all__ = ['ExtensionArgs', 'Extension']
+__all__ = ['ExtensionServiceNowArgs', 'ExtensionServiceNow']
 
 @pulumi.input_type
-class ExtensionArgs:
+class ExtensionServiceNowArgs:
     def __init__(__self__, *,
                  extension_objects: pulumi.Input[Sequence[pulumi.Input[str]]],
                  extension_schema: pulumi.Input[str],
-                 config: Optional[pulumi.Input[str]] = None,
+                 referer: pulumi.Input[str],
+                 snow_password: pulumi.Input[str],
+                 snow_user: pulumi.Input[str],
+                 sync_options: pulumi.Input[str],
+                 target: pulumi.Input[str],
+                 task_type: pulumi.Input[str],
                  endpoint_url: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
-        The set of arguments for constructing a Extension resource.
+        The set of arguments for constructing a ExtensionServiceNow resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extension_objects: This is the objects for which the extension applies (An array of service ids).
         :param pulumi.Input[str] extension_schema: This is the schema for this extension.
-        :param pulumi.Input[str] config: The configuration of the service extension as string containing plain JSON-encoded data.
-        :param pulumi.Input[str] endpoint_url: The url of the extension.
-               **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `getExtensionSchema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpoint_url`, but one with named `Slack` accepts.
+        :param pulumi.Input[str] referer: The ServiceNow referer.
+        :param pulumi.Input[str] snow_password: The ServiceNow password.
+        :param pulumi.Input[str] snow_user: The ServiceNow username.
+        :param pulumi.Input[str] sync_options: The ServiceNow sync option.
+        :param pulumi.Input[str] target: Target Webhook URL
+        :param pulumi.Input[str] task_type: The ServiceNow task type, typically `incident`.
         :param pulumi.Input[str] name: The name of the service extension.
         """
         pulumi.set(__self__, "extension_objects", extension_objects)
         pulumi.set(__self__, "extension_schema", extension_schema)
-        if config is not None:
-            pulumi.set(__self__, "config", config)
+        pulumi.set(__self__, "referer", referer)
+        pulumi.set(__self__, "snow_password", snow_password)
+        pulumi.set(__self__, "snow_user", snow_user)
+        pulumi.set(__self__, "sync_options", sync_options)
+        pulumi.set(__self__, "target", target)
+        pulumi.set(__self__, "task_type", task_type)
         if endpoint_url is not None:
             pulumi.set(__self__, "endpoint_url", endpoint_url)
         if name is not None:
@@ -65,23 +77,79 @@ class ExtensionArgs:
 
     @property
     @pulumi.getter
-    def config(self) -> Optional[pulumi.Input[str]]:
+    def referer(self) -> pulumi.Input[str]:
         """
-        The configuration of the service extension as string containing plain JSON-encoded data.
+        The ServiceNow referer.
         """
-        return pulumi.get(self, "config")
+        return pulumi.get(self, "referer")
 
-    @config.setter
-    def config(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "config", value)
+    @referer.setter
+    def referer(self, value: pulumi.Input[str]):
+        pulumi.set(self, "referer", value)
+
+    @property
+    @pulumi.getter(name="snowPassword")
+    def snow_password(self) -> pulumi.Input[str]:
+        """
+        The ServiceNow password.
+        """
+        return pulumi.get(self, "snow_password")
+
+    @snow_password.setter
+    def snow_password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "snow_password", value)
+
+    @property
+    @pulumi.getter(name="snowUser")
+    def snow_user(self) -> pulumi.Input[str]:
+        """
+        The ServiceNow username.
+        """
+        return pulumi.get(self, "snow_user")
+
+    @snow_user.setter
+    def snow_user(self, value: pulumi.Input[str]):
+        pulumi.set(self, "snow_user", value)
+
+    @property
+    @pulumi.getter(name="syncOptions")
+    def sync_options(self) -> pulumi.Input[str]:
+        """
+        The ServiceNow sync option.
+        """
+        return pulumi.get(self, "sync_options")
+
+    @sync_options.setter
+    def sync_options(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sync_options", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> pulumi.Input[str]:
+        """
+        Target Webhook URL
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter(name="taskType")
+    def task_type(self) -> pulumi.Input[str]:
+        """
+        The ServiceNow task type, typically `incident`.
+        """
+        return pulumi.get(self, "task_type")
+
+    @task_type.setter
+    def task_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "task_type", value)
 
     @property
     @pulumi.getter(name="endpointUrl")
     def endpoint_url(self) -> Optional[pulumi.Input[str]]:
-        """
-        The url of the extension.
-        **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `getExtensionSchema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpoint_url`, but one with named `Slack` accepts.
-        """
         return pulumi.get(self, "endpoint_url")
 
     @endpoint_url.setter
@@ -111,27 +179,33 @@ class ExtensionArgs:
 
 
 @pulumi.input_type
-class _ExtensionState:
+class _ExtensionServiceNowState:
     def __init__(__self__, *,
-                 config: Optional[pulumi.Input[str]] = None,
                  endpoint_url: Optional[pulumi.Input[str]] = None,
                  extension_objects: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  extension_schema: Optional[pulumi.Input[str]] = None,
                  html_url: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 referer: Optional[pulumi.Input[str]] = None,
+                 snow_password: Optional[pulumi.Input[str]] = None,
+                 snow_user: Optional[pulumi.Input[str]] = None,
+                 sync_options: Optional[pulumi.Input[str]] = None,
+                 target: Optional[pulumi.Input[str]] = None,
+                 task_type: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
-        Input properties used for looking up and filtering Extension resources.
-        :param pulumi.Input[str] config: The configuration of the service extension as string containing plain JSON-encoded data.
-        :param pulumi.Input[str] endpoint_url: The url of the extension.
-               **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `getExtensionSchema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpoint_url`, but one with named `Slack` accepts.
+        Input properties used for looking up and filtering ExtensionServiceNow resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extension_objects: This is the objects for which the extension applies (An array of service ids).
         :param pulumi.Input[str] extension_schema: This is the schema for this extension.
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app
         :param pulumi.Input[str] name: The name of the service extension.
+        :param pulumi.Input[str] referer: The ServiceNow referer.
+        :param pulumi.Input[str] snow_password: The ServiceNow password.
+        :param pulumi.Input[str] snow_user: The ServiceNow username.
+        :param pulumi.Input[str] sync_options: The ServiceNow sync option.
+        :param pulumi.Input[str] target: Target Webhook URL
+        :param pulumi.Input[str] task_type: The ServiceNow task type, typically `incident`.
         """
-        if config is not None:
-            pulumi.set(__self__, "config", config)
         if endpoint_url is not None:
             pulumi.set(__self__, "endpoint_url", endpoint_url)
         if extension_objects is not None:
@@ -142,28 +216,24 @@ class _ExtensionState:
             pulumi.set(__self__, "html_url", html_url)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if referer is not None:
+            pulumi.set(__self__, "referer", referer)
+        if snow_password is not None:
+            pulumi.set(__self__, "snow_password", snow_password)
+        if snow_user is not None:
+            pulumi.set(__self__, "snow_user", snow_user)
+        if sync_options is not None:
+            pulumi.set(__self__, "sync_options", sync_options)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+        if task_type is not None:
+            pulumi.set(__self__, "task_type", task_type)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter
-    def config(self) -> Optional[pulumi.Input[str]]:
-        """
-        The configuration of the service extension as string containing plain JSON-encoded data.
-        """
-        return pulumi.get(self, "config")
-
-    @config.setter
-    def config(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "config", value)
-
-    @property
     @pulumi.getter(name="endpointUrl")
     def endpoint_url(self) -> Optional[pulumi.Input[str]]:
-        """
-        The url of the extension.
-        **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `getExtensionSchema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpoint_url`, but one with named `Slack` accepts.
-        """
         return pulumi.get(self, "endpoint_url")
 
     @endpoint_url.setter
@@ -220,6 +290,78 @@ class _ExtensionState:
 
     @property
     @pulumi.getter
+    def referer(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ServiceNow referer.
+        """
+        return pulumi.get(self, "referer")
+
+    @referer.setter
+    def referer(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "referer", value)
+
+    @property
+    @pulumi.getter(name="snowPassword")
+    def snow_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ServiceNow password.
+        """
+        return pulumi.get(self, "snow_password")
+
+    @snow_password.setter
+    def snow_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "snow_password", value)
+
+    @property
+    @pulumi.getter(name="snowUser")
+    def snow_user(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ServiceNow username.
+        """
+        return pulumi.get(self, "snow_user")
+
+    @snow_user.setter
+    def snow_user(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "snow_user", value)
+
+    @property
+    @pulumi.getter(name="syncOptions")
+    def sync_options(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ServiceNow sync option.
+        """
+        return pulumi.get(self, "sync_options")
+
+    @sync_options.setter
+    def sync_options(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sync_options", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input[str]]:
+        """
+        Target Webhook URL
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter(name="taskType")
+    def task_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ServiceNow task type, typically `incident`.
+        """
+        return pulumi.get(self, "task_type")
+
+    @task_type.setter
+    def task_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "task_type", value)
+
+    @property
+    @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "type")
 
@@ -228,20 +370,25 @@ class _ExtensionState:
         pulumi.set(self, "type", value)
 
 
-class Extension(pulumi.CustomResource):
+class ExtensionServiceNow(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: Optional[pulumi.Input[str]] = None,
                  endpoint_url: Optional[pulumi.Input[str]] = None,
                  extension_objects: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  extension_schema: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 referer: Optional[pulumi.Input[str]] = None,
+                 snow_password: Optional[pulumi.Input[str]] = None,
+                 snow_user: Optional[pulumi.Input[str]] = None,
+                 sync_options: Optional[pulumi.Input[str]] = None,
+                 target: Optional[pulumi.Input[str]] = None,
+                 task_type: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        An [extension](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Extensions/post_extensions) can be associated with a service.
+        A special case for [extension](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Extensions/post_extensions) for ServiceNow.
 
         ## Example Usage
 
@@ -264,20 +411,15 @@ class Extension(pulumi.CustomResource):
             auto_resolve_timeout="14400",
             acknowledgement_timeout="600",
             escalation_policy=example_escalation_policy.id)
-        slack = pagerduty.Extension("slack",
-            endpoint_url="https://generic_webhook_url/XXXXXX/BBBBBB",
+        snow = pagerduty.ExtensionServiceNow("snow",
             extension_schema=webhook.id,
             extension_objects=[example_service.id],
-            config=\"\"\"{
-        	"restrict": "any",
-        	"notify_types": {
-        			"resolve": false,
-        			"acknowledge": false,
-        			"assignments": false
-        	},
-        	"access_token": "XXX"
-        }
-        \"\"\")
+            snow_user="meeps",
+            snow_password="zorz",
+            sync_options="manual_sync",
+            target="https://foo.servicenow.com/webhook_foo",
+            task_type="incident",
+            referer="None")
         ```
 
         ## Import
@@ -285,26 +427,29 @@ class Extension(pulumi.CustomResource):
         Extensions can be imported using the id.e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/extension:Extension main PLBP09X
+         $ pulumi import pagerduty:index/extensionServiceNow:ExtensionServiceNow main PLBP09X
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] config: The configuration of the service extension as string containing plain JSON-encoded data.
-        :param pulumi.Input[str] endpoint_url: The url of the extension.
-               **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `getExtensionSchema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpoint_url`, but one with named `Slack` accepts.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extension_objects: This is the objects for which the extension applies (An array of service ids).
         :param pulumi.Input[str] extension_schema: This is the schema for this extension.
         :param pulumi.Input[str] name: The name of the service extension.
+        :param pulumi.Input[str] referer: The ServiceNow referer.
+        :param pulumi.Input[str] snow_password: The ServiceNow password.
+        :param pulumi.Input[str] snow_user: The ServiceNow username.
+        :param pulumi.Input[str] sync_options: The ServiceNow sync option.
+        :param pulumi.Input[str] target: Target Webhook URL
+        :param pulumi.Input[str] task_type: The ServiceNow task type, typically `incident`.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ExtensionArgs,
+                 args: ExtensionServiceNowArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        An [extension](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Extensions/post_extensions) can be associated with a service.
+        A special case for [extension](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Extensions/post_extensions) for ServiceNow.
 
         ## Example Usage
 
@@ -327,20 +472,15 @@ class Extension(pulumi.CustomResource):
             auto_resolve_timeout="14400",
             acknowledgement_timeout="600",
             escalation_policy=example_escalation_policy.id)
-        slack = pagerduty.Extension("slack",
-            endpoint_url="https://generic_webhook_url/XXXXXX/BBBBBB",
+        snow = pagerduty.ExtensionServiceNow("snow",
             extension_schema=webhook.id,
             extension_objects=[example_service.id],
-            config=\"\"\"{
-        	"restrict": "any",
-        	"notify_types": {
-        			"resolve": false,
-        			"acknowledge": false,
-        			"assignments": false
-        	},
-        	"access_token": "XXX"
-        }
-        \"\"\")
+            snow_user="meeps",
+            snow_password="zorz",
+            sync_options="manual_sync",
+            target="https://foo.servicenow.com/webhook_foo",
+            task_type="incident",
+            referer="None")
         ```
 
         ## Import
@@ -348,16 +488,16 @@ class Extension(pulumi.CustomResource):
         Extensions can be imported using the id.e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/extension:Extension main PLBP09X
+         $ pulumi import pagerduty:index/extensionServiceNow:ExtensionServiceNow main PLBP09X
         ```
 
         :param str resource_name: The name of the resource.
-        :param ExtensionArgs args: The arguments to use to populate this resource's properties.
+        :param ExtensionServiceNowArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ExtensionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ExtensionServiceNowArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -366,11 +506,16 @@ class Extension(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: Optional[pulumi.Input[str]] = None,
                  endpoint_url: Optional[pulumi.Input[str]] = None,
                  extension_objects: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  extension_schema: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 referer: Optional[pulumi.Input[str]] = None,
+                 snow_password: Optional[pulumi.Input[str]] = None,
+                 snow_user: Optional[pulumi.Input[str]] = None,
+                 sync_options: Optional[pulumi.Input[str]] = None,
+                 target: Optional[pulumi.Input[str]] = None,
+                 task_type: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -382,9 +527,8 @@ class Extension(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ExtensionArgs.__new__(ExtensionArgs)
+            __props__ = ExtensionServiceNowArgs.__new__(ExtensionServiceNowArgs)
 
-            __props__.__dict__["config"] = config
             __props__.__dict__["endpoint_url"] = endpoint_url
             if extension_objects is None and not opts.urn:
                 raise TypeError("Missing required property 'extension_objects'")
@@ -393,10 +537,28 @@ class Extension(pulumi.CustomResource):
                 raise TypeError("Missing required property 'extension_schema'")
             __props__.__dict__["extension_schema"] = extension_schema
             __props__.__dict__["name"] = name
+            if referer is None and not opts.urn:
+                raise TypeError("Missing required property 'referer'")
+            __props__.__dict__["referer"] = referer
+            if snow_password is None and not opts.urn:
+                raise TypeError("Missing required property 'snow_password'")
+            __props__.__dict__["snow_password"] = snow_password
+            if snow_user is None and not opts.urn:
+                raise TypeError("Missing required property 'snow_user'")
+            __props__.__dict__["snow_user"] = snow_user
+            if sync_options is None and not opts.urn:
+                raise TypeError("Missing required property 'sync_options'")
+            __props__.__dict__["sync_options"] = sync_options
+            if target is None and not opts.urn:
+                raise TypeError("Missing required property 'target'")
+            __props__.__dict__["target"] = target
+            if task_type is None and not opts.urn:
+                raise TypeError("Missing required property 'task_type'")
+            __props__.__dict__["task_type"] = task_type
             __props__.__dict__["type"] = type
             __props__.__dict__["html_url"] = None
-        super(Extension, __self__).__init__(
-            'pagerduty:index/extension:Extension',
+        super(ExtensionServiceNow, __self__).__init__(
+            'pagerduty:index/extensionServiceNow:ExtensionServiceNow',
             resource_name,
             __props__,
             opts)
@@ -405,56 +567,57 @@ class Extension(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            config: Optional[pulumi.Input[str]] = None,
             endpoint_url: Optional[pulumi.Input[str]] = None,
             extension_objects: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             extension_schema: Optional[pulumi.Input[str]] = None,
             html_url: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            type: Optional[pulumi.Input[str]] = None) -> 'Extension':
+            referer: Optional[pulumi.Input[str]] = None,
+            snow_password: Optional[pulumi.Input[str]] = None,
+            snow_user: Optional[pulumi.Input[str]] = None,
+            sync_options: Optional[pulumi.Input[str]] = None,
+            target: Optional[pulumi.Input[str]] = None,
+            task_type: Optional[pulumi.Input[str]] = None,
+            type: Optional[pulumi.Input[str]] = None) -> 'ExtensionServiceNow':
         """
-        Get an existing Extension resource's state with the given name, id, and optional extra
+        Get an existing ExtensionServiceNow resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] config: The configuration of the service extension as string containing plain JSON-encoded data.
-        :param pulumi.Input[str] endpoint_url: The url of the extension.
-               **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `getExtensionSchema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpoint_url`, but one with named `Slack` accepts.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extension_objects: This is the objects for which the extension applies (An array of service ids).
         :param pulumi.Input[str] extension_schema: This is the schema for this extension.
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app
         :param pulumi.Input[str] name: The name of the service extension.
+        :param pulumi.Input[str] referer: The ServiceNow referer.
+        :param pulumi.Input[str] snow_password: The ServiceNow password.
+        :param pulumi.Input[str] snow_user: The ServiceNow username.
+        :param pulumi.Input[str] sync_options: The ServiceNow sync option.
+        :param pulumi.Input[str] target: Target Webhook URL
+        :param pulumi.Input[str] task_type: The ServiceNow task type, typically `incident`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = _ExtensionState.__new__(_ExtensionState)
+        __props__ = _ExtensionServiceNowState.__new__(_ExtensionServiceNowState)
 
-        __props__.__dict__["config"] = config
         __props__.__dict__["endpoint_url"] = endpoint_url
         __props__.__dict__["extension_objects"] = extension_objects
         __props__.__dict__["extension_schema"] = extension_schema
         __props__.__dict__["html_url"] = html_url
         __props__.__dict__["name"] = name
+        __props__.__dict__["referer"] = referer
+        __props__.__dict__["snow_password"] = snow_password
+        __props__.__dict__["snow_user"] = snow_user
+        __props__.__dict__["sync_options"] = sync_options
+        __props__.__dict__["target"] = target
+        __props__.__dict__["task_type"] = task_type
         __props__.__dict__["type"] = type
-        return Extension(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter
-    def config(self) -> pulumi.Output[Optional[str]]:
-        """
-        The configuration of the service extension as string containing plain JSON-encoded data.
-        """
-        return pulumi.get(self, "config")
+        return ExtensionServiceNow(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="endpointUrl")
     def endpoint_url(self) -> pulumi.Output[Optional[str]]:
-        """
-        The url of the extension.
-        **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `getExtensionSchema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpoint_url`, but one with named `Slack` accepts.
-        """
         return pulumi.get(self, "endpoint_url")
 
     @property
@@ -488,6 +651,54 @@ class Extension(pulumi.CustomResource):
         The name of the service extension.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def referer(self) -> pulumi.Output[str]:
+        """
+        The ServiceNow referer.
+        """
+        return pulumi.get(self, "referer")
+
+    @property
+    @pulumi.getter(name="snowPassword")
+    def snow_password(self) -> pulumi.Output[str]:
+        """
+        The ServiceNow password.
+        """
+        return pulumi.get(self, "snow_password")
+
+    @property
+    @pulumi.getter(name="snowUser")
+    def snow_user(self) -> pulumi.Output[str]:
+        """
+        The ServiceNow username.
+        """
+        return pulumi.get(self, "snow_user")
+
+    @property
+    @pulumi.getter(name="syncOptions")
+    def sync_options(self) -> pulumi.Output[str]:
+        """
+        The ServiceNow sync option.
+        """
+        return pulumi.get(self, "sync_options")
+
+    @property
+    @pulumi.getter
+    def target(self) -> pulumi.Output[str]:
+        """
+        Target Webhook URL
+        """
+        return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter(name="taskType")
+    def task_type(self) -> pulumi.Output[str]:
+        """
+        The ServiceNow task type, typically `incident`.
+        """
+        return pulumi.get(self, "task_type")
 
     @property
     @pulumi.getter

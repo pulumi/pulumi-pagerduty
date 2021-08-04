@@ -30,6 +30,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EventRule{}
 	case "pagerduty:index/extension:Extension":
 		r = &Extension{}
+	case "pagerduty:index/extensionServiceNow:ExtensionServiceNow":
+		r = &ExtensionServiceNow{}
 	case "pagerduty:index/maintenanceWindow:MaintenanceWindow":
 		r = &MaintenanceWindow{}
 	case "pagerduty:index/responsePlay:ResponsePlay":
@@ -112,6 +114,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"pagerduty",
 		"index/extension",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"pagerduty",
+		"index/extensionServiceNow",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

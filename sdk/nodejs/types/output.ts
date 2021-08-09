@@ -380,6 +380,32 @@ export interface ScheduleLayerRestriction {
     type: string;
 }
 
+export interface ServiceAlertGroupingParameters {
+    /**
+     * Alert grouping parameters dependant on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
+     */
+    config?: outputs.ServiceAlertGroupingParametersConfig;
+    /**
+     * The type of scheduled action. Currently, this must be set to `urgencyChange`.
+     */
+    type?: string;
+}
+
+export interface ServiceAlertGroupingParametersConfig {
+    /**
+     * One of `any` or `all`. This setting applies only when `type` is set to `contentBased`. Group alerts based on one or all of `fields` value(s).
+     */
+    aggregate?: string;
+    /**
+     * Alerts will be grouped together if the content of these fields match. This setting applies only when `type` is set to `contentBased`.
+     */
+    fields?: string[];
+    /**
+     * The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
+     */
+    timeout?: number;
+}
+
 export interface ServiceDependencyDependency {
     /**
      * The service that id dependent on the supporting service.
@@ -622,7 +648,7 @@ export interface ServiceIncidentUrgencyRule {
      */
     outsideSupportHours?: outputs.ServiceIncidentUrgencyRuleOutsideSupportHours;
     /**
-     * The type of scheduled action. Currently, this must be set to `urgencyChange`.
+     * The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
      */
     type: string;
     /**
@@ -633,7 +659,7 @@ export interface ServiceIncidentUrgencyRule {
 
 export interface ServiceIncidentUrgencyRuleDuringSupportHours {
     /**
-     * The type of scheduled action. Currently, this must be set to `urgencyChange`.
+     * The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
      */
     type?: string;
     /**
@@ -644,7 +670,7 @@ export interface ServiceIncidentUrgencyRuleDuringSupportHours {
 
 export interface ServiceIncidentUrgencyRuleOutsideSupportHours {
     /**
-     * The type of scheduled action. Currently, this must be set to `urgencyChange`.
+     * The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
      */
     type?: string;
     /**
@@ -663,7 +689,7 @@ export interface ServiceScheduledAction {
      */
     toUrgency?: string;
     /**
-     * The type of scheduled action. Currently, this must be set to `urgencyChange`.
+     * The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
      */
     type?: string;
 }
@@ -698,7 +724,7 @@ export interface ServiceSupportHours {
      */
     timeZone?: string;
     /**
-     * The type of scheduled action. Currently, this must be set to `urgencyChange`.
+     * The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
      */
     type?: string;
 }

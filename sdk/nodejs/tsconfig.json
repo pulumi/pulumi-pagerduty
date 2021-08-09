@@ -20,6 +20,7 @@
         "escalationPolicy.ts",
         "eventRule.ts",
         "extension.ts",
+        "extensionServiceNow.ts",
         "getBusinessService.ts",
         "getEscalationPolicy.ts",
         "getExtensionSchema.ts",

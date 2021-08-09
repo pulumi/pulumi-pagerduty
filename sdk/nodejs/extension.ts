@@ -16,11 +16,8 @@ import * as utilities from "./utilities";
  * const webhook = pagerduty.getExtensionSchema({
  *     name: "Generic V2 Webhook",
  * });
- * const exampleUser = new pagerduty.User("exampleUser", {
- *     email: "howard.james@example.domain",
- *     teams: [pagerduty_team.example.id],
- * });
- * const foo = new pagerduty.EscalationPolicy("foo", {
+ * const exampleUser = new pagerduty.User("exampleUser", {email: "howard.james@example.domain"});
+ * const exampleEscalationPolicy = new pagerduty.EscalationPolicy("exampleEscalationPolicy", {
  *     numLoops: 2,
  *     rules: [{
  *         escalationDelayInMinutes: 10,
@@ -33,7 +30,7 @@ import * as utilities from "./utilities";
  * const exampleService = new pagerduty.Service("exampleService", {
  *     autoResolveTimeout: 14400,
  *     acknowledgementTimeout: 600,
- *     escalationPolicy: pagerduty_escalation_policy.example.id,
+ *     escalationPolicy: exampleEscalationPolicy.id,
  * });
  * const slack = new pagerduty.Extension("slack", {
  *     endpointUrl: "https://generic_webhook_url/XXXXXX/BBBBBB",

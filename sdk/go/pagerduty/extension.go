@@ -13,6 +13,73 @@ import (
 
 // An [extension](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Extensions/post_extensions) can be associated with a service.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-pagerduty/sdk/v2/go/pagerduty"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		webhook, err := pagerduty.GetExtensionSchema(ctx, &pagerduty.GetExtensionSchemaArgs{
+// 			Name: "Generic V2 Webhook",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
+// 			Email: pulumi.String("howard.james@example.domain"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleEscalationPolicy, err := pagerduty.NewEscalationPolicy(ctx, "exampleEscalationPolicy", &pagerduty.EscalationPolicyArgs{
+// 			NumLoops: pulumi.Int(2),
+// 			Rules: pagerduty.EscalationPolicyRuleArray{
+// 				&pagerduty.EscalationPolicyRuleArgs{
+// 					EscalationDelayInMinutes: pulumi.Int(10),
+// 					Targets: pagerduty.EscalationPolicyRuleTargetArray{
+// 						&pagerduty.EscalationPolicyRuleTargetArgs{
+// 							Type: pulumi.String("user"),
+// 							Id:   exampleUser.ID(),
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleService, err := pagerduty.NewService(ctx, "exampleService", &pagerduty.ServiceArgs{
+// 			AutoResolveTimeout:     pulumi.String("14400"),
+// 			AcknowledgementTimeout: pulumi.String("600"),
+// 			EscalationPolicy:       exampleEscalationPolicy.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = pagerduty.NewExtension(ctx, "slack", &pagerduty.ExtensionArgs{
+// 			EndpointUrl:     pulumi.String("https://generic_webhook_url/XXXXXX/BBBBBB"),
+// 			ExtensionSchema: pulumi.String(webhook.Id),
+// 			ExtensionObjects: pulumi.StringArray{
+// 				exampleService.ID(),
+// 			},
+// 			Config: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v", "{\n", "	\"restrict\": \"any\",\n", "	\"notify_types\": {\n", "			\"resolve\": false,\n", "			\"acknowledge\": false,\n", "			\"assignments\": false\n", "	},\n", "	\"access_token\": \"XXX\"\n", "}\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Extensions can be imported using the id.e.g.

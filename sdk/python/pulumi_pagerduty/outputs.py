@@ -38,6 +38,8 @@ __all__ = [
     'RulesetTeam',
     'ScheduleLayer',
     'ScheduleLayerRestriction',
+    'ServiceAlertGroupingParameters',
+    'ServiceAlertGroupingParametersConfig',
     'ServiceDependencyDependency',
     'ServiceDependencyDependencyDependentService',
     'ServiceDependencyDependencySupportingService',
@@ -1352,6 +1354,80 @@ class ScheduleLayerRestriction(dict):
 
 
 @pulumi.output_type
+class ServiceAlertGroupingParameters(dict):
+    def __init__(__self__, *,
+                 config: Optional['outputs.ServiceAlertGroupingParametersConfig'] = None,
+                 type: Optional[str] = None):
+        """
+        :param 'ServiceAlertGroupingParametersConfigArgs' config: Alert grouping parameters dependant on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
+        :param str type: The type of scheduled action. Currently, this must be set to `urgency_change`.
+        """
+        if config is not None:
+            pulumi.set(__self__, "config", config)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def config(self) -> Optional['outputs.ServiceAlertGroupingParametersConfig']:
+        """
+        Alert grouping parameters dependant on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
+        """
+        return pulumi.get(self, "config")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of scheduled action. Currently, this must be set to `urgency_change`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ServiceAlertGroupingParametersConfig(dict):
+    def __init__(__self__, *,
+                 aggregate: Optional[str] = None,
+                 fields: Optional[Sequence[str]] = None,
+                 timeout: Optional[int] = None):
+        """
+        :param str aggregate: One of `any` or `all`. This setting applies only when `type` is set to `content_based`. Group alerts based on one or all of `fields` value(s).
+        :param Sequence[str] fields: Alerts will be grouped together if the content of these fields match. This setting applies only when `type` is set to `content_based`.
+        :param int timeout: The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
+        """
+        if aggregate is not None:
+            pulumi.set(__self__, "aggregate", aggregate)
+        if fields is not None:
+            pulumi.set(__self__, "fields", fields)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @property
+    @pulumi.getter
+    def aggregate(self) -> Optional[str]:
+        """
+        One of `any` or `all`. This setting applies only when `type` is set to `content_based`. Group alerts based on one or all of `fields` value(s).
+        """
+        return pulumi.get(self, "aggregate")
+
+    @property
+    @pulumi.getter
+    def fields(self) -> Optional[Sequence[str]]:
+        """
+        Alerts will be grouped together if the content of these fields match. This setting applies only when `type` is set to `content_based`.
+        """
+        return pulumi.get(self, "fields")
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[int]:
+        """
+        The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
+        """
+        return pulumi.get(self, "timeout")
+
+
+@pulumi.output_type
 class ServiceDependencyDependency(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2157,7 +2233,7 @@ class ServiceIncidentUrgencyRule(dict):
                  outside_support_hours: Optional['outputs.ServiceIncidentUrgencyRuleOutsideSupportHours'] = None,
                  urgency: Optional[str] = None):
         """
-        :param str type: The type of scheduled action. Currently, this must be set to `urgency_change`.
+        :param str type: The type of alert grouping; one of `intelligent`, `time` or `content_based`.
         :param 'ServiceIncidentUrgencyRuleDuringSupportHoursArgs' during_support_hours: Incidents' urgency during support hours.
         :param 'ServiceIncidentUrgencyRuleOutsideSupportHoursArgs' outside_support_hours: Incidents' urgency outside of support hours.
         :param str urgency: The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
@@ -2174,7 +2250,7 @@ class ServiceIncidentUrgencyRule(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of scheduled action. Currently, this must be set to `urgency_change`.
+        The type of alert grouping; one of `intelligent`, `time` or `content_based`.
         """
         return pulumi.get(self, "type")
 
@@ -2209,7 +2285,7 @@ class ServiceIncidentUrgencyRuleDuringSupportHours(dict):
                  type: Optional[str] = None,
                  urgency: Optional[str] = None):
         """
-        :param str type: The type of scheduled action. Currently, this must be set to `urgency_change`.
+        :param str type: The type of alert grouping; one of `intelligent`, `time` or `content_based`.
         :param str urgency: The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
         """
         if type is not None:
@@ -2221,7 +2297,7 @@ class ServiceIncidentUrgencyRuleDuringSupportHours(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        The type of scheduled action. Currently, this must be set to `urgency_change`.
+        The type of alert grouping; one of `intelligent`, `time` or `content_based`.
         """
         return pulumi.get(self, "type")
 
@@ -2240,7 +2316,7 @@ class ServiceIncidentUrgencyRuleOutsideSupportHours(dict):
                  type: Optional[str] = None,
                  urgency: Optional[str] = None):
         """
-        :param str type: The type of scheduled action. Currently, this must be set to `urgency_change`.
+        :param str type: The type of alert grouping; one of `intelligent`, `time` or `content_based`.
         :param str urgency: The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
         """
         if type is not None:
@@ -2252,7 +2328,7 @@ class ServiceIncidentUrgencyRuleOutsideSupportHours(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        The type of scheduled action. Currently, this must be set to `urgency_change`.
+        The type of alert grouping; one of `intelligent`, `time` or `content_based`.
         """
         return pulumi.get(self, "type")
 
@@ -2291,7 +2367,7 @@ class ServiceScheduledAction(dict):
         """
         :param Sequence['ServiceScheduledActionAtArgs'] ats: A block representing when the scheduled action will occur.
         :param str to_urgency: The urgency to change to: `low` (does not escalate), or `high` (follows escalation rules).
-        :param str type: The type of scheduled action. Currently, this must be set to `urgency_change`.
+        :param str type: The type of alert grouping; one of `intelligent`, `time` or `content_based`.
         """
         if ats is not None:
             pulumi.set(__self__, "ats", ats)
@@ -2320,7 +2396,7 @@ class ServiceScheduledAction(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        The type of scheduled action. Currently, this must be set to `urgency_change`.
+        The type of alert grouping; one of `intelligent`, `time` or `content_based`.
         """
         return pulumi.get(self, "type")
 
@@ -2393,7 +2469,7 @@ class ServiceSupportHours(dict):
         :param str end_time: The support hours' ending time of day.
         :param str start_time: The support hours' starting time of day.
         :param str time_zone: The time zone for the support hours.
-        :param str type: The type of scheduled action. Currently, this must be set to `urgency_change`.
+        :param str type: The type of alert grouping; one of `intelligent`, `time` or `content_based`.
         """
         if days_of_weeks is not None:
             pulumi.set(__self__, "days_of_weeks", days_of_weeks)
@@ -2443,7 +2519,7 @@ class ServiceSupportHours(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        The type of scheduled action. Currently, this must be set to `urgency_change`.
+        The type of alert grouping; one of `intelligent`, `time` or `content_based`.
         """
         return pulumi.get(self, "type")
 

@@ -13,7 +13,7 @@ namespace Pulumi.Pagerduty.Inputs
     public sealed class ServiceIncidentUrgencyRuleDuringSupportHoursArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of scheduled action. Currently, this must be set to `urgency_change`.
+        /// The type of alert grouping; one of `intelligent`, `time` or `content_based`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

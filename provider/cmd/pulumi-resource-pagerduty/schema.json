@@ -1025,6 +1025,64 @@
                 "type"
             ]
         },
+        "pagerduty:index/ServiceAlertGroupingParameters:ServiceAlertGroupingParameters": {
+            "properties": {
+                "config": {
+                    "$ref": "#/types/pagerduty:index/ServiceAlertGroupingParametersConfig:ServiceAlertGroupingParametersConfig",
+                    "description": "Alert grouping parameters dependant on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of scheduled action. Currently, this must be set to `urgency_change`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "pagerduty:index/ServiceAlertGroupingParametersConfig:ServiceAlertGroupingParametersConfig": {
+            "properties": {
+                "aggregate": {
+                    "type": "string",
+                    "description": "One of `any` or `all`. This setting applies only when `type` is set to `content_based`. Group alerts based on one or all of `fields` value(s).\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "fields": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Alerts will be grouped together if the content of these fields match. This setting applies only when `type` is set to `content_based`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "timeout": {
+                    "type": "integer",
+                    "description": "The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
         "pagerduty:index/ServiceDependencyDependency:ServiceDependencyDependency": {
             "properties": {
                 "dependentServices": {
@@ -1610,7 +1668,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "The type of scheduled action. Currently, this must be set to `urgency_change`.\n",
+                    "description": "The type of alert grouping; one of `intelligent`, `time` or `content_based`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1636,7 +1694,7 @@
             "properties": {
                 "type": {
                     "type": "string",
-                    "description": "The type of scheduled action. Currently, this must be set to `urgency_change`.\n",
+                    "description": "The type of alert grouping; one of `intelligent`, `time` or `content_based`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1659,7 +1717,7 @@
             "properties": {
                 "type": {
                     "type": "string",
-                    "description": "The type of scheduled action. Currently, this must be set to `urgency_change`.\n",
+                    "description": "The type of alert grouping; one of `intelligent`, `time` or `content_based`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1703,7 +1761,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "The type of scheduled action. Currently, this must be set to `urgency_change`.\n",
+                    "description": "The type of alert grouping; one of `intelligent`, `time` or `content_based`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1779,7 +1837,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "The type of scheduled action. Currently, this must be set to `urgency_change`.\n",
+                    "description": "The type of alert grouping; one of `intelligent`, `time` or `content_based`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2131,7 +2189,7 @@
             }
         },
         "pagerduty:index/extension:Extension": {
-            "description": "An [extension](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Extensions/post_extensions) can be associated with a service.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst webhook = pagerduty.getExtensionSchema({\n    name: \"Generic V2 Webhook\",\n});\nconst exampleUser = new pagerduty.User(\"exampleUser\", {\n    email: \"howard.james@example.domain\",\n    teams: [pagerduty_team.example.id],\n});\nconst foo = new pagerduty.EscalationPolicy(\"foo\", {\n    numLoops: 2,\n    rules: [{\n        escalationDelayInMinutes: 10,\n        targets: [{\n            type: \"user\",\n            id: exampleUser.id,\n        }],\n    }],\n});\nconst exampleService = new pagerduty.Service(\"exampleService\", {\n    autoResolveTimeout: 14400,\n    acknowledgementTimeout: 600,\n    escalationPolicy: pagerduty_escalation_policy.example.id,\n});\nconst slack = new pagerduty.Extension(\"slack\", {\n    endpointUrl: \"https://generic_webhook_url/XXXXXX/BBBBBB\",\n    extensionSchema: webhook.then(webhook =\u003e webhook.id),\n    extensionObjects: [exampleService.id],\n    config: `{\n\t\"restrict\": \"any\",\n\t\"notify_types\": {\n\t\t\t\"resolve\": false,\n\t\t\t\"acknowledge\": false,\n\t\t\t\"assignments\": false\n\t},\n\t\"access_token\": \"XXX\"\n}\n`,\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nwebhook = pagerduty.get_extension_schema(name=\"Generic V2 Webhook\")\nexample_user = pagerduty.User(\"exampleUser\",\n    email=\"howard.james@example.domain\",\n    teams=[pagerduty_team[\"example\"][\"id\"]])\nfoo = pagerduty.EscalationPolicy(\"foo\",\n    num_loops=2,\n    rules=[pagerduty.EscalationPolicyRuleArgs(\n        escalation_delay_in_minutes=10,\n        targets=[pagerduty.EscalationPolicyRuleTargetArgs(\n            type=\"user\",\n            id=example_user.id,\n        )],\n    )])\nexample_service = pagerduty.Service(\"exampleService\",\n    auto_resolve_timeout=\"14400\",\n    acknowledgement_timeout=\"600\",\n    escalation_policy=pagerduty_escalation_policy[\"example\"][\"id\"])\nslack = pagerduty.Extension(\"slack\",\n    endpoint_url=\"https://generic_webhook_url/XXXXXX/BBBBBB\",\n    extension_schema=webhook.id,\n    extension_objects=[example_service.id],\n    config=\"\"\"{\n\t\"restrict\": \"any\",\n\t\"notify_types\": {\n\t\t\t\"resolve\": false,\n\t\t\t\"acknowledge\": false,\n\t\t\t\"assignments\": false\n\t},\n\t\"access_token\": \"XXX\"\n}\n\"\"\")\n```\n```csharp\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var webhook = Output.Create(Pagerduty.GetExtensionSchema.InvokeAsync(new Pagerduty.GetExtensionSchemaArgs\n        {\n            Name = \"Generic V2 Webhook\",\n        }));\n        var exampleUser = new Pagerduty.User(\"exampleUser\", new Pagerduty.UserArgs\n        {\n            Email = \"howard.james@example.domain\",\n            Teams = \n            {\n                pagerduty_team.Example.Id,\n            },\n        });\n        var foo = new Pagerduty.EscalationPolicy(\"foo\", new Pagerduty.EscalationPolicyArgs\n        {\n            NumLoops = 2,\n            Rules = \n            {\n                new Pagerduty.Inputs.EscalationPolicyRuleArgs\n                {\n                    EscalationDelayInMinutes = 10,\n                    Targets = \n                    {\n                        new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs\n                        {\n                            Type = \"user\",\n                            Id = exampleUser.Id,\n                        },\n                    },\n                },\n            },\n        });\n        var exampleService = new Pagerduty.Service(\"exampleService\", new Pagerduty.ServiceArgs\n        {\n            AutoResolveTimeout = \"14400\",\n            AcknowledgementTimeout = \"600\",\n            EscalationPolicy = pagerduty_escalation_policy.Example.Id,\n        });\n        var slack = new Pagerduty.Extension(\"slack\", new Pagerduty.ExtensionArgs\n        {\n            EndpointUrl = \"https://generic_webhook_url/XXXXXX/BBBBBB\",\n            ExtensionSchema = webhook.Apply(webhook =\u003e webhook.Id),\n            ExtensionObjects = \n            {\n                exampleService.Id,\n            },\n            Config = @\"{\n\t\"\"restrict\"\": \"\"any\"\",\n\t\"\"notify_types\"\": {\n\t\t\t\"\"resolve\"\": false,\n\t\t\t\"\"acknowledge\"\": false,\n\t\t\t\"\"assignments\"\": false\n\t},\n\t\"\"access_token\"\": \"\"XXX\"\"\n}\n\",\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nExtensions can be imported using the id.e.g.\n\n```sh\n $ pulumi import pagerduty:index/extension:Extension main PLBP09X\n```\n\n ",
+            "description": "An [extension](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Extensions/post_extensions) can be associated with a service.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst webhook = pagerduty.getExtensionSchema({\n    name: \"Generic V2 Webhook\",\n});\nconst exampleUser = new pagerduty.User(\"exampleUser\", {email: \"howard.james@example.domain\"});\nconst exampleEscalationPolicy = new pagerduty.EscalationPolicy(\"exampleEscalationPolicy\", {\n    numLoops: 2,\n    rules: [{\n        escalationDelayInMinutes: 10,\n        targets: [{\n            type: \"user\",\n            id: exampleUser.id,\n        }],\n    }],\n});\nconst exampleService = new pagerduty.Service(\"exampleService\", {\n    autoResolveTimeout: 14400,\n    acknowledgementTimeout: 600,\n    escalationPolicy: exampleEscalationPolicy.id,\n});\nconst slack = new pagerduty.Extension(\"slack\", {\n    endpointUrl: \"https://generic_webhook_url/XXXXXX/BBBBBB\",\n    extensionSchema: webhook.then(webhook =\u003e webhook.id),\n    extensionObjects: [exampleService.id],\n    config: `{\n\t\"restrict\": \"any\",\n\t\"notify_types\": {\n\t\t\t\"resolve\": false,\n\t\t\t\"acknowledge\": false,\n\t\t\t\"assignments\": false\n\t},\n\t\"access_token\": \"XXX\"\n}\n`,\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nwebhook = pagerduty.get_extension_schema(name=\"Generic V2 Webhook\")\nexample_user = pagerduty.User(\"exampleUser\", email=\"howard.james@example.domain\")\nexample_escalation_policy = pagerduty.EscalationPolicy(\"exampleEscalationPolicy\",\n    num_loops=2,\n    rules=[pagerduty.EscalationPolicyRuleArgs(\n        escalation_delay_in_minutes=10,\n        targets=[pagerduty.EscalationPolicyRuleTargetArgs(\n            type=\"user\",\n            id=example_user.id,\n        )],\n    )])\nexample_service = pagerduty.Service(\"exampleService\",\n    auto_resolve_timeout=\"14400\",\n    acknowledgement_timeout=\"600\",\n    escalation_policy=example_escalation_policy.id)\nslack = pagerduty.Extension(\"slack\",\n    endpoint_url=\"https://generic_webhook_url/XXXXXX/BBBBBB\",\n    extension_schema=webhook.id,\n    extension_objects=[example_service.id],\n    config=\"\"\"{\n\t\"restrict\": \"any\",\n\t\"notify_types\": {\n\t\t\t\"resolve\": false,\n\t\t\t\"acknowledge\": false,\n\t\t\t\"assignments\": false\n\t},\n\t\"access_token\": \"XXX\"\n}\n\"\"\")\n```\n```csharp\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var webhook = Output.Create(Pagerduty.GetExtensionSchema.InvokeAsync(new Pagerduty.GetExtensionSchemaArgs\n        {\n            Name = \"Generic V2 Webhook\",\n        }));\n        var exampleUser = new Pagerduty.User(\"exampleUser\", new Pagerduty.UserArgs\n        {\n            Email = \"howard.james@example.domain\",\n        });\n        var exampleEscalationPolicy = new Pagerduty.EscalationPolicy(\"exampleEscalationPolicy\", new Pagerduty.EscalationPolicyArgs\n        {\n            NumLoops = 2,\n            Rules = \n            {\n                new Pagerduty.Inputs.EscalationPolicyRuleArgs\n                {\n                    EscalationDelayInMinutes = 10,\n                    Targets = \n                    {\n                        new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs\n                        {\n                            Type = \"user\",\n                            Id = exampleUser.Id,\n                        },\n                    },\n                },\n            },\n        });\n        var exampleService = new Pagerduty.Service(\"exampleService\", new Pagerduty.ServiceArgs\n        {\n            AutoResolveTimeout = \"14400\",\n            AcknowledgementTimeout = \"600\",\n            EscalationPolicy = exampleEscalationPolicy.Id,\n        });\n        var slack = new Pagerduty.Extension(\"slack\", new Pagerduty.ExtensionArgs\n        {\n            EndpointUrl = \"https://generic_webhook_url/XXXXXX/BBBBBB\",\n            ExtensionSchema = webhook.Apply(webhook =\u003e webhook.Id),\n            ExtensionObjects = \n            {\n                exampleService.Id,\n            },\n            Config = @\"{\n\t\"\"restrict\"\": \"\"any\"\",\n\t\"\"notify_types\"\": {\n\t\t\t\"\"resolve\"\": false,\n\t\t\t\"\"acknowledge\"\": false,\n\t\t\t\"\"assignments\"\": false\n\t},\n\t\"\"access_token\"\": \"\"XXX\"\"\n}\n\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v2/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\twebhook, err := pagerduty.GetExtensionSchema(ctx, \u0026pagerduty.GetExtensionSchemaArgs{\n\t\t\tName: \"Generic V2 Webhook\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleUser, err := pagerduty.NewUser(ctx, \"exampleUser\", \u0026pagerduty.UserArgs{\n\t\t\tEmail: pulumi.String(\"howard.james@example.domain\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleEscalationPolicy, err := pagerduty.NewEscalationPolicy(ctx, \"exampleEscalationPolicy\", \u0026pagerduty.EscalationPolicyArgs{\n\t\t\tNumLoops: pulumi.Int(2),\n\t\t\tRules: pagerduty.EscalationPolicyRuleArray{\n\t\t\t\t\u0026pagerduty.EscalationPolicyRuleArgs{\n\t\t\t\t\tEscalationDelayInMinutes: pulumi.Int(10),\n\t\t\t\t\tTargets: pagerduty.EscalationPolicyRuleTargetArray{\n\t\t\t\t\t\t\u0026pagerduty.EscalationPolicyRuleTargetArgs{\n\t\t\t\t\t\t\tType: pulumi.String(\"user\"),\n\t\t\t\t\t\t\tId:   exampleUser.ID(),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleService, err := pagerduty.NewService(ctx, \"exampleService\", \u0026pagerduty.ServiceArgs{\n\t\t\tAutoResolveTimeout:     pulumi.String(\"14400\"),\n\t\t\tAcknowledgementTimeout: pulumi.String(\"600\"),\n\t\t\tEscalationPolicy:       exampleEscalationPolicy.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewExtension(ctx, \"slack\", \u0026pagerduty.ExtensionArgs{\n\t\t\tEndpointUrl:     pulumi.String(\"https://generic_webhook_url/XXXXXX/BBBBBB\"),\n\t\t\tExtensionSchema: pulumi.String(webhook.Id),\n\t\t\tExtensionObjects: pulumi.StringArray{\n\t\t\t\texampleService.ID(),\n\t\t\t},\n\t\t\tConfig: pulumi.String(fmt.Sprintf(\"%v%v%v%v%v%v%v%v%v\", \"{\\n\", \"\t\\\"restrict\\\": \\\"any\\\",\\n\", \"\t\\\"notify_types\\\": {\\n\", \"\t\t\t\\\"resolve\\\": false,\\n\", \"\t\t\t\\\"acknowledge\\\": false,\\n\", \"\t\t\t\\\"assignments\\\": false\\n\", \"\t},\\n\", \"\t\\\"access_token\\\": \\\"XXX\\\"\\n\", \"}\\n\")),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nExtensions can be imported using the id.e.g.\n\n```sh\n $ pulumi import pagerduty:index/extension:Extension main PLBP09X\n```\n\n ",
             "properties": {
                 "config": {
                     "type": "string",
@@ -2232,6 +2290,185 @@
                     "name": {
                         "type": "string",
                         "description": "The name of the service extension.\n"
+                    },
+                    "type": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "pagerduty:index/extensionServiceNow:ExtensionServiceNow": {
+            "description": "A special case for [extension](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Extensions/post_extensions) for ServiceNow.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst webhook = pagerduty.getExtensionSchema({\n    name: \"Generic V2 Webhook\",\n});\nconst exampleUser = new pagerduty.User(\"exampleUser\", {email: \"howard.james@example.domain\"});\nconst exampleEscalationPolicy = new pagerduty.EscalationPolicy(\"exampleEscalationPolicy\", {\n    numLoops: 2,\n    rules: [{\n        escalationDelayInMinutes: 10,\n        targets: [{\n            type: \"user\",\n            id: exampleUser.id,\n        }],\n    }],\n});\nconst exampleService = new pagerduty.Service(\"exampleService\", {\n    autoResolveTimeout: 14400,\n    acknowledgementTimeout: 600,\n    escalationPolicy: exampleEscalationPolicy.id,\n});\nconst snow = new pagerduty.ExtensionServiceNow(\"snow\", {\n    extensionSchema: webhook.then(webhook =\u003e webhook.id),\n    extensionObjects: [exampleService.id],\n    snowUser: \"meeps\",\n    snowPassword: \"zorz\",\n    syncOptions: \"manual_sync\",\n    target: \"https://foo.servicenow.com/webhook_foo\",\n    taskType: \"incident\",\n    referer: \"None\",\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nwebhook = pagerduty.get_extension_schema(name=\"Generic V2 Webhook\")\nexample_user = pagerduty.User(\"exampleUser\", email=\"howard.james@example.domain\")\nexample_escalation_policy = pagerduty.EscalationPolicy(\"exampleEscalationPolicy\",\n    num_loops=2,\n    rules=[pagerduty.EscalationPolicyRuleArgs(\n        escalation_delay_in_minutes=10,\n        targets=[pagerduty.EscalationPolicyRuleTargetArgs(\n            type=\"user\",\n            id=example_user.id,\n        )],\n    )])\nexample_service = pagerduty.Service(\"exampleService\",\n    auto_resolve_timeout=\"14400\",\n    acknowledgement_timeout=\"600\",\n    escalation_policy=example_escalation_policy.id)\nsnow = pagerduty.ExtensionServiceNow(\"snow\",\n    extension_schema=webhook.id,\n    extension_objects=[example_service.id],\n    snow_user=\"meeps\",\n    snow_password=\"zorz\",\n    sync_options=\"manual_sync\",\n    target=\"https://foo.servicenow.com/webhook_foo\",\n    task_type=\"incident\",\n    referer=\"None\")\n```\n```csharp\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var webhook = Output.Create(Pagerduty.GetExtensionSchema.InvokeAsync(new Pagerduty.GetExtensionSchemaArgs\n        {\n            Name = \"Generic V2 Webhook\",\n        }));\n        var exampleUser = new Pagerduty.User(\"exampleUser\", new Pagerduty.UserArgs\n        {\n            Email = \"howard.james@example.domain\",\n        });\n        var exampleEscalationPolicy = new Pagerduty.EscalationPolicy(\"exampleEscalationPolicy\", new Pagerduty.EscalationPolicyArgs\n        {\n            NumLoops = 2,\n            Rules = \n            {\n                new Pagerduty.Inputs.EscalationPolicyRuleArgs\n                {\n                    EscalationDelayInMinutes = 10,\n                    Targets = \n                    {\n                        new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs\n                        {\n                            Type = \"user\",\n                            Id = exampleUser.Id,\n                        },\n                    },\n                },\n            },\n        });\n        var exampleService = new Pagerduty.Service(\"exampleService\", new Pagerduty.ServiceArgs\n        {\n            AutoResolveTimeout = \"14400\",\n            AcknowledgementTimeout = \"600\",\n            EscalationPolicy = exampleEscalationPolicy.Id,\n        });\n        var snow = new Pagerduty.ExtensionServiceNow(\"snow\", new Pagerduty.ExtensionServiceNowArgs\n        {\n            ExtensionSchema = webhook.Apply(webhook =\u003e webhook.Id),\n            ExtensionObjects = \n            {\n                exampleService.Id,\n            },\n            SnowUser = \"meeps\",\n            SnowPassword = \"zorz\",\n            SyncOptions = \"manual_sync\",\n            Target = \"https://foo.servicenow.com/webhook_foo\",\n            TaskType = \"incident\",\n            Referer = \"None\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v2/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\twebhook, err := pagerduty.GetExtensionSchema(ctx, \u0026pagerduty.GetExtensionSchemaArgs{\n\t\t\tName: \"Generic V2 Webhook\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleUser, err := pagerduty.NewUser(ctx, \"exampleUser\", \u0026pagerduty.UserArgs{\n\t\t\tEmail: pulumi.String(\"howard.james@example.domain\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleEscalationPolicy, err := pagerduty.NewEscalationPolicy(ctx, \"exampleEscalationPolicy\", \u0026pagerduty.EscalationPolicyArgs{\n\t\t\tNumLoops: pulumi.Int(2),\n\t\t\tRules: pagerduty.EscalationPolicyRuleArray{\n\t\t\t\t\u0026pagerduty.EscalationPolicyRuleArgs{\n\t\t\t\t\tEscalationDelayInMinutes: pulumi.Int(10),\n\t\t\t\t\tTargets: pagerduty.EscalationPolicyRuleTargetArray{\n\t\t\t\t\t\t\u0026pagerduty.EscalationPolicyRuleTargetArgs{\n\t\t\t\t\t\t\tType: pulumi.String(\"user\"),\n\t\t\t\t\t\t\tId:   exampleUser.ID(),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleService, err := pagerduty.NewService(ctx, \"exampleService\", \u0026pagerduty.ServiceArgs{\n\t\t\tAutoResolveTimeout:     pulumi.String(\"14400\"),\n\t\t\tAcknowledgementTimeout: pulumi.String(\"600\"),\n\t\t\tEscalationPolicy:       exampleEscalationPolicy.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewExtensionServiceNow(ctx, \"snow\", \u0026pagerduty.ExtensionServiceNowArgs{\n\t\t\tExtensionSchema: pulumi.String(webhook.Id),\n\t\t\tExtensionObjects: pulumi.StringArray{\n\t\t\t\texampleService.ID(),\n\t\t\t},\n\t\t\tSnowUser:     pulumi.String(\"meeps\"),\n\t\t\tSnowPassword: pulumi.String(\"zorz\"),\n\t\t\tSyncOptions:  pulumi.String(\"manual_sync\"),\n\t\t\tTarget:       pulumi.String(\"https://foo.servicenow.com/webhook_foo\"),\n\t\t\tTaskType:     pulumi.String(\"incident\"),\n\t\t\tReferer:      pulumi.String(\"None\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nExtensions can be imported using the id.e.g.\n\n```sh\n $ pulumi import pagerduty:index/extensionServiceNow:ExtensionServiceNow main PLBP09X\n```\n\n ",
+            "properties": {
+                "endpointUrl": {
+                    "type": "string"
+                },
+                "extensionObjects": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "This is the objects for which the extension applies (An array of service ids).\n"
+                },
+                "extensionSchema": {
+                    "type": "string",
+                    "description": "This is the schema for this extension.\n"
+                },
+                "htmlUrl": {
+                    "type": "string",
+                    "description": "URL at which the entity is uniquely displayed in the Web app\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the service extension.\n"
+                },
+                "referer": {
+                    "type": "string",
+                    "description": "The ServiceNow referer.\n"
+                },
+                "snowPassword": {
+                    "type": "string",
+                    "description": "The ServiceNow password.\n"
+                },
+                "snowUser": {
+                    "type": "string",
+                    "description": "The ServiceNow username.\n"
+                },
+                "syncOptions": {
+                    "type": "string",
+                    "description": "The ServiceNow sync option.\n"
+                },
+                "target": {
+                    "type": "string",
+                    "description": "Target Webhook URL\n"
+                },
+                "taskType": {
+                    "type": "string",
+                    "description": "The ServiceNow task type, typically `incident`.\n"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "extensionObjects",
+                "extensionSchema",
+                "htmlUrl",
+                "name",
+                "referer",
+                "snowPassword",
+                "snowUser",
+                "syncOptions",
+                "target",
+                "taskType",
+                "type"
+            ],
+            "inputProperties": {
+                "endpointUrl": {
+                    "type": "string"
+                },
+                "extensionObjects": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "This is the objects for which the extension applies (An array of service ids).\n"
+                },
+                "extensionSchema": {
+                    "type": "string",
+                    "description": "This is the schema for this extension.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the service extension.\n"
+                },
+                "referer": {
+                    "type": "string",
+                    "description": "The ServiceNow referer.\n"
+                },
+                "snowPassword": {
+                    "type": "string",
+                    "description": "The ServiceNow password.\n"
+                },
+                "snowUser": {
+                    "type": "string",
+                    "description": "The ServiceNow username.\n"
+                },
+                "syncOptions": {
+                    "type": "string",
+                    "description": "The ServiceNow sync option.\n"
+                },
+                "target": {
+                    "type": "string",
+                    "description": "Target Webhook URL\n"
+                },
+                "taskType": {
+                    "type": "string",
+                    "description": "The ServiceNow task type, typically `incident`.\n"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "extensionObjects",
+                "extensionSchema",
+                "referer",
+                "snowPassword",
+                "snowUser",
+                "syncOptions",
+                "target",
+                "taskType"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ExtensionServiceNow resources.\n",
+                "properties": {
+                    "endpointUrl": {
+                        "type": "string"
+                    },
+                    "extensionObjects": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "This is the objects for which the extension applies (An array of service ids).\n"
+                    },
+                    "extensionSchema": {
+                        "type": "string",
+                        "description": "This is the schema for this extension.\n"
+                    },
+                    "htmlUrl": {
+                        "type": "string",
+                        "description": "URL at which the entity is uniquely displayed in the Web app\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the service extension.\n"
+                    },
+                    "referer": {
+                        "type": "string",
+                        "description": "The ServiceNow referer.\n"
+                    },
+                    "snowPassword": {
+                        "type": "string",
+                        "description": "The ServiceNow password.\n"
+                    },
+                    "snowUser": {
+                        "type": "string",
+                        "description": "The ServiceNow username.\n"
+                    },
+                    "syncOptions": {
+                        "type": "string",
+                        "description": "The ServiceNow sync option.\n"
+                    },
+                    "target": {
+                        "type": "string",
+                        "description": "Target Webhook URL\n"
+                    },
+                    "taskType": {
+                        "type": "string",
+                        "description": "The ServiceNow task type, typically `incident`.\n"
                     },
                     "type": {
                         "type": "string"
@@ -2791,11 +3028,15 @@
                 },
                 "alertGrouping": {
                     "type": "string",
-                    "description": "Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan.\n"
+                    "description": "(Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan.\n"
+                },
+                "alertGroupingParameters": {
+                    "$ref": "#/types/pagerduty:index/ServiceAlertGroupingParameters:ServiceAlertGroupingParameters",
+                    "description": "Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.\n"
                 },
                 "alertGroupingTimeout": {
                     "type": "integer",
-                    "description": "The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.\n"
+                    "description": "(Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.\n"
                 },
                 "autoResolveTimeout": {
                     "type": "string",
@@ -2839,6 +3080,8 @@
                 }
             },
             "required": [
+                "alertGrouping",
+                "alertGroupingParameters",
                 "createdAt",
                 "description",
                 "escalationPolicy",
@@ -2859,11 +3102,15 @@
                 },
                 "alertGrouping": {
                     "type": "string",
-                    "description": "Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan.\n"
+                    "description": "(Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan.\n"
+                },
+                "alertGroupingParameters": {
+                    "$ref": "#/types/pagerduty:index/ServiceAlertGroupingParameters:ServiceAlertGroupingParameters",
+                    "description": "Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.\n"
                 },
                 "alertGroupingTimeout": {
                     "type": "integer",
-                    "description": "The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.\n"
+                    "description": "(Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.\n"
                 },
                 "autoResolveTimeout": {
                     "type": "string",
@@ -2910,11 +3157,15 @@
                     },
                     "alertGrouping": {
                         "type": "string",
-                        "description": "Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan.\n"
+                        "description": "(Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan.\n"
+                    },
+                    "alertGroupingParameters": {
+                        "$ref": "#/types/pagerduty:index/ServiceAlertGroupingParameters:ServiceAlertGroupingParameters",
+                        "description": "Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.\n"
                     },
                     "alertGroupingTimeout": {
                         "type": "integer",
-                        "description": "The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.\n"
+                        "description": "(Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.\n"
                     },
                     "autoResolveTimeout": {
                         "type": "string",

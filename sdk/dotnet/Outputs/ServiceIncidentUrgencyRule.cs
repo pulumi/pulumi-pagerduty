@@ -22,7 +22,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly Outputs.ServiceIncidentUrgencyRuleOutsideSupportHours? OutsideSupportHours;
         /// <summary>
-        /// The type of scheduled action. Currently, this must be set to `urgency_change`.
+        /// The type of alert grouping; one of `intelligent`, `time` or `content_based`.
         /// </summary>
         public readonly string Type;
         /// <summary>

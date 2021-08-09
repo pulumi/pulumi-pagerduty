@@ -10,6 +10,7 @@ export * from "./businessService";
 export * from "./escalationPolicy";
 export * from "./eventRule";
 export * from "./extension";
+export * from "./extensionServiceNow";
 export * from "./getBusinessService";
 export * from "./getEscalationPolicy";
 export * from "./getExtensionSchema";
@@ -52,6 +53,7 @@ import { BusinessService } from "./businessService";
 import { EscalationPolicy } from "./escalationPolicy";
 import { EventRule } from "./eventRule";
 import { Extension } from "./extension";
+import { ExtensionServiceNow } from "./extensionServiceNow";
 import { MaintenanceWindow } from "./maintenanceWindow";
 import { ResponsePlay } from "./responsePlay";
 import { Ruleset } from "./ruleset";
@@ -81,6 +83,8 @@ const _module = {
                 return new EventRule(name, <any>undefined, { urn })
             case "pagerduty:index/extension:Extension":
                 return new Extension(name, <any>undefined, { urn })
+            case "pagerduty:index/extensionServiceNow:ExtensionServiceNow":
+                return new ExtensionServiceNow(name, <any>undefined, { urn })
             case "pagerduty:index/maintenanceWindow:MaintenanceWindow":
                 return new MaintenanceWindow(name, <any>undefined, { urn })
             case "pagerduty:index/responsePlay:ResponsePlay":
@@ -119,6 +123,7 @@ pulumi.runtime.registerResourceModule("pagerduty", "index/businessService", _mod
 pulumi.runtime.registerResourceModule("pagerduty", "index/escalationPolicy", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/eventRule", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/extension", _module)
+pulumi.runtime.registerResourceModule("pagerduty", "index/extensionServiceNow", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/maintenanceWindow", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/responsePlay", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/ruleset", _module)

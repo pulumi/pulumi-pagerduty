@@ -12,7 +12,7 @@ namespace Pulumi.Pagerduty
     public static class GetEscalationPolicy
     {
         /// <summary>
-        /// Use this data source to get information about a specific [escalation policy](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Escalation_Policies/get_escalation_policies) that you can use for other PagerDuty resources.
+        /// Use this data source to get information about a specific [escalation policy](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1escalation_policies/get) that you can use for other PagerDuty resources.
         /// 
         /// {{% examples %}}
         /// ## Example Usage

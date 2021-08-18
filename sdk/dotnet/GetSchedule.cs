@@ -12,7 +12,7 @@ namespace Pulumi.Pagerduty
     public static class GetSchedule
     {
         /// <summary>
-        /// Use this data source to get information about a specific [schedule](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Schedules/get_schedules) that you can use for other PagerDuty resources.
+        /// Use this data source to get information about a specific [schedule](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1schedules~1%7Bid%7D/get) that you can use for other PagerDuty resources.
         /// 
         /// {{% examples %}}
         /// ## Example Usage

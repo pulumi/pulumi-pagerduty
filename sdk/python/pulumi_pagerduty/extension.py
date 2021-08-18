@@ -241,7 +241,7 @@ class Extension(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        An [extension](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Extensions/post_extensions) can be associated with a service.
+        An [extension](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1extensions/post) can be associated with a service.
 
         ## Example Usage
 
@@ -304,7 +304,7 @@ class Extension(pulumi.CustomResource):
                  args: ExtensionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        An [extension](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Extensions/post_extensions) can be associated with a service.
+        An [extension](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1extensions/post) can be associated with a service.
 
         ## Example Usage
 

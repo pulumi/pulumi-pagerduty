@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get information about a specific [vendor](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Vendors/get_vendors) that you can use for a service integration (e.g Amazon Cloudwatch, Splunk, Datadog).
+// Use this data source to get information about a specific [vendor](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1vendors/get) that you can use for a service integration (e.g Amazon Cloudwatch, Splunk, Datadog).
 func GetVendor(ctx *pulumi.Context, args *GetVendorArgs, opts ...pulumi.InvokeOption) (*GetVendorResult, error) {
 	var rv GetVendorResult
 	err := ctx.Invoke("pagerduty:index/getVendor:getVendor", args, &rv, opts...)

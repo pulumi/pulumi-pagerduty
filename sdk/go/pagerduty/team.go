@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A [team](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Teams/get_teams) is a collection of users and escalation policies that represent a group of people within an organization.
+// A [team](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1teams/get) is a collection of users and escalation policies that represent a group of people within an organization.
 //
 // The account must have the `teams` ability to use the following resource.
 //
@@ -26,7 +26,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := pagerduty.NewTeam(ctx, "parent", &pagerduty.TeamArgs{
+// 		parent, err := pagerduty.NewTeam(ctx, "parent", &pagerduty.TeamArgs{
 // 			Description: pulumi.String("Product and Engineering"),
 // 		})
 // 		if err != nil {
@@ -34,7 +34,7 @@ import (
 // 		}
 // 		_, err = pagerduty.NewTeam(ctx, "example", &pagerduty.TeamArgs{
 // 			Description: pulumi.String("All engineering"),
-// 			Parent:      pulumi.Any(pagerduty.Team.Id),
+// 			Parent:      parent.ID(),
 // 		})
 // 		if err != nil {
 // 			return err

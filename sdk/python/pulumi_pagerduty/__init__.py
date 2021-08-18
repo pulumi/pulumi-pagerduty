@@ -16,6 +16,7 @@ from .get_priority import *
 from .get_ruleset import *
 from .get_schedule import *
 from .get_service import *
+from .get_service_integration import *
 from .get_team import *
 from .get_user import *
 from .get_user_contact_method import *

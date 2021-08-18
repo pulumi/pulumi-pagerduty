@@ -144,7 +144,7 @@ class Team(pulumi.CustomResource):
                  parent: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        A [team](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Teams/get_teams) is a collection of users and escalation policies that represent a group of people within an organization.
+        A [team](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1teams/get) is a collection of users and escalation policies that represent a group of people within an organization.
 
         The account must have the `teams` ability to use the following resource.
 
@@ -157,7 +157,7 @@ class Team(pulumi.CustomResource):
         parent = pagerduty.Team("parent", description="Product and Engineering")
         example = pagerduty.Team("example",
             description="All engineering",
-            parent=pagerduty["team"]["id"])
+            parent=parent.id)
         ```
 
         ## Import
@@ -180,7 +180,7 @@ class Team(pulumi.CustomResource):
                  args: Optional[TeamArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        A [team](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Teams/get_teams) is a collection of users and escalation policies that represent a group of people within an organization.
+        A [team](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1teams/get) is a collection of users and escalation policies that represent a group of people within an organization.
 
         The account must have the `teams` ability to use the following resource.
 
@@ -193,7 +193,7 @@ class Team(pulumi.CustomResource):
         parent = pagerduty.Team("parent", description="Product and Engineering")
         example = pagerduty.Team("example",
             description="All engineering",
-            parent=pagerduty["team"]["id"])
+            parent=parent.id)
         ```
 
         ## Import

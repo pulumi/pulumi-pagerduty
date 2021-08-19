@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * A [team](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Teams/get_teams) is a collection of users and escalation policies that represent a group of people within an organization.
+ * A [team](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1teams/get) is a collection of users and escalation policies that represent a group of people within an organization.
  *
  * The account must have the `teams` ability to use the following resource.
  *
@@ -18,7 +18,7 @@ import * as utilities from "./utilities";
  * const parent = new pagerduty.Team("parent", {description: "Product and Engineering"});
  * const example = new pagerduty.Team("example", {
  *     description: "All engineering",
- *     parent: pagerduty.team.id,
+ *     parent: parent.id,
  * });
  * ```
  *

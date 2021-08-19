@@ -11,7 +11,61 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A [schedule](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Schedules/get_schedules) determines the time periods that users are on call. Only on-call users are eligible to receive notifications from incidents.
+// A [schedule](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1schedules~1%7Bid%7D~1users/get) determines the time periods that users are on call. Only on-call users are eligible to receive notifications from incidents.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-pagerduty/sdk/v2/go/pagerduty"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
+// 			Email: pulumi.String("125.greenholt.earline@graham.name"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleTeam, err := pagerduty.NewTeam(ctx, "exampleTeam", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = pagerduty.NewSchedule(ctx, "foo", &pagerduty.ScheduleArgs{
+// 			TimeZone: pulumi.String("America/New_York"),
+// 			Layers: pagerduty.ScheduleLayerArray{
+// 				&pagerduty.ScheduleLayerArgs{
+// 					Name:                      pulumi.String("Night Shift"),
+// 					Start:                     pulumi.String("2015-11-06T20:00:00-05:00"),
+// 					RotationVirtualStart:      pulumi.String("2015-11-06T20:00:00-05:00"),
+// 					RotationTurnLengthSeconds: pulumi.Int(86400),
+// 					Users: pulumi.StringArray{
+// 						exampleUser.ID(),
+// 					},
+// 					Restrictions: pagerduty.ScheduleLayerRestrictionArray{
+// 						&pagerduty.ScheduleLayerRestrictionArgs{
+// 							Type:            pulumi.String("daily_restriction"),
+// 							StartTimeOfDay:  pulumi.String("08:00:00"),
+// 							DurationSeconds: pulumi.Int(32400),
+// 						},
+// 					},
+// 				},
+// 			},
+// 			Teams: pulumi.StringArray{
+// 				exampleTeam.ID(),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //
@@ -33,6 +87,8 @@ type Schedule struct {
 	// If you don't pass the overflow=true parameter, you will get one schedule entry returned with a start of `2011-06-01T10:00:00Z` and end of `2011-06-01T14:00:00Z`.
 	// If you do pass the `overflow` parameter, you will get one schedule entry returned with a start of `2011-06-01T00:00:00Z` and end of `2011-06-02T00:00:00Z`.
 	Overflow pulumi.BoolPtrOutput `pulumi:"overflow"`
+	// Teams associated with the schedule.
+	Teams pulumi.StringArrayOutput `pulumi:"teams"`
 	// The time zone of the schedule (e.g Europe/Berlin).
 	TimeZone pulumi.StringOutput `pulumi:"timeZone"`
 }
@@ -85,6 +141,8 @@ type scheduleState struct {
 	// If you don't pass the overflow=true parameter, you will get one schedule entry returned with a start of `2011-06-01T10:00:00Z` and end of `2011-06-01T14:00:00Z`.
 	// If you do pass the `overflow` parameter, you will get one schedule entry returned with a start of `2011-06-01T00:00:00Z` and end of `2011-06-02T00:00:00Z`.
 	Overflow *bool `pulumi:"overflow"`
+	// Teams associated with the schedule.
+	Teams []string `pulumi:"teams"`
 	// The time zone of the schedule (e.g Europe/Berlin).
 	TimeZone *string `pulumi:"timeZone"`
 }
@@ -100,6 +158,8 @@ type ScheduleState struct {
 	// If you don't pass the overflow=true parameter, you will get one schedule entry returned with a start of `2011-06-01T10:00:00Z` and end of `2011-06-01T14:00:00Z`.
 	// If you do pass the `overflow` parameter, you will get one schedule entry returned with a start of `2011-06-01T00:00:00Z` and end of `2011-06-02T00:00:00Z`.
 	Overflow pulumi.BoolPtrInput
+	// Teams associated with the schedule.
+	Teams pulumi.StringArrayInput
 	// The time zone of the schedule (e.g Europe/Berlin).
 	TimeZone pulumi.StringPtrInput
 }
@@ -119,6 +179,8 @@ type scheduleArgs struct {
 	// If you don't pass the overflow=true parameter, you will get one schedule entry returned with a start of `2011-06-01T10:00:00Z` and end of `2011-06-01T14:00:00Z`.
 	// If you do pass the `overflow` parameter, you will get one schedule entry returned with a start of `2011-06-01T00:00:00Z` and end of `2011-06-02T00:00:00Z`.
 	Overflow *bool `pulumi:"overflow"`
+	// Teams associated with the schedule.
+	Teams []string `pulumi:"teams"`
 	// The time zone of the schedule (e.g Europe/Berlin).
 	TimeZone string `pulumi:"timeZone"`
 }
@@ -135,6 +197,8 @@ type ScheduleArgs struct {
 	// If you don't pass the overflow=true parameter, you will get one schedule entry returned with a start of `2011-06-01T10:00:00Z` and end of `2011-06-01T14:00:00Z`.
 	// If you do pass the `overflow` parameter, you will get one schedule entry returned with a start of `2011-06-01T00:00:00Z` and end of `2011-06-02T00:00:00Z`.
 	Overflow pulumi.BoolPtrInput
+	// Teams associated with the schedule.
+	Teams pulumi.StringArrayInput
 	// The time zone of the schedule (e.g Europe/Berlin).
 	TimeZone pulumi.StringInput
 }

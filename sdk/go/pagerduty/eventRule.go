@@ -13,7 +13,7 @@ import (
 
 // *NOTE: The `EventRule` resource has been deprecated in favor of the Ruleset and RulesetRule resources. Please use the `ruleset` based resources for working with Event Rules.*
 //
-// An [event rule](https://v2.developer.pagerduty.com/docs/global-event-rules-api) determines what happens to an event that is sent to PagerDuty by monitoring tools and other integrations.
+// An [event rule](https://developer.pagerduty.com/docs/rest-api-v2/global-event-rules-api/) determines what happens to an event that is sent to PagerDuty by monitoring tools and other integrations.
 //
 // ## Example Usage
 //
@@ -180,7 +180,7 @@ type EventRule struct {
 
 	// A list of one or more actions for each rule. Each action within the list is itself a list.
 	ActionJson pulumi.StringOutput `pulumi:"actionJson"`
-	// Contains a list of specific conditions including `active-between`,`scheduled-weekly`, and `frequency-over`. The first element in the list is the label for the condition, followed by a list of values for the specific condition. For more details on these conditions see [Advanced Condition](https://v2.developer.pagerduty.com/docs/global-event-rules-api#section-advanced-condition) in the PagerDuty API documentation.
+	// Contains a list of specific conditions including `active-between`,`scheduled-weekly`, and `frequency-over`. The first element in the list is the label for the condition, followed by a list of values for the specific condition. For more details on these conditions see [Advanced Condition](https://developer.pagerduty.com/docs/rest-api-v2/global-event-rules-api/#advanced-condition-parameter) in the PagerDuty API documentation.
 	AdvancedConditionJson pulumi.StringPtrOutput `pulumi:"advancedConditionJson"`
 	// A boolean that indicates whether the rule is a catch all for the account. This field is read-only through the PagerDuty API.
 	CatchAll pulumi.BoolOutput `pulumi:"catchAll"`
@@ -225,7 +225,7 @@ func GetEventRule(ctx *pulumi.Context,
 type eventRuleState struct {
 	// A list of one or more actions for each rule. Each action within the list is itself a list.
 	ActionJson *string `pulumi:"actionJson"`
-	// Contains a list of specific conditions including `active-between`,`scheduled-weekly`, and `frequency-over`. The first element in the list is the label for the condition, followed by a list of values for the specific condition. For more details on these conditions see [Advanced Condition](https://v2.developer.pagerduty.com/docs/global-event-rules-api#section-advanced-condition) in the PagerDuty API documentation.
+	// Contains a list of specific conditions including `active-between`,`scheduled-weekly`, and `frequency-over`. The first element in the list is the label for the condition, followed by a list of values for the specific condition. For more details on these conditions see [Advanced Condition](https://developer.pagerduty.com/docs/rest-api-v2/global-event-rules-api/#advanced-condition-parameter) in the PagerDuty API documentation.
 	AdvancedConditionJson *string `pulumi:"advancedConditionJson"`
 	// A boolean that indicates whether the rule is a catch all for the account. This field is read-only through the PagerDuty API.
 	CatchAll *bool `pulumi:"catchAll"`
@@ -236,7 +236,7 @@ type eventRuleState struct {
 type EventRuleState struct {
 	// A list of one or more actions for each rule. Each action within the list is itself a list.
 	ActionJson pulumi.StringPtrInput
-	// Contains a list of specific conditions including `active-between`,`scheduled-weekly`, and `frequency-over`. The first element in the list is the label for the condition, followed by a list of values for the specific condition. For more details on these conditions see [Advanced Condition](https://v2.developer.pagerduty.com/docs/global-event-rules-api#section-advanced-condition) in the PagerDuty API documentation.
+	// Contains a list of specific conditions including `active-between`,`scheduled-weekly`, and `frequency-over`. The first element in the list is the label for the condition, followed by a list of values for the specific condition. For more details on these conditions see [Advanced Condition](https://developer.pagerduty.com/docs/rest-api-v2/global-event-rules-api/#advanced-condition-parameter) in the PagerDuty API documentation.
 	AdvancedConditionJson pulumi.StringPtrInput
 	// A boolean that indicates whether the rule is a catch all for the account. This field is read-only through the PagerDuty API.
 	CatchAll pulumi.BoolPtrInput
@@ -251,7 +251,7 @@ func (EventRuleState) ElementType() reflect.Type {
 type eventRuleArgs struct {
 	// A list of one or more actions for each rule. Each action within the list is itself a list.
 	ActionJson string `pulumi:"actionJson"`
-	// Contains a list of specific conditions including `active-between`,`scheduled-weekly`, and `frequency-over`. The first element in the list is the label for the condition, followed by a list of values for the specific condition. For more details on these conditions see [Advanced Condition](https://v2.developer.pagerduty.com/docs/global-event-rules-api#section-advanced-condition) in the PagerDuty API documentation.
+	// Contains a list of specific conditions including `active-between`,`scheduled-weekly`, and `frequency-over`. The first element in the list is the label for the condition, followed by a list of values for the specific condition. For more details on these conditions see [Advanced Condition](https://developer.pagerduty.com/docs/rest-api-v2/global-event-rules-api/#advanced-condition-parameter) in the PagerDuty API documentation.
 	AdvancedConditionJson *string `pulumi:"advancedConditionJson"`
 	// Contains a list of conditions. The first field in the list is `and` or `or`, followed by a list of operators and values.
 	ConditionJson string `pulumi:"conditionJson"`
@@ -261,7 +261,7 @@ type eventRuleArgs struct {
 type EventRuleArgs struct {
 	// A list of one or more actions for each rule. Each action within the list is itself a list.
 	ActionJson pulumi.StringInput
-	// Contains a list of specific conditions including `active-between`,`scheduled-weekly`, and `frequency-over`. The first element in the list is the label for the condition, followed by a list of values for the specific condition. For more details on these conditions see [Advanced Condition](https://v2.developer.pagerduty.com/docs/global-event-rules-api#section-advanced-condition) in the PagerDuty API documentation.
+	// Contains a list of specific conditions including `active-between`,`scheduled-weekly`, and `frequency-over`. The first element in the list is the label for the condition, followed by a list of values for the specific condition. For more details on these conditions see [Advanced Condition](https://developer.pagerduty.com/docs/rest-api-v2/global-event-rules-api/#advanced-condition-parameter) in the PagerDuty API documentation.
 	AdvancedConditionJson pulumi.StringPtrInput
 	// Contains a list of conditions. The first field in the list is `and` or `or`, followed by a list of operators and values.
 	ConditionJson pulumi.StringInput

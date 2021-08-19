@@ -3,7 +3,7 @@ module github.com/pulumi/pulumi-pagerduty/provider/v2
 go 1.16
 
 replace (
-	github.com/PagerDuty/terraform-provider-pagerduty => github.com/pulumi/terraform-provider-pagerduty v1.9.6-0.20210804133034-e8cc19c42ca5
+	github.com/PagerDuty/terraform-provider-pagerduty => github.com/pulumi/terraform-provider-pagerduty v1.9.6-0.20210818122524-3f9044bb587e
 	github.com/hashicorp/go-getter v1.5.0 => github.com/hashicorp/go-getter v1.4.0
 )
 

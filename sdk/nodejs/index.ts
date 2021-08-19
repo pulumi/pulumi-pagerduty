@@ -18,6 +18,7 @@ export * from "./getPriority";
 export * from "./getRuleset";
 export * from "./getSchedule";
 export * from "./getService";
+export * from "./getServiceIntegration";
 export * from "./getTeam";
 export * from "./getUser";
 export * from "./getUserContactMethod";

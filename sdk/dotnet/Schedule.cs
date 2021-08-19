@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty
 {
     /// <summary>
-    /// A [schedule](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Schedules/get_schedules) determines the time periods that users are on call. Only on-call users are eligible to receive notifications from incidents.
+    /// A [schedule](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1schedules~1%7Bid%7D~1users/get) determines the time periods that users are on call. Only on-call users are eligible to receive notifications from incidents.
     /// 
     /// ## Example Usage
     /// 
@@ -22,13 +22,12 @@ namespace Pulumi.Pagerduty
     /// {
     ///     public MyStack()
     ///     {
-    ///         var example = new Pagerduty.User("example", new Pagerduty.UserArgs
+    ///         var exampleUser = new Pagerduty.User("exampleUser", new Pagerduty.UserArgs
     ///         {
     ///             Email = "125.greenholt.earline@graham.name",
-    ///             Teams = 
-    ///             {
-    ///                 pagerduty_team.Example.Id,
-    ///             },
+    ///         });
+    ///         var exampleTeam = new Pagerduty.Team("exampleTeam", new Pagerduty.TeamArgs
+    ///         {
     ///         });
     ///         var foo = new Pagerduty.Schedule("foo", new Pagerduty.ScheduleArgs
     ///         {
@@ -43,7 +42,7 @@ namespace Pulumi.Pagerduty
     ///                     RotationTurnLengthSeconds = 86400,
     ///                     Users = 
     ///                     {
-    ///                         pagerduty_user.Foo.Id,
+    ///                         exampleUser.Id,
     ///                     },
     ///                     Restrictions = 
     ///                     {
@@ -55,6 +54,10 @@ namespace Pulumi.Pagerduty
     ///                         },
     ///                     },
     ///                 },
+    ///             },
+    ///             Teams = 
+    ///             {
+    ///                 exampleTeam.Id,
     ///             },
     ///         });
     ///     }
@@ -98,6 +101,12 @@ namespace Pulumi.Pagerduty
         /// </summary>
         [Output("overflow")]
         public Output<bool?> Overflow { get; private set; } = null!;
+
+        /// <summary>
+        /// Teams associated with the schedule.
+        /// </summary>
+        [Output("teams")]
+        public Output<ImmutableArray<string>> Teams { get; private set; } = null!;
 
         /// <summary>
         /// The time zone of the schedule (e.g Europe/Berlin).
@@ -183,6 +192,18 @@ namespace Pulumi.Pagerduty
         [Input("overflow")]
         public Input<bool>? Overflow { get; set; }
 
+        [Input("teams")]
+        private InputList<string>? _teams;
+
+        /// <summary>
+        /// Teams associated with the schedule.
+        /// </summary>
+        public InputList<string> Teams
+        {
+            get => _teams ?? (_teams = new InputList<string>());
+            set => _teams = value;
+        }
+
         /// <summary>
         /// The time zone of the schedule (e.g Europe/Berlin).
         /// </summary>
@@ -228,6 +249,18 @@ namespace Pulumi.Pagerduty
         /// </summary>
         [Input("overflow")]
         public Input<bool>? Overflow { get; set; }
+
+        [Input("teams")]
+        private InputList<string>? _teams;
+
+        /// <summary>
+        /// Teams associated with the schedule.
+        /// </summary>
+        public InputList<string> Teams
+        {
+            get => _teams ?? (_teams = new InputList<string>());
+            set => _teams = value;
+        }
 
         /// <summary>
         /// The time zone of the schedule (e.g Europe/Berlin).

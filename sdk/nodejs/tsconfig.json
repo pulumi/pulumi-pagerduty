@@ -28,6 +28,7 @@
         "getRuleset.ts",
         "getSchedule.ts",
         "getService.ts",
+        "getServiceIntegration.ts",
         "getTeam.ts",
         "getUser.ts",
         "getUserContactMethod.ts",

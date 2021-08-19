@@ -230,7 +230,7 @@ class BusinessService(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        A [business service](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Business_Services/get_business_services) allows you to model capabilities that span multiple technical services and that may be owned by several different teams.
+        A [business service](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1business_services/get) allows you to model capabilities that span multiple technical services and that may be owned by several different teams.
 
         ## Example Usage
 
@@ -266,7 +266,7 @@ class BusinessService(pulumi.CustomResource):
                  args: Optional[BusinessServiceArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        A [business service](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Business_Services/get_business_services) allows you to model capabilities that span multiple technical services and that may be owned by several different teams.
+        A [business service](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1business_services/get) allows you to model capabilities that span multiple technical services and that may be owned by several different teams.
 
         ## Example Usage
 

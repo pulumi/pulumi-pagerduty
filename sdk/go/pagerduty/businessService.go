@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A [business service](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Business_Services/get_business_services) allows you to model capabilities that span multiple technical services and that may be owned by several different teams.
+// A [business service](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1business_services/get) allows you to model capabilities that span multiple technical services and that may be owned by several different teams.
 //
 // ## Example Usage
 //

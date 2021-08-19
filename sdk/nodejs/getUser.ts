@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
- * Use this data source to get information about a specific [user](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Users/get_users) that you can use for other PagerDuty resources.
+ * Use this data source to get information about a specific [user](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1users/get) that you can use for other PagerDuty resources.
  *
  * ## Example Usage
  *

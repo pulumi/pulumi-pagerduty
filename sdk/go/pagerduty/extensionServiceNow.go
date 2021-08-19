@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A special case for [extension](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Extensions/post_extensions) for ServiceNow.
+// A special case for [extension](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1extensions/post) for ServiceNow.
 //
 // ## Example Usage
 //

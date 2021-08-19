@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
- * A [schedule](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Schedules/get_schedules) determines the time periods that users are on call. Only on-call users are eligible to receive notifications from incidents.
+ * A [schedule](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1schedules~1%7Bid%7D~1users/get) determines the time periods that users are on call. Only on-call users are eligible to receive notifications from incidents.
  *
  * ## Example Usage
  *
@@ -14,10 +14,8 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const example = new pagerduty.User("example", {
- *     email: "125.greenholt.earline@graham.name",
- *     teams: [pagerduty_team.example.id],
- * });
+ * const exampleUser = new pagerduty.User("exampleUser", {email: "125.greenholt.earline@graham.name"});
+ * const exampleTeam = new pagerduty.Team("exampleTeam", {});
  * const foo = new pagerduty.Schedule("foo", {
  *     timeZone: "America/New_York",
  *     layers: [{
@@ -25,13 +23,14 @@ import * as utilities from "./utilities";
  *         start: "2015-11-06T20:00:00-05:00",
  *         rotationVirtualStart: "2015-11-06T20:00:00-05:00",
  *         rotationTurnLengthSeconds: 86400,
- *         users: [pagerduty_user.foo.id],
+ *         users: [exampleUser.id],
  *         restrictions: [{
  *             type: "daily_restriction",
  *             startTimeOfDay: "08:00:00",
  *             durationSeconds: 32400,
  *         }],
  *     }],
+ *     teams: [exampleTeam.id],
  * });
  * ```
  *
@@ -90,6 +89,10 @@ export class Schedule extends pulumi.CustomResource {
      */
     public readonly overflow!: pulumi.Output<boolean | undefined>;
     /**
+     * Teams associated with the schedule.
+     */
+    public readonly teams!: pulumi.Output<string[] | undefined>;
+    /**
      * The time zone of the schedule (e.g Europe/Berlin).
      */
     public readonly timeZone!: pulumi.Output<string>;
@@ -111,6 +114,7 @@ export class Schedule extends pulumi.CustomResource {
             inputs["layers"] = state ? state.layers : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["overflow"] = state ? state.overflow : undefined;
+            inputs["teams"] = state ? state.teams : undefined;
             inputs["timeZone"] = state ? state.timeZone : undefined;
         } else {
             const args = argsOrState as ScheduleArgs | undefined;
@@ -124,6 +128,7 @@ export class Schedule extends pulumi.CustomResource {
             inputs["layers"] = args ? args.layers : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["overflow"] = args ? args.overflow : undefined;
+            inputs["teams"] = args ? args.teams : undefined;
             inputs["timeZone"] = args ? args.timeZone : undefined;
         }
         if (!opts.version) {
@@ -156,6 +161,10 @@ export interface ScheduleState {
      */
     readonly overflow?: pulumi.Input<boolean>;
     /**
+     * Teams associated with the schedule.
+     */
+    readonly teams?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * The time zone of the schedule (e.g Europe/Berlin).
      */
     readonly timeZone?: pulumi.Input<string>;
@@ -183,6 +192,10 @@ export interface ScheduleArgs {
      * If you do pass the `overflow` parameter, you will get one schedule entry returned with a start of `2011-06-01T00:00:00Z` and end of `2011-06-02T00:00:00Z`.
      */
     readonly overflow?: pulumi.Input<boolean>;
+    /**
+     * Teams associated with the schedule.
+     */
+    readonly teams?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The time zone of the schedule (e.g Europe/Berlin).
      */

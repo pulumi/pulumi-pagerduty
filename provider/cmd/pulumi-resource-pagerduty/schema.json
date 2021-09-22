@@ -1847,6 +1847,46 @@
             },
             "type": "object"
         },
+        "pagerduty:index/SlackConnectionConfig:SlackConnectionConfig": {
+            "properties": {
+                "events": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of strings to filter events by PagerDuty event type. `\"incident.triggered\"` is required. The follow event types are also possible:\n- `incident.acknowledged`\n- `incident.escalated`\n- `incident.resolved`\n- `incident.reassigned`\n- `incident.annotated`\n- `incident.unacknowledged`\n- `incident.delegated`\n- `incident.priority_updated`\n- `incident.responder.added`\n- `incident.responder.replied`\n- `incident.status_update_published`\n- `incident.reopened`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "priorities": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "urgency": {
+                    "type": "string",
+                    "description": "Allows you to filter events by urgency. Either `high` or `low`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "events"
+            ]
+        },
         "pagerduty:index/UserNotificationRuleContactMethod:UserNotificationRuleContactMethod": {
             "properties": {
                 "id": {
@@ -2809,7 +2849,7 @@
             }
         },
         "pagerduty:index/rulesetRule:RulesetRule": {
-            "description": "An [event rule](https://support.pagerduty.com/docs/rulesets#section-create-event-rules) allows you to set actions that should be taken on events that meet your designated rule criteria.\n\n\n## Import\n\nRuleset rules can be imported using using the related `ruleset` id and the `ruleset_rule` id separated by a dot, e.g.\n\n```sh\n $ pulumi import pagerduty:index/rulesetRule:RulesetRule main a19cdca1-3d5e-4b52-bfea-8c8de04da243.19acac92-027a-4ea0-b06c-bbf516519601\n```\n\n ",
+            "description": "An [event rule](https://support.pagerduty.com/docs/rulesets#section-create-event-rules) allows you to set actions that should be taken on events that meet your designated rule criteria.\n\n\n## Import\n\nRuleset rules can be imported using using the related `ruleset` ID and the `ruleset_rule` ID separated by a dot, e.g.\n\n```sh\n $ pulumi import pagerduty:index/rulesetRule:RulesetRule main a19cdca1-3d5e-4b52-bfea-8c8de04da243.19acac92-027a-4ea0-b06c-bbf516519601\n```\n\n ",
             "properties": {
                 "actions": {
                     "$ref": "#/types/pagerduty:index/RulesetRuleActions:RulesetRuleActions",
@@ -3484,6 +3524,130 @@
                     "vendor": {
                         "type": "string",
                         "description": "The ID of the vendor the integration should integrate with (e.g Datadog or Amazon Cloudwatch).\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "pagerduty:index/slackConnection:SlackConnection": {
+            "description": "A [slack connection](https://developer.pagerduty.com/api-reference/reference/integration-slack-service/openapiv3.json) allows you to connect a workspace in Slack to a PagerDuty service or team which allows you to acknowledge and resolve PagerDuty incidents from the Slack user interface. \n\n**NOTES for using this resource:** \n* To first use this resource you will need to [map your PagerDuty account to a valid Slack Workspace](https://support.pagerduty.com/docs/slack-integration-guide#integration-walkthrough). *This can only be done through the PagerDuty UI.*\n* This resource requires a PagerDuty [user-level API key](https://support.pagerduty.com/docs/generating-api-keys#section-generating-a-personal-rest-api-key) set as the `PAGERDUTY_USER_TOKEN` environment variable.\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst fooTeam = new pagerduty.Team(\"fooTeam\", {});\nconst p1 = pagerduty.getPriority({\n    name: \"P1\",\n});\nconst fooSlackConnection = new pagerduty.SlackConnection(\"fooSlackConnection\", {\n    sourceId: fooTeam.id,\n    sourceType: \"team_reference\",\n    workspaceId: \"T02A123LV1A\",\n    channelId: \"C02CABCDAC9\",\n    configs: [{\n        events: [\n            \"incident.triggered\",\n            \"incident.acknowledged\",\n            \"incident.escalated\",\n            \"incident.resolved\",\n            \"incident.reassigned\",\n            \"incident.annotated\",\n            \"incident.unacknowledged\",\n            \"incident.delegated\",\n            \"incident.priority_updated\",\n            \"incident.responder.added\",\n            \"incident.responder.replied\",\n            \"incident.status_update_published\",\n            \"incident.reopened\",\n        ],\n        priorities: [p1.then(p1 =\u003e p1.id)],\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nfoo_team = pagerduty.Team(\"fooTeam\")\np1 = pagerduty.get_priority(name=\"P1\")\nfoo_slack_connection = pagerduty.SlackConnection(\"fooSlackConnection\",\n    source_id=foo_team.id,\n    source_type=\"team_reference\",\n    workspace_id=\"T02A123LV1A\",\n    channel_id=\"C02CABCDAC9\",\n    configs=[pagerduty.SlackConnectionConfigArgs(\n        events=[\n            \"incident.triggered\",\n            \"incident.acknowledged\",\n            \"incident.escalated\",\n            \"incident.resolved\",\n            \"incident.reassigned\",\n            \"incident.annotated\",\n            \"incident.unacknowledged\",\n            \"incident.delegated\",\n            \"incident.priority_updated\",\n            \"incident.responder.added\",\n            \"incident.responder.replied\",\n            \"incident.status_update_published\",\n            \"incident.reopened\",\n        ],\n        priorities=[p1.id],\n    )])\n```\n```csharp\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var fooTeam = new Pagerduty.Team(\"fooTeam\", new Pagerduty.TeamArgs\n        {\n        });\n        var p1 = Output.Create(Pagerduty.GetPriority.InvokeAsync(new Pagerduty.GetPriorityArgs\n        {\n            Name = \"P1\",\n        }));\n        var fooSlackConnection = new Pagerduty.SlackConnection(\"fooSlackConnection\", new Pagerduty.SlackConnectionArgs\n        {\n            SourceId = fooTeam.Id,\n            SourceType = \"team_reference\",\n            WorkspaceId = \"T02A123LV1A\",\n            ChannelId = \"C02CABCDAC9\",\n            Configs = \n            {\n                new Pagerduty.Inputs.SlackConnectionConfigArgs\n                {\n                    Events = \n                    {\n                        \"incident.triggered\",\n                        \"incident.acknowledged\",\n                        \"incident.escalated\",\n                        \"incident.resolved\",\n                        \"incident.reassigned\",\n                        \"incident.annotated\",\n                        \"incident.unacknowledged\",\n                        \"incident.delegated\",\n                        \"incident.priority_updated\",\n                        \"incident.responder.added\",\n                        \"incident.responder.replied\",\n                        \"incident.status_update_published\",\n                        \"incident.reopened\",\n                    },\n                    Priorities = \n                    {\n                        p1.Apply(p1 =\u003e p1.Id),\n                    },\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v2/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tfooTeam, err := pagerduty.NewTeam(ctx, \"fooTeam\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tp1, err := pagerduty.GetPriority(ctx, \u0026pagerduty.GetPriorityArgs{\n\t\t\tName: \"P1\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewSlackConnection(ctx, \"fooSlackConnection\", \u0026pagerduty.SlackConnectionArgs{\n\t\t\tSourceId:    fooTeam.ID(),\n\t\t\tSourceType:  pulumi.String(\"team_reference\"),\n\t\t\tWorkspaceId: pulumi.String(\"T02A123LV1A\"),\n\t\t\tChannelId:   pulumi.String(\"C02CABCDAC9\"),\n\t\t\tConfigs: pagerduty.SlackConnectionConfigArray{\n\t\t\t\t\u0026pagerduty.SlackConnectionConfigArgs{\n\t\t\t\t\tEvents: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"incident.triggered\"),\n\t\t\t\t\t\tpulumi.String(\"incident.acknowledged\"),\n\t\t\t\t\t\tpulumi.String(\"incident.escalated\"),\n\t\t\t\t\t\tpulumi.String(\"incident.resolved\"),\n\t\t\t\t\t\tpulumi.String(\"incident.reassigned\"),\n\t\t\t\t\t\tpulumi.String(\"incident.annotated\"),\n\t\t\t\t\t\tpulumi.String(\"incident.unacknowledged\"),\n\t\t\t\t\t\tpulumi.String(\"incident.delegated\"),\n\t\t\t\t\t\tpulumi.String(\"incident.priority_updated\"),\n\t\t\t\t\t\tpulumi.String(\"incident.responder.added\"),\n\t\t\t\t\t\tpulumi.String(\"incident.responder.replied\"),\n\t\t\t\t\t\tpulumi.String(\"incident.status_update_published\"),\n\t\t\t\t\t\tpulumi.String(\"incident.reopened\"),\n\t\t\t\t\t},\n\t\t\t\t\tPriorities: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(p1.Id),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nSlack connections can be imported using using the related `workspace` ID and the `slack_connection` ID separated by a dot, e.g.\n\n```sh\n $ pulumi import pagerduty:index/slackConnection:SlackConnection main T02A123LV1A.PUABCDL\n```\n\n ",
+            "properties": {
+                "channelId": {
+                    "type": "string",
+                    "description": "The ID of a Slack channel in the workspace.\n"
+                },
+                "channelName": {
+                    "type": "string"
+                },
+                "configs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/SlackConnectionConfig:SlackConnectionConfig"
+                    },
+                    "description": "Configuration options for the Slack connection that provide options to filter events.\n"
+                },
+                "notificationType": {
+                    "type": "string",
+                    "description": "Type of notification. Either `responder` or `stakeholder`.\n"
+                },
+                "sourceId": {
+                    "type": "string",
+                    "description": "The ID of the source in PagerDuty. Valid sources are services or teams.\n"
+                },
+                "sourceName": {
+                    "type": "string"
+                },
+                "sourceType": {
+                    "type": "string",
+                    "description": "The type of the source. Either `team_reference` or `service_reference`.\n"
+                },
+                "workspaceId": {
+                    "type": "string",
+                    "description": "The ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.\n"
+                }
+            },
+            "required": [
+                "channelId",
+                "channelName",
+                "configs",
+                "notificationType",
+                "sourceId",
+                "sourceName",
+                "sourceType",
+                "workspaceId"
+            ],
+            "inputProperties": {
+                "channelId": {
+                    "type": "string",
+                    "description": "The ID of a Slack channel in the workspace.\n"
+                },
+                "configs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/SlackConnectionConfig:SlackConnectionConfig"
+                    },
+                    "description": "Configuration options for the Slack connection that provide options to filter events.\n"
+                },
+                "notificationType": {
+                    "type": "string",
+                    "description": "Type of notification. Either `responder` or `stakeholder`.\n"
+                },
+                "sourceId": {
+                    "type": "string",
+                    "description": "The ID of the source in PagerDuty. Valid sources are services or teams.\n"
+                },
+                "sourceType": {
+                    "type": "string",
+                    "description": "The type of the source. Either `team_reference` or `service_reference`.\n"
+                },
+                "workspaceId": {
+                    "type": "string",
+                    "description": "The ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.\n"
+                }
+            },
+            "requiredInputs": [
+                "channelId",
+                "configs",
+                "notificationType",
+                "sourceId",
+                "sourceType",
+                "workspaceId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering SlackConnection resources.\n",
+                "properties": {
+                    "channelId": {
+                        "type": "string",
+                        "description": "The ID of a Slack channel in the workspace.\n"
+                    },
+                    "channelName": {
+                        "type": "string"
+                    },
+                    "configs": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/pagerduty:index/SlackConnectionConfig:SlackConnectionConfig"
+                        },
+                        "description": "Configuration options for the Slack connection that provide options to filter events.\n"
+                    },
+                    "notificationType": {
+                        "type": "string",
+                        "description": "Type of notification. Either `responder` or `stakeholder`.\n"
+                    },
+                    "sourceId": {
+                        "type": "string",
+                        "description": "The ID of the source in PagerDuty. Valid sources are services or teams.\n"
+                    },
+                    "sourceName": {
+                        "type": "string"
+                    },
+                    "sourceType": {
+                        "type": "string",
+                        "description": "The type of the source. Either `team_reference` or `service_reference`.\n"
+                    },
+                    "workspaceId": {
+                        "type": "string",
+                        "description": "The ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.\n"
                     }
                 },
                 "type": "object"

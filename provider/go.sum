@@ -546,6 +546,8 @@ github.com/heimweh/go-pagerduty v0.0.0-20210727215404-3da4ffdbaa95 h1:Urqoj46k8Q
 github.com/heimweh/go-pagerduty v0.0.0-20210727215404-3da4ffdbaa95/go.mod h1:6+bccpjQ/PM8uQY9m8avM4MJea+3vo3ta9r8kGQ4XFY=
 github.com/heimweh/go-pagerduty v0.0.0-20210811005434-dc24e464325a h1:mPx+k0gk1FNkQgWutkSFO/IYcHFv8ueUdA/1hIDkO9E=
 github.com/heimweh/go-pagerduty v0.0.0-20210811005434-dc24e464325a/go.mod h1:6+bccpjQ/PM8uQY9m8avM4MJea+3vo3ta9r8kGQ4XFY=
+github.com/heimweh/go-pagerduty v0.0.0-20210831220234-54710c5e87d1 h1:yBAqdyzvIpGktzh8EnWqaXAtwhdgWqrP2Zk53MDH89Y=
+github.com/heimweh/go-pagerduty v0.0.0-20210831220234-54710c5e87d1/go.mod h1:6+bccpjQ/PM8uQY9m8avM4MJea+3vo3ta9r8kGQ4XFY=
 github.com/hinshun/vt10x v0.0.0-20180616224451-1954e6464174 h1:WlZsjVhE8Af9IcZDGgJGQpNflI3+MJSBhsgT5PCtzBQ=
 github.com/hinshun/vt10x v0.0.0-20180616224451-1954e6464174/go.mod h1:DqJ97dSdRW1W22yXSB90986pcOyQ7r45iio1KN2ez1A=
 github.com/hpcloud/tail v1.0.0 h1:nfCOvKYfkgYP8hkirhJocXT2+zOD8yUNjXaWfTlyFKI=
@@ -771,6 +773,8 @@ github.com/pulumi/terraform-provider-pagerduty v1.9.6-0.20210804133034-e8cc19c42
 github.com/pulumi/terraform-provider-pagerduty v1.9.6-0.20210804133034-e8cc19c42ca5/go.mod h1:XqqOgb8ZXEllCKPdrlfLItfeNsE6JIQtbjAeZSvDBYk=
 github.com/pulumi/terraform-provider-pagerduty v1.9.6-0.20210818122524-3f9044bb587e h1:0DnZtS5ntQfarAKACXjvOl7wi46eXJVSngweHIjJAzQ=
 github.com/pulumi/terraform-provider-pagerduty v1.9.6-0.20210818122524-3f9044bb587e/go.mod h1:OAhmQa3Aw2CjXHoT2p6eJ4T6cgYxUtOq7EyJjfvRCAI=
+github.com/pulumi/terraform-provider-pagerduty v1.9.6-0.20210922174233-ea61109eaf5f h1:76gAPsTjzUoULJBjd8TanKmmiaOxsjOLmkvny5ZybtU=
+github.com/pulumi/terraform-provider-pagerduty v1.9.6-0.20210922174233-ea61109eaf5f/go.mod h1:oMPtU0liGsmuL1V4NbPqMdFLBwZ5dLckETkW2DTdltc=
 github.com/rjeczalik/notify v0.9.2 h1:MiTWrPj55mNDHEiIX5YUSKefw/+lCQVoAFmD6oQm5w8=
 github.com/rjeczalik/notify v0.9.2/go.mod h1:aErll2f0sUX9PXZnVNyeiObbmTlk5jnMoCa4QEjJeqM=
 github.com/rogpeppe/fastuuid v0.0.0-20150106093220-6724a57986af h1:gu+uRPtBe88sKxUCEXRoeCvVG90TJmwhiqRpvdhQFng=

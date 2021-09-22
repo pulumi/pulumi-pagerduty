@@ -6905,6 +6905,154 @@ func (o ServiceSupportHoursPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type SlackConnectionConfig struct {
+	// A list of strings to filter events by PagerDuty event type. `"incident.triggered"` is required. The follow event types are also possible:
+	// - `incident.acknowledged`
+	// - `incident.escalated`
+	// - `incident.resolved`
+	// - `incident.reassigned`
+	// - `incident.annotated`
+	// - `incident.unacknowledged`
+	// - `incident.delegated`
+	// - `incident.priority_updated`
+	// - `incident.responder.added`
+	// - `incident.responder.replied`
+	// - `incident.status_update_published`
+	// - `incident.reopened`
+	Events     []string `pulumi:"events"`
+	Priorities []string `pulumi:"priorities"`
+	// Allows you to filter events by urgency. Either `high` or `low`.
+	Urgency *string `pulumi:"urgency"`
+}
+
+// SlackConnectionConfigInput is an input type that accepts SlackConnectionConfigArgs and SlackConnectionConfigOutput values.
+// You can construct a concrete instance of `SlackConnectionConfigInput` via:
+//
+//          SlackConnectionConfigArgs{...}
+type SlackConnectionConfigInput interface {
+	pulumi.Input
+
+	ToSlackConnectionConfigOutput() SlackConnectionConfigOutput
+	ToSlackConnectionConfigOutputWithContext(context.Context) SlackConnectionConfigOutput
+}
+
+type SlackConnectionConfigArgs struct {
+	// A list of strings to filter events by PagerDuty event type. `"incident.triggered"` is required. The follow event types are also possible:
+	// - `incident.acknowledged`
+	// - `incident.escalated`
+	// - `incident.resolved`
+	// - `incident.reassigned`
+	// - `incident.annotated`
+	// - `incident.unacknowledged`
+	// - `incident.delegated`
+	// - `incident.priority_updated`
+	// - `incident.responder.added`
+	// - `incident.responder.replied`
+	// - `incident.status_update_published`
+	// - `incident.reopened`
+	Events     pulumi.StringArrayInput `pulumi:"events"`
+	Priorities pulumi.StringArrayInput `pulumi:"priorities"`
+	// Allows you to filter events by urgency. Either `high` or `low`.
+	Urgency pulumi.StringPtrInput `pulumi:"urgency"`
+}
+
+func (SlackConnectionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SlackConnectionConfig)(nil)).Elem()
+}
+
+func (i SlackConnectionConfigArgs) ToSlackConnectionConfigOutput() SlackConnectionConfigOutput {
+	return i.ToSlackConnectionConfigOutputWithContext(context.Background())
+}
+
+func (i SlackConnectionConfigArgs) ToSlackConnectionConfigOutputWithContext(ctx context.Context) SlackConnectionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SlackConnectionConfigOutput)
+}
+
+// SlackConnectionConfigArrayInput is an input type that accepts SlackConnectionConfigArray and SlackConnectionConfigArrayOutput values.
+// You can construct a concrete instance of `SlackConnectionConfigArrayInput` via:
+//
+//          SlackConnectionConfigArray{ SlackConnectionConfigArgs{...} }
+type SlackConnectionConfigArrayInput interface {
+	pulumi.Input
+
+	ToSlackConnectionConfigArrayOutput() SlackConnectionConfigArrayOutput
+	ToSlackConnectionConfigArrayOutputWithContext(context.Context) SlackConnectionConfigArrayOutput
+}
+
+type SlackConnectionConfigArray []SlackConnectionConfigInput
+
+func (SlackConnectionConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SlackConnectionConfig)(nil)).Elem()
+}
+
+func (i SlackConnectionConfigArray) ToSlackConnectionConfigArrayOutput() SlackConnectionConfigArrayOutput {
+	return i.ToSlackConnectionConfigArrayOutputWithContext(context.Background())
+}
+
+func (i SlackConnectionConfigArray) ToSlackConnectionConfigArrayOutputWithContext(ctx context.Context) SlackConnectionConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SlackConnectionConfigArrayOutput)
+}
+
+type SlackConnectionConfigOutput struct{ *pulumi.OutputState }
+
+func (SlackConnectionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SlackConnectionConfig)(nil)).Elem()
+}
+
+func (o SlackConnectionConfigOutput) ToSlackConnectionConfigOutput() SlackConnectionConfigOutput {
+	return o
+}
+
+func (o SlackConnectionConfigOutput) ToSlackConnectionConfigOutputWithContext(ctx context.Context) SlackConnectionConfigOutput {
+	return o
+}
+
+// A list of strings to filter events by PagerDuty event type. `"incident.triggered"` is required. The follow event types are also possible:
+// - `incident.acknowledged`
+// - `incident.escalated`
+// - `incident.resolved`
+// - `incident.reassigned`
+// - `incident.annotated`
+// - `incident.unacknowledged`
+// - `incident.delegated`
+// - `incident.priority_updated`
+// - `incident.responder.added`
+// - `incident.responder.replied`
+// - `incident.status_update_published`
+// - `incident.reopened`
+func (o SlackConnectionConfigOutput) Events() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SlackConnectionConfig) []string { return v.Events }).(pulumi.StringArrayOutput)
+}
+
+func (o SlackConnectionConfigOutput) Priorities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SlackConnectionConfig) []string { return v.Priorities }).(pulumi.StringArrayOutput)
+}
+
+// Allows you to filter events by urgency. Either `high` or `low`.
+func (o SlackConnectionConfigOutput) Urgency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SlackConnectionConfig) *string { return v.Urgency }).(pulumi.StringPtrOutput)
+}
+
+type SlackConnectionConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (SlackConnectionConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SlackConnectionConfig)(nil)).Elem()
+}
+
+func (o SlackConnectionConfigArrayOutput) ToSlackConnectionConfigArrayOutput() SlackConnectionConfigArrayOutput {
+	return o
+}
+
+func (o SlackConnectionConfigArrayOutput) ToSlackConnectionConfigArrayOutputWithContext(ctx context.Context) SlackConnectionConfigArrayOutput {
+	return o
+}
+
+func (o SlackConnectionConfigArrayOutput) Index(i pulumi.IntInput) SlackConnectionConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SlackConnectionConfig {
+		return vs[0].([]SlackConnectionConfig)[vs[1].(int)]
+	}).(SlackConnectionConfigOutput)
+}
+
 type UserNotificationRuleContactMethod struct {
 	// The id of the referenced contact method.
 	Id string `pulumi:"id"`
@@ -7166,6 +7314,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceScheduledActionAtArrayOutput{})
 	pulumi.RegisterOutputType(ServiceSupportHoursOutput{})
 	pulumi.RegisterOutputType(ServiceSupportHoursPtrOutput{})
+	pulumi.RegisterOutputType(SlackConnectionConfigOutput{})
+	pulumi.RegisterOutputType(SlackConnectionConfigArrayOutput{})
 	pulumi.RegisterOutputType(UserNotificationRuleContactMethodOutput{})
 	pulumi.RegisterOutputType(UserNotificationRuleContactMethodPtrOutput{})
 }

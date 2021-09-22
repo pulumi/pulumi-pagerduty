@@ -729,6 +729,30 @@ export interface ServiceSupportHours {
     type?: pulumi.Input<string>;
 }
 
+export interface SlackConnectionConfig {
+    /**
+     * A list of strings to filter events by PagerDuty event type. `"incident.triggered"` is required. The follow event types are also possible:
+     * - `incident.acknowledged`
+     * - `incident.escalated`
+     * - `incident.resolved`
+     * - `incident.reassigned`
+     * - `incident.annotated`
+     * - `incident.unacknowledged`
+     * - `incident.delegated`
+     * - `incident.priority_updated`
+     * - `incident.responder.added`
+     * - `incident.responder.replied`
+     * - `incident.status_update_published`
+     * - `incident.reopened`
+     */
+    events: pulumi.Input<pulumi.Input<string>[]>;
+    priorities?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Allows you to filter events by urgency. Either `high` or `low`.
+     */
+    urgency?: pulumi.Input<string>;
+}
+
 export interface UserNotificationRuleContactMethod {
     /**
      * The id of the referenced contact method.

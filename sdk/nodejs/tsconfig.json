@@ -44,6 +44,7 @@
         "serviceDependency.ts",
         "serviceEventRule.ts",
         "serviceIntegration.ts",
+        "slackConnection.ts",
         "team.ts",
         "teamMembership.ts",
         "types/index.ts",

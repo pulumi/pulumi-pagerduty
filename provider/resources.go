@@ -164,6 +164,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"pagerduty_service_event_rule": {Tok: makeResource(mainMod, "ServiceEventRule")},
+			"pagerduty_slack_connection":   {Tok: makeResource(mainMod, "SlackConnection")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"pagerduty_escalation_policy":   {Tok: makeDataSource(mainMod, "getEscalationPolicy")},

@@ -31,6 +31,7 @@ from .service import *
 from .service_dependency import *
 from .service_event_rule import *
 from .service_integration import *
+from .slack_connection import *
 from .team import *
 from .team_membership import *
 from .user import *
@@ -86,6 +87,8 @@ def _register_module():
                 return ServiceEventRule(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "pagerduty:index/serviceIntegration:ServiceIntegration":
                 return ServiceIntegration(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "pagerduty:index/slackConnection:SlackConnection":
+                return SlackConnection(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "pagerduty:index/team:Team":
                 return Team(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "pagerduty:index/teamMembership:TeamMembership":
@@ -116,6 +119,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("pagerduty", "index/serviceDependency", _module_instance)
     pulumi.runtime.register_resource_module("pagerduty", "index/serviceEventRule", _module_instance)
     pulumi.runtime.register_resource_module("pagerduty", "index/serviceIntegration", _module_instance)
+    pulumi.runtime.register_resource_module("pagerduty", "index/slackConnection", _module_instance)
     pulumi.runtime.register_resource_module("pagerduty", "index/team", _module_instance)
     pulumi.runtime.register_resource_module("pagerduty", "index/teamMembership", _module_instance)
     pulumi.runtime.register_resource_module("pagerduty", "index/user", _module_instance)

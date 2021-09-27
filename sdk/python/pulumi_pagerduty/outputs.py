@@ -65,6 +65,7 @@ __all__ = [
     'ServiceScheduledAction',
     'ServiceScheduledActionAt',
     'ServiceSupportHours',
+    'SlackConnectionConfig',
     'UserNotificationRuleContactMethod',
 ]
 
@@ -2522,6 +2523,68 @@ class ServiceSupportHours(dict):
         The type of alert grouping; one of `intelligent`, `time` or `content_based`.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class SlackConnectionConfig(dict):
+    def __init__(__self__, *,
+                 events: Sequence[str],
+                 priorities: Optional[Sequence[str]] = None,
+                 urgency: Optional[str] = None):
+        """
+        :param Sequence[str] events: A list of strings to filter events by PagerDuty event type. `"incident.triggered"` is required. The follow event types are also possible:
+               - `incident.acknowledged`
+               - `incident.escalated`
+               - `incident.resolved`
+               - `incident.reassigned`
+               - `incident.annotated`
+               - `incident.unacknowledged`
+               - `incident.delegated`
+               - `incident.priority_updated`
+               - `incident.responder.added`
+               - `incident.responder.replied`
+               - `incident.status_update_published`
+               - `incident.reopened`
+        :param str urgency: Allows you to filter events by urgency. Either `high` or `low`.
+        """
+        pulumi.set(__self__, "events", events)
+        if priorities is not None:
+            pulumi.set(__self__, "priorities", priorities)
+        if urgency is not None:
+            pulumi.set(__self__, "urgency", urgency)
+
+    @property
+    @pulumi.getter
+    def events(self) -> Sequence[str]:
+        """
+        A list of strings to filter events by PagerDuty event type. `"incident.triggered"` is required. The follow event types are also possible:
+        - `incident.acknowledged`
+        - `incident.escalated`
+        - `incident.resolved`
+        - `incident.reassigned`
+        - `incident.annotated`
+        - `incident.unacknowledged`
+        - `incident.delegated`
+        - `incident.priority_updated`
+        - `incident.responder.added`
+        - `incident.responder.replied`
+        - `incident.status_update_published`
+        - `incident.reopened`
+        """
+        return pulumi.get(self, "events")
+
+    @property
+    @pulumi.getter
+    def priorities(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "priorities")
+
+    @property
+    @pulumi.getter
+    def urgency(self) -> Optional[str]:
+        """
+        Allows you to filter events by urgency. Either `high` or `low`.
+        """
+        return pulumi.get(self, "urgency")
 
 
 @pulumi.output_type

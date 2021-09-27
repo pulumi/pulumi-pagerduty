@@ -33,6 +33,7 @@ export * from "./service";
 export * from "./serviceDependency";
 export * from "./serviceEventRule";
 export * from "./serviceIntegration";
+export * from "./slackConnection";
 export * from "./team";
 export * from "./teamMembership";
 export * from "./user";
@@ -64,6 +65,7 @@ import { Service } from "./service";
 import { ServiceDependency } from "./serviceDependency";
 import { ServiceEventRule } from "./serviceEventRule";
 import { ServiceIntegration } from "./serviceIntegration";
+import { SlackConnection } from "./slackConnection";
 import { Team } from "./team";
 import { TeamMembership } from "./teamMembership";
 import { User } from "./user";
@@ -104,6 +106,8 @@ const _module = {
                 return new ServiceEventRule(name, <any>undefined, { urn })
             case "pagerduty:index/serviceIntegration:ServiceIntegration":
                 return new ServiceIntegration(name, <any>undefined, { urn })
+            case "pagerduty:index/slackConnection:SlackConnection":
+                return new SlackConnection(name, <any>undefined, { urn })
             case "pagerduty:index/team:Team":
                 return new Team(name, <any>undefined, { urn })
             case "pagerduty:index/teamMembership:TeamMembership":
@@ -134,6 +138,7 @@ pulumi.runtime.registerResourceModule("pagerduty", "index/service", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/serviceDependency", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/serviceEventRule", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/serviceIntegration", _module)
+pulumi.runtime.registerResourceModule("pagerduty", "index/slackConnection", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/team", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/teamMembership", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/user", _module)

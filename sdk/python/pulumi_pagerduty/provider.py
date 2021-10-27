@@ -14,15 +14,21 @@ __all__ = ['ProviderArgs', 'Provider']
 class ProviderArgs:
     def __init__(__self__, *,
                  token: pulumi.Input[str],
-                 skip_credentials_validation: Optional[pulumi.Input[bool]] = None):
+                 service_region: Optional[pulumi.Input[str]] = None,
+                 skip_credentials_validation: Optional[pulumi.Input[bool]] = None,
+                 user_token: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Provider resource.
         """
         pulumi.set(__self__, "token", token)
+        if service_region is not None:
+            pulumi.set(__self__, "service_region", service_region)
         if skip_credentials_validation is None:
             skip_credentials_validation = False
         if skip_credentials_validation is not None:
             pulumi.set(__self__, "skip_credentials_validation", skip_credentials_validation)
+        if user_token is not None:
+            pulumi.set(__self__, "user_token", user_token)
 
     @property
     @pulumi.getter
@@ -34,6 +40,15 @@ class ProviderArgs:
         pulumi.set(self, "token", value)
 
     @property
+    @pulumi.getter(name="serviceRegion")
+    def service_region(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "service_region")
+
+    @service_region.setter
+    def service_region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_region", value)
+
+    @property
     @pulumi.getter(name="skipCredentialsValidation")
     def skip_credentials_validation(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "skip_credentials_validation")
@@ -42,14 +57,25 @@ class ProviderArgs:
     def skip_credentials_validation(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "skip_credentials_validation", value)
 
+    @property
+    @pulumi.getter(name="userToken")
+    def user_token(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "user_token")
+
+    @user_token.setter
+    def user_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_token", value)
+
 
 class Provider(pulumi.ProviderResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 service_region: Optional[pulumi.Input[str]] = None,
                  skip_credentials_validation: Optional[pulumi.Input[bool]] = None,
                  token: Optional[pulumi.Input[str]] = None,
+                 user_token: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         The provider type for the pagerduty package. By default, resources use package-wide configuration
@@ -87,8 +113,10 @@ class Provider(pulumi.ProviderResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 service_region: Optional[pulumi.Input[str]] = None,
                  skip_credentials_validation: Optional[pulumi.Input[bool]] = None,
                  token: Optional[pulumi.Input[str]] = None,
+                 user_token: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -101,12 +129,14 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProviderArgs.__new__(ProviderArgs)
 
+            __props__.__dict__["service_region"] = service_region
             if skip_credentials_validation is None:
                 skip_credentials_validation = False
             __props__.__dict__["skip_credentials_validation"] = pulumi.Output.from_input(skip_credentials_validation).apply(pulumi.runtime.to_json) if skip_credentials_validation is not None else None
             if token is None and not opts.urn:
                 raise TypeError("Missing required property 'token'")
             __props__.__dict__["token"] = token
+            __props__.__dict__["user_token"] = user_token
         super(Provider, __self__).__init__(
             'pagerduty',
             resource_name,

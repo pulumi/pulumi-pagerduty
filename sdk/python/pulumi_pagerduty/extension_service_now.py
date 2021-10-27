@@ -23,6 +23,7 @@ class ExtensionServiceNowArgs:
                  task_type: pulumi.Input[str],
                  endpoint_url: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 summary: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ExtensionServiceNow resource.
@@ -35,6 +36,7 @@ class ExtensionServiceNowArgs:
         :param pulumi.Input[str] target: Target Webhook URL
         :param pulumi.Input[str] task_type: The ServiceNow task type, typically `incident`.
         :param pulumi.Input[str] name: The name of the service extension.
+        :param pulumi.Input[str] summary: A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
         """
         pulumi.set(__self__, "extension_objects", extension_objects)
         pulumi.set(__self__, "extension_schema", extension_schema)
@@ -48,6 +50,8 @@ class ExtensionServiceNowArgs:
             pulumi.set(__self__, "endpoint_url", endpoint_url)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if summary is not None:
+            pulumi.set(__self__, "summary", summary)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -170,6 +174,18 @@ class ExtensionServiceNowArgs:
 
     @property
     @pulumi.getter
+    def summary(self) -> Optional[pulumi.Input[str]]:
+        """
+        A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+        """
+        return pulumi.get(self, "summary")
+
+    @summary.setter
+    def summary(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "summary", value)
+
+    @property
+    @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "type")
 
@@ -189,6 +205,7 @@ class _ExtensionServiceNowState:
                  referer: Optional[pulumi.Input[str]] = None,
                  snow_password: Optional[pulumi.Input[str]] = None,
                  snow_user: Optional[pulumi.Input[str]] = None,
+                 summary: Optional[pulumi.Input[str]] = None,
                  sync_options: Optional[pulumi.Input[str]] = None,
                  target: Optional[pulumi.Input[str]] = None,
                  task_type: Optional[pulumi.Input[str]] = None,
@@ -202,6 +219,7 @@ class _ExtensionServiceNowState:
         :param pulumi.Input[str] referer: The ServiceNow referer.
         :param pulumi.Input[str] snow_password: The ServiceNow password.
         :param pulumi.Input[str] snow_user: The ServiceNow username.
+        :param pulumi.Input[str] summary: A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
         :param pulumi.Input[str] sync_options: The ServiceNow sync option.
         :param pulumi.Input[str] target: Target Webhook URL
         :param pulumi.Input[str] task_type: The ServiceNow task type, typically `incident`.
@@ -222,6 +240,8 @@ class _ExtensionServiceNowState:
             pulumi.set(__self__, "snow_password", snow_password)
         if snow_user is not None:
             pulumi.set(__self__, "snow_user", snow_user)
+        if summary is not None:
+            pulumi.set(__self__, "summary", summary)
         if sync_options is not None:
             pulumi.set(__self__, "sync_options", sync_options)
         if target is not None:
@@ -325,6 +345,18 @@ class _ExtensionServiceNowState:
         pulumi.set(self, "snow_user", value)
 
     @property
+    @pulumi.getter
+    def summary(self) -> Optional[pulumi.Input[str]]:
+        """
+        A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+        """
+        return pulumi.get(self, "summary")
+
+    @summary.setter
+    def summary(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "summary", value)
+
+    @property
     @pulumi.getter(name="syncOptions")
     def sync_options(self) -> Optional[pulumi.Input[str]]:
         """
@@ -382,6 +414,7 @@ class ExtensionServiceNow(pulumi.CustomResource):
                  referer: Optional[pulumi.Input[str]] = None,
                  snow_password: Optional[pulumi.Input[str]] = None,
                  snow_user: Optional[pulumi.Input[str]] = None,
+                 summary: Optional[pulumi.Input[str]] = None,
                  sync_options: Optional[pulumi.Input[str]] = None,
                  target: Optional[pulumi.Input[str]] = None,
                  task_type: Optional[pulumi.Input[str]] = None,
@@ -438,6 +471,7 @@ class ExtensionServiceNow(pulumi.CustomResource):
         :param pulumi.Input[str] referer: The ServiceNow referer.
         :param pulumi.Input[str] snow_password: The ServiceNow password.
         :param pulumi.Input[str] snow_user: The ServiceNow username.
+        :param pulumi.Input[str] summary: A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
         :param pulumi.Input[str] sync_options: The ServiceNow sync option.
         :param pulumi.Input[str] target: Target Webhook URL
         :param pulumi.Input[str] task_type: The ServiceNow task type, typically `incident`.
@@ -513,6 +547,7 @@ class ExtensionServiceNow(pulumi.CustomResource):
                  referer: Optional[pulumi.Input[str]] = None,
                  snow_password: Optional[pulumi.Input[str]] = None,
                  snow_user: Optional[pulumi.Input[str]] = None,
+                 summary: Optional[pulumi.Input[str]] = None,
                  sync_options: Optional[pulumi.Input[str]] = None,
                  target: Optional[pulumi.Input[str]] = None,
                  task_type: Optional[pulumi.Input[str]] = None,
@@ -546,6 +581,7 @@ class ExtensionServiceNow(pulumi.CustomResource):
             if snow_user is None and not opts.urn:
                 raise TypeError("Missing required property 'snow_user'")
             __props__.__dict__["snow_user"] = snow_user
+            __props__.__dict__["summary"] = summary
             if sync_options is None and not opts.urn:
                 raise TypeError("Missing required property 'sync_options'")
             __props__.__dict__["sync_options"] = sync_options
@@ -575,6 +611,7 @@ class ExtensionServiceNow(pulumi.CustomResource):
             referer: Optional[pulumi.Input[str]] = None,
             snow_password: Optional[pulumi.Input[str]] = None,
             snow_user: Optional[pulumi.Input[str]] = None,
+            summary: Optional[pulumi.Input[str]] = None,
             sync_options: Optional[pulumi.Input[str]] = None,
             target: Optional[pulumi.Input[str]] = None,
             task_type: Optional[pulumi.Input[str]] = None,
@@ -593,6 +630,7 @@ class ExtensionServiceNow(pulumi.CustomResource):
         :param pulumi.Input[str] referer: The ServiceNow referer.
         :param pulumi.Input[str] snow_password: The ServiceNow password.
         :param pulumi.Input[str] snow_user: The ServiceNow username.
+        :param pulumi.Input[str] summary: A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
         :param pulumi.Input[str] sync_options: The ServiceNow sync option.
         :param pulumi.Input[str] target: Target Webhook URL
         :param pulumi.Input[str] task_type: The ServiceNow task type, typically `incident`.
@@ -609,6 +647,7 @@ class ExtensionServiceNow(pulumi.CustomResource):
         __props__.__dict__["referer"] = referer
         __props__.__dict__["snow_password"] = snow_password
         __props__.__dict__["snow_user"] = snow_user
+        __props__.__dict__["summary"] = summary
         __props__.__dict__["sync_options"] = sync_options
         __props__.__dict__["target"] = target
         __props__.__dict__["task_type"] = task_type
@@ -675,6 +714,14 @@ class ExtensionServiceNow(pulumi.CustomResource):
         The ServiceNow username.
         """
         return pulumi.get(self, "snow_user")
+
+    @property
+    @pulumi.getter
+    def summary(self) -> pulumi.Output[str]:
+        """
+        A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+        """
+        return pulumi.get(self, "summary")
 
     @property
     @pulumi.getter(name="syncOptions")

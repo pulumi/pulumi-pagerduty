@@ -17,6 +17,7 @@ from .get_ruleset import *
 from .get_schedule import *
 from .get_service import *
 from .get_service_integration import *
+from .get_tag import *
 from .get_team import *
 from .get_user import *
 from .get_user_contact_method import *
@@ -32,6 +33,8 @@ from .service_dependency import *
 from .service_event_rule import *
 from .service_integration import *
 from .slack_connection import *
+from .tag import *
+from .tag_assignment import *
 from .team import *
 from .team_membership import *
 from .user import *
@@ -89,6 +92,10 @@ def _register_module():
                 return ServiceIntegration(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "pagerduty:index/slackConnection:SlackConnection":
                 return SlackConnection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "pagerduty:index/tag:Tag":
+                return Tag(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "pagerduty:index/tagAssignment:TagAssignment":
+                return TagAssignment(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "pagerduty:index/team:Team":
                 return Team(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "pagerduty:index/teamMembership:TeamMembership":
@@ -120,6 +127,8 @@ def _register_module():
     pulumi.runtime.register_resource_module("pagerduty", "index/serviceEventRule", _module_instance)
     pulumi.runtime.register_resource_module("pagerduty", "index/serviceIntegration", _module_instance)
     pulumi.runtime.register_resource_module("pagerduty", "index/slackConnection", _module_instance)
+    pulumi.runtime.register_resource_module("pagerduty", "index/tag", _module_instance)
+    pulumi.runtime.register_resource_module("pagerduty", "index/tagAssignment", _module_instance)
     pulumi.runtime.register_resource_module("pagerduty", "index/team", _module_instance)
     pulumi.runtime.register_resource_module("pagerduty", "index/teamMembership", _module_instance)
     pulumi.runtime.register_resource_module("pagerduty", "index/user", _module_instance)

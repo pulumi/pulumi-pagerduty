@@ -24,50 +24,44 @@ namespace Pulumi.Pagerduty
     ///     {
     ///         var foo = new Pagerduty.ServiceDependency("foo", new Pagerduty.ServiceDependencyArgs
     ///         {
-    ///             Dependencies = 
+    ///             Dependency = new Pagerduty.Inputs.ServiceDependencyDependencyArgs
     ///             {
-    ///                 new Pagerduty.Inputs.ServiceDependencyDependencyArgs
+    ///                 DependentServices = 
     ///                 {
-    ///                     DependentServices = 
+    ///                     new Pagerduty.Inputs.ServiceDependencyDependencyDependentServiceArgs
     ///                     {
-    ///                         new Pagerduty.Inputs.ServiceDependencyDependencyDependentServiceArgs
-    ///                         {
-    ///                             Id = pagerduty_business_service.Foo.Id,
-    ///                             Type = "business_service",
-    ///                         },
+    ///                         Id = pagerduty_business_service.Foo.Id,
+    ///                         Type = "business_service",
     ///                     },
-    ///                     SupportingServices = 
+    ///                 },
+    ///                 SupportingServices = 
+    ///                 {
+    ///                     new Pagerduty.Inputs.ServiceDependencyDependencySupportingServiceArgs
     ///                     {
-    ///                         new Pagerduty.Inputs.ServiceDependencyDependencySupportingServiceArgs
-    ///                         {
-    ///                             Id = pagerduty_service.Foo.Id,
-    ///                             Type = "service",
-    ///                         },
+    ///                         Id = pagerduty_service.Foo.Id,
+    ///                         Type = "service",
     ///                     },
     ///                 },
     ///             },
     ///         });
     ///         var bar = new Pagerduty.ServiceDependency("bar", new Pagerduty.ServiceDependencyArgs
     ///         {
-    ///             Dependencies = 
+    ///             Dependency = new Pagerduty.Inputs.ServiceDependencyDependencyArgs
     ///             {
-    ///                 new Pagerduty.Inputs.ServiceDependencyDependencyArgs
+    ///                 DependentServices = 
     ///                 {
-    ///                     DependentServices = 
+    ///                     new Pagerduty.Inputs.ServiceDependencyDependencyDependentServiceArgs
     ///                     {
-    ///                         new Pagerduty.Inputs.ServiceDependencyDependencyDependentServiceArgs
-    ///                         {
-    ///                             Id = pagerduty_business_service.Foo.Id,
-    ///                             Type = "business_service",
-    ///                         },
+    ///                         Id = pagerduty_business_service.Foo.Id,
+    ///                         Type = "business_service",
     ///                     },
-    ///                     SupportingServices = 
+    ///                 },
+    ///                 SupportingServices = 
+    ///                 {
+    ///                     new Pagerduty.Inputs.ServiceDependencyDependencySupportingServiceArgs
     ///                     {
-    ///                         new Pagerduty.Inputs.ServiceDependencyDependencySupportingServiceArgs
-    ///                         {
-    ///                             Id = pagerduty_service.Two.Id,
-    ///                             Type = "service",
-    ///                         },
+    ///                         Id = pagerduty_service.Two.Id,
+    ///                         Type = "service",
     ///                     },
     ///                 },
     ///             },
@@ -89,10 +83,10 @@ namespace Pulumi.Pagerduty
     public partial class ServiceDependency : Pulumi.CustomResource
     {
         /// <summary>
-        /// The relationship between the `supporting_service` and `dependent_service`.
+        /// The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
         /// </summary>
-        [Output("dependencies")]
-        public Output<ImmutableArray<Outputs.ServiceDependencyDependency>> Dependencies { get; private set; } = null!;
+        [Output("dependency")]
+        public Output<Outputs.ServiceDependencyDependency> Dependency { get; private set; } = null!;
 
 
         /// <summary>
@@ -140,17 +134,11 @@ namespace Pulumi.Pagerduty
 
     public sealed class ServiceDependencyArgs : Pulumi.ResourceArgs
     {
-        [Input("dependencies", required: true)]
-        private InputList<Inputs.ServiceDependencyDependencyArgs>? _dependencies;
-
         /// <summary>
-        /// The relationship between the `supporting_service` and `dependent_service`.
+        /// The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
         /// </summary>
-        public InputList<Inputs.ServiceDependencyDependencyArgs> Dependencies
-        {
-            get => _dependencies ?? (_dependencies = new InputList<Inputs.ServiceDependencyDependencyArgs>());
-            set => _dependencies = value;
-        }
+        [Input("dependency", required: true)]
+        public Input<Inputs.ServiceDependencyDependencyArgs> Dependency { get; set; } = null!;
 
         public ServiceDependencyArgs()
         {
@@ -159,17 +147,11 @@ namespace Pulumi.Pagerduty
 
     public sealed class ServiceDependencyState : Pulumi.ResourceArgs
     {
-        [Input("dependencies")]
-        private InputList<Inputs.ServiceDependencyDependencyGetArgs>? _dependencies;
-
         /// <summary>
-        /// The relationship between the `supporting_service` and `dependent_service`.
+        /// The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
         /// </summary>
-        public InputList<Inputs.ServiceDependencyDependencyGetArgs> Dependencies
-        {
-            get => _dependencies ?? (_dependencies = new InputList<Inputs.ServiceDependencyDependencyGetArgs>());
-            set => _dependencies = value;
-        }
+        [Input("dependency")]
+        public Input<Inputs.ServiceDependencyDependencyGetArgs>? Dependency { get; set; }
 
         public ServiceDependencyState()
         {

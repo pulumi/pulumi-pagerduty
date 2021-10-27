@@ -103,7 +103,7 @@ namespace Pulumi.Pagerduty
         /// Teams associated with the policy. Account must have the `teams` ability to use this parameter.
         /// </summary>
         [Output("teams")]
-        public Output<ImmutableArray<string>> Teams { get; private set; } = null!;
+        public Output<string?> Teams { get; private set; } = null!;
 
 
         /// <summary>
@@ -178,17 +178,11 @@ namespace Pulumi.Pagerduty
             set => _rules = value;
         }
 
-        [Input("teams")]
-        private InputList<string>? _teams;
-
         /// <summary>
         /// Teams associated with the policy. Account must have the `teams` ability to use this parameter.
         /// </summary>
-        public InputList<string> Teams
-        {
-            get => _teams ?? (_teams = new InputList<string>());
-            set => _teams = value;
-        }
+        [Input("teams")]
+        public Input<string>? Teams { get; set; }
 
         public EscalationPolicyArgs()
         {
@@ -225,17 +219,11 @@ namespace Pulumi.Pagerduty
             set => _rules = value;
         }
 
-        [Input("teams")]
-        private InputList<string>? _teams;
-
         /// <summary>
         /// Teams associated with the policy. Account must have the `teams` ability to use this parameter.
         /// </summary>
-        public InputList<string> Teams
-        {
-            get => _teams ?? (_teams = new InputList<string>());
-            set => _teams = value;
-        }
+        [Input("teams")]
+        public Input<string>? Teams { get; set; }
 
         public EscalationPolicyState()
         {

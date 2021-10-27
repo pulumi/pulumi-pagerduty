@@ -7,21 +7,19 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
-from . import outputs
-from ._inputs import *
 
 __all__ = ['UserNotificationRuleArgs', 'UserNotificationRule']
 
 @pulumi.input_type
 class UserNotificationRuleArgs:
     def __init__(__self__, *,
-                 contact_method: pulumi.Input['UserNotificationRuleContactMethodArgs'],
+                 contact_method: pulumi.Input[Mapping[str, pulumi.Input[str]]],
                  start_delay_in_minutes: pulumi.Input[int],
                  urgency: pulumi.Input[str],
                  user_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a UserNotificationRule resource.
-        :param pulumi.Input['UserNotificationRuleContactMethodArgs'] contact_method: A contact method block, configured as a block described below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] contact_method: A contact method block, configured as a block described below.
         :param pulumi.Input[int] start_delay_in_minutes: The delay before firing the rule, in minutes.
         :param pulumi.Input[str] urgency: Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
         :param pulumi.Input[str] user_id: The ID of the user.
@@ -33,14 +31,14 @@ class UserNotificationRuleArgs:
 
     @property
     @pulumi.getter(name="contactMethod")
-    def contact_method(self) -> pulumi.Input['UserNotificationRuleContactMethodArgs']:
+    def contact_method(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
         """
         A contact method block, configured as a block described below.
         """
         return pulumi.get(self, "contact_method")
 
     @contact_method.setter
-    def contact_method(self, value: pulumi.Input['UserNotificationRuleContactMethodArgs']):
+    def contact_method(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
         pulumi.set(self, "contact_method", value)
 
     @property
@@ -83,13 +81,13 @@ class UserNotificationRuleArgs:
 @pulumi.input_type
 class _UserNotificationRuleState:
     def __init__(__self__, *,
-                 contact_method: Optional[pulumi.Input['UserNotificationRuleContactMethodArgs']] = None,
+                 contact_method: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  start_delay_in_minutes: Optional[pulumi.Input[int]] = None,
                  urgency: Optional[pulumi.Input[str]] = None,
                  user_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering UserNotificationRule resources.
-        :param pulumi.Input['UserNotificationRuleContactMethodArgs'] contact_method: A contact method block, configured as a block described below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] contact_method: A contact method block, configured as a block described below.
         :param pulumi.Input[int] start_delay_in_minutes: The delay before firing the rule, in minutes.
         :param pulumi.Input[str] urgency: Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
         :param pulumi.Input[str] user_id: The ID of the user.
@@ -105,14 +103,14 @@ class _UserNotificationRuleState:
 
     @property
     @pulumi.getter(name="contactMethod")
-    def contact_method(self) -> Optional[pulumi.Input['UserNotificationRuleContactMethodArgs']]:
+    def contact_method(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A contact method block, configured as a block described below.
         """
         return pulumi.get(self, "contact_method")
 
     @contact_method.setter
-    def contact_method(self, value: Optional[pulumi.Input['UserNotificationRuleContactMethodArgs']]):
+    def contact_method(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "contact_method", value)
 
     @property
@@ -157,7 +155,7 @@ class UserNotificationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contact_method: Optional[pulumi.Input[pulumi.InputType['UserNotificationRuleContactMethodArgs']]] = None,
+                 contact_method: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  start_delay_in_minutes: Optional[pulumi.Input[int]] = None,
                  urgency: Optional[pulumi.Input[str]] = None,
                  user_id: Optional[pulumi.Input[str]] = None,
@@ -193,26 +191,26 @@ class UserNotificationRule(pulumi.CustomResource):
             user_id=example.id,
             start_delay_in_minutes=1,
             urgency="high",
-            contact_method=pagerduty.UserNotificationRuleContactMethodArgs(
-                type="phone_contact_method",
-                id=phone.id,
-            ))
+            contact_method={
+                "type": "phone_contact_method",
+                "id": phone.id,
+            })
         low_urgency_email = pagerduty.UserNotificationRule("lowUrgencyEmail",
             user_id=example.id,
             start_delay_in_minutes=1,
             urgency="low",
-            contact_method=pagerduty.UserNotificationRuleContactMethodArgs(
-                type="email_contact_method",
-                id=email.id,
-            ))
+            contact_method={
+                "type": "email_contact_method",
+                "id": email.id,
+            })
         low_urgency_sms = pagerduty.UserNotificationRule("lowUrgencySms",
             user_id=example.id,
             start_delay_in_minutes=10,
             urgency="low",
-            contact_method=pagerduty.UserNotificationRuleContactMethodArgs(
-                type="sms_contact_method",
-                id=sms.id,
-            ))
+            contact_method={
+                "type": "sms_contact_method",
+                "id": sms.id,
+            })
         ```
 
         ## Import
@@ -225,7 +223,7 @@ class UserNotificationRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['UserNotificationRuleContactMethodArgs']] contact_method: A contact method block, configured as a block described below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] contact_method: A contact method block, configured as a block described below.
         :param pulumi.Input[int] start_delay_in_minutes: The delay before firing the rule, in minutes.
         :param pulumi.Input[str] urgency: Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
         :param pulumi.Input[str] user_id: The ID of the user.
@@ -267,26 +265,26 @@ class UserNotificationRule(pulumi.CustomResource):
             user_id=example.id,
             start_delay_in_minutes=1,
             urgency="high",
-            contact_method=pagerduty.UserNotificationRuleContactMethodArgs(
-                type="phone_contact_method",
-                id=phone.id,
-            ))
+            contact_method={
+                "type": "phone_contact_method",
+                "id": phone.id,
+            })
         low_urgency_email = pagerduty.UserNotificationRule("lowUrgencyEmail",
             user_id=example.id,
             start_delay_in_minutes=1,
             urgency="low",
-            contact_method=pagerduty.UserNotificationRuleContactMethodArgs(
-                type="email_contact_method",
-                id=email.id,
-            ))
+            contact_method={
+                "type": "email_contact_method",
+                "id": email.id,
+            })
         low_urgency_sms = pagerduty.UserNotificationRule("lowUrgencySms",
             user_id=example.id,
             start_delay_in_minutes=10,
             urgency="low",
-            contact_method=pagerduty.UserNotificationRuleContactMethodArgs(
-                type="sms_contact_method",
-                id=sms.id,
-            ))
+            contact_method={
+                "type": "sms_contact_method",
+                "id": sms.id,
+            })
         ```
 
         ## Import
@@ -312,7 +310,7 @@ class UserNotificationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contact_method: Optional[pulumi.Input[pulumi.InputType['UserNotificationRuleContactMethodArgs']]] = None,
+                 contact_method: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  start_delay_in_minutes: Optional[pulumi.Input[int]] = None,
                  urgency: Optional[pulumi.Input[str]] = None,
                  user_id: Optional[pulumi.Input[str]] = None,
@@ -350,7 +348,7 @@ class UserNotificationRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            contact_method: Optional[pulumi.Input[pulumi.InputType['UserNotificationRuleContactMethodArgs']]] = None,
+            contact_method: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             start_delay_in_minutes: Optional[pulumi.Input[int]] = None,
             urgency: Optional[pulumi.Input[str]] = None,
             user_id: Optional[pulumi.Input[str]] = None) -> 'UserNotificationRule':
@@ -361,7 +359,7 @@ class UserNotificationRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['UserNotificationRuleContactMethodArgs']] contact_method: A contact method block, configured as a block described below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] contact_method: A contact method block, configured as a block described below.
         :param pulumi.Input[int] start_delay_in_minutes: The delay before firing the rule, in minutes.
         :param pulumi.Input[str] urgency: Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
         :param pulumi.Input[str] user_id: The ID of the user.
@@ -378,7 +376,7 @@ class UserNotificationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contactMethod")
-    def contact_method(self) -> pulumi.Output['outputs.UserNotificationRuleContactMethod']:
+    def contact_method(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A contact method block, configured as a block described below.
         """

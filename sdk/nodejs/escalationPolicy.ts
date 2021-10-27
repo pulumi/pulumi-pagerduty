@@ -90,7 +90,7 @@ export class EscalationPolicy extends pulumi.CustomResource {
     /**
      * Teams associated with the policy. Account must have the `teams` ability to use this parameter.
      */
-    public readonly teams!: pulumi.Output<string[] | undefined>;
+    public readonly teams!: pulumi.Output<string | undefined>;
 
     /**
      * Create a EscalationPolicy resource with the given unique name, arguments, and options.
@@ -148,7 +148,7 @@ export interface EscalationPolicyState {
     /**
      * Teams associated with the policy. Account must have the `teams` ability to use this parameter.
      */
-    readonly teams?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly teams?: pulumi.Input<string>;
 }
 
 /**
@@ -171,5 +171,5 @@ export interface EscalationPolicyArgs {
     /**
      * Teams associated with the policy. Account must have the `teams` ability to use this parameter.
      */
-    readonly teams?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly teams?: pulumi.Input<string>;
 }

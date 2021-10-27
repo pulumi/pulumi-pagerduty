@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -103,7 +102,7 @@ export class UserNotificationRule extends pulumi.CustomResource {
     /**
      * A contact method block, configured as a block described below.
      */
-    public readonly contactMethod!: pulumi.Output<outputs.UserNotificationRuleContactMethod>;
+    public readonly contactMethod!: pulumi.Output<{[key: string]: string}>;
     /**
      * The delay before firing the rule, in minutes.
      */
@@ -167,7 +166,7 @@ export interface UserNotificationRuleState {
     /**
      * A contact method block, configured as a block described below.
      */
-    readonly contactMethod?: pulumi.Input<inputs.UserNotificationRuleContactMethod>;
+    readonly contactMethod?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The delay before firing the rule, in minutes.
      */
@@ -189,7 +188,7 @@ export interface UserNotificationRuleArgs {
     /**
      * A contact method block, configured as a block described below.
      */
-    readonly contactMethod: pulumi.Input<inputs.UserNotificationRuleContactMethod>;
+    readonly contactMethod: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The delay before firing the rule, in minutes.
      */

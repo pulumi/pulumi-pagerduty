@@ -15,48 +15,48 @@ __all__ = ['ServiceDependencyArgs', 'ServiceDependency']
 @pulumi.input_type
 class ServiceDependencyArgs:
     def __init__(__self__, *,
-                 dependencies: pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencyArgs']]]):
+                 dependency: pulumi.Input['ServiceDependencyDependencyArgs']):
         """
         The set of arguments for constructing a ServiceDependency resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencyArgs']]] dependencies: The relationship between the `supporting_service` and `dependent_service`.
+        :param pulumi.Input['ServiceDependencyDependencyArgs'] dependency: The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
         """
-        pulumi.set(__self__, "dependencies", dependencies)
+        pulumi.set(__self__, "dependency", dependency)
 
     @property
     @pulumi.getter
-    def dependencies(self) -> pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencyArgs']]]:
+    def dependency(self) -> pulumi.Input['ServiceDependencyDependencyArgs']:
         """
-        The relationship between the `supporting_service` and `dependent_service`.
+        The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
         """
-        return pulumi.get(self, "dependencies")
+        return pulumi.get(self, "dependency")
 
-    @dependencies.setter
-    def dependencies(self, value: pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencyArgs']]]):
-        pulumi.set(self, "dependencies", value)
+    @dependency.setter
+    def dependency(self, value: pulumi.Input['ServiceDependencyDependencyArgs']):
+        pulumi.set(self, "dependency", value)
 
 
 @pulumi.input_type
 class _ServiceDependencyState:
     def __init__(__self__, *,
-                 dependencies: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencyArgs']]]] = None):
+                 dependency: Optional[pulumi.Input['ServiceDependencyDependencyArgs']] = None):
         """
         Input properties used for looking up and filtering ServiceDependency resources.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencyArgs']]] dependencies: The relationship between the `supporting_service` and `dependent_service`.
+        :param pulumi.Input['ServiceDependencyDependencyArgs'] dependency: The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
         """
-        if dependencies is not None:
-            pulumi.set(__self__, "dependencies", dependencies)
+        if dependency is not None:
+            pulumi.set(__self__, "dependency", dependency)
 
     @property
     @pulumi.getter
-    def dependencies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencyArgs']]]]:
+    def dependency(self) -> Optional[pulumi.Input['ServiceDependencyDependencyArgs']]:
         """
-        The relationship between the `supporting_service` and `dependent_service`.
+        The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
         """
-        return pulumi.get(self, "dependencies")
+        return pulumi.get(self, "dependency")
 
-    @dependencies.setter
-    def dependencies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencyArgs']]]]):
-        pulumi.set(self, "dependencies", value)
+    @dependency.setter
+    def dependency(self, value: Optional[pulumi.Input['ServiceDependencyDependencyArgs']]):
+        pulumi.set(self, "dependency", value)
 
 
 class ServiceDependency(pulumi.CustomResource):
@@ -64,7 +64,7 @@ class ServiceDependency(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dependencies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceDependencyDependencyArgs']]]]] = None,
+                 dependency: Optional[pulumi.Input[pulumi.InputType['ServiceDependencyDependencyArgs']]] = None,
                  __props__=None):
         """
         A [service dependency](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1service_dependencies~1associate/post) is a relationship between two services that this service uses, or that are used by this service, and are critical for successful operation.
@@ -75,7 +75,7 @@ class ServiceDependency(pulumi.CustomResource):
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        foo = pagerduty.ServiceDependency("foo", dependencies=[pagerduty.ServiceDependencyDependencyArgs(
+        foo = pagerduty.ServiceDependency("foo", dependency=pagerduty.ServiceDependencyDependencyArgs(
             dependent_services=[pagerduty.ServiceDependencyDependencyDependentServiceArgs(
                 id=pagerduty_business_service["foo"]["id"],
                 type="business_service",
@@ -84,8 +84,8 @@ class ServiceDependency(pulumi.CustomResource):
                 id=pagerduty_service["foo"]["id"],
                 type="service",
             )],
-        )])
-        bar = pagerduty.ServiceDependency("bar", dependencies=[pagerduty.ServiceDependencyDependencyArgs(
+        ))
+        bar = pagerduty.ServiceDependency("bar", dependency=pagerduty.ServiceDependencyDependencyArgs(
             dependent_services=[pagerduty.ServiceDependencyDependencyDependentServiceArgs(
                 id=pagerduty_business_service["foo"]["id"],
                 type="business_service",
@@ -94,7 +94,7 @@ class ServiceDependency(pulumi.CustomResource):
                 id=pagerduty_service["two"]["id"],
                 type="service",
             )],
-        )])
+        ))
         ```
 
         ## Import
@@ -107,7 +107,7 @@ class ServiceDependency(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceDependencyDependencyArgs']]]] dependencies: The relationship between the `supporting_service` and `dependent_service`.
+        :param pulumi.Input[pulumi.InputType['ServiceDependencyDependencyArgs']] dependency: The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
         """
         ...
     @overload
@@ -124,7 +124,7 @@ class ServiceDependency(pulumi.CustomResource):
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        foo = pagerduty.ServiceDependency("foo", dependencies=[pagerduty.ServiceDependencyDependencyArgs(
+        foo = pagerduty.ServiceDependency("foo", dependency=pagerduty.ServiceDependencyDependencyArgs(
             dependent_services=[pagerduty.ServiceDependencyDependencyDependentServiceArgs(
                 id=pagerduty_business_service["foo"]["id"],
                 type="business_service",
@@ -133,8 +133,8 @@ class ServiceDependency(pulumi.CustomResource):
                 id=pagerduty_service["foo"]["id"],
                 type="service",
             )],
-        )])
-        bar = pagerduty.ServiceDependency("bar", dependencies=[pagerduty.ServiceDependencyDependencyArgs(
+        ))
+        bar = pagerduty.ServiceDependency("bar", dependency=pagerduty.ServiceDependencyDependencyArgs(
             dependent_services=[pagerduty.ServiceDependencyDependencyDependentServiceArgs(
                 id=pagerduty_business_service["foo"]["id"],
                 type="business_service",
@@ -143,7 +143,7 @@ class ServiceDependency(pulumi.CustomResource):
                 id=pagerduty_service["two"]["id"],
                 type="service",
             )],
-        )])
+        ))
         ```
 
         ## Import
@@ -169,7 +169,7 @@ class ServiceDependency(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dependencies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceDependencyDependencyArgs']]]]] = None,
+                 dependency: Optional[pulumi.Input[pulumi.InputType['ServiceDependencyDependencyArgs']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -182,9 +182,9 @@ class ServiceDependency(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceDependencyArgs.__new__(ServiceDependencyArgs)
 
-            if dependencies is None and not opts.urn:
-                raise TypeError("Missing required property 'dependencies'")
-            __props__.__dict__["dependencies"] = dependencies
+            if dependency is None and not opts.urn:
+                raise TypeError("Missing required property 'dependency'")
+            __props__.__dict__["dependency"] = dependency
         super(ServiceDependency, __self__).__init__(
             'pagerduty:index/serviceDependency:ServiceDependency',
             resource_name,
@@ -195,7 +195,7 @@ class ServiceDependency(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            dependencies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceDependencyDependencyArgs']]]]] = None) -> 'ServiceDependency':
+            dependency: Optional[pulumi.Input[pulumi.InputType['ServiceDependencyDependencyArgs']]] = None) -> 'ServiceDependency':
         """
         Get an existing ServiceDependency resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -203,20 +203,20 @@ class ServiceDependency(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceDependencyDependencyArgs']]]] dependencies: The relationship between the `supporting_service` and `dependent_service`.
+        :param pulumi.Input[pulumi.InputType['ServiceDependencyDependencyArgs']] dependency: The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _ServiceDependencyState.__new__(_ServiceDependencyState)
 
-        __props__.__dict__["dependencies"] = dependencies
+        __props__.__dict__["dependency"] = dependency
         return ServiceDependency(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
-    def dependencies(self) -> pulumi.Output[Sequence['outputs.ServiceDependencyDependency']]:
+    def dependency(self) -> pulumi.Output['outputs.ServiceDependencyDependency']:
         """
-        The relationship between the `supporting_service` and `dependent_service`.
+        The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
         """
-        return pulumi.get(self, "dependencies")
+        return pulumi.get(self, "dependency")
 

@@ -16,7 +16,7 @@ namespace Pulumi.Pagerduty.Inputs
         private InputList<Inputs.ServiceDependencyDependencyDependentServiceGetArgs>? _dependentServices;
 
         /// <summary>
-        /// The service that id dependent on the supporting service.
+        /// The service that dependents on the supporting service.
         /// </summary>
         public InputList<Inputs.ServiceDependencyDependencyDependentServiceGetArgs> DependentServices
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Pagerduty.Inputs
         private InputList<Inputs.ServiceDependencyDependencySupportingServiceGetArgs>? _supportingServices;
 
         /// <summary>
-        /// The service that supports  the  dependent service.
+        /// The service that supports the dependent service.
         /// </summary>
         public InputList<Inputs.ServiceDependencyDependencySupportingServiceGetArgs> SupportingServices
         {

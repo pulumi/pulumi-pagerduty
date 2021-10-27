@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/v2/go/pagerduty"
+// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -42,9 +42,9 @@ import (
 // 		}
 // 		_, err = pagerduty.NewEscalationPolicy(ctx, "exampleEscalationPolicy", &pagerduty.EscalationPolicyArgs{
 // 			NumLoops: pulumi.Int(2),
-// 			Teams: pulumi.StringArray{
+// 			Teams: pulumi.String(pulumi.String{
 // 				exampleTeam.ID(),
-// 			},
+// 			}),
 // 			Rules: pagerduty.EscalationPolicyRuleArray{
 // 				&pagerduty.EscalationPolicyRuleArgs{
 // 					EscalationDelayInMinutes: pulumi.Int(10),
@@ -87,7 +87,7 @@ type EscalationPolicy struct {
 	// An Escalation rule block. Escalation rules documented below.
 	Rules EscalationPolicyRuleArrayOutput `pulumi:"rules"`
 	// Teams associated with the policy. Account must have the `teams` ability to use this parameter.
-	Teams pulumi.StringArrayOutput `pulumi:"teams"`
+	Teams pulumi.StringPtrOutput `pulumi:"teams"`
 }
 
 // NewEscalationPolicy registers a new resource with the given unique name, arguments, and options.
@@ -133,7 +133,7 @@ type escalationPolicyState struct {
 	// An Escalation rule block. Escalation rules documented below.
 	Rules []EscalationPolicyRule `pulumi:"rules"`
 	// Teams associated with the policy. Account must have the `teams` ability to use this parameter.
-	Teams []string `pulumi:"teams"`
+	Teams *string `pulumi:"teams"`
 }
 
 type EscalationPolicyState struct {
@@ -145,7 +145,7 @@ type EscalationPolicyState struct {
 	// An Escalation rule block. Escalation rules documented below.
 	Rules EscalationPolicyRuleArrayInput
 	// Teams associated with the policy. Account must have the `teams` ability to use this parameter.
-	Teams pulumi.StringArrayInput
+	Teams pulumi.StringPtrInput
 }
 
 func (EscalationPolicyState) ElementType() reflect.Type {
@@ -161,7 +161,7 @@ type escalationPolicyArgs struct {
 	// An Escalation rule block. Escalation rules documented below.
 	Rules []EscalationPolicyRule `pulumi:"rules"`
 	// Teams associated with the policy. Account must have the `teams` ability to use this parameter.
-	Teams []string `pulumi:"teams"`
+	Teams *string `pulumi:"teams"`
 }
 
 // The set of arguments for constructing a EscalationPolicy resource.
@@ -174,7 +174,7 @@ type EscalationPolicyArgs struct {
 	// An Escalation rule block. Escalation rules documented below.
 	Rules EscalationPolicyRuleArrayInput
 	// Teams associated with the policy. Account must have the `teams` ability to use this parameter.
-	Teams pulumi.StringArrayInput
+	Teams pulumi.StringPtrInput
 }
 
 func (EscalationPolicyArgs) ElementType() reflect.Type {

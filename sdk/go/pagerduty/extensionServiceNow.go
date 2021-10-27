@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/v2/go/pagerduty"
+// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -107,6 +107,8 @@ type ExtensionServiceNow struct {
 	SnowPassword pulumi.StringOutput `pulumi:"snowPassword"`
 	// The ServiceNow username.
 	SnowUser pulumi.StringOutput `pulumi:"snowUser"`
+	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+	Summary pulumi.StringOutput `pulumi:"summary"`
 	// The ServiceNow sync option.
 	SyncOptions pulumi.StringOutput `pulumi:"syncOptions"`
 	// Target Webhook URL
@@ -184,6 +186,8 @@ type extensionServiceNowState struct {
 	SnowPassword *string `pulumi:"snowPassword"`
 	// The ServiceNow username.
 	SnowUser *string `pulumi:"snowUser"`
+	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+	Summary *string `pulumi:"summary"`
 	// The ServiceNow sync option.
 	SyncOptions *string `pulumi:"syncOptions"`
 	// Target Webhook URL
@@ -209,6 +213,8 @@ type ExtensionServiceNowState struct {
 	SnowPassword pulumi.StringPtrInput
 	// The ServiceNow username.
 	SnowUser pulumi.StringPtrInput
+	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+	Summary pulumi.StringPtrInput
 	// The ServiceNow sync option.
 	SyncOptions pulumi.StringPtrInput
 	// Target Webhook URL
@@ -236,6 +242,8 @@ type extensionServiceNowArgs struct {
 	SnowPassword string `pulumi:"snowPassword"`
 	// The ServiceNow username.
 	SnowUser string `pulumi:"snowUser"`
+	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+	Summary *string `pulumi:"summary"`
 	// The ServiceNow sync option.
 	SyncOptions string `pulumi:"syncOptions"`
 	// Target Webhook URL
@@ -260,6 +268,8 @@ type ExtensionServiceNowArgs struct {
 	SnowPassword pulumi.StringInput
 	// The ServiceNow username.
 	SnowUser pulumi.StringInput
+	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+	Summary pulumi.StringPtrInput
 	// The ServiceNow sync option.
 	SyncOptions pulumi.StringInput
 	// Target Webhook URL

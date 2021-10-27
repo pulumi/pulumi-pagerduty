@@ -119,6 +119,7 @@ class _ExtensionState:
                  extension_schema: Optional[pulumi.Input[str]] = None,
                  html_url: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 summary: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Extension resources.
@@ -129,6 +130,7 @@ class _ExtensionState:
         :param pulumi.Input[str] extension_schema: This is the schema for this extension.
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app
         :param pulumi.Input[str] name: The name of the service extension.
+        :param pulumi.Input[str] summary: A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
         """
         if config is not None:
             pulumi.set(__self__, "config", config)
@@ -142,6 +144,8 @@ class _ExtensionState:
             pulumi.set(__self__, "html_url", html_url)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if summary is not None:
+            pulumi.set(__self__, "summary", summary)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -217,6 +221,18 @@ class _ExtensionState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def summary(self) -> Optional[pulumi.Input[str]]:
+        """
+        A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+        """
+        return pulumi.get(self, "summary")
+
+    @summary.setter
+    def summary(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "summary", value)
 
     @property
     @pulumi.getter
@@ -395,6 +411,7 @@ class Extension(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["type"] = type
             __props__.__dict__["html_url"] = None
+            __props__.__dict__["summary"] = None
         super(Extension, __self__).__init__(
             'pagerduty:index/extension:Extension',
             resource_name,
@@ -411,6 +428,7 @@ class Extension(pulumi.CustomResource):
             extension_schema: Optional[pulumi.Input[str]] = None,
             html_url: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            summary: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'Extension':
         """
         Get an existing Extension resource's state with the given name, id, and optional extra
@@ -426,6 +444,7 @@ class Extension(pulumi.CustomResource):
         :param pulumi.Input[str] extension_schema: This is the schema for this extension.
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app
         :param pulumi.Input[str] name: The name of the service extension.
+        :param pulumi.Input[str] summary: A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -437,6 +456,7 @@ class Extension(pulumi.CustomResource):
         __props__.__dict__["extension_schema"] = extension_schema
         __props__.__dict__["html_url"] = html_url
         __props__.__dict__["name"] = name
+        __props__.__dict__["summary"] = summary
         __props__.__dict__["type"] = type
         return Extension(resource_name, opts=opts, __props__=__props__)
 
@@ -488,6 +508,14 @@ class Extension(pulumi.CustomResource):
         The name of the service extension.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def summary(self) -> pulumi.Output[str]:
+        """
+        A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+        """
+        return pulumi.get(self, "summary")
 
     @property
     @pulumi.getter

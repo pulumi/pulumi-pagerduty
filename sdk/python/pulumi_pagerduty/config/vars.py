@@ -9,13 +9,19 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'service_region',
     'skip_credentials_validation',
     'token',
+    'user_token',
 ]
 
 __config__ = pulumi.Config('pagerduty')
 
+service_region = __config__.get('serviceRegion')
+
 skip_credentials_validation = __config__.get('skipCredentialsValidation') or False
 
 token = __config__.get('token')
+
+user_token = __config__.get('userToken')
 

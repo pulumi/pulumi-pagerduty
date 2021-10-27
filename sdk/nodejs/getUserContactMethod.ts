@@ -71,6 +71,26 @@ export interface GetUserContactMethodArgs {
  */
 export interface GetUserContactMethodResult {
     /**
+     * The "address" to deliver to: `email`, `phone number`, etc., depending on the type.
+     */
+    readonly address: string;
+    /**
+     * If true, this phone has been blacklisted by PagerDuty and no messages will be sent to it. (Phone and SMS contact methods only.)
+     */
+    readonly blacklisted: boolean;
+    /**
+     * The 1-to-3 digit country calling code. (Phone and SMS contact methods only.)
+     */
+    readonly countryCode: number;
+    /**
+     * Either `ios` or `android`, depending on the type of the device receiving notifications. (Push notification contact method only.)
+     */
+    readonly deviceType: string;
+    /**
+     * If true, this phone is capable of receiving SMS messages. (Phone and SMS contact methods only.)
+     */
+    readonly enabled: boolean;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
@@ -78,6 +98,10 @@ export interface GetUserContactMethodResult {
      * The label (e.g., "Work", "Mobile", "Ashley's iPhone", etc.).
      */
     readonly label: string;
+    /**
+     * Send an abbreviated email message instead of the standard email output. (Email contact method only.)
+     */
+    readonly sendShortEmail: boolean;
     /**
      * The type of the found contact method. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
      */

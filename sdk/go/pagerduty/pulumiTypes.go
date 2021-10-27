@@ -949,7 +949,7 @@ type RulesetRuleActions struct {
 	Priorities []RulesetRuleActionsPriority `pulumi:"priorities"`
 	// The ID of the service where the event will be routed.
 	Routes []RulesetRuleActionsRoute `pulumi:"routes"`
-	// The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`error`,`warning`, or `critical`.
+	// The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`warning`,`error`, or `critical`.
 	Severities []RulesetRuleActionsSeverity `pulumi:"severities"`
 	// Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident). Note: If a threshold is set, the rule must also have a `route` action.
 	Suppresses []RulesetRuleActionsSuppress `pulumi:"suppresses"`
@@ -979,7 +979,7 @@ type RulesetRuleActionsArgs struct {
 	Priorities RulesetRuleActionsPriorityArrayInput `pulumi:"priorities"`
 	// The ID of the service where the event will be routed.
 	Routes RulesetRuleActionsRouteArrayInput `pulumi:"routes"`
-	// The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`error`,`warning`, or `critical`.
+	// The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`warning`,`error`, or `critical`.
 	Severities RulesetRuleActionsSeverityArrayInput `pulumi:"severities"`
 	// Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident). Note: If a threshold is set, the rule must also have a `route` action.
 	Suppresses RulesetRuleActionsSuppressArrayInput `pulumi:"suppresses"`
@@ -1089,7 +1089,7 @@ func (o RulesetRuleActionsOutput) Routes() RulesetRuleActionsRouteArrayOutput {
 	return o.ApplyT(func(v RulesetRuleActions) []RulesetRuleActionsRoute { return v.Routes }).(RulesetRuleActionsRouteArrayOutput)
 }
 
-// The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`error`,`warning`, or `critical`.
+// The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`warning`,`error`, or `critical`.
 func (o RulesetRuleActionsOutput) Severities() RulesetRuleActionsSeverityArrayOutput {
 	return o.ApplyT(func(v RulesetRuleActions) []RulesetRuleActionsSeverity { return v.Severities }).(RulesetRuleActionsSeverityArrayOutput)
 }
@@ -1172,7 +1172,7 @@ func (o RulesetRuleActionsPtrOutput) Routes() RulesetRuleActionsRouteArrayOutput
 	}).(RulesetRuleActionsRouteArrayOutput)
 }
 
-// The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`error`,`warning`, or `critical`.
+// The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`warning`,`error`, or `critical`.
 func (o RulesetRuleActionsPtrOutput) Severities() RulesetRuleActionsSeverityArrayOutput {
 	return o.ApplyT(func(v *RulesetRuleActions) []RulesetRuleActionsSeverity {
 		if v == nil {
@@ -3711,9 +3711,9 @@ func (o ServiceAlertGroupingParametersConfigPtrOutput) Timeout() pulumi.IntPtrOu
 }
 
 type ServiceDependencyDependency struct {
-	// The service that id dependent on the supporting service.
+	// The service that dependents on the supporting service.
 	DependentServices []ServiceDependencyDependencyDependentService `pulumi:"dependentServices"`
-	// The service that supports  the  dependent service.
+	// The service that supports the dependent service.
 	SupportingServices []ServiceDependencyDependencySupportingService `pulumi:"supportingServices"`
 	Type               *string                                        `pulumi:"type"`
 }
@@ -3730,9 +3730,9 @@ type ServiceDependencyDependencyInput interface {
 }
 
 type ServiceDependencyDependencyArgs struct {
-	// The service that id dependent on the supporting service.
+	// The service that dependents on the supporting service.
 	DependentServices ServiceDependencyDependencyDependentServiceArrayInput `pulumi:"dependentServices"`
-	// The service that supports  the  dependent service.
+	// The service that supports the dependent service.
 	SupportingServices ServiceDependencyDependencySupportingServiceArrayInput `pulumi:"supportingServices"`
 	Type               pulumi.StringPtrInput                                  `pulumi:"type"`
 }
@@ -3749,29 +3749,45 @@ func (i ServiceDependencyDependencyArgs) ToServiceDependencyDependencyOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDependencyDependencyOutput)
 }
 
-// ServiceDependencyDependencyArrayInput is an input type that accepts ServiceDependencyDependencyArray and ServiceDependencyDependencyArrayOutput values.
-// You can construct a concrete instance of `ServiceDependencyDependencyArrayInput` via:
+func (i ServiceDependencyDependencyArgs) ToServiceDependencyDependencyPtrOutput() ServiceDependencyDependencyPtrOutput {
+	return i.ToServiceDependencyDependencyPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceDependencyDependencyArgs) ToServiceDependencyDependencyPtrOutputWithContext(ctx context.Context) ServiceDependencyDependencyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDependencyDependencyOutput).ToServiceDependencyDependencyPtrOutputWithContext(ctx)
+}
+
+// ServiceDependencyDependencyPtrInput is an input type that accepts ServiceDependencyDependencyArgs, ServiceDependencyDependencyPtr and ServiceDependencyDependencyPtrOutput values.
+// You can construct a concrete instance of `ServiceDependencyDependencyPtrInput` via:
 //
-//          ServiceDependencyDependencyArray{ ServiceDependencyDependencyArgs{...} }
-type ServiceDependencyDependencyArrayInput interface {
+//          ServiceDependencyDependencyArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceDependencyDependencyPtrInput interface {
 	pulumi.Input
 
-	ToServiceDependencyDependencyArrayOutput() ServiceDependencyDependencyArrayOutput
-	ToServiceDependencyDependencyArrayOutputWithContext(context.Context) ServiceDependencyDependencyArrayOutput
+	ToServiceDependencyDependencyPtrOutput() ServiceDependencyDependencyPtrOutput
+	ToServiceDependencyDependencyPtrOutputWithContext(context.Context) ServiceDependencyDependencyPtrOutput
 }
 
-type ServiceDependencyDependencyArray []ServiceDependencyDependencyInput
+type serviceDependencyDependencyPtrType ServiceDependencyDependencyArgs
 
-func (ServiceDependencyDependencyArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceDependencyDependency)(nil)).Elem()
+func ServiceDependencyDependencyPtr(v *ServiceDependencyDependencyArgs) ServiceDependencyDependencyPtrInput {
+	return (*serviceDependencyDependencyPtrType)(v)
 }
 
-func (i ServiceDependencyDependencyArray) ToServiceDependencyDependencyArrayOutput() ServiceDependencyDependencyArrayOutput {
-	return i.ToServiceDependencyDependencyArrayOutputWithContext(context.Background())
+func (*serviceDependencyDependencyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceDependencyDependency)(nil)).Elem()
 }
 
-func (i ServiceDependencyDependencyArray) ToServiceDependencyDependencyArrayOutputWithContext(ctx context.Context) ServiceDependencyDependencyArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceDependencyDependencyArrayOutput)
+func (i *serviceDependencyDependencyPtrType) ToServiceDependencyDependencyPtrOutput() ServiceDependencyDependencyPtrOutput {
+	return i.ToServiceDependencyDependencyPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceDependencyDependencyPtrType) ToServiceDependencyDependencyPtrOutputWithContext(ctx context.Context) ServiceDependencyDependencyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDependencyDependencyPtrOutput)
 }
 
 type ServiceDependencyDependencyOutput struct{ *pulumi.OutputState }
@@ -3788,14 +3804,24 @@ func (o ServiceDependencyDependencyOutput) ToServiceDependencyDependencyOutputWi
 	return o
 }
 
-// The service that id dependent on the supporting service.
+func (o ServiceDependencyDependencyOutput) ToServiceDependencyDependencyPtrOutput() ServiceDependencyDependencyPtrOutput {
+	return o.ToServiceDependencyDependencyPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceDependencyDependencyOutput) ToServiceDependencyDependencyPtrOutputWithContext(ctx context.Context) ServiceDependencyDependencyPtrOutput {
+	return o.ApplyT(func(v ServiceDependencyDependency) *ServiceDependencyDependency {
+		return &v
+	}).(ServiceDependencyDependencyPtrOutput)
+}
+
+// The service that dependents on the supporting service.
 func (o ServiceDependencyDependencyOutput) DependentServices() ServiceDependencyDependencyDependentServiceArrayOutput {
 	return o.ApplyT(func(v ServiceDependencyDependency) []ServiceDependencyDependencyDependentService {
 		return v.DependentServices
 	}).(ServiceDependencyDependencyDependentServiceArrayOutput)
 }
 
-// The service that supports  the  dependent service.
+// The service that supports the dependent service.
 func (o ServiceDependencyDependencyOutput) SupportingServices() ServiceDependencyDependencySupportingServiceArrayOutput {
 	return o.ApplyT(func(v ServiceDependencyDependency) []ServiceDependencyDependencySupportingService {
 		return v.SupportingServices
@@ -3806,24 +3832,51 @@ func (o ServiceDependencyDependencyOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceDependencyDependency) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-type ServiceDependencyDependencyArrayOutput struct{ *pulumi.OutputState }
+type ServiceDependencyDependencyPtrOutput struct{ *pulumi.OutputState }
 
-func (ServiceDependencyDependencyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceDependencyDependency)(nil)).Elem()
+func (ServiceDependencyDependencyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceDependencyDependency)(nil)).Elem()
 }
 
-func (o ServiceDependencyDependencyArrayOutput) ToServiceDependencyDependencyArrayOutput() ServiceDependencyDependencyArrayOutput {
+func (o ServiceDependencyDependencyPtrOutput) ToServiceDependencyDependencyPtrOutput() ServiceDependencyDependencyPtrOutput {
 	return o
 }
 
-func (o ServiceDependencyDependencyArrayOutput) ToServiceDependencyDependencyArrayOutputWithContext(ctx context.Context) ServiceDependencyDependencyArrayOutput {
+func (o ServiceDependencyDependencyPtrOutput) ToServiceDependencyDependencyPtrOutputWithContext(ctx context.Context) ServiceDependencyDependencyPtrOutput {
 	return o
 }
 
-func (o ServiceDependencyDependencyArrayOutput) Index(i pulumi.IntInput) ServiceDependencyDependencyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceDependencyDependency {
-		return vs[0].([]ServiceDependencyDependency)[vs[1].(int)]
-	}).(ServiceDependencyDependencyOutput)
+func (o ServiceDependencyDependencyPtrOutput) Elem() ServiceDependencyDependencyOutput {
+	return o.ApplyT(func(v *ServiceDependencyDependency) ServiceDependencyDependency { return *v }).(ServiceDependencyDependencyOutput)
+}
+
+// The service that dependents on the supporting service.
+func (o ServiceDependencyDependencyPtrOutput) DependentServices() ServiceDependencyDependencyDependentServiceArrayOutput {
+	return o.ApplyT(func(v *ServiceDependencyDependency) []ServiceDependencyDependencyDependentService {
+		if v == nil {
+			return nil
+		}
+		return v.DependentServices
+	}).(ServiceDependencyDependencyDependentServiceArrayOutput)
+}
+
+// The service that supports the dependent service.
+func (o ServiceDependencyDependencyPtrOutput) SupportingServices() ServiceDependencyDependencySupportingServiceArrayOutput {
+	return o.ApplyT(func(v *ServiceDependencyDependency) []ServiceDependencyDependencySupportingService {
+		if v == nil {
+			return nil
+		}
+		return v.SupportingServices
+	}).(ServiceDependencyDependencySupportingServiceArrayOutput)
+}
+
+func (o ServiceDependencyDependencyPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceDependencyDependency) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type ServiceDependencyDependencyDependentService struct {
@@ -7053,156 +7106,6 @@ func (o SlackConnectionConfigArrayOutput) Index(i pulumi.IntInput) SlackConnecti
 	}).(SlackConnectionConfigOutput)
 }
 
-type UserNotificationRuleContactMethod struct {
-	// The id of the referenced contact method.
-	Id string `pulumi:"id"`
-	// The type of contact method. Can be `emailContactMethod`, `phoneContactMethod`, `pushNotificationContactMethod` or `smsContactMethod`.
-	Type string `pulumi:"type"`
-}
-
-// UserNotificationRuleContactMethodInput is an input type that accepts UserNotificationRuleContactMethodArgs and UserNotificationRuleContactMethodOutput values.
-// You can construct a concrete instance of `UserNotificationRuleContactMethodInput` via:
-//
-//          UserNotificationRuleContactMethodArgs{...}
-type UserNotificationRuleContactMethodInput interface {
-	pulumi.Input
-
-	ToUserNotificationRuleContactMethodOutput() UserNotificationRuleContactMethodOutput
-	ToUserNotificationRuleContactMethodOutputWithContext(context.Context) UserNotificationRuleContactMethodOutput
-}
-
-type UserNotificationRuleContactMethodArgs struct {
-	// The id of the referenced contact method.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The type of contact method. Can be `emailContactMethod`, `phoneContactMethod`, `pushNotificationContactMethod` or `smsContactMethod`.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (UserNotificationRuleContactMethodArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserNotificationRuleContactMethod)(nil)).Elem()
-}
-
-func (i UserNotificationRuleContactMethodArgs) ToUserNotificationRuleContactMethodOutput() UserNotificationRuleContactMethodOutput {
-	return i.ToUserNotificationRuleContactMethodOutputWithContext(context.Background())
-}
-
-func (i UserNotificationRuleContactMethodArgs) ToUserNotificationRuleContactMethodOutputWithContext(ctx context.Context) UserNotificationRuleContactMethodOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserNotificationRuleContactMethodOutput)
-}
-
-func (i UserNotificationRuleContactMethodArgs) ToUserNotificationRuleContactMethodPtrOutput() UserNotificationRuleContactMethodPtrOutput {
-	return i.ToUserNotificationRuleContactMethodPtrOutputWithContext(context.Background())
-}
-
-func (i UserNotificationRuleContactMethodArgs) ToUserNotificationRuleContactMethodPtrOutputWithContext(ctx context.Context) UserNotificationRuleContactMethodPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserNotificationRuleContactMethodOutput).ToUserNotificationRuleContactMethodPtrOutputWithContext(ctx)
-}
-
-// UserNotificationRuleContactMethodPtrInput is an input type that accepts UserNotificationRuleContactMethodArgs, UserNotificationRuleContactMethodPtr and UserNotificationRuleContactMethodPtrOutput values.
-// You can construct a concrete instance of `UserNotificationRuleContactMethodPtrInput` via:
-//
-//          UserNotificationRuleContactMethodArgs{...}
-//
-//  or:
-//
-//          nil
-type UserNotificationRuleContactMethodPtrInput interface {
-	pulumi.Input
-
-	ToUserNotificationRuleContactMethodPtrOutput() UserNotificationRuleContactMethodPtrOutput
-	ToUserNotificationRuleContactMethodPtrOutputWithContext(context.Context) UserNotificationRuleContactMethodPtrOutput
-}
-
-type userNotificationRuleContactMethodPtrType UserNotificationRuleContactMethodArgs
-
-func UserNotificationRuleContactMethodPtr(v *UserNotificationRuleContactMethodArgs) UserNotificationRuleContactMethodPtrInput {
-	return (*userNotificationRuleContactMethodPtrType)(v)
-}
-
-func (*userNotificationRuleContactMethodPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserNotificationRuleContactMethod)(nil)).Elem()
-}
-
-func (i *userNotificationRuleContactMethodPtrType) ToUserNotificationRuleContactMethodPtrOutput() UserNotificationRuleContactMethodPtrOutput {
-	return i.ToUserNotificationRuleContactMethodPtrOutputWithContext(context.Background())
-}
-
-func (i *userNotificationRuleContactMethodPtrType) ToUserNotificationRuleContactMethodPtrOutputWithContext(ctx context.Context) UserNotificationRuleContactMethodPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserNotificationRuleContactMethodPtrOutput)
-}
-
-type UserNotificationRuleContactMethodOutput struct{ *pulumi.OutputState }
-
-func (UserNotificationRuleContactMethodOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserNotificationRuleContactMethod)(nil)).Elem()
-}
-
-func (o UserNotificationRuleContactMethodOutput) ToUserNotificationRuleContactMethodOutput() UserNotificationRuleContactMethodOutput {
-	return o
-}
-
-func (o UserNotificationRuleContactMethodOutput) ToUserNotificationRuleContactMethodOutputWithContext(ctx context.Context) UserNotificationRuleContactMethodOutput {
-	return o
-}
-
-func (o UserNotificationRuleContactMethodOutput) ToUserNotificationRuleContactMethodPtrOutput() UserNotificationRuleContactMethodPtrOutput {
-	return o.ToUserNotificationRuleContactMethodPtrOutputWithContext(context.Background())
-}
-
-func (o UserNotificationRuleContactMethodOutput) ToUserNotificationRuleContactMethodPtrOutputWithContext(ctx context.Context) UserNotificationRuleContactMethodPtrOutput {
-	return o.ApplyT(func(v UserNotificationRuleContactMethod) *UserNotificationRuleContactMethod {
-		return &v
-	}).(UserNotificationRuleContactMethodPtrOutput)
-}
-
-// The id of the referenced contact method.
-func (o UserNotificationRuleContactMethodOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v UserNotificationRuleContactMethod) string { return v.Id }).(pulumi.StringOutput)
-}
-
-// The type of contact method. Can be `emailContactMethod`, `phoneContactMethod`, `pushNotificationContactMethod` or `smsContactMethod`.
-func (o UserNotificationRuleContactMethodOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v UserNotificationRuleContactMethod) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type UserNotificationRuleContactMethodPtrOutput struct{ *pulumi.OutputState }
-
-func (UserNotificationRuleContactMethodPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserNotificationRuleContactMethod)(nil)).Elem()
-}
-
-func (o UserNotificationRuleContactMethodPtrOutput) ToUserNotificationRuleContactMethodPtrOutput() UserNotificationRuleContactMethodPtrOutput {
-	return o
-}
-
-func (o UserNotificationRuleContactMethodPtrOutput) ToUserNotificationRuleContactMethodPtrOutputWithContext(ctx context.Context) UserNotificationRuleContactMethodPtrOutput {
-	return o
-}
-
-func (o UserNotificationRuleContactMethodPtrOutput) Elem() UserNotificationRuleContactMethodOutput {
-	return o.ApplyT(func(v *UserNotificationRuleContactMethod) UserNotificationRuleContactMethod { return *v }).(UserNotificationRuleContactMethodOutput)
-}
-
-// The id of the referenced contact method.
-func (o UserNotificationRuleContactMethodPtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UserNotificationRuleContactMethod) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Id
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of contact method. Can be `emailContactMethod`, `phoneContactMethod`, `pushNotificationContactMethod` or `smsContactMethod`.
-func (o UserNotificationRuleContactMethodPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UserNotificationRuleContactMethod) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(EscalationPolicyRuleOutput{})
 	pulumi.RegisterOutputType(EscalationPolicyRuleArrayOutput{})
@@ -7265,7 +7168,7 @@ func init() {
 	pulumi.RegisterOutputType(ServiceAlertGroupingParametersConfigOutput{})
 	pulumi.RegisterOutputType(ServiceAlertGroupingParametersConfigPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDependencyDependencyOutput{})
-	pulumi.RegisterOutputType(ServiceDependencyDependencyArrayOutput{})
+	pulumi.RegisterOutputType(ServiceDependencyDependencyPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDependencyDependencyDependentServiceOutput{})
 	pulumi.RegisterOutputType(ServiceDependencyDependencyDependentServiceArrayOutput{})
 	pulumi.RegisterOutputType(ServiceDependencyDependencySupportingServiceOutput{})
@@ -7316,6 +7219,4 @@ func init() {
 	pulumi.RegisterOutputType(ServiceSupportHoursPtrOutput{})
 	pulumi.RegisterOutputType(SlackConnectionConfigOutput{})
 	pulumi.RegisterOutputType(SlackConnectionConfigArrayOutput{})
-	pulumi.RegisterOutputType(UserNotificationRuleContactMethodOutput{})
-	pulumi.RegisterOutputType(UserNotificationRuleContactMethodPtrOutput{})
 }

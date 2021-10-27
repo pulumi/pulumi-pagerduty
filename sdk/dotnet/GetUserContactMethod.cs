@@ -41,10 +41,10 @@ namespace Pulumi.Pagerduty
         ///             UserId = me.Apply(me =&gt; me.Id),
         ///             StartDelayInMinutes = 5,
         ///             Urgency = "high",
-        ///             ContactMethod = new Pagerduty.Inputs.UserNotificationRuleContactMethodArgs
+        ///             ContactMethod = 
         ///             {
-        ///                 Type = "push_notification_contact_method",
-        ///                 Id = phonePush.Apply(phonePush =&gt; phonePush.Id),
+        ///                 { "type", "push_notification_contact_method" },
+        ///                 { "id", phonePush.Apply(phonePush =&gt; phonePush.Id) },
         ///             },
         ///         });
         ///     }
@@ -89,6 +89,26 @@ namespace Pulumi.Pagerduty
     public sealed class GetUserContactMethodResult
     {
         /// <summary>
+        /// The "address" to deliver to: `email`, `phone number`, etc., depending on the type.
+        /// </summary>
+        public readonly string Address;
+        /// <summary>
+        /// If true, this phone has been blacklisted by PagerDuty and no messages will be sent to it. (Phone and SMS contact methods only.)
+        /// </summary>
+        public readonly bool Blacklisted;
+        /// <summary>
+        /// The 1-to-3 digit country calling code. (Phone and SMS contact methods only.)
+        /// </summary>
+        public readonly int CountryCode;
+        /// <summary>
+        /// Either `ios` or `android`, depending on the type of the device receiving notifications. (Push notification contact method only.)
+        /// </summary>
+        public readonly string DeviceType;
+        /// <summary>
+        /// If true, this phone is capable of receiving SMS messages. (Phone and SMS contact methods only.)
+        /// </summary>
+        public readonly bool Enabled;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -97,6 +117,10 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public readonly string Label;
         /// <summary>
+        /// Send an abbreviated email message instead of the standard email output. (Email contact method only.)
+        /// </summary>
+        public readonly bool SendShortEmail;
+        /// <summary>
         /// The type of the found contact method. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
         /// </summary>
         public readonly string Type;
@@ -104,16 +128,34 @@ namespace Pulumi.Pagerduty
 
         [OutputConstructor]
         private GetUserContactMethodResult(
+            string address,
+
+            bool blacklisted,
+
+            int countryCode,
+
+            string deviceType,
+
+            bool enabled,
+
             string id,
 
             string label,
+
+            bool sendShortEmail,
 
             string type,
 
             string userId)
         {
+            Address = address;
+            Blacklisted = blacklisted;
+            CountryCode = countryCode;
+            DeviceType = deviceType;
+            Enabled = enabled;
             Id = id;
             Label = label;
+            SendShortEmail = sendShortEmail;
             Type = type;
             UserId = userId;
         }

@@ -110,6 +110,10 @@ export class ExtensionServiceNow extends pulumi.CustomResource {
      */
     public readonly snowUser!: pulumi.Output<string>;
     /**
+     * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+     */
+    public readonly summary!: pulumi.Output<string>;
+    /**
      * The ServiceNow sync option.
      */
     public readonly syncOptions!: pulumi.Output<string>;
@@ -144,6 +148,7 @@ export class ExtensionServiceNow extends pulumi.CustomResource {
             inputs["referer"] = state ? state.referer : undefined;
             inputs["snowPassword"] = state ? state.snowPassword : undefined;
             inputs["snowUser"] = state ? state.snowUser : undefined;
+            inputs["summary"] = state ? state.summary : undefined;
             inputs["syncOptions"] = state ? state.syncOptions : undefined;
             inputs["target"] = state ? state.target : undefined;
             inputs["taskType"] = state ? state.taskType : undefined;
@@ -181,6 +186,7 @@ export class ExtensionServiceNow extends pulumi.CustomResource {
             inputs["referer"] = args ? args.referer : undefined;
             inputs["snowPassword"] = args ? args.snowPassword : undefined;
             inputs["snowUser"] = args ? args.snowUser : undefined;
+            inputs["summary"] = args ? args.summary : undefined;
             inputs["syncOptions"] = args ? args.syncOptions : undefined;
             inputs["target"] = args ? args.target : undefined;
             inputs["taskType"] = args ? args.taskType : undefined;
@@ -228,6 +234,10 @@ export interface ExtensionServiceNowState {
      */
     readonly snowUser?: pulumi.Input<string>;
     /**
+     * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+     */
+    readonly summary?: pulumi.Input<string>;
+    /**
      * The ServiceNow sync option.
      */
     readonly syncOptions?: pulumi.Input<string>;
@@ -271,6 +281,10 @@ export interface ExtensionServiceNowArgs {
      * The ServiceNow username.
      */
     readonly snowUser: pulumi.Input<string>;
+    /**
+     * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+     */
+    readonly summary?: pulumi.Input<string>;
     /**
      * The ServiceNow sync option.
      */

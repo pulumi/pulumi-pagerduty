@@ -14,7 +14,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// **NOTES for using this resource:**
     /// * To first use this resource you will need to [map your PagerDuty account to a valid Slack Workspace](https://support.pagerduty.com/docs/slack-integration-guide#integration-walkthrough). *This can only be done through the PagerDuty UI.*
-    /// * This resource requires a PagerDuty [user-level API key](https://support.pagerduty.com/docs/generating-api-keys#section-generating-a-personal-rest-api-key) set as the `PAGERDUTY_USER_TOKEN` environment variable.
+    /// * This resource requires a PagerDuty [user-level API key](https://support.pagerduty.com/docs/generating-api-keys#section-generating-a-personal-rest-api-key). This can be set as the `user_token` on the provider tag or as the `PAGERDUTY_USER_TOKEN` environment variable.
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -38,6 +38,7 @@ namespace Pulumi.Pagerduty
     ///             SourceType = "team_reference",
     ///             WorkspaceId = "T02A123LV1A",
     ///             ChannelId = "C02CABCDAC9",
+    ///             NotificationType = "responder",
     ///             Configs = 
     ///             {
     ///                 new Pagerduty.Inputs.SlackConnectionConfigArgs

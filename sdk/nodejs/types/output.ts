@@ -147,7 +147,7 @@ export interface RulesetRuleActions {
      */
     routes?: outputs.RulesetRuleActionsRoute[];
     /**
-     * The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`error`,`warning`, or `critical`.
+     * The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`warning`,`error`, or `critical`.
      */
     severities?: outputs.RulesetRuleActionsSeverity[];
     /**
@@ -408,11 +408,11 @@ export interface ServiceAlertGroupingParametersConfig {
 
 export interface ServiceDependencyDependency {
     /**
-     * The service that id dependent on the supporting service.
+     * The service that dependents on the supporting service.
      */
     dependentServices: outputs.ServiceDependencyDependencyDependentService[];
     /**
-     * The service that supports  the  dependent service.
+     * The service that supports the dependent service.
      */
     supportingServices: outputs.ServiceDependencyDependencySupportingService[];
     type?: string;
@@ -751,15 +751,4 @@ export interface SlackConnectionConfig {
      * Allows you to filter events by urgency. Either `high` or `low`.
      */
     urgency?: string;
-}
-
-export interface UserNotificationRuleContactMethod {
-    /**
-     * The id of the referenced contact method.
-     */
-    id: string;
-    /**
-     * The type of contact method. Can be `emailContactMethod`, `phoneContactMethod`, `pushNotificationContactMethod` or `smsContactMethod`.
-     */
-    type: string;
 }

@@ -6,5 +6,7 @@ import * as utilities from "../utilities";
 
 let __config = new pulumi.Config("pagerduty");
 
+export let serviceRegion: string | undefined = __config.get("serviceRegion");
 export let skipCredentialsValidation: boolean | undefined = __config.getObject<boolean>("skipCredentialsValidation") || false;
 export let token: string | undefined = __config.get("token");
+export let userToken: string | undefined = __config.get("userToken");

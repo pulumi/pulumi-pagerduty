@@ -19,13 +19,13 @@ class EscalationPolicyArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  num_loops: Optional[pulumi.Input[int]] = None,
-                 teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 teams: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a EscalationPolicy resource.
         :param pulumi.Input[Sequence[pulumi.Input['EscalationPolicyRuleArgs']]] rules: An Escalation rule block. Escalation rules documented below.
         :param pulumi.Input[str] name: The name of the escalation policy.
         :param pulumi.Input[int] num_loops: The number of times the escalation policy will repeat after reaching the end of its escalation.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] teams: Teams associated with the policy. Account must have the `teams` ability to use this parameter.
+        :param pulumi.Input[str] teams: Teams associated with the policy. Account must have the `teams` ability to use this parameter.
         """
         pulumi.set(__self__, "rules", rules)
         if description is None:
@@ -86,14 +86,14 @@ class EscalationPolicyArgs:
 
     @property
     @pulumi.getter
-    def teams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def teams(self) -> Optional[pulumi.Input[str]]:
         """
         Teams associated with the policy. Account must have the `teams` ability to use this parameter.
         """
         return pulumi.get(self, "teams")
 
     @teams.setter
-    def teams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def teams(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "teams", value)
 
 
@@ -104,13 +104,13 @@ class _EscalationPolicyState:
                  name: Optional[pulumi.Input[str]] = None,
                  num_loops: Optional[pulumi.Input[int]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['EscalationPolicyRuleArgs']]]] = None,
-                 teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 teams: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering EscalationPolicy resources.
         :param pulumi.Input[str] name: The name of the escalation policy.
         :param pulumi.Input[int] num_loops: The number of times the escalation policy will repeat after reaching the end of its escalation.
         :param pulumi.Input[Sequence[pulumi.Input['EscalationPolicyRuleArgs']]] rules: An Escalation rule block. Escalation rules documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] teams: Teams associated with the policy. Account must have the `teams` ability to use this parameter.
+        :param pulumi.Input[str] teams: Teams associated with the policy. Account must have the `teams` ability to use this parameter.
         """
         if description is None:
             description = 'Managed by Pulumi'
@@ -172,14 +172,14 @@ class _EscalationPolicyState:
 
     @property
     @pulumi.getter
-    def teams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def teams(self) -> Optional[pulumi.Input[str]]:
         """
         Teams associated with the policy. Account must have the `teams` ability to use this parameter.
         """
         return pulumi.get(self, "teams")
 
     @teams.setter
-    def teams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def teams(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "teams", value)
 
 
@@ -192,7 +192,7 @@ class EscalationPolicy(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  num_loops: Optional[pulumi.Input[int]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EscalationPolicyRuleArgs']]]]] = None,
-                 teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 teams: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         An [escalation policy](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1escalation_policies/get) determines what user or schedule will be notified first, second, and so on when an incident is triggered. Escalation policies are used by one or more services.
@@ -238,7 +238,7 @@ class EscalationPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the escalation policy.
         :param pulumi.Input[int] num_loops: The number of times the escalation policy will repeat after reaching the end of its escalation.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EscalationPolicyRuleArgs']]]] rules: An Escalation rule block. Escalation rules documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] teams: Teams associated with the policy. Account must have the `teams` ability to use this parameter.
+        :param pulumi.Input[str] teams: Teams associated with the policy. Account must have the `teams` ability to use this parameter.
         """
         ...
     @overload
@@ -304,7 +304,7 @@ class EscalationPolicy(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  num_loops: Optional[pulumi.Input[int]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EscalationPolicyRuleArgs']]]]] = None,
-                 teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 teams: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -340,7 +340,7 @@ class EscalationPolicy(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             num_loops: Optional[pulumi.Input[int]] = None,
             rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EscalationPolicyRuleArgs']]]]] = None,
-            teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'EscalationPolicy':
+            teams: Optional[pulumi.Input[str]] = None) -> 'EscalationPolicy':
         """
         Get an existing EscalationPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -351,7 +351,7 @@ class EscalationPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the escalation policy.
         :param pulumi.Input[int] num_loops: The number of times the escalation policy will repeat after reaching the end of its escalation.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EscalationPolicyRuleArgs']]]] rules: An Escalation rule block. Escalation rules documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] teams: Teams associated with the policy. Account must have the `teams` ability to use this parameter.
+        :param pulumi.Input[str] teams: Teams associated with the policy. Account must have the `teams` ability to use this parameter.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -395,7 +395,7 @@ class EscalationPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def teams(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def teams(self) -> pulumi.Output[Optional[str]]:
         """
         Teams associated with the policy. Account must have the `teams` ability to use this parameter.
         """

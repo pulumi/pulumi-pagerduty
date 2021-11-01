@@ -19,8 +19,8 @@ package main
 import (
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 
-	pagerduty "github.com/pulumi/pulumi-pagerduty/provider/v2"
-	"github.com/pulumi/pulumi-pagerduty/provider/v2/pkg/version"
+	pagerduty "github.com/pulumi/pulumi-pagerduty/provider/v3"
+	"github.com/pulumi/pulumi-pagerduty/provider/v3/pkg/version"
 )
 
 func main() {

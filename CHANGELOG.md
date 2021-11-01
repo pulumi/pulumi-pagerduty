@@ -2,7 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to v2.1.0 of the PagerDuty Terraform Provider
+  **Please Note:** This upgrade includes a number of breaking changes as per the change to a new major version.
 
 ---
 

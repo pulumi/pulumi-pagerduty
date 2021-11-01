@@ -131,6 +131,12 @@ namespace Pulumi.Pagerduty
         public Output<string> SnowUser { get; private set; } = null!;
 
         /// <summary>
+        /// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+        /// </summary>
+        [Output("summary")]
+        public Output<string> Summary { get; private set; } = null!;
+
+        /// <summary>
         /// The ServiceNow sync option.
         /// </summary>
         [Output("syncOptions")]
@@ -243,6 +249,12 @@ namespace Pulumi.Pagerduty
         public Input<string> SnowUser { get; set; } = null!;
 
         /// <summary>
+        /// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+        /// </summary>
+        [Input("summary")]
+        public Input<string>? Summary { get; set; }
+
+        /// <summary>
         /// The ServiceNow sync option.
         /// </summary>
         [Input("syncOptions", required: true)]
@@ -320,6 +332,12 @@ namespace Pulumi.Pagerduty
         /// </summary>
         [Input("snowUser")]
         public Input<string>? SnowUser { get; set; }
+
+        /// <summary>
+        /// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+        /// </summary>
+        [Input("summary")]
+        public Input<string>? Summary { get; set; }
 
         /// <summary>
         /// The ServiceNow sync option.

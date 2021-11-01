@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const foo = new pagerduty.ServiceDependency("foo", {dependencies: [{
+ * const foo = new pagerduty.ServiceDependency("foo", {dependency: {
  *     dependentServices: [{
  *         id: pagerduty_business_service.foo.id,
  *         type: "business_service",
@@ -23,8 +23,8 @@ import * as utilities from "./utilities";
  *         id: pagerduty_service.foo.id,
  *         type: "service",
  *     }],
- * }]});
- * const bar = new pagerduty.ServiceDependency("bar", {dependencies: [{
+ * }});
+ * const bar = new pagerduty.ServiceDependency("bar", {dependency: {
  *     dependentServices: [{
  *         id: pagerduty_business_service.foo.id,
  *         type: "business_service",
@@ -33,7 +33,7 @@ import * as utilities from "./utilities";
  *         id: pagerduty_service.two.id,
  *         type: "service",
  *     }],
- * }]});
+ * }});
  * ```
  *
  * ## Import
@@ -73,9 +73,9 @@ export class ServiceDependency extends pulumi.CustomResource {
     }
 
     /**
-     * The relationship between the `supportingService` and `dependentService`.
+     * The relationship between the `supportingService` and `dependentService`. One and only one dependency block must be defined.
      */
-    public readonly dependencies!: pulumi.Output<outputs.ServiceDependencyDependency[]>;
+    public readonly dependency!: pulumi.Output<outputs.ServiceDependencyDependency>;
 
     /**
      * Create a ServiceDependency resource with the given unique name, arguments, and options.
@@ -90,13 +90,13 @@ export class ServiceDependency extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceDependencyState | undefined;
-            inputs["dependencies"] = state ? state.dependencies : undefined;
+            inputs["dependency"] = state ? state.dependency : undefined;
         } else {
             const args = argsOrState as ServiceDependencyArgs | undefined;
-            if ((!args || args.dependencies === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dependencies'");
+            if ((!args || args.dependency === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'dependency'");
             }
-            inputs["dependencies"] = args ? args.dependencies : undefined;
+            inputs["dependency"] = args ? args.dependency : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -110,9 +110,9 @@ export class ServiceDependency extends pulumi.CustomResource {
  */
 export interface ServiceDependencyState {
     /**
-     * The relationship between the `supportingService` and `dependentService`.
+     * The relationship between the `supportingService` and `dependentService`. One and only one dependency block must be defined.
      */
-    readonly dependencies?: pulumi.Input<pulumi.Input<inputs.ServiceDependencyDependency>[]>;
+    readonly dependency?: pulumi.Input<inputs.ServiceDependencyDependency>;
 }
 
 /**
@@ -120,7 +120,7 @@ export interface ServiceDependencyState {
  */
 export interface ServiceDependencyArgs {
     /**
-     * The relationship between the `supportingService` and `dependentService`.
+     * The relationship between the `supportingService` and `dependentService`. One and only one dependency block must be defined.
      */
-    readonly dependencies: pulumi.Input<pulumi.Input<inputs.ServiceDependencyDependency>[]>;
+    readonly dependency: pulumi.Input<inputs.ServiceDependencyDependency>;
 }

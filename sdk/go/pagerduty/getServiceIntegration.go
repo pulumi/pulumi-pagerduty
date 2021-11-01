@@ -15,7 +15,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/v2/go/pagerduty"
+// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //

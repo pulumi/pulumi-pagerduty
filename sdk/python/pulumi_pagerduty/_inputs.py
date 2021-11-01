@@ -65,7 +65,6 @@ __all__ = [
     'ServiceScheduledActionAtArgs',
     'ServiceSupportHoursArgs',
     'SlackConnectionConfigArgs',
-    'UserNotificationRuleContactMethodArgs',
 ]
 
 @pulumi.input_type
@@ -532,7 +531,7 @@ class RulesetRuleActionsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsExtractionArgs']]] extractions: Allows you to copy important data from one event field to another. Extraction objects may use *either* of the following field structures:
         :param pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsPriorityArgs']]] priorities: The ID of the priority applied to the event.
         :param pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsRouteArgs']]] routes: The ID of the service where the event will be routed.
-        :param pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsSeverityArgs']]] severities: The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`error`,`warning`, or `critical`.
+        :param pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsSeverityArgs']]] severities: The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`warning`,`error`, or `critical`.
         :param pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsSuppressArgs']]] suppresses: Controls whether an alert is [suppressed](https://support.pagerduty.com/docs/rulesets#section-suppress-but-create-triggering-thresholds-with-event-rules) (does not create an incident). Note: If a threshold is set, the rule must also have a `route` action.
         :param pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsSuspendArgs']]] suspends: An object with a single `value` field. The value sets the length of time to suspend the resulting alert before triggering. Note: A rule with a `suspend` action must also have a `route` action.
         """
@@ -617,7 +616,7 @@ class RulesetRuleActionsArgs:
     @pulumi.getter
     def severities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsSeverityArgs']]]]:
         """
-        The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`error`,`warning`, or `critical`.
+        The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`warning`,`error`, or `critical`.
         """
         return pulumi.get(self, "severities")
 
@@ -1582,8 +1581,8 @@ class ServiceDependencyDependencyArgs:
                  supporting_services: pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencySupportingServiceArgs']]],
                  type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencyDependentServiceArgs']]] dependent_services: The service that id dependent on the supporting service.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencySupportingServiceArgs']]] supporting_services: The service that supports  the  dependent service.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencyDependentServiceArgs']]] dependent_services: The service that dependents on the supporting service.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencySupportingServiceArgs']]] supporting_services: The service that supports the dependent service.
         """
         pulumi.set(__self__, "dependent_services", dependent_services)
         pulumi.set(__self__, "supporting_services", supporting_services)
@@ -1594,7 +1593,7 @@ class ServiceDependencyDependencyArgs:
     @pulumi.getter(name="dependentServices")
     def dependent_services(self) -> pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencyDependentServiceArgs']]]:
         """
-        The service that id dependent on the supporting service.
+        The service that dependents on the supporting service.
         """
         return pulumi.get(self, "dependent_services")
 
@@ -1606,7 +1605,7 @@ class ServiceDependencyDependencyArgs:
     @pulumi.getter(name="supportingServices")
     def supporting_services(self) -> pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencySupportingServiceArgs']]]:
         """
-        The service that supports  the  dependent service.
+        The service that supports the dependent service.
         """
         return pulumi.get(self, "supporting_services")
 
@@ -2829,42 +2828,5 @@ class SlackConnectionConfigArgs:
     @urgency.setter
     def urgency(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "urgency", value)
-
-
-@pulumi.input_type
-class UserNotificationRuleContactMethodArgs:
-    def __init__(__self__, *,
-                 id: pulumi.Input[str],
-                 type: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] id: The id of the referenced contact method.
-        :param pulumi.Input[str] type: The type of contact method. Can be `email_contact_method`, `phone_contact_method`, `push_notification_contact_method` or `sms_contact_method`.
-        """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Input[str]:
-        """
-        The id of the referenced contact method.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "id", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
-        """
-        The type of contact method. Can be `email_contact_method`, `phone_contact_method`, `push_notification_contact_method` or `sms_contact_method`.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
 
 

@@ -14,11 +14,11 @@ namespace Pulumi.Pagerduty.Outputs
     public sealed class ServiceDependencyDependency
     {
         /// <summary>
-        /// The service that id dependent on the supporting service.
+        /// The service that dependents on the supporting service.
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceDependencyDependencyDependentService> DependentServices;
         /// <summary>
-        /// The service that supports  the  dependent service.
+        /// The service that supports the dependent service.
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceDependencyDependencySupportingService> SupportingServices;
         public readonly string? Type;

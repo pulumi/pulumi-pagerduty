@@ -41,14 +41,18 @@ func NewProvider(ctx *pulumi.Context,
 }
 
 type providerArgs struct {
-	SkipCredentialsValidation *bool  `pulumi:"skipCredentialsValidation"`
-	Token                     string `pulumi:"token"`
+	ServiceRegion             *string `pulumi:"serviceRegion"`
+	SkipCredentialsValidation *bool   `pulumi:"skipCredentialsValidation"`
+	Token                     string  `pulumi:"token"`
+	UserToken                 *string `pulumi:"userToken"`
 }
 
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
+	ServiceRegion             pulumi.StringPtrInput
 	SkipCredentialsValidation pulumi.BoolPtrInput
 	Token                     pulumi.StringInput
+	UserToken                 pulumi.StringPtrInput
 }
 
 func (ProviderArgs) ElementType() reflect.Type {

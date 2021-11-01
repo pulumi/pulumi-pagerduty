@@ -34,7 +34,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.RulesetRuleActionsRoute> Routes;
         /// <summary>
-        /// The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`error`,`warning`, or `critical`.
+        /// The [severity level](https://support.pagerduty.com/docs/rulesets#section-set-severity-with-event-rules) of the event. Can be either `info`,`warning`,`error`, or `critical`.
         /// </summary>
         public readonly ImmutableArray<Outputs.RulesetRuleActionsSeverity> Severities;
         /// <summary>

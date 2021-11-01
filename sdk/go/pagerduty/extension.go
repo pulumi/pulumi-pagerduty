@@ -21,7 +21,7 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/v2/go/pagerduty"
+// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -103,7 +103,9 @@ type Extension struct {
 	HtmlUrl pulumi.StringOutput `pulumi:"htmlUrl"`
 	// The name of the service extension.
 	Name pulumi.StringOutput `pulumi:"name"`
-	Type pulumi.StringOutput `pulumi:"type"`
+	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+	Summary pulumi.StringOutput `pulumi:"summary"`
+	Type    pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewExtension registers a new resource with the given unique name, arguments, and options.
@@ -154,7 +156,9 @@ type extensionState struct {
 	HtmlUrl *string `pulumi:"htmlUrl"`
 	// The name of the service extension.
 	Name *string `pulumi:"name"`
-	Type *string `pulumi:"type"`
+	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+	Summary *string `pulumi:"summary"`
+	Type    *string `pulumi:"type"`
 }
 
 type ExtensionState struct {
@@ -171,7 +175,9 @@ type ExtensionState struct {
 	HtmlUrl pulumi.StringPtrInput
 	// The name of the service extension.
 	Name pulumi.StringPtrInput
-	Type pulumi.StringPtrInput
+	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+	Summary pulumi.StringPtrInput
+	Type    pulumi.StringPtrInput
 }
 
 func (ExtensionState) ElementType() reflect.Type {

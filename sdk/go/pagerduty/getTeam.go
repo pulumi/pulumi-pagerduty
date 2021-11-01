@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get information about a specific [team](https://v1.developer.pagerduty.com/documentation/rest/teams/list) that you can use for other PagerDuty resources.
+// Use this data source to get information about a specific [team](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1teams/get) that you can use for other PagerDuty resources.
 //
 // ## Example Usage
 //
@@ -15,7 +15,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/v2/go/pagerduty"
+// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -35,9 +35,9 @@ import (
 // 		}
 // 		_, err = pagerduty.NewEscalationPolicy(ctx, "foo", &pagerduty.EscalationPolicyArgs{
 // 			NumLoops: pulumi.Int(2),
-// 			Teams: pulumi.StringArray{
+// 			Teams: pulumi.String(pulumi.String{
 // 				pulumi.String(devops.Id),
-// 			},
+// 			}),
 // 			Rules: pagerduty.EscalationPolicyRuleArray{
 // 				&pagerduty.EscalationPolicyRuleArgs{
 // 					EscalationDelayInMinutes: pulumi.Int(10),

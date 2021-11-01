@@ -20,10 +20,9 @@ import (
 	"unicode"
 
 	"github.com/PagerDuty/terraform-provider-pagerduty/pagerduty"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
-	"github.com/pulumi/pulumi-pagerduty/provider/v2/pkg/version"
+	"github.com/pulumi/pulumi-pagerduty/provider/v3/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
-	shimv1 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v1"
+	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 )
 
@@ -67,7 +66,7 @@ var managedByPulumi = &tfbridge.DefaultInfo{Value: "Managed by Pulumi"}
 // Provider returns additional overlaid schema and metadata associated with the provider..
 func Provider() tfbridge.ProviderInfo {
 	// Instantiate the Terraform provider
-	p := shimv1.NewProvider(pagerduty.Provider().(*schema.Provider))
+	p := shimv2.NewProvider(pagerduty.Provider())
 
 	// Create a Pulumi provider mapping
 	prov := tfbridge.ProviderInfo{
@@ -165,6 +164,8 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"pagerduty_service_event_rule": {Tok: makeResource(mainMod, "ServiceEventRule")},
 			"pagerduty_slack_connection":   {Tok: makeResource(mainMod, "SlackConnection")},
+			"pagerduty_tag":                {Tok: makeResource(mainMod, "Tag")},
+			"pagerduty_tag_assignment":     {Tok: makeResource(mainMod, "TagAssignment")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"pagerduty_escalation_policy":   {Tok: makeDataSource(mainMod, "getEscalationPolicy")},
@@ -179,6 +180,7 @@ func Provider() tfbridge.ProviderInfo {
 			"pagerduty_ruleset":             {Tok: makeDataSource(mainMod, "getRuleset")},
 			"pagerduty_user_contact_method": {Tok: makeDataSource(mainMod, "getUserContactMethod")},
 			"pagerduty_service_integration": {Tok: makeDataSource(mainMod, "getServiceIntegration")},
+			"pagerduty_tag":                 {Tok: makeDataSource(mainMod, "getTag")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			// List any npm dependencies and their versions

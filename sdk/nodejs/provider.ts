@@ -40,8 +40,10 @@ export class Provider extends pulumi.ProviderResource {
             if ((!args || args.token === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'token'");
             }
+            inputs["serviceRegion"] = args ? args.serviceRegion : undefined;
             inputs["skipCredentialsValidation"] = pulumi.output((args ? args.skipCredentialsValidation : undefined) ?? false).apply(JSON.stringify);
             inputs["token"] = args ? args.token : undefined;
+            inputs["userToken"] = args ? args.userToken : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -54,6 +56,8 @@ export class Provider extends pulumi.ProviderResource {
  * The set of arguments for constructing a Provider resource.
  */
 export interface ProviderArgs {
+    readonly serviceRegion?: pulumi.Input<string>;
     readonly skipCredentialsValidation?: pulumi.Input<boolean>;
     readonly token: pulumi.Input<string>;
+    readonly userToken?: pulumi.Input<string>;
 }

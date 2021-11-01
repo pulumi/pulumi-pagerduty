@@ -45,11 +45,17 @@ namespace Pulumi.Pagerduty
 
     public sealed class ProviderArgs : Pulumi.ResourceArgs
     {
+        [Input("serviceRegion")]
+        public Input<string>? ServiceRegion { get; set; }
+
         [Input("skipCredentialsValidation", json: true)]
         public Input<bool>? SkipCredentialsValidation { get; set; }
 
         [Input("token", required: true)]
         public Input<string> Token { get; set; } = null!;
+
+        [Input("userToken")]
+        public Input<string>? UserToken { get; set; }
 
         public ProviderArgs()
         {

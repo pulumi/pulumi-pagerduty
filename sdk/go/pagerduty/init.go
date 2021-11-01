@@ -52,6 +52,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ServiceIntegration{}
 	case "pagerduty:index/slackConnection:SlackConnection":
 		r = &SlackConnection{}
+	case "pagerduty:index/tag:Tag":
+		r = &Tag{}
+	case "pagerduty:index/tagAssignment:TagAssignment":
+		r = &TagAssignment{}
 	case "pagerduty:index/team:Team":
 		r = &Team{}
 	case "pagerduty:index/teamMembership:TeamMembership":
@@ -171,6 +175,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"pagerduty",
 		"index/slackConnection",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"pagerduty",
+		"index/tag",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"pagerduty",
+		"index/tagAssignment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

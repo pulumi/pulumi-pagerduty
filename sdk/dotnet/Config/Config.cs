@@ -8,9 +8,13 @@ namespace Pulumi.Pagerduty
     public static class Config
     {
         private static readonly Pulumi.Config __config = new Pulumi.Config("pagerduty");
+        public static string? ServiceRegion { get; set; } = __config.Get("serviceRegion");
+
         public static bool? SkipCredentialsValidation { get; set; } = __config.GetBoolean("skipCredentialsValidation") ?? false;
 
         public static string? Token { get; set; } = __config.Get("token");
+
+        public static string? UserToken { get; set; } = __config.Get("userToken");
 
     }
 }

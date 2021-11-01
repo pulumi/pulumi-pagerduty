@@ -15,7 +15,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/v2/go/pagerduty"
+// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -39,9 +39,9 @@ import (
 // 			UserId:              pulumi.String(me.Id),
 // 			StartDelayInMinutes: pulumi.Int(5),
 // 			Urgency:             pulumi.String("high"),
-// 			ContactMethod: &pagerduty.UserNotificationRuleContactMethodArgs{
-// 				Type: pulumi.String("push_notification_contact_method"),
-// 				Id:   pulumi.String(phonePush.Id),
+// 			ContactMethod: pulumi.StringMap{
+// 				"type": pulumi.String("push_notification_contact_method"),
+// 				"id":   pulumi.String(phonePush.Id),
 // 			},
 // 		})
 // 		if err != nil {
@@ -72,10 +72,22 @@ type LookupUserContactMethodArgs struct {
 
 // A collection of values returned by getUserContactMethod.
 type LookupUserContactMethodResult struct {
+	// The "address" to deliver to: `email`, `phone number`, etc., depending on the type.
+	Address string `pulumi:"address"`
+	// If true, this phone has been blacklisted by PagerDuty and no messages will be sent to it. (Phone and SMS contact methods only.)
+	Blacklisted bool `pulumi:"blacklisted"`
+	// The 1-to-3 digit country calling code. (Phone and SMS contact methods only.)
+	CountryCode int `pulumi:"countryCode"`
+	// Either `ios` or `android`, depending on the type of the device receiving notifications. (Push notification contact method only.)
+	DeviceType string `pulumi:"deviceType"`
+	// If true, this phone is capable of receiving SMS messages. (Phone and SMS contact methods only.)
+	Enabled bool `pulumi:"enabled"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The label (e.g., "Work", "Mobile", "Ashley's iPhone", etc.).
 	Label string `pulumi:"label"`
+	// Send an abbreviated email message instead of the standard email output. (Email contact method only.)
+	SendShortEmail bool `pulumi:"sendShortEmail"`
 	// The type of the found contact method. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
 	Type   string `pulumi:"type"`
 	UserId string `pulumi:"userId"`

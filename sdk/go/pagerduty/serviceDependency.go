@@ -19,26 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/v2/go/pagerduty"
+// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := pagerduty.NewServiceDependency(ctx, "foo", &pagerduty.ServiceDependencyArgs{
-// 			Dependencies: pagerduty.ServiceDependencyDependencyArray{
-// 				&pagerduty.ServiceDependencyDependencyArgs{
-// 					DependentServices: pagerduty.ServiceDependencyDependencyDependentServiceArray{
-// 						&pagerduty.ServiceDependencyDependencyDependentServiceArgs{
-// 							Id:   pulumi.Any(pagerduty_business_service.Foo.Id),
-// 							Type: pulumi.String("business_service"),
-// 						},
+// 			Dependency: &pagerduty.ServiceDependencyDependencyArgs{
+// 				DependentServices: pagerduty.ServiceDependencyDependencyDependentServiceArray{
+// 					&pagerduty.ServiceDependencyDependencyDependentServiceArgs{
+// 						Id:   pulumi.Any(pagerduty_business_service.Foo.Id),
+// 						Type: pulumi.String("business_service"),
 // 					},
-// 					SupportingServices: pagerduty.ServiceDependencyDependencySupportingServiceArray{
-// 						&pagerduty.ServiceDependencyDependencySupportingServiceArgs{
-// 							Id:   pulumi.Any(pagerduty_service.Foo.Id),
-// 							Type: pulumi.String("service"),
-// 						},
+// 				},
+// 				SupportingServices: pagerduty.ServiceDependencyDependencySupportingServiceArray{
+// 					&pagerduty.ServiceDependencyDependencySupportingServiceArgs{
+// 						Id:   pulumi.Any(pagerduty_service.Foo.Id),
+// 						Type: pulumi.String("service"),
 // 					},
 // 				},
 // 			},
@@ -47,19 +45,17 @@ import (
 // 			return err
 // 		}
 // 		_, err = pagerduty.NewServiceDependency(ctx, "bar", &pagerduty.ServiceDependencyArgs{
-// 			Dependencies: pagerduty.ServiceDependencyDependencyArray{
-// 				&pagerduty.ServiceDependencyDependencyArgs{
-// 					DependentServices: pagerduty.ServiceDependencyDependencyDependentServiceArray{
-// 						&pagerduty.ServiceDependencyDependencyDependentServiceArgs{
-// 							Id:   pulumi.Any(pagerduty_business_service.Foo.Id),
-// 							Type: pulumi.String("business_service"),
-// 						},
+// 			Dependency: &pagerduty.ServiceDependencyDependencyArgs{
+// 				DependentServices: pagerduty.ServiceDependencyDependencyDependentServiceArray{
+// 					&pagerduty.ServiceDependencyDependencyDependentServiceArgs{
+// 						Id:   pulumi.Any(pagerduty_business_service.Foo.Id),
+// 						Type: pulumi.String("business_service"),
 // 					},
-// 					SupportingServices: pagerduty.ServiceDependencyDependencySupportingServiceArray{
-// 						&pagerduty.ServiceDependencyDependencySupportingServiceArgs{
-// 							Id:   pulumi.Any(pagerduty_service.Two.Id),
-// 							Type: pulumi.String("service"),
-// 						},
+// 				},
+// 				SupportingServices: pagerduty.ServiceDependencyDependencySupportingServiceArray{
+// 					&pagerduty.ServiceDependencyDependencySupportingServiceArgs{
+// 						Id:   pulumi.Any(pagerduty_service.Two.Id),
+// 						Type: pulumi.String("service"),
 // 					},
 // 				},
 // 			},
@@ -82,8 +78,8 @@ import (
 type ServiceDependency struct {
 	pulumi.CustomResourceState
 
-	// The relationship between the `supportingService` and `dependentService`.
-	Dependencies ServiceDependencyDependencyArrayOutput `pulumi:"dependencies"`
+	// The relationship between the `supportingService` and `dependentService`. One and only one dependency block must be defined.
+	Dependency ServiceDependencyDependencyOutput `pulumi:"dependency"`
 }
 
 // NewServiceDependency registers a new resource with the given unique name, arguments, and options.
@@ -93,8 +89,8 @@ func NewServiceDependency(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Dependencies == nil {
-		return nil, errors.New("invalid value for required argument 'Dependencies'")
+	if args.Dependency == nil {
+		return nil, errors.New("invalid value for required argument 'Dependency'")
 	}
 	var resource ServiceDependency
 	err := ctx.RegisterResource("pagerduty:index/serviceDependency:ServiceDependency", name, args, &resource, opts...)
@@ -118,13 +114,13 @@ func GetServiceDependency(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceDependency resources.
 type serviceDependencyState struct {
-	// The relationship between the `supportingService` and `dependentService`.
-	Dependencies []ServiceDependencyDependency `pulumi:"dependencies"`
+	// The relationship between the `supportingService` and `dependentService`. One and only one dependency block must be defined.
+	Dependency *ServiceDependencyDependency `pulumi:"dependency"`
 }
 
 type ServiceDependencyState struct {
-	// The relationship between the `supportingService` and `dependentService`.
-	Dependencies ServiceDependencyDependencyArrayInput
+	// The relationship between the `supportingService` and `dependentService`. One and only one dependency block must be defined.
+	Dependency ServiceDependencyDependencyPtrInput
 }
 
 func (ServiceDependencyState) ElementType() reflect.Type {
@@ -132,14 +128,14 @@ func (ServiceDependencyState) ElementType() reflect.Type {
 }
 
 type serviceDependencyArgs struct {
-	// The relationship between the `supportingService` and `dependentService`.
-	Dependencies []ServiceDependencyDependency `pulumi:"dependencies"`
+	// The relationship between the `supportingService` and `dependentService`. One and only one dependency block must be defined.
+	Dependency ServiceDependencyDependency `pulumi:"dependency"`
 }
 
 // The set of arguments for constructing a ServiceDependency resource.
 type ServiceDependencyArgs struct {
-	// The relationship between the `supportingService` and `dependentService`.
-	Dependencies ServiceDependencyDependencyArrayInput
+	// The relationship between the `supportingService` and `dependentService`. One and only one dependency block must be defined.
+	Dependency ServiceDependencyDependencyInput
 }
 
 func (ServiceDependencyArgs) ElementType() reflect.Type {

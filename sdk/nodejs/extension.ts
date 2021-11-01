@@ -110,6 +110,10 @@ export class Extension extends pulumi.CustomResource {
      * The name of the service extension.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+     */
+    public /*out*/ readonly summary!: pulumi.Output<string>;
     public readonly type!: pulumi.Output<string>;
 
     /**
@@ -131,6 +135,7 @@ export class Extension extends pulumi.CustomResource {
             inputs["extensionSchema"] = state ? state.extensionSchema : undefined;
             inputs["htmlUrl"] = state ? state.htmlUrl : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["summary"] = state ? state.summary : undefined;
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ExtensionArgs | undefined;
@@ -147,6 +152,7 @@ export class Extension extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["htmlUrl"] = undefined /*out*/;
+            inputs["summary"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -184,6 +190,10 @@ export interface ExtensionState {
      * The name of the service extension.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+     */
+    readonly summary?: pulumi.Input<string>;
     readonly type?: pulumi.Input<string>;
 }
 

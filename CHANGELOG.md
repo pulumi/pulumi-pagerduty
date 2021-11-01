@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.1.0 of the PagerDuty Terraform Provider
-  **Please Note:** This upgrade includes a number of breaking changes as per the change to a new major version.
+_(none)_
 
 ---
+
+## 3.0.0 (2021-11-01)
+* Upgrade to v2.1.0 of the PagerDuty Terraform Provider
+  **Please Note:** This upgrade includes a number of breaking changes as per the change to a new major version.
 
 ## 2.2.0 (2021-09-27)
 * Upgrade to v1.11.0 of the PagerDuty Terraform Provider

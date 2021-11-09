@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Pagerduty
 {
@@ -81,6 +82,77 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public static Task<GetExtensionSchemaResult> InvokeAsync(GetExtensionSchemaArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExtensionSchemaResult>("pagerduty:index/getExtensionSchema:getExtensionSchema", args ?? new GetExtensionSchemaArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get information about a specific [extension](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Extension_Schemas/get_extension_schemas) vendor that you can use for a service (e.g: Slack, Generic Webhook, ServiceNow).
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var webhook = Output.Create(Pagerduty.GetExtensionSchema.InvokeAsync(new Pagerduty.GetExtensionSchemaArgs
+        ///         {
+        ///             Name = "Generic V2 Webhook",
+        ///         }));
+        ///         var exampleUser = new Pagerduty.User("exampleUser", new Pagerduty.UserArgs
+        ///         {
+        ///             Email = "howard.james@example.domain",
+        ///             Teams = 
+        ///             {
+        ///                 pagerduty_team.Example.Id,
+        ///             },
+        ///         });
+        ///         var foo = new Pagerduty.EscalationPolicy("foo", new Pagerduty.EscalationPolicyArgs
+        ///         {
+        ///             NumLoops = 2,
+        ///             Rules = 
+        ///             {
+        ///                 new Pagerduty.Inputs.EscalationPolicyRuleArgs
+        ///                 {
+        ///                     EscalationDelayInMinutes = 10,
+        ///                     Targets = 
+        ///                     {
+        ///                         new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
+        ///                         {
+        ///                             Type = "user",
+        ///                             Id = exampleUser.Id,
+        ///                         },
+        ///                     },
+        ///                 },
+        ///             },
+        ///         });
+        ///         var exampleService = new Pagerduty.Service("exampleService", new Pagerduty.ServiceArgs
+        ///         {
+        ///             AutoResolveTimeout = "14400",
+        ///             AcknowledgementTimeout = "600",
+        ///             EscalationPolicy = pagerduty_escalation_policy.Example.Id,
+        ///         });
+        ///         var slack = new Pagerduty.Extension("slack", new Pagerduty.ExtensionArgs
+        ///         {
+        ///             EndpointUrl = "https://generic_webhook_url/XXXXXX/BBBBBB",
+        ///             ExtensionSchema = webhook.Apply(webhook =&gt; webhook.Id),
+        ///             ExtensionObjects = 
+        ///             {
+        ///                 exampleService.Id,
+        ///             },
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetExtensionSchemaResult> Invoke(GetExtensionSchemaInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetExtensionSchemaResult>("pagerduty:index/getExtensionSchema:getExtensionSchema", args ?? new GetExtensionSchemaInvokeArgs(), options.WithVersion());
     }
 
 
@@ -93,6 +165,19 @@ namespace Pulumi.Pagerduty
         public string Name { get; set; } = null!;
 
         public GetExtensionSchemaArgs()
+        {
+        }
+    }
+
+    public sealed class GetExtensionSchemaInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The extension name to use to find an extension vendor in the PagerDuty API.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public GetExtensionSchemaInvokeArgs()
         {
         }
     }

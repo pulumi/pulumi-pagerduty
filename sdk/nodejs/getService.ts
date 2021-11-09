@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -47,7 +46,7 @@ export interface GetServiceArgs {
     /**
      * The service name to use to find a service in the PagerDuty API.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**
@@ -62,4 +61,18 @@ export interface GetServiceResult {
      * The short name of the found service.
      */
     readonly name: string;
+}
+
+export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
+    return pulumi.output(args).apply(a => getService(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getService.
+ */
+export interface GetServiceOutputArgs {
+    /**
+     * The service name to use to find a service in the PagerDuty API.
+     */
+    name: pulumi.Input<string>;
 }

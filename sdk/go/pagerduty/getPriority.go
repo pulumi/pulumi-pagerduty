@@ -4,6 +4,9 @@
 package pagerduty
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		p1, err := pagerduty.GetPriority(ctx, &pagerduty.GetPriorityArgs{
+// 		p1, err := pagerduty.GetPriority(ctx, &GetPriorityArgs{
 // 			Name: "P1",
 // 		}, nil)
 // 		if err != nil {
@@ -35,22 +38,22 @@ import (
 // 			Ruleset:  fooRuleset.ID(),
 // 			Position: pulumi.Int(0),
 // 			Disabled: pulumi.Bool(false),
-// 			Conditions: &pagerduty.RulesetRuleConditionsArgs{
+// 			Conditions: &RulesetRuleConditionsArgs{
 // 				Operator: pulumi.String("and"),
-// 				Subconditions: pagerduty.RulesetRuleConditionsSubconditionArray{
-// 					&pagerduty.RulesetRuleConditionsSubconditionArgs{
+// 				Subconditions: RulesetRuleConditionsSubconditionArray{
+// 					&RulesetRuleConditionsSubconditionArgs{
 // 						Operator: pulumi.String("contains"),
-// 						Parameters: pagerduty.RulesetRuleConditionsSubconditionParameterArray{
-// 							&pagerduty.RulesetRuleConditionsSubconditionParameterArgs{
+// 						Parameters: RulesetRuleConditionsSubconditionParameterArray{
+// 							&RulesetRuleConditionsSubconditionParameterArgs{
 // 								Value: pulumi.String("disk space"),
 // 								Path:  pulumi.String("payload.summary"),
 // 							},
 // 						},
 // 					},
-// 					&pagerduty.RulesetRuleConditionsSubconditionArgs{
+// 					&RulesetRuleConditionsSubconditionArgs{
 // 						Operator: pulumi.String("contains"),
-// 						Parameters: pagerduty.RulesetRuleConditionsSubconditionParameterArray{
-// 							&pagerduty.RulesetRuleConditionsSubconditionParameterArgs{
+// 						Parameters: RulesetRuleConditionsSubconditionParameterArray{
+// 							&RulesetRuleConditionsSubconditionParameterArgs{
 // 								Value: pulumi.String("db"),
 // 								Path:  pulumi.String("payload.source"),
 // 							},
@@ -58,14 +61,14 @@ import (
 // 					},
 // 				},
 // 			},
-// 			Actions: &pagerduty.RulesetRuleActionsArgs{
-// 				Routes: pagerduty.RulesetRuleActionsRouteArray{
-// 					&pagerduty.RulesetRuleActionsRouteArgs{
+// 			Actions: &RulesetRuleActionsArgs{
+// 				Routes: RulesetRuleActionsRouteArray{
+// 					&RulesetRuleActionsRouteArgs{
 // 						Value: pulumi.String("P5DTL0K"),
 // 					},
 // 				},
-// 				Priorities: pagerduty.RulesetRuleActionsPriorityArray{
-// 					&pagerduty.RulesetRuleActionsPriorityArgs{
+// 				Priorities: RulesetRuleActionsPriorityArray{
+// 					&RulesetRuleActionsPriorityArgs{
 // 						Value: pulumi.String(p1.Id),
 // 					},
 // 				},
@@ -101,4 +104,57 @@ type GetPriorityResult struct {
 	Id string `pulumi:"id"`
 	// The name of the found priority.
 	Name string `pulumi:"name"`
+}
+
+func GetPriorityOutput(ctx *pulumi.Context, args GetPriorityOutputArgs, opts ...pulumi.InvokeOption) GetPriorityResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetPriorityResult, error) {
+			args := v.(GetPriorityArgs)
+			r, err := GetPriority(ctx, &args, opts...)
+			return *r, err
+		}).(GetPriorityResultOutput)
+}
+
+// A collection of arguments for invoking getPriority.
+type GetPriorityOutputArgs struct {
+	// The name of the priority to find in the PagerDuty API.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetPriorityOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPriorityArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getPriority.
+type GetPriorityResultOutput struct{ *pulumi.OutputState }
+
+func (GetPriorityResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPriorityResult)(nil)).Elem()
+}
+
+func (o GetPriorityResultOutput) ToGetPriorityResultOutput() GetPriorityResultOutput {
+	return o
+}
+
+func (o GetPriorityResultOutput) ToGetPriorityResultOutputWithContext(ctx context.Context) GetPriorityResultOutput {
+	return o
+}
+
+// A description of the found priority.
+func (o GetPriorityResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPriorityResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetPriorityResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPriorityResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the found priority.
+func (o GetPriorityResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPriorityResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetPriorityResultOutput{})
 }

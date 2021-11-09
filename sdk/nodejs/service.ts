@@ -182,47 +182,47 @@ export interface ServiceState {
     /**
      * Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.  If not passed in, will default to '"1800"'.
      */
-    readonly acknowledgementTimeout?: pulumi.Input<string>;
+    acknowledgementTimeout?: pulumi.Input<string>;
     /**
      * Must be one of two values. PagerDuty receives events from your monitoring systems and can then create incidents in different ways. Value "createIncidents" is default: events will create an incident that cannot be merged. Value "createAlertsAndIncidents" is the alternative: events will create an alert and then add it to a new incident, these incidents can be merged. This option is recommended.
      */
-    readonly alertCreation?: pulumi.Input<string>;
+    alertCreation?: pulumi.Input<string>;
     /**
      * (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alertGroupingTimeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan. This field is deprecated, use `alert_grouping_parameters.type` instead,
      *
      * @deprecated Use `alert_grouping_parameters.type`
      */
-    readonly alertGrouping?: pulumi.Input<string>;
+    alertGrouping?: pulumi.Input<string>;
     /**
      * Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
      */
-    readonly alertGroupingParameters?: pulumi.Input<inputs.ServiceAlertGroupingParameters>;
+    alertGroupingParameters?: pulumi.Input<inputs.ServiceAlertGroupingParameters>;
     /**
      * (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alertGrouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
      *
      * @deprecated Use `alert_grouping_parameters.config.timeout`
      */
-    readonly alertGroupingTimeout?: pulumi.Input<string>;
+    alertGroupingTimeout?: pulumi.Input<string>;
     /**
      * Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
      */
-    readonly autoResolveTimeout?: pulumi.Input<string>;
-    readonly createdAt?: pulumi.Input<string>;
-    readonly description?: pulumi.Input<string>;
+    autoResolveTimeout?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The escalation policy used by this service.
      */
-    readonly escalationPolicy?: pulumi.Input<string>;
-    readonly htmlUrl?: pulumi.Input<string>;
-    readonly incidentUrgencyRule?: pulumi.Input<inputs.ServiceIncidentUrgencyRule>;
-    readonly lastIncidentTimestamp?: pulumi.Input<string>;
+    escalationPolicy?: pulumi.Input<string>;
+    htmlUrl?: pulumi.Input<string>;
+    incidentUrgencyRule?: pulumi.Input<inputs.ServiceIncidentUrgencyRule>;
+    lastIncidentTimestamp?: pulumi.Input<string>;
     /**
      * The name of the service.
      */
-    readonly name?: pulumi.Input<string>;
-    readonly scheduledActions?: pulumi.Input<pulumi.Input<inputs.ServiceScheduledAction>[]>;
-    readonly status?: pulumi.Input<string>;
-    readonly supportHours?: pulumi.Input<inputs.ServiceSupportHours>;
+    name?: pulumi.Input<string>;
+    scheduledActions?: pulumi.Input<pulumi.Input<inputs.ServiceScheduledAction>[]>;
+    status?: pulumi.Input<string>;
+    supportHours?: pulumi.Input<inputs.ServiceSupportHours>;
 }
 
 /**
@@ -232,41 +232,41 @@ export interface ServiceArgs {
     /**
      * Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.  If not passed in, will default to '"1800"'.
      */
-    readonly acknowledgementTimeout?: pulumi.Input<string>;
+    acknowledgementTimeout?: pulumi.Input<string>;
     /**
      * Must be one of two values. PagerDuty receives events from your monitoring systems and can then create incidents in different ways. Value "createIncidents" is default: events will create an incident that cannot be merged. Value "createAlertsAndIncidents" is the alternative: events will create an alert and then add it to a new incident, these incidents can be merged. This option is recommended.
      */
-    readonly alertCreation?: pulumi.Input<string>;
+    alertCreation?: pulumi.Input<string>;
     /**
      * (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alertGroupingTimeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan. This field is deprecated, use `alert_grouping_parameters.type` instead,
      *
      * @deprecated Use `alert_grouping_parameters.type`
      */
-    readonly alertGrouping?: pulumi.Input<string>;
+    alertGrouping?: pulumi.Input<string>;
     /**
      * Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
      */
-    readonly alertGroupingParameters?: pulumi.Input<inputs.ServiceAlertGroupingParameters>;
+    alertGroupingParameters?: pulumi.Input<inputs.ServiceAlertGroupingParameters>;
     /**
      * (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alertGrouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
      *
      * @deprecated Use `alert_grouping_parameters.config.timeout`
      */
-    readonly alertGroupingTimeout?: pulumi.Input<string>;
+    alertGroupingTimeout?: pulumi.Input<string>;
     /**
      * Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
      */
-    readonly autoResolveTimeout?: pulumi.Input<string>;
-    readonly description?: pulumi.Input<string>;
+    autoResolveTimeout?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The escalation policy used by this service.
      */
-    readonly escalationPolicy: pulumi.Input<string>;
-    readonly incidentUrgencyRule?: pulumi.Input<inputs.ServiceIncidentUrgencyRule>;
+    escalationPolicy: pulumi.Input<string>;
+    incidentUrgencyRule?: pulumi.Input<inputs.ServiceIncidentUrgencyRule>;
     /**
      * The name of the service.
      */
-    readonly name?: pulumi.Input<string>;
-    readonly scheduledActions?: pulumi.Input<pulumi.Input<inputs.ServiceScheduledAction>[]>;
-    readonly supportHours?: pulumi.Input<inputs.ServiceSupportHours>;
+    name?: pulumi.Input<string>;
+    scheduledActions?: pulumi.Input<pulumi.Input<inputs.ServiceScheduledAction>[]>;
+    supportHours?: pulumi.Input<inputs.ServiceSupportHours>;
 }

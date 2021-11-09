@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -49,7 +48,7 @@ export interface GetScheduleArgs {
     /**
      * The name to use to find a schedule in the PagerDuty API.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**
@@ -64,4 +63,18 @@ export interface GetScheduleResult {
      * The short name of the found schedule.
      */
     readonly name: string;
+}
+
+export function getScheduleOutput(args: GetScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduleResult> {
+    return pulumi.output(args).apply(a => getSchedule(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getSchedule.
+ */
+export interface GetScheduleOutputArgs {
+    /**
+     * The name to use to find a schedule in the PagerDuty API.
+     */
+    name: pulumi.Input<string>;
 }

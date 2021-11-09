@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -63,7 +62,7 @@ export interface GetVendorArgs {
     /**
      * The vendor name to use to find a vendor in the PagerDuty API.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**
@@ -82,4 +81,18 @@ export interface GetVendorResult {
      * The generic service type for this vendor.
      */
     readonly type: string;
+}
+
+export function getVendorOutput(args: GetVendorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVendorResult> {
+    return pulumi.output(args).apply(a => getVendor(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getVendor.
+ */
+export interface GetVendorOutputArgs {
+    /**
+     * The vendor name to use to find a vendor in the PagerDuty API.
+     */
+    name: pulumi.Input<string>;
 }

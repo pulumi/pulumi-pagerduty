@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -17,7 +16,7 @@ import * as utilities from "./utilities";
  * const example = pulumi.output(pagerduty.getServiceIntegration({
  *     integrationSummary: "Datadog",
  *     serviceName: "My Service",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getServiceIntegration(args: GetServiceIntegrationArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceIntegrationResult> {
@@ -41,11 +40,11 @@ export interface GetServiceIntegrationArgs {
     /**
      * The integration summary used to find the desired integration on the service
      */
-    readonly integrationSummary: string;
+    integrationSummary: string;
     /**
      * The service name to use to find a service in the PagerDuty API.
      */
-    readonly serviceName: string;
+    serviceName: string;
 }
 
 /**
@@ -62,4 +61,22 @@ export interface GetServiceIntegrationResult {
     readonly integrationKey: string;
     readonly integrationSummary: string;
     readonly serviceName: string;
+}
+
+export function getServiceIntegrationOutput(args: GetServiceIntegrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceIntegrationResult> {
+    return pulumi.output(args).apply(a => getServiceIntegration(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getServiceIntegration.
+ */
+export interface GetServiceIntegrationOutputArgs {
+    /**
+     * The integration summary used to find the desired integration on the service
+     */
+    integrationSummary: pulumi.Input<string>;
+    /**
+     * The service name to use to find a service in the PagerDuty API.
+     */
+    serviceName: pulumi.Input<string>;
 }

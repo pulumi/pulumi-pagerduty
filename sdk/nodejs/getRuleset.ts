@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -55,7 +54,7 @@ import * as utilities from "./utilities";
  *
  * const defaultGlobal = pulumi.output(pagerduty.getRuleset({
  *     name: "Default Global",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getRuleset(args: GetRulesetArgs, opts?: pulumi.InvokeOptions): Promise<GetRulesetResult> {
@@ -78,7 +77,7 @@ export interface GetRulesetArgs {
     /**
      * The name of the ruleset to find in the PagerDuty API.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**
@@ -97,4 +96,18 @@ export interface GetRulesetResult {
      * Routing keys routed to this ruleset.
      */
     readonly routingKeys: string[];
+}
+
+export function getRulesetOutput(args: GetRulesetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRulesetResult> {
+    return pulumi.output(args).apply(a => getRuleset(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getRuleset.
+ */
+export interface GetRulesetOutputArgs {
+    /**
+     * The name of the ruleset to find in the PagerDuty API.
+     */
+    name: pulumi.Input<string>;
 }

@@ -12,6 +12,7 @@ __all__ = [
     'GetExtensionSchemaResult',
     'AwaitableGetExtensionSchemaResult',
     'get_extension_schema',
+    'get_extension_schema_output',
 ]
 
 @pulumi.output_type
@@ -115,3 +116,44 @@ def get_extension_schema(name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_extension_schema)
+def get_extension_schema_output(name: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExtensionSchemaResult]:
+    """
+    Use this data source to get information about a specific [extension](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Extension_Schemas/get_extension_schemas) vendor that you can use for a service (e.g: Slack, Generic Webhook, ServiceNow).
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_pagerduty as pagerduty
+
+    webhook = pagerduty.get_extension_schema(name="Generic V2 Webhook")
+    example_user = pagerduty.User("exampleUser",
+        email="howard.james@example.domain",
+        teams=[pagerduty_team["example"]["id"]])
+    foo = pagerduty.EscalationPolicy("foo",
+        num_loops=2,
+        rules=[pagerduty.EscalationPolicyRuleArgs(
+            escalation_delay_in_minutes=10,
+            targets=[pagerduty.EscalationPolicyRuleTargetArgs(
+                type="user",
+                id=example_user.id,
+            )],
+        )])
+    example_service = pagerduty.Service("exampleService",
+        auto_resolve_timeout="14400",
+        acknowledgement_timeout="600",
+        escalation_policy=pagerduty_escalation_policy["example"]["id"])
+    slack = pagerduty.Extension("slack",
+        endpoint_url="https://generic_webhook_url/XXXXXX/BBBBBB",
+        extension_schema=webhook.id,
+        extension_objects=[example_service.id])
+    ```
+
+
+    :param str name: The extension name to use to find an extension vendor in the PagerDuty API.
+    """
+    ...

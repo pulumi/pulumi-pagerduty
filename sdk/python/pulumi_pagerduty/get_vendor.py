@@ -12,6 +12,7 @@ __all__ = [
     'GetVendorResult',
     'AwaitableGetVendorResult',
     'get_vendor',
+    'get_vendor_output',
 ]
 
 @pulumi.output_type
@@ -115,3 +116,44 @@ def get_vendor(name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_vendor)
+def get_vendor_output(name: Optional[pulumi.Input[str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVendorResult]:
+    """
+    Use this data source to get information about a specific [vendor](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1vendors/get) that you can use for a service integration (e.g Amazon Cloudwatch, Splunk, Datadog).
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_pagerduty as pagerduty
+
+    datadog = pagerduty.get_vendor(name="Datadog")
+    example_user = pagerduty.User("exampleUser",
+        email="125.greenholt.earline@graham.name",
+        teams=[pagerduty_team["example"]["id"]])
+    foo = pagerduty.EscalationPolicy("foo",
+        num_loops=2,
+        rules=[pagerduty.EscalationPolicyRuleArgs(
+            escalation_delay_in_minutes=10,
+            targets=[pagerduty.EscalationPolicyRuleTargetArgs(
+                type="user",
+                id=example_user.id,
+            )],
+        )])
+    example_service = pagerduty.Service("exampleService",
+        auto_resolve_timeout="14400",
+        acknowledgement_timeout="600",
+        escalation_policy=pagerduty_escalation_policy["example"]["id"])
+    example_service_integration = pagerduty.ServiceIntegration("exampleServiceIntegration",
+        vendor=datadog.id,
+        service=example_service.id,
+        type="generic_events_api_inbound_integration")
+    ```
+
+
+    :param str name: The vendor name to use to find a vendor in the PagerDuty API.
+    """
+    ...

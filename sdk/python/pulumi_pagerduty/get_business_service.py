@@ -12,6 +12,7 @@ __all__ = [
     'GetBusinessServiceResult',
     'AwaitableGetBusinessServiceResult',
     'get_business_service',
+    'get_business_service_output',
 ]
 
 @pulumi.output_type
@@ -82,3 +83,24 @@ def get_business_service(name: Optional[str] = None,
     return AwaitableGetBusinessServiceResult(
         id=__ret__.id,
         name=__ret__.name)
+
+
+@_utilities.lift_output_func(get_business_service)
+def get_business_service_output(name: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBusinessServiceResult]:
+    """
+    Use this data source to get information about a specific [business service](https://api-reference.pagerduty.com/#!/Business_Services/get_business_services).
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_pagerduty as pagerduty
+
+    example = pagerduty.get_business_service(name="My Service")
+    ```
+
+
+    :param str name: The business service name to use to find a business service in the PagerDuty API.
+    """
+    ...

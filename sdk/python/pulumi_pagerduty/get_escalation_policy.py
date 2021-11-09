@@ -12,6 +12,7 @@ __all__ = [
     'GetEscalationPolicyResult',
     'AwaitableGetEscalationPolicyResult',
     'get_escalation_policy',
+    'get_escalation_policy_output',
 ]
 
 @pulumi.output_type
@@ -86,3 +87,28 @@ def get_escalation_policy(name: Optional[str] = None,
     return AwaitableGetEscalationPolicyResult(
         id=__ret__.id,
         name=__ret__.name)
+
+
+@_utilities.lift_output_func(get_escalation_policy)
+def get_escalation_policy_output(name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEscalationPolicyResult]:
+    """
+    Use this data source to get information about a specific [escalation policy](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1escalation_policies/get) that you can use for other PagerDuty resources.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_pagerduty as pagerduty
+
+    test_escalation_policy = pagerduty.get_escalation_policy(name="Engineering Escalation Policy")
+    test_service = pagerduty.Service("testService",
+        auto_resolve_timeout="14400",
+        acknowledgement_timeout="600",
+        escalation_policy=test_escalation_policy.id)
+    ```
+
+
+    :param str name: The name to use to find an escalation policy in the PagerDuty API.
+    """
+    ...

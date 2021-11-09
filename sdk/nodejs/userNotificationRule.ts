@@ -166,19 +166,19 @@ export interface UserNotificationRuleState {
     /**
      * A contact method block, configured as a block described below.
      */
-    readonly contactMethod?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    contactMethod?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The delay before firing the rule, in minutes.
      */
-    readonly startDelayInMinutes?: pulumi.Input<number>;
+    startDelayInMinutes?: pulumi.Input<number>;
     /**
      * Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
      */
-    readonly urgency?: pulumi.Input<string>;
+    urgency?: pulumi.Input<string>;
     /**
      * The ID of the user.
      */
-    readonly userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string>;
 }
 
 /**
@@ -188,17 +188,17 @@ export interface UserNotificationRuleArgs {
     /**
      * A contact method block, configured as a block described below.
      */
-    readonly contactMethod: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    contactMethod: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The delay before firing the rule, in minutes.
      */
-    readonly startDelayInMinutes: pulumi.Input<number>;
+    startDelayInMinutes: pulumi.Input<number>;
     /**
      * Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
      */
-    readonly urgency: pulumi.Input<string>;
+    urgency: pulumi.Input<string>;
     /**
      * The ID of the user.
      */
-    readonly userId: pulumi.Input<string>;
+    userId: pulumi.Input<string>;
 }

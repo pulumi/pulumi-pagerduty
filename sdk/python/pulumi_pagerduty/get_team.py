@@ -12,6 +12,7 @@ __all__ = [
     'GetTeamResult',
     'AwaitableGetTeamResult',
     'get_team',
+    'get_team_output',
 ]
 
 @pulumi.output_type
@@ -122,3 +123,37 @@ def get_team(name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         parent=__ret__.parent)
+
+
+@_utilities.lift_output_func(get_team)
+def get_team_output(name: Optional[pulumi.Input[str]] = None,
+                    parent: Optional[pulumi.Input[Optional[str]]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTeamResult]:
+    """
+    Use this data source to get information about a specific [team](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1teams/get) that you can use for other PagerDuty resources.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_pagerduty as pagerduty
+
+    me = pagerduty.get_user(email="me@example.com")
+    devops = pagerduty.get_team(name="devops")
+    foo = pagerduty.EscalationPolicy("foo",
+        num_loops=2,
+        teams=[devops.id],
+        rules=[pagerduty.EscalationPolicyRuleArgs(
+            escalation_delay_in_minutes=10,
+            targets=[pagerduty.EscalationPolicyRuleTargetArgs(
+                type="user",
+                id=me.id,
+            )],
+        )])
+    ```
+
+
+    :param str name: The name of the team to find in the PagerDuty API.
+    :param str parent: ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
+    """
+    ...

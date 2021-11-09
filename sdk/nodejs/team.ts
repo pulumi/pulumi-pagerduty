@@ -107,32 +107,32 @@ export class Team extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Team resources.
  */
 export interface TeamState {
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * URL at which the entity is uniquely displayed in the Web app
      */
-    readonly htmlUrl?: pulumi.Input<string>;
+    htmlUrl?: pulumi.Input<string>;
     /**
      * The name of the group.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
      */
-    readonly parent?: pulumi.Input<string>;
+    parent?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a Team resource.
  */
 export interface TeamArgs {
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the group.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
      */
-    readonly parent?: pulumi.Input<string>;
+    parent?: pulumi.Input<string>;
 }

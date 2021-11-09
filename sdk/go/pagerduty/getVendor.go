@@ -4,10 +4,78 @@
 package pagerduty
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Use this data source to get information about a specific [vendor](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1vendors/get) that you can use for a service integration (e.g Amazon Cloudwatch, Splunk, Datadog).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		datadog, err := pagerduty.GetVendor(ctx, &GetVendorArgs{
+// 			Name: "Datadog",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
+// 			Email: pulumi.String("125.greenholt.earline@graham.name"),
+// 			Teams: pulumi.StringArray{
+// 				pulumi.Any(pagerduty_team.Example.Id),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = pagerduty.NewEscalationPolicy(ctx, "foo", &pagerduty.EscalationPolicyArgs{
+// 			NumLoops: pulumi.Int(2),
+// 			Rules: EscalationPolicyRuleArray{
+// 				&EscalationPolicyRuleArgs{
+// 					EscalationDelayInMinutes: pulumi.Int(10),
+// 					Targets: EscalationPolicyRuleTargetArray{
+// 						&EscalationPolicyRuleTargetArgs{
+// 							Type: pulumi.String("user"),
+// 							Id:   exampleUser.ID(),
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleService, err := pagerduty.NewService(ctx, "exampleService", &pagerduty.ServiceArgs{
+// 			AutoResolveTimeout:     pulumi.String("14400"),
+// 			AcknowledgementTimeout: pulumi.String("600"),
+// 			EscalationPolicy:       pulumi.Any(pagerduty_escalation_policy.Example.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = pagerduty.NewServiceIntegration(ctx, "exampleServiceIntegration", &pagerduty.ServiceIntegrationArgs{
+// 			Vendor:  pulumi.String(datadog.Id),
+// 			Service: exampleService.ID(),
+// 			Type:    pulumi.String("generic_events_api_inbound_integration"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetVendor(ctx *pulumi.Context, args *GetVendorArgs, opts ...pulumi.InvokeOption) (*GetVendorResult, error) {
 	var rv GetVendorResult
 	err := ctx.Invoke("pagerduty:index/getVendor:getVendor", args, &rv, opts...)
@@ -31,4 +99,57 @@ type GetVendorResult struct {
 	Name string `pulumi:"name"`
 	// The generic service type for this vendor.
 	Type string `pulumi:"type"`
+}
+
+func GetVendorOutput(ctx *pulumi.Context, args GetVendorOutputArgs, opts ...pulumi.InvokeOption) GetVendorResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetVendorResult, error) {
+			args := v.(GetVendorArgs)
+			r, err := GetVendor(ctx, &args, opts...)
+			return *r, err
+		}).(GetVendorResultOutput)
+}
+
+// A collection of arguments for invoking getVendor.
+type GetVendorOutputArgs struct {
+	// The vendor name to use to find a vendor in the PagerDuty API.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetVendorOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVendorArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getVendor.
+type GetVendorResultOutput struct{ *pulumi.OutputState }
+
+func (GetVendorResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVendorResult)(nil)).Elem()
+}
+
+func (o GetVendorResultOutput) ToGetVendorResultOutput() GetVendorResultOutput {
+	return o
+}
+
+func (o GetVendorResultOutput) ToGetVendorResultOutputWithContext(ctx context.Context) GetVendorResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetVendorResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVendorResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The short name of the found vendor.
+func (o GetVendorResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVendorResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The generic service type for this vendor.
+func (o GetVendorResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVendorResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetVendorResultOutput{})
 }

@@ -175,29 +175,29 @@ export interface SlackConnectionState {
     /**
      * The ID of a Slack channel in the workspace.
      */
-    readonly channelId?: pulumi.Input<string>;
-    readonly channelName?: pulumi.Input<string>;
+    channelId?: pulumi.Input<string>;
+    channelName?: pulumi.Input<string>;
     /**
      * Configuration options for the Slack connection that provide options to filter events.
      */
-    readonly configs?: pulumi.Input<pulumi.Input<inputs.SlackConnectionConfig>[]>;
+    configs?: pulumi.Input<pulumi.Input<inputs.SlackConnectionConfig>[]>;
     /**
      * Type of notification. Either `responder` or `stakeholder`.
      */
-    readonly notificationType?: pulumi.Input<string>;
+    notificationType?: pulumi.Input<string>;
     /**
      * The ID of the source in PagerDuty. Valid sources are services or teams.
      */
-    readonly sourceId?: pulumi.Input<string>;
-    readonly sourceName?: pulumi.Input<string>;
+    sourceId?: pulumi.Input<string>;
+    sourceName?: pulumi.Input<string>;
     /**
      * The type of the source. Either `teamReference` or `serviceReference`.
      */
-    readonly sourceType?: pulumi.Input<string>;
+    sourceType?: pulumi.Input<string>;
     /**
      * The ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
      */
-    readonly workspaceId?: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string>;
 }
 
 /**
@@ -207,25 +207,25 @@ export interface SlackConnectionArgs {
     /**
      * The ID of a Slack channel in the workspace.
      */
-    readonly channelId: pulumi.Input<string>;
+    channelId: pulumi.Input<string>;
     /**
      * Configuration options for the Slack connection that provide options to filter events.
      */
-    readonly configs: pulumi.Input<pulumi.Input<inputs.SlackConnectionConfig>[]>;
+    configs: pulumi.Input<pulumi.Input<inputs.SlackConnectionConfig>[]>;
     /**
      * Type of notification. Either `responder` or `stakeholder`.
      */
-    readonly notificationType: pulumi.Input<string>;
+    notificationType: pulumi.Input<string>;
     /**
      * The ID of the source in PagerDuty. Valid sources are services or teams.
      */
-    readonly sourceId: pulumi.Input<string>;
+    sourceId: pulumi.Input<string>;
     /**
      * The type of the source. Either `teamReference` or `serviceReference`.
      */
-    readonly sourceType: pulumi.Input<string>;
+    sourceType: pulumi.Input<string>;
     /**
      * The ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
      */
-    readonly workspaceId: pulumi.Input<string>;
+    workspaceId: pulumi.Input<string>;
 }

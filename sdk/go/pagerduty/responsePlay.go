@@ -13,6 +13,68 @@ import (
 
 // A [response play](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1response_plays/get) allows you to create packages of Incident Actions that can be applied during an Incident's life cycle.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
+// 			Email: pulumi.String("125.greenholt.earline@graham.name"),
+// 			Teams: pulumi.StringArray{
+// 				pulumi.Any(pagerduty_team.Example.Id),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleEscalationPolicy, err := pagerduty.NewEscalationPolicy(ctx, "exampleEscalationPolicy", &pagerduty.EscalationPolicyArgs{
+// 			NumLoops: pulumi.Int(2),
+// 			Rules: EscalationPolicyRuleArray{
+// 				&EscalationPolicyRuleArgs{
+// 					EscalationDelayInMinutes: pulumi.Int(10),
+// 					Targets: EscalationPolicyRuleTargetArray{
+// 						&EscalationPolicyRuleTargetArgs{
+// 							Type: pulumi.String("user"),
+// 							Id:   exampleUser.ID(),
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = pagerduty.NewResponsePlay(ctx, "exampleResponsePlay", &pagerduty.ResponsePlayArgs{
+// 			From: exampleUser.Email,
+// 			Responders: ResponsePlayResponderArray{
+// 				&ResponsePlayResponderArgs{
+// 					Type: pulumi.String("escalation_policy_reference"),
+// 					Id:   exampleEscalationPolicy.ID(),
+// 				},
+// 			},
+// 			Subscribers: ResponsePlaySubscriberArray{
+// 				&ResponsePlaySubscriberArgs{
+// 					Type: pulumi.String("user_reference"),
+// 					Id:   exampleUser.ID(),
+// 				},
+// 			},
+// 			Runnability: pulumi.String("services"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Response Plays can be imported using the `id.from(email)`, e.g.
@@ -257,7 +319,7 @@ type ResponsePlayArrayInput interface {
 type ResponsePlayArray []ResponsePlayInput
 
 func (ResponsePlayArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ResponsePlay)(nil))
+	return reflect.TypeOf((*[]*ResponsePlay)(nil)).Elem()
 }
 
 func (i ResponsePlayArray) ToResponsePlayArrayOutput() ResponsePlayArrayOutput {
@@ -282,7 +344,7 @@ type ResponsePlayMapInput interface {
 type ResponsePlayMap map[string]ResponsePlayInput
 
 func (ResponsePlayMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ResponsePlay)(nil))
+	return reflect.TypeOf((*map[string]*ResponsePlay)(nil)).Elem()
 }
 
 func (i ResponsePlayMap) ToResponsePlayMapOutput() ResponsePlayMapOutput {
@@ -293,9 +355,7 @@ func (i ResponsePlayMap) ToResponsePlayMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlayMapOutput)
 }
 
-type ResponsePlayOutput struct {
-	*pulumi.OutputState
-}
+type ResponsePlayOutput struct{ *pulumi.OutputState }
 
 func (ResponsePlayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ResponsePlay)(nil))
@@ -314,14 +374,12 @@ func (o ResponsePlayOutput) ToResponsePlayPtrOutput() ResponsePlayPtrOutput {
 }
 
 func (o ResponsePlayOutput) ToResponsePlayPtrOutputWithContext(ctx context.Context) ResponsePlayPtrOutput {
-	return o.ApplyT(func(v ResponsePlay) *ResponsePlay {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResponsePlay) *ResponsePlay {
 		return &v
 	}).(ResponsePlayPtrOutput)
 }
 
-type ResponsePlayPtrOutput struct {
-	*pulumi.OutputState
-}
+type ResponsePlayPtrOutput struct{ *pulumi.OutputState }
 
 func (ResponsePlayPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ResponsePlay)(nil))
@@ -333,6 +391,16 @@ func (o ResponsePlayPtrOutput) ToResponsePlayPtrOutput() ResponsePlayPtrOutput {
 
 func (o ResponsePlayPtrOutput) ToResponsePlayPtrOutputWithContext(ctx context.Context) ResponsePlayPtrOutput {
 	return o
+}
+
+func (o ResponsePlayPtrOutput) Elem() ResponsePlayOutput {
+	return o.ApplyT(func(v *ResponsePlay) ResponsePlay {
+		if v != nil {
+			return *v
+		}
+		var ret ResponsePlay
+		return ret
+	}).(ResponsePlayOutput)
 }
 
 type ResponsePlayArrayOutput struct{ *pulumi.OutputState }
@@ -376,6 +444,10 @@ func (o ResponsePlayMapOutput) MapIndex(k pulumi.StringInput) ResponsePlayOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlayInput)(nil)).Elem(), &ResponsePlay{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlayPtrInput)(nil)).Elem(), &ResponsePlay{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlayArrayInput)(nil)).Elem(), ResponsePlayArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlayMapInput)(nil)).Elem(), ResponsePlayMap{})
 	pulumi.RegisterOutputType(ResponsePlayOutput{})
 	pulumi.RegisterOutputType(ResponsePlayPtrOutput{})
 	pulumi.RegisterOutputType(ResponsePlayArrayOutput{})

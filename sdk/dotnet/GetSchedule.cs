@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Pagerduty
 {
@@ -58,6 +59,54 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public static Task<GetScheduleResult> InvokeAsync(GetScheduleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetScheduleResult>("pagerduty:index/getSchedule:getSchedule", args ?? new GetScheduleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get information about a specific [schedule](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1schedules~1%7Bid%7D/get) that you can use for other PagerDuty resources.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Pagerduty.GetSchedule.InvokeAsync(new Pagerduty.GetScheduleArgs
+        ///         {
+        ///             Name = "Daily Engineering Rotation",
+        ///         }));
+        ///         var foo = new Pagerduty.EscalationPolicy("foo", new Pagerduty.EscalationPolicyArgs
+        ///         {
+        ///             NumLoops = 2,
+        ///             Rules = 
+        ///             {
+        ///                 new Pagerduty.Inputs.EscalationPolicyRuleArgs
+        ///                 {
+        ///                     EscalationDelayInMinutes = 10,
+        ///                     Targets = 
+        ///                     {
+        ///                         new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
+        ///                         {
+        ///                             Type = "schedule",
+        ///                             Id = test.Apply(test =&gt; test.Id),
+        ///                         },
+        ///                     },
+        ///                 },
+        ///             },
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetScheduleResult> Invoke(GetScheduleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetScheduleResult>("pagerduty:index/getSchedule:getSchedule", args ?? new GetScheduleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -70,6 +119,19 @@ namespace Pulumi.Pagerduty
         public string Name { get; set; } = null!;
 
         public GetScheduleArgs()
+        {
+        }
+    }
+
+    public sealed class GetScheduleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name to use to find a schedule in the PagerDuty API.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public GetScheduleInvokeArgs()
         {
         }
     }

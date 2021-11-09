@@ -103,12 +103,12 @@ export interface TagState {
     /**
      * URL at which the entity is uniquely displayed in the Web app
      */
-    readonly htmlUrl?: pulumi.Input<string>;
+    htmlUrl?: pulumi.Input<string>;
     /**
      * The label of the tag.
      */
-    readonly label?: pulumi.Input<string>;
-    readonly summary?: pulumi.Input<string>;
+    label?: pulumi.Input<string>;
+    summary?: pulumi.Input<string>;
 }
 
 /**
@@ -118,5 +118,5 @@ export interface TagArgs {
     /**
      * The label of the tag.
      */
-    readonly label: pulumi.Input<string>;
+    label: pulumi.Input<string>;
 }

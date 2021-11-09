@@ -183,23 +183,23 @@ export interface ServiceIntegrationState {
     /**
      * URL at which the entity is uniquely displayed in the Web app
      */
-    readonly htmlUrl?: pulumi.Input<string>;
+    htmlUrl?: pulumi.Input<string>;
     /**
      * This is the unique fully-qualified email address used for routing emails to this integration for processing.
      */
-    readonly integrationEmail?: pulumi.Input<string>;
+    integrationEmail?: pulumi.Input<string>;
     /**
      * This is the unique key used to route events to this integration when received via the PagerDuty Events API.
      */
-    readonly integrationKey?: pulumi.Input<string>;
+    integrationKey?: pulumi.Input<string>;
     /**
      * The name of the service integration.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the service the integration should belong to.
      */
-    readonly service?: pulumi.Input<string>;
+    service?: pulumi.Input<string>;
     /**
      * The service type. Can be:
      * `awsCloudwatchInboundIntegration`,
@@ -212,11 +212,11 @@ export interface ServiceIntegrationState {
      * `nagiosInboundIntegration`,
      * `pingdomInboundIntegration`or `sqlMonitorInboundIntegration`.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * The ID of the vendor the integration should integrate with (e.g Datadog or Amazon Cloudwatch).
      */
-    readonly vendor?: pulumi.Input<string>;
+    vendor?: pulumi.Input<string>;
 }
 
 /**
@@ -226,19 +226,19 @@ export interface ServiceIntegrationArgs {
     /**
      * This is the unique fully-qualified email address used for routing emails to this integration for processing.
      */
-    readonly integrationEmail?: pulumi.Input<string>;
+    integrationEmail?: pulumi.Input<string>;
     /**
      * This is the unique key used to route events to this integration when received via the PagerDuty Events API.
      */
-    readonly integrationKey?: pulumi.Input<string>;
+    integrationKey?: pulumi.Input<string>;
     /**
      * The name of the service integration.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the service the integration should belong to.
      */
-    readonly service: pulumi.Input<string>;
+    service: pulumi.Input<string>;
     /**
      * The service type. Can be:
      * `awsCloudwatchInboundIntegration`,
@@ -251,9 +251,9 @@ export interface ServiceIntegrationArgs {
      * `nagiosInboundIntegration`,
      * `pingdomInboundIntegration`or `sqlMonitorInboundIntegration`.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * The ID of the vendor the integration should integrate with (e.g Datadog or Amazon Cloudwatch).
      */
-    readonly vendor?: pulumi.Input<string>;
+    vendor?: pulumi.Input<string>;
 }

@@ -204,98 +204,98 @@ export class ExtensionServiceNow extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ExtensionServiceNow resources.
  */
 export interface ExtensionServiceNowState {
-    readonly endpointUrl?: pulumi.Input<string>;
+    endpointUrl?: pulumi.Input<string>;
     /**
      * This is the objects for which the extension applies (An array of service ids).
      */
-    readonly extensionObjects?: pulumi.Input<pulumi.Input<string>[]>;
+    extensionObjects?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * This is the schema for this extension.
      */
-    readonly extensionSchema?: pulumi.Input<string>;
+    extensionSchema?: pulumi.Input<string>;
     /**
      * URL at which the entity is uniquely displayed in the Web app
      */
-    readonly htmlUrl?: pulumi.Input<string>;
+    htmlUrl?: pulumi.Input<string>;
     /**
      * The name of the service extension.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ServiceNow referer.
      */
-    readonly referer?: pulumi.Input<string>;
+    referer?: pulumi.Input<string>;
     /**
      * The ServiceNow password.
      */
-    readonly snowPassword?: pulumi.Input<string>;
+    snowPassword?: pulumi.Input<string>;
     /**
      * The ServiceNow username.
      */
-    readonly snowUser?: pulumi.Input<string>;
+    snowUser?: pulumi.Input<string>;
     /**
      * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
      */
-    readonly summary?: pulumi.Input<string>;
+    summary?: pulumi.Input<string>;
     /**
      * The ServiceNow sync option.
      */
-    readonly syncOptions?: pulumi.Input<string>;
+    syncOptions?: pulumi.Input<string>;
     /**
      * Target Webhook URL
      */
-    readonly target?: pulumi.Input<string>;
+    target?: pulumi.Input<string>;
     /**
      * The ServiceNow task type, typically `incident`.
      */
-    readonly taskType?: pulumi.Input<string>;
-    readonly type?: pulumi.Input<string>;
+    taskType?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a ExtensionServiceNow resource.
  */
 export interface ExtensionServiceNowArgs {
-    readonly endpointUrl?: pulumi.Input<string>;
+    endpointUrl?: pulumi.Input<string>;
     /**
      * This is the objects for which the extension applies (An array of service ids).
      */
-    readonly extensionObjects: pulumi.Input<pulumi.Input<string>[]>;
+    extensionObjects: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * This is the schema for this extension.
      */
-    readonly extensionSchema: pulumi.Input<string>;
+    extensionSchema: pulumi.Input<string>;
     /**
      * The name of the service extension.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ServiceNow referer.
      */
-    readonly referer: pulumi.Input<string>;
+    referer: pulumi.Input<string>;
     /**
      * The ServiceNow password.
      */
-    readonly snowPassword: pulumi.Input<string>;
+    snowPassword: pulumi.Input<string>;
     /**
      * The ServiceNow username.
      */
-    readonly snowUser: pulumi.Input<string>;
+    snowUser: pulumi.Input<string>;
     /**
      * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
      */
-    readonly summary?: pulumi.Input<string>;
+    summary?: pulumi.Input<string>;
     /**
      * The ServiceNow sync option.
      */
-    readonly syncOptions: pulumi.Input<string>;
+    syncOptions: pulumi.Input<string>;
     /**
      * Target Webhook URL
      */
-    readonly target: pulumi.Input<string>;
+    target: pulumi.Input<string>;
     /**
      * The ServiceNow task type, typically `incident`.
      */
-    readonly taskType: pulumi.Input<string>;
-    readonly type?: pulumi.Input<string>;
+    taskType: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }

@@ -4,6 +4,9 @@
 package pagerduty
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := pagerduty.LookupBusinessService(ctx, &pagerduty.LookupBusinessServiceArgs{
+// 		_, err := pagerduty.LookupBusinessService(ctx, &GetBusinessServiceArgs{
 // 			Name: "My Service",
 // 		}, nil)
 // 		if err != nil {
@@ -52,4 +55,52 @@ type LookupBusinessServiceResult struct {
 	Id string `pulumi:"id"`
 	// The short name of the found business service.
 	Name string `pulumi:"name"`
+}
+
+func LookupBusinessServiceOutput(ctx *pulumi.Context, args LookupBusinessServiceOutputArgs, opts ...pulumi.InvokeOption) LookupBusinessServiceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupBusinessServiceResult, error) {
+			args := v.(LookupBusinessServiceArgs)
+			r, err := LookupBusinessService(ctx, &args, opts...)
+			return *r, err
+		}).(LookupBusinessServiceResultOutput)
+}
+
+// A collection of arguments for invoking getBusinessService.
+type LookupBusinessServiceOutputArgs struct {
+	// The business service name to use to find a business service in the PagerDuty API.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (LookupBusinessServiceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBusinessServiceArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getBusinessService.
+type LookupBusinessServiceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupBusinessServiceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBusinessServiceResult)(nil)).Elem()
+}
+
+func (o LookupBusinessServiceResultOutput) ToLookupBusinessServiceResultOutput() LookupBusinessServiceResultOutput {
+	return o
+}
+
+func (o LookupBusinessServiceResultOutput) ToLookupBusinessServiceResultOutputWithContext(ctx context.Context) LookupBusinessServiceResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupBusinessServiceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBusinessServiceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The short name of the found business service.
+func (o LookupBusinessServiceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBusinessServiceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupBusinessServiceResultOutput{})
 }

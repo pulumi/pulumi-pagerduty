@@ -10,6 +10,6 @@ replace (
 
 require (
 	github.com/PagerDuty/terraform-provider-pagerduty v0.0.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.0.0
-	github.com/pulumi/pulumi/sdk/v3 v3.0.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.11.0
+	github.com/pulumi/pulumi/sdk/v3 v3.17.0
 )

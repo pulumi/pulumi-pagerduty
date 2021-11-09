@@ -145,29 +145,29 @@ export interface ScheduleState {
     /**
      * The description of the schedule
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A schedule layer block. Schedule layers documented below.
      */
-    readonly layers?: pulumi.Input<pulumi.Input<inputs.ScheduleLayer>[]>;
+    layers?: pulumi.Input<pulumi.Input<inputs.ScheduleLayer>[]>;
     /**
      * The name of the schedule.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Any on-call schedule entries that pass the date range bounds will be truncated at the bounds, unless the parameter `overflow` is passed. For instance, if your schedule is a rotation that changes daily at midnight UTC, and your date range is from `2011-06-01T10:00:00Z` to `2011-06-01T14:00:00Z`:
      * If you don't pass the overflow=true parameter, you will get one schedule entry returned with a start of `2011-06-01T10:00:00Z` and end of `2011-06-01T14:00:00Z`.
      * If you do pass the `overflow` parameter, you will get one schedule entry returned with a start of `2011-06-01T00:00:00Z` and end of `2011-06-02T00:00:00Z`.
      */
-    readonly overflow?: pulumi.Input<boolean>;
+    overflow?: pulumi.Input<boolean>;
     /**
      * Teams associated with the schedule.
      */
-    readonly teams?: pulumi.Input<pulumi.Input<string>[]>;
+    teams?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The time zone of the schedule (e.g Europe/Berlin).
      */
-    readonly timeZone?: pulumi.Input<string>;
+    timeZone?: pulumi.Input<string>;
 }
 
 /**
@@ -177,27 +177,27 @@ export interface ScheduleArgs {
     /**
      * The description of the schedule
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A schedule layer block. Schedule layers documented below.
      */
-    readonly layers: pulumi.Input<pulumi.Input<inputs.ScheduleLayer>[]>;
+    layers: pulumi.Input<pulumi.Input<inputs.ScheduleLayer>[]>;
     /**
      * The name of the schedule.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Any on-call schedule entries that pass the date range bounds will be truncated at the bounds, unless the parameter `overflow` is passed. For instance, if your schedule is a rotation that changes daily at midnight UTC, and your date range is from `2011-06-01T10:00:00Z` to `2011-06-01T14:00:00Z`:
      * If you don't pass the overflow=true parameter, you will get one schedule entry returned with a start of `2011-06-01T10:00:00Z` and end of `2011-06-01T14:00:00Z`.
      * If you do pass the `overflow` parameter, you will get one schedule entry returned with a start of `2011-06-01T00:00:00Z` and end of `2011-06-02T00:00:00Z`.
      */
-    readonly overflow?: pulumi.Input<boolean>;
+    overflow?: pulumi.Input<boolean>;
     /**
      * Teams associated with the schedule.
      */
-    readonly teams?: pulumi.Input<pulumi.Input<string>[]>;
+    teams?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The time zone of the schedule (e.g Europe/Berlin).
      */
-    readonly timeZone: pulumi.Input<string>;
+    timeZone: pulumi.Input<string>;
 }

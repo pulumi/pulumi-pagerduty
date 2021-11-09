@@ -1059,7 +1059,7 @@ func (o RulesetRuleActionsOutput) ToRulesetRuleActionsPtrOutput() RulesetRuleAct
 }
 
 func (o RulesetRuleActionsOutput) ToRulesetRuleActionsPtrOutputWithContext(ctx context.Context) RulesetRuleActionsPtrOutput {
-	return o.ApplyT(func(v RulesetRuleActions) *RulesetRuleActions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RulesetRuleActions) *RulesetRuleActions {
 		return &v
 	}).(RulesetRuleActionsPtrOutput)
 }
@@ -1119,7 +1119,13 @@ func (o RulesetRuleActionsPtrOutput) ToRulesetRuleActionsPtrOutputWithContext(ct
 }
 
 func (o RulesetRuleActionsPtrOutput) Elem() RulesetRuleActionsOutput {
-	return o.ApplyT(func(v *RulesetRuleActions) RulesetRuleActions { return *v }).(RulesetRuleActionsOutput)
+	return o.ApplyT(func(v *RulesetRuleActions) RulesetRuleActions {
+		if v != nil {
+			return *v
+		}
+		var ret RulesetRuleActions
+		return ret
+	}).(RulesetRuleActionsOutput)
 }
 
 // Note added to the event.
@@ -2129,7 +2135,7 @@ func (o RulesetRuleConditionsOutput) ToRulesetRuleConditionsPtrOutput() RulesetR
 }
 
 func (o RulesetRuleConditionsOutput) ToRulesetRuleConditionsPtrOutputWithContext(ctx context.Context) RulesetRuleConditionsPtrOutput {
-	return o.ApplyT(func(v RulesetRuleConditions) *RulesetRuleConditions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RulesetRuleConditions) *RulesetRuleConditions {
 		return &v
 	}).(RulesetRuleConditionsPtrOutput)
 }
@@ -2159,7 +2165,13 @@ func (o RulesetRuleConditionsPtrOutput) ToRulesetRuleConditionsPtrOutputWithCont
 }
 
 func (o RulesetRuleConditionsPtrOutput) Elem() RulesetRuleConditionsOutput {
-	return o.ApplyT(func(v *RulesetRuleConditions) RulesetRuleConditions { return *v }).(RulesetRuleConditionsOutput)
+	return o.ApplyT(func(v *RulesetRuleConditions) RulesetRuleConditions {
+		if v != nil {
+			return *v
+		}
+		var ret RulesetRuleConditions
+		return ret
+	}).(RulesetRuleConditionsOutput)
 }
 
 // Operator to combine sub-conditions. Can be `and` or `or`.
@@ -2490,7 +2502,7 @@ func (o RulesetRuleTimeFrameOutput) ToRulesetRuleTimeFramePtrOutput() RulesetRul
 }
 
 func (o RulesetRuleTimeFrameOutput) ToRulesetRuleTimeFramePtrOutputWithContext(ctx context.Context) RulesetRuleTimeFramePtrOutput {
-	return o.ApplyT(func(v RulesetRuleTimeFrame) *RulesetRuleTimeFrame {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RulesetRuleTimeFrame) *RulesetRuleTimeFrame {
 		return &v
 	}).(RulesetRuleTimeFramePtrOutput)
 }
@@ -2520,7 +2532,13 @@ func (o RulesetRuleTimeFramePtrOutput) ToRulesetRuleTimeFramePtrOutputWithContex
 }
 
 func (o RulesetRuleTimeFramePtrOutput) Elem() RulesetRuleTimeFrameOutput {
-	return o.ApplyT(func(v *RulesetRuleTimeFrame) RulesetRuleTimeFrame { return *v }).(RulesetRuleTimeFrameOutput)
+	return o.ApplyT(func(v *RulesetRuleTimeFrame) RulesetRuleTimeFrame {
+		if v != nil {
+			return *v
+		}
+		var ret RulesetRuleTimeFrame
+		return ret
+	}).(RulesetRuleTimeFrameOutput)
 }
 
 // Values for executing the rule during a specific time period.
@@ -3069,7 +3087,7 @@ func (o RulesetTeamOutput) ToRulesetTeamPtrOutput() RulesetTeamPtrOutput {
 }
 
 func (o RulesetTeamOutput) ToRulesetTeamPtrOutputWithContext(ctx context.Context) RulesetTeamPtrOutput {
-	return o.ApplyT(func(v RulesetTeam) *RulesetTeam {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RulesetTeam) *RulesetTeam {
 		return &v
 	}).(RulesetTeamPtrOutput)
 }
@@ -3094,7 +3112,13 @@ func (o RulesetTeamPtrOutput) ToRulesetTeamPtrOutputWithContext(ctx context.Cont
 }
 
 func (o RulesetTeamPtrOutput) Elem() RulesetTeamOutput {
-	return o.ApplyT(func(v *RulesetTeam) RulesetTeam { return *v }).(RulesetTeamOutput)
+	return o.ApplyT(func(v *RulesetTeam) RulesetTeam {
+		if v != nil {
+			return *v
+		}
+		var ret RulesetTeam
+		return ret
+	}).(RulesetTeamOutput)
 }
 
 // The ID of the ruleset.
@@ -3488,7 +3512,7 @@ func (o ServiceAlertGroupingParametersOutput) ToServiceAlertGroupingParametersPt
 }
 
 func (o ServiceAlertGroupingParametersOutput) ToServiceAlertGroupingParametersPtrOutputWithContext(ctx context.Context) ServiceAlertGroupingParametersPtrOutput {
-	return o.ApplyT(func(v ServiceAlertGroupingParameters) *ServiceAlertGroupingParameters {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceAlertGroupingParameters) *ServiceAlertGroupingParameters {
 		return &v
 	}).(ServiceAlertGroupingParametersPtrOutput)
 }
@@ -3518,7 +3542,13 @@ func (o ServiceAlertGroupingParametersPtrOutput) ToServiceAlertGroupingParameter
 }
 
 func (o ServiceAlertGroupingParametersPtrOutput) Elem() ServiceAlertGroupingParametersOutput {
-	return o.ApplyT(func(v *ServiceAlertGroupingParameters) ServiceAlertGroupingParameters { return *v }).(ServiceAlertGroupingParametersOutput)
+	return o.ApplyT(func(v *ServiceAlertGroupingParameters) ServiceAlertGroupingParameters {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceAlertGroupingParameters
+		return ret
+	}).(ServiceAlertGroupingParametersOutput)
 }
 
 // Alert grouping parameters dependant on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
@@ -3642,7 +3672,7 @@ func (o ServiceAlertGroupingParametersConfigOutput) ToServiceAlertGroupingParame
 }
 
 func (o ServiceAlertGroupingParametersConfigOutput) ToServiceAlertGroupingParametersConfigPtrOutputWithContext(ctx context.Context) ServiceAlertGroupingParametersConfigPtrOutput {
-	return o.ApplyT(func(v ServiceAlertGroupingParametersConfig) *ServiceAlertGroupingParametersConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceAlertGroupingParametersConfig) *ServiceAlertGroupingParametersConfig {
 		return &v
 	}).(ServiceAlertGroupingParametersConfigPtrOutput)
 }
@@ -3677,7 +3707,13 @@ func (o ServiceAlertGroupingParametersConfigPtrOutput) ToServiceAlertGroupingPar
 }
 
 func (o ServiceAlertGroupingParametersConfigPtrOutput) Elem() ServiceAlertGroupingParametersConfigOutput {
-	return o.ApplyT(func(v *ServiceAlertGroupingParametersConfig) ServiceAlertGroupingParametersConfig { return *v }).(ServiceAlertGroupingParametersConfigOutput)
+	return o.ApplyT(func(v *ServiceAlertGroupingParametersConfig) ServiceAlertGroupingParametersConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceAlertGroupingParametersConfig
+		return ret
+	}).(ServiceAlertGroupingParametersConfigOutput)
 }
 
 // One of `any` or `all`. This setting applies only when `type` is set to `contentBased`. Group alerts based on one or all of `fields` value(s).
@@ -3809,7 +3845,7 @@ func (o ServiceDependencyDependencyOutput) ToServiceDependencyDependencyPtrOutpu
 }
 
 func (o ServiceDependencyDependencyOutput) ToServiceDependencyDependencyPtrOutputWithContext(ctx context.Context) ServiceDependencyDependencyPtrOutput {
-	return o.ApplyT(func(v ServiceDependencyDependency) *ServiceDependencyDependency {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceDependencyDependency) *ServiceDependencyDependency {
 		return &v
 	}).(ServiceDependencyDependencyPtrOutput)
 }
@@ -3847,7 +3883,13 @@ func (o ServiceDependencyDependencyPtrOutput) ToServiceDependencyDependencyPtrOu
 }
 
 func (o ServiceDependencyDependencyPtrOutput) Elem() ServiceDependencyDependencyOutput {
-	return o.ApplyT(func(v *ServiceDependencyDependency) ServiceDependencyDependency { return *v }).(ServiceDependencyDependencyOutput)
+	return o.ApplyT(func(v *ServiceDependencyDependency) ServiceDependencyDependency {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceDependencyDependency
+		return ret
+	}).(ServiceDependencyDependencyOutput)
 }
 
 // The service that dependents on the supporting service.
@@ -4202,7 +4244,7 @@ func (o ServiceEventRuleActionsOutput) ToServiceEventRuleActionsPtrOutput() Serv
 }
 
 func (o ServiceEventRuleActionsOutput) ToServiceEventRuleActionsPtrOutputWithContext(ctx context.Context) ServiceEventRuleActionsPtrOutput {
-	return o.ApplyT(func(v ServiceEventRuleActions) *ServiceEventRuleActions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEventRuleActions) *ServiceEventRuleActions {
 		return &v
 	}).(ServiceEventRuleActionsPtrOutput)
 }
@@ -4257,7 +4299,13 @@ func (o ServiceEventRuleActionsPtrOutput) ToServiceEventRuleActionsPtrOutputWith
 }
 
 func (o ServiceEventRuleActionsPtrOutput) Elem() ServiceEventRuleActionsOutput {
-	return o.ApplyT(func(v *ServiceEventRuleActions) ServiceEventRuleActions { return *v }).(ServiceEventRuleActionsOutput)
+	return o.ApplyT(func(v *ServiceEventRuleActions) ServiceEventRuleActions {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceEventRuleActions
+		return ret
+	}).(ServiceEventRuleActionsOutput)
 }
 
 // Note added to the event.
@@ -5160,7 +5208,7 @@ func (o ServiceEventRuleConditionsOutput) ToServiceEventRuleConditionsPtrOutput(
 }
 
 func (o ServiceEventRuleConditionsOutput) ToServiceEventRuleConditionsPtrOutputWithContext(ctx context.Context) ServiceEventRuleConditionsPtrOutput {
-	return o.ApplyT(func(v ServiceEventRuleConditions) *ServiceEventRuleConditions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEventRuleConditions) *ServiceEventRuleConditions {
 		return &v
 	}).(ServiceEventRuleConditionsPtrOutput)
 }
@@ -5190,7 +5238,13 @@ func (o ServiceEventRuleConditionsPtrOutput) ToServiceEventRuleConditionsPtrOutp
 }
 
 func (o ServiceEventRuleConditionsPtrOutput) Elem() ServiceEventRuleConditionsOutput {
-	return o.ApplyT(func(v *ServiceEventRuleConditions) ServiceEventRuleConditions { return *v }).(ServiceEventRuleConditionsOutput)
+	return o.ApplyT(func(v *ServiceEventRuleConditions) ServiceEventRuleConditions {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceEventRuleConditions
+		return ret
+	}).(ServiceEventRuleConditionsOutput)
 }
 
 // Operator to combine sub-conditions. Can be `and` or `or`.
@@ -5524,7 +5578,7 @@ func (o ServiceEventRuleTimeFrameOutput) ToServiceEventRuleTimeFramePtrOutput() 
 }
 
 func (o ServiceEventRuleTimeFrameOutput) ToServiceEventRuleTimeFramePtrOutputWithContext(ctx context.Context) ServiceEventRuleTimeFramePtrOutput {
-	return o.ApplyT(func(v ServiceEventRuleTimeFrame) *ServiceEventRuleTimeFrame {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEventRuleTimeFrame) *ServiceEventRuleTimeFrame {
 		return &v
 	}).(ServiceEventRuleTimeFramePtrOutput)
 }
@@ -5556,7 +5610,13 @@ func (o ServiceEventRuleTimeFramePtrOutput) ToServiceEventRuleTimeFramePtrOutput
 }
 
 func (o ServiceEventRuleTimeFramePtrOutput) Elem() ServiceEventRuleTimeFrameOutput {
-	return o.ApplyT(func(v *ServiceEventRuleTimeFrame) ServiceEventRuleTimeFrame { return *v }).(ServiceEventRuleTimeFrameOutput)
+	return o.ApplyT(func(v *ServiceEventRuleTimeFrame) ServiceEventRuleTimeFrame {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceEventRuleTimeFrame
+		return ret
+	}).(ServiceEventRuleTimeFrameOutput)
 }
 
 // Values for executing the rule during a specific time period.
@@ -6135,7 +6195,7 @@ func (o ServiceIncidentUrgencyRuleOutput) ToServiceIncidentUrgencyRulePtrOutput(
 }
 
 func (o ServiceIncidentUrgencyRuleOutput) ToServiceIncidentUrgencyRulePtrOutputWithContext(ctx context.Context) ServiceIncidentUrgencyRulePtrOutput {
-	return o.ApplyT(func(v ServiceIncidentUrgencyRule) *ServiceIncidentUrgencyRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceIncidentUrgencyRule) *ServiceIncidentUrgencyRule {
 		return &v
 	}).(ServiceIncidentUrgencyRulePtrOutput)
 }
@@ -6179,7 +6239,13 @@ func (o ServiceIncidentUrgencyRulePtrOutput) ToServiceIncidentUrgencyRulePtrOutp
 }
 
 func (o ServiceIncidentUrgencyRulePtrOutput) Elem() ServiceIncidentUrgencyRuleOutput {
-	return o.ApplyT(func(v *ServiceIncidentUrgencyRule) ServiceIncidentUrgencyRule { return *v }).(ServiceIncidentUrgencyRuleOutput)
+	return o.ApplyT(func(v *ServiceIncidentUrgencyRule) ServiceIncidentUrgencyRule {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceIncidentUrgencyRule
+		return ret
+	}).(ServiceIncidentUrgencyRuleOutput)
 }
 
 // Incidents' urgency during support hours.
@@ -6319,7 +6385,7 @@ func (o ServiceIncidentUrgencyRuleDuringSupportHoursOutput) ToServiceIncidentUrg
 }
 
 func (o ServiceIncidentUrgencyRuleDuringSupportHoursOutput) ToServiceIncidentUrgencyRuleDuringSupportHoursPtrOutputWithContext(ctx context.Context) ServiceIncidentUrgencyRuleDuringSupportHoursPtrOutput {
-	return o.ApplyT(func(v ServiceIncidentUrgencyRuleDuringSupportHours) *ServiceIncidentUrgencyRuleDuringSupportHours {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceIncidentUrgencyRuleDuringSupportHours) *ServiceIncidentUrgencyRuleDuringSupportHours {
 		return &v
 	}).(ServiceIncidentUrgencyRuleDuringSupportHoursPtrOutput)
 }
@@ -6350,7 +6416,11 @@ func (o ServiceIncidentUrgencyRuleDuringSupportHoursPtrOutput) ToServiceIncident
 
 func (o ServiceIncidentUrgencyRuleDuringSupportHoursPtrOutput) Elem() ServiceIncidentUrgencyRuleDuringSupportHoursOutput {
 	return o.ApplyT(func(v *ServiceIncidentUrgencyRuleDuringSupportHours) ServiceIncidentUrgencyRuleDuringSupportHours {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ServiceIncidentUrgencyRuleDuringSupportHours
+		return ret
 	}).(ServiceIncidentUrgencyRuleDuringSupportHoursOutput)
 }
 
@@ -6471,7 +6541,7 @@ func (o ServiceIncidentUrgencyRuleOutsideSupportHoursOutput) ToServiceIncidentUr
 }
 
 func (o ServiceIncidentUrgencyRuleOutsideSupportHoursOutput) ToServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutputWithContext(ctx context.Context) ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput {
-	return o.ApplyT(func(v ServiceIncidentUrgencyRuleOutsideSupportHours) *ServiceIncidentUrgencyRuleOutsideSupportHours {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceIncidentUrgencyRuleOutsideSupportHours) *ServiceIncidentUrgencyRuleOutsideSupportHours {
 		return &v
 	}).(ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput)
 }
@@ -6502,7 +6572,11 @@ func (o ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput) ToServiceInciden
 
 func (o ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput) Elem() ServiceIncidentUrgencyRuleOutsideSupportHoursOutput {
 	return o.ApplyT(func(v *ServiceIncidentUrgencyRuleOutsideSupportHours) ServiceIncidentUrgencyRuleOutsideSupportHours {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ServiceIncidentUrgencyRuleOutsideSupportHours
+		return ret
 	}).(ServiceIncidentUrgencyRuleOutsideSupportHoursOutput)
 }
 
@@ -6858,7 +6932,7 @@ func (o ServiceSupportHoursOutput) ToServiceSupportHoursPtrOutput() ServiceSuppo
 }
 
 func (o ServiceSupportHoursOutput) ToServiceSupportHoursPtrOutputWithContext(ctx context.Context) ServiceSupportHoursPtrOutput {
-	return o.ApplyT(func(v ServiceSupportHours) *ServiceSupportHours {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceSupportHours) *ServiceSupportHours {
 		return &v
 	}).(ServiceSupportHoursPtrOutput)
 }
@@ -6904,7 +6978,13 @@ func (o ServiceSupportHoursPtrOutput) ToServiceSupportHoursPtrOutputWithContext(
 }
 
 func (o ServiceSupportHoursPtrOutput) Elem() ServiceSupportHoursOutput {
-	return o.ApplyT(func(v *ServiceSupportHours) ServiceSupportHours { return *v }).(ServiceSupportHoursOutput)
+	return o.ApplyT(func(v *ServiceSupportHours) ServiceSupportHours {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceSupportHours
+		return ret
+	}).(ServiceSupportHoursOutput)
 }
 
 // Array of days of week as integers. `1` to `7`, `1` being
@@ -7107,6 +7187,118 @@ func (o SlackConnectionConfigArrayOutput) Index(i pulumi.IntInput) SlackConnecti
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EscalationPolicyRuleInput)(nil)).Elem(), EscalationPolicyRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EscalationPolicyRuleArrayInput)(nil)).Elem(), EscalationPolicyRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EscalationPolicyRuleTargetInput)(nil)).Elem(), EscalationPolicyRuleTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EscalationPolicyRuleTargetArrayInput)(nil)).Elem(), EscalationPolicyRuleTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlayResponderInput)(nil)).Elem(), ResponsePlayResponderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlayResponderArrayInput)(nil)).Elem(), ResponsePlayResponderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlayResponderEscalationRuleInput)(nil)).Elem(), ResponsePlayResponderEscalationRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlayResponderEscalationRuleArrayInput)(nil)).Elem(), ResponsePlayResponderEscalationRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlayResponderEscalationRuleTargetInput)(nil)).Elem(), ResponsePlayResponderEscalationRuleTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlayResponderEscalationRuleTargetArrayInput)(nil)).Elem(), ResponsePlayResponderEscalationRuleTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlayResponderServiceInput)(nil)).Elem(), ResponsePlayResponderServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlayResponderServiceArrayInput)(nil)).Elem(), ResponsePlayResponderServiceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlayResponderTeamInput)(nil)).Elem(), ResponsePlayResponderTeamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlayResponderTeamArrayInput)(nil)).Elem(), ResponsePlayResponderTeamArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlaySubscriberInput)(nil)).Elem(), ResponsePlaySubscriberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlaySubscriberArrayInput)(nil)).Elem(), ResponsePlaySubscriberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleActionsInput)(nil)).Elem(), RulesetRuleActionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleActionsPtrInput)(nil)).Elem(), RulesetRuleActionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleActionsAnnotateInput)(nil)).Elem(), RulesetRuleActionsAnnotateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleActionsAnnotateArrayInput)(nil)).Elem(), RulesetRuleActionsAnnotateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleActionsEventActionInput)(nil)).Elem(), RulesetRuleActionsEventActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleActionsEventActionArrayInput)(nil)).Elem(), RulesetRuleActionsEventActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleActionsExtractionInput)(nil)).Elem(), RulesetRuleActionsExtractionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleActionsExtractionArrayInput)(nil)).Elem(), RulesetRuleActionsExtractionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleActionsPriorityInput)(nil)).Elem(), RulesetRuleActionsPriorityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleActionsPriorityArrayInput)(nil)).Elem(), RulesetRuleActionsPriorityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleActionsRouteInput)(nil)).Elem(), RulesetRuleActionsRouteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleActionsRouteArrayInput)(nil)).Elem(), RulesetRuleActionsRouteArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleActionsSeverityInput)(nil)).Elem(), RulesetRuleActionsSeverityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleActionsSeverityArrayInput)(nil)).Elem(), RulesetRuleActionsSeverityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleActionsSuppressInput)(nil)).Elem(), RulesetRuleActionsSuppressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleActionsSuppressArrayInput)(nil)).Elem(), RulesetRuleActionsSuppressArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleActionsSuspendInput)(nil)).Elem(), RulesetRuleActionsSuspendArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleActionsSuspendArrayInput)(nil)).Elem(), RulesetRuleActionsSuspendArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleConditionsInput)(nil)).Elem(), RulesetRuleConditionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleConditionsPtrInput)(nil)).Elem(), RulesetRuleConditionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleConditionsSubconditionInput)(nil)).Elem(), RulesetRuleConditionsSubconditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleConditionsSubconditionArrayInput)(nil)).Elem(), RulesetRuleConditionsSubconditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleConditionsSubconditionParameterInput)(nil)).Elem(), RulesetRuleConditionsSubconditionParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleConditionsSubconditionParameterArrayInput)(nil)).Elem(), RulesetRuleConditionsSubconditionParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleTimeFrameInput)(nil)).Elem(), RulesetRuleTimeFrameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleTimeFramePtrInput)(nil)).Elem(), RulesetRuleTimeFrameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleTimeFrameActiveBetweenInput)(nil)).Elem(), RulesetRuleTimeFrameActiveBetweenArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleTimeFrameActiveBetweenArrayInput)(nil)).Elem(), RulesetRuleTimeFrameActiveBetweenArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleTimeFrameScheduledWeeklyInput)(nil)).Elem(), RulesetRuleTimeFrameScheduledWeeklyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleTimeFrameScheduledWeeklyArrayInput)(nil)).Elem(), RulesetRuleTimeFrameScheduledWeeklyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleVariableInput)(nil)).Elem(), RulesetRuleVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleVariableArrayInput)(nil)).Elem(), RulesetRuleVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleVariableParameterInput)(nil)).Elem(), RulesetRuleVariableParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleVariableParameterArrayInput)(nil)).Elem(), RulesetRuleVariableParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetTeamInput)(nil)).Elem(), RulesetTeamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetTeamPtrInput)(nil)).Elem(), RulesetTeamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleLayerInput)(nil)).Elem(), ScheduleLayerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleLayerArrayInput)(nil)).Elem(), ScheduleLayerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleLayerRestrictionInput)(nil)).Elem(), ScheduleLayerRestrictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleLayerRestrictionArrayInput)(nil)).Elem(), ScheduleLayerRestrictionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAlertGroupingParametersInput)(nil)).Elem(), ServiceAlertGroupingParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAlertGroupingParametersPtrInput)(nil)).Elem(), ServiceAlertGroupingParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAlertGroupingParametersConfigInput)(nil)).Elem(), ServiceAlertGroupingParametersConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAlertGroupingParametersConfigPtrInput)(nil)).Elem(), ServiceAlertGroupingParametersConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDependencyDependencyInput)(nil)).Elem(), ServiceDependencyDependencyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDependencyDependencyPtrInput)(nil)).Elem(), ServiceDependencyDependencyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDependencyDependencyDependentServiceInput)(nil)).Elem(), ServiceDependencyDependencyDependentServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDependencyDependencyDependentServiceArrayInput)(nil)).Elem(), ServiceDependencyDependencyDependentServiceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDependencyDependencySupportingServiceInput)(nil)).Elem(), ServiceDependencyDependencySupportingServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDependencyDependencySupportingServiceArrayInput)(nil)).Elem(), ServiceDependencyDependencySupportingServiceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRuleActionsInput)(nil)).Elem(), ServiceEventRuleActionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRuleActionsPtrInput)(nil)).Elem(), ServiceEventRuleActionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRuleActionsAnnotateInput)(nil)).Elem(), ServiceEventRuleActionsAnnotateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRuleActionsAnnotateArrayInput)(nil)).Elem(), ServiceEventRuleActionsAnnotateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRuleActionsEventActionInput)(nil)).Elem(), ServiceEventRuleActionsEventActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRuleActionsEventActionArrayInput)(nil)).Elem(), ServiceEventRuleActionsEventActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRuleActionsExtractionInput)(nil)).Elem(), ServiceEventRuleActionsExtractionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRuleActionsExtractionArrayInput)(nil)).Elem(), ServiceEventRuleActionsExtractionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRuleActionsPriorityInput)(nil)).Elem(), ServiceEventRuleActionsPriorityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRuleActionsPriorityArrayInput)(nil)).Elem(), ServiceEventRuleActionsPriorityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRuleActionsSeverityInput)(nil)).Elem(), ServiceEventRuleActionsSeverityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRuleActionsSeverityArrayInput)(nil)).Elem(), ServiceEventRuleActionsSeverityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRuleActionsSuppressInput)(nil)).Elem(), ServiceEventRuleActionsSuppressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRuleActionsSuppressArrayInput)(nil)).Elem(), ServiceEventRuleActionsSuppressArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRuleActionsSuspendInput)(nil)).Elem(), ServiceEventRuleActionsSuspendArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRuleActionsSuspendArrayInput)(nil)).Elem(), ServiceEventRuleActionsSuspendArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRuleConditionsInput)(nil)).Elem(), ServiceEventRuleConditionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRuleConditionsPtrInput)(nil)).Elem(), ServiceEventRuleConditionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRuleConditionsSubconditionInput)(nil)).Elem(), ServiceEventRuleConditionsSubconditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRuleConditionsSubconditionArrayInput)(nil)).Elem(), ServiceEventRuleConditionsSubconditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRuleConditionsSubconditionParameterInput)(nil)).Elem(), ServiceEventRuleConditionsSubconditionParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRuleConditionsSubconditionParameterArrayInput)(nil)).Elem(), ServiceEventRuleConditionsSubconditionParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRuleTimeFrameInput)(nil)).Elem(), ServiceEventRuleTimeFrameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRuleTimeFramePtrInput)(nil)).Elem(), ServiceEventRuleTimeFrameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRuleTimeFrameActiveBetweenInput)(nil)).Elem(), ServiceEventRuleTimeFrameActiveBetweenArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRuleTimeFrameActiveBetweenArrayInput)(nil)).Elem(), ServiceEventRuleTimeFrameActiveBetweenArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRuleTimeFrameScheduledWeeklyInput)(nil)).Elem(), ServiceEventRuleTimeFrameScheduledWeeklyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRuleTimeFrameScheduledWeeklyArrayInput)(nil)).Elem(), ServiceEventRuleTimeFrameScheduledWeeklyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRuleVariableInput)(nil)).Elem(), ServiceEventRuleVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRuleVariableArrayInput)(nil)).Elem(), ServiceEventRuleVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRuleVariableParameterInput)(nil)).Elem(), ServiceEventRuleVariableParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRuleVariableParameterArrayInput)(nil)).Elem(), ServiceEventRuleVariableParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIncidentUrgencyRuleInput)(nil)).Elem(), ServiceIncidentUrgencyRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIncidentUrgencyRulePtrInput)(nil)).Elem(), ServiceIncidentUrgencyRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIncidentUrgencyRuleDuringSupportHoursInput)(nil)).Elem(), ServiceIncidentUrgencyRuleDuringSupportHoursArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIncidentUrgencyRuleDuringSupportHoursPtrInput)(nil)).Elem(), ServiceIncidentUrgencyRuleDuringSupportHoursArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIncidentUrgencyRuleOutsideSupportHoursInput)(nil)).Elem(), ServiceIncidentUrgencyRuleOutsideSupportHoursArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIncidentUrgencyRuleOutsideSupportHoursPtrInput)(nil)).Elem(), ServiceIncidentUrgencyRuleOutsideSupportHoursArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceScheduledActionInput)(nil)).Elem(), ServiceScheduledActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceScheduledActionArrayInput)(nil)).Elem(), ServiceScheduledActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceScheduledActionAtInput)(nil)).Elem(), ServiceScheduledActionAtArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceScheduledActionAtArrayInput)(nil)).Elem(), ServiceScheduledActionAtArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSupportHoursInput)(nil)).Elem(), ServiceSupportHoursArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSupportHoursPtrInput)(nil)).Elem(), ServiceSupportHoursArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SlackConnectionConfigInput)(nil)).Elem(), SlackConnectionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SlackConnectionConfigArrayInput)(nil)).Elem(), SlackConnectionConfigArray{})
 	pulumi.RegisterOutputType(EscalationPolicyRuleOutput{})
 	pulumi.RegisterOutputType(EscalationPolicyRuleArrayOutput{})
 	pulumi.RegisterOutputType(EscalationPolicyRuleTargetOutput{})

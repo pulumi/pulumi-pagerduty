@@ -4,6 +4,9 @@
 package pagerduty
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		test, err := pagerduty.LookupSchedule(ctx, &pagerduty.LookupScheduleArgs{
+// 		test, err := pagerduty.LookupSchedule(ctx, &GetScheduleArgs{
 // 			Name: "Daily Engineering Rotation",
 // 		}, nil)
 // 		if err != nil {
@@ -29,11 +32,11 @@ import (
 // 		}
 // 		_, err = pagerduty.NewEscalationPolicy(ctx, "foo", &pagerduty.EscalationPolicyArgs{
 // 			NumLoops: pulumi.Int(2),
-// 			Rules: pagerduty.EscalationPolicyRuleArray{
-// 				&pagerduty.EscalationPolicyRuleArgs{
+// 			Rules: EscalationPolicyRuleArray{
+// 				&EscalationPolicyRuleArgs{
 // 					EscalationDelayInMinutes: pulumi.Int(10),
-// 					Targets: pagerduty.EscalationPolicyRuleTargetArray{
-// 						&pagerduty.EscalationPolicyRuleTargetArgs{
+// 					Targets: EscalationPolicyRuleTargetArray{
+// 						&EscalationPolicyRuleTargetArgs{
 // 							Type: pulumi.String("schedule"),
 // 							Id:   pulumi.String(test.Id),
 // 						},
@@ -69,4 +72,52 @@ type LookupScheduleResult struct {
 	Id string `pulumi:"id"`
 	// The short name of the found schedule.
 	Name string `pulumi:"name"`
+}
+
+func LookupScheduleOutput(ctx *pulumi.Context, args LookupScheduleOutputArgs, opts ...pulumi.InvokeOption) LookupScheduleResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupScheduleResult, error) {
+			args := v.(LookupScheduleArgs)
+			r, err := LookupSchedule(ctx, &args, opts...)
+			return *r, err
+		}).(LookupScheduleResultOutput)
+}
+
+// A collection of arguments for invoking getSchedule.
+type LookupScheduleOutputArgs struct {
+	// The name to use to find a schedule in the PagerDuty API.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (LookupScheduleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupScheduleArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getSchedule.
+type LookupScheduleResultOutput struct{ *pulumi.OutputState }
+
+func (LookupScheduleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupScheduleResult)(nil)).Elem()
+}
+
+func (o LookupScheduleResultOutput) ToLookupScheduleResultOutput() LookupScheduleResultOutput {
+	return o
+}
+
+func (o LookupScheduleResultOutput) ToLookupScheduleResultOutputWithContext(ctx context.Context) LookupScheduleResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupScheduleResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupScheduleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The short name of the found schedule.
+func (o LookupScheduleResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupScheduleResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupScheduleResultOutput{})
 }

@@ -13,6 +13,106 @@ import (
 
 // A [service integration](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1services~1%7Bid%7D~1integrations/post) is an integration that belongs to a service.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
+// 			Email: pulumi.String("125.greenholt.earline@graham.name"),
+// 			Teams: pulumi.StringArray{
+// 				pulumi.Any(pagerduty_team.Example.Id),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = pagerduty.NewEscalationPolicy(ctx, "foo", &pagerduty.EscalationPolicyArgs{
+// 			NumLoops: pulumi.Int(2),
+// 			Rules: EscalationPolicyRuleArray{
+// 				&EscalationPolicyRuleArgs{
+// 					EscalationDelayInMinutes: pulumi.Int(10),
+// 					Targets: EscalationPolicyRuleTargetArray{
+// 						&EscalationPolicyRuleTargetArgs{
+// 							Type: pulumi.String("user"),
+// 							Id:   exampleUser.ID(),
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleService, err := pagerduty.NewService(ctx, "exampleService", &pagerduty.ServiceArgs{
+// 			AutoResolveTimeout:     pulumi.String("14400"),
+// 			AcknowledgementTimeout: pulumi.String("600"),
+// 			EscalationPolicy:       pulumi.Any(pagerduty_escalation_policy.Example.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = pagerduty.NewServiceIntegration(ctx, "exampleServiceIntegration", &pagerduty.ServiceIntegrationArgs{
+// 			Type:    pulumi.String("generic_events_api_inbound_integration"),
+// 			Service: exampleService.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = pagerduty.NewServiceIntegration(ctx, "apiv2", &pagerduty.ServiceIntegrationArgs{
+// 			Type:           pulumi.String("events_api_v2_inbound_integration"),
+// 			IntegrationKey: pulumi.String("12345678910testtesttesttesttes"),
+// 			Service:        exampleService.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = pagerduty.NewServiceIntegration(ctx, "emailX", &pagerduty.ServiceIntegrationArgs{
+// 			Type:             pulumi.String("generic_email_inbound_integration"),
+// 			IntegrationEmail: pulumi.String("ecommerce@subdomain.pagerduty.com"),
+// 			Service:          exampleService.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		datadogVendor, err := pagerduty.GetVendor(ctx, &GetVendorArgs{
+// 			Name: "Datadog",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = pagerduty.NewServiceIntegration(ctx, "datadogServiceIntegration", &pagerduty.ServiceIntegrationArgs{
+// 			Service: exampleService.ID(),
+// 			Vendor:  pulumi.String(datadogVendor.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		cloudwatchVendor, err := pagerduty.GetVendor(ctx, &GetVendorArgs{
+// 			Name: "Cloudwatch",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = pagerduty.NewServiceIntegration(ctx, "cloudwatchServiceIntegration", &pagerduty.ServiceIntegrationArgs{
+// 			Service: exampleService.ID(),
+// 			Vendor:  pulumi.String(cloudwatchVendor.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Services can be imported using their related `service` id and service integration `id` separated by a dot, e.g.
@@ -250,7 +350,7 @@ type ServiceIntegrationArrayInput interface {
 type ServiceIntegrationArray []ServiceIntegrationInput
 
 func (ServiceIntegrationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ServiceIntegration)(nil))
+	return reflect.TypeOf((*[]*ServiceIntegration)(nil)).Elem()
 }
 
 func (i ServiceIntegrationArray) ToServiceIntegrationArrayOutput() ServiceIntegrationArrayOutput {
@@ -275,7 +375,7 @@ type ServiceIntegrationMapInput interface {
 type ServiceIntegrationMap map[string]ServiceIntegrationInput
 
 func (ServiceIntegrationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ServiceIntegration)(nil))
+	return reflect.TypeOf((*map[string]*ServiceIntegration)(nil)).Elem()
 }
 
 func (i ServiceIntegrationMap) ToServiceIntegrationMapOutput() ServiceIntegrationMapOutput {
@@ -286,9 +386,7 @@ func (i ServiceIntegrationMap) ToServiceIntegrationMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIntegrationMapOutput)
 }
 
-type ServiceIntegrationOutput struct {
-	*pulumi.OutputState
-}
+type ServiceIntegrationOutput struct{ *pulumi.OutputState }
 
 func (ServiceIntegrationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceIntegration)(nil))
@@ -307,14 +405,12 @@ func (o ServiceIntegrationOutput) ToServiceIntegrationPtrOutput() ServiceIntegra
 }
 
 func (o ServiceIntegrationOutput) ToServiceIntegrationPtrOutputWithContext(ctx context.Context) ServiceIntegrationPtrOutput {
-	return o.ApplyT(func(v ServiceIntegration) *ServiceIntegration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceIntegration) *ServiceIntegration {
 		return &v
 	}).(ServiceIntegrationPtrOutput)
 }
 
-type ServiceIntegrationPtrOutput struct {
-	*pulumi.OutputState
-}
+type ServiceIntegrationPtrOutput struct{ *pulumi.OutputState }
 
 func (ServiceIntegrationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ServiceIntegration)(nil))
@@ -326,6 +422,16 @@ func (o ServiceIntegrationPtrOutput) ToServiceIntegrationPtrOutput() ServiceInte
 
 func (o ServiceIntegrationPtrOutput) ToServiceIntegrationPtrOutputWithContext(ctx context.Context) ServiceIntegrationPtrOutput {
 	return o
+}
+
+func (o ServiceIntegrationPtrOutput) Elem() ServiceIntegrationOutput {
+	return o.ApplyT(func(v *ServiceIntegration) ServiceIntegration {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceIntegration
+		return ret
+	}).(ServiceIntegrationOutput)
 }
 
 type ServiceIntegrationArrayOutput struct{ *pulumi.OutputState }
@@ -369,6 +475,10 @@ func (o ServiceIntegrationMapOutput) MapIndex(k pulumi.StringInput) ServiceInteg
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIntegrationInput)(nil)).Elem(), &ServiceIntegration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIntegrationPtrInput)(nil)).Elem(), &ServiceIntegration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIntegrationArrayInput)(nil)).Elem(), ServiceIntegrationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIntegrationMapInput)(nil)).Elem(), ServiceIntegrationMap{})
 	pulumi.RegisterOutputType(ServiceIntegrationOutput{})
 	pulumi.RegisterOutputType(ServiceIntegrationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceIntegrationArrayOutput{})

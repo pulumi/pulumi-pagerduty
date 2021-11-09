@@ -166,35 +166,35 @@ export interface UserContactMethodState {
     /**
      * The "address" to deliver to: `email`, `phone number`, etc., depending on the type.
      */
-    readonly address?: pulumi.Input<string>;
+    address?: pulumi.Input<string>;
     /**
      * If true, this phone has been blacklisted by PagerDuty and no messages will be sent to it.
      */
-    readonly blacklisted?: pulumi.Input<boolean>;
+    blacklisted?: pulumi.Input<boolean>;
     /**
      * The 1-to-3 digit country calling code. Required when using `phoneContactMethod` or `smsContactMethod`.
      */
-    readonly countryCode?: pulumi.Input<number>;
+    countryCode?: pulumi.Input<number>;
     /**
      * If true, this phone is capable of receiving SMS messages.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The label (e.g., "Work", "Mobile", etc.).
      */
-    readonly label?: pulumi.Input<string>;
+    label?: pulumi.Input<string>;
     /**
      * Send an abbreviated email message instead of the standard email output.
      */
-    readonly sendShortEmail?: pulumi.Input<boolean>;
+    sendShortEmail?: pulumi.Input<boolean>;
     /**
      * The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * The ID of the user.
      */
-    readonly userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string>;
 }
 
 /**
@@ -204,25 +204,25 @@ export interface UserContactMethodArgs {
     /**
      * The "address" to deliver to: `email`, `phone number`, etc., depending on the type.
      */
-    readonly address: pulumi.Input<string>;
+    address: pulumi.Input<string>;
     /**
      * The 1-to-3 digit country calling code. Required when using `phoneContactMethod` or `smsContactMethod`.
      */
-    readonly countryCode?: pulumi.Input<number>;
+    countryCode?: pulumi.Input<number>;
     /**
      * The label (e.g., "Work", "Mobile", etc.).
      */
-    readonly label: pulumi.Input<string>;
+    label: pulumi.Input<string>;
     /**
      * Send an abbreviated email message instead of the standard email output.
      */
-    readonly sendShortEmail?: pulumi.Input<boolean>;
+    sendShortEmail?: pulumi.Input<boolean>;
     /**
      * The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
      */
-    readonly type: pulumi.Input<string>;
+    type: pulumi.Input<string>;
     /**
      * The ID of the user.
      */
-    readonly userId: pulumi.Input<string>;
+    userId: pulumi.Input<string>;
 }

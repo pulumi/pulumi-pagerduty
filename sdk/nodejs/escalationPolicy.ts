@@ -132,44 +132,44 @@ export class EscalationPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EscalationPolicy resources.
  */
 export interface EscalationPolicyState {
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the escalation policy.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The number of times the escalation policy will repeat after reaching the end of its escalation.
      */
-    readonly numLoops?: pulumi.Input<number>;
+    numLoops?: pulumi.Input<number>;
     /**
      * An Escalation rule block. Escalation rules documented below.
      */
-    readonly rules?: pulumi.Input<pulumi.Input<inputs.EscalationPolicyRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.EscalationPolicyRule>[]>;
     /**
      * Teams associated with the policy. Account must have the `teams` ability to use this parameter.
      */
-    readonly teams?: pulumi.Input<string>;
+    teams?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a EscalationPolicy resource.
  */
 export interface EscalationPolicyArgs {
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the escalation policy.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The number of times the escalation policy will repeat after reaching the end of its escalation.
      */
-    readonly numLoops?: pulumi.Input<number>;
+    numLoops?: pulumi.Input<number>;
     /**
      * An Escalation rule block. Escalation rules documented below.
      */
-    readonly rules: pulumi.Input<pulumi.Input<inputs.EscalationPolicyRule>[]>;
+    rules: pulumi.Input<pulumi.Input<inputs.EscalationPolicyRule>[]>;
     /**
      * Teams associated with the policy. Account must have the `teams` ability to use this parameter.
      */
-    readonly teams?: pulumi.Input<string>;
+    teams?: pulumi.Input<string>;
 }

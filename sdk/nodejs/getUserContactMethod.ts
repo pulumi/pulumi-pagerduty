@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -55,15 +54,15 @@ export interface GetUserContactMethodArgs {
     /**
      * The label (e.g., "Work", "Mobile", "Ashley's iPhone", etc.).
      */
-    readonly label: string;
+    label: string;
     /**
      * The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
      */
-    readonly type: string;
+    type: string;
     /**
      * The ID of the user.
      */
-    readonly userId: string;
+    userId: string;
 }
 
 /**
@@ -107,4 +106,26 @@ export interface GetUserContactMethodResult {
      */
     readonly type: string;
     readonly userId: string;
+}
+
+export function getUserContactMethodOutput(args: GetUserContactMethodOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserContactMethodResult> {
+    return pulumi.output(args).apply(a => getUserContactMethod(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getUserContactMethod.
+ */
+export interface GetUserContactMethodOutputArgs {
+    /**
+     * The label (e.g., "Work", "Mobile", "Ashley's iPhone", etc.).
+     */
+    label: pulumi.Input<string>;
+    /**
+     * The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
+     */
+    type: pulumi.Input<string>;
+    /**
+     * The ID of the user.
+     */
+    userId: pulumi.Input<string>;
 }

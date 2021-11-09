@@ -13,6 +13,58 @@ import (
 
 // A [service](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1services/get) represents something you monitor (like a web service, email service, or database service). It is a container for related incidents that associates them with escalation policies.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
+// 			Email: pulumi.String("125.greenholt.earline@graham.name"),
+// 			Teams: pulumi.StringArray{
+// 				pulumi.Any(pagerduty_team.Example.Id),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = pagerduty.NewEscalationPolicy(ctx, "foo", &pagerduty.EscalationPolicyArgs{
+// 			NumLoops: pulumi.Int(2),
+// 			Rules: EscalationPolicyRuleArray{
+// 				&EscalationPolicyRuleArgs{
+// 					EscalationDelayInMinutes: pulumi.Int(10),
+// 					Targets: EscalationPolicyRuleTargetArray{
+// 						&EscalationPolicyRuleTargetArgs{
+// 							Type: pulumi.String("user"),
+// 							Id:   exampleUser.ID(),
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = pagerduty.NewService(ctx, "exampleService", &pagerduty.ServiceArgs{
+// 			AutoResolveTimeout:     pulumi.String("14400"),
+// 			AcknowledgementTimeout: pulumi.String("600"),
+// 			EscalationPolicy:       pulumi.Any(pagerduty_escalation_policy.Example.Id),
+// 			AlertCreation:          pulumi.String("create_alerts_and_incidents"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Services can be imported using the `id`, e.g.
@@ -274,7 +326,7 @@ type ServiceArrayInput interface {
 type ServiceArray []ServiceInput
 
 func (ServiceArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Service)(nil))
+	return reflect.TypeOf((*[]*Service)(nil)).Elem()
 }
 
 func (i ServiceArray) ToServiceArrayOutput() ServiceArrayOutput {
@@ -299,7 +351,7 @@ type ServiceMapInput interface {
 type ServiceMap map[string]ServiceInput
 
 func (ServiceMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Service)(nil))
+	return reflect.TypeOf((*map[string]*Service)(nil)).Elem()
 }
 
 func (i ServiceMap) ToServiceMapOutput() ServiceMapOutput {
@@ -310,9 +362,7 @@ func (i ServiceMap) ToServiceMapOutputWithContext(ctx context.Context) ServiceMa
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceMapOutput)
 }
 
-type ServiceOutput struct {
-	*pulumi.OutputState
-}
+type ServiceOutput struct{ *pulumi.OutputState }
 
 func (ServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Service)(nil))
@@ -331,14 +381,12 @@ func (o ServiceOutput) ToServicePtrOutput() ServicePtrOutput {
 }
 
 func (o ServiceOutput) ToServicePtrOutputWithContext(ctx context.Context) ServicePtrOutput {
-	return o.ApplyT(func(v Service) *Service {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Service) *Service {
 		return &v
 	}).(ServicePtrOutput)
 }
 
-type ServicePtrOutput struct {
-	*pulumi.OutputState
-}
+type ServicePtrOutput struct{ *pulumi.OutputState }
 
 func (ServicePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Service)(nil))
@@ -350,6 +398,16 @@ func (o ServicePtrOutput) ToServicePtrOutput() ServicePtrOutput {
 
 func (o ServicePtrOutput) ToServicePtrOutputWithContext(ctx context.Context) ServicePtrOutput {
 	return o
+}
+
+func (o ServicePtrOutput) Elem() ServiceOutput {
+	return o.ApplyT(func(v *Service) Service {
+		if v != nil {
+			return *v
+		}
+		var ret Service
+		return ret
+	}).(ServiceOutput)
 }
 
 type ServiceArrayOutput struct{ *pulumi.OutputState }
@@ -393,6 +451,10 @@ func (o ServiceMapOutput) MapIndex(k pulumi.StringInput) ServiceOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceInput)(nil)).Elem(), &Service{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServicePtrInput)(nil)).Elem(), &Service{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceArrayInput)(nil)).Elem(), ServiceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceMapInput)(nil)).Elem(), ServiceMap{})
 	pulumi.RegisterOutputType(ServiceOutput{})
 	pulumi.RegisterOutputType(ServicePtrOutput{})
 	pulumi.RegisterOutputType(ServiceArrayOutput{})

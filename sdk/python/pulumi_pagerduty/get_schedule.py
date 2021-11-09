@@ -12,6 +12,7 @@ __all__ = [
     'GetScheduleResult',
     'AwaitableGetScheduleResult',
     'get_schedule',
+    'get_schedule_output',
 ]
 
 @pulumi.output_type
@@ -91,3 +92,33 @@ def get_schedule(name: Optional[str] = None,
     return AwaitableGetScheduleResult(
         id=__ret__.id,
         name=__ret__.name)
+
+
+@_utilities.lift_output_func(get_schedule)
+def get_schedule_output(name: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduleResult]:
+    """
+    Use this data source to get information about a specific [schedule](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1schedules~1%7Bid%7D/get) that you can use for other PagerDuty resources.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_pagerduty as pagerduty
+
+    test = pagerduty.get_schedule(name="Daily Engineering Rotation")
+    foo = pagerduty.EscalationPolicy("foo",
+        num_loops=2,
+        rules=[pagerduty.EscalationPolicyRuleArgs(
+            escalation_delay_in_minutes=10,
+            targets=[pagerduty.EscalationPolicyRuleTargetArgs(
+                type="schedule",
+                id=test.id,
+            )],
+        )])
+    ```
+
+
+    :param str name: The name to use to find a schedule in the PagerDuty API.
+    """
+    ...

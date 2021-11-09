@@ -12,6 +12,7 @@ __all__ = [
     'GetRulesetResult',
     'AwaitableGetRulesetResult',
     'get_ruleset',
+    'get_ruleset_output',
 ]
 
 @pulumi.output_type
@@ -131,3 +132,60 @@ def get_ruleset(name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         routing_keys=__ret__.routing_keys)
+
+
+@_utilities.lift_output_func(get_ruleset)
+def get_ruleset_output(name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRulesetResult]:
+    """
+    Use this data source to get information about a specific [ruleset](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1rulesets/get) that you can use for managing and grouping [event rules](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1rulesets~1%7Bid%7D~1rules/get).
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_pagerduty as pagerduty
+
+    example = pagerduty.get_ruleset(name="My Ruleset")
+    foo = pagerduty.RulesetRule("foo",
+        ruleset=example.id,
+        position=0,
+        disabled=False,
+        conditions=pagerduty.RulesetRuleConditionsArgs(
+            operator="and",
+            subconditions=[
+                pagerduty.RulesetRuleConditionsSubconditionArgs(
+                    operator="contains",
+                    parameters=[pagerduty.RulesetRuleConditionsSubconditionParameterArgs(
+                        value="disk space",
+                        path="payload.summary",
+                    )],
+                ),
+                pagerduty.RulesetRuleConditionsSubconditionArgs(
+                    operator="contains",
+                    parameters=[pagerduty.RulesetRuleConditionsSubconditionParameterArgs(
+                        value="db",
+                        path="payload.source",
+                    )],
+                ),
+            ],
+        ),
+        actions=pagerduty.RulesetRuleActionsArgs(
+            routes=[pagerduty.RulesetRuleActionsRouteArgs(
+                value="P5DTL0K",
+            )],
+        ))
+    ```
+    ### Default Global Ruleset
+
+    ```python
+    import pulumi
+    import pulumi_pagerduty as pagerduty
+
+    default_global = pagerduty.get_ruleset(name="Default Global")
+    ```
+
+
+    :param str name: The name of the ruleset to find in the PagerDuty API.
+    """
+    ...

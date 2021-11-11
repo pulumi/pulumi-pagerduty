@@ -143,3 +143,18 @@ class Provider(pulumi.ProviderResource):
             __props__,
             opts)
 
+    @property
+    @pulumi.getter(name="serviceRegion")
+    def service_region(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "service_region")
+
+    @property
+    @pulumi.getter
+    def token(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "token")
+
+    @property
+    @pulumi.getter(name="userToken")
+    def user_token(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "user_token")
+

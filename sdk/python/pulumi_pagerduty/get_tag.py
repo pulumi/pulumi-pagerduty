@@ -12,6 +12,7 @@ __all__ = [
     'GetTagResult',
     'AwaitableGetTagResult',
     'get_tag',
+    'get_tag_output',
 ]
 
 @pulumi.output_type
@@ -70,3 +71,15 @@ def get_tag(label: Optional[str] = None,
     return AwaitableGetTagResult(
         id=__ret__.id,
         label=__ret__.label)
+
+
+@_utilities.lift_output_func(get_tag)
+def get_tag_output(label: Optional[pulumi.Input[str]] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTagResult]:
+    """
+    Use this data source to get information about a specific [tag](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIxNw-list-tags) that you can use to assign to users, teams, and escalation_policies.
+
+
+    :param str label: The label of the tag to find in the PagerDuty API.
+    """
+    ...

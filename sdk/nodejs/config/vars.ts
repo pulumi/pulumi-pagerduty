@@ -4,9 +4,38 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-let __config = new pulumi.Config("pagerduty");
+declare var exports: any;
+const __config = new pulumi.Config("pagerduty");
 
-export let serviceRegion: string | undefined = __config.get("serviceRegion");
-export let skipCredentialsValidation: boolean | undefined = __config.getObject<boolean>("skipCredentialsValidation") || false;
-export let token: string | undefined = __config.get("token");
-export let userToken: string | undefined = __config.get("userToken");
+export declare const serviceRegion: string | undefined;
+Object.defineProperty(exports, "serviceRegion", {
+    get() {
+        return __config.get("serviceRegion");
+    },
+    enumerable: true,
+});
+
+export declare const skipCredentialsValidation: boolean;
+Object.defineProperty(exports, "skipCredentialsValidation", {
+    get() {
+        return __config.getObject<boolean>("skipCredentialsValidation") ?? false;
+    },
+    enumerable: true,
+});
+
+export declare const token: string | undefined;
+Object.defineProperty(exports, "token", {
+    get() {
+        return __config.get("token");
+    },
+    enumerable: true,
+});
+
+export declare const userToken: string | undefined;
+Object.defineProperty(exports, "userToken", {
+    get() {
+        return __config.get("userToken");
+    },
+    enumerable: true,
+});
+

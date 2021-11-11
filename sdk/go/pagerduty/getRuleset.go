@@ -4,6 +4,9 @@
 package pagerduty
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := pagerduty.LookupRuleset(ctx, &pagerduty.LookupRulesetArgs{
+// 		example, err := pagerduty.LookupRuleset(ctx, &GetRulesetArgs{
 // 			Name: "My Ruleset",
 // 		}, nil)
 // 		if err != nil {
@@ -31,22 +34,22 @@ import (
 // 			Ruleset:  pulumi.String(example.Id),
 // 			Position: pulumi.Int(0),
 // 			Disabled: pulumi.Bool(false),
-// 			Conditions: &pagerduty.RulesetRuleConditionsArgs{
+// 			Conditions: &RulesetRuleConditionsArgs{
 // 				Operator: pulumi.String("and"),
-// 				Subconditions: pagerduty.RulesetRuleConditionsSubconditionArray{
-// 					&pagerduty.RulesetRuleConditionsSubconditionArgs{
+// 				Subconditions: RulesetRuleConditionsSubconditionArray{
+// 					&RulesetRuleConditionsSubconditionArgs{
 // 						Operator: pulumi.String("contains"),
-// 						Parameters: pagerduty.RulesetRuleConditionsSubconditionParameterArray{
-// 							&pagerduty.RulesetRuleConditionsSubconditionParameterArgs{
+// 						Parameters: RulesetRuleConditionsSubconditionParameterArray{
+// 							&RulesetRuleConditionsSubconditionParameterArgs{
 // 								Value: pulumi.String("disk space"),
 // 								Path:  pulumi.String("payload.summary"),
 // 							},
 // 						},
 // 					},
-// 					&pagerduty.RulesetRuleConditionsSubconditionArgs{
+// 					&RulesetRuleConditionsSubconditionArgs{
 // 						Operator: pulumi.String("contains"),
-// 						Parameters: pagerduty.RulesetRuleConditionsSubconditionParameterArray{
-// 							&pagerduty.RulesetRuleConditionsSubconditionParameterArgs{
+// 						Parameters: RulesetRuleConditionsSubconditionParameterArray{
+// 							&RulesetRuleConditionsSubconditionParameterArgs{
 // 								Value: pulumi.String("db"),
 // 								Path:  pulumi.String("payload.source"),
 // 							},
@@ -54,9 +57,9 @@ import (
 // 					},
 // 				},
 // 			},
-// 			Actions: &pagerduty.RulesetRuleActionsArgs{
-// 				Routes: pagerduty.RulesetRuleActionsRouteArray{
-// 					&pagerduty.RulesetRuleActionsRouteArgs{
+// 			Actions: &RulesetRuleActionsArgs{
+// 				Routes: RulesetRuleActionsRouteArray{
+// 					&RulesetRuleActionsRouteArgs{
 // 						Value: pulumi.String("P5DTL0K"),
 // 					},
 // 				},
@@ -81,7 +84,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := pagerduty.LookupRuleset(ctx, &pagerduty.LookupRulesetArgs{
+// 		_, err := pagerduty.LookupRuleset(ctx, &GetRulesetArgs{
 // 			Name: "Default Global",
 // 		}, nil)
 // 		if err != nil {
@@ -114,4 +117,57 @@ type LookupRulesetResult struct {
 	Name string `pulumi:"name"`
 	// Routing keys routed to this ruleset.
 	RoutingKeys []string `pulumi:"routingKeys"`
+}
+
+func LookupRulesetOutput(ctx *pulumi.Context, args LookupRulesetOutputArgs, opts ...pulumi.InvokeOption) LookupRulesetResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupRulesetResult, error) {
+			args := v.(LookupRulesetArgs)
+			r, err := LookupRuleset(ctx, &args, opts...)
+			return *r, err
+		}).(LookupRulesetResultOutput)
+}
+
+// A collection of arguments for invoking getRuleset.
+type LookupRulesetOutputArgs struct {
+	// The name of the ruleset to find in the PagerDuty API.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (LookupRulesetOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRulesetArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getRuleset.
+type LookupRulesetResultOutput struct{ *pulumi.OutputState }
+
+func (LookupRulesetResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRulesetResult)(nil)).Elem()
+}
+
+func (o LookupRulesetResultOutput) ToLookupRulesetResultOutput() LookupRulesetResultOutput {
+	return o
+}
+
+func (o LookupRulesetResultOutput) ToLookupRulesetResultOutputWithContext(ctx context.Context) LookupRulesetResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupRulesetResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRulesetResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the found ruleset.
+func (o LookupRulesetResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRulesetResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Routing keys routed to this ruleset.
+func (o LookupRulesetResultOutput) RoutingKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupRulesetResult) []string { return v.RoutingKeys }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupRulesetResultOutput{})
 }

@@ -32,7 +32,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		p1, err := pagerduty.GetPriority(ctx, &pagerduty.GetPriorityArgs{
+// 		p1, err := pagerduty.GetPriority(ctx, &GetPriorityArgs{
 // 			Name: "P1",
 // 		}, nil)
 // 		if err != nil {
@@ -44,8 +44,8 @@ import (
 // 			WorkspaceId:      pulumi.String("T02A123LV1A"),
 // 			ChannelId:        pulumi.String("C02CABCDAC9"),
 // 			NotificationType: pulumi.String("responder"),
-// 			Configs: pagerduty.SlackConnectionConfigArray{
-// 				&pagerduty.SlackConnectionConfigArgs{
+// 			Configs: SlackConnectionConfigArray{
+// 				&SlackConnectionConfigArgs{
 // 					Events: pulumi.StringArray{
 // 						pulumi.String("incident.triggered"),
 // 						pulumi.String("incident.acknowledged"),
@@ -282,7 +282,7 @@ type SlackConnectionArrayInput interface {
 type SlackConnectionArray []SlackConnectionInput
 
 func (SlackConnectionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SlackConnection)(nil))
+	return reflect.TypeOf((*[]*SlackConnection)(nil)).Elem()
 }
 
 func (i SlackConnectionArray) ToSlackConnectionArrayOutput() SlackConnectionArrayOutput {
@@ -307,7 +307,7 @@ type SlackConnectionMapInput interface {
 type SlackConnectionMap map[string]SlackConnectionInput
 
 func (SlackConnectionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SlackConnection)(nil))
+	return reflect.TypeOf((*map[string]*SlackConnection)(nil)).Elem()
 }
 
 func (i SlackConnectionMap) ToSlackConnectionMapOutput() SlackConnectionMapOutput {
@@ -318,9 +318,7 @@ func (i SlackConnectionMap) ToSlackConnectionMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(SlackConnectionMapOutput)
 }
 
-type SlackConnectionOutput struct {
-	*pulumi.OutputState
-}
+type SlackConnectionOutput struct{ *pulumi.OutputState }
 
 func (SlackConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SlackConnection)(nil))
@@ -339,14 +337,12 @@ func (o SlackConnectionOutput) ToSlackConnectionPtrOutput() SlackConnectionPtrOu
 }
 
 func (o SlackConnectionOutput) ToSlackConnectionPtrOutputWithContext(ctx context.Context) SlackConnectionPtrOutput {
-	return o.ApplyT(func(v SlackConnection) *SlackConnection {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SlackConnection) *SlackConnection {
 		return &v
 	}).(SlackConnectionPtrOutput)
 }
 
-type SlackConnectionPtrOutput struct {
-	*pulumi.OutputState
-}
+type SlackConnectionPtrOutput struct{ *pulumi.OutputState }
 
 func (SlackConnectionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SlackConnection)(nil))
@@ -358,6 +354,16 @@ func (o SlackConnectionPtrOutput) ToSlackConnectionPtrOutput() SlackConnectionPt
 
 func (o SlackConnectionPtrOutput) ToSlackConnectionPtrOutputWithContext(ctx context.Context) SlackConnectionPtrOutput {
 	return o
+}
+
+func (o SlackConnectionPtrOutput) Elem() SlackConnectionOutput {
+	return o.ApplyT(func(v *SlackConnection) SlackConnection {
+		if v != nil {
+			return *v
+		}
+		var ret SlackConnection
+		return ret
+	}).(SlackConnectionOutput)
 }
 
 type SlackConnectionArrayOutput struct{ *pulumi.OutputState }
@@ -401,6 +407,10 @@ func (o SlackConnectionMapOutput) MapIndex(k pulumi.StringInput) SlackConnection
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SlackConnectionInput)(nil)).Elem(), &SlackConnection{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SlackConnectionPtrInput)(nil)).Elem(), &SlackConnection{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SlackConnectionArrayInput)(nil)).Elem(), SlackConnectionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SlackConnectionMapInput)(nil)).Elem(), SlackConnectionMap{})
 	pulumi.RegisterOutputType(SlackConnectionOutput{})
 	pulumi.RegisterOutputType(SlackConnectionPtrOutput{})
 	pulumi.RegisterOutputType(SlackConnectionArrayOutput{})

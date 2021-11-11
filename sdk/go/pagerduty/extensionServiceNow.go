@@ -25,7 +25,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		webhook, err := pagerduty.GetExtensionSchema(ctx, &pagerduty.GetExtensionSchemaArgs{
+// 		webhook, err := pagerduty.GetExtensionSchema(ctx, &GetExtensionSchemaArgs{
 // 			Name: "Generic V2 Webhook",
 // 		}, nil)
 // 		if err != nil {
@@ -39,11 +39,11 @@ import (
 // 		}
 // 		exampleEscalationPolicy, err := pagerduty.NewEscalationPolicy(ctx, "exampleEscalationPolicy", &pagerduty.EscalationPolicyArgs{
 // 			NumLoops: pulumi.Int(2),
-// 			Rules: pagerduty.EscalationPolicyRuleArray{
-// 				&pagerduty.EscalationPolicyRuleArgs{
+// 			Rules: EscalationPolicyRuleArray{
+// 				&EscalationPolicyRuleArgs{
 // 					EscalationDelayInMinutes: pulumi.Int(10),
-// 					Targets: pagerduty.EscalationPolicyRuleTargetArray{
-// 						&pagerduty.EscalationPolicyRuleTargetArgs{
+// 					Targets: EscalationPolicyRuleTargetArray{
+// 						&EscalationPolicyRuleTargetArgs{
 // 							Type: pulumi.String("user"),
 // 							Id:   exampleUser.ID(),
 // 						},
@@ -345,7 +345,7 @@ type ExtensionServiceNowArrayInput interface {
 type ExtensionServiceNowArray []ExtensionServiceNowInput
 
 func (ExtensionServiceNowArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ExtensionServiceNow)(nil))
+	return reflect.TypeOf((*[]*ExtensionServiceNow)(nil)).Elem()
 }
 
 func (i ExtensionServiceNowArray) ToExtensionServiceNowArrayOutput() ExtensionServiceNowArrayOutput {
@@ -370,7 +370,7 @@ type ExtensionServiceNowMapInput interface {
 type ExtensionServiceNowMap map[string]ExtensionServiceNowInput
 
 func (ExtensionServiceNowMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ExtensionServiceNow)(nil))
+	return reflect.TypeOf((*map[string]*ExtensionServiceNow)(nil)).Elem()
 }
 
 func (i ExtensionServiceNowMap) ToExtensionServiceNowMapOutput() ExtensionServiceNowMapOutput {
@@ -381,9 +381,7 @@ func (i ExtensionServiceNowMap) ToExtensionServiceNowMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionServiceNowMapOutput)
 }
 
-type ExtensionServiceNowOutput struct {
-	*pulumi.OutputState
-}
+type ExtensionServiceNowOutput struct{ *pulumi.OutputState }
 
 func (ExtensionServiceNowOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ExtensionServiceNow)(nil))
@@ -402,14 +400,12 @@ func (o ExtensionServiceNowOutput) ToExtensionServiceNowPtrOutput() ExtensionSer
 }
 
 func (o ExtensionServiceNowOutput) ToExtensionServiceNowPtrOutputWithContext(ctx context.Context) ExtensionServiceNowPtrOutput {
-	return o.ApplyT(func(v ExtensionServiceNow) *ExtensionServiceNow {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExtensionServiceNow) *ExtensionServiceNow {
 		return &v
 	}).(ExtensionServiceNowPtrOutput)
 }
 
-type ExtensionServiceNowPtrOutput struct {
-	*pulumi.OutputState
-}
+type ExtensionServiceNowPtrOutput struct{ *pulumi.OutputState }
 
 func (ExtensionServiceNowPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ExtensionServiceNow)(nil))
@@ -421,6 +417,16 @@ func (o ExtensionServiceNowPtrOutput) ToExtensionServiceNowPtrOutput() Extension
 
 func (o ExtensionServiceNowPtrOutput) ToExtensionServiceNowPtrOutputWithContext(ctx context.Context) ExtensionServiceNowPtrOutput {
 	return o
+}
+
+func (o ExtensionServiceNowPtrOutput) Elem() ExtensionServiceNowOutput {
+	return o.ApplyT(func(v *ExtensionServiceNow) ExtensionServiceNow {
+		if v != nil {
+			return *v
+		}
+		var ret ExtensionServiceNow
+		return ret
+	}).(ExtensionServiceNowOutput)
 }
 
 type ExtensionServiceNowArrayOutput struct{ *pulumi.OutputState }
@@ -464,6 +470,10 @@ func (o ExtensionServiceNowMapOutput) MapIndex(k pulumi.StringInput) ExtensionSe
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionServiceNowInput)(nil)).Elem(), &ExtensionServiceNow{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionServiceNowPtrInput)(nil)).Elem(), &ExtensionServiceNow{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionServiceNowArrayInput)(nil)).Elem(), ExtensionServiceNowArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionServiceNowMapInput)(nil)).Elem(), ExtensionServiceNowMap{})
 	pulumi.RegisterOutputType(ExtensionServiceNowOutput{})
 	pulumi.RegisterOutputType(ExtensionServiceNowPtrOutput{})
 	pulumi.RegisterOutputType(ExtensionServiceNowArrayOutput{})

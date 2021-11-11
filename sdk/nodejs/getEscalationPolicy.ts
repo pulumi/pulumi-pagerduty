@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -44,7 +43,7 @@ export interface GetEscalationPolicyArgs {
     /**
      * The name to use to find an escalation policy in the PagerDuty API.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**
@@ -59,4 +58,18 @@ export interface GetEscalationPolicyResult {
      * The short name of the found escalation policy.
      */
     readonly name: string;
+}
+
+export function getEscalationPolicyOutput(args: GetEscalationPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEscalationPolicyResult> {
+    return pulumi.output(args).apply(a => getEscalationPolicy(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getEscalationPolicy.
+ */
+export interface GetEscalationPolicyOutputArgs {
+    /**
+     * The name to use to find an escalation policy in the PagerDuty API.
+     */
+    name: pulumi.Input<string>;
 }

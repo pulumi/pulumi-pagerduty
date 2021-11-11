@@ -12,6 +12,7 @@ __all__ = [
     'GetPriorityResult',
     'AwaitableGetPriorityResult',
     'get_priority',
+    'get_priority_output',
 ]
 
 @pulumi.output_type
@@ -127,3 +128,56 @@ def get_priority(name: Optional[str] = None,
         description=__ret__.description,
         id=__ret__.id,
         name=__ret__.name)
+
+
+@_utilities.lift_output_func(get_priority)
+def get_priority_output(name: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPriorityResult]:
+    """
+    Use this data source to get information about a specific [priority](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1priorities/get) that you can use for other PagerDuty resources. A priority is a label representing the importance and impact of an incident. This feature is only available on Standard and Enterprise plans.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_pagerduty as pagerduty
+
+    p1 = pagerduty.get_priority(name="P1")
+    foo_ruleset = pagerduty.Ruleset("fooRuleset")
+    foo_ruleset_rule = pagerduty.RulesetRule("fooRulesetRule",
+        ruleset=foo_ruleset.id,
+        position=0,
+        disabled=False,
+        conditions=pagerduty.RulesetRuleConditionsArgs(
+            operator="and",
+            subconditions=[
+                pagerduty.RulesetRuleConditionsSubconditionArgs(
+                    operator="contains",
+                    parameters=[pagerduty.RulesetRuleConditionsSubconditionParameterArgs(
+                        value="disk space",
+                        path="payload.summary",
+                    )],
+                ),
+                pagerduty.RulesetRuleConditionsSubconditionArgs(
+                    operator="contains",
+                    parameters=[pagerduty.RulesetRuleConditionsSubconditionParameterArgs(
+                        value="db",
+                        path="payload.source",
+                    )],
+                ),
+            ],
+        ),
+        actions=pagerduty.RulesetRuleActionsArgs(
+            routes=[pagerduty.RulesetRuleActionsRouteArgs(
+                value="P5DTL0K",
+            )],
+            priorities=[pagerduty.RulesetRuleActionsPriorityArgs(
+                value=p1.id,
+            )],
+        ))
+    ```
+
+
+    :param str name: The name of the priority to find in the PagerDuty API.
+    """
+    ...

@@ -217,7 +217,7 @@ type BusinessServiceArrayInput interface {
 type BusinessServiceArray []BusinessServiceInput
 
 func (BusinessServiceArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*BusinessService)(nil))
+	return reflect.TypeOf((*[]*BusinessService)(nil)).Elem()
 }
 
 func (i BusinessServiceArray) ToBusinessServiceArrayOutput() BusinessServiceArrayOutput {
@@ -242,7 +242,7 @@ type BusinessServiceMapInput interface {
 type BusinessServiceMap map[string]BusinessServiceInput
 
 func (BusinessServiceMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*BusinessService)(nil))
+	return reflect.TypeOf((*map[string]*BusinessService)(nil)).Elem()
 }
 
 func (i BusinessServiceMap) ToBusinessServiceMapOutput() BusinessServiceMapOutput {
@@ -253,9 +253,7 @@ func (i BusinessServiceMap) ToBusinessServiceMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(BusinessServiceMapOutput)
 }
 
-type BusinessServiceOutput struct {
-	*pulumi.OutputState
-}
+type BusinessServiceOutput struct{ *pulumi.OutputState }
 
 func (BusinessServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BusinessService)(nil))
@@ -274,14 +272,12 @@ func (o BusinessServiceOutput) ToBusinessServicePtrOutput() BusinessServicePtrOu
 }
 
 func (o BusinessServiceOutput) ToBusinessServicePtrOutputWithContext(ctx context.Context) BusinessServicePtrOutput {
-	return o.ApplyT(func(v BusinessService) *BusinessService {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BusinessService) *BusinessService {
 		return &v
 	}).(BusinessServicePtrOutput)
 }
 
-type BusinessServicePtrOutput struct {
-	*pulumi.OutputState
-}
+type BusinessServicePtrOutput struct{ *pulumi.OutputState }
 
 func (BusinessServicePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BusinessService)(nil))
@@ -293,6 +289,16 @@ func (o BusinessServicePtrOutput) ToBusinessServicePtrOutput() BusinessServicePt
 
 func (o BusinessServicePtrOutput) ToBusinessServicePtrOutputWithContext(ctx context.Context) BusinessServicePtrOutput {
 	return o
+}
+
+func (o BusinessServicePtrOutput) Elem() BusinessServiceOutput {
+	return o.ApplyT(func(v *BusinessService) BusinessService {
+		if v != nil {
+			return *v
+		}
+		var ret BusinessService
+		return ret
+	}).(BusinessServiceOutput)
 }
 
 type BusinessServiceArrayOutput struct{ *pulumi.OutputState }
@@ -336,6 +342,10 @@ func (o BusinessServiceMapOutput) MapIndex(k pulumi.StringInput) BusinessService
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BusinessServiceInput)(nil)).Elem(), &BusinessService{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BusinessServicePtrInput)(nil)).Elem(), &BusinessService{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BusinessServiceArrayInput)(nil)).Elem(), BusinessServiceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BusinessServiceMapInput)(nil)).Elem(), BusinessServiceMap{})
 	pulumi.RegisterOutputType(BusinessServiceOutput{})
 	pulumi.RegisterOutputType(BusinessServicePtrOutput{})
 	pulumi.RegisterOutputType(BusinessServiceArrayOutput{})

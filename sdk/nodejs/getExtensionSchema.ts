@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -63,7 +62,7 @@ export interface GetExtensionSchemaArgs {
     /**
      * The extension name to use to find an extension vendor in the PagerDuty API.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**
@@ -82,4 +81,18 @@ export interface GetExtensionSchemaResult {
      * The generic service type for this extension vendor.
      */
     readonly type: string;
+}
+
+export function getExtensionSchemaOutput(args: GetExtensionSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionSchemaResult> {
+    return pulumi.output(args).apply(a => getExtensionSchema(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getExtensionSchema.
+ */
+export interface GetExtensionSchemaOutputArgs {
+    /**
+     * The extension name to use to find an extension vendor in the PagerDuty API.
+     */
+    name: pulumi.Input<string>;
 }

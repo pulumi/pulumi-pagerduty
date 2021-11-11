@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -49,7 +48,7 @@ export interface GetUserArgs {
     /**
      * The email to use to find a user in the PagerDuty API.
      */
-    readonly email: string;
+    email: string;
 }
 
 /**
@@ -65,4 +64,18 @@ export interface GetUserResult {
      * The short name of the found user.
      */
     readonly name: string;
+}
+
+export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
+    return pulumi.output(args).apply(a => getUser(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getUser.
+ */
+export interface GetUserOutputArgs {
+    /**
+     * The email to use to find a user in the PagerDuty API.
+     */
+    email: pulumi.Input<string>;
 }

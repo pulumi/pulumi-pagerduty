@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -28,7 +27,7 @@ export interface GetTagArgs {
     /**
      * The label of the tag to find in the PagerDuty API.
      */
-    readonly label: string;
+    label: string;
 }
 
 /**
@@ -40,4 +39,18 @@ export interface GetTagResult {
      */
     readonly id: string;
     readonly label: string;
+}
+
+export function getTagOutput(args: GetTagOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagResult> {
+    return pulumi.output(args).apply(a => getTag(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getTag.
+ */
+export interface GetTagOutputArgs {
+    /**
+     * The label of the tag to find in the PagerDuty API.
+     */
+    label: pulumi.Input<string>;
 }

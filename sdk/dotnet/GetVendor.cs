@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Pagerduty
 {
@@ -78,6 +79,74 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public static Task<GetVendorResult> InvokeAsync(GetVendorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVendorResult>("pagerduty:index/getVendor:getVendor", args ?? new GetVendorArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get information about a specific [vendor](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1vendors/get) that you can use for a service integration (e.g Amazon Cloudwatch, Splunk, Datadog).
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var datadog = Output.Create(Pagerduty.GetVendor.InvokeAsync(new Pagerduty.GetVendorArgs
+        ///         {
+        ///             Name = "Datadog",
+        ///         }));
+        ///         var exampleUser = new Pagerduty.User("exampleUser", new Pagerduty.UserArgs
+        ///         {
+        ///             Email = "125.greenholt.earline@graham.name",
+        ///             Teams = 
+        ///             {
+        ///                 pagerduty_team.Example.Id,
+        ///             },
+        ///         });
+        ///         var foo = new Pagerduty.EscalationPolicy("foo", new Pagerduty.EscalationPolicyArgs
+        ///         {
+        ///             NumLoops = 2,
+        ///             Rules = 
+        ///             {
+        ///                 new Pagerduty.Inputs.EscalationPolicyRuleArgs
+        ///                 {
+        ///                     EscalationDelayInMinutes = 10,
+        ///                     Targets = 
+        ///                     {
+        ///                         new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
+        ///                         {
+        ///                             Type = "user",
+        ///                             Id = exampleUser.Id,
+        ///                         },
+        ///                     },
+        ///                 },
+        ///             },
+        ///         });
+        ///         var exampleService = new Pagerduty.Service("exampleService", new Pagerduty.ServiceArgs
+        ///         {
+        ///             AutoResolveTimeout = "14400",
+        ///             AcknowledgementTimeout = "600",
+        ///             EscalationPolicy = pagerduty_escalation_policy.Example.Id,
+        ///         });
+        ///         var exampleServiceIntegration = new Pagerduty.ServiceIntegration("exampleServiceIntegration", new Pagerduty.ServiceIntegrationArgs
+        ///         {
+        ///             Vendor = datadog.Apply(datadog =&gt; datadog.Id),
+        ///             Service = exampleService.Id,
+        ///             Type = "generic_events_api_inbound_integration",
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetVendorResult> Invoke(GetVendorInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVendorResult>("pagerduty:index/getVendor:getVendor", args ?? new GetVendorInvokeArgs(), options.WithVersion());
     }
 
 
@@ -90,6 +159,19 @@ namespace Pulumi.Pagerduty
         public string Name { get; set; } = null!;
 
         public GetVendorArgs()
+        {
+        }
+    }
+
+    public sealed class GetVendorInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The vendor name to use to find a vendor in the PagerDuty API.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public GetVendorInvokeArgs()
         {
         }
     }

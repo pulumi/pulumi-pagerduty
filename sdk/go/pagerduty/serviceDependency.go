@@ -26,15 +26,15 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := pagerduty.NewServiceDependency(ctx, "foo", &pagerduty.ServiceDependencyArgs{
-// 			Dependency: &pagerduty.ServiceDependencyDependencyArgs{
-// 				DependentServices: pagerduty.ServiceDependencyDependencyDependentServiceArray{
-// 					&pagerduty.ServiceDependencyDependencyDependentServiceArgs{
+// 			Dependency: &ServiceDependencyDependencyArgs{
+// 				DependentServices: ServiceDependencyDependencyDependentServiceArray{
+// 					&ServiceDependencyDependencyDependentServiceArgs{
 // 						Id:   pulumi.Any(pagerduty_business_service.Foo.Id),
 // 						Type: pulumi.String("business_service"),
 // 					},
 // 				},
-// 				SupportingServices: pagerduty.ServiceDependencyDependencySupportingServiceArray{
-// 					&pagerduty.ServiceDependencyDependencySupportingServiceArgs{
+// 				SupportingServices: ServiceDependencyDependencySupportingServiceArray{
+// 					&ServiceDependencyDependencySupportingServiceArgs{
 // 						Id:   pulumi.Any(pagerduty_service.Foo.Id),
 // 						Type: pulumi.String("service"),
 // 					},
@@ -45,15 +45,15 @@ import (
 // 			return err
 // 		}
 // 		_, err = pagerduty.NewServiceDependency(ctx, "bar", &pagerduty.ServiceDependencyArgs{
-// 			Dependency: &pagerduty.ServiceDependencyDependencyArgs{
-// 				DependentServices: pagerduty.ServiceDependencyDependencyDependentServiceArray{
-// 					&pagerduty.ServiceDependencyDependencyDependentServiceArgs{
+// 			Dependency: &ServiceDependencyDependencyArgs{
+// 				DependentServices: ServiceDependencyDependencyDependentServiceArray{
+// 					&ServiceDependencyDependencyDependentServiceArgs{
 // 						Id:   pulumi.Any(pagerduty_business_service.Foo.Id),
 // 						Type: pulumi.String("business_service"),
 // 					},
 // 				},
-// 				SupportingServices: pagerduty.ServiceDependencyDependencySupportingServiceArray{
-// 					&pagerduty.ServiceDependencyDependencySupportingServiceArgs{
+// 				SupportingServices: ServiceDependencyDependencySupportingServiceArray{
+// 					&ServiceDependencyDependencySupportingServiceArgs{
 // 						Id:   pulumi.Any(pagerduty_service.Two.Id),
 // 						Type: pulumi.String("service"),
 // 					},
@@ -204,7 +204,7 @@ type ServiceDependencyArrayInput interface {
 type ServiceDependencyArray []ServiceDependencyInput
 
 func (ServiceDependencyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ServiceDependency)(nil))
+	return reflect.TypeOf((*[]*ServiceDependency)(nil)).Elem()
 }
 
 func (i ServiceDependencyArray) ToServiceDependencyArrayOutput() ServiceDependencyArrayOutput {
@@ -229,7 +229,7 @@ type ServiceDependencyMapInput interface {
 type ServiceDependencyMap map[string]ServiceDependencyInput
 
 func (ServiceDependencyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ServiceDependency)(nil))
+	return reflect.TypeOf((*map[string]*ServiceDependency)(nil)).Elem()
 }
 
 func (i ServiceDependencyMap) ToServiceDependencyMapOutput() ServiceDependencyMapOutput {
@@ -240,9 +240,7 @@ func (i ServiceDependencyMap) ToServiceDependencyMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDependencyMapOutput)
 }
 
-type ServiceDependencyOutput struct {
-	*pulumi.OutputState
-}
+type ServiceDependencyOutput struct{ *pulumi.OutputState }
 
 func (ServiceDependencyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceDependency)(nil))
@@ -261,14 +259,12 @@ func (o ServiceDependencyOutput) ToServiceDependencyPtrOutput() ServiceDependenc
 }
 
 func (o ServiceDependencyOutput) ToServiceDependencyPtrOutputWithContext(ctx context.Context) ServiceDependencyPtrOutput {
-	return o.ApplyT(func(v ServiceDependency) *ServiceDependency {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceDependency) *ServiceDependency {
 		return &v
 	}).(ServiceDependencyPtrOutput)
 }
 
-type ServiceDependencyPtrOutput struct {
-	*pulumi.OutputState
-}
+type ServiceDependencyPtrOutput struct{ *pulumi.OutputState }
 
 func (ServiceDependencyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ServiceDependency)(nil))
@@ -280,6 +276,16 @@ func (o ServiceDependencyPtrOutput) ToServiceDependencyPtrOutput() ServiceDepend
 
 func (o ServiceDependencyPtrOutput) ToServiceDependencyPtrOutputWithContext(ctx context.Context) ServiceDependencyPtrOutput {
 	return o
+}
+
+func (o ServiceDependencyPtrOutput) Elem() ServiceDependencyOutput {
+	return o.ApplyT(func(v *ServiceDependency) ServiceDependency {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceDependency
+		return ret
+	}).(ServiceDependencyOutput)
 }
 
 type ServiceDependencyArrayOutput struct{ *pulumi.OutputState }
@@ -323,6 +329,10 @@ func (o ServiceDependencyMapOutput) MapIndex(k pulumi.StringInput) ServiceDepend
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDependencyInput)(nil)).Elem(), &ServiceDependency{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDependencyPtrInput)(nil)).Elem(), &ServiceDependency{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDependencyArrayInput)(nil)).Elem(), ServiceDependencyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDependencyMapInput)(nil)).Elem(), ServiceDependencyMap{})
 	pulumi.RegisterOutputType(ServiceDependencyOutput{})
 	pulumi.RegisterOutputType(ServiceDependencyPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDependencyArrayOutput{})

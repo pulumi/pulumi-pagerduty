@@ -175,7 +175,7 @@ type TagAssignmentArrayInput interface {
 type TagAssignmentArray []TagAssignmentInput
 
 func (TagAssignmentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*TagAssignment)(nil))
+	return reflect.TypeOf((*[]*TagAssignment)(nil)).Elem()
 }
 
 func (i TagAssignmentArray) ToTagAssignmentArrayOutput() TagAssignmentArrayOutput {
@@ -200,7 +200,7 @@ type TagAssignmentMapInput interface {
 type TagAssignmentMap map[string]TagAssignmentInput
 
 func (TagAssignmentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*TagAssignment)(nil))
+	return reflect.TypeOf((*map[string]*TagAssignment)(nil)).Elem()
 }
 
 func (i TagAssignmentMap) ToTagAssignmentMapOutput() TagAssignmentMapOutput {
@@ -211,9 +211,7 @@ func (i TagAssignmentMap) ToTagAssignmentMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(TagAssignmentMapOutput)
 }
 
-type TagAssignmentOutput struct {
-	*pulumi.OutputState
-}
+type TagAssignmentOutput struct{ *pulumi.OutputState }
 
 func (TagAssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TagAssignment)(nil))
@@ -232,14 +230,12 @@ func (o TagAssignmentOutput) ToTagAssignmentPtrOutput() TagAssignmentPtrOutput {
 }
 
 func (o TagAssignmentOutput) ToTagAssignmentPtrOutputWithContext(ctx context.Context) TagAssignmentPtrOutput {
-	return o.ApplyT(func(v TagAssignment) *TagAssignment {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TagAssignment) *TagAssignment {
 		return &v
 	}).(TagAssignmentPtrOutput)
 }
 
-type TagAssignmentPtrOutput struct {
-	*pulumi.OutputState
-}
+type TagAssignmentPtrOutput struct{ *pulumi.OutputState }
 
 func (TagAssignmentPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**TagAssignment)(nil))
@@ -251,6 +247,16 @@ func (o TagAssignmentPtrOutput) ToTagAssignmentPtrOutput() TagAssignmentPtrOutpu
 
 func (o TagAssignmentPtrOutput) ToTagAssignmentPtrOutputWithContext(ctx context.Context) TagAssignmentPtrOutput {
 	return o
+}
+
+func (o TagAssignmentPtrOutput) Elem() TagAssignmentOutput {
+	return o.ApplyT(func(v *TagAssignment) TagAssignment {
+		if v != nil {
+			return *v
+		}
+		var ret TagAssignment
+		return ret
+	}).(TagAssignmentOutput)
 }
 
 type TagAssignmentArrayOutput struct{ *pulumi.OutputState }
@@ -294,6 +300,10 @@ func (o TagAssignmentMapOutput) MapIndex(k pulumi.StringInput) TagAssignmentOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TagAssignmentInput)(nil)).Elem(), &TagAssignment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagAssignmentPtrInput)(nil)).Elem(), &TagAssignment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagAssignmentArrayInput)(nil)).Elem(), TagAssignmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagAssignmentMapInput)(nil)).Elem(), TagAssignmentMap{})
 	pulumi.RegisterOutputType(TagAssignmentOutput{})
 	pulumi.RegisterOutputType(TagAssignmentPtrOutput{})
 	pulumi.RegisterOutputType(TagAssignmentArrayOutput{})

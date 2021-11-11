@@ -13,6 +13,61 @@ import (
 
 // A [contact method](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1users~1%7Bid%7D~1contact_methods/get) is a contact method for a PagerDuty user (email, phone or SMS).
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := pagerduty.NewUser(ctx, "example", &pagerduty.UserArgs{
+// 			Email: pulumi.String("125.greenholt.earline@graham.name"),
+// 			Teams: pulumi.StringArray{
+// 				pulumi.Any(pagerduty_team.Example.Id),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = pagerduty.NewUserContactMethod(ctx, "email", &pagerduty.UserContactMethodArgs{
+// 			UserId:  example.ID(),
+// 			Type:    pulumi.String("email_contact_method"),
+// 			Address: pulumi.String("foo@bar.com"),
+// 			Label:   pulumi.String("Work"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = pagerduty.NewUserContactMethod(ctx, "phone", &pagerduty.UserContactMethodArgs{
+// 			UserId:      example.ID(),
+// 			Type:        pulumi.String("phone_contact_method"),
+// 			CountryCode: pulumi.Int(1),
+// 			Address:     pulumi.String("2025550199"),
+// 			Label:       pulumi.String("Work"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = pagerduty.NewUserContactMethod(ctx, "sms", &pagerduty.UserContactMethodArgs{
+// 			UserId:      example.ID(),
+// 			Type:        pulumi.String("sms_contact_method"),
+// 			CountryCode: pulumi.Int(1),
+// 			Address:     pulumi.String("2025550199"),
+// 			Label:       pulumi.String("Work"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Contact methods can be imported using the `user_id` and the `id`, e.g.
@@ -220,7 +275,7 @@ type UserContactMethodArrayInput interface {
 type UserContactMethodArray []UserContactMethodInput
 
 func (UserContactMethodArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*UserContactMethod)(nil))
+	return reflect.TypeOf((*[]*UserContactMethod)(nil)).Elem()
 }
 
 func (i UserContactMethodArray) ToUserContactMethodArrayOutput() UserContactMethodArrayOutput {
@@ -245,7 +300,7 @@ type UserContactMethodMapInput interface {
 type UserContactMethodMap map[string]UserContactMethodInput
 
 func (UserContactMethodMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*UserContactMethod)(nil))
+	return reflect.TypeOf((*map[string]*UserContactMethod)(nil)).Elem()
 }
 
 func (i UserContactMethodMap) ToUserContactMethodMapOutput() UserContactMethodMapOutput {
@@ -256,9 +311,7 @@ func (i UserContactMethodMap) ToUserContactMethodMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(UserContactMethodMapOutput)
 }
 
-type UserContactMethodOutput struct {
-	*pulumi.OutputState
-}
+type UserContactMethodOutput struct{ *pulumi.OutputState }
 
 func (UserContactMethodOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*UserContactMethod)(nil))
@@ -277,14 +330,12 @@ func (o UserContactMethodOutput) ToUserContactMethodPtrOutput() UserContactMetho
 }
 
 func (o UserContactMethodOutput) ToUserContactMethodPtrOutputWithContext(ctx context.Context) UserContactMethodPtrOutput {
-	return o.ApplyT(func(v UserContactMethod) *UserContactMethod {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserContactMethod) *UserContactMethod {
 		return &v
 	}).(UserContactMethodPtrOutput)
 }
 
-type UserContactMethodPtrOutput struct {
-	*pulumi.OutputState
-}
+type UserContactMethodPtrOutput struct{ *pulumi.OutputState }
 
 func (UserContactMethodPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**UserContactMethod)(nil))
@@ -296,6 +347,16 @@ func (o UserContactMethodPtrOutput) ToUserContactMethodPtrOutput() UserContactMe
 
 func (o UserContactMethodPtrOutput) ToUserContactMethodPtrOutputWithContext(ctx context.Context) UserContactMethodPtrOutput {
 	return o
+}
+
+func (o UserContactMethodPtrOutput) Elem() UserContactMethodOutput {
+	return o.ApplyT(func(v *UserContactMethod) UserContactMethod {
+		if v != nil {
+			return *v
+		}
+		var ret UserContactMethod
+		return ret
+	}).(UserContactMethodOutput)
 }
 
 type UserContactMethodArrayOutput struct{ *pulumi.OutputState }
@@ -339,6 +400,10 @@ func (o UserContactMethodMapOutput) MapIndex(k pulumi.StringInput) UserContactMe
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*UserContactMethodInput)(nil)).Elem(), &UserContactMethod{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserContactMethodPtrInput)(nil)).Elem(), &UserContactMethod{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserContactMethodArrayInput)(nil)).Elem(), UserContactMethodArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserContactMethodMapInput)(nil)).Elem(), UserContactMethodMap{})
 	pulumi.RegisterOutputType(UserContactMethodOutput{})
 	pulumi.RegisterOutputType(UserContactMethodPtrOutput{})
 	pulumi.RegisterOutputType(UserContactMethodArrayOutput{})

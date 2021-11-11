@@ -4,6 +4,9 @@
 package pagerduty
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testEscalationPolicy, err := pagerduty.LookupEscalationPolicy(ctx, &pagerduty.LookupEscalationPolicyArgs{
+// 		testEscalationPolicy, err := pagerduty.LookupEscalationPolicy(ctx, &GetEscalationPolicyArgs{
 // 			Name: "Engineering Escalation Policy",
 // 		}, nil)
 // 		if err != nil {
@@ -60,4 +63,52 @@ type LookupEscalationPolicyResult struct {
 	Id string `pulumi:"id"`
 	// The short name of the found escalation policy.
 	Name string `pulumi:"name"`
+}
+
+func LookupEscalationPolicyOutput(ctx *pulumi.Context, args LookupEscalationPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupEscalationPolicyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupEscalationPolicyResult, error) {
+			args := v.(LookupEscalationPolicyArgs)
+			r, err := LookupEscalationPolicy(ctx, &args, opts...)
+			return *r, err
+		}).(LookupEscalationPolicyResultOutput)
+}
+
+// A collection of arguments for invoking getEscalationPolicy.
+type LookupEscalationPolicyOutputArgs struct {
+	// The name to use to find an escalation policy in the PagerDuty API.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (LookupEscalationPolicyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupEscalationPolicyArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getEscalationPolicy.
+type LookupEscalationPolicyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupEscalationPolicyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupEscalationPolicyResult)(nil)).Elem()
+}
+
+func (o LookupEscalationPolicyResultOutput) ToLookupEscalationPolicyResultOutput() LookupEscalationPolicyResultOutput {
+	return o
+}
+
+func (o LookupEscalationPolicyResultOutput) ToLookupEscalationPolicyResultOutputWithContext(ctx context.Context) LookupEscalationPolicyResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupEscalationPolicyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEscalationPolicyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The short name of the found escalation policy.
+func (o LookupEscalationPolicyResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEscalationPolicyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupEscalationPolicyResultOutput{})
 }

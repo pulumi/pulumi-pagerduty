@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Pagerduty
 {
@@ -106,6 +107,102 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public static Task<GetRulesetResult> InvokeAsync(GetRulesetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRulesetResult>("pagerduty:index/getRuleset:getRuleset", args ?? new GetRulesetArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get information about a specific [ruleset](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1rulesets/get) that you can use for managing and grouping [event rules](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1rulesets~1%7Bid%7D~1rules/get).
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Pagerduty.GetRuleset.InvokeAsync(new Pagerduty.GetRulesetArgs
+        ///         {
+        ///             Name = "My Ruleset",
+        ///         }));
+        ///         var foo = new Pagerduty.RulesetRule("foo", new Pagerduty.RulesetRuleArgs
+        ///         {
+        ///             Ruleset = example.Apply(example =&gt; example.Id),
+        ///             Position = 0,
+        ///             Disabled = false,
+        ///             Conditions = new Pagerduty.Inputs.RulesetRuleConditionsArgs
+        ///             {
+        ///                 Operator = "and",
+        ///                 Subconditions = 
+        ///                 {
+        ///                     new Pagerduty.Inputs.RulesetRuleConditionsSubconditionArgs
+        ///                     {
+        ///                         Operator = "contains",
+        ///                         Parameters = 
+        ///                         {
+        ///                             new Pagerduty.Inputs.RulesetRuleConditionsSubconditionParameterArgs
+        ///                             {
+        ///                                 Value = "disk space",
+        ///                                 Path = "payload.summary",
+        ///                             },
+        ///                         },
+        ///                     },
+        ///                     new Pagerduty.Inputs.RulesetRuleConditionsSubconditionArgs
+        ///                     {
+        ///                         Operator = "contains",
+        ///                         Parameters = 
+        ///                         {
+        ///                             new Pagerduty.Inputs.RulesetRuleConditionsSubconditionParameterArgs
+        ///                             {
+        ///                                 Value = "db",
+        ///                                 Path = "payload.source",
+        ///                             },
+        ///                         },
+        ///                     },
+        ///                 },
+        ///             },
+        ///             Actions = new Pagerduty.Inputs.RulesetRuleActionsArgs
+        ///             {
+        ///                 Routes = 
+        ///                 {
+        ///                     new Pagerduty.Inputs.RulesetRuleActionsRouteArgs
+        ///                     {
+        ///                         Value = "P5DTL0K",
+        ///                     },
+        ///                 },
+        ///             },
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Default Global Ruleset
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var defaultGlobal = Output.Create(Pagerduty.GetRuleset.InvokeAsync(new Pagerduty.GetRulesetArgs
+        ///         {
+        ///             Name = "Default Global",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetRulesetResult> Invoke(GetRulesetInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRulesetResult>("pagerduty:index/getRuleset:getRuleset", args ?? new GetRulesetInvokeArgs(), options.WithVersion());
     }
 
 
@@ -118,6 +215,19 @@ namespace Pulumi.Pagerduty
         public string Name { get; set; } = null!;
 
         public GetRulesetArgs()
+        {
+        }
+    }
+
+    public sealed class GetRulesetInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the ruleset to find in the PagerDuty API.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public GetRulesetInvokeArgs()
         {
         }
     }

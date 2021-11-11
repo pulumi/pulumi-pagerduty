@@ -122,19 +122,19 @@ export interface MaintenanceWindowState {
     /**
      * A description for the maintenance window.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `startTime`.
      */
-    readonly endTime?: pulumi.Input<string>;
+    endTime?: pulumi.Input<string>;
     /**
      * A list of service IDs to include in the maintenance window.
      */
-    readonly services?: pulumi.Input<pulumi.Input<string>[]>;
+    services?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The maintenance window's start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
      */
-    readonly startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string>;
 }
 
 /**
@@ -144,17 +144,17 @@ export interface MaintenanceWindowArgs {
     /**
      * A description for the maintenance window.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `startTime`.
      */
-    readonly endTime: pulumi.Input<string>;
+    endTime: pulumi.Input<string>;
     /**
      * A list of service IDs to include in the maintenance window.
      */
-    readonly services: pulumi.Input<pulumi.Input<string>[]>;
+    services: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The maintenance window's start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
      */
-    readonly startTime: pulumi.Input<string>;
+    startTime: pulumi.Input<string>;
 }

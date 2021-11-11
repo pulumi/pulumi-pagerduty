@@ -8,20 +8,25 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = [
-    'service_region',
-    'skip_credentials_validation',
-    'token',
-    'user_token',
-]
+import types
 
 __config__ = pulumi.Config('pagerduty')
 
-service_region = __config__.get('serviceRegion')
 
-skip_credentials_validation = __config__.get('skipCredentialsValidation') or False
+class _ExportableConfig(types.ModuleType):
+    @property
+    def service_region(self) -> Optional[str]:
+        return __config__.get('serviceRegion')
 
-token = __config__.get('token')
+    @property
+    def skip_credentials_validation(self) -> bool:
+        return __config__.get_bool('skipCredentialsValidation') or False
 
-user_token = __config__.get('userToken')
+    @property
+    def token(self) -> Optional[str]:
+        return __config__.get('token')
+
+    @property
+    def user_token(self) -> Optional[str]:
+        return __config__.get('userToken')
 

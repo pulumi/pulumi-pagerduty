@@ -38,13 +38,13 @@ import (
 // 			Service:  example.ID(),
 // 			Position: pulumi.Int(0),
 // 			Disabled: pulumi.Bool(true),
-// 			Conditions: &pagerduty.ServiceEventRuleConditionsArgs{
+// 			Conditions: &ServiceEventRuleConditionsArgs{
 // 				Operator: pulumi.String("and"),
-// 				Subconditions: pagerduty.ServiceEventRuleConditionsSubconditionArray{
-// 					&pagerduty.ServiceEventRuleConditionsSubconditionArgs{
+// 				Subconditions: ServiceEventRuleConditionsSubconditionArray{
+// 					&ServiceEventRuleConditionsSubconditionArgs{
 // 						Operator: pulumi.String("contains"),
-// 						Parameters: pagerduty.ServiceEventRuleConditionsSubconditionParameterArray{
-// 							&pagerduty.ServiceEventRuleConditionsSubconditionParameterArgs{
+// 						Parameters: ServiceEventRuleConditionsSubconditionParameterArray{
+// 							&ServiceEventRuleConditionsSubconditionParameterArgs{
 // 								Value: pulumi.String("disk space"),
 // 								Path:  pulumi.String("summary"),
 // 							},
@@ -52,31 +52,31 @@ import (
 // 					},
 // 				},
 // 			},
-// 			Variables: pagerduty.ServiceEventRuleVariableArray{
-// 				&pagerduty.ServiceEventRuleVariableArgs{
+// 			Variables: ServiceEventRuleVariableArray{
+// 				&ServiceEventRuleVariableArgs{
 // 					Type: pulumi.String("regex"),
 // 					Name: pulumi.String("Src"),
-// 					Parameters: pagerduty.ServiceEventRuleVariableParameterArray{
-// 						&pagerduty.ServiceEventRuleVariableParameterArgs{
+// 					Parameters: ServiceEventRuleVariableParameterArray{
+// 						&ServiceEventRuleVariableParameterArgs{
 // 							Value: pulumi.String("(.*)"),
 // 							Path:  pulumi.String("source"),
 // 						},
 // 					},
 // 				},
 // 			},
-// 			Actions: &pagerduty.ServiceEventRuleActionsArgs{
-// 				Annotates: pagerduty.ServiceEventRuleActionsAnnotateArray{
-// 					&pagerduty.ServiceEventRuleActionsAnnotateArgs{
+// 			Actions: &ServiceEventRuleActionsArgs{
+// 				Annotates: ServiceEventRuleActionsAnnotateArray{
+// 					&ServiceEventRuleActionsAnnotateArgs{
 // 						Value: pulumi.String("From Terraform"),
 // 					},
 // 				},
-// 				Extractions: pagerduty.ServiceEventRuleActionsExtractionArray{
-// 					&pagerduty.ServiceEventRuleActionsExtractionArgs{
+// 				Extractions: ServiceEventRuleActionsExtractionArray{
+// 					&ServiceEventRuleActionsExtractionArgs{
 // 						Target: pulumi.String("dedup_key"),
 // 						Source: pulumi.String("source"),
 // 						Regex:  pulumi.String("(.*)"),
 // 					},
-// 					&pagerduty.ServiceEventRuleActionsExtractionArgs{
+// 					&ServiceEventRuleActionsExtractionArgs{
 // 						Target:   pulumi.String("summary"),
 // 						Template: pulumi.String("Warning: Disk Space Low on {{Src}}"),
 // 					},
@@ -90,13 +90,13 @@ import (
 // 			Service:  pulumi.Any(pagerduty_service.Foo.Id),
 // 			Position: pulumi.Int(1),
 // 			Disabled: pulumi.Bool(true),
-// 			Conditions: &pagerduty.ServiceEventRuleConditionsArgs{
+// 			Conditions: &ServiceEventRuleConditionsArgs{
 // 				Operator: pulumi.String("and"),
-// 				Subconditions: pagerduty.ServiceEventRuleConditionsSubconditionArray{
-// 					&pagerduty.ServiceEventRuleConditionsSubconditionArgs{
+// 				Subconditions: ServiceEventRuleConditionsSubconditionArray{
+// 					&ServiceEventRuleConditionsSubconditionArgs{
 // 						Operator: pulumi.String("contains"),
-// 						Parameters: pagerduty.ServiceEventRuleConditionsSubconditionParameterArray{
-// 							&pagerduty.ServiceEventRuleConditionsSubconditionParameterArgs{
+// 						Parameters: ServiceEventRuleConditionsSubconditionParameterArray{
+// 							&ServiceEventRuleConditionsSubconditionParameterArgs{
 // 								Value: pulumi.String("cpu spike"),
 // 								Path:  pulumi.String("summary"),
 // 							},
@@ -104,9 +104,9 @@ import (
 // 					},
 // 				},
 // 			},
-// 			Actions: &pagerduty.ServiceEventRuleActionsArgs{
-// 				Annotates: pagerduty.ServiceEventRuleActionsAnnotateArray{
-// 					&pagerduty.ServiceEventRuleActionsAnnotateArgs{
+// 			Actions: &ServiceEventRuleActionsArgs{
+// 				Annotates: ServiceEventRuleActionsAnnotateArray{
+// 					&ServiceEventRuleActionsAnnotateArgs{
 // 						Value: pulumi.String("From Terraform"),
 // 					},
 // 				},
@@ -316,7 +316,7 @@ type ServiceEventRuleArrayInput interface {
 type ServiceEventRuleArray []ServiceEventRuleInput
 
 func (ServiceEventRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ServiceEventRule)(nil))
+	return reflect.TypeOf((*[]*ServiceEventRule)(nil)).Elem()
 }
 
 func (i ServiceEventRuleArray) ToServiceEventRuleArrayOutput() ServiceEventRuleArrayOutput {
@@ -341,7 +341,7 @@ type ServiceEventRuleMapInput interface {
 type ServiceEventRuleMap map[string]ServiceEventRuleInput
 
 func (ServiceEventRuleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ServiceEventRule)(nil))
+	return reflect.TypeOf((*map[string]*ServiceEventRule)(nil)).Elem()
 }
 
 func (i ServiceEventRuleMap) ToServiceEventRuleMapOutput() ServiceEventRuleMapOutput {
@@ -352,9 +352,7 @@ func (i ServiceEventRuleMap) ToServiceEventRuleMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleMapOutput)
 }
 
-type ServiceEventRuleOutput struct {
-	*pulumi.OutputState
-}
+type ServiceEventRuleOutput struct{ *pulumi.OutputState }
 
 func (ServiceEventRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceEventRule)(nil))
@@ -373,14 +371,12 @@ func (o ServiceEventRuleOutput) ToServiceEventRulePtrOutput() ServiceEventRulePt
 }
 
 func (o ServiceEventRuleOutput) ToServiceEventRulePtrOutputWithContext(ctx context.Context) ServiceEventRulePtrOutput {
-	return o.ApplyT(func(v ServiceEventRule) *ServiceEventRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEventRule) *ServiceEventRule {
 		return &v
 	}).(ServiceEventRulePtrOutput)
 }
 
-type ServiceEventRulePtrOutput struct {
-	*pulumi.OutputState
-}
+type ServiceEventRulePtrOutput struct{ *pulumi.OutputState }
 
 func (ServiceEventRulePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ServiceEventRule)(nil))
@@ -392,6 +388,16 @@ func (o ServiceEventRulePtrOutput) ToServiceEventRulePtrOutput() ServiceEventRul
 
 func (o ServiceEventRulePtrOutput) ToServiceEventRulePtrOutputWithContext(ctx context.Context) ServiceEventRulePtrOutput {
 	return o
+}
+
+func (o ServiceEventRulePtrOutput) Elem() ServiceEventRuleOutput {
+	return o.ApplyT(func(v *ServiceEventRule) ServiceEventRule {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceEventRule
+		return ret
+	}).(ServiceEventRuleOutput)
 }
 
 type ServiceEventRuleArrayOutput struct{ *pulumi.OutputState }
@@ -435,6 +441,10 @@ func (o ServiceEventRuleMapOutput) MapIndex(k pulumi.StringInput) ServiceEventRu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRuleInput)(nil)).Elem(), &ServiceEventRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRulePtrInput)(nil)).Elem(), &ServiceEventRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRuleArrayInput)(nil)).Elem(), ServiceEventRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRuleMapInput)(nil)).Elem(), ServiceEventRuleMap{})
 	pulumi.RegisterOutputType(ServiceEventRuleOutput{})
 	pulumi.RegisterOutputType(ServiceEventRulePtrOutput{})
 	pulumi.RegisterOutputType(ServiceEventRuleArrayOutput{})

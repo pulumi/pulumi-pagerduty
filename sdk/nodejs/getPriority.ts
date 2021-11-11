@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -72,7 +71,7 @@ export interface GetPriorityArgs {
     /**
      * The name of the priority to find in the PagerDuty API.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**
@@ -91,4 +90,18 @@ export interface GetPriorityResult {
      * The name of the found priority.
      */
     readonly name: string;
+}
+
+export function getPriorityOutput(args: GetPriorityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPriorityResult> {
+    return pulumi.output(args).apply(a => getPriority(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getPriority.
+ */
+export interface GetPriorityOutputArgs {
+    /**
+     * The name of the priority to find in the PagerDuty API.
+     */
+    name: pulumi.Input<string>;
 }

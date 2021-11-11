@@ -4,10 +4,80 @@
 package pagerduty
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Use this data source to get information about a specific [extension](https://v2.developer.pagerduty.com/v2/page/api-reference#!/Extension_Schemas/get_extension_schemas) vendor that you can use for a service (e.g: Slack, Generic Webhook, ServiceNow).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		webhook, err := pagerduty.GetExtensionSchema(ctx, &GetExtensionSchemaArgs{
+// 			Name: "Generic V2 Webhook",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
+// 			Email: pulumi.String("howard.james@example.domain"),
+// 			Teams: pulumi.StringArray{
+// 				pulumi.Any(pagerduty_team.Example.Id),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = pagerduty.NewEscalationPolicy(ctx, "foo", &pagerduty.EscalationPolicyArgs{
+// 			NumLoops: pulumi.Int(2),
+// 			Rules: EscalationPolicyRuleArray{
+// 				&EscalationPolicyRuleArgs{
+// 					EscalationDelayInMinutes: pulumi.Int(10),
+// 					Targets: EscalationPolicyRuleTargetArray{
+// 						&EscalationPolicyRuleTargetArgs{
+// 							Type: pulumi.String("user"),
+// 							Id:   exampleUser.ID(),
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleService, err := pagerduty.NewService(ctx, "exampleService", &pagerduty.ServiceArgs{
+// 			AutoResolveTimeout:     pulumi.String("14400"),
+// 			AcknowledgementTimeout: pulumi.String("600"),
+// 			EscalationPolicy:       pulumi.Any(pagerduty_escalation_policy.Example.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = pagerduty.NewExtension(ctx, "slack", &pagerduty.ExtensionArgs{
+// 			EndpointUrl:     pulumi.String("https://generic_webhook_url/XXXXXX/BBBBBB"),
+// 			ExtensionSchema: pulumi.String(webhook.Id),
+// 			ExtensionObjects: pulumi.StringArray{
+// 				exampleService.ID(),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetExtensionSchema(ctx *pulumi.Context, args *GetExtensionSchemaArgs, opts ...pulumi.InvokeOption) (*GetExtensionSchemaResult, error) {
 	var rv GetExtensionSchemaResult
 	err := ctx.Invoke("pagerduty:index/getExtensionSchema:getExtensionSchema", args, &rv, opts...)
@@ -31,4 +101,57 @@ type GetExtensionSchemaResult struct {
 	Name string `pulumi:"name"`
 	// The generic service type for this extension vendor.
 	Type string `pulumi:"type"`
+}
+
+func GetExtensionSchemaOutput(ctx *pulumi.Context, args GetExtensionSchemaOutputArgs, opts ...pulumi.InvokeOption) GetExtensionSchemaResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetExtensionSchemaResult, error) {
+			args := v.(GetExtensionSchemaArgs)
+			r, err := GetExtensionSchema(ctx, &args, opts...)
+			return *r, err
+		}).(GetExtensionSchemaResultOutput)
+}
+
+// A collection of arguments for invoking getExtensionSchema.
+type GetExtensionSchemaOutputArgs struct {
+	// The extension name to use to find an extension vendor in the PagerDuty API.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetExtensionSchemaOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExtensionSchemaArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getExtensionSchema.
+type GetExtensionSchemaResultOutput struct{ *pulumi.OutputState }
+
+func (GetExtensionSchemaResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExtensionSchemaResult)(nil)).Elem()
+}
+
+func (o GetExtensionSchemaResultOutput) ToGetExtensionSchemaResultOutput() GetExtensionSchemaResultOutput {
+	return o
+}
+
+func (o GetExtensionSchemaResultOutput) ToGetExtensionSchemaResultOutputWithContext(ctx context.Context) GetExtensionSchemaResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetExtensionSchemaResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExtensionSchemaResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The short name of the found extension vendor.
+func (o GetExtensionSchemaResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExtensionSchemaResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The generic service type for this extension vendor.
+func (o GetExtensionSchemaResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExtensionSchemaResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetExtensionSchemaResultOutput{})
 }

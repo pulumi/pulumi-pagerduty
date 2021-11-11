@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Pagerduty
 {
@@ -58,6 +59,54 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("pagerduty:index/getUser:getUser", args ?? new GetUserArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get information about a specific [user](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1users/get) that you can use for other PagerDuty resources.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var me = Output.Create(Pagerduty.GetUser.InvokeAsync(new Pagerduty.GetUserArgs
+        ///         {
+        ///             Email = "me@example.com",
+        ///         }));
+        ///         var foo = new Pagerduty.EscalationPolicy("foo", new Pagerduty.EscalationPolicyArgs
+        ///         {
+        ///             NumLoops = 2,
+        ///             Rules = 
+        ///             {
+        ///                 new Pagerduty.Inputs.EscalationPolicyRuleArgs
+        ///                 {
+        ///                     EscalationDelayInMinutes = 10,
+        ///                     Targets = 
+        ///                     {
+        ///                         new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
+        ///                         {
+        ///                             Type = "user",
+        ///                             Id = me.Apply(me =&gt; me.Id),
+        ///                         },
+        ///                     },
+        ///                 },
+        ///             },
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetUserResult>("pagerduty:index/getUser:getUser", args ?? new GetUserInvokeArgs(), options.WithVersion());
     }
 
 
@@ -70,6 +119,19 @@ namespace Pulumi.Pagerduty
         public string Email { get; set; } = null!;
 
         public GetUserArgs()
+        {
+        }
+    }
+
+    public sealed class GetUserInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The email to use to find a user in the PagerDuty API.
+        /// </summary>
+        [Input("email", required: true)]
+        public Input<string> Email { get; set; } = null!;
+
+        public GetUserInvokeArgs()
         {
         }
     }

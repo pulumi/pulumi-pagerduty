@@ -12,6 +12,7 @@ __all__ = [
     'GetUserContactMethodResult',
     'AwaitableGetUserContactMethodResult',
     'get_user_contact_method',
+    'get_user_contact_method_output',
 ]
 
 @pulumi.output_type
@@ -200,3 +201,39 @@ def get_user_contact_method(label: Optional[str] = None,
         send_short_email=__ret__.send_short_email,
         type=__ret__.type,
         user_id=__ret__.user_id)
+
+
+@_utilities.lift_output_func(get_user_contact_method)
+def get_user_contact_method_output(label: Optional[pulumi.Input[str]] = None,
+                                   type: Optional[pulumi.Input[str]] = None,
+                                   user_id: Optional[pulumi.Input[str]] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserContactMethodResult]:
+    """
+    Use this data source to get information about a specific [contact method](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1users~1%7Bid%7D~1contact_methods~1%7Bcontact_method_id%7D/get) of a PagerDuty [user](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1users~1%7Bid%7D/get) that you can use for other PagerDuty resources.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_pagerduty as pagerduty
+
+    me = pagerduty.get_user(email="me@example.com")
+    phone_push = pagerduty.get_user_contact_method(user_id=me.id,
+        type="push_notification_contact_method",
+        label="iPhone (John)")
+    low_urgency_sms = pagerduty.UserNotificationRule("lowUrgencySms",
+        user_id=me.id,
+        start_delay_in_minutes=5,
+        urgency="high",
+        contact_method={
+            "type": "push_notification_contact_method",
+            "id": phone_push.id,
+        })
+    ```
+
+
+    :param str label: The label (e.g., "Work", "Mobile", "Ashley's iPhone", etc.).
+    :param str type: The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+    :param str user_id: The ID of the user.
+    """
+    ...

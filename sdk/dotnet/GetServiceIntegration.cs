@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Pagerduty
 {
@@ -40,6 +41,36 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public static Task<GetServiceIntegrationResult> InvokeAsync(GetServiceIntegrationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceIntegrationResult>("pagerduty:index/getServiceIntegration:getServiceIntegration", args ?? new GetServiceIntegrationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get information about a specific service_integration.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Pagerduty.GetServiceIntegration.InvokeAsync(new Pagerduty.GetServiceIntegrationArgs
+        ///         {
+        ///             IntegrationSummary = "Datadog",
+        ///             ServiceName = "My Service",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetServiceIntegrationResult> Invoke(GetServiceIntegrationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServiceIntegrationResult>("pagerduty:index/getServiceIntegration:getServiceIntegration", args ?? new GetServiceIntegrationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -58,6 +89,25 @@ namespace Pulumi.Pagerduty
         public string ServiceName { get; set; } = null!;
 
         public GetServiceIntegrationArgs()
+        {
+        }
+    }
+
+    public sealed class GetServiceIntegrationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The integration summary used to find the desired integration on the service
+        /// </summary>
+        [Input("integrationSummary", required: true)]
+        public Input<string> IntegrationSummary { get; set; } = null!;
+
+        /// <summary>
+        /// The service name to use to find a service in the PagerDuty API.
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public GetServiceIntegrationInvokeArgs()
         {
         }
     }

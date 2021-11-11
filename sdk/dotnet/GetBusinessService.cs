@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Pagerduty
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public static Task<GetBusinessServiceResult> InvokeAsync(GetBusinessServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBusinessServiceResult>("pagerduty:index/getBusinessService:getBusinessService", args ?? new GetBusinessServiceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get information about a specific [business service](https://api-reference.pagerduty.com/#!/Business_Services/get_business_services).
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Pagerduty.GetBusinessService.InvokeAsync(new Pagerduty.GetBusinessServiceArgs
+        ///         {
+        ///             Name = "My Service",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetBusinessServiceResult> Invoke(GetBusinessServiceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBusinessServiceResult>("pagerduty:index/getBusinessService:getBusinessService", args ?? new GetBusinessServiceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -51,6 +81,19 @@ namespace Pulumi.Pagerduty
         public string Name { get; set; } = null!;
 
         public GetBusinessServiceArgs()
+        {
+        }
+    }
+
+    public sealed class GetBusinessServiceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The business service name to use to find a business service in the PagerDuty API.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public GetBusinessServiceInvokeArgs()
         {
         }
     }

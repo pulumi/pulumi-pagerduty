@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -54,11 +53,11 @@ export interface GetTeamArgs {
     /**
      * The name of the team to find in the PagerDuty API.
      */
-    readonly name: string;
+    name: string;
     /**
      * ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
      */
-    readonly parent?: string;
+    parent?: string;
 }
 
 /**
@@ -81,4 +80,22 @@ export interface GetTeamResult {
      * ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
      */
     readonly parent?: string;
+}
+
+export function getTeamOutput(args: GetTeamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTeamResult> {
+    return pulumi.output(args).apply(a => getTeam(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getTeam.
+ */
+export interface GetTeamOutputArgs {
+    /**
+     * The name of the team to find in the PagerDuty API.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
+     */
+    parent?: pulumi.Input<string>;
 }

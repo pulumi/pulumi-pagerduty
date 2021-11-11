@@ -18,6 +18,16 @@ namespace Pulumi.Pagerduty
     [PagerdutyResourceType("pulumi:providers:pagerduty")]
     public partial class Provider : Pulumi.ProviderResource
     {
+        [Output("serviceRegion")]
+        public Output<string?> ServiceRegion { get; private set; } = null!;
+
+        [Output("token")]
+        public Output<string> Token { get; private set; } = null!;
+
+        [Output("userToken")]
+        public Output<string?> UserToken { get; private set; } = null!;
+
+
         /// <summary>
         /// Create a Provider resource with the given unique name, arguments, and options.
         /// </summary>

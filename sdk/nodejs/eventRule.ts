@@ -215,19 +215,19 @@ export interface EventRuleState {
     /**
      * A list of one or more actions for each rule. Each action within the list is itself a list.
      */
-    readonly actionJson?: pulumi.Input<string>;
+    actionJson?: pulumi.Input<string>;
     /**
      * Contains a list of specific conditions including `active-between`,`scheduled-weekly`, and `frequency-over`. The first element in the list is the label for the condition, followed by a list of values for the specific condition. For more details on these conditions see [Advanced Condition](https://developer.pagerduty.com/docs/rest-api-v2/global-event-rules-api/#advanced-condition-parameter) in the PagerDuty API documentation.
      */
-    readonly advancedConditionJson?: pulumi.Input<string>;
+    advancedConditionJson?: pulumi.Input<string>;
     /**
      * A boolean that indicates whether the rule is a catch all for the account. This field is read-only through the PagerDuty API.
      */
-    readonly catchAll?: pulumi.Input<boolean>;
+    catchAll?: pulumi.Input<boolean>;
     /**
      * Contains a list of conditions. The first field in the list is `and` or `or`, followed by a list of operators and values.
      */
-    readonly conditionJson?: pulumi.Input<string>;
+    conditionJson?: pulumi.Input<string>;
 }
 
 /**
@@ -237,13 +237,13 @@ export interface EventRuleArgs {
     /**
      * A list of one or more actions for each rule. Each action within the list is itself a list.
      */
-    readonly actionJson: pulumi.Input<string>;
+    actionJson: pulumi.Input<string>;
     /**
      * Contains a list of specific conditions including `active-between`,`scheduled-weekly`, and `frequency-over`. The first element in the list is the label for the condition, followed by a list of values for the specific condition. For more details on these conditions see [Advanced Condition](https://developer.pagerduty.com/docs/rest-api-v2/global-event-rules-api/#advanced-condition-parameter) in the PagerDuty API documentation.
      */
-    readonly advancedConditionJson?: pulumi.Input<string>;
+    advancedConditionJson?: pulumi.Input<string>;
     /**
      * Contains a list of conditions. The first field in the list is `and` or `or`, followed by a list of operators and values.
      */
-    readonly conditionJson: pulumi.Input<string>;
+    conditionJson: pulumi.Input<string>;
 }

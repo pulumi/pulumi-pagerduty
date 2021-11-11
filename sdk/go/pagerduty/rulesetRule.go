@@ -209,7 +209,7 @@ type RulesetRuleArrayInput interface {
 type RulesetRuleArray []RulesetRuleInput
 
 func (RulesetRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RulesetRule)(nil))
+	return reflect.TypeOf((*[]*RulesetRule)(nil)).Elem()
 }
 
 func (i RulesetRuleArray) ToRulesetRuleArrayOutput() RulesetRuleArrayOutput {
@@ -234,7 +234,7 @@ type RulesetRuleMapInput interface {
 type RulesetRuleMap map[string]RulesetRuleInput
 
 func (RulesetRuleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RulesetRule)(nil))
+	return reflect.TypeOf((*map[string]*RulesetRule)(nil)).Elem()
 }
 
 func (i RulesetRuleMap) ToRulesetRuleMapOutput() RulesetRuleMapOutput {
@@ -245,9 +245,7 @@ func (i RulesetRuleMap) ToRulesetRuleMapOutputWithContext(ctx context.Context) R
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleMapOutput)
 }
 
-type RulesetRuleOutput struct {
-	*pulumi.OutputState
-}
+type RulesetRuleOutput struct{ *pulumi.OutputState }
 
 func (RulesetRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RulesetRule)(nil))
@@ -266,14 +264,12 @@ func (o RulesetRuleOutput) ToRulesetRulePtrOutput() RulesetRulePtrOutput {
 }
 
 func (o RulesetRuleOutput) ToRulesetRulePtrOutputWithContext(ctx context.Context) RulesetRulePtrOutput {
-	return o.ApplyT(func(v RulesetRule) *RulesetRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RulesetRule) *RulesetRule {
 		return &v
 	}).(RulesetRulePtrOutput)
 }
 
-type RulesetRulePtrOutput struct {
-	*pulumi.OutputState
-}
+type RulesetRulePtrOutput struct{ *pulumi.OutputState }
 
 func (RulesetRulePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RulesetRule)(nil))
@@ -285,6 +281,16 @@ func (o RulesetRulePtrOutput) ToRulesetRulePtrOutput() RulesetRulePtrOutput {
 
 func (o RulesetRulePtrOutput) ToRulesetRulePtrOutputWithContext(ctx context.Context) RulesetRulePtrOutput {
 	return o
+}
+
+func (o RulesetRulePtrOutput) Elem() RulesetRuleOutput {
+	return o.ApplyT(func(v *RulesetRule) RulesetRule {
+		if v != nil {
+			return *v
+		}
+		var ret RulesetRule
+		return ret
+	}).(RulesetRuleOutput)
 }
 
 type RulesetRuleArrayOutput struct{ *pulumi.OutputState }
@@ -328,6 +334,10 @@ func (o RulesetRuleMapOutput) MapIndex(k pulumi.StringInput) RulesetRuleOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleInput)(nil)).Elem(), &RulesetRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRulePtrInput)(nil)).Elem(), &RulesetRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleArrayInput)(nil)).Elem(), RulesetRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleMapInput)(nil)).Elem(), RulesetRuleMap{})
 	pulumi.RegisterOutputType(RulesetRuleOutput{})
 	pulumi.RegisterOutputType(RulesetRulePtrOutput{})
 	pulumi.RegisterOutputType(RulesetRuleArrayOutput{})

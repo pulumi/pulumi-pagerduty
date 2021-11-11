@@ -120,47 +120,47 @@ export class BusinessService extends pulumi.CustomResource {
  * Input properties used for looking up and filtering BusinessService resources.
  */
 export interface BusinessServiceState {
-    readonly description?: pulumi.Input<string>;
-    readonly htmlUrl?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    htmlUrl?: pulumi.Input<string>;
     /**
      * The name of the business service.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The owner of the business service.
      */
-    readonly pointOfContact?: pulumi.Input<string>;
-    readonly self?: pulumi.Input<string>;
-    readonly summary?: pulumi.Input<string>;
+    pointOfContact?: pulumi.Input<string>;
+    self?: pulumi.Input<string>;
+    summary?: pulumi.Input<string>;
     /**
      * ID of the team that owns the business service.
      */
-    readonly team?: pulumi.Input<string>;
+    team?: pulumi.Input<string>;
     /**
      * Default value is `businessService`. Can also be set as `businessServiceReference`.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a BusinessService resource.
  */
 export interface BusinessServiceArgs {
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the business service.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The owner of the business service.
      */
-    readonly pointOfContact?: pulumi.Input<string>;
+    pointOfContact?: pulumi.Input<string>;
     /**
      * ID of the team that owns the business service.
      */
-    readonly team?: pulumi.Input<string>;
+    team?: pulumi.Input<string>;
     /**
      * Default value is `businessService`. Can also be set as `businessServiceReference`.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }

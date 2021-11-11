@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -16,7 +15,7 @@ import * as utilities from "./utilities";
  *
  * const example = pulumi.output(pagerduty.getBusinessService({
  *     name: "My Service",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getBusinessService(args: GetBusinessServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetBusinessServiceResult> {
@@ -39,7 +38,7 @@ export interface GetBusinessServiceArgs {
     /**
      * The business service name to use to find a business service in the PagerDuty API.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**
@@ -54,4 +53,18 @@ export interface GetBusinessServiceResult {
      * The short name of the found business service.
      */
     readonly name: string;
+}
+
+export function getBusinessServiceOutput(args: GetBusinessServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBusinessServiceResult> {
+    return pulumi.output(args).apply(a => getBusinessService(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getBusinessService.
+ */
+export interface GetBusinessServiceOutputArgs {
+    /**
+     * The business service name to use to find a business service in the PagerDuty API.
+     */
+    name: pulumi.Input<string>;
 }

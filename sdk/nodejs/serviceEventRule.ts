@@ -193,31 +193,31 @@ export interface ServiceEventRuleState {
     /**
      * Actions to apply to an event if the conditions match.
      */
-    readonly actions?: pulumi.Input<inputs.ServiceEventRuleActions>;
+    actions?: pulumi.Input<inputs.ServiceEventRuleActions>;
     /**
      * Conditions evaluated to check if an event matches this event rule.
      */
-    readonly conditions?: pulumi.Input<inputs.ServiceEventRuleConditions>;
+    conditions?: pulumi.Input<inputs.ServiceEventRuleConditions>;
     /**
      * Indicates whether the rule is disabled and would therefore not be evaluated.
      */
-    readonly disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean>;
     /**
      * Position/index of the rule within the service.
      */
-    readonly position?: pulumi.Input<number>;
+    position?: pulumi.Input<number>;
     /**
      * The ID of the service that the rule belongs to.
      */
-    readonly service?: pulumi.Input<string>;
+    service?: pulumi.Input<string>;
     /**
      * Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
      */
-    readonly timeFrame?: pulumi.Input<inputs.ServiceEventRuleTimeFrame>;
+    timeFrame?: pulumi.Input<inputs.ServiceEventRuleTimeFrame>;
     /**
      * Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
      */
-    readonly variables?: pulumi.Input<pulumi.Input<inputs.ServiceEventRuleVariable>[]>;
+    variables?: pulumi.Input<pulumi.Input<inputs.ServiceEventRuleVariable>[]>;
 }
 
 /**
@@ -227,29 +227,29 @@ export interface ServiceEventRuleArgs {
     /**
      * Actions to apply to an event if the conditions match.
      */
-    readonly actions?: pulumi.Input<inputs.ServiceEventRuleActions>;
+    actions?: pulumi.Input<inputs.ServiceEventRuleActions>;
     /**
      * Conditions evaluated to check if an event matches this event rule.
      */
-    readonly conditions?: pulumi.Input<inputs.ServiceEventRuleConditions>;
+    conditions?: pulumi.Input<inputs.ServiceEventRuleConditions>;
     /**
      * Indicates whether the rule is disabled and would therefore not be evaluated.
      */
-    readonly disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean>;
     /**
      * Position/index of the rule within the service.
      */
-    readonly position?: pulumi.Input<number>;
+    position?: pulumi.Input<number>;
     /**
      * The ID of the service that the rule belongs to.
      */
-    readonly service: pulumi.Input<string>;
+    service: pulumi.Input<string>;
     /**
      * Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
      */
-    readonly timeFrame?: pulumi.Input<inputs.ServiceEventRuleTimeFrame>;
+    timeFrame?: pulumi.Input<inputs.ServiceEventRuleTimeFrame>;
     /**
      * Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
      */
-    readonly variables?: pulumi.Input<pulumi.Input<inputs.ServiceEventRuleVariable>[]>;
+    variables?: pulumi.Input<pulumi.Input<inputs.ServiceEventRuleVariable>[]>;
 }

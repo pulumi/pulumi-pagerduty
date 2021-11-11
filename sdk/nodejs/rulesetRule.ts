@@ -120,31 +120,31 @@ export interface RulesetRuleState {
     /**
      * Actions to apply to an event if the conditions match.
      */
-    readonly actions?: pulumi.Input<inputs.RulesetRuleActions>;
+    actions?: pulumi.Input<inputs.RulesetRuleActions>;
     /**
      * Conditions evaluated to check if an event matches this event rule. Is always empty for the catch all rule, though.
      */
-    readonly conditions?: pulumi.Input<inputs.RulesetRuleConditions>;
+    conditions?: pulumi.Input<inputs.RulesetRuleConditions>;
     /**
      * Indicates whether the rule is disabled and would therefore not be evaluated.
      */
-    readonly disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean>;
     /**
      * Position/index of the rule within the ruleset.
      */
-    readonly position?: pulumi.Input<number>;
+    position?: pulumi.Input<number>;
     /**
      * The ID of the ruleset that the rule belongs to.
      */
-    readonly ruleset?: pulumi.Input<string>;
+    ruleset?: pulumi.Input<string>;
     /**
      * Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
      */
-    readonly timeFrame?: pulumi.Input<inputs.RulesetRuleTimeFrame>;
+    timeFrame?: pulumi.Input<inputs.RulesetRuleTimeFrame>;
     /**
      * Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
      */
-    readonly variables?: pulumi.Input<pulumi.Input<inputs.RulesetRuleVariable>[]>;
+    variables?: pulumi.Input<pulumi.Input<inputs.RulesetRuleVariable>[]>;
 }
 
 /**
@@ -154,29 +154,29 @@ export interface RulesetRuleArgs {
     /**
      * Actions to apply to an event if the conditions match.
      */
-    readonly actions?: pulumi.Input<inputs.RulesetRuleActions>;
+    actions?: pulumi.Input<inputs.RulesetRuleActions>;
     /**
      * Conditions evaluated to check if an event matches this event rule. Is always empty for the catch all rule, though.
      */
-    readonly conditions?: pulumi.Input<inputs.RulesetRuleConditions>;
+    conditions?: pulumi.Input<inputs.RulesetRuleConditions>;
     /**
      * Indicates whether the rule is disabled and would therefore not be evaluated.
      */
-    readonly disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean>;
     /**
      * Position/index of the rule within the ruleset.
      */
-    readonly position?: pulumi.Input<number>;
+    position?: pulumi.Input<number>;
     /**
      * The ID of the ruleset that the rule belongs to.
      */
-    readonly ruleset: pulumi.Input<string>;
+    ruleset: pulumi.Input<string>;
     /**
      * Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
      */
-    readonly timeFrame?: pulumi.Input<inputs.RulesetRuleTimeFrame>;
+    timeFrame?: pulumi.Input<inputs.RulesetRuleTimeFrame>;
     /**
      * Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
      */
-    readonly variables?: pulumi.Input<pulumi.Input<inputs.RulesetRuleVariable>[]>;
+    variables?: pulumi.Input<pulumi.Input<inputs.RulesetRuleVariable>[]>;
 }

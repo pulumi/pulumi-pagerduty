@@ -224,7 +224,7 @@ type TeamMembershipArrayInput interface {
 type TeamMembershipArray []TeamMembershipInput
 
 func (TeamMembershipArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*TeamMembership)(nil))
+	return reflect.TypeOf((*[]*TeamMembership)(nil)).Elem()
 }
 
 func (i TeamMembershipArray) ToTeamMembershipArrayOutput() TeamMembershipArrayOutput {
@@ -249,7 +249,7 @@ type TeamMembershipMapInput interface {
 type TeamMembershipMap map[string]TeamMembershipInput
 
 func (TeamMembershipMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*TeamMembership)(nil))
+	return reflect.TypeOf((*map[string]*TeamMembership)(nil)).Elem()
 }
 
 func (i TeamMembershipMap) ToTeamMembershipMapOutput() TeamMembershipMapOutput {
@@ -260,9 +260,7 @@ func (i TeamMembershipMap) ToTeamMembershipMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(TeamMembershipMapOutput)
 }
 
-type TeamMembershipOutput struct {
-	*pulumi.OutputState
-}
+type TeamMembershipOutput struct{ *pulumi.OutputState }
 
 func (TeamMembershipOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TeamMembership)(nil))
@@ -281,14 +279,12 @@ func (o TeamMembershipOutput) ToTeamMembershipPtrOutput() TeamMembershipPtrOutpu
 }
 
 func (o TeamMembershipOutput) ToTeamMembershipPtrOutputWithContext(ctx context.Context) TeamMembershipPtrOutput {
-	return o.ApplyT(func(v TeamMembership) *TeamMembership {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TeamMembership) *TeamMembership {
 		return &v
 	}).(TeamMembershipPtrOutput)
 }
 
-type TeamMembershipPtrOutput struct {
-	*pulumi.OutputState
-}
+type TeamMembershipPtrOutput struct{ *pulumi.OutputState }
 
 func (TeamMembershipPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**TeamMembership)(nil))
@@ -300,6 +296,16 @@ func (o TeamMembershipPtrOutput) ToTeamMembershipPtrOutput() TeamMembershipPtrOu
 
 func (o TeamMembershipPtrOutput) ToTeamMembershipPtrOutputWithContext(ctx context.Context) TeamMembershipPtrOutput {
 	return o
+}
+
+func (o TeamMembershipPtrOutput) Elem() TeamMembershipOutput {
+	return o.ApplyT(func(v *TeamMembership) TeamMembership {
+		if v != nil {
+			return *v
+		}
+		var ret TeamMembership
+		return ret
+	}).(TeamMembershipOutput)
 }
 
 type TeamMembershipArrayOutput struct{ *pulumi.OutputState }
@@ -343,6 +349,10 @@ func (o TeamMembershipMapOutput) MapIndex(k pulumi.StringInput) TeamMembershipOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamMembershipInput)(nil)).Elem(), &TeamMembership{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamMembershipPtrInput)(nil)).Elem(), &TeamMembership{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamMembershipArrayInput)(nil)).Elem(), TeamMembershipArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TeamMembershipMapInput)(nil)).Elem(), TeamMembershipMap{})
 	pulumi.RegisterOutputType(TeamMembershipOutput{})
 	pulumi.RegisterOutputType(TeamMembershipPtrOutput{})
 	pulumi.RegisterOutputType(TeamMembershipArrayOutput{})

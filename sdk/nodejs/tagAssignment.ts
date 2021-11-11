@@ -119,15 +119,15 @@ export interface TagAssignmentState {
     /**
      * The ID of the entity.
      */
-    readonly entityId?: pulumi.Input<string>;
+    entityId?: pulumi.Input<string>;
     /**
      * Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalationPolicies`.
      */
-    readonly entityType?: pulumi.Input<string>;
+    entityType?: pulumi.Input<string>;
     /**
      * The ID of the tag.
      */
-    readonly tagId?: pulumi.Input<string>;
+    tagId?: pulumi.Input<string>;
 }
 
 /**
@@ -137,13 +137,13 @@ export interface TagAssignmentArgs {
     /**
      * The ID of the entity.
      */
-    readonly entityId: pulumi.Input<string>;
+    entityId: pulumi.Input<string>;
     /**
      * Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalationPolicies`.
      */
-    readonly entityType: pulumi.Input<string>;
+    entityType: pulumi.Input<string>;
     /**
      * The ID of the tag.
      */
-    readonly tagId: pulumi.Input<string>;
+    tagId: pulumi.Input<string>;
 }

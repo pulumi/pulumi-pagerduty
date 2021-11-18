@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.1.1 of the PagerDuty Terraform Provider
+_(none)_
 
 ---
+
+## 3.1.1 (2021-11-18)
+* Upgrade to v2.1.1 of the PagerDuty Terraform Provider
 
 ## 3.1.0 (2021-11-11)
 * Upgrade to terraform-bridge 3.11.0

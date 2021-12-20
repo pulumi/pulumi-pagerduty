@@ -13,7 +13,7 @@ namespace Pulumi.Pagerduty.Inputs
     public sealed class ServiceAlertGroupingParametersArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Alert grouping parameters dependant on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
+        /// Alert grouping parameters dependent on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
         /// </summary>
         [Input("config")]
         public Input<Inputs.ServiceAlertGroupingParametersConfigArgs>? Config { get; set; }

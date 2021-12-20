@@ -107,7 +107,7 @@ namespace Pulumi.Pagerduty
     public partial class ServiceIntegration : Pulumi.CustomResource
     {
         /// <summary>
-        /// URL at which the entity is uniquely displayed in the Web app
+        /// URL at which the entity is uniquely displayed in the Web app.
         /// </summary>
         [Output("htmlUrl")]
         public Output<string> HtmlUrl { get; private set; } = null!;
@@ -152,7 +152,7 @@ namespace Pulumi.Pagerduty
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the vendor the integration should integrate with (e.g Datadog or Amazon Cloudwatch).
+        /// The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
         /// </summary>
         [Output("vendor")]
         public Output<string> Vendor { get; private set; } = null!;
@@ -243,7 +243,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// The ID of the vendor the integration should integrate with (e.g Datadog or Amazon Cloudwatch).
+        /// The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
         /// </summary>
         [Input("vendor")]
         public Input<string>? Vendor { get; set; }
@@ -256,7 +256,7 @@ namespace Pulumi.Pagerduty
     public sealed class ServiceIntegrationState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// URL at which the entity is uniquely displayed in the Web app
+        /// URL at which the entity is uniquely displayed in the Web app.
         /// </summary>
         [Input("htmlUrl")]
         public Input<string>? HtmlUrl { get; set; }
@@ -301,7 +301,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// The ID of the vendor the integration should integrate with (e.g Datadog or Amazon Cloudwatch).
+        /// The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
         /// </summary>
         [Input("vendor")]
         public Input<string>? Vendor { get; set; }

@@ -77,7 +77,7 @@ namespace Pulumi.Pagerduty
     public partial class Schedule : Pulumi.CustomResource
     {
         /// <summary>
-        /// The description of the schedule
+        /// The description of the schedule.
         /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
@@ -109,7 +109,7 @@ namespace Pulumi.Pagerduty
         public Output<ImmutableArray<string>> Teams { get; private set; } = null!;
 
         /// <summary>
-        /// The time zone of the schedule (e.g Europe/Berlin).
+        /// The time zone of the schedule (e.g. `Europe/Berlin`).
         /// </summary>
         [Output("timeZone")]
         public Output<string> TimeZone { get; private set; } = null!;
@@ -161,7 +161,7 @@ namespace Pulumi.Pagerduty
     public sealed class ScheduleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The description of the schedule
+        /// The description of the schedule.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -205,7 +205,7 @@ namespace Pulumi.Pagerduty
         }
 
         /// <summary>
-        /// The time zone of the schedule (e.g Europe/Berlin).
+        /// The time zone of the schedule (e.g. `Europe/Berlin`).
         /// </summary>
         [Input("timeZone", required: true)]
         public Input<string> TimeZone { get; set; } = null!;
@@ -219,7 +219,7 @@ namespace Pulumi.Pagerduty
     public sealed class ScheduleState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The description of the schedule
+        /// The description of the schedule.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -263,7 +263,7 @@ namespace Pulumi.Pagerduty
         }
 
         /// <summary>
-        /// The time zone of the schedule (e.g Europe/Berlin).
+        /// The time zone of the schedule (e.g. `Europe/Berlin`).
         /// </summary>
         [Input("timeZone")]
         public Input<string>? TimeZone { get; set; }

@@ -41,7 +41,7 @@ class _TagState:
                  summary: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Tag resources.
-        :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app
+        :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app.
         :param pulumi.Input[str] label: The label of the tag.
         """
         if html_url is not None:
@@ -55,7 +55,7 @@ class _TagState:
     @pulumi.getter(name="htmlUrl")
     def html_url(self) -> Optional[pulumi.Input[str]]:
         """
-        URL at which the entity is uniquely displayed in the Web app
+        URL at which the entity is uniquely displayed in the Web app.
         """
         return pulumi.get(self, "html_url")
 
@@ -195,7 +195,7 @@ class Tag(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app
+        :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app.
         :param pulumi.Input[str] label: The label of the tag.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -211,7 +211,7 @@ class Tag(pulumi.CustomResource):
     @pulumi.getter(name="htmlUrl")
     def html_url(self) -> pulumi.Output[str]:
         """
-        URL at which the entity is uniquely displayed in the Web app
+        URL at which the entity is uniquely displayed in the Web app.
         """
         return pulumi.get(self, "html_url")
 

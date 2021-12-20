@@ -13,9 +13,6 @@ namespace Pulumi.Pagerduty.Outputs
     [OutputType]
     public sealed class RulesetRuleTimeFrameActiveBetween
     {
-        /// <summary>
-        /// Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
-        /// </summary>
         public readonly int? EndTime;
         public readonly int? StartTime;
 

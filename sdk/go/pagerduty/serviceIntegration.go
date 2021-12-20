@@ -123,7 +123,7 @@ import (
 type ServiceIntegration struct {
 	pulumi.CustomResourceState
 
-	// URL at which the entity is uniquely displayed in the Web app
+	// URL at which the entity is uniquely displayed in the Web app.
 	HtmlUrl pulumi.StringOutput `pulumi:"htmlUrl"`
 	// This is the unique fully-qualified email address used for routing emails to this integration for processing.
 	IntegrationEmail pulumi.StringOutput `pulumi:"integrationEmail"`
@@ -144,7 +144,7 @@ type ServiceIntegration struct {
 	// `nagiosInboundIntegration`,
 	// `pingdomInboundIntegration`or `sqlMonitorInboundIntegration`.
 	Type pulumi.StringOutput `pulumi:"type"`
-	// The ID of the vendor the integration should integrate with (e.g Datadog or Amazon Cloudwatch).
+	// The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
 	Vendor pulumi.StringOutput `pulumi:"vendor"`
 }
 
@@ -180,7 +180,7 @@ func GetServiceIntegration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceIntegration resources.
 type serviceIntegrationState struct {
-	// URL at which the entity is uniquely displayed in the Web app
+	// URL at which the entity is uniquely displayed in the Web app.
 	HtmlUrl *string `pulumi:"htmlUrl"`
 	// This is the unique fully-qualified email address used for routing emails to this integration for processing.
 	IntegrationEmail *string `pulumi:"integrationEmail"`
@@ -201,12 +201,12 @@ type serviceIntegrationState struct {
 	// `nagiosInboundIntegration`,
 	// `pingdomInboundIntegration`or `sqlMonitorInboundIntegration`.
 	Type *string `pulumi:"type"`
-	// The ID of the vendor the integration should integrate with (e.g Datadog or Amazon Cloudwatch).
+	// The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
 	Vendor *string `pulumi:"vendor"`
 }
 
 type ServiceIntegrationState struct {
-	// URL at which the entity is uniquely displayed in the Web app
+	// URL at which the entity is uniquely displayed in the Web app.
 	HtmlUrl pulumi.StringPtrInput
 	// This is the unique fully-qualified email address used for routing emails to this integration for processing.
 	IntegrationEmail pulumi.StringPtrInput
@@ -227,7 +227,7 @@ type ServiceIntegrationState struct {
 	// `nagiosInboundIntegration`,
 	// `pingdomInboundIntegration`or `sqlMonitorInboundIntegration`.
 	Type pulumi.StringPtrInput
-	// The ID of the vendor the integration should integrate with (e.g Datadog or Amazon Cloudwatch).
+	// The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
 	Vendor pulumi.StringPtrInput
 }
 
@@ -255,7 +255,7 @@ type serviceIntegrationArgs struct {
 	// `nagiosInboundIntegration`,
 	// `pingdomInboundIntegration`or `sqlMonitorInboundIntegration`.
 	Type *string `pulumi:"type"`
-	// The ID of the vendor the integration should integrate with (e.g Datadog or Amazon Cloudwatch).
+	// The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
 	Vendor *string `pulumi:"vendor"`
 }
 
@@ -280,7 +280,7 @@ type ServiceIntegrationArgs struct {
 	// `nagiosInboundIntegration`,
 	// `pingdomInboundIntegration`or `sqlMonitorInboundIntegration`.
 	Type pulumi.StringPtrInput
-	// The ID of the vendor the integration should integrate with (e.g Datadog or Amazon Cloudwatch).
+	// The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
 	Vendor pulumi.StringPtrInput
 }
 

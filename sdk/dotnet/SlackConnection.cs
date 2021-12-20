@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty
 {
     /// <summary>
-    /// A [slack connection](https://developer.pagerduty.com/api-reference/reference/integration-slack-service/openapiv3.json) allows you to connect a workspace in Slack to a PagerDuty service or team which allows you to acknowledge and resolve PagerDuty incidents from the Slack user interface.
+    /// A [slack connection](https://developer.pagerduty.com/api-reference/YXBpOjExMjA5NTQ0-pager-duty-slack-integration-api) allows you to connect a workspace in Slack to a PagerDuty service or team which allows you to acknowledge and resolve PagerDuty incidents from the Slack user interface.
     /// 
     /// **NOTES for using this resource:**
     /// * To first use this resource you will need to [map your PagerDuty account to a valid Slack Workspace](https://support.pagerduty.com/docs/slack-integration-guide#integration-walkthrough). *This can only be done through the PagerDuty UI.*
@@ -73,7 +73,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Import
     /// 
-    /// Slack connections can be imported using using the related `workspace` ID and the `slack_connection` ID separated by a dot, e.g.
+    /// Slack connections can be imported using the related `workspace` ID and the `slack_connection` ID separated by a dot, e.g.
     /// 
     /// ```sh
     ///  $ pulumi import pagerduty:index/slackConnection:SlackConnection main T02A123LV1A.PUABCDL

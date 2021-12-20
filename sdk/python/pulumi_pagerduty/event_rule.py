@@ -75,7 +75,7 @@ class _EventRuleState:
         Input properties used for looking up and filtering EventRule resources.
         :param pulumi.Input[str] action_json: A list of one or more actions for each rule. Each action within the list is itself a list.
         :param pulumi.Input[str] advanced_condition_json: Contains a list of specific conditions including `active-between`,`scheduled-weekly`, and `frequency-over`. The first element in the list is the label for the condition, followed by a list of values for the specific condition. For more details on these conditions see [Advanced Condition](https://developer.pagerduty.com/docs/rest-api-v2/global-event-rules-api/#advanced-condition-parameter) in the PagerDuty API documentation.
-        :param pulumi.Input[bool] catch_all: A boolean that indicates whether the rule is a catch all for the account. This field is read-only through the PagerDuty API.
+        :param pulumi.Input[bool] catch_all: A boolean that indicates whether the rule is a catch-all for the account. This field is read-only through the PagerDuty API.
         :param pulumi.Input[str] condition_json: Contains a list of conditions. The first field in the list is `and` or `or`, followed by a list of operators and values.
         """
         if action_json is not None:
@@ -115,7 +115,7 @@ class _EventRuleState:
     @pulumi.getter(name="catchAll")
     def catch_all(self) -> Optional[pulumi.Input[bool]]:
         """
-        A boolean that indicates whether the rule is a catch all for the account. This field is read-only through the PagerDuty API.
+        A boolean that indicates whether the rule is a catch-all for the account. This field is read-only through the PagerDuty API.
         """
         return pulumi.get(self, "catch_all")
 
@@ -458,7 +458,7 @@ class EventRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action_json: A list of one or more actions for each rule. Each action within the list is itself a list.
         :param pulumi.Input[str] advanced_condition_json: Contains a list of specific conditions including `active-between`,`scheduled-weekly`, and `frequency-over`. The first element in the list is the label for the condition, followed by a list of values for the specific condition. For more details on these conditions see [Advanced Condition](https://developer.pagerduty.com/docs/rest-api-v2/global-event-rules-api/#advanced-condition-parameter) in the PagerDuty API documentation.
-        :param pulumi.Input[bool] catch_all: A boolean that indicates whether the rule is a catch all for the account. This field is read-only through the PagerDuty API.
+        :param pulumi.Input[bool] catch_all: A boolean that indicates whether the rule is a catch-all for the account. This field is read-only through the PagerDuty API.
         :param pulumi.Input[str] condition_json: Contains a list of conditions. The first field in the list is `and` or `or`, followed by a list of operators and values.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -491,7 +491,7 @@ class EventRule(pulumi.CustomResource):
     @pulumi.getter(name="catchAll")
     def catch_all(self) -> pulumi.Output[bool]:
         """
-        A boolean that indicates whether the rule is a catch all for the account. This field is read-only through the PagerDuty API.
+        A boolean that indicates whether the rule is a catch-all for the account. This field is read-only through the PagerDuty API.
         """
         return pulumi.get(self, "catch_all")
 

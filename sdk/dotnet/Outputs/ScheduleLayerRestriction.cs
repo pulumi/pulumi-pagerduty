@@ -26,7 +26,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly string StartTimeOfDay;
         /// <summary>
-        /// Can be `daily_restriction` or `weekly_restriction`
+        /// Can be `daily_restriction` or `weekly_restriction`.
         /// </summary>
         public readonly string Type;
 

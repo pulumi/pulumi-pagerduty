@@ -7,6 +7,7 @@ import typing
 # Export this package's modules as members:
 from .addon import *
 from .business_service import *
+from .business_service_subscriber import *
 from .escalation_policy import *
 from .event_rule import *
 from .extension import *
@@ -42,6 +43,7 @@ from .team_membership import *
 from .user import *
 from .user_contact_method import *
 from .user_notification_rule import *
+from .webhook_subscription import *
 from ._inputs import *
 from . import outputs
 
@@ -69,6 +71,14 @@ _utilities.register(
   "fqn": "pulumi_pagerduty",
   "classes": {
    "pagerduty:index/businessService:BusinessService": "BusinessService"
+  }
+ },
+ {
+  "pkg": "pagerduty",
+  "mod": "index/businessServiceSubscriber",
+  "fqn": "pulumi_pagerduty",
+  "classes": {
+   "pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber": "BusinessServiceSubscriber"
   }
  },
  {
@@ -237,6 +247,14 @@ _utilities.register(
   "fqn": "pulumi_pagerduty",
   "classes": {
    "pagerduty:index/userNotificationRule:UserNotificationRule": "UserNotificationRule"
+  }
+ },
+ {
+  "pkg": "pagerduty",
+  "mod": "index/webhookSubscription",
+  "fqn": "pulumi_pagerduty",
+  "classes": {
+   "pagerduty:index/webhookSubscription:WebhookSubscription": "WebhookSubscription"
   }
  }
 ]

@@ -90,7 +90,7 @@ export class ExtensionServiceNow extends pulumi.CustomResource {
      */
     public readonly extensionSchema!: pulumi.Output<string>;
     /**
-     * URL at which the entity is uniquely displayed in the Web app
+     * URL at which the entity is uniquely displayed in the Web app.
      */
     public /*out*/ readonly htmlUrl!: pulumi.Output<string>;
     /**
@@ -118,7 +118,7 @@ export class ExtensionServiceNow extends pulumi.CustomResource {
      */
     public readonly syncOptions!: pulumi.Output<string>;
     /**
-     * Target Webhook URL
+     * Target Webhook URL.
      */
     public readonly target!: pulumi.Output<string>;
     /**
@@ -214,7 +214,7 @@ export interface ExtensionServiceNowState {
      */
     extensionSchema?: pulumi.Input<string>;
     /**
-     * URL at which the entity is uniquely displayed in the Web app
+     * URL at which the entity is uniquely displayed in the Web app.
      */
     htmlUrl?: pulumi.Input<string>;
     /**
@@ -242,7 +242,7 @@ export interface ExtensionServiceNowState {
      */
     syncOptions?: pulumi.Input<string>;
     /**
-     * Target Webhook URL
+     * Target Webhook URL.
      */
     target?: pulumi.Input<string>;
     /**
@@ -290,7 +290,7 @@ export interface ExtensionServiceNowArgs {
      */
     syncOptions: pulumi.Input<string>;
     /**
-     * Target Webhook URL
+     * Target Webhook URL.
      */
     target: pulumi.Input<string>;
     /**

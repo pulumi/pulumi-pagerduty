@@ -26,7 +26,7 @@ class RulesetRuleArgs:
         The set of arguments for constructing a RulesetRule resource.
         :param pulumi.Input[str] ruleset: The ID of the ruleset that the rule belongs to.
         :param pulumi.Input['RulesetRuleActionsArgs'] actions: Actions to apply to an event if the conditions match.
-        :param pulumi.Input['RulesetRuleConditionsArgs'] conditions: Conditions evaluated to check if an event matches this event rule. Is always empty for the catch all rule, though.
+        :param pulumi.Input['RulesetRuleConditionsArgs'] conditions: Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
         :param pulumi.Input[bool] disabled: Indicates whether the rule is disabled and would therefore not be evaluated.
         :param pulumi.Input[int] position: Position/index of the rule within the ruleset.
         :param pulumi.Input['RulesetRuleTimeFrameArgs'] time_frame: Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
@@ -74,7 +74,7 @@ class RulesetRuleArgs:
     @pulumi.getter
     def conditions(self) -> Optional[pulumi.Input['RulesetRuleConditionsArgs']]:
         """
-        Conditions evaluated to check if an event matches this event rule. Is always empty for the catch all rule, though.
+        Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
         """
         return pulumi.get(self, "conditions")
 
@@ -144,7 +144,7 @@ class _RulesetRuleState:
         """
         Input properties used for looking up and filtering RulesetRule resources.
         :param pulumi.Input['RulesetRuleActionsArgs'] actions: Actions to apply to an event if the conditions match.
-        :param pulumi.Input['RulesetRuleConditionsArgs'] conditions: Conditions evaluated to check if an event matches this event rule. Is always empty for the catch all rule, though.
+        :param pulumi.Input['RulesetRuleConditionsArgs'] conditions: Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
         :param pulumi.Input[bool] disabled: Indicates whether the rule is disabled and would therefore not be evaluated.
         :param pulumi.Input[int] position: Position/index of the rule within the ruleset.
         :param pulumi.Input[str] ruleset: The ID of the ruleset that the rule belongs to.
@@ -182,7 +182,7 @@ class _RulesetRuleState:
     @pulumi.getter
     def conditions(self) -> Optional[pulumi.Input['RulesetRuleConditionsArgs']]:
         """
-        Conditions evaluated to check if an event matches this event rule. Is always empty for the catch all rule, though.
+        Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
         """
         return pulumi.get(self, "conditions")
 
@@ -269,7 +269,7 @@ class RulesetRule(pulumi.CustomResource):
 
         ## Import
 
-        Ruleset rules can be imported using using the related `ruleset` ID and the `ruleset_rule` ID separated by a dot, e.g.
+        Ruleset rules can be imported using the related `ruleset` ID and the `ruleset_rule` ID separated by a dot, e.g.
 
         ```sh
          $ pulumi import pagerduty:index/rulesetRule:RulesetRule main a19cdca1-3d5e-4b52-bfea-8c8de04da243.19acac92-027a-4ea0-b06c-bbf516519601
@@ -278,7 +278,7 @@ class RulesetRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['RulesetRuleActionsArgs']] actions: Actions to apply to an event if the conditions match.
-        :param pulumi.Input[pulumi.InputType['RulesetRuleConditionsArgs']] conditions: Conditions evaluated to check if an event matches this event rule. Is always empty for the catch all rule, though.
+        :param pulumi.Input[pulumi.InputType['RulesetRuleConditionsArgs']] conditions: Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
         :param pulumi.Input[bool] disabled: Indicates whether the rule is disabled and would therefore not be evaluated.
         :param pulumi.Input[int] position: Position/index of the rule within the ruleset.
         :param pulumi.Input[str] ruleset: The ID of the ruleset that the rule belongs to.
@@ -296,7 +296,7 @@ class RulesetRule(pulumi.CustomResource):
 
         ## Import
 
-        Ruleset rules can be imported using using the related `ruleset` ID and the `ruleset_rule` ID separated by a dot, e.g.
+        Ruleset rules can be imported using the related `ruleset` ID and the `ruleset_rule` ID separated by a dot, e.g.
 
         ```sh
          $ pulumi import pagerduty:index/rulesetRule:RulesetRule main a19cdca1-3d5e-4b52-bfea-8c8de04da243.19acac92-027a-4ea0-b06c-bbf516519601
@@ -370,7 +370,7 @@ class RulesetRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['RulesetRuleActionsArgs']] actions: Actions to apply to an event if the conditions match.
-        :param pulumi.Input[pulumi.InputType['RulesetRuleConditionsArgs']] conditions: Conditions evaluated to check if an event matches this event rule. Is always empty for the catch all rule, though.
+        :param pulumi.Input[pulumi.InputType['RulesetRuleConditionsArgs']] conditions: Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
         :param pulumi.Input[bool] disabled: Indicates whether the rule is disabled and would therefore not be evaluated.
         :param pulumi.Input[int] position: Position/index of the rule within the ruleset.
         :param pulumi.Input[str] ruleset: The ID of the ruleset that the rule belongs to.
@@ -402,7 +402,7 @@ class RulesetRule(pulumi.CustomResource):
     @pulumi.getter
     def conditions(self) -> pulumi.Output[Optional['outputs.RulesetRuleConditions']]:
         """
-        Conditions evaluated to check if an event matches this event rule. Is always empty for the catch all rule, though.
+        Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
         """
         return pulumi.get(self, "conditions")
 

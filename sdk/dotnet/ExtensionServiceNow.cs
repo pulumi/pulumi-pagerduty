@@ -101,7 +101,7 @@ namespace Pulumi.Pagerduty
         public Output<string> ExtensionSchema { get; private set; } = null!;
 
         /// <summary>
-        /// URL at which the entity is uniquely displayed in the Web app
+        /// URL at which the entity is uniquely displayed in the Web app.
         /// </summary>
         [Output("htmlUrl")]
         public Output<string> HtmlUrl { get; private set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.Pagerduty
         public Output<string> SyncOptions { get; private set; } = null!;
 
         /// <summary>
-        /// Target Webhook URL
+        /// Target Webhook URL.
         /// </summary>
         [Output("target")]
         public Output<string> Target { get; private set; } = null!;
@@ -261,7 +261,7 @@ namespace Pulumi.Pagerduty
         public Input<string> SyncOptions { get; set; } = null!;
 
         /// <summary>
-        /// Target Webhook URL
+        /// Target Webhook URL.
         /// </summary>
         [Input("target", required: true)]
         public Input<string> Target { get; set; } = null!;
@@ -304,7 +304,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? ExtensionSchema { get; set; }
 
         /// <summary>
-        /// URL at which the entity is uniquely displayed in the Web app
+        /// URL at which the entity is uniquely displayed in the Web app.
         /// </summary>
         [Input("htmlUrl")]
         public Input<string>? HtmlUrl { get; set; }
@@ -346,7 +346,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? SyncOptions { get; set; }
 
         /// <summary>
-        /// Target Webhook URL
+        /// Target Webhook URL.
         /// </summary>
         [Input("target")]
         public Input<string>? Target { get; set; }

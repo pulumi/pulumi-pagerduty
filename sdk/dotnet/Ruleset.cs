@@ -67,7 +67,7 @@ namespace Pulumi.Pagerduty
         public Output<Outputs.RulesetTeam?> Team { get; private set; } = null!;
 
         /// <summary>
-        /// Type of ruleset. Currently only sets to `global`.
+        /// Type of ruleset. Currently, only sets to `global`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Pagerduty
         public Input<Inputs.RulesetTeamGetArgs>? Team { get; set; }
 
         /// <summary>
-        /// Type of ruleset. Currently only sets to `global`.
+        /// Type of ruleset. Currently, only sets to `global`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

@@ -18,9 +18,10 @@ import (
 type Provider struct {
 	pulumi.ProviderResourceState
 
-	ServiceRegion pulumi.StringPtrOutput `pulumi:"serviceRegion"`
-	Token         pulumi.StringOutput    `pulumi:"token"`
-	UserToken     pulumi.StringPtrOutput `pulumi:"userToken"`
+	ApiUrlOverride pulumi.StringPtrOutput `pulumi:"apiUrlOverride"`
+	ServiceRegion  pulumi.StringPtrOutput `pulumi:"serviceRegion"`
+	Token          pulumi.StringOutput    `pulumi:"token"`
+	UserToken      pulumi.StringPtrOutput `pulumi:"userToken"`
 }
 
 // NewProvider registers a new resource with the given unique name, arguments, and options.
@@ -45,6 +46,7 @@ func NewProvider(ctx *pulumi.Context,
 }
 
 type providerArgs struct {
+	ApiUrlOverride            *string `pulumi:"apiUrlOverride"`
 	ServiceRegion             *string `pulumi:"serviceRegion"`
 	SkipCredentialsValidation *bool   `pulumi:"skipCredentialsValidation"`
 	Token                     string  `pulumi:"token"`
@@ -53,6 +55,7 @@ type providerArgs struct {
 
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
+	ApiUrlOverride            pulumi.StringPtrInput
 	ServiceRegion             pulumi.StringPtrInput
 	SkipCredentialsValidation pulumi.BoolPtrInput
 	Token                     pulumi.StringInput

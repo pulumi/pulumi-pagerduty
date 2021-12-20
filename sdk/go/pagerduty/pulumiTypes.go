@@ -2041,7 +2041,7 @@ func (o RulesetRuleActionsSuspendArrayOutput) Index(i pulumi.IntInput) RulesetRu
 type RulesetRuleConditions struct {
 	// Operator to combine sub-conditions. Can be `and` or `or`.
 	Operator *string `pulumi:"operator"`
-	// List of sub-conditions that define the the condition.
+	// List of sub-conditions that define the condition.
 	Subconditions []RulesetRuleConditionsSubcondition `pulumi:"subconditions"`
 }
 
@@ -2059,7 +2059,7 @@ type RulesetRuleConditionsInput interface {
 type RulesetRuleConditionsArgs struct {
 	// Operator to combine sub-conditions. Can be `and` or `or`.
 	Operator pulumi.StringPtrInput `pulumi:"operator"`
-	// List of sub-conditions that define the the condition.
+	// List of sub-conditions that define the condition.
 	Subconditions RulesetRuleConditionsSubconditionArrayInput `pulumi:"subconditions"`
 }
 
@@ -2145,7 +2145,7 @@ func (o RulesetRuleConditionsOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RulesetRuleConditions) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
-// List of sub-conditions that define the the condition.
+// List of sub-conditions that define the condition.
 func (o RulesetRuleConditionsOutput) Subconditions() RulesetRuleConditionsSubconditionArrayOutput {
 	return o.ApplyT(func(v RulesetRuleConditions) []RulesetRuleConditionsSubcondition { return v.Subconditions }).(RulesetRuleConditionsSubconditionArrayOutput)
 }
@@ -2184,7 +2184,7 @@ func (o RulesetRuleConditionsPtrOutput) Operator() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of sub-conditions that define the the condition.
+// List of sub-conditions that define the condition.
 func (o RulesetRuleConditionsPtrOutput) Subconditions() RulesetRuleConditionsSubconditionArrayOutput {
 	return o.ApplyT(func(v *RulesetRuleConditions) []RulesetRuleConditionsSubcondition {
 		if v == nil {
@@ -2562,7 +2562,6 @@ func (o RulesetRuleTimeFramePtrOutput) ScheduledWeeklies() RulesetRuleTimeFrameS
 }
 
 type RulesetRuleTimeFrameActiveBetween struct {
-	// Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
 	EndTime   *int `pulumi:"endTime"`
 	StartTime *int `pulumi:"startTime"`
 }
@@ -2579,7 +2578,6 @@ type RulesetRuleTimeFrameActiveBetweenInput interface {
 }
 
 type RulesetRuleTimeFrameActiveBetweenArgs struct {
-	// Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
 	EndTime   pulumi.IntPtrInput `pulumi:"endTime"`
 	StartTime pulumi.IntPtrInput `pulumi:"startTime"`
 }
@@ -2635,7 +2633,6 @@ func (o RulesetRuleTimeFrameActiveBetweenOutput) ToRulesetRuleTimeFrameActiveBet
 	return o
 }
 
-// Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
 func (o RulesetRuleTimeFrameActiveBetweenOutput) EndTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RulesetRuleTimeFrameActiveBetween) *int { return v.EndTime }).(pulumi.IntPtrOutput)
 }
@@ -3134,7 +3131,7 @@ func (o RulesetTeamPtrOutput) Id() pulumi.StringPtrOutput {
 type ScheduleLayer struct {
 	// The end time of the schedule layer. If not specified, the layer does not end.
 	End *string `pulumi:"end"`
-	// The ID of the schedule
+	// The ID of the schedule.
 	Id *string `pulumi:"id"`
 	// The name of the schedule layer.
 	Name *string `pulumi:"name"`
@@ -3164,7 +3161,7 @@ type ScheduleLayerInput interface {
 type ScheduleLayerArgs struct {
 	// The end time of the schedule layer. If not specified, the layer does not end.
 	End pulumi.StringPtrInput `pulumi:"end"`
-	// The ID of the schedule
+	// The ID of the schedule.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The name of the schedule layer.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -3236,7 +3233,7 @@ func (o ScheduleLayerOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduleLayer) *string { return v.End }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the schedule
+// The ID of the schedule.
 func (o ScheduleLayerOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduleLayer) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -3298,7 +3295,7 @@ type ScheduleLayerRestriction struct {
 	StartDayOfWeek *int `pulumi:"startDayOfWeek"`
 	// The start time in `HH:mm:ss` format.
 	StartTimeOfDay string `pulumi:"startTimeOfDay"`
-	// Can be `dailyRestriction` or `weeklyRestriction`
+	// Can be `dailyRestriction` or `weeklyRestriction`.
 	Type string `pulumi:"type"`
 }
 
@@ -3320,7 +3317,7 @@ type ScheduleLayerRestrictionArgs struct {
 	StartDayOfWeek pulumi.IntPtrInput `pulumi:"startDayOfWeek"`
 	// The start time in `HH:mm:ss` format.
 	StartTimeOfDay pulumi.StringInput `pulumi:"startTimeOfDay"`
-	// Can be `dailyRestriction` or `weeklyRestriction`
+	// Can be `dailyRestriction` or `weeklyRestriction`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -3390,7 +3387,7 @@ func (o ScheduleLayerRestrictionOutput) StartTimeOfDay() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleLayerRestriction) string { return v.StartTimeOfDay }).(pulumi.StringOutput)
 }
 
-// Can be `dailyRestriction` or `weeklyRestriction`
+// Can be `dailyRestriction` or `weeklyRestriction`.
 func (o ScheduleLayerRestrictionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleLayerRestriction) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3416,7 +3413,7 @@ func (o ScheduleLayerRestrictionArrayOutput) Index(i pulumi.IntInput) ScheduleLa
 }
 
 type ServiceAlertGroupingParameters struct {
-	// Alert grouping parameters dependant on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
+	// Alert grouping parameters dependent on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
 	Config *ServiceAlertGroupingParametersConfig `pulumi:"config"`
 	// The type of scheduled action. Currently, this must be set to `urgencyChange`.
 	Type *string `pulumi:"type"`
@@ -3434,7 +3431,7 @@ type ServiceAlertGroupingParametersInput interface {
 }
 
 type ServiceAlertGroupingParametersArgs struct {
-	// Alert grouping parameters dependant on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
+	// Alert grouping parameters dependent on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
 	Config ServiceAlertGroupingParametersConfigPtrInput `pulumi:"config"`
 	// The type of scheduled action. Currently, this must be set to `urgencyChange`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -3517,7 +3514,7 @@ func (o ServiceAlertGroupingParametersOutput) ToServiceAlertGroupingParametersPt
 	}).(ServiceAlertGroupingParametersPtrOutput)
 }
 
-// Alert grouping parameters dependant on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
+// Alert grouping parameters dependent on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
 func (o ServiceAlertGroupingParametersOutput) Config() ServiceAlertGroupingParametersConfigPtrOutput {
 	return o.ApplyT(func(v ServiceAlertGroupingParameters) *ServiceAlertGroupingParametersConfig { return v.Config }).(ServiceAlertGroupingParametersConfigPtrOutput)
 }
@@ -3551,7 +3548,7 @@ func (o ServiceAlertGroupingParametersPtrOutput) Elem() ServiceAlertGroupingPara
 	}).(ServiceAlertGroupingParametersOutput)
 }
 
-// Alert grouping parameters dependant on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
+// Alert grouping parameters dependent on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
 func (o ServiceAlertGroupingParametersPtrOutput) Config() ServiceAlertGroupingParametersConfigPtrOutput {
 	return o.ApplyT(func(v *ServiceAlertGroupingParameters) *ServiceAlertGroupingParametersConfig {
 		if v == nil {
@@ -5114,7 +5111,7 @@ func (o ServiceEventRuleActionsSuspendArrayOutput) Index(i pulumi.IntInput) Serv
 type ServiceEventRuleConditions struct {
 	// Operator to combine sub-conditions. Can be `and` or `or`.
 	Operator *string `pulumi:"operator"`
-	// List of sub-conditions that define the the condition.
+	// List of sub-conditions that define the condition.
 	Subconditions []ServiceEventRuleConditionsSubcondition `pulumi:"subconditions"`
 }
 
@@ -5132,7 +5129,7 @@ type ServiceEventRuleConditionsInput interface {
 type ServiceEventRuleConditionsArgs struct {
 	// Operator to combine sub-conditions. Can be `and` or `or`.
 	Operator pulumi.StringPtrInput `pulumi:"operator"`
-	// List of sub-conditions that define the the condition.
+	// List of sub-conditions that define the condition.
 	Subconditions ServiceEventRuleConditionsSubconditionArrayInput `pulumi:"subconditions"`
 }
 
@@ -5218,7 +5215,7 @@ func (o ServiceEventRuleConditionsOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceEventRuleConditions) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
-// List of sub-conditions that define the the condition.
+// List of sub-conditions that define the condition.
 func (o ServiceEventRuleConditionsOutput) Subconditions() ServiceEventRuleConditionsSubconditionArrayOutput {
 	return o.ApplyT(func(v ServiceEventRuleConditions) []ServiceEventRuleConditionsSubcondition { return v.Subconditions }).(ServiceEventRuleConditionsSubconditionArrayOutput)
 }
@@ -5257,7 +5254,7 @@ func (o ServiceEventRuleConditionsPtrOutput) Operator() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of sub-conditions that define the the condition.
+// List of sub-conditions that define the condition.
 func (o ServiceEventRuleConditionsPtrOutput) Subconditions() ServiceEventRuleConditionsSubconditionArrayOutput {
 	return o.ApplyT(func(v *ServiceEventRuleConditions) []ServiceEventRuleConditionsSubcondition {
 		if v == nil {
@@ -6093,7 +6090,7 @@ func (o ServiceEventRuleVariableParameterArrayOutput) Index(i pulumi.IntInput) S
 type ServiceIncidentUrgencyRule struct {
 	// Incidents' urgency during support hours.
 	DuringSupportHours *ServiceIncidentUrgencyRuleDuringSupportHours `pulumi:"duringSupportHours"`
-	// Incidents' urgency outside of support hours.
+	// Incidents' urgency outside support hours.
 	OutsideSupportHours *ServiceIncidentUrgencyRuleOutsideSupportHours `pulumi:"outsideSupportHours"`
 	// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
 	Type string `pulumi:"type"`
@@ -6115,7 +6112,7 @@ type ServiceIncidentUrgencyRuleInput interface {
 type ServiceIncidentUrgencyRuleArgs struct {
 	// Incidents' urgency during support hours.
 	DuringSupportHours ServiceIncidentUrgencyRuleDuringSupportHoursPtrInput `pulumi:"duringSupportHours"`
-	// Incidents' urgency outside of support hours.
+	// Incidents' urgency outside support hours.
 	OutsideSupportHours ServiceIncidentUrgencyRuleOutsideSupportHoursPtrInput `pulumi:"outsideSupportHours"`
 	// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -6207,7 +6204,7 @@ func (o ServiceIncidentUrgencyRuleOutput) DuringSupportHours() ServiceIncidentUr
 	}).(ServiceIncidentUrgencyRuleDuringSupportHoursPtrOutput)
 }
 
-// Incidents' urgency outside of support hours.
+// Incidents' urgency outside support hours.
 func (o ServiceIncidentUrgencyRuleOutput) OutsideSupportHours() ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput {
 	return o.ApplyT(func(v ServiceIncidentUrgencyRule) *ServiceIncidentUrgencyRuleOutsideSupportHours {
 		return v.OutsideSupportHours
@@ -6258,7 +6255,7 @@ func (o ServiceIncidentUrgencyRulePtrOutput) DuringSupportHours() ServiceInciden
 	}).(ServiceIncidentUrgencyRuleDuringSupportHoursPtrOutput)
 }
 
-// Incidents' urgency outside of support hours.
+// Incidents' urgency outside support hours.
 func (o ServiceIncidentUrgencyRulePtrOutput) OutsideSupportHours() ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput {
 	return o.ApplyT(func(v *ServiceIncidentUrgencyRule) *ServiceIncidentUrgencyRuleOutsideSupportHours {
 		if v == nil {
@@ -7186,6 +7183,227 @@ func (o SlackConnectionConfigArrayOutput) Index(i pulumi.IntInput) SlackConnecti
 	}).(SlackConnectionConfigOutput)
 }
 
+type WebhookSubscriptionDeliveryMethod struct {
+	// Whether this webhook subscription is temporarily disabled. Becomes true if the delivery method URL is repeatedly rejected by the server.
+	TemporarilyDisabled *bool `pulumi:"temporarilyDisabled"`
+	// Indicates the type of the delivery method. Allowed and default value: `httpDeliveryMethod`.
+	Type *string `pulumi:"type"`
+	// The destination URL for webhook delivery.
+	Url *string `pulumi:"url"`
+}
+
+// WebhookSubscriptionDeliveryMethodInput is an input type that accepts WebhookSubscriptionDeliveryMethodArgs and WebhookSubscriptionDeliveryMethodOutput values.
+// You can construct a concrete instance of `WebhookSubscriptionDeliveryMethodInput` via:
+//
+//          WebhookSubscriptionDeliveryMethodArgs{...}
+type WebhookSubscriptionDeliveryMethodInput interface {
+	pulumi.Input
+
+	ToWebhookSubscriptionDeliveryMethodOutput() WebhookSubscriptionDeliveryMethodOutput
+	ToWebhookSubscriptionDeliveryMethodOutputWithContext(context.Context) WebhookSubscriptionDeliveryMethodOutput
+}
+
+type WebhookSubscriptionDeliveryMethodArgs struct {
+	// Whether this webhook subscription is temporarily disabled. Becomes true if the delivery method URL is repeatedly rejected by the server.
+	TemporarilyDisabled pulumi.BoolPtrInput `pulumi:"temporarilyDisabled"`
+	// Indicates the type of the delivery method. Allowed and default value: `httpDeliveryMethod`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The destination URL for webhook delivery.
+	Url pulumi.StringPtrInput `pulumi:"url"`
+}
+
+func (WebhookSubscriptionDeliveryMethodArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebhookSubscriptionDeliveryMethod)(nil)).Elem()
+}
+
+func (i WebhookSubscriptionDeliveryMethodArgs) ToWebhookSubscriptionDeliveryMethodOutput() WebhookSubscriptionDeliveryMethodOutput {
+	return i.ToWebhookSubscriptionDeliveryMethodOutputWithContext(context.Background())
+}
+
+func (i WebhookSubscriptionDeliveryMethodArgs) ToWebhookSubscriptionDeliveryMethodOutputWithContext(ctx context.Context) WebhookSubscriptionDeliveryMethodOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebhookSubscriptionDeliveryMethodOutput)
+}
+
+// WebhookSubscriptionDeliveryMethodArrayInput is an input type that accepts WebhookSubscriptionDeliveryMethodArray and WebhookSubscriptionDeliveryMethodArrayOutput values.
+// You can construct a concrete instance of `WebhookSubscriptionDeliveryMethodArrayInput` via:
+//
+//          WebhookSubscriptionDeliveryMethodArray{ WebhookSubscriptionDeliveryMethodArgs{...} }
+type WebhookSubscriptionDeliveryMethodArrayInput interface {
+	pulumi.Input
+
+	ToWebhookSubscriptionDeliveryMethodArrayOutput() WebhookSubscriptionDeliveryMethodArrayOutput
+	ToWebhookSubscriptionDeliveryMethodArrayOutputWithContext(context.Context) WebhookSubscriptionDeliveryMethodArrayOutput
+}
+
+type WebhookSubscriptionDeliveryMethodArray []WebhookSubscriptionDeliveryMethodInput
+
+func (WebhookSubscriptionDeliveryMethodArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebhookSubscriptionDeliveryMethod)(nil)).Elem()
+}
+
+func (i WebhookSubscriptionDeliveryMethodArray) ToWebhookSubscriptionDeliveryMethodArrayOutput() WebhookSubscriptionDeliveryMethodArrayOutput {
+	return i.ToWebhookSubscriptionDeliveryMethodArrayOutputWithContext(context.Background())
+}
+
+func (i WebhookSubscriptionDeliveryMethodArray) ToWebhookSubscriptionDeliveryMethodArrayOutputWithContext(ctx context.Context) WebhookSubscriptionDeliveryMethodArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebhookSubscriptionDeliveryMethodArrayOutput)
+}
+
+type WebhookSubscriptionDeliveryMethodOutput struct{ *pulumi.OutputState }
+
+func (WebhookSubscriptionDeliveryMethodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebhookSubscriptionDeliveryMethod)(nil)).Elem()
+}
+
+func (o WebhookSubscriptionDeliveryMethodOutput) ToWebhookSubscriptionDeliveryMethodOutput() WebhookSubscriptionDeliveryMethodOutput {
+	return o
+}
+
+func (o WebhookSubscriptionDeliveryMethodOutput) ToWebhookSubscriptionDeliveryMethodOutputWithContext(ctx context.Context) WebhookSubscriptionDeliveryMethodOutput {
+	return o
+}
+
+// Whether this webhook subscription is temporarily disabled. Becomes true if the delivery method URL is repeatedly rejected by the server.
+func (o WebhookSubscriptionDeliveryMethodOutput) TemporarilyDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WebhookSubscriptionDeliveryMethod) *bool { return v.TemporarilyDisabled }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates the type of the delivery method. Allowed and default value: `httpDeliveryMethod`.
+func (o WebhookSubscriptionDeliveryMethodOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebhookSubscriptionDeliveryMethod) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The destination URL for webhook delivery.
+func (o WebhookSubscriptionDeliveryMethodOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebhookSubscriptionDeliveryMethod) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+type WebhookSubscriptionDeliveryMethodArrayOutput struct{ *pulumi.OutputState }
+
+func (WebhookSubscriptionDeliveryMethodArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebhookSubscriptionDeliveryMethod)(nil)).Elem()
+}
+
+func (o WebhookSubscriptionDeliveryMethodArrayOutput) ToWebhookSubscriptionDeliveryMethodArrayOutput() WebhookSubscriptionDeliveryMethodArrayOutput {
+	return o
+}
+
+func (o WebhookSubscriptionDeliveryMethodArrayOutput) ToWebhookSubscriptionDeliveryMethodArrayOutputWithContext(ctx context.Context) WebhookSubscriptionDeliveryMethodArrayOutput {
+	return o
+}
+
+func (o WebhookSubscriptionDeliveryMethodArrayOutput) Index(i pulumi.IntInput) WebhookSubscriptionDeliveryMethodOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebhookSubscriptionDeliveryMethod {
+		return vs[0].([]WebhookSubscriptionDeliveryMethod)[vs[1].(int)]
+	}).(WebhookSubscriptionDeliveryMethodOutput)
+}
+
+type WebhookSubscriptionFilter struct {
+	// The id of the object being used as the filter. This field is required for all filter types except account_reference.
+	Id *string `pulumi:"id"`
+	// The type of object being used as the filter. Allowed values are `accountReference`, `serviceReference`, and `teamReference`.
+	Type string `pulumi:"type"`
+}
+
+// WebhookSubscriptionFilterInput is an input type that accepts WebhookSubscriptionFilterArgs and WebhookSubscriptionFilterOutput values.
+// You can construct a concrete instance of `WebhookSubscriptionFilterInput` via:
+//
+//          WebhookSubscriptionFilterArgs{...}
+type WebhookSubscriptionFilterInput interface {
+	pulumi.Input
+
+	ToWebhookSubscriptionFilterOutput() WebhookSubscriptionFilterOutput
+	ToWebhookSubscriptionFilterOutputWithContext(context.Context) WebhookSubscriptionFilterOutput
+}
+
+type WebhookSubscriptionFilterArgs struct {
+	// The id of the object being used as the filter. This field is required for all filter types except account_reference.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The type of object being used as the filter. Allowed values are `accountReference`, `serviceReference`, and `teamReference`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WebhookSubscriptionFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebhookSubscriptionFilter)(nil)).Elem()
+}
+
+func (i WebhookSubscriptionFilterArgs) ToWebhookSubscriptionFilterOutput() WebhookSubscriptionFilterOutput {
+	return i.ToWebhookSubscriptionFilterOutputWithContext(context.Background())
+}
+
+func (i WebhookSubscriptionFilterArgs) ToWebhookSubscriptionFilterOutputWithContext(ctx context.Context) WebhookSubscriptionFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebhookSubscriptionFilterOutput)
+}
+
+// WebhookSubscriptionFilterArrayInput is an input type that accepts WebhookSubscriptionFilterArray and WebhookSubscriptionFilterArrayOutput values.
+// You can construct a concrete instance of `WebhookSubscriptionFilterArrayInput` via:
+//
+//          WebhookSubscriptionFilterArray{ WebhookSubscriptionFilterArgs{...} }
+type WebhookSubscriptionFilterArrayInput interface {
+	pulumi.Input
+
+	ToWebhookSubscriptionFilterArrayOutput() WebhookSubscriptionFilterArrayOutput
+	ToWebhookSubscriptionFilterArrayOutputWithContext(context.Context) WebhookSubscriptionFilterArrayOutput
+}
+
+type WebhookSubscriptionFilterArray []WebhookSubscriptionFilterInput
+
+func (WebhookSubscriptionFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebhookSubscriptionFilter)(nil)).Elem()
+}
+
+func (i WebhookSubscriptionFilterArray) ToWebhookSubscriptionFilterArrayOutput() WebhookSubscriptionFilterArrayOutput {
+	return i.ToWebhookSubscriptionFilterArrayOutputWithContext(context.Background())
+}
+
+func (i WebhookSubscriptionFilterArray) ToWebhookSubscriptionFilterArrayOutputWithContext(ctx context.Context) WebhookSubscriptionFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebhookSubscriptionFilterArrayOutput)
+}
+
+type WebhookSubscriptionFilterOutput struct{ *pulumi.OutputState }
+
+func (WebhookSubscriptionFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebhookSubscriptionFilter)(nil)).Elem()
+}
+
+func (o WebhookSubscriptionFilterOutput) ToWebhookSubscriptionFilterOutput() WebhookSubscriptionFilterOutput {
+	return o
+}
+
+func (o WebhookSubscriptionFilterOutput) ToWebhookSubscriptionFilterOutputWithContext(ctx context.Context) WebhookSubscriptionFilterOutput {
+	return o
+}
+
+// The id of the object being used as the filter. This field is required for all filter types except account_reference.
+func (o WebhookSubscriptionFilterOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebhookSubscriptionFilter) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The type of object being used as the filter. Allowed values are `accountReference`, `serviceReference`, and `teamReference`.
+func (o WebhookSubscriptionFilterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WebhookSubscriptionFilter) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type WebhookSubscriptionFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (WebhookSubscriptionFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebhookSubscriptionFilter)(nil)).Elem()
+}
+
+func (o WebhookSubscriptionFilterArrayOutput) ToWebhookSubscriptionFilterArrayOutput() WebhookSubscriptionFilterArrayOutput {
+	return o
+}
+
+func (o WebhookSubscriptionFilterArrayOutput) ToWebhookSubscriptionFilterArrayOutputWithContext(ctx context.Context) WebhookSubscriptionFilterArrayOutput {
+	return o
+}
+
+func (o WebhookSubscriptionFilterArrayOutput) Index(i pulumi.IntInput) WebhookSubscriptionFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebhookSubscriptionFilter {
+		return vs[0].([]WebhookSubscriptionFilter)[vs[1].(int)]
+	}).(WebhookSubscriptionFilterOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EscalationPolicyRuleInput)(nil)).Elem(), EscalationPolicyRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EscalationPolicyRuleArrayInput)(nil)).Elem(), EscalationPolicyRuleArray{})
@@ -7299,6 +7517,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSupportHoursPtrInput)(nil)).Elem(), ServiceSupportHoursArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SlackConnectionConfigInput)(nil)).Elem(), SlackConnectionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SlackConnectionConfigArrayInput)(nil)).Elem(), SlackConnectionConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebhookSubscriptionDeliveryMethodInput)(nil)).Elem(), WebhookSubscriptionDeliveryMethodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebhookSubscriptionDeliveryMethodArrayInput)(nil)).Elem(), WebhookSubscriptionDeliveryMethodArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebhookSubscriptionFilterInput)(nil)).Elem(), WebhookSubscriptionFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebhookSubscriptionFilterArrayInput)(nil)).Elem(), WebhookSubscriptionFilterArray{})
 	pulumi.RegisterOutputType(EscalationPolicyRuleOutput{})
 	pulumi.RegisterOutputType(EscalationPolicyRuleArrayOutput{})
 	pulumi.RegisterOutputType(EscalationPolicyRuleTargetOutput{})
@@ -7411,4 +7633,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceSupportHoursPtrOutput{})
 	pulumi.RegisterOutputType(SlackConnectionConfigOutput{})
 	pulumi.RegisterOutputType(SlackConnectionConfigArrayOutput{})
+	pulumi.RegisterOutputType(WebhookSubscriptionDeliveryMethodOutput{})
+	pulumi.RegisterOutputType(WebhookSubscriptionDeliveryMethodArrayOutput{})
+	pulumi.RegisterOutputType(WebhookSubscriptionFilterOutput{})
+	pulumi.RegisterOutputType(WebhookSubscriptionFilterArrayOutput{})
 }

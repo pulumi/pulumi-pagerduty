@@ -97,7 +97,7 @@ type ExtensionServiceNow struct {
 	ExtensionObjects pulumi.StringArrayOutput `pulumi:"extensionObjects"`
 	// This is the schema for this extension.
 	ExtensionSchema pulumi.StringOutput `pulumi:"extensionSchema"`
-	// URL at which the entity is uniquely displayed in the Web app
+	// URL at which the entity is uniquely displayed in the Web app.
 	HtmlUrl pulumi.StringOutput `pulumi:"htmlUrl"`
 	// The name of the service extension.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -111,7 +111,7 @@ type ExtensionServiceNow struct {
 	Summary pulumi.StringOutput `pulumi:"summary"`
 	// The ServiceNow sync option.
 	SyncOptions pulumi.StringOutput `pulumi:"syncOptions"`
-	// Target Webhook URL
+	// Target Webhook URL.
 	Target pulumi.StringOutput `pulumi:"target"`
 	// The ServiceNow task type, typically `incident`.
 	TaskType pulumi.StringOutput `pulumi:"taskType"`
@@ -176,7 +176,7 @@ type extensionServiceNowState struct {
 	ExtensionObjects []string `pulumi:"extensionObjects"`
 	// This is the schema for this extension.
 	ExtensionSchema *string `pulumi:"extensionSchema"`
-	// URL at which the entity is uniquely displayed in the Web app
+	// URL at which the entity is uniquely displayed in the Web app.
 	HtmlUrl *string `pulumi:"htmlUrl"`
 	// The name of the service extension.
 	Name *string `pulumi:"name"`
@@ -190,7 +190,7 @@ type extensionServiceNowState struct {
 	Summary *string `pulumi:"summary"`
 	// The ServiceNow sync option.
 	SyncOptions *string `pulumi:"syncOptions"`
-	// Target Webhook URL
+	// Target Webhook URL.
 	Target *string `pulumi:"target"`
 	// The ServiceNow task type, typically `incident`.
 	TaskType *string `pulumi:"taskType"`
@@ -203,7 +203,7 @@ type ExtensionServiceNowState struct {
 	ExtensionObjects pulumi.StringArrayInput
 	// This is the schema for this extension.
 	ExtensionSchema pulumi.StringPtrInput
-	// URL at which the entity is uniquely displayed in the Web app
+	// URL at which the entity is uniquely displayed in the Web app.
 	HtmlUrl pulumi.StringPtrInput
 	// The name of the service extension.
 	Name pulumi.StringPtrInput
@@ -217,7 +217,7 @@ type ExtensionServiceNowState struct {
 	Summary pulumi.StringPtrInput
 	// The ServiceNow sync option.
 	SyncOptions pulumi.StringPtrInput
-	// Target Webhook URL
+	// Target Webhook URL.
 	Target pulumi.StringPtrInput
 	// The ServiceNow task type, typically `incident`.
 	TaskType pulumi.StringPtrInput
@@ -246,7 +246,7 @@ type extensionServiceNowArgs struct {
 	Summary *string `pulumi:"summary"`
 	// The ServiceNow sync option.
 	SyncOptions string `pulumi:"syncOptions"`
-	// Target Webhook URL
+	// Target Webhook URL.
 	Target string `pulumi:"target"`
 	// The ServiceNow task type, typically `incident`.
 	TaskType string  `pulumi:"taskType"`
@@ -272,7 +272,7 @@ type ExtensionServiceNowArgs struct {
 	Summary pulumi.StringPtrInput
 	// The ServiceNow sync option.
 	SyncOptions pulumi.StringInput
-	// Target Webhook URL
+	// Target Webhook URL.
 	Target pulumi.StringInput
 	// The ServiceNow task type, typically `incident`.
 	TaskType pulumi.StringInput

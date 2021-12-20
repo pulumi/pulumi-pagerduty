@@ -14,6 +14,7 @@ __all__ = ['ProviderArgs', 'Provider']
 class ProviderArgs:
     def __init__(__self__, *,
                  token: pulumi.Input[str],
+                 api_url_override: Optional[pulumi.Input[str]] = None,
                  service_region: Optional[pulumi.Input[str]] = None,
                  skip_credentials_validation: Optional[pulumi.Input[bool]] = None,
                  user_token: Optional[pulumi.Input[str]] = None):
@@ -21,6 +22,8 @@ class ProviderArgs:
         The set of arguments for constructing a Provider resource.
         """
         pulumi.set(__self__, "token", token)
+        if api_url_override is not None:
+            pulumi.set(__self__, "api_url_override", api_url_override)
         if service_region is not None:
             pulumi.set(__self__, "service_region", service_region)
         if skip_credentials_validation is None:
@@ -38,6 +41,15 @@ class ProviderArgs:
     @token.setter
     def token(self, value: pulumi.Input[str]):
         pulumi.set(self, "token", value)
+
+    @property
+    @pulumi.getter(name="apiUrlOverride")
+    def api_url_override(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "api_url_override")
+
+    @api_url_override.setter
+    def api_url_override(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_url_override", value)
 
     @property
     @pulumi.getter(name="serviceRegion")
@@ -72,6 +84,7 @@ class Provider(pulumi.ProviderResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 api_url_override: Optional[pulumi.Input[str]] = None,
                  service_region: Optional[pulumi.Input[str]] = None,
                  skip_credentials_validation: Optional[pulumi.Input[bool]] = None,
                  token: Optional[pulumi.Input[str]] = None,
@@ -113,6 +126,7 @@ class Provider(pulumi.ProviderResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 api_url_override: Optional[pulumi.Input[str]] = None,
                  service_region: Optional[pulumi.Input[str]] = None,
                  skip_credentials_validation: Optional[pulumi.Input[bool]] = None,
                  token: Optional[pulumi.Input[str]] = None,
@@ -129,6 +143,7 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProviderArgs.__new__(ProviderArgs)
 
+            __props__.__dict__["api_url_override"] = api_url_override
             __props__.__dict__["service_region"] = service_region
             if skip_credentials_validation is None:
                 skip_credentials_validation = False
@@ -142,6 +157,11 @@ class Provider(pulumi.ProviderResource):
             resource_name,
             __props__,
             opts)
+
+    @property
+    @pulumi.getter(name="apiUrlOverride")
+    def api_url_override(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "api_url_override")
 
     @property
     @pulumi.getter(name="serviceRegion")

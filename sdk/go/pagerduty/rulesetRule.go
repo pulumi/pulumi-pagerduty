@@ -15,7 +15,7 @@ import (
 //
 // ## Import
 //
-// Ruleset rules can be imported using using the related `ruleset` ID and the `ruleset_rule` ID separated by a dot, e.g.
+// Ruleset rules can be imported using the related `ruleset` ID and the `ruleset_rule` ID separated by a dot, e.g.
 //
 // ```sh
 //  $ pulumi import pagerduty:index/rulesetRule:RulesetRule main a19cdca1-3d5e-4b52-bfea-8c8de04da243.19acac92-027a-4ea0-b06c-bbf516519601
@@ -25,7 +25,7 @@ type RulesetRule struct {
 
 	// Actions to apply to an event if the conditions match.
 	Actions RulesetRuleActionsPtrOutput `pulumi:"actions"`
-	// Conditions evaluated to check if an event matches this event rule. Is always empty for the catch all rule, though.
+	// Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
 	Conditions RulesetRuleConditionsPtrOutput `pulumi:"conditions"`
 	// Indicates whether the rule is disabled and would therefore not be evaluated.
 	Disabled pulumi.BoolPtrOutput `pulumi:"disabled"`
@@ -73,7 +73,7 @@ func GetRulesetRule(ctx *pulumi.Context,
 type rulesetRuleState struct {
 	// Actions to apply to an event if the conditions match.
 	Actions *RulesetRuleActions `pulumi:"actions"`
-	// Conditions evaluated to check if an event matches this event rule. Is always empty for the catch all rule, though.
+	// Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
 	Conditions *RulesetRuleConditions `pulumi:"conditions"`
 	// Indicates whether the rule is disabled and would therefore not be evaluated.
 	Disabled *bool `pulumi:"disabled"`
@@ -90,7 +90,7 @@ type rulesetRuleState struct {
 type RulesetRuleState struct {
 	// Actions to apply to an event if the conditions match.
 	Actions RulesetRuleActionsPtrInput
-	// Conditions evaluated to check if an event matches this event rule. Is always empty for the catch all rule, though.
+	// Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
 	Conditions RulesetRuleConditionsPtrInput
 	// Indicates whether the rule is disabled and would therefore not be evaluated.
 	Disabled pulumi.BoolPtrInput
@@ -111,7 +111,7 @@ func (RulesetRuleState) ElementType() reflect.Type {
 type rulesetRuleArgs struct {
 	// Actions to apply to an event if the conditions match.
 	Actions *RulesetRuleActions `pulumi:"actions"`
-	// Conditions evaluated to check if an event matches this event rule. Is always empty for the catch all rule, though.
+	// Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
 	Conditions *RulesetRuleConditions `pulumi:"conditions"`
 	// Indicates whether the rule is disabled and would therefore not be evaluated.
 	Disabled *bool `pulumi:"disabled"`
@@ -129,7 +129,7 @@ type rulesetRuleArgs struct {
 type RulesetRuleArgs struct {
 	// Actions to apply to an event if the conditions match.
 	Actions RulesetRuleActionsPtrInput
-	// Conditions evaluated to check if an event matches this event rule. Is always empty for the catch all rule, though.
+	// Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
 	Conditions RulesetRuleConditionsPtrInput
 	// Indicates whether the rule is disabled and would therefore not be evaluated.
 	Disabled pulumi.BoolPtrInput

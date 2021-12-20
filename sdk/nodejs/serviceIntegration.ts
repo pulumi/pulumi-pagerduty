@@ -99,7 +99,7 @@ export class ServiceIntegration extends pulumi.CustomResource {
     }
 
     /**
-     * URL at which the entity is uniquely displayed in the Web app
+     * URL at which the entity is uniquely displayed in the Web app.
      */
     public /*out*/ readonly htmlUrl!: pulumi.Output<string>;
     /**
@@ -132,7 +132,7 @@ export class ServiceIntegration extends pulumi.CustomResource {
      */
     public readonly type!: pulumi.Output<string>;
     /**
-     * The ID of the vendor the integration should integrate with (e.g Datadog or Amazon Cloudwatch).
+     * The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
      */
     public readonly vendor!: pulumi.Output<string>;
 
@@ -181,7 +181,7 @@ export class ServiceIntegration extends pulumi.CustomResource {
  */
 export interface ServiceIntegrationState {
     /**
-     * URL at which the entity is uniquely displayed in the Web app
+     * URL at which the entity is uniquely displayed in the Web app.
      */
     htmlUrl?: pulumi.Input<string>;
     /**
@@ -214,7 +214,7 @@ export interface ServiceIntegrationState {
      */
     type?: pulumi.Input<string>;
     /**
-     * The ID of the vendor the integration should integrate with (e.g Datadog or Amazon Cloudwatch).
+     * The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
      */
     vendor?: pulumi.Input<string>;
 }
@@ -253,7 +253,7 @@ export interface ServiceIntegrationArgs {
      */
     type?: pulumi.Input<string>;
     /**
-     * The ID of the vendor the integration should integrate with (e.g Datadog or Amazon Cloudwatch).
+     * The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
      */
     vendor?: pulumi.Input<string>;
 }

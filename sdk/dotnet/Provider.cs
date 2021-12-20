@@ -18,6 +18,9 @@ namespace Pulumi.Pagerduty
     [PagerdutyResourceType("pulumi:providers:pagerduty")]
     public partial class Provider : Pulumi.ProviderResource
     {
+        [Output("apiUrlOverride")]
+        public Output<string?> ApiUrlOverride { get; private set; } = null!;
+
         [Output("serviceRegion")]
         public Output<string?> ServiceRegion { get; private set; } = null!;
 
@@ -55,6 +58,9 @@ namespace Pulumi.Pagerduty
 
     public sealed class ProviderArgs : Pulumi.ResourceArgs
     {
+        [Input("apiUrlOverride")]
+        public Input<string>? ApiUrlOverride { get; set; }
+
         [Input("serviceRegion")]
         public Input<string>? ServiceRegion { get; set; }
 

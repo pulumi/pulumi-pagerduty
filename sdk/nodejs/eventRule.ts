@@ -163,7 +163,7 @@ export class EventRule extends pulumi.CustomResource {
      */
     public readonly advancedConditionJson!: pulumi.Output<string | undefined>;
     /**
-     * A boolean that indicates whether the rule is a catch all for the account. This field is read-only through the PagerDuty API.
+     * A boolean that indicates whether the rule is a catch-all for the account. This field is read-only through the PagerDuty API.
      */
     public /*out*/ readonly catchAll!: pulumi.Output<boolean>;
     /**
@@ -221,7 +221,7 @@ export interface EventRuleState {
      */
     advancedConditionJson?: pulumi.Input<string>;
     /**
-     * A boolean that indicates whether the rule is a catch all for the account. This field is read-only through the PagerDuty API.
+     * A boolean that indicates whether the rule is a catch-all for the account. This field is read-only through the PagerDuty API.
      */
     catchAll?: pulumi.Input<boolean>;
     /**

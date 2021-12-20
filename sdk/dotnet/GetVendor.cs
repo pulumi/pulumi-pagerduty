@@ -13,7 +13,7 @@ namespace Pulumi.Pagerduty
     public static class GetVendor
     {
         /// <summary>
-        /// Use this data source to get information about a specific [vendor](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1vendors/get) that you can use for a service integration (e.g Amazon Cloudwatch, Splunk, Datadog).
+        /// Use this data source to get information about a specific [vendor](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1vendors/get) that you can use for a service integration (e.g. Amazon Cloudwatch, Splunk, Datadog).
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -68,7 +68,6 @@ namespace Pulumi.Pagerduty
         ///         {
         ///             Vendor = datadog.Apply(datadog =&gt; datadog.Id),
         ///             Service = exampleService.Id,
-        ///             Type = "generic_events_api_inbound_integration",
         ///         });
         ///     }
         /// 
@@ -81,7 +80,7 @@ namespace Pulumi.Pagerduty
             => Pulumi.Deployment.Instance.InvokeAsync<GetVendorResult>("pagerduty:index/getVendor:getVendor", args ?? new GetVendorArgs(), options.WithVersion());
 
         /// <summary>
-        /// Use this data source to get information about a specific [vendor](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1vendors/get) that you can use for a service integration (e.g Amazon Cloudwatch, Splunk, Datadog).
+        /// Use this data source to get information about a specific [vendor](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1vendors/get) that you can use for a service integration (e.g. Amazon Cloudwatch, Splunk, Datadog).
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -136,7 +135,6 @@ namespace Pulumi.Pagerduty
         ///         {
         ///             Vendor = datadog.Apply(datadog =&gt; datadog.Id),
         ///             Service = exampleService.Id,
-        ///             Type = "generic_events_api_inbound_integration",
         ///         });
         ///     }
         /// 

@@ -77,7 +77,7 @@ import (
 type Schedule struct {
 	pulumi.CustomResourceState
 
-	// The description of the schedule
+	// The description of the schedule.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// A schedule layer block. Schedule layers documented below.
 	Layers ScheduleLayerArrayOutput `pulumi:"layers"`
@@ -89,7 +89,7 @@ type Schedule struct {
 	Overflow pulumi.BoolPtrOutput `pulumi:"overflow"`
 	// Teams associated with the schedule.
 	Teams pulumi.StringArrayOutput `pulumi:"teams"`
-	// The time zone of the schedule (e.g Europe/Berlin).
+	// The time zone of the schedule (e.g. `Europe/Berlin`).
 	TimeZone pulumi.StringOutput `pulumi:"timeZone"`
 }
 
@@ -131,7 +131,7 @@ func GetSchedule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Schedule resources.
 type scheduleState struct {
-	// The description of the schedule
+	// The description of the schedule.
 	Description *string `pulumi:"description"`
 	// A schedule layer block. Schedule layers documented below.
 	Layers []ScheduleLayer `pulumi:"layers"`
@@ -143,12 +143,12 @@ type scheduleState struct {
 	Overflow *bool `pulumi:"overflow"`
 	// Teams associated with the schedule.
 	Teams []string `pulumi:"teams"`
-	// The time zone of the schedule (e.g Europe/Berlin).
+	// The time zone of the schedule (e.g. `Europe/Berlin`).
 	TimeZone *string `pulumi:"timeZone"`
 }
 
 type ScheduleState struct {
-	// The description of the schedule
+	// The description of the schedule.
 	Description pulumi.StringPtrInput
 	// A schedule layer block. Schedule layers documented below.
 	Layers ScheduleLayerArrayInput
@@ -160,7 +160,7 @@ type ScheduleState struct {
 	Overflow pulumi.BoolPtrInput
 	// Teams associated with the schedule.
 	Teams pulumi.StringArrayInput
-	// The time zone of the schedule (e.g Europe/Berlin).
+	// The time zone of the schedule (e.g. `Europe/Berlin`).
 	TimeZone pulumi.StringPtrInput
 }
 
@@ -169,7 +169,7 @@ func (ScheduleState) ElementType() reflect.Type {
 }
 
 type scheduleArgs struct {
-	// The description of the schedule
+	// The description of the schedule.
 	Description *string `pulumi:"description"`
 	// A schedule layer block. Schedule layers documented below.
 	Layers []ScheduleLayer `pulumi:"layers"`
@@ -181,13 +181,13 @@ type scheduleArgs struct {
 	Overflow *bool `pulumi:"overflow"`
 	// Teams associated with the schedule.
 	Teams []string `pulumi:"teams"`
-	// The time zone of the schedule (e.g Europe/Berlin).
+	// The time zone of the schedule (e.g. `Europe/Berlin`).
 	TimeZone string `pulumi:"timeZone"`
 }
 
 // The set of arguments for constructing a Schedule resource.
 type ScheduleArgs struct {
-	// The description of the schedule
+	// The description of the schedule.
 	Description pulumi.StringPtrInput
 	// A schedule layer block. Schedule layers documented below.
 	Layers ScheduleLayerArrayInput
@@ -199,7 +199,7 @@ type ScheduleArgs struct {
 	Overflow pulumi.BoolPtrInput
 	// Teams associated with the schedule.
 	Teams pulumi.StringArrayInput
-	// The time zone of the schedule (e.g Europe/Berlin).
+	// The time zone of the schedule (e.g. `Europe/Berlin`).
 	TimeZone pulumi.StringInput
 }
 

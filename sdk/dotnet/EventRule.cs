@@ -210,7 +210,7 @@ namespace Pulumi.Pagerduty
         public Output<string?> AdvancedConditionJson { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean that indicates whether the rule is a catch all for the account. This field is read-only through the PagerDuty API.
+        /// A boolean that indicates whether the rule is a catch-all for the account. This field is read-only through the PagerDuty API.
         /// </summary>
         [Output("catchAll")]
         public Output<bool> CatchAll { get; private set; } = null!;
@@ -305,7 +305,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? AdvancedConditionJson { get; set; }
 
         /// <summary>
-        /// A boolean that indicates whether the rule is a catch all for the account. This field is read-only through the PagerDuty API.
+        /// A boolean that indicates whether the rule is a catch-all for the account. This field is read-only through the PagerDuty API.
         /// </summary>
         [Input("catchAll")]
         public Input<bool>? CatchAll { get; set; }

@@ -14,12 +14,78 @@ namespace Pulumi.Pagerduty
     {
         /// <summary>
         /// Use this data source to get information about a specific [tag](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIxNw-list-tags) that you can use to assign to users, teams, and escalation_policies.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var me = Output.Create(Pagerduty.GetUser.InvokeAsync(new Pagerduty.GetUserArgs
+        ///         {
+        ///             Email = "me@example.com",
+        ///         }));
+        ///         var devops = Output.Create(Pagerduty.GetTag.InvokeAsync(new Pagerduty.GetTagArgs
+        ///         {
+        ///             Label = "devops",
+        ///         }));
+        ///         var foo = new Pagerduty.TagAssignment("foo", new Pagerduty.TagAssignmentArgs
+        ///         {
+        ///             TagId = devops.Apply(devops =&gt; devops.Id),
+        ///             EntityId = me.Apply(me =&gt; me.Id),
+        ///             EntityType = "users",
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetTagResult> InvokeAsync(GetTagArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTagResult>("pagerduty:index/getTag:getTag", args ?? new GetTagArgs(), options.WithVersion());
 
         /// <summary>
         /// Use this data source to get information about a specific [tag](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIxNw-list-tags) that you can use to assign to users, teams, and escalation_policies.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var me = Output.Create(Pagerduty.GetUser.InvokeAsync(new Pagerduty.GetUserArgs
+        ///         {
+        ///             Email = "me@example.com",
+        ///         }));
+        ///         var devops = Output.Create(Pagerduty.GetTag.InvokeAsync(new Pagerduty.GetTagArgs
+        ///         {
+        ///             Label = "devops",
+        ///         }));
+        ///         var foo = new Pagerduty.TagAssignment("foo", new Pagerduty.TagAssignmentArgs
+        ///         {
+        ///             TagId = devops.Apply(devops =&gt; devops.Id),
+        ///             EntityId = me.Apply(me =&gt; me.Id),
+        ///             EntityType = "users",
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetTagResult> Invoke(GetTagInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTagResult>("pagerduty:index/getTag:getTag", args ?? new GetTagInvokeArgs(), options.WithVersion());

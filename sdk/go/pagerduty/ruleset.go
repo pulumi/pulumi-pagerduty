@@ -57,7 +57,7 @@ type Ruleset struct {
 	RoutingKeys pulumi.StringArrayOutput `pulumi:"routingKeys"`
 	// Reference to the team that owns the ruleset. If none is specified, only admins have access.
 	Team RulesetTeamPtrOutput `pulumi:"team"`
-	// Type of ruleset. Currently only sets to `global`.
+	// Type of ruleset. Currently, only sets to `global`.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -96,7 +96,7 @@ type rulesetState struct {
 	RoutingKeys []string `pulumi:"routingKeys"`
 	// Reference to the team that owns the ruleset. If none is specified, only admins have access.
 	Team *RulesetTeam `pulumi:"team"`
-	// Type of ruleset. Currently only sets to `global`.
+	// Type of ruleset. Currently, only sets to `global`.
 	Type *string `pulumi:"type"`
 }
 
@@ -107,7 +107,7 @@ type RulesetState struct {
 	RoutingKeys pulumi.StringArrayInput
 	// Reference to the team that owns the ruleset. If none is specified, only admins have access.
 	Team RulesetTeamPtrInput
-	// Type of ruleset. Currently only sets to `global`.
+	// Type of ruleset. Currently, only sets to `global`.
 	Type pulumi.StringPtrInput
 }
 

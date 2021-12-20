@@ -77,7 +77,7 @@ namespace Pulumi.Pagerduty
     public sealed class GetServiceIntegrationArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The integration summary used to find the desired integration on the service
+        /// The integration summary used to find the desired integration on the service.
         /// </summary>
         [Input("integrationSummary", required: true)]
         public string IntegrationSummary { get; set; } = null!;
@@ -96,7 +96,7 @@ namespace Pulumi.Pagerduty
     public sealed class GetServiceIntegrationInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The integration summary used to find the desired integration on the service
+        /// The integration summary used to find the desired integration on the service.
         /// </summary>
         [Input("integrationSummary", required: true)]
         public Input<string> IntegrationSummary { get; set; } = null!;

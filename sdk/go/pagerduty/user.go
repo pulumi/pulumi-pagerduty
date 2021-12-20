@@ -61,10 +61,10 @@ type User struct {
 	JobTitle pulumi.StringPtrOutput `pulumi:"jobTitle"`
 	// The name of the user.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The user role. Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser`, `readOnlyLimitedUser`, `restrictedAccess`, or `user`.\
+	// The user role. Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser`, `readOnlyLimitedUser`, `restrictedAccess`, or `user`.
 	// Notes:
 	// * Account must have the `readOnlyUsers` ability to set a user as a `readOnlyUser` or a `readOnlyLimitedUser`, and must have advanced permissions abilities to set a user as `observer` or `restrictedAccess`.
-	// * With advanced permissions, users can have both a user role (base role) and a team role. The team role can configured in the `TeamMembership` resource.
+	// * With advanced permissions, users can have both a user role (base role) and a team role. The team role can be configured in the `TeamMembership` resource.
 	// * Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).
 	Role pulumi.StringPtrOutput `pulumi:"role"`
 	// A list of teams the user should belong to. Please use `TeamMembership` instead.
@@ -125,10 +125,10 @@ type userState struct {
 	JobTitle *string `pulumi:"jobTitle"`
 	// The name of the user.
 	Name *string `pulumi:"name"`
-	// The user role. Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser`, `readOnlyLimitedUser`, `restrictedAccess`, or `user`.\
+	// The user role. Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser`, `readOnlyLimitedUser`, `restrictedAccess`, or `user`.
 	// Notes:
 	// * Account must have the `readOnlyUsers` ability to set a user as a `readOnlyUser` or a `readOnlyLimitedUser`, and must have advanced permissions abilities to set a user as `observer` or `restrictedAccess`.
-	// * With advanced permissions, users can have both a user role (base role) and a team role. The team role can configured in the `TeamMembership` resource.
+	// * With advanced permissions, users can have both a user role (base role) and a team role. The team role can be configured in the `TeamMembership` resource.
 	// * Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).
 	Role *string `pulumi:"role"`
 	// A list of teams the user should belong to. Please use `TeamMembership` instead.
@@ -155,10 +155,10 @@ type UserState struct {
 	JobTitle pulumi.StringPtrInput
 	// The name of the user.
 	Name pulumi.StringPtrInput
-	// The user role. Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser`, `readOnlyLimitedUser`, `restrictedAccess`, or `user`.\
+	// The user role. Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser`, `readOnlyLimitedUser`, `restrictedAccess`, or `user`.
 	// Notes:
 	// * Account must have the `readOnlyUsers` ability to set a user as a `readOnlyUser` or a `readOnlyLimitedUser`, and must have advanced permissions abilities to set a user as `observer` or `restrictedAccess`.
-	// * With advanced permissions, users can have both a user role (base role) and a team role. The team role can configured in the `TeamMembership` resource.
+	// * With advanced permissions, users can have both a user role (base role) and a team role. The team role can be configured in the `TeamMembership` resource.
 	// * Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).
 	Role pulumi.StringPtrInput
 	// A list of teams the user should belong to. Please use `TeamMembership` instead.
@@ -183,10 +183,10 @@ type userArgs struct {
 	JobTitle *string `pulumi:"jobTitle"`
 	// The name of the user.
 	Name *string `pulumi:"name"`
-	// The user role. Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser`, `readOnlyLimitedUser`, `restrictedAccess`, or `user`.\
+	// The user role. Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser`, `readOnlyLimitedUser`, `restrictedAccess`, or `user`.
 	// Notes:
 	// * Account must have the `readOnlyUsers` ability to set a user as a `readOnlyUser` or a `readOnlyLimitedUser`, and must have advanced permissions abilities to set a user as `observer` or `restrictedAccess`.
-	// * With advanced permissions, users can have both a user role (base role) and a team role. The team role can configured in the `TeamMembership` resource.
+	// * With advanced permissions, users can have both a user role (base role) and a team role. The team role can be configured in the `TeamMembership` resource.
 	// * Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).
 	Role *string `pulumi:"role"`
 	// A list of teams the user should belong to. Please use `TeamMembership` instead.
@@ -208,10 +208,10 @@ type UserArgs struct {
 	JobTitle pulumi.StringPtrInput
 	// The name of the user.
 	Name pulumi.StringPtrInput
-	// The user role. Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser`, `readOnlyLimitedUser`, `restrictedAccess`, or `user`.\
+	// The user role. Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser`, `readOnlyLimitedUser`, `restrictedAccess`, or `user`.
 	// Notes:
 	// * Account must have the `readOnlyUsers` ability to set a user as a `readOnlyUser` or a `readOnlyLimitedUser`, and must have advanced permissions abilities to set a user as `observer` or `restrictedAccess`.
-	// * With advanced permissions, users can have both a user role (base role) and a team role. The team role can configured in the `TeamMembership` resource.
+	// * With advanced permissions, users can have both a user role (base role) and a team role. The team role can be configured in the `TeamMembership` resource.
 	// * Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).
 	Role pulumi.StringPtrInput
 	// A list of teams the user should belong to. Please use `TeamMembership` instead.

@@ -71,7 +71,7 @@ export class Schedule extends pulumi.CustomResource {
     }
 
     /**
-     * The description of the schedule
+     * The description of the schedule.
      */
     public readonly description!: pulumi.Output<string>;
     /**
@@ -93,7 +93,7 @@ export class Schedule extends pulumi.CustomResource {
      */
     public readonly teams!: pulumi.Output<string[] | undefined>;
     /**
-     * The time zone of the schedule (e.g Europe/Berlin).
+     * The time zone of the schedule (e.g. `Europe/Berlin`).
      */
     public readonly timeZone!: pulumi.Output<string>;
 
@@ -143,7 +143,7 @@ export class Schedule extends pulumi.CustomResource {
  */
 export interface ScheduleState {
     /**
-     * The description of the schedule
+     * The description of the schedule.
      */
     description?: pulumi.Input<string>;
     /**
@@ -165,7 +165,7 @@ export interface ScheduleState {
      */
     teams?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The time zone of the schedule (e.g Europe/Berlin).
+     * The time zone of the schedule (e.g. `Europe/Berlin`).
      */
     timeZone?: pulumi.Input<string>;
 }
@@ -175,7 +175,7 @@ export interface ScheduleState {
  */
 export interface ScheduleArgs {
     /**
-     * The description of the schedule
+     * The description of the schedule.
      */
     description?: pulumi.Input<string>;
     /**
@@ -197,7 +197,7 @@ export interface ScheduleArgs {
      */
     teams?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The time zone of the schedule (e.g Europe/Berlin).
+     * The time zone of the schedule (e.g. `Europe/Berlin`).
      */
     timeZone: pulumi.Input<string>;
 }

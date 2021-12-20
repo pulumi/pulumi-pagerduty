@@ -46,7 +46,7 @@ import (
 type Tag struct {
 	pulumi.CustomResourceState
 
-	// URL at which the entity is uniquely displayed in the Web app
+	// URL at which the entity is uniquely displayed in the Web app.
 	HtmlUrl pulumi.StringOutput `pulumi:"htmlUrl"`
 	// The label of the tag.
 	Label   pulumi.StringOutput `pulumi:"label"`
@@ -85,7 +85,7 @@ func GetTag(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Tag resources.
 type tagState struct {
-	// URL at which the entity is uniquely displayed in the Web app
+	// URL at which the entity is uniquely displayed in the Web app.
 	HtmlUrl *string `pulumi:"htmlUrl"`
 	// The label of the tag.
 	Label   *string `pulumi:"label"`
@@ -93,7 +93,7 @@ type tagState struct {
 }
 
 type TagState struct {
-	// URL at which the entity is uniquely displayed in the Web app
+	// URL at which the entity is uniquely displayed in the Web app.
 	HtmlUrl pulumi.StringPtrInput
 	// The label of the tag.
 	Label   pulumi.StringPtrInput

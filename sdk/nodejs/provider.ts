@@ -25,6 +25,7 @@ export class Provider extends pulumi.ProviderResource {
         return obj['__pulumiType'] === Provider.__pulumiType;
     }
 
+    public readonly apiUrlOverride!: pulumi.Output<string | undefined>;
     public readonly serviceRegion!: pulumi.Output<string | undefined>;
     public readonly token!: pulumi.Output<string>;
     public readonly userToken!: pulumi.Output<string | undefined>;
@@ -43,6 +44,7 @@ export class Provider extends pulumi.ProviderResource {
             if ((!args || args.token === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'token'");
             }
+            inputs["apiUrlOverride"] = args ? args.apiUrlOverride : undefined;
             inputs["serviceRegion"] = args ? args.serviceRegion : undefined;
             inputs["skipCredentialsValidation"] = pulumi.output((args ? args.skipCredentialsValidation : undefined) ?? false).apply(JSON.stringify);
             inputs["token"] = args ? args.token : undefined;
@@ -59,6 +61,7 @@ export class Provider extends pulumi.ProviderResource {
  * The set of arguments for constructing a Provider resource.
  */
 export interface ProviderArgs {
+    apiUrlOverride?: pulumi.Input<string>;
     serviceRegion?: pulumi.Input<string>;
     skipCredentialsValidation?: pulumi.Input<boolean>;
     token: pulumi.Input<string>;

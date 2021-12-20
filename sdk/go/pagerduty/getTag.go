@@ -11,6 +11,43 @@ import (
 )
 
 // Use this data source to get information about a specific [tag](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIxNw-list-tags) that you can use to assign to users, teams, and escalation_policies.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		me, err := pagerduty.LookupUser(ctx, &GetUserArgs{
+// 			Email: "me@example.com",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		devops, err := pagerduty.LookupTag(ctx, &GetTagArgs{
+// 			Label: "devops",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = pagerduty.NewTagAssignment(ctx, "foo", &pagerduty.TagAssignmentArgs{
+// 			TagId:      pulumi.String(devops.Id),
+// 			EntityId:   pulumi.String(me.Id),
+// 			EntityType: pulumi.String("users"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupTag(ctx *pulumi.Context, args *LookupTagArgs, opts ...pulumi.InvokeOption) (*LookupTagResult, error) {
 	var rv LookupTagResult
 	err := ctx.Invoke("pagerduty:index/getTag:getTag", args, &rv, opts...)

@@ -7,6 +7,14 @@ import * as utilities from "../utilities";
 declare var exports: any;
 const __config = new pulumi.Config("pagerduty");
 
+export declare const apiUrlOverride: string | undefined;
+Object.defineProperty(exports, "apiUrlOverride", {
+    get() {
+        return __config.get("apiUrlOverride");
+    },
+    enumerable: true,
+});
+
 export declare const serviceRegion: string | undefined;
 Object.defineProperty(exports, "serviceRegion", {
     get() {

@@ -19,7 +19,7 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<string>? End { get; set; }
 
         /// <summary>
-        /// The ID of the schedule
+        /// The ID of the schedule.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

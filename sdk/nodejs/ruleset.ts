@@ -69,7 +69,7 @@ export class Ruleset extends pulumi.CustomResource {
      */
     public readonly team!: pulumi.Output<outputs.RulesetTeam | undefined>;
     /**
-     * Type of ruleset. Currently only sets to `global`.
+     * Type of ruleset. Currently, only sets to `global`.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -121,7 +121,7 @@ export interface RulesetState {
      */
     team?: pulumi.Input<inputs.RulesetTeam>;
     /**
-     * Type of ruleset. Currently only sets to `global`.
+     * Type of ruleset. Currently, only sets to `global`.
      */
     type?: pulumi.Input<string>;
 }

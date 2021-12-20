@@ -14,7 +14,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Import
     /// 
-    /// Ruleset rules can be imported using using the related `ruleset` ID and the `ruleset_rule` ID separated by a dot, e.g.
+    /// Ruleset rules can be imported using the related `ruleset` ID and the `ruleset_rule` ID separated by a dot, e.g.
     /// 
     /// ```sh
     ///  $ pulumi import pagerduty:index/rulesetRule:RulesetRule main a19cdca1-3d5e-4b52-bfea-8c8de04da243.19acac92-027a-4ea0-b06c-bbf516519601
@@ -30,7 +30,7 @@ namespace Pulumi.Pagerduty
         public Output<Outputs.RulesetRuleActions?> Actions { get; private set; } = null!;
 
         /// <summary>
-        /// Conditions evaluated to check if an event matches this event rule. Is always empty for the catch all rule, though.
+        /// Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
         /// </summary>
         [Output("conditions")]
         public Output<Outputs.RulesetRuleConditions?> Conditions { get; private set; } = null!;
@@ -118,7 +118,7 @@ namespace Pulumi.Pagerduty
         public Input<Inputs.RulesetRuleActionsArgs>? Actions { get; set; }
 
         /// <summary>
-        /// Conditions evaluated to check if an event matches this event rule. Is always empty for the catch all rule, though.
+        /// Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
         /// </summary>
         [Input("conditions")]
         public Input<Inputs.RulesetRuleConditionsArgs>? Conditions { get; set; }
@@ -173,7 +173,7 @@ namespace Pulumi.Pagerduty
         public Input<Inputs.RulesetRuleActionsGetArgs>? Actions { get; set; }
 
         /// <summary>
-        /// Conditions evaluated to check if an event matches this event rule. Is always empty for the catch all rule, though.
+        /// Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
         /// </summary>
         [Input("conditions")]
         public Input<Inputs.RulesetRuleConditionsGetArgs>? Conditions { get; set; }

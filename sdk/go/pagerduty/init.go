@@ -24,6 +24,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Addon{}
 	case "pagerduty:index/businessService:BusinessService":
 		r = &BusinessService{}
+	case "pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber":
+		r = &BusinessServiceSubscriber{}
 	case "pagerduty:index/escalationPolicy:EscalationPolicy":
 		r = &EscalationPolicy{}
 	case "pagerduty:index/eventRule:EventRule":
@@ -66,6 +68,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &UserContactMethod{}
 	case "pagerduty:index/userNotificationRule:UserNotificationRule":
 		r = &UserNotificationRule{}
+	case "pagerduty:index/webhookSubscription:WebhookSubscription":
+		r = &WebhookSubscription{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -105,6 +109,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"pagerduty",
 		"index/businessService",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"pagerduty",
+		"index/businessServiceSubscriber",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -210,6 +219,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"pagerduty",
 		"index/userNotificationRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"pagerduty",
+		"index/webhookSubscription",
 		&module{version},
 	)
 	pulumi.RegisterResourcePackage(

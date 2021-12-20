@@ -18,7 +18,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly string? End;
         /// <summary>
-        /// The ID of the schedule
+        /// The ID of the schedule.
         /// </summary>
         public readonly string? Id;
         /// <summary>

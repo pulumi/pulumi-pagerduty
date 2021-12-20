@@ -38,7 +38,7 @@ export function getServiceIntegration(args: GetServiceIntegrationArgs, opts?: pu
  */
 export interface GetServiceIntegrationArgs {
     /**
-     * The integration summary used to find the desired integration on the service
+     * The integration summary used to find the desired integration on the service.
      */
     integrationSummary: string;
     /**
@@ -72,7 +72,7 @@ export function getServiceIntegrationOutput(args: GetServiceIntegrationOutputArg
  */
 export interface GetServiceIntegrationOutputArgs {
     /**
-     * The integration summary used to find the desired integration on the service
+     * The integration summary used to find the desired integration on the service.
      */
     integrationSummary: pulumi.Input<string>;
     /**

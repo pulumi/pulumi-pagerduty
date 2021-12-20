@@ -64,7 +64,7 @@ class _RulesetState:
         :param pulumi.Input[str] name: Name of the ruleset.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] routing_keys: Routing keys routed to this ruleset.
         :param pulumi.Input['RulesetTeamArgs'] team: Reference to the team that owns the ruleset. If none is specified, only admins have access.
-        :param pulumi.Input[str] type: Type of ruleset. Currently only sets to `global`.
+        :param pulumi.Input[str] type: Type of ruleset. Currently, only sets to `global`.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -115,7 +115,7 @@ class _RulesetState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of ruleset. Currently only sets to `global`.
+        Type of ruleset. Currently, only sets to `global`.
         """
         return pulumi.get(self, "type")
 
@@ -246,7 +246,7 @@ class Ruleset(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the ruleset.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] routing_keys: Routing keys routed to this ruleset.
         :param pulumi.Input[pulumi.InputType['RulesetTeamArgs']] team: Reference to the team that owns the ruleset. If none is specified, only admins have access.
-        :param pulumi.Input[str] type: Type of ruleset. Currently only sets to `global`.
+        :param pulumi.Input[str] type: Type of ruleset. Currently, only sets to `global`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -286,7 +286,7 @@ class Ruleset(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Type of ruleset. Currently only sets to `global`.
+        Type of ruleset. Currently, only sets to `global`.
         """
         return pulumi.get(self, "type")
 

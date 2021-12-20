@@ -246,7 +246,7 @@ export interface RulesetRuleConditions {
      */
     operator?: string;
     /**
-     * List of sub-conditions that define the the condition.
+     * List of sub-conditions that define the condition.
      */
     subconditions?: outputs.RulesetRuleConditionsSubcondition[];
 }
@@ -282,9 +282,6 @@ export interface RulesetRuleTimeFrame {
 }
 
 export interface RulesetRuleTimeFrameActiveBetween {
-    /**
-     * Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
-     */
     endTime?: number;
     startTime?: number;
 }
@@ -332,7 +329,7 @@ export interface ScheduleLayer {
      */
     end?: string;
     /**
-     * The ID of the schedule
+     * The ID of the schedule.
      */
     id: string;
     /**
@@ -375,14 +372,14 @@ export interface ScheduleLayerRestriction {
      */
     startTimeOfDay: string;
     /**
-     * Can be `dailyRestriction` or `weeklyRestriction`
+     * Can be `dailyRestriction` or `weeklyRestriction`.
      */
     type: string;
 }
 
 export interface ServiceAlertGroupingParameters {
     /**
-     * Alert grouping parameters dependant on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
+     * Alert grouping parameters dependent on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
      */
     config?: outputs.ServiceAlertGroupingParametersConfig;
     /**
@@ -544,7 +541,7 @@ export interface ServiceEventRuleConditions {
      */
     operator?: string;
     /**
-     * List of sub-conditions that define the the condition.
+     * List of sub-conditions that define the condition.
      */
     subconditions?: outputs.ServiceEventRuleConditionsSubcondition[];
 }
@@ -644,7 +641,7 @@ export interface ServiceIncidentUrgencyRule {
      */
     duringSupportHours?: outputs.ServiceIncidentUrgencyRuleDuringSupportHours;
     /**
-     * Incidents' urgency outside of support hours.
+     * Incidents' urgency outside support hours.
      */
     outsideSupportHours?: outputs.ServiceIncidentUrgencyRuleOutsideSupportHours;
     /**
@@ -751,5 +748,31 @@ export interface SlackConnectionConfig {
      * Allows you to filter events by urgency. Either `high` or `low`.
      */
     urgency?: string;
+}
+
+export interface WebhookSubscriptionDeliveryMethod {
+    /**
+     * Whether this webhook subscription is temporarily disabled. Becomes true if the delivery method URL is repeatedly rejected by the server.
+     */
+    temporarilyDisabled: boolean;
+    /**
+     * Indicates the type of the delivery method. Allowed and default value: `httpDeliveryMethod`.
+     */
+    type?: string;
+    /**
+     * The destination URL for webhook delivery.
+     */
+    url?: string;
+}
+
+export interface WebhookSubscriptionFilter {
+    /**
+     * The id of the object being used as the filter. This field is required for all filter types except account_reference.
+     */
+    id?: string;
+    /**
+     * The type of object being used as the filter. Allowed values are `accountReference`, `serviceReference`, and `teamReference`.
+     */
+    type: string;
 }
 

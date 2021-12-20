@@ -7,6 +7,7 @@ import * as utilities from "./utilities";
 // Export members:
 export * from "./addon";
 export * from "./businessService";
+export * from "./businessServiceSubscriber";
 export * from "./escalationPolicy";
 export * from "./eventRule";
 export * from "./extension";
@@ -42,6 +43,7 @@ export * from "./teamMembership";
 export * from "./user";
 export * from "./userContactMethod";
 export * from "./userNotificationRule";
+export * from "./webhookSubscription";
 
 // Export sub-modules:
 import * as config from "./config";
@@ -55,6 +57,7 @@ export {
 // Import resources to register:
 import { Addon } from "./addon";
 import { BusinessService } from "./businessService";
+import { BusinessServiceSubscriber } from "./businessServiceSubscriber";
 import { EscalationPolicy } from "./escalationPolicy";
 import { EventRule } from "./eventRule";
 import { Extension } from "./extension";
@@ -76,6 +79,7 @@ import { TeamMembership } from "./teamMembership";
 import { User } from "./user";
 import { UserContactMethod } from "./userContactMethod";
 import { UserNotificationRule } from "./userNotificationRule";
+import { WebhookSubscription } from "./webhookSubscription";
 
 const _module = {
     version: utilities.getVersion(),
@@ -85,6 +89,8 @@ const _module = {
                 return new Addon(name, <any>undefined, { urn })
             case "pagerduty:index/businessService:BusinessService":
                 return new BusinessService(name, <any>undefined, { urn })
+            case "pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber":
+                return new BusinessServiceSubscriber(name, <any>undefined, { urn })
             case "pagerduty:index/escalationPolicy:EscalationPolicy":
                 return new EscalationPolicy(name, <any>undefined, { urn })
             case "pagerduty:index/eventRule:EventRule":
@@ -127,6 +133,8 @@ const _module = {
                 return new UserContactMethod(name, <any>undefined, { urn })
             case "pagerduty:index/userNotificationRule:UserNotificationRule":
                 return new UserNotificationRule(name, <any>undefined, { urn })
+            case "pagerduty:index/webhookSubscription:WebhookSubscription":
+                return new WebhookSubscription(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -134,6 +142,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("pagerduty", "index/addon", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/businessService", _module)
+pulumi.runtime.registerResourceModule("pagerduty", "index/businessServiceSubscriber", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/escalationPolicy", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/eventRule", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/extension", _module)
@@ -155,6 +164,7 @@ pulumi.runtime.registerResourceModule("pagerduty", "index/teamMembership", _modu
 pulumi.runtime.registerResourceModule("pagerduty", "index/user", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/userContactMethod", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/userNotificationRule", _module)
+pulumi.runtime.registerResourceModule("pagerduty", "index/webhookSubscription", _module)
 
 import { Provider } from "./provider";
 

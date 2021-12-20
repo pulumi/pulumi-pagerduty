@@ -46,7 +46,7 @@ func LookupServiceIntegration(ctx *pulumi.Context, args *LookupServiceIntegratio
 
 // A collection of arguments for invoking getServiceIntegration.
 type LookupServiceIntegrationArgs struct {
-	// The integration summary used to find the desired integration on the service
+	// The integration summary used to find the desired integration on the service.
 	IntegrationSummary string `pulumi:"integrationSummary"`
 	// The service name to use to find a service in the PagerDuty API.
 	ServiceName string `pulumi:"serviceName"`
@@ -73,7 +73,7 @@ func LookupServiceIntegrationOutput(ctx *pulumi.Context, args LookupServiceInteg
 
 // A collection of arguments for invoking getServiceIntegration.
 type LookupServiceIntegrationOutputArgs struct {
-	// The integration summary used to find the desired integration on the service
+	// The integration summary used to find the desired integration on the service.
 	IntegrationSummary pulumi.StringInput `pulumi:"integrationSummary"`
 	// The service name to use to find a service in the PagerDuty API.
 	ServiceName pulumi.StringInput `pulumi:"serviceName"`

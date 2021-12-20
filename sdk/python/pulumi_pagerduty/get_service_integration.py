@@ -90,7 +90,7 @@ def get_service_integration(integration_summary: Optional[str] = None,
     ```
 
 
-    :param str integration_summary: The integration summary used to find the desired integration on the service
+    :param str integration_summary: The integration summary used to find the desired integration on the service.
     :param str service_name: The service name to use to find a service in the PagerDuty API.
     """
     __args__ = dict()
@@ -127,7 +127,7 @@ def get_service_integration_output(integration_summary: Optional[pulumi.Input[st
     ```
 
 
-    :param str integration_summary: The integration summary used to find the desired integration on the service
+    :param str integration_summary: The integration summary used to find the desired integration on the service.
     :param str service_name: The service name to use to find a service in the PagerDuty API.
     """
     ...

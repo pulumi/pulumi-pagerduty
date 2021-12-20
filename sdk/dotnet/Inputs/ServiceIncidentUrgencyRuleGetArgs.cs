@@ -19,7 +19,7 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<Inputs.ServiceIncidentUrgencyRuleDuringSupportHoursGetArgs>? DuringSupportHours { get; set; }
 
         /// <summary>
-        /// Incidents' urgency outside of support hours.
+        /// Incidents' urgency outside support hours.
         /// </summary>
         [Input("outsideSupportHours")]
         public Input<Inputs.ServiceIncidentUrgencyRuleOutsideSupportHoursGetArgs>? OutsideSupportHours { get; set; }

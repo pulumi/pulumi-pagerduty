@@ -70,7 +70,7 @@ class AwaitableGetVendorResult(GetVendorResult):
 def get_vendor(name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVendorResult:
     """
-    Use this data source to get information about a specific [vendor](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1vendors/get) that you can use for a service integration (e.g Amazon Cloudwatch, Splunk, Datadog).
+    Use this data source to get information about a specific [vendor](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1vendors/get) that you can use for a service integration (e.g. Amazon Cloudwatch, Splunk, Datadog).
 
     ## Example Usage
 
@@ -97,8 +97,7 @@ def get_vendor(name: Optional[str] = None,
         escalation_policy=pagerduty_escalation_policy["example"]["id"])
     example_service_integration = pagerduty.ServiceIntegration("exampleServiceIntegration",
         vendor=datadog.id,
-        service=example_service.id,
-        type="generic_events_api_inbound_integration")
+        service=example_service.id)
     ```
 
 
@@ -122,7 +121,7 @@ def get_vendor(name: Optional[str] = None,
 def get_vendor_output(name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVendorResult]:
     """
-    Use this data source to get information about a specific [vendor](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1vendors/get) that you can use for a service integration (e.g Amazon Cloudwatch, Splunk, Datadog).
+    Use this data source to get information about a specific [vendor](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1vendors/get) that you can use for a service integration (e.g. Amazon Cloudwatch, Splunk, Datadog).
 
     ## Example Usage
 
@@ -149,8 +148,7 @@ def get_vendor_output(name: Optional[pulumi.Input[str]] = None,
         escalation_policy=pagerduty_escalation_policy["example"]["id"])
     example_service_integration = pagerduty.ServiceIntegration("exampleServiceIntegration",
         vendor=datadog.id,
-        service=example_service.id,
-        type="generic_events_api_inbound_integration")
+        service=example_service.id)
     ```
 
 

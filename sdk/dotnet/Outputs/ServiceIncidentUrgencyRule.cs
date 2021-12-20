@@ -18,7 +18,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly Outputs.ServiceIncidentUrgencyRuleDuringSupportHours? DuringSupportHours;
         /// <summary>
-        /// Incidents' urgency outside of support hours.
+        /// Incidents' urgency outside support hours.
         /// </summary>
         public readonly Outputs.ServiceIncidentUrgencyRuleOutsideSupportHours? OutsideSupportHours;
         /// <summary>

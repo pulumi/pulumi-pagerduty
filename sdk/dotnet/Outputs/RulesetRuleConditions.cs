@@ -18,7 +18,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly string? Operator;
         /// <summary>
-        /// List of sub-conditions that define the the condition.
+        /// List of sub-conditions that define the condition.
         /// </summary>
         public readonly ImmutableArray<Outputs.RulesetRuleConditionsSubcondition> Subconditions;
 

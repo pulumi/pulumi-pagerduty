@@ -15,6 +15,10 @@ __config__ = pulumi.Config('pagerduty')
 
 class _ExportableConfig(types.ModuleType):
     @property
+    def api_url_override(self) -> Optional[str]:
+        return __config__.get('apiUrlOverride')
+
+    @property
     def service_region(self) -> Optional[str]:
         return __config__.get('serviceRegion')
 

@@ -246,7 +246,7 @@ export interface RulesetRuleConditions {
      */
     operator?: pulumi.Input<string>;
     /**
-     * List of sub-conditions that define the the condition.
+     * List of sub-conditions that define the condition.
      */
     subconditions?: pulumi.Input<pulumi.Input<inputs.RulesetRuleConditionsSubcondition>[]>;
 }
@@ -282,9 +282,6 @@ export interface RulesetRuleTimeFrame {
 }
 
 export interface RulesetRuleTimeFrameActiveBetween {
-    /**
-     * Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
-     */
     endTime?: pulumi.Input<number>;
     startTime?: pulumi.Input<number>;
 }
@@ -332,7 +329,7 @@ export interface ScheduleLayer {
      */
     end?: pulumi.Input<string>;
     /**
-     * The ID of the schedule
+     * The ID of the schedule.
      */
     id?: pulumi.Input<string>;
     /**
@@ -375,14 +372,14 @@ export interface ScheduleLayerRestriction {
      */
     startTimeOfDay: pulumi.Input<string>;
     /**
-     * Can be `dailyRestriction` or `weeklyRestriction`
+     * Can be `dailyRestriction` or `weeklyRestriction`.
      */
     type: pulumi.Input<string>;
 }
 
 export interface ServiceAlertGroupingParameters {
     /**
-     * Alert grouping parameters dependant on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
+     * Alert grouping parameters dependent on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
      */
     config?: pulumi.Input<inputs.ServiceAlertGroupingParametersConfig>;
     /**
@@ -544,7 +541,7 @@ export interface ServiceEventRuleConditions {
      */
     operator?: pulumi.Input<string>;
     /**
-     * List of sub-conditions that define the the condition.
+     * List of sub-conditions that define the condition.
      */
     subconditions?: pulumi.Input<pulumi.Input<inputs.ServiceEventRuleConditionsSubcondition>[]>;
 }
@@ -644,7 +641,7 @@ export interface ServiceIncidentUrgencyRule {
      */
     duringSupportHours?: pulumi.Input<inputs.ServiceIncidentUrgencyRuleDuringSupportHours>;
     /**
-     * Incidents' urgency outside of support hours.
+     * Incidents' urgency outside support hours.
      */
     outsideSupportHours?: pulumi.Input<inputs.ServiceIncidentUrgencyRuleOutsideSupportHours>;
     /**
@@ -752,3 +749,30 @@ export interface SlackConnectionConfig {
      */
     urgency?: pulumi.Input<string>;
 }
+
+export interface WebhookSubscriptionDeliveryMethod {
+    /**
+     * Whether this webhook subscription is temporarily disabled. Becomes true if the delivery method URL is repeatedly rejected by the server.
+     */
+    temporarilyDisabled?: pulumi.Input<boolean>;
+    /**
+     * Indicates the type of the delivery method. Allowed and default value: `httpDeliveryMethod`.
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * The destination URL for webhook delivery.
+     */
+    url?: pulumi.Input<string>;
+}
+
+export interface WebhookSubscriptionFilter {
+    /**
+     * The id of the object being used as the filter. This field is required for all filter types except account_reference.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * The type of object being used as the filter. Allowed values are `accountReference`, `serviceReference`, and `teamReference`.
+     */
+    type: pulumi.Input<string>;
+}
+

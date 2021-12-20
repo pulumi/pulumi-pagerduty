@@ -55,7 +55,7 @@ export class Tag extends pulumi.CustomResource {
     }
 
     /**
-     * URL at which the entity is uniquely displayed in the Web app
+     * URL at which the entity is uniquely displayed in the Web app.
      */
     public /*out*/ readonly htmlUrl!: pulumi.Output<string>;
     /**
@@ -101,7 +101,7 @@ export class Tag extends pulumi.CustomResource {
  */
 export interface TagState {
     /**
-     * URL at which the entity is uniquely displayed in the Web app
+     * URL at which the entity is uniquely displayed in the Web app.
      */
     htmlUrl?: pulumi.Input<string>;
     /**

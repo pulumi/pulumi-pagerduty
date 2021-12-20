@@ -12,9 +12,6 @@ namespace Pulumi.Pagerduty.Inputs
 
     public sealed class RulesetRuleTimeFrameActiveBetweenGetArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
-        /// </summary>
         [Input("endTime")]
         public Input<int>? EndTime { get; set; }
 

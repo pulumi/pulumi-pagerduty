@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Use this data source to get information about a specific [vendor](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1vendors/get) that you can use for a service integration (e.g Amazon Cloudwatch, Splunk, Datadog).
+ * Use this data source to get information about a specific [vendor](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1vendors/get) that you can use for a service integration (e.g. Amazon Cloudwatch, Splunk, Datadog).
  *
  * ## Example Usage
  *
@@ -38,7 +38,6 @@ import * as utilities from "./utilities";
  * const exampleServiceIntegration = new pagerduty.ServiceIntegration("exampleServiceIntegration", {
  *     vendor: datadog.then(datadog => datadog.id),
  *     service: exampleService.id,
- *     type: "generic_events_api_inbound_integration",
  * });
  * ```
  */

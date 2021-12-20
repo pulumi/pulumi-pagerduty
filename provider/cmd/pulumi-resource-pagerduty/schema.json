@@ -14,6 +14,9 @@
     },
     "config": {
         "variables": {
+            "apiUrlOverride": {
+                "type": "string"
+            },
             "serviceRegion": {
                 "type": "string"
             },
@@ -661,7 +664,7 @@
                     "items": {
                         "$ref": "#/types/pagerduty:index/RulesetRuleConditionsSubcondition:RulesetRuleConditionsSubcondition"
                     },
-                    "description": "List of sub-conditions that define the the condition.\n",
+                    "description": "List of sub-conditions that define the condition.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -752,7 +755,6 @@
             "properties": {
                 "endTime": {
                     "type": "integer",
-                    "description": "Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -897,7 +899,7 @@
                 },
                 "id": {
                     "type": "string",
-                    "description": "The ID of the schedule\n",
+                    "description": "The ID of the schedule.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1016,7 +1018,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "Can be `daily_restriction` or `weekly_restriction`\n",
+                    "description": "Can be `daily_restriction` or `weekly_restriction`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1035,7 +1037,7 @@
             "properties": {
                 "config": {
                     "$ref": "#/types/pagerduty:index/ServiceAlertGroupingParametersConfig:ServiceAlertGroupingParametersConfig",
-                    "description": "Alert grouping parameters dependant on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.\n",
+                    "description": "Alert grouping parameters dependent on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1439,7 +1441,7 @@
                     "items": {
                         "$ref": "#/types/pagerduty:index/ServiceEventRuleConditionsSubcondition:ServiceEventRuleConditionsSubcondition"
                     },
-                    "description": "List of sub-conditions that define the the condition.\n",
+                    "description": "List of sub-conditions that define the condition.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1665,7 +1667,7 @@
                 },
                 "outsideSupportHours": {
                     "$ref": "#/types/pagerduty:index/ServiceIncidentUrgencyRuleOutsideSupportHours:ServiceIncidentUrgencyRuleOutsideSupportHours",
-                    "description": "Incidents' urgency outside of support hours.\n",
+                    "description": "Incidents' urgency outside support hours.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1892,11 +1894,79 @@
             "required": [
                 "events"
             ]
+        },
+        "pagerduty:index/WebhookSubscriptionDeliveryMethod:WebhookSubscriptionDeliveryMethod": {
+            "properties": {
+                "temporarilyDisabled": {
+                    "type": "boolean",
+                    "description": "Whether this webhook subscription is temporarily disabled. Becomes true if the delivery method URL is repeatedly rejected by the server.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Indicates the type of the delivery method. Allowed and default value: `http_delivery_method`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "url": {
+                    "type": "string",
+                    "description": "The destination URL for webhook delivery.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "temporarilyDisabled"
+                    ]
+                }
+            }
+        },
+        "pagerduty:index/WebhookSubscriptionFilter:WebhookSubscriptionFilter": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The id of the object being used as the filter. This field is required for all filter types except account_reference.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of object being used as the filter. Allowed values are `account_reference`, `service_reference`, and `team_reference`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "type"
+            ]
         }
     },
     "provider": {
         "description": "The provider type for the pagerduty package. By default, resources use package-wide configuration\nsettings, however an explicit `Provider` instance may be created and passed during resource\nconstruction to achieve fine-grained programmatic control over provider settings. See the\n[documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.\n",
         "properties": {
+            "apiUrlOverride": {
+                "type": "string"
+            },
             "serviceRegion": {
                 "type": "string"
             },
@@ -1914,6 +1984,9 @@
             "token"
         ],
         "inputProperties": {
+            "apiUrlOverride": {
+                "type": "string"
+            },
             "serviceRegion": {
                 "type": "string"
             },
@@ -2075,6 +2148,65 @@
                 "type": "object"
             }
         },
+        "pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber": {
+            "description": "A [business service subscriber](https://developer.pagerduty.com/api-reference/b3A6NDUwNDgxOQ-list-business-service-subscribers) allows you to subscribe users or teams to automatically receive updates about key business services.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst exampleBusinessService = new pagerduty.BusinessService(\"exampleBusinessService\", {\n    description: \"A very descriptive description of this business service\",\n    pointOfContact: \"PagerDuty Admin\",\n    team: \"P37RSRS\",\n});\nconst engteam = new pagerduty.Team(\"engteam\", {});\nconst exampleUser = new pagerduty.User(\"exampleUser\", {email: \"125.greenholt.earline@graham.name\"});\nconst teamExample = new pagerduty.BusinessServiceSubscriber(\"teamExample\", {\n    subscriberId: engteam.id,\n    subscriberType: \"team\",\n    businessServiceId: exampleBusinessService.id,\n});\nconst userExample = new pagerduty.BusinessServiceSubscriber(\"userExample\", {\n    subscriberId: exampleUser.id,\n    subscriberType: \"user\",\n    businessServiceId: exampleBusinessService.id,\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nexample_business_service = pagerduty.BusinessService(\"exampleBusinessService\",\n    description=\"A very descriptive description of this business service\",\n    point_of_contact=\"PagerDuty Admin\",\n    team=\"P37RSRS\")\nengteam = pagerduty.Team(\"engteam\")\nexample_user = pagerduty.User(\"exampleUser\", email=\"125.greenholt.earline@graham.name\")\nteam_example = pagerduty.BusinessServiceSubscriber(\"teamExample\",\n    subscriber_id=engteam.id,\n    subscriber_type=\"team\",\n    business_service_id=example_business_service.id)\nuser_example = pagerduty.BusinessServiceSubscriber(\"userExample\",\n    subscriber_id=example_user.id,\n    subscriber_type=\"user\",\n    business_service_id=example_business_service.id)\n```\n```csharp\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var exampleBusinessService = new Pagerduty.BusinessService(\"exampleBusinessService\", new Pagerduty.BusinessServiceArgs\n        {\n            Description = \"A very descriptive description of this business service\",\n            PointOfContact = \"PagerDuty Admin\",\n            Team = \"P37RSRS\",\n        });\n        var engteam = new Pagerduty.Team(\"engteam\", new Pagerduty.TeamArgs\n        {\n        });\n        var exampleUser = new Pagerduty.User(\"exampleUser\", new Pagerduty.UserArgs\n        {\n            Email = \"125.greenholt.earline@graham.name\",\n        });\n        var teamExample = new Pagerduty.BusinessServiceSubscriber(\"teamExample\", new Pagerduty.BusinessServiceSubscriberArgs\n        {\n            SubscriberId = engteam.Id,\n            SubscriberType = \"team\",\n            BusinessServiceId = exampleBusinessService.Id,\n        });\n        var userExample = new Pagerduty.BusinessServiceSubscriber(\"userExample\", new Pagerduty.BusinessServiceSubscriberArgs\n        {\n            SubscriberId = exampleUser.Id,\n            SubscriberType = \"user\",\n            BusinessServiceId = exampleBusinessService.Id,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleBusinessService, err := pagerduty.NewBusinessService(ctx, \"exampleBusinessService\", \u0026pagerduty.BusinessServiceArgs{\n\t\t\tDescription:    pulumi.String(\"A very descriptive description of this business service\"),\n\t\t\tPointOfContact: pulumi.String(\"PagerDuty Admin\"),\n\t\t\tTeam:           pulumi.String(\"P37RSRS\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tengteam, err := pagerduty.NewTeam(ctx, \"engteam\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleUser, err := pagerduty.NewUser(ctx, \"exampleUser\", \u0026pagerduty.UserArgs{\n\t\t\tEmail: pulumi.String(\"125.greenholt.earline@graham.name\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewBusinessServiceSubscriber(ctx, \"teamExample\", \u0026pagerduty.BusinessServiceSubscriberArgs{\n\t\t\tSubscriberId:      engteam.ID(),\n\t\t\tSubscriberType:    pulumi.String(\"team\"),\n\t\t\tBusinessServiceId: exampleBusinessService.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewBusinessServiceSubscriber(ctx, \"userExample\", \u0026pagerduty.BusinessServiceSubscriberArgs{\n\t\t\tSubscriberId:      exampleUser.ID(),\n\t\t\tSubscriberType:    pulumi.String(\"user\"),\n\t\t\tBusinessServiceId: exampleBusinessService.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nServices can be imported using the `id` using the related business service ID, the subscriber type and the subscriber ID separated by a dot, e.g.\n\n```sh\n $ pulumi import pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber main PLBP09X.team.PLBP09X\n```\n\n ",
+            "properties": {
+                "businessServiceId": {
+                    "type": "string",
+                    "description": "The ID of the business service to subscribe to.\n"
+                },
+                "subscriberId": {
+                    "type": "string",
+                    "description": "The ID of the subscriber entity.\n"
+                },
+                "subscriberType": {
+                    "type": "string",
+                    "description": "Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.\n"
+                }
+            },
+            "required": [
+                "businessServiceId",
+                "subscriberId",
+                "subscriberType"
+            ],
+            "inputProperties": {
+                "businessServiceId": {
+                    "type": "string",
+                    "description": "The ID of the business service to subscribe to.\n"
+                },
+                "subscriberId": {
+                    "type": "string",
+                    "description": "The ID of the subscriber entity.\n"
+                },
+                "subscriberType": {
+                    "type": "string",
+                    "description": "Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.\n"
+                }
+            },
+            "requiredInputs": [
+                "businessServiceId",
+                "subscriberId",
+                "subscriberType"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering BusinessServiceSubscriber resources.\n",
+                "properties": {
+                    "businessServiceId": {
+                        "type": "string",
+                        "description": "The ID of the business service to subscribe to.\n"
+                    },
+                    "subscriberId": {
+                        "type": "string",
+                        "description": "The ID of the subscriber entity.\n"
+                    },
+                    "subscriberType": {
+                        "type": "string",
+                        "description": "Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "pagerduty:index/escalationPolicy:EscalationPolicy": {
             "description": "An [escalation policy](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1escalation_policies/get) determines what user or schedule will be notified first, second, and so on when an incident is triggered. Escalation policies are used by one or more services.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst exampleTeam = new pagerduty.Team(\"exampleTeam\", {description: \"All engineering\"});\nconst exampleUser = new pagerduty.User(\"exampleUser\", {\n    email: \"125.greenholt.earline@graham.name\",\n    teams: [exampleTeam.id],\n});\nconst exampleEscalationPolicy = new pagerduty.EscalationPolicy(\"exampleEscalationPolicy\", {\n    numLoops: 2,\n    teams: [exampleTeam.id],\n    rules: [{\n        escalationDelayInMinutes: 10,\n        targets: [\n            {\n                type: \"user\",\n                id: exampleUser.id,\n            },\n            {\n                type: \"user\",\n                id: pagerduty_user.example2.id,\n            },\n        ],\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nexample_team = pagerduty.Team(\"exampleTeam\", description=\"All engineering\")\nexample_user = pagerduty.User(\"exampleUser\",\n    email=\"125.greenholt.earline@graham.name\",\n    teams=[example_team.id])\nexample_escalation_policy = pagerduty.EscalationPolicy(\"exampleEscalationPolicy\",\n    num_loops=2,\n    teams=[example_team.id],\n    rules=[pagerduty.EscalationPolicyRuleArgs(\n        escalation_delay_in_minutes=10,\n        targets=[\n            pagerduty.EscalationPolicyRuleTargetArgs(\n                type=\"user\",\n                id=example_user.id,\n            ),\n            pagerduty.EscalationPolicyRuleTargetArgs(\n                type=\"user\",\n                id=pagerduty_user[\"example2\"][\"id\"],\n            ),\n        ],\n    )])\n```\n```csharp\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var exampleTeam = new Pagerduty.Team(\"exampleTeam\", new Pagerduty.TeamArgs\n        {\n            Description = \"All engineering\",\n        });\n        var exampleUser = new Pagerduty.User(\"exampleUser\", new Pagerduty.UserArgs\n        {\n            Email = \"125.greenholt.earline@graham.name\",\n            Teams = \n            {\n                exampleTeam.Id,\n            },\n        });\n        var exampleEscalationPolicy = new Pagerduty.EscalationPolicy(\"exampleEscalationPolicy\", new Pagerduty.EscalationPolicyArgs\n        {\n            NumLoops = 2,\n            Teams = \n            {\n                exampleTeam.Id,\n            },\n            Rules = \n            {\n                new Pagerduty.Inputs.EscalationPolicyRuleArgs\n                {\n                    EscalationDelayInMinutes = 10,\n                    Targets = \n                    {\n                        new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs\n                        {\n                            Type = \"user\",\n                            Id = exampleUser.Id,\n                        },\n                        new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs\n                        {\n                            Type = \"user\",\n                            Id = pagerduty_user.Example2.Id,\n                        },\n                    },\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleTeam, err := pagerduty.NewTeam(ctx, \"exampleTeam\", \u0026pagerduty.TeamArgs{\n\t\t\tDescription: pulumi.String(\"All engineering\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleUser, err := pagerduty.NewUser(ctx, \"exampleUser\", \u0026pagerduty.UserArgs{\n\t\t\tEmail: pulumi.String(\"125.greenholt.earline@graham.name\"),\n\t\t\tTeams: pulumi.StringArray{\n\t\t\t\texampleTeam.ID(),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewEscalationPolicy(ctx, \"exampleEscalationPolicy\", \u0026pagerduty.EscalationPolicyArgs{\n\t\t\tNumLoops: pulumi.Int(2),\n\t\t\tTeams: pulumi.String{\n\t\t\t\texampleTeam.ID(),\n\t\t\t},\n\t\t\tRules: EscalationPolicyRuleArray{\n\t\t\t\t\u0026EscalationPolicyRuleArgs{\n\t\t\t\t\tEscalationDelayInMinutes: pulumi.Int(10),\n\t\t\t\t\tTargets: EscalationPolicyRuleTargetArray{\n\t\t\t\t\t\t\u0026EscalationPolicyRuleTargetArgs{\n\t\t\t\t\t\t\tType: pulumi.String(\"user\"),\n\t\t\t\t\t\t\tId:   exampleUser.ID(),\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026EscalationPolicyRuleTargetArgs{\n\t\t\t\t\t\t\tType: pulumi.String(\"user\"),\n\t\t\t\t\t\t\tId:   pulumi.Any(pagerduty_user.Example2.Id),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nEscalation policies can be imported using the `id`, e.g.\n\n```sh\n $ pulumi import pagerduty:index/escalationPolicy:EscalationPolicy main PLBP09X\n```\n\n ",
             "properties": {
@@ -2178,7 +2310,7 @@
                 },
                 "catchAll": {
                     "type": "boolean",
-                    "description": "A boolean that indicates whether the rule is a catch all for the account. This field is read-only through the PagerDuty API.\n"
+                    "description": "A boolean that indicates whether the rule is a catch-all for the account. This field is read-only through the PagerDuty API.\n"
                 },
                 "conditionJson": {
                     "type": "string",
@@ -2221,7 +2353,7 @@
                     },
                     "catchAll": {
                         "type": "boolean",
-                        "description": "A boolean that indicates whether the rule is a catch all for the account. This field is read-only through the PagerDuty API.\n"
+                        "description": "A boolean that indicates whether the rule is a catch-all for the account. This field is read-only through the PagerDuty API.\n"
                     },
                     "conditionJson": {
                         "type": "string",
@@ -2369,7 +2501,7 @@
                 },
                 "htmlUrl": {
                     "type": "string",
-                    "description": "URL at which the entity is uniquely displayed in the Web app\n"
+                    "description": "URL at which the entity is uniquely displayed in the Web app.\n"
                 },
                 "name": {
                     "type": "string",
@@ -2397,7 +2529,7 @@
                 },
                 "target": {
                     "type": "string",
-                    "description": "Target Webhook URL\n"
+                    "description": "Target Webhook URL.\n"
                 },
                 "taskType": {
                     "type": "string",
@@ -2462,7 +2594,7 @@
                 },
                 "target": {
                     "type": "string",
-                    "description": "Target Webhook URL\n"
+                    "description": "Target Webhook URL.\n"
                 },
                 "taskType": {
                     "type": "string",
@@ -2501,7 +2633,7 @@
                     },
                     "htmlUrl": {
                         "type": "string",
-                        "description": "URL at which the entity is uniquely displayed in the Web app\n"
+                        "description": "URL at which the entity is uniquely displayed in the Web app.\n"
                     },
                     "name": {
                         "type": "string",
@@ -2529,7 +2661,7 @@
                     },
                     "target": {
                         "type": "string",
-                        "description": "Target Webhook URL\n"
+                        "description": "Target Webhook URL.\n"
                     },
                     "taskType": {
                         "type": "string",
@@ -2829,7 +2961,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "Type of ruleset. Currently only sets to `global`.\n"
+                    "description": "Type of ruleset. Currently, only sets to `global`.\n"
                 }
             },
             "required": [
@@ -2867,14 +2999,14 @@
                     },
                     "type": {
                         "type": "string",
-                        "description": "Type of ruleset. Currently only sets to `global`.\n"
+                        "description": "Type of ruleset. Currently, only sets to `global`.\n"
                     }
                 },
                 "type": "object"
             }
         },
         "pagerduty:index/rulesetRule:RulesetRule": {
-            "description": "An [event rule](https://support.pagerduty.com/docs/rulesets#section-create-event-rules) allows you to set actions that should be taken on events that meet your designated rule criteria.\n\n\n## Import\n\nRuleset rules can be imported using using the related `ruleset` ID and the `ruleset_rule` ID separated by a dot, e.g.\n\n```sh\n $ pulumi import pagerduty:index/rulesetRule:RulesetRule main a19cdca1-3d5e-4b52-bfea-8c8de04da243.19acac92-027a-4ea0-b06c-bbf516519601\n```\n\n ",
+            "description": "An [event rule](https://support.pagerduty.com/docs/rulesets#section-create-event-rules) allows you to set actions that should be taken on events that meet your designated rule criteria.\n\n\n## Import\n\nRuleset rules can be imported using the related `ruleset` ID and the `ruleset_rule` ID separated by a dot, e.g.\n\n```sh\n $ pulumi import pagerduty:index/rulesetRule:RulesetRule main a19cdca1-3d5e-4b52-bfea-8c8de04da243.19acac92-027a-4ea0-b06c-bbf516519601\n```\n\n ",
             "properties": {
                 "actions": {
                     "$ref": "#/types/pagerduty:index/RulesetRuleActions:RulesetRuleActions",
@@ -2882,7 +3014,7 @@
                 },
                 "conditions": {
                     "$ref": "#/types/pagerduty:index/RulesetRuleConditions:RulesetRuleConditions",
-                    "description": "Conditions evaluated to check if an event matches this event rule. Is always empty for the catch all rule, though.\n"
+                    "description": "Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.\n"
                 },
                 "disabled": {
                     "type": "boolean",
@@ -2918,7 +3050,7 @@
                 },
                 "conditions": {
                     "$ref": "#/types/pagerduty:index/RulesetRuleConditions:RulesetRuleConditions",
-                    "description": "Conditions evaluated to check if an event matches this event rule. Is always empty for the catch all rule, though.\n"
+                    "description": "Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.\n"
                 },
                 "disabled": {
                     "type": "boolean",
@@ -2956,7 +3088,7 @@
                     },
                     "conditions": {
                         "$ref": "#/types/pagerduty:index/RulesetRuleConditions:RulesetRuleConditions",
-                        "description": "Conditions evaluated to check if an event matches this event rule. Is always empty for the catch all rule, though.\n"
+                        "description": "Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.\n"
                     },
                     "disabled": {
                         "type": "boolean",
@@ -2990,7 +3122,7 @@
             "properties": {
                 "description": {
                     "type": "string",
-                    "description": "The description of the schedule\n",
+                    "description": "The description of the schedule.\n",
                     "default": "Managed by Pulumi"
                 },
                 "layers": {
@@ -3017,7 +3149,7 @@
                 },
                 "timeZone": {
                     "type": "string",
-                    "description": "The time zone of the schedule (e.g Europe/Berlin).\n"
+                    "description": "The time zone of the schedule (e.g. `Europe/Berlin`).\n"
                 }
             },
             "required": [
@@ -3029,7 +3161,7 @@
             "inputProperties": {
                 "description": {
                     "type": "string",
-                    "description": "The description of the schedule\n",
+                    "description": "The description of the schedule.\n",
                     "default": "Managed by Pulumi"
                 },
                 "layers": {
@@ -3056,7 +3188,7 @@
                 },
                 "timeZone": {
                     "type": "string",
-                    "description": "The time zone of the schedule (e.g Europe/Berlin).\n"
+                    "description": "The time zone of the schedule (e.g. `Europe/Berlin`).\n"
                 }
             },
             "requiredInputs": [
@@ -3068,7 +3200,7 @@
                 "properties": {
                     "description": {
                         "type": "string",
-                        "description": "The description of the schedule\n",
+                        "description": "The description of the schedule.\n",
                         "default": "Managed by Pulumi"
                     },
                     "layers": {
@@ -3095,7 +3227,7 @@
                     },
                     "timeZone": {
                         "type": "string",
-                        "description": "The time zone of the schedule (e.g Europe/Berlin).\n"
+                        "description": "The time zone of the schedule (e.g. `Europe/Berlin`).\n"
                     }
                 },
                 "type": "object"
@@ -3451,7 +3583,7 @@
             "properties": {
                 "htmlUrl": {
                     "type": "string",
-                    "description": "URL at which the entity is uniquely displayed in the Web app\n"
+                    "description": "URL at which the entity is uniquely displayed in the Web app.\n"
                 },
                 "integrationEmail": {
                     "type": "string",
@@ -3475,7 +3607,7 @@
                 },
                 "vendor": {
                     "type": "string",
-                    "description": "The ID of the vendor the integration should integrate with (e.g Datadog or Amazon Cloudwatch).\n"
+                    "description": "The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).\n"
                 }
             },
             "required": [
@@ -3510,7 +3642,7 @@
                 },
                 "vendor": {
                     "type": "string",
-                    "description": "The ID of the vendor the integration should integrate with (e.g Datadog or Amazon Cloudwatch).\n"
+                    "description": "The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).\n"
                 }
             },
             "requiredInputs": [
@@ -3521,7 +3653,7 @@
                 "properties": {
                     "htmlUrl": {
                         "type": "string",
-                        "description": "URL at which the entity is uniquely displayed in the Web app\n"
+                        "description": "URL at which the entity is uniquely displayed in the Web app.\n"
                     },
                     "integrationEmail": {
                         "type": "string",
@@ -3545,14 +3677,14 @@
                     },
                     "vendor": {
                         "type": "string",
-                        "description": "The ID of the vendor the integration should integrate with (e.g Datadog or Amazon Cloudwatch).\n"
+                        "description": "The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).\n"
                     }
                 },
                 "type": "object"
             }
         },
         "pagerduty:index/slackConnection:SlackConnection": {
-            "description": "A [slack connection](https://developer.pagerduty.com/api-reference/reference/integration-slack-service/openapiv3.json) allows you to connect a workspace in Slack to a PagerDuty service or team which allows you to acknowledge and resolve PagerDuty incidents from the Slack user interface. \n\n**NOTES for using this resource:** \n* To first use this resource you will need to [map your PagerDuty account to a valid Slack Workspace](https://support.pagerduty.com/docs/slack-integration-guide#integration-walkthrough). *This can only be done through the PagerDuty UI.*\n* This resource requires a PagerDuty [user-level API key](https://support.pagerduty.com/docs/generating-api-keys#section-generating-a-personal-rest-api-key). This can be set as the `user_token` on the provider tag or as the `PAGERDUTY_USER_TOKEN` environment variable.\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst fooTeam = new pagerduty.Team(\"fooTeam\", {});\nconst p1 = pagerduty.getPriority({\n    name: \"P1\",\n});\nconst fooSlackConnection = new pagerduty.SlackConnection(\"fooSlackConnection\", {\n    sourceId: fooTeam.id,\n    sourceType: \"team_reference\",\n    workspaceId: \"T02A123LV1A\",\n    channelId: \"C02CABCDAC9\",\n    notificationType: \"responder\",\n    configs: [{\n        events: [\n            \"incident.triggered\",\n            \"incident.acknowledged\",\n            \"incident.escalated\",\n            \"incident.resolved\",\n            \"incident.reassigned\",\n            \"incident.annotated\",\n            \"incident.unacknowledged\",\n            \"incident.delegated\",\n            \"incident.priority_updated\",\n            \"incident.responder.added\",\n            \"incident.responder.replied\",\n            \"incident.status_update_published\",\n            \"incident.reopened\",\n        ],\n        priorities: [p1.then(p1 =\u003e p1.id)],\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nfoo_team = pagerduty.Team(\"fooTeam\")\np1 = pagerduty.get_priority(name=\"P1\")\nfoo_slack_connection = pagerduty.SlackConnection(\"fooSlackConnection\",\n    source_id=foo_team.id,\n    source_type=\"team_reference\",\n    workspace_id=\"T02A123LV1A\",\n    channel_id=\"C02CABCDAC9\",\n    notification_type=\"responder\",\n    configs=[pagerduty.SlackConnectionConfigArgs(\n        events=[\n            \"incident.triggered\",\n            \"incident.acknowledged\",\n            \"incident.escalated\",\n            \"incident.resolved\",\n            \"incident.reassigned\",\n            \"incident.annotated\",\n            \"incident.unacknowledged\",\n            \"incident.delegated\",\n            \"incident.priority_updated\",\n            \"incident.responder.added\",\n            \"incident.responder.replied\",\n            \"incident.status_update_published\",\n            \"incident.reopened\",\n        ],\n        priorities=[p1.id],\n    )])\n```\n```csharp\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var fooTeam = new Pagerduty.Team(\"fooTeam\", new Pagerduty.TeamArgs\n        {\n        });\n        var p1 = Output.Create(Pagerduty.GetPriority.InvokeAsync(new Pagerduty.GetPriorityArgs\n        {\n            Name = \"P1\",\n        }));\n        var fooSlackConnection = new Pagerduty.SlackConnection(\"fooSlackConnection\", new Pagerduty.SlackConnectionArgs\n        {\n            SourceId = fooTeam.Id,\n            SourceType = \"team_reference\",\n            WorkspaceId = \"T02A123LV1A\",\n            ChannelId = \"C02CABCDAC9\",\n            NotificationType = \"responder\",\n            Configs = \n            {\n                new Pagerduty.Inputs.SlackConnectionConfigArgs\n                {\n                    Events = \n                    {\n                        \"incident.triggered\",\n                        \"incident.acknowledged\",\n                        \"incident.escalated\",\n                        \"incident.resolved\",\n                        \"incident.reassigned\",\n                        \"incident.annotated\",\n                        \"incident.unacknowledged\",\n                        \"incident.delegated\",\n                        \"incident.priority_updated\",\n                        \"incident.responder.added\",\n                        \"incident.responder.replied\",\n                        \"incident.status_update_published\",\n                        \"incident.reopened\",\n                    },\n                    Priorities = \n                    {\n                        p1.Apply(p1 =\u003e p1.Id),\n                    },\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tfooTeam, err := pagerduty.NewTeam(ctx, \"fooTeam\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tp1, err := pagerduty.GetPriority(ctx, \u0026GetPriorityArgs{\n\t\t\tName: \"P1\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewSlackConnection(ctx, \"fooSlackConnection\", \u0026pagerduty.SlackConnectionArgs{\n\t\t\tSourceId:         fooTeam.ID(),\n\t\t\tSourceType:       pulumi.String(\"team_reference\"),\n\t\t\tWorkspaceId:      pulumi.String(\"T02A123LV1A\"),\n\t\t\tChannelId:        pulumi.String(\"C02CABCDAC9\"),\n\t\t\tNotificationType: pulumi.String(\"responder\"),\n\t\t\tConfigs: SlackConnectionConfigArray{\n\t\t\t\t\u0026SlackConnectionConfigArgs{\n\t\t\t\t\tEvents: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"incident.triggered\"),\n\t\t\t\t\t\tpulumi.String(\"incident.acknowledged\"),\n\t\t\t\t\t\tpulumi.String(\"incident.escalated\"),\n\t\t\t\t\t\tpulumi.String(\"incident.resolved\"),\n\t\t\t\t\t\tpulumi.String(\"incident.reassigned\"),\n\t\t\t\t\t\tpulumi.String(\"incident.annotated\"),\n\t\t\t\t\t\tpulumi.String(\"incident.unacknowledged\"),\n\t\t\t\t\t\tpulumi.String(\"incident.delegated\"),\n\t\t\t\t\t\tpulumi.String(\"incident.priority_updated\"),\n\t\t\t\t\t\tpulumi.String(\"incident.responder.added\"),\n\t\t\t\t\t\tpulumi.String(\"incident.responder.replied\"),\n\t\t\t\t\t\tpulumi.String(\"incident.status_update_published\"),\n\t\t\t\t\t\tpulumi.String(\"incident.reopened\"),\n\t\t\t\t\t},\n\t\t\t\t\tPriorities: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(p1.Id),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nSlack connections can be imported using using the related `workspace` ID and the `slack_connection` ID separated by a dot, e.g.\n\n```sh\n $ pulumi import pagerduty:index/slackConnection:SlackConnection main T02A123LV1A.PUABCDL\n```\n\n ",
+            "description": "A [slack connection](https://developer.pagerduty.com/api-reference/YXBpOjExMjA5NTQ0-pager-duty-slack-integration-api) allows you to connect a workspace in Slack to a PagerDuty service or team which allows you to acknowledge and resolve PagerDuty incidents from the Slack user interface.\n\n**NOTES for using this resource:**\n* To first use this resource you will need to [map your PagerDuty account to a valid Slack Workspace](https://support.pagerduty.com/docs/slack-integration-guide#integration-walkthrough). *This can only be done through the PagerDuty UI.*\n* This resource requires a PagerDuty [user-level API key](https://support.pagerduty.com/docs/generating-api-keys#section-generating-a-personal-rest-api-key). This can be set as the `user_token` on the provider tag or as the `PAGERDUTY_USER_TOKEN` environment variable.\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst fooTeam = new pagerduty.Team(\"fooTeam\", {});\nconst p1 = pagerduty.getPriority({\n    name: \"P1\",\n});\nconst fooSlackConnection = new pagerduty.SlackConnection(\"fooSlackConnection\", {\n    sourceId: fooTeam.id,\n    sourceType: \"team_reference\",\n    workspaceId: \"T02A123LV1A\",\n    channelId: \"C02CABCDAC9\",\n    notificationType: \"responder\",\n    configs: [{\n        events: [\n            \"incident.triggered\",\n            \"incident.acknowledged\",\n            \"incident.escalated\",\n            \"incident.resolved\",\n            \"incident.reassigned\",\n            \"incident.annotated\",\n            \"incident.unacknowledged\",\n            \"incident.delegated\",\n            \"incident.priority_updated\",\n            \"incident.responder.added\",\n            \"incident.responder.replied\",\n            \"incident.status_update_published\",\n            \"incident.reopened\",\n        ],\n        priorities: [p1.then(p1 =\u003e p1.id)],\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nfoo_team = pagerduty.Team(\"fooTeam\")\np1 = pagerduty.get_priority(name=\"P1\")\nfoo_slack_connection = pagerduty.SlackConnection(\"fooSlackConnection\",\n    source_id=foo_team.id,\n    source_type=\"team_reference\",\n    workspace_id=\"T02A123LV1A\",\n    channel_id=\"C02CABCDAC9\",\n    notification_type=\"responder\",\n    configs=[pagerduty.SlackConnectionConfigArgs(\n        events=[\n            \"incident.triggered\",\n            \"incident.acknowledged\",\n            \"incident.escalated\",\n            \"incident.resolved\",\n            \"incident.reassigned\",\n            \"incident.annotated\",\n            \"incident.unacknowledged\",\n            \"incident.delegated\",\n            \"incident.priority_updated\",\n            \"incident.responder.added\",\n            \"incident.responder.replied\",\n            \"incident.status_update_published\",\n            \"incident.reopened\",\n        ],\n        priorities=[p1.id],\n    )])\n```\n```csharp\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var fooTeam = new Pagerduty.Team(\"fooTeam\", new Pagerduty.TeamArgs\n        {\n        });\n        var p1 = Output.Create(Pagerduty.GetPriority.InvokeAsync(new Pagerduty.GetPriorityArgs\n        {\n            Name = \"P1\",\n        }));\n        var fooSlackConnection = new Pagerduty.SlackConnection(\"fooSlackConnection\", new Pagerduty.SlackConnectionArgs\n        {\n            SourceId = fooTeam.Id,\n            SourceType = \"team_reference\",\n            WorkspaceId = \"T02A123LV1A\",\n            ChannelId = \"C02CABCDAC9\",\n            NotificationType = \"responder\",\n            Configs = \n            {\n                new Pagerduty.Inputs.SlackConnectionConfigArgs\n                {\n                    Events = \n                    {\n                        \"incident.triggered\",\n                        \"incident.acknowledged\",\n                        \"incident.escalated\",\n                        \"incident.resolved\",\n                        \"incident.reassigned\",\n                        \"incident.annotated\",\n                        \"incident.unacknowledged\",\n                        \"incident.delegated\",\n                        \"incident.priority_updated\",\n                        \"incident.responder.added\",\n                        \"incident.responder.replied\",\n                        \"incident.status_update_published\",\n                        \"incident.reopened\",\n                    },\n                    Priorities = \n                    {\n                        p1.Apply(p1 =\u003e p1.Id),\n                    },\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tfooTeam, err := pagerduty.NewTeam(ctx, \"fooTeam\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tp1, err := pagerduty.GetPriority(ctx, \u0026GetPriorityArgs{\n\t\t\tName: \"P1\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewSlackConnection(ctx, \"fooSlackConnection\", \u0026pagerduty.SlackConnectionArgs{\n\t\t\tSourceId:         fooTeam.ID(),\n\t\t\tSourceType:       pulumi.String(\"team_reference\"),\n\t\t\tWorkspaceId:      pulumi.String(\"T02A123LV1A\"),\n\t\t\tChannelId:        pulumi.String(\"C02CABCDAC9\"),\n\t\t\tNotificationType: pulumi.String(\"responder\"),\n\t\t\tConfigs: SlackConnectionConfigArray{\n\t\t\t\t\u0026SlackConnectionConfigArgs{\n\t\t\t\t\tEvents: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"incident.triggered\"),\n\t\t\t\t\t\tpulumi.String(\"incident.acknowledged\"),\n\t\t\t\t\t\tpulumi.String(\"incident.escalated\"),\n\t\t\t\t\t\tpulumi.String(\"incident.resolved\"),\n\t\t\t\t\t\tpulumi.String(\"incident.reassigned\"),\n\t\t\t\t\t\tpulumi.String(\"incident.annotated\"),\n\t\t\t\t\t\tpulumi.String(\"incident.unacknowledged\"),\n\t\t\t\t\t\tpulumi.String(\"incident.delegated\"),\n\t\t\t\t\t\tpulumi.String(\"incident.priority_updated\"),\n\t\t\t\t\t\tpulumi.String(\"incident.responder.added\"),\n\t\t\t\t\t\tpulumi.String(\"incident.responder.replied\"),\n\t\t\t\t\t\tpulumi.String(\"incident.status_update_published\"),\n\t\t\t\t\t\tpulumi.String(\"incident.reopened\"),\n\t\t\t\t\t},\n\t\t\t\t\tPriorities: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(p1.Id),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nSlack connections can be imported using the related `workspace` ID and the `slack_connection` ID separated by a dot, e.g.\n\n```sh\n $ pulumi import pagerduty:index/slackConnection:SlackConnection main T02A123LV1A.PUABCDL\n```\n\n ",
             "properties": {
                 "channelId": {
                     "type": "string",
@@ -3680,7 +3812,7 @@
             "properties": {
                 "htmlUrl": {
                     "type": "string",
-                    "description": "URL at which the entity is uniquely displayed in the Web app\n"
+                    "description": "URL at which the entity is uniquely displayed in the Web app.\n"
                 },
                 "label": {
                     "type": "string",
@@ -3709,7 +3841,7 @@
                 "properties": {
                     "htmlUrl": {
                         "type": "string",
-                        "description": "URL at which the entity is uniquely displayed in the Web app\n"
+                        "description": "URL at which the entity is uniquely displayed in the Web app.\n"
                     },
                     "label": {
                         "type": "string",
@@ -3937,7 +4069,7 @@
                 },
                 "role": {
                     "type": "string",
-                    "description": "The user role. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.  \nNotes:\n* Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.\n* With advanced permissions, users can have both a user role (base role) and a team role. The team role can configured in the `pagerduty.TeamMembership` resource.\n* Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).\n"
+                    "description": "The user role. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.\nNotes:\n* Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.\n* With advanced permissions, users can have both a user role (base role) and a team role. The team role can be configured in the `pagerduty.TeamMembership` resource.\n* Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).\n"
                 },
                 "teams": {
                     "type": "array",
@@ -3986,7 +4118,7 @@
                 },
                 "role": {
                     "type": "string",
-                    "description": "The user role. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.  \nNotes:\n* Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.\n* With advanced permissions, users can have both a user role (base role) and a team role. The team role can configured in the `pagerduty.TeamMembership` resource.\n* Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).\n"
+                    "description": "The user role. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.\nNotes:\n* Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.\n* With advanced permissions, users can have both a user role (base role) and a team role. The team role can be configured in the `pagerduty.TeamMembership` resource.\n* Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).\n"
                 },
                 "teams": {
                     "type": "array",
@@ -4041,7 +4173,7 @@
                     },
                     "role": {
                         "type": "string",
-                        "description": "The user role. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.  \nNotes:\n* Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.\n* With advanced permissions, users can have both a user role (base role) and a team role. The team role can configured in the `pagerduty.TeamMembership` resource.\n* Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).\n"
+                        "description": "The user role. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.\nNotes:\n* Account must have the `read_only_users` ability to set a user as a `read_only_user` or a `read_only_limited_user`, and must have advanced permissions abilities to set a user as `observer` or `restricted_access`.\n* With advanced permissions, users can have both a user role (base role) and a team role. The team role can be configured in the `pagerduty.TeamMembership` resource.\n* Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).\n"
                     },
                     "teams": {
                         "type": "array",
@@ -4251,6 +4383,129 @@
                     "userId": {
                         "type": "string",
                         "description": "The ID of the user.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "pagerduty:index/webhookSubscription:WebhookSubscription": {
+            "description": "A [webhook subscription](https://developer.pagerduty.com/docs/ZG9jOjExMDI5NTkw-v3-overview) allow you to receive HTTP callbacks when incidents are created, updated and deleted. These are also known as V3 Webhooks.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst example = pagerduty.getService({\n    name: \"My Service\",\n});\nconst foo = new pagerduty.WebhookSubscription(\"foo\", {\n    deliveryMethods: [{\n        type: \"http_delivery_method\",\n        url: \"https://example.com/receive_a_pagerduty_webhook\",\n    }],\n    description: `%s`,\n    events: [\n        \"incident.acknowledged\",\n        \"incident.annotated\",\n        \"incident.delegated\",\n        \"incident.escalated\",\n        \"incident.priority_updated\",\n        \"incident.reassigned\",\n        \"incident.reopened\",\n        \"incident.resolved\",\n        \"incident.responder.added\",\n        \"incident.responder.replied\",\n        \"incident.status_update_published\",\n        \"incident.triggered\",\n        \"incident.unacknowledged\",\n    ],\n    active: true,\n    filters: [{\n        id: example.then(example =\u003e example.id),\n        type: \"service_reference\",\n    }],\n    type: \"webhook_subscription\",\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nexample = pagerduty.get_service(name=\"My Service\")\nfoo = pagerduty.WebhookSubscription(\"foo\",\n    delivery_methods=[pagerduty.WebhookSubscriptionDeliveryMethodArgs(\n        type=\"http_delivery_method\",\n        url=\"https://example.com/receive_a_pagerduty_webhook\",\n    )],\n    description=\"%s\",\n    events=[\n        \"incident.acknowledged\",\n        \"incident.annotated\",\n        \"incident.delegated\",\n        \"incident.escalated\",\n        \"incident.priority_updated\",\n        \"incident.reassigned\",\n        \"incident.reopened\",\n        \"incident.resolved\",\n        \"incident.responder.added\",\n        \"incident.responder.replied\",\n        \"incident.status_update_published\",\n        \"incident.triggered\",\n        \"incident.unacknowledged\",\n    ],\n    active=True,\n    filters=[pagerduty.WebhookSubscriptionFilterArgs(\n        id=example.id,\n        type=\"service_reference\",\n    )],\n    type=\"webhook_subscription\")\n```\n```csharp\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = Output.Create(Pagerduty.GetService.InvokeAsync(new Pagerduty.GetServiceArgs\n        {\n            Name = \"My Service\",\n        }));\n        var foo = new Pagerduty.WebhookSubscription(\"foo\", new Pagerduty.WebhookSubscriptionArgs\n        {\n            DeliveryMethods = \n            {\n                new Pagerduty.Inputs.WebhookSubscriptionDeliveryMethodArgs\n                {\n                    Type = \"http_delivery_method\",\n                    Url = \"https://example.com/receive_a_pagerduty_webhook\",\n                },\n            },\n            Description = \"%s\",\n            Events = \n            {\n                \"incident.acknowledged\",\n                \"incident.annotated\",\n                \"incident.delegated\",\n                \"incident.escalated\",\n                \"incident.priority_updated\",\n                \"incident.reassigned\",\n                \"incident.reopened\",\n                \"incident.resolved\",\n                \"incident.responder.added\",\n                \"incident.responder.replied\",\n                \"incident.status_update_published\",\n                \"incident.triggered\",\n                \"incident.unacknowledged\",\n            },\n            Active = true,\n            Filters = \n            {\n                new Pagerduty.Inputs.WebhookSubscriptionFilterArgs\n                {\n                    Id = example.Apply(example =\u003e example.Id),\n                    Type = \"service_reference\",\n                },\n            },\n            Type = \"webhook_subscription\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := pagerduty.LookupService(ctx, \u0026GetServiceArgs{\n\t\t\tName: \"My Service\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewWebhookSubscription(ctx, \"foo\", \u0026pagerduty.WebhookSubscriptionArgs{\n\t\t\tDeliveryMethods: WebhookSubscriptionDeliveryMethodArray{\n\t\t\t\t\u0026WebhookSubscriptionDeliveryMethodArgs{\n\t\t\t\t\tType: pulumi.String(\"http_delivery_method\"),\n\t\t\t\t\tUrl:  pulumi.String(\"https://example.com/receive_a_pagerduty_webhook\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tDescription: pulumi.String(fmt.Sprintf(\"%v%v\", \"%\", \"s\")),\n\t\t\tEvents: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"incident.acknowledged\"),\n\t\t\t\tpulumi.String(\"incident.annotated\"),\n\t\t\t\tpulumi.String(\"incident.delegated\"),\n\t\t\t\tpulumi.String(\"incident.escalated\"),\n\t\t\t\tpulumi.String(\"incident.priority_updated\"),\n\t\t\t\tpulumi.String(\"incident.reassigned\"),\n\t\t\t\tpulumi.String(\"incident.reopened\"),\n\t\t\t\tpulumi.String(\"incident.resolved\"),\n\t\t\t\tpulumi.String(\"incident.responder.added\"),\n\t\t\t\tpulumi.String(\"incident.responder.replied\"),\n\t\t\t\tpulumi.String(\"incident.status_update_published\"),\n\t\t\t\tpulumi.String(\"incident.triggered\"),\n\t\t\t\tpulumi.String(\"incident.unacknowledged\"),\n\t\t\t},\n\t\t\tActive: pulumi.Bool(true),\n\t\t\tFilters: WebhookSubscriptionFilterArray{\n\t\t\t\t\u0026WebhookSubscriptionFilterArgs{\n\t\t\t\t\tId:   pulumi.String(example.Id),\n\t\t\t\t\tType: pulumi.String(\"service_reference\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tType: pulumi.String(\"webhook_subscription\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nWebhook Subscriptions can be imported using the `id`, e.g.\n\n```sh\n $ pulumi import pagerduty:index/webhookSubscription:WebhookSubscription main PUABCDL\n```\n\n ",
+            "properties": {
+                "active": {
+                    "type": "boolean",
+                    "description": "Determines whether the subscription will produce webhook events.\n"
+                },
+                "deliveryMethods": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/WebhookSubscriptionDeliveryMethod:WebhookSubscriptionDeliveryMethod"
+                    },
+                    "description": "The object describing where to send the webhooks.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A short description of the webhook subscription\n"
+                },
+                "events": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A set of outbound event types the webhook will receive. The follow event types are possible: \n* `incident.acknowledged`\n* `incident.annotated`\n* `incident.delegated`\n* `incident.escalated`\n* `incident.priority_updated`\n* `incident.reassigned`\n* `incident.reopened`\n* `incident.resolved`\n* `incident.responder.added`\n* `incident.responder.replied`\n* `incident.status_update_published`\n* `incident.triggered`\n* `incident.unacknowledged`\n"
+                },
+                "filters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/WebhookSubscriptionFilter:WebhookSubscriptionFilter"
+                    },
+                    "description": "determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `service_reference`, `team_reference` and `account_reference`.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.\n"
+                }
+            },
+            "required": [
+                "active",
+                "deliveryMethods",
+                "events",
+                "filters"
+            ],
+            "inputProperties": {
+                "active": {
+                    "type": "boolean",
+                    "description": "Determines whether the subscription will produce webhook events.\n"
+                },
+                "deliveryMethods": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/WebhookSubscriptionDeliveryMethod:WebhookSubscriptionDeliveryMethod"
+                    },
+                    "description": "The object describing where to send the webhooks.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A short description of the webhook subscription\n"
+                },
+                "events": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A set of outbound event types the webhook will receive. The follow event types are possible: \n* `incident.acknowledged`\n* `incident.annotated`\n* `incident.delegated`\n* `incident.escalated`\n* `incident.priority_updated`\n* `incident.reassigned`\n* `incident.reopened`\n* `incident.resolved`\n* `incident.responder.added`\n* `incident.responder.replied`\n* `incident.status_update_published`\n* `incident.triggered`\n* `incident.unacknowledged`\n"
+                },
+                "filters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/WebhookSubscriptionFilter:WebhookSubscriptionFilter"
+                    },
+                    "description": "determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `service_reference`, `team_reference` and `account_reference`.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.\n"
+                }
+            },
+            "requiredInputs": [
+                "deliveryMethods",
+                "events",
+                "filters"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering WebhookSubscription resources.\n",
+                "properties": {
+                    "active": {
+                        "type": "boolean",
+                        "description": "Determines whether the subscription will produce webhook events.\n"
+                    },
+                    "deliveryMethods": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/pagerduty:index/WebhookSubscriptionDeliveryMethod:WebhookSubscriptionDeliveryMethod"
+                        },
+                        "description": "The object describing where to send the webhooks.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "A short description of the webhook subscription\n"
+                    },
+                    "events": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A set of outbound event types the webhook will receive. The follow event types are possible: \n* `incident.acknowledged`\n* `incident.annotated`\n* `incident.delegated`\n* `incident.escalated`\n* `incident.priority_updated`\n* `incident.reassigned`\n* `incident.reopened`\n* `incident.resolved`\n* `incident.responder.added`\n* `incident.responder.replied`\n* `incident.status_update_published`\n* `incident.triggered`\n* `incident.unacknowledged`\n"
+                    },
+                    "filters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/pagerduty:index/WebhookSubscriptionFilter:WebhookSubscriptionFilter"
+                        },
+                        "description": "determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `service_reference`, `team_reference` and `account_reference`.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.\n"
                     }
                 },
                 "type": "object"
@@ -4521,7 +4776,7 @@
                 "properties": {
                     "integrationSummary": {
                         "type": "string",
-                        "description": "The integration summary used to find the desired integration on the service\n"
+                        "description": "The integration summary used to find the desired integration on the service.\n"
                     },
                     "serviceName": {
                         "type": "string",
@@ -4562,7 +4817,7 @@
             }
         },
         "pagerduty:index/getTag:getTag": {
-            "description": "Use this data source to get information about a specific [tag](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIxNw-list-tags) that you can use to assign to users, teams, and escalation_policies.\n",
+            "description": "Use this data source to get information about a specific [tag](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIxNw-list-tags) that you can use to assign to users, teams, and escalation_policies.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst me = pagerduty.getUser({\n    email: \"me@example.com\",\n});\nconst devops = pagerduty.getTag({\n    label: \"devops\",\n});\nconst foo = new pagerduty.TagAssignment(\"foo\", {\n    tagId: devops.then(devops =\u003e devops.id),\n    entityId: me.then(me =\u003e me.id),\n    entityType: \"users\",\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nme = pagerduty.get_user(email=\"me@example.com\")\ndevops = pagerduty.get_tag(label=\"devops\")\nfoo = pagerduty.TagAssignment(\"foo\",\n    tag_id=devops.id,\n    entity_id=me.id,\n    entity_type=\"users\")\n```\n```csharp\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var me = Output.Create(Pagerduty.GetUser.InvokeAsync(new Pagerduty.GetUserArgs\n        {\n            Email = \"me@example.com\",\n        }));\n        var devops = Output.Create(Pagerduty.GetTag.InvokeAsync(new Pagerduty.GetTagArgs\n        {\n            Label = \"devops\",\n        }));\n        var foo = new Pagerduty.TagAssignment(\"foo\", new Pagerduty.TagAssignmentArgs\n        {\n            TagId = devops.Apply(devops =\u003e devops.Id),\n            EntityId = me.Apply(me =\u003e me.Id),\n            EntityType = \"users\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tme, err := pagerduty.LookupUser(ctx, \u0026GetUserArgs{\n\t\t\tEmail: \"me@example.com\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tdevops, err := pagerduty.LookupTag(ctx, \u0026GetTagArgs{\n\t\t\tLabel: \"devops\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewTagAssignment(ctx, \"foo\", \u0026pagerduty.TagAssignmentArgs{\n\t\t\tTagId:      pulumi.String(devops.Id),\n\t\t\tEntityId:   pulumi.String(me.Id),\n\t\t\tEntityType: pulumi.String(\"users\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
                 "description": "A collection of arguments for invoking getTag.\n",
                 "properties": {
@@ -4763,7 +5018,7 @@
             }
         },
         "pagerduty:index/getVendor:getVendor": {
-            "description": "Use this data source to get information about a specific [vendor](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1vendors/get) that you can use for a service integration (e.g Amazon Cloudwatch, Splunk, Datadog).\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst datadog = pagerduty.getVendor({\n    name: \"Datadog\",\n});\nconst exampleUser = new pagerduty.User(\"exampleUser\", {\n    email: \"125.greenholt.earline@graham.name\",\n    teams: [pagerduty_team.example.id],\n});\nconst foo = new pagerduty.EscalationPolicy(\"foo\", {\n    numLoops: 2,\n    rules: [{\n        escalationDelayInMinutes: 10,\n        targets: [{\n            type: \"user\",\n            id: exampleUser.id,\n        }],\n    }],\n});\nconst exampleService = new pagerduty.Service(\"exampleService\", {\n    autoResolveTimeout: 14400,\n    acknowledgementTimeout: 600,\n    escalationPolicy: pagerduty_escalation_policy.example.id,\n});\nconst exampleServiceIntegration = new pagerduty.ServiceIntegration(\"exampleServiceIntegration\", {\n    vendor: datadog.then(datadog =\u003e datadog.id),\n    service: exampleService.id,\n    type: \"generic_events_api_inbound_integration\",\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\ndatadog = pagerduty.get_vendor(name=\"Datadog\")\nexample_user = pagerduty.User(\"exampleUser\",\n    email=\"125.greenholt.earline@graham.name\",\n    teams=[pagerduty_team[\"example\"][\"id\"]])\nfoo = pagerduty.EscalationPolicy(\"foo\",\n    num_loops=2,\n    rules=[pagerduty.EscalationPolicyRuleArgs(\n        escalation_delay_in_minutes=10,\n        targets=[pagerduty.EscalationPolicyRuleTargetArgs(\n            type=\"user\",\n            id=example_user.id,\n        )],\n    )])\nexample_service = pagerduty.Service(\"exampleService\",\n    auto_resolve_timeout=\"14400\",\n    acknowledgement_timeout=\"600\",\n    escalation_policy=pagerduty_escalation_policy[\"example\"][\"id\"])\nexample_service_integration = pagerduty.ServiceIntegration(\"exampleServiceIntegration\",\n    vendor=datadog.id,\n    service=example_service.id,\n    type=\"generic_events_api_inbound_integration\")\n```\n```csharp\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var datadog = Output.Create(Pagerduty.GetVendor.InvokeAsync(new Pagerduty.GetVendorArgs\n        {\n            Name = \"Datadog\",\n        }));\n        var exampleUser = new Pagerduty.User(\"exampleUser\", new Pagerduty.UserArgs\n        {\n            Email = \"125.greenholt.earline@graham.name\",\n            Teams = \n            {\n                pagerduty_team.Example.Id,\n            },\n        });\n        var foo = new Pagerduty.EscalationPolicy(\"foo\", new Pagerduty.EscalationPolicyArgs\n        {\n            NumLoops = 2,\n            Rules = \n            {\n                new Pagerduty.Inputs.EscalationPolicyRuleArgs\n                {\n                    EscalationDelayInMinutes = 10,\n                    Targets = \n                    {\n                        new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs\n                        {\n                            Type = \"user\",\n                            Id = exampleUser.Id,\n                        },\n                    },\n                },\n            },\n        });\n        var exampleService = new Pagerduty.Service(\"exampleService\", new Pagerduty.ServiceArgs\n        {\n            AutoResolveTimeout = \"14400\",\n            AcknowledgementTimeout = \"600\",\n            EscalationPolicy = pagerduty_escalation_policy.Example.Id,\n        });\n        var exampleServiceIntegration = new Pagerduty.ServiceIntegration(\"exampleServiceIntegration\", new Pagerduty.ServiceIntegrationArgs\n        {\n            Vendor = datadog.Apply(datadog =\u003e datadog.Id),\n            Service = exampleService.Id,\n            Type = \"generic_events_api_inbound_integration\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tdatadog, err := pagerduty.GetVendor(ctx, \u0026GetVendorArgs{\n\t\t\tName: \"Datadog\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleUser, err := pagerduty.NewUser(ctx, \"exampleUser\", \u0026pagerduty.UserArgs{\n\t\t\tEmail: pulumi.String(\"125.greenholt.earline@graham.name\"),\n\t\t\tTeams: pulumi.StringArray{\n\t\t\t\tpulumi.Any(pagerduty_team.Example.Id),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewEscalationPolicy(ctx, \"foo\", \u0026pagerduty.EscalationPolicyArgs{\n\t\t\tNumLoops: pulumi.Int(2),\n\t\t\tRules: EscalationPolicyRuleArray{\n\t\t\t\t\u0026EscalationPolicyRuleArgs{\n\t\t\t\t\tEscalationDelayInMinutes: pulumi.Int(10),\n\t\t\t\t\tTargets: EscalationPolicyRuleTargetArray{\n\t\t\t\t\t\t\u0026EscalationPolicyRuleTargetArgs{\n\t\t\t\t\t\t\tType: pulumi.String(\"user\"),\n\t\t\t\t\t\t\tId:   exampleUser.ID(),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleService, err := pagerduty.NewService(ctx, \"exampleService\", \u0026pagerduty.ServiceArgs{\n\t\t\tAutoResolveTimeout:     pulumi.String(\"14400\"),\n\t\t\tAcknowledgementTimeout: pulumi.String(\"600\"),\n\t\t\tEscalationPolicy:       pulumi.Any(pagerduty_escalation_policy.Example.Id),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewServiceIntegration(ctx, \"exampleServiceIntegration\", \u0026pagerduty.ServiceIntegrationArgs{\n\t\t\tVendor:  pulumi.String(datadog.Id),\n\t\t\tService: exampleService.ID(),\n\t\t\tType:    pulumi.String(\"generic_events_api_inbound_integration\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "Use this data source to get information about a specific [vendor](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1vendors/get) that you can use for a service integration (e.g. Amazon Cloudwatch, Splunk, Datadog).\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst datadog = pagerduty.getVendor({\n    name: \"Datadog\",\n});\nconst exampleUser = new pagerduty.User(\"exampleUser\", {\n    email: \"125.greenholt.earline@graham.name\",\n    teams: [pagerduty_team.example.id],\n});\nconst foo = new pagerduty.EscalationPolicy(\"foo\", {\n    numLoops: 2,\n    rules: [{\n        escalationDelayInMinutes: 10,\n        targets: [{\n            type: \"user\",\n            id: exampleUser.id,\n        }],\n    }],\n});\nconst exampleService = new pagerduty.Service(\"exampleService\", {\n    autoResolveTimeout: 14400,\n    acknowledgementTimeout: 600,\n    escalationPolicy: pagerduty_escalation_policy.example.id,\n});\nconst exampleServiceIntegration = new pagerduty.ServiceIntegration(\"exampleServiceIntegration\", {\n    vendor: datadog.then(datadog =\u003e datadog.id),\n    service: exampleService.id,\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\ndatadog = pagerduty.get_vendor(name=\"Datadog\")\nexample_user = pagerduty.User(\"exampleUser\",\n    email=\"125.greenholt.earline@graham.name\",\n    teams=[pagerduty_team[\"example\"][\"id\"]])\nfoo = pagerduty.EscalationPolicy(\"foo\",\n    num_loops=2,\n    rules=[pagerduty.EscalationPolicyRuleArgs(\n        escalation_delay_in_minutes=10,\n        targets=[pagerduty.EscalationPolicyRuleTargetArgs(\n            type=\"user\",\n            id=example_user.id,\n        )],\n    )])\nexample_service = pagerduty.Service(\"exampleService\",\n    auto_resolve_timeout=\"14400\",\n    acknowledgement_timeout=\"600\",\n    escalation_policy=pagerduty_escalation_policy[\"example\"][\"id\"])\nexample_service_integration = pagerduty.ServiceIntegration(\"exampleServiceIntegration\",\n    vendor=datadog.id,\n    service=example_service.id)\n```\n```csharp\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var datadog = Output.Create(Pagerduty.GetVendor.InvokeAsync(new Pagerduty.GetVendorArgs\n        {\n            Name = \"Datadog\",\n        }));\n        var exampleUser = new Pagerduty.User(\"exampleUser\", new Pagerduty.UserArgs\n        {\n            Email = \"125.greenholt.earline@graham.name\",\n            Teams = \n            {\n                pagerduty_team.Example.Id,\n            },\n        });\n        var foo = new Pagerduty.EscalationPolicy(\"foo\", new Pagerduty.EscalationPolicyArgs\n        {\n            NumLoops = 2,\n            Rules = \n            {\n                new Pagerduty.Inputs.EscalationPolicyRuleArgs\n                {\n                    EscalationDelayInMinutes = 10,\n                    Targets = \n                    {\n                        new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs\n                        {\n                            Type = \"user\",\n                            Id = exampleUser.Id,\n                        },\n                    },\n                },\n            },\n        });\n        var exampleService = new Pagerduty.Service(\"exampleService\", new Pagerduty.ServiceArgs\n        {\n            AutoResolveTimeout = \"14400\",\n            AcknowledgementTimeout = \"600\",\n            EscalationPolicy = pagerduty_escalation_policy.Example.Id,\n        });\n        var exampleServiceIntegration = new Pagerduty.ServiceIntegration(\"exampleServiceIntegration\", new Pagerduty.ServiceIntegrationArgs\n        {\n            Vendor = datadog.Apply(datadog =\u003e datadog.Id),\n            Service = exampleService.Id,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tdatadog, err := pagerduty.GetVendor(ctx, \u0026GetVendorArgs{\n\t\t\tName: \"Datadog\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleUser, err := pagerduty.NewUser(ctx, \"exampleUser\", \u0026pagerduty.UserArgs{\n\t\t\tEmail: pulumi.String(\"125.greenholt.earline@graham.name\"),\n\t\t\tTeams: pulumi.StringArray{\n\t\t\t\tpulumi.Any(pagerduty_team.Example.Id),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewEscalationPolicy(ctx, \"foo\", \u0026pagerduty.EscalationPolicyArgs{\n\t\t\tNumLoops: pulumi.Int(2),\n\t\t\tRules: EscalationPolicyRuleArray{\n\t\t\t\t\u0026EscalationPolicyRuleArgs{\n\t\t\t\t\tEscalationDelayInMinutes: pulumi.Int(10),\n\t\t\t\t\tTargets: EscalationPolicyRuleTargetArray{\n\t\t\t\t\t\t\u0026EscalationPolicyRuleTargetArgs{\n\t\t\t\t\t\t\tType: pulumi.String(\"user\"),\n\t\t\t\t\t\t\tId:   exampleUser.ID(),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleService, err := pagerduty.NewService(ctx, \"exampleService\", \u0026pagerduty.ServiceArgs{\n\t\t\tAutoResolveTimeout:     pulumi.String(\"14400\"),\n\t\t\tAcknowledgementTimeout: pulumi.String(\"600\"),\n\t\t\tEscalationPolicy:       pulumi.Any(pagerduty_escalation_policy.Example.Id),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewServiceIntegration(ctx, \"exampleServiceIntegration\", \u0026pagerduty.ServiceIntegrationArgs{\n\t\t\tVendor:  pulumi.String(datadog.Id),\n\t\t\tService: exampleService.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
                 "description": "A collection of arguments for invoking getVendor.\n",
                 "properties": {

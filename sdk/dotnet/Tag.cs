@@ -43,7 +43,7 @@ namespace Pulumi.Pagerduty
     public partial class Tag : Pulumi.CustomResource
     {
         /// <summary>
-        /// URL at which the entity is uniquely displayed in the Web app
+        /// URL at which the entity is uniquely displayed in the Web app.
         /// </summary>
         [Output("htmlUrl")]
         public Output<string> HtmlUrl { get; private set; } = null!;
@@ -117,7 +117,7 @@ namespace Pulumi.Pagerduty
     public sealed class TagState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// URL at which the entity is uniquely displayed in the Web app
+        /// URL at which the entity is uniquely displayed in the Web app.
         /// </summary>
         [Input("htmlUrl")]
         public Input<string>? HtmlUrl { get; set; }

@@ -14,7 +14,7 @@ namespace Pulumi.Pagerduty.Outputs
     public sealed class ServiceAlertGroupingParameters
     {
         /// <summary>
-        /// Alert grouping parameters dependant on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
+        /// Alert grouping parameters dependent on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
         /// </summary>
         public readonly Outputs.ServiceAlertGroupingParametersConfig? Config;
         /// <summary>

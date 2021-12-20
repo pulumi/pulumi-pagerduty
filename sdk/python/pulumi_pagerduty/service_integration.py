@@ -35,7 +35,7 @@ class ServiceIntegrationArgs:
                `keynote_inbound_integration`,
                `nagios_inbound_integration`,
                `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
-        :param pulumi.Input[str] vendor: The ID of the vendor the integration should integrate with (e.g Datadog or Amazon Cloudwatch).
+        :param pulumi.Input[str] vendor: The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
         """
         pulumi.set(__self__, "service", service)
         if integration_email is not None:
@@ -122,7 +122,7 @@ class ServiceIntegrationArgs:
     @pulumi.getter
     def vendor(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the vendor the integration should integrate with (e.g Datadog or Amazon Cloudwatch).
+        The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
         """
         return pulumi.get(self, "vendor")
 
@@ -143,7 +143,7 @@ class _ServiceIntegrationState:
                  vendor: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ServiceIntegration resources.
-        :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app
+        :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app.
         :param pulumi.Input[str] integration_email: This is the unique fully-qualified email address used for routing emails to this integration for processing.
         :param pulumi.Input[str] integration_key: This is the unique key used to route events to this integration when received via the PagerDuty Events API.
         :param pulumi.Input[str] name: The name of the service integration.
@@ -158,7 +158,7 @@ class _ServiceIntegrationState:
                `keynote_inbound_integration`,
                `nagios_inbound_integration`,
                `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
-        :param pulumi.Input[str] vendor: The ID of the vendor the integration should integrate with (e.g Datadog or Amazon Cloudwatch).
+        :param pulumi.Input[str] vendor: The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
         """
         if html_url is not None:
             pulumi.set(__self__, "html_url", html_url)
@@ -179,7 +179,7 @@ class _ServiceIntegrationState:
     @pulumi.getter(name="htmlUrl")
     def html_url(self) -> Optional[pulumi.Input[str]]:
         """
-        URL at which the entity is uniquely displayed in the Web app
+        URL at which the entity is uniquely displayed in the Web app.
         """
         return pulumi.get(self, "html_url")
 
@@ -260,7 +260,7 @@ class _ServiceIntegrationState:
     @pulumi.getter
     def vendor(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the vendor the integration should integrate with (e.g Datadog or Amazon Cloudwatch).
+        The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
         """
         return pulumi.get(self, "vendor")
 
@@ -351,7 +351,7 @@ class ServiceIntegration(pulumi.CustomResource):
                `keynote_inbound_integration`,
                `nagios_inbound_integration`,
                `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
-        :param pulumi.Input[str] vendor: The ID of the vendor the integration should integrate with (e.g Datadog or Amazon Cloudwatch).
+        :param pulumi.Input[str] vendor: The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
         """
         ...
     @overload
@@ -479,7 +479,7 @@ class ServiceIntegration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app
+        :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app.
         :param pulumi.Input[str] integration_email: This is the unique fully-qualified email address used for routing emails to this integration for processing.
         :param pulumi.Input[str] integration_key: This is the unique key used to route events to this integration when received via the PagerDuty Events API.
         :param pulumi.Input[str] name: The name of the service integration.
@@ -494,7 +494,7 @@ class ServiceIntegration(pulumi.CustomResource):
                `keynote_inbound_integration`,
                `nagios_inbound_integration`,
                `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
-        :param pulumi.Input[str] vendor: The ID of the vendor the integration should integrate with (e.g Datadog or Amazon Cloudwatch).
+        :param pulumi.Input[str] vendor: The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -513,7 +513,7 @@ class ServiceIntegration(pulumi.CustomResource):
     @pulumi.getter(name="htmlUrl")
     def html_url(self) -> pulumi.Output[str]:
         """
-        URL at which the entity is uniquely displayed in the Web app
+        URL at which the entity is uniquely displayed in the Web app.
         """
         return pulumi.get(self, "html_url")
 
@@ -570,7 +570,7 @@ class ServiceIntegration(pulumi.CustomResource):
     @pulumi.getter
     def vendor(self) -> pulumi.Output[str]:
         """
-        The ID of the vendor the integration should integrate with (e.g Datadog or Amazon Cloudwatch).
+        The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
         """
         return pulumi.get(self, "vendor")
 

@@ -31,7 +31,7 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<string> StartTimeOfDay { get; set; } = null!;
 
         /// <summary>
-        /// Can be `daily_restriction` or `weekly_restriction`
+        /// Can be `daily_restriction` or `weekly_restriction`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

@@ -66,6 +66,8 @@ __all__ = [
     'ServiceScheduledActionAt',
     'ServiceSupportHours',
     'SlackConnectionConfig',
+    'WebhookSubscriptionDeliveryMethod',
+    'WebhookSubscriptionFilter',
 ]
 
 @pulumi.output_type
@@ -842,7 +844,7 @@ class RulesetRuleConditions(dict):
                  subconditions: Optional[Sequence['outputs.RulesetRuleConditionsSubcondition']] = None):
         """
         :param str operator: Operator to combine sub-conditions. Can be `and` or `or`.
-        :param Sequence['RulesetRuleConditionsSubconditionArgs'] subconditions: List of sub-conditions that define the the condition.
+        :param Sequence['RulesetRuleConditionsSubconditionArgs'] subconditions: List of sub-conditions that define the condition.
         """
         if operator is not None:
             pulumi.set(__self__, "operator", operator)
@@ -861,7 +863,7 @@ class RulesetRuleConditions(dict):
     @pulumi.getter
     def subconditions(self) -> Optional[Sequence['outputs.RulesetRuleConditionsSubcondition']]:
         """
-        List of sub-conditions that define the the condition.
+        List of sub-conditions that define the condition.
         """
         return pulumi.get(self, "subconditions")
 
@@ -998,9 +1000,6 @@ class RulesetRuleTimeFrameActiveBetween(dict):
     def __init__(__self__, *,
                  end_time: Optional[int] = None,
                  start_time: Optional[int] = None):
-        """
-        :param int end_time: Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
-        """
         if end_time is not None:
             pulumi.set(__self__, "end_time", end_time)
         if start_time is not None:
@@ -1009,9 +1008,6 @@ class RulesetRuleTimeFrameActiveBetween(dict):
     @property
     @pulumi.getter(name="endTime")
     def end_time(self) -> Optional[int]:
-        """
-        Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
-        """
         return pulumi.get(self, "end_time")
 
     @property
@@ -1198,7 +1194,7 @@ class ScheduleLayer(dict):
         :param str start: The start time of the schedule layer.
         :param Sequence[str] users: The ordered list of users on this layer. The position of the user on the list determines their order in the layer.
         :param str end: The end time of the schedule layer. If not specified, the layer does not end.
-        :param str id: The ID of the schedule
+        :param str id: The ID of the schedule.
         :param str name: The name of the schedule layer.
         :param Sequence['ScheduleLayerRestrictionArgs'] restrictions: A schedule layer restriction block. Restriction blocks documented below.
         """
@@ -1259,7 +1255,7 @@ class ScheduleLayer(dict):
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        The ID of the schedule
+        The ID of the schedule.
         """
         return pulumi.get(self, "id")
 
@@ -1311,7 +1307,7 @@ class ScheduleLayerRestriction(dict):
         """
         :param int duration_seconds: The duration of the restriction in `seconds`.
         :param str start_time_of_day: The start time in `HH:mm:ss` format.
-        :param str type: Can be `daily_restriction` or `weekly_restriction`
+        :param str type: Can be `daily_restriction` or `weekly_restriction`.
         :param int start_day_of_week: Number of the day when restriction starts. From 1 to 7 where 1 is Monday and 7 is Sunday.
         """
         pulumi.set(__self__, "duration_seconds", duration_seconds)
@@ -1340,7 +1336,7 @@ class ScheduleLayerRestriction(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Can be `daily_restriction` or `weekly_restriction`
+        Can be `daily_restriction` or `weekly_restriction`.
         """
         return pulumi.get(self, "type")
 
@@ -1359,7 +1355,7 @@ class ServiceAlertGroupingParameters(dict):
                  config: Optional['outputs.ServiceAlertGroupingParametersConfig'] = None,
                  type: Optional[str] = None):
         """
-        :param 'ServiceAlertGroupingParametersConfigArgs' config: Alert grouping parameters dependant on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
+        :param 'ServiceAlertGroupingParametersConfigArgs' config: Alert grouping parameters dependent on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
         :param str type: The type of scheduled action. Currently, this must be set to `urgency_change`.
         """
         if config is not None:
@@ -1371,7 +1367,7 @@ class ServiceAlertGroupingParameters(dict):
     @pulumi.getter
     def config(self) -> Optional['outputs.ServiceAlertGroupingParametersConfig']:
         """
-        Alert grouping parameters dependant on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
+        Alert grouping parameters dependent on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
         """
         return pulumi.get(self, "config")
 
@@ -1874,7 +1870,7 @@ class ServiceEventRuleConditions(dict):
                  subconditions: Optional[Sequence['outputs.ServiceEventRuleConditionsSubcondition']] = None):
         """
         :param str operator: Operator to combine sub-conditions. Can be `and` or `or`.
-        :param Sequence['ServiceEventRuleConditionsSubconditionArgs'] subconditions: List of sub-conditions that define the the condition.
+        :param Sequence['ServiceEventRuleConditionsSubconditionArgs'] subconditions: List of sub-conditions that define the condition.
         """
         if operator is not None:
             pulumi.set(__self__, "operator", operator)
@@ -1893,7 +1889,7 @@ class ServiceEventRuleConditions(dict):
     @pulumi.getter
     def subconditions(self) -> Optional[Sequence['outputs.ServiceEventRuleConditionsSubcondition']]:
         """
-        List of sub-conditions that define the the condition.
+        List of sub-conditions that define the condition.
         """
         return pulumi.get(self, "subconditions")
 
@@ -2235,7 +2231,7 @@ class ServiceIncidentUrgencyRule(dict):
         """
         :param str type: The type of alert grouping; one of `intelligent`, `time` or `content_based`.
         :param 'ServiceIncidentUrgencyRuleDuringSupportHoursArgs' during_support_hours: Incidents' urgency during support hours.
-        :param 'ServiceIncidentUrgencyRuleOutsideSupportHoursArgs' outside_support_hours: Incidents' urgency outside of support hours.
+        :param 'ServiceIncidentUrgencyRuleOutsideSupportHoursArgs' outside_support_hours: Incidents' urgency outside support hours.
         :param str urgency: The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
         """
         pulumi.set(__self__, "type", type)
@@ -2266,7 +2262,7 @@ class ServiceIncidentUrgencyRule(dict):
     @pulumi.getter(name="outsideSupportHours")
     def outside_support_hours(self) -> Optional['outputs.ServiceIncidentUrgencyRuleOutsideSupportHours']:
         """
-        Incidents' urgency outside of support hours.
+        Incidents' urgency outside support hours.
         """
         return pulumi.get(self, "outside_support_hours")
 
@@ -2584,5 +2580,95 @@ class SlackConnectionConfig(dict):
         Allows you to filter events by urgency. Either `high` or `low`.
         """
         return pulumi.get(self, "urgency")
+
+
+@pulumi.output_type
+class WebhookSubscriptionDeliveryMethod(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "temporarilyDisabled":
+            suggest = "temporarily_disabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebhookSubscriptionDeliveryMethod. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebhookSubscriptionDeliveryMethod.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebhookSubscriptionDeliveryMethod.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 temporarily_disabled: Optional[bool] = None,
+                 type: Optional[str] = None,
+                 url: Optional[str] = None):
+        """
+        :param bool temporarily_disabled: Whether this webhook subscription is temporarily disabled. Becomes true if the delivery method URL is repeatedly rejected by the server.
+        :param str type: Indicates the type of the delivery method. Allowed and default value: `http_delivery_method`.
+        :param str url: The destination URL for webhook delivery.
+        """
+        if temporarily_disabled is not None:
+            pulumi.set(__self__, "temporarily_disabled", temporarily_disabled)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter(name="temporarilyDisabled")
+    def temporarily_disabled(self) -> Optional[bool]:
+        """
+        Whether this webhook subscription is temporarily disabled. Becomes true if the delivery method URL is repeatedly rejected by the server.
+        """
+        return pulumi.get(self, "temporarily_disabled")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Indicates the type of the delivery method. Allowed and default value: `http_delivery_method`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[str]:
+        """
+        The destination URL for webhook delivery.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class WebhookSubscriptionFilter(dict):
+    def __init__(__self__, *,
+                 type: str,
+                 id: Optional[str] = None):
+        """
+        :param str type: The type of object being used as the filter. Allowed values are `account_reference`, `service_reference`, and `team_reference`.
+        :param str id: The id of the object being used as the filter. This field is required for all filter types except account_reference.
+        """
+        pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of object being used as the filter. Allowed values are `account_reference`, `service_reference`, and `team_reference`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The id of the object being used as the filter. This field is required for all filter types except account_reference.
+        """
+        return pulumi.get(self, "id")
 
 

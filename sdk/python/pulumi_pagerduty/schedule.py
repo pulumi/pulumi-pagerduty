@@ -24,8 +24,8 @@ class ScheduleArgs:
         """
         The set of arguments for constructing a Schedule resource.
         :param pulumi.Input[Sequence[pulumi.Input['ScheduleLayerArgs']]] layers: A schedule layer block. Schedule layers documented below.
-        :param pulumi.Input[str] time_zone: The time zone of the schedule (e.g Europe/Berlin).
-        :param pulumi.Input[str] description: The description of the schedule
+        :param pulumi.Input[str] time_zone: The time zone of the schedule (e.g. `Europe/Berlin`).
+        :param pulumi.Input[str] description: The description of the schedule.
         :param pulumi.Input[str] name: The name of the schedule.
         :param pulumi.Input[bool] overflow: Any on-call schedule entries that pass the date range bounds will be truncated at the bounds, unless the parameter `overflow` is passed. For instance, if your schedule is a rotation that changes daily at midnight UTC, and your date range is from `2011-06-01T10:00:00Z` to `2011-06-01T14:00:00Z`:
                If you don't pass the overflow=true parameter, you will get one schedule entry returned with a start of `2011-06-01T10:00:00Z` and end of `2011-06-01T14:00:00Z`.
@@ -61,7 +61,7 @@ class ScheduleArgs:
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> pulumi.Input[str]:
         """
-        The time zone of the schedule (e.g Europe/Berlin).
+        The time zone of the schedule (e.g. `Europe/Berlin`).
         """
         return pulumi.get(self, "time_zone")
 
@@ -73,7 +73,7 @@ class ScheduleArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the schedule
+        The description of the schedule.
         """
         return pulumi.get(self, "description")
 
@@ -131,14 +131,14 @@ class _ScheduleState:
                  time_zone: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Schedule resources.
-        :param pulumi.Input[str] description: The description of the schedule
+        :param pulumi.Input[str] description: The description of the schedule.
         :param pulumi.Input[Sequence[pulumi.Input['ScheduleLayerArgs']]] layers: A schedule layer block. Schedule layers documented below.
         :param pulumi.Input[str] name: The name of the schedule.
         :param pulumi.Input[bool] overflow: Any on-call schedule entries that pass the date range bounds will be truncated at the bounds, unless the parameter `overflow` is passed. For instance, if your schedule is a rotation that changes daily at midnight UTC, and your date range is from `2011-06-01T10:00:00Z` to `2011-06-01T14:00:00Z`:
                If you don't pass the overflow=true parameter, you will get one schedule entry returned with a start of `2011-06-01T10:00:00Z` and end of `2011-06-01T14:00:00Z`.
                If you do pass the `overflow` parameter, you will get one schedule entry returned with a start of `2011-06-01T00:00:00Z` and end of `2011-06-02T00:00:00Z`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] teams: Teams associated with the schedule.
-        :param pulumi.Input[str] time_zone: The time zone of the schedule (e.g Europe/Berlin).
+        :param pulumi.Input[str] time_zone: The time zone of the schedule (e.g. `Europe/Berlin`).
         """
         if description is None:
             description = 'Managed by Pulumi'
@@ -159,7 +159,7 @@ class _ScheduleState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the schedule
+        The description of the schedule.
         """
         return pulumi.get(self, "description")
 
@@ -221,7 +221,7 @@ class _ScheduleState:
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> Optional[pulumi.Input[str]]:
         """
-        The time zone of the schedule (e.g Europe/Berlin).
+        The time zone of the schedule (e.g. `Europe/Berlin`).
         """
         return pulumi.get(self, "time_zone")
 
@@ -280,14 +280,14 @@ class Schedule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: The description of the schedule
+        :param pulumi.Input[str] description: The description of the schedule.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleLayerArgs']]]] layers: A schedule layer block. Schedule layers documented below.
         :param pulumi.Input[str] name: The name of the schedule.
         :param pulumi.Input[bool] overflow: Any on-call schedule entries that pass the date range bounds will be truncated at the bounds, unless the parameter `overflow` is passed. For instance, if your schedule is a rotation that changes daily at midnight UTC, and your date range is from `2011-06-01T10:00:00Z` to `2011-06-01T14:00:00Z`:
                If you don't pass the overflow=true parameter, you will get one schedule entry returned with a start of `2011-06-01T10:00:00Z` and end of `2011-06-01T14:00:00Z`.
                If you do pass the `overflow` parameter, you will get one schedule entry returned with a start of `2011-06-01T00:00:00Z` and end of `2011-06-02T00:00:00Z`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] teams: Teams associated with the schedule.
-        :param pulumi.Input[str] time_zone: The time zone of the schedule (e.g Europe/Berlin).
+        :param pulumi.Input[str] time_zone: The time zone of the schedule (e.g. `Europe/Berlin`).
         """
         ...
     @overload
@@ -399,14 +399,14 @@ class Schedule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: The description of the schedule
+        :param pulumi.Input[str] description: The description of the schedule.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleLayerArgs']]]] layers: A schedule layer block. Schedule layers documented below.
         :param pulumi.Input[str] name: The name of the schedule.
         :param pulumi.Input[bool] overflow: Any on-call schedule entries that pass the date range bounds will be truncated at the bounds, unless the parameter `overflow` is passed. For instance, if your schedule is a rotation that changes daily at midnight UTC, and your date range is from `2011-06-01T10:00:00Z` to `2011-06-01T14:00:00Z`:
                If you don't pass the overflow=true parameter, you will get one schedule entry returned with a start of `2011-06-01T10:00:00Z` and end of `2011-06-01T14:00:00Z`.
                If you do pass the `overflow` parameter, you will get one schedule entry returned with a start of `2011-06-01T00:00:00Z` and end of `2011-06-02T00:00:00Z`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] teams: Teams associated with the schedule.
-        :param pulumi.Input[str] time_zone: The time zone of the schedule (e.g Europe/Berlin).
+        :param pulumi.Input[str] time_zone: The time zone of the schedule (e.g. `Europe/Berlin`).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -424,7 +424,7 @@ class Schedule(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
         """
-        The description of the schedule
+        The description of the schedule.
         """
         return pulumi.get(self, "description")
 
@@ -466,7 +466,7 @@ class Schedule(pulumi.CustomResource):
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> pulumi.Output[str]:
         """
-        The time zone of the schedule (e.g Europe/Berlin).
+        The time zone of the schedule (e.g. `Europe/Berlin`).
         """
         return pulumi.get(self, "time_zone")
 

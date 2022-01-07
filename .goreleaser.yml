@@ -28,7 +28,8 @@ builds:
   - -X github.com/pulumi/pulumi-pagerduty/provider/v3/pkg/version.Version={{.Tag}}
   main: ./cmd/pulumi-resource-pagerduty/
 changelog:
-  skip: true
+  use: git
+  sort: asc
 release:
   disable: false
 snapshot:

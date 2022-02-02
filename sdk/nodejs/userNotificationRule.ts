@@ -125,14 +125,14 @@ export class UserNotificationRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: UserNotificationRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserNotificationRuleArgs | UserNotificationRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserNotificationRuleState | undefined;
-            inputs["contactMethod"] = state ? state.contactMethod : undefined;
-            inputs["startDelayInMinutes"] = state ? state.startDelayInMinutes : undefined;
-            inputs["urgency"] = state ? state.urgency : undefined;
-            inputs["userId"] = state ? state.userId : undefined;
+            resourceInputs["contactMethod"] = state ? state.contactMethod : undefined;
+            resourceInputs["startDelayInMinutes"] = state ? state.startDelayInMinutes : undefined;
+            resourceInputs["urgency"] = state ? state.urgency : undefined;
+            resourceInputs["userId"] = state ? state.userId : undefined;
         } else {
             const args = argsOrState as UserNotificationRuleArgs | undefined;
             if ((!args || args.contactMethod === undefined) && !opts.urn) {
@@ -147,15 +147,13 @@ export class UserNotificationRule extends pulumi.CustomResource {
             if ((!args || args.userId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userId'");
             }
-            inputs["contactMethod"] = args ? args.contactMethod : undefined;
-            inputs["startDelayInMinutes"] = args ? args.startDelayInMinutes : undefined;
-            inputs["urgency"] = args ? args.urgency : undefined;
-            inputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["contactMethod"] = args ? args.contactMethod : undefined;
+            resourceInputs["startDelayInMinutes"] = args ? args.startDelayInMinutes : undefined;
+            resourceInputs["urgency"] = args ? args.urgency : undefined;
+            resourceInputs["userId"] = args ? args.userId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(UserNotificationRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(UserNotificationRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -276,7 +276,7 @@ type WebhookSubscriptionInput interface {
 }
 
 func (*WebhookSubscription) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebhookSubscription)(nil))
+	return reflect.TypeOf((**WebhookSubscription)(nil)).Elem()
 }
 
 func (i *WebhookSubscription) ToWebhookSubscriptionOutput() WebhookSubscriptionOutput {
@@ -285,35 +285,6 @@ func (i *WebhookSubscription) ToWebhookSubscriptionOutput() WebhookSubscriptionO
 
 func (i *WebhookSubscription) ToWebhookSubscriptionOutputWithContext(ctx context.Context) WebhookSubscriptionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookSubscriptionOutput)
-}
-
-func (i *WebhookSubscription) ToWebhookSubscriptionPtrOutput() WebhookSubscriptionPtrOutput {
-	return i.ToWebhookSubscriptionPtrOutputWithContext(context.Background())
-}
-
-func (i *WebhookSubscription) ToWebhookSubscriptionPtrOutputWithContext(ctx context.Context) WebhookSubscriptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebhookSubscriptionPtrOutput)
-}
-
-type WebhookSubscriptionPtrInput interface {
-	pulumi.Input
-
-	ToWebhookSubscriptionPtrOutput() WebhookSubscriptionPtrOutput
-	ToWebhookSubscriptionPtrOutputWithContext(ctx context.Context) WebhookSubscriptionPtrOutput
-}
-
-type webhookSubscriptionPtrType WebhookSubscriptionArgs
-
-func (*webhookSubscriptionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebhookSubscription)(nil))
-}
-
-func (i *webhookSubscriptionPtrType) ToWebhookSubscriptionPtrOutput() WebhookSubscriptionPtrOutput {
-	return i.ToWebhookSubscriptionPtrOutputWithContext(context.Background())
-}
-
-func (i *webhookSubscriptionPtrType) ToWebhookSubscriptionPtrOutputWithContext(ctx context.Context) WebhookSubscriptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebhookSubscriptionPtrOutput)
 }
 
 // WebhookSubscriptionArrayInput is an input type that accepts WebhookSubscriptionArray and WebhookSubscriptionArrayOutput values.
@@ -369,7 +340,7 @@ func (i WebhookSubscriptionMap) ToWebhookSubscriptionMapOutputWithContext(ctx co
 type WebhookSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (WebhookSubscriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebhookSubscription)(nil))
+	return reflect.TypeOf((**WebhookSubscription)(nil)).Elem()
 }
 
 func (o WebhookSubscriptionOutput) ToWebhookSubscriptionOutput() WebhookSubscriptionOutput {
@@ -380,44 +351,10 @@ func (o WebhookSubscriptionOutput) ToWebhookSubscriptionOutputWithContext(ctx co
 	return o
 }
 
-func (o WebhookSubscriptionOutput) ToWebhookSubscriptionPtrOutput() WebhookSubscriptionPtrOutput {
-	return o.ToWebhookSubscriptionPtrOutputWithContext(context.Background())
-}
-
-func (o WebhookSubscriptionOutput) ToWebhookSubscriptionPtrOutputWithContext(ctx context.Context) WebhookSubscriptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebhookSubscription) *WebhookSubscription {
-		return &v
-	}).(WebhookSubscriptionPtrOutput)
-}
-
-type WebhookSubscriptionPtrOutput struct{ *pulumi.OutputState }
-
-func (WebhookSubscriptionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebhookSubscription)(nil))
-}
-
-func (o WebhookSubscriptionPtrOutput) ToWebhookSubscriptionPtrOutput() WebhookSubscriptionPtrOutput {
-	return o
-}
-
-func (o WebhookSubscriptionPtrOutput) ToWebhookSubscriptionPtrOutputWithContext(ctx context.Context) WebhookSubscriptionPtrOutput {
-	return o
-}
-
-func (o WebhookSubscriptionPtrOutput) Elem() WebhookSubscriptionOutput {
-	return o.ApplyT(func(v *WebhookSubscription) WebhookSubscription {
-		if v != nil {
-			return *v
-		}
-		var ret WebhookSubscription
-		return ret
-	}).(WebhookSubscriptionOutput)
-}
-
 type WebhookSubscriptionArrayOutput struct{ *pulumi.OutputState }
 
 func (WebhookSubscriptionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebhookSubscription)(nil))
+	return reflect.TypeOf((*[]*WebhookSubscription)(nil)).Elem()
 }
 
 func (o WebhookSubscriptionArrayOutput) ToWebhookSubscriptionArrayOutput() WebhookSubscriptionArrayOutput {
@@ -429,15 +366,15 @@ func (o WebhookSubscriptionArrayOutput) ToWebhookSubscriptionArrayOutputWithCont
 }
 
 func (o WebhookSubscriptionArrayOutput) Index(i pulumi.IntInput) WebhookSubscriptionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebhookSubscription {
-		return vs[0].([]WebhookSubscription)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WebhookSubscription {
+		return vs[0].([]*WebhookSubscription)[vs[1].(int)]
 	}).(WebhookSubscriptionOutput)
 }
 
 type WebhookSubscriptionMapOutput struct{ *pulumi.OutputState }
 
 func (WebhookSubscriptionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]WebhookSubscription)(nil))
+	return reflect.TypeOf((*map[string]*WebhookSubscription)(nil)).Elem()
 }
 
 func (o WebhookSubscriptionMapOutput) ToWebhookSubscriptionMapOutput() WebhookSubscriptionMapOutput {
@@ -449,18 +386,16 @@ func (o WebhookSubscriptionMapOutput) ToWebhookSubscriptionMapOutputWithContext(
 }
 
 func (o WebhookSubscriptionMapOutput) MapIndex(k pulumi.StringInput) WebhookSubscriptionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WebhookSubscription {
-		return vs[0].(map[string]WebhookSubscription)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *WebhookSubscription {
+		return vs[0].(map[string]*WebhookSubscription)[vs[1].(string)]
 	}).(WebhookSubscriptionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookSubscriptionInput)(nil)).Elem(), &WebhookSubscription{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebhookSubscriptionPtrInput)(nil)).Elem(), &WebhookSubscription{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookSubscriptionArrayInput)(nil)).Elem(), WebhookSubscriptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookSubscriptionMapInput)(nil)).Elem(), WebhookSubscriptionMap{})
 	pulumi.RegisterOutputType(WebhookSubscriptionOutput{})
-	pulumi.RegisterOutputType(WebhookSubscriptionPtrOutput{})
 	pulumi.RegisterOutputType(WebhookSubscriptionArrayOutput{})
 	pulumi.RegisterOutputType(WebhookSubscriptionMapOutput{})
 }

@@ -111,42 +111,40 @@ export class User extends pulumi.CustomResource {
      */
     constructor(name: string, args: UserArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserArgs | UserState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserState | undefined;
-            inputs["avatarUrl"] = state ? state.avatarUrl : undefined;
-            inputs["color"] = state ? state.color : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["email"] = state ? state.email : undefined;
-            inputs["htmlUrl"] = state ? state.htmlUrl : undefined;
-            inputs["invitationSent"] = state ? state.invitationSent : undefined;
-            inputs["jobTitle"] = state ? state.jobTitle : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["role"] = state ? state.role : undefined;
-            inputs["teams"] = state ? state.teams : undefined;
-            inputs["timeZone"] = state ? state.timeZone : undefined;
+            resourceInputs["avatarUrl"] = state ? state.avatarUrl : undefined;
+            resourceInputs["color"] = state ? state.color : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["email"] = state ? state.email : undefined;
+            resourceInputs["htmlUrl"] = state ? state.htmlUrl : undefined;
+            resourceInputs["invitationSent"] = state ? state.invitationSent : undefined;
+            resourceInputs["jobTitle"] = state ? state.jobTitle : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["role"] = state ? state.role : undefined;
+            resourceInputs["teams"] = state ? state.teams : undefined;
+            resourceInputs["timeZone"] = state ? state.timeZone : undefined;
         } else {
             const args = argsOrState as UserArgs | undefined;
             if ((!args || args.email === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            inputs["color"] = args ? args.color : undefined;
-            inputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
-            inputs["email"] = args ? args.email : undefined;
-            inputs["jobTitle"] = args ? args.jobTitle : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["role"] = args ? args.role : undefined;
-            inputs["teams"] = args ? args.teams : undefined;
-            inputs["timeZone"] = args ? args.timeZone : undefined;
-            inputs["avatarUrl"] = undefined /*out*/;
-            inputs["htmlUrl"] = undefined /*out*/;
-            inputs["invitationSent"] = undefined /*out*/;
+            resourceInputs["color"] = args ? args.color : undefined;
+            resourceInputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
+            resourceInputs["email"] = args ? args.email : undefined;
+            resourceInputs["jobTitle"] = args ? args.jobTitle : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["role"] = args ? args.role : undefined;
+            resourceInputs["teams"] = args ? args.teams : undefined;
+            resourceInputs["timeZone"] = args ? args.timeZone : undefined;
+            resourceInputs["avatarUrl"] = undefined /*out*/;
+            resourceInputs["htmlUrl"] = undefined /*out*/;
+            resourceInputs["invitationSent"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(User.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(User.__pulumiType, name, resourceInputs, opts);
     }
 }
 

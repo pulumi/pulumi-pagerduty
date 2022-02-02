@@ -83,13 +83,13 @@ export class TeamMembership extends pulumi.CustomResource {
      */
     constructor(name: string, args: TeamMembershipArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TeamMembershipArgs | TeamMembershipState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TeamMembershipState | undefined;
-            inputs["role"] = state ? state.role : undefined;
-            inputs["teamId"] = state ? state.teamId : undefined;
-            inputs["userId"] = state ? state.userId : undefined;
+            resourceInputs["role"] = state ? state.role : undefined;
+            resourceInputs["teamId"] = state ? state.teamId : undefined;
+            resourceInputs["userId"] = state ? state.userId : undefined;
         } else {
             const args = argsOrState as TeamMembershipArgs | undefined;
             if ((!args || args.teamId === undefined) && !opts.urn) {
@@ -98,14 +98,12 @@ export class TeamMembership extends pulumi.CustomResource {
             if ((!args || args.userId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userId'");
             }
-            inputs["role"] = args ? args.role : undefined;
-            inputs["teamId"] = args ? args.teamId : undefined;
-            inputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["role"] = args ? args.role : undefined;
+            resourceInputs["teamId"] = args ? args.teamId : undefined;
+            resourceInputs["userId"] = args ? args.userId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(TeamMembership.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(TeamMembership.__pulumiType, name, resourceInputs, opts);
     }
 }
 

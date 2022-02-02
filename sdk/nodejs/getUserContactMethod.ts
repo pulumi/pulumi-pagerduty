@@ -37,9 +37,7 @@ export function getUserContactMethod(args: GetUserContactMethodArgs, opts?: pulu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("pagerduty:index/getUserContactMethod:getUserContactMethod", {
         "label": args.label,
         "type": args.type,

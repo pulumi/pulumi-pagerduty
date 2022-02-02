@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Pagerduty
 {
@@ -49,7 +48,7 @@ namespace Pulumi.Pagerduty
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetTagResult> InvokeAsync(GetTagArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTagResult>("pagerduty:index/getTag:getTag", args ?? new GetTagArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTagResult>("pagerduty:index/getTag:getTag", args ?? new GetTagArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information about a specific [tag](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIxNw-list-tags) that you can use to assign to users, teams, and escalation_policies.
@@ -88,7 +87,7 @@ namespace Pulumi.Pagerduty
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetTagResult> Invoke(GetTagInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTagResult>("pagerduty:index/getTag:getTag", args ?? new GetTagInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetTagResult>("pagerduty:index/getTag:getTag", args ?? new GetTagInvokeArgs(), options.WithDefaults());
     }
 
 

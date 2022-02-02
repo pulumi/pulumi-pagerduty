@@ -145,34 +145,32 @@ export class ServiceIntegration extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServiceIntegrationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceIntegrationArgs | ServiceIntegrationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceIntegrationState | undefined;
-            inputs["htmlUrl"] = state ? state.htmlUrl : undefined;
-            inputs["integrationEmail"] = state ? state.integrationEmail : undefined;
-            inputs["integrationKey"] = state ? state.integrationKey : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["service"] = state ? state.service : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["vendor"] = state ? state.vendor : undefined;
+            resourceInputs["htmlUrl"] = state ? state.htmlUrl : undefined;
+            resourceInputs["integrationEmail"] = state ? state.integrationEmail : undefined;
+            resourceInputs["integrationKey"] = state ? state.integrationKey : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["service"] = state ? state.service : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["vendor"] = state ? state.vendor : undefined;
         } else {
             const args = argsOrState as ServiceIntegrationArgs | undefined;
             if ((!args || args.service === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'service'");
             }
-            inputs["integrationEmail"] = args ? args.integrationEmail : undefined;
-            inputs["integrationKey"] = args ? args.integrationKey : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["service"] = args ? args.service : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["vendor"] = args ? args.vendor : undefined;
-            inputs["htmlUrl"] = undefined /*out*/;
+            resourceInputs["integrationEmail"] = args ? args.integrationEmail : undefined;
+            resourceInputs["integrationKey"] = args ? args.integrationKey : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["service"] = args ? args.service : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["vendor"] = args ? args.vendor : undefined;
+            resourceInputs["htmlUrl"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ServiceIntegration.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ServiceIntegration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

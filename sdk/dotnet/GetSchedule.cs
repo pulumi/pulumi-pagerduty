@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Pagerduty
 {
@@ -58,7 +57,7 @@ namespace Pulumi.Pagerduty
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetScheduleResult> InvokeAsync(GetScheduleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScheduleResult>("pagerduty:index/getSchedule:getSchedule", args ?? new GetScheduleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetScheduleResult>("pagerduty:index/getSchedule:getSchedule", args ?? new GetScheduleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information about a specific [schedule](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1schedules~1%7Bid%7D/get) that you can use for other PagerDuty resources.
@@ -106,7 +105,7 @@ namespace Pulumi.Pagerduty
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetScheduleResult> Invoke(GetScheduleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetScheduleResult>("pagerduty:index/getSchedule:getSchedule", args ?? new GetScheduleInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetScheduleResult>("pagerduty:index/getSchedule:getSchedule", args ?? new GetScheduleInvokeArgs(), options.WithDefaults());
     }
 
 

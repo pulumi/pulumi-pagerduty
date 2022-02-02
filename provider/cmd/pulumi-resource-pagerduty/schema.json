@@ -5066,6 +5066,7 @@
             }
         },
         "go": {
+            "generateExtraInputTypes": true,
             "generateResourceContainerTypes": true,
             "importBasePath": "github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
         },

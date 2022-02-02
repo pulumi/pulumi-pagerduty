@@ -155,34 +155,32 @@ export class ServiceEventRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServiceEventRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceEventRuleArgs | ServiceEventRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceEventRuleState | undefined;
-            inputs["actions"] = state ? state.actions : undefined;
-            inputs["conditions"] = state ? state.conditions : undefined;
-            inputs["disabled"] = state ? state.disabled : undefined;
-            inputs["position"] = state ? state.position : undefined;
-            inputs["service"] = state ? state.service : undefined;
-            inputs["timeFrame"] = state ? state.timeFrame : undefined;
-            inputs["variables"] = state ? state.variables : undefined;
+            resourceInputs["actions"] = state ? state.actions : undefined;
+            resourceInputs["conditions"] = state ? state.conditions : undefined;
+            resourceInputs["disabled"] = state ? state.disabled : undefined;
+            resourceInputs["position"] = state ? state.position : undefined;
+            resourceInputs["service"] = state ? state.service : undefined;
+            resourceInputs["timeFrame"] = state ? state.timeFrame : undefined;
+            resourceInputs["variables"] = state ? state.variables : undefined;
         } else {
             const args = argsOrState as ServiceEventRuleArgs | undefined;
             if ((!args || args.service === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'service'");
             }
-            inputs["actions"] = args ? args.actions : undefined;
-            inputs["conditions"] = args ? args.conditions : undefined;
-            inputs["disabled"] = args ? args.disabled : undefined;
-            inputs["position"] = args ? args.position : undefined;
-            inputs["service"] = args ? args.service : undefined;
-            inputs["timeFrame"] = args ? args.timeFrame : undefined;
-            inputs["variables"] = args ? args.variables : undefined;
+            resourceInputs["actions"] = args ? args.actions : undefined;
+            resourceInputs["conditions"] = args ? args.conditions : undefined;
+            resourceInputs["disabled"] = args ? args.disabled : undefined;
+            resourceInputs["position"] = args ? args.position : undefined;
+            resourceInputs["service"] = args ? args.service : undefined;
+            resourceInputs["timeFrame"] = args ? args.timeFrame : undefined;
+            resourceInputs["variables"] = args ? args.variables : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ServiceEventRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ServiceEventRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

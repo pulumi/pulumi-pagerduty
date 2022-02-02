@@ -56,9 +56,7 @@ export function getPriority(args: GetPriorityArgs, opts?: pulumi.InvokeOptions):
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("pagerduty:index/getPriority:getPriority", {
         "name": args.name,
     }, opts);

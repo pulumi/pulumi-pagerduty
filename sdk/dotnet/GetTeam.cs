@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Pagerduty
 {
@@ -66,7 +65,7 @@ namespace Pulumi.Pagerduty
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetTeamResult> InvokeAsync(GetTeamArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTeamResult>("pagerduty:index/getTeam:getTeam", args ?? new GetTeamArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTeamResult>("pagerduty:index/getTeam:getTeam", args ?? new GetTeamArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information about a specific [team](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1teams/get) that you can use for other PagerDuty resources.
@@ -122,7 +121,7 @@ namespace Pulumi.Pagerduty
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetTeamResult> Invoke(GetTeamInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTeamResult>("pagerduty:index/getTeam:getTeam", args ?? new GetTeamInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetTeamResult>("pagerduty:index/getTeam:getTeam", args ?? new GetTeamInvokeArgs(), options.WithDefaults());
     }
 
 

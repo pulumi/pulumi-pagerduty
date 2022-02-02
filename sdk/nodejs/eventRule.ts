@@ -180,14 +180,14 @@ export class EventRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: EventRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EventRuleArgs | EventRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventRuleState | undefined;
-            inputs["actionJson"] = state ? state.actionJson : undefined;
-            inputs["advancedConditionJson"] = state ? state.advancedConditionJson : undefined;
-            inputs["catchAll"] = state ? state.catchAll : undefined;
-            inputs["conditionJson"] = state ? state.conditionJson : undefined;
+            resourceInputs["actionJson"] = state ? state.actionJson : undefined;
+            resourceInputs["advancedConditionJson"] = state ? state.advancedConditionJson : undefined;
+            resourceInputs["catchAll"] = state ? state.catchAll : undefined;
+            resourceInputs["conditionJson"] = state ? state.conditionJson : undefined;
         } else {
             const args = argsOrState as EventRuleArgs | undefined;
             if ((!args || args.actionJson === undefined) && !opts.urn) {
@@ -196,15 +196,13 @@ export class EventRule extends pulumi.CustomResource {
             if ((!args || args.conditionJson === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'conditionJson'");
             }
-            inputs["actionJson"] = args ? args.actionJson : undefined;
-            inputs["advancedConditionJson"] = args ? args.advancedConditionJson : undefined;
-            inputs["conditionJson"] = args ? args.conditionJson : undefined;
-            inputs["catchAll"] = undefined /*out*/;
+            resourceInputs["actionJson"] = args ? args.actionJson : undefined;
+            resourceInputs["advancedConditionJson"] = args ? args.advancedConditionJson : undefined;
+            resourceInputs["conditionJson"] = args ? args.conditionJson : undefined;
+            resourceInputs["catchAll"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EventRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EventRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

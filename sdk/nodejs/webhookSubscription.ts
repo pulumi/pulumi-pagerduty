@@ -130,16 +130,16 @@ export class WebhookSubscription extends pulumi.CustomResource {
      */
     constructor(name: string, args: WebhookSubscriptionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WebhookSubscriptionArgs | WebhookSubscriptionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WebhookSubscriptionState | undefined;
-            inputs["active"] = state ? state.active : undefined;
-            inputs["deliveryMethods"] = state ? state.deliveryMethods : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["events"] = state ? state.events : undefined;
-            inputs["filters"] = state ? state.filters : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["active"] = state ? state.active : undefined;
+            resourceInputs["deliveryMethods"] = state ? state.deliveryMethods : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["events"] = state ? state.events : undefined;
+            resourceInputs["filters"] = state ? state.filters : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as WebhookSubscriptionArgs | undefined;
             if ((!args || args.deliveryMethods === undefined) && !opts.urn) {
@@ -151,17 +151,15 @@ export class WebhookSubscription extends pulumi.CustomResource {
             if ((!args || args.filters === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'filters'");
             }
-            inputs["active"] = args ? args.active : undefined;
-            inputs["deliveryMethods"] = args ? args.deliveryMethods : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["events"] = args ? args.events : undefined;
-            inputs["filters"] = args ? args.filters : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            resourceInputs["active"] = args ? args.active : undefined;
+            resourceInputs["deliveryMethods"] = args ? args.deliveryMethods : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["events"] = args ? args.events : undefined;
+            resourceInputs["filters"] = args ? args.filters : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(WebhookSubscription.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(WebhookSubscription.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -46,9 +46,7 @@ export function getVendor(args: GetVendorArgs, opts?: pulumi.InvokeOptions): Pro
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("pagerduty:index/getVendor:getVendor", {
         "name": args.name,
     }, opts);

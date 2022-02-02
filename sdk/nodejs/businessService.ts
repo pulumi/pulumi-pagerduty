@@ -86,33 +86,31 @@ export class BusinessService extends pulumi.CustomResource {
      */
     constructor(name: string, args?: BusinessServiceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BusinessServiceArgs | BusinessServiceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BusinessServiceState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["htmlUrl"] = state ? state.htmlUrl : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["pointOfContact"] = state ? state.pointOfContact : undefined;
-            inputs["self"] = state ? state.self : undefined;
-            inputs["summary"] = state ? state.summary : undefined;
-            inputs["team"] = state ? state.team : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["htmlUrl"] = state ? state.htmlUrl : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["pointOfContact"] = state ? state.pointOfContact : undefined;
+            resourceInputs["self"] = state ? state.self : undefined;
+            resourceInputs["summary"] = state ? state.summary : undefined;
+            resourceInputs["team"] = state ? state.team : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as BusinessServiceArgs | undefined;
-            inputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
-            inputs["name"] = args ? args.name : undefined;
-            inputs["pointOfContact"] = args ? args.pointOfContact : undefined;
-            inputs["team"] = args ? args.team : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["htmlUrl"] = undefined /*out*/;
-            inputs["self"] = undefined /*out*/;
-            inputs["summary"] = undefined /*out*/;
+            resourceInputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["pointOfContact"] = args ? args.pointOfContact : undefined;
+            resourceInputs["team"] = args ? args.team : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["htmlUrl"] = undefined /*out*/;
+            resourceInputs["self"] = undefined /*out*/;
+            resourceInputs["summary"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(BusinessService.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(BusinessService.__pulumiType, name, resourceInputs, opts);
     }
 }
 

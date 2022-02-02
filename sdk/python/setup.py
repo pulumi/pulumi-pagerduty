@@ -55,6 +55,7 @@ setup(name='pulumi_pagerduty',
       package_data={
           'pulumi_pagerduty': [
               'py.typed',
+              'pulumi-plugin.json',
           ]
       },
       install_requires=[

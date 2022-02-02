@@ -262,7 +262,7 @@ type ServiceEventRuleInput interface {
 }
 
 func (*ServiceEventRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEventRule)(nil))
+	return reflect.TypeOf((**ServiceEventRule)(nil)).Elem()
 }
 
 func (i *ServiceEventRule) ToServiceEventRuleOutput() ServiceEventRuleOutput {
@@ -271,35 +271,6 @@ func (i *ServiceEventRule) ToServiceEventRuleOutput() ServiceEventRuleOutput {
 
 func (i *ServiceEventRule) ToServiceEventRuleOutputWithContext(ctx context.Context) ServiceEventRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleOutput)
-}
-
-func (i *ServiceEventRule) ToServiceEventRulePtrOutput() ServiceEventRulePtrOutput {
-	return i.ToServiceEventRulePtrOutputWithContext(context.Background())
-}
-
-func (i *ServiceEventRule) ToServiceEventRulePtrOutputWithContext(ctx context.Context) ServiceEventRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRulePtrOutput)
-}
-
-type ServiceEventRulePtrInput interface {
-	pulumi.Input
-
-	ToServiceEventRulePtrOutput() ServiceEventRulePtrOutput
-	ToServiceEventRulePtrOutputWithContext(ctx context.Context) ServiceEventRulePtrOutput
-}
-
-type serviceEventRulePtrType ServiceEventRuleArgs
-
-func (*serviceEventRulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceEventRule)(nil))
-}
-
-func (i *serviceEventRulePtrType) ToServiceEventRulePtrOutput() ServiceEventRulePtrOutput {
-	return i.ToServiceEventRulePtrOutputWithContext(context.Background())
-}
-
-func (i *serviceEventRulePtrType) ToServiceEventRulePtrOutputWithContext(ctx context.Context) ServiceEventRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRulePtrOutput)
 }
 
 // ServiceEventRuleArrayInput is an input type that accepts ServiceEventRuleArray and ServiceEventRuleArrayOutput values.
@@ -355,7 +326,7 @@ func (i ServiceEventRuleMap) ToServiceEventRuleMapOutputWithContext(ctx context.
 type ServiceEventRuleOutput struct{ *pulumi.OutputState }
 
 func (ServiceEventRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEventRule)(nil))
+	return reflect.TypeOf((**ServiceEventRule)(nil)).Elem()
 }
 
 func (o ServiceEventRuleOutput) ToServiceEventRuleOutput() ServiceEventRuleOutput {
@@ -366,44 +337,10 @@ func (o ServiceEventRuleOutput) ToServiceEventRuleOutputWithContext(ctx context.
 	return o
 }
 
-func (o ServiceEventRuleOutput) ToServiceEventRulePtrOutput() ServiceEventRulePtrOutput {
-	return o.ToServiceEventRulePtrOutputWithContext(context.Background())
-}
-
-func (o ServiceEventRuleOutput) ToServiceEventRulePtrOutputWithContext(ctx context.Context) ServiceEventRulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEventRule) *ServiceEventRule {
-		return &v
-	}).(ServiceEventRulePtrOutput)
-}
-
-type ServiceEventRulePtrOutput struct{ *pulumi.OutputState }
-
-func (ServiceEventRulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceEventRule)(nil))
-}
-
-func (o ServiceEventRulePtrOutput) ToServiceEventRulePtrOutput() ServiceEventRulePtrOutput {
-	return o
-}
-
-func (o ServiceEventRulePtrOutput) ToServiceEventRulePtrOutputWithContext(ctx context.Context) ServiceEventRulePtrOutput {
-	return o
-}
-
-func (o ServiceEventRulePtrOutput) Elem() ServiceEventRuleOutput {
-	return o.ApplyT(func(v *ServiceEventRule) ServiceEventRule {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceEventRule
-		return ret
-	}).(ServiceEventRuleOutput)
-}
-
 type ServiceEventRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (ServiceEventRuleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceEventRule)(nil))
+	return reflect.TypeOf((*[]*ServiceEventRule)(nil)).Elem()
 }
 
 func (o ServiceEventRuleArrayOutput) ToServiceEventRuleArrayOutput() ServiceEventRuleArrayOutput {
@@ -415,15 +352,15 @@ func (o ServiceEventRuleArrayOutput) ToServiceEventRuleArrayOutputWithContext(ct
 }
 
 func (o ServiceEventRuleArrayOutput) Index(i pulumi.IntInput) ServiceEventRuleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceEventRule {
-		return vs[0].([]ServiceEventRule)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceEventRule {
+		return vs[0].([]*ServiceEventRule)[vs[1].(int)]
 	}).(ServiceEventRuleOutput)
 }
 
 type ServiceEventRuleMapOutput struct{ *pulumi.OutputState }
 
 func (ServiceEventRuleMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ServiceEventRule)(nil))
+	return reflect.TypeOf((*map[string]*ServiceEventRule)(nil)).Elem()
 }
 
 func (o ServiceEventRuleMapOutput) ToServiceEventRuleMapOutput() ServiceEventRuleMapOutput {
@@ -435,18 +372,16 @@ func (o ServiceEventRuleMapOutput) ToServiceEventRuleMapOutputWithContext(ctx co
 }
 
 func (o ServiceEventRuleMapOutput) MapIndex(k pulumi.StringInput) ServiceEventRuleOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServiceEventRule {
-		return vs[0].(map[string]ServiceEventRule)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ServiceEventRule {
+		return vs[0].(map[string]*ServiceEventRule)[vs[1].(string)]
 	}).(ServiceEventRuleOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRuleInput)(nil)).Elem(), &ServiceEventRule{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRulePtrInput)(nil)).Elem(), &ServiceEventRule{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRuleArrayInput)(nil)).Elem(), ServiceEventRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEventRuleMapInput)(nil)).Elem(), ServiceEventRuleMap{})
 	pulumi.RegisterOutputType(ServiceEventRuleOutput{})
-	pulumi.RegisterOutputType(ServiceEventRulePtrOutput{})
 	pulumi.RegisterOutputType(ServiceEventRuleArrayOutput{})
 	pulumi.RegisterOutputType(ServiceEventRuleMapOutput{})
 }

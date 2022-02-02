@@ -82,25 +82,23 @@ export class Ruleset extends pulumi.CustomResource {
      */
     constructor(name: string, args?: RulesetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RulesetArgs | RulesetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RulesetState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["routingKeys"] = state ? state.routingKeys : undefined;
-            inputs["team"] = state ? state.team : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["routingKeys"] = state ? state.routingKeys : undefined;
+            resourceInputs["team"] = state ? state.team : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as RulesetArgs | undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["team"] = args ? args.team : undefined;
-            inputs["routingKeys"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["team"] = args ? args.team : undefined;
+            resourceInputs["routingKeys"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Ruleset.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Ruleset.__pulumiType, name, resourceInputs, opts);
     }
 }
 

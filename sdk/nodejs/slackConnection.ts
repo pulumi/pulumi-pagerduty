@@ -120,18 +120,18 @@ export class SlackConnection extends pulumi.CustomResource {
      */
     constructor(name: string, args: SlackConnectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SlackConnectionArgs | SlackConnectionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SlackConnectionState | undefined;
-            inputs["channelId"] = state ? state.channelId : undefined;
-            inputs["channelName"] = state ? state.channelName : undefined;
-            inputs["configs"] = state ? state.configs : undefined;
-            inputs["notificationType"] = state ? state.notificationType : undefined;
-            inputs["sourceId"] = state ? state.sourceId : undefined;
-            inputs["sourceName"] = state ? state.sourceName : undefined;
-            inputs["sourceType"] = state ? state.sourceType : undefined;
-            inputs["workspaceId"] = state ? state.workspaceId : undefined;
+            resourceInputs["channelId"] = state ? state.channelId : undefined;
+            resourceInputs["channelName"] = state ? state.channelName : undefined;
+            resourceInputs["configs"] = state ? state.configs : undefined;
+            resourceInputs["notificationType"] = state ? state.notificationType : undefined;
+            resourceInputs["sourceId"] = state ? state.sourceId : undefined;
+            resourceInputs["sourceName"] = state ? state.sourceName : undefined;
+            resourceInputs["sourceType"] = state ? state.sourceType : undefined;
+            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
         } else {
             const args = argsOrState as SlackConnectionArgs | undefined;
             if ((!args || args.channelId === undefined) && !opts.urn) {
@@ -152,19 +152,17 @@ export class SlackConnection extends pulumi.CustomResource {
             if ((!args || args.workspaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            inputs["channelId"] = args ? args.channelId : undefined;
-            inputs["configs"] = args ? args.configs : undefined;
-            inputs["notificationType"] = args ? args.notificationType : undefined;
-            inputs["sourceId"] = args ? args.sourceId : undefined;
-            inputs["sourceType"] = args ? args.sourceType : undefined;
-            inputs["workspaceId"] = args ? args.workspaceId : undefined;
-            inputs["channelName"] = undefined /*out*/;
-            inputs["sourceName"] = undefined /*out*/;
+            resourceInputs["channelId"] = args ? args.channelId : undefined;
+            resourceInputs["configs"] = args ? args.configs : undefined;
+            resourceInputs["notificationType"] = args ? args.notificationType : undefined;
+            resourceInputs["sourceId"] = args ? args.sourceId : undefined;
+            resourceInputs["sourceType"] = args ? args.sourceType : undefined;
+            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["channelName"] = undefined /*out*/;
+            resourceInputs["sourceName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SlackConnection.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SlackConnection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

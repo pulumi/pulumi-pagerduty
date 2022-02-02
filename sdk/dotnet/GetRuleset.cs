@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Pagerduty
 {
@@ -106,7 +105,7 @@ namespace Pulumi.Pagerduty
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetRulesetResult> InvokeAsync(GetRulesetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRulesetResult>("pagerduty:index/getRuleset:getRuleset", args ?? new GetRulesetArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRulesetResult>("pagerduty:index/getRuleset:getRuleset", args ?? new GetRulesetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information about a specific [ruleset](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1rulesets/get) that you can use for managing and grouping [event rules](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1rulesets~1%7Bid%7D~1rules/get).
@@ -202,7 +201,7 @@ namespace Pulumi.Pagerduty
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetRulesetResult> Invoke(GetRulesetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRulesetResult>("pagerduty:index/getRuleset:getRuleset", args ?? new GetRulesetInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetRulesetResult>("pagerduty:index/getRuleset:getRuleset", args ?? new GetRulesetInvokeArgs(), options.WithDefaults());
     }
 
 

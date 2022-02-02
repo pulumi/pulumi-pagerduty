@@ -120,7 +120,7 @@ func NewResponsePlay(ctx *pulumi.Context,
 	if args.From == nil {
 		return nil, errors.New("invalid value for required argument 'From'")
 	}
-	if args.Description == nil {
+	if isZero(args.Description) {
 		args.Description = pulumi.StringPtr("Managed by Pulumi")
 	}
 	var resource ResponsePlay
@@ -265,7 +265,7 @@ type ResponsePlayInput interface {
 }
 
 func (*ResponsePlay) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResponsePlay)(nil))
+	return reflect.TypeOf((**ResponsePlay)(nil)).Elem()
 }
 
 func (i *ResponsePlay) ToResponsePlayOutput() ResponsePlayOutput {
@@ -274,35 +274,6 @@ func (i *ResponsePlay) ToResponsePlayOutput() ResponsePlayOutput {
 
 func (i *ResponsePlay) ToResponsePlayOutputWithContext(ctx context.Context) ResponsePlayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlayOutput)
-}
-
-func (i *ResponsePlay) ToResponsePlayPtrOutput() ResponsePlayPtrOutput {
-	return i.ToResponsePlayPtrOutputWithContext(context.Background())
-}
-
-func (i *ResponsePlay) ToResponsePlayPtrOutputWithContext(ctx context.Context) ResponsePlayPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlayPtrOutput)
-}
-
-type ResponsePlayPtrInput interface {
-	pulumi.Input
-
-	ToResponsePlayPtrOutput() ResponsePlayPtrOutput
-	ToResponsePlayPtrOutputWithContext(ctx context.Context) ResponsePlayPtrOutput
-}
-
-type responsePlayPtrType ResponsePlayArgs
-
-func (*responsePlayPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResponsePlay)(nil))
-}
-
-func (i *responsePlayPtrType) ToResponsePlayPtrOutput() ResponsePlayPtrOutput {
-	return i.ToResponsePlayPtrOutputWithContext(context.Background())
-}
-
-func (i *responsePlayPtrType) ToResponsePlayPtrOutputWithContext(ctx context.Context) ResponsePlayPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlayPtrOutput)
 }
 
 // ResponsePlayArrayInput is an input type that accepts ResponsePlayArray and ResponsePlayArrayOutput values.
@@ -358,7 +329,7 @@ func (i ResponsePlayMap) ToResponsePlayMapOutputWithContext(ctx context.Context)
 type ResponsePlayOutput struct{ *pulumi.OutputState }
 
 func (ResponsePlayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResponsePlay)(nil))
+	return reflect.TypeOf((**ResponsePlay)(nil)).Elem()
 }
 
 func (o ResponsePlayOutput) ToResponsePlayOutput() ResponsePlayOutput {
@@ -369,44 +340,10 @@ func (o ResponsePlayOutput) ToResponsePlayOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o ResponsePlayOutput) ToResponsePlayPtrOutput() ResponsePlayPtrOutput {
-	return o.ToResponsePlayPtrOutputWithContext(context.Background())
-}
-
-func (o ResponsePlayOutput) ToResponsePlayPtrOutputWithContext(ctx context.Context) ResponsePlayPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResponsePlay) *ResponsePlay {
-		return &v
-	}).(ResponsePlayPtrOutput)
-}
-
-type ResponsePlayPtrOutput struct{ *pulumi.OutputState }
-
-func (ResponsePlayPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResponsePlay)(nil))
-}
-
-func (o ResponsePlayPtrOutput) ToResponsePlayPtrOutput() ResponsePlayPtrOutput {
-	return o
-}
-
-func (o ResponsePlayPtrOutput) ToResponsePlayPtrOutputWithContext(ctx context.Context) ResponsePlayPtrOutput {
-	return o
-}
-
-func (o ResponsePlayPtrOutput) Elem() ResponsePlayOutput {
-	return o.ApplyT(func(v *ResponsePlay) ResponsePlay {
-		if v != nil {
-			return *v
-		}
-		var ret ResponsePlay
-		return ret
-	}).(ResponsePlayOutput)
-}
-
 type ResponsePlayArrayOutput struct{ *pulumi.OutputState }
 
 func (ResponsePlayArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ResponsePlay)(nil))
+	return reflect.TypeOf((*[]*ResponsePlay)(nil)).Elem()
 }
 
 func (o ResponsePlayArrayOutput) ToResponsePlayArrayOutput() ResponsePlayArrayOutput {
@@ -418,15 +355,15 @@ func (o ResponsePlayArrayOutput) ToResponsePlayArrayOutputWithContext(ctx contex
 }
 
 func (o ResponsePlayArrayOutput) Index(i pulumi.IntInput) ResponsePlayOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResponsePlay {
-		return vs[0].([]ResponsePlay)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResponsePlay {
+		return vs[0].([]*ResponsePlay)[vs[1].(int)]
 	}).(ResponsePlayOutput)
 }
 
 type ResponsePlayMapOutput struct{ *pulumi.OutputState }
 
 func (ResponsePlayMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ResponsePlay)(nil))
+	return reflect.TypeOf((*map[string]*ResponsePlay)(nil)).Elem()
 }
 
 func (o ResponsePlayMapOutput) ToResponsePlayMapOutput() ResponsePlayMapOutput {
@@ -438,18 +375,16 @@ func (o ResponsePlayMapOutput) ToResponsePlayMapOutputWithContext(ctx context.Co
 }
 
 func (o ResponsePlayMapOutput) MapIndex(k pulumi.StringInput) ResponsePlayOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ResponsePlay {
-		return vs[0].(map[string]ResponsePlay)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ResponsePlay {
+		return vs[0].(map[string]*ResponsePlay)[vs[1].(string)]
 	}).(ResponsePlayOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlayInput)(nil)).Elem(), &ResponsePlay{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlayPtrInput)(nil)).Elem(), &ResponsePlay{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlayArrayInput)(nil)).Elem(), ResponsePlayArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlayMapInput)(nil)).Elem(), ResponsePlayMap{})
 	pulumi.RegisterOutputType(ResponsePlayOutput{})
-	pulumi.RegisterOutputType(ResponsePlayPtrOutput{})
 	pulumi.RegisterOutputType(ResponsePlayArrayOutput{})
 	pulumi.RegisterOutputType(ResponsePlayMapOutput{})
 }

@@ -136,23 +136,23 @@ export class ExtensionServiceNow extends pulumi.CustomResource {
      */
     constructor(name: string, args: ExtensionServiceNowArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ExtensionServiceNowArgs | ExtensionServiceNowState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ExtensionServiceNowState | undefined;
-            inputs["endpointUrl"] = state ? state.endpointUrl : undefined;
-            inputs["extensionObjects"] = state ? state.extensionObjects : undefined;
-            inputs["extensionSchema"] = state ? state.extensionSchema : undefined;
-            inputs["htmlUrl"] = state ? state.htmlUrl : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["referer"] = state ? state.referer : undefined;
-            inputs["snowPassword"] = state ? state.snowPassword : undefined;
-            inputs["snowUser"] = state ? state.snowUser : undefined;
-            inputs["summary"] = state ? state.summary : undefined;
-            inputs["syncOptions"] = state ? state.syncOptions : undefined;
-            inputs["target"] = state ? state.target : undefined;
-            inputs["taskType"] = state ? state.taskType : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["endpointUrl"] = state ? state.endpointUrl : undefined;
+            resourceInputs["extensionObjects"] = state ? state.extensionObjects : undefined;
+            resourceInputs["extensionSchema"] = state ? state.extensionSchema : undefined;
+            resourceInputs["htmlUrl"] = state ? state.htmlUrl : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["referer"] = state ? state.referer : undefined;
+            resourceInputs["snowPassword"] = state ? state.snowPassword : undefined;
+            resourceInputs["snowUser"] = state ? state.snowUser : undefined;
+            resourceInputs["summary"] = state ? state.summary : undefined;
+            resourceInputs["syncOptions"] = state ? state.syncOptions : undefined;
+            resourceInputs["target"] = state ? state.target : undefined;
+            resourceInputs["taskType"] = state ? state.taskType : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ExtensionServiceNowArgs | undefined;
             if ((!args || args.extensionObjects === undefined) && !opts.urn) {
@@ -179,24 +179,22 @@ export class ExtensionServiceNow extends pulumi.CustomResource {
             if ((!args || args.taskType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'taskType'");
             }
-            inputs["endpointUrl"] = args ? args.endpointUrl : undefined;
-            inputs["extensionObjects"] = args ? args.extensionObjects : undefined;
-            inputs["extensionSchema"] = args ? args.extensionSchema : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["referer"] = args ? args.referer : undefined;
-            inputs["snowPassword"] = args ? args.snowPassword : undefined;
-            inputs["snowUser"] = args ? args.snowUser : undefined;
-            inputs["summary"] = args ? args.summary : undefined;
-            inputs["syncOptions"] = args ? args.syncOptions : undefined;
-            inputs["target"] = args ? args.target : undefined;
-            inputs["taskType"] = args ? args.taskType : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["htmlUrl"] = undefined /*out*/;
+            resourceInputs["endpointUrl"] = args ? args.endpointUrl : undefined;
+            resourceInputs["extensionObjects"] = args ? args.extensionObjects : undefined;
+            resourceInputs["extensionSchema"] = args ? args.extensionSchema : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["referer"] = args ? args.referer : undefined;
+            resourceInputs["snowPassword"] = args ? args.snowPassword : undefined;
+            resourceInputs["snowUser"] = args ? args.snowUser : undefined;
+            resourceInputs["summary"] = args ? args.summary : undefined;
+            resourceInputs["syncOptions"] = args ? args.syncOptions : undefined;
+            resourceInputs["target"] = args ? args.target : undefined;
+            resourceInputs["taskType"] = args ? args.taskType : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["htmlUrl"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ExtensionServiceNow.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ExtensionServiceNow.__pulumiType, name, resourceInputs, opts);
     }
 }
 

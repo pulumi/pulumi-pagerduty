@@ -291,7 +291,7 @@ type ExtensionServiceNowInput interface {
 }
 
 func (*ExtensionServiceNow) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExtensionServiceNow)(nil))
+	return reflect.TypeOf((**ExtensionServiceNow)(nil)).Elem()
 }
 
 func (i *ExtensionServiceNow) ToExtensionServiceNowOutput() ExtensionServiceNowOutput {
@@ -300,35 +300,6 @@ func (i *ExtensionServiceNow) ToExtensionServiceNowOutput() ExtensionServiceNowO
 
 func (i *ExtensionServiceNow) ToExtensionServiceNowOutputWithContext(ctx context.Context) ExtensionServiceNowOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionServiceNowOutput)
-}
-
-func (i *ExtensionServiceNow) ToExtensionServiceNowPtrOutput() ExtensionServiceNowPtrOutput {
-	return i.ToExtensionServiceNowPtrOutputWithContext(context.Background())
-}
-
-func (i *ExtensionServiceNow) ToExtensionServiceNowPtrOutputWithContext(ctx context.Context) ExtensionServiceNowPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExtensionServiceNowPtrOutput)
-}
-
-type ExtensionServiceNowPtrInput interface {
-	pulumi.Input
-
-	ToExtensionServiceNowPtrOutput() ExtensionServiceNowPtrOutput
-	ToExtensionServiceNowPtrOutputWithContext(ctx context.Context) ExtensionServiceNowPtrOutput
-}
-
-type extensionServiceNowPtrType ExtensionServiceNowArgs
-
-func (*extensionServiceNowPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExtensionServiceNow)(nil))
-}
-
-func (i *extensionServiceNowPtrType) ToExtensionServiceNowPtrOutput() ExtensionServiceNowPtrOutput {
-	return i.ToExtensionServiceNowPtrOutputWithContext(context.Background())
-}
-
-func (i *extensionServiceNowPtrType) ToExtensionServiceNowPtrOutputWithContext(ctx context.Context) ExtensionServiceNowPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExtensionServiceNowPtrOutput)
 }
 
 // ExtensionServiceNowArrayInput is an input type that accepts ExtensionServiceNowArray and ExtensionServiceNowArrayOutput values.
@@ -384,7 +355,7 @@ func (i ExtensionServiceNowMap) ToExtensionServiceNowMapOutputWithContext(ctx co
 type ExtensionServiceNowOutput struct{ *pulumi.OutputState }
 
 func (ExtensionServiceNowOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExtensionServiceNow)(nil))
+	return reflect.TypeOf((**ExtensionServiceNow)(nil)).Elem()
 }
 
 func (o ExtensionServiceNowOutput) ToExtensionServiceNowOutput() ExtensionServiceNowOutput {
@@ -395,44 +366,10 @@ func (o ExtensionServiceNowOutput) ToExtensionServiceNowOutputWithContext(ctx co
 	return o
 }
 
-func (o ExtensionServiceNowOutput) ToExtensionServiceNowPtrOutput() ExtensionServiceNowPtrOutput {
-	return o.ToExtensionServiceNowPtrOutputWithContext(context.Background())
-}
-
-func (o ExtensionServiceNowOutput) ToExtensionServiceNowPtrOutputWithContext(ctx context.Context) ExtensionServiceNowPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExtensionServiceNow) *ExtensionServiceNow {
-		return &v
-	}).(ExtensionServiceNowPtrOutput)
-}
-
-type ExtensionServiceNowPtrOutput struct{ *pulumi.OutputState }
-
-func (ExtensionServiceNowPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExtensionServiceNow)(nil))
-}
-
-func (o ExtensionServiceNowPtrOutput) ToExtensionServiceNowPtrOutput() ExtensionServiceNowPtrOutput {
-	return o
-}
-
-func (o ExtensionServiceNowPtrOutput) ToExtensionServiceNowPtrOutputWithContext(ctx context.Context) ExtensionServiceNowPtrOutput {
-	return o
-}
-
-func (o ExtensionServiceNowPtrOutput) Elem() ExtensionServiceNowOutput {
-	return o.ApplyT(func(v *ExtensionServiceNow) ExtensionServiceNow {
-		if v != nil {
-			return *v
-		}
-		var ret ExtensionServiceNow
-		return ret
-	}).(ExtensionServiceNowOutput)
-}
-
 type ExtensionServiceNowArrayOutput struct{ *pulumi.OutputState }
 
 func (ExtensionServiceNowArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ExtensionServiceNow)(nil))
+	return reflect.TypeOf((*[]*ExtensionServiceNow)(nil)).Elem()
 }
 
 func (o ExtensionServiceNowArrayOutput) ToExtensionServiceNowArrayOutput() ExtensionServiceNowArrayOutput {
@@ -444,15 +381,15 @@ func (o ExtensionServiceNowArrayOutput) ToExtensionServiceNowArrayOutputWithCont
 }
 
 func (o ExtensionServiceNowArrayOutput) Index(i pulumi.IntInput) ExtensionServiceNowOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExtensionServiceNow {
-		return vs[0].([]ExtensionServiceNow)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ExtensionServiceNow {
+		return vs[0].([]*ExtensionServiceNow)[vs[1].(int)]
 	}).(ExtensionServiceNowOutput)
 }
 
 type ExtensionServiceNowMapOutput struct{ *pulumi.OutputState }
 
 func (ExtensionServiceNowMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ExtensionServiceNow)(nil))
+	return reflect.TypeOf((*map[string]*ExtensionServiceNow)(nil)).Elem()
 }
 
 func (o ExtensionServiceNowMapOutput) ToExtensionServiceNowMapOutput() ExtensionServiceNowMapOutput {
@@ -464,18 +401,16 @@ func (o ExtensionServiceNowMapOutput) ToExtensionServiceNowMapOutputWithContext(
 }
 
 func (o ExtensionServiceNowMapOutput) MapIndex(k pulumi.StringInput) ExtensionServiceNowOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ExtensionServiceNow {
-		return vs[0].(map[string]ExtensionServiceNow)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ExtensionServiceNow {
+		return vs[0].(map[string]*ExtensionServiceNow)[vs[1].(string)]
 	}).(ExtensionServiceNowOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionServiceNowInput)(nil)).Elem(), &ExtensionServiceNow{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionServiceNowPtrInput)(nil)).Elem(), &ExtensionServiceNow{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionServiceNowArrayInput)(nil)).Elem(), ExtensionServiceNowArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionServiceNowMapInput)(nil)).Elem(), ExtensionServiceNowMap{})
 	pulumi.RegisterOutputType(ExtensionServiceNowOutput{})
-	pulumi.RegisterOutputType(ExtensionServiceNowPtrOutput{})
 	pulumi.RegisterOutputType(ExtensionServiceNowArrayOutput{})
 	pulumi.RegisterOutputType(ExtensionServiceNowMapOutput{})
 }

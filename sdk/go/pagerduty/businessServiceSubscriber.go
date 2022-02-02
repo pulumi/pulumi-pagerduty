@@ -172,7 +172,7 @@ type BusinessServiceSubscriberInput interface {
 }
 
 func (*BusinessServiceSubscriber) ElementType() reflect.Type {
-	return reflect.TypeOf((*BusinessServiceSubscriber)(nil))
+	return reflect.TypeOf((**BusinessServiceSubscriber)(nil)).Elem()
 }
 
 func (i *BusinessServiceSubscriber) ToBusinessServiceSubscriberOutput() BusinessServiceSubscriberOutput {
@@ -181,35 +181,6 @@ func (i *BusinessServiceSubscriber) ToBusinessServiceSubscriberOutput() Business
 
 func (i *BusinessServiceSubscriber) ToBusinessServiceSubscriberOutputWithContext(ctx context.Context) BusinessServiceSubscriberOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BusinessServiceSubscriberOutput)
-}
-
-func (i *BusinessServiceSubscriber) ToBusinessServiceSubscriberPtrOutput() BusinessServiceSubscriberPtrOutput {
-	return i.ToBusinessServiceSubscriberPtrOutputWithContext(context.Background())
-}
-
-func (i *BusinessServiceSubscriber) ToBusinessServiceSubscriberPtrOutputWithContext(ctx context.Context) BusinessServiceSubscriberPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BusinessServiceSubscriberPtrOutput)
-}
-
-type BusinessServiceSubscriberPtrInput interface {
-	pulumi.Input
-
-	ToBusinessServiceSubscriberPtrOutput() BusinessServiceSubscriberPtrOutput
-	ToBusinessServiceSubscriberPtrOutputWithContext(ctx context.Context) BusinessServiceSubscriberPtrOutput
-}
-
-type businessServiceSubscriberPtrType BusinessServiceSubscriberArgs
-
-func (*businessServiceSubscriberPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BusinessServiceSubscriber)(nil))
-}
-
-func (i *businessServiceSubscriberPtrType) ToBusinessServiceSubscriberPtrOutput() BusinessServiceSubscriberPtrOutput {
-	return i.ToBusinessServiceSubscriberPtrOutputWithContext(context.Background())
-}
-
-func (i *businessServiceSubscriberPtrType) ToBusinessServiceSubscriberPtrOutputWithContext(ctx context.Context) BusinessServiceSubscriberPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BusinessServiceSubscriberPtrOutput)
 }
 
 // BusinessServiceSubscriberArrayInput is an input type that accepts BusinessServiceSubscriberArray and BusinessServiceSubscriberArrayOutput values.
@@ -265,7 +236,7 @@ func (i BusinessServiceSubscriberMap) ToBusinessServiceSubscriberMapOutputWithCo
 type BusinessServiceSubscriberOutput struct{ *pulumi.OutputState }
 
 func (BusinessServiceSubscriberOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BusinessServiceSubscriber)(nil))
+	return reflect.TypeOf((**BusinessServiceSubscriber)(nil)).Elem()
 }
 
 func (o BusinessServiceSubscriberOutput) ToBusinessServiceSubscriberOutput() BusinessServiceSubscriberOutput {
@@ -276,44 +247,10 @@ func (o BusinessServiceSubscriberOutput) ToBusinessServiceSubscriberOutputWithCo
 	return o
 }
 
-func (o BusinessServiceSubscriberOutput) ToBusinessServiceSubscriberPtrOutput() BusinessServiceSubscriberPtrOutput {
-	return o.ToBusinessServiceSubscriberPtrOutputWithContext(context.Background())
-}
-
-func (o BusinessServiceSubscriberOutput) ToBusinessServiceSubscriberPtrOutputWithContext(ctx context.Context) BusinessServiceSubscriberPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BusinessServiceSubscriber) *BusinessServiceSubscriber {
-		return &v
-	}).(BusinessServiceSubscriberPtrOutput)
-}
-
-type BusinessServiceSubscriberPtrOutput struct{ *pulumi.OutputState }
-
-func (BusinessServiceSubscriberPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BusinessServiceSubscriber)(nil))
-}
-
-func (o BusinessServiceSubscriberPtrOutput) ToBusinessServiceSubscriberPtrOutput() BusinessServiceSubscriberPtrOutput {
-	return o
-}
-
-func (o BusinessServiceSubscriberPtrOutput) ToBusinessServiceSubscriberPtrOutputWithContext(ctx context.Context) BusinessServiceSubscriberPtrOutput {
-	return o
-}
-
-func (o BusinessServiceSubscriberPtrOutput) Elem() BusinessServiceSubscriberOutput {
-	return o.ApplyT(func(v *BusinessServiceSubscriber) BusinessServiceSubscriber {
-		if v != nil {
-			return *v
-		}
-		var ret BusinessServiceSubscriber
-		return ret
-	}).(BusinessServiceSubscriberOutput)
-}
-
 type BusinessServiceSubscriberArrayOutput struct{ *pulumi.OutputState }
 
 func (BusinessServiceSubscriberArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BusinessServiceSubscriber)(nil))
+	return reflect.TypeOf((*[]*BusinessServiceSubscriber)(nil)).Elem()
 }
 
 func (o BusinessServiceSubscriberArrayOutput) ToBusinessServiceSubscriberArrayOutput() BusinessServiceSubscriberArrayOutput {
@@ -325,15 +262,15 @@ func (o BusinessServiceSubscriberArrayOutput) ToBusinessServiceSubscriberArrayOu
 }
 
 func (o BusinessServiceSubscriberArrayOutput) Index(i pulumi.IntInput) BusinessServiceSubscriberOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BusinessServiceSubscriber {
-		return vs[0].([]BusinessServiceSubscriber)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BusinessServiceSubscriber {
+		return vs[0].([]*BusinessServiceSubscriber)[vs[1].(int)]
 	}).(BusinessServiceSubscriberOutput)
 }
 
 type BusinessServiceSubscriberMapOutput struct{ *pulumi.OutputState }
 
 func (BusinessServiceSubscriberMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]BusinessServiceSubscriber)(nil))
+	return reflect.TypeOf((*map[string]*BusinessServiceSubscriber)(nil)).Elem()
 }
 
 func (o BusinessServiceSubscriberMapOutput) ToBusinessServiceSubscriberMapOutput() BusinessServiceSubscriberMapOutput {
@@ -345,18 +282,16 @@ func (o BusinessServiceSubscriberMapOutput) ToBusinessServiceSubscriberMapOutput
 }
 
 func (o BusinessServiceSubscriberMapOutput) MapIndex(k pulumi.StringInput) BusinessServiceSubscriberOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BusinessServiceSubscriber {
-		return vs[0].(map[string]BusinessServiceSubscriber)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *BusinessServiceSubscriber {
+		return vs[0].(map[string]*BusinessServiceSubscriber)[vs[1].(string)]
 	}).(BusinessServiceSubscriberOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BusinessServiceSubscriberInput)(nil)).Elem(), &BusinessServiceSubscriber{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BusinessServiceSubscriberPtrInput)(nil)).Elem(), &BusinessServiceSubscriber{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BusinessServiceSubscriberArrayInput)(nil)).Elem(), BusinessServiceSubscriberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BusinessServiceSubscriberMapInput)(nil)).Elem(), BusinessServiceSubscriberMap{})
 	pulumi.RegisterOutputType(BusinessServiceSubscriberOutput{})
-	pulumi.RegisterOutputType(BusinessServiceSubscriberPtrOutput{})
 	pulumi.RegisterOutputType(BusinessServiceSubscriberArrayOutput{})
 	pulumi.RegisterOutputType(BusinessServiceSubscriberMapOutput{})
 }

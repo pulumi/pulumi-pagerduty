@@ -125,18 +125,18 @@ export class Extension extends pulumi.CustomResource {
      */
     constructor(name: string, args: ExtensionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ExtensionArgs | ExtensionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ExtensionState | undefined;
-            inputs["config"] = state ? state.config : undefined;
-            inputs["endpointUrl"] = state ? state.endpointUrl : undefined;
-            inputs["extensionObjects"] = state ? state.extensionObjects : undefined;
-            inputs["extensionSchema"] = state ? state.extensionSchema : undefined;
-            inputs["htmlUrl"] = state ? state.htmlUrl : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["summary"] = state ? state.summary : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["config"] = state ? state.config : undefined;
+            resourceInputs["endpointUrl"] = state ? state.endpointUrl : undefined;
+            resourceInputs["extensionObjects"] = state ? state.extensionObjects : undefined;
+            resourceInputs["extensionSchema"] = state ? state.extensionSchema : undefined;
+            resourceInputs["htmlUrl"] = state ? state.htmlUrl : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["summary"] = state ? state.summary : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ExtensionArgs | undefined;
             if ((!args || args.extensionObjects === undefined) && !opts.urn) {
@@ -145,19 +145,17 @@ export class Extension extends pulumi.CustomResource {
             if ((!args || args.extensionSchema === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'extensionSchema'");
             }
-            inputs["config"] = args ? args.config : undefined;
-            inputs["endpointUrl"] = args ? args.endpointUrl : undefined;
-            inputs["extensionObjects"] = args ? args.extensionObjects : undefined;
-            inputs["extensionSchema"] = args ? args.extensionSchema : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["htmlUrl"] = undefined /*out*/;
-            inputs["summary"] = undefined /*out*/;
+            resourceInputs["config"] = args ? args.config : undefined;
+            resourceInputs["endpointUrl"] = args ? args.endpointUrl : undefined;
+            resourceInputs["extensionObjects"] = args ? args.extensionObjects : undefined;
+            resourceInputs["extensionSchema"] = args ? args.extensionSchema : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["htmlUrl"] = undefined /*out*/;
+            resourceInputs["summary"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Extension.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Extension.__pulumiType, name, resourceInputs, opts);
     }
 }
 

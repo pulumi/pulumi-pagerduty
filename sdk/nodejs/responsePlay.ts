@@ -133,44 +133,42 @@ export class ResponsePlay extends pulumi.CustomResource {
      */
     constructor(name: string, args: ResponsePlayArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResponsePlayArgs | ResponsePlayState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResponsePlayState | undefined;
-            inputs["conferenceNumber"] = state ? state.conferenceNumber : undefined;
-            inputs["conferenceUrl"] = state ? state.conferenceUrl : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["from"] = state ? state.from : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["responders"] = state ? state.responders : undefined;
-            inputs["respondersMessage"] = state ? state.respondersMessage : undefined;
-            inputs["runnability"] = state ? state.runnability : undefined;
-            inputs["subscribers"] = state ? state.subscribers : undefined;
-            inputs["subscribersMessage"] = state ? state.subscribersMessage : undefined;
-            inputs["team"] = state ? state.team : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["conferenceNumber"] = state ? state.conferenceNumber : undefined;
+            resourceInputs["conferenceUrl"] = state ? state.conferenceUrl : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["from"] = state ? state.from : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["responders"] = state ? state.responders : undefined;
+            resourceInputs["respondersMessage"] = state ? state.respondersMessage : undefined;
+            resourceInputs["runnability"] = state ? state.runnability : undefined;
+            resourceInputs["subscribers"] = state ? state.subscribers : undefined;
+            resourceInputs["subscribersMessage"] = state ? state.subscribersMessage : undefined;
+            resourceInputs["team"] = state ? state.team : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ResponsePlayArgs | undefined;
             if ((!args || args.from === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'from'");
             }
-            inputs["conferenceNumber"] = args ? args.conferenceNumber : undefined;
-            inputs["conferenceUrl"] = args ? args.conferenceUrl : undefined;
-            inputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
-            inputs["from"] = args ? args.from : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["responders"] = args ? args.responders : undefined;
-            inputs["respondersMessage"] = args ? args.respondersMessage : undefined;
-            inputs["runnability"] = args ? args.runnability : undefined;
-            inputs["subscribers"] = args ? args.subscribers : undefined;
-            inputs["subscribersMessage"] = args ? args.subscribersMessage : undefined;
-            inputs["team"] = args ? args.team : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            resourceInputs["conferenceNumber"] = args ? args.conferenceNumber : undefined;
+            resourceInputs["conferenceUrl"] = args ? args.conferenceUrl : undefined;
+            resourceInputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
+            resourceInputs["from"] = args ? args.from : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["responders"] = args ? args.responders : undefined;
+            resourceInputs["respondersMessage"] = args ? args.respondersMessage : undefined;
+            resourceInputs["runnability"] = args ? args.runnability : undefined;
+            resourceInputs["subscribers"] = args ? args.subscribers : undefined;
+            resourceInputs["subscribersMessage"] = args ? args.subscribersMessage : undefined;
+            resourceInputs["team"] = args ? args.team : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ResponsePlay.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ResponsePlay.__pulumiType, name, resourceInputs, opts);
     }
 }
 

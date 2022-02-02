@@ -38,22 +38,20 @@ export class Provider extends pulumi.ProviderResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ProviderArgs, opts?: pulumi.ResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
             if ((!args || args.token === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'token'");
             }
-            inputs["apiUrlOverride"] = args ? args.apiUrlOverride : undefined;
-            inputs["serviceRegion"] = args ? args.serviceRegion : undefined;
-            inputs["skipCredentialsValidation"] = pulumi.output((args ? args.skipCredentialsValidation : undefined) ?? false).apply(JSON.stringify);
-            inputs["token"] = args ? args.token : undefined;
-            inputs["userToken"] = args ? args.userToken : undefined;
+            resourceInputs["apiUrlOverride"] = args ? args.apiUrlOverride : undefined;
+            resourceInputs["serviceRegion"] = args ? args.serviceRegion : undefined;
+            resourceInputs["skipCredentialsValidation"] = pulumi.output((args ? args.skipCredentialsValidation : undefined) ?? false).apply(JSON.stringify);
+            resourceInputs["token"] = args ? args.token : undefined;
+            resourceInputs["userToken"] = args ? args.userToken : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Provider.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Provider.__pulumiType, name, resourceInputs, opts);
     }
 }
 

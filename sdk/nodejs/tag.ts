@@ -73,26 +73,24 @@ export class Tag extends pulumi.CustomResource {
      */
     constructor(name: string, args: TagArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TagArgs | TagState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TagState | undefined;
-            inputs["htmlUrl"] = state ? state.htmlUrl : undefined;
-            inputs["label"] = state ? state.label : undefined;
-            inputs["summary"] = state ? state.summary : undefined;
+            resourceInputs["htmlUrl"] = state ? state.htmlUrl : undefined;
+            resourceInputs["label"] = state ? state.label : undefined;
+            resourceInputs["summary"] = state ? state.summary : undefined;
         } else {
             const args = argsOrState as TagArgs | undefined;
             if ((!args || args.label === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'label'");
             }
-            inputs["label"] = args ? args.label : undefined;
-            inputs["htmlUrl"] = undefined /*out*/;
-            inputs["summary"] = undefined /*out*/;
+            resourceInputs["label"] = args ? args.label : undefined;
+            resourceInputs["htmlUrl"] = undefined /*out*/;
+            resourceInputs["summary"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Tag.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Tag.__pulumiType, name, resourceInputs, opts);
     }
 }
 

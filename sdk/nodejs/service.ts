@@ -126,52 +126,50 @@ export class Service extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceArgs | ServiceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceState | undefined;
-            inputs["acknowledgementTimeout"] = state ? state.acknowledgementTimeout : undefined;
-            inputs["alertCreation"] = state ? state.alertCreation : undefined;
-            inputs["alertGrouping"] = state ? state.alertGrouping : undefined;
-            inputs["alertGroupingParameters"] = state ? state.alertGroupingParameters : undefined;
-            inputs["alertGroupingTimeout"] = state ? state.alertGroupingTimeout : undefined;
-            inputs["autoResolveTimeout"] = state ? state.autoResolveTimeout : undefined;
-            inputs["createdAt"] = state ? state.createdAt : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["escalationPolicy"] = state ? state.escalationPolicy : undefined;
-            inputs["htmlUrl"] = state ? state.htmlUrl : undefined;
-            inputs["incidentUrgencyRule"] = state ? state.incidentUrgencyRule : undefined;
-            inputs["lastIncidentTimestamp"] = state ? state.lastIncidentTimestamp : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["scheduledActions"] = state ? state.scheduledActions : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["supportHours"] = state ? state.supportHours : undefined;
+            resourceInputs["acknowledgementTimeout"] = state ? state.acknowledgementTimeout : undefined;
+            resourceInputs["alertCreation"] = state ? state.alertCreation : undefined;
+            resourceInputs["alertGrouping"] = state ? state.alertGrouping : undefined;
+            resourceInputs["alertGroupingParameters"] = state ? state.alertGroupingParameters : undefined;
+            resourceInputs["alertGroupingTimeout"] = state ? state.alertGroupingTimeout : undefined;
+            resourceInputs["autoResolveTimeout"] = state ? state.autoResolveTimeout : undefined;
+            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["escalationPolicy"] = state ? state.escalationPolicy : undefined;
+            resourceInputs["htmlUrl"] = state ? state.htmlUrl : undefined;
+            resourceInputs["incidentUrgencyRule"] = state ? state.incidentUrgencyRule : undefined;
+            resourceInputs["lastIncidentTimestamp"] = state ? state.lastIncidentTimestamp : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["scheduledActions"] = state ? state.scheduledActions : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["supportHours"] = state ? state.supportHours : undefined;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
             if ((!args || args.escalationPolicy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'escalationPolicy'");
             }
-            inputs["acknowledgementTimeout"] = args ? args.acknowledgementTimeout : undefined;
-            inputs["alertCreation"] = args ? args.alertCreation : undefined;
-            inputs["alertGrouping"] = args ? args.alertGrouping : undefined;
-            inputs["alertGroupingParameters"] = args ? args.alertGroupingParameters : undefined;
-            inputs["alertGroupingTimeout"] = args ? args.alertGroupingTimeout : undefined;
-            inputs["autoResolveTimeout"] = args ? args.autoResolveTimeout : undefined;
-            inputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
-            inputs["escalationPolicy"] = args ? args.escalationPolicy : undefined;
-            inputs["incidentUrgencyRule"] = args ? args.incidentUrgencyRule : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["scheduledActions"] = args ? args.scheduledActions : undefined;
-            inputs["supportHours"] = args ? args.supportHours : undefined;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["htmlUrl"] = undefined /*out*/;
-            inputs["lastIncidentTimestamp"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["acknowledgementTimeout"] = args ? args.acknowledgementTimeout : undefined;
+            resourceInputs["alertCreation"] = args ? args.alertCreation : undefined;
+            resourceInputs["alertGrouping"] = args ? args.alertGrouping : undefined;
+            resourceInputs["alertGroupingParameters"] = args ? args.alertGroupingParameters : undefined;
+            resourceInputs["alertGroupingTimeout"] = args ? args.alertGroupingTimeout : undefined;
+            resourceInputs["autoResolveTimeout"] = args ? args.autoResolveTimeout : undefined;
+            resourceInputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
+            resourceInputs["escalationPolicy"] = args ? args.escalationPolicy : undefined;
+            resourceInputs["incidentUrgencyRule"] = args ? args.incidentUrgencyRule : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["scheduledActions"] = args ? args.scheduledActions : undefined;
+            resourceInputs["supportHours"] = args ? args.supportHours : undefined;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["htmlUrl"] = undefined /*out*/;
+            resourceInputs["lastIncidentTimestamp"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Service.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Service.__pulumiType, name, resourceInputs, opts);
     }
 }
 

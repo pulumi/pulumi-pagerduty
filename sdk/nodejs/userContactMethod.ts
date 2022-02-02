@@ -117,18 +117,18 @@ export class UserContactMethod extends pulumi.CustomResource {
      */
     constructor(name: string, args: UserContactMethodArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserContactMethodArgs | UserContactMethodState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserContactMethodState | undefined;
-            inputs["address"] = state ? state.address : undefined;
-            inputs["blacklisted"] = state ? state.blacklisted : undefined;
-            inputs["countryCode"] = state ? state.countryCode : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["label"] = state ? state.label : undefined;
-            inputs["sendShortEmail"] = state ? state.sendShortEmail : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["userId"] = state ? state.userId : undefined;
+            resourceInputs["address"] = state ? state.address : undefined;
+            resourceInputs["blacklisted"] = state ? state.blacklisted : undefined;
+            resourceInputs["countryCode"] = state ? state.countryCode : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["label"] = state ? state.label : undefined;
+            resourceInputs["sendShortEmail"] = state ? state.sendShortEmail : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["userId"] = state ? state.userId : undefined;
         } else {
             const args = argsOrState as UserContactMethodArgs | undefined;
             if ((!args || args.address === undefined) && !opts.urn) {
@@ -143,19 +143,17 @@ export class UserContactMethod extends pulumi.CustomResource {
             if ((!args || args.userId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userId'");
             }
-            inputs["address"] = args ? args.address : undefined;
-            inputs["countryCode"] = args ? args.countryCode : undefined;
-            inputs["label"] = args ? args.label : undefined;
-            inputs["sendShortEmail"] = args ? args.sendShortEmail : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["userId"] = args ? args.userId : undefined;
-            inputs["blacklisted"] = undefined /*out*/;
-            inputs["enabled"] = undefined /*out*/;
+            resourceInputs["address"] = args ? args.address : undefined;
+            resourceInputs["countryCode"] = args ? args.countryCode : undefined;
+            resourceInputs["label"] = args ? args.label : undefined;
+            resourceInputs["sendShortEmail"] = args ? args.sendShortEmail : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["blacklisted"] = undefined /*out*/;
+            resourceInputs["enabled"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(UserContactMethod.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(UserContactMethod.__pulumiType, name, resourceInputs, opts);
     }
 }
 

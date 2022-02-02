@@ -222,7 +222,7 @@ type UserNotificationRuleInput interface {
 }
 
 func (*UserNotificationRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserNotificationRule)(nil))
+	return reflect.TypeOf((**UserNotificationRule)(nil)).Elem()
 }
 
 func (i *UserNotificationRule) ToUserNotificationRuleOutput() UserNotificationRuleOutput {
@@ -231,35 +231,6 @@ func (i *UserNotificationRule) ToUserNotificationRuleOutput() UserNotificationRu
 
 func (i *UserNotificationRule) ToUserNotificationRuleOutputWithContext(ctx context.Context) UserNotificationRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserNotificationRuleOutput)
-}
-
-func (i *UserNotificationRule) ToUserNotificationRulePtrOutput() UserNotificationRulePtrOutput {
-	return i.ToUserNotificationRulePtrOutputWithContext(context.Background())
-}
-
-func (i *UserNotificationRule) ToUserNotificationRulePtrOutputWithContext(ctx context.Context) UserNotificationRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserNotificationRulePtrOutput)
-}
-
-type UserNotificationRulePtrInput interface {
-	pulumi.Input
-
-	ToUserNotificationRulePtrOutput() UserNotificationRulePtrOutput
-	ToUserNotificationRulePtrOutputWithContext(ctx context.Context) UserNotificationRulePtrOutput
-}
-
-type userNotificationRulePtrType UserNotificationRuleArgs
-
-func (*userNotificationRulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserNotificationRule)(nil))
-}
-
-func (i *userNotificationRulePtrType) ToUserNotificationRulePtrOutput() UserNotificationRulePtrOutput {
-	return i.ToUserNotificationRulePtrOutputWithContext(context.Background())
-}
-
-func (i *userNotificationRulePtrType) ToUserNotificationRulePtrOutputWithContext(ctx context.Context) UserNotificationRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserNotificationRulePtrOutput)
 }
 
 // UserNotificationRuleArrayInput is an input type that accepts UserNotificationRuleArray and UserNotificationRuleArrayOutput values.
@@ -315,7 +286,7 @@ func (i UserNotificationRuleMap) ToUserNotificationRuleMapOutputWithContext(ctx 
 type UserNotificationRuleOutput struct{ *pulumi.OutputState }
 
 func (UserNotificationRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserNotificationRule)(nil))
+	return reflect.TypeOf((**UserNotificationRule)(nil)).Elem()
 }
 
 func (o UserNotificationRuleOutput) ToUserNotificationRuleOutput() UserNotificationRuleOutput {
@@ -326,44 +297,10 @@ func (o UserNotificationRuleOutput) ToUserNotificationRuleOutputWithContext(ctx 
 	return o
 }
 
-func (o UserNotificationRuleOutput) ToUserNotificationRulePtrOutput() UserNotificationRulePtrOutput {
-	return o.ToUserNotificationRulePtrOutputWithContext(context.Background())
-}
-
-func (o UserNotificationRuleOutput) ToUserNotificationRulePtrOutputWithContext(ctx context.Context) UserNotificationRulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserNotificationRule) *UserNotificationRule {
-		return &v
-	}).(UserNotificationRulePtrOutput)
-}
-
-type UserNotificationRulePtrOutput struct{ *pulumi.OutputState }
-
-func (UserNotificationRulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserNotificationRule)(nil))
-}
-
-func (o UserNotificationRulePtrOutput) ToUserNotificationRulePtrOutput() UserNotificationRulePtrOutput {
-	return o
-}
-
-func (o UserNotificationRulePtrOutput) ToUserNotificationRulePtrOutputWithContext(ctx context.Context) UserNotificationRulePtrOutput {
-	return o
-}
-
-func (o UserNotificationRulePtrOutput) Elem() UserNotificationRuleOutput {
-	return o.ApplyT(func(v *UserNotificationRule) UserNotificationRule {
-		if v != nil {
-			return *v
-		}
-		var ret UserNotificationRule
-		return ret
-	}).(UserNotificationRuleOutput)
-}
-
 type UserNotificationRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (UserNotificationRuleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UserNotificationRule)(nil))
+	return reflect.TypeOf((*[]*UserNotificationRule)(nil)).Elem()
 }
 
 func (o UserNotificationRuleArrayOutput) ToUserNotificationRuleArrayOutput() UserNotificationRuleArrayOutput {
@@ -375,15 +312,15 @@ func (o UserNotificationRuleArrayOutput) ToUserNotificationRuleArrayOutputWithCo
 }
 
 func (o UserNotificationRuleArrayOutput) Index(i pulumi.IntInput) UserNotificationRuleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserNotificationRule {
-		return vs[0].([]UserNotificationRule)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserNotificationRule {
+		return vs[0].([]*UserNotificationRule)[vs[1].(int)]
 	}).(UserNotificationRuleOutput)
 }
 
 type UserNotificationRuleMapOutput struct{ *pulumi.OutputState }
 
 func (UserNotificationRuleMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]UserNotificationRule)(nil))
+	return reflect.TypeOf((*map[string]*UserNotificationRule)(nil)).Elem()
 }
 
 func (o UserNotificationRuleMapOutput) ToUserNotificationRuleMapOutput() UserNotificationRuleMapOutput {
@@ -395,18 +332,16 @@ func (o UserNotificationRuleMapOutput) ToUserNotificationRuleMapOutputWithContex
 }
 
 func (o UserNotificationRuleMapOutput) MapIndex(k pulumi.StringInput) UserNotificationRuleOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserNotificationRule {
-		return vs[0].(map[string]UserNotificationRule)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *UserNotificationRule {
+		return vs[0].(map[string]*UserNotificationRule)[vs[1].(string)]
 	}).(UserNotificationRuleOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserNotificationRuleInput)(nil)).Elem(), &UserNotificationRule{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserNotificationRulePtrInput)(nil)).Elem(), &UserNotificationRule{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserNotificationRuleArrayInput)(nil)).Elem(), UserNotificationRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserNotificationRuleMapInput)(nil)).Elem(), UserNotificationRuleMap{})
 	pulumi.RegisterOutputType(UserNotificationRuleOutput{})
-	pulumi.RegisterOutputType(UserNotificationRulePtrOutput{})
 	pulumi.RegisterOutputType(UserNotificationRuleArrayOutput{})
 	pulumi.RegisterOutputType(UserNotificationRuleMapOutput{})
 }

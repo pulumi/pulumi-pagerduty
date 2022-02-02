@@ -83,13 +83,13 @@ export class TagAssignment extends pulumi.CustomResource {
      */
     constructor(name: string, args: TagAssignmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TagAssignmentArgs | TagAssignmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TagAssignmentState | undefined;
-            inputs["entityId"] = state ? state.entityId : undefined;
-            inputs["entityType"] = state ? state.entityType : undefined;
-            inputs["tagId"] = state ? state.tagId : undefined;
+            resourceInputs["entityId"] = state ? state.entityId : undefined;
+            resourceInputs["entityType"] = state ? state.entityType : undefined;
+            resourceInputs["tagId"] = state ? state.tagId : undefined;
         } else {
             const args = argsOrState as TagAssignmentArgs | undefined;
             if ((!args || args.entityId === undefined) && !opts.urn) {
@@ -101,14 +101,12 @@ export class TagAssignment extends pulumi.CustomResource {
             if ((!args || args.tagId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tagId'");
             }
-            inputs["entityId"] = args ? args.entityId : undefined;
-            inputs["entityType"] = args ? args.entityType : undefined;
-            inputs["tagId"] = args ? args.tagId : undefined;
+            resourceInputs["entityId"] = args ? args.entityId : undefined;
+            resourceInputs["entityType"] = args ? args.entityType : undefined;
+            resourceInputs["tagId"] = args ? args.tagId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(TagAssignment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(TagAssignment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

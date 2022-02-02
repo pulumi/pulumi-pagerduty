@@ -24,9 +24,7 @@ export function getServiceIntegration(args: GetServiceIntegrationArgs, opts?: pu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("pagerduty:index/getServiceIntegration:getServiceIntegration", {
         "integrationSummary": args.integrationSummary,
         "serviceName": args.serviceName,

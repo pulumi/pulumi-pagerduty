@@ -228,7 +228,7 @@ type SlackConnectionInput interface {
 }
 
 func (*SlackConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*SlackConnection)(nil))
+	return reflect.TypeOf((**SlackConnection)(nil)).Elem()
 }
 
 func (i *SlackConnection) ToSlackConnectionOutput() SlackConnectionOutput {
@@ -237,35 +237,6 @@ func (i *SlackConnection) ToSlackConnectionOutput() SlackConnectionOutput {
 
 func (i *SlackConnection) ToSlackConnectionOutputWithContext(ctx context.Context) SlackConnectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SlackConnectionOutput)
-}
-
-func (i *SlackConnection) ToSlackConnectionPtrOutput() SlackConnectionPtrOutput {
-	return i.ToSlackConnectionPtrOutputWithContext(context.Background())
-}
-
-func (i *SlackConnection) ToSlackConnectionPtrOutputWithContext(ctx context.Context) SlackConnectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SlackConnectionPtrOutput)
-}
-
-type SlackConnectionPtrInput interface {
-	pulumi.Input
-
-	ToSlackConnectionPtrOutput() SlackConnectionPtrOutput
-	ToSlackConnectionPtrOutputWithContext(ctx context.Context) SlackConnectionPtrOutput
-}
-
-type slackConnectionPtrType SlackConnectionArgs
-
-func (*slackConnectionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SlackConnection)(nil))
-}
-
-func (i *slackConnectionPtrType) ToSlackConnectionPtrOutput() SlackConnectionPtrOutput {
-	return i.ToSlackConnectionPtrOutputWithContext(context.Background())
-}
-
-func (i *slackConnectionPtrType) ToSlackConnectionPtrOutputWithContext(ctx context.Context) SlackConnectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SlackConnectionPtrOutput)
 }
 
 // SlackConnectionArrayInput is an input type that accepts SlackConnectionArray and SlackConnectionArrayOutput values.
@@ -321,7 +292,7 @@ func (i SlackConnectionMap) ToSlackConnectionMapOutputWithContext(ctx context.Co
 type SlackConnectionOutput struct{ *pulumi.OutputState }
 
 func (SlackConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SlackConnection)(nil))
+	return reflect.TypeOf((**SlackConnection)(nil)).Elem()
 }
 
 func (o SlackConnectionOutput) ToSlackConnectionOutput() SlackConnectionOutput {
@@ -332,44 +303,10 @@ func (o SlackConnectionOutput) ToSlackConnectionOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o SlackConnectionOutput) ToSlackConnectionPtrOutput() SlackConnectionPtrOutput {
-	return o.ToSlackConnectionPtrOutputWithContext(context.Background())
-}
-
-func (o SlackConnectionOutput) ToSlackConnectionPtrOutputWithContext(ctx context.Context) SlackConnectionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SlackConnection) *SlackConnection {
-		return &v
-	}).(SlackConnectionPtrOutput)
-}
-
-type SlackConnectionPtrOutput struct{ *pulumi.OutputState }
-
-func (SlackConnectionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SlackConnection)(nil))
-}
-
-func (o SlackConnectionPtrOutput) ToSlackConnectionPtrOutput() SlackConnectionPtrOutput {
-	return o
-}
-
-func (o SlackConnectionPtrOutput) ToSlackConnectionPtrOutputWithContext(ctx context.Context) SlackConnectionPtrOutput {
-	return o
-}
-
-func (o SlackConnectionPtrOutput) Elem() SlackConnectionOutput {
-	return o.ApplyT(func(v *SlackConnection) SlackConnection {
-		if v != nil {
-			return *v
-		}
-		var ret SlackConnection
-		return ret
-	}).(SlackConnectionOutput)
-}
-
 type SlackConnectionArrayOutput struct{ *pulumi.OutputState }
 
 func (SlackConnectionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SlackConnection)(nil))
+	return reflect.TypeOf((*[]*SlackConnection)(nil)).Elem()
 }
 
 func (o SlackConnectionArrayOutput) ToSlackConnectionArrayOutput() SlackConnectionArrayOutput {
@@ -381,15 +318,15 @@ func (o SlackConnectionArrayOutput) ToSlackConnectionArrayOutputWithContext(ctx 
 }
 
 func (o SlackConnectionArrayOutput) Index(i pulumi.IntInput) SlackConnectionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SlackConnection {
-		return vs[0].([]SlackConnection)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SlackConnection {
+		return vs[0].([]*SlackConnection)[vs[1].(int)]
 	}).(SlackConnectionOutput)
 }
 
 type SlackConnectionMapOutput struct{ *pulumi.OutputState }
 
 func (SlackConnectionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SlackConnection)(nil))
+	return reflect.TypeOf((*map[string]*SlackConnection)(nil)).Elem()
 }
 
 func (o SlackConnectionMapOutput) ToSlackConnectionMapOutput() SlackConnectionMapOutput {
@@ -401,18 +338,16 @@ func (o SlackConnectionMapOutput) ToSlackConnectionMapOutputWithContext(ctx cont
 }
 
 func (o SlackConnectionMapOutput) MapIndex(k pulumi.StringInput) SlackConnectionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SlackConnection {
-		return vs[0].(map[string]SlackConnection)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SlackConnection {
+		return vs[0].(map[string]*SlackConnection)[vs[1].(string)]
 	}).(SlackConnectionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SlackConnectionInput)(nil)).Elem(), &SlackConnection{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SlackConnectionPtrInput)(nil)).Elem(), &SlackConnection{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SlackConnectionArrayInput)(nil)).Elem(), SlackConnectionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SlackConnectionMapInput)(nil)).Elem(), SlackConnectionMap{})
 	pulumi.RegisterOutputType(SlackConnectionOutput{})
-	pulumi.RegisterOutputType(SlackConnectionPtrOutput{})
 	pulumi.RegisterOutputType(SlackConnectionArrayOutput{})
 	pulumi.RegisterOutputType(SlackConnectionMapOutput{})
 }

@@ -101,30 +101,28 @@ export class EscalationPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: EscalationPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EscalationPolicyArgs | EscalationPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EscalationPolicyState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["numLoops"] = state ? state.numLoops : undefined;
-            inputs["rules"] = state ? state.rules : undefined;
-            inputs["teams"] = state ? state.teams : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["numLoops"] = state ? state.numLoops : undefined;
+            resourceInputs["rules"] = state ? state.rules : undefined;
+            resourceInputs["teams"] = state ? state.teams : undefined;
         } else {
             const args = argsOrState as EscalationPolicyArgs | undefined;
             if ((!args || args.rules === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rules'");
             }
-            inputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
-            inputs["name"] = args ? args.name : undefined;
-            inputs["numLoops"] = args ? args.numLoops : undefined;
-            inputs["rules"] = args ? args.rules : undefined;
-            inputs["teams"] = args ? args.teams : undefined;
+            resourceInputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["numLoops"] = args ? args.numLoops : undefined;
+            resourceInputs["rules"] = args ? args.rules : undefined;
+            resourceInputs["teams"] = args ? args.teams : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EscalationPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EscalationPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

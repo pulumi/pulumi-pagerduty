@@ -28,9 +28,7 @@ export function getEscalationPolicy(args: GetEscalationPolicyArgs, opts?: pulumi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("pagerduty:index/getEscalationPolicy:getEscalationPolicy", {
         "name": args.name,
     }, opts);

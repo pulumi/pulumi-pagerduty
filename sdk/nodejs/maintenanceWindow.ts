@@ -84,14 +84,14 @@ export class MaintenanceWindow extends pulumi.CustomResource {
      */
     constructor(name: string, args: MaintenanceWindowArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MaintenanceWindowArgs | MaintenanceWindowState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MaintenanceWindowState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["endTime"] = state ? state.endTime : undefined;
-            inputs["services"] = state ? state.services : undefined;
-            inputs["startTime"] = state ? state.startTime : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["endTime"] = state ? state.endTime : undefined;
+            resourceInputs["services"] = state ? state.services : undefined;
+            resourceInputs["startTime"] = state ? state.startTime : undefined;
         } else {
             const args = argsOrState as MaintenanceWindowArgs | undefined;
             if ((!args || args.endTime === undefined) && !opts.urn) {
@@ -103,15 +103,13 @@ export class MaintenanceWindow extends pulumi.CustomResource {
             if ((!args || args.startTime === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'startTime'");
             }
-            inputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
-            inputs["endTime"] = args ? args.endTime : undefined;
-            inputs["services"] = args ? args.services : undefined;
-            inputs["startTime"] = args ? args.startTime : undefined;
+            resourceInputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
+            resourceInputs["endTime"] = args ? args.endTime : undefined;
+            resourceInputs["services"] = args ? args.services : undefined;
+            resourceInputs["startTime"] = args ? args.startTime : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(MaintenanceWindow.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(MaintenanceWindow.__pulumiType, name, resourceInputs, opts);
     }
 }
 

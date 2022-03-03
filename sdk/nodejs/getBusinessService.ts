@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Use this data source to get information about a specific [business service](https://api-reference.pagerduty.com/#!/Business_Services/get_business_services).
+ * Use this data source to get information about a specific [business service][1].
  *
  * ## Example Usage
  *
@@ -51,6 +51,10 @@ export interface GetBusinessServiceResult {
      * The short name of the found business service.
      */
     readonly name: string;
+    /**
+     * The type of object. The value returned will be `businessService`. Can be used for passing to a service dependency.
+     */
+    readonly type: string;
 }
 
 export function getBusinessServiceOutput(args: GetBusinessServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBusinessServiceResult> {

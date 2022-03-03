@@ -144,6 +144,12 @@ namespace Pulumi.Pagerduty
         [Output("supportHours")]
         public Output<Outputs.ServiceSupportHours?> SupportHours { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+        /// </summary>
+        [Output("type")]
+        public Output<string> Type { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Service resource with the given unique name, arguments, and options.
@@ -339,6 +345,12 @@ namespace Pulumi.Pagerduty
 
         [Input("supportHours")]
         public Input<Inputs.ServiceSupportHoursGetArgs>? SupportHours { get; set; }
+
+        /// <summary>
+        /// The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         public ServiceState()
         {

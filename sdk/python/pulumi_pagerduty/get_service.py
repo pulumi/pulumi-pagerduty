@@ -20,13 +20,16 @@ class GetServiceResult:
     """
     A collection of values returned by getService.
     """
-    def __init__(__self__, id=None, name=None):
+    def __init__(__self__, id=None, name=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -44,6 +47,14 @@ class GetServiceResult:
         """
         return pulumi.get(self, "name")
 
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+        """
+        return pulumi.get(self, "type")
+
 
 class AwaitableGetServiceResult(GetServiceResult):
     # pylint: disable=using-constant-test
@@ -52,7 +63,8 @@ class AwaitableGetServiceResult(GetServiceResult):
             yield self
         return GetServiceResult(
             id=self.id,
-            name=self.name)
+            name=self.name,
+            type=self.type)
 
 
 def get_service(name: Optional[str] = None,
@@ -87,7 +99,8 @@ def get_service(name: Optional[str] = None,
 
     return AwaitableGetServiceResult(
         id=__ret__.id,
-        name=__ret__.name)
+        name=__ret__.name,
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_service)

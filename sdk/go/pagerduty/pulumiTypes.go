@@ -125,7 +125,7 @@ func (o EscalationPolicyRuleArrayOutput) Index(i pulumi.IntInput) EscalationPoli
 type EscalationPolicyRuleTarget struct {
 	// A target ID
 	Id string `pulumi:"id"`
-	// Can be `user`, `schedule`, `userReference` or `scheduleReference`. Defaults to `userReference`. For multiple users as example, repeat the target.
+	// Can be `userReference` or `scheduleReference`. Defaults to `userReference`. For multiple users as example, repeat the target.
 	Type *string `pulumi:"type"`
 }
 
@@ -143,7 +143,7 @@ type EscalationPolicyRuleTargetInput interface {
 type EscalationPolicyRuleTargetArgs struct {
 	// A target ID
 	Id pulumi.StringInput `pulumi:"id"`
-	// Can be `user`, `schedule`, `userReference` or `scheduleReference`. Defaults to `userReference`. For multiple users as example, repeat the target.
+	// Can be `userReference` or `scheduleReference`. Defaults to `userReference`. For multiple users as example, repeat the target.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -203,7 +203,7 @@ func (o EscalationPolicyRuleTargetOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v EscalationPolicyRuleTarget) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Can be `user`, `schedule`, `userReference` or `scheduleReference`. Defaults to `userReference`. For multiple users as example, repeat the target.
+// Can be `userReference` or `scheduleReference`. Defaults to `userReference`. For multiple users as example, repeat the target.
 func (o EscalationPolicyRuleTargetOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EscalationPolicyRuleTarget) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -245,7 +245,7 @@ type ResponsePlayResponder struct {
 	Services []ResponsePlayResponderService `pulumi:"services"`
 	// Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
 	Teams []ResponsePlayResponderTeam `pulumi:"teams"`
-	// Type of object of the target. Supported types are `user`, `schedule`, `userReference`, `scheduleReference`.
+	// Type of object of the target. Supported types are `userReference`, `scheduleReference`.
 	Type *string `pulumi:"type"`
 }
 
@@ -277,7 +277,7 @@ type ResponsePlayResponderArgs struct {
 	Services ResponsePlayResponderServiceArrayInput `pulumi:"services"`
 	// Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
 	Teams ResponsePlayResponderTeamArrayInput `pulumi:"teams"`
-	// Type of object of the target. Supported types are `user`, `schedule`, `userReference`, `scheduleReference`.
+	// Type of object of the target. Supported types are `userReference`, `scheduleReference`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -372,7 +372,7 @@ func (o ResponsePlayResponderOutput) Teams() ResponsePlayResponderTeamArrayOutpu
 	return o.ApplyT(func(v ResponsePlayResponder) []ResponsePlayResponderTeam { return v.Teams }).(ResponsePlayResponderTeamArrayOutput)
 }
 
-// Type of object of the target. Supported types are `user`, `schedule`, `userReference`, `scheduleReference`.
+// Type of object of the target. Supported types are `userReference`, `scheduleReference`.
 func (o ResponsePlayResponderOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResponsePlayResponder) *string { return v.Type }).(pulumi.StringPtrOutput)
 }

@@ -75,7 +75,7 @@ namespace Pulumi.Pagerduty
         public Output<string?> Team { get; private set; } = null!;
 
         /// <summary>
-        /// Default value is `business_service`. Can also be set as `business_service_reference`.
+        /// **Deprecated** (Optional) Default (and only supported) value is `business_service`.
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
@@ -148,7 +148,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? Team { get; set; }
 
         /// <summary>
-        /// Default value is `business_service`. Can also be set as `business_service_reference`.
+        /// **Deprecated** (Optional) Default (and only supported) value is `business_service`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -192,7 +192,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? Team { get; set; }
 
         /// <summary>
-        /// Default value is `business_service`. Can also be set as `business_service_reference`.
+        /// **Deprecated** (Optional) Default (and only supported) value is `business_service`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

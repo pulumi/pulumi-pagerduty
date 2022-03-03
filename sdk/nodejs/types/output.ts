@@ -22,7 +22,7 @@ export interface EscalationPolicyRuleTarget {
      */
     id: string;
     /**
-     * Can be `user`, `schedule`, `userReference` or `scheduleReference`. Defaults to `userReference`. For multiple users as example, repeat the target.
+     * Can be `userReference` or `scheduleReference`. Defaults to `userReference`. For multiple users as example, repeat the target.
      */
     type?: string;
 }
@@ -61,7 +61,7 @@ export interface ResponsePlayResponder {
      */
     teams: outputs.ResponsePlayResponderTeam[];
     /**
-     * Type of object of the target. Supported types are `user`, `schedule`, `userReference`, `scheduleReference`.
+     * Type of object of the target. Supported types are `userReference`, `scheduleReference`.
      */
     type?: string;
 }

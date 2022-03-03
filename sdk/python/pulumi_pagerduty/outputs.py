@@ -131,7 +131,7 @@ class EscalationPolicyRuleTarget(dict):
                  type: Optional[str] = None):
         """
         :param str id: A target ID
-        :param str type: Can be `user`, `schedule`, `user_reference` or `schedule_reference`. Defaults to `user_reference`. For multiple users as example, repeat the target.
+        :param str type: Can be `user_reference` or `schedule_reference`. Defaults to `user_reference`. For multiple users as example, repeat the target.
         """
         pulumi.set(__self__, "id", id)
         if type is not None:
@@ -149,7 +149,7 @@ class EscalationPolicyRuleTarget(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        Can be `user`, `schedule`, `user_reference` or `schedule_reference`. Defaults to `user_reference`. For multiple users as example, repeat the target.
+        Can be `user_reference` or `schedule_reference`. Defaults to `user_reference`. For multiple users as example, repeat the target.
         """
         return pulumi.get(self, "type")
 
@@ -196,7 +196,7 @@ class ResponsePlayResponder(dict):
         :param str on_call_handoff_notifications: Determines how on call handoff notifications will be sent for users on the escalation policy. Defaults to "if_has_services". Could be "if_has_services", "always
         :param Sequence['ResponsePlayResponderServiceArgs'] services: There can be multiple services associated with a policy.
         :param Sequence['ResponsePlayResponderTeamArgs'] teams: Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
-        :param str type: Type of object of the target. Supported types are `user`, `schedule`, `user_reference`, `schedule_reference`.
+        :param str type: Type of object of the target. Supported types are `user_reference`, `schedule_reference`.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -285,7 +285,7 @@ class ResponsePlayResponder(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        Type of object of the target. Supported types are `user`, `schedule`, `user_reference`, `schedule_reference`.
+        Type of object of the target. Supported types are `user_reference`, `schedule_reference`.
         """
         return pulumi.get(self, "type")
 

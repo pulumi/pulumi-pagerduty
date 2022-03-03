@@ -125,7 +125,7 @@ class EscalationPolicyRuleTargetArgs:
                  type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] id: A target ID
-        :param pulumi.Input[str] type: Can be `user`, `schedule`, `user_reference` or `schedule_reference`. Defaults to `user_reference`. For multiple users as example, repeat the target.
+        :param pulumi.Input[str] type: Can be `user_reference` or `schedule_reference`. Defaults to `user_reference`. For multiple users as example, repeat the target.
         """
         pulumi.set(__self__, "id", id)
         if type is not None:
@@ -147,7 +147,7 @@ class EscalationPolicyRuleTargetArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Can be `user`, `schedule`, `user_reference` or `schedule_reference`. Defaults to `user_reference`. For multiple users as example, repeat the target.
+        Can be `user_reference` or `schedule_reference`. Defaults to `user_reference`. For multiple users as example, repeat the target.
         """
         return pulumi.get(self, "type")
 
@@ -177,7 +177,7 @@ class ResponsePlayResponderArgs:
         :param pulumi.Input[str] on_call_handoff_notifications: Determines how on call handoff notifications will be sent for users on the escalation policy. Defaults to "if_has_services". Could be "if_has_services", "always
         :param pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderServiceArgs']]] services: There can be multiple services associated with a policy.
         :param pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderTeamArgs']]] teams: Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
-        :param pulumi.Input[str] type: Type of object of the target. Supported types are `user`, `schedule`, `user_reference`, `schedule_reference`.
+        :param pulumi.Input[str] type: Type of object of the target. Supported types are `user_reference`, `schedule_reference`.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -298,7 +298,7 @@ class ResponsePlayResponderArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of object of the target. Supported types are `user`, `schedule`, `user_reference`, `schedule_reference`.
+        Type of object of the target. Supported types are `user_reference`, `schedule_reference`.
         """
         return pulumi.get(self, "type")
 

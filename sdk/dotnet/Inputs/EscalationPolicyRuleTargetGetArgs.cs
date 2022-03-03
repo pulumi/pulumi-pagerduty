@@ -19,7 +19,7 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<string> Id { get; set; } = null!;
 
         /// <summary>
-        /// Can be `user`, `schedule`, `user_reference` or `schedule_reference`. Defaults to `user_reference`. For multiple users as example, repeat the target.
+        /// Can be `user_reference` or `schedule_reference`. Defaults to `user_reference`. For multiple users as example, repeat the target.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

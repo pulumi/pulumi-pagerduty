@@ -23,7 +23,7 @@ class BusinessServiceArgs:
         :param pulumi.Input[str] name: The name of the business service.
         :param pulumi.Input[str] point_of_contact: The owner of the business service.
         :param pulumi.Input[str] team: ID of the team that owns the business service.
-        :param pulumi.Input[str] type: Default value is `business_service`. Can also be set as `business_service_reference`.
+        :param pulumi.Input[str] type: **Deprecated** (Optional) Default (and only supported) value is `business_service`.
         """
         if description is None:
             description = 'Managed by Pulumi'
@@ -35,6 +35,9 @@ class BusinessServiceArgs:
             pulumi.set(__self__, "point_of_contact", point_of_contact)
         if team is not None:
             pulumi.set(__self__, "team", team)
+        if type is not None:
+            warnings.warn("""This will change to a computed resource in the next major release.""", DeprecationWarning)
+            pulumi.log.warn("""type is deprecated: This will change to a computed resource in the next major release.""")
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -87,7 +90,7 @@ class BusinessServiceArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Default value is `business_service`. Can also be set as `business_service_reference`.
+        **Deprecated** (Optional) Default (and only supported) value is `business_service`.
         """
         return pulumi.get(self, "type")
 
@@ -112,7 +115,7 @@ class _BusinessServiceState:
         :param pulumi.Input[str] name: The name of the business service.
         :param pulumi.Input[str] point_of_contact: The owner of the business service.
         :param pulumi.Input[str] team: ID of the team that owns the business service.
-        :param pulumi.Input[str] type: Default value is `business_service`. Can also be set as `business_service_reference`.
+        :param pulumi.Input[str] type: **Deprecated** (Optional) Default (and only supported) value is `business_service`.
         """
         if description is None:
             description = 'Managed by Pulumi'
@@ -130,6 +133,9 @@ class _BusinessServiceState:
             pulumi.set(__self__, "summary", summary)
         if team is not None:
             pulumi.set(__self__, "team", team)
+        if type is not None:
+            warnings.warn("""This will change to a computed resource in the next major release.""", DeprecationWarning)
+            pulumi.log.warn("""type is deprecated: This will change to a computed resource in the next major release.""")
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -209,7 +215,7 @@ class _BusinessServiceState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Default value is `business_service`. Can also be set as `business_service_reference`.
+        **Deprecated** (Optional) Default (and only supported) value is `business_service`.
         """
         return pulumi.get(self, "type")
 
@@ -257,7 +263,7 @@ class BusinessService(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the business service.
         :param pulumi.Input[str] point_of_contact: The owner of the business service.
         :param pulumi.Input[str] team: ID of the team that owns the business service.
-        :param pulumi.Input[str] type: Default value is `business_service`. Can also be set as `business_service_reference`.
+        :param pulumi.Input[str] type: **Deprecated** (Optional) Default (and only supported) value is `business_service`.
         """
         ...
     @overload
@@ -326,6 +332,9 @@ class BusinessService(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["point_of_contact"] = point_of_contact
             __props__.__dict__["team"] = team
+            if type is not None and not opts.urn:
+                warnings.warn("""This will change to a computed resource in the next major release.""", DeprecationWarning)
+                pulumi.log.warn("""type is deprecated: This will change to a computed resource in the next major release.""")
             __props__.__dict__["type"] = type
             __props__.__dict__["html_url"] = None
             __props__.__dict__["self"] = None
@@ -358,7 +367,7 @@ class BusinessService(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the business service.
         :param pulumi.Input[str] point_of_contact: The owner of the business service.
         :param pulumi.Input[str] team: ID of the team that owns the business service.
-        :param pulumi.Input[str] type: Default value is `business_service`. Can also be set as `business_service_reference`.
+        :param pulumi.Input[str] type: **Deprecated** (Optional) Default (and only supported) value is `business_service`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -422,7 +431,7 @@ class BusinessService(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[str]]:
         """
-        Default value is `business_service`. Can also be set as `business_service_reference`.
+        **Deprecated** (Optional) Default (and only supported) value is `business_service`.
         """
         return pulumi.get(self, "type")
 

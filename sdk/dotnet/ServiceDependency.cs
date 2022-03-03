@@ -31,7 +31,7 @@ namespace Pulumi.Pagerduty
     ///                     new Pagerduty.Inputs.ServiceDependencyDependencyDependentServiceArgs
     ///                     {
     ///                         Id = pagerduty_business_service.Foo.Id,
-    ///                         Type = "business_service",
+    ///                         Type = pagerduty_business_service.Foo.Type,
     ///                     },
     ///                 },
     ///                 SupportingServices = 
@@ -39,7 +39,7 @@ namespace Pulumi.Pagerduty
     ///                     new Pagerduty.Inputs.ServiceDependencyDependencySupportingServiceArgs
     ///                     {
     ///                         Id = pagerduty_service.Foo.Id,
-    ///                         Type = "service",
+    ///                         Type = pagerduty_service.Foo.Type,
     ///                     },
     ///                 },
     ///             },
@@ -53,7 +53,7 @@ namespace Pulumi.Pagerduty
     ///                     new Pagerduty.Inputs.ServiceDependencyDependencyDependentServiceArgs
     ///                     {
     ///                         Id = pagerduty_business_service.Foo.Id,
-    ///                         Type = "business_service",
+    ///                         Type = pagerduty_business_service.Foo.Type,
     ///                     },
     ///                 },
     ///                 SupportingServices = 
@@ -61,7 +61,7 @@ namespace Pulumi.Pagerduty
     ///                     new Pagerduty.Inputs.ServiceDependencyDependencySupportingServiceArgs
     ///                     {
     ///                         Id = pagerduty_service.Two.Id,
-    ///                         Type = "service",
+    ///                         Type = pagerduty_service.Two.Type,
     ///                     },
     ///                 },
     ///             },

@@ -73,7 +73,9 @@ export class BusinessService extends pulumi.CustomResource {
      */
     public readonly team!: pulumi.Output<string | undefined>;
     /**
-     * Default value is `businessService`. Can also be set as `businessServiceReference`.
+     * **Deprecated** (Optional) Default (and only supported) value is `businessService`.
+     *
+     * @deprecated This will change to a computed resource in the next major release.
      */
     public readonly type!: pulumi.Output<string | undefined>;
 
@@ -135,7 +137,9 @@ export interface BusinessServiceState {
      */
     team?: pulumi.Input<string>;
     /**
-     * Default value is `businessService`. Can also be set as `businessServiceReference`.
+     * **Deprecated** (Optional) Default (and only supported) value is `businessService`.
+     *
+     * @deprecated This will change to a computed resource in the next major release.
      */
     type?: pulumi.Input<string>;
 }
@@ -158,7 +162,9 @@ export interface BusinessServiceArgs {
      */
     team?: pulumi.Input<string>;
     /**
-     * Default value is `businessService`. Can also be set as `businessServiceReference`.
+     * **Deprecated** (Optional) Default (and only supported) value is `businessService`.
+     *
+     * @deprecated This will change to a computed resource in the next major release.
      */
     type?: pulumi.Input<string>;
 }

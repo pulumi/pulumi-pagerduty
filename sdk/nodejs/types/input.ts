@@ -22,7 +22,7 @@ export interface EscalationPolicyRuleTarget {
      */
     id: pulumi.Input<string>;
     /**
-     * Can be `user`, `schedule`, `userReference` or `scheduleReference`. Defaults to `userReference`. For multiple users as example, repeat the target.
+     * Can be `userReference` or `scheduleReference`. Defaults to `userReference`. For multiple users as example, repeat the target.
      */
     type?: pulumi.Input<string>;
 }
@@ -61,7 +61,7 @@ export interface ResponsePlayResponder {
      */
     teams?: pulumi.Input<pulumi.Input<inputs.ResponsePlayResponderTeam>[]>;
     /**
-     * Type of object of the target. Supported types are `user`, `schedule`, `userReference`, `scheduleReference`.
+     * Type of object of the target. Supported types are `userReference`, `scheduleReference`.
      */
     type?: pulumi.Input<string>;
 }

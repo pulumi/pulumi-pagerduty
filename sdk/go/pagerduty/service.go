@@ -103,6 +103,8 @@ type Service struct {
 	ScheduledActions ServiceScheduledActionArrayOutput `pulumi:"scheduledActions"`
 	Status           pulumi.StringOutput               `pulumi:"status"`
 	SupportHours     ServiceSupportHoursPtrOutput      `pulumi:"supportHours"`
+	// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+	Type pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewService registers a new resource with the given unique name, arguments, and options.
@@ -168,6 +170,8 @@ type serviceState struct {
 	ScheduledActions []ServiceScheduledAction `pulumi:"scheduledActions"`
 	Status           *string                  `pulumi:"status"`
 	SupportHours     *ServiceSupportHours     `pulumi:"supportHours"`
+	// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+	Type *string `pulumi:"type"`
 }
 
 type ServiceState struct {
@@ -199,6 +203,8 @@ type ServiceState struct {
 	ScheduledActions ServiceScheduledActionArrayInput
 	Status           pulumi.StringPtrInput
 	SupportHours     ServiceSupportHoursPtrInput
+	// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+	Type pulumi.StringPtrInput
 }
 
 func (ServiceState) ElementType() reflect.Type {

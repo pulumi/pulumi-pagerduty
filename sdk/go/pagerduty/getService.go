@@ -69,6 +69,8 @@ type LookupServiceResult struct {
 	Id string `pulumi:"id"`
 	// The short name of the found service.
 	Name string `pulumi:"name"`
+	// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+	Type string `pulumi:"type"`
 }
 
 func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts ...pulumi.InvokeOption) LookupServiceResultOutput {
@@ -113,6 +115,11 @@ func (o LookupServiceResultOutput) Id() pulumi.StringOutput {
 // The short name of the found service.
 func (o LookupServiceResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+func (o LookupServiceResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.Type }).(pulumi.StringOutput)
 }
 
 func init() {

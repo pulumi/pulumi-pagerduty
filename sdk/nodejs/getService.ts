@@ -59,6 +59,10 @@ export interface GetServiceResult {
      * The short name of the found service.
      */
     readonly name: string;
+    /**
+     * The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+     */
+    readonly type: string;
 }
 
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {

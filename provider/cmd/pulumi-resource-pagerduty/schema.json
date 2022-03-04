@@ -96,7 +96,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "Can be `user`, `schedule`, `user_reference` or `schedule_reference`. Defaults to `user_reference`. For multiple users as example, repeat the target.\n",
+                    "description": "Can be `user_reference` or `schedule_reference`. Defaults to `user_reference`. For multiple users as example, repeat the target.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -194,7 +194,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "Type of object of the target. Supported types are `user`, `schedule`, `user_reference`, `schedule_reference`.\n",
+                    "description": "Type of object of the target. Supported types are `user_reference`, `schedule_reference`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2080,7 +2080,8 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "Default value is `business_service`. Can also be set as `business_service_reference`.\n"
+                    "description": "**Deprecated** (Optional) Default (and only supported) value is `business_service`.\n",
+                    "deprecationMessage": "This will change to a computed resource in the next major release."
                 }
             },
             "required": [
@@ -2109,7 +2110,8 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "Default value is `business_service`. Can also be set as `business_service_reference`.\n"
+                    "description": "**Deprecated** (Optional) Default (and only supported) value is `business_service`.\n",
+                    "deprecationMessage": "This will change to a computed resource in the next major release."
                 }
             },
             "stateInputs": {
@@ -2142,7 +2144,8 @@
                     },
                     "type": {
                         "type": "string",
-                        "description": "Default value is `business_service`. Can also be set as `business_service_reference`.\n"
+                        "description": "**Deprecated** (Optional) Default (and only supported) value is `business_service`.\n",
+                        "deprecationMessage": "This will change to a computed resource in the next major release."
                     }
                 },
                 "type": "object"
@@ -3297,6 +3300,10 @@
                 },
                 "supportHours": {
                     "$ref": "#/types/pagerduty:index/ServiceSupportHours:ServiceSupportHours"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of alert grouping; one of `intelligent`, `time` or `content_based`.\n"
                 }
             },
             "required": [
@@ -3309,7 +3316,8 @@
                 "incidentUrgencyRule",
                 "lastIncidentTimestamp",
                 "name",
-                "status"
+                "status",
+                "type"
             ],
             "inputProperties": {
                 "acknowledgementTimeout": {
@@ -3430,13 +3438,17 @@
                     },
                     "supportHours": {
                         "$ref": "#/types/pagerduty:index/ServiceSupportHours:ServiceSupportHours"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "The type of alert grouping; one of `intelligent`, `time` or `content_based`.\n"
                     }
                 },
                 "type": "object"
             }
         },
         "pagerduty:index/serviceDependency:ServiceDependency": {
-            "description": "A [service dependency](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1service_dependencies~1associate/post) is a relationship between two services that this service uses, or that are used by this service, and are critical for successful operation.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst foo = new pagerduty.ServiceDependency(\"foo\", {dependency: {\n    dependentServices: [{\n        id: pagerduty_business_service.foo.id,\n        type: \"business_service\",\n    }],\n    supportingServices: [{\n        id: pagerduty_service.foo.id,\n        type: \"service\",\n    }],\n}});\nconst bar = new pagerduty.ServiceDependency(\"bar\", {dependency: {\n    dependentServices: [{\n        id: pagerduty_business_service.foo.id,\n        type: \"business_service\",\n    }],\n    supportingServices: [{\n        id: pagerduty_service.two.id,\n        type: \"service\",\n    }],\n}});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nfoo = pagerduty.ServiceDependency(\"foo\", dependency=pagerduty.ServiceDependencyDependencyArgs(\n    dependent_services=[pagerduty.ServiceDependencyDependencyDependentServiceArgs(\n        id=pagerduty_business_service[\"foo\"][\"id\"],\n        type=\"business_service\",\n    )],\n    supporting_services=[pagerduty.ServiceDependencyDependencySupportingServiceArgs(\n        id=pagerduty_service[\"foo\"][\"id\"],\n        type=\"service\",\n    )],\n))\nbar = pagerduty.ServiceDependency(\"bar\", dependency=pagerduty.ServiceDependencyDependencyArgs(\n    dependent_services=[pagerduty.ServiceDependencyDependencyDependentServiceArgs(\n        id=pagerduty_business_service[\"foo\"][\"id\"],\n        type=\"business_service\",\n    )],\n    supporting_services=[pagerduty.ServiceDependencyDependencySupportingServiceArgs(\n        id=pagerduty_service[\"two\"][\"id\"],\n        type=\"service\",\n    )],\n))\n```\n```csharp\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var foo = new Pagerduty.ServiceDependency(\"foo\", new Pagerduty.ServiceDependencyArgs\n        {\n            Dependency = new Pagerduty.Inputs.ServiceDependencyDependencyArgs\n            {\n                DependentServices = \n                {\n                    new Pagerduty.Inputs.ServiceDependencyDependencyDependentServiceArgs\n                    {\n                        Id = pagerduty_business_service.Foo.Id,\n                        Type = \"business_service\",\n                    },\n                },\n                SupportingServices = \n                {\n                    new Pagerduty.Inputs.ServiceDependencyDependencySupportingServiceArgs\n                    {\n                        Id = pagerduty_service.Foo.Id,\n                        Type = \"service\",\n                    },\n                },\n            },\n        });\n        var bar = new Pagerduty.ServiceDependency(\"bar\", new Pagerduty.ServiceDependencyArgs\n        {\n            Dependency = new Pagerduty.Inputs.ServiceDependencyDependencyArgs\n            {\n                DependentServices = \n                {\n                    new Pagerduty.Inputs.ServiceDependencyDependencyDependentServiceArgs\n                    {\n                        Id = pagerduty_business_service.Foo.Id,\n                        Type = \"business_service\",\n                    },\n                },\n                SupportingServices = \n                {\n                    new Pagerduty.Inputs.ServiceDependencyDependencySupportingServiceArgs\n                    {\n                        Id = pagerduty_service.Two.Id,\n                        Type = \"service\",\n                    },\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := pagerduty.NewServiceDependency(ctx, \"foo\", \u0026pagerduty.ServiceDependencyArgs{\n\t\t\tDependency: \u0026ServiceDependencyDependencyArgs{\n\t\t\t\tDependentServices: ServiceDependencyDependencyDependentServiceArray{\n\t\t\t\t\t\u0026ServiceDependencyDependencyDependentServiceArgs{\n\t\t\t\t\t\tId:   pulumi.Any(pagerduty_business_service.Foo.Id),\n\t\t\t\t\t\tType: pulumi.String(\"business_service\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tSupportingServices: ServiceDependencyDependencySupportingServiceArray{\n\t\t\t\t\t\u0026ServiceDependencyDependencySupportingServiceArgs{\n\t\t\t\t\t\tId:   pulumi.Any(pagerduty_service.Foo.Id),\n\t\t\t\t\t\tType: pulumi.String(\"service\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewServiceDependency(ctx, \"bar\", \u0026pagerduty.ServiceDependencyArgs{\n\t\t\tDependency: \u0026ServiceDependencyDependencyArgs{\n\t\t\t\tDependentServices: ServiceDependencyDependencyDependentServiceArray{\n\t\t\t\t\t\u0026ServiceDependencyDependencyDependentServiceArgs{\n\t\t\t\t\t\tId:   pulumi.Any(pagerduty_business_service.Foo.Id),\n\t\t\t\t\t\tType: pulumi.String(\"business_service\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tSupportingServices: ServiceDependencyDependencySupportingServiceArray{\n\t\t\t\t\t\u0026ServiceDependencyDependencySupportingServiceArgs{\n\t\t\t\t\t\tId:   pulumi.Any(pagerduty_service.Two.Id),\n\t\t\t\t\t\tType: pulumi.String(\"service\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nService dependencies can be imported using the related supporting service id, supporting service type (`business_service` or `service`) and the dependency id separated by a dot, e.g.\n\n```sh\n $ pulumi import pagerduty:index/serviceDependency:ServiceDependency main P4B2Z7G.business_service.D5RTHKRNGU4PYE90PJ\n```\n\n ",
+            "description": "A [service dependency](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1service_dependencies~1associate/post) is a relationship between two services that this service uses, or that are used by this service, and are critical for successful operation.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst foo = new pagerduty.ServiceDependency(\"foo\", {dependency: {\n    dependentServices: [{\n        id: pagerduty_business_service.foo.id,\n        type: pagerduty_business_service.foo.type,\n    }],\n    supportingServices: [{\n        id: pagerduty_service.foo.id,\n        type: pagerduty_service.foo.type,\n    }],\n}});\nconst bar = new pagerduty.ServiceDependency(\"bar\", {dependency: {\n    dependentServices: [{\n        id: pagerduty_business_service.foo.id,\n        type: pagerduty_business_service.foo.type,\n    }],\n    supportingServices: [{\n        id: pagerduty_service.two.id,\n        type: pagerduty_service.two.type,\n    }],\n}});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nfoo = pagerduty.ServiceDependency(\"foo\", dependency=pagerduty.ServiceDependencyDependencyArgs(\n    dependent_services=[pagerduty.ServiceDependencyDependencyDependentServiceArgs(\n        id=pagerduty_business_service[\"foo\"][\"id\"],\n        type=pagerduty_business_service[\"foo\"][\"type\"],\n    )],\n    supporting_services=[pagerduty.ServiceDependencyDependencySupportingServiceArgs(\n        id=pagerduty_service[\"foo\"][\"id\"],\n        type=pagerduty_service[\"foo\"][\"type\"],\n    )],\n))\nbar = pagerduty.ServiceDependency(\"bar\", dependency=pagerduty.ServiceDependencyDependencyArgs(\n    dependent_services=[pagerduty.ServiceDependencyDependencyDependentServiceArgs(\n        id=pagerduty_business_service[\"foo\"][\"id\"],\n        type=pagerduty_business_service[\"foo\"][\"type\"],\n    )],\n    supporting_services=[pagerduty.ServiceDependencyDependencySupportingServiceArgs(\n        id=pagerduty_service[\"two\"][\"id\"],\n        type=pagerduty_service[\"two\"][\"type\"],\n    )],\n))\n```\n```csharp\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var foo = new Pagerduty.ServiceDependency(\"foo\", new Pagerduty.ServiceDependencyArgs\n        {\n            Dependency = new Pagerduty.Inputs.ServiceDependencyDependencyArgs\n            {\n                DependentServices = \n                {\n                    new Pagerduty.Inputs.ServiceDependencyDependencyDependentServiceArgs\n                    {\n                        Id = pagerduty_business_service.Foo.Id,\n                        Type = pagerduty_business_service.Foo.Type,\n                    },\n                },\n                SupportingServices = \n                {\n                    new Pagerduty.Inputs.ServiceDependencyDependencySupportingServiceArgs\n                    {\n                        Id = pagerduty_service.Foo.Id,\n                        Type = pagerduty_service.Foo.Type,\n                    },\n                },\n            },\n        });\n        var bar = new Pagerduty.ServiceDependency(\"bar\", new Pagerduty.ServiceDependencyArgs\n        {\n            Dependency = new Pagerduty.Inputs.ServiceDependencyDependencyArgs\n            {\n                DependentServices = \n                {\n                    new Pagerduty.Inputs.ServiceDependencyDependencyDependentServiceArgs\n                    {\n                        Id = pagerduty_business_service.Foo.Id,\n                        Type = pagerduty_business_service.Foo.Type,\n                    },\n                },\n                SupportingServices = \n                {\n                    new Pagerduty.Inputs.ServiceDependencyDependencySupportingServiceArgs\n                    {\n                        Id = pagerduty_service.Two.Id,\n                        Type = pagerduty_service.Two.Type,\n                    },\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := pagerduty.NewServiceDependency(ctx, \"foo\", \u0026pagerduty.ServiceDependencyArgs{\n\t\t\tDependency: \u0026ServiceDependencyDependencyArgs{\n\t\t\t\tDependentServices: ServiceDependencyDependencyDependentServiceArray{\n\t\t\t\t\t\u0026ServiceDependencyDependencyDependentServiceArgs{\n\t\t\t\t\t\tId:   pulumi.Any(pagerduty_business_service.Foo.Id),\n\t\t\t\t\t\tType: pulumi.Any(pagerduty_business_service.Foo.Type),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tSupportingServices: ServiceDependencyDependencySupportingServiceArray{\n\t\t\t\t\t\u0026ServiceDependencyDependencySupportingServiceArgs{\n\t\t\t\t\t\tId:   pulumi.Any(pagerduty_service.Foo.Id),\n\t\t\t\t\t\tType: pulumi.Any(pagerduty_service.Foo.Type),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewServiceDependency(ctx, \"bar\", \u0026pagerduty.ServiceDependencyArgs{\n\t\t\tDependency: \u0026ServiceDependencyDependencyArgs{\n\t\t\t\tDependentServices: ServiceDependencyDependencyDependentServiceArray{\n\t\t\t\t\t\u0026ServiceDependencyDependencyDependentServiceArgs{\n\t\t\t\t\t\tId:   pulumi.Any(pagerduty_business_service.Foo.Id),\n\t\t\t\t\t\tType: pulumi.Any(pagerduty_business_service.Foo.Type),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tSupportingServices: ServiceDependencyDependencySupportingServiceArray{\n\t\t\t\t\t\u0026ServiceDependencyDependencySupportingServiceArgs{\n\t\t\t\t\t\tId:   pulumi.Any(pagerduty_service.Two.Id),\n\t\t\t\t\t\tType: pulumi.Any(pagerduty_service.Two.Type),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nService dependencies can be imported using the related supporting service id, supporting service type (`business_service` or `service`) and the dependency id separated by a dot, e.g.\n\n```sh\n $ pulumi import pagerduty:index/serviceDependency:ServiceDependency main P4B2Z7G.business_service.D5RTHKRNGU4PYE90PJ\n```\n\n ",
             "properties": {
                 "dependency": {
                     "$ref": "#/types/pagerduty:index/ServiceDependencyDependency:ServiceDependencyDependency",
@@ -4514,7 +4526,7 @@
     },
     "functions": {
         "pagerduty:index/getBusinessService:getBusinessService": {
-            "description": "Use this data source to get information about a specific [business service](https://api-reference.pagerduty.com/#!/Business_Services/get_business_services).\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst example = pulumi.output(pagerduty.getBusinessService({\n    name: \"My Service\",\n}));\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nexample = pagerduty.get_business_service(name=\"My Service\")\n```\n```csharp\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = Output.Create(Pagerduty.GetBusinessService.InvokeAsync(new Pagerduty.GetBusinessServiceArgs\n        {\n            Name = \"My Service\",\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := pagerduty.LookupBusinessService(ctx, \u0026GetBusinessServiceArgs{\n\t\t\tName: \"My Service\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "Use this data source to get information about a specific [business service][1].\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst example = pulumi.output(pagerduty.getBusinessService({\n    name: \"My Service\",\n}));\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nexample = pagerduty.get_business_service(name=\"My Service\")\n```\n```csharp\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = Output.Create(Pagerduty.GetBusinessService.InvokeAsync(new Pagerduty.GetBusinessServiceArgs\n        {\n            Name = \"My Service\",\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := pagerduty.LookupBusinessService(ctx, \u0026GetBusinessServiceArgs{\n\t\t\tName: \"My Service\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
                 "description": "A collection of arguments for invoking getBusinessService.\n",
                 "properties": {
@@ -4538,11 +4550,16 @@
                     "name": {
                         "type": "string",
                         "description": "The short name of the found business service.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "The type of object. The value returned will be `business_service`. Can be used for passing to a service dependency.\n"
                     }
                 },
                 "type": "object",
                 "required": [
                     "name",
+                    "type",
                     "id"
                 ]
             }
@@ -4760,11 +4777,16 @@
                     "name": {
                         "type": "string",
                         "description": "The short name of the found service.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "The type of object. The value returned will be `service`. Can be used for passing to a service dependency.\n"
                     }
                 },
                 "type": "object",
                 "required": [
                     "name",
+                    "type",
                     "id"
                 ]
             }

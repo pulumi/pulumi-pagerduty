@@ -12,7 +12,7 @@ namespace Pulumi.Pagerduty
     public static class GetBusinessService
     {
         /// <summary>
-        /// Use this data source to get information about a specific [business service](https://api-reference.pagerduty.com/#!/Business_Services/get_business_services).
+        /// Use this data source to get information about a specific [business service][1].
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -41,7 +41,7 @@ namespace Pulumi.Pagerduty
             => Pulumi.Deployment.Instance.InvokeAsync<GetBusinessServiceResult>("pagerduty:index/getBusinessService:getBusinessService", args ?? new GetBusinessServiceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get information about a specific [business service](https://api-reference.pagerduty.com/#!/Business_Services/get_business_services).
+        /// Use this data source to get information about a specific [business service][1].
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -109,15 +109,22 @@ namespace Pulumi.Pagerduty
         /// The short name of the found business service.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The type of object. The value returned will be `business_service`. Can be used for passing to a service dependency.
+        /// </summary>
+        public readonly string Type;
 
         [OutputConstructor]
         private GetBusinessServiceResult(
             string id,
 
-            string name)
+            string name,
+
+            string type)
         {
             Id = id;
             Name = name;
+            Type = type;
         }
     }
 }

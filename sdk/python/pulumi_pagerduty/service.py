@@ -221,7 +221,8 @@ class _ServiceState:
                  name: Optional[pulumi.Input[str]] = None,
                  scheduled_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceScheduledActionArgs']]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
-                 support_hours: Optional[pulumi.Input['ServiceSupportHoursArgs']] = None):
+                 support_hours: Optional[pulumi.Input['ServiceSupportHoursArgs']] = None,
+                 type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Service resources.
         :param pulumi.Input[str] acknowledgement_timeout: Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.  If not passed in, will default to '"1800"'.
@@ -232,6 +233,7 @@ class _ServiceState:
         :param pulumi.Input[str] auto_resolve_timeout: Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
         :param pulumi.Input[str] escalation_policy: The escalation policy used by this service.
         :param pulumi.Input[str] name: The name of the service.
+        :param pulumi.Input[str] type: The type of alert grouping; one of `intelligent`, `time` or `content_based`.
         """
         if acknowledgement_timeout is not None:
             pulumi.set(__self__, "acknowledgement_timeout", acknowledgement_timeout)
@@ -273,6 +275,8 @@ class _ServiceState:
             pulumi.set(__self__, "status", status)
         if support_hours is not None:
             pulumi.set(__self__, "support_hours", support_hours)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="acknowledgementTimeout")
@@ -441,6 +445,18 @@ class _ServiceState:
     @support_hours.setter
     def support_hours(self, value: Optional[pulumi.Input['ServiceSupportHoursArgs']]):
         pulumi.set(self, "support_hours", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 class Service(pulumi.CustomResource):
@@ -615,6 +631,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["html_url"] = None
             __props__.__dict__["last_incident_timestamp"] = None
             __props__.__dict__["status"] = None
+            __props__.__dict__["type"] = None
         super(Service, __self__).__init__(
             'pagerduty:index/service:Service',
             resource_name,
@@ -640,7 +657,8 @@ class Service(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             scheduled_actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceScheduledActionArgs']]]]] = None,
             status: Optional[pulumi.Input[str]] = None,
-            support_hours: Optional[pulumi.Input[pulumi.InputType['ServiceSupportHoursArgs']]] = None) -> 'Service':
+            support_hours: Optional[pulumi.Input[pulumi.InputType['ServiceSupportHoursArgs']]] = None,
+            type: Optional[pulumi.Input[str]] = None) -> 'Service':
         """
         Get an existing Service resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -656,6 +674,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] auto_resolve_timeout: Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
         :param pulumi.Input[str] escalation_policy: The escalation policy used by this service.
         :param pulumi.Input[str] name: The name of the service.
+        :param pulumi.Input[str] type: The type of alert grouping; one of `intelligent`, `time` or `content_based`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -677,6 +696,7 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["scheduled_actions"] = scheduled_actions
         __props__.__dict__["status"] = status
         __props__.__dict__["support_hours"] = support_hours
+        __props__.__dict__["type"] = type
         return Service(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -782,4 +802,12 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="supportHours")
     def support_hours(self) -> pulumi.Output[Optional['outputs.ServiceSupportHours']]:
         return pulumi.get(self, "support_hours")
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Output[str]:
+        """
+        The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+        """
+        return pulumi.get(self, "type")
 

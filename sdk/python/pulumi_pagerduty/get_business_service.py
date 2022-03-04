@@ -20,13 +20,16 @@ class GetBusinessServiceResult:
     """
     A collection of values returned by getBusinessService.
     """
-    def __init__(__self__, id=None, name=None):
+    def __init__(__self__, id=None, name=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -44,6 +47,14 @@ class GetBusinessServiceResult:
         """
         return pulumi.get(self, "name")
 
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of object. The value returned will be `business_service`. Can be used for passing to a service dependency.
+        """
+        return pulumi.get(self, "type")
+
 
 class AwaitableGetBusinessServiceResult(GetBusinessServiceResult):
     # pylint: disable=using-constant-test
@@ -52,13 +63,14 @@ class AwaitableGetBusinessServiceResult(GetBusinessServiceResult):
             yield self
         return GetBusinessServiceResult(
             id=self.id,
-            name=self.name)
+            name=self.name,
+            type=self.type)
 
 
 def get_business_service(name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBusinessServiceResult:
     """
-    Use this data source to get information about a specific [business service](https://api-reference.pagerduty.com/#!/Business_Services/get_business_services).
+    Use this data source to get information about a specific [business service][1].
 
     ## Example Usage
 
@@ -82,14 +94,15 @@ def get_business_service(name: Optional[str] = None,
 
     return AwaitableGetBusinessServiceResult(
         id=__ret__.id,
-        name=__ret__.name)
+        name=__ret__.name,
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_business_service)
 def get_business_service_output(name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBusinessServiceResult]:
     """
-    Use this data source to get information about a specific [business service](https://api-reference.pagerduty.com/#!/Business_Services/get_business_services).
+    Use this data source to get information about a specific [business service][1].
 
     ## Example Usage
 

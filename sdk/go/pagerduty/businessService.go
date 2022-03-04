@@ -57,7 +57,9 @@ type BusinessService struct {
 	Summary        pulumi.StringOutput    `pulumi:"summary"`
 	// ID of the team that owns the business service.
 	Team pulumi.StringPtrOutput `pulumi:"team"`
-	// Default value is `businessService`. Can also be set as `businessServiceReference`.
+	// **Deprecated** (Optional) Default (and only supported) value is `businessService`.
+	//
+	// Deprecated: This will change to a computed resource in the next major release.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
@@ -103,7 +105,9 @@ type businessServiceState struct {
 	Summary        *string `pulumi:"summary"`
 	// ID of the team that owns the business service.
 	Team *string `pulumi:"team"`
-	// Default value is `businessService`. Can also be set as `businessServiceReference`.
+	// **Deprecated** (Optional) Default (and only supported) value is `businessService`.
+	//
+	// Deprecated: This will change to a computed resource in the next major release.
 	Type *string `pulumi:"type"`
 }
 
@@ -118,7 +122,9 @@ type BusinessServiceState struct {
 	Summary        pulumi.StringPtrInput
 	// ID of the team that owns the business service.
 	Team pulumi.StringPtrInput
-	// Default value is `businessService`. Can also be set as `businessServiceReference`.
+	// **Deprecated** (Optional) Default (and only supported) value is `businessService`.
+	//
+	// Deprecated: This will change to a computed resource in the next major release.
 	Type pulumi.StringPtrInput
 }
 
@@ -134,7 +140,9 @@ type businessServiceArgs struct {
 	PointOfContact *string `pulumi:"pointOfContact"`
 	// ID of the team that owns the business service.
 	Team *string `pulumi:"team"`
-	// Default value is `businessService`. Can also be set as `businessServiceReference`.
+	// **Deprecated** (Optional) Default (and only supported) value is `businessService`.
+	//
+	// Deprecated: This will change to a computed resource in the next major release.
 	Type *string `pulumi:"type"`
 }
 
@@ -147,7 +155,9 @@ type BusinessServiceArgs struct {
 	PointOfContact pulumi.StringPtrInput
 	// ID of the team that owns the business service.
 	Team pulumi.StringPtrInput
-	// Default value is `businessService`. Can also be set as `businessServiceReference`.
+	// **Deprecated** (Optional) Default (and only supported) value is `businessService`.
+	//
+	// Deprecated: This will change to a computed resource in the next major release.
 	Type pulumi.StringPtrInput
 }
 

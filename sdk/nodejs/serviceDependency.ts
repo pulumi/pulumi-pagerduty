@@ -17,21 +17,21 @@ import * as utilities from "./utilities";
  * const foo = new pagerduty.ServiceDependency("foo", {dependency: {
  *     dependentServices: [{
  *         id: pagerduty_business_service.foo.id,
- *         type: "business_service",
+ *         type: pagerduty_business_service.foo.type,
  *     }],
  *     supportingServices: [{
  *         id: pagerduty_service.foo.id,
- *         type: "service",
+ *         type: pagerduty_service.foo.type,
  *     }],
  * }});
  * const bar = new pagerduty.ServiceDependency("bar", {dependency: {
  *     dependentServices: [{
  *         id: pagerduty_business_service.foo.id,
- *         type: "business_service",
+ *         type: pagerduty_business_service.foo.type,
  *     }],
  *     supportingServices: [{
  *         id: pagerduty_service.two.id,
- *         type: "service",
+ *         type: pagerduty_service.two.type,
  *     }],
  * }});
  * ```

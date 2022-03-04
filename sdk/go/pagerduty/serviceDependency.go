@@ -30,13 +30,13 @@ import (
 // 				DependentServices: ServiceDependencyDependencyDependentServiceArray{
 // 					&ServiceDependencyDependencyDependentServiceArgs{
 // 						Id:   pulumi.Any(pagerduty_business_service.Foo.Id),
-// 						Type: pulumi.String("business_service"),
+// 						Type: pulumi.Any(pagerduty_business_service.Foo.Type),
 // 					},
 // 				},
 // 				SupportingServices: ServiceDependencyDependencySupportingServiceArray{
 // 					&ServiceDependencyDependencySupportingServiceArgs{
 // 						Id:   pulumi.Any(pagerduty_service.Foo.Id),
-// 						Type: pulumi.String("service"),
+// 						Type: pulumi.Any(pagerduty_service.Foo.Type),
 // 					},
 // 				},
 // 			},
@@ -49,13 +49,13 @@ import (
 // 				DependentServices: ServiceDependencyDependencyDependentServiceArray{
 // 					&ServiceDependencyDependencyDependentServiceArgs{
 // 						Id:   pulumi.Any(pagerduty_business_service.Foo.Id),
-// 						Type: pulumi.String("business_service"),
+// 						Type: pulumi.Any(pagerduty_business_service.Foo.Type),
 // 					},
 // 				},
 // 				SupportingServices: ServiceDependencyDependencySupportingServiceArray{
 // 					&ServiceDependencyDependencySupportingServiceArgs{
 // 						Id:   pulumi.Any(pagerduty_service.Two.Id),
-// 						Type: pulumi.String("service"),
+// 						Type: pulumi.Any(pagerduty_service.Two.Type),
 // 					},
 // 				},
 // 			},

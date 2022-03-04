@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get information about a specific [business service](https://api-reference.pagerduty.com/#!/Business_Services/get_business_services).
+// Use this data source to get information about a specific [business service][1].
 //
 // ## Example Usage
 //
@@ -55,6 +55,8 @@ type LookupBusinessServiceResult struct {
 	Id string `pulumi:"id"`
 	// The short name of the found business service.
 	Name string `pulumi:"name"`
+	// The type of object. The value returned will be `businessService`. Can be used for passing to a service dependency.
+	Type string `pulumi:"type"`
 }
 
 func LookupBusinessServiceOutput(ctx *pulumi.Context, args LookupBusinessServiceOutputArgs, opts ...pulumi.InvokeOption) LookupBusinessServiceResultOutput {
@@ -99,6 +101,11 @@ func (o LookupBusinessServiceResultOutput) Id() pulumi.StringOutput {
 // The short name of the found business service.
 func (o LookupBusinessServiceResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBusinessServiceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of object. The value returned will be `businessService`. Can be used for passing to a service dependency.
+func (o LookupBusinessServiceResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBusinessServiceResult) string { return v.Type }).(pulumi.StringOutput)
 }
 
 func init() {

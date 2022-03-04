@@ -129,15 +129,22 @@ namespace Pulumi.Pagerduty
         /// The short name of the found service.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
+        /// </summary>
+        public readonly string Type;
 
         [OutputConstructor]
         private GetServiceResult(
             string id,
 
-            string name)
+            string name,
+
+            string type)
         {
             Id = id;
             Name = name;
+            Type = type;
         }
     }
 }

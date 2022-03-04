@@ -116,6 +116,10 @@ export class Service extends pulumi.CustomResource {
     public readonly scheduledActions!: pulumi.Output<outputs.ServiceScheduledAction[] | undefined>;
     public /*out*/ readonly status!: pulumi.Output<string>;
     public readonly supportHours!: pulumi.Output<outputs.ServiceSupportHours | undefined>;
+    /**
+     * The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+     */
+    public /*out*/ readonly type!: pulumi.Output<string>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.
@@ -146,6 +150,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["scheduledActions"] = state ? state.scheduledActions : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["supportHours"] = state ? state.supportHours : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
             if ((!args || args.escalationPolicy === undefined) && !opts.urn) {
@@ -167,6 +172,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["htmlUrl"] = undefined /*out*/;
             resourceInputs["lastIncidentTimestamp"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Service.__pulumiType, name, resourceInputs, opts);
@@ -221,6 +227,10 @@ export interface ServiceState {
     scheduledActions?: pulumi.Input<pulumi.Input<inputs.ServiceScheduledAction>[]>;
     status?: pulumi.Input<string>;
     supportHours?: pulumi.Input<inputs.ServiceSupportHours>;
+    /**
+     * The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+     */
+    type?: pulumi.Input<string>;
 }
 
 /**

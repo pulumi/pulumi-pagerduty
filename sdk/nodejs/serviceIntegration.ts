@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -60,6 +61,71 @@ import * as utilities from "./utilities";
  *     service: exampleService.id,
  *     vendor: cloudwatchVendor.then(cloudwatchVendor => cloudwatchVendor.id),
  * });
+ * const emailVendor = pagerduty.getVendor({
+ *     name: "Email",
+ * });
+ * const emailServiceIntegration = new pagerduty.ServiceIntegration("emailServiceIntegration", {
+ *     service: exampleService.id,
+ *     vendor: emailVendor.then(emailVendor => emailVendor.id),
+ *     integrationEmail: "s1@your_account.pagerduty.com",
+ *     emailIncidentCreation: "use_rules",
+ *     emailFilterMode: "and-rules-email",
+ *     emailFilters: [
+ *         {
+ *             bodyMode: "always",
+ *             bodyRegex: undefined,
+ *             fromEmailMode: "match",
+ *             fromEmailRegex: "(@foo.com*)",
+ *             subjectMode: "match",
+ *             subjectRegex: "(CRITICAL*)",
+ *         },
+ *         {
+ *             bodyMode: "always",
+ *             bodyRegex: undefined,
+ *             fromEmailMode: "match",
+ *             fromEmailRegex: "(@bar.com*)",
+ *             subjectMode: "match",
+ *             subjectRegex: "(CRITICAL*)",
+ *         },
+ *     ],
+ *     emailParsers: [{
+ *         action: "resolve",
+ *         matchPredicate: {
+ *             type: "any",
+ *             predicates: [
+ *                 {
+ *                     matcher: "foo",
+ *                     part: "subject",
+ *                     type: "contains",
+ *                 },
+ *                 {
+ *                     type: "not",
+ *                     predicates: [{
+ *                         matcher: "(bar*)",
+ *                         part: "body",
+ *                         type: "regex",
+ *                     }],
+ *                 },
+ *             ],
+ *         },
+ *         valueExtractors: [
+ *             {
+ *                 endsBefore: "end",
+ *                 part: "subject",
+ *                 startsAfter: "start",
+ *                 type: "between",
+ *                 valueName: "incident_key",
+ *             },
+ *             {
+ *                 endsBefore: "end",
+ *                 part: "subject",
+ *                 startsAfter: "start",
+ *                 type: "between",
+ *                 valueName: "FieldName1",
+ *             },
+ *         ],
+ *     }],
+ * });
  * ```
  *
  * ## Import
@@ -98,6 +164,20 @@ export class ServiceIntegration extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceIntegration.__pulumiType;
     }
 
+    /**
+     * This is the unique fully-qualified email address used for routing emails to this integration for processing.
+     */
+    public readonly emailFilterMode!: pulumi.Output<string>;
+    public readonly emailFilters!: pulumi.Output<outputs.ServiceIntegrationEmailFilter[] | undefined>;
+    /**
+     * This is the unique fully-qualified email address used for routing emails to this integration for processing.
+     */
+    public readonly emailIncidentCreation!: pulumi.Output<string>;
+    public readonly emailParsers!: pulumi.Output<outputs.ServiceIntegrationEmailParser[] | undefined>;
+    /**
+     * Can be `openNewIncident` or `discard`.
+     */
+    public readonly emailParsingFallback!: pulumi.Output<string>;
     /**
      * URL at which the entity is uniquely displayed in the Web app.
      */
@@ -149,6 +229,11 @@ export class ServiceIntegration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceIntegrationState | undefined;
+            resourceInputs["emailFilterMode"] = state ? state.emailFilterMode : undefined;
+            resourceInputs["emailFilters"] = state ? state.emailFilters : undefined;
+            resourceInputs["emailIncidentCreation"] = state ? state.emailIncidentCreation : undefined;
+            resourceInputs["emailParsers"] = state ? state.emailParsers : undefined;
+            resourceInputs["emailParsingFallback"] = state ? state.emailParsingFallback : undefined;
             resourceInputs["htmlUrl"] = state ? state.htmlUrl : undefined;
             resourceInputs["integrationEmail"] = state ? state.integrationEmail : undefined;
             resourceInputs["integrationKey"] = state ? state.integrationKey : undefined;
@@ -161,6 +246,11 @@ export class ServiceIntegration extends pulumi.CustomResource {
             if ((!args || args.service === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'service'");
             }
+            resourceInputs["emailFilterMode"] = args ? args.emailFilterMode : undefined;
+            resourceInputs["emailFilters"] = args ? args.emailFilters : undefined;
+            resourceInputs["emailIncidentCreation"] = args ? args.emailIncidentCreation : undefined;
+            resourceInputs["emailParsers"] = args ? args.emailParsers : undefined;
+            resourceInputs["emailParsingFallback"] = args ? args.emailParsingFallback : undefined;
             resourceInputs["integrationEmail"] = args ? args.integrationEmail : undefined;
             resourceInputs["integrationKey"] = args ? args.integrationKey : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -178,6 +268,20 @@ export class ServiceIntegration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServiceIntegration resources.
  */
 export interface ServiceIntegrationState {
+    /**
+     * This is the unique fully-qualified email address used for routing emails to this integration for processing.
+     */
+    emailFilterMode?: pulumi.Input<string>;
+    emailFilters?: pulumi.Input<pulumi.Input<inputs.ServiceIntegrationEmailFilter>[]>;
+    /**
+     * This is the unique fully-qualified email address used for routing emails to this integration for processing.
+     */
+    emailIncidentCreation?: pulumi.Input<string>;
+    emailParsers?: pulumi.Input<pulumi.Input<inputs.ServiceIntegrationEmailParser>[]>;
+    /**
+     * Can be `openNewIncident` or `discard`.
+     */
+    emailParsingFallback?: pulumi.Input<string>;
     /**
      * URL at which the entity is uniquely displayed in the Web app.
      */
@@ -221,6 +325,20 @@ export interface ServiceIntegrationState {
  * The set of arguments for constructing a ServiceIntegration resource.
  */
 export interface ServiceIntegrationArgs {
+    /**
+     * This is the unique fully-qualified email address used for routing emails to this integration for processing.
+     */
+    emailFilterMode?: pulumi.Input<string>;
+    emailFilters?: pulumi.Input<pulumi.Input<inputs.ServiceIntegrationEmailFilter>[]>;
+    /**
+     * This is the unique fully-qualified email address used for routing emails to this integration for processing.
+     */
+    emailIncidentCreation?: pulumi.Input<string>;
+    emailParsers?: pulumi.Input<pulumi.Input<inputs.ServiceIntegrationEmailParser>[]>;
+    /**
+     * Can be `openNewIncident` or `discard`.
+     */
+    emailParsingFallback?: pulumi.Input<string>;
     /**
      * This is the unique fully-qualified email address used for routing emails to this integration for processing.
      */

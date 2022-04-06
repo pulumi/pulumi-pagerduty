@@ -90,6 +90,91 @@ namespace Pulumi.Pagerduty
     ///             Service = exampleService.Id,
     ///             Vendor = cloudwatchVendor.Apply(cloudwatchVendor =&gt; cloudwatchVendor.Id),
     ///         });
+    ///         var emailVendor = Output.Create(Pagerduty.GetVendor.InvokeAsync(new Pagerduty.GetVendorArgs
+    ///         {
+    ///             Name = "Email",
+    ///         }));
+    ///         var emailServiceIntegration = new Pagerduty.ServiceIntegration("emailServiceIntegration", new Pagerduty.ServiceIntegrationArgs
+    ///         {
+    ///             Service = exampleService.Id,
+    ///             Vendor = emailVendor.Apply(emailVendor =&gt; emailVendor.Id),
+    ///             IntegrationEmail = "s1@your_account.pagerduty.com",
+    ///             EmailIncidentCreation = "use_rules",
+    ///             EmailFilterMode = "and-rules-email",
+    ///             EmailFilters = 
+    ///             {
+    ///                 new Pagerduty.Inputs.ServiceIntegrationEmailFilterArgs
+    ///                 {
+    ///                     BodyMode = "always",
+    ///                     BodyRegex = null,
+    ///                     FromEmailMode = "match",
+    ///                     FromEmailRegex = "(@foo.com*)",
+    ///                     SubjectMode = "match",
+    ///                     SubjectRegex = "(CRITICAL*)",
+    ///                 },
+    ///                 new Pagerduty.Inputs.ServiceIntegrationEmailFilterArgs
+    ///                 {
+    ///                     BodyMode = "always",
+    ///                     BodyRegex = null,
+    ///                     FromEmailMode = "match",
+    ///                     FromEmailRegex = "(@bar.com*)",
+    ///                     SubjectMode = "match",
+    ///                     SubjectRegex = "(CRITICAL*)",
+    ///                 },
+    ///             },
+    ///             EmailParsers = 
+    ///             {
+    ///                 new Pagerduty.Inputs.ServiceIntegrationEmailParserArgs
+    ///                 {
+    ///                     Action = "resolve",
+    ///                     MatchPredicate = new Pagerduty.Inputs.ServiceIntegrationEmailParserMatchPredicateArgs
+    ///                     {
+    ///                         Type = "any",
+    ///                         Predicates = 
+    ///                         {
+    ///                             new Pagerduty.Inputs.ServiceIntegrationEmailParserMatchPredicatePredicateArgs
+    ///                             {
+    ///                                 Matcher = "foo",
+    ///                                 Part = "subject",
+    ///                                 Type = "contains",
+    ///                             },
+    ///                             new Pagerduty.Inputs.ServiceIntegrationEmailParserMatchPredicatePredicateArgs
+    ///                             {
+    ///                                 Type = "not",
+    ///                                 Predicates = 
+    ///                                 {
+    ///                                     new Pagerduty.Inputs.ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs
+    ///                                     {
+    ///                                         Matcher = "(bar*)",
+    ///                                         Part = "body",
+    ///                                         Type = "regex",
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     ValueExtractors = 
+    ///                     {
+    ///                         new Pagerduty.Inputs.ServiceIntegrationEmailParserValueExtractorArgs
+    ///                         {
+    ///                             EndsBefore = "end",
+    ///                             Part = "subject",
+    ///                             StartsAfter = "start",
+    ///                             Type = "between",
+    ///                             ValueName = "incident_key",
+    ///                         },
+    ///                         new Pagerduty.Inputs.ServiceIntegrationEmailParserValueExtractorArgs
+    ///                         {
+    ///                             EndsBefore = "end",
+    ///                             Part = "subject",
+    ///                             StartsAfter = "start",
+    ///                             Type = "between",
+    ///                             ValueName = "FieldName1",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
     ///     }
     /// 
     /// }
@@ -106,6 +191,30 @@ namespace Pulumi.Pagerduty
     [PagerdutyResourceType("pagerduty:index/serviceIntegration:ServiceIntegration")]
     public partial class ServiceIntegration : Pulumi.CustomResource
     {
+        /// <summary>
+        /// This is the unique fully-qualified email address used for routing emails to this integration for processing.
+        /// </summary>
+        [Output("emailFilterMode")]
+        public Output<string> EmailFilterMode { get; private set; } = null!;
+
+        [Output("emailFilters")]
+        public Output<ImmutableArray<Outputs.ServiceIntegrationEmailFilter>> EmailFilters { get; private set; } = null!;
+
+        /// <summary>
+        /// This is the unique fully-qualified email address used for routing emails to this integration for processing.
+        /// </summary>
+        [Output("emailIncidentCreation")]
+        public Output<string> EmailIncidentCreation { get; private set; } = null!;
+
+        [Output("emailParsers")]
+        public Output<ImmutableArray<Outputs.ServiceIntegrationEmailParser>> EmailParsers { get; private set; } = null!;
+
+        /// <summary>
+        /// Can be `open_new_incident` or `discard`.
+        /// </summary>
+        [Output("emailParsingFallback")]
+        public Output<string> EmailParsingFallback { get; private set; } = null!;
+
         /// <summary>
         /// URL at which the entity is uniquely displayed in the Web app.
         /// </summary>
@@ -206,6 +315,40 @@ namespace Pulumi.Pagerduty
         /// <summary>
         /// This is the unique fully-qualified email address used for routing emails to this integration for processing.
         /// </summary>
+        [Input("emailFilterMode")]
+        public Input<string>? EmailFilterMode { get; set; }
+
+        [Input("emailFilters")]
+        private InputList<Inputs.ServiceIntegrationEmailFilterArgs>? _emailFilters;
+        public InputList<Inputs.ServiceIntegrationEmailFilterArgs> EmailFilters
+        {
+            get => _emailFilters ?? (_emailFilters = new InputList<Inputs.ServiceIntegrationEmailFilterArgs>());
+            set => _emailFilters = value;
+        }
+
+        /// <summary>
+        /// This is the unique fully-qualified email address used for routing emails to this integration for processing.
+        /// </summary>
+        [Input("emailIncidentCreation")]
+        public Input<string>? EmailIncidentCreation { get; set; }
+
+        [Input("emailParsers")]
+        private InputList<Inputs.ServiceIntegrationEmailParserArgs>? _emailParsers;
+        public InputList<Inputs.ServiceIntegrationEmailParserArgs> EmailParsers
+        {
+            get => _emailParsers ?? (_emailParsers = new InputList<Inputs.ServiceIntegrationEmailParserArgs>());
+            set => _emailParsers = value;
+        }
+
+        /// <summary>
+        /// Can be `open_new_incident` or `discard`.
+        /// </summary>
+        [Input("emailParsingFallback")]
+        public Input<string>? EmailParsingFallback { get; set; }
+
+        /// <summary>
+        /// This is the unique fully-qualified email address used for routing emails to this integration for processing.
+        /// </summary>
         [Input("integrationEmail")]
         public Input<string>? IntegrationEmail { get; set; }
 
@@ -255,6 +398,40 @@ namespace Pulumi.Pagerduty
 
     public sealed class ServiceIntegrationState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// This is the unique fully-qualified email address used for routing emails to this integration for processing.
+        /// </summary>
+        [Input("emailFilterMode")]
+        public Input<string>? EmailFilterMode { get; set; }
+
+        [Input("emailFilters")]
+        private InputList<Inputs.ServiceIntegrationEmailFilterGetArgs>? _emailFilters;
+        public InputList<Inputs.ServiceIntegrationEmailFilterGetArgs> EmailFilters
+        {
+            get => _emailFilters ?? (_emailFilters = new InputList<Inputs.ServiceIntegrationEmailFilterGetArgs>());
+            set => _emailFilters = value;
+        }
+
+        /// <summary>
+        /// This is the unique fully-qualified email address used for routing emails to this integration for processing.
+        /// </summary>
+        [Input("emailIncidentCreation")]
+        public Input<string>? EmailIncidentCreation { get; set; }
+
+        [Input("emailParsers")]
+        private InputList<Inputs.ServiceIntegrationEmailParserGetArgs>? _emailParsers;
+        public InputList<Inputs.ServiceIntegrationEmailParserGetArgs> EmailParsers
+        {
+            get => _emailParsers ?? (_emailParsers = new InputList<Inputs.ServiceIntegrationEmailParserGetArgs>());
+            set => _emailParsers = value;
+        }
+
+        /// <summary>
+        /// Can be `open_new_incident` or `discard`.
+        /// </summary>
+        [Input("emailParsingFallback")]
+        public Input<string>? EmailParsingFallback { get; set; }
+
         /// <summary>
         /// URL at which the entity is uniquely displayed in the Web app.
         /// </summary>

@@ -6597,6 +6597,713 @@ func (o ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput) Urgency() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+type ServiceIntegrationEmailFilter struct {
+	// Can be `always` or `match`.
+	BodyMode *string `pulumi:"bodyMode"`
+	// Should be a valid regex or `null`
+	BodyRegex *string `pulumi:"bodyRegex"`
+	// Can be `always` or `match`.
+	FromEmailMode *string `pulumi:"fromEmailMode"`
+	// Should be a valid regex or `null`
+	FromEmailRegex *string `pulumi:"fromEmailRegex"`
+	// The ID of the service integration.
+	Id *string `pulumi:"id"`
+	// Can be `always` or `match`.
+	SubjectMode *string `pulumi:"subjectMode"`
+	// Should be a valid regex or `null`
+	SubjectRegex *string `pulumi:"subjectRegex"`
+}
+
+// ServiceIntegrationEmailFilterInput is an input type that accepts ServiceIntegrationEmailFilterArgs and ServiceIntegrationEmailFilterOutput values.
+// You can construct a concrete instance of `ServiceIntegrationEmailFilterInput` via:
+//
+//          ServiceIntegrationEmailFilterArgs{...}
+type ServiceIntegrationEmailFilterInput interface {
+	pulumi.Input
+
+	ToServiceIntegrationEmailFilterOutput() ServiceIntegrationEmailFilterOutput
+	ToServiceIntegrationEmailFilterOutputWithContext(context.Context) ServiceIntegrationEmailFilterOutput
+}
+
+type ServiceIntegrationEmailFilterArgs struct {
+	// Can be `always` or `match`.
+	BodyMode pulumi.StringPtrInput `pulumi:"bodyMode"`
+	// Should be a valid regex or `null`
+	BodyRegex pulumi.StringPtrInput `pulumi:"bodyRegex"`
+	// Can be `always` or `match`.
+	FromEmailMode pulumi.StringPtrInput `pulumi:"fromEmailMode"`
+	// Should be a valid regex or `null`
+	FromEmailRegex pulumi.StringPtrInput `pulumi:"fromEmailRegex"`
+	// The ID of the service integration.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Can be `always` or `match`.
+	SubjectMode pulumi.StringPtrInput `pulumi:"subjectMode"`
+	// Should be a valid regex or `null`
+	SubjectRegex pulumi.StringPtrInput `pulumi:"subjectRegex"`
+}
+
+func (ServiceIntegrationEmailFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceIntegrationEmailFilter)(nil)).Elem()
+}
+
+func (i ServiceIntegrationEmailFilterArgs) ToServiceIntegrationEmailFilterOutput() ServiceIntegrationEmailFilterOutput {
+	return i.ToServiceIntegrationEmailFilterOutputWithContext(context.Background())
+}
+
+func (i ServiceIntegrationEmailFilterArgs) ToServiceIntegrationEmailFilterOutputWithContext(ctx context.Context) ServiceIntegrationEmailFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceIntegrationEmailFilterOutput)
+}
+
+// ServiceIntegrationEmailFilterArrayInput is an input type that accepts ServiceIntegrationEmailFilterArray and ServiceIntegrationEmailFilterArrayOutput values.
+// You can construct a concrete instance of `ServiceIntegrationEmailFilterArrayInput` via:
+//
+//          ServiceIntegrationEmailFilterArray{ ServiceIntegrationEmailFilterArgs{...} }
+type ServiceIntegrationEmailFilterArrayInput interface {
+	pulumi.Input
+
+	ToServiceIntegrationEmailFilterArrayOutput() ServiceIntegrationEmailFilterArrayOutput
+	ToServiceIntegrationEmailFilterArrayOutputWithContext(context.Context) ServiceIntegrationEmailFilterArrayOutput
+}
+
+type ServiceIntegrationEmailFilterArray []ServiceIntegrationEmailFilterInput
+
+func (ServiceIntegrationEmailFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceIntegrationEmailFilter)(nil)).Elem()
+}
+
+func (i ServiceIntegrationEmailFilterArray) ToServiceIntegrationEmailFilterArrayOutput() ServiceIntegrationEmailFilterArrayOutput {
+	return i.ToServiceIntegrationEmailFilterArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceIntegrationEmailFilterArray) ToServiceIntegrationEmailFilterArrayOutputWithContext(ctx context.Context) ServiceIntegrationEmailFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceIntegrationEmailFilterArrayOutput)
+}
+
+type ServiceIntegrationEmailFilterOutput struct{ *pulumi.OutputState }
+
+func (ServiceIntegrationEmailFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceIntegrationEmailFilter)(nil)).Elem()
+}
+
+func (o ServiceIntegrationEmailFilterOutput) ToServiceIntegrationEmailFilterOutput() ServiceIntegrationEmailFilterOutput {
+	return o
+}
+
+func (o ServiceIntegrationEmailFilterOutput) ToServiceIntegrationEmailFilterOutputWithContext(ctx context.Context) ServiceIntegrationEmailFilterOutput {
+	return o
+}
+
+// Can be `always` or `match`.
+func (o ServiceIntegrationEmailFilterOutput) BodyMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceIntegrationEmailFilter) *string { return v.BodyMode }).(pulumi.StringPtrOutput)
+}
+
+// Should be a valid regex or `null`
+func (o ServiceIntegrationEmailFilterOutput) BodyRegex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceIntegrationEmailFilter) *string { return v.BodyRegex }).(pulumi.StringPtrOutput)
+}
+
+// Can be `always` or `match`.
+func (o ServiceIntegrationEmailFilterOutput) FromEmailMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceIntegrationEmailFilter) *string { return v.FromEmailMode }).(pulumi.StringPtrOutput)
+}
+
+// Should be a valid regex or `null`
+func (o ServiceIntegrationEmailFilterOutput) FromEmailRegex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceIntegrationEmailFilter) *string { return v.FromEmailRegex }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the service integration.
+func (o ServiceIntegrationEmailFilterOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceIntegrationEmailFilter) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Can be `always` or `match`.
+func (o ServiceIntegrationEmailFilterOutput) SubjectMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceIntegrationEmailFilter) *string { return v.SubjectMode }).(pulumi.StringPtrOutput)
+}
+
+// Should be a valid regex or `null`
+func (o ServiceIntegrationEmailFilterOutput) SubjectRegex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceIntegrationEmailFilter) *string { return v.SubjectRegex }).(pulumi.StringPtrOutput)
+}
+
+type ServiceIntegrationEmailFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceIntegrationEmailFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceIntegrationEmailFilter)(nil)).Elem()
+}
+
+func (o ServiceIntegrationEmailFilterArrayOutput) ToServiceIntegrationEmailFilterArrayOutput() ServiceIntegrationEmailFilterArrayOutput {
+	return o
+}
+
+func (o ServiceIntegrationEmailFilterArrayOutput) ToServiceIntegrationEmailFilterArrayOutputWithContext(ctx context.Context) ServiceIntegrationEmailFilterArrayOutput {
+	return o
+}
+
+func (o ServiceIntegrationEmailFilterArrayOutput) Index(i pulumi.IntInput) ServiceIntegrationEmailFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceIntegrationEmailFilter {
+		return vs[0].([]ServiceIntegrationEmailFilter)[vs[1].(int)]
+	}).(ServiceIntegrationEmailFilterOutput)
+}
+
+type ServiceIntegrationEmailParser struct {
+	// Can be `resolve` or `trigger`.
+	Action string `pulumi:"action"`
+	// The ID of the service integration.
+	Id              *int                                          `pulumi:"id"`
+	MatchPredicate  ServiceIntegrationEmailParserMatchPredicate   `pulumi:"matchPredicate"`
+	ValueExtractors []ServiceIntegrationEmailParserValueExtractor `pulumi:"valueExtractors"`
+}
+
+// ServiceIntegrationEmailParserInput is an input type that accepts ServiceIntegrationEmailParserArgs and ServiceIntegrationEmailParserOutput values.
+// You can construct a concrete instance of `ServiceIntegrationEmailParserInput` via:
+//
+//          ServiceIntegrationEmailParserArgs{...}
+type ServiceIntegrationEmailParserInput interface {
+	pulumi.Input
+
+	ToServiceIntegrationEmailParserOutput() ServiceIntegrationEmailParserOutput
+	ToServiceIntegrationEmailParserOutputWithContext(context.Context) ServiceIntegrationEmailParserOutput
+}
+
+type ServiceIntegrationEmailParserArgs struct {
+	// Can be `resolve` or `trigger`.
+	Action pulumi.StringInput `pulumi:"action"`
+	// The ID of the service integration.
+	Id              pulumi.IntPtrInput                                    `pulumi:"id"`
+	MatchPredicate  ServiceIntegrationEmailParserMatchPredicateInput      `pulumi:"matchPredicate"`
+	ValueExtractors ServiceIntegrationEmailParserValueExtractorArrayInput `pulumi:"valueExtractors"`
+}
+
+func (ServiceIntegrationEmailParserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceIntegrationEmailParser)(nil)).Elem()
+}
+
+func (i ServiceIntegrationEmailParserArgs) ToServiceIntegrationEmailParserOutput() ServiceIntegrationEmailParserOutput {
+	return i.ToServiceIntegrationEmailParserOutputWithContext(context.Background())
+}
+
+func (i ServiceIntegrationEmailParserArgs) ToServiceIntegrationEmailParserOutputWithContext(ctx context.Context) ServiceIntegrationEmailParserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceIntegrationEmailParserOutput)
+}
+
+// ServiceIntegrationEmailParserArrayInput is an input type that accepts ServiceIntegrationEmailParserArray and ServiceIntegrationEmailParserArrayOutput values.
+// You can construct a concrete instance of `ServiceIntegrationEmailParserArrayInput` via:
+//
+//          ServiceIntegrationEmailParserArray{ ServiceIntegrationEmailParserArgs{...} }
+type ServiceIntegrationEmailParserArrayInput interface {
+	pulumi.Input
+
+	ToServiceIntegrationEmailParserArrayOutput() ServiceIntegrationEmailParserArrayOutput
+	ToServiceIntegrationEmailParserArrayOutputWithContext(context.Context) ServiceIntegrationEmailParserArrayOutput
+}
+
+type ServiceIntegrationEmailParserArray []ServiceIntegrationEmailParserInput
+
+func (ServiceIntegrationEmailParserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceIntegrationEmailParser)(nil)).Elem()
+}
+
+func (i ServiceIntegrationEmailParserArray) ToServiceIntegrationEmailParserArrayOutput() ServiceIntegrationEmailParserArrayOutput {
+	return i.ToServiceIntegrationEmailParserArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceIntegrationEmailParserArray) ToServiceIntegrationEmailParserArrayOutputWithContext(ctx context.Context) ServiceIntegrationEmailParserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceIntegrationEmailParserArrayOutput)
+}
+
+type ServiceIntegrationEmailParserOutput struct{ *pulumi.OutputState }
+
+func (ServiceIntegrationEmailParserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceIntegrationEmailParser)(nil)).Elem()
+}
+
+func (o ServiceIntegrationEmailParserOutput) ToServiceIntegrationEmailParserOutput() ServiceIntegrationEmailParserOutput {
+	return o
+}
+
+func (o ServiceIntegrationEmailParserOutput) ToServiceIntegrationEmailParserOutputWithContext(ctx context.Context) ServiceIntegrationEmailParserOutput {
+	return o
+}
+
+// Can be `resolve` or `trigger`.
+func (o ServiceIntegrationEmailParserOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceIntegrationEmailParser) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// The ID of the service integration.
+func (o ServiceIntegrationEmailParserOutput) Id() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceIntegrationEmailParser) *int { return v.Id }).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceIntegrationEmailParserOutput) MatchPredicate() ServiceIntegrationEmailParserMatchPredicateOutput {
+	return o.ApplyT(func(v ServiceIntegrationEmailParser) ServiceIntegrationEmailParserMatchPredicate {
+		return v.MatchPredicate
+	}).(ServiceIntegrationEmailParserMatchPredicateOutput)
+}
+
+func (o ServiceIntegrationEmailParserOutput) ValueExtractors() ServiceIntegrationEmailParserValueExtractorArrayOutput {
+	return o.ApplyT(func(v ServiceIntegrationEmailParser) []ServiceIntegrationEmailParserValueExtractor {
+		return v.ValueExtractors
+	}).(ServiceIntegrationEmailParserValueExtractorArrayOutput)
+}
+
+type ServiceIntegrationEmailParserArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceIntegrationEmailParserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceIntegrationEmailParser)(nil)).Elem()
+}
+
+func (o ServiceIntegrationEmailParserArrayOutput) ToServiceIntegrationEmailParserArrayOutput() ServiceIntegrationEmailParserArrayOutput {
+	return o
+}
+
+func (o ServiceIntegrationEmailParserArrayOutput) ToServiceIntegrationEmailParserArrayOutputWithContext(ctx context.Context) ServiceIntegrationEmailParserArrayOutput {
+	return o
+}
+
+func (o ServiceIntegrationEmailParserArrayOutput) Index(i pulumi.IntInput) ServiceIntegrationEmailParserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceIntegrationEmailParser {
+		return vs[0].([]ServiceIntegrationEmailParser)[vs[1].(int)]
+	}).(ServiceIntegrationEmailParserOutput)
+}
+
+type ServiceIntegrationEmailParserMatchPredicate struct {
+	Predicates []ServiceIntegrationEmailParserMatchPredicatePredicate `pulumi:"predicates"`
+	// Can be `any` or `all`.
+	Type string `pulumi:"type"`
+}
+
+// ServiceIntegrationEmailParserMatchPredicateInput is an input type that accepts ServiceIntegrationEmailParserMatchPredicateArgs and ServiceIntegrationEmailParserMatchPredicateOutput values.
+// You can construct a concrete instance of `ServiceIntegrationEmailParserMatchPredicateInput` via:
+//
+//          ServiceIntegrationEmailParserMatchPredicateArgs{...}
+type ServiceIntegrationEmailParserMatchPredicateInput interface {
+	pulumi.Input
+
+	ToServiceIntegrationEmailParserMatchPredicateOutput() ServiceIntegrationEmailParserMatchPredicateOutput
+	ToServiceIntegrationEmailParserMatchPredicateOutputWithContext(context.Context) ServiceIntegrationEmailParserMatchPredicateOutput
+}
+
+type ServiceIntegrationEmailParserMatchPredicateArgs struct {
+	Predicates ServiceIntegrationEmailParserMatchPredicatePredicateArrayInput `pulumi:"predicates"`
+	// Can be `any` or `all`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ServiceIntegrationEmailParserMatchPredicateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceIntegrationEmailParserMatchPredicate)(nil)).Elem()
+}
+
+func (i ServiceIntegrationEmailParserMatchPredicateArgs) ToServiceIntegrationEmailParserMatchPredicateOutput() ServiceIntegrationEmailParserMatchPredicateOutput {
+	return i.ToServiceIntegrationEmailParserMatchPredicateOutputWithContext(context.Background())
+}
+
+func (i ServiceIntegrationEmailParserMatchPredicateArgs) ToServiceIntegrationEmailParserMatchPredicateOutputWithContext(ctx context.Context) ServiceIntegrationEmailParserMatchPredicateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceIntegrationEmailParserMatchPredicateOutput)
+}
+
+type ServiceIntegrationEmailParserMatchPredicateOutput struct{ *pulumi.OutputState }
+
+func (ServiceIntegrationEmailParserMatchPredicateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceIntegrationEmailParserMatchPredicate)(nil)).Elem()
+}
+
+func (o ServiceIntegrationEmailParserMatchPredicateOutput) ToServiceIntegrationEmailParserMatchPredicateOutput() ServiceIntegrationEmailParserMatchPredicateOutput {
+	return o
+}
+
+func (o ServiceIntegrationEmailParserMatchPredicateOutput) ToServiceIntegrationEmailParserMatchPredicateOutputWithContext(ctx context.Context) ServiceIntegrationEmailParserMatchPredicateOutput {
+	return o
+}
+
+func (o ServiceIntegrationEmailParserMatchPredicateOutput) Predicates() ServiceIntegrationEmailParserMatchPredicatePredicateArrayOutput {
+	return o.ApplyT(func(v ServiceIntegrationEmailParserMatchPredicate) []ServiceIntegrationEmailParserMatchPredicatePredicate {
+		return v.Predicates
+	}).(ServiceIntegrationEmailParserMatchPredicatePredicateArrayOutput)
+}
+
+// Can be `any` or `all`.
+func (o ServiceIntegrationEmailParserMatchPredicateOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceIntegrationEmailParserMatchPredicate) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ServiceIntegrationEmailParserMatchPredicatePredicate struct {
+	// Predicate value or valid regex.
+	Matcher *string `pulumi:"matcher"`
+	// Can be `subject`, `body` or `fromAddresses`.
+	Part       *string                                                         `pulumi:"part"`
+	Predicates []ServiceIntegrationEmailParserMatchPredicatePredicatePredicate `pulumi:"predicates"`
+	// Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.
+	Type string `pulumi:"type"`
+}
+
+// ServiceIntegrationEmailParserMatchPredicatePredicateInput is an input type that accepts ServiceIntegrationEmailParserMatchPredicatePredicateArgs and ServiceIntegrationEmailParserMatchPredicatePredicateOutput values.
+// You can construct a concrete instance of `ServiceIntegrationEmailParserMatchPredicatePredicateInput` via:
+//
+//          ServiceIntegrationEmailParserMatchPredicatePredicateArgs{...}
+type ServiceIntegrationEmailParserMatchPredicatePredicateInput interface {
+	pulumi.Input
+
+	ToServiceIntegrationEmailParserMatchPredicatePredicateOutput() ServiceIntegrationEmailParserMatchPredicatePredicateOutput
+	ToServiceIntegrationEmailParserMatchPredicatePredicateOutputWithContext(context.Context) ServiceIntegrationEmailParserMatchPredicatePredicateOutput
+}
+
+type ServiceIntegrationEmailParserMatchPredicatePredicateArgs struct {
+	// Predicate value or valid regex.
+	Matcher pulumi.StringPtrInput `pulumi:"matcher"`
+	// Can be `subject`, `body` or `fromAddresses`.
+	Part       pulumi.StringPtrInput                                                   `pulumi:"part"`
+	Predicates ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayInput `pulumi:"predicates"`
+	// Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ServiceIntegrationEmailParserMatchPredicatePredicateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceIntegrationEmailParserMatchPredicatePredicate)(nil)).Elem()
+}
+
+func (i ServiceIntegrationEmailParserMatchPredicatePredicateArgs) ToServiceIntegrationEmailParserMatchPredicatePredicateOutput() ServiceIntegrationEmailParserMatchPredicatePredicateOutput {
+	return i.ToServiceIntegrationEmailParserMatchPredicatePredicateOutputWithContext(context.Background())
+}
+
+func (i ServiceIntegrationEmailParserMatchPredicatePredicateArgs) ToServiceIntegrationEmailParserMatchPredicatePredicateOutputWithContext(ctx context.Context) ServiceIntegrationEmailParserMatchPredicatePredicateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceIntegrationEmailParserMatchPredicatePredicateOutput)
+}
+
+// ServiceIntegrationEmailParserMatchPredicatePredicateArrayInput is an input type that accepts ServiceIntegrationEmailParserMatchPredicatePredicateArray and ServiceIntegrationEmailParserMatchPredicatePredicateArrayOutput values.
+// You can construct a concrete instance of `ServiceIntegrationEmailParserMatchPredicatePredicateArrayInput` via:
+//
+//          ServiceIntegrationEmailParserMatchPredicatePredicateArray{ ServiceIntegrationEmailParserMatchPredicatePredicateArgs{...} }
+type ServiceIntegrationEmailParserMatchPredicatePredicateArrayInput interface {
+	pulumi.Input
+
+	ToServiceIntegrationEmailParserMatchPredicatePredicateArrayOutput() ServiceIntegrationEmailParserMatchPredicatePredicateArrayOutput
+	ToServiceIntegrationEmailParserMatchPredicatePredicateArrayOutputWithContext(context.Context) ServiceIntegrationEmailParserMatchPredicatePredicateArrayOutput
+}
+
+type ServiceIntegrationEmailParserMatchPredicatePredicateArray []ServiceIntegrationEmailParserMatchPredicatePredicateInput
+
+func (ServiceIntegrationEmailParserMatchPredicatePredicateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceIntegrationEmailParserMatchPredicatePredicate)(nil)).Elem()
+}
+
+func (i ServiceIntegrationEmailParserMatchPredicatePredicateArray) ToServiceIntegrationEmailParserMatchPredicatePredicateArrayOutput() ServiceIntegrationEmailParserMatchPredicatePredicateArrayOutput {
+	return i.ToServiceIntegrationEmailParserMatchPredicatePredicateArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceIntegrationEmailParserMatchPredicatePredicateArray) ToServiceIntegrationEmailParserMatchPredicatePredicateArrayOutputWithContext(ctx context.Context) ServiceIntegrationEmailParserMatchPredicatePredicateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceIntegrationEmailParserMatchPredicatePredicateArrayOutput)
+}
+
+type ServiceIntegrationEmailParserMatchPredicatePredicateOutput struct{ *pulumi.OutputState }
+
+func (ServiceIntegrationEmailParserMatchPredicatePredicateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceIntegrationEmailParserMatchPredicatePredicate)(nil)).Elem()
+}
+
+func (o ServiceIntegrationEmailParserMatchPredicatePredicateOutput) ToServiceIntegrationEmailParserMatchPredicatePredicateOutput() ServiceIntegrationEmailParserMatchPredicatePredicateOutput {
+	return o
+}
+
+func (o ServiceIntegrationEmailParserMatchPredicatePredicateOutput) ToServiceIntegrationEmailParserMatchPredicatePredicateOutputWithContext(ctx context.Context) ServiceIntegrationEmailParserMatchPredicatePredicateOutput {
+	return o
+}
+
+// Predicate value or valid regex.
+func (o ServiceIntegrationEmailParserMatchPredicatePredicateOutput) Matcher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceIntegrationEmailParserMatchPredicatePredicate) *string { return v.Matcher }).(pulumi.StringPtrOutput)
+}
+
+// Can be `subject`, `body` or `fromAddresses`.
+func (o ServiceIntegrationEmailParserMatchPredicatePredicateOutput) Part() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceIntegrationEmailParserMatchPredicatePredicate) *string { return v.Part }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceIntegrationEmailParserMatchPredicatePredicateOutput) Predicates() ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayOutput {
+	return o.ApplyT(func(v ServiceIntegrationEmailParserMatchPredicatePredicate) []ServiceIntegrationEmailParserMatchPredicatePredicatePredicate {
+		return v.Predicates
+	}).(ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayOutput)
+}
+
+// Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.
+func (o ServiceIntegrationEmailParserMatchPredicatePredicateOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceIntegrationEmailParserMatchPredicatePredicate) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ServiceIntegrationEmailParserMatchPredicatePredicateArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceIntegrationEmailParserMatchPredicatePredicateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceIntegrationEmailParserMatchPredicatePredicate)(nil)).Elem()
+}
+
+func (o ServiceIntegrationEmailParserMatchPredicatePredicateArrayOutput) ToServiceIntegrationEmailParserMatchPredicatePredicateArrayOutput() ServiceIntegrationEmailParserMatchPredicatePredicateArrayOutput {
+	return o
+}
+
+func (o ServiceIntegrationEmailParserMatchPredicatePredicateArrayOutput) ToServiceIntegrationEmailParserMatchPredicatePredicateArrayOutputWithContext(ctx context.Context) ServiceIntegrationEmailParserMatchPredicatePredicateArrayOutput {
+	return o
+}
+
+func (o ServiceIntegrationEmailParserMatchPredicatePredicateArrayOutput) Index(i pulumi.IntInput) ServiceIntegrationEmailParserMatchPredicatePredicateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceIntegrationEmailParserMatchPredicatePredicate {
+		return vs[0].([]ServiceIntegrationEmailParserMatchPredicatePredicate)[vs[1].(int)]
+	}).(ServiceIntegrationEmailParserMatchPredicatePredicateOutput)
+}
+
+type ServiceIntegrationEmailParserMatchPredicatePredicatePredicate struct {
+	// Predicate value or valid regex.
+	Matcher string `pulumi:"matcher"`
+	// Can be `subject`, `body` or `fromAddresses`.
+	Part string `pulumi:"part"`
+	// Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.
+	Type string `pulumi:"type"`
+}
+
+// ServiceIntegrationEmailParserMatchPredicatePredicatePredicateInput is an input type that accepts ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs and ServiceIntegrationEmailParserMatchPredicatePredicatePredicateOutput values.
+// You can construct a concrete instance of `ServiceIntegrationEmailParserMatchPredicatePredicatePredicateInput` via:
+//
+//          ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs{...}
+type ServiceIntegrationEmailParserMatchPredicatePredicatePredicateInput interface {
+	pulumi.Input
+
+	ToServiceIntegrationEmailParserMatchPredicatePredicatePredicateOutput() ServiceIntegrationEmailParserMatchPredicatePredicatePredicateOutput
+	ToServiceIntegrationEmailParserMatchPredicatePredicatePredicateOutputWithContext(context.Context) ServiceIntegrationEmailParserMatchPredicatePredicatePredicateOutput
+}
+
+type ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs struct {
+	// Predicate value or valid regex.
+	Matcher pulumi.StringInput `pulumi:"matcher"`
+	// Can be `subject`, `body` or `fromAddresses`.
+	Part pulumi.StringInput `pulumi:"part"`
+	// Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceIntegrationEmailParserMatchPredicatePredicatePredicate)(nil)).Elem()
+}
+
+func (i ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs) ToServiceIntegrationEmailParserMatchPredicatePredicatePredicateOutput() ServiceIntegrationEmailParserMatchPredicatePredicatePredicateOutput {
+	return i.ToServiceIntegrationEmailParserMatchPredicatePredicatePredicateOutputWithContext(context.Background())
+}
+
+func (i ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs) ToServiceIntegrationEmailParserMatchPredicatePredicatePredicateOutputWithContext(ctx context.Context) ServiceIntegrationEmailParserMatchPredicatePredicatePredicateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceIntegrationEmailParserMatchPredicatePredicatePredicateOutput)
+}
+
+// ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayInput is an input type that accepts ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArray and ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayOutput values.
+// You can construct a concrete instance of `ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayInput` via:
+//
+//          ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArray{ ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs{...} }
+type ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayInput interface {
+	pulumi.Input
+
+	ToServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayOutput() ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayOutput
+	ToServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayOutputWithContext(context.Context) ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayOutput
+}
+
+type ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArray []ServiceIntegrationEmailParserMatchPredicatePredicatePredicateInput
+
+func (ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceIntegrationEmailParserMatchPredicatePredicatePredicate)(nil)).Elem()
+}
+
+func (i ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArray) ToServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayOutput() ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayOutput {
+	return i.ToServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArray) ToServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayOutputWithContext(ctx context.Context) ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayOutput)
+}
+
+type ServiceIntegrationEmailParserMatchPredicatePredicatePredicateOutput struct{ *pulumi.OutputState }
+
+func (ServiceIntegrationEmailParserMatchPredicatePredicatePredicateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceIntegrationEmailParserMatchPredicatePredicatePredicate)(nil)).Elem()
+}
+
+func (o ServiceIntegrationEmailParserMatchPredicatePredicatePredicateOutput) ToServiceIntegrationEmailParserMatchPredicatePredicatePredicateOutput() ServiceIntegrationEmailParserMatchPredicatePredicatePredicateOutput {
+	return o
+}
+
+func (o ServiceIntegrationEmailParserMatchPredicatePredicatePredicateOutput) ToServiceIntegrationEmailParserMatchPredicatePredicatePredicateOutputWithContext(ctx context.Context) ServiceIntegrationEmailParserMatchPredicatePredicatePredicateOutput {
+	return o
+}
+
+// Predicate value or valid regex.
+func (o ServiceIntegrationEmailParserMatchPredicatePredicatePredicateOutput) Matcher() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceIntegrationEmailParserMatchPredicatePredicatePredicate) string { return v.Matcher }).(pulumi.StringOutput)
+}
+
+// Can be `subject`, `body` or `fromAddresses`.
+func (o ServiceIntegrationEmailParserMatchPredicatePredicatePredicateOutput) Part() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceIntegrationEmailParserMatchPredicatePredicatePredicate) string { return v.Part }).(pulumi.StringOutput)
+}
+
+// Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.
+func (o ServiceIntegrationEmailParserMatchPredicatePredicatePredicateOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceIntegrationEmailParserMatchPredicatePredicatePredicate) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceIntegrationEmailParserMatchPredicatePredicatePredicate)(nil)).Elem()
+}
+
+func (o ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayOutput) ToServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayOutput() ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayOutput {
+	return o
+}
+
+func (o ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayOutput) ToServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayOutputWithContext(ctx context.Context) ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayOutput {
+	return o
+}
+
+func (o ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayOutput) Index(i pulumi.IntInput) ServiceIntegrationEmailParserMatchPredicatePredicatePredicateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceIntegrationEmailParserMatchPredicatePredicatePredicate {
+		return vs[0].([]ServiceIntegrationEmailParserMatchPredicatePredicatePredicate)[vs[1].(int)]
+	}).(ServiceIntegrationEmailParserMatchPredicatePredicatePredicateOutput)
+}
+
+type ServiceIntegrationEmailParserValueExtractor struct {
+	EndsBefore *string `pulumi:"endsBefore"`
+	// Can be `subject` or `body`.
+	Part string `pulumi:"part"`
+	// If `type` has value `regex` this value should contain valid regex.
+	Regex       *string `pulumi:"regex"`
+	StartsAfter *string `pulumi:"startsAfter"`
+	// Can be `between`, `entire` or `regex`.
+	Type string `pulumi:"type"`
+	// First value extractor should have name `incidentKey` other value extractors should contain custom names.
+	ValueName string `pulumi:"valueName"`
+}
+
+// ServiceIntegrationEmailParserValueExtractorInput is an input type that accepts ServiceIntegrationEmailParserValueExtractorArgs and ServiceIntegrationEmailParserValueExtractorOutput values.
+// You can construct a concrete instance of `ServiceIntegrationEmailParserValueExtractorInput` via:
+//
+//          ServiceIntegrationEmailParserValueExtractorArgs{...}
+type ServiceIntegrationEmailParserValueExtractorInput interface {
+	pulumi.Input
+
+	ToServiceIntegrationEmailParserValueExtractorOutput() ServiceIntegrationEmailParserValueExtractorOutput
+	ToServiceIntegrationEmailParserValueExtractorOutputWithContext(context.Context) ServiceIntegrationEmailParserValueExtractorOutput
+}
+
+type ServiceIntegrationEmailParserValueExtractorArgs struct {
+	EndsBefore pulumi.StringPtrInput `pulumi:"endsBefore"`
+	// Can be `subject` or `body`.
+	Part pulumi.StringInput `pulumi:"part"`
+	// If `type` has value `regex` this value should contain valid regex.
+	Regex       pulumi.StringPtrInput `pulumi:"regex"`
+	StartsAfter pulumi.StringPtrInput `pulumi:"startsAfter"`
+	// Can be `between`, `entire` or `regex`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// First value extractor should have name `incidentKey` other value extractors should contain custom names.
+	ValueName pulumi.StringInput `pulumi:"valueName"`
+}
+
+func (ServiceIntegrationEmailParserValueExtractorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceIntegrationEmailParserValueExtractor)(nil)).Elem()
+}
+
+func (i ServiceIntegrationEmailParserValueExtractorArgs) ToServiceIntegrationEmailParserValueExtractorOutput() ServiceIntegrationEmailParserValueExtractorOutput {
+	return i.ToServiceIntegrationEmailParserValueExtractorOutputWithContext(context.Background())
+}
+
+func (i ServiceIntegrationEmailParserValueExtractorArgs) ToServiceIntegrationEmailParserValueExtractorOutputWithContext(ctx context.Context) ServiceIntegrationEmailParserValueExtractorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceIntegrationEmailParserValueExtractorOutput)
+}
+
+// ServiceIntegrationEmailParserValueExtractorArrayInput is an input type that accepts ServiceIntegrationEmailParserValueExtractorArray and ServiceIntegrationEmailParserValueExtractorArrayOutput values.
+// You can construct a concrete instance of `ServiceIntegrationEmailParserValueExtractorArrayInput` via:
+//
+//          ServiceIntegrationEmailParserValueExtractorArray{ ServiceIntegrationEmailParserValueExtractorArgs{...} }
+type ServiceIntegrationEmailParserValueExtractorArrayInput interface {
+	pulumi.Input
+
+	ToServiceIntegrationEmailParserValueExtractorArrayOutput() ServiceIntegrationEmailParserValueExtractorArrayOutput
+	ToServiceIntegrationEmailParserValueExtractorArrayOutputWithContext(context.Context) ServiceIntegrationEmailParserValueExtractorArrayOutput
+}
+
+type ServiceIntegrationEmailParserValueExtractorArray []ServiceIntegrationEmailParserValueExtractorInput
+
+func (ServiceIntegrationEmailParserValueExtractorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceIntegrationEmailParserValueExtractor)(nil)).Elem()
+}
+
+func (i ServiceIntegrationEmailParserValueExtractorArray) ToServiceIntegrationEmailParserValueExtractorArrayOutput() ServiceIntegrationEmailParserValueExtractorArrayOutput {
+	return i.ToServiceIntegrationEmailParserValueExtractorArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceIntegrationEmailParserValueExtractorArray) ToServiceIntegrationEmailParserValueExtractorArrayOutputWithContext(ctx context.Context) ServiceIntegrationEmailParserValueExtractorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceIntegrationEmailParserValueExtractorArrayOutput)
+}
+
+type ServiceIntegrationEmailParserValueExtractorOutput struct{ *pulumi.OutputState }
+
+func (ServiceIntegrationEmailParserValueExtractorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceIntegrationEmailParserValueExtractor)(nil)).Elem()
+}
+
+func (o ServiceIntegrationEmailParserValueExtractorOutput) ToServiceIntegrationEmailParserValueExtractorOutput() ServiceIntegrationEmailParserValueExtractorOutput {
+	return o
+}
+
+func (o ServiceIntegrationEmailParserValueExtractorOutput) ToServiceIntegrationEmailParserValueExtractorOutputWithContext(ctx context.Context) ServiceIntegrationEmailParserValueExtractorOutput {
+	return o
+}
+
+func (o ServiceIntegrationEmailParserValueExtractorOutput) EndsBefore() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceIntegrationEmailParserValueExtractor) *string { return v.EndsBefore }).(pulumi.StringPtrOutput)
+}
+
+// Can be `subject` or `body`.
+func (o ServiceIntegrationEmailParserValueExtractorOutput) Part() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceIntegrationEmailParserValueExtractor) string { return v.Part }).(pulumi.StringOutput)
+}
+
+// If `type` has value `regex` this value should contain valid regex.
+func (o ServiceIntegrationEmailParserValueExtractorOutput) Regex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceIntegrationEmailParserValueExtractor) *string { return v.Regex }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceIntegrationEmailParserValueExtractorOutput) StartsAfter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceIntegrationEmailParserValueExtractor) *string { return v.StartsAfter }).(pulumi.StringPtrOutput)
+}
+
+// Can be `between`, `entire` or `regex`.
+func (o ServiceIntegrationEmailParserValueExtractorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceIntegrationEmailParserValueExtractor) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// First value extractor should have name `incidentKey` other value extractors should contain custom names.
+func (o ServiceIntegrationEmailParserValueExtractorOutput) ValueName() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceIntegrationEmailParserValueExtractor) string { return v.ValueName }).(pulumi.StringOutput)
+}
+
+type ServiceIntegrationEmailParserValueExtractorArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceIntegrationEmailParserValueExtractorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceIntegrationEmailParserValueExtractor)(nil)).Elem()
+}
+
+func (o ServiceIntegrationEmailParserValueExtractorArrayOutput) ToServiceIntegrationEmailParserValueExtractorArrayOutput() ServiceIntegrationEmailParserValueExtractorArrayOutput {
+	return o
+}
+
+func (o ServiceIntegrationEmailParserValueExtractorArrayOutput) ToServiceIntegrationEmailParserValueExtractorArrayOutputWithContext(ctx context.Context) ServiceIntegrationEmailParserValueExtractorArrayOutput {
+	return o
+}
+
+func (o ServiceIntegrationEmailParserValueExtractorArrayOutput) Index(i pulumi.IntInput) ServiceIntegrationEmailParserValueExtractorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceIntegrationEmailParserValueExtractor {
+		return vs[0].([]ServiceIntegrationEmailParserValueExtractor)[vs[1].(int)]
+	}).(ServiceIntegrationEmailParserValueExtractorOutput)
+}
+
 type ServiceScheduledAction struct {
 	// A block representing when the scheduled action will occur.
 	Ats []ServiceScheduledActionAt `pulumi:"ats"`
@@ -7509,6 +8216,17 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIncidentUrgencyRuleDuringSupportHoursPtrInput)(nil)).Elem(), ServiceIncidentUrgencyRuleDuringSupportHoursArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIncidentUrgencyRuleOutsideSupportHoursInput)(nil)).Elem(), ServiceIncidentUrgencyRuleOutsideSupportHoursArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIncidentUrgencyRuleOutsideSupportHoursPtrInput)(nil)).Elem(), ServiceIncidentUrgencyRuleOutsideSupportHoursArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIntegrationEmailFilterInput)(nil)).Elem(), ServiceIntegrationEmailFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIntegrationEmailFilterArrayInput)(nil)).Elem(), ServiceIntegrationEmailFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIntegrationEmailParserInput)(nil)).Elem(), ServiceIntegrationEmailParserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIntegrationEmailParserArrayInput)(nil)).Elem(), ServiceIntegrationEmailParserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIntegrationEmailParserMatchPredicateInput)(nil)).Elem(), ServiceIntegrationEmailParserMatchPredicateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIntegrationEmailParserMatchPredicatePredicateInput)(nil)).Elem(), ServiceIntegrationEmailParserMatchPredicatePredicateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIntegrationEmailParserMatchPredicatePredicateArrayInput)(nil)).Elem(), ServiceIntegrationEmailParserMatchPredicatePredicateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIntegrationEmailParserMatchPredicatePredicatePredicateInput)(nil)).Elem(), ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayInput)(nil)).Elem(), ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIntegrationEmailParserValueExtractorInput)(nil)).Elem(), ServiceIntegrationEmailParserValueExtractorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceIntegrationEmailParserValueExtractorArrayInput)(nil)).Elem(), ServiceIntegrationEmailParserValueExtractorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceScheduledActionInput)(nil)).Elem(), ServiceScheduledActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceScheduledActionArrayInput)(nil)).Elem(), ServiceScheduledActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceScheduledActionAtInput)(nil)).Elem(), ServiceScheduledActionAtArgs{})
@@ -7625,6 +8343,17 @@ func init() {
 	pulumi.RegisterOutputType(ServiceIncidentUrgencyRuleDuringSupportHoursPtrOutput{})
 	pulumi.RegisterOutputType(ServiceIncidentUrgencyRuleOutsideSupportHoursOutput{})
 	pulumi.RegisterOutputType(ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput{})
+	pulumi.RegisterOutputType(ServiceIntegrationEmailFilterOutput{})
+	pulumi.RegisterOutputType(ServiceIntegrationEmailFilterArrayOutput{})
+	pulumi.RegisterOutputType(ServiceIntegrationEmailParserOutput{})
+	pulumi.RegisterOutputType(ServiceIntegrationEmailParserArrayOutput{})
+	pulumi.RegisterOutputType(ServiceIntegrationEmailParserMatchPredicateOutput{})
+	pulumi.RegisterOutputType(ServiceIntegrationEmailParserMatchPredicatePredicateOutput{})
+	pulumi.RegisterOutputType(ServiceIntegrationEmailParserMatchPredicatePredicateArrayOutput{})
+	pulumi.RegisterOutputType(ServiceIntegrationEmailParserMatchPredicatePredicatePredicateOutput{})
+	pulumi.RegisterOutputType(ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayOutput{})
+	pulumi.RegisterOutputType(ServiceIntegrationEmailParserValueExtractorOutput{})
+	pulumi.RegisterOutputType(ServiceIntegrationEmailParserValueExtractorArrayOutput{})
 	pulumi.RegisterOutputType(ServiceScheduledActionOutput{})
 	pulumi.RegisterOutputType(ServiceScheduledActionArrayOutput{})
 	pulumi.RegisterOutputType(ServiceScheduledActionAtOutput{})

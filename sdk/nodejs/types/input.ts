@@ -676,6 +676,110 @@ export interface ServiceIncidentUrgencyRuleOutsideSupportHours {
     urgency?: pulumi.Input<string>;
 }
 
+export interface ServiceIntegrationEmailFilter {
+    /**
+     * Can be `always` or `match`.
+     */
+    bodyMode?: pulumi.Input<string>;
+    /**
+     * Should be a valid regex or `null`
+     */
+    bodyRegex?: pulumi.Input<string>;
+    /**
+     * Can be `always` or `match`.
+     */
+    fromEmailMode?: pulumi.Input<string>;
+    /**
+     * Should be a valid regex or `null`
+     */
+    fromEmailRegex?: pulumi.Input<string>;
+    /**
+     * The ID of the service integration.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Can be `always` or `match`.
+     */
+    subjectMode?: pulumi.Input<string>;
+    /**
+     * Should be a valid regex or `null`
+     */
+    subjectRegex?: pulumi.Input<string>;
+}
+
+export interface ServiceIntegrationEmailParser {
+    /**
+     * Can be `resolve` or `trigger`.
+     */
+    action: pulumi.Input<string>;
+    /**
+     * The ID of the service integration.
+     */
+    id?: pulumi.Input<number>;
+    matchPredicate: pulumi.Input<inputs.ServiceIntegrationEmailParserMatchPredicate>;
+    valueExtractors?: pulumi.Input<pulumi.Input<inputs.ServiceIntegrationEmailParserValueExtractor>[]>;
+}
+
+export interface ServiceIntegrationEmailParserMatchPredicate {
+    predicates?: pulumi.Input<pulumi.Input<inputs.ServiceIntegrationEmailParserMatchPredicatePredicate>[]>;
+    /**
+     * Can be `any` or `all`.
+     */
+    type: pulumi.Input<string>;
+}
+
+export interface ServiceIntegrationEmailParserMatchPredicatePredicate {
+    /**
+     * Predicate value or valid regex.
+     */
+    matcher?: pulumi.Input<string>;
+    /**
+     * Can be `subject`, `body` or `fromAddresses`.
+     */
+    part?: pulumi.Input<string>;
+    predicates?: pulumi.Input<pulumi.Input<inputs.ServiceIntegrationEmailParserMatchPredicatePredicatePredicate>[]>;
+    /**
+     * Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.
+     */
+    type: pulumi.Input<string>;
+}
+
+export interface ServiceIntegrationEmailParserMatchPredicatePredicatePredicate {
+    /**
+     * Predicate value or valid regex.
+     */
+    matcher: pulumi.Input<string>;
+    /**
+     * Can be `subject`, `body` or `fromAddresses`.
+     */
+    part: pulumi.Input<string>;
+    /**
+     * Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.
+     */
+    type: pulumi.Input<string>;
+}
+
+export interface ServiceIntegrationEmailParserValueExtractor {
+    endsBefore?: pulumi.Input<string>;
+    /**
+     * Can be `subject` or `body`.
+     */
+    part: pulumi.Input<string>;
+    /**
+     * If `type` has value `regex` this value should contain valid regex.
+     */
+    regex?: pulumi.Input<string>;
+    startsAfter?: pulumi.Input<string>;
+    /**
+     * Can be `between`, `entire` or `regex`.
+     */
+    type: pulumi.Input<string>;
+    /**
+     * First value extractor should have name `incidentKey` other value extractors should contain custom names.
+     */
+    valueName: pulumi.Input<string>;
+}
+
 export interface ServiceScheduledAction {
     /**
      * A block representing when the scheduled action will occur.
@@ -775,4 +879,3 @@ export interface WebhookSubscriptionFilter {
      */
     type: pulumi.Input<string>;
 }
-

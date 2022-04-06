@@ -1744,6 +1744,309 @@
             },
             "type": "object"
         },
+        "pagerduty:index/ServiceIntegrationEmailFilter:ServiceIntegrationEmailFilter": {
+            "properties": {
+                "bodyMode": {
+                    "type": "string",
+                    "description": "Can be `always` or `match`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "bodyRegex": {
+                    "type": "string",
+                    "description": "Should be a valid regex or `null`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "fromEmailMode": {
+                    "type": "string",
+                    "description": "Can be `always` or `match`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "fromEmailRegex": {
+                    "type": "string",
+                    "description": "Should be a valid regex or `null`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the service integration.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "subjectMode": {
+                    "type": "string",
+                    "description": "Can be `always` or `match`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "subjectRegex": {
+                    "type": "string",
+                    "description": "Should be a valid regex or `null`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "id"
+                    ]
+                }
+            }
+        },
+        "pagerduty:index/ServiceIntegrationEmailParser:ServiceIntegrationEmailParser": {
+            "properties": {
+                "action": {
+                    "type": "string",
+                    "description": "Can be `resolve` or `trigger`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "integer",
+                    "description": "The ID of the service integration.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "matchPredicate": {
+                    "$ref": "#/types/pagerduty:index/ServiceIntegrationEmailParserMatchPredicate:ServiceIntegrationEmailParserMatchPredicate",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "valueExtractors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/ServiceIntegrationEmailParserValueExtractor:ServiceIntegrationEmailParserValueExtractor"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "action",
+                "matchPredicate"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "action",
+                        "id",
+                        "matchPredicate"
+                    ]
+                }
+            }
+        },
+        "pagerduty:index/ServiceIntegrationEmailParserMatchPredicate:ServiceIntegrationEmailParserMatchPredicate": {
+            "properties": {
+                "predicates": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/ServiceIntegrationEmailParserMatchPredicatePredicate:ServiceIntegrationEmailParserMatchPredicatePredicate"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Can be `any` or `all`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "type"
+            ]
+        },
+        "pagerduty:index/ServiceIntegrationEmailParserMatchPredicatePredicate:ServiceIntegrationEmailParserMatchPredicatePredicate": {
+            "properties": {
+                "matcher": {
+                    "type": "string",
+                    "description": "Predicate value or valid regex.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "part": {
+                    "type": "string",
+                    "description": "Can be `subject`, `body` or `from_addresses`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "predicates": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/ServiceIntegrationEmailParserMatchPredicatePredicatePredicate:ServiceIntegrationEmailParserMatchPredicatePredicatePredicate"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "type"
+            ]
+        },
+        "pagerduty:index/ServiceIntegrationEmailParserMatchPredicatePredicatePredicate:ServiceIntegrationEmailParserMatchPredicatePredicatePredicate": {
+            "properties": {
+                "matcher": {
+                    "type": "string",
+                    "description": "Predicate value or valid regex.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "part": {
+                    "type": "string",
+                    "description": "Can be `subject`, `body` or `from_addresses`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "matcher",
+                "part",
+                "type"
+            ]
+        },
+        "pagerduty:index/ServiceIntegrationEmailParserValueExtractor:ServiceIntegrationEmailParserValueExtractor": {
+            "properties": {
+                "endsBefore": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "part": {
+                    "type": "string",
+                    "description": "Can be `subject` or `body`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "regex": {
+                    "type": "string",
+                    "description": "If `type` has value `regex` this value should contain valid regex.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "startsAfter": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Can be `between`, `entire` or `regex`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "valueName": {
+                    "type": "string",
+                    "description": "First value extractor should have name `incident_key` other value extractors should contain custom names.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "part",
+                "type",
+                "valueName"
+            ]
+        },
         "pagerduty:index/ServiceScheduledAction:ServiceScheduledAction": {
             "properties": {
                 "ats": {
@@ -3591,8 +3894,32 @@
             }
         },
         "pagerduty:index/serviceIntegration:ServiceIntegration": {
-            "description": "A [service integration](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1services~1%7Bid%7D~1integrations/post) is an integration that belongs to a service.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst exampleUser = new pagerduty.User(\"exampleUser\", {\n    email: \"125.greenholt.earline@graham.name\",\n    teams: [pagerduty_team.example.id],\n});\nconst foo = new pagerduty.EscalationPolicy(\"foo\", {\n    numLoops: 2,\n    rules: [{\n        escalationDelayInMinutes: 10,\n        targets: [{\n            type: \"user\",\n            id: exampleUser.id,\n        }],\n    }],\n});\nconst exampleService = new pagerduty.Service(\"exampleService\", {\n    autoResolveTimeout: 14400,\n    acknowledgementTimeout: 600,\n    escalationPolicy: pagerduty_escalation_policy.example.id,\n});\nconst exampleServiceIntegration = new pagerduty.ServiceIntegration(\"exampleServiceIntegration\", {\n    type: \"generic_events_api_inbound_integration\",\n    service: exampleService.id,\n});\nconst apiv2 = new pagerduty.ServiceIntegration(\"apiv2\", {\n    type: \"events_api_v2_inbound_integration\",\n    integrationKey: \"12345678910testtesttesttesttes\",\n    service: exampleService.id,\n});\nconst emailX = new pagerduty.ServiceIntegration(\"emailX\", {\n    type: \"generic_email_inbound_integration\",\n    integrationEmail: \"ecommerce@subdomain.pagerduty.com\",\n    service: exampleService.id,\n});\nconst datadogVendor = pagerduty.getVendor({\n    name: \"Datadog\",\n});\nconst datadogServiceIntegration = new pagerduty.ServiceIntegration(\"datadogServiceIntegration\", {\n    service: exampleService.id,\n    vendor: datadogVendor.then(datadogVendor =\u003e datadogVendor.id),\n});\nconst cloudwatchVendor = pagerduty.getVendor({\n    name: \"Cloudwatch\",\n});\nconst cloudwatchServiceIntegration = new pagerduty.ServiceIntegration(\"cloudwatchServiceIntegration\", {\n    service: exampleService.id,\n    vendor: cloudwatchVendor.then(cloudwatchVendor =\u003e cloudwatchVendor.id),\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nexample_user = pagerduty.User(\"exampleUser\",\n    email=\"125.greenholt.earline@graham.name\",\n    teams=[pagerduty_team[\"example\"][\"id\"]])\nfoo = pagerduty.EscalationPolicy(\"foo\",\n    num_loops=2,\n    rules=[pagerduty.EscalationPolicyRuleArgs(\n        escalation_delay_in_minutes=10,\n        targets=[pagerduty.EscalationPolicyRuleTargetArgs(\n            type=\"user\",\n            id=example_user.id,\n        )],\n    )])\nexample_service = pagerduty.Service(\"exampleService\",\n    auto_resolve_timeout=\"14400\",\n    acknowledgement_timeout=\"600\",\n    escalation_policy=pagerduty_escalation_policy[\"example\"][\"id\"])\nexample_service_integration = pagerduty.ServiceIntegration(\"exampleServiceIntegration\",\n    type=\"generic_events_api_inbound_integration\",\n    service=example_service.id)\napiv2 = pagerduty.ServiceIntegration(\"apiv2\",\n    type=\"events_api_v2_inbound_integration\",\n    integration_key=\"12345678910testtesttesttesttes\",\n    service=example_service.id)\nemail_x = pagerduty.ServiceIntegration(\"emailX\",\n    type=\"generic_email_inbound_integration\",\n    integration_email=\"ecommerce@subdomain.pagerduty.com\",\n    service=example_service.id)\ndatadog_vendor = pagerduty.get_vendor(name=\"Datadog\")\ndatadog_service_integration = pagerduty.ServiceIntegration(\"datadogServiceIntegration\",\n    service=example_service.id,\n    vendor=datadog_vendor.id)\ncloudwatch_vendor = pagerduty.get_vendor(name=\"Cloudwatch\")\ncloudwatch_service_integration = pagerduty.ServiceIntegration(\"cloudwatchServiceIntegration\",\n    service=example_service.id,\n    vendor=cloudwatch_vendor.id)\n```\n```csharp\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var exampleUser = new Pagerduty.User(\"exampleUser\", new Pagerduty.UserArgs\n        {\n            Email = \"125.greenholt.earline@graham.name\",\n            Teams = \n            {\n                pagerduty_team.Example.Id,\n            },\n        });\n        var foo = new Pagerduty.EscalationPolicy(\"foo\", new Pagerduty.EscalationPolicyArgs\n        {\n            NumLoops = 2,\n            Rules = \n            {\n                new Pagerduty.Inputs.EscalationPolicyRuleArgs\n                {\n                    EscalationDelayInMinutes = 10,\n                    Targets = \n                    {\n                        new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs\n                        {\n                            Type = \"user\",\n                            Id = exampleUser.Id,\n                        },\n                    },\n                },\n            },\n        });\n        var exampleService = new Pagerduty.Service(\"exampleService\", new Pagerduty.ServiceArgs\n        {\n            AutoResolveTimeout = \"14400\",\n            AcknowledgementTimeout = \"600\",\n            EscalationPolicy = pagerduty_escalation_policy.Example.Id,\n        });\n        var exampleServiceIntegration = new Pagerduty.ServiceIntegration(\"exampleServiceIntegration\", new Pagerduty.ServiceIntegrationArgs\n        {\n            Type = \"generic_events_api_inbound_integration\",\n            Service = exampleService.Id,\n        });\n        var apiv2 = new Pagerduty.ServiceIntegration(\"apiv2\", new Pagerduty.ServiceIntegrationArgs\n        {\n            Type = \"events_api_v2_inbound_integration\",\n            IntegrationKey = \"12345678910testtesttesttesttes\",\n            Service = exampleService.Id,\n        });\n        var emailX = new Pagerduty.ServiceIntegration(\"emailX\", new Pagerduty.ServiceIntegrationArgs\n        {\n            Type = \"generic_email_inbound_integration\",\n            IntegrationEmail = \"ecommerce@subdomain.pagerduty.com\",\n            Service = exampleService.Id,\n        });\n        var datadogVendor = Output.Create(Pagerduty.GetVendor.InvokeAsync(new Pagerduty.GetVendorArgs\n        {\n            Name = \"Datadog\",\n        }));\n        var datadogServiceIntegration = new Pagerduty.ServiceIntegration(\"datadogServiceIntegration\", new Pagerduty.ServiceIntegrationArgs\n        {\n            Service = exampleService.Id,\n            Vendor = datadogVendor.Apply(datadogVendor =\u003e datadogVendor.Id),\n        });\n        var cloudwatchVendor = Output.Create(Pagerduty.GetVendor.InvokeAsync(new Pagerduty.GetVendorArgs\n        {\n            Name = \"Cloudwatch\",\n        }));\n        var cloudwatchServiceIntegration = new Pagerduty.ServiceIntegration(\"cloudwatchServiceIntegration\", new Pagerduty.ServiceIntegrationArgs\n        {\n            Service = exampleService.Id,\n            Vendor = cloudwatchVendor.Apply(cloudwatchVendor =\u003e cloudwatchVendor.Id),\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleUser, err := pagerduty.NewUser(ctx, \"exampleUser\", \u0026pagerduty.UserArgs{\n\t\t\tEmail: pulumi.String(\"125.greenholt.earline@graham.name\"),\n\t\t\tTeams: pulumi.StringArray{\n\t\t\t\tpulumi.Any(pagerduty_team.Example.Id),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewEscalationPolicy(ctx, \"foo\", \u0026pagerduty.EscalationPolicyArgs{\n\t\t\tNumLoops: pulumi.Int(2),\n\t\t\tRules: EscalationPolicyRuleArray{\n\t\t\t\t\u0026EscalationPolicyRuleArgs{\n\t\t\t\t\tEscalationDelayInMinutes: pulumi.Int(10),\n\t\t\t\t\tTargets: EscalationPolicyRuleTargetArray{\n\t\t\t\t\t\t\u0026EscalationPolicyRuleTargetArgs{\n\t\t\t\t\t\t\tType: pulumi.String(\"user\"),\n\t\t\t\t\t\t\tId:   exampleUser.ID(),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleService, err := pagerduty.NewService(ctx, \"exampleService\", \u0026pagerduty.ServiceArgs{\n\t\t\tAutoResolveTimeout:     pulumi.String(\"14400\"),\n\t\t\tAcknowledgementTimeout: pulumi.String(\"600\"),\n\t\t\tEscalationPolicy:       pulumi.Any(pagerduty_escalation_policy.Example.Id),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewServiceIntegration(ctx, \"exampleServiceIntegration\", \u0026pagerduty.ServiceIntegrationArgs{\n\t\t\tType:    pulumi.String(\"generic_events_api_inbound_integration\"),\n\t\t\tService: exampleService.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewServiceIntegration(ctx, \"apiv2\", \u0026pagerduty.ServiceIntegrationArgs{\n\t\t\tType:           pulumi.String(\"events_api_v2_inbound_integration\"),\n\t\t\tIntegrationKey: pulumi.String(\"12345678910testtesttesttesttes\"),\n\t\t\tService:        exampleService.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewServiceIntegration(ctx, \"emailX\", \u0026pagerduty.ServiceIntegrationArgs{\n\t\t\tType:             pulumi.String(\"generic_email_inbound_integration\"),\n\t\t\tIntegrationEmail: pulumi.String(\"ecommerce@subdomain.pagerduty.com\"),\n\t\t\tService:          exampleService.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tdatadogVendor, err := pagerduty.GetVendor(ctx, \u0026GetVendorArgs{\n\t\t\tName: \"Datadog\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewServiceIntegration(ctx, \"datadogServiceIntegration\", \u0026pagerduty.ServiceIntegrationArgs{\n\t\t\tService: exampleService.ID(),\n\t\t\tVendor:  pulumi.String(datadogVendor.Id),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tcloudwatchVendor, err := pagerduty.GetVendor(ctx, \u0026GetVendorArgs{\n\t\t\tName: \"Cloudwatch\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewServiceIntegration(ctx, \"cloudwatchServiceIntegration\", \u0026pagerduty.ServiceIntegrationArgs{\n\t\t\tService: exampleService.ID(),\n\t\t\tVendor:  pulumi.String(cloudwatchVendor.Id),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nServices can be imported using their related `service` id and service integration `id` separated by a dot, e.g.\n\n```sh\n $ pulumi import pagerduty:index/serviceIntegration:ServiceIntegration main PLSSSSS.PLIIIII\n```\n\n ",
+            "description": "A [service integration](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1services~1%7Bid%7D~1integrations/post) is an integration that belongs to a service.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst exampleUser = new pagerduty.User(\"exampleUser\", {\n    email: \"125.greenholt.earline@graham.name\",\n    teams: [pagerduty_team.example.id],\n});\nconst foo = new pagerduty.EscalationPolicy(\"foo\", {\n    numLoops: 2,\n    rules: [{\n        escalationDelayInMinutes: 10,\n        targets: [{\n            type: \"user\",\n            id: exampleUser.id,\n        }],\n    }],\n});\nconst exampleService = new pagerduty.Service(\"exampleService\", {\n    autoResolveTimeout: 14400,\n    acknowledgementTimeout: 600,\n    escalationPolicy: pagerduty_escalation_policy.example.id,\n});\nconst exampleServiceIntegration = new pagerduty.ServiceIntegration(\"exampleServiceIntegration\", {\n    type: \"generic_events_api_inbound_integration\",\n    service: exampleService.id,\n});\nconst apiv2 = new pagerduty.ServiceIntegration(\"apiv2\", {\n    type: \"events_api_v2_inbound_integration\",\n    integrationKey: \"12345678910testtesttesttesttes\",\n    service: exampleService.id,\n});\nconst emailX = new pagerduty.ServiceIntegration(\"emailX\", {\n    type: \"generic_email_inbound_integration\",\n    integrationEmail: \"ecommerce@subdomain.pagerduty.com\",\n    service: exampleService.id,\n});\nconst datadogVendor = pagerduty.getVendor({\n    name: \"Datadog\",\n});\nconst datadogServiceIntegration = new pagerduty.ServiceIntegration(\"datadogServiceIntegration\", {\n    service: exampleService.id,\n    vendor: datadogVendor.then(datadogVendor =\u003e datadogVendor.id),\n});\nconst cloudwatchVendor = pagerduty.getVendor({\n    name: \"Cloudwatch\",\n});\nconst cloudwatchServiceIntegration = new pagerduty.ServiceIntegration(\"cloudwatchServiceIntegration\", {\n    service: exampleService.id,\n    vendor: cloudwatchVendor.then(cloudwatchVendor =\u003e cloudwatchVendor.id),\n});\nconst emailVendor = pagerduty.getVendor({\n    name: \"Email\",\n});\nconst emailServiceIntegration = new pagerduty.ServiceIntegration(\"emailServiceIntegration\", {\n    service: exampleService.id,\n    vendor: emailVendor.then(emailVendor =\u003e emailVendor.id),\n    integrationEmail: \"s1@your_account.pagerduty.com\",\n    emailIncidentCreation: \"use_rules\",\n    emailFilterMode: \"and-rules-email\",\n    emailFilters: [\n        {\n            bodyMode: \"always\",\n            bodyRegex: undefined,\n            fromEmailMode: \"match\",\n            fromEmailRegex: \"(@foo.com*)\",\n            subjectMode: \"match\",\n            subjectRegex: \"(CRITICAL*)\",\n        },\n        {\n            bodyMode: \"always\",\n            bodyRegex: undefined,\n            fromEmailMode: \"match\",\n            fromEmailRegex: \"(@bar.com*)\",\n            subjectMode: \"match\",\n            subjectRegex: \"(CRITICAL*)\",\n        },\n    ],\n    emailParsers: [{\n        action: \"resolve\",\n        matchPredicate: {\n            type: \"any\",\n            predicates: [\n                {\n                    matcher: \"foo\",\n                    part: \"subject\",\n                    type: \"contains\",\n                },\n                {\n                    type: \"not\",\n                    predicates: [{\n                        matcher: \"(bar*)\",\n                        part: \"body\",\n                        type: \"regex\",\n                    }],\n                },\n            ],\n        },\n        valueExtractors: [\n            {\n                endsBefore: \"end\",\n                part: \"subject\",\n                startsAfter: \"start\",\n                type: \"between\",\n                valueName: \"incident_key\",\n            },\n            {\n                endsBefore: \"end\",\n                part: \"subject\",\n                startsAfter: \"start\",\n                type: \"between\",\n                valueName: \"FieldName1\",\n            },\n        ],\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nexample_user = pagerduty.User(\"exampleUser\",\n    email=\"125.greenholt.earline@graham.name\",\n    teams=[pagerduty_team[\"example\"][\"id\"]])\nfoo = pagerduty.EscalationPolicy(\"foo\",\n    num_loops=2,\n    rules=[pagerduty.EscalationPolicyRuleArgs(\n        escalation_delay_in_minutes=10,\n        targets=[pagerduty.EscalationPolicyRuleTargetArgs(\n            type=\"user\",\n            id=example_user.id,\n        )],\n    )])\nexample_service = pagerduty.Service(\"exampleService\",\n    auto_resolve_timeout=\"14400\",\n    acknowledgement_timeout=\"600\",\n    escalation_policy=pagerduty_escalation_policy[\"example\"][\"id\"])\nexample_service_integration = pagerduty.ServiceIntegration(\"exampleServiceIntegration\",\n    type=\"generic_events_api_inbound_integration\",\n    service=example_service.id)\napiv2 = pagerduty.ServiceIntegration(\"apiv2\",\n    type=\"events_api_v2_inbound_integration\",\n    integration_key=\"12345678910testtesttesttesttes\",\n    service=example_service.id)\nemail_x = pagerduty.ServiceIntegration(\"emailX\",\n    type=\"generic_email_inbound_integration\",\n    integration_email=\"ecommerce@subdomain.pagerduty.com\",\n    service=example_service.id)\ndatadog_vendor = pagerduty.get_vendor(name=\"Datadog\")\ndatadog_service_integration = pagerduty.ServiceIntegration(\"datadogServiceIntegration\",\n    service=example_service.id,\n    vendor=datadog_vendor.id)\ncloudwatch_vendor = pagerduty.get_vendor(name=\"Cloudwatch\")\ncloudwatch_service_integration = pagerduty.ServiceIntegration(\"cloudwatchServiceIntegration\",\n    service=example_service.id,\n    vendor=cloudwatch_vendor.id)\nemail_vendor = pagerduty.get_vendor(name=\"Email\")\nemail_service_integration = pagerduty.ServiceIntegration(\"emailServiceIntegration\",\n    service=example_service.id,\n    vendor=email_vendor.id,\n    integration_email=\"s1@your_account.pagerduty.com\",\n    email_incident_creation=\"use_rules\",\n    email_filter_mode=\"and-rules-email\",\n    email_filters=[\n        pagerduty.ServiceIntegrationEmailFilterArgs(\n            body_mode=\"always\",\n            body_regex=None,\n            from_email_mode=\"match\",\n            from_email_regex=\"(@foo.com*)\",\n            subject_mode=\"match\",\n            subject_regex=\"(CRITICAL*)\",\n        ),\n        pagerduty.ServiceIntegrationEmailFilterArgs(\n            body_mode=\"always\",\n            body_regex=None,\n            from_email_mode=\"match\",\n            from_email_regex=\"(@bar.com*)\",\n            subject_mode=\"match\",\n            subject_regex=\"(CRITICAL*)\",\n        ),\n    ],\n    email_parsers=[pagerduty.ServiceIntegrationEmailParserArgs(\n        action=\"resolve\",\n        match_predicate=pagerduty.ServiceIntegrationEmailParserMatchPredicateArgs(\n            type=\"any\",\n            predicates=[\n                pagerduty.ServiceIntegrationEmailParserMatchPredicatePredicateArgs(\n                    matcher=\"foo\",\n                    part=\"subject\",\n                    type=\"contains\",\n                ),\n                pagerduty.ServiceIntegrationEmailParserMatchPredicatePredicateArgs(\n                    type=\"not\",\n                    predicates=[pagerduty.ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs(\n                        matcher=\"(bar*)\",\n                        part=\"body\",\n                        type=\"regex\",\n                    )],\n                ),\n            ],\n        ),\n        value_extractors=[\n            pagerduty.ServiceIntegrationEmailParserValueExtractorArgs(\n                ends_before=\"end\",\n                part=\"subject\",\n                starts_after=\"start\",\n                type=\"between\",\n                value_name=\"incident_key\",\n            ),\n            pagerduty.ServiceIntegrationEmailParserValueExtractorArgs(\n                ends_before=\"end\",\n                part=\"subject\",\n                starts_after=\"start\",\n                type=\"between\",\n                value_name=\"FieldName1\",\n            ),\n        ],\n    )])\n```\n```csharp\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var exampleUser = new Pagerduty.User(\"exampleUser\", new Pagerduty.UserArgs\n        {\n            Email = \"125.greenholt.earline@graham.name\",\n            Teams = \n            {\n                pagerduty_team.Example.Id,\n            },\n        });\n        var foo = new Pagerduty.EscalationPolicy(\"foo\", new Pagerduty.EscalationPolicyArgs\n        {\n            NumLoops = 2,\n            Rules = \n            {\n                new Pagerduty.Inputs.EscalationPolicyRuleArgs\n                {\n                    EscalationDelayInMinutes = 10,\n                    Targets = \n                    {\n                        new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs\n                        {\n                            Type = \"user\",\n                            Id = exampleUser.Id,\n                        },\n                    },\n                },\n            },\n        });\n        var exampleService = new Pagerduty.Service(\"exampleService\", new Pagerduty.ServiceArgs\n        {\n            AutoResolveTimeout = \"14400\",\n            AcknowledgementTimeout = \"600\",\n            EscalationPolicy = pagerduty_escalation_policy.Example.Id,\n        });\n        var exampleServiceIntegration = new Pagerduty.ServiceIntegration(\"exampleServiceIntegration\", new Pagerduty.ServiceIntegrationArgs\n        {\n            Type = \"generic_events_api_inbound_integration\",\n            Service = exampleService.Id,\n        });\n        var apiv2 = new Pagerduty.ServiceIntegration(\"apiv2\", new Pagerduty.ServiceIntegrationArgs\n        {\n            Type = \"events_api_v2_inbound_integration\",\n            IntegrationKey = \"12345678910testtesttesttesttes\",\n            Service = exampleService.Id,\n        });\n        var emailX = new Pagerduty.ServiceIntegration(\"emailX\", new Pagerduty.ServiceIntegrationArgs\n        {\n            Type = \"generic_email_inbound_integration\",\n            IntegrationEmail = \"ecommerce@subdomain.pagerduty.com\",\n            Service = exampleService.Id,\n        });\n        var datadogVendor = Output.Create(Pagerduty.GetVendor.InvokeAsync(new Pagerduty.GetVendorArgs\n        {\n            Name = \"Datadog\",\n        }));\n        var datadogServiceIntegration = new Pagerduty.ServiceIntegration(\"datadogServiceIntegration\", new Pagerduty.ServiceIntegrationArgs\n        {\n            Service = exampleService.Id,\n            Vendor = datadogVendor.Apply(datadogVendor =\u003e datadogVendor.Id),\n        });\n        var cloudwatchVendor = Output.Create(Pagerduty.GetVendor.InvokeAsync(new Pagerduty.GetVendorArgs\n        {\n            Name = \"Cloudwatch\",\n        }));\n        var cloudwatchServiceIntegration = new Pagerduty.ServiceIntegration(\"cloudwatchServiceIntegration\", new Pagerduty.ServiceIntegrationArgs\n        {\n            Service = exampleService.Id,\n            Vendor = cloudwatchVendor.Apply(cloudwatchVendor =\u003e cloudwatchVendor.Id),\n        });\n        var emailVendor = Output.Create(Pagerduty.GetVendor.InvokeAsync(new Pagerduty.GetVendorArgs\n        {\n            Name = \"Email\",\n        }));\n        var emailServiceIntegration = new Pagerduty.ServiceIntegration(\"emailServiceIntegration\", new Pagerduty.ServiceIntegrationArgs\n        {\n            Service = exampleService.Id,\n            Vendor = emailVendor.Apply(emailVendor =\u003e emailVendor.Id),\n            IntegrationEmail = \"s1@your_account.pagerduty.com\",\n            EmailIncidentCreation = \"use_rules\",\n            EmailFilterMode = \"and-rules-email\",\n            EmailFilters = \n            {\n                new Pagerduty.Inputs.ServiceIntegrationEmailFilterArgs\n                {\n                    BodyMode = \"always\",\n                    BodyRegex = null,\n                    FromEmailMode = \"match\",\n                    FromEmailRegex = \"(@foo.com*)\",\n                    SubjectMode = \"match\",\n                    SubjectRegex = \"(CRITICAL*)\",\n                },\n                new Pagerduty.Inputs.ServiceIntegrationEmailFilterArgs\n                {\n                    BodyMode = \"always\",\n                    BodyRegex = null,\n                    FromEmailMode = \"match\",\n                    FromEmailRegex = \"(@bar.com*)\",\n                    SubjectMode = \"match\",\n                    SubjectRegex = \"(CRITICAL*)\",\n                },\n            },\n            EmailParsers = \n            {\n                new Pagerduty.Inputs.ServiceIntegrationEmailParserArgs\n                {\n                    Action = \"resolve\",\n                    MatchPredicate = new Pagerduty.Inputs.ServiceIntegrationEmailParserMatchPredicateArgs\n                    {\n                        Type = \"any\",\n                        Predicates = \n                        {\n                            new Pagerduty.Inputs.ServiceIntegrationEmailParserMatchPredicatePredicateArgs\n                            {\n                                Matcher = \"foo\",\n                                Part = \"subject\",\n                                Type = \"contains\",\n                            },\n                            new Pagerduty.Inputs.ServiceIntegrationEmailParserMatchPredicatePredicateArgs\n                            {\n                                Type = \"not\",\n                                Predicates = \n                                {\n                                    new Pagerduty.Inputs.ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs\n                                    {\n                                        Matcher = \"(bar*)\",\n                                        Part = \"body\",\n                                        Type = \"regex\",\n                                    },\n                                },\n                            },\n                        },\n                    },\n                    ValueExtractors = \n                    {\n                        new Pagerduty.Inputs.ServiceIntegrationEmailParserValueExtractorArgs\n                        {\n                            EndsBefore = \"end\",\n                            Part = \"subject\",\n                            StartsAfter = \"start\",\n                            Type = \"between\",\n                            ValueName = \"incident_key\",\n                        },\n                        new Pagerduty.Inputs.ServiceIntegrationEmailParserValueExtractorArgs\n                        {\n                            EndsBefore = \"end\",\n                            Part = \"subject\",\n                            StartsAfter = \"start\",\n                            Type = \"between\",\n                            ValueName = \"FieldName1\",\n                        },\n                    },\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleUser, err := pagerduty.NewUser(ctx, \"exampleUser\", \u0026pagerduty.UserArgs{\n\t\t\tEmail: pulumi.String(\"125.greenholt.earline@graham.name\"),\n\t\t\tTeams: pulumi.StringArray{\n\t\t\t\tpulumi.Any(pagerduty_team.Example.Id),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewEscalationPolicy(ctx, \"foo\", \u0026pagerduty.EscalationPolicyArgs{\n\t\t\tNumLoops: pulumi.Int(2),\n\t\t\tRules: EscalationPolicyRuleArray{\n\t\t\t\t\u0026EscalationPolicyRuleArgs{\n\t\t\t\t\tEscalationDelayInMinutes: pulumi.Int(10),\n\t\t\t\t\tTargets: EscalationPolicyRuleTargetArray{\n\t\t\t\t\t\t\u0026EscalationPolicyRuleTargetArgs{\n\t\t\t\t\t\t\tType: pulumi.String(\"user\"),\n\t\t\t\t\t\t\tId:   exampleUser.ID(),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleService, err := pagerduty.NewService(ctx, \"exampleService\", \u0026pagerduty.ServiceArgs{\n\t\t\tAutoResolveTimeout:     pulumi.String(\"14400\"),\n\t\t\tAcknowledgementTimeout: pulumi.String(\"600\"),\n\t\t\tEscalationPolicy:       pulumi.Any(pagerduty_escalation_policy.Example.Id),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewServiceIntegration(ctx, \"exampleServiceIntegration\", \u0026pagerduty.ServiceIntegrationArgs{\n\t\t\tType:    pulumi.String(\"generic_events_api_inbound_integration\"),\n\t\t\tService: exampleService.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewServiceIntegration(ctx, \"apiv2\", \u0026pagerduty.ServiceIntegrationArgs{\n\t\t\tType:           pulumi.String(\"events_api_v2_inbound_integration\"),\n\t\t\tIntegrationKey: pulumi.String(\"12345678910testtesttesttesttes\"),\n\t\t\tService:        exampleService.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewServiceIntegration(ctx, \"emailX\", \u0026pagerduty.ServiceIntegrationArgs{\n\t\t\tType:             pulumi.String(\"generic_email_inbound_integration\"),\n\t\t\tIntegrationEmail: pulumi.String(\"ecommerce@subdomain.pagerduty.com\"),\n\t\t\tService:          exampleService.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tdatadogVendor, err := pagerduty.GetVendor(ctx, \u0026GetVendorArgs{\n\t\t\tName: \"Datadog\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewServiceIntegration(ctx, \"datadogServiceIntegration\", \u0026pagerduty.ServiceIntegrationArgs{\n\t\t\tService: exampleService.ID(),\n\t\t\tVendor:  pulumi.String(datadogVendor.Id),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tcloudwatchVendor, err := pagerduty.GetVendor(ctx, \u0026GetVendorArgs{\n\t\t\tName: \"Cloudwatch\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewServiceIntegration(ctx, \"cloudwatchServiceIntegration\", \u0026pagerduty.ServiceIntegrationArgs{\n\t\t\tService: exampleService.ID(),\n\t\t\tVendor:  pulumi.String(cloudwatchVendor.Id),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\temailVendor, err := pagerduty.GetVendor(ctx, \u0026GetVendorArgs{\n\t\t\tName: \"Email\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewServiceIntegration(ctx, \"emailServiceIntegration\", \u0026pagerduty.ServiceIntegrationArgs{\n\t\t\tService:               exampleService.ID(),\n\t\t\tVendor:                pulumi.String(emailVendor.Id),\n\t\t\tIntegrationEmail:      pulumi.String(\"s1@your_account.pagerduty.com\"),\n\t\t\tEmailIncidentCreation: pulumi.String(\"use_rules\"),\n\t\t\tEmailFilterMode:       pulumi.String(\"and-rules-email\"),\n\t\t\tEmailFilters: ServiceIntegrationEmailFilterArray{\n\t\t\t\t\u0026ServiceIntegrationEmailFilterArgs{\n\t\t\t\t\tBodyMode:       pulumi.String(\"always\"),\n\t\t\t\t\tBodyRegex:      nil,\n\t\t\t\t\tFromEmailMode:  pulumi.String(\"match\"),\n\t\t\t\t\tFromEmailRegex: pulumi.String(\"(@foo.com*)\"),\n\t\t\t\t\tSubjectMode:    pulumi.String(\"match\"),\n\t\t\t\t\tSubjectRegex:   pulumi.String(\"(CRITICAL*)\"),\n\t\t\t\t},\n\t\t\t\t\u0026ServiceIntegrationEmailFilterArgs{\n\t\t\t\t\tBodyMode:       pulumi.String(\"always\"),\n\t\t\t\t\tBodyRegex:      nil,\n\t\t\t\t\tFromEmailMode:  pulumi.String(\"match\"),\n\t\t\t\t\tFromEmailRegex: pulumi.String(\"(@bar.com*)\"),\n\t\t\t\t\tSubjectMode:    pulumi.String(\"match\"),\n\t\t\t\t\tSubjectRegex:   pulumi.String(\"(CRITICAL*)\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tEmailParsers: ServiceIntegrationEmailParserArray{\n\t\t\t\t\u0026ServiceIntegrationEmailParserArgs{\n\t\t\t\t\tAction: pulumi.String(\"resolve\"),\n\t\t\t\t\tMatchPredicate: \u0026ServiceIntegrationEmailParserMatchPredicateArgs{\n\t\t\t\t\t\tType: pulumi.String(\"any\"),\n\t\t\t\t\t\tPredicates: ServiceIntegrationEmailParserMatchPredicatePredicateArray{\n\t\t\t\t\t\t\t\u0026ServiceIntegrationEmailParserMatchPredicatePredicateArgs{\n\t\t\t\t\t\t\t\tMatcher: pulumi.String(\"foo\"),\n\t\t\t\t\t\t\t\tPart:    pulumi.String(\"subject\"),\n\t\t\t\t\t\t\t\tType:    pulumi.String(\"contains\"),\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\u0026ServiceIntegrationEmailParserMatchPredicatePredicateArgs{\n\t\t\t\t\t\t\t\tType: pulumi.String(\"not\"),\n\t\t\t\t\t\t\t\tPredicates: ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArray{\n\t\t\t\t\t\t\t\t\t\u0026ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs{\n\t\t\t\t\t\t\t\t\t\tMatcher: pulumi.String(\"(bar*)\"),\n\t\t\t\t\t\t\t\t\t\tPart:    pulumi.String(\"body\"),\n\t\t\t\t\t\t\t\t\t\tType:    pulumi.String(\"regex\"),\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t\tValueExtractors: ServiceIntegrationEmailParserValueExtractorArray{\n\t\t\t\t\t\t\u0026ServiceIntegrationEmailParserValueExtractorArgs{\n\t\t\t\t\t\t\tEndsBefore:  pulumi.String(\"end\"),\n\t\t\t\t\t\t\tPart:        pulumi.String(\"subject\"),\n\t\t\t\t\t\t\tStartsAfter: pulumi.String(\"start\"),\n\t\t\t\t\t\t\tType:        pulumi.String(\"between\"),\n\t\t\t\t\t\t\tValueName:   pulumi.String(\"incident_key\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026ServiceIntegrationEmailParserValueExtractorArgs{\n\t\t\t\t\t\t\tEndsBefore:  pulumi.String(\"end\"),\n\t\t\t\t\t\t\tPart:        pulumi.String(\"subject\"),\n\t\t\t\t\t\t\tStartsAfter: pulumi.String(\"start\"),\n\t\t\t\t\t\t\tType:        pulumi.String(\"between\"),\n\t\t\t\t\t\t\tValueName:   pulumi.String(\"FieldName1\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nServices can be imported using their related `service` id and service integration `id` separated by a dot, e.g.\n\n```sh\n $ pulumi import pagerduty:index/serviceIntegration:ServiceIntegration main PLSSSSS.PLIIIII\n```\n\n ",
             "properties": {
+                "emailFilterMode": {
+                    "type": "string",
+                    "description": "This is the unique fully-qualified email address used for routing emails to this integration for processing.\n"
+                },
+                "emailFilters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/ServiceIntegrationEmailFilter:ServiceIntegrationEmailFilter"
+                    }
+                },
+                "emailIncidentCreation": {
+                    "type": "string",
+                    "description": "This is the unique fully-qualified email address used for routing emails to this integration for processing.\n"
+                },
+                "emailParsers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/ServiceIntegrationEmailParser:ServiceIntegrationEmailParser"
+                    }
+                },
+                "emailParsingFallback": {
+                    "type": "string",
+                    "description": "Can be `open_new_incident` or `discard`.\n"
+                },
                 "htmlUrl": {
                     "type": "string",
                     "description": "URL at which the entity is uniquely displayed in the Web app.\n"
@@ -3623,6 +3950,9 @@
                 }
             },
             "required": [
+                "emailFilterMode",
+                "emailIncidentCreation",
+                "emailParsingFallback",
                 "htmlUrl",
                 "integrationEmail",
                 "integrationKey",
@@ -3632,6 +3962,30 @@
                 "vendor"
             ],
             "inputProperties": {
+                "emailFilterMode": {
+                    "type": "string",
+                    "description": "This is the unique fully-qualified email address used for routing emails to this integration for processing.\n"
+                },
+                "emailFilters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/ServiceIntegrationEmailFilter:ServiceIntegrationEmailFilter"
+                    }
+                },
+                "emailIncidentCreation": {
+                    "type": "string",
+                    "description": "This is the unique fully-qualified email address used for routing emails to this integration for processing.\n"
+                },
+                "emailParsers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/ServiceIntegrationEmailParser:ServiceIntegrationEmailParser"
+                    }
+                },
+                "emailParsingFallback": {
+                    "type": "string",
+                    "description": "Can be `open_new_incident` or `discard`.\n"
+                },
                 "integrationEmail": {
                     "type": "string",
                     "description": "This is the unique fully-qualified email address used for routing emails to this integration for processing.\n"
@@ -3663,6 +4017,30 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering ServiceIntegration resources.\n",
                 "properties": {
+                    "emailFilterMode": {
+                        "type": "string",
+                        "description": "This is the unique fully-qualified email address used for routing emails to this integration for processing.\n"
+                    },
+                    "emailFilters": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/pagerduty:index/ServiceIntegrationEmailFilter:ServiceIntegrationEmailFilter"
+                        }
+                    },
+                    "emailIncidentCreation": {
+                        "type": "string",
+                        "description": "This is the unique fully-qualified email address used for routing emails to this integration for processing.\n"
+                    },
+                    "emailParsers": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/pagerduty:index/ServiceIntegrationEmailParser:ServiceIntegrationEmailParser"
+                        }
+                    },
+                    "emailParsingFallback": {
+                        "type": "string",
+                        "description": "Can be `open_new_incident` or `discard`.\n"
+                    },
                     "htmlUrl": {
                         "type": "string",
                         "description": "URL at which the entity is uniquely displayed in the Web app.\n"

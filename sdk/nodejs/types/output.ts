@@ -676,6 +676,110 @@ export interface ServiceIncidentUrgencyRuleOutsideSupportHours {
     urgency?: string;
 }
 
+export interface ServiceIntegrationEmailFilter {
+    /**
+     * Can be `always` or `match`.
+     */
+    bodyMode?: string;
+    /**
+     * Should be a valid regex or `null`
+     */
+    bodyRegex?: string;
+    /**
+     * Can be `always` or `match`.
+     */
+    fromEmailMode?: string;
+    /**
+     * Should be a valid regex or `null`
+     */
+    fromEmailRegex?: string;
+    /**
+     * The ID of the service integration.
+     */
+    id: string;
+    /**
+     * Can be `always` or `match`.
+     */
+    subjectMode?: string;
+    /**
+     * Should be a valid regex or `null`
+     */
+    subjectRegex?: string;
+}
+
+export interface ServiceIntegrationEmailParser {
+    /**
+     * Can be `resolve` or `trigger`.
+     */
+    action: string;
+    /**
+     * The ID of the service integration.
+     */
+    id: number;
+    matchPredicate: outputs.ServiceIntegrationEmailParserMatchPredicate;
+    valueExtractors?: outputs.ServiceIntegrationEmailParserValueExtractor[];
+}
+
+export interface ServiceIntegrationEmailParserMatchPredicate {
+    predicates?: outputs.ServiceIntegrationEmailParserMatchPredicatePredicate[];
+    /**
+     * Can be `any` or `all`.
+     */
+    type: string;
+}
+
+export interface ServiceIntegrationEmailParserMatchPredicatePredicate {
+    /**
+     * Predicate value or valid regex.
+     */
+    matcher?: string;
+    /**
+     * Can be `subject`, `body` or `fromAddresses`.
+     */
+    part?: string;
+    predicates?: outputs.ServiceIntegrationEmailParserMatchPredicatePredicatePredicate[];
+    /**
+     * Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.
+     */
+    type: string;
+}
+
+export interface ServiceIntegrationEmailParserMatchPredicatePredicatePredicate {
+    /**
+     * Predicate value or valid regex.
+     */
+    matcher: string;
+    /**
+     * Can be `subject`, `body` or `fromAddresses`.
+     */
+    part: string;
+    /**
+     * Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.
+     */
+    type: string;
+}
+
+export interface ServiceIntegrationEmailParserValueExtractor {
+    endsBefore?: string;
+    /**
+     * Can be `subject` or `body`.
+     */
+    part: string;
+    /**
+     * If `type` has value `regex` this value should contain valid regex.
+     */
+    regex?: string;
+    startsAfter?: string;
+    /**
+     * Can be `between`, `entire` or `regex`.
+     */
+    type: string;
+    /**
+     * First value extractor should have name `incidentKey` other value extractors should contain custom names.
+     */
+    valueName: string;
+}
+
 export interface ServiceScheduledAction {
     /**
      * A block representing when the scheduled action will occur.

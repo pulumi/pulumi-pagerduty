@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['ServiceIntegrationArgs', 'ServiceIntegration']
 
@@ -14,6 +16,11 @@ __all__ = ['ServiceIntegrationArgs', 'ServiceIntegration']
 class ServiceIntegrationArgs:
     def __init__(__self__, *,
                  service: pulumi.Input[str],
+                 email_filter_mode: Optional[pulumi.Input[str]] = None,
+                 email_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceIntegrationEmailFilterArgs']]]] = None,
+                 email_incident_creation: Optional[pulumi.Input[str]] = None,
+                 email_parsers: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceIntegrationEmailParserArgs']]]] = None,
+                 email_parsing_fallback: Optional[pulumi.Input[str]] = None,
                  integration_email: Optional[pulumi.Input[str]] = None,
                  integration_key: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -22,6 +29,9 @@ class ServiceIntegrationArgs:
         """
         The set of arguments for constructing a ServiceIntegration resource.
         :param pulumi.Input[str] service: The ID of the service the integration should belong to.
+        :param pulumi.Input[str] email_filter_mode: This is the unique fully-qualified email address used for routing emails to this integration for processing.
+        :param pulumi.Input[str] email_incident_creation: This is the unique fully-qualified email address used for routing emails to this integration for processing.
+        :param pulumi.Input[str] email_parsing_fallback: Can be `open_new_incident` or `discard`.
         :param pulumi.Input[str] integration_email: This is the unique fully-qualified email address used for routing emails to this integration for processing.
         :param pulumi.Input[str] integration_key: This is the unique key used to route events to this integration when received via the PagerDuty Events API.
         :param pulumi.Input[str] name: The name of the service integration.
@@ -38,6 +48,16 @@ class ServiceIntegrationArgs:
         :param pulumi.Input[str] vendor: The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
         """
         pulumi.set(__self__, "service", service)
+        if email_filter_mode is not None:
+            pulumi.set(__self__, "email_filter_mode", email_filter_mode)
+        if email_filters is not None:
+            pulumi.set(__self__, "email_filters", email_filters)
+        if email_incident_creation is not None:
+            pulumi.set(__self__, "email_incident_creation", email_incident_creation)
+        if email_parsers is not None:
+            pulumi.set(__self__, "email_parsers", email_parsers)
+        if email_parsing_fallback is not None:
+            pulumi.set(__self__, "email_parsing_fallback", email_parsing_fallback)
         if integration_email is not None:
             pulumi.set(__self__, "integration_email", integration_email)
         if integration_key is not None:
@@ -60,6 +80,60 @@ class ServiceIntegrationArgs:
     @service.setter
     def service(self, value: pulumi.Input[str]):
         pulumi.set(self, "service", value)
+
+    @property
+    @pulumi.getter(name="emailFilterMode")
+    def email_filter_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        This is the unique fully-qualified email address used for routing emails to this integration for processing.
+        """
+        return pulumi.get(self, "email_filter_mode")
+
+    @email_filter_mode.setter
+    def email_filter_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "email_filter_mode", value)
+
+    @property
+    @pulumi.getter(name="emailFilters")
+    def email_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceIntegrationEmailFilterArgs']]]]:
+        return pulumi.get(self, "email_filters")
+
+    @email_filters.setter
+    def email_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceIntegrationEmailFilterArgs']]]]):
+        pulumi.set(self, "email_filters", value)
+
+    @property
+    @pulumi.getter(name="emailIncidentCreation")
+    def email_incident_creation(self) -> Optional[pulumi.Input[str]]:
+        """
+        This is the unique fully-qualified email address used for routing emails to this integration for processing.
+        """
+        return pulumi.get(self, "email_incident_creation")
+
+    @email_incident_creation.setter
+    def email_incident_creation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "email_incident_creation", value)
+
+    @property
+    @pulumi.getter(name="emailParsers")
+    def email_parsers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceIntegrationEmailParserArgs']]]]:
+        return pulumi.get(self, "email_parsers")
+
+    @email_parsers.setter
+    def email_parsers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceIntegrationEmailParserArgs']]]]):
+        pulumi.set(self, "email_parsers", value)
+
+    @property
+    @pulumi.getter(name="emailParsingFallback")
+    def email_parsing_fallback(self) -> Optional[pulumi.Input[str]]:
+        """
+        Can be `open_new_incident` or `discard`.
+        """
+        return pulumi.get(self, "email_parsing_fallback")
+
+    @email_parsing_fallback.setter
+    def email_parsing_fallback(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "email_parsing_fallback", value)
 
     @property
     @pulumi.getter(name="integrationEmail")
@@ -134,6 +208,11 @@ class ServiceIntegrationArgs:
 @pulumi.input_type
 class _ServiceIntegrationState:
     def __init__(__self__, *,
+                 email_filter_mode: Optional[pulumi.Input[str]] = None,
+                 email_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceIntegrationEmailFilterArgs']]]] = None,
+                 email_incident_creation: Optional[pulumi.Input[str]] = None,
+                 email_parsers: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceIntegrationEmailParserArgs']]]] = None,
+                 email_parsing_fallback: Optional[pulumi.Input[str]] = None,
                  html_url: Optional[pulumi.Input[str]] = None,
                  integration_email: Optional[pulumi.Input[str]] = None,
                  integration_key: Optional[pulumi.Input[str]] = None,
@@ -143,6 +222,9 @@ class _ServiceIntegrationState:
                  vendor: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ServiceIntegration resources.
+        :param pulumi.Input[str] email_filter_mode: This is the unique fully-qualified email address used for routing emails to this integration for processing.
+        :param pulumi.Input[str] email_incident_creation: This is the unique fully-qualified email address used for routing emails to this integration for processing.
+        :param pulumi.Input[str] email_parsing_fallback: Can be `open_new_incident` or `discard`.
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app.
         :param pulumi.Input[str] integration_email: This is the unique fully-qualified email address used for routing emails to this integration for processing.
         :param pulumi.Input[str] integration_key: This is the unique key used to route events to this integration when received via the PagerDuty Events API.
@@ -160,6 +242,16 @@ class _ServiceIntegrationState:
                `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
         :param pulumi.Input[str] vendor: The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
         """
+        if email_filter_mode is not None:
+            pulumi.set(__self__, "email_filter_mode", email_filter_mode)
+        if email_filters is not None:
+            pulumi.set(__self__, "email_filters", email_filters)
+        if email_incident_creation is not None:
+            pulumi.set(__self__, "email_incident_creation", email_incident_creation)
+        if email_parsers is not None:
+            pulumi.set(__self__, "email_parsers", email_parsers)
+        if email_parsing_fallback is not None:
+            pulumi.set(__self__, "email_parsing_fallback", email_parsing_fallback)
         if html_url is not None:
             pulumi.set(__self__, "html_url", html_url)
         if integration_email is not None:
@@ -174,6 +266,60 @@ class _ServiceIntegrationState:
             pulumi.set(__self__, "type", type)
         if vendor is not None:
             pulumi.set(__self__, "vendor", vendor)
+
+    @property
+    @pulumi.getter(name="emailFilterMode")
+    def email_filter_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        This is the unique fully-qualified email address used for routing emails to this integration for processing.
+        """
+        return pulumi.get(self, "email_filter_mode")
+
+    @email_filter_mode.setter
+    def email_filter_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "email_filter_mode", value)
+
+    @property
+    @pulumi.getter(name="emailFilters")
+    def email_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceIntegrationEmailFilterArgs']]]]:
+        return pulumi.get(self, "email_filters")
+
+    @email_filters.setter
+    def email_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceIntegrationEmailFilterArgs']]]]):
+        pulumi.set(self, "email_filters", value)
+
+    @property
+    @pulumi.getter(name="emailIncidentCreation")
+    def email_incident_creation(self) -> Optional[pulumi.Input[str]]:
+        """
+        This is the unique fully-qualified email address used for routing emails to this integration for processing.
+        """
+        return pulumi.get(self, "email_incident_creation")
+
+    @email_incident_creation.setter
+    def email_incident_creation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "email_incident_creation", value)
+
+    @property
+    @pulumi.getter(name="emailParsers")
+    def email_parsers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceIntegrationEmailParserArgs']]]]:
+        return pulumi.get(self, "email_parsers")
+
+    @email_parsers.setter
+    def email_parsers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceIntegrationEmailParserArgs']]]]):
+        pulumi.set(self, "email_parsers", value)
+
+    @property
+    @pulumi.getter(name="emailParsingFallback")
+    def email_parsing_fallback(self) -> Optional[pulumi.Input[str]]:
+        """
+        Can be `open_new_incident` or `discard`.
+        """
+        return pulumi.get(self, "email_parsing_fallback")
+
+    @email_parsing_fallback.setter
+    def email_parsing_fallback(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "email_parsing_fallback", value)
 
     @property
     @pulumi.getter(name="htmlUrl")
@@ -274,6 +420,11 @@ class ServiceIntegration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 email_filter_mode: Optional[pulumi.Input[str]] = None,
+                 email_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceIntegrationEmailFilterArgs']]]]] = None,
+                 email_incident_creation: Optional[pulumi.Input[str]] = None,
+                 email_parsers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceIntegrationEmailParserArgs']]]]] = None,
+                 email_parsing_fallback: Optional[pulumi.Input[str]] = None,
                  integration_email: Optional[pulumi.Input[str]] = None,
                  integration_key: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -325,6 +476,68 @@ class ServiceIntegration(pulumi.CustomResource):
         cloudwatch_service_integration = pagerduty.ServiceIntegration("cloudwatchServiceIntegration",
             service=example_service.id,
             vendor=cloudwatch_vendor.id)
+        email_vendor = pagerduty.get_vendor(name="Email")
+        email_service_integration = pagerduty.ServiceIntegration("emailServiceIntegration",
+            service=example_service.id,
+            vendor=email_vendor.id,
+            integration_email="s1@your_account.pagerduty.com",
+            email_incident_creation="use_rules",
+            email_filter_mode="and-rules-email",
+            email_filters=[
+                pagerduty.ServiceIntegrationEmailFilterArgs(
+                    body_mode="always",
+                    body_regex=None,
+                    from_email_mode="match",
+                    from_email_regex="(@foo.com*)",
+                    subject_mode="match",
+                    subject_regex="(CRITICAL*)",
+                ),
+                pagerduty.ServiceIntegrationEmailFilterArgs(
+                    body_mode="always",
+                    body_regex=None,
+                    from_email_mode="match",
+                    from_email_regex="(@bar.com*)",
+                    subject_mode="match",
+                    subject_regex="(CRITICAL*)",
+                ),
+            ],
+            email_parsers=[pagerduty.ServiceIntegrationEmailParserArgs(
+                action="resolve",
+                match_predicate=pagerduty.ServiceIntegrationEmailParserMatchPredicateArgs(
+                    type="any",
+                    predicates=[
+                        pagerduty.ServiceIntegrationEmailParserMatchPredicatePredicateArgs(
+                            matcher="foo",
+                            part="subject",
+                            type="contains",
+                        ),
+                        pagerduty.ServiceIntegrationEmailParserMatchPredicatePredicateArgs(
+                            type="not",
+                            predicates=[pagerduty.ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs(
+                                matcher="(bar*)",
+                                part="body",
+                                type="regex",
+                            )],
+                        ),
+                    ],
+                ),
+                value_extractors=[
+                    pagerduty.ServiceIntegrationEmailParserValueExtractorArgs(
+                        ends_before="end",
+                        part="subject",
+                        starts_after="start",
+                        type="between",
+                        value_name="incident_key",
+                    ),
+                    pagerduty.ServiceIntegrationEmailParserValueExtractorArgs(
+                        ends_before="end",
+                        part="subject",
+                        starts_after="start",
+                        type="between",
+                        value_name="FieldName1",
+                    ),
+                ],
+            )])
         ```
 
         ## Import
@@ -337,6 +550,9 @@ class ServiceIntegration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] email_filter_mode: This is the unique fully-qualified email address used for routing emails to this integration for processing.
+        :param pulumi.Input[str] email_incident_creation: This is the unique fully-qualified email address used for routing emails to this integration for processing.
+        :param pulumi.Input[str] email_parsing_fallback: Can be `open_new_incident` or `discard`.
         :param pulumi.Input[str] integration_email: This is the unique fully-qualified email address used for routing emails to this integration for processing.
         :param pulumi.Input[str] integration_key: This is the unique key used to route events to this integration when received via the PagerDuty Events API.
         :param pulumi.Input[str] name: The name of the service integration.
@@ -403,6 +619,68 @@ class ServiceIntegration(pulumi.CustomResource):
         cloudwatch_service_integration = pagerduty.ServiceIntegration("cloudwatchServiceIntegration",
             service=example_service.id,
             vendor=cloudwatch_vendor.id)
+        email_vendor = pagerduty.get_vendor(name="Email")
+        email_service_integration = pagerduty.ServiceIntegration("emailServiceIntegration",
+            service=example_service.id,
+            vendor=email_vendor.id,
+            integration_email="s1@your_account.pagerduty.com",
+            email_incident_creation="use_rules",
+            email_filter_mode="and-rules-email",
+            email_filters=[
+                pagerduty.ServiceIntegrationEmailFilterArgs(
+                    body_mode="always",
+                    body_regex=None,
+                    from_email_mode="match",
+                    from_email_regex="(@foo.com*)",
+                    subject_mode="match",
+                    subject_regex="(CRITICAL*)",
+                ),
+                pagerduty.ServiceIntegrationEmailFilterArgs(
+                    body_mode="always",
+                    body_regex=None,
+                    from_email_mode="match",
+                    from_email_regex="(@bar.com*)",
+                    subject_mode="match",
+                    subject_regex="(CRITICAL*)",
+                ),
+            ],
+            email_parsers=[pagerduty.ServiceIntegrationEmailParserArgs(
+                action="resolve",
+                match_predicate=pagerduty.ServiceIntegrationEmailParserMatchPredicateArgs(
+                    type="any",
+                    predicates=[
+                        pagerduty.ServiceIntegrationEmailParserMatchPredicatePredicateArgs(
+                            matcher="foo",
+                            part="subject",
+                            type="contains",
+                        ),
+                        pagerduty.ServiceIntegrationEmailParserMatchPredicatePredicateArgs(
+                            type="not",
+                            predicates=[pagerduty.ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs(
+                                matcher="(bar*)",
+                                part="body",
+                                type="regex",
+                            )],
+                        ),
+                    ],
+                ),
+                value_extractors=[
+                    pagerduty.ServiceIntegrationEmailParserValueExtractorArgs(
+                        ends_before="end",
+                        part="subject",
+                        starts_after="start",
+                        type="between",
+                        value_name="incident_key",
+                    ),
+                    pagerduty.ServiceIntegrationEmailParserValueExtractorArgs(
+                        ends_before="end",
+                        part="subject",
+                        starts_after="start",
+                        type="between",
+                        value_name="FieldName1",
+                    ),
+                ],
+            )])
         ```
 
         ## Import
@@ -428,6 +706,11 @@ class ServiceIntegration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 email_filter_mode: Optional[pulumi.Input[str]] = None,
+                 email_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceIntegrationEmailFilterArgs']]]]] = None,
+                 email_incident_creation: Optional[pulumi.Input[str]] = None,
+                 email_parsers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceIntegrationEmailParserArgs']]]]] = None,
+                 email_parsing_fallback: Optional[pulumi.Input[str]] = None,
                  integration_email: Optional[pulumi.Input[str]] = None,
                  integration_key: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -446,6 +729,11 @@ class ServiceIntegration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceIntegrationArgs.__new__(ServiceIntegrationArgs)
 
+            __props__.__dict__["email_filter_mode"] = email_filter_mode
+            __props__.__dict__["email_filters"] = email_filters
+            __props__.__dict__["email_incident_creation"] = email_incident_creation
+            __props__.__dict__["email_parsers"] = email_parsers
+            __props__.__dict__["email_parsing_fallback"] = email_parsing_fallback
             __props__.__dict__["integration_email"] = integration_email
             __props__.__dict__["integration_key"] = integration_key
             __props__.__dict__["name"] = name
@@ -465,6 +753,11 @@ class ServiceIntegration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            email_filter_mode: Optional[pulumi.Input[str]] = None,
+            email_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceIntegrationEmailFilterArgs']]]]] = None,
+            email_incident_creation: Optional[pulumi.Input[str]] = None,
+            email_parsers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceIntegrationEmailParserArgs']]]]] = None,
+            email_parsing_fallback: Optional[pulumi.Input[str]] = None,
             html_url: Optional[pulumi.Input[str]] = None,
             integration_email: Optional[pulumi.Input[str]] = None,
             integration_key: Optional[pulumi.Input[str]] = None,
@@ -479,6 +772,9 @@ class ServiceIntegration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] email_filter_mode: This is the unique fully-qualified email address used for routing emails to this integration for processing.
+        :param pulumi.Input[str] email_incident_creation: This is the unique fully-qualified email address used for routing emails to this integration for processing.
+        :param pulumi.Input[str] email_parsing_fallback: Can be `open_new_incident` or `discard`.
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app.
         :param pulumi.Input[str] integration_email: This is the unique fully-qualified email address used for routing emails to this integration for processing.
         :param pulumi.Input[str] integration_key: This is the unique key used to route events to this integration when received via the PagerDuty Events API.
@@ -500,6 +796,11 @@ class ServiceIntegration(pulumi.CustomResource):
 
         __props__ = _ServiceIntegrationState.__new__(_ServiceIntegrationState)
 
+        __props__.__dict__["email_filter_mode"] = email_filter_mode
+        __props__.__dict__["email_filters"] = email_filters
+        __props__.__dict__["email_incident_creation"] = email_incident_creation
+        __props__.__dict__["email_parsers"] = email_parsers
+        __props__.__dict__["email_parsing_fallback"] = email_parsing_fallback
         __props__.__dict__["html_url"] = html_url
         __props__.__dict__["integration_email"] = integration_email
         __props__.__dict__["integration_key"] = integration_key
@@ -508,6 +809,40 @@ class ServiceIntegration(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         __props__.__dict__["vendor"] = vendor
         return ServiceIntegration(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="emailFilterMode")
+    def email_filter_mode(self) -> pulumi.Output[str]:
+        """
+        This is the unique fully-qualified email address used for routing emails to this integration for processing.
+        """
+        return pulumi.get(self, "email_filter_mode")
+
+    @property
+    @pulumi.getter(name="emailFilters")
+    def email_filters(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceIntegrationEmailFilter']]]:
+        return pulumi.get(self, "email_filters")
+
+    @property
+    @pulumi.getter(name="emailIncidentCreation")
+    def email_incident_creation(self) -> pulumi.Output[str]:
+        """
+        This is the unique fully-qualified email address used for routing emails to this integration for processing.
+        """
+        return pulumi.get(self, "email_incident_creation")
+
+    @property
+    @pulumi.getter(name="emailParsers")
+    def email_parsers(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceIntegrationEmailParser']]]:
+        return pulumi.get(self, "email_parsers")
+
+    @property
+    @pulumi.getter(name="emailParsingFallback")
+    def email_parsing_fallback(self) -> pulumi.Output[str]:
+        """
+        Can be `open_new_incident` or `discard`.
+        """
+        return pulumi.get(self, "email_parsing_fallback")
 
     @property
     @pulumi.getter(name="htmlUrl")

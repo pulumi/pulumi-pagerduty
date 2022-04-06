@@ -108,6 +108,81 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		emailVendor, err := pagerduty.GetVendor(ctx, &GetVendorArgs{
+// 			Name: "Email",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = pagerduty.NewServiceIntegration(ctx, "emailServiceIntegration", &pagerduty.ServiceIntegrationArgs{
+// 			Service:               exampleService.ID(),
+// 			Vendor:                pulumi.String(emailVendor.Id),
+// 			IntegrationEmail:      pulumi.String("s1@your_account.pagerduty.com"),
+// 			EmailIncidentCreation: pulumi.String("use_rules"),
+// 			EmailFilterMode:       pulumi.String("and-rules-email"),
+// 			EmailFilters: ServiceIntegrationEmailFilterArray{
+// 				&ServiceIntegrationEmailFilterArgs{
+// 					BodyMode:       pulumi.String("always"),
+// 					BodyRegex:      nil,
+// 					FromEmailMode:  pulumi.String("match"),
+// 					FromEmailRegex: pulumi.String("(@foo.com*)"),
+// 					SubjectMode:    pulumi.String("match"),
+// 					SubjectRegex:   pulumi.String("(CRITICAL*)"),
+// 				},
+// 				&ServiceIntegrationEmailFilterArgs{
+// 					BodyMode:       pulumi.String("always"),
+// 					BodyRegex:      nil,
+// 					FromEmailMode:  pulumi.String("match"),
+// 					FromEmailRegex: pulumi.String("(@bar.com*)"),
+// 					SubjectMode:    pulumi.String("match"),
+// 					SubjectRegex:   pulumi.String("(CRITICAL*)"),
+// 				},
+// 			},
+// 			EmailParsers: ServiceIntegrationEmailParserArray{
+// 				&ServiceIntegrationEmailParserArgs{
+// 					Action: pulumi.String("resolve"),
+// 					MatchPredicate: &ServiceIntegrationEmailParserMatchPredicateArgs{
+// 						Type: pulumi.String("any"),
+// 						Predicates: ServiceIntegrationEmailParserMatchPredicatePredicateArray{
+// 							&ServiceIntegrationEmailParserMatchPredicatePredicateArgs{
+// 								Matcher: pulumi.String("foo"),
+// 								Part:    pulumi.String("subject"),
+// 								Type:    pulumi.String("contains"),
+// 							},
+// 							&ServiceIntegrationEmailParserMatchPredicatePredicateArgs{
+// 								Type: pulumi.String("not"),
+// 								Predicates: ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArray{
+// 									&ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs{
+// 										Matcher: pulumi.String("(bar*)"),
+// 										Part:    pulumi.String("body"),
+// 										Type:    pulumi.String("regex"),
+// 									},
+// 								},
+// 							},
+// 						},
+// 					},
+// 					ValueExtractors: ServiceIntegrationEmailParserValueExtractorArray{
+// 						&ServiceIntegrationEmailParserValueExtractorArgs{
+// 							EndsBefore:  pulumi.String("end"),
+// 							Part:        pulumi.String("subject"),
+// 							StartsAfter: pulumi.String("start"),
+// 							Type:        pulumi.String("between"),
+// 							ValueName:   pulumi.String("incident_key"),
+// 						},
+// 						&ServiceIntegrationEmailParserValueExtractorArgs{
+// 							EndsBefore:  pulumi.String("end"),
+// 							Part:        pulumi.String("subject"),
+// 							StartsAfter: pulumi.String("start"),
+// 							Type:        pulumi.String("between"),
+// 							ValueName:   pulumi.String("FieldName1"),
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
 // 		return nil
 // 	})
 // }
@@ -123,6 +198,14 @@ import (
 type ServiceIntegration struct {
 	pulumi.CustomResourceState
 
+	// This is the unique fully-qualified email address used for routing emails to this integration for processing.
+	EmailFilterMode pulumi.StringOutput                      `pulumi:"emailFilterMode"`
+	EmailFilters    ServiceIntegrationEmailFilterArrayOutput `pulumi:"emailFilters"`
+	// This is the unique fully-qualified email address used for routing emails to this integration for processing.
+	EmailIncidentCreation pulumi.StringOutput                      `pulumi:"emailIncidentCreation"`
+	EmailParsers          ServiceIntegrationEmailParserArrayOutput `pulumi:"emailParsers"`
+	// Can be `openNewIncident` or `discard`.
+	EmailParsingFallback pulumi.StringOutput `pulumi:"emailParsingFallback"`
 	// URL at which the entity is uniquely displayed in the Web app.
 	HtmlUrl pulumi.StringOutput `pulumi:"htmlUrl"`
 	// This is the unique fully-qualified email address used for routing emails to this integration for processing.
@@ -180,6 +263,14 @@ func GetServiceIntegration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceIntegration resources.
 type serviceIntegrationState struct {
+	// This is the unique fully-qualified email address used for routing emails to this integration for processing.
+	EmailFilterMode *string                         `pulumi:"emailFilterMode"`
+	EmailFilters    []ServiceIntegrationEmailFilter `pulumi:"emailFilters"`
+	// This is the unique fully-qualified email address used for routing emails to this integration for processing.
+	EmailIncidentCreation *string                         `pulumi:"emailIncidentCreation"`
+	EmailParsers          []ServiceIntegrationEmailParser `pulumi:"emailParsers"`
+	// Can be `openNewIncident` or `discard`.
+	EmailParsingFallback *string `pulumi:"emailParsingFallback"`
 	// URL at which the entity is uniquely displayed in the Web app.
 	HtmlUrl *string `pulumi:"htmlUrl"`
 	// This is the unique fully-qualified email address used for routing emails to this integration for processing.
@@ -206,6 +297,14 @@ type serviceIntegrationState struct {
 }
 
 type ServiceIntegrationState struct {
+	// This is the unique fully-qualified email address used for routing emails to this integration for processing.
+	EmailFilterMode pulumi.StringPtrInput
+	EmailFilters    ServiceIntegrationEmailFilterArrayInput
+	// This is the unique fully-qualified email address used for routing emails to this integration for processing.
+	EmailIncidentCreation pulumi.StringPtrInput
+	EmailParsers          ServiceIntegrationEmailParserArrayInput
+	// Can be `openNewIncident` or `discard`.
+	EmailParsingFallback pulumi.StringPtrInput
 	// URL at which the entity is uniquely displayed in the Web app.
 	HtmlUrl pulumi.StringPtrInput
 	// This is the unique fully-qualified email address used for routing emails to this integration for processing.
@@ -237,6 +336,14 @@ func (ServiceIntegrationState) ElementType() reflect.Type {
 
 type serviceIntegrationArgs struct {
 	// This is the unique fully-qualified email address used for routing emails to this integration for processing.
+	EmailFilterMode *string                         `pulumi:"emailFilterMode"`
+	EmailFilters    []ServiceIntegrationEmailFilter `pulumi:"emailFilters"`
+	// This is the unique fully-qualified email address used for routing emails to this integration for processing.
+	EmailIncidentCreation *string                         `pulumi:"emailIncidentCreation"`
+	EmailParsers          []ServiceIntegrationEmailParser `pulumi:"emailParsers"`
+	// Can be `openNewIncident` or `discard`.
+	EmailParsingFallback *string `pulumi:"emailParsingFallback"`
+	// This is the unique fully-qualified email address used for routing emails to this integration for processing.
 	IntegrationEmail *string `pulumi:"integrationEmail"`
 	// This is the unique key used to route events to this integration when received via the PagerDuty Events API.
 	IntegrationKey *string `pulumi:"integrationKey"`
@@ -261,6 +368,14 @@ type serviceIntegrationArgs struct {
 
 // The set of arguments for constructing a ServiceIntegration resource.
 type ServiceIntegrationArgs struct {
+	// This is the unique fully-qualified email address used for routing emails to this integration for processing.
+	EmailFilterMode pulumi.StringPtrInput
+	EmailFilters    ServiceIntegrationEmailFilterArrayInput
+	// This is the unique fully-qualified email address used for routing emails to this integration for processing.
+	EmailIncidentCreation pulumi.StringPtrInput
+	EmailParsers          ServiceIntegrationEmailParserArrayInput
+	// Can be `openNewIncident` or `discard`.
+	EmailParsingFallback pulumi.StringPtrInput
 	// This is the unique fully-qualified email address used for routing emails to this integration for processing.
 	IntegrationEmail pulumi.StringPtrInput
 	// This is the unique key used to route events to this integration when received via the PagerDuty Events API.

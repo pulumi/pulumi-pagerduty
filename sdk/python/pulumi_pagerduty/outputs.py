@@ -62,6 +62,12 @@ __all__ = [
     'ServiceIncidentUrgencyRule',
     'ServiceIncidentUrgencyRuleDuringSupportHours',
     'ServiceIncidentUrgencyRuleOutsideSupportHours',
+    'ServiceIntegrationEmailFilter',
+    'ServiceIntegrationEmailParser',
+    'ServiceIntegrationEmailParserMatchPredicate',
+    'ServiceIntegrationEmailParserMatchPredicatePredicate',
+    'ServiceIntegrationEmailParserMatchPredicatePredicatePredicate',
+    'ServiceIntegrationEmailParserValueExtractor',
     'ServiceScheduledAction',
     'ServiceScheduledActionAt',
     'ServiceSupportHours',
@@ -2335,6 +2341,393 @@ class ServiceIncidentUrgencyRuleOutsideSupportHours(dict):
         The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
         """
         return pulumi.get(self, "urgency")
+
+
+@pulumi.output_type
+class ServiceIntegrationEmailFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bodyMode":
+            suggest = "body_mode"
+        elif key == "bodyRegex":
+            suggest = "body_regex"
+        elif key == "fromEmailMode":
+            suggest = "from_email_mode"
+        elif key == "fromEmailRegex":
+            suggest = "from_email_regex"
+        elif key == "subjectMode":
+            suggest = "subject_mode"
+        elif key == "subjectRegex":
+            suggest = "subject_regex"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceIntegrationEmailFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceIntegrationEmailFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceIntegrationEmailFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 body_mode: Optional[str] = None,
+                 body_regex: Optional[str] = None,
+                 from_email_mode: Optional[str] = None,
+                 from_email_regex: Optional[str] = None,
+                 id: Optional[str] = None,
+                 subject_mode: Optional[str] = None,
+                 subject_regex: Optional[str] = None):
+        """
+        :param str body_mode: Can be `always` or `match`.
+        :param str body_regex: Should be a valid regex or `null`
+        :param str from_email_mode: Can be `always` or `match`.
+        :param str from_email_regex: Should be a valid regex or `null`
+        :param str id: The ID of the service integration.
+        :param str subject_mode: Can be `always` or `match`.
+        :param str subject_regex: Should be a valid regex or `null`
+        """
+        if body_mode is not None:
+            pulumi.set(__self__, "body_mode", body_mode)
+        if body_regex is not None:
+            pulumi.set(__self__, "body_regex", body_regex)
+        if from_email_mode is not None:
+            pulumi.set(__self__, "from_email_mode", from_email_mode)
+        if from_email_regex is not None:
+            pulumi.set(__self__, "from_email_regex", from_email_regex)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if subject_mode is not None:
+            pulumi.set(__self__, "subject_mode", subject_mode)
+        if subject_regex is not None:
+            pulumi.set(__self__, "subject_regex", subject_regex)
+
+    @property
+    @pulumi.getter(name="bodyMode")
+    def body_mode(self) -> Optional[str]:
+        """
+        Can be `always` or `match`.
+        """
+        return pulumi.get(self, "body_mode")
+
+    @property
+    @pulumi.getter(name="bodyRegex")
+    def body_regex(self) -> Optional[str]:
+        """
+        Should be a valid regex or `null`
+        """
+        return pulumi.get(self, "body_regex")
+
+    @property
+    @pulumi.getter(name="fromEmailMode")
+    def from_email_mode(self) -> Optional[str]:
+        """
+        Can be `always` or `match`.
+        """
+        return pulumi.get(self, "from_email_mode")
+
+    @property
+    @pulumi.getter(name="fromEmailRegex")
+    def from_email_regex(self) -> Optional[str]:
+        """
+        Should be a valid regex or `null`
+        """
+        return pulumi.get(self, "from_email_regex")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The ID of the service integration.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="subjectMode")
+    def subject_mode(self) -> Optional[str]:
+        """
+        Can be `always` or `match`.
+        """
+        return pulumi.get(self, "subject_mode")
+
+    @property
+    @pulumi.getter(name="subjectRegex")
+    def subject_regex(self) -> Optional[str]:
+        """
+        Should be a valid regex or `null`
+        """
+        return pulumi.get(self, "subject_regex")
+
+
+@pulumi.output_type
+class ServiceIntegrationEmailParser(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchPredicate":
+            suggest = "match_predicate"
+        elif key == "valueExtractors":
+            suggest = "value_extractors"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceIntegrationEmailParser. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceIntegrationEmailParser.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceIntegrationEmailParser.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: str,
+                 match_predicate: 'outputs.ServiceIntegrationEmailParserMatchPredicate',
+                 id: Optional[int] = None,
+                 value_extractors: Optional[Sequence['outputs.ServiceIntegrationEmailParserValueExtractor']] = None):
+        """
+        :param str action: Can be `resolve` or `trigger`.
+        :param int id: The ID of the service integration.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "match_predicate", match_predicate)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if value_extractors is not None:
+            pulumi.set(__self__, "value_extractors", value_extractors)
+
+    @property
+    @pulumi.getter
+    def action(self) -> str:
+        """
+        Can be `resolve` or `trigger`.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="matchPredicate")
+    def match_predicate(self) -> 'outputs.ServiceIntegrationEmailParserMatchPredicate':
+        return pulumi.get(self, "match_predicate")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[int]:
+        """
+        The ID of the service integration.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="valueExtractors")
+    def value_extractors(self) -> Optional[Sequence['outputs.ServiceIntegrationEmailParserValueExtractor']]:
+        return pulumi.get(self, "value_extractors")
+
+
+@pulumi.output_type
+class ServiceIntegrationEmailParserMatchPredicate(dict):
+    def __init__(__self__, *,
+                 type: str,
+                 predicates: Optional[Sequence['outputs.ServiceIntegrationEmailParserMatchPredicatePredicate']] = None):
+        """
+        :param str type: Can be `any` or `all`.
+        """
+        pulumi.set(__self__, "type", type)
+        if predicates is not None:
+            pulumi.set(__self__, "predicates", predicates)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Can be `any` or `all`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def predicates(self) -> Optional[Sequence['outputs.ServiceIntegrationEmailParserMatchPredicatePredicate']]:
+        return pulumi.get(self, "predicates")
+
+
+@pulumi.output_type
+class ServiceIntegrationEmailParserMatchPredicatePredicate(dict):
+    def __init__(__self__, *,
+                 type: str,
+                 matcher: Optional[str] = None,
+                 part: Optional[str] = None,
+                 predicates: Optional[Sequence['outputs.ServiceIntegrationEmailParserMatchPredicatePredicatePredicate']] = None):
+        """
+        :param str type: Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.
+        :param str matcher: Predicate value or valid regex.
+        :param str part: Can be `subject`, `body` or `from_addresses`.
+        """
+        pulumi.set(__self__, "type", type)
+        if matcher is not None:
+            pulumi.set(__self__, "matcher", matcher)
+        if part is not None:
+            pulumi.set(__self__, "part", part)
+        if predicates is not None:
+            pulumi.set(__self__, "predicates", predicates)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def matcher(self) -> Optional[str]:
+        """
+        Predicate value or valid regex.
+        """
+        return pulumi.get(self, "matcher")
+
+    @property
+    @pulumi.getter
+    def part(self) -> Optional[str]:
+        """
+        Can be `subject`, `body` or `from_addresses`.
+        """
+        return pulumi.get(self, "part")
+
+    @property
+    @pulumi.getter
+    def predicates(self) -> Optional[Sequence['outputs.ServiceIntegrationEmailParserMatchPredicatePredicatePredicate']]:
+        return pulumi.get(self, "predicates")
+
+
+@pulumi.output_type
+class ServiceIntegrationEmailParserMatchPredicatePredicatePredicate(dict):
+    def __init__(__self__, *,
+                 matcher: str,
+                 part: str,
+                 type: str):
+        """
+        :param str matcher: Predicate value or valid regex.
+        :param str part: Can be `subject`, `body` or `from_addresses`.
+        :param str type: Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.
+        """
+        pulumi.set(__self__, "matcher", matcher)
+        pulumi.set(__self__, "part", part)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def matcher(self) -> str:
+        """
+        Predicate value or valid regex.
+        """
+        return pulumi.get(self, "matcher")
+
+    @property
+    @pulumi.getter
+    def part(self) -> str:
+        """
+        Can be `subject`, `body` or `from_addresses`.
+        """
+        return pulumi.get(self, "part")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ServiceIntegrationEmailParserValueExtractor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "valueName":
+            suggest = "value_name"
+        elif key == "endsBefore":
+            suggest = "ends_before"
+        elif key == "startsAfter":
+            suggest = "starts_after"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceIntegrationEmailParserValueExtractor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceIntegrationEmailParserValueExtractor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceIntegrationEmailParserValueExtractor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 part: str,
+                 type: str,
+                 value_name: str,
+                 ends_before: Optional[str] = None,
+                 regex: Optional[str] = None,
+                 starts_after: Optional[str] = None):
+        """
+        :param str part: Can be `subject` or `body`.
+        :param str type: Can be `between`, `entire` or `regex`.
+        :param str value_name: First value extractor should have name `incident_key` other value extractors should contain custom names.
+        :param str regex: If `type` has value `regex` this value should contain valid regex.
+        """
+        pulumi.set(__self__, "part", part)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value_name", value_name)
+        if ends_before is not None:
+            pulumi.set(__self__, "ends_before", ends_before)
+        if regex is not None:
+            pulumi.set(__self__, "regex", regex)
+        if starts_after is not None:
+            pulumi.set(__self__, "starts_after", starts_after)
+
+    @property
+    @pulumi.getter
+    def part(self) -> str:
+        """
+        Can be `subject` or `body`.
+        """
+        return pulumi.get(self, "part")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Can be `between`, `entire` or `regex`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="valueName")
+    def value_name(self) -> str:
+        """
+        First value extractor should have name `incident_key` other value extractors should contain custom names.
+        """
+        return pulumi.get(self, "value_name")
+
+    @property
+    @pulumi.getter(name="endsBefore")
+    def ends_before(self) -> Optional[str]:
+        return pulumi.get(self, "ends_before")
+
+    @property
+    @pulumi.getter
+    def regex(self) -> Optional[str]:
+        """
+        If `type` has value `regex` this value should contain valid regex.
+        """
+        return pulumi.get(self, "regex")
+
+    @property
+    @pulumi.getter(name="startsAfter")
+    def starts_after(self) -> Optional[str]:
+        return pulumi.get(self, "starts_after")
 
 
 @pulumi.output_type

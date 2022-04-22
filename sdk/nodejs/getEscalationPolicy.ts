@@ -17,8 +17,8 @@ import * as utilities from "./utilities";
  *     name: "Engineering Escalation Policy",
  * });
  * const testService = new pagerduty.Service("testService", {
- *     autoResolveTimeout: 14400,
- *     acknowledgementTimeout: 600,
+ *     autoResolveTimeout: "14400",
+ *     acknowledgementTimeout: "600",
  *     escalationPolicy: testEscalationPolicy.then(testEscalationPolicy => testEscalationPolicy.id),
  * });
  * ```

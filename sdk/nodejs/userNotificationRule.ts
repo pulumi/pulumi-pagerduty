@@ -23,14 +23,14 @@ import * as utilities from "./utilities";
  * const phone = new pagerduty.UserContactMethod("phone", {
  *     userId: example.id,
  *     type: "phone_contact_method",
- *     countryCode: "+1",
+ *     countryCode: 1,
  *     address: "2025550199",
  *     label: "Work",
  * });
  * const sms = new pagerduty.UserContactMethod("sms", {
  *     userId: example.id,
  *     type: "sms_contact_method",
- *     countryCode: "+1",
+ *     countryCode: 1,
  *     address: "2025550199",
  *     label: "Work",
  * });

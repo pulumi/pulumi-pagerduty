@@ -19,7 +19,7 @@ import * as utilities from "./utilities";
  * const foo = new pagerduty.RulesetRule("foo", {
  *     ruleset: example.then(example => example.id),
  *     position: 0,
- *     disabled: "false",
+ *     disabled: false,
  *     conditions: {
  *         operator: "and",
  *         subconditions: [

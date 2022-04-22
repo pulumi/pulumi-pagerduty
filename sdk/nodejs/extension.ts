@@ -28,8 +28,8 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * const exampleService = new pagerduty.Service("exampleService", {
- *     autoResolveTimeout: 14400,
- *     acknowledgementTimeout: 600,
+ *     autoResolveTimeout: "14400",
+ *     acknowledgementTimeout: "600",
  *     escalationPolicy: exampleEscalationPolicy.id,
  * });
  * const slack = new pagerduty.Extension("slack", {

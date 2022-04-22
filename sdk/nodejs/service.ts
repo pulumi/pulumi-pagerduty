@@ -29,8 +29,8 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * const exampleService = new pagerduty.Service("exampleService", {
- *     autoResolveTimeout: 14400,
- *     acknowledgementTimeout: 600,
+ *     autoResolveTimeout: "14400",
+ *     acknowledgementTimeout: "600",
  *     escalationPolicy: pagerduty_escalation_policy.example.id,
  *     alertCreation: "create_alerts_and_incidents",
  * });

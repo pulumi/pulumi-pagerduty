@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An [escalation policy](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1escalation_policies/get) determines what user or schedule will be notified first, second, and so on when an incident is triggered. Escalation policies are used by one or more services.
+// An [escalation policy](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEyNQ-create-an-escalation-policy) determines what user or schedule will be notified first, second, and so on when an incident is triggered. Escalation policies are used by one or more services.
 //
 // ## Example Usage
 //
@@ -50,11 +50,11 @@ import (
 // 					EscalationDelayInMinutes: pulumi.Int(10),
 // 					Targets: EscalationPolicyRuleTargetArray{
 // 						&EscalationPolicyRuleTargetArgs{
-// 							Type: pulumi.String("user"),
+// 							Type: pulumi.String("user_reference"),
 // 							Id:   exampleUser.ID(),
 // 						},
 // 						&EscalationPolicyRuleTargetArgs{
-// 							Type: pulumi.String("user"),
+// 							Type: pulumi.String("user_reference"),
 // 							Id:   pulumi.Any(pagerduty_user.Example2.Id),
 // 						},
 // 					},

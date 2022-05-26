@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * A [business service](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1business_services/get) allows you to model capabilities that span multiple technical services and that may be owned by several different teams.
+ * A [business service](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODExNg-create-a-business-service) allows you to model capabilities that span multiple technical services and that may be owned by several different teams.
  *
  * ## Example Usage
  *

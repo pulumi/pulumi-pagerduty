@@ -12,7 +12,7 @@ namespace Pulumi.Pagerduty
     public static class GetUser
     {
         /// <summary>
-        /// Use this data source to get information about a specific [user](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1users/get) that you can use for other PagerDuty resources.
+        /// Use this data source to get information about a specific [user](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -60,7 +60,7 @@ namespace Pulumi.Pagerduty
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("pagerduty:index/getUser:getUser", args ?? new GetUserArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get information about a specific [user](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1users/get) that you can use for other PagerDuty resources.
+        /// Use this data source to get information about a specific [user](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources.
         /// 
         /// {{% examples %}}
         /// ## Example Usage

@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
- * An [escalation policy](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1escalation_policies/get) determines what user or schedule will be notified first, second, and so on when an incident is triggered. Escalation policies are used by one or more services.
+ * An [escalation policy](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEyNQ-create-an-escalation-policy) determines what user or schedule will be notified first, second, and so on when an incident is triggered. Escalation policies are used by one or more services.
  *
  * ## Example Usage
  *
@@ -26,11 +26,11 @@ import * as utilities from "./utilities";
  *         escalationDelayInMinutes: 10,
  *         targets: [
  *             {
- *                 type: "user",
+ *                 type: "user_reference",
  *                 id: exampleUser.id,
  *             },
  *             {
- *                 type: "user",
+ *                 type: "user_reference",
  *                 id: pagerduty_user.example2.id,
  *             },
  *         ],

@@ -30,6 +30,12 @@ namespace Pulumi.Pagerduty
         public Output<Outputs.RulesetRuleActions?> Actions { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates whether the Event Rule is the last Event Rule of the Ruleset that serves as a catch-all. It has limited functionality compared to other rules and always matches.
+        /// </summary>
+        [Output("catchAll")]
+        public Output<bool?> CatchAll { get; private set; } = null!;
+
+        /// <summary>
         /// Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
         /// </summary>
         [Output("conditions")]
@@ -118,6 +124,12 @@ namespace Pulumi.Pagerduty
         public Input<Inputs.RulesetRuleActionsArgs>? Actions { get; set; }
 
         /// <summary>
+        /// Indicates whether the Event Rule is the last Event Rule of the Ruleset that serves as a catch-all. It has limited functionality compared to other rules and always matches.
+        /// </summary>
+        [Input("catchAll")]
+        public Input<bool>? CatchAll { get; set; }
+
+        /// <summary>
         /// Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
         /// </summary>
         [Input("conditions")]
@@ -171,6 +183,12 @@ namespace Pulumi.Pagerduty
         /// </summary>
         [Input("actions")]
         public Input<Inputs.RulesetRuleActionsGetArgs>? Actions { get; set; }
+
+        /// <summary>
+        /// Indicates whether the Event Rule is the last Event Rule of the Ruleset that serves as a catch-all. It has limited functionality compared to other rules and always matches.
+        /// </summary>
+        [Input("catchAll")]
+        public Input<bool>? CatchAll { get; set; }
 
         /// <summary>
         /// Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.

@@ -195,7 +195,7 @@ class EscalationPolicy(pulumi.CustomResource):
                  teams: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        An [escalation policy](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1escalation_policies/get) determines what user or schedule will be notified first, second, and so on when an incident is triggered. Escalation policies are used by one or more services.
+        An [escalation policy](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEyNQ-create-an-escalation-policy) determines what user or schedule will be notified first, second, and so on when an incident is triggered. Escalation policies are used by one or more services.
 
         ## Example Usage
 
@@ -214,11 +214,11 @@ class EscalationPolicy(pulumi.CustomResource):
                 escalation_delay_in_minutes=10,
                 targets=[
                     pagerduty.EscalationPolicyRuleTargetArgs(
-                        type="user",
+                        type="user_reference",
                         id=example_user.id,
                     ),
                     pagerduty.EscalationPolicyRuleTargetArgs(
-                        type="user",
+                        type="user_reference",
                         id=pagerduty_user["example2"]["id"],
                     ),
                 ],
@@ -247,7 +247,7 @@ class EscalationPolicy(pulumi.CustomResource):
                  args: EscalationPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        An [escalation policy](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1escalation_policies/get) determines what user or schedule will be notified first, second, and so on when an incident is triggered. Escalation policies are used by one or more services.
+        An [escalation policy](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEyNQ-create-an-escalation-policy) determines what user or schedule will be notified first, second, and so on when an incident is triggered. Escalation policies are used by one or more services.
 
         ## Example Usage
 
@@ -266,11 +266,11 @@ class EscalationPolicy(pulumi.CustomResource):
                 escalation_delay_in_minutes=10,
                 targets=[
                     pagerduty.EscalationPolicyRuleTargetArgs(
-                        type="user",
+                        type="user_reference",
                         id=example_user.id,
                     ),
                     pagerduty.EscalationPolicyRuleTargetArgs(
-                        type="user",
+                        type="user_reference",
                         id=pagerduty_user["example2"]["id"],
                     ),
                 ],

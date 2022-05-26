@@ -478,7 +478,7 @@ class Service(pulumi.CustomResource):
                  support_hours: Optional[pulumi.Input[pulumi.InputType['ServiceSupportHoursArgs']]] = None,
                  __props__=None):
         """
-        A [service](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1services/get) represents something you monitor (like a web service, email service, or database service). It is a container for related incidents that associates them with escalation policies.
+        A [service](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE5Nw-create-a-service) represents something you monitor (like a web service, email service, or database service). It is a container for related incidents that associates them with escalation policies.
 
         ## Example Usage
 
@@ -531,7 +531,7 @@ class Service(pulumi.CustomResource):
                  args: ServiceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        A [service](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1services/get) represents something you monitor (like a web service, email service, or database service). It is a container for related incidents that associates them with escalation policies.
+        A [service](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE5Nw-create-a-service) represents something you monitor (like a web service, email service, or database service). It is a container for related incidents that associates them with escalation policies.
 
         ## Example Usage
 

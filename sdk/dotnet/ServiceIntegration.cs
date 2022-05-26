@@ -108,7 +108,7 @@ namespace Pulumi.Pagerduty
     ///                     BodyMode = "always",
     ///                     BodyRegex = null,
     ///                     FromEmailMode = "match",
-    ///                     FromEmailRegex = "(@foo.com*)",
+    ///                     FromEmailRegex = "(@foo.test*)",
     ///                     SubjectMode = "match",
     ///                     SubjectRegex = "(CRITICAL*)",
     ///                 },

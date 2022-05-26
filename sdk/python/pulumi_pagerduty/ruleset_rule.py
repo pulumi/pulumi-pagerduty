@@ -17,6 +17,7 @@ class RulesetRuleArgs:
     def __init__(__self__, *,
                  ruleset: pulumi.Input[str],
                  actions: Optional[pulumi.Input['RulesetRuleActionsArgs']] = None,
+                 catch_all: Optional[pulumi.Input[bool]] = None,
                  conditions: Optional[pulumi.Input['RulesetRuleConditionsArgs']] = None,
                  disabled: Optional[pulumi.Input[bool]] = None,
                  position: Optional[pulumi.Input[int]] = None,
@@ -26,6 +27,7 @@ class RulesetRuleArgs:
         The set of arguments for constructing a RulesetRule resource.
         :param pulumi.Input[str] ruleset: The ID of the ruleset that the rule belongs to.
         :param pulumi.Input['RulesetRuleActionsArgs'] actions: Actions to apply to an event if the conditions match.
+        :param pulumi.Input[bool] catch_all: Indicates whether the Event Rule is the last Event Rule of the Ruleset that serves as a catch-all. It has limited functionality compared to other rules and always matches.
         :param pulumi.Input['RulesetRuleConditionsArgs'] conditions: Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
         :param pulumi.Input[bool] disabled: Indicates whether the rule is disabled and would therefore not be evaluated.
         :param pulumi.Input[int] position: Position/index of the rule within the ruleset.
@@ -35,6 +37,8 @@ class RulesetRuleArgs:
         pulumi.set(__self__, "ruleset", ruleset)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
+        if catch_all is not None:
+            pulumi.set(__self__, "catch_all", catch_all)
         if conditions is not None:
             pulumi.set(__self__, "conditions", conditions)
         if disabled is not None:
@@ -69,6 +73,18 @@ class RulesetRuleArgs:
     @actions.setter
     def actions(self, value: Optional[pulumi.Input['RulesetRuleActionsArgs']]):
         pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter(name="catchAll")
+    def catch_all(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the Event Rule is the last Event Rule of the Ruleset that serves as a catch-all. It has limited functionality compared to other rules and always matches.
+        """
+        return pulumi.get(self, "catch_all")
+
+    @catch_all.setter
+    def catch_all(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "catch_all", value)
 
     @property
     @pulumi.getter
@@ -135,6 +151,7 @@ class RulesetRuleArgs:
 class _RulesetRuleState:
     def __init__(__self__, *,
                  actions: Optional[pulumi.Input['RulesetRuleActionsArgs']] = None,
+                 catch_all: Optional[pulumi.Input[bool]] = None,
                  conditions: Optional[pulumi.Input['RulesetRuleConditionsArgs']] = None,
                  disabled: Optional[pulumi.Input[bool]] = None,
                  position: Optional[pulumi.Input[int]] = None,
@@ -144,6 +161,7 @@ class _RulesetRuleState:
         """
         Input properties used for looking up and filtering RulesetRule resources.
         :param pulumi.Input['RulesetRuleActionsArgs'] actions: Actions to apply to an event if the conditions match.
+        :param pulumi.Input[bool] catch_all: Indicates whether the Event Rule is the last Event Rule of the Ruleset that serves as a catch-all. It has limited functionality compared to other rules and always matches.
         :param pulumi.Input['RulesetRuleConditionsArgs'] conditions: Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
         :param pulumi.Input[bool] disabled: Indicates whether the rule is disabled and would therefore not be evaluated.
         :param pulumi.Input[int] position: Position/index of the rule within the ruleset.
@@ -153,6 +171,8 @@ class _RulesetRuleState:
         """
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
+        if catch_all is not None:
+            pulumi.set(__self__, "catch_all", catch_all)
         if conditions is not None:
             pulumi.set(__self__, "conditions", conditions)
         if disabled is not None:
@@ -177,6 +197,18 @@ class _RulesetRuleState:
     @actions.setter
     def actions(self, value: Optional[pulumi.Input['RulesetRuleActionsArgs']]):
         pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter(name="catchAll")
+    def catch_all(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the Event Rule is the last Event Rule of the Ruleset that serves as a catch-all. It has limited functionality compared to other rules and always matches.
+        """
+        return pulumi.get(self, "catch_all")
+
+    @catch_all.setter
+    def catch_all(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "catch_all", value)
 
     @property
     @pulumi.getter
@@ -257,6 +289,7 @@ class RulesetRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  actions: Optional[pulumi.Input[pulumi.InputType['RulesetRuleActionsArgs']]] = None,
+                 catch_all: Optional[pulumi.Input[bool]] = None,
                  conditions: Optional[pulumi.Input[pulumi.InputType['RulesetRuleConditionsArgs']]] = None,
                  disabled: Optional[pulumi.Input[bool]] = None,
                  position: Optional[pulumi.Input[int]] = None,
@@ -278,6 +311,7 @@ class RulesetRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['RulesetRuleActionsArgs']] actions: Actions to apply to an event if the conditions match.
+        :param pulumi.Input[bool] catch_all: Indicates whether the Event Rule is the last Event Rule of the Ruleset that serves as a catch-all. It has limited functionality compared to other rules and always matches.
         :param pulumi.Input[pulumi.InputType['RulesetRuleConditionsArgs']] conditions: Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
         :param pulumi.Input[bool] disabled: Indicates whether the rule is disabled and would therefore not be evaluated.
         :param pulumi.Input[int] position: Position/index of the rule within the ruleset.
@@ -318,6 +352,7 @@ class RulesetRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  actions: Optional[pulumi.Input[pulumi.InputType['RulesetRuleActionsArgs']]] = None,
+                 catch_all: Optional[pulumi.Input[bool]] = None,
                  conditions: Optional[pulumi.Input[pulumi.InputType['RulesetRuleConditionsArgs']]] = None,
                  disabled: Optional[pulumi.Input[bool]] = None,
                  position: Optional[pulumi.Input[int]] = None,
@@ -337,6 +372,7 @@ class RulesetRule(pulumi.CustomResource):
             __props__ = RulesetRuleArgs.__new__(RulesetRuleArgs)
 
             __props__.__dict__["actions"] = actions
+            __props__.__dict__["catch_all"] = catch_all
             __props__.__dict__["conditions"] = conditions
             __props__.__dict__["disabled"] = disabled
             __props__.__dict__["position"] = position
@@ -356,6 +392,7 @@ class RulesetRule(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             actions: Optional[pulumi.Input[pulumi.InputType['RulesetRuleActionsArgs']]] = None,
+            catch_all: Optional[pulumi.Input[bool]] = None,
             conditions: Optional[pulumi.Input[pulumi.InputType['RulesetRuleConditionsArgs']]] = None,
             disabled: Optional[pulumi.Input[bool]] = None,
             position: Optional[pulumi.Input[int]] = None,
@@ -370,6 +407,7 @@ class RulesetRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['RulesetRuleActionsArgs']] actions: Actions to apply to an event if the conditions match.
+        :param pulumi.Input[bool] catch_all: Indicates whether the Event Rule is the last Event Rule of the Ruleset that serves as a catch-all. It has limited functionality compared to other rules and always matches.
         :param pulumi.Input[pulumi.InputType['RulesetRuleConditionsArgs']] conditions: Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
         :param pulumi.Input[bool] disabled: Indicates whether the rule is disabled and would therefore not be evaluated.
         :param pulumi.Input[int] position: Position/index of the rule within the ruleset.
@@ -382,6 +420,7 @@ class RulesetRule(pulumi.CustomResource):
         __props__ = _RulesetRuleState.__new__(_RulesetRuleState)
 
         __props__.__dict__["actions"] = actions
+        __props__.__dict__["catch_all"] = catch_all
         __props__.__dict__["conditions"] = conditions
         __props__.__dict__["disabled"] = disabled
         __props__.__dict__["position"] = position
@@ -397,6 +436,14 @@ class RulesetRule(pulumi.CustomResource):
         Actions to apply to an event if the conditions match.
         """
         return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter(name="catchAll")
+    def catch_all(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether the Event Rule is the last Event Rule of the Ruleset that serves as a catch-all. It has limited functionality compared to other rules and always matches.
+        """
+        return pulumi.get(self, "catch_all")
 
     @property
     @pulumi.getter

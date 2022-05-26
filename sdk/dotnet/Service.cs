@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty
 {
     /// <summary>
-    /// A [service](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1services/get) represents something you monitor (like a web service, email service, or database service). It is a container for related incidents that associates them with escalation policies.
+    /// A [service](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE5Nw-create-a-service) represents something you monitor (like a web service, email service, or database service). It is a container for related incidents that associates them with escalation policies.
     /// 
     /// ## Example Usage
     /// 

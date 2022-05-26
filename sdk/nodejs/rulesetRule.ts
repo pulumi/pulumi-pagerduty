@@ -49,6 +49,10 @@ export class RulesetRule extends pulumi.CustomResource {
      */
     public readonly actions!: pulumi.Output<outputs.RulesetRuleActions | undefined>;
     /**
+     * Indicates whether the Event Rule is the last Event Rule of the Ruleset that serves as a catch-all. It has limited functionality compared to other rules and always matches.
+     */
+    public readonly catchAll!: pulumi.Output<boolean | undefined>;
+    /**
      * Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
      */
     public readonly conditions!: pulumi.Output<outputs.RulesetRuleConditions | undefined>;
@@ -87,6 +91,7 @@ export class RulesetRule extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as RulesetRuleState | undefined;
             resourceInputs["actions"] = state ? state.actions : undefined;
+            resourceInputs["catchAll"] = state ? state.catchAll : undefined;
             resourceInputs["conditions"] = state ? state.conditions : undefined;
             resourceInputs["disabled"] = state ? state.disabled : undefined;
             resourceInputs["position"] = state ? state.position : undefined;
@@ -99,6 +104,7 @@ export class RulesetRule extends pulumi.CustomResource {
                 throw new Error("Missing required property 'ruleset'");
             }
             resourceInputs["actions"] = args ? args.actions : undefined;
+            resourceInputs["catchAll"] = args ? args.catchAll : undefined;
             resourceInputs["conditions"] = args ? args.conditions : undefined;
             resourceInputs["disabled"] = args ? args.disabled : undefined;
             resourceInputs["position"] = args ? args.position : undefined;
@@ -119,6 +125,10 @@ export interface RulesetRuleState {
      * Actions to apply to an event if the conditions match.
      */
     actions?: pulumi.Input<inputs.RulesetRuleActions>;
+    /**
+     * Indicates whether the Event Rule is the last Event Rule of the Ruleset that serves as a catch-all. It has limited functionality compared to other rules and always matches.
+     */
+    catchAll?: pulumi.Input<boolean>;
     /**
      * Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
      */
@@ -153,6 +163,10 @@ export interface RulesetRuleArgs {
      * Actions to apply to an event if the conditions match.
      */
     actions?: pulumi.Input<inputs.RulesetRuleActions>;
+    /**
+     * Indicates whether the Event Rule is the last Event Rule of the Ruleset that serves as a catch-all. It has limited functionality compared to other rules and always matches.
+     */
+    catchAll?: pulumi.Input<boolean>;
     /**
      * Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
      */

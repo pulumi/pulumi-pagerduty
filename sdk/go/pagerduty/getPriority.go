@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get information about a specific [priority](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1priorities/get) that you can use for other PagerDuty resources. A priority is a label representing the importance and impact of an incident. This feature is only available on Standard and Enterprise plans.
+// Use this data source to get information about a specific [priority](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE2NA-list-priorities) that you can use for other PagerDuty resources. A priority is a label representing the importance and impact of an incident. This feature is only available on Standard and Enterprise plans.
 //
 // ## Example Usage
 //

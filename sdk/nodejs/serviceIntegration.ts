@@ -75,7 +75,7 @@ import * as utilities from "./utilities";
  *             bodyMode: "always",
  *             bodyRegex: undefined,
  *             fromEmailMode: "match",
- *             fromEmailRegex: "(@foo.com*)",
+ *             fromEmailRegex: "(@foo.test*)",
  *             subjectMode: "match",
  *             subjectRegex: "(CRITICAL*)",
  *         },

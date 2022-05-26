@@ -166,7 +166,7 @@ class MaintenanceWindow(pulumi.CustomResource):
                  start_time: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        A [maintenance window](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1maintenance_windows/get) is used to temporarily disable one or more services for a set period of time. No incidents will be triggered and no notifications will be received while a service is disabled by a maintenance window.
+        A [maintenance window](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE1OA-create-a-maintenance-window) is used to temporarily disable one or more services for a set period of time. No incidents will be triggered and no notifications will be received while a service is disabled by a maintenance window.
 
         Maintenance windows are specified to start at a certain time and end after they have begun. Once started, a maintenance window cannot be deleted; it can only be ended immediately to re-enable the service.
 
@@ -204,7 +204,7 @@ class MaintenanceWindow(pulumi.CustomResource):
                  args: MaintenanceWindowArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        A [maintenance window](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1maintenance_windows/get) is used to temporarily disable one or more services for a set period of time. No incidents will be triggered and no notifications will be received while a service is disabled by a maintenance window.
+        A [maintenance window](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE1OA-create-a-maintenance-window) is used to temporarily disable one or more services for a set period of time. No incidents will be triggered and no notifications will be received while a service is disabled by a maintenance window.
 
         Maintenance windows are specified to start at a certain time and end after they have begun. Once started, a maintenance window cannot be deleted; it can only be ended immediately to re-enable the service.
 

@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A [tag](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1tags/get) is applied to Escalation Policies, Teams or Users and can be used to filter them.
+// A [tag](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEwMA-assign-tags) is applied to Escalation Policies, Teams or Users and can be used to filter them.
 //
 // ## Import
 //

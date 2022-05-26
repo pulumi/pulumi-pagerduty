@@ -58,7 +58,7 @@ class AwaitableGetScheduleResult(GetScheduleResult):
 def get_schedule(name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduleResult:
     """
-    Use this data source to get information about a specific [schedule](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1schedules~1%7Bid%7D/get) that you can use for other PagerDuty resources.
+    Use this data source to get information about a specific [schedule](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE4MQ-list-schedules) that you can use for other PagerDuty resources.
 
     ## Example Usage
 
@@ -98,7 +98,7 @@ def get_schedule(name: Optional[str] = None,
 def get_schedule_output(name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduleResult]:
     """
-    Use this data source to get information about a specific [schedule](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1schedules~1%7Bid%7D/get) that you can use for other PagerDuty resources.
+    Use this data source to get information about a specific [schedule](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE4MQ-list-schedules) that you can use for other PagerDuty resources.
 
     ## Example Usage
 

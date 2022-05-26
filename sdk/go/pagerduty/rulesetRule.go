@@ -25,6 +25,8 @@ type RulesetRule struct {
 
 	// Actions to apply to an event if the conditions match.
 	Actions RulesetRuleActionsPtrOutput `pulumi:"actions"`
+	// Indicates whether the Event Rule is the last Event Rule of the Ruleset that serves as a catch-all. It has limited functionality compared to other rules and always matches.
+	CatchAll pulumi.BoolPtrOutput `pulumi:"catchAll"`
 	// Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
 	Conditions RulesetRuleConditionsPtrOutput `pulumi:"conditions"`
 	// Indicates whether the rule is disabled and would therefore not be evaluated.
@@ -73,6 +75,8 @@ func GetRulesetRule(ctx *pulumi.Context,
 type rulesetRuleState struct {
 	// Actions to apply to an event if the conditions match.
 	Actions *RulesetRuleActions `pulumi:"actions"`
+	// Indicates whether the Event Rule is the last Event Rule of the Ruleset that serves as a catch-all. It has limited functionality compared to other rules and always matches.
+	CatchAll *bool `pulumi:"catchAll"`
 	// Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
 	Conditions *RulesetRuleConditions `pulumi:"conditions"`
 	// Indicates whether the rule is disabled and would therefore not be evaluated.
@@ -90,6 +94,8 @@ type rulesetRuleState struct {
 type RulesetRuleState struct {
 	// Actions to apply to an event if the conditions match.
 	Actions RulesetRuleActionsPtrInput
+	// Indicates whether the Event Rule is the last Event Rule of the Ruleset that serves as a catch-all. It has limited functionality compared to other rules and always matches.
+	CatchAll pulumi.BoolPtrInput
 	// Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
 	Conditions RulesetRuleConditionsPtrInput
 	// Indicates whether the rule is disabled and would therefore not be evaluated.
@@ -111,6 +117,8 @@ func (RulesetRuleState) ElementType() reflect.Type {
 type rulesetRuleArgs struct {
 	// Actions to apply to an event if the conditions match.
 	Actions *RulesetRuleActions `pulumi:"actions"`
+	// Indicates whether the Event Rule is the last Event Rule of the Ruleset that serves as a catch-all. It has limited functionality compared to other rules and always matches.
+	CatchAll *bool `pulumi:"catchAll"`
 	// Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
 	Conditions *RulesetRuleConditions `pulumi:"conditions"`
 	// Indicates whether the rule is disabled and would therefore not be evaluated.
@@ -129,6 +137,8 @@ type rulesetRuleArgs struct {
 type RulesetRuleArgs struct {
 	// Actions to apply to an event if the conditions match.
 	Actions RulesetRuleActionsPtrInput
+	// Indicates whether the Event Rule is the last Event Rule of the Ruleset that serves as a catch-all. It has limited functionality compared to other rules and always matches.
+	CatchAll pulumi.BoolPtrInput
 	// Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
 	Conditions RulesetRuleConditionsPtrInput
 	// Indicates whether the rule is disabled and would therefore not be evaluated.

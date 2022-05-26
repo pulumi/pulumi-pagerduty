@@ -362,7 +362,7 @@ class User(pulumi.CustomResource):
                  time_zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        A [user](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1users/get) is a member of a PagerDuty account that have the ability to interact with incidents and other data on the account.
+        A [user](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user) is a member of a PagerDuty account that have the ability to interact with incidents and other data on the account.
 
         ## Example Usage
 
@@ -402,7 +402,7 @@ class User(pulumi.CustomResource):
                  args: UserArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        A [user](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1users/get) is a member of a PagerDuty account that have the ability to interact with incidents and other data on the account.
+        A [user](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user) is a member of a PagerDuty account that have the ability to interact with incidents and other data on the account.
 
         ## Example Usage
 

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * A [tag](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIxNw-list-tags) is applied to Escalation Policies, Teams or Users and can be used to filter them.
+ * A [tag](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIxOA-create-a-tag) is applied to Escalation Policies, Teams or Users and can be used to filter them.
  *
  * ## Example Usage
  *

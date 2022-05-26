@@ -144,7 +144,7 @@ class Team(pulumi.CustomResource):
                  parent: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        A [team](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1teams/get) is a collection of users and escalation policies that represent a group of people within an organization.
+        A [team](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIyMg-create-a-team) is a collection of users and escalation policies that represent a group of people within an organization.
 
         The account must have the `teams` ability to use the following resource.
 
@@ -180,7 +180,7 @@ class Team(pulumi.CustomResource):
                  args: Optional[TeamArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        A [team](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1teams/get) is a collection of users and escalation policies that represent a group of people within an organization.
+        A [team](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIyMg-create-a-team) is a collection of users and escalation policies that represent a group of people within an organization.
 
         The account must have the `teams` ability to use the following resource.
 

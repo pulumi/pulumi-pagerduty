@@ -125,7 +125,7 @@ import (
 // 					BodyMode:       pulumi.String("always"),
 // 					BodyRegex:      nil,
 // 					FromEmailMode:  pulumi.String("match"),
-// 					FromEmailRegex: pulumi.String("(@foo.com*)"),
+// 					FromEmailRegex: pulumi.String("(@foo.test*)"),
 // 					SubjectMode:    pulumi.String("match"),
 // 					SubjectRegex:   pulumi.String("(CRITICAL*)"),
 // 				},

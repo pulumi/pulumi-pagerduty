@@ -12,7 +12,7 @@ namespace Pulumi.Pagerduty
     public static class GetEscalationPolicy
     {
         /// <summary>
-        /// Use this data source to get information about a specific [escalation policy](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1escalation_policies/get) that you can use for other PagerDuty resources.
+        /// Use this data source to get information about a specific [escalation policy](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEyNA-list-escalation-policies) that you can use for other PagerDuty resources.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -47,7 +47,7 @@ namespace Pulumi.Pagerduty
             => Pulumi.Deployment.Instance.InvokeAsync<GetEscalationPolicyResult>("pagerduty:index/getEscalationPolicy:getEscalationPolicy", args ?? new GetEscalationPolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get information about a specific [escalation policy](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1escalation_policies/get) that you can use for other PagerDuty resources.
+        /// Use this data source to get information about a specific [escalation policy](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEyNA-list-escalation-policies) that you can use for other PagerDuty resources.
         /// 
         /// {{% examples %}}
         /// ## Example Usage

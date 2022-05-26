@@ -421,7 +421,7 @@ class ExtensionServiceNow(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        A special case for [extension](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1extensions/post) for ServiceNow.
+        A special case for [extension](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEzMw-create-an-extension) for ServiceNow.
 
         ## Example Usage
 
@@ -483,7 +483,7 @@ class ExtensionServiceNow(pulumi.CustomResource):
                  args: ExtensionServiceNowArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        A special case for [extension](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1extensions/post) for ServiceNow.
+        A special case for [extension](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEzMw-create-an-extension) for ServiceNow.
 
         ## Example Usage
 

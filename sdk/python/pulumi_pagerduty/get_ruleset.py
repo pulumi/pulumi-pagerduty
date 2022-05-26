@@ -70,7 +70,7 @@ class AwaitableGetRulesetResult(GetRulesetResult):
 def get_ruleset(name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRulesetResult:
     """
-    Use this data source to get information about a specific [ruleset](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1rulesets/get) that you can use for managing and grouping [event rules](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1rulesets~1%7Bid%7D~1rules/get).
+    Use this data source to get information about a specific [ruleset](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE3MQ-list-rulesets) that you can use for managing and grouping [event rules](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE3Ng-list-event-rules).
 
     ## Example Usage
 
@@ -138,7 +138,7 @@ def get_ruleset(name: Optional[str] = None,
 def get_ruleset_output(name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRulesetResult]:
     """
-    Use this data source to get information about a specific [ruleset](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1rulesets/get) that you can use for managing and grouping [event rules](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1rulesets~1%7Bid%7D~1rules/get).
+    Use this data source to get information about a specific [ruleset](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE3MQ-list-rulesets) that you can use for managing and grouping [event rules](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE3Ng-list-event-rules).
 
     ## Example Usage
 

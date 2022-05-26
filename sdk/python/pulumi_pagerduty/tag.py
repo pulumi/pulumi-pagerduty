@@ -93,7 +93,7 @@ class Tag(pulumi.CustomResource):
                  label: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        A [tag](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIxNw-list-tags) is applied to Escalation Policies, Teams or Users and can be used to filter them.
+        A [tag](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIxOA-create-a-tag) is applied to Escalation Policies, Teams or Users and can be used to filter them.
 
         ## Example Usage
 
@@ -123,7 +123,7 @@ class Tag(pulumi.CustomResource):
                  args: TagArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        A [tag](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIxNw-list-tags) is applied to Escalation Policies, Teams or Users and can be used to filter them.
+        A [tag](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIxOA-create-a-tag) is applied to Escalation Policies, Teams or Users and can be used to filter them.
 
         ## Example Usage
 

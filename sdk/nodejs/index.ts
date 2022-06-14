@@ -9,11 +9,16 @@ export * from "./addon";
 export * from "./businessService";
 export * from "./businessServiceSubscriber";
 export * from "./escalationPolicy";
+export * from "./eventOrchestration";
+export * from "./eventOrchestrationRouter";
+export * from "./eventOrchestrationService";
+export * from "./eventOrchestrationUnrouted";
 export * from "./eventRule";
 export * from "./extension";
 export * from "./extensionServiceNow";
 export * from "./getBusinessService";
 export * from "./getEscalationPolicy";
+export * from "./getEventOrchestration";
 export * from "./getExtensionSchema";
 export * from "./getPriority";
 export * from "./getRuleset";
@@ -59,6 +64,10 @@ import { Addon } from "./addon";
 import { BusinessService } from "./businessService";
 import { BusinessServiceSubscriber } from "./businessServiceSubscriber";
 import { EscalationPolicy } from "./escalationPolicy";
+import { EventOrchestration } from "./eventOrchestration";
+import { EventOrchestrationRouter } from "./eventOrchestrationRouter";
+import { EventOrchestrationService } from "./eventOrchestrationService";
+import { EventOrchestrationUnrouted } from "./eventOrchestrationUnrouted";
 import { EventRule } from "./eventRule";
 import { Extension } from "./extension";
 import { ExtensionServiceNow } from "./extensionServiceNow";
@@ -93,6 +102,14 @@ const _module = {
                 return new BusinessServiceSubscriber(name, <any>undefined, { urn })
             case "pagerduty:index/escalationPolicy:EscalationPolicy":
                 return new EscalationPolicy(name, <any>undefined, { urn })
+            case "pagerduty:index/eventOrchestration:EventOrchestration":
+                return new EventOrchestration(name, <any>undefined, { urn })
+            case "pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter":
+                return new EventOrchestrationRouter(name, <any>undefined, { urn })
+            case "pagerduty:index/eventOrchestrationService:EventOrchestrationService":
+                return new EventOrchestrationService(name, <any>undefined, { urn })
+            case "pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted":
+                return new EventOrchestrationUnrouted(name, <any>undefined, { urn })
             case "pagerduty:index/eventRule:EventRule":
                 return new EventRule(name, <any>undefined, { urn })
             case "pagerduty:index/extension:Extension":
@@ -144,6 +161,10 @@ pulumi.runtime.registerResourceModule("pagerduty", "index/addon", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/businessService", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/businessServiceSubscriber", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/escalationPolicy", _module)
+pulumi.runtime.registerResourceModule("pagerduty", "index/eventOrchestration", _module)
+pulumi.runtime.registerResourceModule("pagerduty", "index/eventOrchestrationRouter", _module)
+pulumi.runtime.registerResourceModule("pagerduty", "index/eventOrchestrationService", _module)
+pulumi.runtime.registerResourceModule("pagerduty", "index/eventOrchestrationUnrouted", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/eventRule", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/extension", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/extensionServiceNow", _module)

@@ -38,6 +38,16 @@ import (
 // 				&WebhookSubscriptionDeliveryMethodArgs{
 // 					Type: pulumi.String("http_delivery_method"),
 // 					Url:  pulumi.String("https://example.com/receive_a_pagerduty_webhook"),
+// 					CustomHeaders: WebhookSubscriptionDeliveryMethodCustomHeaderArray{
+// 						&WebhookSubscriptionDeliveryMethodCustomHeaderArgs{
+// 							Name:  pulumi.String("X-Foo"),
+// 							Value: pulumi.String("foo"),
+// 						},
+// 						&WebhookSubscriptionDeliveryMethodCustomHeaderArgs{
+// 							Name:  pulumi.String("X-Bar"),
+// 							Value: pulumi.String("bar"),
+// 						},
+// 					},
 // 				},
 // 			},
 // 			Description: pulumi.String(fmt.Sprintf("%v%v", "%", "s")),

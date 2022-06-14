@@ -21,6 +21,16 @@ import * as utilities from "./utilities";
  *     deliveryMethods: [{
  *         type: "http_delivery_method",
  *         url: "https://example.com/receive_a_pagerduty_webhook",
+ *         customHeaders: [
+ *             {
+ *                 name: "X-Foo",
+ *                 value: "foo",
+ *             },
+ *             {
+ *                 name: "X-Bar",
+ *                 value: "bar",
+ *             },
+ *         ],
  *     }],
  *     description: `%s`,
  *     events: [

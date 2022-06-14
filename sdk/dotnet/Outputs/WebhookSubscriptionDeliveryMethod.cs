@@ -14,6 +14,10 @@ namespace Pulumi.Pagerduty.Outputs
     public sealed class WebhookSubscriptionDeliveryMethod
     {
         /// <summary>
+        /// The custom_header of a webhook subscription define any optional headers that will be passed along with the payload to the destination URL.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.WebhookSubscriptionDeliveryMethodCustomHeader> CustomHeaders;
+        /// <summary>
         /// Whether this webhook subscription is temporarily disabled. Becomes true if the delivery method URL is repeatedly rejected by the server.
         /// </summary>
         public readonly bool? TemporarilyDisabled;
@@ -28,12 +32,15 @@ namespace Pulumi.Pagerduty.Outputs
 
         [OutputConstructor]
         private WebhookSubscriptionDeliveryMethod(
+            ImmutableArray<Outputs.WebhookSubscriptionDeliveryMethodCustomHeader> customHeaders,
+
             bool? temporarilyDisabled,
 
             string? type,
 
             string? url)
         {
+            CustomHeaders = customHeaders;
             TemporarilyDisabled = temporarilyDisabled;
             Type = type;
             Url = url;

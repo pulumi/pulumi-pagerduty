@@ -198,10 +198,10 @@ import (
 type ServiceIntegration struct {
 	pulumi.CustomResourceState
 
-	// This is the unique fully-qualified email address used for routing emails to this integration for processing.
+	// Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.
 	EmailFilterMode pulumi.StringOutput                      `pulumi:"emailFilterMode"`
 	EmailFilters    ServiceIntegrationEmailFilterArrayOutput `pulumi:"emailFilters"`
-	// This is the unique fully-qualified email address used for routing emails to this integration for processing.
+	// Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `onNewEmail`, `onNewEmailSubject`, `onlyIfNoOpenIncidents` or `useRules`.
 	EmailIncidentCreation pulumi.StringOutput                      `pulumi:"emailIncidentCreation"`
 	EmailParsers          ServiceIntegrationEmailParserArrayOutput `pulumi:"emailParsers"`
 	// Can be `openNewIncident` or `discard`.
@@ -263,10 +263,10 @@ func GetServiceIntegration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceIntegration resources.
 type serviceIntegrationState struct {
-	// This is the unique fully-qualified email address used for routing emails to this integration for processing.
+	// Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.
 	EmailFilterMode *string                         `pulumi:"emailFilterMode"`
 	EmailFilters    []ServiceIntegrationEmailFilter `pulumi:"emailFilters"`
-	// This is the unique fully-qualified email address used for routing emails to this integration for processing.
+	// Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `onNewEmail`, `onNewEmailSubject`, `onlyIfNoOpenIncidents` or `useRules`.
 	EmailIncidentCreation *string                         `pulumi:"emailIncidentCreation"`
 	EmailParsers          []ServiceIntegrationEmailParser `pulumi:"emailParsers"`
 	// Can be `openNewIncident` or `discard`.
@@ -297,10 +297,10 @@ type serviceIntegrationState struct {
 }
 
 type ServiceIntegrationState struct {
-	// This is the unique fully-qualified email address used for routing emails to this integration for processing.
+	// Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.
 	EmailFilterMode pulumi.StringPtrInput
 	EmailFilters    ServiceIntegrationEmailFilterArrayInput
-	// This is the unique fully-qualified email address used for routing emails to this integration for processing.
+	// Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `onNewEmail`, `onNewEmailSubject`, `onlyIfNoOpenIncidents` or `useRules`.
 	EmailIncidentCreation pulumi.StringPtrInput
 	EmailParsers          ServiceIntegrationEmailParserArrayInput
 	// Can be `openNewIncident` or `discard`.
@@ -335,10 +335,10 @@ func (ServiceIntegrationState) ElementType() reflect.Type {
 }
 
 type serviceIntegrationArgs struct {
-	// This is the unique fully-qualified email address used for routing emails to this integration for processing.
+	// Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.
 	EmailFilterMode *string                         `pulumi:"emailFilterMode"`
 	EmailFilters    []ServiceIntegrationEmailFilter `pulumi:"emailFilters"`
-	// This is the unique fully-qualified email address used for routing emails to this integration for processing.
+	// Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `onNewEmail`, `onNewEmailSubject`, `onlyIfNoOpenIncidents` or `useRules`.
 	EmailIncidentCreation *string                         `pulumi:"emailIncidentCreation"`
 	EmailParsers          []ServiceIntegrationEmailParser `pulumi:"emailParsers"`
 	// Can be `openNewIncident` or `discard`.
@@ -368,10 +368,10 @@ type serviceIntegrationArgs struct {
 
 // The set of arguments for constructing a ServiceIntegration resource.
 type ServiceIntegrationArgs struct {
-	// This is the unique fully-qualified email address used for routing emails to this integration for processing.
+	// Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.
 	EmailFilterMode pulumi.StringPtrInput
 	EmailFilters    ServiceIntegrationEmailFilterArrayInput
-	// This is the unique fully-qualified email address used for routing emails to this integration for processing.
+	// Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `onNewEmail`, `onNewEmailSubject`, `onlyIfNoOpenIncidents` or `useRules`.
 	EmailIncidentCreation pulumi.StringPtrInput
 	EmailParsers          ServiceIntegrationEmailParserArrayInput
 	// Can be `openNewIncident` or `discard`.

@@ -34,6 +34,19 @@ namespace Pulumi.Pagerduty
     ///                 {
     ///                     Type = "http_delivery_method",
     ///                     Url = "https://example.com/receive_a_pagerduty_webhook",
+    ///                     CustomHeaders = 
+    ///                     {
+    ///                         new Pagerduty.Inputs.WebhookSubscriptionDeliveryMethodCustomHeaderArgs
+    ///                         {
+    ///                             Name = "X-Foo",
+    ///                             Value = "foo",
+    ///                         },
+    ///                         new Pagerduty.Inputs.WebhookSubscriptionDeliveryMethodCustomHeaderArgs
+    ///                         {
+    ///                             Name = "X-Bar",
+    ///                             Value = "bar",
+    ///                         },
+    ///                     },
     ///                 },
     ///             },
     ///             Description = "%s",

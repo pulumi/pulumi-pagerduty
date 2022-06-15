@@ -27,6 +27,610 @@ export interface EscalationPolicyRuleTarget {
     type?: pulumi.Input<string>;
 }
 
+export interface EventOrchestrationIntegration {
+    /**
+     * ID of the integration
+     * * `parameters`
+     */
+    id?: pulumi.Input<string>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationIntegrationParameter>[]>;
+}
+
+export interface EventOrchestrationIntegrationParameter {
+    /**
+     * Routing key that routes to this Orchestration.
+     */
+    routingKey?: pulumi.Input<string>;
+    /**
+     * Type of the routing key. `global` is the default type.
+     */
+    type?: pulumi.Input<string>;
+}
+
+export interface EventOrchestrationRouterCatchAll {
+    /**
+     * These are the actions that will be taken to change the resulting alert and incident.
+     */
+    actions: pulumi.Input<inputs.EventOrchestrationRouterCatchAllActions>;
+}
+
+export interface EventOrchestrationRouterCatchAllActions {
+    /**
+     * The ID of the target Service for the resulting alert.
+     */
+    routeTo: pulumi.Input<string>;
+}
+
+export interface EventOrchestrationRouterSet {
+    /**
+     * ID of the `start` set. Router supports only one set and it's id has to be `start`
+     */
+    id: pulumi.Input<string>;
+    rules?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationRouterSetRule>[]>;
+}
+
+export interface EventOrchestrationRouterSetRule {
+    /**
+     * Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+     */
+    actions: pulumi.Input<inputs.EventOrchestrationRouterSetRuleActions>;
+    /**
+     * Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will _always_ match against the rule.
+     */
+    conditions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationRouterSetRuleCondition>[]>;
+    /**
+     * Indicates whether the rule is disabled and would therefore not be evaluated.
+     */
+    disabled?: pulumi.Input<boolean>;
+    /**
+     * ID of the `start` set. Router supports only one set and it's id has to be `start`
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * A description of this rule's purpose.
+     */
+    label?: pulumi.Input<string>;
+}
+
+export interface EventOrchestrationRouterSetRuleActions {
+    /**
+     * The ID of the target Service for the resulting alert.
+     */
+    routeTo: pulumi.Input<string>;
+}
+
+export interface EventOrchestrationRouterSetRuleCondition {
+    /**
+     * A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+     */
+    expression: pulumi.Input<string>;
+}
+
+export interface EventOrchestrationServiceCatchAll {
+    /**
+     * These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
+     */
+    actions: pulumi.Input<inputs.EventOrchestrationServiceCatchAllActions>;
+}
+
+export interface EventOrchestrationServiceCatchAllActions {
+    /**
+     * Add this text as a note on the resulting incident.
+     */
+    annotate?: pulumi.Input<string>;
+    /**
+     * Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+     */
+    automationAction?: pulumi.Input<inputs.EventOrchestrationServiceCatchAllActionsAutomationAction>;
+    /**
+     * sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
+     */
+    eventAction?: pulumi.Input<string>;
+    /**
+     * Replace any CEF field or Custom Details object field using custom variables.
+     */
+    extractions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceCatchAllActionsExtraction>[]>;
+    /**
+     * Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+     */
+    pagerdutyAutomationAction?: pulumi.Input<inputs.EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction>;
+    priority?: pulumi.Input<string>;
+    /**
+     * The ID of a Set from this Service Orchestration whose rules you also want to use with event that match this rule.
+     */
+    routeTo?: pulumi.Input<string>;
+    /**
+     * sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
+     */
+    severity?: pulumi.Input<string>;
+    /**
+     * Set whether the resulting alert is suppressed. Suppressed alerts will not trigger an incident.
+     */
+    suppress?: pulumi.Input<boolean>;
+    /**
+     * The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won't create an incident for this the resulting alert.
+     */
+    suspend?: pulumi.Input<number>;
+    /**
+     * Populate variables from event payloads and use those variables in other event actions.
+     */
+    variables?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceCatchAllActionsVariable>[]>;
+}
+
+export interface EventOrchestrationServiceCatchAllActionsAutomationAction {
+    /**
+     * When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+     */
+    autoSend?: pulumi.Input<boolean>;
+    /**
+     * Specify custom key/value pairs that'll be sent with the webhook request as request headers.
+     */
+    headers?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceCatchAllActionsAutomationActionHeader>[]>;
+    /**
+     * Name of this Webhook.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
+     */
+    parameters?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceCatchAllActionsAutomationActionParameter>[]>;
+    /**
+     * The API endpoint where PagerDuty's servers will send the webhook request.
+     */
+    url: pulumi.Input<string>;
+}
+
+export interface EventOrchestrationServiceCatchAllActionsAutomationActionHeader {
+    /**
+     * Name to identify the header
+     */
+    key: pulumi.Input<string>;
+    /**
+     * Value of this header
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface EventOrchestrationServiceCatchAllActionsAutomationActionParameter {
+    /**
+     * Name to identify the header
+     */
+    key: pulumi.Input<string>;
+    /**
+     * Value of this header
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface EventOrchestrationServiceCatchAllActionsExtraction {
+    /**
+     * A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
+     */
+    regex?: pulumi.Input<string>;
+    /**
+     * The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.
+     */
+    source?: pulumi.Input<string>;
+    /**
+     * The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.
+     */
+    target: pulumi.Input<string>;
+    /**
+     * A string that will be used to populate the `target` field. You can reference variables or event data within your template using double curly braces. For example:
+     * * Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`
+     * * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
+     */
+    template?: pulumi.Input<string>;
+}
+
+export interface EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction {
+    /**
+     * Id of the Process Automation action to be triggered.
+     */
+    actionId: pulumi.Input<string>;
+}
+
+export interface EventOrchestrationServiceCatchAllActionsVariable {
+    /**
+     * Name of this Webhook.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Path to a field in an event, in dot-notation. This supports both PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths).
+     */
+    path: pulumi.Input<string>;
+    /**
+     * Only `regex` is supported
+     */
+    type: pulumi.Input<string>;
+    /**
+     * Value of this header
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface EventOrchestrationServiceSet {
+    /**
+     * The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
+     */
+    id: pulumi.Input<string>;
+    rules?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceSetRule>[]>;
+}
+
+export interface EventOrchestrationServiceSetRule {
+    /**
+     * Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+     */
+    actions: pulumi.Input<inputs.EventOrchestrationServiceSetRuleActions>;
+    /**
+     * Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will `always` match against the rule.
+     */
+    conditions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceSetRuleCondition>[]>;
+    /**
+     * Indicates whether the rule is disabled and would therefore not be evaluated.
+     */
+    disabled?: pulumi.Input<boolean>;
+    /**
+     * The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * A description of this rule's purpose.
+     */
+    label?: pulumi.Input<string>;
+}
+
+export interface EventOrchestrationServiceSetRuleActions {
+    /**
+     * Add this text as a note on the resulting incident.
+     */
+    annotate?: pulumi.Input<string>;
+    /**
+     * Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+     */
+    automationAction?: pulumi.Input<inputs.EventOrchestrationServiceSetRuleActionsAutomationAction>;
+    /**
+     * sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
+     */
+    eventAction?: pulumi.Input<string>;
+    /**
+     * Replace any CEF field or Custom Details object field using custom variables.
+     */
+    extractions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceSetRuleActionsExtraction>[]>;
+    /**
+     * Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+     */
+    pagerdutyAutomationAction?: pulumi.Input<inputs.EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction>;
+    priority?: pulumi.Input<string>;
+    /**
+     * The ID of a Set from this Service Orchestration whose rules you also want to use with event that match this rule.
+     */
+    routeTo?: pulumi.Input<string>;
+    /**
+     * sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
+     */
+    severity?: pulumi.Input<string>;
+    /**
+     * Set whether the resulting alert is suppressed. Suppressed alerts will not trigger an incident.
+     */
+    suppress?: pulumi.Input<boolean>;
+    /**
+     * The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won't create an incident for this the resulting alert.
+     */
+    suspend?: pulumi.Input<number>;
+    /**
+     * Populate variables from event payloads and use those variables in other event actions.
+     */
+    variables?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceSetRuleActionsVariable>[]>;
+}
+
+export interface EventOrchestrationServiceSetRuleActionsAutomationAction {
+    /**
+     * When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+     */
+    autoSend?: pulumi.Input<boolean>;
+    /**
+     * Specify custom key/value pairs that'll be sent with the webhook request as request headers.
+     */
+    headers?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceSetRuleActionsAutomationActionHeader>[]>;
+    /**
+     * Name of this Webhook.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
+     */
+    parameters?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceSetRuleActionsAutomationActionParameter>[]>;
+    /**
+     * The API endpoint where PagerDuty's servers will send the webhook request.
+     */
+    url: pulumi.Input<string>;
+}
+
+export interface EventOrchestrationServiceSetRuleActionsAutomationActionHeader {
+    /**
+     * Name to identify the header
+     */
+    key: pulumi.Input<string>;
+    /**
+     * Value of this header
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface EventOrchestrationServiceSetRuleActionsAutomationActionParameter {
+    /**
+     * Name to identify the header
+     */
+    key: pulumi.Input<string>;
+    /**
+     * Value of this header
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface EventOrchestrationServiceSetRuleActionsExtraction {
+    /**
+     * A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
+     */
+    regex?: pulumi.Input<string>;
+    /**
+     * The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.
+     */
+    source?: pulumi.Input<string>;
+    /**
+     * The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.
+     */
+    target: pulumi.Input<string>;
+    /**
+     * A string that will be used to populate the `target` field. You can reference variables or event data within your template using double curly braces. For example:
+     * * Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`
+     * * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
+     */
+    template?: pulumi.Input<string>;
+}
+
+export interface EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction {
+    /**
+     * Id of the Process Automation action to be triggered.
+     */
+    actionId: pulumi.Input<string>;
+}
+
+export interface EventOrchestrationServiceSetRuleActionsVariable {
+    /**
+     * Name of this Webhook.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Path to a field in an event, in dot-notation. This supports both PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths).
+     */
+    path: pulumi.Input<string>;
+    /**
+     * Only `regex` is supported
+     */
+    type: pulumi.Input<string>;
+    /**
+     * Value of this header
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface EventOrchestrationServiceSetRuleCondition {
+    /**
+     * A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+     */
+    expression: pulumi.Input<string>;
+}
+
+export interface EventOrchestrationUnroutedCatchAll {
+    /**
+     * These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
+     */
+    actions: pulumi.Input<inputs.EventOrchestrationUnroutedCatchAllActions>;
+}
+
+export interface EventOrchestrationUnroutedCatchAllActions {
+    /**
+     * sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
+     */
+    eventAction?: pulumi.Input<string>;
+    /**
+     * Replace any CEF field or Custom Details object field using custom variables.
+     */
+    extractions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationUnroutedCatchAllActionsExtraction>[]>;
+    /**
+     * sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
+     */
+    severity?: pulumi.Input<string>;
+    suppress?: pulumi.Input<boolean>;
+    /**
+     * Populate variables from event payloads and use those variables in other event actions.
+     */
+    variables?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationUnroutedCatchAllActionsVariable>[]>;
+}
+
+export interface EventOrchestrationUnroutedCatchAllActionsExtraction {
+    /**
+     * A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
+     */
+    regex?: pulumi.Input<string>;
+    /**
+     * The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.
+     */
+    source?: pulumi.Input<string>;
+    /**
+     * The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.
+     */
+    target: pulumi.Input<string>;
+    /**
+     * A string that will be used to populate the `target` field. You can reference variables or event data within your template using double curly braces. For example:
+     * * Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`
+     * * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
+     */
+    template?: pulumi.Input<string>;
+}
+
+export interface EventOrchestrationUnroutedCatchAllActionsVariable {
+    /**
+     * The name of the variable
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Path to a field in an event, in dot-notation. This supports both [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data.
+     */
+    path: pulumi.Input<string>;
+    /**
+     * Only `regex` is supported
+     */
+    type: pulumi.Input<string>;
+    /**
+     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface EventOrchestrationUnroutedSet {
+    /**
+     * The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
+     */
+    id: pulumi.Input<string>;
+    rules?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationUnroutedSetRule>[]>;
+}
+
+export interface EventOrchestrationUnroutedSetRule {
+    /**
+     * Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+     */
+    actions: pulumi.Input<inputs.EventOrchestrationUnroutedSetRuleActions>;
+    /**
+     * Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will `always` match against the rule.
+     */
+    conditions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationUnroutedSetRuleCondition>[]>;
+    /**
+     * Indicates whether the rule is disabled and would therefore not be evaluated.
+     */
+    disabled?: pulumi.Input<boolean>;
+    /**
+     * The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * A description of this rule's purpose.
+     */
+    label?: pulumi.Input<string>;
+}
+
+export interface EventOrchestrationUnroutedSetRuleActions {
+    /**
+     * sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
+     */
+    eventAction?: pulumi.Input<string>;
+    /**
+     * Replace any CEF field or Custom Details object field using custom variables.
+     */
+    extractions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationUnroutedSetRuleActionsExtraction>[]>;
+    /**
+     * The ID of a Set from this Unrouted Orchestration whose rules you also want to use with event that match this rule.
+     */
+    routeTo?: pulumi.Input<string>;
+    /**
+     * sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
+     */
+    severity?: pulumi.Input<string>;
+    /**
+     * Populate variables from event payloads and use those variables in other event actions.
+     */
+    variables?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationUnroutedSetRuleActionsVariable>[]>;
+}
+
+export interface EventOrchestrationUnroutedSetRuleActionsExtraction {
+    /**
+     * A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
+     */
+    regex?: pulumi.Input<string>;
+    /**
+     * The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.
+     */
+    source?: pulumi.Input<string>;
+    /**
+     * The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.
+     */
+    target: pulumi.Input<string>;
+    /**
+     * A string that will be used to populate the `target` field. You can reference variables or event data within your template using double curly braces. For example:
+     * * Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`
+     * * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
+     */
+    template?: pulumi.Input<string>;
+}
+
+export interface EventOrchestrationUnroutedSetRuleActionsVariable {
+    /**
+     * The name of the variable
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Path to a field in an event, in dot-notation. This supports both [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data.
+     */
+    path: pulumi.Input<string>;
+    /**
+     * Only `regex` is supported
+     */
+    type: pulumi.Input<string>;
+    /**
+     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface EventOrchestrationUnroutedSetRuleCondition {
+    /**
+     * A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+     */
+    expression: pulumi.Input<string>;
+}
+
+export interface GetEventOrchestrationIntegrationArgs {
+    /**
+     * ID of the integration
+     * * `parameters`
+     */
+    id?: pulumi.Input<string>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.GetEventOrchestrationIntegrationParameterArgs>[]>;
+}
+
+export interface GetEventOrchestrationIntegration {
+    /**
+     * ID of the integration
+     * * `parameters`
+     */
+    id?: string;
+    parameters?: inputs.GetEventOrchestrationIntegrationParameter[];
+}
+
+export interface GetEventOrchestrationIntegrationParameterArgs {
+    /**
+     * Routing key that routes to this Orchestration.
+     */
+    routingKey?: pulumi.Input<string>;
+    /**
+     * Type of the routing key. `global` is the default type.
+     */
+    type?: pulumi.Input<string>;
+}
+
+export interface GetEventOrchestrationIntegrationParameter {
+    /**
+     * Routing key that routes to this Orchestration.
+     */
+    routingKey?: string;
+    /**
+     * Type of the routing key. `global` is the default type.
+     */
+    type?: string;
+}
+
 export interface ResponsePlayResponder {
     /**
      * Description of escalation policy
@@ -856,6 +1460,10 @@ export interface SlackConnectionConfig {
 
 export interface WebhookSubscriptionDeliveryMethod {
     /**
+     * The customHeader of a webhook subscription define any optional headers that will be passed along with the payload to the destination URL.
+     */
+    customHeaders?: pulumi.Input<pulumi.Input<inputs.WebhookSubscriptionDeliveryMethodCustomHeader>[]>;
+    /**
      * Whether this webhook subscription is temporarily disabled. Becomes true if the delivery method URL is repeatedly rejected by the server.
      */
     temporarilyDisabled?: pulumi.Input<boolean>;
@@ -869,6 +1477,11 @@ export interface WebhookSubscriptionDeliveryMethod {
     url?: pulumi.Input<string>;
 }
 
+export interface WebhookSubscriptionDeliveryMethodCustomHeader {
+    name: pulumi.Input<string>;
+    value: pulumi.Input<string>;
+}
+
 export interface WebhookSubscriptionFilter {
     /**
      * The id of the object being used as the filter. This field is required for all filter types except account_reference.
@@ -879,3 +1492,4 @@ export interface WebhookSubscriptionFilter {
      */
     type: pulumi.Input<string>;
 }
+

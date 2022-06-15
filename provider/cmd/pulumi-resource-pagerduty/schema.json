@@ -109,6 +109,1444 @@
                 "id"
             ]
         },
+        "pagerduty:index/EventOrchestrationIntegration:EventOrchestrationIntegration": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "ID of the integration\n* `parameters`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "parameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/EventOrchestrationIntegrationParameter:EventOrchestrationIntegrationParameter"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "id",
+                        "parameters"
+                    ]
+                }
+            }
+        },
+        "pagerduty:index/EventOrchestrationIntegrationParameter:EventOrchestrationIntegrationParameter": {
+            "properties": {
+                "routingKey": {
+                    "type": "string",
+                    "description": "Routing key that routes to this Orchestration.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Type of the routing key. `global` is the default type.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "routingKey",
+                        "type"
+                    ]
+                }
+            }
+        },
+        "pagerduty:index/EventOrchestrationRouterCatchAll:EventOrchestrationRouterCatchAll": {
+            "properties": {
+                "actions": {
+                    "$ref": "#/types/pagerduty:index/EventOrchestrationRouterCatchAllActions:EventOrchestrationRouterCatchAllActions",
+                    "description": "These are the actions that will be taken to change the resulting alert and incident.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "actions"
+            ]
+        },
+        "pagerduty:index/EventOrchestrationRouterCatchAllActions:EventOrchestrationRouterCatchAllActions": {
+            "properties": {
+                "routeTo": {
+                    "type": "string",
+                    "description": "The ID of the target Service for the resulting alert.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "routeTo"
+            ]
+        },
+        "pagerduty:index/EventOrchestrationRouterSet:EventOrchestrationRouterSet": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "ID of the `start` set. Router supports only one set and it's id has to be `start`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/EventOrchestrationRouterSetRule:EventOrchestrationRouterSetRule"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "pagerduty:index/EventOrchestrationRouterSetRule:EventOrchestrationRouterSetRule": {
+            "properties": {
+                "actions": {
+                    "$ref": "#/types/pagerduty:index/EventOrchestrationRouterSetRuleActions:EventOrchestrationRouterSetRuleActions",
+                    "description": "Actions that will be taken to change the resulting alert and incident, when an event matches this rule.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "conditions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/EventOrchestrationRouterSetRuleCondition:EventOrchestrationRouterSetRuleCondition"
+                    },
+                    "description": "Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will _always_ match against the rule.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "disabled": {
+                    "type": "boolean",
+                    "description": "Indicates whether the rule is disabled and would therefore not be evaluated.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "description": "ID of the `start` set. Router supports only one set and it's id has to be `start`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "label": {
+                    "type": "string",
+                    "description": "A description of this rule's purpose.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "actions"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "actions",
+                        "id"
+                    ]
+                }
+            }
+        },
+        "pagerduty:index/EventOrchestrationRouterSetRuleActions:EventOrchestrationRouterSetRuleActions": {
+            "properties": {
+                "routeTo": {
+                    "type": "string",
+                    "description": "The ID of the target Service for the resulting alert.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "routeTo"
+            ]
+        },
+        "pagerduty:index/EventOrchestrationRouterSetRuleCondition:EventOrchestrationRouterSetRuleCondition": {
+            "properties": {
+                "expression": {
+                    "type": "string",
+                    "description": "A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "expression"
+            ]
+        },
+        "pagerduty:index/EventOrchestrationServiceCatchAll:EventOrchestrationServiceCatchAll": {
+            "properties": {
+                "actions": {
+                    "$ref": "#/types/pagerduty:index/EventOrchestrationServiceCatchAllActions:EventOrchestrationServiceCatchAllActions",
+                    "description": "These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` _except_ `route_to` action.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "actions"
+            ]
+        },
+        "pagerduty:index/EventOrchestrationServiceCatchAllActions:EventOrchestrationServiceCatchAllActions": {
+            "properties": {
+                "annotate": {
+                    "type": "string",
+                    "description": "Add this text as a note on the resulting incident.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "automationAction": {
+                    "$ref": "#/types/pagerduty:index/EventOrchestrationServiceCatchAllActionsAutomationAction:EventOrchestrationServiceCatchAllActionsAutomationAction",
+                    "description": "Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "eventAction": {
+                    "type": "string",
+                    "description": "sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "extractions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/EventOrchestrationServiceCatchAllActionsExtraction:EventOrchestrationServiceCatchAllActionsExtraction"
+                    },
+                    "description": "Replace any CEF field or Custom Details object field using custom variables.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "pagerdutyAutomationAction": {
+                    "$ref": "#/types/pagerduty:index/EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction:EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction",
+                    "description": "Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "priority": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "routeTo": {
+                    "type": "string",
+                    "description": "The ID of a Set from this Service Orchestration whose rules you also want to use with event that match this rule.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "severity": {
+                    "type": "string",
+                    "description": "sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "suppress": {
+                    "type": "boolean",
+                    "description": "Set whether the resulting alert is suppressed. Suppressed alerts will not trigger an incident.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "suspend": {
+                    "type": "integer",
+                    "description": "The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won't create an incident for this the resulting alert.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "variables": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/EventOrchestrationServiceCatchAllActionsVariable:EventOrchestrationServiceCatchAllActionsVariable"
+                    },
+                    "description": "Populate variables from event payloads and use those variables in other event actions.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "pagerduty:index/EventOrchestrationServiceCatchAllActionsAutomationAction:EventOrchestrationServiceCatchAllActionsAutomationAction": {
+            "properties": {
+                "autoSend": {
+                    "type": "boolean",
+                    "description": "When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "headers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/EventOrchestrationServiceCatchAllActionsAutomationActionHeader:EventOrchestrationServiceCatchAllActionsAutomationActionHeader"
+                    },
+                    "description": "Specify custom key/value pairs that'll be sent with the webhook request as request headers.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of this Webhook.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "parameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/EventOrchestrationServiceCatchAllActionsAutomationActionParameter:EventOrchestrationServiceCatchAllActionsAutomationActionParameter"
+                    },
+                    "description": "Specify custom key/value pairs that'll be included in the webhook request's JSON payload.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "url": {
+                    "type": "string",
+                    "description": "The API endpoint where PagerDuty's servers will send the webhook request.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "url"
+            ]
+        },
+        "pagerduty:index/EventOrchestrationServiceCatchAllActionsAutomationActionHeader:EventOrchestrationServiceCatchAllActionsAutomationActionHeader": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "Name to identify the header\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Value of this header\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ]
+        },
+        "pagerduty:index/EventOrchestrationServiceCatchAllActionsAutomationActionParameter:EventOrchestrationServiceCatchAllActionsAutomationActionParameter": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "Name to identify the header\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Value of this header\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ]
+        },
+        "pagerduty:index/EventOrchestrationServiceCatchAllActionsExtraction:EventOrchestrationServiceCatchAllActionsExtraction": {
+            "properties": {
+                "regex": {
+                    "type": "string",
+                    "description": "A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "source": {
+                    "type": "string",
+                    "description": "The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "target": {
+                    "type": "string",
+                    "description": "The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "template": {
+                    "type": "string",
+                    "description": "A string that will be used to populate the `target` field. You can reference variables or event data within your template using double curly braces. For example:\n* Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`\n* Combine the event severity \u0026 summary with template like: `{{event.severity}}:{{event.summary}}`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "target"
+            ]
+        },
+        "pagerduty:index/EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction:EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction": {
+            "properties": {
+                "actionId": {
+                    "type": "string",
+                    "description": "Id of the Process Automation action to be triggered.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "actionId"
+            ]
+        },
+        "pagerduty:index/EventOrchestrationServiceCatchAllActionsVariable:EventOrchestrationServiceCatchAllActionsVariable": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of this Webhook.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "path": {
+                    "type": "string",
+                    "description": "Path to a field in an event, in dot-notation. This supports both PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths).\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Only `regex` is supported\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Value of this header\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "path",
+                "type",
+                "value"
+            ]
+        },
+        "pagerduty:index/EventOrchestrationServiceSet:EventOrchestrationServiceSet": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of this set of rules. Rules in other sets can route events into this set using the rule's `route_to` property.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/EventOrchestrationServiceSetRule:EventOrchestrationServiceSetRule"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "pagerduty:index/EventOrchestrationServiceSetRule:EventOrchestrationServiceSetRule": {
+            "properties": {
+                "actions": {
+                    "$ref": "#/types/pagerduty:index/EventOrchestrationServiceSetRuleActions:EventOrchestrationServiceSetRuleActions",
+                    "description": "Actions that will be taken to change the resulting alert and incident, when an event matches this rule.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "conditions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/EventOrchestrationServiceSetRuleCondition:EventOrchestrationServiceSetRuleCondition"
+                    },
+                    "description": "Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will `always` match against the rule.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "disabled": {
+                    "type": "boolean",
+                    "description": "Indicates whether the rule is disabled and would therefore not be evaluated.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The ID of this set of rules. Rules in other sets can route events into this set using the rule's `route_to` property.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "label": {
+                    "type": "string",
+                    "description": "A description of this rule's purpose.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "actions"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "actions",
+                        "id"
+                    ]
+                }
+            }
+        },
+        "pagerduty:index/EventOrchestrationServiceSetRuleActions:EventOrchestrationServiceSetRuleActions": {
+            "properties": {
+                "annotate": {
+                    "type": "string",
+                    "description": "Add this text as a note on the resulting incident.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "automationAction": {
+                    "$ref": "#/types/pagerduty:index/EventOrchestrationServiceSetRuleActionsAutomationAction:EventOrchestrationServiceSetRuleActionsAutomationAction",
+                    "description": "Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "eventAction": {
+                    "type": "string",
+                    "description": "sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "extractions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/EventOrchestrationServiceSetRuleActionsExtraction:EventOrchestrationServiceSetRuleActionsExtraction"
+                    },
+                    "description": "Replace any CEF field or Custom Details object field using custom variables.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "pagerdutyAutomationAction": {
+                    "$ref": "#/types/pagerduty:index/EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction:EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction",
+                    "description": "Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "priority": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "routeTo": {
+                    "type": "string",
+                    "description": "The ID of a Set from this Service Orchestration whose rules you also want to use with event that match this rule.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "severity": {
+                    "type": "string",
+                    "description": "sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "suppress": {
+                    "type": "boolean",
+                    "description": "Set whether the resulting alert is suppressed. Suppressed alerts will not trigger an incident.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "suspend": {
+                    "type": "integer",
+                    "description": "The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won't create an incident for this the resulting alert.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "variables": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/EventOrchestrationServiceSetRuleActionsVariable:EventOrchestrationServiceSetRuleActionsVariable"
+                    },
+                    "description": "Populate variables from event payloads and use those variables in other event actions.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "pagerduty:index/EventOrchestrationServiceSetRuleActionsAutomationAction:EventOrchestrationServiceSetRuleActionsAutomationAction": {
+            "properties": {
+                "autoSend": {
+                    "type": "boolean",
+                    "description": "When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "headers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/EventOrchestrationServiceSetRuleActionsAutomationActionHeader:EventOrchestrationServiceSetRuleActionsAutomationActionHeader"
+                    },
+                    "description": "Specify custom key/value pairs that'll be sent with the webhook request as request headers.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of this Webhook.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "parameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/EventOrchestrationServiceSetRuleActionsAutomationActionParameter:EventOrchestrationServiceSetRuleActionsAutomationActionParameter"
+                    },
+                    "description": "Specify custom key/value pairs that'll be included in the webhook request's JSON payload.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "url": {
+                    "type": "string",
+                    "description": "The API endpoint where PagerDuty's servers will send the webhook request.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "url"
+            ]
+        },
+        "pagerduty:index/EventOrchestrationServiceSetRuleActionsAutomationActionHeader:EventOrchestrationServiceSetRuleActionsAutomationActionHeader": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "Name to identify the header\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Value of this header\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ]
+        },
+        "pagerduty:index/EventOrchestrationServiceSetRuleActionsAutomationActionParameter:EventOrchestrationServiceSetRuleActionsAutomationActionParameter": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "Name to identify the header\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Value of this header\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ]
+        },
+        "pagerduty:index/EventOrchestrationServiceSetRuleActionsExtraction:EventOrchestrationServiceSetRuleActionsExtraction": {
+            "properties": {
+                "regex": {
+                    "type": "string",
+                    "description": "A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "source": {
+                    "type": "string",
+                    "description": "The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "target": {
+                    "type": "string",
+                    "description": "The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "template": {
+                    "type": "string",
+                    "description": "A string that will be used to populate the `target` field. You can reference variables or event data within your template using double curly braces. For example:\n* Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`\n* Combine the event severity \u0026 summary with template like: `{{event.severity}}:{{event.summary}}`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "target"
+            ]
+        },
+        "pagerduty:index/EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction:EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction": {
+            "properties": {
+                "actionId": {
+                    "type": "string",
+                    "description": "Id of the Process Automation action to be triggered.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "actionId"
+            ]
+        },
+        "pagerduty:index/EventOrchestrationServiceSetRuleActionsVariable:EventOrchestrationServiceSetRuleActionsVariable": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of this Webhook.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "path": {
+                    "type": "string",
+                    "description": "Path to a field in an event, in dot-notation. This supports both PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths).\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Only `regex` is supported\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "string",
+                    "description": "Value of this header\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "path",
+                "type",
+                "value"
+            ]
+        },
+        "pagerduty:index/EventOrchestrationServiceSetRuleCondition:EventOrchestrationServiceSetRuleCondition": {
+            "properties": {
+                "expression": {
+                    "type": "string",
+                    "description": "A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "expression"
+            ]
+        },
+        "pagerduty:index/EventOrchestrationUnroutedCatchAll:EventOrchestrationUnroutedCatchAll": {
+            "properties": {
+                "actions": {
+                    "$ref": "#/types/pagerduty:index/EventOrchestrationUnroutedCatchAllActions:EventOrchestrationUnroutedCatchAllActions",
+                    "description": "These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` _except_ `route_to` action.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "actions"
+            ]
+        },
+        "pagerduty:index/EventOrchestrationUnroutedCatchAllActions:EventOrchestrationUnroutedCatchAllActions": {
+            "properties": {
+                "eventAction": {
+                    "type": "string",
+                    "description": "sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "extractions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/EventOrchestrationUnroutedCatchAllActionsExtraction:EventOrchestrationUnroutedCatchAllActionsExtraction"
+                    },
+                    "description": "Replace any CEF field or Custom Details object field using custom variables.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "severity": {
+                    "type": "string",
+                    "description": "sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "suppress": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "variables": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/EventOrchestrationUnroutedCatchAllActionsVariable:EventOrchestrationUnroutedCatchAllActionsVariable"
+                    },
+                    "description": "Populate variables from event payloads and use those variables in other event actions.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "suppress"
+                    ]
+                }
+            }
+        },
+        "pagerduty:index/EventOrchestrationUnroutedCatchAllActionsExtraction:EventOrchestrationUnroutedCatchAllActionsExtraction": {
+            "properties": {
+                "regex": {
+                    "type": "string",
+                    "description": "A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "source": {
+                    "type": "string",
+                    "description": "The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "target": {
+                    "type": "string",
+                    "description": "The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "template": {
+                    "type": "string",
+                    "description": "A string that will be used to populate the `target` field. You can reference variables or event data within your template using double curly braces. For example:\n* Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`\n* Combine the event severity \u0026 summary with template like: `{{event.severity}}:{{event.summary}}`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "target"
+            ]
+        },
+        "pagerduty:index/EventOrchestrationUnroutedCatchAllActionsVariable:EventOrchestrationUnroutedCatchAllActionsVariable": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the variable\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "path": {
+                    "type": "string",
+                    "description": "Path to a field in an event, in dot-notation. This supports both [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Only `regex` is supported\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "path",
+                "type",
+                "value"
+            ]
+        },
+        "pagerduty:index/EventOrchestrationUnroutedSet:EventOrchestrationUnroutedSet": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of this set of rules. Rules in other sets can route events into this set using the rule's `route_to` property.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/EventOrchestrationUnroutedSetRule:EventOrchestrationUnroutedSetRule"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
+        "pagerduty:index/EventOrchestrationUnroutedSetRule:EventOrchestrationUnroutedSetRule": {
+            "properties": {
+                "actions": {
+                    "$ref": "#/types/pagerduty:index/EventOrchestrationUnroutedSetRuleActions:EventOrchestrationUnroutedSetRuleActions",
+                    "description": "Actions that will be taken to change the resulting alert and incident, when an event matches this rule.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "conditions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/EventOrchestrationUnroutedSetRuleCondition:EventOrchestrationUnroutedSetRuleCondition"
+                    },
+                    "description": "Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will `always` match against the rule.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "disabled": {
+                    "type": "boolean",
+                    "description": "Indicates whether the rule is disabled and would therefore not be evaluated.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The ID of this set of rules. Rules in other sets can route events into this set using the rule's `route_to` property.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "label": {
+                    "type": "string",
+                    "description": "A description of this rule's purpose.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "actions"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "actions",
+                        "id"
+                    ]
+                }
+            }
+        },
+        "pagerduty:index/EventOrchestrationUnroutedSetRuleActions:EventOrchestrationUnroutedSetRuleActions": {
+            "properties": {
+                "eventAction": {
+                    "type": "string",
+                    "description": "sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "extractions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/EventOrchestrationUnroutedSetRuleActionsExtraction:EventOrchestrationUnroutedSetRuleActionsExtraction"
+                    },
+                    "description": "Replace any CEF field or Custom Details object field using custom variables.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "routeTo": {
+                    "type": "string",
+                    "description": "The ID of a Set from this Unrouted Orchestration whose rules you also want to use with event that match this rule.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "severity": {
+                    "type": "string",
+                    "description": "sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "variables": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/EventOrchestrationUnroutedSetRuleActionsVariable:EventOrchestrationUnroutedSetRuleActionsVariable"
+                    },
+                    "description": "Populate variables from event payloads and use those variables in other event actions.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "pagerduty:index/EventOrchestrationUnroutedSetRuleActionsExtraction:EventOrchestrationUnroutedSetRuleActionsExtraction": {
+            "properties": {
+                "regex": {
+                    "type": "string",
+                    "description": "A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "source": {
+                    "type": "string",
+                    "description": "The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "target": {
+                    "type": "string",
+                    "description": "The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "template": {
+                    "type": "string",
+                    "description": "A string that will be used to populate the `target` field. You can reference variables or event data within your template using double curly braces. For example:\n* Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`\n* Combine the event severity \u0026 summary with template like: `{{event.severity}}:{{event.summary}}`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "target"
+            ]
+        },
+        "pagerduty:index/EventOrchestrationUnroutedSetRuleActionsVariable:EventOrchestrationUnroutedSetRuleActionsVariable": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the variable\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "path": {
+                    "type": "string",
+                    "description": "Path to a field in an event, in dot-notation. This supports both [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Only `regex` is supported\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "path",
+                "type",
+                "value"
+            ]
+        },
+        "pagerduty:index/EventOrchestrationUnroutedSetRuleCondition:EventOrchestrationUnroutedSetRuleCondition": {
+            "properties": {
+                "expression": {
+                    "type": "string",
+                    "description": "A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "expression"
+            ]
+        },
         "pagerduty:index/ResponsePlayResponder:ResponsePlayResponder": {
             "properties": {
                 "description": {
@@ -2200,6 +3638,18 @@
         },
         "pagerduty:index/WebhookSubscriptionDeliveryMethod:WebhookSubscriptionDeliveryMethod": {
             "properties": {
+                "customHeaders": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/WebhookSubscriptionDeliveryMethodCustomHeader:WebhookSubscriptionDeliveryMethodCustomHeader"
+                    },
+                    "description": "The custom_header of a webhook subscription define any optional headers that will be passed along with the payload to the destination URL.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "temporarilyDisabled": {
                     "type": "boolean",
                     "description": "Whether this webhook subscription is temporarily disabled. Becomes true if the delivery method URL is repeatedly rejected by the server.\n",
@@ -2237,6 +3687,31 @@
                 }
             }
         },
+        "pagerduty:index/WebhookSubscriptionDeliveryMethodCustomHeader:WebhookSubscriptionDeliveryMethodCustomHeader": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "value"
+            ]
+        },
         "pagerduty:index/WebhookSubscriptionFilter:WebhookSubscriptionFilter": {
             "properties": {
                 "id": {
@@ -2262,6 +3737,72 @@
             "required": [
                 "type"
             ]
+        },
+        "pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "ID of the integration\n* `parameters`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "parameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/getEventOrchestrationIntegrationParameter:getEventOrchestrationIntegrationParameter"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "parameters"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "pagerduty:index/getEventOrchestrationIntegrationParameter:getEventOrchestrationIntegrationParameter": {
+            "properties": {
+                "routingKey": {
+                    "type": "string",
+                    "description": "Routing key that routes to this Orchestration.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Type of the routing key. `global` is the default type.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "routingKey",
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         }
     },
     "provider": {
@@ -2598,6 +4139,282 @@
                     "teams": {
                         "type": "string",
                         "description": "Teams associated with the policy. Account must have the `teams` ability to use this parameter.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "pagerduty:index/eventOrchestration:EventOrchestration": {
+            "description": "[Global Event Orchestrations](https://support.pagerduty.com/docs/event-orchestration#global-orchestrations) allow you define a set of Event Rules, so that when you ingest events using the Orchestration's Routing Key your events will be routed to the correct Service, based on the event's content.\n\n## Example of configuring a Global Event Orchestration\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst engineering = new pagerduty.Team(\"engineering\", {});\nconst myMonitor = new pagerduty.EventOrchestration(\"myMonitor\", {\n    description: \"Send events to a pair of services\",\n    team: engineering.id,\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nengineering = pagerduty.Team(\"engineering\")\nmy_monitor = pagerduty.EventOrchestration(\"myMonitor\",\n    description=\"Send events to a pair of services\",\n    team=engineering.id)\n```\n```csharp\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var engineering = new Pagerduty.Team(\"engineering\", new Pagerduty.TeamArgs\n        {\n        });\n        var myMonitor = new Pagerduty.EventOrchestration(\"myMonitor\", new Pagerduty.EventOrchestrationArgs\n        {\n            Description = \"Send events to a pair of services\",\n            Team = engineering.Id,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tengineering, err := pagerduty.NewTeam(ctx, \"engineering\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewEventOrchestration(ctx, \"myMonitor\", \u0026pagerduty.EventOrchestrationArgs{\n\t\t\tDescription: pulumi.String(\"Send events to a pair of services\"),\n\t\t\tTeam:        engineering.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\n\n## Import\n\nEventOrchestrations can be imported using the `id`, e.g.\n\n```sh\n $ pulumi import pagerduty:index/eventOrchestration:EventOrchestration main 19acac92-027a-4ea0-b06c-bbf516519601\n```\n\n ",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "A human-friendly description of the Event Orchestration.\n"
+                },
+                "integrations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/EventOrchestrationIntegration:EventOrchestrationIntegration"
+                    },
+                    "description": "An integration for the Event Orchestration.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Event Orchestration.\n"
+                },
+                "routes": {
+                    "type": "integer"
+                },
+                "team": {
+                    "type": "string",
+                    "description": "ID of the team that owns the Event Orchestration. If none is specified, only admins have access.\n"
+                }
+            },
+            "required": [
+                "integrations",
+                "name",
+                "routes"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "A human-friendly description of the Event Orchestration.\n"
+                },
+                "integrations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/EventOrchestrationIntegration:EventOrchestrationIntegration"
+                    },
+                    "description": "An integration for the Event Orchestration.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Event Orchestration.\n"
+                },
+                "team": {
+                    "type": "string",
+                    "description": "ID of the team that owns the Event Orchestration. If none is specified, only admins have access.\n"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering EventOrchestration resources.\n",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "A human-friendly description of the Event Orchestration.\n"
+                    },
+                    "integrations": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/pagerduty:index/EventOrchestrationIntegration:EventOrchestrationIntegration"
+                        },
+                        "description": "An integration for the Event Orchestration.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the Event Orchestration.\n"
+                    },
+                    "routes": {
+                        "type": "integer"
+                    },
+                    "team": {
+                        "type": "string",
+                        "description": "ID of the team that owns the Event Orchestration. If none is specified, only admins have access.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter": {
+            "description": "An Orchestration Router allows users to create a set of Event Rules. The Router evaluates events sent to this Orchestration against each of its rules, one at a time, and routes the event to a specific Service based on the first rule that matches. If an event doesn't match any rules, it'll be sent to service specified in the `catch_all` or to the \"Unrouted\" Orchestration if no service is specified.\n\n## Example of configuring Router rules for an Orchestration\n\nIn this example the user has defined the Router with two rules, each routing to a different service.\n\nThis example assumes services used in the `route_to` configuration already exists. So it does not show creation of service resource.\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst router = new pagerduty.EventOrchestrationRouter(\"router\", {\n    eventOrchestration: pagerduty_event_orchestration.my_monitor.id,\n    set: {\n        rules: [\n            {\n                label: \"Events relating to our relational database\",\n                conditions: [\n                    {\n                        expression: \"event.summary matches part 'database'\",\n                    },\n                    {\n                        expression: \"event.source matches regex 'db[0-9]+-server'\",\n                    },\n                ],\n                actions: {\n                    routeTo: pageduty_service.database.id,\n                },\n            },\n            {\n                conditions: [{\n                    expression: \"event.summary matches part 'www'\",\n                }],\n                actions: {\n                    routeTo: pagerduty_service.www.id,\n                },\n            },\n        ],\n    },\n    catchAll: {\n        actions: {\n            routeTo: \"unrouted\",\n        },\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nrouter = pagerduty.EventOrchestrationRouter(\"router\",\n    event_orchestration=pagerduty_event_orchestration[\"my_monitor\"][\"id\"],\n    set=pagerduty.EventOrchestrationRouterSetArgs(\n        rules=[\n            pagerduty.EventOrchestrationRouterSetRuleArgs(\n                label=\"Events relating to our relational database\",\n                conditions=[\n                    pagerduty.EventOrchestrationRouterSetRuleConditionArgs(\n                        expression=\"event.summary matches part 'database'\",\n                    ),\n                    pagerduty.EventOrchestrationRouterSetRuleConditionArgs(\n                        expression=\"event.source matches regex 'db[0-9]+-server'\",\n                    ),\n                ],\n                actions=pagerduty.EventOrchestrationRouterSetRuleActionsArgs(\n                    route_to=pageduty_service[\"database\"][\"id\"],\n                ),\n            ),\n            pagerduty.EventOrchestrationRouterSetRuleArgs(\n                conditions=[pagerduty.EventOrchestrationRouterSetRuleConditionArgs(\n                    expression=\"event.summary matches part 'www'\",\n                )],\n                actions=pagerduty.EventOrchestrationRouterSetRuleActionsArgs(\n                    route_to=pagerduty_service[\"www\"][\"id\"],\n                ),\n            ),\n        ],\n    ),\n    catch_all=pagerduty.EventOrchestrationRouterCatchAllArgs(\n        actions=pagerduty.EventOrchestrationRouterCatchAllActionsArgs(\n            route_to=\"unrouted\",\n        ),\n    ))\n```\n```csharp\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var router = new Pagerduty.EventOrchestrationRouter(\"router\", new Pagerduty.EventOrchestrationRouterArgs\n        {\n            EventOrchestration = pagerduty_event_orchestration.My_monitor.Id,\n            Set = new Pagerduty.Inputs.EventOrchestrationRouterSetArgs\n            {\n                Rules = \n                {\n                    new Pagerduty.Inputs.EventOrchestrationRouterSetRuleArgs\n                    {\n                        Label = \"Events relating to our relational database\",\n                        Conditions = \n                        {\n                            new Pagerduty.Inputs.EventOrchestrationRouterSetRuleConditionArgs\n                            {\n                                Expression = \"event.summary matches part 'database'\",\n                            },\n                            new Pagerduty.Inputs.EventOrchestrationRouterSetRuleConditionArgs\n                            {\n                                Expression = \"event.source matches regex 'db[0-9]+-server'\",\n                            },\n                        },\n                        Actions = new Pagerduty.Inputs.EventOrchestrationRouterSetRuleActionsArgs\n                        {\n                            RouteTo = pageduty_service.Database.Id,\n                        },\n                    },\n                    new Pagerduty.Inputs.EventOrchestrationRouterSetRuleArgs\n                    {\n                        Conditions = \n                        {\n                            new Pagerduty.Inputs.EventOrchestrationRouterSetRuleConditionArgs\n                            {\n                                Expression = \"event.summary matches part 'www'\",\n                            },\n                        },\n                        Actions = new Pagerduty.Inputs.EventOrchestrationRouterSetRuleActionsArgs\n                        {\n                            RouteTo = pagerduty_service.Www.Id,\n                        },\n                    },\n                },\n            },\n            CatchAll = new Pagerduty.Inputs.EventOrchestrationRouterCatchAllArgs\n            {\n                Actions = new Pagerduty.Inputs.EventOrchestrationRouterCatchAllActionsArgs\n                {\n                    RouteTo = \"unrouted\",\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := pagerduty.NewEventOrchestrationRouter(ctx, \"router\", \u0026pagerduty.EventOrchestrationRouterArgs{\n\t\t\tEventOrchestration: pulumi.Any(pagerduty_event_orchestration.My_monitor.Id),\n\t\t\tSet: \u0026EventOrchestrationRouterSetArgs{\n\t\t\t\tRules: EventOrchestrationRouterSetRuleArray{\n\t\t\t\t\t\u0026EventOrchestrationRouterSetRuleArgs{\n\t\t\t\t\t\tLabel: pulumi.String(\"Events relating to our relational database\"),\n\t\t\t\t\t\tConditions: EventOrchestrationRouterSetRuleConditionArray{\n\t\t\t\t\t\t\t\u0026EventOrchestrationRouterSetRuleConditionArgs{\n\t\t\t\t\t\t\t\tExpression: pulumi.String(\"event.summary matches part 'database'\"),\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\u0026EventOrchestrationRouterSetRuleConditionArgs{\n\t\t\t\t\t\t\t\tExpression: pulumi.String(\"event.source matches regex 'db[0-9]+-server'\"),\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t\tActions: \u0026EventOrchestrationRouterSetRuleActionsArgs{\n\t\t\t\t\t\t\tRouteTo: pulumi.Any(pageduty_service.Database.Id),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t\t\u0026EventOrchestrationRouterSetRuleArgs{\n\t\t\t\t\t\tConditions: EventOrchestrationRouterSetRuleConditionArray{\n\t\t\t\t\t\t\t\u0026EventOrchestrationRouterSetRuleConditionArgs{\n\t\t\t\t\t\t\t\tExpression: pulumi.String(\"event.summary matches part 'www'\"),\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t\tActions: \u0026EventOrchestrationRouterSetRuleActionsArgs{\n\t\t\t\t\t\t\tRouteTo: pulumi.Any(pagerduty_service.Www.Id),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tCatchAll: \u0026EventOrchestrationRouterCatchAllArgs{\n\t\t\t\tActions: \u0026EventOrchestrationRouterCatchAllActionsArgs{\n\t\t\t\t\tRouteTo: pulumi.String(\"unrouted\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\n\n## Import\n\nRouter can be imported using the `id` of the Event Orchestration, e.g.\n\n```sh\n $ pulumi import pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter pagerduty_event_orchestration_router 1b49abe7-26db-4439-a715-c6d883acfb3e\n```\n\n ",
+            "properties": {
+                "catchAll": {
+                    "$ref": "#/types/pagerduty:index/EventOrchestrationRouterCatchAll:EventOrchestrationRouterCatchAll",
+                    "description": "When none of the rules match an event, the event will be routed according to the catch_all settings.\n"
+                },
+                "eventOrchestration": {
+                    "type": "string",
+                    "description": "ID of the Event Orchestration to which the Router belongs.\n"
+                },
+                "set": {
+                    "$ref": "#/types/pagerduty:index/EventOrchestrationRouterSet:EventOrchestrationRouterSet",
+                    "description": "The Router contains a single set of rules  (the \"start\" set).\n"
+                }
+            },
+            "required": [
+                "catchAll",
+                "eventOrchestration",
+                "set"
+            ],
+            "inputProperties": {
+                "catchAll": {
+                    "$ref": "#/types/pagerduty:index/EventOrchestrationRouterCatchAll:EventOrchestrationRouterCatchAll",
+                    "description": "When none of the rules match an event, the event will be routed according to the catch_all settings.\n"
+                },
+                "eventOrchestration": {
+                    "type": "string",
+                    "description": "ID of the Event Orchestration to which the Router belongs.\n"
+                },
+                "set": {
+                    "$ref": "#/types/pagerduty:index/EventOrchestrationRouterSet:EventOrchestrationRouterSet",
+                    "description": "The Router contains a single set of rules  (the \"start\" set).\n"
+                }
+            },
+            "requiredInputs": [
+                "catchAll",
+                "eventOrchestration",
+                "set"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering EventOrchestrationRouter resources.\n",
+                "properties": {
+                    "catchAll": {
+                        "$ref": "#/types/pagerduty:index/EventOrchestrationRouterCatchAll:EventOrchestrationRouterCatchAll",
+                        "description": "When none of the rules match an event, the event will be routed according to the catch_all settings.\n"
+                    },
+                    "eventOrchestration": {
+                        "type": "string",
+                        "description": "ID of the Event Orchestration to which the Router belongs.\n"
+                    },
+                    "set": {
+                        "$ref": "#/types/pagerduty:index/EventOrchestrationRouterSet:EventOrchestrationRouterSet",
+                        "description": "The Router contains a single set of rules  (the \"start\" set).\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "pagerduty:index/eventOrchestrationService:EventOrchestrationService": {
+            "description": "\n\n\n## Import\n\nService Orchestration can be imported using the `id` of the Service, e.g.\n\n```sh\n $ pulumi import pagerduty:index/eventOrchestrationService:EventOrchestrationService pagerduty_event_orchestration_service PFEODA7\n```\n\n ",
+            "properties": {
+                "catchAll": {
+                    "$ref": "#/types/pagerduty:index/EventOrchestrationServiceCatchAll:EventOrchestrationServiceCatchAll",
+                    "description": "the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.\n"
+                },
+                "service": {
+                    "type": "string",
+                    "description": "ID of the Service to which this Service Orchestration belongs to.\n"
+                },
+                "sets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/EventOrchestrationServiceSet:EventOrchestrationServiceSet"
+                    },
+                    "description": "A Service Orchestration must contain at least a \"start\" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.\n"
+                }
+            },
+            "required": [
+                "catchAll",
+                "service",
+                "sets"
+            ],
+            "inputProperties": {
+                "catchAll": {
+                    "$ref": "#/types/pagerduty:index/EventOrchestrationServiceCatchAll:EventOrchestrationServiceCatchAll",
+                    "description": "the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.\n"
+                },
+                "service": {
+                    "type": "string",
+                    "description": "ID of the Service to which this Service Orchestration belongs to.\n"
+                },
+                "sets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/EventOrchestrationServiceSet:EventOrchestrationServiceSet"
+                    },
+                    "description": "A Service Orchestration must contain at least a \"start\" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.\n"
+                }
+            },
+            "requiredInputs": [
+                "catchAll",
+                "service",
+                "sets"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering EventOrchestrationService resources.\n",
+                "properties": {
+                    "catchAll": {
+                        "$ref": "#/types/pagerduty:index/EventOrchestrationServiceCatchAll:EventOrchestrationServiceCatchAll",
+                        "description": "the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.\n"
+                    },
+                    "service": {
+                        "type": "string",
+                        "description": "ID of the Service to which this Service Orchestration belongs to.\n"
+                    },
+                    "sets": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/pagerduty:index/EventOrchestrationServiceSet:EventOrchestrationServiceSet"
+                        },
+                        "description": "A Service Orchestration must contain at least a \"start\" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted": {
+            "description": "An Unrouted Orchestration allows users to create a set of Event Rules that will be evaluated against all events that don't match any rules in the Orchestration's Router.\n\nThe Unrouted Orchestration evaluates events sent to it against each of its rules, beginning with the rules in the \"start\" set. When a matching rule is found, it can modify and enhance the event and can route the event to another set of rules within this Unrouted Orchestration for further processing.\n\n## Example of configuring Unrouted Rules for an Orchestration\n\nIn this example of an Unrouted Orchestration, the rule matches only if the condition is matched.\nAlerts created for events that do not match the rule will have severity level set to `info` as defined in `catch_all` block.\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst unrouted = new pagerduty.EventOrchestrationUnrouted(\"unrouted\", {\n    eventOrchestration: pagerduty_event_orchestration.my_monitor.id,\n    sets: [{\n        id: \"start\",\n        rules: [{\n            label: \"Update the summary of un-matched Critical alerts so they're easier to spot\",\n            conditions: [{\n                expression: \"event.severity matches 'critical'\",\n            }],\n            actions: {\n                severity: \"critical\",\n                extractions: [{\n                    target: \"event.summary\",\n                    template: \"[Critical Unrouted] {{event.summary}}\",\n                }],\n            },\n        }],\n    }],\n    catchAll: {\n        actions: {\n            severity: \"info\",\n        },\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nunrouted = pagerduty.EventOrchestrationUnrouted(\"unrouted\",\n    event_orchestration=pagerduty_event_orchestration[\"my_monitor\"][\"id\"],\n    sets=[pagerduty.EventOrchestrationUnroutedSetArgs(\n        id=\"start\",\n        rules=[pagerduty.EventOrchestrationUnroutedSetRuleArgs(\n            label=\"Update the summary of un-matched Critical alerts so they're easier to spot\",\n            conditions=[pagerduty.EventOrchestrationUnroutedSetRuleConditionArgs(\n                expression=\"event.severity matches 'critical'\",\n            )],\n            actions=pagerduty.EventOrchestrationUnroutedSetRuleActionsArgs(\n                severity=\"critical\",\n                extractions=[pagerduty.EventOrchestrationUnroutedSetRuleActionsExtractionArgs(\n                    target=\"event.summary\",\n                    template=\"[Critical Unrouted] {{event.summary}}\",\n                )],\n            ),\n        )],\n    )],\n    catch_all=pagerduty.EventOrchestrationUnroutedCatchAllArgs(\n        actions=pagerduty.EventOrchestrationUnroutedCatchAllActionsArgs(\n            severity=\"info\",\n        ),\n    ))\n```\n```csharp\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var unrouted = new Pagerduty.EventOrchestrationUnrouted(\"unrouted\", new Pagerduty.EventOrchestrationUnroutedArgs\n        {\n            EventOrchestration = pagerduty_event_orchestration.My_monitor.Id,\n            Sets = \n            {\n                new Pagerduty.Inputs.EventOrchestrationUnroutedSetArgs\n                {\n                    Id = \"start\",\n                    Rules = \n                    {\n                        new Pagerduty.Inputs.EventOrchestrationUnroutedSetRuleArgs\n                        {\n                            Label = \"Update the summary of un-matched Critical alerts so they're easier to spot\",\n                            Conditions = \n                            {\n                                new Pagerduty.Inputs.EventOrchestrationUnroutedSetRuleConditionArgs\n                                {\n                                    Expression = \"event.severity matches 'critical'\",\n                                },\n                            },\n                            Actions = new Pagerduty.Inputs.EventOrchestrationUnroutedSetRuleActionsArgs\n                            {\n                                Severity = \"critical\",\n                                Extractions = \n                                {\n                                    new Pagerduty.Inputs.EventOrchestrationUnroutedSetRuleActionsExtractionArgs\n                                    {\n                                        Target = \"event.summary\",\n                                        Template = \"[Critical Unrouted] {{event.summary}}\",\n                                    },\n                                },\n                            },\n                        },\n                    },\n                },\n            },\n            CatchAll = new Pagerduty.Inputs.EventOrchestrationUnroutedCatchAllArgs\n            {\n                Actions = new Pagerduty.Inputs.EventOrchestrationUnroutedCatchAllActionsArgs\n                {\n                    Severity = \"info\",\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := pagerduty.NewEventOrchestrationUnrouted(ctx, \"unrouted\", \u0026pagerduty.EventOrchestrationUnroutedArgs{\n\t\t\tEventOrchestration: pulumi.Any(pagerduty_event_orchestration.My_monitor.Id),\n\t\t\tSets: EventOrchestrationUnroutedSetArray{\n\t\t\t\t\u0026EventOrchestrationUnroutedSetArgs{\n\t\t\t\t\tId: pulumi.String(\"start\"),\n\t\t\t\t\tRules: EventOrchestrationUnroutedSetRuleArray{\n\t\t\t\t\t\t\u0026EventOrchestrationUnroutedSetRuleArgs{\n\t\t\t\t\t\t\tLabel: pulumi.String(\"Update the summary of un-matched Critical alerts so they're easier to spot\"),\n\t\t\t\t\t\t\tConditions: EventOrchestrationUnroutedSetRuleConditionArray{\n\t\t\t\t\t\t\t\t\u0026EventOrchestrationUnroutedSetRuleConditionArgs{\n\t\t\t\t\t\t\t\t\tExpression: pulumi.String(\"event.severity matches 'critical'\"),\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\tActions: \u0026EventOrchestrationUnroutedSetRuleActionsArgs{\n\t\t\t\t\t\t\t\tSeverity: pulumi.String(\"critical\"),\n\t\t\t\t\t\t\t\tExtractions: EventOrchestrationUnroutedSetRuleActionsExtractionArray{\n\t\t\t\t\t\t\t\t\t\u0026EventOrchestrationUnroutedSetRuleActionsExtractionArgs{\n\t\t\t\t\t\t\t\t\t\tTarget:   pulumi.String(\"event.summary\"),\n\t\t\t\t\t\t\t\t\t\tTemplate: pulumi.String(\"[Critical Unrouted] {{event.summary}}\"),\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tCatchAll: \u0026EventOrchestrationUnroutedCatchAllArgs{\n\t\t\t\tActions: \u0026EventOrchestrationUnroutedCatchAllActionsArgs{\n\t\t\t\t\tSeverity: pulumi.String(\"info\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\n\n## Import\n\nUnrouted Orchestration can be imported using the `id` of the Event Orchestration, e.g.\n\n```sh\n $ pulumi import pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted pagerduty_event_orchestration_unrouted 1b49abe7-26db-4439-a715-c6d883acfb3e\n```\n\n ",
+            "properties": {
+                "catchAll": {
+                    "$ref": "#/types/pagerduty:index/EventOrchestrationUnroutedCatchAll:EventOrchestrationUnroutedCatchAll",
+                    "description": "the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.\n"
+                },
+                "eventOrchestration": {
+                    "type": "string",
+                    "description": "The Event Orchestration to which this Unrouted Orchestration belongs to.\n"
+                },
+                "sets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/EventOrchestrationUnroutedSet:EventOrchestrationUnroutedSet"
+                    },
+                    "description": "An Unrouted Orchestration must contain at least a \"start\" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.\n"
+                }
+            },
+            "required": [
+                "catchAll",
+                "eventOrchestration",
+                "sets"
+            ],
+            "inputProperties": {
+                "catchAll": {
+                    "$ref": "#/types/pagerduty:index/EventOrchestrationUnroutedCatchAll:EventOrchestrationUnroutedCatchAll",
+                    "description": "the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.\n"
+                },
+                "eventOrchestration": {
+                    "type": "string",
+                    "description": "The Event Orchestration to which this Unrouted Orchestration belongs to.\n"
+                },
+                "sets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/EventOrchestrationUnroutedSet:EventOrchestrationUnroutedSet"
+                    },
+                    "description": "An Unrouted Orchestration must contain at least a \"start\" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.\n"
+                }
+            },
+            "requiredInputs": [
+                "catchAll",
+                "eventOrchestration",
+                "sets"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering EventOrchestrationUnrouted resources.\n",
+                "properties": {
+                    "catchAll": {
+                        "$ref": "#/types/pagerduty:index/EventOrchestrationUnroutedCatchAll:EventOrchestrationUnroutedCatchAll",
+                        "description": "the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.\n"
+                    },
+                    "eventOrchestration": {
+                        "type": "string",
+                        "description": "The Event Orchestration to which this Unrouted Orchestration belongs to.\n"
+                    },
+                    "sets": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/pagerduty:index/EventOrchestrationUnroutedSet:EventOrchestrationUnroutedSet"
+                        },
+                        "description": "An Unrouted Orchestration must contain at least a \"start\" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.\n"
                     }
                 },
                 "type": "object"
@@ -3910,7 +5727,7 @@
             "properties": {
                 "emailFilterMode": {
                     "type": "string",
-                    "description": "This is the unique fully-qualified email address used for routing emails to this integration for processing.\n"
+                    "description": "Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.\n"
                 },
                 "emailFilters": {
                     "type": "array",
@@ -3920,7 +5737,7 @@
                 },
                 "emailIncidentCreation": {
                     "type": "string",
-                    "description": "This is the unique fully-qualified email address used for routing emails to this integration for processing.\n"
+                    "description": "Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `on_new_email`, `on_new_email_subject`, `only_if_no_open_incidents` or `use_rules`.\n"
                 },
                 "emailParsers": {
                     "type": "array",
@@ -3976,7 +5793,7 @@
             "inputProperties": {
                 "emailFilterMode": {
                     "type": "string",
-                    "description": "This is the unique fully-qualified email address used for routing emails to this integration for processing.\n"
+                    "description": "Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.\n"
                 },
                 "emailFilters": {
                     "type": "array",
@@ -3986,7 +5803,7 @@
                 },
                 "emailIncidentCreation": {
                     "type": "string",
-                    "description": "This is the unique fully-qualified email address used for routing emails to this integration for processing.\n"
+                    "description": "Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `on_new_email`, `on_new_email_subject`, `only_if_no_open_incidents` or `use_rules`.\n"
                 },
                 "emailParsers": {
                     "type": "array",
@@ -4031,7 +5848,7 @@
                 "properties": {
                     "emailFilterMode": {
                         "type": "string",
-                        "description": "This is the unique fully-qualified email address used for routing emails to this integration for processing.\n"
+                        "description": "Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.\n"
                     },
                     "emailFilters": {
                         "type": "array",
@@ -4041,7 +5858,7 @@
                     },
                     "emailIncidentCreation": {
                         "type": "string",
-                        "description": "This is the unique fully-qualified email address used for routing emails to this integration for processing.\n"
+                        "description": "Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `on_new_email`, `on_new_email_subject`, `only_if_no_open_incidents` or `use_rules`.\n"
                     },
                     "emailParsers": {
                         "type": "array",
@@ -4791,7 +6608,7 @@
             }
         },
         "pagerduty:index/webhookSubscription:WebhookSubscription": {
-            "description": "A [webhook subscription](https://developer.pagerduty.com/docs/ZG9jOjExMDI5NTkw-v3-overview) allow you to receive HTTP callbacks when incidents are created, updated and deleted. These are also known as V3 Webhooks.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst example = pagerduty.getService({\n    name: \"My Service\",\n});\nconst foo = new pagerduty.WebhookSubscription(\"foo\", {\n    deliveryMethods: [{\n        type: \"http_delivery_method\",\n        url: \"https://example.com/receive_a_pagerduty_webhook\",\n    }],\n    description: `%s`,\n    events: [\n        \"incident.acknowledged\",\n        \"incident.annotated\",\n        \"incident.delegated\",\n        \"incident.escalated\",\n        \"incident.priority_updated\",\n        \"incident.reassigned\",\n        \"incident.reopened\",\n        \"incident.resolved\",\n        \"incident.responder.added\",\n        \"incident.responder.replied\",\n        \"incident.status_update_published\",\n        \"incident.triggered\",\n        \"incident.unacknowledged\",\n    ],\n    active: true,\n    filters: [{\n        id: example.then(example =\u003e example.id),\n        type: \"service_reference\",\n    }],\n    type: \"webhook_subscription\",\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nexample = pagerduty.get_service(name=\"My Service\")\nfoo = pagerduty.WebhookSubscription(\"foo\",\n    delivery_methods=[pagerduty.WebhookSubscriptionDeliveryMethodArgs(\n        type=\"http_delivery_method\",\n        url=\"https://example.com/receive_a_pagerduty_webhook\",\n    )],\n    description=\"%s\",\n    events=[\n        \"incident.acknowledged\",\n        \"incident.annotated\",\n        \"incident.delegated\",\n        \"incident.escalated\",\n        \"incident.priority_updated\",\n        \"incident.reassigned\",\n        \"incident.reopened\",\n        \"incident.resolved\",\n        \"incident.responder.added\",\n        \"incident.responder.replied\",\n        \"incident.status_update_published\",\n        \"incident.triggered\",\n        \"incident.unacknowledged\",\n    ],\n    active=True,\n    filters=[pagerduty.WebhookSubscriptionFilterArgs(\n        id=example.id,\n        type=\"service_reference\",\n    )],\n    type=\"webhook_subscription\")\n```\n```csharp\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = Output.Create(Pagerduty.GetService.InvokeAsync(new Pagerduty.GetServiceArgs\n        {\n            Name = \"My Service\",\n        }));\n        var foo = new Pagerduty.WebhookSubscription(\"foo\", new Pagerduty.WebhookSubscriptionArgs\n        {\n            DeliveryMethods = \n            {\n                new Pagerduty.Inputs.WebhookSubscriptionDeliveryMethodArgs\n                {\n                    Type = \"http_delivery_method\",\n                    Url = \"https://example.com/receive_a_pagerduty_webhook\",\n                },\n            },\n            Description = \"%s\",\n            Events = \n            {\n                \"incident.acknowledged\",\n                \"incident.annotated\",\n                \"incident.delegated\",\n                \"incident.escalated\",\n                \"incident.priority_updated\",\n                \"incident.reassigned\",\n                \"incident.reopened\",\n                \"incident.resolved\",\n                \"incident.responder.added\",\n                \"incident.responder.replied\",\n                \"incident.status_update_published\",\n                \"incident.triggered\",\n                \"incident.unacknowledged\",\n            },\n            Active = true,\n            Filters = \n            {\n                new Pagerduty.Inputs.WebhookSubscriptionFilterArgs\n                {\n                    Id = example.Apply(example =\u003e example.Id),\n                    Type = \"service_reference\",\n                },\n            },\n            Type = \"webhook_subscription\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := pagerduty.LookupService(ctx, \u0026GetServiceArgs{\n\t\t\tName: \"My Service\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewWebhookSubscription(ctx, \"foo\", \u0026pagerduty.WebhookSubscriptionArgs{\n\t\t\tDeliveryMethods: WebhookSubscriptionDeliveryMethodArray{\n\t\t\t\t\u0026WebhookSubscriptionDeliveryMethodArgs{\n\t\t\t\t\tType: pulumi.String(\"http_delivery_method\"),\n\t\t\t\t\tUrl:  pulumi.String(\"https://example.com/receive_a_pagerduty_webhook\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tDescription: pulumi.String(fmt.Sprintf(\"%v%v\", \"%\", \"s\")),\n\t\t\tEvents: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"incident.acknowledged\"),\n\t\t\t\tpulumi.String(\"incident.annotated\"),\n\t\t\t\tpulumi.String(\"incident.delegated\"),\n\t\t\t\tpulumi.String(\"incident.escalated\"),\n\t\t\t\tpulumi.String(\"incident.priority_updated\"),\n\t\t\t\tpulumi.String(\"incident.reassigned\"),\n\t\t\t\tpulumi.String(\"incident.reopened\"),\n\t\t\t\tpulumi.String(\"incident.resolved\"),\n\t\t\t\tpulumi.String(\"incident.responder.added\"),\n\t\t\t\tpulumi.String(\"incident.responder.replied\"),\n\t\t\t\tpulumi.String(\"incident.status_update_published\"),\n\t\t\t\tpulumi.String(\"incident.triggered\"),\n\t\t\t\tpulumi.String(\"incident.unacknowledged\"),\n\t\t\t},\n\t\t\tActive: pulumi.Bool(true),\n\t\t\tFilters: WebhookSubscriptionFilterArray{\n\t\t\t\t\u0026WebhookSubscriptionFilterArgs{\n\t\t\t\t\tId:   pulumi.String(example.Id),\n\t\t\t\t\tType: pulumi.String(\"service_reference\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tType: pulumi.String(\"webhook_subscription\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nWebhook Subscriptions can be imported using the `id`, e.g.\n\n```sh\n $ pulumi import pagerduty:index/webhookSubscription:WebhookSubscription main PUABCDL\n```\n\n ",
+            "description": "A [webhook subscription](https://developer.pagerduty.com/docs/ZG9jOjExMDI5NTkw-v3-overview) allow you to receive HTTP callbacks when incidents are created, updated and deleted. These are also known as V3 Webhooks.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst example = pagerduty.getService({\n    name: \"My Service\",\n});\nconst foo = new pagerduty.WebhookSubscription(\"foo\", {\n    deliveryMethods: [{\n        type: \"http_delivery_method\",\n        url: \"https://example.com/receive_a_pagerduty_webhook\",\n        customHeaders: [\n            {\n                name: \"X-Foo\",\n                value: \"foo\",\n            },\n            {\n                name: \"X-Bar\",\n                value: \"bar\",\n            },\n        ],\n    }],\n    description: `%s`,\n    events: [\n        \"incident.acknowledged\",\n        \"incident.annotated\",\n        \"incident.delegated\",\n        \"incident.escalated\",\n        \"incident.priority_updated\",\n        \"incident.reassigned\",\n        \"incident.reopened\",\n        \"incident.resolved\",\n        \"incident.responder.added\",\n        \"incident.responder.replied\",\n        \"incident.status_update_published\",\n        \"incident.triggered\",\n        \"incident.unacknowledged\",\n    ],\n    active: true,\n    filters: [{\n        id: example.then(example =\u003e example.id),\n        type: \"service_reference\",\n    }],\n    type: \"webhook_subscription\",\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nexample = pagerduty.get_service(name=\"My Service\")\nfoo = pagerduty.WebhookSubscription(\"foo\",\n    delivery_methods=[pagerduty.WebhookSubscriptionDeliveryMethodArgs(\n        type=\"http_delivery_method\",\n        url=\"https://example.com/receive_a_pagerduty_webhook\",\n        custom_headers=[\n            pagerduty.WebhookSubscriptionDeliveryMethodCustomHeaderArgs(\n                name=\"X-Foo\",\n                value=\"foo\",\n            ),\n            pagerduty.WebhookSubscriptionDeliveryMethodCustomHeaderArgs(\n                name=\"X-Bar\",\n                value=\"bar\",\n            ),\n        ],\n    )],\n    description=\"%s\",\n    events=[\n        \"incident.acknowledged\",\n        \"incident.annotated\",\n        \"incident.delegated\",\n        \"incident.escalated\",\n        \"incident.priority_updated\",\n        \"incident.reassigned\",\n        \"incident.reopened\",\n        \"incident.resolved\",\n        \"incident.responder.added\",\n        \"incident.responder.replied\",\n        \"incident.status_update_published\",\n        \"incident.triggered\",\n        \"incident.unacknowledged\",\n    ],\n    active=True,\n    filters=[pagerduty.WebhookSubscriptionFilterArgs(\n        id=example.id,\n        type=\"service_reference\",\n    )],\n    type=\"webhook_subscription\")\n```\n```csharp\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example = Output.Create(Pagerduty.GetService.InvokeAsync(new Pagerduty.GetServiceArgs\n        {\n            Name = \"My Service\",\n        }));\n        var foo = new Pagerduty.WebhookSubscription(\"foo\", new Pagerduty.WebhookSubscriptionArgs\n        {\n            DeliveryMethods = \n            {\n                new Pagerduty.Inputs.WebhookSubscriptionDeliveryMethodArgs\n                {\n                    Type = \"http_delivery_method\",\n                    Url = \"https://example.com/receive_a_pagerduty_webhook\",\n                    CustomHeaders = \n                    {\n                        new Pagerduty.Inputs.WebhookSubscriptionDeliveryMethodCustomHeaderArgs\n                        {\n                            Name = \"X-Foo\",\n                            Value = \"foo\",\n                        },\n                        new Pagerduty.Inputs.WebhookSubscriptionDeliveryMethodCustomHeaderArgs\n                        {\n                            Name = \"X-Bar\",\n                            Value = \"bar\",\n                        },\n                    },\n                },\n            },\n            Description = \"%s\",\n            Events = \n            {\n                \"incident.acknowledged\",\n                \"incident.annotated\",\n                \"incident.delegated\",\n                \"incident.escalated\",\n                \"incident.priority_updated\",\n                \"incident.reassigned\",\n                \"incident.reopened\",\n                \"incident.resolved\",\n                \"incident.responder.added\",\n                \"incident.responder.replied\",\n                \"incident.status_update_published\",\n                \"incident.triggered\",\n                \"incident.unacknowledged\",\n            },\n            Active = true,\n            Filters = \n            {\n                new Pagerduty.Inputs.WebhookSubscriptionFilterArgs\n                {\n                    Id = example.Apply(example =\u003e example.Id),\n                    Type = \"service_reference\",\n                },\n            },\n            Type = \"webhook_subscription\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := pagerduty.LookupService(ctx, \u0026GetServiceArgs{\n\t\t\tName: \"My Service\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewWebhookSubscription(ctx, \"foo\", \u0026pagerduty.WebhookSubscriptionArgs{\n\t\t\tDeliveryMethods: WebhookSubscriptionDeliveryMethodArray{\n\t\t\t\t\u0026WebhookSubscriptionDeliveryMethodArgs{\n\t\t\t\t\tType: pulumi.String(\"http_delivery_method\"),\n\t\t\t\t\tUrl:  pulumi.String(\"https://example.com/receive_a_pagerduty_webhook\"),\n\t\t\t\t\tCustomHeaders: WebhookSubscriptionDeliveryMethodCustomHeaderArray{\n\t\t\t\t\t\t\u0026WebhookSubscriptionDeliveryMethodCustomHeaderArgs{\n\t\t\t\t\t\t\tName:  pulumi.String(\"X-Foo\"),\n\t\t\t\t\t\t\tValue: pulumi.String(\"foo\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026WebhookSubscriptionDeliveryMethodCustomHeaderArgs{\n\t\t\t\t\t\t\tName:  pulumi.String(\"X-Bar\"),\n\t\t\t\t\t\t\tValue: pulumi.String(\"bar\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tDescription: pulumi.String(fmt.Sprintf(\"%v%v\", \"%\", \"s\")),\n\t\t\tEvents: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"incident.acknowledged\"),\n\t\t\t\tpulumi.String(\"incident.annotated\"),\n\t\t\t\tpulumi.String(\"incident.delegated\"),\n\t\t\t\tpulumi.String(\"incident.escalated\"),\n\t\t\t\tpulumi.String(\"incident.priority_updated\"),\n\t\t\t\tpulumi.String(\"incident.reassigned\"),\n\t\t\t\tpulumi.String(\"incident.reopened\"),\n\t\t\t\tpulumi.String(\"incident.resolved\"),\n\t\t\t\tpulumi.String(\"incident.responder.added\"),\n\t\t\t\tpulumi.String(\"incident.responder.replied\"),\n\t\t\t\tpulumi.String(\"incident.status_update_published\"),\n\t\t\t\tpulumi.String(\"incident.triggered\"),\n\t\t\t\tpulumi.String(\"incident.unacknowledged\"),\n\t\t\t},\n\t\t\tActive: pulumi.Bool(true),\n\t\t\tFilters: WebhookSubscriptionFilterArray{\n\t\t\t\t\u0026WebhookSubscriptionFilterArgs{\n\t\t\t\t\tId:   pulumi.String(example.Id),\n\t\t\t\t\tType: pulumi.String(\"service_reference\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tType: pulumi.String(\"webhook_subscription\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nWebhook Subscriptions can be imported using the `id`, e.g.\n\n```sh\n $ pulumi import pagerduty:index/webhookSubscription:WebhookSubscription main PUABCDL\n```\n\n ",
             "properties": {
                 "active": {
                     "type": "boolean",
@@ -4983,6 +6800,55 @@
                 },
                 "type": "object",
                 "required": [
+                    "name",
+                    "id"
+                ]
+            }
+        },
+        "pagerduty:index/getEventOrchestration:getEventOrchestration": {
+            "description": "Use this data source to get information about a specific Global [Event Orchestration](https://developer.pagerduty.com/api-reference/7ba0fe7bdb26a-list-event-orchestrations)\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getEventOrchestration.\n",
+                "properties": {
+                    "integrations": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration"
+                        },
+                        "description": "An integration for the Event Orchestration.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the Global Event orchestration to find in the PagerDuty API.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getEventOrchestration.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "integrations": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration"
+                        },
+                        "description": "An integration for the Event Orchestration.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the found Event Orchestration.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "integrations",
                     "name",
                     "id"
                 ]

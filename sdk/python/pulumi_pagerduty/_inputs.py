@@ -11,6 +11,42 @@ from . import _utilities
 __all__ = [
     'EscalationPolicyRuleArgs',
     'EscalationPolicyRuleTargetArgs',
+    'EventOrchestrationIntegrationArgs',
+    'EventOrchestrationIntegrationParameterArgs',
+    'EventOrchestrationRouterCatchAllArgs',
+    'EventOrchestrationRouterCatchAllActionsArgs',
+    'EventOrchestrationRouterSetArgs',
+    'EventOrchestrationRouterSetRuleArgs',
+    'EventOrchestrationRouterSetRuleActionsArgs',
+    'EventOrchestrationRouterSetRuleConditionArgs',
+    'EventOrchestrationServiceCatchAllArgs',
+    'EventOrchestrationServiceCatchAllActionsArgs',
+    'EventOrchestrationServiceCatchAllActionsAutomationActionArgs',
+    'EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgs',
+    'EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgs',
+    'EventOrchestrationServiceCatchAllActionsExtractionArgs',
+    'EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs',
+    'EventOrchestrationServiceCatchAllActionsVariableArgs',
+    'EventOrchestrationServiceSetArgs',
+    'EventOrchestrationServiceSetRuleArgs',
+    'EventOrchestrationServiceSetRuleActionsArgs',
+    'EventOrchestrationServiceSetRuleActionsAutomationActionArgs',
+    'EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs',
+    'EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs',
+    'EventOrchestrationServiceSetRuleActionsExtractionArgs',
+    'EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs',
+    'EventOrchestrationServiceSetRuleActionsVariableArgs',
+    'EventOrchestrationServiceSetRuleConditionArgs',
+    'EventOrchestrationUnroutedCatchAllArgs',
+    'EventOrchestrationUnroutedCatchAllActionsArgs',
+    'EventOrchestrationUnroutedCatchAllActionsExtractionArgs',
+    'EventOrchestrationUnroutedCatchAllActionsVariableArgs',
+    'EventOrchestrationUnroutedSetArgs',
+    'EventOrchestrationUnroutedSetRuleArgs',
+    'EventOrchestrationUnroutedSetRuleActionsArgs',
+    'EventOrchestrationUnroutedSetRuleActionsExtractionArgs',
+    'EventOrchestrationUnroutedSetRuleActionsVariableArgs',
+    'EventOrchestrationUnroutedSetRuleConditionArgs',
     'ResponsePlayResponderArgs',
     'ResponsePlayResponderEscalationRuleArgs',
     'ResponsePlayResponderEscalationRuleTargetArgs',
@@ -72,7 +108,10 @@ __all__ = [
     'ServiceSupportHoursArgs',
     'SlackConnectionConfigArgs',
     'WebhookSubscriptionDeliveryMethodArgs',
+    'WebhookSubscriptionDeliveryMethodCustomHeaderArgs',
     'WebhookSubscriptionFilterArgs',
+    'GetEventOrchestrationIntegrationArgs',
+    'GetEventOrchestrationIntegrationParameterArgs',
 ]
 
 @pulumi.input_type
@@ -160,6 +199,2072 @@ class EscalationPolicyRuleTargetArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class EventOrchestrationIntegrationArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationIntegrationParameterArgs']]]] = None):
+        """
+        :param pulumi.Input[str] id: ID of the integration
+               * `parameters`
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the integration
+        * `parameters`
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationIntegrationParameterArgs']]]]:
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationIntegrationParameterArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
+class EventOrchestrationIntegrationParameterArgs:
+    def __init__(__self__, *,
+                 routing_key: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] routing_key: Routing key that routes to this Orchestration.
+        :param pulumi.Input[str] type: Type of the routing key. `global` is the default type.
+        """
+        if routing_key is not None:
+            pulumi.set(__self__, "routing_key", routing_key)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="routingKey")
+    def routing_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Routing key that routes to this Orchestration.
+        """
+        return pulumi.get(self, "routing_key")
+
+    @routing_key.setter
+    def routing_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "routing_key", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of the routing key. `global` is the default type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class EventOrchestrationRouterCatchAllArgs:
+    def __init__(__self__, *,
+                 actions: pulumi.Input['EventOrchestrationRouterCatchAllActionsArgs']):
+        """
+        :param pulumi.Input['EventOrchestrationRouterCatchAllActionsArgs'] actions: These are the actions that will be taken to change the resulting alert and incident.
+        """
+        pulumi.set(__self__, "actions", actions)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> pulumi.Input['EventOrchestrationRouterCatchAllActionsArgs']:
+        """
+        These are the actions that will be taken to change the resulting alert and incident.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: pulumi.Input['EventOrchestrationRouterCatchAllActionsArgs']):
+        pulumi.set(self, "actions", value)
+
+
+@pulumi.input_type
+class EventOrchestrationRouterCatchAllActionsArgs:
+    def __init__(__self__, *,
+                 route_to: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] route_to: The ID of the target Service for the resulting alert.
+        """
+        pulumi.set(__self__, "route_to", route_to)
+
+    @property
+    @pulumi.getter(name="routeTo")
+    def route_to(self) -> pulumi.Input[str]:
+        """
+        The ID of the target Service for the resulting alert.
+        """
+        return pulumi.get(self, "route_to")
+
+    @route_to.setter
+    def route_to(self, value: pulumi.Input[str]):
+        pulumi.set(self, "route_to", value)
+
+
+@pulumi.input_type
+class EventOrchestrationRouterSetArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationRouterSetRuleArgs']]]] = None):
+        """
+        :param pulumi.Input[str] id: ID of the `start` set. Router supports only one set and it's id has to be `start`
+        """
+        pulumi.set(__self__, "id", id)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        ID of the `start` set. Router supports only one set and it's id has to be `start`
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationRouterSetRuleArgs']]]]:
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationRouterSetRuleArgs']]]]):
+        pulumi.set(self, "rules", value)
+
+
+@pulumi.input_type
+class EventOrchestrationRouterSetRuleArgs:
+    def __init__(__self__, *,
+                 actions: pulumi.Input['EventOrchestrationRouterSetRuleActionsArgs'],
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationRouterSetRuleConditionArgs']]]] = None,
+                 disabled: Optional[pulumi.Input[bool]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 label: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['EventOrchestrationRouterSetRuleActionsArgs'] actions: Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+        :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationRouterSetRuleConditionArgs']]] conditions: Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will _always_ match against the rule.
+        :param pulumi.Input[bool] disabled: Indicates whether the rule is disabled and would therefore not be evaluated.
+        :param pulumi.Input[str] id: ID of the `start` set. Router supports only one set and it's id has to be `start`
+        :param pulumi.Input[str] label: A description of this rule's purpose.
+        """
+        pulumi.set(__self__, "actions", actions)
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+        if disabled is not None:
+            pulumi.set(__self__, "disabled", disabled)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> pulumi.Input['EventOrchestrationRouterSetRuleActionsArgs']:
+        """
+        Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: pulumi.Input['EventOrchestrationRouterSetRuleActionsArgs']):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationRouterSetRuleConditionArgs']]]]:
+        """
+        Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will _always_ match against the rule.
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationRouterSetRuleConditionArgs']]]]):
+        pulumi.set(self, "conditions", value)
+
+    @property
+    @pulumi.getter
+    def disabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the rule is disabled and would therefore not be evaluated.
+        """
+        return pulumi.get(self, "disabled")
+
+    @disabled.setter
+    def disabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disabled", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the `start` set. Router supports only one set and it's id has to be `start`
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of this rule's purpose.
+        """
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "label", value)
+
+
+@pulumi.input_type
+class EventOrchestrationRouterSetRuleActionsArgs:
+    def __init__(__self__, *,
+                 route_to: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] route_to: The ID of the target Service for the resulting alert.
+        """
+        pulumi.set(__self__, "route_to", route_to)
+
+    @property
+    @pulumi.getter(name="routeTo")
+    def route_to(self) -> pulumi.Input[str]:
+        """
+        The ID of the target Service for the resulting alert.
+        """
+        return pulumi.get(self, "route_to")
+
+    @route_to.setter
+    def route_to(self, value: pulumi.Input[str]):
+        pulumi.set(self, "route_to", value)
+
+
+@pulumi.input_type
+class EventOrchestrationRouterSetRuleConditionArgs:
+    def __init__(__self__, *,
+                 expression: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] expression: A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+        """
+        pulumi.set(__self__, "expression", expression)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> pulumi.Input[str]:
+        """
+        A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+        """
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: pulumi.Input[str]):
+        pulumi.set(self, "expression", value)
+
+
+@pulumi.input_type
+class EventOrchestrationServiceCatchAllArgs:
+    def __init__(__self__, *,
+                 actions: pulumi.Input['EventOrchestrationServiceCatchAllActionsArgs']):
+        """
+        :param pulumi.Input['EventOrchestrationServiceCatchAllActionsArgs'] actions: These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` _except_ `route_to` action.
+        """
+        pulumi.set(__self__, "actions", actions)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> pulumi.Input['EventOrchestrationServiceCatchAllActionsArgs']:
+        """
+        These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` _except_ `route_to` action.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: pulumi.Input['EventOrchestrationServiceCatchAllActionsArgs']):
+        pulumi.set(self, "actions", value)
+
+
+@pulumi.input_type
+class EventOrchestrationServiceCatchAllActionsArgs:
+    def __init__(__self__, *,
+                 annotate: Optional[pulumi.Input[str]] = None,
+                 automation_action: Optional[pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionArgs']] = None,
+                 event_action: Optional[pulumi.Input[str]] = None,
+                 extractions: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsExtractionArgs']]]] = None,
+                 pagerduty_automation_action: Optional[pulumi.Input['EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs']] = None,
+                 priority: Optional[pulumi.Input[str]] = None,
+                 route_to: Optional[pulumi.Input[str]] = None,
+                 severity: Optional[pulumi.Input[str]] = None,
+                 suppress: Optional[pulumi.Input[bool]] = None,
+                 suspend: Optional[pulumi.Input[int]] = None,
+                 variables: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsVariableArgs']]]] = None):
+        """
+        :param pulumi.Input[str] annotate: Add this text as a note on the resulting incident.
+        :param pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionArgs'] automation_action: Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+        :param pulumi.Input[str] event_action: sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
+        :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsExtractionArgs']]] extractions: Replace any CEF field or Custom Details object field using custom variables.
+        :param pulumi.Input['EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs'] pagerduty_automation_action: Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+        :param pulumi.Input[str] route_to: The ID of a Set from this Service Orchestration whose rules you also want to use with event that match this rule.
+        :param pulumi.Input[str] severity: sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
+        :param pulumi.Input[bool] suppress: Set whether the resulting alert is suppressed. Suppressed alerts will not trigger an incident.
+        :param pulumi.Input[int] suspend: The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won't create an incident for this the resulting alert.
+        :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsVariableArgs']]] variables: Populate variables from event payloads and use those variables in other event actions.
+        """
+        if annotate is not None:
+            pulumi.set(__self__, "annotate", annotate)
+        if automation_action is not None:
+            pulumi.set(__self__, "automation_action", automation_action)
+        if event_action is not None:
+            pulumi.set(__self__, "event_action", event_action)
+        if extractions is not None:
+            pulumi.set(__self__, "extractions", extractions)
+        if pagerduty_automation_action is not None:
+            pulumi.set(__self__, "pagerduty_automation_action", pagerduty_automation_action)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if route_to is not None:
+            pulumi.set(__self__, "route_to", route_to)
+        if severity is not None:
+            pulumi.set(__self__, "severity", severity)
+        if suppress is not None:
+            pulumi.set(__self__, "suppress", suppress)
+        if suspend is not None:
+            pulumi.set(__self__, "suspend", suspend)
+        if variables is not None:
+            pulumi.set(__self__, "variables", variables)
+
+    @property
+    @pulumi.getter
+    def annotate(self) -> Optional[pulumi.Input[str]]:
+        """
+        Add this text as a note on the resulting incident.
+        """
+        return pulumi.get(self, "annotate")
+
+    @annotate.setter
+    def annotate(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "annotate", value)
+
+    @property
+    @pulumi.getter(name="automationAction")
+    def automation_action(self) -> Optional[pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionArgs']]:
+        """
+        Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+        """
+        return pulumi.get(self, "automation_action")
+
+    @automation_action.setter
+    def automation_action(self, value: Optional[pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionArgs']]):
+        pulumi.set(self, "automation_action", value)
+
+    @property
+    @pulumi.getter(name="eventAction")
+    def event_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
+        """
+        return pulumi.get(self, "event_action")
+
+    @event_action.setter
+    def event_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_action", value)
+
+    @property
+    @pulumi.getter
+    def extractions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsExtractionArgs']]]]:
+        """
+        Replace any CEF field or Custom Details object field using custom variables.
+        """
+        return pulumi.get(self, "extractions")
+
+    @extractions.setter
+    def extractions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsExtractionArgs']]]]):
+        pulumi.set(self, "extractions", value)
+
+    @property
+    @pulumi.getter(name="pagerdutyAutomationAction")
+    def pagerduty_automation_action(self) -> Optional[pulumi.Input['EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs']]:
+        """
+        Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+        """
+        return pulumi.get(self, "pagerduty_automation_action")
+
+    @pagerduty_automation_action.setter
+    def pagerduty_automation_action(self, value: Optional[pulumi.Input['EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs']]):
+        pulumi.set(self, "pagerduty_automation_action", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="routeTo")
+    def route_to(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of a Set from this Service Orchestration whose rules you also want to use with event that match this rule.
+        """
+        return pulumi.get(self, "route_to")
+
+    @route_to.setter
+    def route_to(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "route_to", value)
+
+    @property
+    @pulumi.getter
+    def severity(self) -> Optional[pulumi.Input[str]]:
+        """
+        sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
+        """
+        return pulumi.get(self, "severity")
+
+    @severity.setter
+    def severity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "severity", value)
+
+    @property
+    @pulumi.getter
+    def suppress(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set whether the resulting alert is suppressed. Suppressed alerts will not trigger an incident.
+        """
+        return pulumi.get(self, "suppress")
+
+    @suppress.setter
+    def suppress(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "suppress", value)
+
+    @property
+    @pulumi.getter
+    def suspend(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won't create an incident for this the resulting alert.
+        """
+        return pulumi.get(self, "suspend")
+
+    @suspend.setter
+    def suspend(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "suspend", value)
+
+    @property
+    @pulumi.getter
+    def variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsVariableArgs']]]]:
+        """
+        Populate variables from event payloads and use those variables in other event actions.
+        """
+        return pulumi.get(self, "variables")
+
+    @variables.setter
+    def variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsVariableArgs']]]]):
+        pulumi.set(self, "variables", value)
+
+
+@pulumi.input_type
+class EventOrchestrationServiceCatchAllActionsAutomationActionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 url: pulumi.Input[str],
+                 auto_send: Optional[pulumi.Input[bool]] = None,
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgs']]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgs']]]] = None):
+        """
+        :param pulumi.Input[str] name: Name of this Webhook.
+        :param pulumi.Input[str] url: The API endpoint where PagerDuty's servers will send the webhook request.
+        :param pulumi.Input[bool] auto_send: When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+        :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgs']]] headers: Specify custom key/value pairs that'll be sent with the webhook request as request headers.
+        :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgs']]] parameters: Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "url", url)
+        if auto_send is not None:
+            pulumi.set(__self__, "auto_send", auto_send)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of this Webhook.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[str]:
+        """
+        The API endpoint where PagerDuty's servers will send the webhook request.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="autoSend")
+    def auto_send(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+        """
+        return pulumi.get(self, "auto_send")
+
+    @auto_send.setter
+    def auto_send(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_send", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgs']]]]:
+        """
+        Specify custom key/value pairs that'll be sent with the webhook request as request headers.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgs']]]]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgs']]]]:
+        """
+        Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
+class EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: Name to identify the header
+        :param pulumi.Input[str] value: Value of this header
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        Name to identify the header
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        Value of this header
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: Name to identify the header
+        :param pulumi.Input[str] value: Value of this header
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        Name to identify the header
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        Value of this header
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class EventOrchestrationServiceCatchAllActionsExtractionArgs:
+    def __init__(__self__, *,
+                 target: pulumi.Input[str],
+                 regex: Optional[pulumi.Input[str]] = None,
+                 source: Optional[pulumi.Input[str]] = None,
+                 template: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] target: The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.
+        :param pulumi.Input[str] regex: A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
+        :param pulumi.Input[str] source: The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.
+        :param pulumi.Input[str] template: A string that will be used to populate the `target` field. You can reference variables or event data within your template using double curly braces. For example:
+               * Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`
+               * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
+        """
+        pulumi.set(__self__, "target", target)
+        if regex is not None:
+            pulumi.set(__self__, "regex", regex)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+        if template is not None:
+            pulumi.set(__self__, "template", template)
+
+    @property
+    @pulumi.getter
+    def target(self) -> pulumi.Input[str]:
+        """
+        The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter
+    def regex(self) -> Optional[pulumi.Input[str]]:
+        """
+        A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
+        """
+        return pulumi.get(self, "regex")
+
+    @regex.setter
+    def regex(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "regex", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter
+    def template(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that will be used to populate the `target` field. You can reference variables or event data within your template using double curly braces. For example:
+        * Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`
+        * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
+        """
+        return pulumi.get(self, "template")
+
+    @template.setter
+    def template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "template", value)
+
+
+@pulumi.input_type
+class EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs:
+    def __init__(__self__, *,
+                 action_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] action_id: Id of the Process Automation action to be triggered.
+        """
+        pulumi.set(__self__, "action_id", action_id)
+
+    @property
+    @pulumi.getter(name="actionId")
+    def action_id(self) -> pulumi.Input[str]:
+        """
+        Id of the Process Automation action to be triggered.
+        """
+        return pulumi.get(self, "action_id")
+
+    @action_id.setter
+    def action_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "action_id", value)
+
+
+@pulumi.input_type
+class EventOrchestrationServiceCatchAllActionsVariableArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 path: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: Name of this Webhook.
+        :param pulumi.Input[str] path: Path to a field in an event, in dot-notation. This supports both PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths).
+        :param pulumi.Input[str] type: Only `regex` is supported
+        :param pulumi.Input[str] value: Value of this header
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of this Webhook.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        """
+        Path to a field in an event, in dot-notation. This supports both PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths).
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Only `regex` is supported
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        Value of this header
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class EventOrchestrationServiceSetArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleArgs']]]] = None):
+        """
+        :param pulumi.Input[str] id: The ID of this set of rules. Rules in other sets can route events into this set using the rule's `route_to` property.
+        """
+        pulumi.set(__self__, "id", id)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of this set of rules. Rules in other sets can route events into this set using the rule's `route_to` property.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleArgs']]]]:
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleArgs']]]]):
+        pulumi.set(self, "rules", value)
+
+
+@pulumi.input_type
+class EventOrchestrationServiceSetRuleArgs:
+    def __init__(__self__, *,
+                 actions: pulumi.Input['EventOrchestrationServiceSetRuleActionsArgs'],
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleConditionArgs']]]] = None,
+                 disabled: Optional[pulumi.Input[bool]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 label: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['EventOrchestrationServiceSetRuleActionsArgs'] actions: Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+        :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleConditionArgs']]] conditions: Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will `always` match against the rule.
+        :param pulumi.Input[bool] disabled: Indicates whether the rule is disabled and would therefore not be evaluated.
+        :param pulumi.Input[str] id: The ID of this set of rules. Rules in other sets can route events into this set using the rule's `route_to` property.
+        :param pulumi.Input[str] label: A description of this rule's purpose.
+        """
+        pulumi.set(__self__, "actions", actions)
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+        if disabled is not None:
+            pulumi.set(__self__, "disabled", disabled)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> pulumi.Input['EventOrchestrationServiceSetRuleActionsArgs']:
+        """
+        Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: pulumi.Input['EventOrchestrationServiceSetRuleActionsArgs']):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleConditionArgs']]]]:
+        """
+        Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will `always` match against the rule.
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleConditionArgs']]]]):
+        pulumi.set(self, "conditions", value)
+
+    @property
+    @pulumi.getter
+    def disabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the rule is disabled and would therefore not be evaluated.
+        """
+        return pulumi.get(self, "disabled")
+
+    @disabled.setter
+    def disabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disabled", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of this set of rules. Rules in other sets can route events into this set using the rule's `route_to` property.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of this rule's purpose.
+        """
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "label", value)
+
+
+@pulumi.input_type
+class EventOrchestrationServiceSetRuleActionsArgs:
+    def __init__(__self__, *,
+                 annotate: Optional[pulumi.Input[str]] = None,
+                 automation_action: Optional[pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionArgs']] = None,
+                 event_action: Optional[pulumi.Input[str]] = None,
+                 extractions: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsExtractionArgs']]]] = None,
+                 pagerduty_automation_action: Optional[pulumi.Input['EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs']] = None,
+                 priority: Optional[pulumi.Input[str]] = None,
+                 route_to: Optional[pulumi.Input[str]] = None,
+                 severity: Optional[pulumi.Input[str]] = None,
+                 suppress: Optional[pulumi.Input[bool]] = None,
+                 suspend: Optional[pulumi.Input[int]] = None,
+                 variables: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsVariableArgs']]]] = None):
+        """
+        :param pulumi.Input[str] annotate: Add this text as a note on the resulting incident.
+        :param pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionArgs'] automation_action: Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+        :param pulumi.Input[str] event_action: sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
+        :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsExtractionArgs']]] extractions: Replace any CEF field or Custom Details object field using custom variables.
+        :param pulumi.Input['EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs'] pagerduty_automation_action: Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+        :param pulumi.Input[str] route_to: The ID of a Set from this Service Orchestration whose rules you also want to use with event that match this rule.
+        :param pulumi.Input[str] severity: sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
+        :param pulumi.Input[bool] suppress: Set whether the resulting alert is suppressed. Suppressed alerts will not trigger an incident.
+        :param pulumi.Input[int] suspend: The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won't create an incident for this the resulting alert.
+        :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsVariableArgs']]] variables: Populate variables from event payloads and use those variables in other event actions.
+        """
+        if annotate is not None:
+            pulumi.set(__self__, "annotate", annotate)
+        if automation_action is not None:
+            pulumi.set(__self__, "automation_action", automation_action)
+        if event_action is not None:
+            pulumi.set(__self__, "event_action", event_action)
+        if extractions is not None:
+            pulumi.set(__self__, "extractions", extractions)
+        if pagerduty_automation_action is not None:
+            pulumi.set(__self__, "pagerduty_automation_action", pagerduty_automation_action)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if route_to is not None:
+            pulumi.set(__self__, "route_to", route_to)
+        if severity is not None:
+            pulumi.set(__self__, "severity", severity)
+        if suppress is not None:
+            pulumi.set(__self__, "suppress", suppress)
+        if suspend is not None:
+            pulumi.set(__self__, "suspend", suspend)
+        if variables is not None:
+            pulumi.set(__self__, "variables", variables)
+
+    @property
+    @pulumi.getter
+    def annotate(self) -> Optional[pulumi.Input[str]]:
+        """
+        Add this text as a note on the resulting incident.
+        """
+        return pulumi.get(self, "annotate")
+
+    @annotate.setter
+    def annotate(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "annotate", value)
+
+    @property
+    @pulumi.getter(name="automationAction")
+    def automation_action(self) -> Optional[pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionArgs']]:
+        """
+        Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+        """
+        return pulumi.get(self, "automation_action")
+
+    @automation_action.setter
+    def automation_action(self, value: Optional[pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionArgs']]):
+        pulumi.set(self, "automation_action", value)
+
+    @property
+    @pulumi.getter(name="eventAction")
+    def event_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
+        """
+        return pulumi.get(self, "event_action")
+
+    @event_action.setter
+    def event_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_action", value)
+
+    @property
+    @pulumi.getter
+    def extractions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsExtractionArgs']]]]:
+        """
+        Replace any CEF field or Custom Details object field using custom variables.
+        """
+        return pulumi.get(self, "extractions")
+
+    @extractions.setter
+    def extractions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsExtractionArgs']]]]):
+        pulumi.set(self, "extractions", value)
+
+    @property
+    @pulumi.getter(name="pagerdutyAutomationAction")
+    def pagerduty_automation_action(self) -> Optional[pulumi.Input['EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs']]:
+        """
+        Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+        """
+        return pulumi.get(self, "pagerduty_automation_action")
+
+    @pagerduty_automation_action.setter
+    def pagerduty_automation_action(self, value: Optional[pulumi.Input['EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs']]):
+        pulumi.set(self, "pagerduty_automation_action", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="routeTo")
+    def route_to(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of a Set from this Service Orchestration whose rules you also want to use with event that match this rule.
+        """
+        return pulumi.get(self, "route_to")
+
+    @route_to.setter
+    def route_to(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "route_to", value)
+
+    @property
+    @pulumi.getter
+    def severity(self) -> Optional[pulumi.Input[str]]:
+        """
+        sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
+        """
+        return pulumi.get(self, "severity")
+
+    @severity.setter
+    def severity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "severity", value)
+
+    @property
+    @pulumi.getter
+    def suppress(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set whether the resulting alert is suppressed. Suppressed alerts will not trigger an incident.
+        """
+        return pulumi.get(self, "suppress")
+
+    @suppress.setter
+    def suppress(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "suppress", value)
+
+    @property
+    @pulumi.getter
+    def suspend(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won't create an incident for this the resulting alert.
+        """
+        return pulumi.get(self, "suspend")
+
+    @suspend.setter
+    def suspend(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "suspend", value)
+
+    @property
+    @pulumi.getter
+    def variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsVariableArgs']]]]:
+        """
+        Populate variables from event payloads and use those variables in other event actions.
+        """
+        return pulumi.get(self, "variables")
+
+    @variables.setter
+    def variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsVariableArgs']]]]):
+        pulumi.set(self, "variables", value)
+
+
+@pulumi.input_type
+class EventOrchestrationServiceSetRuleActionsAutomationActionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 url: pulumi.Input[str],
+                 auto_send: Optional[pulumi.Input[bool]] = None,
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs']]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs']]]] = None):
+        """
+        :param pulumi.Input[str] name: Name of this Webhook.
+        :param pulumi.Input[str] url: The API endpoint where PagerDuty's servers will send the webhook request.
+        :param pulumi.Input[bool] auto_send: When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+        :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs']]] headers: Specify custom key/value pairs that'll be sent with the webhook request as request headers.
+        :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs']]] parameters: Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "url", url)
+        if auto_send is not None:
+            pulumi.set(__self__, "auto_send", auto_send)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of this Webhook.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[str]:
+        """
+        The API endpoint where PagerDuty's servers will send the webhook request.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="autoSend")
+    def auto_send(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+        """
+        return pulumi.get(self, "auto_send")
+
+    @auto_send.setter
+    def auto_send(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_send", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs']]]]:
+        """
+        Specify custom key/value pairs that'll be sent with the webhook request as request headers.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs']]]]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs']]]]:
+        """
+        Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
+class EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: Name to identify the header
+        :param pulumi.Input[str] value: Value of this header
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        Name to identify the header
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        Value of this header
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: Name to identify the header
+        :param pulumi.Input[str] value: Value of this header
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        Name to identify the header
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        Value of this header
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class EventOrchestrationServiceSetRuleActionsExtractionArgs:
+    def __init__(__self__, *,
+                 target: pulumi.Input[str],
+                 regex: Optional[pulumi.Input[str]] = None,
+                 source: Optional[pulumi.Input[str]] = None,
+                 template: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] target: The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.
+        :param pulumi.Input[str] regex: A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
+        :param pulumi.Input[str] source: The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.
+        :param pulumi.Input[str] template: A string that will be used to populate the `target` field. You can reference variables or event data within your template using double curly braces. For example:
+               * Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`
+               * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
+        """
+        pulumi.set(__self__, "target", target)
+        if regex is not None:
+            pulumi.set(__self__, "regex", regex)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+        if template is not None:
+            pulumi.set(__self__, "template", template)
+
+    @property
+    @pulumi.getter
+    def target(self) -> pulumi.Input[str]:
+        """
+        The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter
+    def regex(self) -> Optional[pulumi.Input[str]]:
+        """
+        A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
+        """
+        return pulumi.get(self, "regex")
+
+    @regex.setter
+    def regex(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "regex", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter
+    def template(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that will be used to populate the `target` field. You can reference variables or event data within your template using double curly braces. For example:
+        * Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`
+        * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
+        """
+        return pulumi.get(self, "template")
+
+    @template.setter
+    def template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "template", value)
+
+
+@pulumi.input_type
+class EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs:
+    def __init__(__self__, *,
+                 action_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] action_id: Id of the Process Automation action to be triggered.
+        """
+        pulumi.set(__self__, "action_id", action_id)
+
+    @property
+    @pulumi.getter(name="actionId")
+    def action_id(self) -> pulumi.Input[str]:
+        """
+        Id of the Process Automation action to be triggered.
+        """
+        return pulumi.get(self, "action_id")
+
+    @action_id.setter
+    def action_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "action_id", value)
+
+
+@pulumi.input_type
+class EventOrchestrationServiceSetRuleActionsVariableArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 path: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: Name of this Webhook.
+        :param pulumi.Input[str] path: Path to a field in an event, in dot-notation. This supports both PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths).
+        :param pulumi.Input[str] type: Only `regex` is supported
+        :param pulumi.Input[str] value: Value of this header
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of this Webhook.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        """
+        Path to a field in an event, in dot-notation. This supports both PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths).
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Only `regex` is supported
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        Value of this header
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class EventOrchestrationServiceSetRuleConditionArgs:
+    def __init__(__self__, *,
+                 expression: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] expression: A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+        """
+        pulumi.set(__self__, "expression", expression)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> pulumi.Input[str]:
+        """
+        A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+        """
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: pulumi.Input[str]):
+        pulumi.set(self, "expression", value)
+
+
+@pulumi.input_type
+class EventOrchestrationUnroutedCatchAllArgs:
+    def __init__(__self__, *,
+                 actions: pulumi.Input['EventOrchestrationUnroutedCatchAllActionsArgs']):
+        """
+        :param pulumi.Input['EventOrchestrationUnroutedCatchAllActionsArgs'] actions: These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` _except_ `route_to` action.
+        """
+        pulumi.set(__self__, "actions", actions)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> pulumi.Input['EventOrchestrationUnroutedCatchAllActionsArgs']:
+        """
+        These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` _except_ `route_to` action.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: pulumi.Input['EventOrchestrationUnroutedCatchAllActionsArgs']):
+        pulumi.set(self, "actions", value)
+
+
+@pulumi.input_type
+class EventOrchestrationUnroutedCatchAllActionsArgs:
+    def __init__(__self__, *,
+                 event_action: Optional[pulumi.Input[str]] = None,
+                 extractions: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedCatchAllActionsExtractionArgs']]]] = None,
+                 severity: Optional[pulumi.Input[str]] = None,
+                 suppress: Optional[pulumi.Input[bool]] = None,
+                 variables: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedCatchAllActionsVariableArgs']]]] = None):
+        """
+        :param pulumi.Input[str] event_action: sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
+        :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedCatchAllActionsExtractionArgs']]] extractions: Replace any CEF field or Custom Details object field using custom variables.
+        :param pulumi.Input[str] severity: sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
+        :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedCatchAllActionsVariableArgs']]] variables: Populate variables from event payloads and use those variables in other event actions.
+        """
+        if event_action is not None:
+            pulumi.set(__self__, "event_action", event_action)
+        if extractions is not None:
+            pulumi.set(__self__, "extractions", extractions)
+        if severity is not None:
+            pulumi.set(__self__, "severity", severity)
+        if suppress is not None:
+            pulumi.set(__self__, "suppress", suppress)
+        if variables is not None:
+            pulumi.set(__self__, "variables", variables)
+
+    @property
+    @pulumi.getter(name="eventAction")
+    def event_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
+        """
+        return pulumi.get(self, "event_action")
+
+    @event_action.setter
+    def event_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_action", value)
+
+    @property
+    @pulumi.getter
+    def extractions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedCatchAllActionsExtractionArgs']]]]:
+        """
+        Replace any CEF field or Custom Details object field using custom variables.
+        """
+        return pulumi.get(self, "extractions")
+
+    @extractions.setter
+    def extractions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedCatchAllActionsExtractionArgs']]]]):
+        pulumi.set(self, "extractions", value)
+
+    @property
+    @pulumi.getter
+    def severity(self) -> Optional[pulumi.Input[str]]:
+        """
+        sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
+        """
+        return pulumi.get(self, "severity")
+
+    @severity.setter
+    def severity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "severity", value)
+
+    @property
+    @pulumi.getter
+    def suppress(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "suppress")
+
+    @suppress.setter
+    def suppress(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "suppress", value)
+
+    @property
+    @pulumi.getter
+    def variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedCatchAllActionsVariableArgs']]]]:
+        """
+        Populate variables from event payloads and use those variables in other event actions.
+        """
+        return pulumi.get(self, "variables")
+
+    @variables.setter
+    def variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedCatchAllActionsVariableArgs']]]]):
+        pulumi.set(self, "variables", value)
+
+
+@pulumi.input_type
+class EventOrchestrationUnroutedCatchAllActionsExtractionArgs:
+    def __init__(__self__, *,
+                 target: pulumi.Input[str],
+                 regex: Optional[pulumi.Input[str]] = None,
+                 source: Optional[pulumi.Input[str]] = None,
+                 template: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] target: The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.
+        :param pulumi.Input[str] regex: A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
+        :param pulumi.Input[str] source: The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.
+        :param pulumi.Input[str] template: A string that will be used to populate the `target` field. You can reference variables or event data within your template using double curly braces. For example:
+               * Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`
+               * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
+        """
+        pulumi.set(__self__, "target", target)
+        if regex is not None:
+            pulumi.set(__self__, "regex", regex)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+        if template is not None:
+            pulumi.set(__self__, "template", template)
+
+    @property
+    @pulumi.getter
+    def target(self) -> pulumi.Input[str]:
+        """
+        The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter
+    def regex(self) -> Optional[pulumi.Input[str]]:
+        """
+        A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
+        """
+        return pulumi.get(self, "regex")
+
+    @regex.setter
+    def regex(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "regex", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter
+    def template(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that will be used to populate the `target` field. You can reference variables or event data within your template using double curly braces. For example:
+        * Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`
+        * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
+        """
+        return pulumi.get(self, "template")
+
+    @template.setter
+    def template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "template", value)
+
+
+@pulumi.input_type
+class EventOrchestrationUnroutedCatchAllActionsVariableArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 path: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name of the variable
+        :param pulumi.Input[str] path: Path to a field in an event, in dot-notation. This supports both [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data.
+        :param pulumi.Input[str] type: Only `regex` is supported
+        :param pulumi.Input[str] value: The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the variable
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        """
+        Path to a field in an event, in dot-notation. This supports both [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Only `regex` is supported
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class EventOrchestrationUnroutedSetArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedSetRuleArgs']]]] = None):
+        """
+        :param pulumi.Input[str] id: The ID of this set of rules. Rules in other sets can route events into this set using the rule's `route_to` property.
+        """
+        pulumi.set(__self__, "id", id)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of this set of rules. Rules in other sets can route events into this set using the rule's `route_to` property.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedSetRuleArgs']]]]:
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedSetRuleArgs']]]]):
+        pulumi.set(self, "rules", value)
+
+
+@pulumi.input_type
+class EventOrchestrationUnroutedSetRuleArgs:
+    def __init__(__self__, *,
+                 actions: pulumi.Input['EventOrchestrationUnroutedSetRuleActionsArgs'],
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedSetRuleConditionArgs']]]] = None,
+                 disabled: Optional[pulumi.Input[bool]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 label: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['EventOrchestrationUnroutedSetRuleActionsArgs'] actions: Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+        :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedSetRuleConditionArgs']]] conditions: Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will `always` match against the rule.
+        :param pulumi.Input[bool] disabled: Indicates whether the rule is disabled and would therefore not be evaluated.
+        :param pulumi.Input[str] id: The ID of this set of rules. Rules in other sets can route events into this set using the rule's `route_to` property.
+        :param pulumi.Input[str] label: A description of this rule's purpose.
+        """
+        pulumi.set(__self__, "actions", actions)
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+        if disabled is not None:
+            pulumi.set(__self__, "disabled", disabled)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> pulumi.Input['EventOrchestrationUnroutedSetRuleActionsArgs']:
+        """
+        Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: pulumi.Input['EventOrchestrationUnroutedSetRuleActionsArgs']):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedSetRuleConditionArgs']]]]:
+        """
+        Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will `always` match against the rule.
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedSetRuleConditionArgs']]]]):
+        pulumi.set(self, "conditions", value)
+
+    @property
+    @pulumi.getter
+    def disabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the rule is disabled and would therefore not be evaluated.
+        """
+        return pulumi.get(self, "disabled")
+
+    @disabled.setter
+    def disabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disabled", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of this set of rules. Rules in other sets can route events into this set using the rule's `route_to` property.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of this rule's purpose.
+        """
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "label", value)
+
+
+@pulumi.input_type
+class EventOrchestrationUnroutedSetRuleActionsArgs:
+    def __init__(__self__, *,
+                 event_action: Optional[pulumi.Input[str]] = None,
+                 extractions: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedSetRuleActionsExtractionArgs']]]] = None,
+                 route_to: Optional[pulumi.Input[str]] = None,
+                 severity: Optional[pulumi.Input[str]] = None,
+                 variables: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedSetRuleActionsVariableArgs']]]] = None):
+        """
+        :param pulumi.Input[str] event_action: sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
+        :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedSetRuleActionsExtractionArgs']]] extractions: Replace any CEF field or Custom Details object field using custom variables.
+        :param pulumi.Input[str] route_to: The ID of a Set from this Unrouted Orchestration whose rules you also want to use with event that match this rule.
+        :param pulumi.Input[str] severity: sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
+        :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedSetRuleActionsVariableArgs']]] variables: Populate variables from event payloads and use those variables in other event actions.
+        """
+        if event_action is not None:
+            pulumi.set(__self__, "event_action", event_action)
+        if extractions is not None:
+            pulumi.set(__self__, "extractions", extractions)
+        if route_to is not None:
+            pulumi.set(__self__, "route_to", route_to)
+        if severity is not None:
+            pulumi.set(__self__, "severity", severity)
+        if variables is not None:
+            pulumi.set(__self__, "variables", variables)
+
+    @property
+    @pulumi.getter(name="eventAction")
+    def event_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
+        """
+        return pulumi.get(self, "event_action")
+
+    @event_action.setter
+    def event_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_action", value)
+
+    @property
+    @pulumi.getter
+    def extractions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedSetRuleActionsExtractionArgs']]]]:
+        """
+        Replace any CEF field or Custom Details object field using custom variables.
+        """
+        return pulumi.get(self, "extractions")
+
+    @extractions.setter
+    def extractions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedSetRuleActionsExtractionArgs']]]]):
+        pulumi.set(self, "extractions", value)
+
+    @property
+    @pulumi.getter(name="routeTo")
+    def route_to(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of a Set from this Unrouted Orchestration whose rules you also want to use with event that match this rule.
+        """
+        return pulumi.get(self, "route_to")
+
+    @route_to.setter
+    def route_to(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "route_to", value)
+
+    @property
+    @pulumi.getter
+    def severity(self) -> Optional[pulumi.Input[str]]:
+        """
+        sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
+        """
+        return pulumi.get(self, "severity")
+
+    @severity.setter
+    def severity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "severity", value)
+
+    @property
+    @pulumi.getter
+    def variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedSetRuleActionsVariableArgs']]]]:
+        """
+        Populate variables from event payloads and use those variables in other event actions.
+        """
+        return pulumi.get(self, "variables")
+
+    @variables.setter
+    def variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedSetRuleActionsVariableArgs']]]]):
+        pulumi.set(self, "variables", value)
+
+
+@pulumi.input_type
+class EventOrchestrationUnroutedSetRuleActionsExtractionArgs:
+    def __init__(__self__, *,
+                 target: pulumi.Input[str],
+                 regex: Optional[pulumi.Input[str]] = None,
+                 source: Optional[pulumi.Input[str]] = None,
+                 template: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] target: The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.
+        :param pulumi.Input[str] regex: A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
+        :param pulumi.Input[str] source: The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.
+        :param pulumi.Input[str] template: A string that will be used to populate the `target` field. You can reference variables or event data within your template using double curly braces. For example:
+               * Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`
+               * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
+        """
+        pulumi.set(__self__, "target", target)
+        if regex is not None:
+            pulumi.set(__self__, "regex", regex)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+        if template is not None:
+            pulumi.set(__self__, "template", template)
+
+    @property
+    @pulumi.getter
+    def target(self) -> pulumi.Input[str]:
+        """
+        The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter
+    def regex(self) -> Optional[pulumi.Input[str]]:
+        """
+        A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
+        """
+        return pulumi.get(self, "regex")
+
+    @regex.setter
+    def regex(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "regex", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter
+    def template(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that will be used to populate the `target` field. You can reference variables or event data within your template using double curly braces. For example:
+        * Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`
+        * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
+        """
+        return pulumi.get(self, "template")
+
+    @template.setter
+    def template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "template", value)
+
+
+@pulumi.input_type
+class EventOrchestrationUnroutedSetRuleActionsVariableArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 path: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name of the variable
+        :param pulumi.Input[str] path: Path to a field in an event, in dot-notation. This supports both [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data.
+        :param pulumi.Input[str] type: Only `regex` is supported
+        :param pulumi.Input[str] value: The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the variable
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        """
+        Path to a field in an event, in dot-notation. This supports both [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Only `regex` is supported
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class EventOrchestrationUnroutedSetRuleConditionArgs:
+    def __init__(__self__, *,
+                 expression: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] expression: A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+        """
+        pulumi.set(__self__, "expression", expression)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> pulumi.Input[str]:
+        """
+        A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+        """
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: pulumi.Input[str]):
+        pulumi.set(self, "expression", value)
 
 
 @pulumi.input_type
@@ -3259,20 +5364,36 @@ class SlackConnectionConfigArgs:
 @pulumi.input_type
 class WebhookSubscriptionDeliveryMethodArgs:
     def __init__(__self__, *,
+                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookSubscriptionDeliveryMethodCustomHeaderArgs']]]] = None,
                  temporarily_disabled: Optional[pulumi.Input[bool]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[Sequence[pulumi.Input['WebhookSubscriptionDeliveryMethodCustomHeaderArgs']]] custom_headers: The custom_header of a webhook subscription define any optional headers that will be passed along with the payload to the destination URL.
         :param pulumi.Input[bool] temporarily_disabled: Whether this webhook subscription is temporarily disabled. Becomes true if the delivery method URL is repeatedly rejected by the server.
         :param pulumi.Input[str] type: Indicates the type of the delivery method. Allowed and default value: `http_delivery_method`.
         :param pulumi.Input[str] url: The destination URL for webhook delivery.
         """
+        if custom_headers is not None:
+            pulumi.set(__self__, "custom_headers", custom_headers)
         if temporarily_disabled is not None:
             pulumi.set(__self__, "temporarily_disabled", temporarily_disabled)
         if type is not None:
             pulumi.set(__self__, "type", type)
         if url is not None:
             pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter(name="customHeaders")
+    def custom_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebhookSubscriptionDeliveryMethodCustomHeaderArgs']]]]:
+        """
+        The custom_header of a webhook subscription define any optional headers that will be passed along with the payload to the destination URL.
+        """
+        return pulumi.get(self, "custom_headers")
+
+    @custom_headers.setter
+    def custom_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookSubscriptionDeliveryMethodCustomHeaderArgs']]]]):
+        pulumi.set(self, "custom_headers", value)
 
     @property
     @pulumi.getter(name="temporarilyDisabled")
@@ -3312,6 +5433,33 @@ class WebhookSubscriptionDeliveryMethodArgs:
 
 
 @pulumi.input_type
+class WebhookSubscriptionDeliveryMethodCustomHeaderArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class WebhookSubscriptionFilterArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
@@ -3347,5 +5495,77 @@ class WebhookSubscriptionFilterArgs:
     @id.setter
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class GetEventOrchestrationIntegrationArgs:
+    def __init__(__self__, *,
+                 id: str,
+                 parameters: Sequence['GetEventOrchestrationIntegrationParameterArgs']):
+        """
+        :param str id: ID of the integration
+               * `parameters`
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        ID of the integration
+        * `parameters`
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: str):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Sequence['GetEventOrchestrationIntegrationParameterArgs']:
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Sequence['GetEventOrchestrationIntegrationParameterArgs']):
+        pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
+class GetEventOrchestrationIntegrationParameterArgs:
+    def __init__(__self__, *,
+                 routing_key: str,
+                 type: str):
+        """
+        :param str routing_key: Routing key that routes to this Orchestration.
+        :param str type: Type of the routing key. `global` is the default type.
+        """
+        pulumi.set(__self__, "routing_key", routing_key)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="routingKey")
+    def routing_key(self) -> str:
+        """
+        Routing key that routes to this Orchestration.
+        """
+        return pulumi.get(self, "routing_key")
+
+    @routing_key.setter
+    def routing_key(self, value: str):
+        pulumi.set(self, "routing_key", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the routing key. `global` is the default type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: str):
+        pulumi.set(self, "type", value)
 
 

@@ -192,7 +192,7 @@ namespace Pulumi.Pagerduty
     public partial class ServiceIntegration : Pulumi.CustomResource
     {
         /// <summary>
-        /// This is the unique fully-qualified email address used for routing emails to this integration for processing.
+        /// Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.
         /// </summary>
         [Output("emailFilterMode")]
         public Output<string> EmailFilterMode { get; private set; } = null!;
@@ -201,7 +201,7 @@ namespace Pulumi.Pagerduty
         public Output<ImmutableArray<Outputs.ServiceIntegrationEmailFilter>> EmailFilters { get; private set; } = null!;
 
         /// <summary>
-        /// This is the unique fully-qualified email address used for routing emails to this integration for processing.
+        /// Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `on_new_email`, `on_new_email_subject`, `only_if_no_open_incidents` or `use_rules`.
         /// </summary>
         [Output("emailIncidentCreation")]
         public Output<string> EmailIncidentCreation { get; private set; } = null!;
@@ -313,7 +313,7 @@ namespace Pulumi.Pagerduty
     public sealed class ServiceIntegrationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// This is the unique fully-qualified email address used for routing emails to this integration for processing.
+        /// Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.
         /// </summary>
         [Input("emailFilterMode")]
         public Input<string>? EmailFilterMode { get; set; }
@@ -327,7 +327,7 @@ namespace Pulumi.Pagerduty
         }
 
         /// <summary>
-        /// This is the unique fully-qualified email address used for routing emails to this integration for processing.
+        /// Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `on_new_email`, `on_new_email_subject`, `only_if_no_open_incidents` or `use_rules`.
         /// </summary>
         [Input("emailIncidentCreation")]
         public Input<string>? EmailIncidentCreation { get; set; }
@@ -399,7 +399,7 @@ namespace Pulumi.Pagerduty
     public sealed class ServiceIntegrationState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// This is the unique fully-qualified email address used for routing emails to this integration for processing.
+        /// Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.
         /// </summary>
         [Input("emailFilterMode")]
         public Input<string>? EmailFilterMode { get; set; }
@@ -413,7 +413,7 @@ namespace Pulumi.Pagerduty
         }
 
         /// <summary>
-        /// This is the unique fully-qualified email address used for routing emails to this integration for processing.
+        /// Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `on_new_email`, `on_new_email_subject`, `only_if_no_open_incidents` or `use_rules`.
         /// </summary>
         [Input("emailIncidentCreation")]
         public Input<string>? EmailIncidentCreation { get; set; }

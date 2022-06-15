@@ -9,11 +9,16 @@ from .addon import *
 from .business_service import *
 from .business_service_subscriber import *
 from .escalation_policy import *
+from .event_orchestration import *
+from .event_orchestration_router import *
+from .event_orchestration_service import *
+from .event_orchestration_unrouted import *
 from .event_rule import *
 from .extension import *
 from .extension_service_now import *
 from .get_business_service import *
 from .get_escalation_policy import *
+from .get_event_orchestration import *
 from .get_extension_schema import *
 from .get_priority import *
 from .get_ruleset import *
@@ -87,6 +92,38 @@ _utilities.register(
   "fqn": "pulumi_pagerduty",
   "classes": {
    "pagerduty:index/escalationPolicy:EscalationPolicy": "EscalationPolicy"
+  }
+ },
+ {
+  "pkg": "pagerduty",
+  "mod": "index/eventOrchestration",
+  "fqn": "pulumi_pagerduty",
+  "classes": {
+   "pagerduty:index/eventOrchestration:EventOrchestration": "EventOrchestration"
+  }
+ },
+ {
+  "pkg": "pagerduty",
+  "mod": "index/eventOrchestrationRouter",
+  "fqn": "pulumi_pagerduty",
+  "classes": {
+   "pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter": "EventOrchestrationRouter"
+  }
+ },
+ {
+  "pkg": "pagerduty",
+  "mod": "index/eventOrchestrationService",
+  "fqn": "pulumi_pagerduty",
+  "classes": {
+   "pagerduty:index/eventOrchestrationService:EventOrchestrationService": "EventOrchestrationService"
+  }
+ },
+ {
+  "pkg": "pagerduty",
+  "mod": "index/eventOrchestrationUnrouted",
+  "fqn": "pulumi_pagerduty",
+  "classes": {
+   "pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted": "EventOrchestrationUnrouted"
   }
  },
  {

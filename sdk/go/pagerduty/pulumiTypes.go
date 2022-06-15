@@ -228,6 +228,4803 @@ func (o EscalationPolicyRuleTargetArrayOutput) Index(i pulumi.IntInput) Escalati
 	}).(EscalationPolicyRuleTargetOutput)
 }
 
+type EventOrchestrationIntegration struct {
+	// ID of the integration
+	// * `parameters`
+	Id         *string                                  `pulumi:"id"`
+	Parameters []EventOrchestrationIntegrationParameter `pulumi:"parameters"`
+}
+
+// EventOrchestrationIntegrationInput is an input type that accepts EventOrchestrationIntegrationArgs and EventOrchestrationIntegrationOutput values.
+// You can construct a concrete instance of `EventOrchestrationIntegrationInput` via:
+//
+//          EventOrchestrationIntegrationArgs{...}
+type EventOrchestrationIntegrationInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationIntegrationOutput() EventOrchestrationIntegrationOutput
+	ToEventOrchestrationIntegrationOutputWithContext(context.Context) EventOrchestrationIntegrationOutput
+}
+
+type EventOrchestrationIntegrationArgs struct {
+	// ID of the integration
+	// * `parameters`
+	Id         pulumi.StringPtrInput                            `pulumi:"id"`
+	Parameters EventOrchestrationIntegrationParameterArrayInput `pulumi:"parameters"`
+}
+
+func (EventOrchestrationIntegrationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationIntegration)(nil)).Elem()
+}
+
+func (i EventOrchestrationIntegrationArgs) ToEventOrchestrationIntegrationOutput() EventOrchestrationIntegrationOutput {
+	return i.ToEventOrchestrationIntegrationOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationIntegrationArgs) ToEventOrchestrationIntegrationOutputWithContext(ctx context.Context) EventOrchestrationIntegrationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationIntegrationOutput)
+}
+
+// EventOrchestrationIntegrationArrayInput is an input type that accepts EventOrchestrationIntegrationArray and EventOrchestrationIntegrationArrayOutput values.
+// You can construct a concrete instance of `EventOrchestrationIntegrationArrayInput` via:
+//
+//          EventOrchestrationIntegrationArray{ EventOrchestrationIntegrationArgs{...} }
+type EventOrchestrationIntegrationArrayInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationIntegrationArrayOutput() EventOrchestrationIntegrationArrayOutput
+	ToEventOrchestrationIntegrationArrayOutputWithContext(context.Context) EventOrchestrationIntegrationArrayOutput
+}
+
+type EventOrchestrationIntegrationArray []EventOrchestrationIntegrationInput
+
+func (EventOrchestrationIntegrationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationIntegration)(nil)).Elem()
+}
+
+func (i EventOrchestrationIntegrationArray) ToEventOrchestrationIntegrationArrayOutput() EventOrchestrationIntegrationArrayOutput {
+	return i.ToEventOrchestrationIntegrationArrayOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationIntegrationArray) ToEventOrchestrationIntegrationArrayOutputWithContext(ctx context.Context) EventOrchestrationIntegrationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationIntegrationArrayOutput)
+}
+
+type EventOrchestrationIntegrationOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationIntegrationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationIntegration)(nil)).Elem()
+}
+
+func (o EventOrchestrationIntegrationOutput) ToEventOrchestrationIntegrationOutput() EventOrchestrationIntegrationOutput {
+	return o
+}
+
+func (o EventOrchestrationIntegrationOutput) ToEventOrchestrationIntegrationOutputWithContext(ctx context.Context) EventOrchestrationIntegrationOutput {
+	return o
+}
+
+// ID of the integration
+// * `parameters`
+func (o EventOrchestrationIntegrationOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationIntegration) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o EventOrchestrationIntegrationOutput) Parameters() EventOrchestrationIntegrationParameterArrayOutput {
+	return o.ApplyT(func(v EventOrchestrationIntegration) []EventOrchestrationIntegrationParameter { return v.Parameters }).(EventOrchestrationIntegrationParameterArrayOutput)
+}
+
+type EventOrchestrationIntegrationArrayOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationIntegrationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationIntegration)(nil)).Elem()
+}
+
+func (o EventOrchestrationIntegrationArrayOutput) ToEventOrchestrationIntegrationArrayOutput() EventOrchestrationIntegrationArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationIntegrationArrayOutput) ToEventOrchestrationIntegrationArrayOutputWithContext(ctx context.Context) EventOrchestrationIntegrationArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationIntegrationArrayOutput) Index(i pulumi.IntInput) EventOrchestrationIntegrationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventOrchestrationIntegration {
+		return vs[0].([]EventOrchestrationIntegration)[vs[1].(int)]
+	}).(EventOrchestrationIntegrationOutput)
+}
+
+type EventOrchestrationIntegrationParameter struct {
+	// Routing key that routes to this Orchestration.
+	RoutingKey *string `pulumi:"routingKey"`
+	// Type of the routing key. `global` is the default type.
+	Type *string `pulumi:"type"`
+}
+
+// EventOrchestrationIntegrationParameterInput is an input type that accepts EventOrchestrationIntegrationParameterArgs and EventOrchestrationIntegrationParameterOutput values.
+// You can construct a concrete instance of `EventOrchestrationIntegrationParameterInput` via:
+//
+//          EventOrchestrationIntegrationParameterArgs{...}
+type EventOrchestrationIntegrationParameterInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationIntegrationParameterOutput() EventOrchestrationIntegrationParameterOutput
+	ToEventOrchestrationIntegrationParameterOutputWithContext(context.Context) EventOrchestrationIntegrationParameterOutput
+}
+
+type EventOrchestrationIntegrationParameterArgs struct {
+	// Routing key that routes to this Orchestration.
+	RoutingKey pulumi.StringPtrInput `pulumi:"routingKey"`
+	// Type of the routing key. `global` is the default type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (EventOrchestrationIntegrationParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationIntegrationParameter)(nil)).Elem()
+}
+
+func (i EventOrchestrationIntegrationParameterArgs) ToEventOrchestrationIntegrationParameterOutput() EventOrchestrationIntegrationParameterOutput {
+	return i.ToEventOrchestrationIntegrationParameterOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationIntegrationParameterArgs) ToEventOrchestrationIntegrationParameterOutputWithContext(ctx context.Context) EventOrchestrationIntegrationParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationIntegrationParameterOutput)
+}
+
+// EventOrchestrationIntegrationParameterArrayInput is an input type that accepts EventOrchestrationIntegrationParameterArray and EventOrchestrationIntegrationParameterArrayOutput values.
+// You can construct a concrete instance of `EventOrchestrationIntegrationParameterArrayInput` via:
+//
+//          EventOrchestrationIntegrationParameterArray{ EventOrchestrationIntegrationParameterArgs{...} }
+type EventOrchestrationIntegrationParameterArrayInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationIntegrationParameterArrayOutput() EventOrchestrationIntegrationParameterArrayOutput
+	ToEventOrchestrationIntegrationParameterArrayOutputWithContext(context.Context) EventOrchestrationIntegrationParameterArrayOutput
+}
+
+type EventOrchestrationIntegrationParameterArray []EventOrchestrationIntegrationParameterInput
+
+func (EventOrchestrationIntegrationParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationIntegrationParameter)(nil)).Elem()
+}
+
+func (i EventOrchestrationIntegrationParameterArray) ToEventOrchestrationIntegrationParameterArrayOutput() EventOrchestrationIntegrationParameterArrayOutput {
+	return i.ToEventOrchestrationIntegrationParameterArrayOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationIntegrationParameterArray) ToEventOrchestrationIntegrationParameterArrayOutputWithContext(ctx context.Context) EventOrchestrationIntegrationParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationIntegrationParameterArrayOutput)
+}
+
+type EventOrchestrationIntegrationParameterOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationIntegrationParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationIntegrationParameter)(nil)).Elem()
+}
+
+func (o EventOrchestrationIntegrationParameterOutput) ToEventOrchestrationIntegrationParameterOutput() EventOrchestrationIntegrationParameterOutput {
+	return o
+}
+
+func (o EventOrchestrationIntegrationParameterOutput) ToEventOrchestrationIntegrationParameterOutputWithContext(ctx context.Context) EventOrchestrationIntegrationParameterOutput {
+	return o
+}
+
+// Routing key that routes to this Orchestration.
+func (o EventOrchestrationIntegrationParameterOutput) RoutingKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationIntegrationParameter) *string { return v.RoutingKey }).(pulumi.StringPtrOutput)
+}
+
+// Type of the routing key. `global` is the default type.
+func (o EventOrchestrationIntegrationParameterOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationIntegrationParameter) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type EventOrchestrationIntegrationParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationIntegrationParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationIntegrationParameter)(nil)).Elem()
+}
+
+func (o EventOrchestrationIntegrationParameterArrayOutput) ToEventOrchestrationIntegrationParameterArrayOutput() EventOrchestrationIntegrationParameterArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationIntegrationParameterArrayOutput) ToEventOrchestrationIntegrationParameterArrayOutputWithContext(ctx context.Context) EventOrchestrationIntegrationParameterArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationIntegrationParameterArrayOutput) Index(i pulumi.IntInput) EventOrchestrationIntegrationParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventOrchestrationIntegrationParameter {
+		return vs[0].([]EventOrchestrationIntegrationParameter)[vs[1].(int)]
+	}).(EventOrchestrationIntegrationParameterOutput)
+}
+
+type EventOrchestrationRouterCatchAll struct {
+	// These are the actions that will be taken to change the resulting alert and incident.
+	Actions EventOrchestrationRouterCatchAllActions `pulumi:"actions"`
+}
+
+// EventOrchestrationRouterCatchAllInput is an input type that accepts EventOrchestrationRouterCatchAllArgs and EventOrchestrationRouterCatchAllOutput values.
+// You can construct a concrete instance of `EventOrchestrationRouterCatchAllInput` via:
+//
+//          EventOrchestrationRouterCatchAllArgs{...}
+type EventOrchestrationRouterCatchAllInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationRouterCatchAllOutput() EventOrchestrationRouterCatchAllOutput
+	ToEventOrchestrationRouterCatchAllOutputWithContext(context.Context) EventOrchestrationRouterCatchAllOutput
+}
+
+type EventOrchestrationRouterCatchAllArgs struct {
+	// These are the actions that will be taken to change the resulting alert and incident.
+	Actions EventOrchestrationRouterCatchAllActionsInput `pulumi:"actions"`
+}
+
+func (EventOrchestrationRouterCatchAllArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationRouterCatchAll)(nil)).Elem()
+}
+
+func (i EventOrchestrationRouterCatchAllArgs) ToEventOrchestrationRouterCatchAllOutput() EventOrchestrationRouterCatchAllOutput {
+	return i.ToEventOrchestrationRouterCatchAllOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationRouterCatchAllArgs) ToEventOrchestrationRouterCatchAllOutputWithContext(ctx context.Context) EventOrchestrationRouterCatchAllOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationRouterCatchAllOutput)
+}
+
+func (i EventOrchestrationRouterCatchAllArgs) ToEventOrchestrationRouterCatchAllPtrOutput() EventOrchestrationRouterCatchAllPtrOutput {
+	return i.ToEventOrchestrationRouterCatchAllPtrOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationRouterCatchAllArgs) ToEventOrchestrationRouterCatchAllPtrOutputWithContext(ctx context.Context) EventOrchestrationRouterCatchAllPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationRouterCatchAllOutput).ToEventOrchestrationRouterCatchAllPtrOutputWithContext(ctx)
+}
+
+// EventOrchestrationRouterCatchAllPtrInput is an input type that accepts EventOrchestrationRouterCatchAllArgs, EventOrchestrationRouterCatchAllPtr and EventOrchestrationRouterCatchAllPtrOutput values.
+// You can construct a concrete instance of `EventOrchestrationRouterCatchAllPtrInput` via:
+//
+//          EventOrchestrationRouterCatchAllArgs{...}
+//
+//  or:
+//
+//          nil
+type EventOrchestrationRouterCatchAllPtrInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationRouterCatchAllPtrOutput() EventOrchestrationRouterCatchAllPtrOutput
+	ToEventOrchestrationRouterCatchAllPtrOutputWithContext(context.Context) EventOrchestrationRouterCatchAllPtrOutput
+}
+
+type eventOrchestrationRouterCatchAllPtrType EventOrchestrationRouterCatchAllArgs
+
+func EventOrchestrationRouterCatchAllPtr(v *EventOrchestrationRouterCatchAllArgs) EventOrchestrationRouterCatchAllPtrInput {
+	return (*eventOrchestrationRouterCatchAllPtrType)(v)
+}
+
+func (*eventOrchestrationRouterCatchAllPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventOrchestrationRouterCatchAll)(nil)).Elem()
+}
+
+func (i *eventOrchestrationRouterCatchAllPtrType) ToEventOrchestrationRouterCatchAllPtrOutput() EventOrchestrationRouterCatchAllPtrOutput {
+	return i.ToEventOrchestrationRouterCatchAllPtrOutputWithContext(context.Background())
+}
+
+func (i *eventOrchestrationRouterCatchAllPtrType) ToEventOrchestrationRouterCatchAllPtrOutputWithContext(ctx context.Context) EventOrchestrationRouterCatchAllPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationRouterCatchAllPtrOutput)
+}
+
+type EventOrchestrationRouterCatchAllOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationRouterCatchAllOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationRouterCatchAll)(nil)).Elem()
+}
+
+func (o EventOrchestrationRouterCatchAllOutput) ToEventOrchestrationRouterCatchAllOutput() EventOrchestrationRouterCatchAllOutput {
+	return o
+}
+
+func (o EventOrchestrationRouterCatchAllOutput) ToEventOrchestrationRouterCatchAllOutputWithContext(ctx context.Context) EventOrchestrationRouterCatchAllOutput {
+	return o
+}
+
+func (o EventOrchestrationRouterCatchAllOutput) ToEventOrchestrationRouterCatchAllPtrOutput() EventOrchestrationRouterCatchAllPtrOutput {
+	return o.ToEventOrchestrationRouterCatchAllPtrOutputWithContext(context.Background())
+}
+
+func (o EventOrchestrationRouterCatchAllOutput) ToEventOrchestrationRouterCatchAllPtrOutputWithContext(ctx context.Context) EventOrchestrationRouterCatchAllPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventOrchestrationRouterCatchAll) *EventOrchestrationRouterCatchAll {
+		return &v
+	}).(EventOrchestrationRouterCatchAllPtrOutput)
+}
+
+// These are the actions that will be taken to change the resulting alert and incident.
+func (o EventOrchestrationRouterCatchAllOutput) Actions() EventOrchestrationRouterCatchAllActionsOutput {
+	return o.ApplyT(func(v EventOrchestrationRouterCatchAll) EventOrchestrationRouterCatchAllActions { return v.Actions }).(EventOrchestrationRouterCatchAllActionsOutput)
+}
+
+type EventOrchestrationRouterCatchAllPtrOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationRouterCatchAllPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventOrchestrationRouterCatchAll)(nil)).Elem()
+}
+
+func (o EventOrchestrationRouterCatchAllPtrOutput) ToEventOrchestrationRouterCatchAllPtrOutput() EventOrchestrationRouterCatchAllPtrOutput {
+	return o
+}
+
+func (o EventOrchestrationRouterCatchAllPtrOutput) ToEventOrchestrationRouterCatchAllPtrOutputWithContext(ctx context.Context) EventOrchestrationRouterCatchAllPtrOutput {
+	return o
+}
+
+func (o EventOrchestrationRouterCatchAllPtrOutput) Elem() EventOrchestrationRouterCatchAllOutput {
+	return o.ApplyT(func(v *EventOrchestrationRouterCatchAll) EventOrchestrationRouterCatchAll {
+		if v != nil {
+			return *v
+		}
+		var ret EventOrchestrationRouterCatchAll
+		return ret
+	}).(EventOrchestrationRouterCatchAllOutput)
+}
+
+// These are the actions that will be taken to change the resulting alert and incident.
+func (o EventOrchestrationRouterCatchAllPtrOutput) Actions() EventOrchestrationRouterCatchAllActionsPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationRouterCatchAll) *EventOrchestrationRouterCatchAllActions {
+		if v == nil {
+			return nil
+		}
+		return &v.Actions
+	}).(EventOrchestrationRouterCatchAllActionsPtrOutput)
+}
+
+type EventOrchestrationRouterCatchAllActions struct {
+	// The ID of the target Service for the resulting alert.
+	RouteTo string `pulumi:"routeTo"`
+}
+
+// EventOrchestrationRouterCatchAllActionsInput is an input type that accepts EventOrchestrationRouterCatchAllActionsArgs and EventOrchestrationRouterCatchAllActionsOutput values.
+// You can construct a concrete instance of `EventOrchestrationRouterCatchAllActionsInput` via:
+//
+//          EventOrchestrationRouterCatchAllActionsArgs{...}
+type EventOrchestrationRouterCatchAllActionsInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationRouterCatchAllActionsOutput() EventOrchestrationRouterCatchAllActionsOutput
+	ToEventOrchestrationRouterCatchAllActionsOutputWithContext(context.Context) EventOrchestrationRouterCatchAllActionsOutput
+}
+
+type EventOrchestrationRouterCatchAllActionsArgs struct {
+	// The ID of the target Service for the resulting alert.
+	RouteTo pulumi.StringInput `pulumi:"routeTo"`
+}
+
+func (EventOrchestrationRouterCatchAllActionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationRouterCatchAllActions)(nil)).Elem()
+}
+
+func (i EventOrchestrationRouterCatchAllActionsArgs) ToEventOrchestrationRouterCatchAllActionsOutput() EventOrchestrationRouterCatchAllActionsOutput {
+	return i.ToEventOrchestrationRouterCatchAllActionsOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationRouterCatchAllActionsArgs) ToEventOrchestrationRouterCatchAllActionsOutputWithContext(ctx context.Context) EventOrchestrationRouterCatchAllActionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationRouterCatchAllActionsOutput)
+}
+
+func (i EventOrchestrationRouterCatchAllActionsArgs) ToEventOrchestrationRouterCatchAllActionsPtrOutput() EventOrchestrationRouterCatchAllActionsPtrOutput {
+	return i.ToEventOrchestrationRouterCatchAllActionsPtrOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationRouterCatchAllActionsArgs) ToEventOrchestrationRouterCatchAllActionsPtrOutputWithContext(ctx context.Context) EventOrchestrationRouterCatchAllActionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationRouterCatchAllActionsOutput).ToEventOrchestrationRouterCatchAllActionsPtrOutputWithContext(ctx)
+}
+
+// EventOrchestrationRouterCatchAllActionsPtrInput is an input type that accepts EventOrchestrationRouterCatchAllActionsArgs, EventOrchestrationRouterCatchAllActionsPtr and EventOrchestrationRouterCatchAllActionsPtrOutput values.
+// You can construct a concrete instance of `EventOrchestrationRouterCatchAllActionsPtrInput` via:
+//
+//          EventOrchestrationRouterCatchAllActionsArgs{...}
+//
+//  or:
+//
+//          nil
+type EventOrchestrationRouterCatchAllActionsPtrInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationRouterCatchAllActionsPtrOutput() EventOrchestrationRouterCatchAllActionsPtrOutput
+	ToEventOrchestrationRouterCatchAllActionsPtrOutputWithContext(context.Context) EventOrchestrationRouterCatchAllActionsPtrOutput
+}
+
+type eventOrchestrationRouterCatchAllActionsPtrType EventOrchestrationRouterCatchAllActionsArgs
+
+func EventOrchestrationRouterCatchAllActionsPtr(v *EventOrchestrationRouterCatchAllActionsArgs) EventOrchestrationRouterCatchAllActionsPtrInput {
+	return (*eventOrchestrationRouterCatchAllActionsPtrType)(v)
+}
+
+func (*eventOrchestrationRouterCatchAllActionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventOrchestrationRouterCatchAllActions)(nil)).Elem()
+}
+
+func (i *eventOrchestrationRouterCatchAllActionsPtrType) ToEventOrchestrationRouterCatchAllActionsPtrOutput() EventOrchestrationRouterCatchAllActionsPtrOutput {
+	return i.ToEventOrchestrationRouterCatchAllActionsPtrOutputWithContext(context.Background())
+}
+
+func (i *eventOrchestrationRouterCatchAllActionsPtrType) ToEventOrchestrationRouterCatchAllActionsPtrOutputWithContext(ctx context.Context) EventOrchestrationRouterCatchAllActionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationRouterCatchAllActionsPtrOutput)
+}
+
+type EventOrchestrationRouterCatchAllActionsOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationRouterCatchAllActionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationRouterCatchAllActions)(nil)).Elem()
+}
+
+func (o EventOrchestrationRouterCatchAllActionsOutput) ToEventOrchestrationRouterCatchAllActionsOutput() EventOrchestrationRouterCatchAllActionsOutput {
+	return o
+}
+
+func (o EventOrchestrationRouterCatchAllActionsOutput) ToEventOrchestrationRouterCatchAllActionsOutputWithContext(ctx context.Context) EventOrchestrationRouterCatchAllActionsOutput {
+	return o
+}
+
+func (o EventOrchestrationRouterCatchAllActionsOutput) ToEventOrchestrationRouterCatchAllActionsPtrOutput() EventOrchestrationRouterCatchAllActionsPtrOutput {
+	return o.ToEventOrchestrationRouterCatchAllActionsPtrOutputWithContext(context.Background())
+}
+
+func (o EventOrchestrationRouterCatchAllActionsOutput) ToEventOrchestrationRouterCatchAllActionsPtrOutputWithContext(ctx context.Context) EventOrchestrationRouterCatchAllActionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventOrchestrationRouterCatchAllActions) *EventOrchestrationRouterCatchAllActions {
+		return &v
+	}).(EventOrchestrationRouterCatchAllActionsPtrOutput)
+}
+
+// The ID of the target Service for the resulting alert.
+func (o EventOrchestrationRouterCatchAllActionsOutput) RouteTo() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationRouterCatchAllActions) string { return v.RouteTo }).(pulumi.StringOutput)
+}
+
+type EventOrchestrationRouterCatchAllActionsPtrOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationRouterCatchAllActionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventOrchestrationRouterCatchAllActions)(nil)).Elem()
+}
+
+func (o EventOrchestrationRouterCatchAllActionsPtrOutput) ToEventOrchestrationRouterCatchAllActionsPtrOutput() EventOrchestrationRouterCatchAllActionsPtrOutput {
+	return o
+}
+
+func (o EventOrchestrationRouterCatchAllActionsPtrOutput) ToEventOrchestrationRouterCatchAllActionsPtrOutputWithContext(ctx context.Context) EventOrchestrationRouterCatchAllActionsPtrOutput {
+	return o
+}
+
+func (o EventOrchestrationRouterCatchAllActionsPtrOutput) Elem() EventOrchestrationRouterCatchAllActionsOutput {
+	return o.ApplyT(func(v *EventOrchestrationRouterCatchAllActions) EventOrchestrationRouterCatchAllActions {
+		if v != nil {
+			return *v
+		}
+		var ret EventOrchestrationRouterCatchAllActions
+		return ret
+	}).(EventOrchestrationRouterCatchAllActionsOutput)
+}
+
+// The ID of the target Service for the resulting alert.
+func (o EventOrchestrationRouterCatchAllActionsPtrOutput) RouteTo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationRouterCatchAllActions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RouteTo
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventOrchestrationRouterSet struct {
+	// ID of the `start` set. Router supports only one set and it's id has to be `start`
+	Id    string                            `pulumi:"id"`
+	Rules []EventOrchestrationRouterSetRule `pulumi:"rules"`
+}
+
+// EventOrchestrationRouterSetInput is an input type that accepts EventOrchestrationRouterSetArgs and EventOrchestrationRouterSetOutput values.
+// You can construct a concrete instance of `EventOrchestrationRouterSetInput` via:
+//
+//          EventOrchestrationRouterSetArgs{...}
+type EventOrchestrationRouterSetInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationRouterSetOutput() EventOrchestrationRouterSetOutput
+	ToEventOrchestrationRouterSetOutputWithContext(context.Context) EventOrchestrationRouterSetOutput
+}
+
+type EventOrchestrationRouterSetArgs struct {
+	// ID of the `start` set. Router supports only one set and it's id has to be `start`
+	Id    pulumi.StringInput                        `pulumi:"id"`
+	Rules EventOrchestrationRouterSetRuleArrayInput `pulumi:"rules"`
+}
+
+func (EventOrchestrationRouterSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationRouterSet)(nil)).Elem()
+}
+
+func (i EventOrchestrationRouterSetArgs) ToEventOrchestrationRouterSetOutput() EventOrchestrationRouterSetOutput {
+	return i.ToEventOrchestrationRouterSetOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationRouterSetArgs) ToEventOrchestrationRouterSetOutputWithContext(ctx context.Context) EventOrchestrationRouterSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationRouterSetOutput)
+}
+
+func (i EventOrchestrationRouterSetArgs) ToEventOrchestrationRouterSetPtrOutput() EventOrchestrationRouterSetPtrOutput {
+	return i.ToEventOrchestrationRouterSetPtrOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationRouterSetArgs) ToEventOrchestrationRouterSetPtrOutputWithContext(ctx context.Context) EventOrchestrationRouterSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationRouterSetOutput).ToEventOrchestrationRouterSetPtrOutputWithContext(ctx)
+}
+
+// EventOrchestrationRouterSetPtrInput is an input type that accepts EventOrchestrationRouterSetArgs, EventOrchestrationRouterSetPtr and EventOrchestrationRouterSetPtrOutput values.
+// You can construct a concrete instance of `EventOrchestrationRouterSetPtrInput` via:
+//
+//          EventOrchestrationRouterSetArgs{...}
+//
+//  or:
+//
+//          nil
+type EventOrchestrationRouterSetPtrInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationRouterSetPtrOutput() EventOrchestrationRouterSetPtrOutput
+	ToEventOrchestrationRouterSetPtrOutputWithContext(context.Context) EventOrchestrationRouterSetPtrOutput
+}
+
+type eventOrchestrationRouterSetPtrType EventOrchestrationRouterSetArgs
+
+func EventOrchestrationRouterSetPtr(v *EventOrchestrationRouterSetArgs) EventOrchestrationRouterSetPtrInput {
+	return (*eventOrchestrationRouterSetPtrType)(v)
+}
+
+func (*eventOrchestrationRouterSetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventOrchestrationRouterSet)(nil)).Elem()
+}
+
+func (i *eventOrchestrationRouterSetPtrType) ToEventOrchestrationRouterSetPtrOutput() EventOrchestrationRouterSetPtrOutput {
+	return i.ToEventOrchestrationRouterSetPtrOutputWithContext(context.Background())
+}
+
+func (i *eventOrchestrationRouterSetPtrType) ToEventOrchestrationRouterSetPtrOutputWithContext(ctx context.Context) EventOrchestrationRouterSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationRouterSetPtrOutput)
+}
+
+type EventOrchestrationRouterSetOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationRouterSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationRouterSet)(nil)).Elem()
+}
+
+func (o EventOrchestrationRouterSetOutput) ToEventOrchestrationRouterSetOutput() EventOrchestrationRouterSetOutput {
+	return o
+}
+
+func (o EventOrchestrationRouterSetOutput) ToEventOrchestrationRouterSetOutputWithContext(ctx context.Context) EventOrchestrationRouterSetOutput {
+	return o
+}
+
+func (o EventOrchestrationRouterSetOutput) ToEventOrchestrationRouterSetPtrOutput() EventOrchestrationRouterSetPtrOutput {
+	return o.ToEventOrchestrationRouterSetPtrOutputWithContext(context.Background())
+}
+
+func (o EventOrchestrationRouterSetOutput) ToEventOrchestrationRouterSetPtrOutputWithContext(ctx context.Context) EventOrchestrationRouterSetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventOrchestrationRouterSet) *EventOrchestrationRouterSet {
+		return &v
+	}).(EventOrchestrationRouterSetPtrOutput)
+}
+
+// ID of the `start` set. Router supports only one set and it's id has to be `start`
+func (o EventOrchestrationRouterSetOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationRouterSet) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o EventOrchestrationRouterSetOutput) Rules() EventOrchestrationRouterSetRuleArrayOutput {
+	return o.ApplyT(func(v EventOrchestrationRouterSet) []EventOrchestrationRouterSetRule { return v.Rules }).(EventOrchestrationRouterSetRuleArrayOutput)
+}
+
+type EventOrchestrationRouterSetPtrOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationRouterSetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventOrchestrationRouterSet)(nil)).Elem()
+}
+
+func (o EventOrchestrationRouterSetPtrOutput) ToEventOrchestrationRouterSetPtrOutput() EventOrchestrationRouterSetPtrOutput {
+	return o
+}
+
+func (o EventOrchestrationRouterSetPtrOutput) ToEventOrchestrationRouterSetPtrOutputWithContext(ctx context.Context) EventOrchestrationRouterSetPtrOutput {
+	return o
+}
+
+func (o EventOrchestrationRouterSetPtrOutput) Elem() EventOrchestrationRouterSetOutput {
+	return o.ApplyT(func(v *EventOrchestrationRouterSet) EventOrchestrationRouterSet {
+		if v != nil {
+			return *v
+		}
+		var ret EventOrchestrationRouterSet
+		return ret
+	}).(EventOrchestrationRouterSetOutput)
+}
+
+// ID of the `start` set. Router supports only one set and it's id has to be `start`
+func (o EventOrchestrationRouterSetPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationRouterSet) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EventOrchestrationRouterSetPtrOutput) Rules() EventOrchestrationRouterSetRuleArrayOutput {
+	return o.ApplyT(func(v *EventOrchestrationRouterSet) []EventOrchestrationRouterSetRule {
+		if v == nil {
+			return nil
+		}
+		return v.Rules
+	}).(EventOrchestrationRouterSetRuleArrayOutput)
+}
+
+type EventOrchestrationRouterSetRule struct {
+	// Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+	Actions EventOrchestrationRouterSetRuleActions `pulumi:"actions"`
+	// Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will _always_ match against the rule.
+	Conditions []EventOrchestrationRouterSetRuleCondition `pulumi:"conditions"`
+	// Indicates whether the rule is disabled and would therefore not be evaluated.
+	Disabled *bool `pulumi:"disabled"`
+	// ID of the `start` set. Router supports only one set and it's id has to be `start`
+	Id *string `pulumi:"id"`
+	// A description of this rule's purpose.
+	Label *string `pulumi:"label"`
+}
+
+// EventOrchestrationRouterSetRuleInput is an input type that accepts EventOrchestrationRouterSetRuleArgs and EventOrchestrationRouterSetRuleOutput values.
+// You can construct a concrete instance of `EventOrchestrationRouterSetRuleInput` via:
+//
+//          EventOrchestrationRouterSetRuleArgs{...}
+type EventOrchestrationRouterSetRuleInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationRouterSetRuleOutput() EventOrchestrationRouterSetRuleOutput
+	ToEventOrchestrationRouterSetRuleOutputWithContext(context.Context) EventOrchestrationRouterSetRuleOutput
+}
+
+type EventOrchestrationRouterSetRuleArgs struct {
+	// Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+	Actions EventOrchestrationRouterSetRuleActionsInput `pulumi:"actions"`
+	// Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will _always_ match against the rule.
+	Conditions EventOrchestrationRouterSetRuleConditionArrayInput `pulumi:"conditions"`
+	// Indicates whether the rule is disabled and would therefore not be evaluated.
+	Disabled pulumi.BoolPtrInput `pulumi:"disabled"`
+	// ID of the `start` set. Router supports only one set and it's id has to be `start`
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// A description of this rule's purpose.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+}
+
+func (EventOrchestrationRouterSetRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationRouterSetRule)(nil)).Elem()
+}
+
+func (i EventOrchestrationRouterSetRuleArgs) ToEventOrchestrationRouterSetRuleOutput() EventOrchestrationRouterSetRuleOutput {
+	return i.ToEventOrchestrationRouterSetRuleOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationRouterSetRuleArgs) ToEventOrchestrationRouterSetRuleOutputWithContext(ctx context.Context) EventOrchestrationRouterSetRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationRouterSetRuleOutput)
+}
+
+// EventOrchestrationRouterSetRuleArrayInput is an input type that accepts EventOrchestrationRouterSetRuleArray and EventOrchestrationRouterSetRuleArrayOutput values.
+// You can construct a concrete instance of `EventOrchestrationRouterSetRuleArrayInput` via:
+//
+//          EventOrchestrationRouterSetRuleArray{ EventOrchestrationRouterSetRuleArgs{...} }
+type EventOrchestrationRouterSetRuleArrayInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationRouterSetRuleArrayOutput() EventOrchestrationRouterSetRuleArrayOutput
+	ToEventOrchestrationRouterSetRuleArrayOutputWithContext(context.Context) EventOrchestrationRouterSetRuleArrayOutput
+}
+
+type EventOrchestrationRouterSetRuleArray []EventOrchestrationRouterSetRuleInput
+
+func (EventOrchestrationRouterSetRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationRouterSetRule)(nil)).Elem()
+}
+
+func (i EventOrchestrationRouterSetRuleArray) ToEventOrchestrationRouterSetRuleArrayOutput() EventOrchestrationRouterSetRuleArrayOutput {
+	return i.ToEventOrchestrationRouterSetRuleArrayOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationRouterSetRuleArray) ToEventOrchestrationRouterSetRuleArrayOutputWithContext(ctx context.Context) EventOrchestrationRouterSetRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationRouterSetRuleArrayOutput)
+}
+
+type EventOrchestrationRouterSetRuleOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationRouterSetRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationRouterSetRule)(nil)).Elem()
+}
+
+func (o EventOrchestrationRouterSetRuleOutput) ToEventOrchestrationRouterSetRuleOutput() EventOrchestrationRouterSetRuleOutput {
+	return o
+}
+
+func (o EventOrchestrationRouterSetRuleOutput) ToEventOrchestrationRouterSetRuleOutputWithContext(ctx context.Context) EventOrchestrationRouterSetRuleOutput {
+	return o
+}
+
+// Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+func (o EventOrchestrationRouterSetRuleOutput) Actions() EventOrchestrationRouterSetRuleActionsOutput {
+	return o.ApplyT(func(v EventOrchestrationRouterSetRule) EventOrchestrationRouterSetRuleActions { return v.Actions }).(EventOrchestrationRouterSetRuleActionsOutput)
+}
+
+// Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will _always_ match against the rule.
+func (o EventOrchestrationRouterSetRuleOutput) Conditions() EventOrchestrationRouterSetRuleConditionArrayOutput {
+	return o.ApplyT(func(v EventOrchestrationRouterSetRule) []EventOrchestrationRouterSetRuleCondition {
+		return v.Conditions
+	}).(EventOrchestrationRouterSetRuleConditionArrayOutput)
+}
+
+// Indicates whether the rule is disabled and would therefore not be evaluated.
+func (o EventOrchestrationRouterSetRuleOutput) Disabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationRouterSetRule) *bool { return v.Disabled }).(pulumi.BoolPtrOutput)
+}
+
+// ID of the `start` set. Router supports only one set and it's id has to be `start`
+func (o EventOrchestrationRouterSetRuleOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationRouterSetRule) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// A description of this rule's purpose.
+func (o EventOrchestrationRouterSetRuleOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationRouterSetRule) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+type EventOrchestrationRouterSetRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationRouterSetRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationRouterSetRule)(nil)).Elem()
+}
+
+func (o EventOrchestrationRouterSetRuleArrayOutput) ToEventOrchestrationRouterSetRuleArrayOutput() EventOrchestrationRouterSetRuleArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationRouterSetRuleArrayOutput) ToEventOrchestrationRouterSetRuleArrayOutputWithContext(ctx context.Context) EventOrchestrationRouterSetRuleArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationRouterSetRuleArrayOutput) Index(i pulumi.IntInput) EventOrchestrationRouterSetRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventOrchestrationRouterSetRule {
+		return vs[0].([]EventOrchestrationRouterSetRule)[vs[1].(int)]
+	}).(EventOrchestrationRouterSetRuleOutput)
+}
+
+type EventOrchestrationRouterSetRuleActions struct {
+	// The ID of the target Service for the resulting alert.
+	RouteTo string `pulumi:"routeTo"`
+}
+
+// EventOrchestrationRouterSetRuleActionsInput is an input type that accepts EventOrchestrationRouterSetRuleActionsArgs and EventOrchestrationRouterSetRuleActionsOutput values.
+// You can construct a concrete instance of `EventOrchestrationRouterSetRuleActionsInput` via:
+//
+//          EventOrchestrationRouterSetRuleActionsArgs{...}
+type EventOrchestrationRouterSetRuleActionsInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationRouterSetRuleActionsOutput() EventOrchestrationRouterSetRuleActionsOutput
+	ToEventOrchestrationRouterSetRuleActionsOutputWithContext(context.Context) EventOrchestrationRouterSetRuleActionsOutput
+}
+
+type EventOrchestrationRouterSetRuleActionsArgs struct {
+	// The ID of the target Service for the resulting alert.
+	RouteTo pulumi.StringInput `pulumi:"routeTo"`
+}
+
+func (EventOrchestrationRouterSetRuleActionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationRouterSetRuleActions)(nil)).Elem()
+}
+
+func (i EventOrchestrationRouterSetRuleActionsArgs) ToEventOrchestrationRouterSetRuleActionsOutput() EventOrchestrationRouterSetRuleActionsOutput {
+	return i.ToEventOrchestrationRouterSetRuleActionsOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationRouterSetRuleActionsArgs) ToEventOrchestrationRouterSetRuleActionsOutputWithContext(ctx context.Context) EventOrchestrationRouterSetRuleActionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationRouterSetRuleActionsOutput)
+}
+
+type EventOrchestrationRouterSetRuleActionsOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationRouterSetRuleActionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationRouterSetRuleActions)(nil)).Elem()
+}
+
+func (o EventOrchestrationRouterSetRuleActionsOutput) ToEventOrchestrationRouterSetRuleActionsOutput() EventOrchestrationRouterSetRuleActionsOutput {
+	return o
+}
+
+func (o EventOrchestrationRouterSetRuleActionsOutput) ToEventOrchestrationRouterSetRuleActionsOutputWithContext(ctx context.Context) EventOrchestrationRouterSetRuleActionsOutput {
+	return o
+}
+
+// The ID of the target Service for the resulting alert.
+func (o EventOrchestrationRouterSetRuleActionsOutput) RouteTo() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationRouterSetRuleActions) string { return v.RouteTo }).(pulumi.StringOutput)
+}
+
+type EventOrchestrationRouterSetRuleCondition struct {
+	// A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+	Expression string `pulumi:"expression"`
+}
+
+// EventOrchestrationRouterSetRuleConditionInput is an input type that accepts EventOrchestrationRouterSetRuleConditionArgs and EventOrchestrationRouterSetRuleConditionOutput values.
+// You can construct a concrete instance of `EventOrchestrationRouterSetRuleConditionInput` via:
+//
+//          EventOrchestrationRouterSetRuleConditionArgs{...}
+type EventOrchestrationRouterSetRuleConditionInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationRouterSetRuleConditionOutput() EventOrchestrationRouterSetRuleConditionOutput
+	ToEventOrchestrationRouterSetRuleConditionOutputWithContext(context.Context) EventOrchestrationRouterSetRuleConditionOutput
+}
+
+type EventOrchestrationRouterSetRuleConditionArgs struct {
+	// A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+	Expression pulumi.StringInput `pulumi:"expression"`
+}
+
+func (EventOrchestrationRouterSetRuleConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationRouterSetRuleCondition)(nil)).Elem()
+}
+
+func (i EventOrchestrationRouterSetRuleConditionArgs) ToEventOrchestrationRouterSetRuleConditionOutput() EventOrchestrationRouterSetRuleConditionOutput {
+	return i.ToEventOrchestrationRouterSetRuleConditionOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationRouterSetRuleConditionArgs) ToEventOrchestrationRouterSetRuleConditionOutputWithContext(ctx context.Context) EventOrchestrationRouterSetRuleConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationRouterSetRuleConditionOutput)
+}
+
+// EventOrchestrationRouterSetRuleConditionArrayInput is an input type that accepts EventOrchestrationRouterSetRuleConditionArray and EventOrchestrationRouterSetRuleConditionArrayOutput values.
+// You can construct a concrete instance of `EventOrchestrationRouterSetRuleConditionArrayInput` via:
+//
+//          EventOrchestrationRouterSetRuleConditionArray{ EventOrchestrationRouterSetRuleConditionArgs{...} }
+type EventOrchestrationRouterSetRuleConditionArrayInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationRouterSetRuleConditionArrayOutput() EventOrchestrationRouterSetRuleConditionArrayOutput
+	ToEventOrchestrationRouterSetRuleConditionArrayOutputWithContext(context.Context) EventOrchestrationRouterSetRuleConditionArrayOutput
+}
+
+type EventOrchestrationRouterSetRuleConditionArray []EventOrchestrationRouterSetRuleConditionInput
+
+func (EventOrchestrationRouterSetRuleConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationRouterSetRuleCondition)(nil)).Elem()
+}
+
+func (i EventOrchestrationRouterSetRuleConditionArray) ToEventOrchestrationRouterSetRuleConditionArrayOutput() EventOrchestrationRouterSetRuleConditionArrayOutput {
+	return i.ToEventOrchestrationRouterSetRuleConditionArrayOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationRouterSetRuleConditionArray) ToEventOrchestrationRouterSetRuleConditionArrayOutputWithContext(ctx context.Context) EventOrchestrationRouterSetRuleConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationRouterSetRuleConditionArrayOutput)
+}
+
+type EventOrchestrationRouterSetRuleConditionOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationRouterSetRuleConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationRouterSetRuleCondition)(nil)).Elem()
+}
+
+func (o EventOrchestrationRouterSetRuleConditionOutput) ToEventOrchestrationRouterSetRuleConditionOutput() EventOrchestrationRouterSetRuleConditionOutput {
+	return o
+}
+
+func (o EventOrchestrationRouterSetRuleConditionOutput) ToEventOrchestrationRouterSetRuleConditionOutputWithContext(ctx context.Context) EventOrchestrationRouterSetRuleConditionOutput {
+	return o
+}
+
+// A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+func (o EventOrchestrationRouterSetRuleConditionOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationRouterSetRuleCondition) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+type EventOrchestrationRouterSetRuleConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationRouterSetRuleConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationRouterSetRuleCondition)(nil)).Elem()
+}
+
+func (o EventOrchestrationRouterSetRuleConditionArrayOutput) ToEventOrchestrationRouterSetRuleConditionArrayOutput() EventOrchestrationRouterSetRuleConditionArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationRouterSetRuleConditionArrayOutput) ToEventOrchestrationRouterSetRuleConditionArrayOutputWithContext(ctx context.Context) EventOrchestrationRouterSetRuleConditionArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationRouterSetRuleConditionArrayOutput) Index(i pulumi.IntInput) EventOrchestrationRouterSetRuleConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventOrchestrationRouterSetRuleCondition {
+		return vs[0].([]EventOrchestrationRouterSetRuleCondition)[vs[1].(int)]
+	}).(EventOrchestrationRouterSetRuleConditionOutput)
+}
+
+type EventOrchestrationServiceCatchAll struct {
+	// These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
+	Actions EventOrchestrationServiceCatchAllActions `pulumi:"actions"`
+}
+
+// EventOrchestrationServiceCatchAllInput is an input type that accepts EventOrchestrationServiceCatchAllArgs and EventOrchestrationServiceCatchAllOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceCatchAllInput` via:
+//
+//          EventOrchestrationServiceCatchAllArgs{...}
+type EventOrchestrationServiceCatchAllInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceCatchAllOutput() EventOrchestrationServiceCatchAllOutput
+	ToEventOrchestrationServiceCatchAllOutputWithContext(context.Context) EventOrchestrationServiceCatchAllOutput
+}
+
+type EventOrchestrationServiceCatchAllArgs struct {
+	// These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
+	Actions EventOrchestrationServiceCatchAllActionsInput `pulumi:"actions"`
+}
+
+func (EventOrchestrationServiceCatchAllArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceCatchAll)(nil)).Elem()
+}
+
+func (i EventOrchestrationServiceCatchAllArgs) ToEventOrchestrationServiceCatchAllOutput() EventOrchestrationServiceCatchAllOutput {
+	return i.ToEventOrchestrationServiceCatchAllOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceCatchAllArgs) ToEventOrchestrationServiceCatchAllOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCatchAllOutput)
+}
+
+func (i EventOrchestrationServiceCatchAllArgs) ToEventOrchestrationServiceCatchAllPtrOutput() EventOrchestrationServiceCatchAllPtrOutput {
+	return i.ToEventOrchestrationServiceCatchAllPtrOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceCatchAllArgs) ToEventOrchestrationServiceCatchAllPtrOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCatchAllOutput).ToEventOrchestrationServiceCatchAllPtrOutputWithContext(ctx)
+}
+
+// EventOrchestrationServiceCatchAllPtrInput is an input type that accepts EventOrchestrationServiceCatchAllArgs, EventOrchestrationServiceCatchAllPtr and EventOrchestrationServiceCatchAllPtrOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceCatchAllPtrInput` via:
+//
+//          EventOrchestrationServiceCatchAllArgs{...}
+//
+//  or:
+//
+//          nil
+type EventOrchestrationServiceCatchAllPtrInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceCatchAllPtrOutput() EventOrchestrationServiceCatchAllPtrOutput
+	ToEventOrchestrationServiceCatchAllPtrOutputWithContext(context.Context) EventOrchestrationServiceCatchAllPtrOutput
+}
+
+type eventOrchestrationServiceCatchAllPtrType EventOrchestrationServiceCatchAllArgs
+
+func EventOrchestrationServiceCatchAllPtr(v *EventOrchestrationServiceCatchAllArgs) EventOrchestrationServiceCatchAllPtrInput {
+	return (*eventOrchestrationServiceCatchAllPtrType)(v)
+}
+
+func (*eventOrchestrationServiceCatchAllPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventOrchestrationServiceCatchAll)(nil)).Elem()
+}
+
+func (i *eventOrchestrationServiceCatchAllPtrType) ToEventOrchestrationServiceCatchAllPtrOutput() EventOrchestrationServiceCatchAllPtrOutput {
+	return i.ToEventOrchestrationServiceCatchAllPtrOutputWithContext(context.Background())
+}
+
+func (i *eventOrchestrationServiceCatchAllPtrType) ToEventOrchestrationServiceCatchAllPtrOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCatchAllPtrOutput)
+}
+
+type EventOrchestrationServiceCatchAllOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceCatchAllOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceCatchAll)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceCatchAllOutput) ToEventOrchestrationServiceCatchAllOutput() EventOrchestrationServiceCatchAllOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceCatchAllOutput) ToEventOrchestrationServiceCatchAllOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceCatchAllOutput) ToEventOrchestrationServiceCatchAllPtrOutput() EventOrchestrationServiceCatchAllPtrOutput {
+	return o.ToEventOrchestrationServiceCatchAllPtrOutputWithContext(context.Background())
+}
+
+func (o EventOrchestrationServiceCatchAllOutput) ToEventOrchestrationServiceCatchAllPtrOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventOrchestrationServiceCatchAll) *EventOrchestrationServiceCatchAll {
+		return &v
+	}).(EventOrchestrationServiceCatchAllPtrOutput)
+}
+
+// These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
+func (o EventOrchestrationServiceCatchAllOutput) Actions() EventOrchestrationServiceCatchAllActionsOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCatchAll) EventOrchestrationServiceCatchAllActions { return v.Actions }).(EventOrchestrationServiceCatchAllActionsOutput)
+}
+
+type EventOrchestrationServiceCatchAllPtrOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceCatchAllPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventOrchestrationServiceCatchAll)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceCatchAllPtrOutput) ToEventOrchestrationServiceCatchAllPtrOutput() EventOrchestrationServiceCatchAllPtrOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceCatchAllPtrOutput) ToEventOrchestrationServiceCatchAllPtrOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllPtrOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceCatchAllPtrOutput) Elem() EventOrchestrationServiceCatchAllOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceCatchAll) EventOrchestrationServiceCatchAll {
+		if v != nil {
+			return *v
+		}
+		var ret EventOrchestrationServiceCatchAll
+		return ret
+	}).(EventOrchestrationServiceCatchAllOutput)
+}
+
+// These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
+func (o EventOrchestrationServiceCatchAllPtrOutput) Actions() EventOrchestrationServiceCatchAllActionsPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceCatchAll) *EventOrchestrationServiceCatchAllActions {
+		if v == nil {
+			return nil
+		}
+		return &v.Actions
+	}).(EventOrchestrationServiceCatchAllActionsPtrOutput)
+}
+
+type EventOrchestrationServiceCatchAllActions struct {
+	// Add this text as a note on the resulting incident.
+	Annotate *string `pulumi:"annotate"`
+	// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+	AutomationAction *EventOrchestrationServiceCatchAllActionsAutomationAction `pulumi:"automationAction"`
+	// sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
+	EventAction *string `pulumi:"eventAction"`
+	// Replace any CEF field or Custom Details object field using custom variables.
+	Extractions []EventOrchestrationServiceCatchAllActionsExtraction `pulumi:"extractions"`
+	// Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+	PagerdutyAutomationAction *EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction `pulumi:"pagerdutyAutomationAction"`
+	Priority                  *string                                                            `pulumi:"priority"`
+	// The ID of a Set from this Service Orchestration whose rules you also want to use with event that match this rule.
+	RouteTo *string `pulumi:"routeTo"`
+	// sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
+	Severity *string `pulumi:"severity"`
+	// Set whether the resulting alert is suppressed. Suppressed alerts will not trigger an incident.
+	Suppress *bool `pulumi:"suppress"`
+	// The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won't create an incident for this the resulting alert.
+	Suspend *int `pulumi:"suspend"`
+	// Populate variables from event payloads and use those variables in other event actions.
+	Variables []EventOrchestrationServiceCatchAllActionsVariable `pulumi:"variables"`
+}
+
+// EventOrchestrationServiceCatchAllActionsInput is an input type that accepts EventOrchestrationServiceCatchAllActionsArgs and EventOrchestrationServiceCatchAllActionsOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceCatchAllActionsInput` via:
+//
+//          EventOrchestrationServiceCatchAllActionsArgs{...}
+type EventOrchestrationServiceCatchAllActionsInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceCatchAllActionsOutput() EventOrchestrationServiceCatchAllActionsOutput
+	ToEventOrchestrationServiceCatchAllActionsOutputWithContext(context.Context) EventOrchestrationServiceCatchAllActionsOutput
+}
+
+type EventOrchestrationServiceCatchAllActionsArgs struct {
+	// Add this text as a note on the resulting incident.
+	Annotate pulumi.StringPtrInput `pulumi:"annotate"`
+	// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+	AutomationAction EventOrchestrationServiceCatchAllActionsAutomationActionPtrInput `pulumi:"automationAction"`
+	// sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
+	EventAction pulumi.StringPtrInput `pulumi:"eventAction"`
+	// Replace any CEF field or Custom Details object field using custom variables.
+	Extractions EventOrchestrationServiceCatchAllActionsExtractionArrayInput `pulumi:"extractions"`
+	// Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+	PagerdutyAutomationAction EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrInput `pulumi:"pagerdutyAutomationAction"`
+	Priority                  pulumi.StringPtrInput                                                     `pulumi:"priority"`
+	// The ID of a Set from this Service Orchestration whose rules you also want to use with event that match this rule.
+	RouteTo pulumi.StringPtrInput `pulumi:"routeTo"`
+	// sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
+	Severity pulumi.StringPtrInput `pulumi:"severity"`
+	// Set whether the resulting alert is suppressed. Suppressed alerts will not trigger an incident.
+	Suppress pulumi.BoolPtrInput `pulumi:"suppress"`
+	// The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won't create an incident for this the resulting alert.
+	Suspend pulumi.IntPtrInput `pulumi:"suspend"`
+	// Populate variables from event payloads and use those variables in other event actions.
+	Variables EventOrchestrationServiceCatchAllActionsVariableArrayInput `pulumi:"variables"`
+}
+
+func (EventOrchestrationServiceCatchAllActionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceCatchAllActions)(nil)).Elem()
+}
+
+func (i EventOrchestrationServiceCatchAllActionsArgs) ToEventOrchestrationServiceCatchAllActionsOutput() EventOrchestrationServiceCatchAllActionsOutput {
+	return i.ToEventOrchestrationServiceCatchAllActionsOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceCatchAllActionsArgs) ToEventOrchestrationServiceCatchAllActionsOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCatchAllActionsOutput)
+}
+
+func (i EventOrchestrationServiceCatchAllActionsArgs) ToEventOrchestrationServiceCatchAllActionsPtrOutput() EventOrchestrationServiceCatchAllActionsPtrOutput {
+	return i.ToEventOrchestrationServiceCatchAllActionsPtrOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceCatchAllActionsArgs) ToEventOrchestrationServiceCatchAllActionsPtrOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCatchAllActionsOutput).ToEventOrchestrationServiceCatchAllActionsPtrOutputWithContext(ctx)
+}
+
+// EventOrchestrationServiceCatchAllActionsPtrInput is an input type that accepts EventOrchestrationServiceCatchAllActionsArgs, EventOrchestrationServiceCatchAllActionsPtr and EventOrchestrationServiceCatchAllActionsPtrOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceCatchAllActionsPtrInput` via:
+//
+//          EventOrchestrationServiceCatchAllActionsArgs{...}
+//
+//  or:
+//
+//          nil
+type EventOrchestrationServiceCatchAllActionsPtrInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceCatchAllActionsPtrOutput() EventOrchestrationServiceCatchAllActionsPtrOutput
+	ToEventOrchestrationServiceCatchAllActionsPtrOutputWithContext(context.Context) EventOrchestrationServiceCatchAllActionsPtrOutput
+}
+
+type eventOrchestrationServiceCatchAllActionsPtrType EventOrchestrationServiceCatchAllActionsArgs
+
+func EventOrchestrationServiceCatchAllActionsPtr(v *EventOrchestrationServiceCatchAllActionsArgs) EventOrchestrationServiceCatchAllActionsPtrInput {
+	return (*eventOrchestrationServiceCatchAllActionsPtrType)(v)
+}
+
+func (*eventOrchestrationServiceCatchAllActionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventOrchestrationServiceCatchAllActions)(nil)).Elem()
+}
+
+func (i *eventOrchestrationServiceCatchAllActionsPtrType) ToEventOrchestrationServiceCatchAllActionsPtrOutput() EventOrchestrationServiceCatchAllActionsPtrOutput {
+	return i.ToEventOrchestrationServiceCatchAllActionsPtrOutputWithContext(context.Background())
+}
+
+func (i *eventOrchestrationServiceCatchAllActionsPtrType) ToEventOrchestrationServiceCatchAllActionsPtrOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCatchAllActionsPtrOutput)
+}
+
+type EventOrchestrationServiceCatchAllActionsOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceCatchAllActionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceCatchAllActions)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceCatchAllActionsOutput) ToEventOrchestrationServiceCatchAllActionsOutput() EventOrchestrationServiceCatchAllActionsOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceCatchAllActionsOutput) ToEventOrchestrationServiceCatchAllActionsOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceCatchAllActionsOutput) ToEventOrchestrationServiceCatchAllActionsPtrOutput() EventOrchestrationServiceCatchAllActionsPtrOutput {
+	return o.ToEventOrchestrationServiceCatchAllActionsPtrOutputWithContext(context.Background())
+}
+
+func (o EventOrchestrationServiceCatchAllActionsOutput) ToEventOrchestrationServiceCatchAllActionsPtrOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventOrchestrationServiceCatchAllActions) *EventOrchestrationServiceCatchAllActions {
+		return &v
+	}).(EventOrchestrationServiceCatchAllActionsPtrOutput)
+}
+
+// Add this text as a note on the resulting incident.
+func (o EventOrchestrationServiceCatchAllActionsOutput) Annotate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActions) *string { return v.Annotate }).(pulumi.StringPtrOutput)
+}
+
+// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+func (o EventOrchestrationServiceCatchAllActionsOutput) AutomationAction() EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActions) *EventOrchestrationServiceCatchAllActionsAutomationAction {
+		return v.AutomationAction
+	}).(EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput)
+}
+
+// sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
+func (o EventOrchestrationServiceCatchAllActionsOutput) EventAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActions) *string { return v.EventAction }).(pulumi.StringPtrOutput)
+}
+
+// Replace any CEF field or Custom Details object field using custom variables.
+func (o EventOrchestrationServiceCatchAllActionsOutput) Extractions() EventOrchestrationServiceCatchAllActionsExtractionArrayOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActions) []EventOrchestrationServiceCatchAllActionsExtraction {
+		return v.Extractions
+	}).(EventOrchestrationServiceCatchAllActionsExtractionArrayOutput)
+}
+
+// Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+func (o EventOrchestrationServiceCatchAllActionsOutput) PagerdutyAutomationAction() EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActions) *EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction {
+		return v.PagerdutyAutomationAction
+	}).(EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput)
+}
+
+func (o EventOrchestrationServiceCatchAllActionsOutput) Priority() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActions) *string { return v.Priority }).(pulumi.StringPtrOutput)
+}
+
+// The ID of a Set from this Service Orchestration whose rules you also want to use with event that match this rule.
+func (o EventOrchestrationServiceCatchAllActionsOutput) RouteTo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActions) *string { return v.RouteTo }).(pulumi.StringPtrOutput)
+}
+
+// sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
+func (o EventOrchestrationServiceCatchAllActionsOutput) Severity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActions) *string { return v.Severity }).(pulumi.StringPtrOutput)
+}
+
+// Set whether the resulting alert is suppressed. Suppressed alerts will not trigger an incident.
+func (o EventOrchestrationServiceCatchAllActionsOutput) Suppress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActions) *bool { return v.Suppress }).(pulumi.BoolPtrOutput)
+}
+
+// The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won't create an incident for this the resulting alert.
+func (o EventOrchestrationServiceCatchAllActionsOutput) Suspend() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActions) *int { return v.Suspend }).(pulumi.IntPtrOutput)
+}
+
+// Populate variables from event payloads and use those variables in other event actions.
+func (o EventOrchestrationServiceCatchAllActionsOutput) Variables() EventOrchestrationServiceCatchAllActionsVariableArrayOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActions) []EventOrchestrationServiceCatchAllActionsVariable {
+		return v.Variables
+	}).(EventOrchestrationServiceCatchAllActionsVariableArrayOutput)
+}
+
+type EventOrchestrationServiceCatchAllActionsPtrOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceCatchAllActionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventOrchestrationServiceCatchAllActions)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceCatchAllActionsPtrOutput) ToEventOrchestrationServiceCatchAllActionsPtrOutput() EventOrchestrationServiceCatchAllActionsPtrOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceCatchAllActionsPtrOutput) ToEventOrchestrationServiceCatchAllActionsPtrOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsPtrOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceCatchAllActionsPtrOutput) Elem() EventOrchestrationServiceCatchAllActionsOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceCatchAllActions) EventOrchestrationServiceCatchAllActions {
+		if v != nil {
+			return *v
+		}
+		var ret EventOrchestrationServiceCatchAllActions
+		return ret
+	}).(EventOrchestrationServiceCatchAllActionsOutput)
+}
+
+// Add this text as a note on the resulting incident.
+func (o EventOrchestrationServiceCatchAllActionsPtrOutput) Annotate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceCatchAllActions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Annotate
+	}).(pulumi.StringPtrOutput)
+}
+
+// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+func (o EventOrchestrationServiceCatchAllActionsPtrOutput) AutomationAction() EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceCatchAllActions) *EventOrchestrationServiceCatchAllActionsAutomationAction {
+		if v == nil {
+			return nil
+		}
+		return v.AutomationAction
+	}).(EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput)
+}
+
+// sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
+func (o EventOrchestrationServiceCatchAllActionsPtrOutput) EventAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceCatchAllActions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EventAction
+	}).(pulumi.StringPtrOutput)
+}
+
+// Replace any CEF field or Custom Details object field using custom variables.
+func (o EventOrchestrationServiceCatchAllActionsPtrOutput) Extractions() EventOrchestrationServiceCatchAllActionsExtractionArrayOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceCatchAllActions) []EventOrchestrationServiceCatchAllActionsExtraction {
+		if v == nil {
+			return nil
+		}
+		return v.Extractions
+	}).(EventOrchestrationServiceCatchAllActionsExtractionArrayOutput)
+}
+
+// Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+func (o EventOrchestrationServiceCatchAllActionsPtrOutput) PagerdutyAutomationAction() EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceCatchAllActions) *EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction {
+		if v == nil {
+			return nil
+		}
+		return v.PagerdutyAutomationAction
+	}).(EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput)
+}
+
+func (o EventOrchestrationServiceCatchAllActionsPtrOutput) Priority() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceCatchAllActions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Priority
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of a Set from this Service Orchestration whose rules you also want to use with event that match this rule.
+func (o EventOrchestrationServiceCatchAllActionsPtrOutput) RouteTo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceCatchAllActions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RouteTo
+	}).(pulumi.StringPtrOutput)
+}
+
+// sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
+func (o EventOrchestrationServiceCatchAllActionsPtrOutput) Severity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceCatchAllActions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Severity
+	}).(pulumi.StringPtrOutput)
+}
+
+// Set whether the resulting alert is suppressed. Suppressed alerts will not trigger an incident.
+func (o EventOrchestrationServiceCatchAllActionsPtrOutput) Suppress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceCatchAllActions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Suppress
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won't create an incident for this the resulting alert.
+func (o EventOrchestrationServiceCatchAllActionsPtrOutput) Suspend() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceCatchAllActions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Suspend
+	}).(pulumi.IntPtrOutput)
+}
+
+// Populate variables from event payloads and use those variables in other event actions.
+func (o EventOrchestrationServiceCatchAllActionsPtrOutput) Variables() EventOrchestrationServiceCatchAllActionsVariableArrayOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceCatchAllActions) []EventOrchestrationServiceCatchAllActionsVariable {
+		if v == nil {
+			return nil
+		}
+		return v.Variables
+	}).(EventOrchestrationServiceCatchAllActionsVariableArrayOutput)
+}
+
+type EventOrchestrationServiceCatchAllActionsAutomationAction struct {
+	// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+	AutoSend *bool `pulumi:"autoSend"`
+	// Specify custom key/value pairs that'll be sent with the webhook request as request headers.
+	Headers []EventOrchestrationServiceCatchAllActionsAutomationActionHeader `pulumi:"headers"`
+	// Name of this Webhook.
+	Name string `pulumi:"name"`
+	// Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
+	Parameters []EventOrchestrationServiceCatchAllActionsAutomationActionParameter `pulumi:"parameters"`
+	// The API endpoint where PagerDuty's servers will send the webhook request.
+	Url string `pulumi:"url"`
+}
+
+// EventOrchestrationServiceCatchAllActionsAutomationActionInput is an input type that accepts EventOrchestrationServiceCatchAllActionsAutomationActionArgs and EventOrchestrationServiceCatchAllActionsAutomationActionOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceCatchAllActionsAutomationActionInput` via:
+//
+//          EventOrchestrationServiceCatchAllActionsAutomationActionArgs{...}
+type EventOrchestrationServiceCatchAllActionsAutomationActionInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceCatchAllActionsAutomationActionOutput() EventOrchestrationServiceCatchAllActionsAutomationActionOutput
+	ToEventOrchestrationServiceCatchAllActionsAutomationActionOutputWithContext(context.Context) EventOrchestrationServiceCatchAllActionsAutomationActionOutput
+}
+
+type EventOrchestrationServiceCatchAllActionsAutomationActionArgs struct {
+	// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+	AutoSend pulumi.BoolPtrInput `pulumi:"autoSend"`
+	// Specify custom key/value pairs that'll be sent with the webhook request as request headers.
+	Headers EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayInput `pulumi:"headers"`
+	// Name of this Webhook.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
+	Parameters EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayInput `pulumi:"parameters"`
+	// The API endpoint where PagerDuty's servers will send the webhook request.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (EventOrchestrationServiceCatchAllActionsAutomationActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceCatchAllActionsAutomationAction)(nil)).Elem()
+}
+
+func (i EventOrchestrationServiceCatchAllActionsAutomationActionArgs) ToEventOrchestrationServiceCatchAllActionsAutomationActionOutput() EventOrchestrationServiceCatchAllActionsAutomationActionOutput {
+	return i.ToEventOrchestrationServiceCatchAllActionsAutomationActionOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceCatchAllActionsAutomationActionArgs) ToEventOrchestrationServiceCatchAllActionsAutomationActionOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsAutomationActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCatchAllActionsAutomationActionOutput)
+}
+
+func (i EventOrchestrationServiceCatchAllActionsAutomationActionArgs) ToEventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput() EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput {
+	return i.ToEventOrchestrationServiceCatchAllActionsAutomationActionPtrOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceCatchAllActionsAutomationActionArgs) ToEventOrchestrationServiceCatchAllActionsAutomationActionPtrOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCatchAllActionsAutomationActionOutput).ToEventOrchestrationServiceCatchAllActionsAutomationActionPtrOutputWithContext(ctx)
+}
+
+// EventOrchestrationServiceCatchAllActionsAutomationActionPtrInput is an input type that accepts EventOrchestrationServiceCatchAllActionsAutomationActionArgs, EventOrchestrationServiceCatchAllActionsAutomationActionPtr and EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceCatchAllActionsAutomationActionPtrInput` via:
+//
+//          EventOrchestrationServiceCatchAllActionsAutomationActionArgs{...}
+//
+//  or:
+//
+//          nil
+type EventOrchestrationServiceCatchAllActionsAutomationActionPtrInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput() EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput
+	ToEventOrchestrationServiceCatchAllActionsAutomationActionPtrOutputWithContext(context.Context) EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput
+}
+
+type eventOrchestrationServiceCatchAllActionsAutomationActionPtrType EventOrchestrationServiceCatchAllActionsAutomationActionArgs
+
+func EventOrchestrationServiceCatchAllActionsAutomationActionPtr(v *EventOrchestrationServiceCatchAllActionsAutomationActionArgs) EventOrchestrationServiceCatchAllActionsAutomationActionPtrInput {
+	return (*eventOrchestrationServiceCatchAllActionsAutomationActionPtrType)(v)
+}
+
+func (*eventOrchestrationServiceCatchAllActionsAutomationActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventOrchestrationServiceCatchAllActionsAutomationAction)(nil)).Elem()
+}
+
+func (i *eventOrchestrationServiceCatchAllActionsAutomationActionPtrType) ToEventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput() EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput {
+	return i.ToEventOrchestrationServiceCatchAllActionsAutomationActionPtrOutputWithContext(context.Background())
+}
+
+func (i *eventOrchestrationServiceCatchAllActionsAutomationActionPtrType) ToEventOrchestrationServiceCatchAllActionsAutomationActionPtrOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput)
+}
+
+type EventOrchestrationServiceCatchAllActionsAutomationActionOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceCatchAllActionsAutomationActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceCatchAllActionsAutomationAction)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceCatchAllActionsAutomationActionOutput) ToEventOrchestrationServiceCatchAllActionsAutomationActionOutput() EventOrchestrationServiceCatchAllActionsAutomationActionOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceCatchAllActionsAutomationActionOutput) ToEventOrchestrationServiceCatchAllActionsAutomationActionOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsAutomationActionOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceCatchAllActionsAutomationActionOutput) ToEventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput() EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput {
+	return o.ToEventOrchestrationServiceCatchAllActionsAutomationActionPtrOutputWithContext(context.Background())
+}
+
+func (o EventOrchestrationServiceCatchAllActionsAutomationActionOutput) ToEventOrchestrationServiceCatchAllActionsAutomationActionPtrOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventOrchestrationServiceCatchAllActionsAutomationAction) *EventOrchestrationServiceCatchAllActionsAutomationAction {
+		return &v
+	}).(EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput)
+}
+
+// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+func (o EventOrchestrationServiceCatchAllActionsAutomationActionOutput) AutoSend() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsAutomationAction) *bool { return v.AutoSend }).(pulumi.BoolPtrOutput)
+}
+
+// Specify custom key/value pairs that'll be sent with the webhook request as request headers.
+func (o EventOrchestrationServiceCatchAllActionsAutomationActionOutput) Headers() EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsAutomationAction) []EventOrchestrationServiceCatchAllActionsAutomationActionHeader {
+		return v.Headers
+	}).(EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutput)
+}
+
+// Name of this Webhook.
+func (o EventOrchestrationServiceCatchAllActionsAutomationActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsAutomationAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
+func (o EventOrchestrationServiceCatchAllActionsAutomationActionOutput) Parameters() EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsAutomationAction) []EventOrchestrationServiceCatchAllActionsAutomationActionParameter {
+		return v.Parameters
+	}).(EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayOutput)
+}
+
+// The API endpoint where PagerDuty's servers will send the webhook request.
+func (o EventOrchestrationServiceCatchAllActionsAutomationActionOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsAutomationAction) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventOrchestrationServiceCatchAllActionsAutomationAction)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput) ToEventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput() EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput) ToEventOrchestrationServiceCatchAllActionsAutomationActionPtrOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput) Elem() EventOrchestrationServiceCatchAllActionsAutomationActionOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceCatchAllActionsAutomationAction) EventOrchestrationServiceCatchAllActionsAutomationAction {
+		if v != nil {
+			return *v
+		}
+		var ret EventOrchestrationServiceCatchAllActionsAutomationAction
+		return ret
+	}).(EventOrchestrationServiceCatchAllActionsAutomationActionOutput)
+}
+
+// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+func (o EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput) AutoSend() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceCatchAllActionsAutomationAction) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoSend
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specify custom key/value pairs that'll be sent with the webhook request as request headers.
+func (o EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput) Headers() EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceCatchAllActionsAutomationAction) []EventOrchestrationServiceCatchAllActionsAutomationActionHeader {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutput)
+}
+
+// Name of this Webhook.
+func (o EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceCatchAllActionsAutomationAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
+func (o EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput) Parameters() EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceCatchAllActionsAutomationAction) []EventOrchestrationServiceCatchAllActionsAutomationActionParameter {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayOutput)
+}
+
+// The API endpoint where PagerDuty's servers will send the webhook request.
+func (o EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceCatchAllActionsAutomationAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventOrchestrationServiceCatchAllActionsAutomationActionHeader struct {
+	// Name to identify the header
+	Key string `pulumi:"key"`
+	// Value of this header
+	Value string `pulumi:"value"`
+}
+
+// EventOrchestrationServiceCatchAllActionsAutomationActionHeaderInput is an input type that accepts EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgs and EventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceCatchAllActionsAutomationActionHeaderInput` via:
+//
+//          EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgs{...}
+type EventOrchestrationServiceCatchAllActionsAutomationActionHeaderInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutput() EventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutput
+	ToEventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutputWithContext(context.Context) EventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutput
+}
+
+type EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgs struct {
+	// Name to identify the header
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of this header
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceCatchAllActionsAutomationActionHeader)(nil)).Elem()
+}
+
+func (i EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgs) ToEventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutput() EventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutput {
+	return i.ToEventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgs) ToEventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutput)
+}
+
+// EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayInput is an input type that accepts EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArray and EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayInput` via:
+//
+//          EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArray{ EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgs{...} }
+type EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutput() EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutput
+	ToEventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutputWithContext(context.Context) EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutput
+}
+
+type EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArray []EventOrchestrationServiceCatchAllActionsAutomationActionHeaderInput
+
+func (EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationServiceCatchAllActionsAutomationActionHeader)(nil)).Elem()
+}
+
+func (i EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArray) ToEventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutput() EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutput {
+	return i.ToEventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArray) ToEventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutput)
+}
+
+type EventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceCatchAllActionsAutomationActionHeader)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutput) ToEventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutput() EventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutput) ToEventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutput {
+	return o
+}
+
+// Name to identify the header
+func (o EventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsAutomationActionHeader) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Value of this header
+func (o EventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsAutomationActionHeader) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationServiceCatchAllActionsAutomationActionHeader)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutput) ToEventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutput() EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutput) ToEventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutput) Index(i pulumi.IntInput) EventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventOrchestrationServiceCatchAllActionsAutomationActionHeader {
+		return vs[0].([]EventOrchestrationServiceCatchAllActionsAutomationActionHeader)[vs[1].(int)]
+	}).(EventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutput)
+}
+
+type EventOrchestrationServiceCatchAllActionsAutomationActionParameter struct {
+	// Name to identify the header
+	Key string `pulumi:"key"`
+	// Value of this header
+	Value string `pulumi:"value"`
+}
+
+// EventOrchestrationServiceCatchAllActionsAutomationActionParameterInput is an input type that accepts EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgs and EventOrchestrationServiceCatchAllActionsAutomationActionParameterOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceCatchAllActionsAutomationActionParameterInput` via:
+//
+//          EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgs{...}
+type EventOrchestrationServiceCatchAllActionsAutomationActionParameterInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceCatchAllActionsAutomationActionParameterOutput() EventOrchestrationServiceCatchAllActionsAutomationActionParameterOutput
+	ToEventOrchestrationServiceCatchAllActionsAutomationActionParameterOutputWithContext(context.Context) EventOrchestrationServiceCatchAllActionsAutomationActionParameterOutput
+}
+
+type EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgs struct {
+	// Name to identify the header
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of this header
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceCatchAllActionsAutomationActionParameter)(nil)).Elem()
+}
+
+func (i EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgs) ToEventOrchestrationServiceCatchAllActionsAutomationActionParameterOutput() EventOrchestrationServiceCatchAllActionsAutomationActionParameterOutput {
+	return i.ToEventOrchestrationServiceCatchAllActionsAutomationActionParameterOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgs) ToEventOrchestrationServiceCatchAllActionsAutomationActionParameterOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsAutomationActionParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCatchAllActionsAutomationActionParameterOutput)
+}
+
+// EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayInput is an input type that accepts EventOrchestrationServiceCatchAllActionsAutomationActionParameterArray and EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayInput` via:
+//
+//          EventOrchestrationServiceCatchAllActionsAutomationActionParameterArray{ EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgs{...} }
+type EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayOutput() EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayOutput
+	ToEventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayOutputWithContext(context.Context) EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayOutput
+}
+
+type EventOrchestrationServiceCatchAllActionsAutomationActionParameterArray []EventOrchestrationServiceCatchAllActionsAutomationActionParameterInput
+
+func (EventOrchestrationServiceCatchAllActionsAutomationActionParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationServiceCatchAllActionsAutomationActionParameter)(nil)).Elem()
+}
+
+func (i EventOrchestrationServiceCatchAllActionsAutomationActionParameterArray) ToEventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayOutput() EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayOutput {
+	return i.ToEventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceCatchAllActionsAutomationActionParameterArray) ToEventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayOutput)
+}
+
+type EventOrchestrationServiceCatchAllActionsAutomationActionParameterOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceCatchAllActionsAutomationActionParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceCatchAllActionsAutomationActionParameter)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceCatchAllActionsAutomationActionParameterOutput) ToEventOrchestrationServiceCatchAllActionsAutomationActionParameterOutput() EventOrchestrationServiceCatchAllActionsAutomationActionParameterOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceCatchAllActionsAutomationActionParameterOutput) ToEventOrchestrationServiceCatchAllActionsAutomationActionParameterOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsAutomationActionParameterOutput {
+	return o
+}
+
+// Name to identify the header
+func (o EventOrchestrationServiceCatchAllActionsAutomationActionParameterOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsAutomationActionParameter) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Value of this header
+func (o EventOrchestrationServiceCatchAllActionsAutomationActionParameterOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsAutomationActionParameter) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationServiceCatchAllActionsAutomationActionParameter)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayOutput) ToEventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayOutput() EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayOutput) ToEventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayOutput) Index(i pulumi.IntInput) EventOrchestrationServiceCatchAllActionsAutomationActionParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventOrchestrationServiceCatchAllActionsAutomationActionParameter {
+		return vs[0].([]EventOrchestrationServiceCatchAllActionsAutomationActionParameter)[vs[1].(int)]
+	}).(EventOrchestrationServiceCatchAllActionsAutomationActionParameterOutput)
+}
+
+type EventOrchestrationServiceCatchAllActionsExtraction struct {
+	// A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
+	Regex *string `pulumi:"regex"`
+	// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.
+	Source *string `pulumi:"source"`
+	// The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.
+	Target string `pulumi:"target"`
+	// A string that will be used to populate the `target` field. You can reference variables or event data within your template using double curly braces. For example:
+	// * Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`
+	// * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
+	Template *string `pulumi:"template"`
+}
+
+// EventOrchestrationServiceCatchAllActionsExtractionInput is an input type that accepts EventOrchestrationServiceCatchAllActionsExtractionArgs and EventOrchestrationServiceCatchAllActionsExtractionOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceCatchAllActionsExtractionInput` via:
+//
+//          EventOrchestrationServiceCatchAllActionsExtractionArgs{...}
+type EventOrchestrationServiceCatchAllActionsExtractionInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceCatchAllActionsExtractionOutput() EventOrchestrationServiceCatchAllActionsExtractionOutput
+	ToEventOrchestrationServiceCatchAllActionsExtractionOutputWithContext(context.Context) EventOrchestrationServiceCatchAllActionsExtractionOutput
+}
+
+type EventOrchestrationServiceCatchAllActionsExtractionArgs struct {
+	// A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
+	Regex pulumi.StringPtrInput `pulumi:"regex"`
+	// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.
+	Source pulumi.StringPtrInput `pulumi:"source"`
+	// The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.
+	Target pulumi.StringInput `pulumi:"target"`
+	// A string that will be used to populate the `target` field. You can reference variables or event data within your template using double curly braces. For example:
+	// * Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`
+	// * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
+	Template pulumi.StringPtrInput `pulumi:"template"`
+}
+
+func (EventOrchestrationServiceCatchAllActionsExtractionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceCatchAllActionsExtraction)(nil)).Elem()
+}
+
+func (i EventOrchestrationServiceCatchAllActionsExtractionArgs) ToEventOrchestrationServiceCatchAllActionsExtractionOutput() EventOrchestrationServiceCatchAllActionsExtractionOutput {
+	return i.ToEventOrchestrationServiceCatchAllActionsExtractionOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceCatchAllActionsExtractionArgs) ToEventOrchestrationServiceCatchAllActionsExtractionOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsExtractionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCatchAllActionsExtractionOutput)
+}
+
+// EventOrchestrationServiceCatchAllActionsExtractionArrayInput is an input type that accepts EventOrchestrationServiceCatchAllActionsExtractionArray and EventOrchestrationServiceCatchAllActionsExtractionArrayOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceCatchAllActionsExtractionArrayInput` via:
+//
+//          EventOrchestrationServiceCatchAllActionsExtractionArray{ EventOrchestrationServiceCatchAllActionsExtractionArgs{...} }
+type EventOrchestrationServiceCatchAllActionsExtractionArrayInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceCatchAllActionsExtractionArrayOutput() EventOrchestrationServiceCatchAllActionsExtractionArrayOutput
+	ToEventOrchestrationServiceCatchAllActionsExtractionArrayOutputWithContext(context.Context) EventOrchestrationServiceCatchAllActionsExtractionArrayOutput
+}
+
+type EventOrchestrationServiceCatchAllActionsExtractionArray []EventOrchestrationServiceCatchAllActionsExtractionInput
+
+func (EventOrchestrationServiceCatchAllActionsExtractionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationServiceCatchAllActionsExtraction)(nil)).Elem()
+}
+
+func (i EventOrchestrationServiceCatchAllActionsExtractionArray) ToEventOrchestrationServiceCatchAllActionsExtractionArrayOutput() EventOrchestrationServiceCatchAllActionsExtractionArrayOutput {
+	return i.ToEventOrchestrationServiceCatchAllActionsExtractionArrayOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceCatchAllActionsExtractionArray) ToEventOrchestrationServiceCatchAllActionsExtractionArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsExtractionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCatchAllActionsExtractionArrayOutput)
+}
+
+type EventOrchestrationServiceCatchAllActionsExtractionOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceCatchAllActionsExtractionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceCatchAllActionsExtraction)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceCatchAllActionsExtractionOutput) ToEventOrchestrationServiceCatchAllActionsExtractionOutput() EventOrchestrationServiceCatchAllActionsExtractionOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceCatchAllActionsExtractionOutput) ToEventOrchestrationServiceCatchAllActionsExtractionOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsExtractionOutput {
+	return o
+}
+
+// A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
+func (o EventOrchestrationServiceCatchAllActionsExtractionOutput) Regex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsExtraction) *string { return v.Regex }).(pulumi.StringPtrOutput)
+}
+
+// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.
+func (o EventOrchestrationServiceCatchAllActionsExtractionOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsExtraction) *string { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+// The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.
+func (o EventOrchestrationServiceCatchAllActionsExtractionOutput) Target() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsExtraction) string { return v.Target }).(pulumi.StringOutput)
+}
+
+// A string that will be used to populate the `target` field. You can reference variables or event data within your template using double curly braces. For example:
+// * Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`
+// * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
+func (o EventOrchestrationServiceCatchAllActionsExtractionOutput) Template() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsExtraction) *string { return v.Template }).(pulumi.StringPtrOutput)
+}
+
+type EventOrchestrationServiceCatchAllActionsExtractionArrayOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceCatchAllActionsExtractionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationServiceCatchAllActionsExtraction)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceCatchAllActionsExtractionArrayOutput) ToEventOrchestrationServiceCatchAllActionsExtractionArrayOutput() EventOrchestrationServiceCatchAllActionsExtractionArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceCatchAllActionsExtractionArrayOutput) ToEventOrchestrationServiceCatchAllActionsExtractionArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsExtractionArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceCatchAllActionsExtractionArrayOutput) Index(i pulumi.IntInput) EventOrchestrationServiceCatchAllActionsExtractionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventOrchestrationServiceCatchAllActionsExtraction {
+		return vs[0].([]EventOrchestrationServiceCatchAllActionsExtraction)[vs[1].(int)]
+	}).(EventOrchestrationServiceCatchAllActionsExtractionOutput)
+}
+
+type EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction struct {
+	// Id of the Process Automation action to be triggered.
+	ActionId string `pulumi:"actionId"`
+}
+
+// EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionInput is an input type that accepts EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs and EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionInput` via:
+//
+//          EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs{...}
+type EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutput() EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutput
+	ToEventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutputWithContext(context.Context) EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutput
+}
+
+type EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs struct {
+	// Id of the Process Automation action to be triggered.
+	ActionId pulumi.StringInput `pulumi:"actionId"`
+}
+
+func (EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction)(nil)).Elem()
+}
+
+func (i EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs) ToEventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutput() EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutput {
+	return i.ToEventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs) ToEventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutput)
+}
+
+func (i EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs) ToEventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput() EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput {
+	return i.ToEventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs) ToEventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutput).ToEventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutputWithContext(ctx)
+}
+
+// EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrInput is an input type that accepts EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs, EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtr and EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrInput` via:
+//
+//          EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs{...}
+//
+//  or:
+//
+//          nil
+type EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput() EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput
+	ToEventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutputWithContext(context.Context) EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput
+}
+
+type eventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrType EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs
+
+func EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtr(v *EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs) EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrInput {
+	return (*eventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrType)(v)
+}
+
+func (*eventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction)(nil)).Elem()
+}
+
+func (i *eventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrType) ToEventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput() EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput {
+	return i.ToEventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutputWithContext(context.Background())
+}
+
+func (i *eventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrType) ToEventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput)
+}
+
+type EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutput) ToEventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutput() EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutput) ToEventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutput) ToEventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput() EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput {
+	return o.ToEventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutputWithContext(context.Background())
+}
+
+func (o EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutput) ToEventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction) *EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction {
+		return &v
+	}).(EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput)
+}
+
+// Id of the Process Automation action to be triggered.
+func (o EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutput) ActionId() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction) string { return v.ActionId }).(pulumi.StringOutput)
+}
+
+type EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput) ToEventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput() EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput) ToEventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput) Elem() EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction) EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction {
+		if v != nil {
+			return *v
+		}
+		var ret EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction
+		return ret
+	}).(EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutput)
+}
+
+// Id of the Process Automation action to be triggered.
+func (o EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput) ActionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ActionId
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventOrchestrationServiceCatchAllActionsVariable struct {
+	// Name of this Webhook.
+	Name string `pulumi:"name"`
+	// Path to a field in an event, in dot-notation. This supports both PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths).
+	Path string `pulumi:"path"`
+	// Only `regex` is supported
+	Type string `pulumi:"type"`
+	// Value of this header
+	Value string `pulumi:"value"`
+}
+
+// EventOrchestrationServiceCatchAllActionsVariableInput is an input type that accepts EventOrchestrationServiceCatchAllActionsVariableArgs and EventOrchestrationServiceCatchAllActionsVariableOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceCatchAllActionsVariableInput` via:
+//
+//          EventOrchestrationServiceCatchAllActionsVariableArgs{...}
+type EventOrchestrationServiceCatchAllActionsVariableInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceCatchAllActionsVariableOutput() EventOrchestrationServiceCatchAllActionsVariableOutput
+	ToEventOrchestrationServiceCatchAllActionsVariableOutputWithContext(context.Context) EventOrchestrationServiceCatchAllActionsVariableOutput
+}
+
+type EventOrchestrationServiceCatchAllActionsVariableArgs struct {
+	// Name of this Webhook.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Path to a field in an event, in dot-notation. This supports both PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths).
+	Path pulumi.StringInput `pulumi:"path"`
+	// Only `regex` is supported
+	Type pulumi.StringInput `pulumi:"type"`
+	// Value of this header
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (EventOrchestrationServiceCatchAllActionsVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceCatchAllActionsVariable)(nil)).Elem()
+}
+
+func (i EventOrchestrationServiceCatchAllActionsVariableArgs) ToEventOrchestrationServiceCatchAllActionsVariableOutput() EventOrchestrationServiceCatchAllActionsVariableOutput {
+	return i.ToEventOrchestrationServiceCatchAllActionsVariableOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceCatchAllActionsVariableArgs) ToEventOrchestrationServiceCatchAllActionsVariableOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCatchAllActionsVariableOutput)
+}
+
+// EventOrchestrationServiceCatchAllActionsVariableArrayInput is an input type that accepts EventOrchestrationServiceCatchAllActionsVariableArray and EventOrchestrationServiceCatchAllActionsVariableArrayOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceCatchAllActionsVariableArrayInput` via:
+//
+//          EventOrchestrationServiceCatchAllActionsVariableArray{ EventOrchestrationServiceCatchAllActionsVariableArgs{...} }
+type EventOrchestrationServiceCatchAllActionsVariableArrayInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceCatchAllActionsVariableArrayOutput() EventOrchestrationServiceCatchAllActionsVariableArrayOutput
+	ToEventOrchestrationServiceCatchAllActionsVariableArrayOutputWithContext(context.Context) EventOrchestrationServiceCatchAllActionsVariableArrayOutput
+}
+
+type EventOrchestrationServiceCatchAllActionsVariableArray []EventOrchestrationServiceCatchAllActionsVariableInput
+
+func (EventOrchestrationServiceCatchAllActionsVariableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationServiceCatchAllActionsVariable)(nil)).Elem()
+}
+
+func (i EventOrchestrationServiceCatchAllActionsVariableArray) ToEventOrchestrationServiceCatchAllActionsVariableArrayOutput() EventOrchestrationServiceCatchAllActionsVariableArrayOutput {
+	return i.ToEventOrchestrationServiceCatchAllActionsVariableArrayOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceCatchAllActionsVariableArray) ToEventOrchestrationServiceCatchAllActionsVariableArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsVariableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCatchAllActionsVariableArrayOutput)
+}
+
+type EventOrchestrationServiceCatchAllActionsVariableOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceCatchAllActionsVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceCatchAllActionsVariable)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceCatchAllActionsVariableOutput) ToEventOrchestrationServiceCatchAllActionsVariableOutput() EventOrchestrationServiceCatchAllActionsVariableOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceCatchAllActionsVariableOutput) ToEventOrchestrationServiceCatchAllActionsVariableOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsVariableOutput {
+	return o
+}
+
+// Name of this Webhook.
+func (o EventOrchestrationServiceCatchAllActionsVariableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsVariable) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Path to a field in an event, in dot-notation. This supports both PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths).
+func (o EventOrchestrationServiceCatchAllActionsVariableOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsVariable) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// Only `regex` is supported
+func (o EventOrchestrationServiceCatchAllActionsVariableOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsVariable) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Value of this header
+func (o EventOrchestrationServiceCatchAllActionsVariableOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsVariable) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type EventOrchestrationServiceCatchAllActionsVariableArrayOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceCatchAllActionsVariableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationServiceCatchAllActionsVariable)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceCatchAllActionsVariableArrayOutput) ToEventOrchestrationServiceCatchAllActionsVariableArrayOutput() EventOrchestrationServiceCatchAllActionsVariableArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceCatchAllActionsVariableArrayOutput) ToEventOrchestrationServiceCatchAllActionsVariableArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsVariableArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceCatchAllActionsVariableArrayOutput) Index(i pulumi.IntInput) EventOrchestrationServiceCatchAllActionsVariableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventOrchestrationServiceCatchAllActionsVariable {
+		return vs[0].([]EventOrchestrationServiceCatchAllActionsVariable)[vs[1].(int)]
+	}).(EventOrchestrationServiceCatchAllActionsVariableOutput)
+}
+
+type EventOrchestrationServiceSet struct {
+	// The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
+	Id    string                             `pulumi:"id"`
+	Rules []EventOrchestrationServiceSetRule `pulumi:"rules"`
+}
+
+// EventOrchestrationServiceSetInput is an input type that accepts EventOrchestrationServiceSetArgs and EventOrchestrationServiceSetOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceSetInput` via:
+//
+//          EventOrchestrationServiceSetArgs{...}
+type EventOrchestrationServiceSetInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceSetOutput() EventOrchestrationServiceSetOutput
+	ToEventOrchestrationServiceSetOutputWithContext(context.Context) EventOrchestrationServiceSetOutput
+}
+
+type EventOrchestrationServiceSetArgs struct {
+	// The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
+	Id    pulumi.StringInput                         `pulumi:"id"`
+	Rules EventOrchestrationServiceSetRuleArrayInput `pulumi:"rules"`
+}
+
+func (EventOrchestrationServiceSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceSet)(nil)).Elem()
+}
+
+func (i EventOrchestrationServiceSetArgs) ToEventOrchestrationServiceSetOutput() EventOrchestrationServiceSetOutput {
+	return i.ToEventOrchestrationServiceSetOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceSetArgs) ToEventOrchestrationServiceSetOutputWithContext(ctx context.Context) EventOrchestrationServiceSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetOutput)
+}
+
+// EventOrchestrationServiceSetArrayInput is an input type that accepts EventOrchestrationServiceSetArray and EventOrchestrationServiceSetArrayOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceSetArrayInput` via:
+//
+//          EventOrchestrationServiceSetArray{ EventOrchestrationServiceSetArgs{...} }
+type EventOrchestrationServiceSetArrayInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceSetArrayOutput() EventOrchestrationServiceSetArrayOutput
+	ToEventOrchestrationServiceSetArrayOutputWithContext(context.Context) EventOrchestrationServiceSetArrayOutput
+}
+
+type EventOrchestrationServiceSetArray []EventOrchestrationServiceSetInput
+
+func (EventOrchestrationServiceSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationServiceSet)(nil)).Elem()
+}
+
+func (i EventOrchestrationServiceSetArray) ToEventOrchestrationServiceSetArrayOutput() EventOrchestrationServiceSetArrayOutput {
+	return i.ToEventOrchestrationServiceSetArrayOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceSetArray) ToEventOrchestrationServiceSetArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetArrayOutput)
+}
+
+type EventOrchestrationServiceSetOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceSet)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceSetOutput) ToEventOrchestrationServiceSetOutput() EventOrchestrationServiceSetOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceSetOutput) ToEventOrchestrationServiceSetOutputWithContext(ctx context.Context) EventOrchestrationServiceSetOutput {
+	return o
+}
+
+// The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
+func (o EventOrchestrationServiceSetOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSet) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o EventOrchestrationServiceSetOutput) Rules() EventOrchestrationServiceSetRuleArrayOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSet) []EventOrchestrationServiceSetRule { return v.Rules }).(EventOrchestrationServiceSetRuleArrayOutput)
+}
+
+type EventOrchestrationServiceSetArrayOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationServiceSet)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceSetArrayOutput) ToEventOrchestrationServiceSetArrayOutput() EventOrchestrationServiceSetArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceSetArrayOutput) ToEventOrchestrationServiceSetArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceSetArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceSetArrayOutput) Index(i pulumi.IntInput) EventOrchestrationServiceSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventOrchestrationServiceSet {
+		return vs[0].([]EventOrchestrationServiceSet)[vs[1].(int)]
+	}).(EventOrchestrationServiceSetOutput)
+}
+
+type EventOrchestrationServiceSetRule struct {
+	// Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+	Actions EventOrchestrationServiceSetRuleActions `pulumi:"actions"`
+	// Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will `always` match against the rule.
+	Conditions []EventOrchestrationServiceSetRuleCondition `pulumi:"conditions"`
+	// Indicates whether the rule is disabled and would therefore not be evaluated.
+	Disabled *bool `pulumi:"disabled"`
+	// The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
+	Id *string `pulumi:"id"`
+	// A description of this rule's purpose.
+	Label *string `pulumi:"label"`
+}
+
+// EventOrchestrationServiceSetRuleInput is an input type that accepts EventOrchestrationServiceSetRuleArgs and EventOrchestrationServiceSetRuleOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceSetRuleInput` via:
+//
+//          EventOrchestrationServiceSetRuleArgs{...}
+type EventOrchestrationServiceSetRuleInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceSetRuleOutput() EventOrchestrationServiceSetRuleOutput
+	ToEventOrchestrationServiceSetRuleOutputWithContext(context.Context) EventOrchestrationServiceSetRuleOutput
+}
+
+type EventOrchestrationServiceSetRuleArgs struct {
+	// Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+	Actions EventOrchestrationServiceSetRuleActionsInput `pulumi:"actions"`
+	// Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will `always` match against the rule.
+	Conditions EventOrchestrationServiceSetRuleConditionArrayInput `pulumi:"conditions"`
+	// Indicates whether the rule is disabled and would therefore not be evaluated.
+	Disabled pulumi.BoolPtrInput `pulumi:"disabled"`
+	// The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// A description of this rule's purpose.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+}
+
+func (EventOrchestrationServiceSetRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceSetRule)(nil)).Elem()
+}
+
+func (i EventOrchestrationServiceSetRuleArgs) ToEventOrchestrationServiceSetRuleOutput() EventOrchestrationServiceSetRuleOutput {
+	return i.ToEventOrchestrationServiceSetRuleOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceSetRuleArgs) ToEventOrchestrationServiceSetRuleOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetRuleOutput)
+}
+
+// EventOrchestrationServiceSetRuleArrayInput is an input type that accepts EventOrchestrationServiceSetRuleArray and EventOrchestrationServiceSetRuleArrayOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceSetRuleArrayInput` via:
+//
+//          EventOrchestrationServiceSetRuleArray{ EventOrchestrationServiceSetRuleArgs{...} }
+type EventOrchestrationServiceSetRuleArrayInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceSetRuleArrayOutput() EventOrchestrationServiceSetRuleArrayOutput
+	ToEventOrchestrationServiceSetRuleArrayOutputWithContext(context.Context) EventOrchestrationServiceSetRuleArrayOutput
+}
+
+type EventOrchestrationServiceSetRuleArray []EventOrchestrationServiceSetRuleInput
+
+func (EventOrchestrationServiceSetRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationServiceSetRule)(nil)).Elem()
+}
+
+func (i EventOrchestrationServiceSetRuleArray) ToEventOrchestrationServiceSetRuleArrayOutput() EventOrchestrationServiceSetRuleArrayOutput {
+	return i.ToEventOrchestrationServiceSetRuleArrayOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceSetRuleArray) ToEventOrchestrationServiceSetRuleArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetRuleArrayOutput)
+}
+
+type EventOrchestrationServiceSetRuleOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceSetRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceSetRule)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceSetRuleOutput) ToEventOrchestrationServiceSetRuleOutput() EventOrchestrationServiceSetRuleOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceSetRuleOutput) ToEventOrchestrationServiceSetRuleOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleOutput {
+	return o
+}
+
+// Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+func (o EventOrchestrationServiceSetRuleOutput) Actions() EventOrchestrationServiceSetRuleActionsOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRule) EventOrchestrationServiceSetRuleActions { return v.Actions }).(EventOrchestrationServiceSetRuleActionsOutput)
+}
+
+// Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will `always` match against the rule.
+func (o EventOrchestrationServiceSetRuleOutput) Conditions() EventOrchestrationServiceSetRuleConditionArrayOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRule) []EventOrchestrationServiceSetRuleCondition {
+		return v.Conditions
+	}).(EventOrchestrationServiceSetRuleConditionArrayOutput)
+}
+
+// Indicates whether the rule is disabled and would therefore not be evaluated.
+func (o EventOrchestrationServiceSetRuleOutput) Disabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRule) *bool { return v.Disabled }).(pulumi.BoolPtrOutput)
+}
+
+// The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
+func (o EventOrchestrationServiceSetRuleOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRule) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// A description of this rule's purpose.
+func (o EventOrchestrationServiceSetRuleOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRule) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+type EventOrchestrationServiceSetRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceSetRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationServiceSetRule)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceSetRuleArrayOutput) ToEventOrchestrationServiceSetRuleArrayOutput() EventOrchestrationServiceSetRuleArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceSetRuleArrayOutput) ToEventOrchestrationServiceSetRuleArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceSetRuleArrayOutput) Index(i pulumi.IntInput) EventOrchestrationServiceSetRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventOrchestrationServiceSetRule {
+		return vs[0].([]EventOrchestrationServiceSetRule)[vs[1].(int)]
+	}).(EventOrchestrationServiceSetRuleOutput)
+}
+
+type EventOrchestrationServiceSetRuleActions struct {
+	// Add this text as a note on the resulting incident.
+	Annotate *string `pulumi:"annotate"`
+	// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+	AutomationAction *EventOrchestrationServiceSetRuleActionsAutomationAction `pulumi:"automationAction"`
+	// sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
+	EventAction *string `pulumi:"eventAction"`
+	// Replace any CEF field or Custom Details object field using custom variables.
+	Extractions []EventOrchestrationServiceSetRuleActionsExtraction `pulumi:"extractions"`
+	// Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+	PagerdutyAutomationAction *EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction `pulumi:"pagerdutyAutomationAction"`
+	Priority                  *string                                                           `pulumi:"priority"`
+	// The ID of a Set from this Service Orchestration whose rules you also want to use with event that match this rule.
+	RouteTo *string `pulumi:"routeTo"`
+	// sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
+	Severity *string `pulumi:"severity"`
+	// Set whether the resulting alert is suppressed. Suppressed alerts will not trigger an incident.
+	Suppress *bool `pulumi:"suppress"`
+	// The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won't create an incident for this the resulting alert.
+	Suspend *int `pulumi:"suspend"`
+	// Populate variables from event payloads and use those variables in other event actions.
+	Variables []EventOrchestrationServiceSetRuleActionsVariable `pulumi:"variables"`
+}
+
+// EventOrchestrationServiceSetRuleActionsInput is an input type that accepts EventOrchestrationServiceSetRuleActionsArgs and EventOrchestrationServiceSetRuleActionsOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceSetRuleActionsInput` via:
+//
+//          EventOrchestrationServiceSetRuleActionsArgs{...}
+type EventOrchestrationServiceSetRuleActionsInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceSetRuleActionsOutput() EventOrchestrationServiceSetRuleActionsOutput
+	ToEventOrchestrationServiceSetRuleActionsOutputWithContext(context.Context) EventOrchestrationServiceSetRuleActionsOutput
+}
+
+type EventOrchestrationServiceSetRuleActionsArgs struct {
+	// Add this text as a note on the resulting incident.
+	Annotate pulumi.StringPtrInput `pulumi:"annotate"`
+	// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+	AutomationAction EventOrchestrationServiceSetRuleActionsAutomationActionPtrInput `pulumi:"automationAction"`
+	// sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
+	EventAction pulumi.StringPtrInput `pulumi:"eventAction"`
+	// Replace any CEF field or Custom Details object field using custom variables.
+	Extractions EventOrchestrationServiceSetRuleActionsExtractionArrayInput `pulumi:"extractions"`
+	// Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+	PagerdutyAutomationAction EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrInput `pulumi:"pagerdutyAutomationAction"`
+	Priority                  pulumi.StringPtrInput                                                    `pulumi:"priority"`
+	// The ID of a Set from this Service Orchestration whose rules you also want to use with event that match this rule.
+	RouteTo pulumi.StringPtrInput `pulumi:"routeTo"`
+	// sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
+	Severity pulumi.StringPtrInput `pulumi:"severity"`
+	// Set whether the resulting alert is suppressed. Suppressed alerts will not trigger an incident.
+	Suppress pulumi.BoolPtrInput `pulumi:"suppress"`
+	// The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won't create an incident for this the resulting alert.
+	Suspend pulumi.IntPtrInput `pulumi:"suspend"`
+	// Populate variables from event payloads and use those variables in other event actions.
+	Variables EventOrchestrationServiceSetRuleActionsVariableArrayInput `pulumi:"variables"`
+}
+
+func (EventOrchestrationServiceSetRuleActionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceSetRuleActions)(nil)).Elem()
+}
+
+func (i EventOrchestrationServiceSetRuleActionsArgs) ToEventOrchestrationServiceSetRuleActionsOutput() EventOrchestrationServiceSetRuleActionsOutput {
+	return i.ToEventOrchestrationServiceSetRuleActionsOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceSetRuleActionsArgs) ToEventOrchestrationServiceSetRuleActionsOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetRuleActionsOutput)
+}
+
+type EventOrchestrationServiceSetRuleActionsOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceSetRuleActionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceSetRuleActions)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceSetRuleActionsOutput) ToEventOrchestrationServiceSetRuleActionsOutput() EventOrchestrationServiceSetRuleActionsOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceSetRuleActionsOutput) ToEventOrchestrationServiceSetRuleActionsOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsOutput {
+	return o
+}
+
+// Add this text as a note on the resulting incident.
+func (o EventOrchestrationServiceSetRuleActionsOutput) Annotate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActions) *string { return v.Annotate }).(pulumi.StringPtrOutput)
+}
+
+// Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+func (o EventOrchestrationServiceSetRuleActionsOutput) AutomationAction() EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActions) *EventOrchestrationServiceSetRuleActionsAutomationAction {
+		return v.AutomationAction
+	}).(EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput)
+}
+
+// sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
+func (o EventOrchestrationServiceSetRuleActionsOutput) EventAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActions) *string { return v.EventAction }).(pulumi.StringPtrOutput)
+}
+
+// Replace any CEF field or Custom Details object field using custom variables.
+func (o EventOrchestrationServiceSetRuleActionsOutput) Extractions() EventOrchestrationServiceSetRuleActionsExtractionArrayOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActions) []EventOrchestrationServiceSetRuleActionsExtraction {
+		return v.Extractions
+	}).(EventOrchestrationServiceSetRuleActionsExtractionArrayOutput)
+}
+
+// Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+func (o EventOrchestrationServiceSetRuleActionsOutput) PagerdutyAutomationAction() EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActions) *EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction {
+		return v.PagerdutyAutomationAction
+	}).(EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput)
+}
+
+func (o EventOrchestrationServiceSetRuleActionsOutput) Priority() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActions) *string { return v.Priority }).(pulumi.StringPtrOutput)
+}
+
+// The ID of a Set from this Service Orchestration whose rules you also want to use with event that match this rule.
+func (o EventOrchestrationServiceSetRuleActionsOutput) RouteTo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActions) *string { return v.RouteTo }).(pulumi.StringPtrOutput)
+}
+
+// sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
+func (o EventOrchestrationServiceSetRuleActionsOutput) Severity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActions) *string { return v.Severity }).(pulumi.StringPtrOutput)
+}
+
+// Set whether the resulting alert is suppressed. Suppressed alerts will not trigger an incident.
+func (o EventOrchestrationServiceSetRuleActionsOutput) Suppress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActions) *bool { return v.Suppress }).(pulumi.BoolPtrOutput)
+}
+
+// The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won't create an incident for this the resulting alert.
+func (o EventOrchestrationServiceSetRuleActionsOutput) Suspend() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActions) *int { return v.Suspend }).(pulumi.IntPtrOutput)
+}
+
+// Populate variables from event payloads and use those variables in other event actions.
+func (o EventOrchestrationServiceSetRuleActionsOutput) Variables() EventOrchestrationServiceSetRuleActionsVariableArrayOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActions) []EventOrchestrationServiceSetRuleActionsVariable {
+		return v.Variables
+	}).(EventOrchestrationServiceSetRuleActionsVariableArrayOutput)
+}
+
+type EventOrchestrationServiceSetRuleActionsAutomationAction struct {
+	// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+	AutoSend *bool `pulumi:"autoSend"`
+	// Specify custom key/value pairs that'll be sent with the webhook request as request headers.
+	Headers []EventOrchestrationServiceSetRuleActionsAutomationActionHeader `pulumi:"headers"`
+	// Name of this Webhook.
+	Name string `pulumi:"name"`
+	// Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
+	Parameters []EventOrchestrationServiceSetRuleActionsAutomationActionParameter `pulumi:"parameters"`
+	// The API endpoint where PagerDuty's servers will send the webhook request.
+	Url string `pulumi:"url"`
+}
+
+// EventOrchestrationServiceSetRuleActionsAutomationActionInput is an input type that accepts EventOrchestrationServiceSetRuleActionsAutomationActionArgs and EventOrchestrationServiceSetRuleActionsAutomationActionOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceSetRuleActionsAutomationActionInput` via:
+//
+//          EventOrchestrationServiceSetRuleActionsAutomationActionArgs{...}
+type EventOrchestrationServiceSetRuleActionsAutomationActionInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceSetRuleActionsAutomationActionOutput() EventOrchestrationServiceSetRuleActionsAutomationActionOutput
+	ToEventOrchestrationServiceSetRuleActionsAutomationActionOutputWithContext(context.Context) EventOrchestrationServiceSetRuleActionsAutomationActionOutput
+}
+
+type EventOrchestrationServiceSetRuleActionsAutomationActionArgs struct {
+	// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+	AutoSend pulumi.BoolPtrInput `pulumi:"autoSend"`
+	// Specify custom key/value pairs that'll be sent with the webhook request as request headers.
+	Headers EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayInput `pulumi:"headers"`
+	// Name of this Webhook.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
+	Parameters EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayInput `pulumi:"parameters"`
+	// The API endpoint where PagerDuty's servers will send the webhook request.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (EventOrchestrationServiceSetRuleActionsAutomationActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceSetRuleActionsAutomationAction)(nil)).Elem()
+}
+
+func (i EventOrchestrationServiceSetRuleActionsAutomationActionArgs) ToEventOrchestrationServiceSetRuleActionsAutomationActionOutput() EventOrchestrationServiceSetRuleActionsAutomationActionOutput {
+	return i.ToEventOrchestrationServiceSetRuleActionsAutomationActionOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceSetRuleActionsAutomationActionArgs) ToEventOrchestrationServiceSetRuleActionsAutomationActionOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsAutomationActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetRuleActionsAutomationActionOutput)
+}
+
+func (i EventOrchestrationServiceSetRuleActionsAutomationActionArgs) ToEventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput() EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput {
+	return i.ToEventOrchestrationServiceSetRuleActionsAutomationActionPtrOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceSetRuleActionsAutomationActionArgs) ToEventOrchestrationServiceSetRuleActionsAutomationActionPtrOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetRuleActionsAutomationActionOutput).ToEventOrchestrationServiceSetRuleActionsAutomationActionPtrOutputWithContext(ctx)
+}
+
+// EventOrchestrationServiceSetRuleActionsAutomationActionPtrInput is an input type that accepts EventOrchestrationServiceSetRuleActionsAutomationActionArgs, EventOrchestrationServiceSetRuleActionsAutomationActionPtr and EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceSetRuleActionsAutomationActionPtrInput` via:
+//
+//          EventOrchestrationServiceSetRuleActionsAutomationActionArgs{...}
+//
+//  or:
+//
+//          nil
+type EventOrchestrationServiceSetRuleActionsAutomationActionPtrInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput() EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput
+	ToEventOrchestrationServiceSetRuleActionsAutomationActionPtrOutputWithContext(context.Context) EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput
+}
+
+type eventOrchestrationServiceSetRuleActionsAutomationActionPtrType EventOrchestrationServiceSetRuleActionsAutomationActionArgs
+
+func EventOrchestrationServiceSetRuleActionsAutomationActionPtr(v *EventOrchestrationServiceSetRuleActionsAutomationActionArgs) EventOrchestrationServiceSetRuleActionsAutomationActionPtrInput {
+	return (*eventOrchestrationServiceSetRuleActionsAutomationActionPtrType)(v)
+}
+
+func (*eventOrchestrationServiceSetRuleActionsAutomationActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventOrchestrationServiceSetRuleActionsAutomationAction)(nil)).Elem()
+}
+
+func (i *eventOrchestrationServiceSetRuleActionsAutomationActionPtrType) ToEventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput() EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput {
+	return i.ToEventOrchestrationServiceSetRuleActionsAutomationActionPtrOutputWithContext(context.Background())
+}
+
+func (i *eventOrchestrationServiceSetRuleActionsAutomationActionPtrType) ToEventOrchestrationServiceSetRuleActionsAutomationActionPtrOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput)
+}
+
+type EventOrchestrationServiceSetRuleActionsAutomationActionOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceSetRuleActionsAutomationActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceSetRuleActionsAutomationAction)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceSetRuleActionsAutomationActionOutput) ToEventOrchestrationServiceSetRuleActionsAutomationActionOutput() EventOrchestrationServiceSetRuleActionsAutomationActionOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceSetRuleActionsAutomationActionOutput) ToEventOrchestrationServiceSetRuleActionsAutomationActionOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsAutomationActionOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceSetRuleActionsAutomationActionOutput) ToEventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput() EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput {
+	return o.ToEventOrchestrationServiceSetRuleActionsAutomationActionPtrOutputWithContext(context.Background())
+}
+
+func (o EventOrchestrationServiceSetRuleActionsAutomationActionOutput) ToEventOrchestrationServiceSetRuleActionsAutomationActionPtrOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventOrchestrationServiceSetRuleActionsAutomationAction) *EventOrchestrationServiceSetRuleActionsAutomationAction {
+		return &v
+	}).(EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput)
+}
+
+// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+func (o EventOrchestrationServiceSetRuleActionsAutomationActionOutput) AutoSend() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsAutomationAction) *bool { return v.AutoSend }).(pulumi.BoolPtrOutput)
+}
+
+// Specify custom key/value pairs that'll be sent with the webhook request as request headers.
+func (o EventOrchestrationServiceSetRuleActionsAutomationActionOutput) Headers() EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsAutomationAction) []EventOrchestrationServiceSetRuleActionsAutomationActionHeader {
+		return v.Headers
+	}).(EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutput)
+}
+
+// Name of this Webhook.
+func (o EventOrchestrationServiceSetRuleActionsAutomationActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsAutomationAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
+func (o EventOrchestrationServiceSetRuleActionsAutomationActionOutput) Parameters() EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsAutomationAction) []EventOrchestrationServiceSetRuleActionsAutomationActionParameter {
+		return v.Parameters
+	}).(EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayOutput)
+}
+
+// The API endpoint where PagerDuty's servers will send the webhook request.
+func (o EventOrchestrationServiceSetRuleActionsAutomationActionOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsAutomationAction) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventOrchestrationServiceSetRuleActionsAutomationAction)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput) ToEventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput() EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput) ToEventOrchestrationServiceSetRuleActionsAutomationActionPtrOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput) Elem() EventOrchestrationServiceSetRuleActionsAutomationActionOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceSetRuleActionsAutomationAction) EventOrchestrationServiceSetRuleActionsAutomationAction {
+		if v != nil {
+			return *v
+		}
+		var ret EventOrchestrationServiceSetRuleActionsAutomationAction
+		return ret
+	}).(EventOrchestrationServiceSetRuleActionsAutomationActionOutput)
+}
+
+// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+func (o EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput) AutoSend() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceSetRuleActionsAutomationAction) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoSend
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specify custom key/value pairs that'll be sent with the webhook request as request headers.
+func (o EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput) Headers() EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceSetRuleActionsAutomationAction) []EventOrchestrationServiceSetRuleActionsAutomationActionHeader {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutput)
+}
+
+// Name of this Webhook.
+func (o EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceSetRuleActionsAutomationAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
+func (o EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput) Parameters() EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceSetRuleActionsAutomationAction) []EventOrchestrationServiceSetRuleActionsAutomationActionParameter {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayOutput)
+}
+
+// The API endpoint where PagerDuty's servers will send the webhook request.
+func (o EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceSetRuleActionsAutomationAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventOrchestrationServiceSetRuleActionsAutomationActionHeader struct {
+	// Name to identify the header
+	Key string `pulumi:"key"`
+	// Value of this header
+	Value string `pulumi:"value"`
+}
+
+// EventOrchestrationServiceSetRuleActionsAutomationActionHeaderInput is an input type that accepts EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs and EventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceSetRuleActionsAutomationActionHeaderInput` via:
+//
+//          EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs{...}
+type EventOrchestrationServiceSetRuleActionsAutomationActionHeaderInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutput() EventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutput
+	ToEventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutputWithContext(context.Context) EventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutput
+}
+
+type EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs struct {
+	// Name to identify the header
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of this header
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceSetRuleActionsAutomationActionHeader)(nil)).Elem()
+}
+
+func (i EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs) ToEventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutput() EventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutput {
+	return i.ToEventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs) ToEventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutput)
+}
+
+// EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayInput is an input type that accepts EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArray and EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayInput` via:
+//
+//          EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArray{ EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs{...} }
+type EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutput() EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutput
+	ToEventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutputWithContext(context.Context) EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutput
+}
+
+type EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArray []EventOrchestrationServiceSetRuleActionsAutomationActionHeaderInput
+
+func (EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationServiceSetRuleActionsAutomationActionHeader)(nil)).Elem()
+}
+
+func (i EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArray) ToEventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutput() EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutput {
+	return i.ToEventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArray) ToEventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutput)
+}
+
+type EventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceSetRuleActionsAutomationActionHeader)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutput) ToEventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutput() EventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutput) ToEventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutput {
+	return o
+}
+
+// Name to identify the header
+func (o EventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsAutomationActionHeader) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Value of this header
+func (o EventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsAutomationActionHeader) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationServiceSetRuleActionsAutomationActionHeader)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutput) ToEventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutput() EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutput) ToEventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutput) Index(i pulumi.IntInput) EventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventOrchestrationServiceSetRuleActionsAutomationActionHeader {
+		return vs[0].([]EventOrchestrationServiceSetRuleActionsAutomationActionHeader)[vs[1].(int)]
+	}).(EventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutput)
+}
+
+type EventOrchestrationServiceSetRuleActionsAutomationActionParameter struct {
+	// Name to identify the header
+	Key string `pulumi:"key"`
+	// Value of this header
+	Value string `pulumi:"value"`
+}
+
+// EventOrchestrationServiceSetRuleActionsAutomationActionParameterInput is an input type that accepts EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs and EventOrchestrationServiceSetRuleActionsAutomationActionParameterOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceSetRuleActionsAutomationActionParameterInput` via:
+//
+//          EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs{...}
+type EventOrchestrationServiceSetRuleActionsAutomationActionParameterInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceSetRuleActionsAutomationActionParameterOutput() EventOrchestrationServiceSetRuleActionsAutomationActionParameterOutput
+	ToEventOrchestrationServiceSetRuleActionsAutomationActionParameterOutputWithContext(context.Context) EventOrchestrationServiceSetRuleActionsAutomationActionParameterOutput
+}
+
+type EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs struct {
+	// Name to identify the header
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of this header
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceSetRuleActionsAutomationActionParameter)(nil)).Elem()
+}
+
+func (i EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs) ToEventOrchestrationServiceSetRuleActionsAutomationActionParameterOutput() EventOrchestrationServiceSetRuleActionsAutomationActionParameterOutput {
+	return i.ToEventOrchestrationServiceSetRuleActionsAutomationActionParameterOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs) ToEventOrchestrationServiceSetRuleActionsAutomationActionParameterOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsAutomationActionParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetRuleActionsAutomationActionParameterOutput)
+}
+
+// EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayInput is an input type that accepts EventOrchestrationServiceSetRuleActionsAutomationActionParameterArray and EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayInput` via:
+//
+//          EventOrchestrationServiceSetRuleActionsAutomationActionParameterArray{ EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs{...} }
+type EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayOutput() EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayOutput
+	ToEventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayOutputWithContext(context.Context) EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayOutput
+}
+
+type EventOrchestrationServiceSetRuleActionsAutomationActionParameterArray []EventOrchestrationServiceSetRuleActionsAutomationActionParameterInput
+
+func (EventOrchestrationServiceSetRuleActionsAutomationActionParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationServiceSetRuleActionsAutomationActionParameter)(nil)).Elem()
+}
+
+func (i EventOrchestrationServiceSetRuleActionsAutomationActionParameterArray) ToEventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayOutput() EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayOutput {
+	return i.ToEventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceSetRuleActionsAutomationActionParameterArray) ToEventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayOutput)
+}
+
+type EventOrchestrationServiceSetRuleActionsAutomationActionParameterOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceSetRuleActionsAutomationActionParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceSetRuleActionsAutomationActionParameter)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceSetRuleActionsAutomationActionParameterOutput) ToEventOrchestrationServiceSetRuleActionsAutomationActionParameterOutput() EventOrchestrationServiceSetRuleActionsAutomationActionParameterOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceSetRuleActionsAutomationActionParameterOutput) ToEventOrchestrationServiceSetRuleActionsAutomationActionParameterOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsAutomationActionParameterOutput {
+	return o
+}
+
+// Name to identify the header
+func (o EventOrchestrationServiceSetRuleActionsAutomationActionParameterOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsAutomationActionParameter) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Value of this header
+func (o EventOrchestrationServiceSetRuleActionsAutomationActionParameterOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsAutomationActionParameter) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationServiceSetRuleActionsAutomationActionParameter)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayOutput) ToEventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayOutput() EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayOutput) ToEventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayOutput) Index(i pulumi.IntInput) EventOrchestrationServiceSetRuleActionsAutomationActionParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventOrchestrationServiceSetRuleActionsAutomationActionParameter {
+		return vs[0].([]EventOrchestrationServiceSetRuleActionsAutomationActionParameter)[vs[1].(int)]
+	}).(EventOrchestrationServiceSetRuleActionsAutomationActionParameterOutput)
+}
+
+type EventOrchestrationServiceSetRuleActionsExtraction struct {
+	// A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
+	Regex *string `pulumi:"regex"`
+	// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.
+	Source *string `pulumi:"source"`
+	// The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.
+	Target string `pulumi:"target"`
+	// A string that will be used to populate the `target` field. You can reference variables or event data within your template using double curly braces. For example:
+	// * Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`
+	// * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
+	Template *string `pulumi:"template"`
+}
+
+// EventOrchestrationServiceSetRuleActionsExtractionInput is an input type that accepts EventOrchestrationServiceSetRuleActionsExtractionArgs and EventOrchestrationServiceSetRuleActionsExtractionOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceSetRuleActionsExtractionInput` via:
+//
+//          EventOrchestrationServiceSetRuleActionsExtractionArgs{...}
+type EventOrchestrationServiceSetRuleActionsExtractionInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceSetRuleActionsExtractionOutput() EventOrchestrationServiceSetRuleActionsExtractionOutput
+	ToEventOrchestrationServiceSetRuleActionsExtractionOutputWithContext(context.Context) EventOrchestrationServiceSetRuleActionsExtractionOutput
+}
+
+type EventOrchestrationServiceSetRuleActionsExtractionArgs struct {
+	// A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
+	Regex pulumi.StringPtrInput `pulumi:"regex"`
+	// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.
+	Source pulumi.StringPtrInput `pulumi:"source"`
+	// The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.
+	Target pulumi.StringInput `pulumi:"target"`
+	// A string that will be used to populate the `target` field. You can reference variables or event data within your template using double curly braces. For example:
+	// * Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`
+	// * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
+	Template pulumi.StringPtrInput `pulumi:"template"`
+}
+
+func (EventOrchestrationServiceSetRuleActionsExtractionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceSetRuleActionsExtraction)(nil)).Elem()
+}
+
+func (i EventOrchestrationServiceSetRuleActionsExtractionArgs) ToEventOrchestrationServiceSetRuleActionsExtractionOutput() EventOrchestrationServiceSetRuleActionsExtractionOutput {
+	return i.ToEventOrchestrationServiceSetRuleActionsExtractionOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceSetRuleActionsExtractionArgs) ToEventOrchestrationServiceSetRuleActionsExtractionOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsExtractionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetRuleActionsExtractionOutput)
+}
+
+// EventOrchestrationServiceSetRuleActionsExtractionArrayInput is an input type that accepts EventOrchestrationServiceSetRuleActionsExtractionArray and EventOrchestrationServiceSetRuleActionsExtractionArrayOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceSetRuleActionsExtractionArrayInput` via:
+//
+//          EventOrchestrationServiceSetRuleActionsExtractionArray{ EventOrchestrationServiceSetRuleActionsExtractionArgs{...} }
+type EventOrchestrationServiceSetRuleActionsExtractionArrayInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceSetRuleActionsExtractionArrayOutput() EventOrchestrationServiceSetRuleActionsExtractionArrayOutput
+	ToEventOrchestrationServiceSetRuleActionsExtractionArrayOutputWithContext(context.Context) EventOrchestrationServiceSetRuleActionsExtractionArrayOutput
+}
+
+type EventOrchestrationServiceSetRuleActionsExtractionArray []EventOrchestrationServiceSetRuleActionsExtractionInput
+
+func (EventOrchestrationServiceSetRuleActionsExtractionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationServiceSetRuleActionsExtraction)(nil)).Elem()
+}
+
+func (i EventOrchestrationServiceSetRuleActionsExtractionArray) ToEventOrchestrationServiceSetRuleActionsExtractionArrayOutput() EventOrchestrationServiceSetRuleActionsExtractionArrayOutput {
+	return i.ToEventOrchestrationServiceSetRuleActionsExtractionArrayOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceSetRuleActionsExtractionArray) ToEventOrchestrationServiceSetRuleActionsExtractionArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsExtractionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetRuleActionsExtractionArrayOutput)
+}
+
+type EventOrchestrationServiceSetRuleActionsExtractionOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceSetRuleActionsExtractionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceSetRuleActionsExtraction)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceSetRuleActionsExtractionOutput) ToEventOrchestrationServiceSetRuleActionsExtractionOutput() EventOrchestrationServiceSetRuleActionsExtractionOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceSetRuleActionsExtractionOutput) ToEventOrchestrationServiceSetRuleActionsExtractionOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsExtractionOutput {
+	return o
+}
+
+// A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
+func (o EventOrchestrationServiceSetRuleActionsExtractionOutput) Regex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsExtraction) *string { return v.Regex }).(pulumi.StringPtrOutput)
+}
+
+// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.
+func (o EventOrchestrationServiceSetRuleActionsExtractionOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsExtraction) *string { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+// The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.
+func (o EventOrchestrationServiceSetRuleActionsExtractionOutput) Target() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsExtraction) string { return v.Target }).(pulumi.StringOutput)
+}
+
+// A string that will be used to populate the `target` field. You can reference variables or event data within your template using double curly braces. For example:
+// * Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`
+// * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
+func (o EventOrchestrationServiceSetRuleActionsExtractionOutput) Template() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsExtraction) *string { return v.Template }).(pulumi.StringPtrOutput)
+}
+
+type EventOrchestrationServiceSetRuleActionsExtractionArrayOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceSetRuleActionsExtractionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationServiceSetRuleActionsExtraction)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceSetRuleActionsExtractionArrayOutput) ToEventOrchestrationServiceSetRuleActionsExtractionArrayOutput() EventOrchestrationServiceSetRuleActionsExtractionArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceSetRuleActionsExtractionArrayOutput) ToEventOrchestrationServiceSetRuleActionsExtractionArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsExtractionArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceSetRuleActionsExtractionArrayOutput) Index(i pulumi.IntInput) EventOrchestrationServiceSetRuleActionsExtractionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventOrchestrationServiceSetRuleActionsExtraction {
+		return vs[0].([]EventOrchestrationServiceSetRuleActionsExtraction)[vs[1].(int)]
+	}).(EventOrchestrationServiceSetRuleActionsExtractionOutput)
+}
+
+type EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction struct {
+	// Id of the Process Automation action to be triggered.
+	ActionId string `pulumi:"actionId"`
+}
+
+// EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionInput is an input type that accepts EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs and EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionInput` via:
+//
+//          EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs{...}
+type EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutput() EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutput
+	ToEventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutputWithContext(context.Context) EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutput
+}
+
+type EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs struct {
+	// Id of the Process Automation action to be triggered.
+	ActionId pulumi.StringInput `pulumi:"actionId"`
+}
+
+func (EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction)(nil)).Elem()
+}
+
+func (i EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs) ToEventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutput() EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutput {
+	return i.ToEventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs) ToEventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutput)
+}
+
+func (i EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs) ToEventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput() EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput {
+	return i.ToEventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs) ToEventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutput).ToEventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutputWithContext(ctx)
+}
+
+// EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrInput is an input type that accepts EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs, EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtr and EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrInput` via:
+//
+//          EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs{...}
+//
+//  or:
+//
+//          nil
+type EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput() EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput
+	ToEventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutputWithContext(context.Context) EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput
+}
+
+type eventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrType EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs
+
+func EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtr(v *EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs) EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrInput {
+	return (*eventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrType)(v)
+}
+
+func (*eventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction)(nil)).Elem()
+}
+
+func (i *eventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrType) ToEventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput() EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput {
+	return i.ToEventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutputWithContext(context.Background())
+}
+
+func (i *eventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrType) ToEventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput)
+}
+
+type EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutput) ToEventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutput() EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutput) ToEventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutput) ToEventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput() EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput {
+	return o.ToEventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutputWithContext(context.Background())
+}
+
+func (o EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutput) ToEventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction) *EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction {
+		return &v
+	}).(EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput)
+}
+
+// Id of the Process Automation action to be triggered.
+func (o EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutput) ActionId() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction) string { return v.ActionId }).(pulumi.StringOutput)
+}
+
+type EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput) ToEventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput() EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput) ToEventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput) Elem() EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction) EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction {
+		if v != nil {
+			return *v
+		}
+		var ret EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction
+		return ret
+	}).(EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutput)
+}
+
+// Id of the Process Automation action to be triggered.
+func (o EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput) ActionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ActionId
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventOrchestrationServiceSetRuleActionsVariable struct {
+	// Name of this Webhook.
+	Name string `pulumi:"name"`
+	// Path to a field in an event, in dot-notation. This supports both PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths).
+	Path string `pulumi:"path"`
+	// Only `regex` is supported
+	Type string `pulumi:"type"`
+	// Value of this header
+	Value string `pulumi:"value"`
+}
+
+// EventOrchestrationServiceSetRuleActionsVariableInput is an input type that accepts EventOrchestrationServiceSetRuleActionsVariableArgs and EventOrchestrationServiceSetRuleActionsVariableOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceSetRuleActionsVariableInput` via:
+//
+//          EventOrchestrationServiceSetRuleActionsVariableArgs{...}
+type EventOrchestrationServiceSetRuleActionsVariableInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceSetRuleActionsVariableOutput() EventOrchestrationServiceSetRuleActionsVariableOutput
+	ToEventOrchestrationServiceSetRuleActionsVariableOutputWithContext(context.Context) EventOrchestrationServiceSetRuleActionsVariableOutput
+}
+
+type EventOrchestrationServiceSetRuleActionsVariableArgs struct {
+	// Name of this Webhook.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Path to a field in an event, in dot-notation. This supports both PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths).
+	Path pulumi.StringInput `pulumi:"path"`
+	// Only `regex` is supported
+	Type pulumi.StringInput `pulumi:"type"`
+	// Value of this header
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (EventOrchestrationServiceSetRuleActionsVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceSetRuleActionsVariable)(nil)).Elem()
+}
+
+func (i EventOrchestrationServiceSetRuleActionsVariableArgs) ToEventOrchestrationServiceSetRuleActionsVariableOutput() EventOrchestrationServiceSetRuleActionsVariableOutput {
+	return i.ToEventOrchestrationServiceSetRuleActionsVariableOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceSetRuleActionsVariableArgs) ToEventOrchestrationServiceSetRuleActionsVariableOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetRuleActionsVariableOutput)
+}
+
+// EventOrchestrationServiceSetRuleActionsVariableArrayInput is an input type that accepts EventOrchestrationServiceSetRuleActionsVariableArray and EventOrchestrationServiceSetRuleActionsVariableArrayOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceSetRuleActionsVariableArrayInput` via:
+//
+//          EventOrchestrationServiceSetRuleActionsVariableArray{ EventOrchestrationServiceSetRuleActionsVariableArgs{...} }
+type EventOrchestrationServiceSetRuleActionsVariableArrayInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceSetRuleActionsVariableArrayOutput() EventOrchestrationServiceSetRuleActionsVariableArrayOutput
+	ToEventOrchestrationServiceSetRuleActionsVariableArrayOutputWithContext(context.Context) EventOrchestrationServiceSetRuleActionsVariableArrayOutput
+}
+
+type EventOrchestrationServiceSetRuleActionsVariableArray []EventOrchestrationServiceSetRuleActionsVariableInput
+
+func (EventOrchestrationServiceSetRuleActionsVariableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationServiceSetRuleActionsVariable)(nil)).Elem()
+}
+
+func (i EventOrchestrationServiceSetRuleActionsVariableArray) ToEventOrchestrationServiceSetRuleActionsVariableArrayOutput() EventOrchestrationServiceSetRuleActionsVariableArrayOutput {
+	return i.ToEventOrchestrationServiceSetRuleActionsVariableArrayOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceSetRuleActionsVariableArray) ToEventOrchestrationServiceSetRuleActionsVariableArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsVariableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetRuleActionsVariableArrayOutput)
+}
+
+type EventOrchestrationServiceSetRuleActionsVariableOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceSetRuleActionsVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceSetRuleActionsVariable)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceSetRuleActionsVariableOutput) ToEventOrchestrationServiceSetRuleActionsVariableOutput() EventOrchestrationServiceSetRuleActionsVariableOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceSetRuleActionsVariableOutput) ToEventOrchestrationServiceSetRuleActionsVariableOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsVariableOutput {
+	return o
+}
+
+// Name of this Webhook.
+func (o EventOrchestrationServiceSetRuleActionsVariableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsVariable) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Path to a field in an event, in dot-notation. This supports both PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths).
+func (o EventOrchestrationServiceSetRuleActionsVariableOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsVariable) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// Only `regex` is supported
+func (o EventOrchestrationServiceSetRuleActionsVariableOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsVariable) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Value of this header
+func (o EventOrchestrationServiceSetRuleActionsVariableOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsVariable) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type EventOrchestrationServiceSetRuleActionsVariableArrayOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceSetRuleActionsVariableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationServiceSetRuleActionsVariable)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceSetRuleActionsVariableArrayOutput) ToEventOrchestrationServiceSetRuleActionsVariableArrayOutput() EventOrchestrationServiceSetRuleActionsVariableArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceSetRuleActionsVariableArrayOutput) ToEventOrchestrationServiceSetRuleActionsVariableArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsVariableArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceSetRuleActionsVariableArrayOutput) Index(i pulumi.IntInput) EventOrchestrationServiceSetRuleActionsVariableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventOrchestrationServiceSetRuleActionsVariable {
+		return vs[0].([]EventOrchestrationServiceSetRuleActionsVariable)[vs[1].(int)]
+	}).(EventOrchestrationServiceSetRuleActionsVariableOutput)
+}
+
+type EventOrchestrationServiceSetRuleCondition struct {
+	// A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+	Expression string `pulumi:"expression"`
+}
+
+// EventOrchestrationServiceSetRuleConditionInput is an input type that accepts EventOrchestrationServiceSetRuleConditionArgs and EventOrchestrationServiceSetRuleConditionOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceSetRuleConditionInput` via:
+//
+//          EventOrchestrationServiceSetRuleConditionArgs{...}
+type EventOrchestrationServiceSetRuleConditionInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceSetRuleConditionOutput() EventOrchestrationServiceSetRuleConditionOutput
+	ToEventOrchestrationServiceSetRuleConditionOutputWithContext(context.Context) EventOrchestrationServiceSetRuleConditionOutput
+}
+
+type EventOrchestrationServiceSetRuleConditionArgs struct {
+	// A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+	Expression pulumi.StringInput `pulumi:"expression"`
+}
+
+func (EventOrchestrationServiceSetRuleConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceSetRuleCondition)(nil)).Elem()
+}
+
+func (i EventOrchestrationServiceSetRuleConditionArgs) ToEventOrchestrationServiceSetRuleConditionOutput() EventOrchestrationServiceSetRuleConditionOutput {
+	return i.ToEventOrchestrationServiceSetRuleConditionOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceSetRuleConditionArgs) ToEventOrchestrationServiceSetRuleConditionOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetRuleConditionOutput)
+}
+
+// EventOrchestrationServiceSetRuleConditionArrayInput is an input type that accepts EventOrchestrationServiceSetRuleConditionArray and EventOrchestrationServiceSetRuleConditionArrayOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceSetRuleConditionArrayInput` via:
+//
+//          EventOrchestrationServiceSetRuleConditionArray{ EventOrchestrationServiceSetRuleConditionArgs{...} }
+type EventOrchestrationServiceSetRuleConditionArrayInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceSetRuleConditionArrayOutput() EventOrchestrationServiceSetRuleConditionArrayOutput
+	ToEventOrchestrationServiceSetRuleConditionArrayOutputWithContext(context.Context) EventOrchestrationServiceSetRuleConditionArrayOutput
+}
+
+type EventOrchestrationServiceSetRuleConditionArray []EventOrchestrationServiceSetRuleConditionInput
+
+func (EventOrchestrationServiceSetRuleConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationServiceSetRuleCondition)(nil)).Elem()
+}
+
+func (i EventOrchestrationServiceSetRuleConditionArray) ToEventOrchestrationServiceSetRuleConditionArrayOutput() EventOrchestrationServiceSetRuleConditionArrayOutput {
+	return i.ToEventOrchestrationServiceSetRuleConditionArrayOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceSetRuleConditionArray) ToEventOrchestrationServiceSetRuleConditionArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetRuleConditionArrayOutput)
+}
+
+type EventOrchestrationServiceSetRuleConditionOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceSetRuleConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceSetRuleCondition)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceSetRuleConditionOutput) ToEventOrchestrationServiceSetRuleConditionOutput() EventOrchestrationServiceSetRuleConditionOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceSetRuleConditionOutput) ToEventOrchestrationServiceSetRuleConditionOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleConditionOutput {
+	return o
+}
+
+// A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+func (o EventOrchestrationServiceSetRuleConditionOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRuleCondition) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+type EventOrchestrationServiceSetRuleConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceSetRuleConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationServiceSetRuleCondition)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceSetRuleConditionArrayOutput) ToEventOrchestrationServiceSetRuleConditionArrayOutput() EventOrchestrationServiceSetRuleConditionArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceSetRuleConditionArrayOutput) ToEventOrchestrationServiceSetRuleConditionArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleConditionArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceSetRuleConditionArrayOutput) Index(i pulumi.IntInput) EventOrchestrationServiceSetRuleConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventOrchestrationServiceSetRuleCondition {
+		return vs[0].([]EventOrchestrationServiceSetRuleCondition)[vs[1].(int)]
+	}).(EventOrchestrationServiceSetRuleConditionOutput)
+}
+
+type EventOrchestrationUnroutedCatchAll struct {
+	// These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
+	Actions EventOrchestrationUnroutedCatchAllActions `pulumi:"actions"`
+}
+
+// EventOrchestrationUnroutedCatchAllInput is an input type that accepts EventOrchestrationUnroutedCatchAllArgs and EventOrchestrationUnroutedCatchAllOutput values.
+// You can construct a concrete instance of `EventOrchestrationUnroutedCatchAllInput` via:
+//
+//          EventOrchestrationUnroutedCatchAllArgs{...}
+type EventOrchestrationUnroutedCatchAllInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationUnroutedCatchAllOutput() EventOrchestrationUnroutedCatchAllOutput
+	ToEventOrchestrationUnroutedCatchAllOutputWithContext(context.Context) EventOrchestrationUnroutedCatchAllOutput
+}
+
+type EventOrchestrationUnroutedCatchAllArgs struct {
+	// These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
+	Actions EventOrchestrationUnroutedCatchAllActionsInput `pulumi:"actions"`
+}
+
+func (EventOrchestrationUnroutedCatchAllArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationUnroutedCatchAll)(nil)).Elem()
+}
+
+func (i EventOrchestrationUnroutedCatchAllArgs) ToEventOrchestrationUnroutedCatchAllOutput() EventOrchestrationUnroutedCatchAllOutput {
+	return i.ToEventOrchestrationUnroutedCatchAllOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationUnroutedCatchAllArgs) ToEventOrchestrationUnroutedCatchAllOutputWithContext(ctx context.Context) EventOrchestrationUnroutedCatchAllOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedCatchAllOutput)
+}
+
+func (i EventOrchestrationUnroutedCatchAllArgs) ToEventOrchestrationUnroutedCatchAllPtrOutput() EventOrchestrationUnroutedCatchAllPtrOutput {
+	return i.ToEventOrchestrationUnroutedCatchAllPtrOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationUnroutedCatchAllArgs) ToEventOrchestrationUnroutedCatchAllPtrOutputWithContext(ctx context.Context) EventOrchestrationUnroutedCatchAllPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedCatchAllOutput).ToEventOrchestrationUnroutedCatchAllPtrOutputWithContext(ctx)
+}
+
+// EventOrchestrationUnroutedCatchAllPtrInput is an input type that accepts EventOrchestrationUnroutedCatchAllArgs, EventOrchestrationUnroutedCatchAllPtr and EventOrchestrationUnroutedCatchAllPtrOutput values.
+// You can construct a concrete instance of `EventOrchestrationUnroutedCatchAllPtrInput` via:
+//
+//          EventOrchestrationUnroutedCatchAllArgs{...}
+//
+//  or:
+//
+//          nil
+type EventOrchestrationUnroutedCatchAllPtrInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationUnroutedCatchAllPtrOutput() EventOrchestrationUnroutedCatchAllPtrOutput
+	ToEventOrchestrationUnroutedCatchAllPtrOutputWithContext(context.Context) EventOrchestrationUnroutedCatchAllPtrOutput
+}
+
+type eventOrchestrationUnroutedCatchAllPtrType EventOrchestrationUnroutedCatchAllArgs
+
+func EventOrchestrationUnroutedCatchAllPtr(v *EventOrchestrationUnroutedCatchAllArgs) EventOrchestrationUnroutedCatchAllPtrInput {
+	return (*eventOrchestrationUnroutedCatchAllPtrType)(v)
+}
+
+func (*eventOrchestrationUnroutedCatchAllPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventOrchestrationUnroutedCatchAll)(nil)).Elem()
+}
+
+func (i *eventOrchestrationUnroutedCatchAllPtrType) ToEventOrchestrationUnroutedCatchAllPtrOutput() EventOrchestrationUnroutedCatchAllPtrOutput {
+	return i.ToEventOrchestrationUnroutedCatchAllPtrOutputWithContext(context.Background())
+}
+
+func (i *eventOrchestrationUnroutedCatchAllPtrType) ToEventOrchestrationUnroutedCatchAllPtrOutputWithContext(ctx context.Context) EventOrchestrationUnroutedCatchAllPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedCatchAllPtrOutput)
+}
+
+type EventOrchestrationUnroutedCatchAllOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationUnroutedCatchAllOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationUnroutedCatchAll)(nil)).Elem()
+}
+
+func (o EventOrchestrationUnroutedCatchAllOutput) ToEventOrchestrationUnroutedCatchAllOutput() EventOrchestrationUnroutedCatchAllOutput {
+	return o
+}
+
+func (o EventOrchestrationUnroutedCatchAllOutput) ToEventOrchestrationUnroutedCatchAllOutputWithContext(ctx context.Context) EventOrchestrationUnroutedCatchAllOutput {
+	return o
+}
+
+func (o EventOrchestrationUnroutedCatchAllOutput) ToEventOrchestrationUnroutedCatchAllPtrOutput() EventOrchestrationUnroutedCatchAllPtrOutput {
+	return o.ToEventOrchestrationUnroutedCatchAllPtrOutputWithContext(context.Background())
+}
+
+func (o EventOrchestrationUnroutedCatchAllOutput) ToEventOrchestrationUnroutedCatchAllPtrOutputWithContext(ctx context.Context) EventOrchestrationUnroutedCatchAllPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventOrchestrationUnroutedCatchAll) *EventOrchestrationUnroutedCatchAll {
+		return &v
+	}).(EventOrchestrationUnroutedCatchAllPtrOutput)
+}
+
+// These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
+func (o EventOrchestrationUnroutedCatchAllOutput) Actions() EventOrchestrationUnroutedCatchAllActionsOutput {
+	return o.ApplyT(func(v EventOrchestrationUnroutedCatchAll) EventOrchestrationUnroutedCatchAllActions { return v.Actions }).(EventOrchestrationUnroutedCatchAllActionsOutput)
+}
+
+type EventOrchestrationUnroutedCatchAllPtrOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationUnroutedCatchAllPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventOrchestrationUnroutedCatchAll)(nil)).Elem()
+}
+
+func (o EventOrchestrationUnroutedCatchAllPtrOutput) ToEventOrchestrationUnroutedCatchAllPtrOutput() EventOrchestrationUnroutedCatchAllPtrOutput {
+	return o
+}
+
+func (o EventOrchestrationUnroutedCatchAllPtrOutput) ToEventOrchestrationUnroutedCatchAllPtrOutputWithContext(ctx context.Context) EventOrchestrationUnroutedCatchAllPtrOutput {
+	return o
+}
+
+func (o EventOrchestrationUnroutedCatchAllPtrOutput) Elem() EventOrchestrationUnroutedCatchAllOutput {
+	return o.ApplyT(func(v *EventOrchestrationUnroutedCatchAll) EventOrchestrationUnroutedCatchAll {
+		if v != nil {
+			return *v
+		}
+		var ret EventOrchestrationUnroutedCatchAll
+		return ret
+	}).(EventOrchestrationUnroutedCatchAllOutput)
+}
+
+// These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
+func (o EventOrchestrationUnroutedCatchAllPtrOutput) Actions() EventOrchestrationUnroutedCatchAllActionsPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationUnroutedCatchAll) *EventOrchestrationUnroutedCatchAllActions {
+		if v == nil {
+			return nil
+		}
+		return &v.Actions
+	}).(EventOrchestrationUnroutedCatchAllActionsPtrOutput)
+}
+
+type EventOrchestrationUnroutedCatchAllActions struct {
+	// sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
+	EventAction *string `pulumi:"eventAction"`
+	// Replace any CEF field or Custom Details object field using custom variables.
+	Extractions []EventOrchestrationUnroutedCatchAllActionsExtraction `pulumi:"extractions"`
+	// sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
+	Severity *string `pulumi:"severity"`
+	Suppress *bool   `pulumi:"suppress"`
+	// Populate variables from event payloads and use those variables in other event actions.
+	Variables []EventOrchestrationUnroutedCatchAllActionsVariable `pulumi:"variables"`
+}
+
+// EventOrchestrationUnroutedCatchAllActionsInput is an input type that accepts EventOrchestrationUnroutedCatchAllActionsArgs and EventOrchestrationUnroutedCatchAllActionsOutput values.
+// You can construct a concrete instance of `EventOrchestrationUnroutedCatchAllActionsInput` via:
+//
+//          EventOrchestrationUnroutedCatchAllActionsArgs{...}
+type EventOrchestrationUnroutedCatchAllActionsInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationUnroutedCatchAllActionsOutput() EventOrchestrationUnroutedCatchAllActionsOutput
+	ToEventOrchestrationUnroutedCatchAllActionsOutputWithContext(context.Context) EventOrchestrationUnroutedCatchAllActionsOutput
+}
+
+type EventOrchestrationUnroutedCatchAllActionsArgs struct {
+	// sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
+	EventAction pulumi.StringPtrInput `pulumi:"eventAction"`
+	// Replace any CEF field or Custom Details object field using custom variables.
+	Extractions EventOrchestrationUnroutedCatchAllActionsExtractionArrayInput `pulumi:"extractions"`
+	// sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
+	Severity pulumi.StringPtrInput `pulumi:"severity"`
+	Suppress pulumi.BoolPtrInput   `pulumi:"suppress"`
+	// Populate variables from event payloads and use those variables in other event actions.
+	Variables EventOrchestrationUnroutedCatchAllActionsVariableArrayInput `pulumi:"variables"`
+}
+
+func (EventOrchestrationUnroutedCatchAllActionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationUnroutedCatchAllActions)(nil)).Elem()
+}
+
+func (i EventOrchestrationUnroutedCatchAllActionsArgs) ToEventOrchestrationUnroutedCatchAllActionsOutput() EventOrchestrationUnroutedCatchAllActionsOutput {
+	return i.ToEventOrchestrationUnroutedCatchAllActionsOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationUnroutedCatchAllActionsArgs) ToEventOrchestrationUnroutedCatchAllActionsOutputWithContext(ctx context.Context) EventOrchestrationUnroutedCatchAllActionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedCatchAllActionsOutput)
+}
+
+func (i EventOrchestrationUnroutedCatchAllActionsArgs) ToEventOrchestrationUnroutedCatchAllActionsPtrOutput() EventOrchestrationUnroutedCatchAllActionsPtrOutput {
+	return i.ToEventOrchestrationUnroutedCatchAllActionsPtrOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationUnroutedCatchAllActionsArgs) ToEventOrchestrationUnroutedCatchAllActionsPtrOutputWithContext(ctx context.Context) EventOrchestrationUnroutedCatchAllActionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedCatchAllActionsOutput).ToEventOrchestrationUnroutedCatchAllActionsPtrOutputWithContext(ctx)
+}
+
+// EventOrchestrationUnroutedCatchAllActionsPtrInput is an input type that accepts EventOrchestrationUnroutedCatchAllActionsArgs, EventOrchestrationUnroutedCatchAllActionsPtr and EventOrchestrationUnroutedCatchAllActionsPtrOutput values.
+// You can construct a concrete instance of `EventOrchestrationUnroutedCatchAllActionsPtrInput` via:
+//
+//          EventOrchestrationUnroutedCatchAllActionsArgs{...}
+//
+//  or:
+//
+//          nil
+type EventOrchestrationUnroutedCatchAllActionsPtrInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationUnroutedCatchAllActionsPtrOutput() EventOrchestrationUnroutedCatchAllActionsPtrOutput
+	ToEventOrchestrationUnroutedCatchAllActionsPtrOutputWithContext(context.Context) EventOrchestrationUnroutedCatchAllActionsPtrOutput
+}
+
+type eventOrchestrationUnroutedCatchAllActionsPtrType EventOrchestrationUnroutedCatchAllActionsArgs
+
+func EventOrchestrationUnroutedCatchAllActionsPtr(v *EventOrchestrationUnroutedCatchAllActionsArgs) EventOrchestrationUnroutedCatchAllActionsPtrInput {
+	return (*eventOrchestrationUnroutedCatchAllActionsPtrType)(v)
+}
+
+func (*eventOrchestrationUnroutedCatchAllActionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventOrchestrationUnroutedCatchAllActions)(nil)).Elem()
+}
+
+func (i *eventOrchestrationUnroutedCatchAllActionsPtrType) ToEventOrchestrationUnroutedCatchAllActionsPtrOutput() EventOrchestrationUnroutedCatchAllActionsPtrOutput {
+	return i.ToEventOrchestrationUnroutedCatchAllActionsPtrOutputWithContext(context.Background())
+}
+
+func (i *eventOrchestrationUnroutedCatchAllActionsPtrType) ToEventOrchestrationUnroutedCatchAllActionsPtrOutputWithContext(ctx context.Context) EventOrchestrationUnroutedCatchAllActionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedCatchAllActionsPtrOutput)
+}
+
+type EventOrchestrationUnroutedCatchAllActionsOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationUnroutedCatchAllActionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationUnroutedCatchAllActions)(nil)).Elem()
+}
+
+func (o EventOrchestrationUnroutedCatchAllActionsOutput) ToEventOrchestrationUnroutedCatchAllActionsOutput() EventOrchestrationUnroutedCatchAllActionsOutput {
+	return o
+}
+
+func (o EventOrchestrationUnroutedCatchAllActionsOutput) ToEventOrchestrationUnroutedCatchAllActionsOutputWithContext(ctx context.Context) EventOrchestrationUnroutedCatchAllActionsOutput {
+	return o
+}
+
+func (o EventOrchestrationUnroutedCatchAllActionsOutput) ToEventOrchestrationUnroutedCatchAllActionsPtrOutput() EventOrchestrationUnroutedCatchAllActionsPtrOutput {
+	return o.ToEventOrchestrationUnroutedCatchAllActionsPtrOutputWithContext(context.Background())
+}
+
+func (o EventOrchestrationUnroutedCatchAllActionsOutput) ToEventOrchestrationUnroutedCatchAllActionsPtrOutputWithContext(ctx context.Context) EventOrchestrationUnroutedCatchAllActionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventOrchestrationUnroutedCatchAllActions) *EventOrchestrationUnroutedCatchAllActions {
+		return &v
+	}).(EventOrchestrationUnroutedCatchAllActionsPtrOutput)
+}
+
+// sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
+func (o EventOrchestrationUnroutedCatchAllActionsOutput) EventAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationUnroutedCatchAllActions) *string { return v.EventAction }).(pulumi.StringPtrOutput)
+}
+
+// Replace any CEF field or Custom Details object field using custom variables.
+func (o EventOrchestrationUnroutedCatchAllActionsOutput) Extractions() EventOrchestrationUnroutedCatchAllActionsExtractionArrayOutput {
+	return o.ApplyT(func(v EventOrchestrationUnroutedCatchAllActions) []EventOrchestrationUnroutedCatchAllActionsExtraction {
+		return v.Extractions
+	}).(EventOrchestrationUnroutedCatchAllActionsExtractionArrayOutput)
+}
+
+// sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
+func (o EventOrchestrationUnroutedCatchAllActionsOutput) Severity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationUnroutedCatchAllActions) *string { return v.Severity }).(pulumi.StringPtrOutput)
+}
+
+func (o EventOrchestrationUnroutedCatchAllActionsOutput) Suppress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationUnroutedCatchAllActions) *bool { return v.Suppress }).(pulumi.BoolPtrOutput)
+}
+
+// Populate variables from event payloads and use those variables in other event actions.
+func (o EventOrchestrationUnroutedCatchAllActionsOutput) Variables() EventOrchestrationUnroutedCatchAllActionsVariableArrayOutput {
+	return o.ApplyT(func(v EventOrchestrationUnroutedCatchAllActions) []EventOrchestrationUnroutedCatchAllActionsVariable {
+		return v.Variables
+	}).(EventOrchestrationUnroutedCatchAllActionsVariableArrayOutput)
+}
+
+type EventOrchestrationUnroutedCatchAllActionsPtrOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationUnroutedCatchAllActionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventOrchestrationUnroutedCatchAllActions)(nil)).Elem()
+}
+
+func (o EventOrchestrationUnroutedCatchAllActionsPtrOutput) ToEventOrchestrationUnroutedCatchAllActionsPtrOutput() EventOrchestrationUnroutedCatchAllActionsPtrOutput {
+	return o
+}
+
+func (o EventOrchestrationUnroutedCatchAllActionsPtrOutput) ToEventOrchestrationUnroutedCatchAllActionsPtrOutputWithContext(ctx context.Context) EventOrchestrationUnroutedCatchAllActionsPtrOutput {
+	return o
+}
+
+func (o EventOrchestrationUnroutedCatchAllActionsPtrOutput) Elem() EventOrchestrationUnroutedCatchAllActionsOutput {
+	return o.ApplyT(func(v *EventOrchestrationUnroutedCatchAllActions) EventOrchestrationUnroutedCatchAllActions {
+		if v != nil {
+			return *v
+		}
+		var ret EventOrchestrationUnroutedCatchAllActions
+		return ret
+	}).(EventOrchestrationUnroutedCatchAllActionsOutput)
+}
+
+// sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
+func (o EventOrchestrationUnroutedCatchAllActionsPtrOutput) EventAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationUnroutedCatchAllActions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EventAction
+	}).(pulumi.StringPtrOutput)
+}
+
+// Replace any CEF field or Custom Details object field using custom variables.
+func (o EventOrchestrationUnroutedCatchAllActionsPtrOutput) Extractions() EventOrchestrationUnroutedCatchAllActionsExtractionArrayOutput {
+	return o.ApplyT(func(v *EventOrchestrationUnroutedCatchAllActions) []EventOrchestrationUnroutedCatchAllActionsExtraction {
+		if v == nil {
+			return nil
+		}
+		return v.Extractions
+	}).(EventOrchestrationUnroutedCatchAllActionsExtractionArrayOutput)
+}
+
+// sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
+func (o EventOrchestrationUnroutedCatchAllActionsPtrOutput) Severity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationUnroutedCatchAllActions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Severity
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EventOrchestrationUnroutedCatchAllActionsPtrOutput) Suppress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationUnroutedCatchAllActions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Suppress
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Populate variables from event payloads and use those variables in other event actions.
+func (o EventOrchestrationUnroutedCatchAllActionsPtrOutput) Variables() EventOrchestrationUnroutedCatchAllActionsVariableArrayOutput {
+	return o.ApplyT(func(v *EventOrchestrationUnroutedCatchAllActions) []EventOrchestrationUnroutedCatchAllActionsVariable {
+		if v == nil {
+			return nil
+		}
+		return v.Variables
+	}).(EventOrchestrationUnroutedCatchAllActionsVariableArrayOutput)
+}
+
+type EventOrchestrationUnroutedCatchAllActionsExtraction struct {
+	// A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
+	Regex *string `pulumi:"regex"`
+	// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.
+	Source *string `pulumi:"source"`
+	// The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.
+	Target string `pulumi:"target"`
+	// A string that will be used to populate the `target` field. You can reference variables or event data within your template using double curly braces. For example:
+	// * Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`
+	// * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
+	Template *string `pulumi:"template"`
+}
+
+// EventOrchestrationUnroutedCatchAllActionsExtractionInput is an input type that accepts EventOrchestrationUnroutedCatchAllActionsExtractionArgs and EventOrchestrationUnroutedCatchAllActionsExtractionOutput values.
+// You can construct a concrete instance of `EventOrchestrationUnroutedCatchAllActionsExtractionInput` via:
+//
+//          EventOrchestrationUnroutedCatchAllActionsExtractionArgs{...}
+type EventOrchestrationUnroutedCatchAllActionsExtractionInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationUnroutedCatchAllActionsExtractionOutput() EventOrchestrationUnroutedCatchAllActionsExtractionOutput
+	ToEventOrchestrationUnroutedCatchAllActionsExtractionOutputWithContext(context.Context) EventOrchestrationUnroutedCatchAllActionsExtractionOutput
+}
+
+type EventOrchestrationUnroutedCatchAllActionsExtractionArgs struct {
+	// A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
+	Regex pulumi.StringPtrInput `pulumi:"regex"`
+	// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.
+	Source pulumi.StringPtrInput `pulumi:"source"`
+	// The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.
+	Target pulumi.StringInput `pulumi:"target"`
+	// A string that will be used to populate the `target` field. You can reference variables or event data within your template using double curly braces. For example:
+	// * Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`
+	// * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
+	Template pulumi.StringPtrInput `pulumi:"template"`
+}
+
+func (EventOrchestrationUnroutedCatchAllActionsExtractionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationUnroutedCatchAllActionsExtraction)(nil)).Elem()
+}
+
+func (i EventOrchestrationUnroutedCatchAllActionsExtractionArgs) ToEventOrchestrationUnroutedCatchAllActionsExtractionOutput() EventOrchestrationUnroutedCatchAllActionsExtractionOutput {
+	return i.ToEventOrchestrationUnroutedCatchAllActionsExtractionOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationUnroutedCatchAllActionsExtractionArgs) ToEventOrchestrationUnroutedCatchAllActionsExtractionOutputWithContext(ctx context.Context) EventOrchestrationUnroutedCatchAllActionsExtractionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedCatchAllActionsExtractionOutput)
+}
+
+// EventOrchestrationUnroutedCatchAllActionsExtractionArrayInput is an input type that accepts EventOrchestrationUnroutedCatchAllActionsExtractionArray and EventOrchestrationUnroutedCatchAllActionsExtractionArrayOutput values.
+// You can construct a concrete instance of `EventOrchestrationUnroutedCatchAllActionsExtractionArrayInput` via:
+//
+//          EventOrchestrationUnroutedCatchAllActionsExtractionArray{ EventOrchestrationUnroutedCatchAllActionsExtractionArgs{...} }
+type EventOrchestrationUnroutedCatchAllActionsExtractionArrayInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationUnroutedCatchAllActionsExtractionArrayOutput() EventOrchestrationUnroutedCatchAllActionsExtractionArrayOutput
+	ToEventOrchestrationUnroutedCatchAllActionsExtractionArrayOutputWithContext(context.Context) EventOrchestrationUnroutedCatchAllActionsExtractionArrayOutput
+}
+
+type EventOrchestrationUnroutedCatchAllActionsExtractionArray []EventOrchestrationUnroutedCatchAllActionsExtractionInput
+
+func (EventOrchestrationUnroutedCatchAllActionsExtractionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationUnroutedCatchAllActionsExtraction)(nil)).Elem()
+}
+
+func (i EventOrchestrationUnroutedCatchAllActionsExtractionArray) ToEventOrchestrationUnroutedCatchAllActionsExtractionArrayOutput() EventOrchestrationUnroutedCatchAllActionsExtractionArrayOutput {
+	return i.ToEventOrchestrationUnroutedCatchAllActionsExtractionArrayOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationUnroutedCatchAllActionsExtractionArray) ToEventOrchestrationUnroutedCatchAllActionsExtractionArrayOutputWithContext(ctx context.Context) EventOrchestrationUnroutedCatchAllActionsExtractionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedCatchAllActionsExtractionArrayOutput)
+}
+
+type EventOrchestrationUnroutedCatchAllActionsExtractionOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationUnroutedCatchAllActionsExtractionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationUnroutedCatchAllActionsExtraction)(nil)).Elem()
+}
+
+func (o EventOrchestrationUnroutedCatchAllActionsExtractionOutput) ToEventOrchestrationUnroutedCatchAllActionsExtractionOutput() EventOrchestrationUnroutedCatchAllActionsExtractionOutput {
+	return o
+}
+
+func (o EventOrchestrationUnroutedCatchAllActionsExtractionOutput) ToEventOrchestrationUnroutedCatchAllActionsExtractionOutputWithContext(ctx context.Context) EventOrchestrationUnroutedCatchAllActionsExtractionOutput {
+	return o
+}
+
+// A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
+func (o EventOrchestrationUnroutedCatchAllActionsExtractionOutput) Regex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationUnroutedCatchAllActionsExtraction) *string { return v.Regex }).(pulumi.StringPtrOutput)
+}
+
+// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.
+func (o EventOrchestrationUnroutedCatchAllActionsExtractionOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationUnroutedCatchAllActionsExtraction) *string { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+// The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.
+func (o EventOrchestrationUnroutedCatchAllActionsExtractionOutput) Target() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationUnroutedCatchAllActionsExtraction) string { return v.Target }).(pulumi.StringOutput)
+}
+
+// A string that will be used to populate the `target` field. You can reference variables or event data within your template using double curly braces. For example:
+// * Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`
+// * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
+func (o EventOrchestrationUnroutedCatchAllActionsExtractionOutput) Template() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationUnroutedCatchAllActionsExtraction) *string { return v.Template }).(pulumi.StringPtrOutput)
+}
+
+type EventOrchestrationUnroutedCatchAllActionsExtractionArrayOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationUnroutedCatchAllActionsExtractionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationUnroutedCatchAllActionsExtraction)(nil)).Elem()
+}
+
+func (o EventOrchestrationUnroutedCatchAllActionsExtractionArrayOutput) ToEventOrchestrationUnroutedCatchAllActionsExtractionArrayOutput() EventOrchestrationUnroutedCatchAllActionsExtractionArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationUnroutedCatchAllActionsExtractionArrayOutput) ToEventOrchestrationUnroutedCatchAllActionsExtractionArrayOutputWithContext(ctx context.Context) EventOrchestrationUnroutedCatchAllActionsExtractionArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationUnroutedCatchAllActionsExtractionArrayOutput) Index(i pulumi.IntInput) EventOrchestrationUnroutedCatchAllActionsExtractionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventOrchestrationUnroutedCatchAllActionsExtraction {
+		return vs[0].([]EventOrchestrationUnroutedCatchAllActionsExtraction)[vs[1].(int)]
+	}).(EventOrchestrationUnroutedCatchAllActionsExtractionOutput)
+}
+
+type EventOrchestrationUnroutedCatchAllActionsVariable struct {
+	// The name of the variable
+	Name string `pulumi:"name"`
+	// Path to a field in an event, in dot-notation. This supports both [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data.
+	Path string `pulumi:"path"`
+	// Only `regex` is supported
+	Type string `pulumi:"type"`
+	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+	Value string `pulumi:"value"`
+}
+
+// EventOrchestrationUnroutedCatchAllActionsVariableInput is an input type that accepts EventOrchestrationUnroutedCatchAllActionsVariableArgs and EventOrchestrationUnroutedCatchAllActionsVariableOutput values.
+// You can construct a concrete instance of `EventOrchestrationUnroutedCatchAllActionsVariableInput` via:
+//
+//          EventOrchestrationUnroutedCatchAllActionsVariableArgs{...}
+type EventOrchestrationUnroutedCatchAllActionsVariableInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationUnroutedCatchAllActionsVariableOutput() EventOrchestrationUnroutedCatchAllActionsVariableOutput
+	ToEventOrchestrationUnroutedCatchAllActionsVariableOutputWithContext(context.Context) EventOrchestrationUnroutedCatchAllActionsVariableOutput
+}
+
+type EventOrchestrationUnroutedCatchAllActionsVariableArgs struct {
+	// The name of the variable
+	Name pulumi.StringInput `pulumi:"name"`
+	// Path to a field in an event, in dot-notation. This supports both [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data.
+	Path pulumi.StringInput `pulumi:"path"`
+	// Only `regex` is supported
+	Type pulumi.StringInput `pulumi:"type"`
+	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (EventOrchestrationUnroutedCatchAllActionsVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationUnroutedCatchAllActionsVariable)(nil)).Elem()
+}
+
+func (i EventOrchestrationUnroutedCatchAllActionsVariableArgs) ToEventOrchestrationUnroutedCatchAllActionsVariableOutput() EventOrchestrationUnroutedCatchAllActionsVariableOutput {
+	return i.ToEventOrchestrationUnroutedCatchAllActionsVariableOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationUnroutedCatchAllActionsVariableArgs) ToEventOrchestrationUnroutedCatchAllActionsVariableOutputWithContext(ctx context.Context) EventOrchestrationUnroutedCatchAllActionsVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedCatchAllActionsVariableOutput)
+}
+
+// EventOrchestrationUnroutedCatchAllActionsVariableArrayInput is an input type that accepts EventOrchestrationUnroutedCatchAllActionsVariableArray and EventOrchestrationUnroutedCatchAllActionsVariableArrayOutput values.
+// You can construct a concrete instance of `EventOrchestrationUnroutedCatchAllActionsVariableArrayInput` via:
+//
+//          EventOrchestrationUnroutedCatchAllActionsVariableArray{ EventOrchestrationUnroutedCatchAllActionsVariableArgs{...} }
+type EventOrchestrationUnroutedCatchAllActionsVariableArrayInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationUnroutedCatchAllActionsVariableArrayOutput() EventOrchestrationUnroutedCatchAllActionsVariableArrayOutput
+	ToEventOrchestrationUnroutedCatchAllActionsVariableArrayOutputWithContext(context.Context) EventOrchestrationUnroutedCatchAllActionsVariableArrayOutput
+}
+
+type EventOrchestrationUnroutedCatchAllActionsVariableArray []EventOrchestrationUnroutedCatchAllActionsVariableInput
+
+func (EventOrchestrationUnroutedCatchAllActionsVariableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationUnroutedCatchAllActionsVariable)(nil)).Elem()
+}
+
+func (i EventOrchestrationUnroutedCatchAllActionsVariableArray) ToEventOrchestrationUnroutedCatchAllActionsVariableArrayOutput() EventOrchestrationUnroutedCatchAllActionsVariableArrayOutput {
+	return i.ToEventOrchestrationUnroutedCatchAllActionsVariableArrayOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationUnroutedCatchAllActionsVariableArray) ToEventOrchestrationUnroutedCatchAllActionsVariableArrayOutputWithContext(ctx context.Context) EventOrchestrationUnroutedCatchAllActionsVariableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedCatchAllActionsVariableArrayOutput)
+}
+
+type EventOrchestrationUnroutedCatchAllActionsVariableOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationUnroutedCatchAllActionsVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationUnroutedCatchAllActionsVariable)(nil)).Elem()
+}
+
+func (o EventOrchestrationUnroutedCatchAllActionsVariableOutput) ToEventOrchestrationUnroutedCatchAllActionsVariableOutput() EventOrchestrationUnroutedCatchAllActionsVariableOutput {
+	return o
+}
+
+func (o EventOrchestrationUnroutedCatchAllActionsVariableOutput) ToEventOrchestrationUnroutedCatchAllActionsVariableOutputWithContext(ctx context.Context) EventOrchestrationUnroutedCatchAllActionsVariableOutput {
+	return o
+}
+
+// The name of the variable
+func (o EventOrchestrationUnroutedCatchAllActionsVariableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationUnroutedCatchAllActionsVariable) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Path to a field in an event, in dot-notation. This supports both [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data.
+func (o EventOrchestrationUnroutedCatchAllActionsVariableOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationUnroutedCatchAllActionsVariable) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// Only `regex` is supported
+func (o EventOrchestrationUnroutedCatchAllActionsVariableOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationUnroutedCatchAllActionsVariable) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+func (o EventOrchestrationUnroutedCatchAllActionsVariableOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationUnroutedCatchAllActionsVariable) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type EventOrchestrationUnroutedCatchAllActionsVariableArrayOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationUnroutedCatchAllActionsVariableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationUnroutedCatchAllActionsVariable)(nil)).Elem()
+}
+
+func (o EventOrchestrationUnroutedCatchAllActionsVariableArrayOutput) ToEventOrchestrationUnroutedCatchAllActionsVariableArrayOutput() EventOrchestrationUnroutedCatchAllActionsVariableArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationUnroutedCatchAllActionsVariableArrayOutput) ToEventOrchestrationUnroutedCatchAllActionsVariableArrayOutputWithContext(ctx context.Context) EventOrchestrationUnroutedCatchAllActionsVariableArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationUnroutedCatchAllActionsVariableArrayOutput) Index(i pulumi.IntInput) EventOrchestrationUnroutedCatchAllActionsVariableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventOrchestrationUnroutedCatchAllActionsVariable {
+		return vs[0].([]EventOrchestrationUnroutedCatchAllActionsVariable)[vs[1].(int)]
+	}).(EventOrchestrationUnroutedCatchAllActionsVariableOutput)
+}
+
+type EventOrchestrationUnroutedSet struct {
+	// The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
+	Id    string                              `pulumi:"id"`
+	Rules []EventOrchestrationUnroutedSetRule `pulumi:"rules"`
+}
+
+// EventOrchestrationUnroutedSetInput is an input type that accepts EventOrchestrationUnroutedSetArgs and EventOrchestrationUnroutedSetOutput values.
+// You can construct a concrete instance of `EventOrchestrationUnroutedSetInput` via:
+//
+//          EventOrchestrationUnroutedSetArgs{...}
+type EventOrchestrationUnroutedSetInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationUnroutedSetOutput() EventOrchestrationUnroutedSetOutput
+	ToEventOrchestrationUnroutedSetOutputWithContext(context.Context) EventOrchestrationUnroutedSetOutput
+}
+
+type EventOrchestrationUnroutedSetArgs struct {
+	// The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
+	Id    pulumi.StringInput                          `pulumi:"id"`
+	Rules EventOrchestrationUnroutedSetRuleArrayInput `pulumi:"rules"`
+}
+
+func (EventOrchestrationUnroutedSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationUnroutedSet)(nil)).Elem()
+}
+
+func (i EventOrchestrationUnroutedSetArgs) ToEventOrchestrationUnroutedSetOutput() EventOrchestrationUnroutedSetOutput {
+	return i.ToEventOrchestrationUnroutedSetOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationUnroutedSetArgs) ToEventOrchestrationUnroutedSetOutputWithContext(ctx context.Context) EventOrchestrationUnroutedSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedSetOutput)
+}
+
+// EventOrchestrationUnroutedSetArrayInput is an input type that accepts EventOrchestrationUnroutedSetArray and EventOrchestrationUnroutedSetArrayOutput values.
+// You can construct a concrete instance of `EventOrchestrationUnroutedSetArrayInput` via:
+//
+//          EventOrchestrationUnroutedSetArray{ EventOrchestrationUnroutedSetArgs{...} }
+type EventOrchestrationUnroutedSetArrayInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationUnroutedSetArrayOutput() EventOrchestrationUnroutedSetArrayOutput
+	ToEventOrchestrationUnroutedSetArrayOutputWithContext(context.Context) EventOrchestrationUnroutedSetArrayOutput
+}
+
+type EventOrchestrationUnroutedSetArray []EventOrchestrationUnroutedSetInput
+
+func (EventOrchestrationUnroutedSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationUnroutedSet)(nil)).Elem()
+}
+
+func (i EventOrchestrationUnroutedSetArray) ToEventOrchestrationUnroutedSetArrayOutput() EventOrchestrationUnroutedSetArrayOutput {
+	return i.ToEventOrchestrationUnroutedSetArrayOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationUnroutedSetArray) ToEventOrchestrationUnroutedSetArrayOutputWithContext(ctx context.Context) EventOrchestrationUnroutedSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedSetArrayOutput)
+}
+
+type EventOrchestrationUnroutedSetOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationUnroutedSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationUnroutedSet)(nil)).Elem()
+}
+
+func (o EventOrchestrationUnroutedSetOutput) ToEventOrchestrationUnroutedSetOutput() EventOrchestrationUnroutedSetOutput {
+	return o
+}
+
+func (o EventOrchestrationUnroutedSetOutput) ToEventOrchestrationUnroutedSetOutputWithContext(ctx context.Context) EventOrchestrationUnroutedSetOutput {
+	return o
+}
+
+// The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
+func (o EventOrchestrationUnroutedSetOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationUnroutedSet) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o EventOrchestrationUnroutedSetOutput) Rules() EventOrchestrationUnroutedSetRuleArrayOutput {
+	return o.ApplyT(func(v EventOrchestrationUnroutedSet) []EventOrchestrationUnroutedSetRule { return v.Rules }).(EventOrchestrationUnroutedSetRuleArrayOutput)
+}
+
+type EventOrchestrationUnroutedSetArrayOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationUnroutedSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationUnroutedSet)(nil)).Elem()
+}
+
+func (o EventOrchestrationUnroutedSetArrayOutput) ToEventOrchestrationUnroutedSetArrayOutput() EventOrchestrationUnroutedSetArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationUnroutedSetArrayOutput) ToEventOrchestrationUnroutedSetArrayOutputWithContext(ctx context.Context) EventOrchestrationUnroutedSetArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationUnroutedSetArrayOutput) Index(i pulumi.IntInput) EventOrchestrationUnroutedSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventOrchestrationUnroutedSet {
+		return vs[0].([]EventOrchestrationUnroutedSet)[vs[1].(int)]
+	}).(EventOrchestrationUnroutedSetOutput)
+}
+
+type EventOrchestrationUnroutedSetRule struct {
+	// Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+	Actions EventOrchestrationUnroutedSetRuleActions `pulumi:"actions"`
+	// Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will `always` match against the rule.
+	Conditions []EventOrchestrationUnroutedSetRuleCondition `pulumi:"conditions"`
+	// Indicates whether the rule is disabled and would therefore not be evaluated.
+	Disabled *bool `pulumi:"disabled"`
+	// The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
+	Id *string `pulumi:"id"`
+	// A description of this rule's purpose.
+	Label *string `pulumi:"label"`
+}
+
+// EventOrchestrationUnroutedSetRuleInput is an input type that accepts EventOrchestrationUnroutedSetRuleArgs and EventOrchestrationUnroutedSetRuleOutput values.
+// You can construct a concrete instance of `EventOrchestrationUnroutedSetRuleInput` via:
+//
+//          EventOrchestrationUnroutedSetRuleArgs{...}
+type EventOrchestrationUnroutedSetRuleInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationUnroutedSetRuleOutput() EventOrchestrationUnroutedSetRuleOutput
+	ToEventOrchestrationUnroutedSetRuleOutputWithContext(context.Context) EventOrchestrationUnroutedSetRuleOutput
+}
+
+type EventOrchestrationUnroutedSetRuleArgs struct {
+	// Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+	Actions EventOrchestrationUnroutedSetRuleActionsInput `pulumi:"actions"`
+	// Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will `always` match against the rule.
+	Conditions EventOrchestrationUnroutedSetRuleConditionArrayInput `pulumi:"conditions"`
+	// Indicates whether the rule is disabled and would therefore not be evaluated.
+	Disabled pulumi.BoolPtrInput `pulumi:"disabled"`
+	// The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// A description of this rule's purpose.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+}
+
+func (EventOrchestrationUnroutedSetRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationUnroutedSetRule)(nil)).Elem()
+}
+
+func (i EventOrchestrationUnroutedSetRuleArgs) ToEventOrchestrationUnroutedSetRuleOutput() EventOrchestrationUnroutedSetRuleOutput {
+	return i.ToEventOrchestrationUnroutedSetRuleOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationUnroutedSetRuleArgs) ToEventOrchestrationUnroutedSetRuleOutputWithContext(ctx context.Context) EventOrchestrationUnroutedSetRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedSetRuleOutput)
+}
+
+// EventOrchestrationUnroutedSetRuleArrayInput is an input type that accepts EventOrchestrationUnroutedSetRuleArray and EventOrchestrationUnroutedSetRuleArrayOutput values.
+// You can construct a concrete instance of `EventOrchestrationUnroutedSetRuleArrayInput` via:
+//
+//          EventOrchestrationUnroutedSetRuleArray{ EventOrchestrationUnroutedSetRuleArgs{...} }
+type EventOrchestrationUnroutedSetRuleArrayInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationUnroutedSetRuleArrayOutput() EventOrchestrationUnroutedSetRuleArrayOutput
+	ToEventOrchestrationUnroutedSetRuleArrayOutputWithContext(context.Context) EventOrchestrationUnroutedSetRuleArrayOutput
+}
+
+type EventOrchestrationUnroutedSetRuleArray []EventOrchestrationUnroutedSetRuleInput
+
+func (EventOrchestrationUnroutedSetRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationUnroutedSetRule)(nil)).Elem()
+}
+
+func (i EventOrchestrationUnroutedSetRuleArray) ToEventOrchestrationUnroutedSetRuleArrayOutput() EventOrchestrationUnroutedSetRuleArrayOutput {
+	return i.ToEventOrchestrationUnroutedSetRuleArrayOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationUnroutedSetRuleArray) ToEventOrchestrationUnroutedSetRuleArrayOutputWithContext(ctx context.Context) EventOrchestrationUnroutedSetRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedSetRuleArrayOutput)
+}
+
+type EventOrchestrationUnroutedSetRuleOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationUnroutedSetRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationUnroutedSetRule)(nil)).Elem()
+}
+
+func (o EventOrchestrationUnroutedSetRuleOutput) ToEventOrchestrationUnroutedSetRuleOutput() EventOrchestrationUnroutedSetRuleOutput {
+	return o
+}
+
+func (o EventOrchestrationUnroutedSetRuleOutput) ToEventOrchestrationUnroutedSetRuleOutputWithContext(ctx context.Context) EventOrchestrationUnroutedSetRuleOutput {
+	return o
+}
+
+// Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+func (o EventOrchestrationUnroutedSetRuleOutput) Actions() EventOrchestrationUnroutedSetRuleActionsOutput {
+	return o.ApplyT(func(v EventOrchestrationUnroutedSetRule) EventOrchestrationUnroutedSetRuleActions { return v.Actions }).(EventOrchestrationUnroutedSetRuleActionsOutput)
+}
+
+// Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will `always` match against the rule.
+func (o EventOrchestrationUnroutedSetRuleOutput) Conditions() EventOrchestrationUnroutedSetRuleConditionArrayOutput {
+	return o.ApplyT(func(v EventOrchestrationUnroutedSetRule) []EventOrchestrationUnroutedSetRuleCondition {
+		return v.Conditions
+	}).(EventOrchestrationUnroutedSetRuleConditionArrayOutput)
+}
+
+// Indicates whether the rule is disabled and would therefore not be evaluated.
+func (o EventOrchestrationUnroutedSetRuleOutput) Disabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationUnroutedSetRule) *bool { return v.Disabled }).(pulumi.BoolPtrOutput)
+}
+
+// The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
+func (o EventOrchestrationUnroutedSetRuleOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationUnroutedSetRule) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// A description of this rule's purpose.
+func (o EventOrchestrationUnroutedSetRuleOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationUnroutedSetRule) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+type EventOrchestrationUnroutedSetRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationUnroutedSetRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationUnroutedSetRule)(nil)).Elem()
+}
+
+func (o EventOrchestrationUnroutedSetRuleArrayOutput) ToEventOrchestrationUnroutedSetRuleArrayOutput() EventOrchestrationUnroutedSetRuleArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationUnroutedSetRuleArrayOutput) ToEventOrchestrationUnroutedSetRuleArrayOutputWithContext(ctx context.Context) EventOrchestrationUnroutedSetRuleArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationUnroutedSetRuleArrayOutput) Index(i pulumi.IntInput) EventOrchestrationUnroutedSetRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventOrchestrationUnroutedSetRule {
+		return vs[0].([]EventOrchestrationUnroutedSetRule)[vs[1].(int)]
+	}).(EventOrchestrationUnroutedSetRuleOutput)
+}
+
+type EventOrchestrationUnroutedSetRuleActions struct {
+	// sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
+	EventAction *string `pulumi:"eventAction"`
+	// Replace any CEF field or Custom Details object field using custom variables.
+	Extractions []EventOrchestrationUnroutedSetRuleActionsExtraction `pulumi:"extractions"`
+	// The ID of a Set from this Unrouted Orchestration whose rules you also want to use with event that match this rule.
+	RouteTo *string `pulumi:"routeTo"`
+	// sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
+	Severity *string `pulumi:"severity"`
+	// Populate variables from event payloads and use those variables in other event actions.
+	Variables []EventOrchestrationUnroutedSetRuleActionsVariable `pulumi:"variables"`
+}
+
+// EventOrchestrationUnroutedSetRuleActionsInput is an input type that accepts EventOrchestrationUnroutedSetRuleActionsArgs and EventOrchestrationUnroutedSetRuleActionsOutput values.
+// You can construct a concrete instance of `EventOrchestrationUnroutedSetRuleActionsInput` via:
+//
+//          EventOrchestrationUnroutedSetRuleActionsArgs{...}
+type EventOrchestrationUnroutedSetRuleActionsInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationUnroutedSetRuleActionsOutput() EventOrchestrationUnroutedSetRuleActionsOutput
+	ToEventOrchestrationUnroutedSetRuleActionsOutputWithContext(context.Context) EventOrchestrationUnroutedSetRuleActionsOutput
+}
+
+type EventOrchestrationUnroutedSetRuleActionsArgs struct {
+	// sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
+	EventAction pulumi.StringPtrInput `pulumi:"eventAction"`
+	// Replace any CEF field or Custom Details object field using custom variables.
+	Extractions EventOrchestrationUnroutedSetRuleActionsExtractionArrayInput `pulumi:"extractions"`
+	// The ID of a Set from this Unrouted Orchestration whose rules you also want to use with event that match this rule.
+	RouteTo pulumi.StringPtrInput `pulumi:"routeTo"`
+	// sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
+	Severity pulumi.StringPtrInput `pulumi:"severity"`
+	// Populate variables from event payloads and use those variables in other event actions.
+	Variables EventOrchestrationUnroutedSetRuleActionsVariableArrayInput `pulumi:"variables"`
+}
+
+func (EventOrchestrationUnroutedSetRuleActionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationUnroutedSetRuleActions)(nil)).Elem()
+}
+
+func (i EventOrchestrationUnroutedSetRuleActionsArgs) ToEventOrchestrationUnroutedSetRuleActionsOutput() EventOrchestrationUnroutedSetRuleActionsOutput {
+	return i.ToEventOrchestrationUnroutedSetRuleActionsOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationUnroutedSetRuleActionsArgs) ToEventOrchestrationUnroutedSetRuleActionsOutputWithContext(ctx context.Context) EventOrchestrationUnroutedSetRuleActionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedSetRuleActionsOutput)
+}
+
+type EventOrchestrationUnroutedSetRuleActionsOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationUnroutedSetRuleActionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationUnroutedSetRuleActions)(nil)).Elem()
+}
+
+func (o EventOrchestrationUnroutedSetRuleActionsOutput) ToEventOrchestrationUnroutedSetRuleActionsOutput() EventOrchestrationUnroutedSetRuleActionsOutput {
+	return o
+}
+
+func (o EventOrchestrationUnroutedSetRuleActionsOutput) ToEventOrchestrationUnroutedSetRuleActionsOutputWithContext(ctx context.Context) EventOrchestrationUnroutedSetRuleActionsOutput {
+	return o
+}
+
+// sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
+func (o EventOrchestrationUnroutedSetRuleActionsOutput) EventAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationUnroutedSetRuleActions) *string { return v.EventAction }).(pulumi.StringPtrOutput)
+}
+
+// Replace any CEF field or Custom Details object field using custom variables.
+func (o EventOrchestrationUnroutedSetRuleActionsOutput) Extractions() EventOrchestrationUnroutedSetRuleActionsExtractionArrayOutput {
+	return o.ApplyT(func(v EventOrchestrationUnroutedSetRuleActions) []EventOrchestrationUnroutedSetRuleActionsExtraction {
+		return v.Extractions
+	}).(EventOrchestrationUnroutedSetRuleActionsExtractionArrayOutput)
+}
+
+// The ID of a Set from this Unrouted Orchestration whose rules you also want to use with event that match this rule.
+func (o EventOrchestrationUnroutedSetRuleActionsOutput) RouteTo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationUnroutedSetRuleActions) *string { return v.RouteTo }).(pulumi.StringPtrOutput)
+}
+
+// sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
+func (o EventOrchestrationUnroutedSetRuleActionsOutput) Severity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationUnroutedSetRuleActions) *string { return v.Severity }).(pulumi.StringPtrOutput)
+}
+
+// Populate variables from event payloads and use those variables in other event actions.
+func (o EventOrchestrationUnroutedSetRuleActionsOutput) Variables() EventOrchestrationUnroutedSetRuleActionsVariableArrayOutput {
+	return o.ApplyT(func(v EventOrchestrationUnroutedSetRuleActions) []EventOrchestrationUnroutedSetRuleActionsVariable {
+		return v.Variables
+	}).(EventOrchestrationUnroutedSetRuleActionsVariableArrayOutput)
+}
+
+type EventOrchestrationUnroutedSetRuleActionsExtraction struct {
+	// A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
+	Regex *string `pulumi:"regex"`
+	// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.
+	Source *string `pulumi:"source"`
+	// The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.
+	Target string `pulumi:"target"`
+	// A string that will be used to populate the `target` field. You can reference variables or event data within your template using double curly braces. For example:
+	// * Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`
+	// * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
+	Template *string `pulumi:"template"`
+}
+
+// EventOrchestrationUnroutedSetRuleActionsExtractionInput is an input type that accepts EventOrchestrationUnroutedSetRuleActionsExtractionArgs and EventOrchestrationUnroutedSetRuleActionsExtractionOutput values.
+// You can construct a concrete instance of `EventOrchestrationUnroutedSetRuleActionsExtractionInput` via:
+//
+//          EventOrchestrationUnroutedSetRuleActionsExtractionArgs{...}
+type EventOrchestrationUnroutedSetRuleActionsExtractionInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationUnroutedSetRuleActionsExtractionOutput() EventOrchestrationUnroutedSetRuleActionsExtractionOutput
+	ToEventOrchestrationUnroutedSetRuleActionsExtractionOutputWithContext(context.Context) EventOrchestrationUnroutedSetRuleActionsExtractionOutput
+}
+
+type EventOrchestrationUnroutedSetRuleActionsExtractionArgs struct {
+	// A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
+	Regex pulumi.StringPtrInput `pulumi:"regex"`
+	// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.
+	Source pulumi.StringPtrInput `pulumi:"source"`
+	// The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.
+	Target pulumi.StringInput `pulumi:"target"`
+	// A string that will be used to populate the `target` field. You can reference variables or event data within your template using double curly braces. For example:
+	// * Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`
+	// * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
+	Template pulumi.StringPtrInput `pulumi:"template"`
+}
+
+func (EventOrchestrationUnroutedSetRuleActionsExtractionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationUnroutedSetRuleActionsExtraction)(nil)).Elem()
+}
+
+func (i EventOrchestrationUnroutedSetRuleActionsExtractionArgs) ToEventOrchestrationUnroutedSetRuleActionsExtractionOutput() EventOrchestrationUnroutedSetRuleActionsExtractionOutput {
+	return i.ToEventOrchestrationUnroutedSetRuleActionsExtractionOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationUnroutedSetRuleActionsExtractionArgs) ToEventOrchestrationUnroutedSetRuleActionsExtractionOutputWithContext(ctx context.Context) EventOrchestrationUnroutedSetRuleActionsExtractionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedSetRuleActionsExtractionOutput)
+}
+
+// EventOrchestrationUnroutedSetRuleActionsExtractionArrayInput is an input type that accepts EventOrchestrationUnroutedSetRuleActionsExtractionArray and EventOrchestrationUnroutedSetRuleActionsExtractionArrayOutput values.
+// You can construct a concrete instance of `EventOrchestrationUnroutedSetRuleActionsExtractionArrayInput` via:
+//
+//          EventOrchestrationUnroutedSetRuleActionsExtractionArray{ EventOrchestrationUnroutedSetRuleActionsExtractionArgs{...} }
+type EventOrchestrationUnroutedSetRuleActionsExtractionArrayInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationUnroutedSetRuleActionsExtractionArrayOutput() EventOrchestrationUnroutedSetRuleActionsExtractionArrayOutput
+	ToEventOrchestrationUnroutedSetRuleActionsExtractionArrayOutputWithContext(context.Context) EventOrchestrationUnroutedSetRuleActionsExtractionArrayOutput
+}
+
+type EventOrchestrationUnroutedSetRuleActionsExtractionArray []EventOrchestrationUnroutedSetRuleActionsExtractionInput
+
+func (EventOrchestrationUnroutedSetRuleActionsExtractionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationUnroutedSetRuleActionsExtraction)(nil)).Elem()
+}
+
+func (i EventOrchestrationUnroutedSetRuleActionsExtractionArray) ToEventOrchestrationUnroutedSetRuleActionsExtractionArrayOutput() EventOrchestrationUnroutedSetRuleActionsExtractionArrayOutput {
+	return i.ToEventOrchestrationUnroutedSetRuleActionsExtractionArrayOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationUnroutedSetRuleActionsExtractionArray) ToEventOrchestrationUnroutedSetRuleActionsExtractionArrayOutputWithContext(ctx context.Context) EventOrchestrationUnroutedSetRuleActionsExtractionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedSetRuleActionsExtractionArrayOutput)
+}
+
+type EventOrchestrationUnroutedSetRuleActionsExtractionOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationUnroutedSetRuleActionsExtractionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationUnroutedSetRuleActionsExtraction)(nil)).Elem()
+}
+
+func (o EventOrchestrationUnroutedSetRuleActionsExtractionOutput) ToEventOrchestrationUnroutedSetRuleActionsExtractionOutput() EventOrchestrationUnroutedSetRuleActionsExtractionOutput {
+	return o
+}
+
+func (o EventOrchestrationUnroutedSetRuleActionsExtractionOutput) ToEventOrchestrationUnroutedSetRuleActionsExtractionOutputWithContext(ctx context.Context) EventOrchestrationUnroutedSetRuleActionsExtractionOutput {
+	return o
+}
+
+// A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
+func (o EventOrchestrationUnroutedSetRuleActionsExtractionOutput) Regex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationUnroutedSetRuleActionsExtraction) *string { return v.Regex }).(pulumi.StringPtrOutput)
+}
+
+// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.
+func (o EventOrchestrationUnroutedSetRuleActionsExtractionOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationUnroutedSetRuleActionsExtraction) *string { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+// The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.
+func (o EventOrchestrationUnroutedSetRuleActionsExtractionOutput) Target() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationUnroutedSetRuleActionsExtraction) string { return v.Target }).(pulumi.StringOutput)
+}
+
+// A string that will be used to populate the `target` field. You can reference variables or event data within your template using double curly braces. For example:
+// * Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`
+// * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
+func (o EventOrchestrationUnroutedSetRuleActionsExtractionOutput) Template() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationUnroutedSetRuleActionsExtraction) *string { return v.Template }).(pulumi.StringPtrOutput)
+}
+
+type EventOrchestrationUnroutedSetRuleActionsExtractionArrayOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationUnroutedSetRuleActionsExtractionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationUnroutedSetRuleActionsExtraction)(nil)).Elem()
+}
+
+func (o EventOrchestrationUnroutedSetRuleActionsExtractionArrayOutput) ToEventOrchestrationUnroutedSetRuleActionsExtractionArrayOutput() EventOrchestrationUnroutedSetRuleActionsExtractionArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationUnroutedSetRuleActionsExtractionArrayOutput) ToEventOrchestrationUnroutedSetRuleActionsExtractionArrayOutputWithContext(ctx context.Context) EventOrchestrationUnroutedSetRuleActionsExtractionArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationUnroutedSetRuleActionsExtractionArrayOutput) Index(i pulumi.IntInput) EventOrchestrationUnroutedSetRuleActionsExtractionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventOrchestrationUnroutedSetRuleActionsExtraction {
+		return vs[0].([]EventOrchestrationUnroutedSetRuleActionsExtraction)[vs[1].(int)]
+	}).(EventOrchestrationUnroutedSetRuleActionsExtractionOutput)
+}
+
+type EventOrchestrationUnroutedSetRuleActionsVariable struct {
+	// The name of the variable
+	Name string `pulumi:"name"`
+	// Path to a field in an event, in dot-notation. This supports both [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data.
+	Path string `pulumi:"path"`
+	// Only `regex` is supported
+	Type string `pulumi:"type"`
+	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+	Value string `pulumi:"value"`
+}
+
+// EventOrchestrationUnroutedSetRuleActionsVariableInput is an input type that accepts EventOrchestrationUnroutedSetRuleActionsVariableArgs and EventOrchestrationUnroutedSetRuleActionsVariableOutput values.
+// You can construct a concrete instance of `EventOrchestrationUnroutedSetRuleActionsVariableInput` via:
+//
+//          EventOrchestrationUnroutedSetRuleActionsVariableArgs{...}
+type EventOrchestrationUnroutedSetRuleActionsVariableInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationUnroutedSetRuleActionsVariableOutput() EventOrchestrationUnroutedSetRuleActionsVariableOutput
+	ToEventOrchestrationUnroutedSetRuleActionsVariableOutputWithContext(context.Context) EventOrchestrationUnroutedSetRuleActionsVariableOutput
+}
+
+type EventOrchestrationUnroutedSetRuleActionsVariableArgs struct {
+	// The name of the variable
+	Name pulumi.StringInput `pulumi:"name"`
+	// Path to a field in an event, in dot-notation. This supports both [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data.
+	Path pulumi.StringInput `pulumi:"path"`
+	// Only `regex` is supported
+	Type pulumi.StringInput `pulumi:"type"`
+	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (EventOrchestrationUnroutedSetRuleActionsVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationUnroutedSetRuleActionsVariable)(nil)).Elem()
+}
+
+func (i EventOrchestrationUnroutedSetRuleActionsVariableArgs) ToEventOrchestrationUnroutedSetRuleActionsVariableOutput() EventOrchestrationUnroutedSetRuleActionsVariableOutput {
+	return i.ToEventOrchestrationUnroutedSetRuleActionsVariableOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationUnroutedSetRuleActionsVariableArgs) ToEventOrchestrationUnroutedSetRuleActionsVariableOutputWithContext(ctx context.Context) EventOrchestrationUnroutedSetRuleActionsVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedSetRuleActionsVariableOutput)
+}
+
+// EventOrchestrationUnroutedSetRuleActionsVariableArrayInput is an input type that accepts EventOrchestrationUnroutedSetRuleActionsVariableArray and EventOrchestrationUnroutedSetRuleActionsVariableArrayOutput values.
+// You can construct a concrete instance of `EventOrchestrationUnroutedSetRuleActionsVariableArrayInput` via:
+//
+//          EventOrchestrationUnroutedSetRuleActionsVariableArray{ EventOrchestrationUnroutedSetRuleActionsVariableArgs{...} }
+type EventOrchestrationUnroutedSetRuleActionsVariableArrayInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationUnroutedSetRuleActionsVariableArrayOutput() EventOrchestrationUnroutedSetRuleActionsVariableArrayOutput
+	ToEventOrchestrationUnroutedSetRuleActionsVariableArrayOutputWithContext(context.Context) EventOrchestrationUnroutedSetRuleActionsVariableArrayOutput
+}
+
+type EventOrchestrationUnroutedSetRuleActionsVariableArray []EventOrchestrationUnroutedSetRuleActionsVariableInput
+
+func (EventOrchestrationUnroutedSetRuleActionsVariableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationUnroutedSetRuleActionsVariable)(nil)).Elem()
+}
+
+func (i EventOrchestrationUnroutedSetRuleActionsVariableArray) ToEventOrchestrationUnroutedSetRuleActionsVariableArrayOutput() EventOrchestrationUnroutedSetRuleActionsVariableArrayOutput {
+	return i.ToEventOrchestrationUnroutedSetRuleActionsVariableArrayOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationUnroutedSetRuleActionsVariableArray) ToEventOrchestrationUnroutedSetRuleActionsVariableArrayOutputWithContext(ctx context.Context) EventOrchestrationUnroutedSetRuleActionsVariableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedSetRuleActionsVariableArrayOutput)
+}
+
+type EventOrchestrationUnroutedSetRuleActionsVariableOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationUnroutedSetRuleActionsVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationUnroutedSetRuleActionsVariable)(nil)).Elem()
+}
+
+func (o EventOrchestrationUnroutedSetRuleActionsVariableOutput) ToEventOrchestrationUnroutedSetRuleActionsVariableOutput() EventOrchestrationUnroutedSetRuleActionsVariableOutput {
+	return o
+}
+
+func (o EventOrchestrationUnroutedSetRuleActionsVariableOutput) ToEventOrchestrationUnroutedSetRuleActionsVariableOutputWithContext(ctx context.Context) EventOrchestrationUnroutedSetRuleActionsVariableOutput {
+	return o
+}
+
+// The name of the variable
+func (o EventOrchestrationUnroutedSetRuleActionsVariableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationUnroutedSetRuleActionsVariable) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Path to a field in an event, in dot-notation. This supports both [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data.
+func (o EventOrchestrationUnroutedSetRuleActionsVariableOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationUnroutedSetRuleActionsVariable) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// Only `regex` is supported
+func (o EventOrchestrationUnroutedSetRuleActionsVariableOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationUnroutedSetRuleActionsVariable) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+func (o EventOrchestrationUnroutedSetRuleActionsVariableOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationUnroutedSetRuleActionsVariable) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type EventOrchestrationUnroutedSetRuleActionsVariableArrayOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationUnroutedSetRuleActionsVariableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationUnroutedSetRuleActionsVariable)(nil)).Elem()
+}
+
+func (o EventOrchestrationUnroutedSetRuleActionsVariableArrayOutput) ToEventOrchestrationUnroutedSetRuleActionsVariableArrayOutput() EventOrchestrationUnroutedSetRuleActionsVariableArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationUnroutedSetRuleActionsVariableArrayOutput) ToEventOrchestrationUnroutedSetRuleActionsVariableArrayOutputWithContext(ctx context.Context) EventOrchestrationUnroutedSetRuleActionsVariableArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationUnroutedSetRuleActionsVariableArrayOutput) Index(i pulumi.IntInput) EventOrchestrationUnroutedSetRuleActionsVariableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventOrchestrationUnroutedSetRuleActionsVariable {
+		return vs[0].([]EventOrchestrationUnroutedSetRuleActionsVariable)[vs[1].(int)]
+	}).(EventOrchestrationUnroutedSetRuleActionsVariableOutput)
+}
+
+type EventOrchestrationUnroutedSetRuleCondition struct {
+	// A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+	Expression string `pulumi:"expression"`
+}
+
+// EventOrchestrationUnroutedSetRuleConditionInput is an input type that accepts EventOrchestrationUnroutedSetRuleConditionArgs and EventOrchestrationUnroutedSetRuleConditionOutput values.
+// You can construct a concrete instance of `EventOrchestrationUnroutedSetRuleConditionInput` via:
+//
+//          EventOrchestrationUnroutedSetRuleConditionArgs{...}
+type EventOrchestrationUnroutedSetRuleConditionInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationUnroutedSetRuleConditionOutput() EventOrchestrationUnroutedSetRuleConditionOutput
+	ToEventOrchestrationUnroutedSetRuleConditionOutputWithContext(context.Context) EventOrchestrationUnroutedSetRuleConditionOutput
+}
+
+type EventOrchestrationUnroutedSetRuleConditionArgs struct {
+	// A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+	Expression pulumi.StringInput `pulumi:"expression"`
+}
+
+func (EventOrchestrationUnroutedSetRuleConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationUnroutedSetRuleCondition)(nil)).Elem()
+}
+
+func (i EventOrchestrationUnroutedSetRuleConditionArgs) ToEventOrchestrationUnroutedSetRuleConditionOutput() EventOrchestrationUnroutedSetRuleConditionOutput {
+	return i.ToEventOrchestrationUnroutedSetRuleConditionOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationUnroutedSetRuleConditionArgs) ToEventOrchestrationUnroutedSetRuleConditionOutputWithContext(ctx context.Context) EventOrchestrationUnroutedSetRuleConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedSetRuleConditionOutput)
+}
+
+// EventOrchestrationUnroutedSetRuleConditionArrayInput is an input type that accepts EventOrchestrationUnroutedSetRuleConditionArray and EventOrchestrationUnroutedSetRuleConditionArrayOutput values.
+// You can construct a concrete instance of `EventOrchestrationUnroutedSetRuleConditionArrayInput` via:
+//
+//          EventOrchestrationUnroutedSetRuleConditionArray{ EventOrchestrationUnroutedSetRuleConditionArgs{...} }
+type EventOrchestrationUnroutedSetRuleConditionArrayInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationUnroutedSetRuleConditionArrayOutput() EventOrchestrationUnroutedSetRuleConditionArrayOutput
+	ToEventOrchestrationUnroutedSetRuleConditionArrayOutputWithContext(context.Context) EventOrchestrationUnroutedSetRuleConditionArrayOutput
+}
+
+type EventOrchestrationUnroutedSetRuleConditionArray []EventOrchestrationUnroutedSetRuleConditionInput
+
+func (EventOrchestrationUnroutedSetRuleConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationUnroutedSetRuleCondition)(nil)).Elem()
+}
+
+func (i EventOrchestrationUnroutedSetRuleConditionArray) ToEventOrchestrationUnroutedSetRuleConditionArrayOutput() EventOrchestrationUnroutedSetRuleConditionArrayOutput {
+	return i.ToEventOrchestrationUnroutedSetRuleConditionArrayOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationUnroutedSetRuleConditionArray) ToEventOrchestrationUnroutedSetRuleConditionArrayOutputWithContext(ctx context.Context) EventOrchestrationUnroutedSetRuleConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedSetRuleConditionArrayOutput)
+}
+
+type EventOrchestrationUnroutedSetRuleConditionOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationUnroutedSetRuleConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationUnroutedSetRuleCondition)(nil)).Elem()
+}
+
+func (o EventOrchestrationUnroutedSetRuleConditionOutput) ToEventOrchestrationUnroutedSetRuleConditionOutput() EventOrchestrationUnroutedSetRuleConditionOutput {
+	return o
+}
+
+func (o EventOrchestrationUnroutedSetRuleConditionOutput) ToEventOrchestrationUnroutedSetRuleConditionOutputWithContext(ctx context.Context) EventOrchestrationUnroutedSetRuleConditionOutput {
+	return o
+}
+
+// A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+func (o EventOrchestrationUnroutedSetRuleConditionOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationUnroutedSetRuleCondition) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+type EventOrchestrationUnroutedSetRuleConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationUnroutedSetRuleConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationUnroutedSetRuleCondition)(nil)).Elem()
+}
+
+func (o EventOrchestrationUnroutedSetRuleConditionArrayOutput) ToEventOrchestrationUnroutedSetRuleConditionArrayOutput() EventOrchestrationUnroutedSetRuleConditionArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationUnroutedSetRuleConditionArrayOutput) ToEventOrchestrationUnroutedSetRuleConditionArrayOutputWithContext(ctx context.Context) EventOrchestrationUnroutedSetRuleConditionArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationUnroutedSetRuleConditionArrayOutput) Index(i pulumi.IntInput) EventOrchestrationUnroutedSetRuleConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventOrchestrationUnroutedSetRuleCondition {
+		return vs[0].([]EventOrchestrationUnroutedSetRuleCondition)[vs[1].(int)]
+	}).(EventOrchestrationUnroutedSetRuleConditionOutput)
+}
+
 type ResponsePlayResponder struct {
 	// Description of escalation policy
 	Description *string `pulumi:"description"`
@@ -7891,6 +12688,8 @@ func (o SlackConnectionConfigArrayOutput) Index(i pulumi.IntInput) SlackConnecti
 }
 
 type WebhookSubscriptionDeliveryMethod struct {
+	// The customHeader of a webhook subscription define any optional headers that will be passed along with the payload to the destination URL.
+	CustomHeaders []WebhookSubscriptionDeliveryMethodCustomHeader `pulumi:"customHeaders"`
 	// Whether this webhook subscription is temporarily disabled. Becomes true if the delivery method URL is repeatedly rejected by the server.
 	TemporarilyDisabled *bool `pulumi:"temporarilyDisabled"`
 	// Indicates the type of the delivery method. Allowed and default value: `httpDeliveryMethod`.
@@ -7911,6 +12710,8 @@ type WebhookSubscriptionDeliveryMethodInput interface {
 }
 
 type WebhookSubscriptionDeliveryMethodArgs struct {
+	// The customHeader of a webhook subscription define any optional headers that will be passed along with the payload to the destination URL.
+	CustomHeaders WebhookSubscriptionDeliveryMethodCustomHeaderArrayInput `pulumi:"customHeaders"`
 	// Whether this webhook subscription is temporarily disabled. Becomes true if the delivery method URL is repeatedly rejected by the server.
 	TemporarilyDisabled pulumi.BoolPtrInput `pulumi:"temporarilyDisabled"`
 	// Indicates the type of the delivery method. Allowed and default value: `httpDeliveryMethod`.
@@ -7970,6 +12771,13 @@ func (o WebhookSubscriptionDeliveryMethodOutput) ToWebhookSubscriptionDeliveryMe
 	return o
 }
 
+// The customHeader of a webhook subscription define any optional headers that will be passed along with the payload to the destination URL.
+func (o WebhookSubscriptionDeliveryMethodOutput) CustomHeaders() WebhookSubscriptionDeliveryMethodCustomHeaderArrayOutput {
+	return o.ApplyT(func(v WebhookSubscriptionDeliveryMethod) []WebhookSubscriptionDeliveryMethodCustomHeader {
+		return v.CustomHeaders
+	}).(WebhookSubscriptionDeliveryMethodCustomHeaderArrayOutput)
+}
+
 // Whether this webhook subscription is temporarily disabled. Becomes true if the delivery method URL is repeatedly rejected by the server.
 func (o WebhookSubscriptionDeliveryMethodOutput) TemporarilyDisabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WebhookSubscriptionDeliveryMethod) *bool { return v.TemporarilyDisabled }).(pulumi.BoolPtrOutput)
@@ -8003,6 +12811,106 @@ func (o WebhookSubscriptionDeliveryMethodArrayOutput) Index(i pulumi.IntInput) W
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebhookSubscriptionDeliveryMethod {
 		return vs[0].([]WebhookSubscriptionDeliveryMethod)[vs[1].(int)]
 	}).(WebhookSubscriptionDeliveryMethodOutput)
+}
+
+type WebhookSubscriptionDeliveryMethodCustomHeader struct {
+	Name  string `pulumi:"name"`
+	Value string `pulumi:"value"`
+}
+
+// WebhookSubscriptionDeliveryMethodCustomHeaderInput is an input type that accepts WebhookSubscriptionDeliveryMethodCustomHeaderArgs and WebhookSubscriptionDeliveryMethodCustomHeaderOutput values.
+// You can construct a concrete instance of `WebhookSubscriptionDeliveryMethodCustomHeaderInput` via:
+//
+//          WebhookSubscriptionDeliveryMethodCustomHeaderArgs{...}
+type WebhookSubscriptionDeliveryMethodCustomHeaderInput interface {
+	pulumi.Input
+
+	ToWebhookSubscriptionDeliveryMethodCustomHeaderOutput() WebhookSubscriptionDeliveryMethodCustomHeaderOutput
+	ToWebhookSubscriptionDeliveryMethodCustomHeaderOutputWithContext(context.Context) WebhookSubscriptionDeliveryMethodCustomHeaderOutput
+}
+
+type WebhookSubscriptionDeliveryMethodCustomHeaderArgs struct {
+	Name  pulumi.StringInput `pulumi:"name"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (WebhookSubscriptionDeliveryMethodCustomHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebhookSubscriptionDeliveryMethodCustomHeader)(nil)).Elem()
+}
+
+func (i WebhookSubscriptionDeliveryMethodCustomHeaderArgs) ToWebhookSubscriptionDeliveryMethodCustomHeaderOutput() WebhookSubscriptionDeliveryMethodCustomHeaderOutput {
+	return i.ToWebhookSubscriptionDeliveryMethodCustomHeaderOutputWithContext(context.Background())
+}
+
+func (i WebhookSubscriptionDeliveryMethodCustomHeaderArgs) ToWebhookSubscriptionDeliveryMethodCustomHeaderOutputWithContext(ctx context.Context) WebhookSubscriptionDeliveryMethodCustomHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebhookSubscriptionDeliveryMethodCustomHeaderOutput)
+}
+
+// WebhookSubscriptionDeliveryMethodCustomHeaderArrayInput is an input type that accepts WebhookSubscriptionDeliveryMethodCustomHeaderArray and WebhookSubscriptionDeliveryMethodCustomHeaderArrayOutput values.
+// You can construct a concrete instance of `WebhookSubscriptionDeliveryMethodCustomHeaderArrayInput` via:
+//
+//          WebhookSubscriptionDeliveryMethodCustomHeaderArray{ WebhookSubscriptionDeliveryMethodCustomHeaderArgs{...} }
+type WebhookSubscriptionDeliveryMethodCustomHeaderArrayInput interface {
+	pulumi.Input
+
+	ToWebhookSubscriptionDeliveryMethodCustomHeaderArrayOutput() WebhookSubscriptionDeliveryMethodCustomHeaderArrayOutput
+	ToWebhookSubscriptionDeliveryMethodCustomHeaderArrayOutputWithContext(context.Context) WebhookSubscriptionDeliveryMethodCustomHeaderArrayOutput
+}
+
+type WebhookSubscriptionDeliveryMethodCustomHeaderArray []WebhookSubscriptionDeliveryMethodCustomHeaderInput
+
+func (WebhookSubscriptionDeliveryMethodCustomHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebhookSubscriptionDeliveryMethodCustomHeader)(nil)).Elem()
+}
+
+func (i WebhookSubscriptionDeliveryMethodCustomHeaderArray) ToWebhookSubscriptionDeliveryMethodCustomHeaderArrayOutput() WebhookSubscriptionDeliveryMethodCustomHeaderArrayOutput {
+	return i.ToWebhookSubscriptionDeliveryMethodCustomHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i WebhookSubscriptionDeliveryMethodCustomHeaderArray) ToWebhookSubscriptionDeliveryMethodCustomHeaderArrayOutputWithContext(ctx context.Context) WebhookSubscriptionDeliveryMethodCustomHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebhookSubscriptionDeliveryMethodCustomHeaderArrayOutput)
+}
+
+type WebhookSubscriptionDeliveryMethodCustomHeaderOutput struct{ *pulumi.OutputState }
+
+func (WebhookSubscriptionDeliveryMethodCustomHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebhookSubscriptionDeliveryMethodCustomHeader)(nil)).Elem()
+}
+
+func (o WebhookSubscriptionDeliveryMethodCustomHeaderOutput) ToWebhookSubscriptionDeliveryMethodCustomHeaderOutput() WebhookSubscriptionDeliveryMethodCustomHeaderOutput {
+	return o
+}
+
+func (o WebhookSubscriptionDeliveryMethodCustomHeaderOutput) ToWebhookSubscriptionDeliveryMethodCustomHeaderOutputWithContext(ctx context.Context) WebhookSubscriptionDeliveryMethodCustomHeaderOutput {
+	return o
+}
+
+func (o WebhookSubscriptionDeliveryMethodCustomHeaderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebhookSubscriptionDeliveryMethodCustomHeader) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o WebhookSubscriptionDeliveryMethodCustomHeaderOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v WebhookSubscriptionDeliveryMethodCustomHeader) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type WebhookSubscriptionDeliveryMethodCustomHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (WebhookSubscriptionDeliveryMethodCustomHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebhookSubscriptionDeliveryMethodCustomHeader)(nil)).Elem()
+}
+
+func (o WebhookSubscriptionDeliveryMethodCustomHeaderArrayOutput) ToWebhookSubscriptionDeliveryMethodCustomHeaderArrayOutput() WebhookSubscriptionDeliveryMethodCustomHeaderArrayOutput {
+	return o
+}
+
+func (o WebhookSubscriptionDeliveryMethodCustomHeaderArrayOutput) ToWebhookSubscriptionDeliveryMethodCustomHeaderArrayOutputWithContext(ctx context.Context) WebhookSubscriptionDeliveryMethodCustomHeaderArrayOutput {
+	return o
+}
+
+func (o WebhookSubscriptionDeliveryMethodCustomHeaderArrayOutput) Index(i pulumi.IntInput) WebhookSubscriptionDeliveryMethodCustomHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebhookSubscriptionDeliveryMethodCustomHeader {
+		return vs[0].([]WebhookSubscriptionDeliveryMethodCustomHeader)[vs[1].(int)]
+	}).(WebhookSubscriptionDeliveryMethodCustomHeaderOutput)
 }
 
 type WebhookSubscriptionFilter struct {
@@ -8111,11 +13019,294 @@ func (o WebhookSubscriptionFilterArrayOutput) Index(i pulumi.IntInput) WebhookSu
 	}).(WebhookSubscriptionFilterOutput)
 }
 
+type GetEventOrchestrationIntegration struct {
+	// ID of the integration
+	// * `parameters`
+	Id         string                                      `pulumi:"id"`
+	Parameters []GetEventOrchestrationIntegrationParameter `pulumi:"parameters"`
+}
+
+// GetEventOrchestrationIntegrationInput is an input type that accepts GetEventOrchestrationIntegrationArgs and GetEventOrchestrationIntegrationOutput values.
+// You can construct a concrete instance of `GetEventOrchestrationIntegrationInput` via:
+//
+//          GetEventOrchestrationIntegrationArgs{...}
+type GetEventOrchestrationIntegrationInput interface {
+	pulumi.Input
+
+	ToGetEventOrchestrationIntegrationOutput() GetEventOrchestrationIntegrationOutput
+	ToGetEventOrchestrationIntegrationOutputWithContext(context.Context) GetEventOrchestrationIntegrationOutput
+}
+
+type GetEventOrchestrationIntegrationArgs struct {
+	// ID of the integration
+	// * `parameters`
+	Id         pulumi.StringInput                                  `pulumi:"id"`
+	Parameters GetEventOrchestrationIntegrationParameterArrayInput `pulumi:"parameters"`
+}
+
+func (GetEventOrchestrationIntegrationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEventOrchestrationIntegration)(nil)).Elem()
+}
+
+func (i GetEventOrchestrationIntegrationArgs) ToGetEventOrchestrationIntegrationOutput() GetEventOrchestrationIntegrationOutput {
+	return i.ToGetEventOrchestrationIntegrationOutputWithContext(context.Background())
+}
+
+func (i GetEventOrchestrationIntegrationArgs) ToGetEventOrchestrationIntegrationOutputWithContext(ctx context.Context) GetEventOrchestrationIntegrationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEventOrchestrationIntegrationOutput)
+}
+
+// GetEventOrchestrationIntegrationArrayInput is an input type that accepts GetEventOrchestrationIntegrationArray and GetEventOrchestrationIntegrationArrayOutput values.
+// You can construct a concrete instance of `GetEventOrchestrationIntegrationArrayInput` via:
+//
+//          GetEventOrchestrationIntegrationArray{ GetEventOrchestrationIntegrationArgs{...} }
+type GetEventOrchestrationIntegrationArrayInput interface {
+	pulumi.Input
+
+	ToGetEventOrchestrationIntegrationArrayOutput() GetEventOrchestrationIntegrationArrayOutput
+	ToGetEventOrchestrationIntegrationArrayOutputWithContext(context.Context) GetEventOrchestrationIntegrationArrayOutput
+}
+
+type GetEventOrchestrationIntegrationArray []GetEventOrchestrationIntegrationInput
+
+func (GetEventOrchestrationIntegrationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEventOrchestrationIntegration)(nil)).Elem()
+}
+
+func (i GetEventOrchestrationIntegrationArray) ToGetEventOrchestrationIntegrationArrayOutput() GetEventOrchestrationIntegrationArrayOutput {
+	return i.ToGetEventOrchestrationIntegrationArrayOutputWithContext(context.Background())
+}
+
+func (i GetEventOrchestrationIntegrationArray) ToGetEventOrchestrationIntegrationArrayOutputWithContext(ctx context.Context) GetEventOrchestrationIntegrationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEventOrchestrationIntegrationArrayOutput)
+}
+
+type GetEventOrchestrationIntegrationOutput struct{ *pulumi.OutputState }
+
+func (GetEventOrchestrationIntegrationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEventOrchestrationIntegration)(nil)).Elem()
+}
+
+func (o GetEventOrchestrationIntegrationOutput) ToGetEventOrchestrationIntegrationOutput() GetEventOrchestrationIntegrationOutput {
+	return o
+}
+
+func (o GetEventOrchestrationIntegrationOutput) ToGetEventOrchestrationIntegrationOutputWithContext(ctx context.Context) GetEventOrchestrationIntegrationOutput {
+	return o
+}
+
+// ID of the integration
+// * `parameters`
+func (o GetEventOrchestrationIntegrationOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventOrchestrationIntegration) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetEventOrchestrationIntegrationOutput) Parameters() GetEventOrchestrationIntegrationParameterArrayOutput {
+	return o.ApplyT(func(v GetEventOrchestrationIntegration) []GetEventOrchestrationIntegrationParameter {
+		return v.Parameters
+	}).(GetEventOrchestrationIntegrationParameterArrayOutput)
+}
+
+type GetEventOrchestrationIntegrationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEventOrchestrationIntegrationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEventOrchestrationIntegration)(nil)).Elem()
+}
+
+func (o GetEventOrchestrationIntegrationArrayOutput) ToGetEventOrchestrationIntegrationArrayOutput() GetEventOrchestrationIntegrationArrayOutput {
+	return o
+}
+
+func (o GetEventOrchestrationIntegrationArrayOutput) ToGetEventOrchestrationIntegrationArrayOutputWithContext(ctx context.Context) GetEventOrchestrationIntegrationArrayOutput {
+	return o
+}
+
+func (o GetEventOrchestrationIntegrationArrayOutput) Index(i pulumi.IntInput) GetEventOrchestrationIntegrationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEventOrchestrationIntegration {
+		return vs[0].([]GetEventOrchestrationIntegration)[vs[1].(int)]
+	}).(GetEventOrchestrationIntegrationOutput)
+}
+
+type GetEventOrchestrationIntegrationParameter struct {
+	// Routing key that routes to this Orchestration.
+	RoutingKey string `pulumi:"routingKey"`
+	// Type of the routing key. `global` is the default type.
+	Type string `pulumi:"type"`
+}
+
+// GetEventOrchestrationIntegrationParameterInput is an input type that accepts GetEventOrchestrationIntegrationParameterArgs and GetEventOrchestrationIntegrationParameterOutput values.
+// You can construct a concrete instance of `GetEventOrchestrationIntegrationParameterInput` via:
+//
+//          GetEventOrchestrationIntegrationParameterArgs{...}
+type GetEventOrchestrationIntegrationParameterInput interface {
+	pulumi.Input
+
+	ToGetEventOrchestrationIntegrationParameterOutput() GetEventOrchestrationIntegrationParameterOutput
+	ToGetEventOrchestrationIntegrationParameterOutputWithContext(context.Context) GetEventOrchestrationIntegrationParameterOutput
+}
+
+type GetEventOrchestrationIntegrationParameterArgs struct {
+	// Routing key that routes to this Orchestration.
+	RoutingKey pulumi.StringInput `pulumi:"routingKey"`
+	// Type of the routing key. `global` is the default type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetEventOrchestrationIntegrationParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEventOrchestrationIntegrationParameter)(nil)).Elem()
+}
+
+func (i GetEventOrchestrationIntegrationParameterArgs) ToGetEventOrchestrationIntegrationParameterOutput() GetEventOrchestrationIntegrationParameterOutput {
+	return i.ToGetEventOrchestrationIntegrationParameterOutputWithContext(context.Background())
+}
+
+func (i GetEventOrchestrationIntegrationParameterArgs) ToGetEventOrchestrationIntegrationParameterOutputWithContext(ctx context.Context) GetEventOrchestrationIntegrationParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEventOrchestrationIntegrationParameterOutput)
+}
+
+// GetEventOrchestrationIntegrationParameterArrayInput is an input type that accepts GetEventOrchestrationIntegrationParameterArray and GetEventOrchestrationIntegrationParameterArrayOutput values.
+// You can construct a concrete instance of `GetEventOrchestrationIntegrationParameterArrayInput` via:
+//
+//          GetEventOrchestrationIntegrationParameterArray{ GetEventOrchestrationIntegrationParameterArgs{...} }
+type GetEventOrchestrationIntegrationParameterArrayInput interface {
+	pulumi.Input
+
+	ToGetEventOrchestrationIntegrationParameterArrayOutput() GetEventOrchestrationIntegrationParameterArrayOutput
+	ToGetEventOrchestrationIntegrationParameterArrayOutputWithContext(context.Context) GetEventOrchestrationIntegrationParameterArrayOutput
+}
+
+type GetEventOrchestrationIntegrationParameterArray []GetEventOrchestrationIntegrationParameterInput
+
+func (GetEventOrchestrationIntegrationParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEventOrchestrationIntegrationParameter)(nil)).Elem()
+}
+
+func (i GetEventOrchestrationIntegrationParameterArray) ToGetEventOrchestrationIntegrationParameterArrayOutput() GetEventOrchestrationIntegrationParameterArrayOutput {
+	return i.ToGetEventOrchestrationIntegrationParameterArrayOutputWithContext(context.Background())
+}
+
+func (i GetEventOrchestrationIntegrationParameterArray) ToGetEventOrchestrationIntegrationParameterArrayOutputWithContext(ctx context.Context) GetEventOrchestrationIntegrationParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEventOrchestrationIntegrationParameterArrayOutput)
+}
+
+type GetEventOrchestrationIntegrationParameterOutput struct{ *pulumi.OutputState }
+
+func (GetEventOrchestrationIntegrationParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEventOrchestrationIntegrationParameter)(nil)).Elem()
+}
+
+func (o GetEventOrchestrationIntegrationParameterOutput) ToGetEventOrchestrationIntegrationParameterOutput() GetEventOrchestrationIntegrationParameterOutput {
+	return o
+}
+
+func (o GetEventOrchestrationIntegrationParameterOutput) ToGetEventOrchestrationIntegrationParameterOutputWithContext(ctx context.Context) GetEventOrchestrationIntegrationParameterOutput {
+	return o
+}
+
+// Routing key that routes to this Orchestration.
+func (o GetEventOrchestrationIntegrationParameterOutput) RoutingKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventOrchestrationIntegrationParameter) string { return v.RoutingKey }).(pulumi.StringOutput)
+}
+
+// Type of the routing key. `global` is the default type.
+func (o GetEventOrchestrationIntegrationParameterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventOrchestrationIntegrationParameter) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetEventOrchestrationIntegrationParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEventOrchestrationIntegrationParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEventOrchestrationIntegrationParameter)(nil)).Elem()
+}
+
+func (o GetEventOrchestrationIntegrationParameterArrayOutput) ToGetEventOrchestrationIntegrationParameterArrayOutput() GetEventOrchestrationIntegrationParameterArrayOutput {
+	return o
+}
+
+func (o GetEventOrchestrationIntegrationParameterArrayOutput) ToGetEventOrchestrationIntegrationParameterArrayOutputWithContext(ctx context.Context) GetEventOrchestrationIntegrationParameterArrayOutput {
+	return o
+}
+
+func (o GetEventOrchestrationIntegrationParameterArrayOutput) Index(i pulumi.IntInput) GetEventOrchestrationIntegrationParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEventOrchestrationIntegrationParameter {
+		return vs[0].([]GetEventOrchestrationIntegrationParameter)[vs[1].(int)]
+	}).(GetEventOrchestrationIntegrationParameterOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EscalationPolicyRuleInput)(nil)).Elem(), EscalationPolicyRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EscalationPolicyRuleArrayInput)(nil)).Elem(), EscalationPolicyRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EscalationPolicyRuleTargetInput)(nil)).Elem(), EscalationPolicyRuleTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EscalationPolicyRuleTargetArrayInput)(nil)).Elem(), EscalationPolicyRuleTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationIntegrationInput)(nil)).Elem(), EventOrchestrationIntegrationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationIntegrationArrayInput)(nil)).Elem(), EventOrchestrationIntegrationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationIntegrationParameterInput)(nil)).Elem(), EventOrchestrationIntegrationParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationIntegrationParameterArrayInput)(nil)).Elem(), EventOrchestrationIntegrationParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationRouterCatchAllInput)(nil)).Elem(), EventOrchestrationRouterCatchAllArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationRouterCatchAllPtrInput)(nil)).Elem(), EventOrchestrationRouterCatchAllArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationRouterCatchAllActionsInput)(nil)).Elem(), EventOrchestrationRouterCatchAllActionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationRouterCatchAllActionsPtrInput)(nil)).Elem(), EventOrchestrationRouterCatchAllActionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationRouterSetInput)(nil)).Elem(), EventOrchestrationRouterSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationRouterSetPtrInput)(nil)).Elem(), EventOrchestrationRouterSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationRouterSetRuleInput)(nil)).Elem(), EventOrchestrationRouterSetRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationRouterSetRuleArrayInput)(nil)).Elem(), EventOrchestrationRouterSetRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationRouterSetRuleActionsInput)(nil)).Elem(), EventOrchestrationRouterSetRuleActionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationRouterSetRuleConditionInput)(nil)).Elem(), EventOrchestrationRouterSetRuleConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationRouterSetRuleConditionArrayInput)(nil)).Elem(), EventOrchestrationRouterSetRuleConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceCatchAllInput)(nil)).Elem(), EventOrchestrationServiceCatchAllArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceCatchAllPtrInput)(nil)).Elem(), EventOrchestrationServiceCatchAllArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceCatchAllActionsInput)(nil)).Elem(), EventOrchestrationServiceCatchAllActionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceCatchAllActionsPtrInput)(nil)).Elem(), EventOrchestrationServiceCatchAllActionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceCatchAllActionsAutomationActionInput)(nil)).Elem(), EventOrchestrationServiceCatchAllActionsAutomationActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceCatchAllActionsAutomationActionPtrInput)(nil)).Elem(), EventOrchestrationServiceCatchAllActionsAutomationActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceCatchAllActionsAutomationActionHeaderInput)(nil)).Elem(), EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayInput)(nil)).Elem(), EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceCatchAllActionsAutomationActionParameterInput)(nil)).Elem(), EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayInput)(nil)).Elem(), EventOrchestrationServiceCatchAllActionsAutomationActionParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceCatchAllActionsExtractionInput)(nil)).Elem(), EventOrchestrationServiceCatchAllActionsExtractionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceCatchAllActionsExtractionArrayInput)(nil)).Elem(), EventOrchestrationServiceCatchAllActionsExtractionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionInput)(nil)).Elem(), EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrInput)(nil)).Elem(), EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceCatchAllActionsVariableInput)(nil)).Elem(), EventOrchestrationServiceCatchAllActionsVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceCatchAllActionsVariableArrayInput)(nil)).Elem(), EventOrchestrationServiceCatchAllActionsVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceSetInput)(nil)).Elem(), EventOrchestrationServiceSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceSetArrayInput)(nil)).Elem(), EventOrchestrationServiceSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceSetRuleInput)(nil)).Elem(), EventOrchestrationServiceSetRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceSetRuleArrayInput)(nil)).Elem(), EventOrchestrationServiceSetRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceSetRuleActionsInput)(nil)).Elem(), EventOrchestrationServiceSetRuleActionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceSetRuleActionsAutomationActionInput)(nil)).Elem(), EventOrchestrationServiceSetRuleActionsAutomationActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceSetRuleActionsAutomationActionPtrInput)(nil)).Elem(), EventOrchestrationServiceSetRuleActionsAutomationActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceSetRuleActionsAutomationActionHeaderInput)(nil)).Elem(), EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayInput)(nil)).Elem(), EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceSetRuleActionsAutomationActionParameterInput)(nil)).Elem(), EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayInput)(nil)).Elem(), EventOrchestrationServiceSetRuleActionsAutomationActionParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceSetRuleActionsExtractionInput)(nil)).Elem(), EventOrchestrationServiceSetRuleActionsExtractionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceSetRuleActionsExtractionArrayInput)(nil)).Elem(), EventOrchestrationServiceSetRuleActionsExtractionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionInput)(nil)).Elem(), EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrInput)(nil)).Elem(), EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceSetRuleActionsVariableInput)(nil)).Elem(), EventOrchestrationServiceSetRuleActionsVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceSetRuleActionsVariableArrayInput)(nil)).Elem(), EventOrchestrationServiceSetRuleActionsVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceSetRuleConditionInput)(nil)).Elem(), EventOrchestrationServiceSetRuleConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceSetRuleConditionArrayInput)(nil)).Elem(), EventOrchestrationServiceSetRuleConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationUnroutedCatchAllInput)(nil)).Elem(), EventOrchestrationUnroutedCatchAllArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationUnroutedCatchAllPtrInput)(nil)).Elem(), EventOrchestrationUnroutedCatchAllArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationUnroutedCatchAllActionsInput)(nil)).Elem(), EventOrchestrationUnroutedCatchAllActionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationUnroutedCatchAllActionsPtrInput)(nil)).Elem(), EventOrchestrationUnroutedCatchAllActionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationUnroutedCatchAllActionsExtractionInput)(nil)).Elem(), EventOrchestrationUnroutedCatchAllActionsExtractionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationUnroutedCatchAllActionsExtractionArrayInput)(nil)).Elem(), EventOrchestrationUnroutedCatchAllActionsExtractionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationUnroutedCatchAllActionsVariableInput)(nil)).Elem(), EventOrchestrationUnroutedCatchAllActionsVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationUnroutedCatchAllActionsVariableArrayInput)(nil)).Elem(), EventOrchestrationUnroutedCatchAllActionsVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationUnroutedSetInput)(nil)).Elem(), EventOrchestrationUnroutedSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationUnroutedSetArrayInput)(nil)).Elem(), EventOrchestrationUnroutedSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationUnroutedSetRuleInput)(nil)).Elem(), EventOrchestrationUnroutedSetRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationUnroutedSetRuleArrayInput)(nil)).Elem(), EventOrchestrationUnroutedSetRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationUnroutedSetRuleActionsInput)(nil)).Elem(), EventOrchestrationUnroutedSetRuleActionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationUnroutedSetRuleActionsExtractionInput)(nil)).Elem(), EventOrchestrationUnroutedSetRuleActionsExtractionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationUnroutedSetRuleActionsExtractionArrayInput)(nil)).Elem(), EventOrchestrationUnroutedSetRuleActionsExtractionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationUnroutedSetRuleActionsVariableInput)(nil)).Elem(), EventOrchestrationUnroutedSetRuleActionsVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationUnroutedSetRuleActionsVariableArrayInput)(nil)).Elem(), EventOrchestrationUnroutedSetRuleActionsVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationUnroutedSetRuleConditionInput)(nil)).Elem(), EventOrchestrationUnroutedSetRuleConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationUnroutedSetRuleConditionArrayInput)(nil)).Elem(), EventOrchestrationUnroutedSetRuleConditionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlayResponderInput)(nil)).Elem(), ResponsePlayResponderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlayResponderArrayInput)(nil)).Elem(), ResponsePlayResponderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlayResponderEscalationRuleInput)(nil)).Elem(), ResponsePlayResponderEscalationRuleArgs{})
@@ -8237,12 +13428,87 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SlackConnectionConfigArrayInput)(nil)).Elem(), SlackConnectionConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookSubscriptionDeliveryMethodInput)(nil)).Elem(), WebhookSubscriptionDeliveryMethodArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookSubscriptionDeliveryMethodArrayInput)(nil)).Elem(), WebhookSubscriptionDeliveryMethodArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebhookSubscriptionDeliveryMethodCustomHeaderInput)(nil)).Elem(), WebhookSubscriptionDeliveryMethodCustomHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebhookSubscriptionDeliveryMethodCustomHeaderArrayInput)(nil)).Elem(), WebhookSubscriptionDeliveryMethodCustomHeaderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookSubscriptionFilterInput)(nil)).Elem(), WebhookSubscriptionFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookSubscriptionFilterArrayInput)(nil)).Elem(), WebhookSubscriptionFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationIntegrationInput)(nil)).Elem(), GetEventOrchestrationIntegrationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationIntegrationArrayInput)(nil)).Elem(), GetEventOrchestrationIntegrationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationIntegrationParameterInput)(nil)).Elem(), GetEventOrchestrationIntegrationParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationIntegrationParameterArrayInput)(nil)).Elem(), GetEventOrchestrationIntegrationParameterArray{})
 	pulumi.RegisterOutputType(EscalationPolicyRuleOutput{})
 	pulumi.RegisterOutputType(EscalationPolicyRuleArrayOutput{})
 	pulumi.RegisterOutputType(EscalationPolicyRuleTargetOutput{})
 	pulumi.RegisterOutputType(EscalationPolicyRuleTargetArrayOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationIntegrationOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationIntegrationArrayOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationIntegrationParameterOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationIntegrationParameterArrayOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationRouterCatchAllOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationRouterCatchAllPtrOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationRouterCatchAllActionsOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationRouterCatchAllActionsPtrOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationRouterSetOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationRouterSetPtrOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationRouterSetRuleOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationRouterSetRuleArrayOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationRouterSetRuleActionsOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationRouterSetRuleConditionOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationRouterSetRuleConditionArrayOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceCatchAllOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceCatchAllPtrOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceCatchAllActionsOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceCatchAllActionsPtrOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceCatchAllActionsAutomationActionOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceCatchAllActionsAutomationActionParameterOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceCatchAllActionsExtractionOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceCatchAllActionsExtractionArrayOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceCatchAllActionsVariableOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceCatchAllActionsVariableArrayOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceSetOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceSetArrayOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceSetRuleOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceSetRuleArrayOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceSetRuleActionsOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceSetRuleActionsAutomationActionOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceSetRuleActionsAutomationActionParameterOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceSetRuleActionsExtractionOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceSetRuleActionsExtractionArrayOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceSetRuleActionsVariableOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceSetRuleActionsVariableArrayOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceSetRuleConditionOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceSetRuleConditionArrayOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationUnroutedCatchAllOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationUnroutedCatchAllPtrOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationUnroutedCatchAllActionsOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationUnroutedCatchAllActionsPtrOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationUnroutedCatchAllActionsExtractionOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationUnroutedCatchAllActionsExtractionArrayOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationUnroutedCatchAllActionsVariableOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationUnroutedCatchAllActionsVariableArrayOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationUnroutedSetOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationUnroutedSetArrayOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationUnroutedSetRuleOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationUnroutedSetRuleArrayOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationUnroutedSetRuleActionsOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationUnroutedSetRuleActionsExtractionOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationUnroutedSetRuleActionsExtractionArrayOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationUnroutedSetRuleActionsVariableOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationUnroutedSetRuleActionsVariableArrayOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationUnroutedSetRuleConditionOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationUnroutedSetRuleConditionArrayOutput{})
 	pulumi.RegisterOutputType(ResponsePlayResponderOutput{})
 	pulumi.RegisterOutputType(ResponsePlayResponderArrayOutput{})
 	pulumi.RegisterOutputType(ResponsePlayResponderEscalationRuleOutput{})
@@ -8364,6 +13630,12 @@ func init() {
 	pulumi.RegisterOutputType(SlackConnectionConfigArrayOutput{})
 	pulumi.RegisterOutputType(WebhookSubscriptionDeliveryMethodOutput{})
 	pulumi.RegisterOutputType(WebhookSubscriptionDeliveryMethodArrayOutput{})
+	pulumi.RegisterOutputType(WebhookSubscriptionDeliveryMethodCustomHeaderOutput{})
+	pulumi.RegisterOutputType(WebhookSubscriptionDeliveryMethodCustomHeaderArrayOutput{})
 	pulumi.RegisterOutputType(WebhookSubscriptionFilterOutput{})
 	pulumi.RegisterOutputType(WebhookSubscriptionFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetEventOrchestrationIntegrationOutput{})
+	pulumi.RegisterOutputType(GetEventOrchestrationIntegrationArrayOutput{})
+	pulumi.RegisterOutputType(GetEventOrchestrationIntegrationParameterOutput{})
+	pulumi.RegisterOutputType(GetEventOrchestrationIntegrationParameterArrayOutput{})
 }

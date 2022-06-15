@@ -295,6 +295,16 @@ class WebhookSubscription(pulumi.CustomResource):
             delivery_methods=[pagerduty.WebhookSubscriptionDeliveryMethodArgs(
                 type="http_delivery_method",
                 url="https://example.com/receive_a_pagerduty_webhook",
+                custom_headers=[
+                    pagerduty.WebhookSubscriptionDeliveryMethodCustomHeaderArgs(
+                        name="X-Foo",
+                        value="foo",
+                    ),
+                    pagerduty.WebhookSubscriptionDeliveryMethodCustomHeaderArgs(
+                        name="X-Bar",
+                        value="bar",
+                    ),
+                ],
             )],
             description="%s",
             events=[
@@ -370,6 +380,16 @@ class WebhookSubscription(pulumi.CustomResource):
             delivery_methods=[pagerduty.WebhookSubscriptionDeliveryMethodArgs(
                 type="http_delivery_method",
                 url="https://example.com/receive_a_pagerduty_webhook",
+                custom_headers=[
+                    pagerduty.WebhookSubscriptionDeliveryMethodCustomHeaderArgs(
+                        name="X-Foo",
+                        value="foo",
+                    ),
+                    pagerduty.WebhookSubscriptionDeliveryMethodCustomHeaderArgs(
+                        name="X-Bar",
+                        value="bar",
+                    ),
+                ],
             )],
             description="%s",
             events=[

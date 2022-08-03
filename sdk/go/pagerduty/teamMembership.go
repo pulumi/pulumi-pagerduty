@@ -245,6 +245,24 @@ func (o TeamMembershipOutput) ToTeamMembershipOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.\
+// These roles match up to user roles in the following ways:
+// * User role of `user` is a Team role of `manager`
+// * User role of `limitedUser` is a Team role of `responder`
+func (o TeamMembershipOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TeamMembership) pulumi.StringPtrOutput { return v.Role }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the team in which the user will belong.
+func (o TeamMembershipOutput) TeamId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TeamMembership) pulumi.StringOutput { return v.TeamId }).(pulumi.StringOutput)
+}
+
+// The ID of the user to add to the team.
+func (o TeamMembershipOutput) UserId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TeamMembership) pulumi.StringOutput { return v.UserId }).(pulumi.StringOutput)
+}
+
 type TeamMembershipArrayOutput struct{ *pulumi.OutputState }
 
 func (TeamMembershipArrayOutput) ElementType() reflect.Type {

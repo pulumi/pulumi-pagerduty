@@ -927,6 +927,14 @@ export interface RulesetTeam {
     id: pulumi.Input<string>;
 }
 
+export interface ScheduleFinalSchedule {
+    /**
+     * The name of the schedule.
+     */
+    name?: pulumi.Input<string>;
+    renderedCoveragePercentage?: pulumi.Input<string>;
+}
+
 export interface ScheduleLayer {
     /**
      * The end time of the schedule layer. If not specified, the layer does not end.
@@ -940,6 +948,7 @@ export interface ScheduleLayer {
      * The name of the schedule layer.
      */
     name?: pulumi.Input<string>;
+    renderedCoveragePercentage?: pulumi.Input<string>;
     /**
      * A schedule layer restriction block. Restriction blocks documented below.
      */
@@ -1009,13 +1018,16 @@ export interface ServiceAlertGroupingParametersConfig {
 
 export interface ServiceDependencyDependency {
     /**
-     * The service that dependents on the supporting service.
+     * The service that dependents on the supporting service. Dependency dependent service documented below.
      */
     dependentServices: pulumi.Input<pulumi.Input<inputs.ServiceDependencyDependencyDependentService>[]>;
     /**
-     * The service that supports the dependent service.
+     * The service that supports the dependent service. Dependency supporting service documented below.
      */
     supportingServices: pulumi.Input<pulumi.Input<inputs.ServiceDependencyDependencySupportingService>[]>;
+    /**
+     * Can be `businessService`,  `service`, `businessServiceReference` or `technicalServiceReference`.
+     */
     type?: pulumi.Input<string>;
 }
 
@@ -1024,6 +1036,9 @@ export interface ServiceDependencyDependencyDependentService {
      * The ID of the service dependency.
      */
     id: pulumi.Input<string>;
+    /**
+     * Can be `businessService`,  `service`, `businessServiceReference` or `technicalServiceReference`.
+     */
     type: pulumi.Input<string>;
 }
 
@@ -1032,6 +1047,9 @@ export interface ServiceDependencyDependencySupportingService {
      * The ID of the service dependency.
      */
     id: pulumi.Input<string>;
+    /**
+     * Can be `businessService`,  `service`, `businessServiceReference` or `technicalServiceReference`.
+     */
     type: pulumi.Input<string>;
 }
 

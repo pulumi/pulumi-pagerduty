@@ -50,7 +50,7 @@ import (
 // 					},
 // 				},
 // 			},
-// 			Description: pulumi.String(fmt.Sprintf("%v%v", "%", "s")),
+// 			Description: pulumi.String(fmt.Sprintf("%vs", "%")),
 // 			Events: pulumi.StringArray{
 // 				pulumi.String("incident.acknowledged"),
 // 				pulumi.String("incident.annotated"),
@@ -359,6 +359,49 @@ func (o WebhookSubscriptionOutput) ToWebhookSubscriptionOutput() WebhookSubscrip
 
 func (o WebhookSubscriptionOutput) ToWebhookSubscriptionOutputWithContext(ctx context.Context) WebhookSubscriptionOutput {
 	return o
+}
+
+// Determines whether the subscription will produce webhook events.
+func (o WebhookSubscriptionOutput) Active() pulumi.BoolOutput {
+	return o.ApplyT(func(v *WebhookSubscription) pulumi.BoolOutput { return v.Active }).(pulumi.BoolOutput)
+}
+
+// The object describing where to send the webhooks.
+func (o WebhookSubscriptionOutput) DeliveryMethods() WebhookSubscriptionDeliveryMethodArrayOutput {
+	return o.ApplyT(func(v *WebhookSubscription) WebhookSubscriptionDeliveryMethodArrayOutput { return v.DeliveryMethods }).(WebhookSubscriptionDeliveryMethodArrayOutput)
+}
+
+// A short description of the webhook subscription
+func (o WebhookSubscriptionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebhookSubscription) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A set of outbound event types the webhook will receive. The follow event types are possible:
+// * `incident.acknowledged`
+// * `incident.annotated`
+// * `incident.delegated`
+// * `incident.escalated`
+// * `incident.priority_updated`
+// * `incident.reassigned`
+// * `incident.reopened`
+// * `incident.resolved`
+// * `incident.responder.added`
+// * `incident.responder.replied`
+// * `incident.status_update_published`
+// * `incident.triggered`
+// * `incident.unacknowledged`
+func (o WebhookSubscriptionOutput) Events() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WebhookSubscription) pulumi.StringArrayOutput { return v.Events }).(pulumi.StringArrayOutput)
+}
+
+// determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `serviceReference`, `teamReference` and `accountReference`.
+func (o WebhookSubscriptionOutput) Filters() WebhookSubscriptionFilterArrayOutput {
+	return o.ApplyT(func(v *WebhookSubscription) WebhookSubscriptionFilterArrayOutput { return v.Filters }).(WebhookSubscriptionFilterArrayOutput)
+}
+
+// The type indicating the schema of the object. The provider sets this as `webhookSubscription`, which is currently the only acceptable value.
+func (o WebhookSubscriptionOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebhookSubscription) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type WebhookSubscriptionArrayOutput struct{ *pulumi.OutputState }

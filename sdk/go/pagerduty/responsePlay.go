@@ -340,6 +340,65 @@ func (o ResponsePlayOutput) ToResponsePlayOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The telephone number that will be set as the conference number for any incident on which this response play is run.
+func (o ResponsePlayOutput) ConferenceNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResponsePlay) pulumi.StringPtrOutput { return v.ConferenceNumber }).(pulumi.StringPtrOutput)
+}
+
+// The URL that will be set as the conference URL for any incident on which this response play is run.
+func (o ResponsePlayOutput) ConferenceUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResponsePlay) pulumi.StringPtrOutput { return v.ConferenceUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o ResponsePlayOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResponsePlay) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
+func (o ResponsePlayOutput) From() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResponsePlay) pulumi.StringOutput { return v.From }).(pulumi.StringOutput)
+}
+
+// The name of the response play.
+func (o ResponsePlayOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResponsePlay) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
+func (o ResponsePlayOutput) Responders() ResponsePlayResponderArrayOutput {
+	return o.ApplyT(func(v *ResponsePlay) ResponsePlayResponderArrayOutput { return v.Responders }).(ResponsePlayResponderArrayOutput)
+}
+
+// The message body of the notification that will be sent to this response play's set of responders. If empty, a default response request notification will be sent.
+func (o ResponsePlayOutput) RespondersMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResponsePlay) pulumi.StringPtrOutput { return v.RespondersMessage }).(pulumi.StringPtrOutput)
+}
+
+// String representing how this response play is allowed to be run. Valid options are:
+func (o ResponsePlayOutput) Runnability() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResponsePlay) pulumi.StringPtrOutput { return v.Runnability }).(pulumi.StringPtrOutput)
+}
+
+// A user and/or team to be added as a subscriber to any incident on which this response play is run. There can be multiple subscribers defined on a single response play.
+func (o ResponsePlayOutput) Subscribers() ResponsePlaySubscriberArrayOutput {
+	return o.ApplyT(func(v *ResponsePlay) ResponsePlaySubscriberArrayOutput { return v.Subscribers }).(ResponsePlaySubscriberArrayOutput)
+}
+
+// The content of the notification that will be sent to all incident subscribers upon the running of this response play. Note that this includes any users who may have already been subscribed to the incident prior to the running of this response play. If empty, no notifications will be sent.
+func (o ResponsePlayOutput) SubscribersMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResponsePlay) pulumi.StringPtrOutput { return v.SubscribersMessage }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the team associated with the response play.
+func (o ResponsePlayOutput) Team() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResponsePlay) pulumi.StringPtrOutput { return v.Team }).(pulumi.StringPtrOutput)
+}
+
+// A string that determines the schema of the object. If not set, the default value is "responsePlay".
+func (o ResponsePlayOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResponsePlay) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
 type ResponsePlayArrayOutput struct{ *pulumi.OutputState }
 
 func (ResponsePlayArrayOutput) ElementType() reflect.Type {

@@ -297,6 +297,26 @@ func (o UserNotificationRuleOutput) ToUserNotificationRuleOutputWithContext(ctx 
 	return o
 }
 
+// A contact method block, configured as a block described below.
+func (o UserNotificationRuleOutput) ContactMethod() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *UserNotificationRule) pulumi.StringMapOutput { return v.ContactMethod }).(pulumi.StringMapOutput)
+}
+
+// The delay before firing the rule, in minutes.
+func (o UserNotificationRuleOutput) StartDelayInMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v *UserNotificationRule) pulumi.IntOutput { return v.StartDelayInMinutes }).(pulumi.IntOutput)
+}
+
+// Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
+func (o UserNotificationRuleOutput) Urgency() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserNotificationRule) pulumi.StringOutput { return v.Urgency }).(pulumi.StringOutput)
+}
+
+// The ID of the user.
+func (o UserNotificationRuleOutput) UserId() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserNotificationRule) pulumi.StringOutput { return v.UserId }).(pulumi.StringOutput)
+}
+
 type UserNotificationRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (UserNotificationRuleArrayOutput) ElementType() reflect.Type {

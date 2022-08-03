@@ -353,6 +353,87 @@ func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOu
 	return o
 }
 
+// Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.  If not passed in, will default to '"1800"'.
+func (o ServiceOutput) AcknowledgementTimeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.AcknowledgementTimeout }).(pulumi.StringPtrOutput)
+}
+
+// Must be one of two values. PagerDuty receives events from your monitoring systems and can then create incidents in different ways. Value "createIncidents" is default: events will create an incident that cannot be merged. Value "createAlertsAndIncidents" is the alternative: events will create an alert and then add it to a new incident, these incidents can be merged. This option is recommended.
+func (o ServiceOutput) AlertCreation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.AlertCreation }).(pulumi.StringPtrOutput)
+}
+
+// (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alertGroupingTimeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan. This field is deprecated, use `alert_grouping_parameters.type` instead,
+//
+// Deprecated: Use `alert_grouping_parameters.type`
+func (o ServiceOutput) AlertGrouping() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.AlertGrouping }).(pulumi.StringOutput)
+}
+
+// Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
+func (o ServiceOutput) AlertGroupingParameters() ServiceAlertGroupingParametersPtrOutput {
+	return o.ApplyT(func(v *Service) ServiceAlertGroupingParametersPtrOutput { return v.AlertGroupingParameters }).(ServiceAlertGroupingParametersPtrOutput)
+}
+
+// (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alertGrouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
+//
+// Deprecated: Use `alert_grouping_parameters.config.timeout`
+func (o ServiceOutput) AlertGroupingTimeout() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.AlertGroupingTimeout }).(pulumi.StringOutput)
+}
+
+// Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
+func (o ServiceOutput) AutoResolveTimeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.AutoResolveTimeout }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+func (o ServiceOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// The escalation policy used by this service.
+func (o ServiceOutput) EscalationPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.EscalationPolicy }).(pulumi.StringOutput)
+}
+
+func (o ServiceOutput) HtmlUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.HtmlUrl }).(pulumi.StringOutput)
+}
+
+func (o ServiceOutput) IncidentUrgencyRule() ServiceIncidentUrgencyRuleOutput {
+	return o.ApplyT(func(v *Service) ServiceIncidentUrgencyRuleOutput { return v.IncidentUrgencyRule }).(ServiceIncidentUrgencyRuleOutput)
+}
+
+func (o ServiceOutput) LastIncidentTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.LastIncidentTimestamp }).(pulumi.StringOutput)
+}
+
+// The name of the service.
+func (o ServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ServiceOutput) ScheduledActions() ServiceScheduledActionArrayOutput {
+	return o.ApplyT(func(v *Service) ServiceScheduledActionArrayOutput { return v.ScheduledActions }).(ServiceScheduledActionArrayOutput)
+}
+
+func (o ServiceOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+func (o ServiceOutput) SupportHours() ServiceSupportHoursPtrOutput {
+	return o.ApplyT(func(v *Service) ServiceSupportHoursPtrOutput { return v.SupportHours }).(ServiceSupportHoursPtrOutput)
+}
+
+// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+func (o ServiceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 type ServiceArrayOutput struct{ *pulumi.OutputState }
 
 func (ServiceArrayOutput) ElementType() reflect.Type {

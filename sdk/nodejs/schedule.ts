@@ -74,6 +74,7 @@ export class Schedule extends pulumi.CustomResource {
      * The description of the schedule.
      */
     public readonly description!: pulumi.Output<string>;
+    public /*out*/ readonly finalSchedules!: pulumi.Output<outputs.ScheduleFinalSchedule[]>;
     /**
      * A schedule layer block. Schedule layers documented below.
      */
@@ -111,6 +112,7 @@ export class Schedule extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ScheduleState | undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["finalSchedules"] = state ? state.finalSchedules : undefined;
             resourceInputs["layers"] = state ? state.layers : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["overflow"] = state ? state.overflow : undefined;
@@ -130,6 +132,7 @@ export class Schedule extends pulumi.CustomResource {
             resourceInputs["overflow"] = args ? args.overflow : undefined;
             resourceInputs["teams"] = args ? args.teams : undefined;
             resourceInputs["timeZone"] = args ? args.timeZone : undefined;
+            resourceInputs["finalSchedules"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Schedule.__pulumiType, name, resourceInputs, opts);
@@ -144,6 +147,7 @@ export interface ScheduleState {
      * The description of the schedule.
      */
     description?: pulumi.Input<string>;
+    finalSchedules?: pulumi.Input<pulumi.Input<inputs.ScheduleFinalSchedule>[]>;
     /**
      * A schedule layer block. Schedule layers documented below.
      */

@@ -337,6 +337,41 @@ func (o ServiceEventRuleOutput) ToServiceEventRuleOutputWithContext(ctx context.
 	return o
 }
 
+// Actions to apply to an event if the conditions match.
+func (o ServiceEventRuleOutput) Actions() ServiceEventRuleActionsPtrOutput {
+	return o.ApplyT(func(v *ServiceEventRule) ServiceEventRuleActionsPtrOutput { return v.Actions }).(ServiceEventRuleActionsPtrOutput)
+}
+
+// Conditions evaluated to check if an event matches this event rule.
+func (o ServiceEventRuleOutput) Conditions() ServiceEventRuleConditionsPtrOutput {
+	return o.ApplyT(func(v *ServiceEventRule) ServiceEventRuleConditionsPtrOutput { return v.Conditions }).(ServiceEventRuleConditionsPtrOutput)
+}
+
+// Indicates whether the rule is disabled and would therefore not be evaluated.
+func (o ServiceEventRuleOutput) Disabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceEventRule) pulumi.BoolPtrOutput { return v.Disabled }).(pulumi.BoolPtrOutput)
+}
+
+// Position/index of the rule within the service.
+func (o ServiceEventRuleOutput) Position() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceEventRule) pulumi.IntPtrOutput { return v.Position }).(pulumi.IntPtrOutput)
+}
+
+// The ID of the service that the rule belongs to.
+func (o ServiceEventRuleOutput) Service() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceEventRule) pulumi.StringOutput { return v.Service }).(pulumi.StringOutput)
+}
+
+// Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
+func (o ServiceEventRuleOutput) TimeFrame() ServiceEventRuleTimeFramePtrOutput {
+	return o.ApplyT(func(v *ServiceEventRule) ServiceEventRuleTimeFramePtrOutput { return v.TimeFrame }).(ServiceEventRuleTimeFramePtrOutput)
+}
+
+// Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
+func (o ServiceEventRuleOutput) Variables() ServiceEventRuleVariableArrayOutput {
+	return o.ApplyT(func(v *ServiceEventRule) ServiceEventRuleVariableArrayOutput { return v.Variables }).(ServiceEventRuleVariableArrayOutput)
+}
+
 type ServiceEventRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (ServiceEventRuleArrayOutput) ElementType() reflect.Type {

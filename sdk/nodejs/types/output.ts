@@ -907,6 +907,14 @@ export interface RulesetTeam {
     id: string;
 }
 
+export interface ScheduleFinalSchedule {
+    /**
+     * The name of the schedule.
+     */
+    name: string;
+    renderedCoveragePercentage: string;
+}
+
 export interface ScheduleLayer {
     /**
      * The end time of the schedule layer. If not specified, the layer does not end.
@@ -920,6 +928,7 @@ export interface ScheduleLayer {
      * The name of the schedule layer.
      */
     name: string;
+    renderedCoveragePercentage: string;
     /**
      * A schedule layer restriction block. Restriction blocks documented below.
      */
@@ -989,13 +998,16 @@ export interface ServiceAlertGroupingParametersConfig {
 
 export interface ServiceDependencyDependency {
     /**
-     * The service that dependents on the supporting service.
+     * The service that dependents on the supporting service. Dependency dependent service documented below.
      */
     dependentServices: outputs.ServiceDependencyDependencyDependentService[];
     /**
-     * The service that supports the dependent service.
+     * The service that supports the dependent service. Dependency supporting service documented below.
      */
     supportingServices: outputs.ServiceDependencyDependencySupportingService[];
+    /**
+     * Can be `businessService`,  `service`, `businessServiceReference` or `technicalServiceReference`.
+     */
     type?: string;
 }
 
@@ -1004,6 +1016,9 @@ export interface ServiceDependencyDependencyDependentService {
      * The ID of the service dependency.
      */
     id: string;
+    /**
+     * Can be `businessService`,  `service`, `businessServiceReference` or `technicalServiceReference`.
+     */
     type: string;
 }
 
@@ -1012,6 +1027,9 @@ export interface ServiceDependencyDependencySupportingService {
      * The ID of the service dependency.
      */
     id: string;
+    /**
+     * Can be `businessService`,  `service`, `businessServiceReference` or `technicalServiceReference`.
+     */
     type: string;
 }
 
@@ -1472,4 +1490,3 @@ export interface WebhookSubscriptionFilter {
      */
     type: string;
 }
-

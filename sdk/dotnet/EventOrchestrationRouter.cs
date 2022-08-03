@@ -31,6 +31,7 @@ namespace Pulumi.Pagerduty
     ///             EventOrchestration = pagerduty_event_orchestration.My_monitor.Id,
     ///             Set = new Pagerduty.Inputs.EventOrchestrationRouterSetArgs
     ///             {
+    ///                 Id = "start",
     ///                 Rules = 
     ///                 {
     ///                     new Pagerduty.Inputs.EventOrchestrationRouterSetRuleArgs
@@ -49,7 +50,7 @@ namespace Pulumi.Pagerduty
     ///                         },
     ///                         Actions = new Pagerduty.Inputs.EventOrchestrationRouterSetRuleActionsArgs
     ///                         {
-    ///                             RouteTo = pageduty_service.Database.Id,
+    ///                             RouteTo = pagerduty_service.Database.Id,
     ///                         },
     ///                     },
     ///                     new Pagerduty.Inputs.EventOrchestrationRouterSetRuleArgs
@@ -86,7 +87,7 @@ namespace Pulumi.Pagerduty
     /// Router can be imported using the `id` of the Event Orchestration, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter pagerduty_event_orchestration_router 1b49abe7-26db-4439-a715-c6d883acfb3e
+    ///  $ pulumi import pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter router 1b49abe7-26db-4439-a715-c6d883acfb3e
     /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter")]

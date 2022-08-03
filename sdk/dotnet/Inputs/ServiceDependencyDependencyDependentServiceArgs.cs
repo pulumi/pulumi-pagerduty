@@ -18,6 +18,9 @@ namespace Pulumi.Pagerduty.Inputs
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
+        /// <summary>
+        /// Can be `business_service`,  `service`, `business_service_reference` or `technical_service_reference`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

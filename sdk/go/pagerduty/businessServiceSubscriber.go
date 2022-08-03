@@ -247,6 +247,21 @@ func (o BusinessServiceSubscriberOutput) ToBusinessServiceSubscriberOutputWithCo
 	return o
 }
 
+// The ID of the business service to subscribe to.
+func (o BusinessServiceSubscriberOutput) BusinessServiceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *BusinessServiceSubscriber) pulumi.StringOutput { return v.BusinessServiceId }).(pulumi.StringOutput)
+}
+
+// The ID of the subscriber entity.
+func (o BusinessServiceSubscriberOutput) SubscriberId() pulumi.StringOutput {
+	return o.ApplyT(func(v *BusinessServiceSubscriber) pulumi.StringOutput { return v.SubscriberId }).(pulumi.StringOutput)
+}
+
+// Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.
+func (o BusinessServiceSubscriberOutput) SubscriberType() pulumi.StringOutput {
+	return o.ApplyT(func(v *BusinessServiceSubscriber) pulumi.StringOutput { return v.SubscriberType }).(pulumi.StringOutput)
+}
+
 type BusinessServiceSubscriberArrayOutput struct{ *pulumi.OutputState }
 
 func (BusinessServiceSubscriberArrayOutput) ElementType() reflect.Type {

@@ -22,9 +22,9 @@ namespace Pulumi.Pagerduty
     /// {
     ///     public MyStack()
     ///     {
-    ///         var webhook = Output.Create(Pagerduty.GetExtensionSchema.InvokeAsync(new Pagerduty.GetExtensionSchemaArgs
+    ///         var servicenow = Output.Create(Pagerduty.GetExtensionSchema.InvokeAsync(new Pagerduty.GetExtensionSchemaArgs
     ///         {
-    ///             Name = "Generic V2 Webhook",
+    ///             Name = "ServiceNow (v7)",
     ///         }));
     ///         var exampleUser = new Pagerduty.User("exampleUser", new Pagerduty.UserArgs
     ///         {
@@ -57,7 +57,7 @@ namespace Pulumi.Pagerduty
     ///         });
     ///         var snow = new Pagerduty.ExtensionServiceNow("snow", new Pagerduty.ExtensionServiceNowArgs
     ///         {
-    ///             ExtensionSchema = webhook.Apply(webhook =&gt; webhook.Id),
+    ///             ExtensionSchema = servicenow.Apply(servicenow =&gt; servicenow.Id),
     ///             ExtensionObjects = 
     ///             {
     ///                 exampleService.Id,

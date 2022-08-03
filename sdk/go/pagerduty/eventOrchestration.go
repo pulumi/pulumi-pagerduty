@@ -227,6 +227,30 @@ func (o EventOrchestrationOutput) ToEventOrchestrationOutputWithContext(ctx cont
 	return o
 }
 
+// A human-friendly description of the Event Orchestration.
+func (o EventOrchestrationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventOrchestration) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// An integration for the Event Orchestration.
+func (o EventOrchestrationOutput) Integrations() EventOrchestrationIntegrationArrayOutput {
+	return o.ApplyT(func(v *EventOrchestration) EventOrchestrationIntegrationArrayOutput { return v.Integrations }).(EventOrchestrationIntegrationArrayOutput)
+}
+
+// Name of the Event Orchestration.
+func (o EventOrchestrationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventOrchestration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o EventOrchestrationOutput) Routes() pulumi.IntOutput {
+	return o.ApplyT(func(v *EventOrchestration) pulumi.IntOutput { return v.Routes }).(pulumi.IntOutput)
+}
+
+// ID of the team that owns the Event Orchestration. If none is specified, only admins have access.
+func (o EventOrchestrationOutput) Team() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventOrchestration) pulumi.StringPtrOutput { return v.Team }).(pulumi.StringPtrOutput)
+}
+
 type EventOrchestrationArrayOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationArrayOutput) ElementType() reflect.Type {

@@ -16,7 +16,7 @@ import (
 // Service Orchestration can be imported using the `id` of the Service, e.g.
 //
 // ```sh
-//  $ pulumi import pagerduty:index/eventOrchestrationService:EventOrchestrationService pagerduty_event_orchestration_service PFEODA7
+//  $ pulumi import pagerduty:index/eventOrchestrationService:EventOrchestrationService service PFEODA7
 // ```
 type EventOrchestrationService struct {
 	pulumi.CustomResourceState
@@ -192,6 +192,21 @@ func (o EventOrchestrationServiceOutput) ToEventOrchestrationServiceOutput() Eve
 
 func (o EventOrchestrationServiceOutput) ToEventOrchestrationServiceOutputWithContext(ctx context.Context) EventOrchestrationServiceOutput {
 	return o
+}
+
+// the `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
+func (o EventOrchestrationServiceOutput) CatchAll() EventOrchestrationServiceCatchAllOutput {
+	return o.ApplyT(func(v *EventOrchestrationService) EventOrchestrationServiceCatchAllOutput { return v.CatchAll }).(EventOrchestrationServiceCatchAllOutput)
+}
+
+// ID of the Service to which this Service Orchestration belongs to.
+func (o EventOrchestrationServiceOutput) Service() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventOrchestrationService) pulumi.StringOutput { return v.Service }).(pulumi.StringOutput)
+}
+
+// A Service Orchestration must contain at least a "start" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.
+func (o EventOrchestrationServiceOutput) Sets() EventOrchestrationServiceSetArrayOutput {
+	return o.ApplyT(func(v *EventOrchestrationService) EventOrchestrationServiceSetArrayOutput { return v.Sets }).(EventOrchestrationServiceSetArrayOutput)
 }
 
 type EventOrchestrationServiceArrayOutput struct{ *pulumi.OutputState }

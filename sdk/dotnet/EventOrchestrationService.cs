@@ -15,7 +15,7 @@ namespace Pulumi.Pagerduty
     /// Service Orchestration can be imported using the `id` of the Service, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import pagerduty:index/eventOrchestrationService:EventOrchestrationService pagerduty_event_orchestration_service PFEODA7
+    ///  $ pulumi import pagerduty:index/eventOrchestrationService:EventOrchestrationService service PFEODA7
     /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/eventOrchestrationService:EventOrchestrationService")]

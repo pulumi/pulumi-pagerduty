@@ -17,6 +17,9 @@ namespace Pulumi.Pagerduty.Outputs
         /// The ID of the service dependency.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Can be `business_service`,  `service`, `business_service_reference` or `technical_service_reference`.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

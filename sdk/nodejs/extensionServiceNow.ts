@@ -13,8 +13,8 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const webhook = pagerduty.getExtensionSchema({
- *     name: "Generic V2 Webhook",
+ * const servicenow = pagerduty.getExtensionSchema({
+ *     name: "ServiceNow (v7)",
  * });
  * const exampleUser = new pagerduty.User("exampleUser", {email: "howard.james@example.domain"});
  * const exampleEscalationPolicy = new pagerduty.EscalationPolicy("exampleEscalationPolicy", {
@@ -33,7 +33,7 @@ import * as utilities from "./utilities";
  *     escalationPolicy: exampleEscalationPolicy.id,
  * });
  * const snow = new pagerduty.ExtensionServiceNow("snow", {
- *     extensionSchema: webhook.then(webhook => webhook.id),
+ *     extensionSchema: servicenow.then(servicenow => servicenow.id),
  *     extensionObjects: [exampleService.id],
  *     snowUser: "meeps",
  *     snowPassword: "zorz",

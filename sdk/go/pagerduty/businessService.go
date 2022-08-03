@@ -248,6 +248,44 @@ func (o BusinessServiceOutput) ToBusinessServiceOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o BusinessServiceOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *BusinessService) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o BusinessServiceOutput) HtmlUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *BusinessService) pulumi.StringOutput { return v.HtmlUrl }).(pulumi.StringOutput)
+}
+
+// The name of the business service.
+func (o BusinessServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BusinessService) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The owner of the business service.
+func (o BusinessServiceOutput) PointOfContact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BusinessService) pulumi.StringPtrOutput { return v.PointOfContact }).(pulumi.StringPtrOutput)
+}
+
+func (o BusinessServiceOutput) Self() pulumi.StringOutput {
+	return o.ApplyT(func(v *BusinessService) pulumi.StringOutput { return v.Self }).(pulumi.StringOutput)
+}
+
+func (o BusinessServiceOutput) Summary() pulumi.StringOutput {
+	return o.ApplyT(func(v *BusinessService) pulumi.StringOutput { return v.Summary }).(pulumi.StringOutput)
+}
+
+// ID of the team that owns the business service.
+func (o BusinessServiceOutput) Team() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BusinessService) pulumi.StringPtrOutput { return v.Team }).(pulumi.StringPtrOutput)
+}
+
+// **Deprecated** (Optional) Default (and only supported) value is `businessService`.
+//
+// Deprecated: This will change to a computed resource in the next major release.
+func (o BusinessServiceOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BusinessService) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
 type BusinessServiceArrayOutput struct{ *pulumi.OutputState }
 
 func (BusinessServiceArrayOutput) ElementType() reflect.Type {

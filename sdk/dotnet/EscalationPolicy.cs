@@ -12,61 +12,6 @@ namespace Pulumi.Pagerduty
     /// <summary>
     /// An [escalation policy](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEyNQ-create-an-escalation-policy) determines what user or schedule will be notified first, second, and so on when an incident is triggered. Escalation policies are used by one or more services.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Pagerduty = Pulumi.Pagerduty;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleTeam = new Pagerduty.Team("exampleTeam", new Pagerduty.TeamArgs
-    ///         {
-    ///             Description = "All engineering",
-    ///         });
-    ///         var exampleUser = new Pagerduty.User("exampleUser", new Pagerduty.UserArgs
-    ///         {
-    ///             Email = "125.greenholt.earline@graham.name",
-    ///             Teams = 
-    ///             {
-    ///                 exampleTeam.Id,
-    ///             },
-    ///         });
-    ///         var exampleEscalationPolicy = new Pagerduty.EscalationPolicy("exampleEscalationPolicy", new Pagerduty.EscalationPolicyArgs
-    ///         {
-    ///             NumLoops = 2,
-    ///             Teams = 
-    ///             {
-    ///                 exampleTeam.Id,
-    ///             },
-    ///             Rules = 
-    ///             {
-    ///                 new Pagerduty.Inputs.EscalationPolicyRuleArgs
-    ///                 {
-    ///                     EscalationDelayInMinutes = 10,
-    ///                     Targets = 
-    ///                     {
-    ///                         new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
-    ///                         {
-    ///                             Type = "user_reference",
-    ///                             Id = exampleUser.Id,
-    ///                         },
-    ///                         new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
-    ///                         {
-    ///                             Type = "user_reference",
-    ///                             Id = pagerduty_user.Example2.Id,
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Escalation policies can be imported using the `id`, e.g.

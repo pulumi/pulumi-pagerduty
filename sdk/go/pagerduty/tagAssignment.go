@@ -196,6 +196,21 @@ func (o TagAssignmentOutput) ToTagAssignmentOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The ID of the entity.
+func (o TagAssignmentOutput) EntityId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TagAssignment) pulumi.StringOutput { return v.EntityId }).(pulumi.StringOutput)
+}
+
+// Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalationPolicies`.
+func (o TagAssignmentOutput) EntityType() pulumi.StringOutput {
+	return o.ApplyT(func(v *TagAssignment) pulumi.StringOutput { return v.EntityType }).(pulumi.StringOutput)
+}
+
+// The ID of the tag.
+func (o TagAssignmentOutput) TagId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TagAssignment) pulumi.StringOutput { return v.TagId }).(pulumi.StringOutput)
+}
+
 type TagAssignmentArrayOutput struct{ *pulumi.OutputState }
 
 func (TagAssignmentArrayOutput) ElementType() reflect.Type {

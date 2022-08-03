@@ -240,6 +240,46 @@ func (o RulesetRuleOutput) ToRulesetRuleOutputWithContext(ctx context.Context) R
 	return o
 }
 
+// Actions to apply to an event if the conditions match.
+func (o RulesetRuleOutput) Actions() RulesetRuleActionsPtrOutput {
+	return o.ApplyT(func(v *RulesetRule) RulesetRuleActionsPtrOutput { return v.Actions }).(RulesetRuleActionsPtrOutput)
+}
+
+// Indicates whether the Event Rule is the last Event Rule of the Ruleset that serves as a catch-all. It has limited functionality compared to other rules and always matches.
+func (o RulesetRuleOutput) CatchAll() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RulesetRule) pulumi.BoolPtrOutput { return v.CatchAll }).(pulumi.BoolPtrOutput)
+}
+
+// Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
+func (o RulesetRuleOutput) Conditions() RulesetRuleConditionsPtrOutput {
+	return o.ApplyT(func(v *RulesetRule) RulesetRuleConditionsPtrOutput { return v.Conditions }).(RulesetRuleConditionsPtrOutput)
+}
+
+// Indicates whether the rule is disabled and would therefore not be evaluated.
+func (o RulesetRuleOutput) Disabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RulesetRule) pulumi.BoolPtrOutput { return v.Disabled }).(pulumi.BoolPtrOutput)
+}
+
+// Position/index of the rule within the ruleset.
+func (o RulesetRuleOutput) Position() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RulesetRule) pulumi.IntPtrOutput { return v.Position }).(pulumi.IntPtrOutput)
+}
+
+// The ID of the ruleset that the rule belongs to.
+func (o RulesetRuleOutput) Ruleset() pulumi.StringOutput {
+	return o.ApplyT(func(v *RulesetRule) pulumi.StringOutput { return v.Ruleset }).(pulumi.StringOutput)
+}
+
+// Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
+func (o RulesetRuleOutput) TimeFrame() RulesetRuleTimeFramePtrOutput {
+	return o.ApplyT(func(v *RulesetRule) RulesetRuleTimeFramePtrOutput { return v.TimeFrame }).(RulesetRuleTimeFramePtrOutput)
+}
+
+// Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
+func (o RulesetRuleOutput) Variables() RulesetRuleVariableArrayOutput {
+	return o.ApplyT(func(v *RulesetRule) RulesetRuleVariableArrayOutput { return v.Variables }).(RulesetRuleVariableArrayOutput)
+}
+
 type RulesetRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (RulesetRuleArrayOutput) ElementType() reflect.Type {

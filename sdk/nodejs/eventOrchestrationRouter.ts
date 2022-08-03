@@ -21,6 +21,7 @@ import * as utilities from "./utilities";
  * const router = new pagerduty.EventOrchestrationRouter("router", {
  *     eventOrchestration: pagerduty_event_orchestration.my_monitor.id,
  *     set: {
+ *         id: "start",
  *         rules: [
  *             {
  *                 label: "Events relating to our relational database",
@@ -33,7 +34,7 @@ import * as utilities from "./utilities";
  *                     },
  *                 ],
  *                 actions: {
- *                     routeTo: pageduty_service.database.id,
+ *                     routeTo: pagerduty_service.database.id,
  *                 },
  *             },
  *             {
@@ -59,7 +60,7 @@ import * as utilities from "./utilities";
  * Router can be imported using the `id` of the Event Orchestration, e.g.
  *
  * ```sh
- *  $ pulumi import pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter pagerduty_event_orchestration_router 1b49abe7-26db-4439-a715-c6d883acfb3e
+ *  $ pulumi import pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter router 1b49abe7-26db-4439-a715-c6d883acfb3e
  * ```
  */
 export class EventOrchestrationRouter extends pulumi.CustomResource {

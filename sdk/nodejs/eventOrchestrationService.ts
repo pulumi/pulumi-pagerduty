@@ -11,7 +11,7 @@ import * as utilities from "./utilities";
  * Service Orchestration can be imported using the `id` of the Service, e.g.
  *
  * ```sh
- *  $ pulumi import pagerduty:index/eventOrchestrationService:EventOrchestrationService pagerduty_event_orchestration_service PFEODA7
+ *  $ pulumi import pagerduty:index/eventOrchestrationService:EventOrchestrationService service PFEODA7
  * ```
  */
 export class EventOrchestrationService extends pulumi.CustomResource {

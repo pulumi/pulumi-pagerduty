@@ -30,6 +30,9 @@ namespace Pulumi.Pagerduty.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("renderedCoveragePercentage")]
+        public Input<string>? RenderedCoveragePercentage { get; set; }
+
         [Input("restrictions")]
         private InputList<Inputs.ScheduleLayerRestrictionArgs>? _restrictions;
 

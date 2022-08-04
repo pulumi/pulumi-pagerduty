@@ -486,6 +486,73 @@ func (o ServiceIntegrationOutput) ToServiceIntegrationOutputWithContext(ctx cont
 	return o
 }
 
+// Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.
+func (o ServiceIntegrationOutput) EmailFilterMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceIntegration) pulumi.StringOutput { return v.EmailFilterMode }).(pulumi.StringOutput)
+}
+
+func (o ServiceIntegrationOutput) EmailFilters() ServiceIntegrationEmailFilterArrayOutput {
+	return o.ApplyT(func(v *ServiceIntegration) ServiceIntegrationEmailFilterArrayOutput { return v.EmailFilters }).(ServiceIntegrationEmailFilterArrayOutput)
+}
+
+// Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `onNewEmail`, `onNewEmailSubject`, `onlyIfNoOpenIncidents` or `useRules`.
+func (o ServiceIntegrationOutput) EmailIncidentCreation() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceIntegration) pulumi.StringOutput { return v.EmailIncidentCreation }).(pulumi.StringOutput)
+}
+
+func (o ServiceIntegrationOutput) EmailParsers() ServiceIntegrationEmailParserArrayOutput {
+	return o.ApplyT(func(v *ServiceIntegration) ServiceIntegrationEmailParserArrayOutput { return v.EmailParsers }).(ServiceIntegrationEmailParserArrayOutput)
+}
+
+// Can be `openNewIncident` or `discard`.
+func (o ServiceIntegrationOutput) EmailParsingFallback() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceIntegration) pulumi.StringOutput { return v.EmailParsingFallback }).(pulumi.StringOutput)
+}
+
+// URL at which the entity is uniquely displayed in the Web app.
+func (o ServiceIntegrationOutput) HtmlUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceIntegration) pulumi.StringOutput { return v.HtmlUrl }).(pulumi.StringOutput)
+}
+
+// This is the unique fully-qualified email address used for routing emails to this integration for processing.
+func (o ServiceIntegrationOutput) IntegrationEmail() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceIntegration) pulumi.StringOutput { return v.IntegrationEmail }).(pulumi.StringOutput)
+}
+
+// This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+func (o ServiceIntegrationOutput) IntegrationKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceIntegration) pulumi.StringOutput { return v.IntegrationKey }).(pulumi.StringOutput)
+}
+
+// The name of the service integration.
+func (o ServiceIntegrationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceIntegration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ID of the service the integration should belong to.
+func (o ServiceIntegrationOutput) Service() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceIntegration) pulumi.StringOutput { return v.Service }).(pulumi.StringOutput)
+}
+
+// The service type. Can be:
+// `awsCloudwatchInboundIntegration`,
+// `cloudkickInboundIntegration`,
+// `eventTransformerApiInboundIntegration`,
+// `eventsApiV2InboundIntegration` (requires service `alertCreation` to be `createAlertsAndIncidents`),
+// `genericEmailInboundIntegration`,
+// `genericEventsApiInboundIntegration`,
+// `keynoteInboundIntegration`,
+// `nagiosInboundIntegration`,
+// `pingdomInboundIntegration`or `sqlMonitorInboundIntegration`.
+func (o ServiceIntegrationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceIntegration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
+func (o ServiceIntegrationOutput) Vendor() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceIntegration) pulumi.StringOutput { return v.Vendor }).(pulumi.StringOutput)
+}
+
 type ServiceIntegrationArrayOutput struct{ *pulumi.OutputState }
 
 func (ServiceIntegrationArrayOutput) ElementType() reflect.Type {

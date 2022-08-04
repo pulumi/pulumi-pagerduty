@@ -25,6 +25,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// The name of the schedule layer.
         /// </summary>
         public readonly string? Name;
+        public readonly string? RenderedCoveragePercentage;
         /// <summary>
         /// A schedule layer restriction block. Restriction blocks documented below.
         /// </summary>
@@ -54,6 +55,8 @@ namespace Pulumi.Pagerduty.Outputs
 
             string? name,
 
+            string? renderedCoveragePercentage,
+
             ImmutableArray<Outputs.ScheduleLayerRestriction> restrictions,
 
             int rotationTurnLengthSeconds,
@@ -67,6 +70,7 @@ namespace Pulumi.Pagerduty.Outputs
             End = end;
             Id = id;
             Name = name;
+            RenderedCoveragePercentage = renderedCoveragePercentage;
             Restrictions = restrictions;
             RotationTurnLengthSeconds = rotationTurnLengthSeconds;
             RotationVirtualStart = rotationVirtualStart;

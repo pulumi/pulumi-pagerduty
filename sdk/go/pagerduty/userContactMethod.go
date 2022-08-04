@@ -296,6 +296,46 @@ func (o UserContactMethodOutput) ToUserContactMethodOutputWithContext(ctx contex
 	return o
 }
 
+// The "address" to deliver to: `email`, `phone number`, etc., depending on the type.
+func (o UserContactMethodOutput) Address() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserContactMethod) pulumi.StringOutput { return v.Address }).(pulumi.StringOutput)
+}
+
+// If true, this phone has been blacklisted by PagerDuty and no messages will be sent to it.
+func (o UserContactMethodOutput) Blacklisted() pulumi.BoolOutput {
+	return o.ApplyT(func(v *UserContactMethod) pulumi.BoolOutput { return v.Blacklisted }).(pulumi.BoolOutput)
+}
+
+// The 1-to-3 digit country calling code. Required when using `phoneContactMethod` or `smsContactMethod`.
+func (o UserContactMethodOutput) CountryCode() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserContactMethod) pulumi.IntPtrOutput { return v.CountryCode }).(pulumi.IntPtrOutput)
+}
+
+// If true, this phone is capable of receiving SMS messages.
+func (o UserContactMethodOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *UserContactMethod) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The label (e.g., "Work", "Mobile", etc.).
+func (o UserContactMethodOutput) Label() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserContactMethod) pulumi.StringOutput { return v.Label }).(pulumi.StringOutput)
+}
+
+// Send an abbreviated email message instead of the standard email output.
+func (o UserContactMethodOutput) SendShortEmail() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UserContactMethod) pulumi.BoolPtrOutput { return v.SendShortEmail }).(pulumi.BoolPtrOutput)
+}
+
+// The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
+func (o UserContactMethodOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserContactMethod) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The ID of the user.
+func (o UserContactMethodOutput) UserId() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserContactMethod) pulumi.StringOutput { return v.UserId }).(pulumi.StringOutput)
+}
+
 type UserContactMethodArrayOutput struct{ *pulumi.OutputState }
 
 func (UserContactMethodArrayOutput) ElementType() reflect.Type {

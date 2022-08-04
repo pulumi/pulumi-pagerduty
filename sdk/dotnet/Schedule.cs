@@ -82,6 +82,9 @@ namespace Pulumi.Pagerduty
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
+        [Output("finalSchedules")]
+        public Output<ImmutableArray<Outputs.ScheduleFinalSchedule>> FinalSchedules { get; private set; } = null!;
+
         /// <summary>
         /// A schedule layer block. Schedule layers documented below.
         /// </summary>
@@ -223,6 +226,14 @@ namespace Pulumi.Pagerduty
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("finalSchedules")]
+        private InputList<Inputs.ScheduleFinalScheduleGetArgs>? _finalSchedules;
+        public InputList<Inputs.ScheduleFinalScheduleGetArgs> FinalSchedules
+        {
+            get => _finalSchedules ?? (_finalSchedules = new InputList<Inputs.ScheduleFinalScheduleGetArgs>());
+            set => _finalSchedules = value;
+        }
 
         [Input("layers")]
         private InputList<Inputs.ScheduleLayerGetArgs>? _layers;

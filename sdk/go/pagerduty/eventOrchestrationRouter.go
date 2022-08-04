@@ -32,6 +32,7 @@ import (
 // 		_, err := pagerduty.NewEventOrchestrationRouter(ctx, "router", &pagerduty.EventOrchestrationRouterArgs{
 // 			EventOrchestration: pulumi.Any(pagerduty_event_orchestration.My_monitor.Id),
 // 			Set: &EventOrchestrationRouterSetArgs{
+// 				Id: pulumi.String("start"),
 // 				Rules: EventOrchestrationRouterSetRuleArray{
 // 					&EventOrchestrationRouterSetRuleArgs{
 // 						Label: pulumi.String("Events relating to our relational database"),
@@ -44,7 +45,7 @@ import (
 // 							},
 // 						},
 // 						Actions: &EventOrchestrationRouterSetRuleActionsArgs{
-// 							RouteTo: pulumi.Any(pageduty_service.Database.Id),
+// 							RouteTo: pulumi.Any(pagerduty_service.Database.Id),
 // 						},
 // 					},
 // 					&EventOrchestrationRouterSetRuleArgs{
@@ -78,7 +79,7 @@ import (
 // Router can be imported using the `id` of the Event Orchestration, e.g.
 //
 // ```sh
-//  $ pulumi import pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter pagerduty_event_orchestration_router 1b49abe7-26db-4439-a715-c6d883acfb3e
+//  $ pulumi import pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter router 1b49abe7-26db-4439-a715-c6d883acfb3e
 // ```
 type EventOrchestrationRouter struct {
 	pulumi.CustomResourceState
@@ -254,6 +255,21 @@ func (o EventOrchestrationRouterOutput) ToEventOrchestrationRouterOutput() Event
 
 func (o EventOrchestrationRouterOutput) ToEventOrchestrationRouterOutputWithContext(ctx context.Context) EventOrchestrationRouterOutput {
 	return o
+}
+
+// When none of the rules match an event, the event will be routed according to the catchAll settings.
+func (o EventOrchestrationRouterOutput) CatchAll() EventOrchestrationRouterCatchAllOutput {
+	return o.ApplyT(func(v *EventOrchestrationRouter) EventOrchestrationRouterCatchAllOutput { return v.CatchAll }).(EventOrchestrationRouterCatchAllOutput)
+}
+
+// ID of the Event Orchestration to which the Router belongs.
+func (o EventOrchestrationRouterOutput) EventOrchestration() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventOrchestrationRouter) pulumi.StringOutput { return v.EventOrchestration }).(pulumi.StringOutput)
+}
+
+// The Router contains a single set of rules  (the "start" set).
+func (o EventOrchestrationRouterOutput) Set() EventOrchestrationRouterSetOutput {
+	return o.ApplyT(func(v *EventOrchestrationRouter) EventOrchestrationRouterSetOutput { return v.Set }).(EventOrchestrationRouterSetOutput)
 }
 
 type EventOrchestrationRouterArrayOutput struct{ *pulumi.OutputState }

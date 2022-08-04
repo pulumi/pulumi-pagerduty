@@ -202,6 +202,20 @@ func (o TagOutput) ToTagOutputWithContext(ctx context.Context) TagOutput {
 	return o
 }
 
+// URL at which the entity is uniquely displayed in the Web app.
+func (o TagOutput) HtmlUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.HtmlUrl }).(pulumi.StringOutput)
+}
+
+// The label of the tag.
+func (o TagOutput) Label() pulumi.StringOutput {
+	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.Label }).(pulumi.StringOutput)
+}
+
+func (o TagOutput) Summary() pulumi.StringOutput {
+	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.Summary }).(pulumi.StringOutput)
+}
+
 type TagArrayOutput struct{ *pulumi.OutputState }
 
 func (TagArrayOutput) ElementType() reflect.Type {

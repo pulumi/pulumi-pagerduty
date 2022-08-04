@@ -8,36 +8,6 @@ import * as utilities from "./utilities";
 /**
  * An [escalation policy](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEyNQ-create-an-escalation-policy) determines what user or schedule will be notified first, second, and so on when an incident is triggered. Escalation policies are used by one or more services.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as pagerduty from "@pulumi/pagerduty";
- *
- * const exampleTeam = new pagerduty.Team("exampleTeam", {description: "All engineering"});
- * const exampleUser = new pagerduty.User("exampleUser", {
- *     email: "125.greenholt.earline@graham.name",
- *     teams: [exampleTeam.id],
- * });
- * const exampleEscalationPolicy = new pagerduty.EscalationPolicy("exampleEscalationPolicy", {
- *     numLoops: 2,
- *     teams: [exampleTeam.id],
- *     rules: [{
- *         escalationDelayInMinutes: 10,
- *         targets: [
- *             {
- *                 type: "user_reference",
- *                 id: exampleUser.id,
- *             },
- *             {
- *                 type: "user_reference",
- *                 id: pagerduty_user.example2.id,
- *             },
- *         ],
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * Escalation policies can be imported using the `id`, e.g.

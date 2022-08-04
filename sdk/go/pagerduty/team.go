@@ -222,6 +222,25 @@ func (o TeamOutput) ToTeamOutputWithContext(ctx context.Context) TeamOutput {
 	return o
 }
 
+func (o TeamOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *Team) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// URL at which the entity is uniquely displayed in the Web app
+func (o TeamOutput) HtmlUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Team) pulumi.StringOutput { return v.HtmlUrl }).(pulumi.StringOutput)
+}
+
+// The name of the group.
+func (o TeamOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Team) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
+func (o TeamOutput) Parent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Team) pulumi.StringPtrOutput { return v.Parent }).(pulumi.StringPtrOutput)
+}
+
 type TeamArrayOutput struct{ *pulumi.OutputState }
 
 func (TeamArrayOutput) ElementType() reflect.Type {

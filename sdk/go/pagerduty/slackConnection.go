@@ -304,6 +304,44 @@ func (o SlackConnectionOutput) ToSlackConnectionOutputWithContext(ctx context.Co
 	return o
 }
 
+// The ID of a Slack channel in the workspace.
+func (o SlackConnectionOutput) ChannelId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SlackConnection) pulumi.StringOutput { return v.ChannelId }).(pulumi.StringOutput)
+}
+
+func (o SlackConnectionOutput) ChannelName() pulumi.StringOutput {
+	return o.ApplyT(func(v *SlackConnection) pulumi.StringOutput { return v.ChannelName }).(pulumi.StringOutput)
+}
+
+// Configuration options for the Slack connection that provide options to filter events.
+func (o SlackConnectionOutput) Configs() SlackConnectionConfigArrayOutput {
+	return o.ApplyT(func(v *SlackConnection) SlackConnectionConfigArrayOutput { return v.Configs }).(SlackConnectionConfigArrayOutput)
+}
+
+// Type of notification. Either `responder` or `stakeholder`.
+func (o SlackConnectionOutput) NotificationType() pulumi.StringOutput {
+	return o.ApplyT(func(v *SlackConnection) pulumi.StringOutput { return v.NotificationType }).(pulumi.StringOutput)
+}
+
+// The ID of the source in PagerDuty. Valid sources are services or teams.
+func (o SlackConnectionOutput) SourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SlackConnection) pulumi.StringOutput { return v.SourceId }).(pulumi.StringOutput)
+}
+
+func (o SlackConnectionOutput) SourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v *SlackConnection) pulumi.StringOutput { return v.SourceName }).(pulumi.StringOutput)
+}
+
+// The type of the source. Either `teamReference` or `serviceReference`.
+func (o SlackConnectionOutput) SourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v *SlackConnection) pulumi.StringOutput { return v.SourceType }).(pulumi.StringOutput)
+}
+
+// The ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
+func (o SlackConnectionOutput) WorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SlackConnection) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
+}
+
 type SlackConnectionArrayOutput struct{ *pulumi.OutputState }
 
 func (SlackConnectionArrayOutput) ElementType() reflect.Type {

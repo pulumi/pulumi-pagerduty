@@ -7925,13 +7925,117 @@ func (o RulesetTeamPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ScheduleFinalSchedule struct {
+	// The name of the schedule.
+	Name                       *string `pulumi:"name"`
+	RenderedCoveragePercentage *string `pulumi:"renderedCoveragePercentage"`
+}
+
+// ScheduleFinalScheduleInput is an input type that accepts ScheduleFinalScheduleArgs and ScheduleFinalScheduleOutput values.
+// You can construct a concrete instance of `ScheduleFinalScheduleInput` via:
+//
+//          ScheduleFinalScheduleArgs{...}
+type ScheduleFinalScheduleInput interface {
+	pulumi.Input
+
+	ToScheduleFinalScheduleOutput() ScheduleFinalScheduleOutput
+	ToScheduleFinalScheduleOutputWithContext(context.Context) ScheduleFinalScheduleOutput
+}
+
+type ScheduleFinalScheduleArgs struct {
+	// The name of the schedule.
+	Name                       pulumi.StringPtrInput `pulumi:"name"`
+	RenderedCoveragePercentage pulumi.StringPtrInput `pulumi:"renderedCoveragePercentage"`
+}
+
+func (ScheduleFinalScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduleFinalSchedule)(nil)).Elem()
+}
+
+func (i ScheduleFinalScheduleArgs) ToScheduleFinalScheduleOutput() ScheduleFinalScheduleOutput {
+	return i.ToScheduleFinalScheduleOutputWithContext(context.Background())
+}
+
+func (i ScheduleFinalScheduleArgs) ToScheduleFinalScheduleOutputWithContext(ctx context.Context) ScheduleFinalScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduleFinalScheduleOutput)
+}
+
+// ScheduleFinalScheduleArrayInput is an input type that accepts ScheduleFinalScheduleArray and ScheduleFinalScheduleArrayOutput values.
+// You can construct a concrete instance of `ScheduleFinalScheduleArrayInput` via:
+//
+//          ScheduleFinalScheduleArray{ ScheduleFinalScheduleArgs{...} }
+type ScheduleFinalScheduleArrayInput interface {
+	pulumi.Input
+
+	ToScheduleFinalScheduleArrayOutput() ScheduleFinalScheduleArrayOutput
+	ToScheduleFinalScheduleArrayOutputWithContext(context.Context) ScheduleFinalScheduleArrayOutput
+}
+
+type ScheduleFinalScheduleArray []ScheduleFinalScheduleInput
+
+func (ScheduleFinalScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScheduleFinalSchedule)(nil)).Elem()
+}
+
+func (i ScheduleFinalScheduleArray) ToScheduleFinalScheduleArrayOutput() ScheduleFinalScheduleArrayOutput {
+	return i.ToScheduleFinalScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i ScheduleFinalScheduleArray) ToScheduleFinalScheduleArrayOutputWithContext(ctx context.Context) ScheduleFinalScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduleFinalScheduleArrayOutput)
+}
+
+type ScheduleFinalScheduleOutput struct{ *pulumi.OutputState }
+
+func (ScheduleFinalScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduleFinalSchedule)(nil)).Elem()
+}
+
+func (o ScheduleFinalScheduleOutput) ToScheduleFinalScheduleOutput() ScheduleFinalScheduleOutput {
+	return o
+}
+
+func (o ScheduleFinalScheduleOutput) ToScheduleFinalScheduleOutputWithContext(ctx context.Context) ScheduleFinalScheduleOutput {
+	return o
+}
+
+// The name of the schedule.
+func (o ScheduleFinalScheduleOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduleFinalSchedule) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ScheduleFinalScheduleOutput) RenderedCoveragePercentage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduleFinalSchedule) *string { return v.RenderedCoveragePercentage }).(pulumi.StringPtrOutput)
+}
+
+type ScheduleFinalScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (ScheduleFinalScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScheduleFinalSchedule)(nil)).Elem()
+}
+
+func (o ScheduleFinalScheduleArrayOutput) ToScheduleFinalScheduleArrayOutput() ScheduleFinalScheduleArrayOutput {
+	return o
+}
+
+func (o ScheduleFinalScheduleArrayOutput) ToScheduleFinalScheduleArrayOutputWithContext(ctx context.Context) ScheduleFinalScheduleArrayOutput {
+	return o
+}
+
+func (o ScheduleFinalScheduleArrayOutput) Index(i pulumi.IntInput) ScheduleFinalScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScheduleFinalSchedule {
+		return vs[0].([]ScheduleFinalSchedule)[vs[1].(int)]
+	}).(ScheduleFinalScheduleOutput)
+}
+
 type ScheduleLayer struct {
 	// The end time of the schedule layer. If not specified, the layer does not end.
 	End *string `pulumi:"end"`
 	// The ID of the schedule.
 	Id *string `pulumi:"id"`
 	// The name of the schedule layer.
-	Name *string `pulumi:"name"`
+	Name                       *string `pulumi:"name"`
+	RenderedCoveragePercentage *string `pulumi:"renderedCoveragePercentage"`
 	// A schedule layer restriction block. Restriction blocks documented below.
 	Restrictions []ScheduleLayerRestriction `pulumi:"restrictions"`
 	// The duration of each on-call shift in `seconds`.
@@ -7961,7 +8065,8 @@ type ScheduleLayerArgs struct {
 	// The ID of the schedule.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The name of the schedule layer.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name                       pulumi.StringPtrInput `pulumi:"name"`
+	RenderedCoveragePercentage pulumi.StringPtrInput `pulumi:"renderedCoveragePercentage"`
 	// A schedule layer restriction block. Restriction blocks documented below.
 	Restrictions ScheduleLayerRestrictionArrayInput `pulumi:"restrictions"`
 	// The duration of each on-call shift in `seconds`.
@@ -8038,6 +8143,10 @@ func (o ScheduleLayerOutput) Id() pulumi.StringPtrOutput {
 // The name of the schedule layer.
 func (o ScheduleLayerOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduleLayer) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ScheduleLayerOutput) RenderedCoveragePercentage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduleLayer) *string { return v.RenderedCoveragePercentage }).(pulumi.StringPtrOutput)
 }
 
 // A schedule layer restriction block. Restriction blocks documented below.
@@ -8541,11 +8650,12 @@ func (o ServiceAlertGroupingParametersConfigPtrOutput) Timeout() pulumi.IntPtrOu
 }
 
 type ServiceDependencyDependency struct {
-	// The service that dependents on the supporting service.
+	// The service that dependents on the supporting service. Dependency dependent service documented below.
 	DependentServices []ServiceDependencyDependencyDependentService `pulumi:"dependentServices"`
-	// The service that supports the dependent service.
+	// The service that supports the dependent service. Dependency supporting service documented below.
 	SupportingServices []ServiceDependencyDependencySupportingService `pulumi:"supportingServices"`
-	Type               *string                                        `pulumi:"type"`
+	// Can be `businessService`,  `service`, `businessServiceReference` or `technicalServiceReference`.
+	Type *string `pulumi:"type"`
 }
 
 // ServiceDependencyDependencyInput is an input type that accepts ServiceDependencyDependencyArgs and ServiceDependencyDependencyOutput values.
@@ -8560,11 +8670,12 @@ type ServiceDependencyDependencyInput interface {
 }
 
 type ServiceDependencyDependencyArgs struct {
-	// The service that dependents on the supporting service.
+	// The service that dependents on the supporting service. Dependency dependent service documented below.
 	DependentServices ServiceDependencyDependencyDependentServiceArrayInput `pulumi:"dependentServices"`
-	// The service that supports the dependent service.
+	// The service that supports the dependent service. Dependency supporting service documented below.
 	SupportingServices ServiceDependencyDependencySupportingServiceArrayInput `pulumi:"supportingServices"`
-	Type               pulumi.StringPtrInput                                  `pulumi:"type"`
+	// Can be `businessService`,  `service`, `businessServiceReference` or `technicalServiceReference`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (ServiceDependencyDependencyArgs) ElementType() reflect.Type {
@@ -8644,20 +8755,21 @@ func (o ServiceDependencyDependencyOutput) ToServiceDependencyDependencyPtrOutpu
 	}).(ServiceDependencyDependencyPtrOutput)
 }
 
-// The service that dependents on the supporting service.
+// The service that dependents on the supporting service. Dependency dependent service documented below.
 func (o ServiceDependencyDependencyOutput) DependentServices() ServiceDependencyDependencyDependentServiceArrayOutput {
 	return o.ApplyT(func(v ServiceDependencyDependency) []ServiceDependencyDependencyDependentService {
 		return v.DependentServices
 	}).(ServiceDependencyDependencyDependentServiceArrayOutput)
 }
 
-// The service that supports the dependent service.
+// The service that supports the dependent service. Dependency supporting service documented below.
 func (o ServiceDependencyDependencyOutput) SupportingServices() ServiceDependencyDependencySupportingServiceArrayOutput {
 	return o.ApplyT(func(v ServiceDependencyDependency) []ServiceDependencyDependencySupportingService {
 		return v.SupportingServices
 	}).(ServiceDependencyDependencySupportingServiceArrayOutput)
 }
 
+// Can be `businessService`,  `service`, `businessServiceReference` or `technicalServiceReference`.
 func (o ServiceDependencyDependencyOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceDependencyDependency) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -8686,7 +8798,7 @@ func (o ServiceDependencyDependencyPtrOutput) Elem() ServiceDependencyDependency
 	}).(ServiceDependencyDependencyOutput)
 }
 
-// The service that dependents on the supporting service.
+// The service that dependents on the supporting service. Dependency dependent service documented below.
 func (o ServiceDependencyDependencyPtrOutput) DependentServices() ServiceDependencyDependencyDependentServiceArrayOutput {
 	return o.ApplyT(func(v *ServiceDependencyDependency) []ServiceDependencyDependencyDependentService {
 		if v == nil {
@@ -8696,7 +8808,7 @@ func (o ServiceDependencyDependencyPtrOutput) DependentServices() ServiceDepende
 	}).(ServiceDependencyDependencyDependentServiceArrayOutput)
 }
 
-// The service that supports the dependent service.
+// The service that supports the dependent service. Dependency supporting service documented below.
 func (o ServiceDependencyDependencyPtrOutput) SupportingServices() ServiceDependencyDependencySupportingServiceArrayOutput {
 	return o.ApplyT(func(v *ServiceDependencyDependency) []ServiceDependencyDependencySupportingService {
 		if v == nil {
@@ -8706,6 +8818,7 @@ func (o ServiceDependencyDependencyPtrOutput) SupportingServices() ServiceDepend
 	}).(ServiceDependencyDependencySupportingServiceArrayOutput)
 }
 
+// Can be `businessService`,  `service`, `businessServiceReference` or `technicalServiceReference`.
 func (o ServiceDependencyDependencyPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceDependencyDependency) *string {
 		if v == nil {
@@ -8717,7 +8830,8 @@ func (o ServiceDependencyDependencyPtrOutput) Type() pulumi.StringPtrOutput {
 
 type ServiceDependencyDependencyDependentService struct {
 	// The ID of the service dependency.
-	Id   string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Can be `businessService`,  `service`, `businessServiceReference` or `technicalServiceReference`.
 	Type string `pulumi:"type"`
 }
 
@@ -8734,7 +8848,8 @@ type ServiceDependencyDependencyDependentServiceInput interface {
 
 type ServiceDependencyDependencyDependentServiceArgs struct {
 	// The ID of the service dependency.
-	Id   pulumi.StringInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
+	// Can be `businessService`,  `service`, `businessServiceReference` or `technicalServiceReference`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -8794,6 +8909,7 @@ func (o ServiceDependencyDependencyDependentServiceOutput) Id() pulumi.StringOut
 	return o.ApplyT(func(v ServiceDependencyDependencyDependentService) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Can be `businessService`,  `service`, `businessServiceReference` or `technicalServiceReference`.
 func (o ServiceDependencyDependencyDependentServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceDependencyDependencyDependentService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -8820,7 +8936,8 @@ func (o ServiceDependencyDependencyDependentServiceArrayOutput) Index(i pulumi.I
 
 type ServiceDependencyDependencySupportingService struct {
 	// The ID of the service dependency.
-	Id   string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Can be `businessService`,  `service`, `businessServiceReference` or `technicalServiceReference`.
 	Type string `pulumi:"type"`
 }
 
@@ -8837,7 +8954,8 @@ type ServiceDependencyDependencySupportingServiceInput interface {
 
 type ServiceDependencyDependencySupportingServiceArgs struct {
 	// The ID of the service dependency.
-	Id   pulumi.StringInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
+	// Can be `businessService`,  `service`, `businessServiceReference` or `technicalServiceReference`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -8897,6 +9015,7 @@ func (o ServiceDependencyDependencySupportingServiceOutput) Id() pulumi.StringOu
 	return o.ApplyT(func(v ServiceDependencyDependencySupportingService) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Can be `businessService`,  `service`, `businessServiceReference` or `technicalServiceReference`.
 func (o ServiceDependencyDependencySupportingServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceDependencyDependencySupportingService) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -13355,6 +13474,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RulesetRuleVariableParameterArrayInput)(nil)).Elem(), RulesetRuleVariableParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RulesetTeamInput)(nil)).Elem(), RulesetTeamArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RulesetTeamPtrInput)(nil)).Elem(), RulesetTeamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleFinalScheduleInput)(nil)).Elem(), ScheduleFinalScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleFinalScheduleArrayInput)(nil)).Elem(), ScheduleFinalScheduleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleLayerInput)(nil)).Elem(), ScheduleLayerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleLayerArrayInput)(nil)).Elem(), ScheduleLayerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleLayerRestrictionInput)(nil)).Elem(), ScheduleLayerRestrictionArgs{})
@@ -13557,6 +13678,8 @@ func init() {
 	pulumi.RegisterOutputType(RulesetRuleVariableParameterArrayOutput{})
 	pulumi.RegisterOutputType(RulesetTeamOutput{})
 	pulumi.RegisterOutputType(RulesetTeamPtrOutput{})
+	pulumi.RegisterOutputType(ScheduleFinalScheduleOutput{})
+	pulumi.RegisterOutputType(ScheduleFinalScheduleArrayOutput{})
 	pulumi.RegisterOutputType(ScheduleLayerOutput{})
 	pulumi.RegisterOutputType(ScheduleLayerArrayOutput{})
 	pulumi.RegisterOutputType(ScheduleLayerRestrictionOutput{})

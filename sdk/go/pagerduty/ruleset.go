@@ -217,6 +217,26 @@ func (o RulesetOutput) ToRulesetOutputWithContext(ctx context.Context) RulesetOu
 	return o
 }
 
+// Name of the ruleset.
+func (o RulesetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Ruleset) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Routing keys routed to this ruleset.
+func (o RulesetOutput) RoutingKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Ruleset) pulumi.StringArrayOutput { return v.RoutingKeys }).(pulumi.StringArrayOutput)
+}
+
+// Reference to the team that owns the ruleset. If none is specified, only admins have access.
+func (o RulesetOutput) Team() RulesetTeamPtrOutput {
+	return o.ApplyT(func(v *Ruleset) RulesetTeamPtrOutput { return v.Team }).(RulesetTeamPtrOutput)
+}
+
+// Type of ruleset. Currently, only sets to `global`.
+func (o RulesetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Ruleset) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 type RulesetArrayOutput struct{ *pulumi.OutputState }
 
 func (RulesetArrayOutput) ElementType() reflect.Type {

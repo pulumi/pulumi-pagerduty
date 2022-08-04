@@ -13,62 +13,6 @@ import (
 
 // An [escalation policy](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEyNQ-create-an-escalation-policy) determines what user or schedule will be notified first, second, and so on when an incident is triggered. Escalation policies are used by one or more services.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleTeam, err := pagerduty.NewTeam(ctx, "exampleTeam", &pagerduty.TeamArgs{
-// 			Description: pulumi.String("All engineering"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
-// 			Email: pulumi.String("125.greenholt.earline@graham.name"),
-// 			Teams: pulumi.StringArray{
-// 				exampleTeam.ID(),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = pagerduty.NewEscalationPolicy(ctx, "exampleEscalationPolicy", &pagerduty.EscalationPolicyArgs{
-// 			NumLoops: pulumi.Int(2),
-// 			Teams: pulumi.String{
-// 				exampleTeam.ID(),
-// 			},
-// 			Rules: EscalationPolicyRuleArray{
-// 				&EscalationPolicyRuleArgs{
-// 					EscalationDelayInMinutes: pulumi.Int(10),
-// 					Targets: EscalationPolicyRuleTargetArray{
-// 						&EscalationPolicyRuleTargetArgs{
-// 							Type: pulumi.String("user_reference"),
-// 							Id:   exampleUser.ID(),
-// 						},
-// 						&EscalationPolicyRuleTargetArgs{
-// 							Type: pulumi.String("user_reference"),
-// 							Id:   pulumi.Any(pagerduty_user.Example2.Id),
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
 // ## Import
 //
 // Escalation policies can be imported using the `id`, e.g.
@@ -262,6 +206,30 @@ func (o EscalationPolicyOutput) ToEscalationPolicyOutput() EscalationPolicyOutpu
 
 func (o EscalationPolicyOutput) ToEscalationPolicyOutputWithContext(ctx context.Context) EscalationPolicyOutput {
 	return o
+}
+
+func (o EscalationPolicyOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *EscalationPolicy) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// The name of the escalation policy.
+func (o EscalationPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *EscalationPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The number of times the escalation policy will repeat after reaching the end of its escalation.
+func (o EscalationPolicyOutput) NumLoops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EscalationPolicy) pulumi.IntPtrOutput { return v.NumLoops }).(pulumi.IntPtrOutput)
+}
+
+// An Escalation rule block. Escalation rules documented below.
+func (o EscalationPolicyOutput) Rules() EscalationPolicyRuleArrayOutput {
+	return o.ApplyT(func(v *EscalationPolicy) EscalationPolicyRuleArrayOutput { return v.Rules }).(EscalationPolicyRuleArrayOutput)
+}
+
+// Teams associated with the policy. Account must have the `teams` ability to use this parameter.
+func (o EscalationPolicyOutput) Teams() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EscalationPolicy) pulumi.StringPtrOutput { return v.Teams }).(pulumi.StringPtrOutput)
 }
 
 type EscalationPolicyArrayOutput struct{ *pulumi.OutputState }

@@ -97,7 +97,7 @@ import (
 // 			return err
 // 		}
 // 		json2 := string(tmpJSON2)
-// 		_, err := pagerduty.NewEventRule(ctx, "second", &pagerduty.EventRuleArgs{
+// 		_, err = pagerduty.NewEventRule(ctx, "second", &pagerduty.EventRuleArgs{
 // 			ActionJson:            pulumi.String(json0),
 // 			ConditionJson:         pulumi.String(json1),
 // 			AdvancedConditionJson: pulumi.String(json2),
@@ -352,6 +352,26 @@ func (o EventRuleOutput) ToEventRuleOutput() EventRuleOutput {
 
 func (o EventRuleOutput) ToEventRuleOutputWithContext(ctx context.Context) EventRuleOutput {
 	return o
+}
+
+// A list of one or more actions for each rule. Each action within the list is itself a list.
+func (o EventRuleOutput) ActionJson() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventRule) pulumi.StringOutput { return v.ActionJson }).(pulumi.StringOutput)
+}
+
+// Contains a list of specific conditions including `active-between`,`scheduled-weekly`, and `frequency-over`. The first element in the list is the label for the condition, followed by a list of values for the specific condition. For more details on these conditions see [Advanced Condition](https://developer.pagerduty.com/docs/rest-api-v2/global-event-rules-api/#advanced-condition-parameter) in the PagerDuty API documentation.
+func (o EventRuleOutput) AdvancedConditionJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventRule) pulumi.StringPtrOutput { return v.AdvancedConditionJson }).(pulumi.StringPtrOutput)
+}
+
+// A boolean that indicates whether the rule is a catch-all for the account. This field is read-only through the PagerDuty API.
+func (o EventRuleOutput) CatchAll() pulumi.BoolOutput {
+	return o.ApplyT(func(v *EventRule) pulumi.BoolOutput { return v.CatchAll }).(pulumi.BoolOutput)
+}
+
+// Contains a list of conditions. The first field in the list is `and` or `or`, followed by a list of operators and values.
+func (o EventRuleOutput) ConditionJson() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventRule) pulumi.StringOutput { return v.ConditionJson }).(pulumi.StringOutput)
 }
 
 type EventRuleArrayOutput struct{ *pulumi.OutputState }

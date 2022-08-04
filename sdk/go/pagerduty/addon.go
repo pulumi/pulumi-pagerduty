@@ -203,6 +203,16 @@ func (o AddonOutput) ToAddonOutputWithContext(ctx context.Context) AddonOutput {
 	return o
 }
 
+// The name of the add-on.
+func (o AddonOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Addon) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.
+func (o AddonOutput) Src() pulumi.StringOutput {
+	return o.ApplyT(func(v *Addon) pulumi.StringOutput { return v.Src }).(pulumi.StringOutput)
+}
+
 type AddonArrayOutput struct{ *pulumi.OutputState }
 
 func (AddonArrayOutput) ElementType() reflect.Type {

@@ -13,112 +13,12 @@ namespace Pulumi.Pagerduty
     {
         /// <summary>
         /// Use this data source to get information about a specific [team](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIyMw-list-teams) that you can use for other PagerDuty resources.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using Pulumi;
-        /// using Pagerduty = Pulumi.Pagerduty;
-        /// 
-        /// class MyStack : Stack
-        /// {
-        ///     public MyStack()
-        ///     {
-        ///         var me = Output.Create(Pagerduty.GetUser.InvokeAsync(new Pagerduty.GetUserArgs
-        ///         {
-        ///             Email = "me@example.com",
-        ///         }));
-        ///         var devops = Output.Create(Pagerduty.GetTeam.InvokeAsync(new Pagerduty.GetTeamArgs
-        ///         {
-        ///             Name = "devops",
-        ///         }));
-        ///         var foo = new Pagerduty.EscalationPolicy("foo", new Pagerduty.EscalationPolicyArgs
-        ///         {
-        ///             NumLoops = 2,
-        ///             Teams = 
-        ///             {
-        ///                 devops.Apply(devops =&gt; devops.Id),
-        ///             },
-        ///             Rules = 
-        ///             {
-        ///                 new Pagerduty.Inputs.EscalationPolicyRuleArgs
-        ///                 {
-        ///                     EscalationDelayInMinutes = 10,
-        ///                     Targets = 
-        ///                     {
-        ///                         new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
-        ///                         {
-        ///                             Type = "user",
-        ///                             Id = me.Apply(me =&gt; me.Id),
-        ///                         },
-        ///                     },
-        ///                 },
-        ///             },
-        ///         });
-        ///     }
-        /// 
-        /// }
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetTeamResult> InvokeAsync(GetTeamArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTeamResult>("pagerduty:index/getTeam:getTeam", args ?? new GetTeamArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information about a specific [team](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIyMw-list-teams) that you can use for other PagerDuty resources.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using Pulumi;
-        /// using Pagerduty = Pulumi.Pagerduty;
-        /// 
-        /// class MyStack : Stack
-        /// {
-        ///     public MyStack()
-        ///     {
-        ///         var me = Output.Create(Pagerduty.GetUser.InvokeAsync(new Pagerduty.GetUserArgs
-        ///         {
-        ///             Email = "me@example.com",
-        ///         }));
-        ///         var devops = Output.Create(Pagerduty.GetTeam.InvokeAsync(new Pagerduty.GetTeamArgs
-        ///         {
-        ///             Name = "devops",
-        ///         }));
-        ///         var foo = new Pagerduty.EscalationPolicy("foo", new Pagerduty.EscalationPolicyArgs
-        ///         {
-        ///             NumLoops = 2,
-        ///             Teams = 
-        ///             {
-        ///                 devops.Apply(devops =&gt; devops.Id),
-        ///             },
-        ///             Rules = 
-        ///             {
-        ///                 new Pagerduty.Inputs.EscalationPolicyRuleArgs
-        ///                 {
-        ///                     EscalationDelayInMinutes = 10,
-        ///                     Targets = 
-        ///                     {
-        ///                         new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
-        ///                         {
-        ///                             Type = "user",
-        ///                             Id = me.Apply(me =&gt; me.Id),
-        ///                         },
-        ///                     },
-        ///                 },
-        ///             },
-        ///         });
-        ///     }
-        /// 
-        /// }
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetTeamResult> Invoke(GetTeamInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTeamResult>("pagerduty:index/getTeam:getTeam", args ?? new GetTeamInvokeArgs(), options.WithDefaults());

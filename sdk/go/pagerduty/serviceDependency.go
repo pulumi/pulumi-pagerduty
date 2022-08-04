@@ -225,6 +225,11 @@ func (o ServiceDependencyOutput) ToServiceDependencyOutputWithContext(ctx contex
 	return o
 }
 
+// The relationship between the `supportingService` and `dependentService`. One and only one dependency block must be defined.
+func (o ServiceDependencyOutput) Dependency() ServiceDependencyDependencyOutput {
+	return o.ApplyT(func(v *ServiceDependency) ServiceDependencyDependencyOutput { return v.Dependency }).(ServiceDependencyDependencyOutput)
+}
+
 type ServiceDependencyArrayOutput struct{ *pulumi.OutputState }
 
 func (ServiceDependencyArrayOutput) ElementType() reflect.Type {

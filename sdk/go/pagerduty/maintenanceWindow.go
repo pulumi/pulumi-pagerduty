@@ -238,6 +238,26 @@ func (o MaintenanceWindowOutput) ToMaintenanceWindowOutputWithContext(ctx contex
 	return o
 }
 
+// A description for the maintenance window.
+func (o MaintenanceWindowOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *MaintenanceWindow) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// The maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `startTime`.
+func (o MaintenanceWindowOutput) EndTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *MaintenanceWindow) pulumi.StringOutput { return v.EndTime }).(pulumi.StringOutput)
+}
+
+// A list of service IDs to include in the maintenance window.
+func (o MaintenanceWindowOutput) Services() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MaintenanceWindow) pulumi.StringArrayOutput { return v.Services }).(pulumi.StringArrayOutput)
+}
+
+// The maintenance window's start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
+func (o MaintenanceWindowOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *MaintenanceWindow) pulumi.StringOutput { return v.StartTime }).(pulumi.StringOutput)
+}
+
 type MaintenanceWindowArrayOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceWindowArrayOutput) ElementType() reflect.Type {

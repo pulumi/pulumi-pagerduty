@@ -78,7 +78,8 @@ type Schedule struct {
 	pulumi.CustomResourceState
 
 	// The description of the schedule.
-	Description pulumi.StringOutput `pulumi:"description"`
+	Description    pulumi.StringOutput              `pulumi:"description"`
+	FinalSchedules ScheduleFinalScheduleArrayOutput `pulumi:"finalSchedules"`
 	// A schedule layer block. Schedule layers documented below.
 	Layers ScheduleLayerArrayOutput `pulumi:"layers"`
 	// The name of the schedule.
@@ -132,7 +133,8 @@ func GetSchedule(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Schedule resources.
 type scheduleState struct {
 	// The description of the schedule.
-	Description *string `pulumi:"description"`
+	Description    *string                 `pulumi:"description"`
+	FinalSchedules []ScheduleFinalSchedule `pulumi:"finalSchedules"`
 	// A schedule layer block. Schedule layers documented below.
 	Layers []ScheduleLayer `pulumi:"layers"`
 	// The name of the schedule.
@@ -149,7 +151,8 @@ type scheduleState struct {
 
 type ScheduleState struct {
 	// The description of the schedule.
-	Description pulumi.StringPtrInput
+	Description    pulumi.StringPtrInput
+	FinalSchedules ScheduleFinalScheduleArrayInput
 	// A schedule layer block. Schedule layers documented below.
 	Layers ScheduleLayerArrayInput
 	// The name of the schedule.
@@ -288,6 +291,42 @@ func (o ScheduleOutput) ToScheduleOutput() ScheduleOutput {
 
 func (o ScheduleOutput) ToScheduleOutputWithContext(ctx context.Context) ScheduleOutput {
 	return o
+}
+
+// The description of the schedule.
+func (o ScheduleOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o ScheduleOutput) FinalSchedules() ScheduleFinalScheduleArrayOutput {
+	return o.ApplyT(func(v *Schedule) ScheduleFinalScheduleArrayOutput { return v.FinalSchedules }).(ScheduleFinalScheduleArrayOutput)
+}
+
+// A schedule layer block. Schedule layers documented below.
+func (o ScheduleOutput) Layers() ScheduleLayerArrayOutput {
+	return o.ApplyT(func(v *Schedule) ScheduleLayerArrayOutput { return v.Layers }).(ScheduleLayerArrayOutput)
+}
+
+// The name of the schedule.
+func (o ScheduleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Any on-call schedule entries that pass the date range bounds will be truncated at the bounds, unless the parameter `overflow` is passed. For instance, if your schedule is a rotation that changes daily at midnight UTC, and your date range is from `2011-06-01T10:00:00Z` to `2011-06-01T14:00:00Z`:
+// If you don't pass the overflow=true parameter, you will get one schedule entry returned with a start of `2011-06-01T10:00:00Z` and end of `2011-06-01T14:00:00Z`.
+// If you do pass the `overflow` parameter, you will get one schedule entry returned with a start of `2011-06-01T00:00:00Z` and end of `2011-06-02T00:00:00Z`.
+func (o ScheduleOutput) Overflow() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.BoolPtrOutput { return v.Overflow }).(pulumi.BoolPtrOutput)
+}
+
+// Teams associated with the schedule.
+func (o ScheduleOutput) Teams() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringArrayOutput { return v.Teams }).(pulumi.StringArrayOutput)
+}
+
+// The time zone of the schedule (e.g. `Europe/Berlin`).
+func (o ScheduleOutput) TimeZone() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.TimeZone }).(pulumi.StringOutput)
 }
 
 type ScheduleArrayOutput struct{ *pulumi.OutputState }

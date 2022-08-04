@@ -50,7 +50,7 @@ import * as utilities from "./utilities";
  * Unrouted Orchestration can be imported using the `id` of the Event Orchestration, e.g.
  *
  * ```sh
- *  $ pulumi import pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted pagerduty_event_orchestration_unrouted 1b49abe7-26db-4439-a715-c6d883acfb3e
+ *  $ pulumi import pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted unrouted 1b49abe7-26db-4439-a715-c6d883acfb3e
  * ```
  */
 export class EventOrchestrationUnrouted extends pulumi.CustomResource {

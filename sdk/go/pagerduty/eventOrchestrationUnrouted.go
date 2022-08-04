@@ -75,7 +75,7 @@ import (
 // Unrouted Orchestration can be imported using the `id` of the Event Orchestration, e.g.
 //
 // ```sh
-//  $ pulumi import pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted pagerduty_event_orchestration_unrouted 1b49abe7-26db-4439-a715-c6d883acfb3e
+//  $ pulumi import pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted unrouted 1b49abe7-26db-4439-a715-c6d883acfb3e
 // ```
 type EventOrchestrationUnrouted struct {
 	pulumi.CustomResourceState
@@ -251,6 +251,21 @@ func (o EventOrchestrationUnroutedOutput) ToEventOrchestrationUnroutedOutput() E
 
 func (o EventOrchestrationUnroutedOutput) ToEventOrchestrationUnroutedOutputWithContext(ctx context.Context) EventOrchestrationUnroutedOutput {
 	return o
+}
+
+// the `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
+func (o EventOrchestrationUnroutedOutput) CatchAll() EventOrchestrationUnroutedCatchAllOutput {
+	return o.ApplyT(func(v *EventOrchestrationUnrouted) EventOrchestrationUnroutedCatchAllOutput { return v.CatchAll }).(EventOrchestrationUnroutedCatchAllOutput)
+}
+
+// The Event Orchestration to which this Unrouted Orchestration belongs to.
+func (o EventOrchestrationUnroutedOutput) EventOrchestration() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventOrchestrationUnrouted) pulumi.StringOutput { return v.EventOrchestration }).(pulumi.StringOutput)
+}
+
+// An Unrouted Orchestration must contain at least a "start" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.
+func (o EventOrchestrationUnroutedOutput) Sets() EventOrchestrationUnroutedSetArrayOutput {
+	return o.ApplyT(func(v *EventOrchestrationUnrouted) EventOrchestrationUnroutedSetArrayOutput { return v.Sets }).(EventOrchestrationUnroutedSetArrayOutput)
 }
 
 type EventOrchestrationUnroutedArrayOutput struct{ *pulumi.OutputState }

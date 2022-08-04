@@ -25,8 +25,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		webhook, err := pagerduty.GetExtensionSchema(ctx, &GetExtensionSchemaArgs{
-// 			Name: "Generic V2 Webhook",
+// 		servicenow, err := pagerduty.GetExtensionSchema(ctx, &GetExtensionSchemaArgs{
+// 			Name: "ServiceNow (v7)",
 // 		}, nil)
 // 		if err != nil {
 // 			return err
@@ -63,7 +63,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = pagerduty.NewExtensionServiceNow(ctx, "snow", &pagerduty.ExtensionServiceNowArgs{
-// 			ExtensionSchema: pulumi.String(webhook.Id),
+// 			ExtensionSchema: pulumi.String(servicenow.Id),
 // 			ExtensionObjects: pulumi.StringArray{
 // 				exampleService.ID(),
 // 			},
@@ -364,6 +364,69 @@ func (o ExtensionServiceNowOutput) ToExtensionServiceNowOutput() ExtensionServic
 
 func (o ExtensionServiceNowOutput) ToExtensionServiceNowOutputWithContext(ctx context.Context) ExtensionServiceNowOutput {
 	return o
+}
+
+func (o ExtensionServiceNowOutput) EndpointUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExtensionServiceNow) pulumi.StringPtrOutput { return v.EndpointUrl }).(pulumi.StringPtrOutput)
+}
+
+// This is the objects for which the extension applies (An array of service ids).
+func (o ExtensionServiceNowOutput) ExtensionObjects() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ExtensionServiceNow) pulumi.StringArrayOutput { return v.ExtensionObjects }).(pulumi.StringArrayOutput)
+}
+
+// This is the schema for this extension.
+func (o ExtensionServiceNowOutput) ExtensionSchema() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExtensionServiceNow) pulumi.StringOutput { return v.ExtensionSchema }).(pulumi.StringOutput)
+}
+
+// URL at which the entity is uniquely displayed in the Web app.
+func (o ExtensionServiceNowOutput) HtmlUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExtensionServiceNow) pulumi.StringOutput { return v.HtmlUrl }).(pulumi.StringOutput)
+}
+
+// The name of the service extension.
+func (o ExtensionServiceNowOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExtensionServiceNow) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ServiceNow referer.
+func (o ExtensionServiceNowOutput) Referer() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExtensionServiceNow) pulumi.StringOutput { return v.Referer }).(pulumi.StringOutput)
+}
+
+// The ServiceNow password.
+func (o ExtensionServiceNowOutput) SnowPassword() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExtensionServiceNow) pulumi.StringOutput { return v.SnowPassword }).(pulumi.StringOutput)
+}
+
+// The ServiceNow username.
+func (o ExtensionServiceNowOutput) SnowUser() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExtensionServiceNow) pulumi.StringOutput { return v.SnowUser }).(pulumi.StringOutput)
+}
+
+// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+func (o ExtensionServiceNowOutput) Summary() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExtensionServiceNow) pulumi.StringOutput { return v.Summary }).(pulumi.StringOutput)
+}
+
+// The ServiceNow sync option.
+func (o ExtensionServiceNowOutput) SyncOptions() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExtensionServiceNow) pulumi.StringOutput { return v.SyncOptions }).(pulumi.StringOutput)
+}
+
+// Target Webhook URL.
+func (o ExtensionServiceNowOutput) Target() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExtensionServiceNow) pulumi.StringOutput { return v.Target }).(pulumi.StringOutput)
+}
+
+// The ServiceNow task type, typically `incident`.
+func (o ExtensionServiceNowOutput) TaskType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExtensionServiceNow) pulumi.StringOutput { return v.TaskType }).(pulumi.StringOutput)
+}
+
+func (o ExtensionServiceNowOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExtensionServiceNow) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
 type ExtensionServiceNowArrayOutput struct{ *pulumi.OutputState }

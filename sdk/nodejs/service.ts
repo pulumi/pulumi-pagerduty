@@ -14,16 +14,13 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const exampleUser = new pagerduty.User("exampleUser", {
- *     email: "125.greenholt.earline@graham.name",
- *     teams: [pagerduty_team.example.id],
- * });
+ * const exampleUser = new pagerduty.User("exampleUser", {email: "125.greenholt.earline@graham.name"});
  * const foo = new pagerduty.EscalationPolicy("foo", {
  *     numLoops: 2,
  *     rules: [{
  *         escalationDelayInMinutes: 10,
  *         targets: [{
- *             type: "user",
+ *             type: "user_reference",
  *             id: exampleUser.id,
  *         }],
  *     }],
@@ -31,8 +28,12 @@ import * as utilities from "./utilities";
  * const exampleService = new pagerduty.Service("exampleService", {
  *     autoResolveTimeout: "14400",
  *     acknowledgementTimeout: "600",
- *     escalationPolicy: pagerduty_escalation_policy.example.id,
+ *     escalationPolicy: foo.id,
  *     alertCreation: "create_alerts_and_incidents",
+ *     autoPauseNotificationsParameters: {
+ *         enabled: true,
+ *         timeout: 300,
+ *     },
  * });
  * ```
  *
@@ -97,6 +98,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly alertGroupingTimeout!: pulumi.Output<string>;
     /**
+     * Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
+     */
+    public readonly autoPauseNotificationsParameters!: pulumi.Output<outputs.ServiceAutoPauseNotificationsParameters>;
+    /**
      * Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
      */
     public readonly autoResolveTimeout!: pulumi.Output<string | undefined>;
@@ -113,6 +118,10 @@ export class Service extends pulumi.CustomResource {
      * The name of the service.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The response play used by this service.
+     */
+    public readonly responsePlay!: pulumi.Output<string | undefined>;
     public readonly scheduledActions!: pulumi.Output<outputs.ServiceScheduledAction[] | undefined>;
     public /*out*/ readonly status!: pulumi.Output<string>;
     public readonly supportHours!: pulumi.Output<outputs.ServiceSupportHours | undefined>;
@@ -139,6 +148,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["alertGrouping"] = state ? state.alertGrouping : undefined;
             resourceInputs["alertGroupingParameters"] = state ? state.alertGroupingParameters : undefined;
             resourceInputs["alertGroupingTimeout"] = state ? state.alertGroupingTimeout : undefined;
+            resourceInputs["autoPauseNotificationsParameters"] = state ? state.autoPauseNotificationsParameters : undefined;
             resourceInputs["autoResolveTimeout"] = state ? state.autoResolveTimeout : undefined;
             resourceInputs["createdAt"] = state ? state.createdAt : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
@@ -147,6 +157,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["incidentUrgencyRule"] = state ? state.incidentUrgencyRule : undefined;
             resourceInputs["lastIncidentTimestamp"] = state ? state.lastIncidentTimestamp : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["responsePlay"] = state ? state.responsePlay : undefined;
             resourceInputs["scheduledActions"] = state ? state.scheduledActions : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["supportHours"] = state ? state.supportHours : undefined;
@@ -161,11 +172,13 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["alertGrouping"] = args ? args.alertGrouping : undefined;
             resourceInputs["alertGroupingParameters"] = args ? args.alertGroupingParameters : undefined;
             resourceInputs["alertGroupingTimeout"] = args ? args.alertGroupingTimeout : undefined;
+            resourceInputs["autoPauseNotificationsParameters"] = args ? args.autoPauseNotificationsParameters : undefined;
             resourceInputs["autoResolveTimeout"] = args ? args.autoResolveTimeout : undefined;
             resourceInputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
             resourceInputs["escalationPolicy"] = args ? args.escalationPolicy : undefined;
             resourceInputs["incidentUrgencyRule"] = args ? args.incidentUrgencyRule : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["responsePlay"] = args ? args.responsePlay : undefined;
             resourceInputs["scheduledActions"] = args ? args.scheduledActions : undefined;
             resourceInputs["supportHours"] = args ? args.supportHours : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -208,6 +221,10 @@ export interface ServiceState {
      */
     alertGroupingTimeout?: pulumi.Input<string>;
     /**
+     * Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
+     */
+    autoPauseNotificationsParameters?: pulumi.Input<inputs.ServiceAutoPauseNotificationsParameters>;
+    /**
      * Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
      */
     autoResolveTimeout?: pulumi.Input<string>;
@@ -224,6 +241,10 @@ export interface ServiceState {
      * The name of the service.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The response play used by this service.
+     */
+    responsePlay?: pulumi.Input<string>;
     scheduledActions?: pulumi.Input<pulumi.Input<inputs.ServiceScheduledAction>[]>;
     status?: pulumi.Input<string>;
     supportHours?: pulumi.Input<inputs.ServiceSupportHours>;
@@ -262,6 +283,10 @@ export interface ServiceArgs {
      */
     alertGroupingTimeout?: pulumi.Input<string>;
     /**
+     * Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
+     */
+    autoPauseNotificationsParameters?: pulumi.Input<inputs.ServiceAutoPauseNotificationsParameters>;
+    /**
      * Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
      */
     autoResolveTimeout?: pulumi.Input<string>;
@@ -275,6 +300,10 @@ export interface ServiceArgs {
      * The name of the service.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The response play used by this service.
+     */
+    responsePlay?: pulumi.Input<string>;
     scheduledActions?: pulumi.Input<pulumi.Input<inputs.ServiceScheduledAction>[]>;
     supportHours?: pulumi.Input<inputs.ServiceSupportHours>;
 }

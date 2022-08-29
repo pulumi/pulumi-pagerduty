@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class EventOrchestrationRouterSetRuleConditionGetArgs : Pulumi.ResourceArgs
+    public sealed class EventOrchestrationRouterSetRuleConditionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
@@ -21,5 +21,6 @@ namespace Pulumi.Pagerduty.Inputs
         public EventOrchestrationRouterSetRuleConditionGetArgs()
         {
         }
+        public static new EventOrchestrationRouterSetRuleConditionGetArgs Empty => new EventOrchestrationRouterSetRuleConditionGetArgs();
     }
 }

@@ -32,14 +32,14 @@ public final class ServiceAlertGroupingParametersArgs extends com.pulumi.resourc
     }
 
     /**
-     * The type of scheduled action. Currently, this must be set to `urgency_change`.
+     * The type of alert grouping; one of `intelligent`, `time` or `content_based`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of scheduled action. Currently, this must be set to `urgency_change`.
+     * @return The type of alert grouping; one of `intelligent`, `time` or `content_based`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -93,7 +93,7 @@ public final class ServiceAlertGroupingParametersArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param type The type of scheduled action. Currently, this must be set to `urgency_change`.
+         * @param type The type of alert grouping; one of `intelligent`, `time` or `content_based`.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ServiceAlertGroupingParametersArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param type The type of scheduled action. Currently, this must be set to `urgency_change`.
+         * @param type The type of alert grouping; one of `intelligent`, `time` or `content_based`.
          * 
          * @return builder
          * 

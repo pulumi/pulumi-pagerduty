@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class EventOrchestrationIntegrationParameterGetArgs : Pulumi.ResourceArgs
+    public sealed class EventOrchestrationIntegrationParameterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Routing key that routes to this Orchestration.
@@ -27,5 +27,6 @@ namespace Pulumi.Pagerduty.Inputs
         public EventOrchestrationIntegrationParameterGetArgs()
         {
         }
+        public static new EventOrchestrationIntegrationParameterGetArgs Empty => new EventOrchestrationIntegrationParameterGetArgs();
     }
 }

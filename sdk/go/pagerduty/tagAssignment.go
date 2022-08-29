@@ -18,7 +18,9 @@ import (
 // Tag assignments can be imported using the `id` which is constructed by taking the `entity` Type, `entity` ID and the `tag` ID separated by a dot, e.g.
 //
 // ```sh
-//  $ pulumi import pagerduty:index/tagAssignment:TagAssignment main users.P7HHMVK.PYC7IQQ
+//
+//	$ pulumi import pagerduty:index/tagAssignment:TagAssignment main users.P7HHMVK.PYC7IQQ
+//
 // ```
 type TagAssignment struct {
 	pulumi.CustomResourceState
@@ -135,7 +137,7 @@ func (i *TagAssignment) ToTagAssignmentOutputWithContext(ctx context.Context) Ta
 // TagAssignmentArrayInput is an input type that accepts TagAssignmentArray and TagAssignmentArrayOutput values.
 // You can construct a concrete instance of `TagAssignmentArrayInput` via:
 //
-//          TagAssignmentArray{ TagAssignmentArgs{...} }
+//	TagAssignmentArray{ TagAssignmentArgs{...} }
 type TagAssignmentArrayInput interface {
 	pulumi.Input
 
@@ -160,7 +162,7 @@ func (i TagAssignmentArray) ToTagAssignmentArrayOutputWithContext(ctx context.Co
 // TagAssignmentMapInput is an input type that accepts TagAssignmentMap and TagAssignmentMapOutput values.
 // You can construct a concrete instance of `TagAssignmentMapInput` via:
 //
-//          TagAssignmentMap{ "key": TagAssignmentArgs{...} }
+//	TagAssignmentMap{ "key": TagAssignmentArgs{...} }
 type TagAssignmentMapInput interface {
 	pulumi.Input
 

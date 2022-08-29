@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class EventOrchestrationRouterSetArgs : Pulumi.ResourceArgs
+    public sealed class EventOrchestrationRouterSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the `start` set. Router supports only one set and it's id has to be `start`
@@ -29,5 +29,6 @@ namespace Pulumi.Pagerduty.Inputs
         public EventOrchestrationRouterSetArgs()
         {
         }
+        public static new EventOrchestrationRouterSetArgs Empty => new EventOrchestrationRouterSetArgs();
     }
 }

@@ -19,7 +19,7 @@ namespace Pulumi.Pagerduty
     /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/eventOrchestrationService:EventOrchestrationService")]
-    public partial class EventOrchestrationService : Pulumi.CustomResource
+    public partial class EventOrchestrationService : global::Pulumi.CustomResource
     {
         /// <summary>
         /// the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
@@ -83,7 +83,7 @@ namespace Pulumi.Pagerduty
         }
     }
 
-    public sealed class EventOrchestrationServiceArgs : Pulumi.ResourceArgs
+    public sealed class EventOrchestrationServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
@@ -112,9 +112,10 @@ namespace Pulumi.Pagerduty
         public EventOrchestrationServiceArgs()
         {
         }
+        public static new EventOrchestrationServiceArgs Empty => new EventOrchestrationServiceArgs();
     }
 
-    public sealed class EventOrchestrationServiceState : Pulumi.ResourceArgs
+    public sealed class EventOrchestrationServiceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
@@ -143,5 +144,6 @@ namespace Pulumi.Pagerduty
         public EventOrchestrationServiceState()
         {
         }
+        public static new EventOrchestrationServiceState Empty => new EventOrchestrationServiceState();
     }
 }

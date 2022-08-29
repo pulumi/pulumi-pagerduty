@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class ServiceEventRuleTimeFrameScheduledWeeklyGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceEventRuleTimeFrameScheduledWeeklyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Length of time the schedule will be active.  Unix timestamp in milliseconds.
@@ -45,5 +45,6 @@ namespace Pulumi.Pagerduty.Inputs
         public ServiceEventRuleTimeFrameScheduledWeeklyGetArgs()
         {
         }
+        public static new ServiceEventRuleTimeFrameScheduledWeeklyGetArgs Empty => new ServiceEventRuleTimeFrameScheduledWeeklyGetArgs();
     }
 }

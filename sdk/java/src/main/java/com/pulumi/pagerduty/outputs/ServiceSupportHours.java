@@ -18,42 +18,29 @@ public final class ServiceSupportHours {
      * Monday and `7` being Sunday.
      * 
      */
-    private final @Nullable List<Integer> daysOfWeeks;
+    private @Nullable List<Integer> daysOfWeeks;
     /**
      * @return The support hours&#39; ending time of day.
      * 
      */
-    private final @Nullable String endTime;
+    private @Nullable String endTime;
     /**
      * @return The support hours&#39; starting time of day.
      * 
      */
-    private final @Nullable String startTime;
+    private @Nullable String startTime;
     /**
      * @return The time zone for the support hours.
      * 
      */
-    private final @Nullable String timeZone;
+    private @Nullable String timeZone;
     /**
      * @return The type of alert grouping; one of `intelligent`, `time` or `content_based`.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private ServiceSupportHours(
-        @CustomType.Parameter("daysOfWeeks") @Nullable List<Integer> daysOfWeeks,
-        @CustomType.Parameter("endTime") @Nullable String endTime,
-        @CustomType.Parameter("startTime") @Nullable String startTime,
-        @CustomType.Parameter("timeZone") @Nullable String timeZone,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.daysOfWeeks = daysOfWeeks;
-        this.endTime = endTime;
-        this.startTime = startTime;
-        this.timeZone = timeZone;
-        this.type = type;
-    }
-
+    private ServiceSupportHours() {}
     /**
      * @return Array of days of week as integers. `1` to `7`, `1` being
      * Monday and `7` being Sunday.
@@ -98,18 +85,14 @@ public final class ServiceSupportHours {
     public static Builder builder(ServiceSupportHours defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<Integer> daysOfWeeks;
         private @Nullable String endTime;
         private @Nullable String startTime;
         private @Nullable String timeZone;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceSupportHours defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.daysOfWeeks = defaults.daysOfWeeks;
@@ -119,6 +102,7 @@ public final class ServiceSupportHours {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder daysOfWeeks(@Nullable List<Integer> daysOfWeeks) {
             this.daysOfWeeks = daysOfWeeks;
             return this;
@@ -126,23 +110,34 @@ public final class ServiceSupportHours {
         public Builder daysOfWeeks(Integer... daysOfWeeks) {
             return daysOfWeeks(List.of(daysOfWeeks));
         }
+        @CustomType.Setter
         public Builder endTime(@Nullable String endTime) {
             this.endTime = endTime;
             return this;
         }
+        @CustomType.Setter
         public Builder startTime(@Nullable String startTime) {
             this.startTime = startTime;
             return this;
         }
+        @CustomType.Setter
         public Builder timeZone(@Nullable String timeZone) {
             this.timeZone = timeZone;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public ServiceSupportHours build() {
-            return new ServiceSupportHours(daysOfWeeks, endTime, startTime, timeZone, type);
+        }
+        public ServiceSupportHours build() {
+            final var o = new ServiceSupportHours();
+            o.daysOfWeeks = daysOfWeeks;
+            o.endTime = endTime;
+            o.startTime = startTime;
+            o.timeZone = timeZone;
+            o.type = type;
+            return o;
         }
     }
 }

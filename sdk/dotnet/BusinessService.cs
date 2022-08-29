@@ -15,22 +15,20 @@ namespace Pulumi.Pagerduty
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Pagerduty = Pulumi.Pagerduty;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Pagerduty.BusinessService("example", new()
     ///     {
-    ///         var example = new Pagerduty.BusinessService("example", new Pagerduty.BusinessServiceArgs
-    ///         {
-    ///             Description = "A very descriptive description of this business service",
-    ///             PointOfContact = "PagerDuty Admin",
-    ///             Team = "P37RSRS",
-    ///         });
-    ///     }
+    ///         Description = "A very descriptive description of this business service",
+    ///         PointOfContact = "PagerDuty Admin",
+    ///         Team = "P37RSRS",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Pagerduty
     /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/businessService:BusinessService")]
-    public partial class BusinessService : Pulumi.CustomResource
+    public partial class BusinessService : global::Pulumi.CustomResource
     {
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
@@ -124,7 +122,7 @@ namespace Pulumi.Pagerduty
         }
     }
 
-    public sealed class BusinessServiceArgs : Pulumi.ResourceArgs
+    public sealed class BusinessServiceArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -157,9 +155,10 @@ namespace Pulumi.Pagerduty
         {
             Description = "Managed by Pulumi";
         }
+        public static new BusinessServiceArgs Empty => new BusinessServiceArgs();
     }
 
-    public sealed class BusinessServiceState : Pulumi.ResourceArgs
+    public sealed class BusinessServiceState : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -201,5 +200,6 @@ namespace Pulumi.Pagerduty
         {
             Description = "Managed by Pulumi";
         }
+        public static new BusinessServiceState Empty => new BusinessServiceState();
     }
 }

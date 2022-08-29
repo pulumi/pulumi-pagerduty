@@ -19,86 +19,89 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := pagerduty.NewUser(ctx, "example", &pagerduty.UserArgs{
-// 			Email: pulumi.String("125.greenholt.earline@graham.name"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		email, err := pagerduty.NewUserContactMethod(ctx, "email", &pagerduty.UserContactMethodArgs{
-// 			UserId:  example.ID(),
-// 			Type:    pulumi.String("email_contact_method"),
-// 			Address: pulumi.String("foo@bar.com"),
-// 			Label:   pulumi.String("Work"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		phone, err := pagerduty.NewUserContactMethod(ctx, "phone", &pagerduty.UserContactMethodArgs{
-// 			UserId:      example.ID(),
-// 			Type:        pulumi.String("phone_contact_method"),
-// 			CountryCode: pulumi.Int(1),
-// 			Address:     pulumi.String("2025550199"),
-// 			Label:       pulumi.String("Work"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		sms, err := pagerduty.NewUserContactMethod(ctx, "sms", &pagerduty.UserContactMethodArgs{
-// 			UserId:      example.ID(),
-// 			Type:        pulumi.String("sms_contact_method"),
-// 			CountryCode: pulumi.Int(1),
-// 			Address:     pulumi.String("2025550199"),
-// 			Label:       pulumi.String("Work"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = pagerduty.NewUserNotificationRule(ctx, "highUrgencyPhone", &pagerduty.UserNotificationRuleArgs{
-// 			UserId:              example.ID(),
-// 			StartDelayInMinutes: pulumi.Int(1),
-// 			Urgency:             pulumi.String("high"),
-// 			ContactMethod: pulumi.StringMap{
-// 				"type": pulumi.String("phone_contact_method"),
-// 				"id":   phone.ID(),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = pagerduty.NewUserNotificationRule(ctx, "lowUrgencyEmail", &pagerduty.UserNotificationRuleArgs{
-// 			UserId:              example.ID(),
-// 			StartDelayInMinutes: pulumi.Int(1),
-// 			Urgency:             pulumi.String("low"),
-// 			ContactMethod: pulumi.StringMap{
-// 				"type": pulumi.String("email_contact_method"),
-// 				"id":   email.ID(),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = pagerduty.NewUserNotificationRule(ctx, "lowUrgencySms", &pagerduty.UserNotificationRuleArgs{
-// 			UserId:              example.ID(),
-// 			StartDelayInMinutes: pulumi.Int(10),
-// 			Urgency:             pulumi.String("low"),
-// 			ContactMethod: pulumi.StringMap{
-// 				"type": pulumi.String("sms_contact_method"),
-// 				"id":   sms.ID(),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := pagerduty.NewUser(ctx, "example", &pagerduty.UserArgs{
+//				Email: pulumi.String("125.greenholt.earline@graham.name"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			email, err := pagerduty.NewUserContactMethod(ctx, "email", &pagerduty.UserContactMethodArgs{
+//				UserId:  example.ID(),
+//				Type:    pulumi.String("email_contact_method"),
+//				Address: pulumi.String("foo@bar.com"),
+//				Label:   pulumi.String("Work"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			phone, err := pagerduty.NewUserContactMethod(ctx, "phone", &pagerduty.UserContactMethodArgs{
+//				UserId:      example.ID(),
+//				Type:        pulumi.String("phone_contact_method"),
+//				CountryCode: pulumi.Int(1),
+//				Address:     pulumi.String("2025550199"),
+//				Label:       pulumi.String("Work"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			sms, err := pagerduty.NewUserContactMethod(ctx, "sms", &pagerduty.UserContactMethodArgs{
+//				UserId:      example.ID(),
+//				Type:        pulumi.String("sms_contact_method"),
+//				CountryCode: pulumi.Int(1),
+//				Address:     pulumi.String("2025550199"),
+//				Label:       pulumi.String("Work"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewUserNotificationRule(ctx, "highUrgencyPhone", &pagerduty.UserNotificationRuleArgs{
+//				UserId:              example.ID(),
+//				StartDelayInMinutes: pulumi.Int(1),
+//				Urgency:             pulumi.String("high"),
+//				ContactMethod: pulumi.StringMap{
+//					"type": pulumi.String("phone_contact_method"),
+//					"id":   phone.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewUserNotificationRule(ctx, "lowUrgencyEmail", &pagerduty.UserNotificationRuleArgs{
+//				UserId:              example.ID(),
+//				StartDelayInMinutes: pulumi.Int(1),
+//				Urgency:             pulumi.String("low"),
+//				ContactMethod: pulumi.StringMap{
+//					"type": pulumi.String("email_contact_method"),
+//					"id":   email.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewUserNotificationRule(ctx, "lowUrgencySms", &pagerduty.UserNotificationRuleArgs{
+//				UserId:              example.ID(),
+//				StartDelayInMinutes: pulumi.Int(10),
+//				Urgency:             pulumi.String("low"),
+//				ContactMethod: pulumi.StringMap{
+//					"type": pulumi.String("sms_contact_method"),
+//					"id":   sms.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -106,7 +109,9 @@ import (
 // User notification rules can be imported using the `user_id` and the `id`, e.g.
 //
 // ```sh
-//  $ pulumi import pagerduty:index/userNotificationRule:UserNotificationRule main PXPGF42:PPSCXAN
+//
+//	$ pulumi import pagerduty:index/userNotificationRule:UserNotificationRule main PXPGF42:PPSCXAN
+//
 // ```
 type UserNotificationRule struct {
 	pulumi.CustomResourceState
@@ -236,7 +241,7 @@ func (i *UserNotificationRule) ToUserNotificationRuleOutputWithContext(ctx conte
 // UserNotificationRuleArrayInput is an input type that accepts UserNotificationRuleArray and UserNotificationRuleArrayOutput values.
 // You can construct a concrete instance of `UserNotificationRuleArrayInput` via:
 //
-//          UserNotificationRuleArray{ UserNotificationRuleArgs{...} }
+//	UserNotificationRuleArray{ UserNotificationRuleArgs{...} }
 type UserNotificationRuleArrayInput interface {
 	pulumi.Input
 
@@ -261,7 +266,7 @@ func (i UserNotificationRuleArray) ToUserNotificationRuleArrayOutputWithContext(
 // UserNotificationRuleMapInput is an input type that accepts UserNotificationRuleMap and UserNotificationRuleMapOutput values.
 // You can construct a concrete instance of `UserNotificationRuleMapInput` via:
 //
-//          UserNotificationRuleMap{ "key": UserNotificationRuleArgs{...} }
+//	UserNotificationRuleMap{ "key": UserNotificationRuleArgs{...} }
 type UserNotificationRuleMapInput interface {
 	pulumi.Input
 

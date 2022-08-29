@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class ServiceEventRuleActionsSeverityGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceEventRuleActionsSeverityGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value for the operation. For example, an RE2 regular expression for regex-type variables.
@@ -21,5 +21,6 @@ namespace Pulumi.Pagerduty.Inputs
         public ServiceEventRuleActionsSeverityGetArgs()
         {
         }
+        public static new ServiceEventRuleActionsSeverityGetArgs Empty => new ServiceEventRuleActionsSeverityGetArgs();
     }
 }

@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.core.internal.Codegen;
 import com.pulumi.pagerduty.inputs.ServiceAlertGroupingParametersArgs;
+import com.pulumi.pagerduty.inputs.ServiceAutoPauseNotificationsParametersArgs;
 import com.pulumi.pagerduty.inputs.ServiceIncidentUrgencyRuleArgs;
 import com.pulumi.pagerduty.inputs.ServiceScheduledActionArgs;
 import com.pulumi.pagerduty.inputs.ServiceSupportHoursArgs;
@@ -113,6 +114,21 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
+     * 
+     */
+    @Import(name="autoPauseNotificationsParameters")
+    private @Nullable Output<ServiceAutoPauseNotificationsParametersArgs> autoPauseNotificationsParameters;
+
+    /**
+     * @return Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
+     * 
+     */
+    public Optional<Output<ServiceAutoPauseNotificationsParametersArgs>> autoPauseNotificationsParameters() {
+        return Optional.ofNullable(this.autoPauseNotificationsParameters);
+    }
+
+    /**
      * Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `&#34;null&#34;` string.
      * 
      */
@@ -171,6 +187,21 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The response play used by this service.
+     * 
+     */
+    @Import(name="responsePlay")
+    private @Nullable Output<String> responsePlay;
+
+    /**
+     * @return The response play used by this service.
+     * 
+     */
+    public Optional<Output<String>> responsePlay() {
+        return Optional.ofNullable(this.responsePlay);
+    }
+
     @Import(name="scheduledActions")
     private @Nullable Output<List<ServiceScheduledActionArgs>> scheduledActions;
 
@@ -193,11 +224,13 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         this.alertGrouping = $.alertGrouping;
         this.alertGroupingParameters = $.alertGroupingParameters;
         this.alertGroupingTimeout = $.alertGroupingTimeout;
+        this.autoPauseNotificationsParameters = $.autoPauseNotificationsParameters;
         this.autoResolveTimeout = $.autoResolveTimeout;
         this.description = $.description;
         this.escalationPolicy = $.escalationPolicy;
         this.incidentUrgencyRule = $.incidentUrgencyRule;
         this.name = $.name;
+        this.responsePlay = $.responsePlay;
         this.scheduledActions = $.scheduledActions;
         this.supportHours = $.supportHours;
     }
@@ -342,6 +375,27 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param autoPauseNotificationsParameters Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoPauseNotificationsParameters(@Nullable Output<ServiceAutoPauseNotificationsParametersArgs> autoPauseNotificationsParameters) {
+            $.autoPauseNotificationsParameters = autoPauseNotificationsParameters;
+            return this;
+        }
+
+        /**
+         * @param autoPauseNotificationsParameters Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoPauseNotificationsParameters(ServiceAutoPauseNotificationsParametersArgs autoPauseNotificationsParameters) {
+            return autoPauseNotificationsParameters(Output.of(autoPauseNotificationsParameters));
+        }
+
+        /**
          * @param autoResolveTimeout Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `&#34;null&#34;` string.
          * 
          * @return builder
@@ -420,6 +474,27 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param responsePlay The response play used by this service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder responsePlay(@Nullable Output<String> responsePlay) {
+            $.responsePlay = responsePlay;
+            return this;
+        }
+
+        /**
+         * @param responsePlay The response play used by this service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder responsePlay(String responsePlay) {
+            return responsePlay(Output.of(responsePlay));
         }
 
         public Builder scheduledActions(@Nullable Output<List<ServiceScheduledActionArgs>> scheduledActions) {

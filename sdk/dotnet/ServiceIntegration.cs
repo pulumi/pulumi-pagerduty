@@ -15,169 +15,178 @@ namespace Pulumi.Pagerduty
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Pagerduty = Pulumi.Pagerduty;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleUser = new Pagerduty.User("exampleUser", new()
     ///     {
-    ///         var exampleUser = new Pagerduty.User("exampleUser", new Pagerduty.UserArgs
+    ///         Email = "125.greenholt.earline@graham.name",
+    ///         Teams = new[]
     ///         {
-    ///             Email = "125.greenholt.earline@graham.name",
-    ///             Teams = 
-    ///             {
-    ///                 pagerduty_team.Example.Id,
-    ///             },
-    ///         });
-    ///         var foo = new Pagerduty.EscalationPolicy("foo", new Pagerduty.EscalationPolicyArgs
+    ///             pagerduty_team.Example.Id,
+    ///         },
+    ///     });
+    /// 
+    ///     var foo = new Pagerduty.EscalationPolicy("foo", new()
+    ///     {
+    ///         NumLoops = 2,
+    ///         Rules = new[]
     ///         {
-    ///             NumLoops = 2,
-    ///             Rules = 
+    ///             new Pagerduty.Inputs.EscalationPolicyRuleArgs
     ///             {
-    ///                 new Pagerduty.Inputs.EscalationPolicyRuleArgs
+    ///                 EscalationDelayInMinutes = 10,
+    ///                 Targets = new[]
     ///                 {
-    ///                     EscalationDelayInMinutes = 10,
-    ///                     Targets = 
+    ///                     new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
     ///                     {
-    ///                         new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
-    ///                         {
-    ///                             Type = "user",
-    ///                             Id = exampleUser.Id,
-    ///                         },
+    ///                         Type = "user",
+    ///                         Id = exampleUser.Id,
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///         var exampleService = new Pagerduty.Service("exampleService", new Pagerduty.ServiceArgs
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleService = new Pagerduty.Service("exampleService", new()
+    ///     {
+    ///         AutoResolveTimeout = "14400",
+    ///         AcknowledgementTimeout = "600",
+    ///         EscalationPolicy = pagerduty_escalation_policy.Example.Id,
+    ///     });
+    /// 
+    ///     var exampleServiceIntegration = new Pagerduty.ServiceIntegration("exampleServiceIntegration", new()
+    ///     {
+    ///         Type = "generic_events_api_inbound_integration",
+    ///         Service = exampleService.Id,
+    ///     });
+    /// 
+    ///     var apiv2 = new Pagerduty.ServiceIntegration("apiv2", new()
+    ///     {
+    ///         Type = "events_api_v2_inbound_integration",
+    ///         IntegrationKey = "12345678910testtesttesttesttes",
+    ///         Service = exampleService.Id,
+    ///     });
+    /// 
+    ///     var emailX = new Pagerduty.ServiceIntegration("emailX", new()
+    ///     {
+    ///         Type = "generic_email_inbound_integration",
+    ///         IntegrationEmail = "ecommerce@subdomain.pagerduty.com",
+    ///         Service = exampleService.Id,
+    ///     });
+    /// 
+    ///     var datadogVendor = Pagerduty.GetVendor.Invoke(new()
+    ///     {
+    ///         Name = "Datadog",
+    ///     });
+    /// 
+    ///     var datadogServiceIntegration = new Pagerduty.ServiceIntegration("datadogServiceIntegration", new()
+    ///     {
+    ///         Service = exampleService.Id,
+    ///         Vendor = datadogVendor.Apply(getVendorResult =&gt; getVendorResult.Id),
+    ///     });
+    /// 
+    ///     var cloudwatchVendor = Pagerduty.GetVendor.Invoke(new()
+    ///     {
+    ///         Name = "Cloudwatch",
+    ///     });
+    /// 
+    ///     var cloudwatchServiceIntegration = new Pagerduty.ServiceIntegration("cloudwatchServiceIntegration", new()
+    ///     {
+    ///         Service = exampleService.Id,
+    ///         Vendor = cloudwatchVendor.Apply(getVendorResult =&gt; getVendorResult.Id),
+    ///     });
+    /// 
+    ///     var emailVendor = Pagerduty.GetVendor.Invoke(new()
+    ///     {
+    ///         Name = "Email",
+    ///     });
+    /// 
+    ///     var emailServiceIntegration = new Pagerduty.ServiceIntegration("emailServiceIntegration", new()
+    ///     {
+    ///         Service = exampleService.Id,
+    ///         Vendor = emailVendor.Apply(getVendorResult =&gt; getVendorResult.Id),
+    ///         IntegrationEmail = "s1@your_account.pagerduty.com",
+    ///         EmailIncidentCreation = "use_rules",
+    ///         EmailFilterMode = "and-rules-email",
+    ///         EmailFilters = new[]
     ///         {
-    ///             AutoResolveTimeout = "14400",
-    ///             AcknowledgementTimeout = "600",
-    ///             EscalationPolicy = pagerduty_escalation_policy.Example.Id,
-    ///         });
-    ///         var exampleServiceIntegration = new Pagerduty.ServiceIntegration("exampleServiceIntegration", new Pagerduty.ServiceIntegrationArgs
-    ///         {
-    ///             Type = "generic_events_api_inbound_integration",
-    ///             Service = exampleService.Id,
-    ///         });
-    ///         var apiv2 = new Pagerduty.ServiceIntegration("apiv2", new Pagerduty.ServiceIntegrationArgs
-    ///         {
-    ///             Type = "events_api_v2_inbound_integration",
-    ///             IntegrationKey = "12345678910testtesttesttesttes",
-    ///             Service = exampleService.Id,
-    ///         });
-    ///         var emailX = new Pagerduty.ServiceIntegration("emailX", new Pagerduty.ServiceIntegrationArgs
-    ///         {
-    ///             Type = "generic_email_inbound_integration",
-    ///             IntegrationEmail = "ecommerce@subdomain.pagerduty.com",
-    ///             Service = exampleService.Id,
-    ///         });
-    ///         var datadogVendor = Output.Create(Pagerduty.GetVendor.InvokeAsync(new Pagerduty.GetVendorArgs
-    ///         {
-    ///             Name = "Datadog",
-    ///         }));
-    ///         var datadogServiceIntegration = new Pagerduty.ServiceIntegration("datadogServiceIntegration", new Pagerduty.ServiceIntegrationArgs
-    ///         {
-    ///             Service = exampleService.Id,
-    ///             Vendor = datadogVendor.Apply(datadogVendor =&gt; datadogVendor.Id),
-    ///         });
-    ///         var cloudwatchVendor = Output.Create(Pagerduty.GetVendor.InvokeAsync(new Pagerduty.GetVendorArgs
-    ///         {
-    ///             Name = "Cloudwatch",
-    ///         }));
-    ///         var cloudwatchServiceIntegration = new Pagerduty.ServiceIntegration("cloudwatchServiceIntegration", new Pagerduty.ServiceIntegrationArgs
-    ///         {
-    ///             Service = exampleService.Id,
-    ///             Vendor = cloudwatchVendor.Apply(cloudwatchVendor =&gt; cloudwatchVendor.Id),
-    ///         });
-    ///         var emailVendor = Output.Create(Pagerduty.GetVendor.InvokeAsync(new Pagerduty.GetVendorArgs
-    ///         {
-    ///             Name = "Email",
-    ///         }));
-    ///         var emailServiceIntegration = new Pagerduty.ServiceIntegration("emailServiceIntegration", new Pagerduty.ServiceIntegrationArgs
-    ///         {
-    ///             Service = exampleService.Id,
-    ///             Vendor = emailVendor.Apply(emailVendor =&gt; emailVendor.Id),
-    ///             IntegrationEmail = "s1@your_account.pagerduty.com",
-    ///             EmailIncidentCreation = "use_rules",
-    ///             EmailFilterMode = "and-rules-email",
-    ///             EmailFilters = 
+    ///             new Pagerduty.Inputs.ServiceIntegrationEmailFilterArgs
     ///             {
-    ///                 new Pagerduty.Inputs.ServiceIntegrationEmailFilterArgs
-    ///                 {
-    ///                     BodyMode = "always",
-    ///                     BodyRegex = null,
-    ///                     FromEmailMode = "match",
-    ///                     FromEmailRegex = "(@foo.test*)",
-    ///                     SubjectMode = "match",
-    ///                     SubjectRegex = "(CRITICAL*)",
-    ///                 },
-    ///                 new Pagerduty.Inputs.ServiceIntegrationEmailFilterArgs
-    ///                 {
-    ///                     BodyMode = "always",
-    ///                     BodyRegex = null,
-    ///                     FromEmailMode = "match",
-    ///                     FromEmailRegex = "(@bar.com*)",
-    ///                     SubjectMode = "match",
-    ///                     SubjectRegex = "(CRITICAL*)",
-    ///                 },
+    ///                 BodyMode = "always",
+    ///                 BodyRegex = null,
+    ///                 FromEmailMode = "match",
+    ///                 FromEmailRegex = "(@foo.test*)",
+    ///                 SubjectMode = "match",
+    ///                 SubjectRegex = "(CRITICAL*)",
     ///             },
-    ///             EmailParsers = 
+    ///             new Pagerduty.Inputs.ServiceIntegrationEmailFilterArgs
     ///             {
-    ///                 new Pagerduty.Inputs.ServiceIntegrationEmailParserArgs
+    ///                 BodyMode = "always",
+    ///                 BodyRegex = null,
+    ///                 FromEmailMode = "match",
+    ///                 FromEmailRegex = "(@bar.com*)",
+    ///                 SubjectMode = "match",
+    ///                 SubjectRegex = "(CRITICAL*)",
+    ///             },
+    ///         },
+    ///         EmailParsers = new[]
+    ///         {
+    ///             new Pagerduty.Inputs.ServiceIntegrationEmailParserArgs
+    ///             {
+    ///                 Action = "resolve",
+    ///                 MatchPredicate = new Pagerduty.Inputs.ServiceIntegrationEmailParserMatchPredicateArgs
     ///                 {
-    ///                     Action = "resolve",
-    ///                     MatchPredicate = new Pagerduty.Inputs.ServiceIntegrationEmailParserMatchPredicateArgs
+    ///                     Type = "any",
+    ///                     Predicates = new[]
     ///                     {
-    ///                         Type = "any",
-    ///                         Predicates = 
+    ///                         new Pagerduty.Inputs.ServiceIntegrationEmailParserMatchPredicatePredicateArgs
     ///                         {
-    ///                             new Pagerduty.Inputs.ServiceIntegrationEmailParserMatchPredicatePredicateArgs
+    ///                             Matcher = "foo",
+    ///                             Part = "subject",
+    ///                             Type = "contains",
+    ///                         },
+    ///                         new Pagerduty.Inputs.ServiceIntegrationEmailParserMatchPredicatePredicateArgs
+    ///                         {
+    ///                             Type = "not",
+    ///                             Predicates = new[]
     ///                             {
-    ///                                 Matcher = "foo",
-    ///                                 Part = "subject",
-    ///                                 Type = "contains",
-    ///                             },
-    ///                             new Pagerduty.Inputs.ServiceIntegrationEmailParserMatchPredicatePredicateArgs
-    ///                             {
-    ///                                 Type = "not",
-    ///                                 Predicates = 
+    ///                                 new Pagerduty.Inputs.ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs
     ///                                 {
-    ///                                     new Pagerduty.Inputs.ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs
-    ///                                     {
-    ///                                         Matcher = "(bar*)",
-    ///                                         Part = "body",
-    ///                                         Type = "regex",
-    ///                                     },
+    ///                                     Matcher = "(bar*)",
+    ///                                     Part = "body",
+    ///                                     Type = "regex",
     ///                                 },
     ///                             },
     ///                         },
     ///                     },
-    ///                     ValueExtractors = 
+    ///                 },
+    ///                 ValueExtractors = new[]
+    ///                 {
+    ///                     new Pagerduty.Inputs.ServiceIntegrationEmailParserValueExtractorArgs
     ///                     {
-    ///                         new Pagerduty.Inputs.ServiceIntegrationEmailParserValueExtractorArgs
-    ///                         {
-    ///                             EndsBefore = "end",
-    ///                             Part = "subject",
-    ///                             StartsAfter = "start",
-    ///                             Type = "between",
-    ///                             ValueName = "incident_key",
-    ///                         },
-    ///                         new Pagerduty.Inputs.ServiceIntegrationEmailParserValueExtractorArgs
-    ///                         {
-    ///                             EndsBefore = "end",
-    ///                             Part = "subject",
-    ///                             StartsAfter = "start",
-    ///                             Type = "between",
-    ///                             ValueName = "FieldName1",
-    ///                         },
+    ///                         EndsBefore = "end",
+    ///                         Part = "subject",
+    ///                         StartsAfter = "start",
+    ///                         Type = "between",
+    ///                         ValueName = "incident_key",
+    ///                     },
+    ///                     new Pagerduty.Inputs.ServiceIntegrationEmailParserValueExtractorArgs
+    ///                     {
+    ///                         EndsBefore = "end",
+    ///                         Part = "subject",
+    ///                         StartsAfter = "start",
+    ///                         Type = "between",
+    ///                         ValueName = "FieldName1",
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -189,7 +198,7 @@ namespace Pulumi.Pagerduty
     /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/serviceIntegration:ServiceIntegration")]
-    public partial class ServiceIntegration : Pulumi.CustomResource
+    public partial class ServiceIntegration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.
@@ -310,7 +319,7 @@ namespace Pulumi.Pagerduty
         }
     }
 
-    public sealed class ServiceIntegrationArgs : Pulumi.ResourceArgs
+    public sealed class ServiceIntegrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.
@@ -394,9 +403,10 @@ namespace Pulumi.Pagerduty
         public ServiceIntegrationArgs()
         {
         }
+        public static new ServiceIntegrationArgs Empty => new ServiceIntegrationArgs();
     }
 
-    public sealed class ServiceIntegrationState : Pulumi.ResourceArgs
+    public sealed class ServiceIntegrationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.
@@ -486,5 +496,6 @@ namespace Pulumi.Pagerduty
         public ServiceIntegrationState()
         {
         }
+        public static new ServiceIntegrationState Empty => new ServiceIntegrationState();
     }
 }

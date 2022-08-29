@@ -15,41 +15,41 @@ namespace Pulumi.Pagerduty
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Pagerduty = Pulumi.Pagerduty;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleBusinessService = new Pagerduty.BusinessService("exampleBusinessService", new()
     ///     {
-    ///         var exampleBusinessService = new Pagerduty.BusinessService("exampleBusinessService", new Pagerduty.BusinessServiceArgs
-    ///         {
-    ///             Description = "A very descriptive description of this business service",
-    ///             PointOfContact = "PagerDuty Admin",
-    ///             Team = "P37RSRS",
-    ///         });
-    ///         var engteam = new Pagerduty.Team("engteam", new Pagerduty.TeamArgs
-    ///         {
-    ///         });
-    ///         var exampleUser = new Pagerduty.User("exampleUser", new Pagerduty.UserArgs
-    ///         {
-    ///             Email = "125.greenholt.earline@graham.name",
-    ///         });
-    ///         var teamExample = new Pagerduty.BusinessServiceSubscriber("teamExample", new Pagerduty.BusinessServiceSubscriberArgs
-    ///         {
-    ///             SubscriberId = engteam.Id,
-    ///             SubscriberType = "team",
-    ///             BusinessServiceId = exampleBusinessService.Id,
-    ///         });
-    ///         var userExample = new Pagerduty.BusinessServiceSubscriber("userExample", new Pagerduty.BusinessServiceSubscriberArgs
-    ///         {
-    ///             SubscriberId = exampleUser.Id,
-    ///             SubscriberType = "user",
-    ///             BusinessServiceId = exampleBusinessService.Id,
-    ///         });
-    ///     }
+    ///         Description = "A very descriptive description of this business service",
+    ///         PointOfContact = "PagerDuty Admin",
+    ///         Team = "P37RSRS",
+    ///     });
     /// 
-    /// }
+    ///     var engteam = new Pagerduty.Team("engteam");
+    /// 
+    ///     var exampleUser = new Pagerduty.User("exampleUser", new()
+    ///     {
+    ///         Email = "125.greenholt.earline@graham.name",
+    ///     });
+    /// 
+    ///     var teamExample = new Pagerduty.BusinessServiceSubscriber("teamExample", new()
+    ///     {
+    ///         SubscriberId = engteam.Id,
+    ///         SubscriberType = "team",
+    ///         BusinessServiceId = exampleBusinessService.Id,
+    ///     });
+    /// 
+    ///     var userExample = new Pagerduty.BusinessServiceSubscriber("userExample", new()
+    ///     {
+    ///         SubscriberId = exampleUser.Id,
+    ///         SubscriberType = "user",
+    ///         BusinessServiceId = exampleBusinessService.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -61,7 +61,7 @@ namespace Pulumi.Pagerduty
     /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber")]
-    public partial class BusinessServiceSubscriber : Pulumi.CustomResource
+    public partial class BusinessServiceSubscriber : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the business service to subscribe to.
@@ -125,7 +125,7 @@ namespace Pulumi.Pagerduty
         }
     }
 
-    public sealed class BusinessServiceSubscriberArgs : Pulumi.ResourceArgs
+    public sealed class BusinessServiceSubscriberArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the business service to subscribe to.
@@ -148,9 +148,10 @@ namespace Pulumi.Pagerduty
         public BusinessServiceSubscriberArgs()
         {
         }
+        public static new BusinessServiceSubscriberArgs Empty => new BusinessServiceSubscriberArgs();
     }
 
-    public sealed class BusinessServiceSubscriberState : Pulumi.ResourceArgs
+    public sealed class BusinessServiceSubscriberState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the business service to subscribe to.
@@ -173,5 +174,6 @@ namespace Pulumi.Pagerduty
         public BusinessServiceSubscriberState()
         {
         }
+        public static new BusinessServiceSubscriberState Empty => new BusinessServiceSubscriberState();
     }
 }

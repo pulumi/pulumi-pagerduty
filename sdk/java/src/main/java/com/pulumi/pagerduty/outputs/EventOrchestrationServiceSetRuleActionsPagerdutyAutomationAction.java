@@ -13,13 +13,9 @@ public final class EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAct
      * @return Id of the Process Automation action to be triggered.
      * 
      */
-    private final String actionId;
+    private String actionId;
 
-    @CustomType.Constructor
-    private EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction(@CustomType.Parameter("actionId") String actionId) {
-        this.actionId = actionId;
-    }
-
+    private EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction() {}
     /**
      * @return Id of the Process Automation action to be triggered.
      * 
@@ -35,24 +31,24 @@ public final class EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAct
     public static Builder builder(EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String actionId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actionId = defaults.actionId;
         }
 
+        @CustomType.Setter
         public Builder actionId(String actionId) {
             this.actionId = Objects.requireNonNull(actionId);
             return this;
-        }        public EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction build() {
-            return new EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction(actionId);
+        }
+        public EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction build() {
+            final var o = new EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction();
+            o.actionId = actionId;
+            return o;
         }
     }
 }

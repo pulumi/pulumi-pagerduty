@@ -16,21 +16,14 @@ public final class ServiceEventRuleTimeFrame {
      * @return Values for executing the rule during a specific time period.
      * 
      */
-    private final @Nullable List<ServiceEventRuleTimeFrameActiveBetween> activeBetweens;
+    private @Nullable List<ServiceEventRuleTimeFrameActiveBetween> activeBetweens;
     /**
      * @return Values for executing the rule on a recurring schedule.
      * 
      */
-    private final @Nullable List<ServiceEventRuleTimeFrameScheduledWeekly> scheduledWeeklies;
+    private @Nullable List<ServiceEventRuleTimeFrameScheduledWeekly> scheduledWeeklies;
 
-    @CustomType.Constructor
-    private ServiceEventRuleTimeFrame(
-        @CustomType.Parameter("activeBetweens") @Nullable List<ServiceEventRuleTimeFrameActiveBetween> activeBetweens,
-        @CustomType.Parameter("scheduledWeeklies") @Nullable List<ServiceEventRuleTimeFrameScheduledWeekly> scheduledWeeklies) {
-        this.activeBetweens = activeBetweens;
-        this.scheduledWeeklies = scheduledWeeklies;
-    }
-
+    private ServiceEventRuleTimeFrame() {}
     /**
      * @return Values for executing the rule during a specific time period.
      * 
@@ -53,21 +46,18 @@ public final class ServiceEventRuleTimeFrame {
     public static Builder builder(ServiceEventRuleTimeFrame defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<ServiceEventRuleTimeFrameActiveBetween> activeBetweens;
         private @Nullable List<ServiceEventRuleTimeFrameScheduledWeekly> scheduledWeeklies;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceEventRuleTimeFrame defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.activeBetweens = defaults.activeBetweens;
     	      this.scheduledWeeklies = defaults.scheduledWeeklies;
         }
 
+        @CustomType.Setter
         public Builder activeBetweens(@Nullable List<ServiceEventRuleTimeFrameActiveBetween> activeBetweens) {
             this.activeBetweens = activeBetweens;
             return this;
@@ -75,14 +65,19 @@ public final class ServiceEventRuleTimeFrame {
         public Builder activeBetweens(ServiceEventRuleTimeFrameActiveBetween... activeBetweens) {
             return activeBetweens(List.of(activeBetweens));
         }
+        @CustomType.Setter
         public Builder scheduledWeeklies(@Nullable List<ServiceEventRuleTimeFrameScheduledWeekly> scheduledWeeklies) {
             this.scheduledWeeklies = scheduledWeeklies;
             return this;
         }
         public Builder scheduledWeeklies(ServiceEventRuleTimeFrameScheduledWeekly... scheduledWeeklies) {
             return scheduledWeeklies(List.of(scheduledWeeklies));
-        }        public ServiceEventRuleTimeFrame build() {
-            return new ServiceEventRuleTimeFrame(activeBetweens, scheduledWeeklies);
+        }
+        public ServiceEventRuleTimeFrame build() {
+            final var o = new ServiceEventRuleTimeFrame();
+            o.activeBetweens = activeBetweens;
+            o.scheduledWeeklies = scheduledWeeklies;
+            return o;
         }
     }
 }

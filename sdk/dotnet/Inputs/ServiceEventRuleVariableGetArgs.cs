@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class ServiceEventRuleVariableGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceEventRuleVariableGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the variable.
@@ -39,5 +39,6 @@ namespace Pulumi.Pagerduty.Inputs
         public ServiceEventRuleVariableGetArgs()
         {
         }
+        public static new ServiceEventRuleVariableGetArgs Empty => new ServiceEventRuleVariableGetArgs();
     }
 }

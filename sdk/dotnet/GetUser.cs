@@ -19,39 +19,38 @@ namespace Pulumi.Pagerduty
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Pagerduty = Pulumi.Pagerduty;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var me = Pagerduty.GetUser.Invoke(new()
         ///     {
-        ///         var me = Output.Create(Pagerduty.GetUser.InvokeAsync(new Pagerduty.GetUserArgs
+        ///         Email = "me@example.com",
+        ///     });
+        /// 
+        ///     var foo = new Pagerduty.EscalationPolicy("foo", new()
+        ///     {
+        ///         NumLoops = 2,
+        ///         Rules = new[]
         ///         {
-        ///             Email = "me@example.com",
-        ///         }));
-        ///         var foo = new Pagerduty.EscalationPolicy("foo", new Pagerduty.EscalationPolicyArgs
-        ///         {
-        ///             NumLoops = 2,
-        ///             Rules = 
+        ///             new Pagerduty.Inputs.EscalationPolicyRuleArgs
         ///             {
-        ///                 new Pagerduty.Inputs.EscalationPolicyRuleArgs
+        ///                 EscalationDelayInMinutes = 10,
+        ///                 Targets = new[]
         ///                 {
-        ///                     EscalationDelayInMinutes = 10,
-        ///                     Targets = 
+        ///                     new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
         ///                     {
-        ///                         new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
-        ///                         {
-        ///                             Type = "user",
-        ///                             Id = me.Apply(me =&gt; me.Id),
-        ///                         },
+        ///                         Type = "user",
+        ///                         Id = me.Apply(getUserResult =&gt; getUserResult.Id),
         ///                     },
         ///                 },
         ///             },
-        ///         });
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -67,39 +66,38 @@ namespace Pulumi.Pagerduty
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Pagerduty = Pulumi.Pagerduty;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var me = Pagerduty.GetUser.Invoke(new()
         ///     {
-        ///         var me = Output.Create(Pagerduty.GetUser.InvokeAsync(new Pagerduty.GetUserArgs
+        ///         Email = "me@example.com",
+        ///     });
+        /// 
+        ///     var foo = new Pagerduty.EscalationPolicy("foo", new()
+        ///     {
+        ///         NumLoops = 2,
+        ///         Rules = new[]
         ///         {
-        ///             Email = "me@example.com",
-        ///         }));
-        ///         var foo = new Pagerduty.EscalationPolicy("foo", new Pagerduty.EscalationPolicyArgs
-        ///         {
-        ///             NumLoops = 2,
-        ///             Rules = 
+        ///             new Pagerduty.Inputs.EscalationPolicyRuleArgs
         ///             {
-        ///                 new Pagerduty.Inputs.EscalationPolicyRuleArgs
+        ///                 EscalationDelayInMinutes = 10,
+        ///                 Targets = new[]
         ///                 {
-        ///                     EscalationDelayInMinutes = 10,
-        ///                     Targets = 
+        ///                     new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
         ///                     {
-        ///                         new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
-        ///                         {
-        ///                             Type = "user",
-        ///                             Id = me.Apply(me =&gt; me.Id),
-        ///                         },
+        ///                         Type = "user",
+        ///                         Id = me.Apply(getUserResult =&gt; getUserResult.Id),
         ///                     },
         ///                 },
         ///             },
-        ///         });
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -109,7 +107,7 @@ namespace Pulumi.Pagerduty
     }
 
 
-    public sealed class GetUserArgs : Pulumi.InvokeArgs
+    public sealed class GetUserArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The email to use to find a user in the PagerDuty API.
@@ -120,9 +118,10 @@ namespace Pulumi.Pagerduty
         public GetUserArgs()
         {
         }
+        public static new GetUserArgs Empty => new GetUserArgs();
     }
 
-    public sealed class GetUserInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetUserInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The email to use to find a user in the PagerDuty API.
@@ -133,6 +132,7 @@ namespace Pulumi.Pagerduty
         public GetUserInvokeArgs()
         {
         }
+        public static new GetUserInvokeArgs Empty => new GetUserInvokeArgs();
     }
 
 

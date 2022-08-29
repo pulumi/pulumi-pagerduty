@@ -19,42 +19,29 @@ public final class EventOrchestrationRouterSetRule {
      * @return Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
      * 
      */
-    private final EventOrchestrationRouterSetRuleActions actions;
+    private EventOrchestrationRouterSetRuleActions actions;
     /**
      * @return Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will _always_ match against the rule.
      * 
      */
-    private final @Nullable List<EventOrchestrationRouterSetRuleCondition> conditions;
+    private @Nullable List<EventOrchestrationRouterSetRuleCondition> conditions;
     /**
      * @return Indicates whether the rule is disabled and would therefore not be evaluated.
      * 
      */
-    private final @Nullable Boolean disabled;
+    private @Nullable Boolean disabled;
     /**
      * @return ID of the `start` set. Router supports only one set and it&#39;s id has to be `start`
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return A description of this rule&#39;s purpose.
      * 
      */
-    private final @Nullable String label;
+    private @Nullable String label;
 
-    @CustomType.Constructor
-    private EventOrchestrationRouterSetRule(
-        @CustomType.Parameter("actions") EventOrchestrationRouterSetRuleActions actions,
-        @CustomType.Parameter("conditions") @Nullable List<EventOrchestrationRouterSetRuleCondition> conditions,
-        @CustomType.Parameter("disabled") @Nullable Boolean disabled,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("label") @Nullable String label) {
-        this.actions = actions;
-        this.conditions = conditions;
-        this.disabled = disabled;
-        this.id = id;
-        this.label = label;
-    }
-
+    private EventOrchestrationRouterSetRule() {}
     /**
      * @return Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
      * 
@@ -98,18 +85,14 @@ public final class EventOrchestrationRouterSetRule {
     public static Builder builder(EventOrchestrationRouterSetRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private EventOrchestrationRouterSetRuleActions actions;
         private @Nullable List<EventOrchestrationRouterSetRuleCondition> conditions;
         private @Nullable Boolean disabled;
         private @Nullable String id;
         private @Nullable String label;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventOrchestrationRouterSetRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actions = defaults.actions;
@@ -119,10 +102,12 @@ public final class EventOrchestrationRouterSetRule {
     	      this.label = defaults.label;
         }
 
+        @CustomType.Setter
         public Builder actions(EventOrchestrationRouterSetRuleActions actions) {
             this.actions = Objects.requireNonNull(actions);
             return this;
         }
+        @CustomType.Setter
         public Builder conditions(@Nullable List<EventOrchestrationRouterSetRuleCondition> conditions) {
             this.conditions = conditions;
             return this;
@@ -130,19 +115,29 @@ public final class EventOrchestrationRouterSetRule {
         public Builder conditions(EventOrchestrationRouterSetRuleCondition... conditions) {
             return conditions(List.of(conditions));
         }
+        @CustomType.Setter
         public Builder disabled(@Nullable Boolean disabled) {
             this.disabled = disabled;
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder label(@Nullable String label) {
             this.label = label;
             return this;
-        }        public EventOrchestrationRouterSetRule build() {
-            return new EventOrchestrationRouterSetRule(actions, conditions, disabled, id, label);
+        }
+        public EventOrchestrationRouterSetRule build() {
+            final var o = new EventOrchestrationRouterSetRule();
+            o.actions = actions;
+            o.conditions = conditions;
+            o.disabled = disabled;
+            o.id = id;
+            o.label = label;
+            return o;
         }
     }
 }

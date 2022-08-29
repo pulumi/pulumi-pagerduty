@@ -19,67 +19,70 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		servicenow, err := pagerduty.GetExtensionSchema(ctx, &GetExtensionSchemaArgs{
-// 			Name: "ServiceNow (v7)",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
-// 			Email: pulumi.String("howard.james@example.domain"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleEscalationPolicy, err := pagerduty.NewEscalationPolicy(ctx, "exampleEscalationPolicy", &pagerduty.EscalationPolicyArgs{
-// 			NumLoops: pulumi.Int(2),
-// 			Rules: EscalationPolicyRuleArray{
-// 				&EscalationPolicyRuleArgs{
-// 					EscalationDelayInMinutes: pulumi.Int(10),
-// 					Targets: EscalationPolicyRuleTargetArray{
-// 						&EscalationPolicyRuleTargetArgs{
-// 							Type: pulumi.String("user"),
-// 							Id:   exampleUser.ID(),
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleService, err := pagerduty.NewService(ctx, "exampleService", &pagerduty.ServiceArgs{
-// 			AutoResolveTimeout:     pulumi.String("14400"),
-// 			AcknowledgementTimeout: pulumi.String("600"),
-// 			EscalationPolicy:       exampleEscalationPolicy.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = pagerduty.NewExtensionServiceNow(ctx, "snow", &pagerduty.ExtensionServiceNowArgs{
-// 			ExtensionSchema: pulumi.String(servicenow.Id),
-// 			ExtensionObjects: pulumi.StringArray{
-// 				exampleService.ID(),
-// 			},
-// 			SnowUser:     pulumi.String("meeps"),
-// 			SnowPassword: pulumi.String("zorz"),
-// 			SyncOptions:  pulumi.String("manual_sync"),
-// 			Target:       pulumi.String("https://foo.servicenow.com/webhook_foo"),
-// 			TaskType:     pulumi.String("incident"),
-// 			Referer:      pulumi.String("None"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			servicenow, err := pagerduty.GetExtensionSchema(ctx, &GetExtensionSchemaArgs{
+//				Name: "ServiceNow (v7)",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
+//				Email: pulumi.String("howard.james@example.domain"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleEscalationPolicy, err := pagerduty.NewEscalationPolicy(ctx, "exampleEscalationPolicy", &pagerduty.EscalationPolicyArgs{
+//				NumLoops: pulumi.Int(2),
+//				Rules: EscalationPolicyRuleArray{
+//					&EscalationPolicyRuleArgs{
+//						EscalationDelayInMinutes: pulumi.Int(10),
+//						Targets: EscalationPolicyRuleTargetArray{
+//							&EscalationPolicyRuleTargetArgs{
+//								Type: pulumi.String("user"),
+//								Id:   exampleUser.ID(),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleService, err := pagerduty.NewService(ctx, "exampleService", &pagerduty.ServiceArgs{
+//				AutoResolveTimeout:     pulumi.String("14400"),
+//				AcknowledgementTimeout: pulumi.String("600"),
+//				EscalationPolicy:       exampleEscalationPolicy.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewExtensionServiceNow(ctx, "snow", &pagerduty.ExtensionServiceNowArgs{
+//				ExtensionSchema: pulumi.String(servicenow.Id),
+//				ExtensionObjects: pulumi.StringArray{
+//					exampleService.ID(),
+//				},
+//				SnowUser:     pulumi.String("meeps"),
+//				SnowPassword: pulumi.String("zorz"),
+//				SyncOptions:  pulumi.String("manual_sync"),
+//				Target:       pulumi.String("https://foo.servicenow.com/webhook_foo"),
+//				TaskType:     pulumi.String("incident"),
+//				Referer:      pulumi.String("None"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -87,7 +90,9 @@ import (
 // Extensions can be imported using the id.e.g.
 //
 // ```sh
-//  $ pulumi import pagerduty:index/extensionServiceNow:ExtensionServiceNow main PLBP09X
+//
+//	$ pulumi import pagerduty:index/extensionServiceNow:ExtensionServiceNow main PLBP09X
+//
 // ```
 type ExtensionServiceNow struct {
 	pulumi.CustomResourceState
@@ -305,7 +310,7 @@ func (i *ExtensionServiceNow) ToExtensionServiceNowOutputWithContext(ctx context
 // ExtensionServiceNowArrayInput is an input type that accepts ExtensionServiceNowArray and ExtensionServiceNowArrayOutput values.
 // You can construct a concrete instance of `ExtensionServiceNowArrayInput` via:
 //
-//          ExtensionServiceNowArray{ ExtensionServiceNowArgs{...} }
+//	ExtensionServiceNowArray{ ExtensionServiceNowArgs{...} }
 type ExtensionServiceNowArrayInput interface {
 	pulumi.Input
 
@@ -330,7 +335,7 @@ func (i ExtensionServiceNowArray) ToExtensionServiceNowArrayOutputWithContext(ct
 // ExtensionServiceNowMapInput is an input type that accepts ExtensionServiceNowMap and ExtensionServiceNowMapOutput values.
 // You can construct a concrete instance of `ExtensionServiceNowMapInput` via:
 //
-//          ExtensionServiceNowMap{ "key": ExtensionServiceNowArgs{...} }
+//	ExtensionServiceNowMap{ "key": ExtensionServiceNowArgs{...} }
 type ExtensionServiceNowMapInput interface {
 	pulumi.Input
 

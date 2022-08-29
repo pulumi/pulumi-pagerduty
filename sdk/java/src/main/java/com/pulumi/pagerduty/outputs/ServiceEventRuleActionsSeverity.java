@@ -15,13 +15,9 @@ public final class ServiceEventRuleActionsSeverity {
      * @return The value for the operation. For example, an RE2 regular expression for regex-type variables.
      * 
      */
-    private final @Nullable String value;
+    private @Nullable String value;
 
-    @CustomType.Constructor
-    private ServiceEventRuleActionsSeverity(@CustomType.Parameter("value") @Nullable String value) {
-        this.value = value;
-    }
-
+    private ServiceEventRuleActionsSeverity() {}
     /**
      * @return The value for the operation. For example, an RE2 regular expression for regex-type variables.
      * 
@@ -37,24 +33,24 @@ public final class ServiceEventRuleActionsSeverity {
     public static Builder builder(ServiceEventRuleActionsSeverity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceEventRuleActionsSeverity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder value(@Nullable String value) {
             this.value = value;
             return this;
-        }        public ServiceEventRuleActionsSeverity build() {
-            return new ServiceEventRuleActionsSeverity(value);
+        }
+        public ServiceEventRuleActionsSeverity build() {
+            final var o = new ServiceEventRuleActionsSeverity();
+            o.value = value;
+            return o;
         }
     }
 }

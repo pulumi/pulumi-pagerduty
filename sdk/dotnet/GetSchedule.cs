@@ -19,39 +19,38 @@ namespace Pulumi.Pagerduty
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Pagerduty = Pulumi.Pagerduty;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Pagerduty.GetSchedule.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Pagerduty.GetSchedule.InvokeAsync(new Pagerduty.GetScheduleArgs
+        ///         Name = "Daily Engineering Rotation",
+        ///     });
+        /// 
+        ///     var foo = new Pagerduty.EscalationPolicy("foo", new()
+        ///     {
+        ///         NumLoops = 2,
+        ///         Rules = new[]
         ///         {
-        ///             Name = "Daily Engineering Rotation",
-        ///         }));
-        ///         var foo = new Pagerduty.EscalationPolicy("foo", new Pagerduty.EscalationPolicyArgs
-        ///         {
-        ///             NumLoops = 2,
-        ///             Rules = 
+        ///             new Pagerduty.Inputs.EscalationPolicyRuleArgs
         ///             {
-        ///                 new Pagerduty.Inputs.EscalationPolicyRuleArgs
+        ///                 EscalationDelayInMinutes = 10,
+        ///                 Targets = new[]
         ///                 {
-        ///                     EscalationDelayInMinutes = 10,
-        ///                     Targets = 
+        ///                     new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
         ///                     {
-        ///                         new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
-        ///                         {
-        ///                             Type = "schedule",
-        ///                             Id = test.Apply(test =&gt; test.Id),
-        ///                         },
+        ///                         Type = "schedule",
+        ///                         Id = test.Apply(getScheduleResult =&gt; getScheduleResult.Id),
         ///                     },
         ///                 },
         ///             },
-        ///         });
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -67,39 +66,38 @@ namespace Pulumi.Pagerduty
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Pagerduty = Pulumi.Pagerduty;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Pagerduty.GetSchedule.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Pagerduty.GetSchedule.InvokeAsync(new Pagerduty.GetScheduleArgs
+        ///         Name = "Daily Engineering Rotation",
+        ///     });
+        /// 
+        ///     var foo = new Pagerduty.EscalationPolicy("foo", new()
+        ///     {
+        ///         NumLoops = 2,
+        ///         Rules = new[]
         ///         {
-        ///             Name = "Daily Engineering Rotation",
-        ///         }));
-        ///         var foo = new Pagerduty.EscalationPolicy("foo", new Pagerduty.EscalationPolicyArgs
-        ///         {
-        ///             NumLoops = 2,
-        ///             Rules = 
+        ///             new Pagerduty.Inputs.EscalationPolicyRuleArgs
         ///             {
-        ///                 new Pagerduty.Inputs.EscalationPolicyRuleArgs
+        ///                 EscalationDelayInMinutes = 10,
+        ///                 Targets = new[]
         ///                 {
-        ///                     EscalationDelayInMinutes = 10,
-        ///                     Targets = 
+        ///                     new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
         ///                     {
-        ///                         new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
-        ///                         {
-        ///                             Type = "schedule",
-        ///                             Id = test.Apply(test =&gt; test.Id),
-        ///                         },
+        ///                         Type = "schedule",
+        ///                         Id = test.Apply(getScheduleResult =&gt; getScheduleResult.Id),
         ///                     },
         ///                 },
         ///             },
-        ///         });
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -109,7 +107,7 @@ namespace Pulumi.Pagerduty
     }
 
 
-    public sealed class GetScheduleArgs : Pulumi.InvokeArgs
+    public sealed class GetScheduleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name to use to find a schedule in the PagerDuty API.
@@ -120,9 +118,10 @@ namespace Pulumi.Pagerduty
         public GetScheduleArgs()
         {
         }
+        public static new GetScheduleArgs Empty => new GetScheduleArgs();
     }
 
-    public sealed class GetScheduleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetScheduleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name to use to find a schedule in the PagerDuty API.
@@ -133,6 +132,7 @@ namespace Pulumi.Pagerduty
         public GetScheduleInvokeArgs()
         {
         }
+        public static new GetScheduleInvokeArgs Empty => new GetScheduleInvokeArgs();
     }
 
 

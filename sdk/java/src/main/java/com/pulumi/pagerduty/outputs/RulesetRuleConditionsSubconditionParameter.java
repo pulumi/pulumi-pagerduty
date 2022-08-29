@@ -11,21 +11,14 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RulesetRuleConditionsSubconditionParameter {
-    private final @Nullable String path;
+    private @Nullable String path;
     /**
      * @return Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
      * 
      */
-    private final @Nullable String value;
+    private @Nullable String value;
 
-    @CustomType.Constructor
-    private RulesetRuleConditionsSubconditionParameter(
-        @CustomType.Parameter("path") @Nullable String path,
-        @CustomType.Parameter("value") @Nullable String value) {
-        this.path = path;
-        this.value = value;
-    }
-
+    private RulesetRuleConditionsSubconditionParameter() {}
     public Optional<String> path() {
         return Optional.ofNullable(this.path);
     }
@@ -44,30 +37,32 @@ public final class RulesetRuleConditionsSubconditionParameter {
     public static Builder builder(RulesetRuleConditionsSubconditionParameter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String path;
         private @Nullable String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RulesetRuleConditionsSubconditionParameter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.path = defaults.path;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder path(@Nullable String path) {
             this.path = path;
             return this;
         }
+        @CustomType.Setter
         public Builder value(@Nullable String value) {
             this.value = value;
             return this;
-        }        public RulesetRuleConditionsSubconditionParameter build() {
-            return new RulesetRuleConditionsSubconditionParameter(path, value);
+        }
+        public RulesetRuleConditionsSubconditionParameter build() {
+            final var o = new RulesetRuleConditionsSubconditionParameter();
+            o.path = path;
+            o.value = value;
+            return o;
         }
     }
 }

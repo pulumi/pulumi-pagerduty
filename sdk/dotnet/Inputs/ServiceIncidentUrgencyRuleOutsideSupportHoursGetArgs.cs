@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class ServiceIncidentUrgencyRuleOutsideSupportHoursGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceIncidentUrgencyRuleOutsideSupportHoursGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of alert grouping; one of `intelligent`, `time` or `content_based`.
@@ -27,5 +27,6 @@ namespace Pulumi.Pagerduty.Inputs
         public ServiceIncidentUrgencyRuleOutsideSupportHoursGetArgs()
         {
         }
+        public static new ServiceIncidentUrgencyRuleOutsideSupportHoursGetArgs Empty => new ServiceIncidentUrgencyRuleOutsideSupportHoursGetArgs();
     }
 }

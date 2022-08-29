@@ -18,35 +18,24 @@ public final class WebhookSubscriptionDeliveryMethod {
      * @return The custom_header of a webhook subscription define any optional headers that will be passed along with the payload to the destination URL.
      * 
      */
-    private final @Nullable List<WebhookSubscriptionDeliveryMethodCustomHeader> customHeaders;
+    private @Nullable List<WebhookSubscriptionDeliveryMethodCustomHeader> customHeaders;
     /**
      * @return Whether this webhook subscription is temporarily disabled. Becomes true if the delivery method URL is repeatedly rejected by the server.
      * 
      */
-    private final @Nullable Boolean temporarilyDisabled;
+    private @Nullable Boolean temporarilyDisabled;
     /**
      * @return Indicates the type of the delivery method. Allowed and default value: `http_delivery_method`.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
     /**
      * @return The destination URL for webhook delivery.
      * 
      */
-    private final @Nullable String url;
+    private @Nullable String url;
 
-    @CustomType.Constructor
-    private WebhookSubscriptionDeliveryMethod(
-        @CustomType.Parameter("customHeaders") @Nullable List<WebhookSubscriptionDeliveryMethodCustomHeader> customHeaders,
-        @CustomType.Parameter("temporarilyDisabled") @Nullable Boolean temporarilyDisabled,
-        @CustomType.Parameter("type") @Nullable String type,
-        @CustomType.Parameter("url") @Nullable String url) {
-        this.customHeaders = customHeaders;
-        this.temporarilyDisabled = temporarilyDisabled;
-        this.type = type;
-        this.url = url;
-    }
-
+    private WebhookSubscriptionDeliveryMethod() {}
     /**
      * @return The custom_header of a webhook subscription define any optional headers that will be passed along with the payload to the destination URL.
      * 
@@ -83,17 +72,13 @@ public final class WebhookSubscriptionDeliveryMethod {
     public static Builder builder(WebhookSubscriptionDeliveryMethod defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<WebhookSubscriptionDeliveryMethodCustomHeader> customHeaders;
         private @Nullable Boolean temporarilyDisabled;
         private @Nullable String type;
         private @Nullable String url;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebhookSubscriptionDeliveryMethod defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customHeaders = defaults.customHeaders;
@@ -102,6 +87,7 @@ public final class WebhookSubscriptionDeliveryMethod {
     	      this.url = defaults.url;
         }
 
+        @CustomType.Setter
         public Builder customHeaders(@Nullable List<WebhookSubscriptionDeliveryMethodCustomHeader> customHeaders) {
             this.customHeaders = customHeaders;
             return this;
@@ -109,19 +95,28 @@ public final class WebhookSubscriptionDeliveryMethod {
         public Builder customHeaders(WebhookSubscriptionDeliveryMethodCustomHeader... customHeaders) {
             return customHeaders(List.of(customHeaders));
         }
+        @CustomType.Setter
         public Builder temporarilyDisabled(@Nullable Boolean temporarilyDisabled) {
             this.temporarilyDisabled = temporarilyDisabled;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
         }
+        @CustomType.Setter
         public Builder url(@Nullable String url) {
             this.url = url;
             return this;
-        }        public WebhookSubscriptionDeliveryMethod build() {
-            return new WebhookSubscriptionDeliveryMethod(customHeaders, temporarilyDisabled, type, url);
+        }
+        public WebhookSubscriptionDeliveryMethod build() {
+            final var o = new WebhookSubscriptionDeliveryMethod();
+            o.customHeaders = customHeaders;
+            o.temporarilyDisabled = temporarilyDisabled;
+            o.type = type;
+            o.url = url;
+            return o;
         }
     }
 }

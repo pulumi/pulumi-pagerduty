@@ -24,50 +24,53 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := pagerduty.NewEventOrchestrationUnrouted(ctx, "unrouted", &pagerduty.EventOrchestrationUnroutedArgs{
-// 			EventOrchestration: pulumi.Any(pagerduty_event_orchestration.My_monitor.Id),
-// 			Sets: EventOrchestrationUnroutedSetArray{
-// 				&EventOrchestrationUnroutedSetArgs{
-// 					Id: pulumi.String("start"),
-// 					Rules: EventOrchestrationUnroutedSetRuleArray{
-// 						&EventOrchestrationUnroutedSetRuleArgs{
-// 							Label: pulumi.String("Update the summary of un-matched Critical alerts so they're easier to spot"),
-// 							Conditions: EventOrchestrationUnroutedSetRuleConditionArray{
-// 								&EventOrchestrationUnroutedSetRuleConditionArgs{
-// 									Expression: pulumi.String("event.severity matches 'critical'"),
-// 								},
-// 							},
-// 							Actions: &EventOrchestrationUnroutedSetRuleActionsArgs{
-// 								Severity: pulumi.String("critical"),
-// 								Extractions: EventOrchestrationUnroutedSetRuleActionsExtractionArray{
-// 									&EventOrchestrationUnroutedSetRuleActionsExtractionArgs{
-// 										Target:   pulumi.String("event.summary"),
-// 										Template: pulumi.String("[Critical Unrouted] {{event.summary}}"),
-// 									},
-// 								},
-// 							},
-// 						},
-// 					},
-// 				},
-// 			},
-// 			CatchAll: &EventOrchestrationUnroutedCatchAllArgs{
-// 				Actions: &EventOrchestrationUnroutedCatchAllActionsArgs{
-// 					Severity: pulumi.String("info"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := pagerduty.NewEventOrchestrationUnrouted(ctx, "unrouted", &pagerduty.EventOrchestrationUnroutedArgs{
+//				EventOrchestration: pulumi.Any(pagerduty_event_orchestration.My_monitor.Id),
+//				Sets: EventOrchestrationUnroutedSetArray{
+//					&EventOrchestrationUnroutedSetArgs{
+//						Id: pulumi.String("start"),
+//						Rules: EventOrchestrationUnroutedSetRuleArray{
+//							&EventOrchestrationUnroutedSetRuleArgs{
+//								Label: pulumi.String("Update the summary of un-matched Critical alerts so they're easier to spot"),
+//								Conditions: EventOrchestrationUnroutedSetRuleConditionArray{
+//									&EventOrchestrationUnroutedSetRuleConditionArgs{
+//										Expression: pulumi.String("event.severity matches 'critical'"),
+//									},
+//								},
+//								Actions: &EventOrchestrationUnroutedSetRuleActionsArgs{
+//									Severity: pulumi.String("critical"),
+//									Extractions: EventOrchestrationUnroutedSetRuleActionsExtractionArray{
+//										&EventOrchestrationUnroutedSetRuleActionsExtractionArgs{
+//											Target:   pulumi.String("event.summary"),
+//											Template: pulumi.String("[Critical Unrouted] {{event.summary}}"),
+//										},
+//									},
+//								},
+//							},
+//						},
+//					},
+//				},
+//				CatchAll: &EventOrchestrationUnroutedCatchAllArgs{
+//					Actions: &EventOrchestrationUnroutedCatchAllActionsArgs{
+//						Severity: pulumi.String("info"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -75,7 +78,9 @@ import (
 // Unrouted Orchestration can be imported using the `id` of the Event Orchestration, e.g.
 //
 // ```sh
-//  $ pulumi import pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted unrouted 1b49abe7-26db-4439-a715-c6d883acfb3e
+//
+//	$ pulumi import pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted unrouted 1b49abe7-26db-4439-a715-c6d883acfb3e
+//
 // ```
 type EventOrchestrationUnrouted struct {
 	pulumi.CustomResourceState
@@ -192,7 +197,7 @@ func (i *EventOrchestrationUnrouted) ToEventOrchestrationUnroutedOutputWithConte
 // EventOrchestrationUnroutedArrayInput is an input type that accepts EventOrchestrationUnroutedArray and EventOrchestrationUnroutedArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationUnroutedArrayInput` via:
 //
-//          EventOrchestrationUnroutedArray{ EventOrchestrationUnroutedArgs{...} }
+//	EventOrchestrationUnroutedArray{ EventOrchestrationUnroutedArgs{...} }
 type EventOrchestrationUnroutedArrayInput interface {
 	pulumi.Input
 
@@ -217,7 +222,7 @@ func (i EventOrchestrationUnroutedArray) ToEventOrchestrationUnroutedArrayOutput
 // EventOrchestrationUnroutedMapInput is an input type that accepts EventOrchestrationUnroutedMap and EventOrchestrationUnroutedMapOutput values.
 // You can construct a concrete instance of `EventOrchestrationUnroutedMapInput` via:
 //
-//          EventOrchestrationUnroutedMap{ "key": EventOrchestrationUnroutedArgs{...} }
+//	EventOrchestrationUnroutedMap{ "key": EventOrchestrationUnroutedArgs{...} }
 type EventOrchestrationUnroutedMapInput interface {
 	pulumi.Input
 

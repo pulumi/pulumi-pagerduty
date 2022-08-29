@@ -21,7 +21,7 @@ type EscalationPolicyRule struct {
 // EscalationPolicyRuleInput is an input type that accepts EscalationPolicyRuleArgs and EscalationPolicyRuleOutput values.
 // You can construct a concrete instance of `EscalationPolicyRuleInput` via:
 //
-//          EscalationPolicyRuleArgs{...}
+//	EscalationPolicyRuleArgs{...}
 type EscalationPolicyRuleInput interface {
 	pulumi.Input
 
@@ -52,7 +52,7 @@ func (i EscalationPolicyRuleArgs) ToEscalationPolicyRuleOutputWithContext(ctx co
 // EscalationPolicyRuleArrayInput is an input type that accepts EscalationPolicyRuleArray and EscalationPolicyRuleArrayOutput values.
 // You can construct a concrete instance of `EscalationPolicyRuleArrayInput` via:
 //
-//          EscalationPolicyRuleArray{ EscalationPolicyRuleArgs{...} }
+//	EscalationPolicyRuleArray{ EscalationPolicyRuleArgs{...} }
 type EscalationPolicyRuleArrayInput interface {
 	pulumi.Input
 
@@ -132,7 +132,7 @@ type EscalationPolicyRuleTarget struct {
 // EscalationPolicyRuleTargetInput is an input type that accepts EscalationPolicyRuleTargetArgs and EscalationPolicyRuleTargetOutput values.
 // You can construct a concrete instance of `EscalationPolicyRuleTargetInput` via:
 //
-//          EscalationPolicyRuleTargetArgs{...}
+//	EscalationPolicyRuleTargetArgs{...}
 type EscalationPolicyRuleTargetInput interface {
 	pulumi.Input
 
@@ -162,7 +162,7 @@ func (i EscalationPolicyRuleTargetArgs) ToEscalationPolicyRuleTargetOutputWithCo
 // EscalationPolicyRuleTargetArrayInput is an input type that accepts EscalationPolicyRuleTargetArray and EscalationPolicyRuleTargetArrayOutput values.
 // You can construct a concrete instance of `EscalationPolicyRuleTargetArrayInput` via:
 //
-//          EscalationPolicyRuleTargetArray{ EscalationPolicyRuleTargetArgs{...} }
+//	EscalationPolicyRuleTargetArray{ EscalationPolicyRuleTargetArgs{...} }
 type EscalationPolicyRuleTargetArrayInput interface {
 	pulumi.Input
 
@@ -238,7 +238,7 @@ type EventOrchestrationIntegration struct {
 // EventOrchestrationIntegrationInput is an input type that accepts EventOrchestrationIntegrationArgs and EventOrchestrationIntegrationOutput values.
 // You can construct a concrete instance of `EventOrchestrationIntegrationInput` via:
 //
-//          EventOrchestrationIntegrationArgs{...}
+//	EventOrchestrationIntegrationArgs{...}
 type EventOrchestrationIntegrationInput interface {
 	pulumi.Input
 
@@ -268,7 +268,7 @@ func (i EventOrchestrationIntegrationArgs) ToEventOrchestrationIntegrationOutput
 // EventOrchestrationIntegrationArrayInput is an input type that accepts EventOrchestrationIntegrationArray and EventOrchestrationIntegrationArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationIntegrationArrayInput` via:
 //
-//          EventOrchestrationIntegrationArray{ EventOrchestrationIntegrationArgs{...} }
+//	EventOrchestrationIntegrationArray{ EventOrchestrationIntegrationArgs{...} }
 type EventOrchestrationIntegrationArrayInput interface {
 	pulumi.Input
 
@@ -344,7 +344,7 @@ type EventOrchestrationIntegrationParameter struct {
 // EventOrchestrationIntegrationParameterInput is an input type that accepts EventOrchestrationIntegrationParameterArgs and EventOrchestrationIntegrationParameterOutput values.
 // You can construct a concrete instance of `EventOrchestrationIntegrationParameterInput` via:
 //
-//          EventOrchestrationIntegrationParameterArgs{...}
+//	EventOrchestrationIntegrationParameterArgs{...}
 type EventOrchestrationIntegrationParameterInput interface {
 	pulumi.Input
 
@@ -374,7 +374,7 @@ func (i EventOrchestrationIntegrationParameterArgs) ToEventOrchestrationIntegrat
 // EventOrchestrationIntegrationParameterArrayInput is an input type that accepts EventOrchestrationIntegrationParameterArray and EventOrchestrationIntegrationParameterArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationIntegrationParameterArrayInput` via:
 //
-//          EventOrchestrationIntegrationParameterArray{ EventOrchestrationIntegrationParameterArgs{...} }
+//	EventOrchestrationIntegrationParameterArray{ EventOrchestrationIntegrationParameterArgs{...} }
 type EventOrchestrationIntegrationParameterArrayInput interface {
 	pulumi.Input
 
@@ -448,7 +448,7 @@ type EventOrchestrationRouterCatchAll struct {
 // EventOrchestrationRouterCatchAllInput is an input type that accepts EventOrchestrationRouterCatchAllArgs and EventOrchestrationRouterCatchAllOutput values.
 // You can construct a concrete instance of `EventOrchestrationRouterCatchAllInput` via:
 //
-//          EventOrchestrationRouterCatchAllArgs{...}
+//	EventOrchestrationRouterCatchAllArgs{...}
 type EventOrchestrationRouterCatchAllInput interface {
 	pulumi.Input
 
@@ -484,11 +484,11 @@ func (i EventOrchestrationRouterCatchAllArgs) ToEventOrchestrationRouterCatchAll
 // EventOrchestrationRouterCatchAllPtrInput is an input type that accepts EventOrchestrationRouterCatchAllArgs, EventOrchestrationRouterCatchAllPtr and EventOrchestrationRouterCatchAllPtrOutput values.
 // You can construct a concrete instance of `EventOrchestrationRouterCatchAllPtrInput` via:
 //
-//          EventOrchestrationRouterCatchAllArgs{...}
+//	        EventOrchestrationRouterCatchAllArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EventOrchestrationRouterCatchAllPtrInput interface {
 	pulumi.Input
 
@@ -585,7 +585,7 @@ type EventOrchestrationRouterCatchAllActions struct {
 // EventOrchestrationRouterCatchAllActionsInput is an input type that accepts EventOrchestrationRouterCatchAllActionsArgs and EventOrchestrationRouterCatchAllActionsOutput values.
 // You can construct a concrete instance of `EventOrchestrationRouterCatchAllActionsInput` via:
 //
-//          EventOrchestrationRouterCatchAllActionsArgs{...}
+//	EventOrchestrationRouterCatchAllActionsArgs{...}
 type EventOrchestrationRouterCatchAllActionsInput interface {
 	pulumi.Input
 
@@ -621,11 +621,11 @@ func (i EventOrchestrationRouterCatchAllActionsArgs) ToEventOrchestrationRouterC
 // EventOrchestrationRouterCatchAllActionsPtrInput is an input type that accepts EventOrchestrationRouterCatchAllActionsArgs, EventOrchestrationRouterCatchAllActionsPtr and EventOrchestrationRouterCatchAllActionsPtrOutput values.
 // You can construct a concrete instance of `EventOrchestrationRouterCatchAllActionsPtrInput` via:
 //
-//          EventOrchestrationRouterCatchAllActionsArgs{...}
+//	        EventOrchestrationRouterCatchAllActionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EventOrchestrationRouterCatchAllActionsPtrInput interface {
 	pulumi.Input
 
@@ -723,7 +723,7 @@ type EventOrchestrationRouterSet struct {
 // EventOrchestrationRouterSetInput is an input type that accepts EventOrchestrationRouterSetArgs and EventOrchestrationRouterSetOutput values.
 // You can construct a concrete instance of `EventOrchestrationRouterSetInput` via:
 //
-//          EventOrchestrationRouterSetArgs{...}
+//	EventOrchestrationRouterSetArgs{...}
 type EventOrchestrationRouterSetInput interface {
 	pulumi.Input
 
@@ -760,11 +760,11 @@ func (i EventOrchestrationRouterSetArgs) ToEventOrchestrationRouterSetPtrOutputW
 // EventOrchestrationRouterSetPtrInput is an input type that accepts EventOrchestrationRouterSetArgs, EventOrchestrationRouterSetPtr and EventOrchestrationRouterSetPtrOutput values.
 // You can construct a concrete instance of `EventOrchestrationRouterSetPtrInput` via:
 //
-//          EventOrchestrationRouterSetArgs{...}
+//	        EventOrchestrationRouterSetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EventOrchestrationRouterSetPtrInput interface {
 	pulumi.Input
 
@@ -882,7 +882,7 @@ type EventOrchestrationRouterSetRule struct {
 // EventOrchestrationRouterSetRuleInput is an input type that accepts EventOrchestrationRouterSetRuleArgs and EventOrchestrationRouterSetRuleOutput values.
 // You can construct a concrete instance of `EventOrchestrationRouterSetRuleInput` via:
 //
-//          EventOrchestrationRouterSetRuleArgs{...}
+//	EventOrchestrationRouterSetRuleArgs{...}
 type EventOrchestrationRouterSetRuleInput interface {
 	pulumi.Input
 
@@ -918,7 +918,7 @@ func (i EventOrchestrationRouterSetRuleArgs) ToEventOrchestrationRouterSetRuleOu
 // EventOrchestrationRouterSetRuleArrayInput is an input type that accepts EventOrchestrationRouterSetRuleArray and EventOrchestrationRouterSetRuleArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationRouterSetRuleArrayInput` via:
 //
-//          EventOrchestrationRouterSetRuleArray{ EventOrchestrationRouterSetRuleArgs{...} }
+//	EventOrchestrationRouterSetRuleArray{ EventOrchestrationRouterSetRuleArgs{...} }
 type EventOrchestrationRouterSetRuleArrayInput interface {
 	pulumi.Input
 
@@ -1009,7 +1009,7 @@ type EventOrchestrationRouterSetRuleActions struct {
 // EventOrchestrationRouterSetRuleActionsInput is an input type that accepts EventOrchestrationRouterSetRuleActionsArgs and EventOrchestrationRouterSetRuleActionsOutput values.
 // You can construct a concrete instance of `EventOrchestrationRouterSetRuleActionsInput` via:
 //
-//          EventOrchestrationRouterSetRuleActionsArgs{...}
+//	EventOrchestrationRouterSetRuleActionsArgs{...}
 type EventOrchestrationRouterSetRuleActionsInput interface {
 	pulumi.Input
 
@@ -1061,7 +1061,7 @@ type EventOrchestrationRouterSetRuleCondition struct {
 // EventOrchestrationRouterSetRuleConditionInput is an input type that accepts EventOrchestrationRouterSetRuleConditionArgs and EventOrchestrationRouterSetRuleConditionOutput values.
 // You can construct a concrete instance of `EventOrchestrationRouterSetRuleConditionInput` via:
 //
-//          EventOrchestrationRouterSetRuleConditionArgs{...}
+//	EventOrchestrationRouterSetRuleConditionArgs{...}
 type EventOrchestrationRouterSetRuleConditionInput interface {
 	pulumi.Input
 
@@ -1089,7 +1089,7 @@ func (i EventOrchestrationRouterSetRuleConditionArgs) ToEventOrchestrationRouter
 // EventOrchestrationRouterSetRuleConditionArrayInput is an input type that accepts EventOrchestrationRouterSetRuleConditionArray and EventOrchestrationRouterSetRuleConditionArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationRouterSetRuleConditionArrayInput` via:
 //
-//          EventOrchestrationRouterSetRuleConditionArray{ EventOrchestrationRouterSetRuleConditionArgs{...} }
+//	EventOrchestrationRouterSetRuleConditionArray{ EventOrchestrationRouterSetRuleConditionArgs{...} }
 type EventOrchestrationRouterSetRuleConditionArrayInput interface {
 	pulumi.Input
 
@@ -1158,7 +1158,7 @@ type EventOrchestrationServiceCatchAll struct {
 // EventOrchestrationServiceCatchAllInput is an input type that accepts EventOrchestrationServiceCatchAllArgs and EventOrchestrationServiceCatchAllOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceCatchAllInput` via:
 //
-//          EventOrchestrationServiceCatchAllArgs{...}
+//	EventOrchestrationServiceCatchAllArgs{...}
 type EventOrchestrationServiceCatchAllInput interface {
 	pulumi.Input
 
@@ -1194,11 +1194,11 @@ func (i EventOrchestrationServiceCatchAllArgs) ToEventOrchestrationServiceCatchA
 // EventOrchestrationServiceCatchAllPtrInput is an input type that accepts EventOrchestrationServiceCatchAllArgs, EventOrchestrationServiceCatchAllPtr and EventOrchestrationServiceCatchAllPtrOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceCatchAllPtrInput` via:
 //
-//          EventOrchestrationServiceCatchAllArgs{...}
+//	        EventOrchestrationServiceCatchAllArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EventOrchestrationServiceCatchAllPtrInput interface {
 	pulumi.Input
 
@@ -1314,7 +1314,7 @@ type EventOrchestrationServiceCatchAllActions struct {
 // EventOrchestrationServiceCatchAllActionsInput is an input type that accepts EventOrchestrationServiceCatchAllActionsArgs and EventOrchestrationServiceCatchAllActionsOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceCatchAllActionsInput` via:
 //
-//          EventOrchestrationServiceCatchAllActionsArgs{...}
+//	EventOrchestrationServiceCatchAllActionsArgs{...}
 type EventOrchestrationServiceCatchAllActionsInput interface {
 	pulumi.Input
 
@@ -1369,11 +1369,11 @@ func (i EventOrchestrationServiceCatchAllActionsArgs) ToEventOrchestrationServic
 // EventOrchestrationServiceCatchAllActionsPtrInput is an input type that accepts EventOrchestrationServiceCatchAllActionsArgs, EventOrchestrationServiceCatchAllActionsPtr and EventOrchestrationServiceCatchAllActionsPtrOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceCatchAllActionsPtrInput` via:
 //
-//          EventOrchestrationServiceCatchAllActionsArgs{...}
+//	        EventOrchestrationServiceCatchAllActionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EventOrchestrationServiceCatchAllActionsPtrInput interface {
 	pulumi.Input
 
@@ -1634,7 +1634,7 @@ type EventOrchestrationServiceCatchAllActionsAutomationAction struct {
 // EventOrchestrationServiceCatchAllActionsAutomationActionInput is an input type that accepts EventOrchestrationServiceCatchAllActionsAutomationActionArgs and EventOrchestrationServiceCatchAllActionsAutomationActionOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceCatchAllActionsAutomationActionInput` via:
 //
-//          EventOrchestrationServiceCatchAllActionsAutomationActionArgs{...}
+//	EventOrchestrationServiceCatchAllActionsAutomationActionArgs{...}
 type EventOrchestrationServiceCatchAllActionsAutomationActionInput interface {
 	pulumi.Input
 
@@ -1678,11 +1678,11 @@ func (i EventOrchestrationServiceCatchAllActionsAutomationActionArgs) ToEventOrc
 // EventOrchestrationServiceCatchAllActionsAutomationActionPtrInput is an input type that accepts EventOrchestrationServiceCatchAllActionsAutomationActionArgs, EventOrchestrationServiceCatchAllActionsAutomationActionPtr and EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceCatchAllActionsAutomationActionPtrInput` via:
 //
-//          EventOrchestrationServiceCatchAllActionsAutomationActionArgs{...}
+//	        EventOrchestrationServiceCatchAllActionsAutomationActionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EventOrchestrationServiceCatchAllActionsAutomationActionPtrInput interface {
 	pulumi.Input
 
@@ -1845,7 +1845,7 @@ type EventOrchestrationServiceCatchAllActionsAutomationActionHeader struct {
 // EventOrchestrationServiceCatchAllActionsAutomationActionHeaderInput is an input type that accepts EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgs and EventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceCatchAllActionsAutomationActionHeaderInput` via:
 //
-//          EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgs{...}
+//	EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgs{...}
 type EventOrchestrationServiceCatchAllActionsAutomationActionHeaderInput interface {
 	pulumi.Input
 
@@ -1875,7 +1875,7 @@ func (i EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgs) ToEv
 // EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayInput is an input type that accepts EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArray and EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayInput` via:
 //
-//          EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArray{ EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgs{...} }
+//	EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArray{ EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgs{...} }
 type EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayInput interface {
 	pulumi.Input
 
@@ -1951,7 +1951,7 @@ type EventOrchestrationServiceCatchAllActionsAutomationActionParameter struct {
 // EventOrchestrationServiceCatchAllActionsAutomationActionParameterInput is an input type that accepts EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgs and EventOrchestrationServiceCatchAllActionsAutomationActionParameterOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceCatchAllActionsAutomationActionParameterInput` via:
 //
-//          EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgs{...}
+//	EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgs{...}
 type EventOrchestrationServiceCatchAllActionsAutomationActionParameterInput interface {
 	pulumi.Input
 
@@ -1981,7 +1981,7 @@ func (i EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgs) T
 // EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayInput is an input type that accepts EventOrchestrationServiceCatchAllActionsAutomationActionParameterArray and EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayInput` via:
 //
-//          EventOrchestrationServiceCatchAllActionsAutomationActionParameterArray{ EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgs{...} }
+//	EventOrchestrationServiceCatchAllActionsAutomationActionParameterArray{ EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgs{...} }
 type EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayInput interface {
 	pulumi.Input
 
@@ -2063,7 +2063,7 @@ type EventOrchestrationServiceCatchAllActionsExtraction struct {
 // EventOrchestrationServiceCatchAllActionsExtractionInput is an input type that accepts EventOrchestrationServiceCatchAllActionsExtractionArgs and EventOrchestrationServiceCatchAllActionsExtractionOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceCatchAllActionsExtractionInput` via:
 //
-//          EventOrchestrationServiceCatchAllActionsExtractionArgs{...}
+//	EventOrchestrationServiceCatchAllActionsExtractionArgs{...}
 type EventOrchestrationServiceCatchAllActionsExtractionInput interface {
 	pulumi.Input
 
@@ -2099,7 +2099,7 @@ func (i EventOrchestrationServiceCatchAllActionsExtractionArgs) ToEventOrchestra
 // EventOrchestrationServiceCatchAllActionsExtractionArrayInput is an input type that accepts EventOrchestrationServiceCatchAllActionsExtractionArray and EventOrchestrationServiceCatchAllActionsExtractionArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceCatchAllActionsExtractionArrayInput` via:
 //
-//          EventOrchestrationServiceCatchAllActionsExtractionArray{ EventOrchestrationServiceCatchAllActionsExtractionArgs{...} }
+//	EventOrchestrationServiceCatchAllActionsExtractionArray{ EventOrchestrationServiceCatchAllActionsExtractionArgs{...} }
 type EventOrchestrationServiceCatchAllActionsExtractionArrayInput interface {
 	pulumi.Input
 
@@ -2185,7 +2185,7 @@ type EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction struct {
 // EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionInput is an input type that accepts EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs and EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionInput` via:
 //
-//          EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs{...}
+//	EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs{...}
 type EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionInput interface {
 	pulumi.Input
 
@@ -2221,11 +2221,11 @@ func (i EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs) T
 // EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrInput is an input type that accepts EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs, EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtr and EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrInput` via:
 //
-//          EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs{...}
+//	        EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrInput interface {
 	pulumi.Input
 
@@ -2328,7 +2328,7 @@ type EventOrchestrationServiceCatchAllActionsVariable struct {
 // EventOrchestrationServiceCatchAllActionsVariableInput is an input type that accepts EventOrchestrationServiceCatchAllActionsVariableArgs and EventOrchestrationServiceCatchAllActionsVariableOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceCatchAllActionsVariableInput` via:
 //
-//          EventOrchestrationServiceCatchAllActionsVariableArgs{...}
+//	EventOrchestrationServiceCatchAllActionsVariableArgs{...}
 type EventOrchestrationServiceCatchAllActionsVariableInput interface {
 	pulumi.Input
 
@@ -2362,7 +2362,7 @@ func (i EventOrchestrationServiceCatchAllActionsVariableArgs) ToEventOrchestrati
 // EventOrchestrationServiceCatchAllActionsVariableArrayInput is an input type that accepts EventOrchestrationServiceCatchAllActionsVariableArray and EventOrchestrationServiceCatchAllActionsVariableArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceCatchAllActionsVariableArrayInput` via:
 //
-//          EventOrchestrationServiceCatchAllActionsVariableArray{ EventOrchestrationServiceCatchAllActionsVariableArgs{...} }
+//	EventOrchestrationServiceCatchAllActionsVariableArray{ EventOrchestrationServiceCatchAllActionsVariableArgs{...} }
 type EventOrchestrationServiceCatchAllActionsVariableArrayInput interface {
 	pulumi.Input
 
@@ -2447,7 +2447,7 @@ type EventOrchestrationServiceSet struct {
 // EventOrchestrationServiceSetInput is an input type that accepts EventOrchestrationServiceSetArgs and EventOrchestrationServiceSetOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceSetInput` via:
 //
-//          EventOrchestrationServiceSetArgs{...}
+//	EventOrchestrationServiceSetArgs{...}
 type EventOrchestrationServiceSetInput interface {
 	pulumi.Input
 
@@ -2476,7 +2476,7 @@ func (i EventOrchestrationServiceSetArgs) ToEventOrchestrationServiceSetOutputWi
 // EventOrchestrationServiceSetArrayInput is an input type that accepts EventOrchestrationServiceSetArray and EventOrchestrationServiceSetArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceSetArrayInput` via:
 //
-//          EventOrchestrationServiceSetArray{ EventOrchestrationServiceSetArgs{...} }
+//	EventOrchestrationServiceSetArray{ EventOrchestrationServiceSetArgs{...} }
 type EventOrchestrationServiceSetArrayInput interface {
 	pulumi.Input
 
@@ -2557,7 +2557,7 @@ type EventOrchestrationServiceSetRule struct {
 // EventOrchestrationServiceSetRuleInput is an input type that accepts EventOrchestrationServiceSetRuleArgs and EventOrchestrationServiceSetRuleOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceSetRuleInput` via:
 //
-//          EventOrchestrationServiceSetRuleArgs{...}
+//	EventOrchestrationServiceSetRuleArgs{...}
 type EventOrchestrationServiceSetRuleInput interface {
 	pulumi.Input
 
@@ -2593,7 +2593,7 @@ func (i EventOrchestrationServiceSetRuleArgs) ToEventOrchestrationServiceSetRule
 // EventOrchestrationServiceSetRuleArrayInput is an input type that accepts EventOrchestrationServiceSetRuleArray and EventOrchestrationServiceSetRuleArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceSetRuleArrayInput` via:
 //
-//          EventOrchestrationServiceSetRuleArray{ EventOrchestrationServiceSetRuleArgs{...} }
+//	EventOrchestrationServiceSetRuleArray{ EventOrchestrationServiceSetRuleArgs{...} }
 type EventOrchestrationServiceSetRuleArrayInput interface {
 	pulumi.Input
 
@@ -2703,7 +2703,7 @@ type EventOrchestrationServiceSetRuleActions struct {
 // EventOrchestrationServiceSetRuleActionsInput is an input type that accepts EventOrchestrationServiceSetRuleActionsArgs and EventOrchestrationServiceSetRuleActionsOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceSetRuleActionsInput` via:
 //
-//          EventOrchestrationServiceSetRuleActionsArgs{...}
+//	EventOrchestrationServiceSetRuleActionsArgs{...}
 type EventOrchestrationServiceSetRuleActionsInput interface {
 	pulumi.Input
 
@@ -2839,7 +2839,7 @@ type EventOrchestrationServiceSetRuleActionsAutomationAction struct {
 // EventOrchestrationServiceSetRuleActionsAutomationActionInput is an input type that accepts EventOrchestrationServiceSetRuleActionsAutomationActionArgs and EventOrchestrationServiceSetRuleActionsAutomationActionOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceSetRuleActionsAutomationActionInput` via:
 //
-//          EventOrchestrationServiceSetRuleActionsAutomationActionArgs{...}
+//	EventOrchestrationServiceSetRuleActionsAutomationActionArgs{...}
 type EventOrchestrationServiceSetRuleActionsAutomationActionInput interface {
 	pulumi.Input
 
@@ -2883,11 +2883,11 @@ func (i EventOrchestrationServiceSetRuleActionsAutomationActionArgs) ToEventOrch
 // EventOrchestrationServiceSetRuleActionsAutomationActionPtrInput is an input type that accepts EventOrchestrationServiceSetRuleActionsAutomationActionArgs, EventOrchestrationServiceSetRuleActionsAutomationActionPtr and EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceSetRuleActionsAutomationActionPtrInput` via:
 //
-//          EventOrchestrationServiceSetRuleActionsAutomationActionArgs{...}
+//	        EventOrchestrationServiceSetRuleActionsAutomationActionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EventOrchestrationServiceSetRuleActionsAutomationActionPtrInput interface {
 	pulumi.Input
 
@@ -3050,7 +3050,7 @@ type EventOrchestrationServiceSetRuleActionsAutomationActionHeader struct {
 // EventOrchestrationServiceSetRuleActionsAutomationActionHeaderInput is an input type that accepts EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs and EventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceSetRuleActionsAutomationActionHeaderInput` via:
 //
-//          EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs{...}
+//	EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs{...}
 type EventOrchestrationServiceSetRuleActionsAutomationActionHeaderInput interface {
 	pulumi.Input
 
@@ -3080,7 +3080,7 @@ func (i EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs) ToEve
 // EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayInput is an input type that accepts EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArray and EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayInput` via:
 //
-//          EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArray{ EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs{...} }
+//	EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArray{ EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs{...} }
 type EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayInput interface {
 	pulumi.Input
 
@@ -3156,7 +3156,7 @@ type EventOrchestrationServiceSetRuleActionsAutomationActionParameter struct {
 // EventOrchestrationServiceSetRuleActionsAutomationActionParameterInput is an input type that accepts EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs and EventOrchestrationServiceSetRuleActionsAutomationActionParameterOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceSetRuleActionsAutomationActionParameterInput` via:
 //
-//          EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs{...}
+//	EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs{...}
 type EventOrchestrationServiceSetRuleActionsAutomationActionParameterInput interface {
 	pulumi.Input
 
@@ -3186,7 +3186,7 @@ func (i EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs) To
 // EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayInput is an input type that accepts EventOrchestrationServiceSetRuleActionsAutomationActionParameterArray and EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayInput` via:
 //
-//          EventOrchestrationServiceSetRuleActionsAutomationActionParameterArray{ EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs{...} }
+//	EventOrchestrationServiceSetRuleActionsAutomationActionParameterArray{ EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs{...} }
 type EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayInput interface {
 	pulumi.Input
 
@@ -3268,7 +3268,7 @@ type EventOrchestrationServiceSetRuleActionsExtraction struct {
 // EventOrchestrationServiceSetRuleActionsExtractionInput is an input type that accepts EventOrchestrationServiceSetRuleActionsExtractionArgs and EventOrchestrationServiceSetRuleActionsExtractionOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceSetRuleActionsExtractionInput` via:
 //
-//          EventOrchestrationServiceSetRuleActionsExtractionArgs{...}
+//	EventOrchestrationServiceSetRuleActionsExtractionArgs{...}
 type EventOrchestrationServiceSetRuleActionsExtractionInput interface {
 	pulumi.Input
 
@@ -3304,7 +3304,7 @@ func (i EventOrchestrationServiceSetRuleActionsExtractionArgs) ToEventOrchestrat
 // EventOrchestrationServiceSetRuleActionsExtractionArrayInput is an input type that accepts EventOrchestrationServiceSetRuleActionsExtractionArray and EventOrchestrationServiceSetRuleActionsExtractionArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceSetRuleActionsExtractionArrayInput` via:
 //
-//          EventOrchestrationServiceSetRuleActionsExtractionArray{ EventOrchestrationServiceSetRuleActionsExtractionArgs{...} }
+//	EventOrchestrationServiceSetRuleActionsExtractionArray{ EventOrchestrationServiceSetRuleActionsExtractionArgs{...} }
 type EventOrchestrationServiceSetRuleActionsExtractionArrayInput interface {
 	pulumi.Input
 
@@ -3390,7 +3390,7 @@ type EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction struct {
 // EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionInput is an input type that accepts EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs and EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionInput` via:
 //
-//          EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs{...}
+//	EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs{...}
 type EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionInput interface {
 	pulumi.Input
 
@@ -3426,11 +3426,11 @@ func (i EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs) To
 // EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrInput is an input type that accepts EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs, EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtr and EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrInput` via:
 //
-//          EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs{...}
+//	        EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrInput interface {
 	pulumi.Input
 
@@ -3533,7 +3533,7 @@ type EventOrchestrationServiceSetRuleActionsVariable struct {
 // EventOrchestrationServiceSetRuleActionsVariableInput is an input type that accepts EventOrchestrationServiceSetRuleActionsVariableArgs and EventOrchestrationServiceSetRuleActionsVariableOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceSetRuleActionsVariableInput` via:
 //
-//          EventOrchestrationServiceSetRuleActionsVariableArgs{...}
+//	EventOrchestrationServiceSetRuleActionsVariableArgs{...}
 type EventOrchestrationServiceSetRuleActionsVariableInput interface {
 	pulumi.Input
 
@@ -3567,7 +3567,7 @@ func (i EventOrchestrationServiceSetRuleActionsVariableArgs) ToEventOrchestratio
 // EventOrchestrationServiceSetRuleActionsVariableArrayInput is an input type that accepts EventOrchestrationServiceSetRuleActionsVariableArray and EventOrchestrationServiceSetRuleActionsVariableArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceSetRuleActionsVariableArrayInput` via:
 //
-//          EventOrchestrationServiceSetRuleActionsVariableArray{ EventOrchestrationServiceSetRuleActionsVariableArgs{...} }
+//	EventOrchestrationServiceSetRuleActionsVariableArray{ EventOrchestrationServiceSetRuleActionsVariableArgs{...} }
 type EventOrchestrationServiceSetRuleActionsVariableArrayInput interface {
 	pulumi.Input
 
@@ -3651,7 +3651,7 @@ type EventOrchestrationServiceSetRuleCondition struct {
 // EventOrchestrationServiceSetRuleConditionInput is an input type that accepts EventOrchestrationServiceSetRuleConditionArgs and EventOrchestrationServiceSetRuleConditionOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceSetRuleConditionInput` via:
 //
-//          EventOrchestrationServiceSetRuleConditionArgs{...}
+//	EventOrchestrationServiceSetRuleConditionArgs{...}
 type EventOrchestrationServiceSetRuleConditionInput interface {
 	pulumi.Input
 
@@ -3679,7 +3679,7 @@ func (i EventOrchestrationServiceSetRuleConditionArgs) ToEventOrchestrationServi
 // EventOrchestrationServiceSetRuleConditionArrayInput is an input type that accepts EventOrchestrationServiceSetRuleConditionArray and EventOrchestrationServiceSetRuleConditionArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceSetRuleConditionArrayInput` via:
 //
-//          EventOrchestrationServiceSetRuleConditionArray{ EventOrchestrationServiceSetRuleConditionArgs{...} }
+//	EventOrchestrationServiceSetRuleConditionArray{ EventOrchestrationServiceSetRuleConditionArgs{...} }
 type EventOrchestrationServiceSetRuleConditionArrayInput interface {
 	pulumi.Input
 
@@ -3748,7 +3748,7 @@ type EventOrchestrationUnroutedCatchAll struct {
 // EventOrchestrationUnroutedCatchAllInput is an input type that accepts EventOrchestrationUnroutedCatchAllArgs and EventOrchestrationUnroutedCatchAllOutput values.
 // You can construct a concrete instance of `EventOrchestrationUnroutedCatchAllInput` via:
 //
-//          EventOrchestrationUnroutedCatchAllArgs{...}
+//	EventOrchestrationUnroutedCatchAllArgs{...}
 type EventOrchestrationUnroutedCatchAllInput interface {
 	pulumi.Input
 
@@ -3784,11 +3784,11 @@ func (i EventOrchestrationUnroutedCatchAllArgs) ToEventOrchestrationUnroutedCatc
 // EventOrchestrationUnroutedCatchAllPtrInput is an input type that accepts EventOrchestrationUnroutedCatchAllArgs, EventOrchestrationUnroutedCatchAllPtr and EventOrchestrationUnroutedCatchAllPtrOutput values.
 // You can construct a concrete instance of `EventOrchestrationUnroutedCatchAllPtrInput` via:
 //
-//          EventOrchestrationUnroutedCatchAllArgs{...}
+//	        EventOrchestrationUnroutedCatchAllArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EventOrchestrationUnroutedCatchAllPtrInput interface {
 	pulumi.Input
 
@@ -3892,7 +3892,7 @@ type EventOrchestrationUnroutedCatchAllActions struct {
 // EventOrchestrationUnroutedCatchAllActionsInput is an input type that accepts EventOrchestrationUnroutedCatchAllActionsArgs and EventOrchestrationUnroutedCatchAllActionsOutput values.
 // You can construct a concrete instance of `EventOrchestrationUnroutedCatchAllActionsInput` via:
 //
-//          EventOrchestrationUnroutedCatchAllActionsArgs{...}
+//	EventOrchestrationUnroutedCatchAllActionsArgs{...}
 type EventOrchestrationUnroutedCatchAllActionsInput interface {
 	pulumi.Input
 
@@ -3935,11 +3935,11 @@ func (i EventOrchestrationUnroutedCatchAllActionsArgs) ToEventOrchestrationUnrou
 // EventOrchestrationUnroutedCatchAllActionsPtrInput is an input type that accepts EventOrchestrationUnroutedCatchAllActionsArgs, EventOrchestrationUnroutedCatchAllActionsPtr and EventOrchestrationUnroutedCatchAllActionsPtrOutput values.
 // You can construct a concrete instance of `EventOrchestrationUnroutedCatchAllActionsPtrInput` via:
 //
-//          EventOrchestrationUnroutedCatchAllActionsArgs{...}
+//	        EventOrchestrationUnroutedCatchAllActionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EventOrchestrationUnroutedCatchAllActionsPtrInput interface {
 	pulumi.Input
 
@@ -4106,7 +4106,7 @@ type EventOrchestrationUnroutedCatchAllActionsExtraction struct {
 // EventOrchestrationUnroutedCatchAllActionsExtractionInput is an input type that accepts EventOrchestrationUnroutedCatchAllActionsExtractionArgs and EventOrchestrationUnroutedCatchAllActionsExtractionOutput values.
 // You can construct a concrete instance of `EventOrchestrationUnroutedCatchAllActionsExtractionInput` via:
 //
-//          EventOrchestrationUnroutedCatchAllActionsExtractionArgs{...}
+//	EventOrchestrationUnroutedCatchAllActionsExtractionArgs{...}
 type EventOrchestrationUnroutedCatchAllActionsExtractionInput interface {
 	pulumi.Input
 
@@ -4142,7 +4142,7 @@ func (i EventOrchestrationUnroutedCatchAllActionsExtractionArgs) ToEventOrchestr
 // EventOrchestrationUnroutedCatchAllActionsExtractionArrayInput is an input type that accepts EventOrchestrationUnroutedCatchAllActionsExtractionArray and EventOrchestrationUnroutedCatchAllActionsExtractionArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationUnroutedCatchAllActionsExtractionArrayInput` via:
 //
-//          EventOrchestrationUnroutedCatchAllActionsExtractionArray{ EventOrchestrationUnroutedCatchAllActionsExtractionArgs{...} }
+//	EventOrchestrationUnroutedCatchAllActionsExtractionArray{ EventOrchestrationUnroutedCatchAllActionsExtractionArgs{...} }
 type EventOrchestrationUnroutedCatchAllActionsExtractionArrayInput interface {
 	pulumi.Input
 
@@ -4234,7 +4234,7 @@ type EventOrchestrationUnroutedCatchAllActionsVariable struct {
 // EventOrchestrationUnroutedCatchAllActionsVariableInput is an input type that accepts EventOrchestrationUnroutedCatchAllActionsVariableArgs and EventOrchestrationUnroutedCatchAllActionsVariableOutput values.
 // You can construct a concrete instance of `EventOrchestrationUnroutedCatchAllActionsVariableInput` via:
 //
-//          EventOrchestrationUnroutedCatchAllActionsVariableArgs{...}
+//	EventOrchestrationUnroutedCatchAllActionsVariableArgs{...}
 type EventOrchestrationUnroutedCatchAllActionsVariableInput interface {
 	pulumi.Input
 
@@ -4268,7 +4268,7 @@ func (i EventOrchestrationUnroutedCatchAllActionsVariableArgs) ToEventOrchestrat
 // EventOrchestrationUnroutedCatchAllActionsVariableArrayInput is an input type that accepts EventOrchestrationUnroutedCatchAllActionsVariableArray and EventOrchestrationUnroutedCatchAllActionsVariableArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationUnroutedCatchAllActionsVariableArrayInput` via:
 //
-//          EventOrchestrationUnroutedCatchAllActionsVariableArray{ EventOrchestrationUnroutedCatchAllActionsVariableArgs{...} }
+//	EventOrchestrationUnroutedCatchAllActionsVariableArray{ EventOrchestrationUnroutedCatchAllActionsVariableArgs{...} }
 type EventOrchestrationUnroutedCatchAllActionsVariableArrayInput interface {
 	pulumi.Input
 
@@ -4353,7 +4353,7 @@ type EventOrchestrationUnroutedSet struct {
 // EventOrchestrationUnroutedSetInput is an input type that accepts EventOrchestrationUnroutedSetArgs and EventOrchestrationUnroutedSetOutput values.
 // You can construct a concrete instance of `EventOrchestrationUnroutedSetInput` via:
 //
-//          EventOrchestrationUnroutedSetArgs{...}
+//	EventOrchestrationUnroutedSetArgs{...}
 type EventOrchestrationUnroutedSetInput interface {
 	pulumi.Input
 
@@ -4382,7 +4382,7 @@ func (i EventOrchestrationUnroutedSetArgs) ToEventOrchestrationUnroutedSetOutput
 // EventOrchestrationUnroutedSetArrayInput is an input type that accepts EventOrchestrationUnroutedSetArray and EventOrchestrationUnroutedSetArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationUnroutedSetArrayInput` via:
 //
-//          EventOrchestrationUnroutedSetArray{ EventOrchestrationUnroutedSetArgs{...} }
+//	EventOrchestrationUnroutedSetArray{ EventOrchestrationUnroutedSetArgs{...} }
 type EventOrchestrationUnroutedSetArrayInput interface {
 	pulumi.Input
 
@@ -4463,7 +4463,7 @@ type EventOrchestrationUnroutedSetRule struct {
 // EventOrchestrationUnroutedSetRuleInput is an input type that accepts EventOrchestrationUnroutedSetRuleArgs and EventOrchestrationUnroutedSetRuleOutput values.
 // You can construct a concrete instance of `EventOrchestrationUnroutedSetRuleInput` via:
 //
-//          EventOrchestrationUnroutedSetRuleArgs{...}
+//	EventOrchestrationUnroutedSetRuleArgs{...}
 type EventOrchestrationUnroutedSetRuleInput interface {
 	pulumi.Input
 
@@ -4499,7 +4499,7 @@ func (i EventOrchestrationUnroutedSetRuleArgs) ToEventOrchestrationUnroutedSetRu
 // EventOrchestrationUnroutedSetRuleArrayInput is an input type that accepts EventOrchestrationUnroutedSetRuleArray and EventOrchestrationUnroutedSetRuleArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationUnroutedSetRuleArrayInput` via:
 //
-//          EventOrchestrationUnroutedSetRuleArray{ EventOrchestrationUnroutedSetRuleArgs{...} }
+//	EventOrchestrationUnroutedSetRuleArray{ EventOrchestrationUnroutedSetRuleArgs{...} }
 type EventOrchestrationUnroutedSetRuleArrayInput interface {
 	pulumi.Input
 
@@ -4598,7 +4598,7 @@ type EventOrchestrationUnroutedSetRuleActions struct {
 // EventOrchestrationUnroutedSetRuleActionsInput is an input type that accepts EventOrchestrationUnroutedSetRuleActionsArgs and EventOrchestrationUnroutedSetRuleActionsOutput values.
 // You can construct a concrete instance of `EventOrchestrationUnroutedSetRuleActionsInput` via:
 //
-//          EventOrchestrationUnroutedSetRuleActionsArgs{...}
+//	EventOrchestrationUnroutedSetRuleActionsArgs{...}
 type EventOrchestrationUnroutedSetRuleActionsInput interface {
 	pulumi.Input
 
@@ -4690,7 +4690,7 @@ type EventOrchestrationUnroutedSetRuleActionsExtraction struct {
 // EventOrchestrationUnroutedSetRuleActionsExtractionInput is an input type that accepts EventOrchestrationUnroutedSetRuleActionsExtractionArgs and EventOrchestrationUnroutedSetRuleActionsExtractionOutput values.
 // You can construct a concrete instance of `EventOrchestrationUnroutedSetRuleActionsExtractionInput` via:
 //
-//          EventOrchestrationUnroutedSetRuleActionsExtractionArgs{...}
+//	EventOrchestrationUnroutedSetRuleActionsExtractionArgs{...}
 type EventOrchestrationUnroutedSetRuleActionsExtractionInput interface {
 	pulumi.Input
 
@@ -4726,7 +4726,7 @@ func (i EventOrchestrationUnroutedSetRuleActionsExtractionArgs) ToEventOrchestra
 // EventOrchestrationUnroutedSetRuleActionsExtractionArrayInput is an input type that accepts EventOrchestrationUnroutedSetRuleActionsExtractionArray and EventOrchestrationUnroutedSetRuleActionsExtractionArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationUnroutedSetRuleActionsExtractionArrayInput` via:
 //
-//          EventOrchestrationUnroutedSetRuleActionsExtractionArray{ EventOrchestrationUnroutedSetRuleActionsExtractionArgs{...} }
+//	EventOrchestrationUnroutedSetRuleActionsExtractionArray{ EventOrchestrationUnroutedSetRuleActionsExtractionArgs{...} }
 type EventOrchestrationUnroutedSetRuleActionsExtractionArrayInput interface {
 	pulumi.Input
 
@@ -4818,7 +4818,7 @@ type EventOrchestrationUnroutedSetRuleActionsVariable struct {
 // EventOrchestrationUnroutedSetRuleActionsVariableInput is an input type that accepts EventOrchestrationUnroutedSetRuleActionsVariableArgs and EventOrchestrationUnroutedSetRuleActionsVariableOutput values.
 // You can construct a concrete instance of `EventOrchestrationUnroutedSetRuleActionsVariableInput` via:
 //
-//          EventOrchestrationUnroutedSetRuleActionsVariableArgs{...}
+//	EventOrchestrationUnroutedSetRuleActionsVariableArgs{...}
 type EventOrchestrationUnroutedSetRuleActionsVariableInput interface {
 	pulumi.Input
 
@@ -4852,7 +4852,7 @@ func (i EventOrchestrationUnroutedSetRuleActionsVariableArgs) ToEventOrchestrati
 // EventOrchestrationUnroutedSetRuleActionsVariableArrayInput is an input type that accepts EventOrchestrationUnroutedSetRuleActionsVariableArray and EventOrchestrationUnroutedSetRuleActionsVariableArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationUnroutedSetRuleActionsVariableArrayInput` via:
 //
-//          EventOrchestrationUnroutedSetRuleActionsVariableArray{ EventOrchestrationUnroutedSetRuleActionsVariableArgs{...} }
+//	EventOrchestrationUnroutedSetRuleActionsVariableArray{ EventOrchestrationUnroutedSetRuleActionsVariableArgs{...} }
 type EventOrchestrationUnroutedSetRuleActionsVariableArrayInput interface {
 	pulumi.Input
 
@@ -4936,7 +4936,7 @@ type EventOrchestrationUnroutedSetRuleCondition struct {
 // EventOrchestrationUnroutedSetRuleConditionInput is an input type that accepts EventOrchestrationUnroutedSetRuleConditionArgs and EventOrchestrationUnroutedSetRuleConditionOutput values.
 // You can construct a concrete instance of `EventOrchestrationUnroutedSetRuleConditionInput` via:
 //
-//          EventOrchestrationUnroutedSetRuleConditionArgs{...}
+//	EventOrchestrationUnroutedSetRuleConditionArgs{...}
 type EventOrchestrationUnroutedSetRuleConditionInput interface {
 	pulumi.Input
 
@@ -4964,7 +4964,7 @@ func (i EventOrchestrationUnroutedSetRuleConditionArgs) ToEventOrchestrationUnro
 // EventOrchestrationUnroutedSetRuleConditionArrayInput is an input type that accepts EventOrchestrationUnroutedSetRuleConditionArray and EventOrchestrationUnroutedSetRuleConditionArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationUnroutedSetRuleConditionArrayInput` via:
 //
-//          EventOrchestrationUnroutedSetRuleConditionArray{ EventOrchestrationUnroutedSetRuleConditionArgs{...} }
+//	EventOrchestrationUnroutedSetRuleConditionArray{ EventOrchestrationUnroutedSetRuleConditionArgs{...} }
 type EventOrchestrationUnroutedSetRuleConditionArrayInput interface {
 	pulumi.Input
 
@@ -5049,7 +5049,7 @@ type ResponsePlayResponder struct {
 // ResponsePlayResponderInput is an input type that accepts ResponsePlayResponderArgs and ResponsePlayResponderOutput values.
 // You can construct a concrete instance of `ResponsePlayResponderInput` via:
 //
-//          ResponsePlayResponderArgs{...}
+//	ResponsePlayResponderArgs{...}
 type ResponsePlayResponderInput interface {
 	pulumi.Input
 
@@ -5093,7 +5093,7 @@ func (i ResponsePlayResponderArgs) ToResponsePlayResponderOutputWithContext(ctx 
 // ResponsePlayResponderArrayInput is an input type that accepts ResponsePlayResponderArray and ResponsePlayResponderArrayOutput values.
 // You can construct a concrete instance of `ResponsePlayResponderArrayInput` via:
 //
-//          ResponsePlayResponderArray{ ResponsePlayResponderArgs{...} }
+//	ResponsePlayResponderArray{ ResponsePlayResponderArgs{...} }
 type ResponsePlayResponderArrayInput interface {
 	pulumi.Input
 
@@ -5206,7 +5206,7 @@ type ResponsePlayResponderEscalationRule struct {
 // ResponsePlayResponderEscalationRuleInput is an input type that accepts ResponsePlayResponderEscalationRuleArgs and ResponsePlayResponderEscalationRuleOutput values.
 // You can construct a concrete instance of `ResponsePlayResponderEscalationRuleInput` via:
 //
-//          ResponsePlayResponderEscalationRuleArgs{...}
+//	ResponsePlayResponderEscalationRuleArgs{...}
 type ResponsePlayResponderEscalationRuleInput interface {
 	pulumi.Input
 
@@ -5238,7 +5238,7 @@ func (i ResponsePlayResponderEscalationRuleArgs) ToResponsePlayResponderEscalati
 // ResponsePlayResponderEscalationRuleArrayInput is an input type that accepts ResponsePlayResponderEscalationRuleArray and ResponsePlayResponderEscalationRuleArrayOutput values.
 // You can construct a concrete instance of `ResponsePlayResponderEscalationRuleArrayInput` via:
 //
-//          ResponsePlayResponderEscalationRuleArray{ ResponsePlayResponderEscalationRuleArgs{...} }
+//	ResponsePlayResponderEscalationRuleArray{ ResponsePlayResponderEscalationRuleArgs{...} }
 type ResponsePlayResponderEscalationRuleArrayInput interface {
 	pulumi.Input
 
@@ -5321,7 +5321,7 @@ type ResponsePlayResponderEscalationRuleTarget struct {
 // ResponsePlayResponderEscalationRuleTargetInput is an input type that accepts ResponsePlayResponderEscalationRuleTargetArgs and ResponsePlayResponderEscalationRuleTargetOutput values.
 // You can construct a concrete instance of `ResponsePlayResponderEscalationRuleTargetInput` via:
 //
-//          ResponsePlayResponderEscalationRuleTargetArgs{...}
+//	ResponsePlayResponderEscalationRuleTargetArgs{...}
 type ResponsePlayResponderEscalationRuleTargetInput interface {
 	pulumi.Input
 
@@ -5351,7 +5351,7 @@ func (i ResponsePlayResponderEscalationRuleTargetArgs) ToResponsePlayResponderEs
 // ResponsePlayResponderEscalationRuleTargetArrayInput is an input type that accepts ResponsePlayResponderEscalationRuleTargetArray and ResponsePlayResponderEscalationRuleTargetArrayOutput values.
 // You can construct a concrete instance of `ResponsePlayResponderEscalationRuleTargetArrayInput` via:
 //
-//          ResponsePlayResponderEscalationRuleTargetArray{ ResponsePlayResponderEscalationRuleTargetArgs{...} }
+//	ResponsePlayResponderEscalationRuleTargetArray{ ResponsePlayResponderEscalationRuleTargetArgs{...} }
 type ResponsePlayResponderEscalationRuleTargetArrayInput interface {
 	pulumi.Input
 
@@ -5427,7 +5427,7 @@ type ResponsePlayResponderService struct {
 // ResponsePlayResponderServiceInput is an input type that accepts ResponsePlayResponderServiceArgs and ResponsePlayResponderServiceOutput values.
 // You can construct a concrete instance of `ResponsePlayResponderServiceInput` via:
 //
-//          ResponsePlayResponderServiceArgs{...}
+//	ResponsePlayResponderServiceArgs{...}
 type ResponsePlayResponderServiceInput interface {
 	pulumi.Input
 
@@ -5457,7 +5457,7 @@ func (i ResponsePlayResponderServiceArgs) ToResponsePlayResponderServiceOutputWi
 // ResponsePlayResponderServiceArrayInput is an input type that accepts ResponsePlayResponderServiceArray and ResponsePlayResponderServiceArrayOutput values.
 // You can construct a concrete instance of `ResponsePlayResponderServiceArrayInput` via:
 //
-//          ResponsePlayResponderServiceArray{ ResponsePlayResponderServiceArgs{...} }
+//	ResponsePlayResponderServiceArray{ ResponsePlayResponderServiceArgs{...} }
 type ResponsePlayResponderServiceArrayInput interface {
 	pulumi.Input
 
@@ -5533,7 +5533,7 @@ type ResponsePlayResponderTeam struct {
 // ResponsePlayResponderTeamInput is an input type that accepts ResponsePlayResponderTeamArgs and ResponsePlayResponderTeamOutput values.
 // You can construct a concrete instance of `ResponsePlayResponderTeamInput` via:
 //
-//          ResponsePlayResponderTeamArgs{...}
+//	ResponsePlayResponderTeamArgs{...}
 type ResponsePlayResponderTeamInput interface {
 	pulumi.Input
 
@@ -5563,7 +5563,7 @@ func (i ResponsePlayResponderTeamArgs) ToResponsePlayResponderTeamOutputWithCont
 // ResponsePlayResponderTeamArrayInput is an input type that accepts ResponsePlayResponderTeamArray and ResponsePlayResponderTeamArrayOutput values.
 // You can construct a concrete instance of `ResponsePlayResponderTeamArrayInput` via:
 //
-//          ResponsePlayResponderTeamArray{ ResponsePlayResponderTeamArgs{...} }
+//	ResponsePlayResponderTeamArray{ ResponsePlayResponderTeamArgs{...} }
 type ResponsePlayResponderTeamArrayInput interface {
 	pulumi.Input
 
@@ -5639,7 +5639,7 @@ type ResponsePlaySubscriber struct {
 // ResponsePlaySubscriberInput is an input type that accepts ResponsePlaySubscriberArgs and ResponsePlaySubscriberOutput values.
 // You can construct a concrete instance of `ResponsePlaySubscriberInput` via:
 //
-//          ResponsePlaySubscriberArgs{...}
+//	ResponsePlaySubscriberArgs{...}
 type ResponsePlaySubscriberInput interface {
 	pulumi.Input
 
@@ -5669,7 +5669,7 @@ func (i ResponsePlaySubscriberArgs) ToResponsePlaySubscriberOutputWithContext(ct
 // ResponsePlaySubscriberArrayInput is an input type that accepts ResponsePlaySubscriberArray and ResponsePlaySubscriberArrayOutput values.
 // You can construct a concrete instance of `ResponsePlaySubscriberArrayInput` via:
 //
-//          ResponsePlaySubscriberArray{ ResponsePlaySubscriberArgs{...} }
+//	ResponsePlaySubscriberArray{ ResponsePlaySubscriberArgs{...} }
 type ResponsePlaySubscriberArrayInput interface {
 	pulumi.Input
 
@@ -5757,7 +5757,7 @@ type RulesetRuleActions struct {
 // RulesetRuleActionsInput is an input type that accepts RulesetRuleActionsArgs and RulesetRuleActionsOutput values.
 // You can construct a concrete instance of `RulesetRuleActionsInput` via:
 //
-//          RulesetRuleActionsArgs{...}
+//	RulesetRuleActionsArgs{...}
 type RulesetRuleActionsInput interface {
 	pulumi.Input
 
@@ -5807,11 +5807,11 @@ func (i RulesetRuleActionsArgs) ToRulesetRuleActionsPtrOutputWithContext(ctx con
 // RulesetRuleActionsPtrInput is an input type that accepts RulesetRuleActionsArgs, RulesetRuleActionsPtr and RulesetRuleActionsPtrOutput values.
 // You can construct a concrete instance of `RulesetRuleActionsPtrInput` via:
 //
-//          RulesetRuleActionsArgs{...}
+//	        RulesetRuleActionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RulesetRuleActionsPtrInput interface {
 	pulumi.Input
 
@@ -6013,7 +6013,7 @@ type RulesetRuleActionsAnnotate struct {
 // RulesetRuleActionsAnnotateInput is an input type that accepts RulesetRuleActionsAnnotateArgs and RulesetRuleActionsAnnotateOutput values.
 // You can construct a concrete instance of `RulesetRuleActionsAnnotateInput` via:
 //
-//          RulesetRuleActionsAnnotateArgs{...}
+//	RulesetRuleActionsAnnotateArgs{...}
 type RulesetRuleActionsAnnotateInput interface {
 	pulumi.Input
 
@@ -6041,7 +6041,7 @@ func (i RulesetRuleActionsAnnotateArgs) ToRulesetRuleActionsAnnotateOutputWithCo
 // RulesetRuleActionsAnnotateArrayInput is an input type that accepts RulesetRuleActionsAnnotateArray and RulesetRuleActionsAnnotateArrayOutput values.
 // You can construct a concrete instance of `RulesetRuleActionsAnnotateArrayInput` via:
 //
-//          RulesetRuleActionsAnnotateArray{ RulesetRuleActionsAnnotateArgs{...} }
+//	RulesetRuleActionsAnnotateArray{ RulesetRuleActionsAnnotateArgs{...} }
 type RulesetRuleActionsAnnotateArrayInput interface {
 	pulumi.Input
 
@@ -6110,7 +6110,7 @@ type RulesetRuleActionsEventAction struct {
 // RulesetRuleActionsEventActionInput is an input type that accepts RulesetRuleActionsEventActionArgs and RulesetRuleActionsEventActionOutput values.
 // You can construct a concrete instance of `RulesetRuleActionsEventActionInput` via:
 //
-//          RulesetRuleActionsEventActionArgs{...}
+//	RulesetRuleActionsEventActionArgs{...}
 type RulesetRuleActionsEventActionInput interface {
 	pulumi.Input
 
@@ -6138,7 +6138,7 @@ func (i RulesetRuleActionsEventActionArgs) ToRulesetRuleActionsEventActionOutput
 // RulesetRuleActionsEventActionArrayInput is an input type that accepts RulesetRuleActionsEventActionArray and RulesetRuleActionsEventActionArrayOutput values.
 // You can construct a concrete instance of `RulesetRuleActionsEventActionArrayInput` via:
 //
-//          RulesetRuleActionsEventActionArray{ RulesetRuleActionsEventActionArgs{...} }
+//	RulesetRuleActionsEventActionArray{ RulesetRuleActionsEventActionArgs{...} }
 type RulesetRuleActionsEventActionArrayInput interface {
 	pulumi.Input
 
@@ -6213,7 +6213,7 @@ type RulesetRuleActionsExtraction struct {
 // RulesetRuleActionsExtractionInput is an input type that accepts RulesetRuleActionsExtractionArgs and RulesetRuleActionsExtractionOutput values.
 // You can construct a concrete instance of `RulesetRuleActionsExtractionInput` via:
 //
-//          RulesetRuleActionsExtractionArgs{...}
+//	RulesetRuleActionsExtractionArgs{...}
 type RulesetRuleActionsExtractionInput interface {
 	pulumi.Input
 
@@ -6247,7 +6247,7 @@ func (i RulesetRuleActionsExtractionArgs) ToRulesetRuleActionsExtractionOutputWi
 // RulesetRuleActionsExtractionArrayInput is an input type that accepts RulesetRuleActionsExtractionArray and RulesetRuleActionsExtractionArrayOutput values.
 // You can construct a concrete instance of `RulesetRuleActionsExtractionArrayInput` via:
 //
-//          RulesetRuleActionsExtractionArray{ RulesetRuleActionsExtractionArgs{...} }
+//	RulesetRuleActionsExtractionArray{ RulesetRuleActionsExtractionArgs{...} }
 type RulesetRuleActionsExtractionArrayInput interface {
 	pulumi.Input
 
@@ -6331,7 +6331,7 @@ type RulesetRuleActionsPriority struct {
 // RulesetRuleActionsPriorityInput is an input type that accepts RulesetRuleActionsPriorityArgs and RulesetRuleActionsPriorityOutput values.
 // You can construct a concrete instance of `RulesetRuleActionsPriorityInput` via:
 //
-//          RulesetRuleActionsPriorityArgs{...}
+//	RulesetRuleActionsPriorityArgs{...}
 type RulesetRuleActionsPriorityInput interface {
 	pulumi.Input
 
@@ -6359,7 +6359,7 @@ func (i RulesetRuleActionsPriorityArgs) ToRulesetRuleActionsPriorityOutputWithCo
 // RulesetRuleActionsPriorityArrayInput is an input type that accepts RulesetRuleActionsPriorityArray and RulesetRuleActionsPriorityArrayOutput values.
 // You can construct a concrete instance of `RulesetRuleActionsPriorityArrayInput` via:
 //
-//          RulesetRuleActionsPriorityArray{ RulesetRuleActionsPriorityArgs{...} }
+//	RulesetRuleActionsPriorityArray{ RulesetRuleActionsPriorityArgs{...} }
 type RulesetRuleActionsPriorityArrayInput interface {
 	pulumi.Input
 
@@ -6428,7 +6428,7 @@ type RulesetRuleActionsRoute struct {
 // RulesetRuleActionsRouteInput is an input type that accepts RulesetRuleActionsRouteArgs and RulesetRuleActionsRouteOutput values.
 // You can construct a concrete instance of `RulesetRuleActionsRouteInput` via:
 //
-//          RulesetRuleActionsRouteArgs{...}
+//	RulesetRuleActionsRouteArgs{...}
 type RulesetRuleActionsRouteInput interface {
 	pulumi.Input
 
@@ -6456,7 +6456,7 @@ func (i RulesetRuleActionsRouteArgs) ToRulesetRuleActionsRouteOutputWithContext(
 // RulesetRuleActionsRouteArrayInput is an input type that accepts RulesetRuleActionsRouteArray and RulesetRuleActionsRouteArrayOutput values.
 // You can construct a concrete instance of `RulesetRuleActionsRouteArrayInput` via:
 //
-//          RulesetRuleActionsRouteArray{ RulesetRuleActionsRouteArgs{...} }
+//	RulesetRuleActionsRouteArray{ RulesetRuleActionsRouteArgs{...} }
 type RulesetRuleActionsRouteArrayInput interface {
 	pulumi.Input
 
@@ -6525,7 +6525,7 @@ type RulesetRuleActionsSeverity struct {
 // RulesetRuleActionsSeverityInput is an input type that accepts RulesetRuleActionsSeverityArgs and RulesetRuleActionsSeverityOutput values.
 // You can construct a concrete instance of `RulesetRuleActionsSeverityInput` via:
 //
-//          RulesetRuleActionsSeverityArgs{...}
+//	RulesetRuleActionsSeverityArgs{...}
 type RulesetRuleActionsSeverityInput interface {
 	pulumi.Input
 
@@ -6553,7 +6553,7 @@ func (i RulesetRuleActionsSeverityArgs) ToRulesetRuleActionsSeverityOutputWithCo
 // RulesetRuleActionsSeverityArrayInput is an input type that accepts RulesetRuleActionsSeverityArray and RulesetRuleActionsSeverityArrayOutput values.
 // You can construct a concrete instance of `RulesetRuleActionsSeverityArrayInput` via:
 //
-//          RulesetRuleActionsSeverityArray{ RulesetRuleActionsSeverityArgs{...} }
+//	RulesetRuleActionsSeverityArray{ RulesetRuleActionsSeverityArgs{...} }
 type RulesetRuleActionsSeverityArrayInput interface {
 	pulumi.Input
 
@@ -6628,7 +6628,7 @@ type RulesetRuleActionsSuppress struct {
 // RulesetRuleActionsSuppressInput is an input type that accepts RulesetRuleActionsSuppressArgs and RulesetRuleActionsSuppressOutput values.
 // You can construct a concrete instance of `RulesetRuleActionsSuppressInput` via:
 //
-//          RulesetRuleActionsSuppressArgs{...}
+//	RulesetRuleActionsSuppressArgs{...}
 type RulesetRuleActionsSuppressInput interface {
 	pulumi.Input
 
@@ -6662,7 +6662,7 @@ func (i RulesetRuleActionsSuppressArgs) ToRulesetRuleActionsSuppressOutputWithCo
 // RulesetRuleActionsSuppressArrayInput is an input type that accepts RulesetRuleActionsSuppressArray and RulesetRuleActionsSuppressArrayOutput values.
 // You can construct a concrete instance of `RulesetRuleActionsSuppressArrayInput` via:
 //
-//          RulesetRuleActionsSuppressArray{ RulesetRuleActionsSuppressArgs{...} }
+//	RulesetRuleActionsSuppressArray{ RulesetRuleActionsSuppressArgs{...} }
 type RulesetRuleActionsSuppressArrayInput interface {
 	pulumi.Input
 
@@ -6746,7 +6746,7 @@ type RulesetRuleActionsSuspend struct {
 // RulesetRuleActionsSuspendInput is an input type that accepts RulesetRuleActionsSuspendArgs and RulesetRuleActionsSuspendOutput values.
 // You can construct a concrete instance of `RulesetRuleActionsSuspendInput` via:
 //
-//          RulesetRuleActionsSuspendArgs{...}
+//	RulesetRuleActionsSuspendArgs{...}
 type RulesetRuleActionsSuspendInput interface {
 	pulumi.Input
 
@@ -6774,7 +6774,7 @@ func (i RulesetRuleActionsSuspendArgs) ToRulesetRuleActionsSuspendOutputWithCont
 // RulesetRuleActionsSuspendArrayInput is an input type that accepts RulesetRuleActionsSuspendArray and RulesetRuleActionsSuspendArrayOutput values.
 // You can construct a concrete instance of `RulesetRuleActionsSuspendArrayInput` via:
 //
-//          RulesetRuleActionsSuspendArray{ RulesetRuleActionsSuspendArgs{...} }
+//	RulesetRuleActionsSuspendArray{ RulesetRuleActionsSuspendArgs{...} }
 type RulesetRuleActionsSuspendArrayInput interface {
 	pulumi.Input
 
@@ -6845,7 +6845,7 @@ type RulesetRuleConditions struct {
 // RulesetRuleConditionsInput is an input type that accepts RulesetRuleConditionsArgs and RulesetRuleConditionsOutput values.
 // You can construct a concrete instance of `RulesetRuleConditionsInput` via:
 //
-//          RulesetRuleConditionsArgs{...}
+//	RulesetRuleConditionsArgs{...}
 type RulesetRuleConditionsInput interface {
 	pulumi.Input
 
@@ -6883,11 +6883,11 @@ func (i RulesetRuleConditionsArgs) ToRulesetRuleConditionsPtrOutputWithContext(c
 // RulesetRuleConditionsPtrInput is an input type that accepts RulesetRuleConditionsArgs, RulesetRuleConditionsPtr and RulesetRuleConditionsPtrOutput values.
 // You can construct a concrete instance of `RulesetRuleConditionsPtrInput` via:
 //
-//          RulesetRuleConditionsArgs{...}
+//	        RulesetRuleConditionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RulesetRuleConditionsPtrInput interface {
 	pulumi.Input
 
@@ -7001,7 +7001,7 @@ type RulesetRuleConditionsSubcondition struct {
 // RulesetRuleConditionsSubconditionInput is an input type that accepts RulesetRuleConditionsSubconditionArgs and RulesetRuleConditionsSubconditionOutput values.
 // You can construct a concrete instance of `RulesetRuleConditionsSubconditionInput` via:
 //
-//          RulesetRuleConditionsSubconditionArgs{...}
+//	RulesetRuleConditionsSubconditionArgs{...}
 type RulesetRuleConditionsSubconditionInput interface {
 	pulumi.Input
 
@@ -7031,7 +7031,7 @@ func (i RulesetRuleConditionsSubconditionArgs) ToRulesetRuleConditionsSubconditi
 // RulesetRuleConditionsSubconditionArrayInput is an input type that accepts RulesetRuleConditionsSubconditionArray and RulesetRuleConditionsSubconditionArrayOutput values.
 // You can construct a concrete instance of `RulesetRuleConditionsSubconditionArrayInput` via:
 //
-//          RulesetRuleConditionsSubconditionArray{ RulesetRuleConditionsSubconditionArgs{...} }
+//	RulesetRuleConditionsSubconditionArray{ RulesetRuleConditionsSubconditionArgs{...} }
 type RulesetRuleConditionsSubconditionArrayInput interface {
 	pulumi.Input
 
@@ -7108,7 +7108,7 @@ type RulesetRuleConditionsSubconditionParameter struct {
 // RulesetRuleConditionsSubconditionParameterInput is an input type that accepts RulesetRuleConditionsSubconditionParameterArgs and RulesetRuleConditionsSubconditionParameterOutput values.
 // You can construct a concrete instance of `RulesetRuleConditionsSubconditionParameterInput` via:
 //
-//          RulesetRuleConditionsSubconditionParameterArgs{...}
+//	RulesetRuleConditionsSubconditionParameterArgs{...}
 type RulesetRuleConditionsSubconditionParameterInput interface {
 	pulumi.Input
 
@@ -7137,7 +7137,7 @@ func (i RulesetRuleConditionsSubconditionParameterArgs) ToRulesetRuleConditionsS
 // RulesetRuleConditionsSubconditionParameterArrayInput is an input type that accepts RulesetRuleConditionsSubconditionParameterArray and RulesetRuleConditionsSubconditionParameterArrayOutput values.
 // You can construct a concrete instance of `RulesetRuleConditionsSubconditionParameterArrayInput` via:
 //
-//          RulesetRuleConditionsSubconditionParameterArray{ RulesetRuleConditionsSubconditionParameterArgs{...} }
+//	RulesetRuleConditionsSubconditionParameterArray{ RulesetRuleConditionsSubconditionParameterArgs{...} }
 type RulesetRuleConditionsSubconditionParameterArrayInput interface {
 	pulumi.Input
 
@@ -7212,7 +7212,7 @@ type RulesetRuleTimeFrame struct {
 // RulesetRuleTimeFrameInput is an input type that accepts RulesetRuleTimeFrameArgs and RulesetRuleTimeFrameOutput values.
 // You can construct a concrete instance of `RulesetRuleTimeFrameInput` via:
 //
-//          RulesetRuleTimeFrameArgs{...}
+//	RulesetRuleTimeFrameArgs{...}
 type RulesetRuleTimeFrameInput interface {
 	pulumi.Input
 
@@ -7250,11 +7250,11 @@ func (i RulesetRuleTimeFrameArgs) ToRulesetRuleTimeFramePtrOutputWithContext(ctx
 // RulesetRuleTimeFramePtrInput is an input type that accepts RulesetRuleTimeFrameArgs, RulesetRuleTimeFramePtr and RulesetRuleTimeFramePtrOutput values.
 // You can construct a concrete instance of `RulesetRuleTimeFramePtrInput` via:
 //
-//          RulesetRuleTimeFrameArgs{...}
+//	        RulesetRuleTimeFrameArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RulesetRuleTimeFramePtrInput interface {
 	pulumi.Input
 
@@ -7366,7 +7366,7 @@ type RulesetRuleTimeFrameActiveBetween struct {
 // RulesetRuleTimeFrameActiveBetweenInput is an input type that accepts RulesetRuleTimeFrameActiveBetweenArgs and RulesetRuleTimeFrameActiveBetweenOutput values.
 // You can construct a concrete instance of `RulesetRuleTimeFrameActiveBetweenInput` via:
 //
-//          RulesetRuleTimeFrameActiveBetweenArgs{...}
+//	RulesetRuleTimeFrameActiveBetweenArgs{...}
 type RulesetRuleTimeFrameActiveBetweenInput interface {
 	pulumi.Input
 
@@ -7394,7 +7394,7 @@ func (i RulesetRuleTimeFrameActiveBetweenArgs) ToRulesetRuleTimeFrameActiveBetwe
 // RulesetRuleTimeFrameActiveBetweenArrayInput is an input type that accepts RulesetRuleTimeFrameActiveBetweenArray and RulesetRuleTimeFrameActiveBetweenArrayOutput values.
 // You can construct a concrete instance of `RulesetRuleTimeFrameActiveBetweenArrayInput` via:
 //
-//          RulesetRuleTimeFrameActiveBetweenArray{ RulesetRuleTimeFrameActiveBetweenArgs{...} }
+//	RulesetRuleTimeFrameActiveBetweenArray{ RulesetRuleTimeFrameActiveBetweenArgs{...} }
 type RulesetRuleTimeFrameActiveBetweenArrayInput interface {
 	pulumi.Input
 
@@ -7471,7 +7471,7 @@ type RulesetRuleTimeFrameScheduledWeekly struct {
 // RulesetRuleTimeFrameScheduledWeeklyInput is an input type that accepts RulesetRuleTimeFrameScheduledWeeklyArgs and RulesetRuleTimeFrameScheduledWeeklyOutput values.
 // You can construct a concrete instance of `RulesetRuleTimeFrameScheduledWeeklyInput` via:
 //
-//          RulesetRuleTimeFrameScheduledWeeklyArgs{...}
+//	RulesetRuleTimeFrameScheduledWeeklyArgs{...}
 type RulesetRuleTimeFrameScheduledWeeklyInput interface {
 	pulumi.Input
 
@@ -7504,7 +7504,7 @@ func (i RulesetRuleTimeFrameScheduledWeeklyArgs) ToRulesetRuleTimeFrameScheduled
 // RulesetRuleTimeFrameScheduledWeeklyArrayInput is an input type that accepts RulesetRuleTimeFrameScheduledWeeklyArray and RulesetRuleTimeFrameScheduledWeeklyArrayOutput values.
 // You can construct a concrete instance of `RulesetRuleTimeFrameScheduledWeeklyArrayInput` via:
 //
-//          RulesetRuleTimeFrameScheduledWeeklyArray{ RulesetRuleTimeFrameScheduledWeeklyArgs{...} }
+//	RulesetRuleTimeFrameScheduledWeeklyArray{ RulesetRuleTimeFrameScheduledWeeklyArgs{...} }
 type RulesetRuleTimeFrameScheduledWeeklyArrayInput interface {
 	pulumi.Input
 
@@ -7588,7 +7588,7 @@ type RulesetRuleVariable struct {
 // RulesetRuleVariableInput is an input type that accepts RulesetRuleVariableArgs and RulesetRuleVariableOutput values.
 // You can construct a concrete instance of `RulesetRuleVariableInput` via:
 //
-//          RulesetRuleVariableArgs{...}
+//	RulesetRuleVariableArgs{...}
 type RulesetRuleVariableInput interface {
 	pulumi.Input
 
@@ -7617,7 +7617,7 @@ func (i RulesetRuleVariableArgs) ToRulesetRuleVariableOutputWithContext(ctx cont
 // RulesetRuleVariableArrayInput is an input type that accepts RulesetRuleVariableArray and RulesetRuleVariableArrayOutput values.
 // You can construct a concrete instance of `RulesetRuleVariableArrayInput` via:
 //
-//          RulesetRuleVariableArray{ RulesetRuleVariableArgs{...} }
+//	RulesetRuleVariableArray{ RulesetRuleVariableArgs{...} }
 type RulesetRuleVariableArrayInput interface {
 	pulumi.Input
 
@@ -7694,7 +7694,7 @@ type RulesetRuleVariableParameter struct {
 // RulesetRuleVariableParameterInput is an input type that accepts RulesetRuleVariableParameterArgs and RulesetRuleVariableParameterOutput values.
 // You can construct a concrete instance of `RulesetRuleVariableParameterInput` via:
 //
-//          RulesetRuleVariableParameterArgs{...}
+//	RulesetRuleVariableParameterArgs{...}
 type RulesetRuleVariableParameterInput interface {
 	pulumi.Input
 
@@ -7723,7 +7723,7 @@ func (i RulesetRuleVariableParameterArgs) ToRulesetRuleVariableParameterOutputWi
 // RulesetRuleVariableParameterArrayInput is an input type that accepts RulesetRuleVariableParameterArray and RulesetRuleVariableParameterArrayOutput values.
 // You can construct a concrete instance of `RulesetRuleVariableParameterArrayInput` via:
 //
-//          RulesetRuleVariableParameterArray{ RulesetRuleVariableParameterArgs{...} }
+//	RulesetRuleVariableParameterArray{ RulesetRuleVariableParameterArgs{...} }
 type RulesetRuleVariableParameterArrayInput interface {
 	pulumi.Input
 
@@ -7796,7 +7796,7 @@ type RulesetTeam struct {
 // RulesetTeamInput is an input type that accepts RulesetTeamArgs and RulesetTeamOutput values.
 // You can construct a concrete instance of `RulesetTeamInput` via:
 //
-//          RulesetTeamArgs{...}
+//	RulesetTeamArgs{...}
 type RulesetTeamInput interface {
 	pulumi.Input
 
@@ -7832,11 +7832,11 @@ func (i RulesetTeamArgs) ToRulesetTeamPtrOutputWithContext(ctx context.Context) 
 // RulesetTeamPtrInput is an input type that accepts RulesetTeamArgs, RulesetTeamPtr and RulesetTeamPtrOutput values.
 // You can construct a concrete instance of `RulesetTeamPtrInput` via:
 //
-//          RulesetTeamArgs{...}
+//	        RulesetTeamArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RulesetTeamPtrInput interface {
 	pulumi.Input
 
@@ -7934,7 +7934,7 @@ type ScheduleFinalSchedule struct {
 // ScheduleFinalScheduleInput is an input type that accepts ScheduleFinalScheduleArgs and ScheduleFinalScheduleOutput values.
 // You can construct a concrete instance of `ScheduleFinalScheduleInput` via:
 //
-//          ScheduleFinalScheduleArgs{...}
+//	ScheduleFinalScheduleArgs{...}
 type ScheduleFinalScheduleInput interface {
 	pulumi.Input
 
@@ -7963,7 +7963,7 @@ func (i ScheduleFinalScheduleArgs) ToScheduleFinalScheduleOutputWithContext(ctx 
 // ScheduleFinalScheduleArrayInput is an input type that accepts ScheduleFinalScheduleArray and ScheduleFinalScheduleArrayOutput values.
 // You can construct a concrete instance of `ScheduleFinalScheduleArrayInput` via:
 //
-//          ScheduleFinalScheduleArray{ ScheduleFinalScheduleArgs{...} }
+//	ScheduleFinalScheduleArray{ ScheduleFinalScheduleArgs{...} }
 type ScheduleFinalScheduleArrayInput interface {
 	pulumi.Input
 
@@ -8051,7 +8051,7 @@ type ScheduleLayer struct {
 // ScheduleLayerInput is an input type that accepts ScheduleLayerArgs and ScheduleLayerOutput values.
 // You can construct a concrete instance of `ScheduleLayerInput` via:
 //
-//          ScheduleLayerArgs{...}
+//	ScheduleLayerArgs{...}
 type ScheduleLayerInput interface {
 	pulumi.Input
 
@@ -8094,7 +8094,7 @@ func (i ScheduleLayerArgs) ToScheduleLayerOutputWithContext(ctx context.Context)
 // ScheduleLayerArrayInput is an input type that accepts ScheduleLayerArray and ScheduleLayerArrayOutput values.
 // You can construct a concrete instance of `ScheduleLayerArrayInput` via:
 //
-//          ScheduleLayerArray{ ScheduleLayerArgs{...} }
+//	ScheduleLayerArray{ ScheduleLayerArgs{...} }
 type ScheduleLayerArrayInput interface {
 	pulumi.Input
 
@@ -8208,7 +8208,7 @@ type ScheduleLayerRestriction struct {
 // ScheduleLayerRestrictionInput is an input type that accepts ScheduleLayerRestrictionArgs and ScheduleLayerRestrictionOutput values.
 // You can construct a concrete instance of `ScheduleLayerRestrictionInput` via:
 //
-//          ScheduleLayerRestrictionArgs{...}
+//	ScheduleLayerRestrictionArgs{...}
 type ScheduleLayerRestrictionInput interface {
 	pulumi.Input
 
@@ -8242,7 +8242,7 @@ func (i ScheduleLayerRestrictionArgs) ToScheduleLayerRestrictionOutputWithContex
 // ScheduleLayerRestrictionArrayInput is an input type that accepts ScheduleLayerRestrictionArray and ScheduleLayerRestrictionArrayOutput values.
 // You can construct a concrete instance of `ScheduleLayerRestrictionArrayInput` via:
 //
-//          ScheduleLayerRestrictionArray{ ScheduleLayerRestrictionArgs{...} }
+//	ScheduleLayerRestrictionArray{ ScheduleLayerRestrictionArgs{...} }
 type ScheduleLayerRestrictionArrayInput interface {
 	pulumi.Input
 
@@ -8321,14 +8321,14 @@ func (o ScheduleLayerRestrictionArrayOutput) Index(i pulumi.IntInput) ScheduleLa
 type ServiceAlertGroupingParameters struct {
 	// Alert grouping parameters dependent on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
 	Config *ServiceAlertGroupingParametersConfig `pulumi:"config"`
-	// The type of scheduled action. Currently, this must be set to `urgencyChange`.
+	// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
 	Type *string `pulumi:"type"`
 }
 
 // ServiceAlertGroupingParametersInput is an input type that accepts ServiceAlertGroupingParametersArgs and ServiceAlertGroupingParametersOutput values.
 // You can construct a concrete instance of `ServiceAlertGroupingParametersInput` via:
 //
-//          ServiceAlertGroupingParametersArgs{...}
+//	ServiceAlertGroupingParametersArgs{...}
 type ServiceAlertGroupingParametersInput interface {
 	pulumi.Input
 
@@ -8339,7 +8339,7 @@ type ServiceAlertGroupingParametersInput interface {
 type ServiceAlertGroupingParametersArgs struct {
 	// Alert grouping parameters dependent on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
 	Config ServiceAlertGroupingParametersConfigPtrInput `pulumi:"config"`
-	// The type of scheduled action. Currently, this must be set to `urgencyChange`.
+	// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -8366,11 +8366,11 @@ func (i ServiceAlertGroupingParametersArgs) ToServiceAlertGroupingParametersPtrO
 // ServiceAlertGroupingParametersPtrInput is an input type that accepts ServiceAlertGroupingParametersArgs, ServiceAlertGroupingParametersPtr and ServiceAlertGroupingParametersPtrOutput values.
 // You can construct a concrete instance of `ServiceAlertGroupingParametersPtrInput` via:
 //
-//          ServiceAlertGroupingParametersArgs{...}
+//	        ServiceAlertGroupingParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceAlertGroupingParametersPtrInput interface {
 	pulumi.Input
 
@@ -8425,7 +8425,7 @@ func (o ServiceAlertGroupingParametersOutput) Config() ServiceAlertGroupingParam
 	return o.ApplyT(func(v ServiceAlertGroupingParameters) *ServiceAlertGroupingParametersConfig { return v.Config }).(ServiceAlertGroupingParametersConfigPtrOutput)
 }
 
-// The type of scheduled action. Currently, this must be set to `urgencyChange`.
+// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
 func (o ServiceAlertGroupingParametersOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceAlertGroupingParameters) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -8464,7 +8464,7 @@ func (o ServiceAlertGroupingParametersPtrOutput) Config() ServiceAlertGroupingPa
 	}).(ServiceAlertGroupingParametersConfigPtrOutput)
 }
 
-// The type of scheduled action. Currently, this must be set to `urgencyChange`.
+// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
 func (o ServiceAlertGroupingParametersPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceAlertGroupingParameters) *string {
 		if v == nil {
@@ -8486,7 +8486,7 @@ type ServiceAlertGroupingParametersConfig struct {
 // ServiceAlertGroupingParametersConfigInput is an input type that accepts ServiceAlertGroupingParametersConfigArgs and ServiceAlertGroupingParametersConfigOutput values.
 // You can construct a concrete instance of `ServiceAlertGroupingParametersConfigInput` via:
 //
-//          ServiceAlertGroupingParametersConfigArgs{...}
+//	ServiceAlertGroupingParametersConfigArgs{...}
 type ServiceAlertGroupingParametersConfigInput interface {
 	pulumi.Input
 
@@ -8526,11 +8526,11 @@ func (i ServiceAlertGroupingParametersConfigArgs) ToServiceAlertGroupingParamete
 // ServiceAlertGroupingParametersConfigPtrInput is an input type that accepts ServiceAlertGroupingParametersConfigArgs, ServiceAlertGroupingParametersConfigPtr and ServiceAlertGroupingParametersConfigPtrOutput values.
 // You can construct a concrete instance of `ServiceAlertGroupingParametersConfigPtrInput` via:
 //
-//          ServiceAlertGroupingParametersConfigArgs{...}
+//	        ServiceAlertGroupingParametersConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceAlertGroupingParametersConfigPtrInput interface {
 	pulumi.Input
 
@@ -8649,6 +8649,162 @@ func (o ServiceAlertGroupingParametersConfigPtrOutput) Timeout() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
+type ServiceAutoPauseNotificationsParameters struct {
+	// Indicates whether alerts should be automatically suspended when identified as transient.  If not passed in, will default to 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `enabled` is `true`. Must be omitted or set to `null` if `enabled` is `false`.
+	Timeout *int `pulumi:"timeout"`
+}
+
+// ServiceAutoPauseNotificationsParametersInput is an input type that accepts ServiceAutoPauseNotificationsParametersArgs and ServiceAutoPauseNotificationsParametersOutput values.
+// You can construct a concrete instance of `ServiceAutoPauseNotificationsParametersInput` via:
+//
+//	ServiceAutoPauseNotificationsParametersArgs{...}
+type ServiceAutoPauseNotificationsParametersInput interface {
+	pulumi.Input
+
+	ToServiceAutoPauseNotificationsParametersOutput() ServiceAutoPauseNotificationsParametersOutput
+	ToServiceAutoPauseNotificationsParametersOutputWithContext(context.Context) ServiceAutoPauseNotificationsParametersOutput
+}
+
+type ServiceAutoPauseNotificationsParametersArgs struct {
+	// Indicates whether alerts should be automatically suspended when identified as transient.  If not passed in, will default to 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `enabled` is `true`. Must be omitted or set to `null` if `enabled` is `false`.
+	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
+}
+
+func (ServiceAutoPauseNotificationsParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceAutoPauseNotificationsParameters)(nil)).Elem()
+}
+
+func (i ServiceAutoPauseNotificationsParametersArgs) ToServiceAutoPauseNotificationsParametersOutput() ServiceAutoPauseNotificationsParametersOutput {
+	return i.ToServiceAutoPauseNotificationsParametersOutputWithContext(context.Background())
+}
+
+func (i ServiceAutoPauseNotificationsParametersArgs) ToServiceAutoPauseNotificationsParametersOutputWithContext(ctx context.Context) ServiceAutoPauseNotificationsParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAutoPauseNotificationsParametersOutput)
+}
+
+func (i ServiceAutoPauseNotificationsParametersArgs) ToServiceAutoPauseNotificationsParametersPtrOutput() ServiceAutoPauseNotificationsParametersPtrOutput {
+	return i.ToServiceAutoPauseNotificationsParametersPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceAutoPauseNotificationsParametersArgs) ToServiceAutoPauseNotificationsParametersPtrOutputWithContext(ctx context.Context) ServiceAutoPauseNotificationsParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAutoPauseNotificationsParametersOutput).ToServiceAutoPauseNotificationsParametersPtrOutputWithContext(ctx)
+}
+
+// ServiceAutoPauseNotificationsParametersPtrInput is an input type that accepts ServiceAutoPauseNotificationsParametersArgs, ServiceAutoPauseNotificationsParametersPtr and ServiceAutoPauseNotificationsParametersPtrOutput values.
+// You can construct a concrete instance of `ServiceAutoPauseNotificationsParametersPtrInput` via:
+//
+//	        ServiceAutoPauseNotificationsParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceAutoPauseNotificationsParametersPtrInput interface {
+	pulumi.Input
+
+	ToServiceAutoPauseNotificationsParametersPtrOutput() ServiceAutoPauseNotificationsParametersPtrOutput
+	ToServiceAutoPauseNotificationsParametersPtrOutputWithContext(context.Context) ServiceAutoPauseNotificationsParametersPtrOutput
+}
+
+type serviceAutoPauseNotificationsParametersPtrType ServiceAutoPauseNotificationsParametersArgs
+
+func ServiceAutoPauseNotificationsParametersPtr(v *ServiceAutoPauseNotificationsParametersArgs) ServiceAutoPauseNotificationsParametersPtrInput {
+	return (*serviceAutoPauseNotificationsParametersPtrType)(v)
+}
+
+func (*serviceAutoPauseNotificationsParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceAutoPauseNotificationsParameters)(nil)).Elem()
+}
+
+func (i *serviceAutoPauseNotificationsParametersPtrType) ToServiceAutoPauseNotificationsParametersPtrOutput() ServiceAutoPauseNotificationsParametersPtrOutput {
+	return i.ToServiceAutoPauseNotificationsParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceAutoPauseNotificationsParametersPtrType) ToServiceAutoPauseNotificationsParametersPtrOutputWithContext(ctx context.Context) ServiceAutoPauseNotificationsParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAutoPauseNotificationsParametersPtrOutput)
+}
+
+type ServiceAutoPauseNotificationsParametersOutput struct{ *pulumi.OutputState }
+
+func (ServiceAutoPauseNotificationsParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceAutoPauseNotificationsParameters)(nil)).Elem()
+}
+
+func (o ServiceAutoPauseNotificationsParametersOutput) ToServiceAutoPauseNotificationsParametersOutput() ServiceAutoPauseNotificationsParametersOutput {
+	return o
+}
+
+func (o ServiceAutoPauseNotificationsParametersOutput) ToServiceAutoPauseNotificationsParametersOutputWithContext(ctx context.Context) ServiceAutoPauseNotificationsParametersOutput {
+	return o
+}
+
+func (o ServiceAutoPauseNotificationsParametersOutput) ToServiceAutoPauseNotificationsParametersPtrOutput() ServiceAutoPauseNotificationsParametersPtrOutput {
+	return o.ToServiceAutoPauseNotificationsParametersPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceAutoPauseNotificationsParametersOutput) ToServiceAutoPauseNotificationsParametersPtrOutputWithContext(ctx context.Context) ServiceAutoPauseNotificationsParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceAutoPauseNotificationsParameters) *ServiceAutoPauseNotificationsParameters {
+		return &v
+	}).(ServiceAutoPauseNotificationsParametersPtrOutput)
+}
+
+// Indicates whether alerts should be automatically suspended when identified as transient.  If not passed in, will default to 'false'.
+func (o ServiceAutoPauseNotificationsParametersOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceAutoPauseNotificationsParameters) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `enabled` is `true`. Must be omitted or set to `null` if `enabled` is `false`.
+func (o ServiceAutoPauseNotificationsParametersOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceAutoPauseNotificationsParameters) *int { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
+type ServiceAutoPauseNotificationsParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceAutoPauseNotificationsParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceAutoPauseNotificationsParameters)(nil)).Elem()
+}
+
+func (o ServiceAutoPauseNotificationsParametersPtrOutput) ToServiceAutoPauseNotificationsParametersPtrOutput() ServiceAutoPauseNotificationsParametersPtrOutput {
+	return o
+}
+
+func (o ServiceAutoPauseNotificationsParametersPtrOutput) ToServiceAutoPauseNotificationsParametersPtrOutputWithContext(ctx context.Context) ServiceAutoPauseNotificationsParametersPtrOutput {
+	return o
+}
+
+func (o ServiceAutoPauseNotificationsParametersPtrOutput) Elem() ServiceAutoPauseNotificationsParametersOutput {
+	return o.ApplyT(func(v *ServiceAutoPauseNotificationsParameters) ServiceAutoPauseNotificationsParameters {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceAutoPauseNotificationsParameters
+		return ret
+	}).(ServiceAutoPauseNotificationsParametersOutput)
+}
+
+// Indicates whether alerts should be automatically suspended when identified as transient.  If not passed in, will default to 'false'.
+func (o ServiceAutoPauseNotificationsParametersPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceAutoPauseNotificationsParameters) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `enabled` is `true`. Must be omitted or set to `null` if `enabled` is `false`.
+func (o ServiceAutoPauseNotificationsParametersPtrOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceAutoPauseNotificationsParameters) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Timeout
+	}).(pulumi.IntPtrOutput)
+}
+
 type ServiceDependencyDependency struct {
 	// The service that dependents on the supporting service. Dependency dependent service documented below.
 	DependentServices []ServiceDependencyDependencyDependentService `pulumi:"dependentServices"`
@@ -8661,7 +8817,7 @@ type ServiceDependencyDependency struct {
 // ServiceDependencyDependencyInput is an input type that accepts ServiceDependencyDependencyArgs and ServiceDependencyDependencyOutput values.
 // You can construct a concrete instance of `ServiceDependencyDependencyInput` via:
 //
-//          ServiceDependencyDependencyArgs{...}
+//	ServiceDependencyDependencyArgs{...}
 type ServiceDependencyDependencyInput interface {
 	pulumi.Input
 
@@ -8701,11 +8857,11 @@ func (i ServiceDependencyDependencyArgs) ToServiceDependencyDependencyPtrOutputW
 // ServiceDependencyDependencyPtrInput is an input type that accepts ServiceDependencyDependencyArgs, ServiceDependencyDependencyPtr and ServiceDependencyDependencyPtrOutput values.
 // You can construct a concrete instance of `ServiceDependencyDependencyPtrInput` via:
 //
-//          ServiceDependencyDependencyArgs{...}
+//	        ServiceDependencyDependencyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceDependencyDependencyPtrInput interface {
 	pulumi.Input
 
@@ -8838,7 +8994,7 @@ type ServiceDependencyDependencyDependentService struct {
 // ServiceDependencyDependencyDependentServiceInput is an input type that accepts ServiceDependencyDependencyDependentServiceArgs and ServiceDependencyDependencyDependentServiceOutput values.
 // You can construct a concrete instance of `ServiceDependencyDependencyDependentServiceInput` via:
 //
-//          ServiceDependencyDependencyDependentServiceArgs{...}
+//	ServiceDependencyDependencyDependentServiceArgs{...}
 type ServiceDependencyDependencyDependentServiceInput interface {
 	pulumi.Input
 
@@ -8868,7 +9024,7 @@ func (i ServiceDependencyDependencyDependentServiceArgs) ToServiceDependencyDepe
 // ServiceDependencyDependencyDependentServiceArrayInput is an input type that accepts ServiceDependencyDependencyDependentServiceArray and ServiceDependencyDependencyDependentServiceArrayOutput values.
 // You can construct a concrete instance of `ServiceDependencyDependencyDependentServiceArrayInput` via:
 //
-//          ServiceDependencyDependencyDependentServiceArray{ ServiceDependencyDependencyDependentServiceArgs{...} }
+//	ServiceDependencyDependencyDependentServiceArray{ ServiceDependencyDependencyDependentServiceArgs{...} }
 type ServiceDependencyDependencyDependentServiceArrayInput interface {
 	pulumi.Input
 
@@ -8944,7 +9100,7 @@ type ServiceDependencyDependencySupportingService struct {
 // ServiceDependencyDependencySupportingServiceInput is an input type that accepts ServiceDependencyDependencySupportingServiceArgs and ServiceDependencyDependencySupportingServiceOutput values.
 // You can construct a concrete instance of `ServiceDependencyDependencySupportingServiceInput` via:
 //
-//          ServiceDependencyDependencySupportingServiceArgs{...}
+//	ServiceDependencyDependencySupportingServiceArgs{...}
 type ServiceDependencyDependencySupportingServiceInput interface {
 	pulumi.Input
 
@@ -8974,7 +9130,7 @@ func (i ServiceDependencyDependencySupportingServiceArgs) ToServiceDependencyDep
 // ServiceDependencyDependencySupportingServiceArrayInput is an input type that accepts ServiceDependencyDependencySupportingServiceArray and ServiceDependencyDependencySupportingServiceArrayOutput values.
 // You can construct a concrete instance of `ServiceDependencyDependencySupportingServiceArrayInput` via:
 //
-//          ServiceDependencyDependencySupportingServiceArray{ ServiceDependencyDependencySupportingServiceArgs{...} }
+//	ServiceDependencyDependencySupportingServiceArray{ ServiceDependencyDependencySupportingServiceArgs{...} }
 type ServiceDependencyDependencySupportingServiceArrayInput interface {
 	pulumi.Input
 
@@ -9060,7 +9216,7 @@ type ServiceEventRuleActions struct {
 // ServiceEventRuleActionsInput is an input type that accepts ServiceEventRuleActionsArgs and ServiceEventRuleActionsOutput values.
 // You can construct a concrete instance of `ServiceEventRuleActionsInput` via:
 //
-//          ServiceEventRuleActionsArgs{...}
+//	ServiceEventRuleActionsArgs{...}
 type ServiceEventRuleActionsInput interface {
 	pulumi.Input
 
@@ -9108,11 +9264,11 @@ func (i ServiceEventRuleActionsArgs) ToServiceEventRuleActionsPtrOutputWithConte
 // ServiceEventRuleActionsPtrInput is an input type that accepts ServiceEventRuleActionsArgs, ServiceEventRuleActionsPtr and ServiceEventRuleActionsPtrOutput values.
 // You can construct a concrete instance of `ServiceEventRuleActionsPtrInput` via:
 //
-//          ServiceEventRuleActionsArgs{...}
+//	        ServiceEventRuleActionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceEventRuleActionsPtrInput interface {
 	pulumi.Input
 
@@ -9299,7 +9455,7 @@ type ServiceEventRuleActionsAnnotate struct {
 // ServiceEventRuleActionsAnnotateInput is an input type that accepts ServiceEventRuleActionsAnnotateArgs and ServiceEventRuleActionsAnnotateOutput values.
 // You can construct a concrete instance of `ServiceEventRuleActionsAnnotateInput` via:
 //
-//          ServiceEventRuleActionsAnnotateArgs{...}
+//	ServiceEventRuleActionsAnnotateArgs{...}
 type ServiceEventRuleActionsAnnotateInput interface {
 	pulumi.Input
 
@@ -9327,7 +9483,7 @@ func (i ServiceEventRuleActionsAnnotateArgs) ToServiceEventRuleActionsAnnotateOu
 // ServiceEventRuleActionsAnnotateArrayInput is an input type that accepts ServiceEventRuleActionsAnnotateArray and ServiceEventRuleActionsAnnotateArrayOutput values.
 // You can construct a concrete instance of `ServiceEventRuleActionsAnnotateArrayInput` via:
 //
-//          ServiceEventRuleActionsAnnotateArray{ ServiceEventRuleActionsAnnotateArgs{...} }
+//	ServiceEventRuleActionsAnnotateArray{ ServiceEventRuleActionsAnnotateArgs{...} }
 type ServiceEventRuleActionsAnnotateArrayInput interface {
 	pulumi.Input
 
@@ -9396,7 +9552,7 @@ type ServiceEventRuleActionsEventAction struct {
 // ServiceEventRuleActionsEventActionInput is an input type that accepts ServiceEventRuleActionsEventActionArgs and ServiceEventRuleActionsEventActionOutput values.
 // You can construct a concrete instance of `ServiceEventRuleActionsEventActionInput` via:
 //
-//          ServiceEventRuleActionsEventActionArgs{...}
+//	ServiceEventRuleActionsEventActionArgs{...}
 type ServiceEventRuleActionsEventActionInput interface {
 	pulumi.Input
 
@@ -9424,7 +9580,7 @@ func (i ServiceEventRuleActionsEventActionArgs) ToServiceEventRuleActionsEventAc
 // ServiceEventRuleActionsEventActionArrayInput is an input type that accepts ServiceEventRuleActionsEventActionArray and ServiceEventRuleActionsEventActionArrayOutput values.
 // You can construct a concrete instance of `ServiceEventRuleActionsEventActionArrayInput` via:
 //
-//          ServiceEventRuleActionsEventActionArray{ ServiceEventRuleActionsEventActionArgs{...} }
+//	ServiceEventRuleActionsEventActionArray{ ServiceEventRuleActionsEventActionArgs{...} }
 type ServiceEventRuleActionsEventActionArrayInput interface {
 	pulumi.Input
 
@@ -9499,7 +9655,7 @@ type ServiceEventRuleActionsExtraction struct {
 // ServiceEventRuleActionsExtractionInput is an input type that accepts ServiceEventRuleActionsExtractionArgs and ServiceEventRuleActionsExtractionOutput values.
 // You can construct a concrete instance of `ServiceEventRuleActionsExtractionInput` via:
 //
-//          ServiceEventRuleActionsExtractionArgs{...}
+//	ServiceEventRuleActionsExtractionArgs{...}
 type ServiceEventRuleActionsExtractionInput interface {
 	pulumi.Input
 
@@ -9533,7 +9689,7 @@ func (i ServiceEventRuleActionsExtractionArgs) ToServiceEventRuleActionsExtracti
 // ServiceEventRuleActionsExtractionArrayInput is an input type that accepts ServiceEventRuleActionsExtractionArray and ServiceEventRuleActionsExtractionArrayOutput values.
 // You can construct a concrete instance of `ServiceEventRuleActionsExtractionArrayInput` via:
 //
-//          ServiceEventRuleActionsExtractionArray{ ServiceEventRuleActionsExtractionArgs{...} }
+//	ServiceEventRuleActionsExtractionArray{ ServiceEventRuleActionsExtractionArgs{...} }
 type ServiceEventRuleActionsExtractionArrayInput interface {
 	pulumi.Input
 
@@ -9617,7 +9773,7 @@ type ServiceEventRuleActionsPriority struct {
 // ServiceEventRuleActionsPriorityInput is an input type that accepts ServiceEventRuleActionsPriorityArgs and ServiceEventRuleActionsPriorityOutput values.
 // You can construct a concrete instance of `ServiceEventRuleActionsPriorityInput` via:
 //
-//          ServiceEventRuleActionsPriorityArgs{...}
+//	ServiceEventRuleActionsPriorityArgs{...}
 type ServiceEventRuleActionsPriorityInput interface {
 	pulumi.Input
 
@@ -9645,7 +9801,7 @@ func (i ServiceEventRuleActionsPriorityArgs) ToServiceEventRuleActionsPriorityOu
 // ServiceEventRuleActionsPriorityArrayInput is an input type that accepts ServiceEventRuleActionsPriorityArray and ServiceEventRuleActionsPriorityArrayOutput values.
 // You can construct a concrete instance of `ServiceEventRuleActionsPriorityArrayInput` via:
 //
-//          ServiceEventRuleActionsPriorityArray{ ServiceEventRuleActionsPriorityArgs{...} }
+//	ServiceEventRuleActionsPriorityArray{ ServiceEventRuleActionsPriorityArgs{...} }
 type ServiceEventRuleActionsPriorityArrayInput interface {
 	pulumi.Input
 
@@ -9714,7 +9870,7 @@ type ServiceEventRuleActionsSeverity struct {
 // ServiceEventRuleActionsSeverityInput is an input type that accepts ServiceEventRuleActionsSeverityArgs and ServiceEventRuleActionsSeverityOutput values.
 // You can construct a concrete instance of `ServiceEventRuleActionsSeverityInput` via:
 //
-//          ServiceEventRuleActionsSeverityArgs{...}
+//	ServiceEventRuleActionsSeverityArgs{...}
 type ServiceEventRuleActionsSeverityInput interface {
 	pulumi.Input
 
@@ -9742,7 +9898,7 @@ func (i ServiceEventRuleActionsSeverityArgs) ToServiceEventRuleActionsSeverityOu
 // ServiceEventRuleActionsSeverityArrayInput is an input type that accepts ServiceEventRuleActionsSeverityArray and ServiceEventRuleActionsSeverityArrayOutput values.
 // You can construct a concrete instance of `ServiceEventRuleActionsSeverityArrayInput` via:
 //
-//          ServiceEventRuleActionsSeverityArray{ ServiceEventRuleActionsSeverityArgs{...} }
+//	ServiceEventRuleActionsSeverityArray{ ServiceEventRuleActionsSeverityArgs{...} }
 type ServiceEventRuleActionsSeverityArrayInput interface {
 	pulumi.Input
 
@@ -9817,7 +9973,7 @@ type ServiceEventRuleActionsSuppress struct {
 // ServiceEventRuleActionsSuppressInput is an input type that accepts ServiceEventRuleActionsSuppressArgs and ServiceEventRuleActionsSuppressOutput values.
 // You can construct a concrete instance of `ServiceEventRuleActionsSuppressInput` via:
 //
-//          ServiceEventRuleActionsSuppressArgs{...}
+//	ServiceEventRuleActionsSuppressArgs{...}
 type ServiceEventRuleActionsSuppressInput interface {
 	pulumi.Input
 
@@ -9851,7 +10007,7 @@ func (i ServiceEventRuleActionsSuppressArgs) ToServiceEventRuleActionsSuppressOu
 // ServiceEventRuleActionsSuppressArrayInput is an input type that accepts ServiceEventRuleActionsSuppressArray and ServiceEventRuleActionsSuppressArrayOutput values.
 // You can construct a concrete instance of `ServiceEventRuleActionsSuppressArrayInput` via:
 //
-//          ServiceEventRuleActionsSuppressArray{ ServiceEventRuleActionsSuppressArgs{...} }
+//	ServiceEventRuleActionsSuppressArray{ ServiceEventRuleActionsSuppressArgs{...} }
 type ServiceEventRuleActionsSuppressArrayInput interface {
 	pulumi.Input
 
@@ -9935,7 +10091,7 @@ type ServiceEventRuleActionsSuspend struct {
 // ServiceEventRuleActionsSuspendInput is an input type that accepts ServiceEventRuleActionsSuspendArgs and ServiceEventRuleActionsSuspendOutput values.
 // You can construct a concrete instance of `ServiceEventRuleActionsSuspendInput` via:
 //
-//          ServiceEventRuleActionsSuspendArgs{...}
+//	ServiceEventRuleActionsSuspendArgs{...}
 type ServiceEventRuleActionsSuspendInput interface {
 	pulumi.Input
 
@@ -9963,7 +10119,7 @@ func (i ServiceEventRuleActionsSuspendArgs) ToServiceEventRuleActionsSuspendOutp
 // ServiceEventRuleActionsSuspendArrayInput is an input type that accepts ServiceEventRuleActionsSuspendArray and ServiceEventRuleActionsSuspendArrayOutput values.
 // You can construct a concrete instance of `ServiceEventRuleActionsSuspendArrayInput` via:
 //
-//          ServiceEventRuleActionsSuspendArray{ ServiceEventRuleActionsSuspendArgs{...} }
+//	ServiceEventRuleActionsSuspendArray{ ServiceEventRuleActionsSuspendArgs{...} }
 type ServiceEventRuleActionsSuspendArrayInput interface {
 	pulumi.Input
 
@@ -10034,7 +10190,7 @@ type ServiceEventRuleConditions struct {
 // ServiceEventRuleConditionsInput is an input type that accepts ServiceEventRuleConditionsArgs and ServiceEventRuleConditionsOutput values.
 // You can construct a concrete instance of `ServiceEventRuleConditionsInput` via:
 //
-//          ServiceEventRuleConditionsArgs{...}
+//	ServiceEventRuleConditionsArgs{...}
 type ServiceEventRuleConditionsInput interface {
 	pulumi.Input
 
@@ -10072,11 +10228,11 @@ func (i ServiceEventRuleConditionsArgs) ToServiceEventRuleConditionsPtrOutputWit
 // ServiceEventRuleConditionsPtrInput is an input type that accepts ServiceEventRuleConditionsArgs, ServiceEventRuleConditionsPtr and ServiceEventRuleConditionsPtrOutput values.
 // You can construct a concrete instance of `ServiceEventRuleConditionsPtrInput` via:
 //
-//          ServiceEventRuleConditionsArgs{...}
+//	        ServiceEventRuleConditionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceEventRuleConditionsPtrInput interface {
 	pulumi.Input
 
@@ -10190,7 +10346,7 @@ type ServiceEventRuleConditionsSubcondition struct {
 // ServiceEventRuleConditionsSubconditionInput is an input type that accepts ServiceEventRuleConditionsSubconditionArgs and ServiceEventRuleConditionsSubconditionOutput values.
 // You can construct a concrete instance of `ServiceEventRuleConditionsSubconditionInput` via:
 //
-//          ServiceEventRuleConditionsSubconditionArgs{...}
+//	ServiceEventRuleConditionsSubconditionArgs{...}
 type ServiceEventRuleConditionsSubconditionInput interface {
 	pulumi.Input
 
@@ -10220,7 +10376,7 @@ func (i ServiceEventRuleConditionsSubconditionArgs) ToServiceEventRuleConditions
 // ServiceEventRuleConditionsSubconditionArrayInput is an input type that accepts ServiceEventRuleConditionsSubconditionArray and ServiceEventRuleConditionsSubconditionArrayOutput values.
 // You can construct a concrete instance of `ServiceEventRuleConditionsSubconditionArrayInput` via:
 //
-//          ServiceEventRuleConditionsSubconditionArray{ ServiceEventRuleConditionsSubconditionArgs{...} }
+//	ServiceEventRuleConditionsSubconditionArray{ ServiceEventRuleConditionsSubconditionArgs{...} }
 type ServiceEventRuleConditionsSubconditionArrayInput interface {
 	pulumi.Input
 
@@ -10298,7 +10454,7 @@ type ServiceEventRuleConditionsSubconditionParameter struct {
 // ServiceEventRuleConditionsSubconditionParameterInput is an input type that accepts ServiceEventRuleConditionsSubconditionParameterArgs and ServiceEventRuleConditionsSubconditionParameterOutput values.
 // You can construct a concrete instance of `ServiceEventRuleConditionsSubconditionParameterInput` via:
 //
-//          ServiceEventRuleConditionsSubconditionParameterArgs{...}
+//	ServiceEventRuleConditionsSubconditionParameterArgs{...}
 type ServiceEventRuleConditionsSubconditionParameterInput interface {
 	pulumi.Input
 
@@ -10328,7 +10484,7 @@ func (i ServiceEventRuleConditionsSubconditionParameterArgs) ToServiceEventRuleC
 // ServiceEventRuleConditionsSubconditionParameterArrayInput is an input type that accepts ServiceEventRuleConditionsSubconditionParameterArray and ServiceEventRuleConditionsSubconditionParameterArrayOutput values.
 // You can construct a concrete instance of `ServiceEventRuleConditionsSubconditionParameterArrayInput` via:
 //
-//          ServiceEventRuleConditionsSubconditionParameterArray{ ServiceEventRuleConditionsSubconditionParameterArgs{...} }
+//	ServiceEventRuleConditionsSubconditionParameterArray{ ServiceEventRuleConditionsSubconditionParameterArgs{...} }
 type ServiceEventRuleConditionsSubconditionParameterArrayInput interface {
 	pulumi.Input
 
@@ -10404,7 +10560,7 @@ type ServiceEventRuleTimeFrame struct {
 // ServiceEventRuleTimeFrameInput is an input type that accepts ServiceEventRuleTimeFrameArgs and ServiceEventRuleTimeFrameOutput values.
 // You can construct a concrete instance of `ServiceEventRuleTimeFrameInput` via:
 //
-//          ServiceEventRuleTimeFrameArgs{...}
+//	ServiceEventRuleTimeFrameArgs{...}
 type ServiceEventRuleTimeFrameInput interface {
 	pulumi.Input
 
@@ -10442,11 +10598,11 @@ func (i ServiceEventRuleTimeFrameArgs) ToServiceEventRuleTimeFramePtrOutputWithC
 // ServiceEventRuleTimeFramePtrInput is an input type that accepts ServiceEventRuleTimeFrameArgs, ServiceEventRuleTimeFramePtr and ServiceEventRuleTimeFramePtrOutput values.
 // You can construct a concrete instance of `ServiceEventRuleTimeFramePtrInput` via:
 //
-//          ServiceEventRuleTimeFrameArgs{...}
+//	        ServiceEventRuleTimeFrameArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceEventRuleTimeFramePtrInput interface {
 	pulumi.Input
 
@@ -10562,7 +10718,7 @@ type ServiceEventRuleTimeFrameActiveBetween struct {
 // ServiceEventRuleTimeFrameActiveBetweenInput is an input type that accepts ServiceEventRuleTimeFrameActiveBetweenArgs and ServiceEventRuleTimeFrameActiveBetweenOutput values.
 // You can construct a concrete instance of `ServiceEventRuleTimeFrameActiveBetweenInput` via:
 //
-//          ServiceEventRuleTimeFrameActiveBetweenArgs{...}
+//	ServiceEventRuleTimeFrameActiveBetweenArgs{...}
 type ServiceEventRuleTimeFrameActiveBetweenInput interface {
 	pulumi.Input
 
@@ -10592,7 +10748,7 @@ func (i ServiceEventRuleTimeFrameActiveBetweenArgs) ToServiceEventRuleTimeFrameA
 // ServiceEventRuleTimeFrameActiveBetweenArrayInput is an input type that accepts ServiceEventRuleTimeFrameActiveBetweenArray and ServiceEventRuleTimeFrameActiveBetweenArrayOutput values.
 // You can construct a concrete instance of `ServiceEventRuleTimeFrameActiveBetweenArrayInput` via:
 //
-//          ServiceEventRuleTimeFrameActiveBetweenArray{ ServiceEventRuleTimeFrameActiveBetweenArgs{...} }
+//	ServiceEventRuleTimeFrameActiveBetweenArray{ ServiceEventRuleTimeFrameActiveBetweenArgs{...} }
 type ServiceEventRuleTimeFrameActiveBetweenArrayInput interface {
 	pulumi.Input
 
@@ -10672,7 +10828,7 @@ type ServiceEventRuleTimeFrameScheduledWeekly struct {
 // ServiceEventRuleTimeFrameScheduledWeeklyInput is an input type that accepts ServiceEventRuleTimeFrameScheduledWeeklyArgs and ServiceEventRuleTimeFrameScheduledWeeklyOutput values.
 // You can construct a concrete instance of `ServiceEventRuleTimeFrameScheduledWeeklyInput` via:
 //
-//          ServiceEventRuleTimeFrameScheduledWeeklyArgs{...}
+//	ServiceEventRuleTimeFrameScheduledWeeklyArgs{...}
 type ServiceEventRuleTimeFrameScheduledWeeklyInput interface {
 	pulumi.Input
 
@@ -10706,7 +10862,7 @@ func (i ServiceEventRuleTimeFrameScheduledWeeklyArgs) ToServiceEventRuleTimeFram
 // ServiceEventRuleTimeFrameScheduledWeeklyArrayInput is an input type that accepts ServiceEventRuleTimeFrameScheduledWeeklyArray and ServiceEventRuleTimeFrameScheduledWeeklyArrayOutput values.
 // You can construct a concrete instance of `ServiceEventRuleTimeFrameScheduledWeeklyArrayInput` via:
 //
-//          ServiceEventRuleTimeFrameScheduledWeeklyArray{ ServiceEventRuleTimeFrameScheduledWeeklyArgs{...} }
+//	ServiceEventRuleTimeFrameScheduledWeeklyArray{ ServiceEventRuleTimeFrameScheduledWeeklyArgs{...} }
 type ServiceEventRuleTimeFrameScheduledWeeklyArrayInput interface {
 	pulumi.Input
 
@@ -10794,7 +10950,7 @@ type ServiceEventRuleVariable struct {
 // ServiceEventRuleVariableInput is an input type that accepts ServiceEventRuleVariableArgs and ServiceEventRuleVariableOutput values.
 // You can construct a concrete instance of `ServiceEventRuleVariableInput` via:
 //
-//          ServiceEventRuleVariableArgs{...}
+//	ServiceEventRuleVariableArgs{...}
 type ServiceEventRuleVariableInput interface {
 	pulumi.Input
 
@@ -10826,7 +10982,7 @@ func (i ServiceEventRuleVariableArgs) ToServiceEventRuleVariableOutputWithContex
 // ServiceEventRuleVariableArrayInput is an input type that accepts ServiceEventRuleVariableArray and ServiceEventRuleVariableArrayOutput values.
 // You can construct a concrete instance of `ServiceEventRuleVariableArrayInput` via:
 //
-//          ServiceEventRuleVariableArray{ ServiceEventRuleVariableArgs{...} }
+//	ServiceEventRuleVariableArray{ ServiceEventRuleVariableArgs{...} }
 type ServiceEventRuleVariableArrayInput interface {
 	pulumi.Input
 
@@ -10907,7 +11063,7 @@ type ServiceEventRuleVariableParameter struct {
 // ServiceEventRuleVariableParameterInput is an input type that accepts ServiceEventRuleVariableParameterArgs and ServiceEventRuleVariableParameterOutput values.
 // You can construct a concrete instance of `ServiceEventRuleVariableParameterInput` via:
 //
-//          ServiceEventRuleVariableParameterArgs{...}
+//	ServiceEventRuleVariableParameterArgs{...}
 type ServiceEventRuleVariableParameterInput interface {
 	pulumi.Input
 
@@ -10937,7 +11093,7 @@ func (i ServiceEventRuleVariableParameterArgs) ToServiceEventRuleVariableParamet
 // ServiceEventRuleVariableParameterArrayInput is an input type that accepts ServiceEventRuleVariableParameterArray and ServiceEventRuleVariableParameterArrayOutput values.
 // You can construct a concrete instance of `ServiceEventRuleVariableParameterArrayInput` via:
 //
-//          ServiceEventRuleVariableParameterArray{ ServiceEventRuleVariableParameterArgs{...} }
+//	ServiceEventRuleVariableParameterArray{ ServiceEventRuleVariableParameterArgs{...} }
 type ServiceEventRuleVariableParameterArrayInput interface {
 	pulumi.Input
 
@@ -11017,7 +11173,7 @@ type ServiceIncidentUrgencyRule struct {
 // ServiceIncidentUrgencyRuleInput is an input type that accepts ServiceIncidentUrgencyRuleArgs and ServiceIncidentUrgencyRuleOutput values.
 // You can construct a concrete instance of `ServiceIncidentUrgencyRuleInput` via:
 //
-//          ServiceIncidentUrgencyRuleArgs{...}
+//	ServiceIncidentUrgencyRuleArgs{...}
 type ServiceIncidentUrgencyRuleInput interface {
 	pulumi.Input
 
@@ -11059,11 +11215,11 @@ func (i ServiceIncidentUrgencyRuleArgs) ToServiceIncidentUrgencyRulePtrOutputWit
 // ServiceIncidentUrgencyRulePtrInput is an input type that accepts ServiceIncidentUrgencyRuleArgs, ServiceIncidentUrgencyRulePtr and ServiceIncidentUrgencyRulePtrOutput values.
 // You can construct a concrete instance of `ServiceIncidentUrgencyRulePtrInput` via:
 //
-//          ServiceIncidentUrgencyRuleArgs{...}
+//	        ServiceIncidentUrgencyRuleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceIncidentUrgencyRulePtrInput interface {
 	pulumi.Input
 
@@ -11211,7 +11367,7 @@ type ServiceIncidentUrgencyRuleDuringSupportHours struct {
 // ServiceIncidentUrgencyRuleDuringSupportHoursInput is an input type that accepts ServiceIncidentUrgencyRuleDuringSupportHoursArgs and ServiceIncidentUrgencyRuleDuringSupportHoursOutput values.
 // You can construct a concrete instance of `ServiceIncidentUrgencyRuleDuringSupportHoursInput` via:
 //
-//          ServiceIncidentUrgencyRuleDuringSupportHoursArgs{...}
+//	ServiceIncidentUrgencyRuleDuringSupportHoursArgs{...}
 type ServiceIncidentUrgencyRuleDuringSupportHoursInput interface {
 	pulumi.Input
 
@@ -11249,11 +11405,11 @@ func (i ServiceIncidentUrgencyRuleDuringSupportHoursArgs) ToServiceIncidentUrgen
 // ServiceIncidentUrgencyRuleDuringSupportHoursPtrInput is an input type that accepts ServiceIncidentUrgencyRuleDuringSupportHoursArgs, ServiceIncidentUrgencyRuleDuringSupportHoursPtr and ServiceIncidentUrgencyRuleDuringSupportHoursPtrOutput values.
 // You can construct a concrete instance of `ServiceIncidentUrgencyRuleDuringSupportHoursPtrInput` via:
 //
-//          ServiceIncidentUrgencyRuleDuringSupportHoursArgs{...}
+//	        ServiceIncidentUrgencyRuleDuringSupportHoursArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceIncidentUrgencyRuleDuringSupportHoursPtrInput interface {
 	pulumi.Input
 
@@ -11367,7 +11523,7 @@ type ServiceIncidentUrgencyRuleOutsideSupportHours struct {
 // ServiceIncidentUrgencyRuleOutsideSupportHoursInput is an input type that accepts ServiceIncidentUrgencyRuleOutsideSupportHoursArgs and ServiceIncidentUrgencyRuleOutsideSupportHoursOutput values.
 // You can construct a concrete instance of `ServiceIncidentUrgencyRuleOutsideSupportHoursInput` via:
 //
-//          ServiceIncidentUrgencyRuleOutsideSupportHoursArgs{...}
+//	ServiceIncidentUrgencyRuleOutsideSupportHoursArgs{...}
 type ServiceIncidentUrgencyRuleOutsideSupportHoursInput interface {
 	pulumi.Input
 
@@ -11405,11 +11561,11 @@ func (i ServiceIncidentUrgencyRuleOutsideSupportHoursArgs) ToServiceIncidentUrge
 // ServiceIncidentUrgencyRuleOutsideSupportHoursPtrInput is an input type that accepts ServiceIncidentUrgencyRuleOutsideSupportHoursArgs, ServiceIncidentUrgencyRuleOutsideSupportHoursPtr and ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput values.
 // You can construct a concrete instance of `ServiceIncidentUrgencyRuleOutsideSupportHoursPtrInput` via:
 //
-//          ServiceIncidentUrgencyRuleOutsideSupportHoursArgs{...}
+//	        ServiceIncidentUrgencyRuleOutsideSupportHoursArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceIncidentUrgencyRuleOutsideSupportHoursPtrInput interface {
 	pulumi.Input
 
@@ -11533,7 +11689,7 @@ type ServiceIntegrationEmailFilter struct {
 // ServiceIntegrationEmailFilterInput is an input type that accepts ServiceIntegrationEmailFilterArgs and ServiceIntegrationEmailFilterOutput values.
 // You can construct a concrete instance of `ServiceIntegrationEmailFilterInput` via:
 //
-//          ServiceIntegrationEmailFilterArgs{...}
+//	ServiceIntegrationEmailFilterArgs{...}
 type ServiceIntegrationEmailFilterInput interface {
 	pulumi.Input
 
@@ -11573,7 +11729,7 @@ func (i ServiceIntegrationEmailFilterArgs) ToServiceIntegrationEmailFilterOutput
 // ServiceIntegrationEmailFilterArrayInput is an input type that accepts ServiceIntegrationEmailFilterArray and ServiceIntegrationEmailFilterArrayOutput values.
 // You can construct a concrete instance of `ServiceIntegrationEmailFilterArrayInput` via:
 //
-//          ServiceIntegrationEmailFilterArray{ ServiceIntegrationEmailFilterArgs{...} }
+//	ServiceIntegrationEmailFilterArray{ ServiceIntegrationEmailFilterArgs{...} }
 type ServiceIntegrationEmailFilterArrayInput interface {
 	pulumi.Input
 
@@ -11676,7 +11832,7 @@ type ServiceIntegrationEmailParser struct {
 // ServiceIntegrationEmailParserInput is an input type that accepts ServiceIntegrationEmailParserArgs and ServiceIntegrationEmailParserOutput values.
 // You can construct a concrete instance of `ServiceIntegrationEmailParserInput` via:
 //
-//          ServiceIntegrationEmailParserArgs{...}
+//	ServiceIntegrationEmailParserArgs{...}
 type ServiceIntegrationEmailParserInput interface {
 	pulumi.Input
 
@@ -11708,7 +11864,7 @@ func (i ServiceIntegrationEmailParserArgs) ToServiceIntegrationEmailParserOutput
 // ServiceIntegrationEmailParserArrayInput is an input type that accepts ServiceIntegrationEmailParserArray and ServiceIntegrationEmailParserArrayOutput values.
 // You can construct a concrete instance of `ServiceIntegrationEmailParserArrayInput` via:
 //
-//          ServiceIntegrationEmailParserArray{ ServiceIntegrationEmailParserArgs{...} }
+//	ServiceIntegrationEmailParserArray{ ServiceIntegrationEmailParserArgs{...} }
 type ServiceIntegrationEmailParserArrayInput interface {
 	pulumi.Input
 
@@ -11795,7 +11951,7 @@ type ServiceIntegrationEmailParserMatchPredicate struct {
 // ServiceIntegrationEmailParserMatchPredicateInput is an input type that accepts ServiceIntegrationEmailParserMatchPredicateArgs and ServiceIntegrationEmailParserMatchPredicateOutput values.
 // You can construct a concrete instance of `ServiceIntegrationEmailParserMatchPredicateInput` via:
 //
-//          ServiceIntegrationEmailParserMatchPredicateArgs{...}
+//	ServiceIntegrationEmailParserMatchPredicateArgs{...}
 type ServiceIntegrationEmailParserMatchPredicateInput interface {
 	pulumi.Input
 
@@ -11859,7 +12015,7 @@ type ServiceIntegrationEmailParserMatchPredicatePredicate struct {
 // ServiceIntegrationEmailParserMatchPredicatePredicateInput is an input type that accepts ServiceIntegrationEmailParserMatchPredicatePredicateArgs and ServiceIntegrationEmailParserMatchPredicatePredicateOutput values.
 // You can construct a concrete instance of `ServiceIntegrationEmailParserMatchPredicatePredicateInput` via:
 //
-//          ServiceIntegrationEmailParserMatchPredicatePredicateArgs{...}
+//	ServiceIntegrationEmailParserMatchPredicatePredicateArgs{...}
 type ServiceIntegrationEmailParserMatchPredicatePredicateInput interface {
 	pulumi.Input
 
@@ -11892,7 +12048,7 @@ func (i ServiceIntegrationEmailParserMatchPredicatePredicateArgs) ToServiceInteg
 // ServiceIntegrationEmailParserMatchPredicatePredicateArrayInput is an input type that accepts ServiceIntegrationEmailParserMatchPredicatePredicateArray and ServiceIntegrationEmailParserMatchPredicatePredicateArrayOutput values.
 // You can construct a concrete instance of `ServiceIntegrationEmailParserMatchPredicatePredicateArrayInput` via:
 //
-//          ServiceIntegrationEmailParserMatchPredicatePredicateArray{ ServiceIntegrationEmailParserMatchPredicatePredicateArgs{...} }
+//	ServiceIntegrationEmailParserMatchPredicatePredicateArray{ ServiceIntegrationEmailParserMatchPredicatePredicateArgs{...} }
 type ServiceIntegrationEmailParserMatchPredicatePredicateArrayInput interface {
 	pulumi.Input
 
@@ -11981,7 +12137,7 @@ type ServiceIntegrationEmailParserMatchPredicatePredicatePredicate struct {
 // ServiceIntegrationEmailParserMatchPredicatePredicatePredicateInput is an input type that accepts ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs and ServiceIntegrationEmailParserMatchPredicatePredicatePredicateOutput values.
 // You can construct a concrete instance of `ServiceIntegrationEmailParserMatchPredicatePredicatePredicateInput` via:
 //
-//          ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs{...}
+//	ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs{...}
 type ServiceIntegrationEmailParserMatchPredicatePredicatePredicateInput interface {
 	pulumi.Input
 
@@ -12013,7 +12169,7 @@ func (i ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs) ToSer
 // ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayInput is an input type that accepts ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArray and ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayOutput values.
 // You can construct a concrete instance of `ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayInput` via:
 //
-//          ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArray{ ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs{...} }
+//	ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArray{ ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs{...} }
 type ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayInput interface {
 	pulumi.Input
 
@@ -12100,7 +12256,7 @@ type ServiceIntegrationEmailParserValueExtractor struct {
 // ServiceIntegrationEmailParserValueExtractorInput is an input type that accepts ServiceIntegrationEmailParserValueExtractorArgs and ServiceIntegrationEmailParserValueExtractorOutput values.
 // You can construct a concrete instance of `ServiceIntegrationEmailParserValueExtractorInput` via:
 //
-//          ServiceIntegrationEmailParserValueExtractorArgs{...}
+//	ServiceIntegrationEmailParserValueExtractorArgs{...}
 type ServiceIntegrationEmailParserValueExtractorInput interface {
 	pulumi.Input
 
@@ -12136,7 +12292,7 @@ func (i ServiceIntegrationEmailParserValueExtractorArgs) ToServiceIntegrationEma
 // ServiceIntegrationEmailParserValueExtractorArrayInput is an input type that accepts ServiceIntegrationEmailParserValueExtractorArray and ServiceIntegrationEmailParserValueExtractorArrayOutput values.
 // You can construct a concrete instance of `ServiceIntegrationEmailParserValueExtractorArrayInput` via:
 //
-//          ServiceIntegrationEmailParserValueExtractorArray{ ServiceIntegrationEmailParserValueExtractorArgs{...} }
+//	ServiceIntegrationEmailParserValueExtractorArray{ ServiceIntegrationEmailParserValueExtractorArgs{...} }
 type ServiceIntegrationEmailParserValueExtractorArrayInput interface {
 	pulumi.Input
 
@@ -12232,7 +12388,7 @@ type ServiceScheduledAction struct {
 // ServiceScheduledActionInput is an input type that accepts ServiceScheduledActionArgs and ServiceScheduledActionOutput values.
 // You can construct a concrete instance of `ServiceScheduledActionInput` via:
 //
-//          ServiceScheduledActionArgs{...}
+//	ServiceScheduledActionArgs{...}
 type ServiceScheduledActionInput interface {
 	pulumi.Input
 
@@ -12264,7 +12420,7 @@ func (i ServiceScheduledActionArgs) ToServiceScheduledActionOutputWithContext(ct
 // ServiceScheduledActionArrayInput is an input type that accepts ServiceScheduledActionArray and ServiceScheduledActionArrayOutput values.
 // You can construct a concrete instance of `ServiceScheduledActionArrayInput` via:
 //
-//          ServiceScheduledActionArray{ ServiceScheduledActionArgs{...} }
+//	ServiceScheduledActionArray{ ServiceScheduledActionArgs{...} }
 type ServiceScheduledActionArrayInput interface {
 	pulumi.Input
 
@@ -12345,7 +12501,7 @@ type ServiceScheduledActionAt struct {
 // ServiceScheduledActionAtInput is an input type that accepts ServiceScheduledActionAtArgs and ServiceScheduledActionAtOutput values.
 // You can construct a concrete instance of `ServiceScheduledActionAtInput` via:
 //
-//          ServiceScheduledActionAtArgs{...}
+//	ServiceScheduledActionAtArgs{...}
 type ServiceScheduledActionAtInput interface {
 	pulumi.Input
 
@@ -12375,7 +12531,7 @@ func (i ServiceScheduledActionAtArgs) ToServiceScheduledActionAtOutputWithContex
 // ServiceScheduledActionAtArrayInput is an input type that accepts ServiceScheduledActionAtArray and ServiceScheduledActionAtArrayOutput values.
 // You can construct a concrete instance of `ServiceScheduledActionAtArrayInput` via:
 //
-//          ServiceScheduledActionAtArray{ ServiceScheduledActionAtArgs{...} }
+//	ServiceScheduledActionAtArray{ ServiceScheduledActionAtArgs{...} }
 type ServiceScheduledActionAtArrayInput interface {
 	pulumi.Input
 
@@ -12458,7 +12614,7 @@ type ServiceSupportHours struct {
 // ServiceSupportHoursInput is an input type that accepts ServiceSupportHoursArgs and ServiceSupportHoursOutput values.
 // You can construct a concrete instance of `ServiceSupportHoursInput` via:
 //
-//          ServiceSupportHoursArgs{...}
+//	ServiceSupportHoursArgs{...}
 type ServiceSupportHoursInput interface {
 	pulumi.Input
 
@@ -12503,11 +12659,11 @@ func (i ServiceSupportHoursArgs) ToServiceSupportHoursPtrOutputWithContext(ctx c
 // ServiceSupportHoursPtrInput is an input type that accepts ServiceSupportHoursArgs, ServiceSupportHoursPtr and ServiceSupportHoursPtrOutput values.
 // You can construct a concrete instance of `ServiceSupportHoursPtrInput` via:
 //
-//          ServiceSupportHoursArgs{...}
+//	        ServiceSupportHoursArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceSupportHoursPtrInput interface {
 	pulumi.Input
 
@@ -12681,7 +12837,7 @@ type SlackConnectionConfig struct {
 // SlackConnectionConfigInput is an input type that accepts SlackConnectionConfigArgs and SlackConnectionConfigOutput values.
 // You can construct a concrete instance of `SlackConnectionConfigInput` via:
 //
-//          SlackConnectionConfigArgs{...}
+//	SlackConnectionConfigArgs{...}
 type SlackConnectionConfigInput interface {
 	pulumi.Input
 
@@ -12724,7 +12880,7 @@ func (i SlackConnectionConfigArgs) ToSlackConnectionConfigOutputWithContext(ctx 
 // SlackConnectionConfigArrayInput is an input type that accepts SlackConnectionConfigArray and SlackConnectionConfigArrayOutput values.
 // You can construct a concrete instance of `SlackConnectionConfigArrayInput` via:
 //
-//          SlackConnectionConfigArray{ SlackConnectionConfigArgs{...} }
+//	SlackConnectionConfigArray{ SlackConnectionConfigArgs{...} }
 type SlackConnectionConfigArrayInput interface {
 	pulumi.Input
 
@@ -12820,7 +12976,7 @@ type WebhookSubscriptionDeliveryMethod struct {
 // WebhookSubscriptionDeliveryMethodInput is an input type that accepts WebhookSubscriptionDeliveryMethodArgs and WebhookSubscriptionDeliveryMethodOutput values.
 // You can construct a concrete instance of `WebhookSubscriptionDeliveryMethodInput` via:
 //
-//          WebhookSubscriptionDeliveryMethodArgs{...}
+//	WebhookSubscriptionDeliveryMethodArgs{...}
 type WebhookSubscriptionDeliveryMethodInput interface {
 	pulumi.Input
 
@@ -12854,7 +13010,7 @@ func (i WebhookSubscriptionDeliveryMethodArgs) ToWebhookSubscriptionDeliveryMeth
 // WebhookSubscriptionDeliveryMethodArrayInput is an input type that accepts WebhookSubscriptionDeliveryMethodArray and WebhookSubscriptionDeliveryMethodArrayOutput values.
 // You can construct a concrete instance of `WebhookSubscriptionDeliveryMethodArrayInput` via:
 //
-//          WebhookSubscriptionDeliveryMethodArray{ WebhookSubscriptionDeliveryMethodArgs{...} }
+//	WebhookSubscriptionDeliveryMethodArray{ WebhookSubscriptionDeliveryMethodArgs{...} }
 type WebhookSubscriptionDeliveryMethodArrayInput interface {
 	pulumi.Input
 
@@ -12940,7 +13096,7 @@ type WebhookSubscriptionDeliveryMethodCustomHeader struct {
 // WebhookSubscriptionDeliveryMethodCustomHeaderInput is an input type that accepts WebhookSubscriptionDeliveryMethodCustomHeaderArgs and WebhookSubscriptionDeliveryMethodCustomHeaderOutput values.
 // You can construct a concrete instance of `WebhookSubscriptionDeliveryMethodCustomHeaderInput` via:
 //
-//          WebhookSubscriptionDeliveryMethodCustomHeaderArgs{...}
+//	WebhookSubscriptionDeliveryMethodCustomHeaderArgs{...}
 type WebhookSubscriptionDeliveryMethodCustomHeaderInput interface {
 	pulumi.Input
 
@@ -12968,7 +13124,7 @@ func (i WebhookSubscriptionDeliveryMethodCustomHeaderArgs) ToWebhookSubscription
 // WebhookSubscriptionDeliveryMethodCustomHeaderArrayInput is an input type that accepts WebhookSubscriptionDeliveryMethodCustomHeaderArray and WebhookSubscriptionDeliveryMethodCustomHeaderArrayOutput values.
 // You can construct a concrete instance of `WebhookSubscriptionDeliveryMethodCustomHeaderArrayInput` via:
 //
-//          WebhookSubscriptionDeliveryMethodCustomHeaderArray{ WebhookSubscriptionDeliveryMethodCustomHeaderArgs{...} }
+//	WebhookSubscriptionDeliveryMethodCustomHeaderArray{ WebhookSubscriptionDeliveryMethodCustomHeaderArgs{...} }
 type WebhookSubscriptionDeliveryMethodCustomHeaderArrayInput interface {
 	pulumi.Input
 
@@ -13042,7 +13198,7 @@ type WebhookSubscriptionFilter struct {
 // WebhookSubscriptionFilterInput is an input type that accepts WebhookSubscriptionFilterArgs and WebhookSubscriptionFilterOutput values.
 // You can construct a concrete instance of `WebhookSubscriptionFilterInput` via:
 //
-//          WebhookSubscriptionFilterArgs{...}
+//	WebhookSubscriptionFilterArgs{...}
 type WebhookSubscriptionFilterInput interface {
 	pulumi.Input
 
@@ -13072,7 +13228,7 @@ func (i WebhookSubscriptionFilterArgs) ToWebhookSubscriptionFilterOutputWithCont
 // WebhookSubscriptionFilterArrayInput is an input type that accepts WebhookSubscriptionFilterArray and WebhookSubscriptionFilterArrayOutput values.
 // You can construct a concrete instance of `WebhookSubscriptionFilterArrayInput` via:
 //
-//          WebhookSubscriptionFilterArray{ WebhookSubscriptionFilterArgs{...} }
+//	WebhookSubscriptionFilterArray{ WebhookSubscriptionFilterArgs{...} }
 type WebhookSubscriptionFilterArrayInput interface {
 	pulumi.Input
 
@@ -13148,7 +13304,7 @@ type GetEventOrchestrationIntegration struct {
 // GetEventOrchestrationIntegrationInput is an input type that accepts GetEventOrchestrationIntegrationArgs and GetEventOrchestrationIntegrationOutput values.
 // You can construct a concrete instance of `GetEventOrchestrationIntegrationInput` via:
 //
-//          GetEventOrchestrationIntegrationArgs{...}
+//	GetEventOrchestrationIntegrationArgs{...}
 type GetEventOrchestrationIntegrationInput interface {
 	pulumi.Input
 
@@ -13178,7 +13334,7 @@ func (i GetEventOrchestrationIntegrationArgs) ToGetEventOrchestrationIntegration
 // GetEventOrchestrationIntegrationArrayInput is an input type that accepts GetEventOrchestrationIntegrationArray and GetEventOrchestrationIntegrationArrayOutput values.
 // You can construct a concrete instance of `GetEventOrchestrationIntegrationArrayInput` via:
 //
-//          GetEventOrchestrationIntegrationArray{ GetEventOrchestrationIntegrationArgs{...} }
+//	GetEventOrchestrationIntegrationArray{ GetEventOrchestrationIntegrationArgs{...} }
 type GetEventOrchestrationIntegrationArrayInput interface {
 	pulumi.Input
 
@@ -13256,7 +13412,7 @@ type GetEventOrchestrationIntegrationParameter struct {
 // GetEventOrchestrationIntegrationParameterInput is an input type that accepts GetEventOrchestrationIntegrationParameterArgs and GetEventOrchestrationIntegrationParameterOutput values.
 // You can construct a concrete instance of `GetEventOrchestrationIntegrationParameterInput` via:
 //
-//          GetEventOrchestrationIntegrationParameterArgs{...}
+//	GetEventOrchestrationIntegrationParameterArgs{...}
 type GetEventOrchestrationIntegrationParameterInput interface {
 	pulumi.Input
 
@@ -13286,7 +13442,7 @@ func (i GetEventOrchestrationIntegrationParameterArgs) ToGetEventOrchestrationIn
 // GetEventOrchestrationIntegrationParameterArrayInput is an input type that accepts GetEventOrchestrationIntegrationParameterArray and GetEventOrchestrationIntegrationParameterArrayOutput values.
 // You can construct a concrete instance of `GetEventOrchestrationIntegrationParameterArrayInput` via:
 //
-//          GetEventOrchestrationIntegrationParameterArray{ GetEventOrchestrationIntegrationParameterArgs{...} }
+//	GetEventOrchestrationIntegrationParameterArray{ GetEventOrchestrationIntegrationParameterArgs{...} }
 type GetEventOrchestrationIntegrationParameterArrayInput interface {
 	pulumi.Input
 
@@ -13350,6 +13506,121 @@ func (o GetEventOrchestrationIntegrationParameterArrayOutput) Index(i pulumi.Int
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEventOrchestrationIntegrationParameter {
 		return vs[0].([]GetEventOrchestrationIntegrationParameter)[vs[1].(int)]
 	}).(GetEventOrchestrationIntegrationParameterOutput)
+}
+
+type GetUsersUser struct {
+	// The email to use to find a user in the PagerDuty API.
+	Email string `pulumi:"email"`
+	// The ID of the found user.
+	Id string `pulumi:"id"`
+	// The short name of the found user.
+	Name string `pulumi:"name"`
+}
+
+// GetUsersUserInput is an input type that accepts GetUsersUserArgs and GetUsersUserOutput values.
+// You can construct a concrete instance of `GetUsersUserInput` via:
+//
+//	GetUsersUserArgs{...}
+type GetUsersUserInput interface {
+	pulumi.Input
+
+	ToGetUsersUserOutput() GetUsersUserOutput
+	ToGetUsersUserOutputWithContext(context.Context) GetUsersUserOutput
+}
+
+type GetUsersUserArgs struct {
+	// The email to use to find a user in the PagerDuty API.
+	Email pulumi.StringInput `pulumi:"email"`
+	// The ID of the found user.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The short name of the found user.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetUsersUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUsersUser)(nil)).Elem()
+}
+
+func (i GetUsersUserArgs) ToGetUsersUserOutput() GetUsersUserOutput {
+	return i.ToGetUsersUserOutputWithContext(context.Background())
+}
+
+func (i GetUsersUserArgs) ToGetUsersUserOutputWithContext(ctx context.Context) GetUsersUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUsersUserOutput)
+}
+
+// GetUsersUserArrayInput is an input type that accepts GetUsersUserArray and GetUsersUserArrayOutput values.
+// You can construct a concrete instance of `GetUsersUserArrayInput` via:
+//
+//	GetUsersUserArray{ GetUsersUserArgs{...} }
+type GetUsersUserArrayInput interface {
+	pulumi.Input
+
+	ToGetUsersUserArrayOutput() GetUsersUserArrayOutput
+	ToGetUsersUserArrayOutputWithContext(context.Context) GetUsersUserArrayOutput
+}
+
+type GetUsersUserArray []GetUsersUserInput
+
+func (GetUsersUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUsersUser)(nil)).Elem()
+}
+
+func (i GetUsersUserArray) ToGetUsersUserArrayOutput() GetUsersUserArrayOutput {
+	return i.ToGetUsersUserArrayOutputWithContext(context.Background())
+}
+
+func (i GetUsersUserArray) ToGetUsersUserArrayOutputWithContext(ctx context.Context) GetUsersUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUsersUserArrayOutput)
+}
+
+type GetUsersUserOutput struct{ *pulumi.OutputState }
+
+func (GetUsersUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUsersUser)(nil)).Elem()
+}
+
+func (o GetUsersUserOutput) ToGetUsersUserOutput() GetUsersUserOutput {
+	return o
+}
+
+func (o GetUsersUserOutput) ToGetUsersUserOutputWithContext(ctx context.Context) GetUsersUserOutput {
+	return o
+}
+
+// The email to use to find a user in the PagerDuty API.
+func (o GetUsersUserOutput) Email() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUsersUser) string { return v.Email }).(pulumi.StringOutput)
+}
+
+// The ID of the found user.
+func (o GetUsersUserOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUsersUser) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The short name of the found user.
+func (o GetUsersUserOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUsersUser) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetUsersUserArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUsersUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUsersUser)(nil)).Elem()
+}
+
+func (o GetUsersUserArrayOutput) ToGetUsersUserArrayOutput() GetUsersUserArrayOutput {
+	return o
+}
+
+func (o GetUsersUserArrayOutput) ToGetUsersUserArrayOutputWithContext(ctx context.Context) GetUsersUserArrayOutput {
+	return o
+}
+
+func (o GetUsersUserArrayOutput) Index(i pulumi.IntInput) GetUsersUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUsersUser {
+		return vs[0].([]GetUsersUser)[vs[1].(int)]
+	}).(GetUsersUserOutput)
 }
 
 func init() {
@@ -13484,6 +13755,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAlertGroupingParametersPtrInput)(nil)).Elem(), ServiceAlertGroupingParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAlertGroupingParametersConfigInput)(nil)).Elem(), ServiceAlertGroupingParametersConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAlertGroupingParametersConfigPtrInput)(nil)).Elem(), ServiceAlertGroupingParametersConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAutoPauseNotificationsParametersInput)(nil)).Elem(), ServiceAutoPauseNotificationsParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAutoPauseNotificationsParametersPtrInput)(nil)).Elem(), ServiceAutoPauseNotificationsParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDependencyDependencyInput)(nil)).Elem(), ServiceDependencyDependencyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDependencyDependencyPtrInput)(nil)).Elem(), ServiceDependencyDependencyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDependencyDependencyDependentServiceInput)(nil)).Elem(), ServiceDependencyDependencyDependentServiceArgs{})
@@ -13557,6 +13830,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationIntegrationArrayInput)(nil)).Elem(), GetEventOrchestrationIntegrationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationIntegrationParameterInput)(nil)).Elem(), GetEventOrchestrationIntegrationParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationIntegrationParameterArrayInput)(nil)).Elem(), GetEventOrchestrationIntegrationParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserInput)(nil)).Elem(), GetUsersUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserArrayInput)(nil)).Elem(), GetUsersUserArray{})
 	pulumi.RegisterOutputType(EscalationPolicyRuleOutput{})
 	pulumi.RegisterOutputType(EscalationPolicyRuleArrayOutput{})
 	pulumi.RegisterOutputType(EscalationPolicyRuleTargetOutput{})
@@ -13688,6 +13963,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceAlertGroupingParametersPtrOutput{})
 	pulumi.RegisterOutputType(ServiceAlertGroupingParametersConfigOutput{})
 	pulumi.RegisterOutputType(ServiceAlertGroupingParametersConfigPtrOutput{})
+	pulumi.RegisterOutputType(ServiceAutoPauseNotificationsParametersOutput{})
+	pulumi.RegisterOutputType(ServiceAutoPauseNotificationsParametersPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDependencyDependencyOutput{})
 	pulumi.RegisterOutputType(ServiceDependencyDependencyPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDependencyDependencyDependentServiceOutput{})
@@ -13761,4 +14038,6 @@ func init() {
 	pulumi.RegisterOutputType(GetEventOrchestrationIntegrationArrayOutput{})
 	pulumi.RegisterOutputType(GetEventOrchestrationIntegrationParameterOutput{})
 	pulumi.RegisterOutputType(GetEventOrchestrationIntegrationParameterArrayOutput{})
+	pulumi.RegisterOutputType(GetUsersUserOutput{})
+	pulumi.RegisterOutputType(GetUsersUserArrayOutput{})
 }

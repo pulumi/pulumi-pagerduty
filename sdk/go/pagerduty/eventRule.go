@@ -21,151 +21,154 @@ import (
 // package main
 //
 // import (
-// 	"encoding/json"
 //
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		tmpJSON0, err := json.Marshal([][]string{
-// 			[]string{
-// 				"route",
-// 				"P5DTL0K",
-// 			},
-// 			[]string{
-// 				"severity",
-// 				"warning",
-// 			},
-// 			[]string{
-// 				"annotate",
-// 				"2 Managed by terraform",
-// 			},
-// 			[]string{
-// 				"priority",
-// 				"PL451DT",
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json0 := string(tmpJSON0)
-// 		tmpJSON1, err := json.Marshal([]interface{}{
-// 			"and",
-// 			[]interface{}{
-// 				"contains",
-// 				[]string{
-// 					"path",
-// 					"payload",
-// 					"source",
-// 				},
-// 				"website",
-// 			},
-// 			[]interface{}{
-// 				"contains",
-// 				[]string{
-// 					"path",
-// 					"headers",
-// 					"from",
-// 					"0",
-// 					"address",
-// 				},
-// 				"homer",
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json1 := string(tmpJSON1)
-// 		tmpJSON2, err := json.Marshal([][]interface{}{
-// 			[]interface{}{
-// 				"scheduled-weekly",
-// 				1565392127032,
-// 				3600000,
-// 				"America/Los_Angeles",
-// 				[]float64{
-// 					1,
-// 					2,
-// 					3,
-// 					5,
-// 					7,
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json2 := string(tmpJSON2)
-// 		_, err = pagerduty.NewEventRule(ctx, "second", &pagerduty.EventRuleArgs{
-// 			ActionJson:            pulumi.String(json0),
-// 			ConditionJson:         pulumi.String(json1),
-// 			AdvancedConditionJson: pulumi.String(json2),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		tmpJSON3, err := json.Marshal([][]string{
-// 			[]string{
-// 				"route",
-// 				"P5DTL0K",
-// 			},
-// 			[]string{
-// 				"severity",
-// 				"warning",
-// 			},
-// 			[]string{
-// 				"annotate",
-// 				"3 Managed by terraform",
-// 			},
-// 			[]string{
-// 				"priority",
-// 				"PL451DT",
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json3 := string(tmpJSON3)
-// 		tmpJSON4, err := json.Marshal([]interface{}{
-// 			"and",
-// 			[]interface{}{
-// 				"contains",
-// 				[]string{
-// 					"path",
-// 					"payload",
-// 					"source",
-// 				},
-// 				"website",
-// 			},
-// 			[]interface{}{
-// 				"contains",
-// 				[]string{
-// 					"path",
-// 					"headers",
-// 					"from",
-// 					"0",
-// 					"address",
-// 				},
-// 				"homer",
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json4 := string(tmpJSON4)
-// 		_, err = pagerduty.NewEventRule(ctx, "third", &pagerduty.EventRuleArgs{
-// 			ActionJson:    pulumi.String(json3),
-// 			ConditionJson: pulumi.String(json4),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			pagerduty_event_rule.Two,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal([][]string{
+//				[]string{
+//					"route",
+//					"P5DTL0K",
+//				},
+//				[]string{
+//					"severity",
+//					"warning",
+//				},
+//				[]string{
+//					"annotate",
+//					"2 Managed by terraform",
+//				},
+//				[]string{
+//					"priority",
+//					"PL451DT",
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			tmpJSON1, err := json.Marshal([]interface{}{
+//				"and",
+//				[]interface{}{
+//					"contains",
+//					[]string{
+//						"path",
+//						"payload",
+//						"source",
+//					},
+//					"website",
+//				},
+//				[]interface{}{
+//					"contains",
+//					[]string{
+//						"path",
+//						"headers",
+//						"from",
+//						"0",
+//						"address",
+//					},
+//					"homer",
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json1 := string(tmpJSON1)
+//			tmpJSON2, err := json.Marshal([][]interface{}{
+//				[]interface{}{
+//					"scheduled-weekly",
+//					1565392127032,
+//					3600000,
+//					"America/Los_Angeles",
+//					[]float64{
+//						1,
+//						2,
+//						3,
+//						5,
+//						7,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json2 := string(tmpJSON2)
+//			_, err = pagerduty.NewEventRule(ctx, "second", &pagerduty.EventRuleArgs{
+//				ActionJson:            pulumi.String(json0),
+//				ConditionJson:         pulumi.String(json1),
+//				AdvancedConditionJson: pulumi.String(json2),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON3, err := json.Marshal([][]string{
+//				[]string{
+//					"route",
+//					"P5DTL0K",
+//				},
+//				[]string{
+//					"severity",
+//					"warning",
+//				},
+//				[]string{
+//					"annotate",
+//					"3 Managed by terraform",
+//				},
+//				[]string{
+//					"priority",
+//					"PL451DT",
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json3 := string(tmpJSON3)
+//			tmpJSON4, err := json.Marshal([]interface{}{
+//				"and",
+//				[]interface{}{
+//					"contains",
+//					[]string{
+//						"path",
+//						"payload",
+//						"source",
+//					},
+//					"website",
+//				},
+//				[]interface{}{
+//					"contains",
+//					[]string{
+//						"path",
+//						"headers",
+//						"from",
+//						"0",
+//						"address",
+//					},
+//					"homer",
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json4 := string(tmpJSON4)
+//			_, err = pagerduty.NewEventRule(ctx, "third", &pagerduty.EventRuleArgs{
+//				ActionJson:    pulumi.String(json3),
+//				ConditionJson: pulumi.String(json4),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				pagerduty_event_rule.Two,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -173,7 +176,9 @@ import (
 // Event rules can be imported using the `id`, e.g.
 //
 // ```sh
-//  $ pulumi import pagerduty:index/eventRule:EventRule main 19acac92-027a-4ea0-b06c-bbf516519601
+//
+//	$ pulumi import pagerduty:index/eventRule:EventRule main 19acac92-027a-4ea0-b06c-bbf516519601
+//
 // ```
 type EventRule struct {
 	pulumi.CustomResourceState
@@ -293,7 +298,7 @@ func (i *EventRule) ToEventRuleOutputWithContext(ctx context.Context) EventRuleO
 // EventRuleArrayInput is an input type that accepts EventRuleArray and EventRuleArrayOutput values.
 // You can construct a concrete instance of `EventRuleArrayInput` via:
 //
-//          EventRuleArray{ EventRuleArgs{...} }
+//	EventRuleArray{ EventRuleArgs{...} }
 type EventRuleArrayInput interface {
 	pulumi.Input
 
@@ -318,7 +323,7 @@ func (i EventRuleArray) ToEventRuleArrayOutputWithContext(ctx context.Context) E
 // EventRuleMapInput is an input type that accepts EventRuleMap and EventRuleMapOutput values.
 // You can construct a concrete instance of `EventRuleMapInput` via:
 //
-//          EventRuleMap{ "key": EventRuleArgs{...} }
+//	EventRuleMap{ "key": EventRuleArgs{...} }
 type EventRuleMapInput interface {
 	pulumi.Input
 

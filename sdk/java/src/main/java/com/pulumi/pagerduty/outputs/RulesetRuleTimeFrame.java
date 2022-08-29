@@ -16,21 +16,14 @@ public final class RulesetRuleTimeFrame {
      * @return Values for executing the rule during a specific time period.
      * 
      */
-    private final @Nullable List<RulesetRuleTimeFrameActiveBetween> activeBetweens;
+    private @Nullable List<RulesetRuleTimeFrameActiveBetween> activeBetweens;
     /**
      * @return Values for executing the rule on a recurring schedule.
      * 
      */
-    private final @Nullable List<RulesetRuleTimeFrameScheduledWeekly> scheduledWeeklies;
+    private @Nullable List<RulesetRuleTimeFrameScheduledWeekly> scheduledWeeklies;
 
-    @CustomType.Constructor
-    private RulesetRuleTimeFrame(
-        @CustomType.Parameter("activeBetweens") @Nullable List<RulesetRuleTimeFrameActiveBetween> activeBetweens,
-        @CustomType.Parameter("scheduledWeeklies") @Nullable List<RulesetRuleTimeFrameScheduledWeekly> scheduledWeeklies) {
-        this.activeBetweens = activeBetweens;
-        this.scheduledWeeklies = scheduledWeeklies;
-    }
-
+    private RulesetRuleTimeFrame() {}
     /**
      * @return Values for executing the rule during a specific time period.
      * 
@@ -53,21 +46,18 @@ public final class RulesetRuleTimeFrame {
     public static Builder builder(RulesetRuleTimeFrame defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<RulesetRuleTimeFrameActiveBetween> activeBetweens;
         private @Nullable List<RulesetRuleTimeFrameScheduledWeekly> scheduledWeeklies;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RulesetRuleTimeFrame defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.activeBetweens = defaults.activeBetweens;
     	      this.scheduledWeeklies = defaults.scheduledWeeklies;
         }
 
+        @CustomType.Setter
         public Builder activeBetweens(@Nullable List<RulesetRuleTimeFrameActiveBetween> activeBetweens) {
             this.activeBetweens = activeBetweens;
             return this;
@@ -75,14 +65,19 @@ public final class RulesetRuleTimeFrame {
         public Builder activeBetweens(RulesetRuleTimeFrameActiveBetween... activeBetweens) {
             return activeBetweens(List.of(activeBetweens));
         }
+        @CustomType.Setter
         public Builder scheduledWeeklies(@Nullable List<RulesetRuleTimeFrameScheduledWeekly> scheduledWeeklies) {
             this.scheduledWeeklies = scheduledWeeklies;
             return this;
         }
         public Builder scheduledWeeklies(RulesetRuleTimeFrameScheduledWeekly... scheduledWeeklies) {
             return scheduledWeeklies(List.of(scheduledWeeklies));
-        }        public RulesetRuleTimeFrame build() {
-            return new RulesetRuleTimeFrame(activeBetweens, scheduledWeeklies);
+        }
+        public RulesetRuleTimeFrame build() {
+            final var o = new RulesetRuleTimeFrame();
+            o.activeBetweens = activeBetweens;
+            o.scheduledWeeklies = scheduledWeeklies;
+            return o;
         }
     }
 }

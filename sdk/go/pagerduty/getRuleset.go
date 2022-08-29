@@ -18,59 +18,62 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := pagerduty.LookupRuleset(ctx, &GetRulesetArgs{
-// 			Name: "My Ruleset",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = pagerduty.NewRulesetRule(ctx, "foo", &pagerduty.RulesetRuleArgs{
-// 			Ruleset:  pulumi.String(example.Id),
-// 			Position: pulumi.Int(0),
-// 			Disabled: pulumi.Bool(false),
-// 			Conditions: &RulesetRuleConditionsArgs{
-// 				Operator: pulumi.String("and"),
-// 				Subconditions: RulesetRuleConditionsSubconditionArray{
-// 					&RulesetRuleConditionsSubconditionArgs{
-// 						Operator: pulumi.String("contains"),
-// 						Parameters: RulesetRuleConditionsSubconditionParameterArray{
-// 							&RulesetRuleConditionsSubconditionParameterArgs{
-// 								Value: pulumi.String("disk space"),
-// 								Path:  pulumi.String("payload.summary"),
-// 							},
-// 						},
-// 					},
-// 					&RulesetRuleConditionsSubconditionArgs{
-// 						Operator: pulumi.String("contains"),
-// 						Parameters: RulesetRuleConditionsSubconditionParameterArray{
-// 							&RulesetRuleConditionsSubconditionParameterArgs{
-// 								Value: pulumi.String("db"),
-// 								Path:  pulumi.String("payload.source"),
-// 							},
-// 						},
-// 					},
-// 				},
-// 			},
-// 			Actions: &RulesetRuleActionsArgs{
-// 				Routes: RulesetRuleActionsRouteArray{
-// 					&RulesetRuleActionsRouteArgs{
-// 						Value: pulumi.String("P5DTL0K"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := pagerduty.LookupRuleset(ctx, &GetRulesetArgs{
+//				Name: "My Ruleset",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewRulesetRule(ctx, "foo", &pagerduty.RulesetRuleArgs{
+//				Ruleset:  pulumi.String(example.Id),
+//				Position: pulumi.Int(0),
+//				Disabled: pulumi.Bool(false),
+//				Conditions: &RulesetRuleConditionsArgs{
+//					Operator: pulumi.String("and"),
+//					Subconditions: RulesetRuleConditionsSubconditionArray{
+//						&RulesetRuleConditionsSubconditionArgs{
+//							Operator: pulumi.String("contains"),
+//							Parameters: RulesetRuleConditionsSubconditionParameterArray{
+//								&RulesetRuleConditionsSubconditionParameterArgs{
+//									Value: pulumi.String("disk space"),
+//									Path:  pulumi.String("payload.summary"),
+//								},
+//							},
+//						},
+//						&RulesetRuleConditionsSubconditionArgs{
+//							Operator: pulumi.String("contains"),
+//							Parameters: RulesetRuleConditionsSubconditionParameterArray{
+//								&RulesetRuleConditionsSubconditionParameterArgs{
+//									Value: pulumi.String("db"),
+//									Path:  pulumi.String("payload.source"),
+//								},
+//							},
+//						},
+//					},
+//				},
+//				Actions: &RulesetRuleActionsArgs{
+//					Routes: RulesetRuleActionsRouteArray{
+//						&RulesetRuleActionsRouteArgs{
+//							Value: pulumi.String("P5DTL0K"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Default Global Ruleset
 //
@@ -78,21 +81,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := pagerduty.LookupRuleset(ctx, &GetRulesetArgs{
-// 			Name: "Default Global",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := pagerduty.LookupRuleset(ctx, &GetRulesetArgs{
+//				Name: "Default Global",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupRuleset(ctx *pulumi.Context, args *LookupRulesetArgs, opts ...pulumi.InvokeOption) (*LookupRulesetResult, error) {
 	var rv LookupRulesetResult

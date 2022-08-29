@@ -15,20 +15,18 @@ namespace Pulumi.Pagerduty
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Pagerduty = Pulumi.Pagerduty;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Pagerduty.Tag("example", new()
     ///     {
-    ///         var example = new Pagerduty.Tag("example", new Pagerduty.TagArgs
-    ///         {
-    ///             Label = "Product",
-    ///         });
-    ///     }
+    ///         Label = "Product",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Pagerduty
     /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/tag:Tag")]
-    public partial class Tag : Pulumi.CustomResource
+    public partial class Tag : global::Pulumi.CustomResource
     {
         /// <summary>
         /// URL at which the entity is uniquely displayed in the Web app.
@@ -101,7 +99,7 @@ namespace Pulumi.Pagerduty
         }
     }
 
-    public sealed class TagArgs : Pulumi.ResourceArgs
+    public sealed class TagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The label of the tag.
@@ -112,9 +110,10 @@ namespace Pulumi.Pagerduty
         public TagArgs()
         {
         }
+        public static new TagArgs Empty => new TagArgs();
     }
 
-    public sealed class TagState : Pulumi.ResourceArgs
+    public sealed class TagState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// URL at which the entity is uniquely displayed in the Web app.
@@ -134,5 +133,6 @@ namespace Pulumi.Pagerduty
         public TagState()
         {
         }
+        public static new TagState Empty => new TagState();
     }
 }

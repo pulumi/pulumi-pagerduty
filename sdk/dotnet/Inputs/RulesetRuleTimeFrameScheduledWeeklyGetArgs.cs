@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class RulesetRuleTimeFrameScheduledWeeklyGetArgs : Pulumi.ResourceArgs
+    public sealed class RulesetRuleTimeFrameScheduledWeeklyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Length of time the schedule will be active in milliseconds. For example `duration = 2 * 60 * 60 * 1000` if you want your rule to apply for 2 hours, from the specified `start_time`.
@@ -42,5 +42,6 @@ namespace Pulumi.Pagerduty.Inputs
         public RulesetRuleTimeFrameScheduledWeeklyGetArgs()
         {
         }
+        public static new RulesetRuleTimeFrameScheduledWeeklyGetArgs Empty => new RulesetRuleTimeFrameScheduledWeeklyGetArgs();
     }
 }

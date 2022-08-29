@@ -15,71 +15,70 @@ namespace Pulumi.Pagerduty
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Pagerduty = Pulumi.Pagerduty;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = Pagerduty.GetService.Invoke(new()
     ///     {
-    ///         var example = Output.Create(Pagerduty.GetService.InvokeAsync(new Pagerduty.GetServiceArgs
+    ///         Name = "My Service",
+    ///     });
+    /// 
+    ///     var foo = new Pagerduty.WebhookSubscription("foo", new()
+    ///     {
+    ///         DeliveryMethods = new[]
     ///         {
-    ///             Name = "My Service",
-    ///         }));
-    ///         var foo = new Pagerduty.WebhookSubscription("foo", new Pagerduty.WebhookSubscriptionArgs
-    ///         {
-    ///             DeliveryMethods = 
+    ///             new Pagerduty.Inputs.WebhookSubscriptionDeliveryMethodArgs
     ///             {
-    ///                 new Pagerduty.Inputs.WebhookSubscriptionDeliveryMethodArgs
+    ///                 Type = "http_delivery_method",
+    ///                 Url = "https://example.com/receive_a_pagerduty_webhook",
+    ///                 CustomHeaders = new[]
     ///                 {
-    ///                     Type = "http_delivery_method",
-    ///                     Url = "https://example.com/receive_a_pagerduty_webhook",
-    ///                     CustomHeaders = 
+    ///                     new Pagerduty.Inputs.WebhookSubscriptionDeliveryMethodCustomHeaderArgs
     ///                     {
-    ///                         new Pagerduty.Inputs.WebhookSubscriptionDeliveryMethodCustomHeaderArgs
-    ///                         {
-    ///                             Name = "X-Foo",
-    ///                             Value = "foo",
-    ///                         },
-    ///                         new Pagerduty.Inputs.WebhookSubscriptionDeliveryMethodCustomHeaderArgs
-    ///                         {
-    ///                             Name = "X-Bar",
-    ///                             Value = "bar",
-    ///                         },
+    ///                         Name = "X-Foo",
+    ///                         Value = "foo",
+    ///                     },
+    ///                     new Pagerduty.Inputs.WebhookSubscriptionDeliveryMethodCustomHeaderArgs
+    ///                     {
+    ///                         Name = "X-Bar",
+    ///                         Value = "bar",
     ///                     },
     ///                 },
     ///             },
-    ///             Description = "%s",
-    ///             Events = 
+    ///         },
+    ///         Description = "%s",
+    ///         Events = new[]
+    ///         {
+    ///             "incident.acknowledged",
+    ///             "incident.annotated",
+    ///             "incident.delegated",
+    ///             "incident.escalated",
+    ///             "incident.priority_updated",
+    ///             "incident.reassigned",
+    ///             "incident.reopened",
+    ///             "incident.resolved",
+    ///             "incident.responder.added",
+    ///             "incident.responder.replied",
+    ///             "incident.status_update_published",
+    ///             "incident.triggered",
+    ///             "incident.unacknowledged",
+    ///         },
+    ///         Active = true,
+    ///         Filters = new[]
+    ///         {
+    ///             new Pagerduty.Inputs.WebhookSubscriptionFilterArgs
     ///             {
-    ///                 "incident.acknowledged",
-    ///                 "incident.annotated",
-    ///                 "incident.delegated",
-    ///                 "incident.escalated",
-    ///                 "incident.priority_updated",
-    ///                 "incident.reassigned",
-    ///                 "incident.reopened",
-    ///                 "incident.resolved",
-    ///                 "incident.responder.added",
-    ///                 "incident.responder.replied",
-    ///                 "incident.status_update_published",
-    ///                 "incident.triggered",
-    ///                 "incident.unacknowledged",
+    ///                 Id = example.Apply(getServiceResult =&gt; getServiceResult.Id),
+    ///                 Type = "service_reference",
     ///             },
-    ///             Active = true,
-    ///             Filters = 
-    ///             {
-    ///                 new Pagerduty.Inputs.WebhookSubscriptionFilterArgs
-    ///                 {
-    ///                     Id = example.Apply(example =&gt; example.Id),
-    ///                     Type = "service_reference",
-    ///                 },
-    ///             },
-    ///             Type = "webhook_subscription",
-    ///         });
-    ///     }
+    ///         },
+    ///         Type = "webhook_subscription",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -91,7 +90,7 @@ namespace Pulumi.Pagerduty
     /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/webhookSubscription:WebhookSubscription")]
-    public partial class WebhookSubscription : Pulumi.CustomResource
+    public partial class WebhookSubscription : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Determines whether the subscription will produce webhook events.
@@ -186,7 +185,7 @@ namespace Pulumi.Pagerduty
         }
     }
 
-    public sealed class WebhookSubscriptionArgs : Pulumi.ResourceArgs
+    public sealed class WebhookSubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines whether the subscription will produce webhook events.
@@ -258,9 +257,10 @@ namespace Pulumi.Pagerduty
         public WebhookSubscriptionArgs()
         {
         }
+        public static new WebhookSubscriptionArgs Empty => new WebhookSubscriptionArgs();
     }
 
-    public sealed class WebhookSubscriptionState : Pulumi.ResourceArgs
+    public sealed class WebhookSubscriptionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines whether the subscription will produce webhook events.
@@ -332,5 +332,6 @@ namespace Pulumi.Pagerduty
         public WebhookSubscriptionState()
         {
         }
+        public static new WebhookSubscriptionState Empty => new WebhookSubscriptionState();
     }
 }

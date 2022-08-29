@@ -15,21 +15,14 @@ public final class EscalationPolicyRuleTarget {
      * @return A target ID
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Can be `user_reference` or `schedule_reference`. Defaults to `user_reference`. For multiple users as example, repeat the target.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private EscalationPolicyRuleTarget(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.id = id;
-        this.type = type;
-    }
-
+    private EscalationPolicyRuleTarget() {}
     /**
      * @return A target ID
      * 
@@ -52,30 +45,32 @@ public final class EscalationPolicyRuleTarget {
     public static Builder builder(EscalationPolicyRuleTarget defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EscalationPolicyRuleTarget defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public EscalationPolicyRuleTarget build() {
-            return new EscalationPolicyRuleTarget(id, type);
+        }
+        public EscalationPolicyRuleTarget build() {
+            final var o = new EscalationPolicyRuleTarget();
+            o.id = id;
+            o.type = type;
+            return o;
         }
     }
 }

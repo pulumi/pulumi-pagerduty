@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class EventOrchestrationServiceSetRuleGetArgs : Pulumi.ResourceArgs
+    public sealed class EventOrchestrationServiceSetRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
@@ -51,5 +51,6 @@ namespace Pulumi.Pagerduty.Inputs
         public EventOrchestrationServiceSetRuleGetArgs()
         {
         }
+        public static new EventOrchestrationServiceSetRuleGetArgs Empty => new EventOrchestrationServiceSetRuleGetArgs();
     }
 }

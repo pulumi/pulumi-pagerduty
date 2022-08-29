@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class ServiceDependencyDependencySupportingServiceArgs : Pulumi.ResourceArgs
+    public sealed class ServiceDependencyDependencySupportingServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the service dependency.
@@ -27,5 +27,6 @@ namespace Pulumi.Pagerduty.Inputs
         public ServiceDependencyDependencySupportingServiceArgs()
         {
         }
+        public static new ServiceDependencyDependencySupportingServiceArgs Empty => new ServiceDependencyDependencySupportingServiceArgs();
     }
 }

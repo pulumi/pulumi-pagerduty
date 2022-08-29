@@ -74,7 +74,7 @@ namespace Pulumi.Pagerduty
         }
     }
 
-    internal sealed class PagerdutyResourceTypeAttribute : Pulumi.ResourceTypeAttribute
+    internal sealed class PagerdutyResourceTypeAttribute : global::Pulumi.ResourceTypeAttribute
     {
         public PagerdutyResourceTypeAttribute(string type) : base(type, Utilities.Version)
         {

@@ -18,7 +18,9 @@ import (
 // Escalation policies can be imported using the `id`, e.g.
 //
 // ```sh
-//  $ pulumi import pagerduty:index/escalationPolicy:EscalationPolicy main PLBP09X
+//
+//	$ pulumi import pagerduty:index/escalationPolicy:EscalationPolicy main PLBP09X
+//
 // ```
 type EscalationPolicy struct {
 	pulumi.CustomResourceState
@@ -147,7 +149,7 @@ func (i *EscalationPolicy) ToEscalationPolicyOutputWithContext(ctx context.Conte
 // EscalationPolicyArrayInput is an input type that accepts EscalationPolicyArray and EscalationPolicyArrayOutput values.
 // You can construct a concrete instance of `EscalationPolicyArrayInput` via:
 //
-//          EscalationPolicyArray{ EscalationPolicyArgs{...} }
+//	EscalationPolicyArray{ EscalationPolicyArgs{...} }
 type EscalationPolicyArrayInput interface {
 	pulumi.Input
 
@@ -172,7 +174,7 @@ func (i EscalationPolicyArray) ToEscalationPolicyArrayOutputWithContext(ctx cont
 // EscalationPolicyMapInput is an input type that accepts EscalationPolicyMap and EscalationPolicyMapOutput values.
 // You can construct a concrete instance of `EscalationPolicyMapInput` via:
 //
-//          EscalationPolicyMap{ "key": EscalationPolicyArgs{...} }
+//	EscalationPolicyMap{ "key": EscalationPolicyArgs{...} }
 type EscalationPolicyMapInput interface {
 	pulumi.Input
 

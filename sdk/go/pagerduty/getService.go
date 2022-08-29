@@ -18,35 +18,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleService, err := pagerduty.LookupService(ctx, &GetServiceArgs{
-// 			Name: "My Service",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		datadog, err := pagerduty.GetVendor(ctx, &GetVendorArgs{
-// 			Name: "Datadog",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = pagerduty.NewServiceIntegration(ctx, "exampleServiceIntegration", &pagerduty.ServiceIntegrationArgs{
-// 			Vendor:  pulumi.String(datadog.Id),
-// 			Service: pulumi.String(exampleService.Id),
-// 			Type:    pulumi.String("generic_events_api_inbound_integration"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleService, err := pagerduty.LookupService(ctx, &GetServiceArgs{
+//				Name: "My Service",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			datadog, err := pagerduty.GetVendor(ctx, &GetVendorArgs{
+//				Name: "Datadog",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewServiceIntegration(ctx, "exampleServiceIntegration", &pagerduty.ServiceIntegrationArgs{
+//				Vendor:  pulumi.String(datadog.Id),
+//				Service: pulumi.String(exampleService.Id),
+//				Type:    pulumi.String("generic_events_api_inbound_integration"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.InvokeOption) (*LookupServiceResult, error) {
 	var rv LookupServiceResult

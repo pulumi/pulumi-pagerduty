@@ -17,21 +17,14 @@ public final class RulesetRuleConditions {
      * @return Operator to combine sub-conditions. Can be `and` or `or`.
      * 
      */
-    private final @Nullable String operator;
+    private @Nullable String operator;
     /**
      * @return List of sub-conditions that define the condition.
      * 
      */
-    private final @Nullable List<RulesetRuleConditionsSubcondition> subconditions;
+    private @Nullable List<RulesetRuleConditionsSubcondition> subconditions;
 
-    @CustomType.Constructor
-    private RulesetRuleConditions(
-        @CustomType.Parameter("operator") @Nullable String operator,
-        @CustomType.Parameter("subconditions") @Nullable List<RulesetRuleConditionsSubcondition> subconditions) {
-        this.operator = operator;
-        this.subconditions = subconditions;
-    }
-
+    private RulesetRuleConditions() {}
     /**
      * @return Operator to combine sub-conditions. Can be `and` or `or`.
      * 
@@ -54,33 +47,35 @@ public final class RulesetRuleConditions {
     public static Builder builder(RulesetRuleConditions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String operator;
         private @Nullable List<RulesetRuleConditionsSubcondition> subconditions;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RulesetRuleConditions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.operator = defaults.operator;
     	      this.subconditions = defaults.subconditions;
         }
 
+        @CustomType.Setter
         public Builder operator(@Nullable String operator) {
             this.operator = operator;
             return this;
         }
+        @CustomType.Setter
         public Builder subconditions(@Nullable List<RulesetRuleConditionsSubcondition> subconditions) {
             this.subconditions = subconditions;
             return this;
         }
         public Builder subconditions(RulesetRuleConditionsSubcondition... subconditions) {
             return subconditions(List.of(subconditions));
-        }        public RulesetRuleConditions build() {
-            return new RulesetRuleConditions(operator, subconditions);
+        }
+        public RulesetRuleConditions build() {
+            final var o = new RulesetRuleConditions();
+            o.operator = operator;
+            o.subconditions = subconditions;
+            return o;
         }
     }
 }

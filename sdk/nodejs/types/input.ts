@@ -591,15 +591,6 @@ export interface EventOrchestrationUnroutedSetRuleCondition {
     expression: pulumi.Input<string>;
 }
 
-export interface GetEventOrchestrationIntegrationArgs {
-    /**
-     * ID of the integration
-     * * `parameters`
-     */
-    id?: pulumi.Input<string>;
-    parameters?: pulumi.Input<pulumi.Input<inputs.GetEventOrchestrationIntegrationParameterArgs>[]>;
-}
-
 export interface GetEventOrchestrationIntegration {
     /**
      * ID of the integration
@@ -609,15 +600,13 @@ export interface GetEventOrchestrationIntegration {
     parameters?: inputs.GetEventOrchestrationIntegrationParameter[];
 }
 
-export interface GetEventOrchestrationIntegrationParameterArgs {
+export interface GetEventOrchestrationIntegrationArgs {
     /**
-     * Routing key that routes to this Orchestration.
+     * ID of the integration
+     * * `parameters`
      */
-    routingKey?: pulumi.Input<string>;
-    /**
-     * Type of the routing key. `global` is the default type.
-     */
-    type?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.GetEventOrchestrationIntegrationParameterArgs>[]>;
 }
 
 export interface GetEventOrchestrationIntegrationParameter {
@@ -629,6 +618,17 @@ export interface GetEventOrchestrationIntegrationParameter {
      * Type of the routing key. `global` is the default type.
      */
     type?: string;
+}
+
+export interface GetEventOrchestrationIntegrationParameterArgs {
+    /**
+     * Routing key that routes to this Orchestration.
+     */
+    routingKey?: pulumi.Input<string>;
+    /**
+     * Type of the routing key. `global` is the default type.
+     */
+    type?: pulumi.Input<string>;
 }
 
 export interface ResponsePlayResponder {
@@ -996,7 +996,7 @@ export interface ServiceAlertGroupingParameters {
      */
     config?: pulumi.Input<inputs.ServiceAlertGroupingParametersConfig>;
     /**
-     * The type of scheduled action. Currently, this must be set to `urgencyChange`.
+     * The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
      */
     type?: pulumi.Input<string>;
 }
@@ -1012,6 +1012,17 @@ export interface ServiceAlertGroupingParametersConfig {
     fields?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
+     */
+    timeout?: pulumi.Input<number>;
+}
+
+export interface ServiceAutoPauseNotificationsParameters {
+    /**
+     * Indicates whether alerts should be automatically suspended when identified as transient.  If not passed in, will default to 'false'.
+     */
+    enabled?: pulumi.Input<boolean>;
+    /**
+     * Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `enabled` is `true`. Must be omitted or set to `null` if `enabled` is `false`.
      */
     timeout?: pulumi.Input<number>;
 }
@@ -1510,4 +1521,3 @@ export interface WebhookSubscriptionFilter {
      */
     type: pulumi.Input<string>;
 }
-

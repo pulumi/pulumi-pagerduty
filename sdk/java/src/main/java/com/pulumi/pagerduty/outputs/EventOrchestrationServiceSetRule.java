@@ -19,42 +19,29 @@ public final class EventOrchestrationServiceSetRule {
      * @return Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
      * 
      */
-    private final EventOrchestrationServiceSetRuleActions actions;
+    private EventOrchestrationServiceSetRuleActions actions;
     /**
      * @return Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will `always` match against the rule.
      * 
      */
-    private final @Nullable List<EventOrchestrationServiceSetRuleCondition> conditions;
+    private @Nullable List<EventOrchestrationServiceSetRuleCondition> conditions;
     /**
      * @return Indicates whether the rule is disabled and would therefore not be evaluated.
      * 
      */
-    private final @Nullable Boolean disabled;
+    private @Nullable Boolean disabled;
     /**
      * @return The ID of this set of rules. Rules in other sets can route events into this set using the rule&#39;s `route_to` property.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return A description of this rule&#39;s purpose.
      * 
      */
-    private final @Nullable String label;
+    private @Nullable String label;
 
-    @CustomType.Constructor
-    private EventOrchestrationServiceSetRule(
-        @CustomType.Parameter("actions") EventOrchestrationServiceSetRuleActions actions,
-        @CustomType.Parameter("conditions") @Nullable List<EventOrchestrationServiceSetRuleCondition> conditions,
-        @CustomType.Parameter("disabled") @Nullable Boolean disabled,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("label") @Nullable String label) {
-        this.actions = actions;
-        this.conditions = conditions;
-        this.disabled = disabled;
-        this.id = id;
-        this.label = label;
-    }
-
+    private EventOrchestrationServiceSetRule() {}
     /**
      * @return Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
      * 
@@ -98,18 +85,14 @@ public final class EventOrchestrationServiceSetRule {
     public static Builder builder(EventOrchestrationServiceSetRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private EventOrchestrationServiceSetRuleActions actions;
         private @Nullable List<EventOrchestrationServiceSetRuleCondition> conditions;
         private @Nullable Boolean disabled;
         private @Nullable String id;
         private @Nullable String label;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventOrchestrationServiceSetRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actions = defaults.actions;
@@ -119,10 +102,12 @@ public final class EventOrchestrationServiceSetRule {
     	      this.label = defaults.label;
         }
 
+        @CustomType.Setter
         public Builder actions(EventOrchestrationServiceSetRuleActions actions) {
             this.actions = Objects.requireNonNull(actions);
             return this;
         }
+        @CustomType.Setter
         public Builder conditions(@Nullable List<EventOrchestrationServiceSetRuleCondition> conditions) {
             this.conditions = conditions;
             return this;
@@ -130,19 +115,29 @@ public final class EventOrchestrationServiceSetRule {
         public Builder conditions(EventOrchestrationServiceSetRuleCondition... conditions) {
             return conditions(List.of(conditions));
         }
+        @CustomType.Setter
         public Builder disabled(@Nullable Boolean disabled) {
             this.disabled = disabled;
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder label(@Nullable String label) {
             this.label = label;
             return this;
-        }        public EventOrchestrationServiceSetRule build() {
-            return new EventOrchestrationServiceSetRule(actions, conditions, disabled, id, label);
+        }
+        public EventOrchestrationServiceSetRule build() {
+            final var o = new EventOrchestrationServiceSetRule();
+            o.actions = actions;
+            o.conditions = conditions;
+            o.disabled = disabled;
+            o.id = id;
+            o.label = label;
+            return o;
         }
     }
 }

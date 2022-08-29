@@ -17,31 +17,20 @@ public final class ServiceIntegrationEmailParserMatchPredicatePredicate {
      * @return Predicate value or valid regex.
      * 
      */
-    private final @Nullable String matcher;
+    private @Nullable String matcher;
     /**
      * @return Can be `subject`, `body` or `from_addresses`.
      * 
      */
-    private final @Nullable String part;
-    private final @Nullable List<ServiceIntegrationEmailParserMatchPredicatePredicatePredicate> predicates;
+    private @Nullable String part;
+    private @Nullable List<ServiceIntegrationEmailParserMatchPredicatePredicatePredicate> predicates;
     /**
      * @return Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private ServiceIntegrationEmailParserMatchPredicatePredicate(
-        @CustomType.Parameter("matcher") @Nullable String matcher,
-        @CustomType.Parameter("part") @Nullable String part,
-        @CustomType.Parameter("predicates") @Nullable List<ServiceIntegrationEmailParserMatchPredicatePredicatePredicate> predicates,
-        @CustomType.Parameter("type") String type) {
-        this.matcher = matcher;
-        this.part = part;
-        this.predicates = predicates;
-        this.type = type;
-    }
-
+    private ServiceIntegrationEmailParserMatchPredicatePredicate() {}
     /**
      * @return Predicate value or valid regex.
      * 
@@ -74,17 +63,13 @@ public final class ServiceIntegrationEmailParserMatchPredicatePredicate {
     public static Builder builder(ServiceIntegrationEmailParserMatchPredicatePredicate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String matcher;
         private @Nullable String part;
         private @Nullable List<ServiceIntegrationEmailParserMatchPredicatePredicatePredicate> predicates;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceIntegrationEmailParserMatchPredicatePredicate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.matcher = defaults.matcher;
@@ -93,14 +78,17 @@ public final class ServiceIntegrationEmailParserMatchPredicatePredicate {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder matcher(@Nullable String matcher) {
             this.matcher = matcher;
             return this;
         }
+        @CustomType.Setter
         public Builder part(@Nullable String part) {
             this.part = part;
             return this;
         }
+        @CustomType.Setter
         public Builder predicates(@Nullable List<ServiceIntegrationEmailParserMatchPredicatePredicatePredicate> predicates) {
             this.predicates = predicates;
             return this;
@@ -108,11 +96,18 @@ public final class ServiceIntegrationEmailParserMatchPredicatePredicate {
         public Builder predicates(ServiceIntegrationEmailParserMatchPredicatePredicatePredicate... predicates) {
             return predicates(List.of(predicates));
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public ServiceIntegrationEmailParserMatchPredicatePredicate build() {
-            return new ServiceIntegrationEmailParserMatchPredicatePredicate(matcher, part, predicates, type);
+        }
+        public ServiceIntegrationEmailParserMatchPredicatePredicate build() {
+            final var o = new ServiceIntegrationEmailParserMatchPredicatePredicate();
+            o.matcher = matcher;
+            o.part = part;
+            o.predicates = predicates;
+            o.type = type;
+            return o;
         }
     }
 }

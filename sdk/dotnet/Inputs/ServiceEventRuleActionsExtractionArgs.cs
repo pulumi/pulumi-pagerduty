@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class ServiceEventRuleActionsExtractionArgs : Pulumi.ResourceArgs
+    public sealed class ServiceEventRuleActionsExtractionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
@@ -39,5 +39,6 @@ namespace Pulumi.Pagerduty.Inputs
         public ServiceEventRuleActionsExtractionArgs()
         {
         }
+        public static new ServiceEventRuleActionsExtractionArgs Empty => new ServiceEventRuleActionsExtractionArgs();
     }
 }

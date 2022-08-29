@@ -13,21 +13,14 @@ public final class EventOrchestrationServiceCatchAllActionsAutomationActionHeade
      * @return Name to identify the header
      * 
      */
-    private final String key;
+    private String key;
     /**
      * @return Value of this header
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private EventOrchestrationServiceCatchAllActionsAutomationActionHeader(
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("value") String value) {
-        this.key = key;
-        this.value = value;
-    }
-
+    private EventOrchestrationServiceCatchAllActionsAutomationActionHeader() {}
     /**
      * @return Name to identify the header
      * 
@@ -50,30 +43,32 @@ public final class EventOrchestrationServiceCatchAllActionsAutomationActionHeade
     public static Builder builder(EventOrchestrationServiceCatchAllActionsAutomationActionHeader defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String key;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventOrchestrationServiceCatchAllActionsAutomationActionHeader defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.key = defaults.key;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public EventOrchestrationServiceCatchAllActionsAutomationActionHeader build() {
-            return new EventOrchestrationServiceCatchAllActionsAutomationActionHeader(key, value);
+        }
+        public EventOrchestrationServiceCatchAllActionsAutomationActionHeader build() {
+            final var o = new EventOrchestrationServiceCatchAllActionsAutomationActionHeader();
+            o.key = key;
+            o.value = value;
+            return o;
         }
     }
 }

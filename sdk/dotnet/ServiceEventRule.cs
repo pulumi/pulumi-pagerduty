@@ -15,123 +15,123 @@ namespace Pulumi.Pagerduty
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Pagerduty = Pulumi.Pagerduty;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Pagerduty.Service("example", new()
     ///     {
-    ///         var example = new Pagerduty.Service("example", new Pagerduty.ServiceArgs
-    ///         {
-    ///             AutoResolveTimeout = "14400",
-    ///             AcknowledgementTimeout = "600",
-    ///             EscalationPolicy = pagerduty_escalation_policy.Example.Id,
-    ///             AlertCreation = "create_alerts_and_incidents",
-    ///         });
-    ///         var foo = new Pagerduty.ServiceEventRule("foo", new Pagerduty.ServiceEventRuleArgs
-    ///         {
-    ///             Service = example.Id,
-    ///             Position = 0,
-    ///             Disabled = true,
-    ///             Conditions = new Pagerduty.Inputs.ServiceEventRuleConditionsArgs
-    ///             {
-    ///                 Operator = "and",
-    ///                 Subconditions = 
-    ///                 {
-    ///                     new Pagerduty.Inputs.ServiceEventRuleConditionsSubconditionArgs
-    ///                     {
-    ///                         Operator = "contains",
-    ///                         Parameters = 
-    ///                         {
-    ///                             new Pagerduty.Inputs.ServiceEventRuleConditionsSubconditionParameterArgs
-    ///                             {
-    ///                                 Value = "disk space",
-    ///                                 Path = "summary",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///             Variables = 
-    ///             {
-    ///                 new Pagerduty.Inputs.ServiceEventRuleVariableArgs
-    ///                 {
-    ///                     Type = "regex",
-    ///                     Name = "Src",
-    ///                     Parameters = 
-    ///                     {
-    ///                         new Pagerduty.Inputs.ServiceEventRuleVariableParameterArgs
-    ///                         {
-    ///                             Value = "(.*)",
-    ///                             Path = "source",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///             Actions = new Pagerduty.Inputs.ServiceEventRuleActionsArgs
-    ///             {
-    ///                 Annotates = 
-    ///                 {
-    ///                     new Pagerduty.Inputs.ServiceEventRuleActionsAnnotateArgs
-    ///                     {
-    ///                         Value = "From Terraform",
-    ///                     },
-    ///                 },
-    ///                 Extractions = 
-    ///                 {
-    ///                     new Pagerduty.Inputs.ServiceEventRuleActionsExtractionArgs
-    ///                     {
-    ///                         Target = "dedup_key",
-    ///                         Source = "source",
-    ///                         Regex = "(.*)",
-    ///                     },
-    ///                     new Pagerduty.Inputs.ServiceEventRuleActionsExtractionArgs
-    ///                     {
-    ///                         Target = "summary",
-    ///                         Template = "Warning: Disk Space Low on {{Src}}",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///         var bar = new Pagerduty.ServiceEventRule("bar", new Pagerduty.ServiceEventRuleArgs
-    ///         {
-    ///             Service = pagerduty_service.Foo.Id,
-    ///             Position = 1,
-    ///             Disabled = true,
-    ///             Conditions = new Pagerduty.Inputs.ServiceEventRuleConditionsArgs
-    ///             {
-    ///                 Operator = "and",
-    ///                 Subconditions = 
-    ///                 {
-    ///                     new Pagerduty.Inputs.ServiceEventRuleConditionsSubconditionArgs
-    ///                     {
-    ///                         Operator = "contains",
-    ///                         Parameters = 
-    ///                         {
-    ///                             new Pagerduty.Inputs.ServiceEventRuleConditionsSubconditionParameterArgs
-    ///                             {
-    ///                                 Value = "cpu spike",
-    ///                                 Path = "summary",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///             Actions = new Pagerduty.Inputs.ServiceEventRuleActionsArgs
-    ///             {
-    ///                 Annotates = 
-    ///                 {
-    ///                     new Pagerduty.Inputs.ServiceEventRuleActionsAnnotateArgs
-    ///                     {
-    ///                         Value = "From Terraform",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         AutoResolveTimeout = "14400",
+    ///         AcknowledgementTimeout = "600",
+    ///         EscalationPolicy = pagerduty_escalation_policy.Example.Id,
+    ///         AlertCreation = "create_alerts_and_incidents",
+    ///     });
     /// 
-    /// }
+    ///     var foo = new Pagerduty.ServiceEventRule("foo", new()
+    ///     {
+    ///         Service = example.Id,
+    ///         Position = 0,
+    ///         Disabled = true,
+    ///         Conditions = new Pagerduty.Inputs.ServiceEventRuleConditionsArgs
+    ///         {
+    ///             Operator = "and",
+    ///             Subconditions = new[]
+    ///             {
+    ///                 new Pagerduty.Inputs.ServiceEventRuleConditionsSubconditionArgs
+    ///                 {
+    ///                     Operator = "contains",
+    ///                     Parameters = new[]
+    ///                     {
+    ///                         new Pagerduty.Inputs.ServiceEventRuleConditionsSubconditionParameterArgs
+    ///                         {
+    ///                             Value = "disk space",
+    ///                             Path = "summary",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Variables = new[]
+    ///         {
+    ///             new Pagerduty.Inputs.ServiceEventRuleVariableArgs
+    ///             {
+    ///                 Type = "regex",
+    ///                 Name = "Src",
+    ///                 Parameters = new[]
+    ///                 {
+    ///                     new Pagerduty.Inputs.ServiceEventRuleVariableParameterArgs
+    ///                     {
+    ///                         Value = "(.*)",
+    ///                         Path = "source",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Actions = new Pagerduty.Inputs.ServiceEventRuleActionsArgs
+    ///         {
+    ///             Annotates = new[]
+    ///             {
+    ///                 new Pagerduty.Inputs.ServiceEventRuleActionsAnnotateArgs
+    ///                 {
+    ///                     Value = "From Terraform",
+    ///                 },
+    ///             },
+    ///             Extractions = new[]
+    ///             {
+    ///                 new Pagerduty.Inputs.ServiceEventRuleActionsExtractionArgs
+    ///                 {
+    ///                     Target = "dedup_key",
+    ///                     Source = "source",
+    ///                     Regex = "(.*)",
+    ///                 },
+    ///                 new Pagerduty.Inputs.ServiceEventRuleActionsExtractionArgs
+    ///                 {
+    ///                     Target = "summary",
+    ///                     Template = "Warning: Disk Space Low on {{Src}}",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var bar = new Pagerduty.ServiceEventRule("bar", new()
+    ///     {
+    ///         Service = pagerduty_service.Foo.Id,
+    ///         Position = 1,
+    ///         Disabled = true,
+    ///         Conditions = new Pagerduty.Inputs.ServiceEventRuleConditionsArgs
+    ///         {
+    ///             Operator = "and",
+    ///             Subconditions = new[]
+    ///             {
+    ///                 new Pagerduty.Inputs.ServiceEventRuleConditionsSubconditionArgs
+    ///                 {
+    ///                     Operator = "contains",
+    ///                     Parameters = new[]
+    ///                     {
+    ///                         new Pagerduty.Inputs.ServiceEventRuleConditionsSubconditionParameterArgs
+    ///                         {
+    ///                             Value = "cpu spike",
+    ///                             Path = "summary",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Actions = new Pagerduty.Inputs.ServiceEventRuleActionsArgs
+    ///         {
+    ///             Annotates = new[]
+    ///             {
+    ///                 new Pagerduty.Inputs.ServiceEventRuleActionsAnnotateArgs
+    ///                 {
+    ///                     Value = "From Terraform",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -143,7 +143,7 @@ namespace Pulumi.Pagerduty
     /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/serviceEventRule:ServiceEventRule")]
-    public partial class ServiceEventRule : Pulumi.CustomResource
+    public partial class ServiceEventRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Actions to apply to an event if the conditions match.
@@ -231,7 +231,7 @@ namespace Pulumi.Pagerduty
         }
     }
 
-    public sealed class ServiceEventRuleArgs : Pulumi.ResourceArgs
+    public sealed class ServiceEventRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Actions to apply to an event if the conditions match.
@@ -284,9 +284,10 @@ namespace Pulumi.Pagerduty
         public ServiceEventRuleArgs()
         {
         }
+        public static new ServiceEventRuleArgs Empty => new ServiceEventRuleArgs();
     }
 
-    public sealed class ServiceEventRuleState : Pulumi.ResourceArgs
+    public sealed class ServiceEventRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Actions to apply to an event if the conditions match.
@@ -339,5 +340,6 @@ namespace Pulumi.Pagerduty
         public ServiceEventRuleState()
         {
         }
+        public static new ServiceEventRuleState Empty => new ServiceEventRuleState();
     }
 }

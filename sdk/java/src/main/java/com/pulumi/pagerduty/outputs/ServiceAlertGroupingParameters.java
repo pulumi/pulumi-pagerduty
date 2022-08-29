@@ -16,21 +16,14 @@ public final class ServiceAlertGroupingParameters {
      * @return Alert grouping parameters dependent on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
      * 
      */
-    private final @Nullable ServiceAlertGroupingParametersConfig config;
+    private @Nullable ServiceAlertGroupingParametersConfig config;
     /**
-     * @return The type of scheduled action. Currently, this must be set to `urgency_change`.
+     * @return The type of alert grouping; one of `intelligent`, `time` or `content_based`.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private ServiceAlertGroupingParameters(
-        @CustomType.Parameter("config") @Nullable ServiceAlertGroupingParametersConfig config,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.config = config;
-        this.type = type;
-    }
-
+    private ServiceAlertGroupingParameters() {}
     /**
      * @return Alert grouping parameters dependent on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
      * 
@@ -39,7 +32,7 @@ public final class ServiceAlertGroupingParameters {
         return Optional.ofNullable(this.config);
     }
     /**
-     * @return The type of scheduled action. Currently, this must be set to `urgency_change`.
+     * @return The type of alert grouping; one of `intelligent`, `time` or `content_based`.
      * 
      */
     public Optional<String> type() {
@@ -53,30 +46,32 @@ public final class ServiceAlertGroupingParameters {
     public static Builder builder(ServiceAlertGroupingParameters defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ServiceAlertGroupingParametersConfig config;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceAlertGroupingParameters defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.config = defaults.config;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder config(@Nullable ServiceAlertGroupingParametersConfig config) {
             this.config = config;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public ServiceAlertGroupingParameters build() {
-            return new ServiceAlertGroupingParameters(config, type);
+        }
+        public ServiceAlertGroupingParameters build() {
+            final var o = new ServiceAlertGroupingParameters();
+            o.config = config;
+            o.type = type;
+            return o;
         }
     }
 }

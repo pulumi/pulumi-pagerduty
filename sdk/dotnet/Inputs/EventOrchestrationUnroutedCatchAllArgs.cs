@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class EventOrchestrationUnroutedCatchAllArgs : Pulumi.ResourceArgs
+    public sealed class EventOrchestrationUnroutedCatchAllArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` _except_ `route_to` action.
@@ -21,5 +21,6 @@ namespace Pulumi.Pagerduty.Inputs
         public EventOrchestrationUnroutedCatchAllArgs()
         {
         }
+        public static new EventOrchestrationUnroutedCatchAllArgs Empty => new EventOrchestrationUnroutedCatchAllArgs();
     }
 }

@@ -13,13 +13,9 @@ public final class EventOrchestrationServiceSetRuleCondition {
      * @return A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
      * 
      */
-    private final String expression;
+    private String expression;
 
-    @CustomType.Constructor
-    private EventOrchestrationServiceSetRuleCondition(@CustomType.Parameter("expression") String expression) {
-        this.expression = expression;
-    }
-
+    private EventOrchestrationServiceSetRuleCondition() {}
     /**
      * @return A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
      * 
@@ -35,24 +31,24 @@ public final class EventOrchestrationServiceSetRuleCondition {
     public static Builder builder(EventOrchestrationServiceSetRuleCondition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String expression;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventOrchestrationServiceSetRuleCondition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.expression = defaults.expression;
         }
 
+        @CustomType.Setter
         public Builder expression(String expression) {
             this.expression = Objects.requireNonNull(expression);
             return this;
-        }        public EventOrchestrationServiceSetRuleCondition build() {
-            return new EventOrchestrationServiceSetRuleCondition(expression);
+        }
+        public EventOrchestrationServiceSetRuleCondition build() {
+            final var o = new EventOrchestrationServiceSetRuleCondition();
+            o.expression = expression;
+            return o;
         }
     }
 }

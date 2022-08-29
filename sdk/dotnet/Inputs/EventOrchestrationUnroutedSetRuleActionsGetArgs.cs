@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class EventOrchestrationUnroutedSetRuleActionsGetArgs : Pulumi.ResourceArgs
+    public sealed class EventOrchestrationUnroutedSetRuleActionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
@@ -57,5 +57,6 @@ namespace Pulumi.Pagerduty.Inputs
         public EventOrchestrationUnroutedSetRuleActionsGetArgs()
         {
         }
+        public static new EventOrchestrationUnroutedSetRuleActionsGetArgs Empty => new EventOrchestrationUnroutedSetRuleActionsGetArgs();
     }
 }

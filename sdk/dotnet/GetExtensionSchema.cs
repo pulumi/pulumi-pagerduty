@@ -19,62 +19,64 @@ namespace Pulumi.Pagerduty
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Pagerduty = Pulumi.Pagerduty;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var webhook = Pagerduty.GetExtensionSchema.Invoke(new()
         ///     {
-        ///         var webhook = Output.Create(Pagerduty.GetExtensionSchema.InvokeAsync(new Pagerduty.GetExtensionSchemaArgs
+        ///         Name = "Generic V2 Webhook",
+        ///     });
+        /// 
+        ///     var exampleUser = new Pagerduty.User("exampleUser", new()
+        ///     {
+        ///         Email = "howard.james@example.domain",
+        ///         Teams = new[]
         ///         {
-        ///             Name = "Generic V2 Webhook",
-        ///         }));
-        ///         var exampleUser = new Pagerduty.User("exampleUser", new Pagerduty.UserArgs
+        ///             pagerduty_team.Example.Id,
+        ///         },
+        ///     });
+        /// 
+        ///     var foo = new Pagerduty.EscalationPolicy("foo", new()
+        ///     {
+        ///         NumLoops = 2,
+        ///         Rules = new[]
         ///         {
-        ///             Email = "howard.james@example.domain",
-        ///             Teams = 
+        ///             new Pagerduty.Inputs.EscalationPolicyRuleArgs
         ///             {
-        ///                 pagerduty_team.Example.Id,
-        ///             },
-        ///         });
-        ///         var foo = new Pagerduty.EscalationPolicy("foo", new Pagerduty.EscalationPolicyArgs
-        ///         {
-        ///             NumLoops = 2,
-        ///             Rules = 
-        ///             {
-        ///                 new Pagerduty.Inputs.EscalationPolicyRuleArgs
+        ///                 EscalationDelayInMinutes = 10,
+        ///                 Targets = new[]
         ///                 {
-        ///                     EscalationDelayInMinutes = 10,
-        ///                     Targets = 
+        ///                     new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
         ///                     {
-        ///                         new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
-        ///                         {
-        ///                             Type = "user",
-        ///                             Id = exampleUser.Id,
-        ///                         },
+        ///                         Type = "user",
+        ///                         Id = exampleUser.Id,
         ///                     },
         ///                 },
         ///             },
-        ///         });
-        ///         var exampleService = new Pagerduty.Service("exampleService", new Pagerduty.ServiceArgs
-        ///         {
-        ///             AutoResolveTimeout = "14400",
-        ///             AcknowledgementTimeout = "600",
-        ///             EscalationPolicy = pagerduty_escalation_policy.Example.Id,
-        ///         });
-        ///         var slack = new Pagerduty.Extension("slack", new Pagerduty.ExtensionArgs
-        ///         {
-        ///             EndpointUrl = "https://generic_webhook_url/XXXXXX/BBBBBB",
-        ///             ExtensionSchema = webhook.Apply(webhook =&gt; webhook.Id),
-        ///             ExtensionObjects = 
-        ///             {
-        ///                 exampleService.Id,
-        ///             },
-        ///         });
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        ///     var exampleService = new Pagerduty.Service("exampleService", new()
+        ///     {
+        ///         AutoResolveTimeout = "14400",
+        ///         AcknowledgementTimeout = "600",
+        ///         EscalationPolicy = pagerduty_escalation_policy.Example.Id,
+        ///     });
+        /// 
+        ///     var slack = new Pagerduty.Extension("slack", new()
+        ///     {
+        ///         EndpointUrl = "https://generic_webhook_url/XXXXXX/BBBBBB",
+        ///         ExtensionSchema = webhook.Apply(getExtensionSchemaResult =&gt; getExtensionSchemaResult.Id),
+        ///         ExtensionObjects = new[]
+        ///         {
+        ///             exampleService.Id,
+        ///         },
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -90,62 +92,64 @@ namespace Pulumi.Pagerduty
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Pagerduty = Pulumi.Pagerduty;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var webhook = Pagerduty.GetExtensionSchema.Invoke(new()
         ///     {
-        ///         var webhook = Output.Create(Pagerduty.GetExtensionSchema.InvokeAsync(new Pagerduty.GetExtensionSchemaArgs
+        ///         Name = "Generic V2 Webhook",
+        ///     });
+        /// 
+        ///     var exampleUser = new Pagerduty.User("exampleUser", new()
+        ///     {
+        ///         Email = "howard.james@example.domain",
+        ///         Teams = new[]
         ///         {
-        ///             Name = "Generic V2 Webhook",
-        ///         }));
-        ///         var exampleUser = new Pagerduty.User("exampleUser", new Pagerduty.UserArgs
+        ///             pagerduty_team.Example.Id,
+        ///         },
+        ///     });
+        /// 
+        ///     var foo = new Pagerduty.EscalationPolicy("foo", new()
+        ///     {
+        ///         NumLoops = 2,
+        ///         Rules = new[]
         ///         {
-        ///             Email = "howard.james@example.domain",
-        ///             Teams = 
+        ///             new Pagerduty.Inputs.EscalationPolicyRuleArgs
         ///             {
-        ///                 pagerduty_team.Example.Id,
-        ///             },
-        ///         });
-        ///         var foo = new Pagerduty.EscalationPolicy("foo", new Pagerduty.EscalationPolicyArgs
-        ///         {
-        ///             NumLoops = 2,
-        ///             Rules = 
-        ///             {
-        ///                 new Pagerduty.Inputs.EscalationPolicyRuleArgs
+        ///                 EscalationDelayInMinutes = 10,
+        ///                 Targets = new[]
         ///                 {
-        ///                     EscalationDelayInMinutes = 10,
-        ///                     Targets = 
+        ///                     new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
         ///                     {
-        ///                         new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
-        ///                         {
-        ///                             Type = "user",
-        ///                             Id = exampleUser.Id,
-        ///                         },
+        ///                         Type = "user",
+        ///                         Id = exampleUser.Id,
         ///                     },
         ///                 },
         ///             },
-        ///         });
-        ///         var exampleService = new Pagerduty.Service("exampleService", new Pagerduty.ServiceArgs
-        ///         {
-        ///             AutoResolveTimeout = "14400",
-        ///             AcknowledgementTimeout = "600",
-        ///             EscalationPolicy = pagerduty_escalation_policy.Example.Id,
-        ///         });
-        ///         var slack = new Pagerduty.Extension("slack", new Pagerduty.ExtensionArgs
-        ///         {
-        ///             EndpointUrl = "https://generic_webhook_url/XXXXXX/BBBBBB",
-        ///             ExtensionSchema = webhook.Apply(webhook =&gt; webhook.Id),
-        ///             ExtensionObjects = 
-        ///             {
-        ///                 exampleService.Id,
-        ///             },
-        ///         });
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        ///     var exampleService = new Pagerduty.Service("exampleService", new()
+        ///     {
+        ///         AutoResolveTimeout = "14400",
+        ///         AcknowledgementTimeout = "600",
+        ///         EscalationPolicy = pagerduty_escalation_policy.Example.Id,
+        ///     });
+        /// 
+        ///     var slack = new Pagerduty.Extension("slack", new()
+        ///     {
+        ///         EndpointUrl = "https://generic_webhook_url/XXXXXX/BBBBBB",
+        ///         ExtensionSchema = webhook.Apply(getExtensionSchemaResult =&gt; getExtensionSchemaResult.Id),
+        ///         ExtensionObjects = new[]
+        ///         {
+        ///             exampleService.Id,
+        ///         },
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -155,7 +159,7 @@ namespace Pulumi.Pagerduty
     }
 
 
-    public sealed class GetExtensionSchemaArgs : Pulumi.InvokeArgs
+    public sealed class GetExtensionSchemaArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The extension name to use to find an extension vendor in the PagerDuty API.
@@ -166,9 +170,10 @@ namespace Pulumi.Pagerduty
         public GetExtensionSchemaArgs()
         {
         }
+        public static new GetExtensionSchemaArgs Empty => new GetExtensionSchemaArgs();
     }
 
-    public sealed class GetExtensionSchemaInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetExtensionSchemaInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The extension name to use to find an extension vendor in the PagerDuty API.
@@ -179,6 +184,7 @@ namespace Pulumi.Pagerduty
         public GetExtensionSchemaInvokeArgs()
         {
         }
+        public static new GetExtensionSchemaInvokeArgs Empty => new GetExtensionSchemaInvokeArgs();
     }
 
 

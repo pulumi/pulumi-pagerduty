@@ -15,64 +15,64 @@ namespace Pulumi.Pagerduty
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Pagerduty = Pulumi.Pagerduty;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleUser = new Pagerduty.User("exampleUser", new()
     ///     {
-    ///         var exampleUser = new Pagerduty.User("exampleUser", new Pagerduty.UserArgs
+    ///         Email = "125.greenholt.earline@graham.name",
+    ///         Teams = new[]
     ///         {
-    ///             Email = "125.greenholt.earline@graham.name",
-    ///             Teams = 
-    ///             {
-    ///                 pagerduty_team.Example.Id,
-    ///             },
-    ///         });
-    ///         var exampleEscalationPolicy = new Pagerduty.EscalationPolicy("exampleEscalationPolicy", new Pagerduty.EscalationPolicyArgs
+    ///             pagerduty_team.Example.Id,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleEscalationPolicy = new Pagerduty.EscalationPolicy("exampleEscalationPolicy", new()
+    ///     {
+    ///         NumLoops = 2,
+    ///         Rules = new[]
     ///         {
-    ///             NumLoops = 2,
-    ///             Rules = 
+    ///             new Pagerduty.Inputs.EscalationPolicyRuleArgs
     ///             {
-    ///                 new Pagerduty.Inputs.EscalationPolicyRuleArgs
+    ///                 EscalationDelayInMinutes = 10,
+    ///                 Targets = new[]
     ///                 {
-    ///                     EscalationDelayInMinutes = 10,
-    ///                     Targets = 
+    ///                     new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
     ///                     {
-    ///                         new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
-    ///                         {
-    ///                             Type = "user",
-    ///                             Id = exampleUser.Id,
-    ///                         },
+    ///                         Type = "user",
+    ///                         Id = exampleUser.Id,
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///         var exampleResponsePlay = new Pagerduty.ResponsePlay("exampleResponsePlay", new Pagerduty.ResponsePlayArgs
-    ///         {
-    ///             From = exampleUser.Email,
-    ///             Responders = 
-    ///             {
-    ///                 new Pagerduty.Inputs.ResponsePlayResponderArgs
-    ///                 {
-    ///                     Type = "escalation_policy_reference",
-    ///                     Id = exampleEscalationPolicy.Id,
-    ///                 },
-    ///             },
-    ///             Subscribers = 
-    ///             {
-    ///                 new Pagerduty.Inputs.ResponsePlaySubscriberArgs
-    ///                 {
-    ///                     Type = "user_reference",
-    ///                     Id = exampleUser.Id,
-    ///                 },
-    ///             },
-    ///             Runnability = "services",
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleResponsePlay = new Pagerduty.ResponsePlay("exampleResponsePlay", new()
+    ///     {
+    ///         From = exampleUser.Email,
+    ///         Responders = new[]
+    ///         {
+    ///             new Pagerduty.Inputs.ResponsePlayResponderArgs
+    ///             {
+    ///                 Type = "escalation_policy_reference",
+    ///                 Id = exampleEscalationPolicy.Id,
+    ///             },
+    ///         },
+    ///         Subscribers = new[]
+    ///         {
+    ///             new Pagerduty.Inputs.ResponsePlaySubscriberArgs
+    ///             {
+    ///                 Type = "user_reference",
+    ///                 Id = exampleUser.Id,
+    ///             },
+    ///         },
+    ///         Runnability = "services",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -84,7 +84,7 @@ namespace Pulumi.Pagerduty
     /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/responsePlay:ResponsePlay")]
-    public partial class ResponsePlay : Pulumi.CustomResource
+    public partial class ResponsePlay : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The telephone number that will be set as the conference number for any incident on which this response play is run.
@@ -199,7 +199,7 @@ namespace Pulumi.Pagerduty
         }
     }
 
-    public sealed class ResponsePlayArgs : Pulumi.ResourceArgs
+    public sealed class ResponsePlayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The telephone number that will be set as the conference number for any incident on which this response play is run.
@@ -286,9 +286,10 @@ namespace Pulumi.Pagerduty
         {
             Description = "Managed by Pulumi";
         }
+        public static new ResponsePlayArgs Empty => new ResponsePlayArgs();
     }
 
-    public sealed class ResponsePlayState : Pulumi.ResourceArgs
+    public sealed class ResponsePlayState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The telephone number that will be set as the conference number for any incident on which this response play is run.
@@ -375,5 +376,6 @@ namespace Pulumi.Pagerduty
         {
             Description = "Managed by Pulumi";
         }
+        public static new ResponsePlayState Empty => new ResponsePlayState();
     }
 }

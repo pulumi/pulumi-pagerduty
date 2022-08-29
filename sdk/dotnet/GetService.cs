@@ -19,30 +19,30 @@ namespace Pulumi.Pagerduty
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Pagerduty = Pulumi.Pagerduty;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleService = Pagerduty.GetService.Invoke(new()
         ///     {
-        ///         var exampleService = Output.Create(Pagerduty.GetService.InvokeAsync(new Pagerduty.GetServiceArgs
-        ///         {
-        ///             Name = "My Service",
-        ///         }));
-        ///         var datadog = Output.Create(Pagerduty.GetVendor.InvokeAsync(new Pagerduty.GetVendorArgs
-        ///         {
-        ///             Name = "Datadog",
-        ///         }));
-        ///         var exampleServiceIntegration = new Pagerduty.ServiceIntegration("exampleServiceIntegration", new Pagerduty.ServiceIntegrationArgs
-        ///         {
-        ///             Vendor = datadog.Apply(datadog =&gt; datadog.Id),
-        ///             Service = exampleService.Apply(exampleService =&gt; exampleService.Id),
-        ///             Type = "generic_events_api_inbound_integration",
-        ///         });
-        ///     }
+        ///         Name = "My Service",
+        ///     });
         /// 
-        /// }
+        ///     var datadog = Pagerduty.GetVendor.Invoke(new()
+        ///     {
+        ///         Name = "Datadog",
+        ///     });
+        /// 
+        ///     var exampleServiceIntegration = new Pagerduty.ServiceIntegration("exampleServiceIntegration", new()
+        ///     {
+        ///         Vendor = datadog.Apply(getVendorResult =&gt; getVendorResult.Id),
+        ///         Service = exampleService.Apply(getServiceResult =&gt; getServiceResult.Id),
+        ///         Type = "generic_events_api_inbound_integration",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -58,30 +58,30 @@ namespace Pulumi.Pagerduty
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Pagerduty = Pulumi.Pagerduty;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleService = Pagerduty.GetService.Invoke(new()
         ///     {
-        ///         var exampleService = Output.Create(Pagerduty.GetService.InvokeAsync(new Pagerduty.GetServiceArgs
-        ///         {
-        ///             Name = "My Service",
-        ///         }));
-        ///         var datadog = Output.Create(Pagerduty.GetVendor.InvokeAsync(new Pagerduty.GetVendorArgs
-        ///         {
-        ///             Name = "Datadog",
-        ///         }));
-        ///         var exampleServiceIntegration = new Pagerduty.ServiceIntegration("exampleServiceIntegration", new Pagerduty.ServiceIntegrationArgs
-        ///         {
-        ///             Vendor = datadog.Apply(datadog =&gt; datadog.Id),
-        ///             Service = exampleService.Apply(exampleService =&gt; exampleService.Id),
-        ///             Type = "generic_events_api_inbound_integration",
-        ///         });
-        ///     }
+        ///         Name = "My Service",
+        ///     });
         /// 
-        /// }
+        ///     var datadog = Pagerduty.GetVendor.Invoke(new()
+        ///     {
+        ///         Name = "Datadog",
+        ///     });
+        /// 
+        ///     var exampleServiceIntegration = new Pagerduty.ServiceIntegration("exampleServiceIntegration", new()
+        ///     {
+        ///         Vendor = datadog.Apply(getVendorResult =&gt; getVendorResult.Id),
+        ///         Service = exampleService.Apply(getServiceResult =&gt; getServiceResult.Id),
+        ///         Type = "generic_events_api_inbound_integration",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -91,7 +91,7 @@ namespace Pulumi.Pagerduty
     }
 
 
-    public sealed class GetServiceArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The service name to use to find a service in the PagerDuty API.
@@ -102,9 +102,10 @@ namespace Pulumi.Pagerduty
         public GetServiceArgs()
         {
         }
+        public static new GetServiceArgs Empty => new GetServiceArgs();
     }
 
-    public sealed class GetServiceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The service name to use to find a service in the PagerDuty API.
@@ -115,6 +116,7 @@ namespace Pulumi.Pagerduty
         public GetServiceInvokeArgs()
         {
         }
+        public static new GetServiceInvokeArgs Empty => new GetServiceInvokeArgs();
     }
 
 

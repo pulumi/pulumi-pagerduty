@@ -19,37 +19,37 @@ namespace Pulumi.Pagerduty
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Pagerduty = Pulumi.Pagerduty;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var me = Pagerduty.GetUser.Invoke(new()
         ///     {
-        ///         var me = Output.Create(Pagerduty.GetUser.InvokeAsync(new Pagerduty.GetUserArgs
-        ///         {
-        ///             Email = "me@example.com",
-        ///         }));
-        ///         var phonePush = me.Apply(me =&gt; Output.Create(Pagerduty.GetUserContactMethod.InvokeAsync(new Pagerduty.GetUserContactMethodArgs
-        ///         {
-        ///             UserId = me.Id,
-        ///             Type = "push_notification_contact_method",
-        ///             Label = "iPhone (John)",
-        ///         })));
-        ///         var lowUrgencySms = new Pagerduty.UserNotificationRule("lowUrgencySms", new Pagerduty.UserNotificationRuleArgs
-        ///         {
-        ///             UserId = me.Apply(me =&gt; me.Id),
-        ///             StartDelayInMinutes = 5,
-        ///             Urgency = "high",
-        ///             ContactMethod = 
-        ///             {
-        ///                 { "type", "push_notification_contact_method" },
-        ///                 { "id", phonePush.Apply(phonePush =&gt; phonePush.Id) },
-        ///             },
-        ///         });
-        ///     }
+        ///         Email = "me@example.com",
+        ///     });
         /// 
-        /// }
+        ///     var phonePush = Pagerduty.GetUserContactMethod.Invoke(new()
+        ///     {
+        ///         UserId = me.Apply(getUserResult =&gt; getUserResult.Id),
+        ///         Type = "push_notification_contact_method",
+        ///         Label = "iPhone (John)",
+        ///     });
+        /// 
+        ///     var lowUrgencySms = new Pagerduty.UserNotificationRule("lowUrgencySms", new()
+        ///     {
+        ///         UserId = me.Apply(getUserResult =&gt; getUserResult.Id),
+        ///         StartDelayInMinutes = 5,
+        ///         Urgency = "high",
+        ///         ContactMethod = 
+        ///         {
+        ///             { "type", "push_notification_contact_method" },
+        ///             { "id", phonePush.Apply(getUserContactMethodResult =&gt; getUserContactMethodResult.Id) },
+        ///         },
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -65,37 +65,37 @@ namespace Pulumi.Pagerduty
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Pagerduty = Pulumi.Pagerduty;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var me = Pagerduty.GetUser.Invoke(new()
         ///     {
-        ///         var me = Output.Create(Pagerduty.GetUser.InvokeAsync(new Pagerduty.GetUserArgs
-        ///         {
-        ///             Email = "me@example.com",
-        ///         }));
-        ///         var phonePush = me.Apply(me =&gt; Output.Create(Pagerduty.GetUserContactMethod.InvokeAsync(new Pagerduty.GetUserContactMethodArgs
-        ///         {
-        ///             UserId = me.Id,
-        ///             Type = "push_notification_contact_method",
-        ///             Label = "iPhone (John)",
-        ///         })));
-        ///         var lowUrgencySms = new Pagerduty.UserNotificationRule("lowUrgencySms", new Pagerduty.UserNotificationRuleArgs
-        ///         {
-        ///             UserId = me.Apply(me =&gt; me.Id),
-        ///             StartDelayInMinutes = 5,
-        ///             Urgency = "high",
-        ///             ContactMethod = 
-        ///             {
-        ///                 { "type", "push_notification_contact_method" },
-        ///                 { "id", phonePush.Apply(phonePush =&gt; phonePush.Id) },
-        ///             },
-        ///         });
-        ///     }
+        ///         Email = "me@example.com",
+        ///     });
         /// 
-        /// }
+        ///     var phonePush = Pagerduty.GetUserContactMethod.Invoke(new()
+        ///     {
+        ///         UserId = me.Apply(getUserResult =&gt; getUserResult.Id),
+        ///         Type = "push_notification_contact_method",
+        ///         Label = "iPhone (John)",
+        ///     });
+        /// 
+        ///     var lowUrgencySms = new Pagerduty.UserNotificationRule("lowUrgencySms", new()
+        ///     {
+        ///         UserId = me.Apply(getUserResult =&gt; getUserResult.Id),
+        ///         StartDelayInMinutes = 5,
+        ///         Urgency = "high",
+        ///         ContactMethod = 
+        ///         {
+        ///             { "type", "push_notification_contact_method" },
+        ///             { "id", phonePush.Apply(getUserContactMethodResult =&gt; getUserContactMethodResult.Id) },
+        ///         },
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -105,7 +105,7 @@ namespace Pulumi.Pagerduty
     }
 
 
-    public sealed class GetUserContactMethodArgs : Pulumi.InvokeArgs
+    public sealed class GetUserContactMethodArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The label (e.g., "Work", "Mobile", "Ashley's iPhone", etc.).
@@ -128,9 +128,10 @@ namespace Pulumi.Pagerduty
         public GetUserContactMethodArgs()
         {
         }
+        public static new GetUserContactMethodArgs Empty => new GetUserContactMethodArgs();
     }
 
-    public sealed class GetUserContactMethodInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetUserContactMethodInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The label (e.g., "Work", "Mobile", "Ashley's iPhone", etc.).
@@ -153,6 +154,7 @@ namespace Pulumi.Pagerduty
         public GetUserContactMethodInvokeArgs()
         {
         }
+        public static new GetUserContactMethodInvokeArgs Empty => new GetUserContactMethodInvokeArgs();
     }
 
 

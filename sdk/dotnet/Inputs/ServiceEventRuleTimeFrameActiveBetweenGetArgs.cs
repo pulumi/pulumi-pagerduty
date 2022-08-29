@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class ServiceEventRuleTimeFrameActiveBetweenGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceEventRuleTimeFrameActiveBetweenGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
@@ -27,5 +27,6 @@ namespace Pulumi.Pagerduty.Inputs
         public ServiceEventRuleTimeFrameActiveBetweenGetArgs()
         {
         }
+        public static new ServiceEventRuleTimeFrameActiveBetweenGetArgs Empty => new ServiceEventRuleTimeFrameActiveBetweenGetArgs();
     }
 }

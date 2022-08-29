@@ -19,50 +19,54 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
-// 			Email: pulumi.String("125.greenholt.earline@graham.name"),
-// 			Teams: pulumi.StringArray{
-// 				pulumi.Any(pagerduty_team.Example.Id),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = pagerduty.NewEscalationPolicy(ctx, "foo", &pagerduty.EscalationPolicyArgs{
-// 			NumLoops: pulumi.Int(2),
-// 			Rules: EscalationPolicyRuleArray{
-// 				&EscalationPolicyRuleArgs{
-// 					EscalationDelayInMinutes: pulumi.Int(10),
-// 					Targets: EscalationPolicyRuleTargetArray{
-// 						&EscalationPolicyRuleTargetArgs{
-// 							Type: pulumi.String("user"),
-// 							Id:   exampleUser.ID(),
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = pagerduty.NewService(ctx, "exampleService", &pagerduty.ServiceArgs{
-// 			AutoResolveTimeout:     pulumi.String("14400"),
-// 			AcknowledgementTimeout: pulumi.String("600"),
-// 			EscalationPolicy:       pulumi.Any(pagerduty_escalation_policy.Example.Id),
-// 			AlertCreation:          pulumi.String("create_alerts_and_incidents"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
+//				Email: pulumi.String("125.greenholt.earline@graham.name"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			foo, err := pagerduty.NewEscalationPolicy(ctx, "foo", &pagerduty.EscalationPolicyArgs{
+//				NumLoops: pulumi.Int(2),
+//				Rules: EscalationPolicyRuleArray{
+//					&EscalationPolicyRuleArgs{
+//						EscalationDelayInMinutes: pulumi.Int(10),
+//						Targets: EscalationPolicyRuleTargetArray{
+//							&EscalationPolicyRuleTargetArgs{
+//								Type: pulumi.String("user_reference"),
+//								Id:   exampleUser.ID(),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewService(ctx, "exampleService", &pagerduty.ServiceArgs{
+//				AutoResolveTimeout:     pulumi.String("14400"),
+//				AcknowledgementTimeout: pulumi.String("600"),
+//				EscalationPolicy:       foo.ID(),
+//				AlertCreation:          pulumi.String("create_alerts_and_incidents"),
+//				AutoPauseNotificationsParameters: &ServiceAutoPauseNotificationsParametersArgs{
+//					Enabled: pulumi.Bool(true),
+//					Timeout: pulumi.Int(300),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -70,7 +74,9 @@ import (
 // Services can be imported using the `id`, e.g.
 //
 // ```sh
-//  $ pulumi import pagerduty:index/service:Service main PLBP09X
+//
+//	$ pulumi import pagerduty:index/service:Service main PLBP09X
+//
 // ```
 type Service struct {
 	pulumi.CustomResourceState
@@ -89,6 +95,8 @@ type Service struct {
 	//
 	// Deprecated: Use `alert_grouping_parameters.config.timeout`
 	AlertGroupingTimeout pulumi.StringOutput `pulumi:"alertGroupingTimeout"`
+	// Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
+	AutoPauseNotificationsParameters ServiceAutoPauseNotificationsParametersOutput `pulumi:"autoPauseNotificationsParameters"`
 	// Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
 	AutoResolveTimeout pulumi.StringPtrOutput `pulumi:"autoResolveTimeout"`
 	CreatedAt          pulumi.StringOutput    `pulumi:"createdAt"`
@@ -99,7 +107,9 @@ type Service struct {
 	IncidentUrgencyRule   ServiceIncidentUrgencyRuleOutput `pulumi:"incidentUrgencyRule"`
 	LastIncidentTimestamp pulumi.StringOutput              `pulumi:"lastIncidentTimestamp"`
 	// The name of the service.
-	Name             pulumi.StringOutput               `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The response play used by this service.
+	ResponsePlay     pulumi.StringPtrOutput            `pulumi:"responsePlay"`
 	ScheduledActions ServiceScheduledActionArrayOutput `pulumi:"scheduledActions"`
 	Status           pulumi.StringOutput               `pulumi:"status"`
 	SupportHours     ServiceSupportHoursPtrOutput      `pulumi:"supportHours"`
@@ -156,6 +166,8 @@ type serviceState struct {
 	//
 	// Deprecated: Use `alert_grouping_parameters.config.timeout`
 	AlertGroupingTimeout *string `pulumi:"alertGroupingTimeout"`
+	// Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
+	AutoPauseNotificationsParameters *ServiceAutoPauseNotificationsParameters `pulumi:"autoPauseNotificationsParameters"`
 	// Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
 	AutoResolveTimeout *string `pulumi:"autoResolveTimeout"`
 	CreatedAt          *string `pulumi:"createdAt"`
@@ -166,7 +178,9 @@ type serviceState struct {
 	IncidentUrgencyRule   *ServiceIncidentUrgencyRule `pulumi:"incidentUrgencyRule"`
 	LastIncidentTimestamp *string                     `pulumi:"lastIncidentTimestamp"`
 	// The name of the service.
-	Name             *string                  `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The response play used by this service.
+	ResponsePlay     *string                  `pulumi:"responsePlay"`
 	ScheduledActions []ServiceScheduledAction `pulumi:"scheduledActions"`
 	Status           *string                  `pulumi:"status"`
 	SupportHours     *ServiceSupportHours     `pulumi:"supportHours"`
@@ -189,6 +203,8 @@ type ServiceState struct {
 	//
 	// Deprecated: Use `alert_grouping_parameters.config.timeout`
 	AlertGroupingTimeout pulumi.StringPtrInput
+	// Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
+	AutoPauseNotificationsParameters ServiceAutoPauseNotificationsParametersPtrInput
 	// Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
 	AutoResolveTimeout pulumi.StringPtrInput
 	CreatedAt          pulumi.StringPtrInput
@@ -199,7 +215,9 @@ type ServiceState struct {
 	IncidentUrgencyRule   ServiceIncidentUrgencyRulePtrInput
 	LastIncidentTimestamp pulumi.StringPtrInput
 	// The name of the service.
-	Name             pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The response play used by this service.
+	ResponsePlay     pulumi.StringPtrInput
 	ScheduledActions ServiceScheduledActionArrayInput
 	Status           pulumi.StringPtrInput
 	SupportHours     ServiceSupportHoursPtrInput
@@ -226,6 +244,8 @@ type serviceArgs struct {
 	//
 	// Deprecated: Use `alert_grouping_parameters.config.timeout`
 	AlertGroupingTimeout *string `pulumi:"alertGroupingTimeout"`
+	// Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
+	AutoPauseNotificationsParameters *ServiceAutoPauseNotificationsParameters `pulumi:"autoPauseNotificationsParameters"`
 	// Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
 	AutoResolveTimeout *string `pulumi:"autoResolveTimeout"`
 	Description        *string `pulumi:"description"`
@@ -233,7 +253,9 @@ type serviceArgs struct {
 	EscalationPolicy    string                      `pulumi:"escalationPolicy"`
 	IncidentUrgencyRule *ServiceIncidentUrgencyRule `pulumi:"incidentUrgencyRule"`
 	// The name of the service.
-	Name             *string                  `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The response play used by this service.
+	ResponsePlay     *string                  `pulumi:"responsePlay"`
 	ScheduledActions []ServiceScheduledAction `pulumi:"scheduledActions"`
 	SupportHours     *ServiceSupportHours     `pulumi:"supportHours"`
 }
@@ -254,6 +276,8 @@ type ServiceArgs struct {
 	//
 	// Deprecated: Use `alert_grouping_parameters.config.timeout`
 	AlertGroupingTimeout pulumi.StringPtrInput
+	// Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
+	AutoPauseNotificationsParameters ServiceAutoPauseNotificationsParametersPtrInput
 	// Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
 	AutoResolveTimeout pulumi.StringPtrInput
 	Description        pulumi.StringPtrInput
@@ -261,7 +285,9 @@ type ServiceArgs struct {
 	EscalationPolicy    pulumi.StringInput
 	IncidentUrgencyRule ServiceIncidentUrgencyRulePtrInput
 	// The name of the service.
-	Name             pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The response play used by this service.
+	ResponsePlay     pulumi.StringPtrInput
 	ScheduledActions ServiceScheduledActionArrayInput
 	SupportHours     ServiceSupportHoursPtrInput
 }
@@ -292,7 +318,7 @@ func (i *Service) ToServiceOutputWithContext(ctx context.Context) ServiceOutput 
 // ServiceArrayInput is an input type that accepts ServiceArray and ServiceArrayOutput values.
 // You can construct a concrete instance of `ServiceArrayInput` via:
 //
-//          ServiceArray{ ServiceArgs{...} }
+//	ServiceArray{ ServiceArgs{...} }
 type ServiceArrayInput interface {
 	pulumi.Input
 
@@ -317,7 +343,7 @@ func (i ServiceArray) ToServiceArrayOutputWithContext(ctx context.Context) Servi
 // ServiceMapInput is an input type that accepts ServiceMap and ServiceMapOutput values.
 // You can construct a concrete instance of `ServiceMapInput` via:
 //
-//          ServiceMap{ "key": ServiceArgs{...} }
+//	ServiceMap{ "key": ServiceArgs{...} }
 type ServiceMapInput interface {
 	pulumi.Input
 
@@ -382,6 +408,13 @@ func (o ServiceOutput) AlertGroupingTimeout() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.AlertGroupingTimeout }).(pulumi.StringOutput)
 }
 
+// Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
+func (o ServiceOutput) AutoPauseNotificationsParameters() ServiceAutoPauseNotificationsParametersOutput {
+	return o.ApplyT(func(v *Service) ServiceAutoPauseNotificationsParametersOutput {
+		return v.AutoPauseNotificationsParameters
+	}).(ServiceAutoPauseNotificationsParametersOutput)
+}
+
 // Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
 func (o ServiceOutput) AutoResolveTimeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.AutoResolveTimeout }).(pulumi.StringPtrOutput)
@@ -415,6 +448,11 @@ func (o ServiceOutput) LastIncidentTimestamp() pulumi.StringOutput {
 // The name of the service.
 func (o ServiceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The response play used by this service.
+func (o ServiceOutput) ResponsePlay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.ResponsePlay }).(pulumi.StringPtrOutput)
 }
 
 func (o ServiceOutput) ScheduledActions() ServiceScheduledActionArrayOutput {

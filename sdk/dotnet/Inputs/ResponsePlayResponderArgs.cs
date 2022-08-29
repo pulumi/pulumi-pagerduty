@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class ResponsePlayResponderArgs : Pulumi.ResourceArgs
+    public sealed class ResponsePlayResponderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of escalation policy
@@ -87,5 +87,6 @@ namespace Pulumi.Pagerduty.Inputs
         public ResponsePlayResponderArgs()
         {
         }
+        public static new ResponsePlayResponderArgs Empty => new ResponsePlayResponderArgs();
     }
 }

@@ -19,74 +19,79 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		webhook, err := pagerduty.GetExtensionSchema(ctx, &GetExtensionSchemaArgs{
-// 			Name: "Generic V2 Webhook",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
-// 			Email: pulumi.String("howard.james@example.domain"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleEscalationPolicy, err := pagerduty.NewEscalationPolicy(ctx, "exampleEscalationPolicy", &pagerduty.EscalationPolicyArgs{
-// 			NumLoops: pulumi.Int(2),
-// 			Rules: EscalationPolicyRuleArray{
-// 				&EscalationPolicyRuleArgs{
-// 					EscalationDelayInMinutes: pulumi.Int(10),
-// 					Targets: EscalationPolicyRuleTargetArray{
-// 						&EscalationPolicyRuleTargetArgs{
-// 							Type: pulumi.String("user"),
-// 							Id:   exampleUser.ID(),
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleService, err := pagerduty.NewService(ctx, "exampleService", &pagerduty.ServiceArgs{
-// 			AutoResolveTimeout:     pulumi.String("14400"),
-// 			AcknowledgementTimeout: pulumi.String("600"),
-// 			EscalationPolicy:       exampleEscalationPolicy.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = pagerduty.NewExtension(ctx, "slack", &pagerduty.ExtensionArgs{
-// 			EndpointUrl:     pulumi.String("https://generic_webhook_url/XXXXXX/BBBBBB"),
-// 			ExtensionSchema: pulumi.String(webhook.Id),
-// 			ExtensionObjects: pulumi.StringArray{
-// 				exampleService.ID(),
-// 			},
-// 			Config: pulumi.String(fmt.Sprintf(`{
-// 	"restrict": "any",
-// 	"notify_types": {
-// 			"resolve": false,
-// 			"acknowledge": false,
-// 			"assignments": false
-// 	},
-// 	"access_token": "XXX"
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			webhook, err := pagerduty.GetExtensionSchema(ctx, &GetExtensionSchemaArgs{
+//				Name: "Generic V2 Webhook",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
+//				Email: pulumi.String("howard.james@example.domain"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleEscalationPolicy, err := pagerduty.NewEscalationPolicy(ctx, "exampleEscalationPolicy", &pagerduty.EscalationPolicyArgs{
+//				NumLoops: pulumi.Int(2),
+//				Rules: EscalationPolicyRuleArray{
+//					&EscalationPolicyRuleArgs{
+//						EscalationDelayInMinutes: pulumi.Int(10),
+//						Targets: EscalationPolicyRuleTargetArray{
+//							&EscalationPolicyRuleTargetArgs{
+//								Type: pulumi.String("user"),
+//								Id:   exampleUser.ID(),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleService, err := pagerduty.NewService(ctx, "exampleService", &pagerduty.ServiceArgs{
+//				AutoResolveTimeout:     pulumi.String("14400"),
+//				AcknowledgementTimeout: pulumi.String("600"),
+//				EscalationPolicy:       exampleEscalationPolicy.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewExtension(ctx, "slack", &pagerduty.ExtensionArgs{
+//				EndpointUrl:     pulumi.String("https://generic_webhook_url/XXXXXX/BBBBBB"),
+//				ExtensionSchema: pulumi.String(webhook.Id),
+//				ExtensionObjects: pulumi.StringArray{
+//					exampleService.ID(),
+//				},
+//				Config: pulumi.String(fmt.Sprintf(`{
+//		"restrict": "any",
+//		"notify_types": {
+//				"resolve": false,
+//				"acknowledge": false,
+//				"assignments": false
+//		},
+//		"access_token": "XXX"
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -94,7 +99,9 @@ import (
 // Extensions can be imported using the id.e.g.
 //
 // ```sh
-//  $ pulumi import pagerduty:index/extension:Extension main PLBP09X
+//
+//	$ pulumi import pagerduty:index/extension:Extension main PLBP09X
+//
 // ```
 type Extension struct {
 	pulumi.CustomResourceState
@@ -250,7 +257,7 @@ func (i *Extension) ToExtensionOutputWithContext(ctx context.Context) ExtensionO
 // ExtensionArrayInput is an input type that accepts ExtensionArray and ExtensionArrayOutput values.
 // You can construct a concrete instance of `ExtensionArrayInput` via:
 //
-//          ExtensionArray{ ExtensionArgs{...} }
+//	ExtensionArray{ ExtensionArgs{...} }
 type ExtensionArrayInput interface {
 	pulumi.Input
 
@@ -275,7 +282,7 @@ func (i ExtensionArray) ToExtensionArrayOutputWithContext(ctx context.Context) E
 // ExtensionMapInput is an input type that accepts ExtensionMap and ExtensionMapOutput values.
 // You can construct a concrete instance of `ExtensionMapInput` via:
 //
-//          ExtensionMap{ "key": ExtensionArgs{...} }
+//	ExtensionMap{ "key": ExtensionArgs{...} }
 type ExtensionMapInput interface {
 	pulumi.Input
 

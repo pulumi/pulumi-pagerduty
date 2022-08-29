@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class SlackConnectionConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class SlackConnectionConfigGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("events", required: true)]
         private InputList<string>? _events;
@@ -53,5 +53,6 @@ namespace Pulumi.Pagerduty.Inputs
         public SlackConnectionConfigGetArgs()
         {
         }
+        public static new SlackConnectionConfigGetArgs Empty => new SlackConnectionConfigGetArgs();
     }
 }

@@ -18,28 +18,19 @@ public final class ServiceDependencyDependency {
      * @return The service that dependents on the supporting service. Dependency dependent service documented below.
      * 
      */
-    private final List<ServiceDependencyDependencyDependentService> dependentServices;
+    private List<ServiceDependencyDependencyDependentService> dependentServices;
     /**
      * @return The service that supports the dependent service. Dependency supporting service documented below.
      * 
      */
-    private final List<ServiceDependencyDependencySupportingService> supportingServices;
+    private List<ServiceDependencyDependencySupportingService> supportingServices;
     /**
      * @return Can be `business_service`,  `service`, `business_service_reference` or `technical_service_reference`.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private ServiceDependencyDependency(
-        @CustomType.Parameter("dependentServices") List<ServiceDependencyDependencyDependentService> dependentServices,
-        @CustomType.Parameter("supportingServices") List<ServiceDependencyDependencySupportingService> supportingServices,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.dependentServices = dependentServices;
-        this.supportingServices = supportingServices;
-        this.type = type;
-    }
-
+    private ServiceDependencyDependency() {}
     /**
      * @return The service that dependents on the supporting service. Dependency dependent service documented below.
      * 
@@ -69,16 +60,12 @@ public final class ServiceDependencyDependency {
     public static Builder builder(ServiceDependencyDependency defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<ServiceDependencyDependencyDependentService> dependentServices;
         private List<ServiceDependencyDependencySupportingService> supportingServices;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceDependencyDependency defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dependentServices = defaults.dependentServices;
@@ -86,6 +73,7 @@ public final class ServiceDependencyDependency {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder dependentServices(List<ServiceDependencyDependencyDependentService> dependentServices) {
             this.dependentServices = Objects.requireNonNull(dependentServices);
             return this;
@@ -93,6 +81,7 @@ public final class ServiceDependencyDependency {
         public Builder dependentServices(ServiceDependencyDependencyDependentService... dependentServices) {
             return dependentServices(List.of(dependentServices));
         }
+        @CustomType.Setter
         public Builder supportingServices(List<ServiceDependencyDependencySupportingService> supportingServices) {
             this.supportingServices = Objects.requireNonNull(supportingServices);
             return this;
@@ -100,11 +89,17 @@ public final class ServiceDependencyDependency {
         public Builder supportingServices(ServiceDependencyDependencySupportingService... supportingServices) {
             return supportingServices(List.of(supportingServices));
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public ServiceDependencyDependency build() {
-            return new ServiceDependencyDependency(dependentServices, supportingServices, type);
+        }
+        public ServiceDependencyDependency build() {
+            final var o = new ServiceDependencyDependency();
+            o.dependentServices = dependentServices;
+            o.supportingServices = supportingServices;
+            o.type = type;
+            return o;
         }
     }
 }

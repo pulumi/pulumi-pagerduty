@@ -18,7 +18,9 @@ import (
 // Ruleset rules can be imported using the related `ruleset` ID and the `ruleset_rule` ID separated by a dot, e.g.
 //
 // ```sh
-//  $ pulumi import pagerduty:index/rulesetRule:RulesetRule main a19cdca1-3d5e-4b52-bfea-8c8de04da243.19acac92-027a-4ea0-b06c-bbf516519601
+//
+//	$ pulumi import pagerduty:index/rulesetRule:RulesetRule main a19cdca1-3d5e-4b52-bfea-8c8de04da243.19acac92-027a-4ea0-b06c-bbf516519601
+//
 // ```
 type RulesetRule struct {
 	pulumi.CustomResourceState
@@ -179,7 +181,7 @@ func (i *RulesetRule) ToRulesetRuleOutputWithContext(ctx context.Context) Rulese
 // RulesetRuleArrayInput is an input type that accepts RulesetRuleArray and RulesetRuleArrayOutput values.
 // You can construct a concrete instance of `RulesetRuleArrayInput` via:
 //
-//          RulesetRuleArray{ RulesetRuleArgs{...} }
+//	RulesetRuleArray{ RulesetRuleArgs{...} }
 type RulesetRuleArrayInput interface {
 	pulumi.Input
 
@@ -204,7 +206,7 @@ func (i RulesetRuleArray) ToRulesetRuleArrayOutputWithContext(ctx context.Contex
 // RulesetRuleMapInput is an input type that accepts RulesetRuleMap and RulesetRuleMapOutput values.
 // You can construct a concrete instance of `RulesetRuleMapInput` via:
 //
-//          RulesetRuleMap{ "key": RulesetRuleArgs{...} }
+//	RulesetRuleMap{ "key": RulesetRuleArgs{...} }
 type RulesetRuleMapInput interface {
 	pulumi.Input
 

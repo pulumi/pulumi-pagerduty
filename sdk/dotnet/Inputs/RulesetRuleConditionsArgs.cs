@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class RulesetRuleConditionsArgs : Pulumi.ResourceArgs
+    public sealed class RulesetRuleConditionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Operator to combine sub-conditions. Can be `and` or `or`.
@@ -33,5 +33,6 @@ namespace Pulumi.Pagerduty.Inputs
         public RulesetRuleConditionsArgs()
         {
         }
+        public static new RulesetRuleConditionsArgs Empty => new RulesetRuleConditionsArgs();
     }
 }

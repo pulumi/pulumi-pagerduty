@@ -16,17 +16,10 @@ public final class EventOrchestrationUnroutedSet {
      * @return The ID of this set of rules. Rules in other sets can route events into this set using the rule&#39;s `route_to` property.
      * 
      */
-    private final String id;
-    private final @Nullable List<EventOrchestrationUnroutedSetRule> rules;
+    private String id;
+    private @Nullable List<EventOrchestrationUnroutedSetRule> rules;
 
-    @CustomType.Constructor
-    private EventOrchestrationUnroutedSet(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("rules") @Nullable List<EventOrchestrationUnroutedSetRule> rules) {
-        this.id = id;
-        this.rules = rules;
-    }
-
+    private EventOrchestrationUnroutedSet() {}
     /**
      * @return The ID of this set of rules. Rules in other sets can route events into this set using the rule&#39;s `route_to` property.
      * 
@@ -45,33 +38,35 @@ public final class EventOrchestrationUnroutedSet {
     public static Builder builder(EventOrchestrationUnroutedSet defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private @Nullable List<EventOrchestrationUnroutedSetRule> rules;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventOrchestrationUnroutedSet defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.rules = defaults.rules;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder rules(@Nullable List<EventOrchestrationUnroutedSetRule> rules) {
             this.rules = rules;
             return this;
         }
         public Builder rules(EventOrchestrationUnroutedSetRule... rules) {
             return rules(List.of(rules));
-        }        public EventOrchestrationUnroutedSet build() {
-            return new EventOrchestrationUnroutedSet(id, rules);
+        }
+        public EventOrchestrationUnroutedSet build() {
+            final var o = new EventOrchestrationUnroutedSet();
+            o.id = id;
+            o.rules = rules;
+            return o;
         }
     }
 }

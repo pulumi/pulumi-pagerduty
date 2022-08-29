@@ -17,28 +17,19 @@ public final class ServiceAlertGroupingParametersConfig {
      * @return One of `any` or `all`. This setting applies only when `type` is set to `content_based`. Group alerts based on one or all of `fields` value(s).
      * 
      */
-    private final @Nullable String aggregate;
+    private @Nullable String aggregate;
     /**
      * @return Alerts will be grouped together if the content of these fields match. This setting applies only when `type` is set to `content_based`.
      * 
      */
-    private final @Nullable List<String> fields;
+    private @Nullable List<String> fields;
     /**
      * @return The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
      * 
      */
-    private final @Nullable Integer timeout;
+    private @Nullable Integer timeout;
 
-    @CustomType.Constructor
-    private ServiceAlertGroupingParametersConfig(
-        @CustomType.Parameter("aggregate") @Nullable String aggregate,
-        @CustomType.Parameter("fields") @Nullable List<String> fields,
-        @CustomType.Parameter("timeout") @Nullable Integer timeout) {
-        this.aggregate = aggregate;
-        this.fields = fields;
-        this.timeout = timeout;
-    }
-
+    private ServiceAlertGroupingParametersConfig() {}
     /**
      * @return One of `any` or `all`. This setting applies only when `type` is set to `content_based`. Group alerts based on one or all of `fields` value(s).
      * 
@@ -68,16 +59,12 @@ public final class ServiceAlertGroupingParametersConfig {
     public static Builder builder(ServiceAlertGroupingParametersConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String aggregate;
         private @Nullable List<String> fields;
         private @Nullable Integer timeout;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceAlertGroupingParametersConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.aggregate = defaults.aggregate;
@@ -85,10 +72,12 @@ public final class ServiceAlertGroupingParametersConfig {
     	      this.timeout = defaults.timeout;
         }
 
+        @CustomType.Setter
         public Builder aggregate(@Nullable String aggregate) {
             this.aggregate = aggregate;
             return this;
         }
+        @CustomType.Setter
         public Builder fields(@Nullable List<String> fields) {
             this.fields = fields;
             return this;
@@ -96,11 +85,17 @@ public final class ServiceAlertGroupingParametersConfig {
         public Builder fields(String... fields) {
             return fields(List.of(fields));
         }
+        @CustomType.Setter
         public Builder timeout(@Nullable Integer timeout) {
             this.timeout = timeout;
             return this;
-        }        public ServiceAlertGroupingParametersConfig build() {
-            return new ServiceAlertGroupingParametersConfig(aggregate, fields, timeout);
+        }
+        public ServiceAlertGroupingParametersConfig build() {
+            final var o = new ServiceAlertGroupingParametersConfig();
+            o.aggregate = aggregate;
+            o.fields = fields;
+            o.timeout = timeout;
+            return o;
         }
     }
 }

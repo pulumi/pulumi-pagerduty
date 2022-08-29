@@ -19,38 +19,25 @@ public final class EventOrchestrationUnroutedCatchAllActions {
      * @return sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
      * 
      */
-    private final @Nullable String eventAction;
+    private @Nullable String eventAction;
     /**
      * @return Replace any CEF field or Custom Details object field using custom variables.
      * 
      */
-    private final @Nullable List<EventOrchestrationUnroutedCatchAllActionsExtraction> extractions;
+    private @Nullable List<EventOrchestrationUnroutedCatchAllActionsExtraction> extractions;
     /**
      * @return sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
      * 
      */
-    private final @Nullable String severity;
-    private final @Nullable Boolean suppress;
+    private @Nullable String severity;
+    private @Nullable Boolean suppress;
     /**
      * @return Populate variables from event payloads and use those variables in other event actions.
      * 
      */
-    private final @Nullable List<EventOrchestrationUnroutedCatchAllActionsVariable> variables;
+    private @Nullable List<EventOrchestrationUnroutedCatchAllActionsVariable> variables;
 
-    @CustomType.Constructor
-    private EventOrchestrationUnroutedCatchAllActions(
-        @CustomType.Parameter("eventAction") @Nullable String eventAction,
-        @CustomType.Parameter("extractions") @Nullable List<EventOrchestrationUnroutedCatchAllActionsExtraction> extractions,
-        @CustomType.Parameter("severity") @Nullable String severity,
-        @CustomType.Parameter("suppress") @Nullable Boolean suppress,
-        @CustomType.Parameter("variables") @Nullable List<EventOrchestrationUnroutedCatchAllActionsVariable> variables) {
-        this.eventAction = eventAction;
-        this.extractions = extractions;
-        this.severity = severity;
-        this.suppress = suppress;
-        this.variables = variables;
-    }
-
+    private EventOrchestrationUnroutedCatchAllActions() {}
     /**
      * @return sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
      * 
@@ -90,18 +77,14 @@ public final class EventOrchestrationUnroutedCatchAllActions {
     public static Builder builder(EventOrchestrationUnroutedCatchAllActions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String eventAction;
         private @Nullable List<EventOrchestrationUnroutedCatchAllActionsExtraction> extractions;
         private @Nullable String severity;
         private @Nullable Boolean suppress;
         private @Nullable List<EventOrchestrationUnroutedCatchAllActionsVariable> variables;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventOrchestrationUnroutedCatchAllActions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.eventAction = defaults.eventAction;
@@ -111,10 +94,12 @@ public final class EventOrchestrationUnroutedCatchAllActions {
     	      this.variables = defaults.variables;
         }
 
+        @CustomType.Setter
         public Builder eventAction(@Nullable String eventAction) {
             this.eventAction = eventAction;
             return this;
         }
+        @CustomType.Setter
         public Builder extractions(@Nullable List<EventOrchestrationUnroutedCatchAllActionsExtraction> extractions) {
             this.extractions = extractions;
             return this;
@@ -122,22 +107,32 @@ public final class EventOrchestrationUnroutedCatchAllActions {
         public Builder extractions(EventOrchestrationUnroutedCatchAllActionsExtraction... extractions) {
             return extractions(List.of(extractions));
         }
+        @CustomType.Setter
         public Builder severity(@Nullable String severity) {
             this.severity = severity;
             return this;
         }
+        @CustomType.Setter
         public Builder suppress(@Nullable Boolean suppress) {
             this.suppress = suppress;
             return this;
         }
+        @CustomType.Setter
         public Builder variables(@Nullable List<EventOrchestrationUnroutedCatchAllActionsVariable> variables) {
             this.variables = variables;
             return this;
         }
         public Builder variables(EventOrchestrationUnroutedCatchAllActionsVariable... variables) {
             return variables(List.of(variables));
-        }        public EventOrchestrationUnroutedCatchAllActions build() {
-            return new EventOrchestrationUnroutedCatchAllActions(eventAction, extractions, severity, suppress, variables);
+        }
+        public EventOrchestrationUnroutedCatchAllActions build() {
+            final var o = new EventOrchestrationUnroutedCatchAllActions();
+            o.eventAction = eventAction;
+            o.extractions = extractions;
+            o.severity = severity;
+            o.suppress = suppress;
+            o.variables = variables;
+            return o;
         }
     }
 }

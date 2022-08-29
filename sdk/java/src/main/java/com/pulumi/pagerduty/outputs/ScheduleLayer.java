@@ -18,66 +18,45 @@ public final class ScheduleLayer {
      * @return The end time of the schedule layer. If not specified, the layer does not end.
      * 
      */
-    private final @Nullable String end;
+    private @Nullable String end;
     /**
      * @return The ID of the schedule.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return The name of the schedule layer.
      * 
      */
-    private final @Nullable String name;
-    private final @Nullable String renderedCoveragePercentage;
+    private @Nullable String name;
+    private @Nullable String renderedCoveragePercentage;
     /**
      * @return A schedule layer restriction block. Restriction blocks documented below.
      * 
      */
-    private final @Nullable List<ScheduleLayerRestriction> restrictions;
+    private @Nullable List<ScheduleLayerRestriction> restrictions;
     /**
      * @return The duration of each on-call shift in `seconds`.
      * 
      */
-    private final Integer rotationTurnLengthSeconds;
+    private Integer rotationTurnLengthSeconds;
     /**
      * @return The effective start time of the schedule layer. This can be before the start time of the schedule.
      * 
      */
-    private final String rotationVirtualStart;
+    private String rotationVirtualStart;
     /**
      * @return The start time of the schedule layer.
      * 
      */
-    private final String start;
+    private String start;
     /**
      * @return The ordered list of users on this layer. The position of the user on the list determines their order in the layer.
      * 
      */
-    private final List<String> users;
+    private List<String> users;
 
-    @CustomType.Constructor
-    private ScheduleLayer(
-        @CustomType.Parameter("end") @Nullable String end,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("renderedCoveragePercentage") @Nullable String renderedCoveragePercentage,
-        @CustomType.Parameter("restrictions") @Nullable List<ScheduleLayerRestriction> restrictions,
-        @CustomType.Parameter("rotationTurnLengthSeconds") Integer rotationTurnLengthSeconds,
-        @CustomType.Parameter("rotationVirtualStart") String rotationVirtualStart,
-        @CustomType.Parameter("start") String start,
-        @CustomType.Parameter("users") List<String> users) {
-        this.end = end;
-        this.id = id;
-        this.name = name;
-        this.renderedCoveragePercentage = renderedCoveragePercentage;
-        this.restrictions = restrictions;
-        this.rotationTurnLengthSeconds = rotationTurnLengthSeconds;
-        this.rotationVirtualStart = rotationVirtualStart;
-        this.start = start;
-        this.users = users;
-    }
-
+    private ScheduleLayer() {}
     /**
      * @return The end time of the schedule layer. If not specified, the layer does not end.
      * 
@@ -145,7 +124,7 @@ public final class ScheduleLayer {
     public static Builder builder(ScheduleLayer defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String end;
         private @Nullable String id;
@@ -156,11 +135,7 @@ public final class ScheduleLayer {
         private String rotationVirtualStart;
         private String start;
         private List<String> users;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScheduleLayer defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.end = defaults.end;
@@ -174,22 +149,27 @@ public final class ScheduleLayer {
     	      this.users = defaults.users;
         }
 
+        @CustomType.Setter
         public Builder end(@Nullable String end) {
             this.end = end;
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder renderedCoveragePercentage(@Nullable String renderedCoveragePercentage) {
             this.renderedCoveragePercentage = renderedCoveragePercentage;
             return this;
         }
+        @CustomType.Setter
         public Builder restrictions(@Nullable List<ScheduleLayerRestriction> restrictions) {
             this.restrictions = restrictions;
             return this;
@@ -197,26 +177,41 @@ public final class ScheduleLayer {
         public Builder restrictions(ScheduleLayerRestriction... restrictions) {
             return restrictions(List.of(restrictions));
         }
+        @CustomType.Setter
         public Builder rotationTurnLengthSeconds(Integer rotationTurnLengthSeconds) {
             this.rotationTurnLengthSeconds = Objects.requireNonNull(rotationTurnLengthSeconds);
             return this;
         }
+        @CustomType.Setter
         public Builder rotationVirtualStart(String rotationVirtualStart) {
             this.rotationVirtualStart = Objects.requireNonNull(rotationVirtualStart);
             return this;
         }
+        @CustomType.Setter
         public Builder start(String start) {
             this.start = Objects.requireNonNull(start);
             return this;
         }
+        @CustomType.Setter
         public Builder users(List<String> users) {
             this.users = Objects.requireNonNull(users);
             return this;
         }
         public Builder users(String... users) {
             return users(List.of(users));
-        }        public ScheduleLayer build() {
-            return new ScheduleLayer(end, id, name, renderedCoveragePercentage, restrictions, rotationTurnLengthSeconds, rotationVirtualStart, start, users);
+        }
+        public ScheduleLayer build() {
+            final var o = new ScheduleLayer();
+            o.end = end;
+            o.id = id;
+            o.name = name;
+            o.renderedCoveragePercentage = renderedCoveragePercentage;
+            o.restrictions = restrictions;
+            o.rotationTurnLengthSeconds = rotationTurnLengthSeconds;
+            o.rotationVirtualStart = rotationVirtualStart;
+            o.start = start;
+            o.users = users;
+            return o;
         }
     }
 }

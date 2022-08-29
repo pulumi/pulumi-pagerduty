@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class EventOrchestrationRouterCatchAllArgs : Pulumi.ResourceArgs
+    public sealed class EventOrchestrationRouterCatchAllArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// These are the actions that will be taken to change the resulting alert and incident.
@@ -21,5 +21,6 @@ namespace Pulumi.Pagerduty.Inputs
         public EventOrchestrationRouterCatchAllArgs()
         {
         }
+        public static new EventOrchestrationRouterCatchAllArgs Empty => new EventOrchestrationRouterCatchAllArgs();
     }
 }

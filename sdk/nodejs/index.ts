@@ -29,6 +29,7 @@ export * from "./getTag";
 export * from "./getTeam";
 export * from "./getUser";
 export * from "./getUserContactMethod";
+export * from "./getUsers";
 export * from "./getVendor";
 export * from "./maintenanceWindow";
 export * from "./provider";

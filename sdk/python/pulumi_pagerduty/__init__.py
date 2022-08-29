@@ -29,6 +29,7 @@ from .get_tag import *
 from .get_team import *
 from .get_user import *
 from .get_user_contact_method import *
+from .get_users import *
 from .get_vendor import *
 from .maintenance_window import *
 from .provider import *

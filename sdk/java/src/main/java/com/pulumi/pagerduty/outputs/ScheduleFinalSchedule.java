@@ -15,17 +15,10 @@ public final class ScheduleFinalSchedule {
      * @return The name of the schedule.
      * 
      */
-    private final @Nullable String name;
-    private final @Nullable String renderedCoveragePercentage;
+    private @Nullable String name;
+    private @Nullable String renderedCoveragePercentage;
 
-    @CustomType.Constructor
-    private ScheduleFinalSchedule(
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("renderedCoveragePercentage") @Nullable String renderedCoveragePercentage) {
-        this.name = name;
-        this.renderedCoveragePercentage = renderedCoveragePercentage;
-    }
-
+    private ScheduleFinalSchedule() {}
     /**
      * @return The name of the schedule.
      * 
@@ -44,30 +37,32 @@ public final class ScheduleFinalSchedule {
     public static Builder builder(ScheduleFinalSchedule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String name;
         private @Nullable String renderedCoveragePercentage;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScheduleFinalSchedule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.renderedCoveragePercentage = defaults.renderedCoveragePercentage;
         }
 
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder renderedCoveragePercentage(@Nullable String renderedCoveragePercentage) {
             this.renderedCoveragePercentage = renderedCoveragePercentage;
             return this;
-        }        public ScheduleFinalSchedule build() {
-            return new ScheduleFinalSchedule(name, renderedCoveragePercentage);
+        }
+        public ScheduleFinalSchedule build() {
+            final var o = new ScheduleFinalSchedule();
+            o.name = name;
+            o.renderedCoveragePercentage = renderedCoveragePercentage;
+            return o;
         }
     }
 }

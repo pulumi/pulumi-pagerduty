@@ -15,13 +15,9 @@ public final class RulesetRuleActionsSuspend {
      * @return Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
      * 
      */
-    private final @Nullable Integer value;
+    private @Nullable Integer value;
 
-    @CustomType.Constructor
-    private RulesetRuleActionsSuspend(@CustomType.Parameter("value") @Nullable Integer value) {
-        this.value = value;
-    }
-
+    private RulesetRuleActionsSuspend() {}
     /**
      * @return Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
      * 
@@ -37,24 +33,24 @@ public final class RulesetRuleActionsSuspend {
     public static Builder builder(RulesetRuleActionsSuspend defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RulesetRuleActionsSuspend defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder value(@Nullable Integer value) {
             this.value = value;
             return this;
-        }        public RulesetRuleActionsSuspend build() {
-            return new RulesetRuleActionsSuspend(value);
+        }
+        public RulesetRuleActionsSuspend build() {
+            final var o = new RulesetRuleActionsSuspend();
+            o.value = value;
+            return o;
         }
     }
 }

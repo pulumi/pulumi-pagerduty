@@ -11,17 +11,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RulesetRuleTimeFrameActiveBetween {
-    private final @Nullable Integer endTime;
-    private final @Nullable Integer startTime;
+    private @Nullable Integer endTime;
+    private @Nullable Integer startTime;
 
-    @CustomType.Constructor
-    private RulesetRuleTimeFrameActiveBetween(
-        @CustomType.Parameter("endTime") @Nullable Integer endTime,
-        @CustomType.Parameter("startTime") @Nullable Integer startTime) {
-        this.endTime = endTime;
-        this.startTime = startTime;
-    }
-
+    private RulesetRuleTimeFrameActiveBetween() {}
     public Optional<Integer> endTime() {
         return Optional.ofNullable(this.endTime);
     }
@@ -36,30 +29,32 @@ public final class RulesetRuleTimeFrameActiveBetween {
     public static Builder builder(RulesetRuleTimeFrameActiveBetween defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer endTime;
         private @Nullable Integer startTime;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RulesetRuleTimeFrameActiveBetween defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endTime = defaults.endTime;
     	      this.startTime = defaults.startTime;
         }
 
+        @CustomType.Setter
         public Builder endTime(@Nullable Integer endTime) {
             this.endTime = endTime;
             return this;
         }
+        @CustomType.Setter
         public Builder startTime(@Nullable Integer startTime) {
             this.startTime = startTime;
             return this;
-        }        public RulesetRuleTimeFrameActiveBetween build() {
-            return new RulesetRuleTimeFrameActiveBetween(endTime, startTime);
+        }
+        public RulesetRuleTimeFrameActiveBetween build() {
+            final var o = new RulesetRuleTimeFrameActiveBetween();
+            o.endTime = endTime;
+            o.startTime = startTime;
+            return o;
         }
     }
 }

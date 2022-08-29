@@ -18,28 +18,19 @@ public final class ResponsePlayResponderEscalationRule {
      * @return The number of minutes before an unacknowledged incident escalates away from this rule.
      * 
      */
-    private final @Nullable Integer escalationDelayInMinutes;
+    private @Nullable Integer escalationDelayInMinutes;
     /**
      * @return ID of the user defined as the responder
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return The targets an incident should be assigned to upon reaching this rule.
      * 
      */
-    private final List<ResponsePlayResponderEscalationRuleTarget> targets;
+    private List<ResponsePlayResponderEscalationRuleTarget> targets;
 
-    @CustomType.Constructor
-    private ResponsePlayResponderEscalationRule(
-        @CustomType.Parameter("escalationDelayInMinutes") @Nullable Integer escalationDelayInMinutes,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("targets") List<ResponsePlayResponderEscalationRuleTarget> targets) {
-        this.escalationDelayInMinutes = escalationDelayInMinutes;
-        this.id = id;
-        this.targets = targets;
-    }
-
+    private ResponsePlayResponderEscalationRule() {}
     /**
      * @return The number of minutes before an unacknowledged incident escalates away from this rule.
      * 
@@ -69,16 +60,12 @@ public final class ResponsePlayResponderEscalationRule {
     public static Builder builder(ResponsePlayResponderEscalationRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer escalationDelayInMinutes;
         private @Nullable String id;
         private List<ResponsePlayResponderEscalationRuleTarget> targets;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ResponsePlayResponderEscalationRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.escalationDelayInMinutes = defaults.escalationDelayInMinutes;
@@ -86,22 +73,30 @@ public final class ResponsePlayResponderEscalationRule {
     	      this.targets = defaults.targets;
         }
 
+        @CustomType.Setter
         public Builder escalationDelayInMinutes(@Nullable Integer escalationDelayInMinutes) {
             this.escalationDelayInMinutes = escalationDelayInMinutes;
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder targets(List<ResponsePlayResponderEscalationRuleTarget> targets) {
             this.targets = Objects.requireNonNull(targets);
             return this;
         }
         public Builder targets(ResponsePlayResponderEscalationRuleTarget... targets) {
             return targets(List.of(targets));
-        }        public ResponsePlayResponderEscalationRule build() {
-            return new ResponsePlayResponderEscalationRule(escalationDelayInMinutes, id, targets);
+        }
+        public ResponsePlayResponderEscalationRule build() {
+            final var o = new ResponsePlayResponderEscalationRule();
+            o.escalationDelayInMinutes = escalationDelayInMinutes;
+            o.id = id;
+            o.targets = targets;
+            return o;
         }
     }
 }

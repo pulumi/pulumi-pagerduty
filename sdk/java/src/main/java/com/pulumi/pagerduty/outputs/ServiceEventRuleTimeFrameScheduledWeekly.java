@@ -17,35 +17,24 @@ public final class ServiceEventRuleTimeFrameScheduledWeekly {
      * @return Length of time the schedule will be active.  Unix timestamp in milliseconds.
      * 
      */
-    private final @Nullable Integer duration;
+    private @Nullable Integer duration;
     /**
      * @return Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `start_time` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `start_time` was `3,600,000` the it would be active starting at `01:00`.
      * 
      */
-    private final @Nullable Integer startTime;
+    private @Nullable Integer startTime;
     /**
      * @return Timezone for the given schedule.
      * 
      */
-    private final @Nullable String timezone;
+    private @Nullable String timezone;
     /**
      * @return An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
      * 
      */
-    private final @Nullable List<Integer> weekdays;
+    private @Nullable List<Integer> weekdays;
 
-    @CustomType.Constructor
-    private ServiceEventRuleTimeFrameScheduledWeekly(
-        @CustomType.Parameter("duration") @Nullable Integer duration,
-        @CustomType.Parameter("startTime") @Nullable Integer startTime,
-        @CustomType.Parameter("timezone") @Nullable String timezone,
-        @CustomType.Parameter("weekdays") @Nullable List<Integer> weekdays) {
-        this.duration = duration;
-        this.startTime = startTime;
-        this.timezone = timezone;
-        this.weekdays = weekdays;
-    }
-
+    private ServiceEventRuleTimeFrameScheduledWeekly() {}
     /**
      * @return Length of time the schedule will be active.  Unix timestamp in milliseconds.
      * 
@@ -82,17 +71,13 @@ public final class ServiceEventRuleTimeFrameScheduledWeekly {
     public static Builder builder(ServiceEventRuleTimeFrameScheduledWeekly defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer duration;
         private @Nullable Integer startTime;
         private @Nullable String timezone;
         private @Nullable List<Integer> weekdays;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceEventRuleTimeFrameScheduledWeekly defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.duration = defaults.duration;
@@ -101,26 +86,36 @@ public final class ServiceEventRuleTimeFrameScheduledWeekly {
     	      this.weekdays = defaults.weekdays;
         }
 
+        @CustomType.Setter
         public Builder duration(@Nullable Integer duration) {
             this.duration = duration;
             return this;
         }
+        @CustomType.Setter
         public Builder startTime(@Nullable Integer startTime) {
             this.startTime = startTime;
             return this;
         }
+        @CustomType.Setter
         public Builder timezone(@Nullable String timezone) {
             this.timezone = timezone;
             return this;
         }
+        @CustomType.Setter
         public Builder weekdays(@Nullable List<Integer> weekdays) {
             this.weekdays = weekdays;
             return this;
         }
         public Builder weekdays(Integer... weekdays) {
             return weekdays(List.of(weekdays));
-        }        public ServiceEventRuleTimeFrameScheduledWeekly build() {
-            return new ServiceEventRuleTimeFrameScheduledWeekly(duration, startTime, timezone, weekdays);
+        }
+        public ServiceEventRuleTimeFrameScheduledWeekly build() {
+            final var o = new ServiceEventRuleTimeFrameScheduledWeekly();
+            o.duration = duration;
+            o.startTime = startTime;
+            o.timezone = timezone;
+            o.weekdays = weekdays;
+            return o;
         }
     }
 }

@@ -20,70 +20,49 @@ public final class ResponsePlayResponder {
      * @return Description of escalation policy
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return The escalation rules
      * 
      */
-    private final @Nullable List<ResponsePlayResponderEscalationRule> escalationRules;
+    private @Nullable List<ResponsePlayResponderEscalationRule> escalationRules;
     /**
      * @return ID of the user defined as the responder
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return Name of the escalation policy
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return The number of times the escalation policy will repeat after reaching the end of its escalation.
      * 
      */
-    private final @Nullable Integer numLoops;
+    private @Nullable Integer numLoops;
     /**
      * @return Determines how on call handoff notifications will be sent for users on the escalation policy. Defaults to &#34;if_has_services&#34;. Could be &#34;if_has_services&#34;, &#34;always
      * 
      */
-    private final @Nullable String onCallHandoffNotifications;
+    private @Nullable String onCallHandoffNotifications;
     /**
      * @return There can be multiple services associated with a policy.
      * 
      */
-    private final @Nullable List<ResponsePlayResponderService> services;
+    private @Nullable List<ResponsePlayResponderService> services;
     /**
      * @return Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
      * 
      */
-    private final @Nullable List<ResponsePlayResponderTeam> teams;
+    private @Nullable List<ResponsePlayResponderTeam> teams;
     /**
      * @return Type of object of the target. Supported types are `user_reference`, `schedule_reference`.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private ResponsePlayResponder(
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("escalationRules") @Nullable List<ResponsePlayResponderEscalationRule> escalationRules,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("numLoops") @Nullable Integer numLoops,
-        @CustomType.Parameter("onCallHandoffNotifications") @Nullable String onCallHandoffNotifications,
-        @CustomType.Parameter("services") @Nullable List<ResponsePlayResponderService> services,
-        @CustomType.Parameter("teams") @Nullable List<ResponsePlayResponderTeam> teams,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.description = description;
-        this.escalationRules = escalationRules;
-        this.id = id;
-        this.name = name;
-        this.numLoops = numLoops;
-        this.onCallHandoffNotifications = onCallHandoffNotifications;
-        this.services = services;
-        this.teams = teams;
-        this.type = type;
-    }
-
+    private ResponsePlayResponder() {}
     /**
      * @return Description of escalation policy
      * 
@@ -155,7 +134,7 @@ public final class ResponsePlayResponder {
     public static Builder builder(ResponsePlayResponder defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String description;
         private @Nullable List<ResponsePlayResponderEscalationRule> escalationRules;
@@ -166,11 +145,7 @@ public final class ResponsePlayResponder {
         private @Nullable List<ResponsePlayResponderService> services;
         private @Nullable List<ResponsePlayResponderTeam> teams;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ResponsePlayResponder defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
@@ -184,10 +159,12 @@ public final class ResponsePlayResponder {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder escalationRules(@Nullable List<ResponsePlayResponderEscalationRule> escalationRules) {
             this.escalationRules = escalationRules;
             return this;
@@ -195,22 +172,27 @@ public final class ResponsePlayResponder {
         public Builder escalationRules(ResponsePlayResponderEscalationRule... escalationRules) {
             return escalationRules(List.of(escalationRules));
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder numLoops(@Nullable Integer numLoops) {
             this.numLoops = numLoops;
             return this;
         }
+        @CustomType.Setter
         public Builder onCallHandoffNotifications(@Nullable String onCallHandoffNotifications) {
             this.onCallHandoffNotifications = onCallHandoffNotifications;
             return this;
         }
+        @CustomType.Setter
         public Builder services(@Nullable List<ResponsePlayResponderService> services) {
             this.services = services;
             return this;
@@ -218,6 +200,7 @@ public final class ResponsePlayResponder {
         public Builder services(ResponsePlayResponderService... services) {
             return services(List.of(services));
         }
+        @CustomType.Setter
         public Builder teams(@Nullable List<ResponsePlayResponderTeam> teams) {
             this.teams = teams;
             return this;
@@ -225,11 +208,23 @@ public final class ResponsePlayResponder {
         public Builder teams(ResponsePlayResponderTeam... teams) {
             return teams(List.of(teams));
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public ResponsePlayResponder build() {
-            return new ResponsePlayResponder(description, escalationRules, id, name, numLoops, onCallHandoffNotifications, services, teams, type);
+        }
+        public ResponsePlayResponder build() {
+            final var o = new ResponsePlayResponder();
+            o.description = description;
+            o.escalationRules = escalationRules;
+            o.id = id;
+            o.name = name;
+            o.numLoops = numLoops;
+            o.onCallHandoffNotifications = onCallHandoffNotifications;
+            o.services = services;
+            o.teams = teams;
+            o.type = type;
+            return o;
         }
     }
 }

@@ -11,6 +11,7 @@ import com.pulumi.pagerduty.ServiceArgs;
 import com.pulumi.pagerduty.Utilities;
 import com.pulumi.pagerduty.inputs.ServiceState;
 import com.pulumi.pagerduty.outputs.ServiceAlertGroupingParameters;
+import com.pulumi.pagerduty.outputs.ServiceAutoPauseNotificationsParameters;
 import com.pulumi.pagerduty.outputs.ServiceIncidentUrgencyRule;
 import com.pulumi.pagerduty.outputs.ServiceScheduledAction;
 import com.pulumi.pagerduty.outputs.ServiceSupportHours;
@@ -36,6 +37,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.pagerduty.inputs.EscalationPolicyRuleArgs;
  * import com.pulumi.pagerduty.Service;
  * import com.pulumi.pagerduty.ServiceArgs;
+ * import com.pulumi.pagerduty.inputs.ServiceAutoPauseNotificationsParametersArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -51,7 +53,6 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
  *             .email(&#34;125.greenholt.earline@graham.name&#34;)
- *             .teams(pagerduty_team.example().id())
  *             .build());
  * 
  *         var foo = new EscalationPolicy(&#34;foo&#34;, EscalationPolicyArgs.builder()        
@@ -59,7 +60,7 @@ import javax.annotation.Nullable;
  *             .rules(EscalationPolicyRuleArgs.builder()
  *                 .escalationDelayInMinutes(10)
  *                 .targets(EscalationPolicyRuleTargetArgs.builder()
- *                     .type(&#34;user&#34;)
+ *                     .type(&#34;user_reference&#34;)
  *                     .id(exampleUser.id())
  *                     .build())
  *                 .build())
@@ -68,8 +69,12 @@ import javax.annotation.Nullable;
  *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
  *             .autoResolveTimeout(14400)
  *             .acknowledgementTimeout(600)
- *             .escalationPolicy(pagerduty_escalation_policy.example().id())
+ *             .escalationPolicy(foo.id())
  *             .alertCreation(&#34;create_alerts_and_incidents&#34;)
+ *             .autoPauseNotificationsParameters(ServiceAutoPauseNotificationsParametersArgs.builder()
+ *                 .enabled(true)
+ *                 .timeout(300)
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -166,6 +171,20 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.alertGroupingTimeout;
     }
     /**
+     * Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
+     * 
+     */
+    @Export(name="autoPauseNotificationsParameters", type=ServiceAutoPauseNotificationsParameters.class, parameters={})
+    private Output<ServiceAutoPauseNotificationsParameters> autoPauseNotificationsParameters;
+
+    /**
+     * @return Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
+     * 
+     */
+    public Output<ServiceAutoPauseNotificationsParameters> autoPauseNotificationsParameters() {
+        return this.autoPauseNotificationsParameters;
+    }
+    /**
      * Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `&#34;null&#34;` string.
      * 
      */
@@ -236,6 +255,20 @@ public class Service extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * The response play used by this service.
+     * 
+     */
+    @Export(name="responsePlay", type=String.class, parameters={})
+    private Output</* @Nullable */ String> responsePlay;
+
+    /**
+     * @return The response play used by this service.
+     * 
+     */
+    public Output<Optional<String>> responsePlay() {
+        return Codegen.optional(this.responsePlay);
     }
     @Export(name="scheduledActions", type=List.class, parameters={ServiceScheduledAction.class})
     private Output</* @Nullable */ List<ServiceScheduledAction>> scheduledActions;

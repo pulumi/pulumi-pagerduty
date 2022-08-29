@@ -15,21 +15,14 @@ public final class EventOrchestrationIntegrationParameter {
      * @return Routing key that routes to this Orchestration.
      * 
      */
-    private final @Nullable String routingKey;
+    private @Nullable String routingKey;
     /**
      * @return Type of the routing key. `global` is the default type.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private EventOrchestrationIntegrationParameter(
-        @CustomType.Parameter("routingKey") @Nullable String routingKey,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.routingKey = routingKey;
-        this.type = type;
-    }
-
+    private EventOrchestrationIntegrationParameter() {}
     /**
      * @return Routing key that routes to this Orchestration.
      * 
@@ -52,30 +45,32 @@ public final class EventOrchestrationIntegrationParameter {
     public static Builder builder(EventOrchestrationIntegrationParameter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String routingKey;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventOrchestrationIntegrationParameter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.routingKey = defaults.routingKey;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder routingKey(@Nullable String routingKey) {
             this.routingKey = routingKey;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public EventOrchestrationIntegrationParameter build() {
-            return new EventOrchestrationIntegrationParameter(routingKey, type);
+        }
+        public EventOrchestrationIntegrationParameter build() {
+            final var o = new EventOrchestrationIntegrationParameter();
+            o.routingKey = routingKey;
+            o.type = type;
+            return o;
         }
     }
 }

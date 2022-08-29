@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class EventOrchestrationRouterSetRuleActionsArgs : Pulumi.ResourceArgs
+    public sealed class EventOrchestrationRouterSetRuleActionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the target Service for the resulting alert.
@@ -21,5 +21,6 @@ namespace Pulumi.Pagerduty.Inputs
         public EventOrchestrationRouterSetRuleActionsArgs()
         {
         }
+        public static new EventOrchestrationRouterSetRuleActionsArgs Empty => new EventOrchestrationRouterSetRuleActionsArgs();
     }
 }

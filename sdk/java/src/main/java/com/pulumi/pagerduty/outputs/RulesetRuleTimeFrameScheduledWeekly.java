@@ -17,31 +17,20 @@ public final class RulesetRuleTimeFrameScheduledWeekly {
      * @return Length of time the schedule will be active in milliseconds. For example `duration = 2 * 60 * 60 * 1000` if you want your rule to apply for 2 hours, from the specified `start_time`.
      * 
      */
-    private final @Nullable Integer duration;
-    private final @Nullable Integer startTime;
+    private @Nullable Integer duration;
+    private @Nullable Integer startTime;
     /**
      * @return [The name of the timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for the given schedule, which will be used to determine UTC offset including adjustment for daylight saving time. For example: `timezone = &#34;America/Toronto&#34;`
      * 
      */
-    private final @Nullable String timezone;
+    private @Nullable String timezone;
     /**
      * @return An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
      * 
      */
-    private final @Nullable List<Integer> weekdays;
+    private @Nullable List<Integer> weekdays;
 
-    @CustomType.Constructor
-    private RulesetRuleTimeFrameScheduledWeekly(
-        @CustomType.Parameter("duration") @Nullable Integer duration,
-        @CustomType.Parameter("startTime") @Nullable Integer startTime,
-        @CustomType.Parameter("timezone") @Nullable String timezone,
-        @CustomType.Parameter("weekdays") @Nullable List<Integer> weekdays) {
-        this.duration = duration;
-        this.startTime = startTime;
-        this.timezone = timezone;
-        this.weekdays = weekdays;
-    }
-
+    private RulesetRuleTimeFrameScheduledWeekly() {}
     /**
      * @return Length of time the schedule will be active in milliseconds. For example `duration = 2 * 60 * 60 * 1000` if you want your rule to apply for 2 hours, from the specified `start_time`.
      * 
@@ -74,17 +63,13 @@ public final class RulesetRuleTimeFrameScheduledWeekly {
     public static Builder builder(RulesetRuleTimeFrameScheduledWeekly defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer duration;
         private @Nullable Integer startTime;
         private @Nullable String timezone;
         private @Nullable List<Integer> weekdays;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RulesetRuleTimeFrameScheduledWeekly defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.duration = defaults.duration;
@@ -93,26 +78,36 @@ public final class RulesetRuleTimeFrameScheduledWeekly {
     	      this.weekdays = defaults.weekdays;
         }
 
+        @CustomType.Setter
         public Builder duration(@Nullable Integer duration) {
             this.duration = duration;
             return this;
         }
+        @CustomType.Setter
         public Builder startTime(@Nullable Integer startTime) {
             this.startTime = startTime;
             return this;
         }
+        @CustomType.Setter
         public Builder timezone(@Nullable String timezone) {
             this.timezone = timezone;
             return this;
         }
+        @CustomType.Setter
         public Builder weekdays(@Nullable List<Integer> weekdays) {
             this.weekdays = weekdays;
             return this;
         }
         public Builder weekdays(Integer... weekdays) {
             return weekdays(List.of(weekdays));
-        }        public RulesetRuleTimeFrameScheduledWeekly build() {
-            return new RulesetRuleTimeFrameScheduledWeekly(duration, startTime, timezone, weekdays);
+        }
+        public RulesetRuleTimeFrameScheduledWeekly build() {
+            final var o = new RulesetRuleTimeFrameScheduledWeekly();
+            o.duration = duration;
+            o.startTime = startTime;
+            o.timezone = timezone;
+            o.weekdays = weekdays;
+            return o;
         }
     }
 }

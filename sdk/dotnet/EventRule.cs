@@ -22,168 +22,143 @@ namespace Pulumi.Pagerduty
     /// using Pulumi;
     /// using Pagerduty = Pulumi.Pagerduty;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var second = new Pagerduty.EventRule("second", new()
     ///     {
-    ///         var second = new Pagerduty.EventRule("second", new Pagerduty.EventRuleArgs
+    ///         ActionJson = JsonSerializer.Serialize(new[]
     ///         {
-    ///             ActionJson = JsonSerializer.Serialize(new[]
-    ///                 {
-    ///                     new[]
-    ///                         {
-    ///                             "route",
-    ///                             "P5DTL0K",
-    ///                         }
-    ///                     ,
-    ///                     new[]
-    ///                         {
-    ///                             "severity",
-    ///                             "warning",
-    ///                         }
-    ///                     ,
-    ///                     new[]
-    ///                         {
-    ///                             "annotate",
-    ///                             "2 Managed by terraform",
-    ///                         }
-    ///                     ,
-    ///                     new[]
-    ///                         {
-    ///                             "priority",
-    ///                             "PL451DT",
-    ///                         }
-    ///                     ,
-    ///                 }
-    ///             ),
-    ///             ConditionJson = JsonSerializer.Serialize(new[]
-    ///                 {
-    ///                     "and",
-    ///                     new[]
-    ///                         {
-    ///                             "contains",
-    ///                             new[]
-    ///                                 {
-    ///                                     "path",
-    ///                                     "payload",
-    ///                                     "source",
-    ///                                 }
-    ///                             ,
-    ///                             "website",
-    ///                         }
-    ///                     ,
-    ///                     new[]
-    ///                         {
-    ///                             "contains",
-    ///                             new[]
-    ///                                 {
-    ///                                     "path",
-    ///                                     "headers",
-    ///                                     "from",
-    ///                                     "0",
-    ///                                     "address",
-    ///                                 }
-    ///                             ,
-    ///                             "homer",
-    ///                         }
-    ///                     ,
-    ///                 }
-    ///             ),
-    ///             AdvancedConditionJson = JsonSerializer.Serialize(new[]
-    ///                 {
-    ///                     new[]
-    ///                         {
-    ///                             "scheduled-weekly",
-    ///                             1565392127032,
-    ///                             3600000,
-    ///                             "America/Los_Angeles",
-    ///                             new[]
-    ///                                 {
-    ///                                     1,
-    ///                                     2,
-    ///                                     3,
-    ///                                     5,
-    ///                                     7,
-    ///                                 }
-    ///                             ,
-    ///                         }
-    ///                     ,
-    ///                 }
-    ///             ),
-    ///         });
-    ///         var third = new Pagerduty.EventRule("third", new Pagerduty.EventRuleArgs
-    ///         {
-    ///             ActionJson = JsonSerializer.Serialize(new[]
-    ///                 {
-    ///                     new[]
-    ///                         {
-    ///                             "route",
-    ///                             "P5DTL0K",
-    ///                         }
-    ///                     ,
-    ///                     new[]
-    ///                         {
-    ///                             "severity",
-    ///                             "warning",
-    ///                         }
-    ///                     ,
-    ///                     new[]
-    ///                         {
-    ///                             "annotate",
-    ///                             "3 Managed by terraform",
-    ///                         }
-    ///                     ,
-    ///                     new[]
-    ///                         {
-    ///                             "priority",
-    ///                             "PL451DT",
-    ///                         }
-    ///                     ,
-    ///                 }
-    ///             ),
-    ///             ConditionJson = JsonSerializer.Serialize(new[]
-    ///                 {
-    ///                     "and",
-    ///                     new[]
-    ///                         {
-    ///                             "contains",
-    ///                             new[]
-    ///                                 {
-    ///                                     "path",
-    ///                                     "payload",
-    ///                                     "source",
-    ///                                 }
-    ///                             ,
-    ///                             "website",
-    ///                         }
-    ///                     ,
-    ///                     new[]
-    ///                         {
-    ///                             "contains",
-    ///                             new[]
-    ///                                 {
-    ///                                     "path",
-    ///                                     "headers",
-    ///                                     "from",
-    ///                                     "0",
-    ///                                     "address",
-    ///                                 }
-    ///                             ,
-    ///                             "homer",
-    ///                         }
-    ///                     ,
-    ///                 }
-    ///             ),
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
+    ///             new[]
     ///             {
-    ///                 pagerduty_event_rule.Two,
+    ///                 "route",
+    ///                 "P5DTL0K",
     ///             },
-    ///         });
-    ///     }
+    ///             new[]
+    ///             {
+    ///                 "severity",
+    ///                 "warning",
+    ///             },
+    ///             new[]
+    ///             {
+    ///                 "annotate",
+    ///                 "2 Managed by terraform",
+    ///             },
+    ///             new[]
+    ///             {
+    ///                 "priority",
+    ///                 "PL451DT",
+    ///             },
+    ///         }),
+    ///         ConditionJson = JsonSerializer.Serialize(new[]
+    ///         {
+    ///             "and",
+    ///             new[]
+    ///             {
+    ///                 "contains",
+    ///                 new[]
+    ///                 {
+    ///                     "path",
+    ///                     "payload",
+    ///                     "source",
+    ///                 },
+    ///                 "website",
+    ///             },
+    ///             new[]
+    ///             {
+    ///                 "contains",
+    ///                 new[]
+    ///                 {
+    ///                     "path",
+    ///                     "headers",
+    ///                     "from",
+    ///                     "0",
+    ///                     "address",
+    ///                 },
+    ///                 "homer",
+    ///             },
+    ///         }),
+    ///         AdvancedConditionJson = JsonSerializer.Serialize(new[]
+    ///         {
+    ///             new[]
+    ///             {
+    ///                 "scheduled-weekly",
+    ///                 1565392127032,
+    ///                 3600000,
+    ///                 "America/Los_Angeles",
+    ///                 new[]
+    ///                 {
+    ///                     1,
+    ///                     2,
+    ///                     3,
+    ///                     5,
+    ///                     7,
+    ///                 },
+    ///             },
+    ///         }),
+    ///     });
     /// 
-    /// }
+    ///     var third = new Pagerduty.EventRule("third", new()
+    ///     {
+    ///         ActionJson = JsonSerializer.Serialize(new[]
+    ///         {
+    ///             new[]
+    ///             {
+    ///                 "route",
+    ///                 "P5DTL0K",
+    ///             },
+    ///             new[]
+    ///             {
+    ///                 "severity",
+    ///                 "warning",
+    ///             },
+    ///             new[]
+    ///             {
+    ///                 "annotate",
+    ///                 "3 Managed by terraform",
+    ///             },
+    ///             new[]
+    ///             {
+    ///                 "priority",
+    ///                 "PL451DT",
+    ///             },
+    ///         }),
+    ///         ConditionJson = JsonSerializer.Serialize(new[]
+    ///         {
+    ///             "and",
+    ///             new[]
+    ///             {
+    ///                 "contains",
+    ///                 new[]
+    ///                 {
+    ///                     "path",
+    ///                     "payload",
+    ///                     "source",
+    ///                 },
+    ///                 "website",
+    ///             },
+    ///             new[]
+    ///             {
+    ///                 "contains",
+    ///                 new[]
+    ///                 {
+    ///                     "path",
+    ///                     "headers",
+    ///                     "from",
+    ///                     "0",
+    ///                     "address",
+    ///                 },
+    ///                 "homer",
+    ///             },
+    ///         }),
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             pagerduty_event_rule.Two,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -195,7 +170,7 @@ namespace Pulumi.Pagerduty
     /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/eventRule:EventRule")]
-    public partial class EventRule : Pulumi.CustomResource
+    public partial class EventRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A list of one or more actions for each rule. Each action within the list is itself a list.
@@ -265,7 +240,7 @@ namespace Pulumi.Pagerduty
         }
     }
 
-    public sealed class EventRuleArgs : Pulumi.ResourceArgs
+    public sealed class EventRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A list of one or more actions for each rule. Each action within the list is itself a list.
@@ -288,9 +263,10 @@ namespace Pulumi.Pagerduty
         public EventRuleArgs()
         {
         }
+        public static new EventRuleArgs Empty => new EventRuleArgs();
     }
 
-    public sealed class EventRuleState : Pulumi.ResourceArgs
+    public sealed class EventRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A list of one or more actions for each rule. Each action within the list is itself a list.
@@ -319,5 +295,6 @@ namespace Pulumi.Pagerduty
         public EventRuleState()
         {
         }
+        public static new EventRuleState Empty => new EventRuleState();
     }
 }

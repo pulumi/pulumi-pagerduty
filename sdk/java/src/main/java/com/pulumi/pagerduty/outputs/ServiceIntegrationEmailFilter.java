@@ -15,56 +15,39 @@ public final class ServiceIntegrationEmailFilter {
      * @return Can be `always` or `match`.
      * 
      */
-    private final @Nullable String bodyMode;
+    private @Nullable String bodyMode;
     /**
      * @return Should be a valid regex or `null`
      * 
      */
-    private final @Nullable String bodyRegex;
+    private @Nullable String bodyRegex;
     /**
      * @return Can be `always` or `match`.
      * 
      */
-    private final @Nullable String fromEmailMode;
+    private @Nullable String fromEmailMode;
     /**
      * @return Should be a valid regex or `null`
      * 
      */
-    private final @Nullable String fromEmailRegex;
+    private @Nullable String fromEmailRegex;
     /**
      * @return The ID of the service integration.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return Can be `always` or `match`.
      * 
      */
-    private final @Nullable String subjectMode;
+    private @Nullable String subjectMode;
     /**
      * @return Should be a valid regex or `null`
      * 
      */
-    private final @Nullable String subjectRegex;
+    private @Nullable String subjectRegex;
 
-    @CustomType.Constructor
-    private ServiceIntegrationEmailFilter(
-        @CustomType.Parameter("bodyMode") @Nullable String bodyMode,
-        @CustomType.Parameter("bodyRegex") @Nullable String bodyRegex,
-        @CustomType.Parameter("fromEmailMode") @Nullable String fromEmailMode,
-        @CustomType.Parameter("fromEmailRegex") @Nullable String fromEmailRegex,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("subjectMode") @Nullable String subjectMode,
-        @CustomType.Parameter("subjectRegex") @Nullable String subjectRegex) {
-        this.bodyMode = bodyMode;
-        this.bodyRegex = bodyRegex;
-        this.fromEmailMode = fromEmailMode;
-        this.fromEmailRegex = fromEmailRegex;
-        this.id = id;
-        this.subjectMode = subjectMode;
-        this.subjectRegex = subjectRegex;
-    }
-
+    private ServiceIntegrationEmailFilter() {}
     /**
      * @return Can be `always` or `match`.
      * 
@@ -122,7 +105,7 @@ public final class ServiceIntegrationEmailFilter {
     public static Builder builder(ServiceIntegrationEmailFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String bodyMode;
         private @Nullable String bodyRegex;
@@ -131,11 +114,7 @@ public final class ServiceIntegrationEmailFilter {
         private @Nullable String id;
         private @Nullable String subjectMode;
         private @Nullable String subjectRegex;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceIntegrationEmailFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bodyMode = defaults.bodyMode;
@@ -147,35 +126,51 @@ public final class ServiceIntegrationEmailFilter {
     	      this.subjectRegex = defaults.subjectRegex;
         }
 
+        @CustomType.Setter
         public Builder bodyMode(@Nullable String bodyMode) {
             this.bodyMode = bodyMode;
             return this;
         }
+        @CustomType.Setter
         public Builder bodyRegex(@Nullable String bodyRegex) {
             this.bodyRegex = bodyRegex;
             return this;
         }
+        @CustomType.Setter
         public Builder fromEmailMode(@Nullable String fromEmailMode) {
             this.fromEmailMode = fromEmailMode;
             return this;
         }
+        @CustomType.Setter
         public Builder fromEmailRegex(@Nullable String fromEmailRegex) {
             this.fromEmailRegex = fromEmailRegex;
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder subjectMode(@Nullable String subjectMode) {
             this.subjectMode = subjectMode;
             return this;
         }
+        @CustomType.Setter
         public Builder subjectRegex(@Nullable String subjectRegex) {
             this.subjectRegex = subjectRegex;
             return this;
-        }        public ServiceIntegrationEmailFilter build() {
-            return new ServiceIntegrationEmailFilter(bodyMode, bodyRegex, fromEmailMode, fromEmailRegex, id, subjectMode, subjectRegex);
+        }
+        public ServiceIntegrationEmailFilter build() {
+            final var o = new ServiceIntegrationEmailFilter();
+            o.bodyMode = bodyMode;
+            o.bodyRegex = bodyRegex;
+            o.fromEmailMode = fromEmailMode;
+            o.fromEmailRegex = fromEmailRegex;
+            o.id = id;
+            o.subjectMode = subjectMode;
+            o.subjectRegex = subjectRegex;
+            return o;
         }
     }
 }

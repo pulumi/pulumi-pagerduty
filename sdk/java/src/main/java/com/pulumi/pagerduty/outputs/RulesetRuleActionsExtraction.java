@@ -15,35 +15,24 @@ public final class RulesetRuleActionsExtraction {
      * @return The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
      * 
      */
-    private final @Nullable String regex;
+    private @Nullable String regex;
     /**
      * @return Field where the data is being copied from. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
      * 
      */
-    private final @Nullable String source;
+    private @Nullable String source;
     /**
      * @return Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
      * 
      */
-    private final @Nullable String target;
+    private @Nullable String target;
     /**
      * @return A customized field message. This can also include variables extracted from the payload by using string interpolation.
      * 
      */
-    private final @Nullable String template;
+    private @Nullable String template;
 
-    @CustomType.Constructor
-    private RulesetRuleActionsExtraction(
-        @CustomType.Parameter("regex") @Nullable String regex,
-        @CustomType.Parameter("source") @Nullable String source,
-        @CustomType.Parameter("target") @Nullable String target,
-        @CustomType.Parameter("template") @Nullable String template) {
-        this.regex = regex;
-        this.source = source;
-        this.target = target;
-        this.template = template;
-    }
-
+    private RulesetRuleActionsExtraction() {}
     /**
      * @return The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
      * 
@@ -80,17 +69,13 @@ public final class RulesetRuleActionsExtraction {
     public static Builder builder(RulesetRuleActionsExtraction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String regex;
         private @Nullable String source;
         private @Nullable String target;
         private @Nullable String template;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RulesetRuleActionsExtraction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.regex = defaults.regex;
@@ -99,23 +84,33 @@ public final class RulesetRuleActionsExtraction {
     	      this.template = defaults.template;
         }
 
+        @CustomType.Setter
         public Builder regex(@Nullable String regex) {
             this.regex = regex;
             return this;
         }
+        @CustomType.Setter
         public Builder source(@Nullable String source) {
             this.source = source;
             return this;
         }
+        @CustomType.Setter
         public Builder target(@Nullable String target) {
             this.target = target;
             return this;
         }
+        @CustomType.Setter
         public Builder template(@Nullable String template) {
             this.template = template;
             return this;
-        }        public RulesetRuleActionsExtraction build() {
-            return new RulesetRuleActionsExtraction(regex, source, target, template);
+        }
+        public RulesetRuleActionsExtraction build() {
+            final var o = new RulesetRuleActionsExtraction();
+            o.regex = regex;
+            o.source = source;
+            o.target = target;
+            o.template = template;
+            return o;
         }
     }
 }

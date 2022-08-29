@@ -15,60 +15,59 @@ namespace Pulumi.Pagerduty
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Pagerduty = Pulumi.Pagerduty;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo = new Pagerduty.ServiceDependency("foo", new()
     ///     {
-    ///         var foo = new Pagerduty.ServiceDependency("foo", new Pagerduty.ServiceDependencyArgs
+    ///         Dependency = new Pagerduty.Inputs.ServiceDependencyDependencyArgs
     ///         {
-    ///             Dependency = new Pagerduty.Inputs.ServiceDependencyDependencyArgs
+    ///             DependentServices = new[]
     ///             {
-    ///                 DependentServices = 
+    ///                 new Pagerduty.Inputs.ServiceDependencyDependencyDependentServiceArgs
     ///                 {
-    ///                     new Pagerduty.Inputs.ServiceDependencyDependencyDependentServiceArgs
-    ///                     {
-    ///                         Id = pagerduty_business_service.Foo.Id,
-    ///                         Type = pagerduty_business_service.Foo.Type,
-    ///                     },
-    ///                 },
-    ///                 SupportingServices = 
-    ///                 {
-    ///                     new Pagerduty.Inputs.ServiceDependencyDependencySupportingServiceArgs
-    ///                     {
-    ///                         Id = pagerduty_service.Foo.Id,
-    ///                         Type = pagerduty_service.Foo.Type,
-    ///                     },
+    ///                     Id = pagerduty_business_service.Foo.Id,
+    ///                     Type = pagerduty_business_service.Foo.Type,
     ///                 },
     ///             },
-    ///         });
-    ///         var bar = new Pagerduty.ServiceDependency("bar", new Pagerduty.ServiceDependencyArgs
-    ///         {
-    ///             Dependency = new Pagerduty.Inputs.ServiceDependencyDependencyArgs
+    ///             SupportingServices = new[]
     ///             {
-    ///                 DependentServices = 
+    ///                 new Pagerduty.Inputs.ServiceDependencyDependencySupportingServiceArgs
     ///                 {
-    ///                     new Pagerduty.Inputs.ServiceDependencyDependencyDependentServiceArgs
-    ///                     {
-    ///                         Id = pagerduty_business_service.Foo.Id,
-    ///                         Type = pagerduty_business_service.Foo.Type,
-    ///                     },
-    ///                 },
-    ///                 SupportingServices = 
-    ///                 {
-    ///                     new Pagerduty.Inputs.ServiceDependencyDependencySupportingServiceArgs
-    ///                     {
-    ///                         Id = pagerduty_service.Two.Id,
-    ///                         Type = pagerduty_service.Two.Type,
-    ///                     },
+    ///                     Id = pagerduty_service.Foo.Id,
+    ///                     Type = pagerduty_service.Foo.Type,
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var bar = new Pagerduty.ServiceDependency("bar", new()
+    ///     {
+    ///         Dependency = new Pagerduty.Inputs.ServiceDependencyDependencyArgs
+    ///         {
+    ///             DependentServices = new[]
+    ///             {
+    ///                 new Pagerduty.Inputs.ServiceDependencyDependencyDependentServiceArgs
+    ///                 {
+    ///                     Id = pagerduty_business_service.Foo.Id,
+    ///                     Type = pagerduty_business_service.Foo.Type,
+    ///                 },
+    ///             },
+    ///             SupportingServices = new[]
+    ///             {
+    ///                 new Pagerduty.Inputs.ServiceDependencyDependencySupportingServiceArgs
+    ///                 {
+    ///                     Id = pagerduty_service.Two.Id,
+    ///                     Type = pagerduty_service.Two.Type,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -80,7 +79,7 @@ namespace Pulumi.Pagerduty
     /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/serviceDependency:ServiceDependency")]
-    public partial class ServiceDependency : Pulumi.CustomResource
+    public partial class ServiceDependency : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
@@ -132,7 +131,7 @@ namespace Pulumi.Pagerduty
         }
     }
 
-    public sealed class ServiceDependencyArgs : Pulumi.ResourceArgs
+    public sealed class ServiceDependencyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
@@ -143,9 +142,10 @@ namespace Pulumi.Pagerduty
         public ServiceDependencyArgs()
         {
         }
+        public static new ServiceDependencyArgs Empty => new ServiceDependencyArgs();
     }
 
-    public sealed class ServiceDependencyState : Pulumi.ResourceArgs
+    public sealed class ServiceDependencyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
@@ -156,5 +156,6 @@ namespace Pulumi.Pagerduty
         public ServiceDependencyState()
         {
         }
+        public static new ServiceDependencyState Empty => new ServiceDependencyState();
     }
 }

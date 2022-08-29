@@ -18,24 +18,15 @@ public final class EscalationPolicyRule {
      * @return The number of minutes before an unacknowledged incident escalates away from this rule.
      * 
      */
-    private final Integer escalationDelayInMinutes;
+    private Integer escalationDelayInMinutes;
     /**
      * @return A target ID
      * 
      */
-    private final @Nullable String id;
-    private final List<EscalationPolicyRuleTarget> targets;
+    private @Nullable String id;
+    private List<EscalationPolicyRuleTarget> targets;
 
-    @CustomType.Constructor
-    private EscalationPolicyRule(
-        @CustomType.Parameter("escalationDelayInMinutes") Integer escalationDelayInMinutes,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("targets") List<EscalationPolicyRuleTarget> targets) {
-        this.escalationDelayInMinutes = escalationDelayInMinutes;
-        this.id = id;
-        this.targets = targets;
-    }
-
+    private EscalationPolicyRule() {}
     /**
      * @return The number of minutes before an unacknowledged incident escalates away from this rule.
      * 
@@ -61,16 +52,12 @@ public final class EscalationPolicyRule {
     public static Builder builder(EscalationPolicyRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer escalationDelayInMinutes;
         private @Nullable String id;
         private List<EscalationPolicyRuleTarget> targets;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EscalationPolicyRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.escalationDelayInMinutes = defaults.escalationDelayInMinutes;
@@ -78,22 +65,30 @@ public final class EscalationPolicyRule {
     	      this.targets = defaults.targets;
         }
 
+        @CustomType.Setter
         public Builder escalationDelayInMinutes(Integer escalationDelayInMinutes) {
             this.escalationDelayInMinutes = Objects.requireNonNull(escalationDelayInMinutes);
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder targets(List<EscalationPolicyRuleTarget> targets) {
             this.targets = Objects.requireNonNull(targets);
             return this;
         }
         public Builder targets(EscalationPolicyRuleTarget... targets) {
             return targets(List.of(targets));
-        }        public EscalationPolicyRule build() {
-            return new EscalationPolicyRule(escalationDelayInMinutes, id, targets);
+        }
+        public EscalationPolicyRule build() {
+            final var o = new EscalationPolicyRule();
+            o.escalationDelayInMinutes = escalationDelayInMinutes;
+            o.id = id;
+            o.targets = targets;
+            return o;
         }
     }
 }

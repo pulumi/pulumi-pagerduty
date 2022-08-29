@@ -15,76 +15,80 @@ namespace Pulumi.Pagerduty
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Pagerduty = Pulumi.Pagerduty;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Pagerduty.User("example", new()
     ///     {
-    ///         var example = new Pagerduty.User("example", new Pagerduty.UserArgs
-    ///         {
-    ///             Email = "125.greenholt.earline@graham.name",
-    ///         });
-    ///         var email = new Pagerduty.UserContactMethod("email", new Pagerduty.UserContactMethodArgs
-    ///         {
-    ///             UserId = example.Id,
-    ///             Type = "email_contact_method",
-    ///             Address = "foo@bar.com",
-    ///             Label = "Work",
-    ///         });
-    ///         var phone = new Pagerduty.UserContactMethod("phone", new Pagerduty.UserContactMethodArgs
-    ///         {
-    ///             UserId = example.Id,
-    ///             Type = "phone_contact_method",
-    ///             CountryCode = 1,
-    ///             Address = "2025550199",
-    ///             Label = "Work",
-    ///         });
-    ///         var sms = new Pagerduty.UserContactMethod("sms", new Pagerduty.UserContactMethodArgs
-    ///         {
-    ///             UserId = example.Id,
-    ///             Type = "sms_contact_method",
-    ///             CountryCode = 1,
-    ///             Address = "2025550199",
-    ///             Label = "Work",
-    ///         });
-    ///         var highUrgencyPhone = new Pagerduty.UserNotificationRule("highUrgencyPhone", new Pagerduty.UserNotificationRuleArgs
-    ///         {
-    ///             UserId = example.Id,
-    ///             StartDelayInMinutes = 1,
-    ///             Urgency = "high",
-    ///             ContactMethod = 
-    ///             {
-    ///                 { "type", "phone_contact_method" },
-    ///                 { "id", phone.Id },
-    ///             },
-    ///         });
-    ///         var lowUrgencyEmail = new Pagerduty.UserNotificationRule("lowUrgencyEmail", new Pagerduty.UserNotificationRuleArgs
-    ///         {
-    ///             UserId = example.Id,
-    ///             StartDelayInMinutes = 1,
-    ///             Urgency = "low",
-    ///             ContactMethod = 
-    ///             {
-    ///                 { "type", "email_contact_method" },
-    ///                 { "id", email.Id },
-    ///             },
-    ///         });
-    ///         var lowUrgencySms = new Pagerduty.UserNotificationRule("lowUrgencySms", new Pagerduty.UserNotificationRuleArgs
-    ///         {
-    ///             UserId = example.Id,
-    ///             StartDelayInMinutes = 10,
-    ///             Urgency = "low",
-    ///             ContactMethod = 
-    ///             {
-    ///                 { "type", "sms_contact_method" },
-    ///                 { "id", sms.Id },
-    ///             },
-    ///         });
-    ///     }
+    ///         Email = "125.greenholt.earline@graham.name",
+    ///     });
     /// 
-    /// }
+    ///     var email = new Pagerduty.UserContactMethod("email", new()
+    ///     {
+    ///         UserId = example.Id,
+    ///         Type = "email_contact_method",
+    ///         Address = "foo@bar.com",
+    ///         Label = "Work",
+    ///     });
+    /// 
+    ///     var phone = new Pagerduty.UserContactMethod("phone", new()
+    ///     {
+    ///         UserId = example.Id,
+    ///         Type = "phone_contact_method",
+    ///         CountryCode = 1,
+    ///         Address = "2025550199",
+    ///         Label = "Work",
+    ///     });
+    /// 
+    ///     var sms = new Pagerduty.UserContactMethod("sms", new()
+    ///     {
+    ///         UserId = example.Id,
+    ///         Type = "sms_contact_method",
+    ///         CountryCode = 1,
+    ///         Address = "2025550199",
+    ///         Label = "Work",
+    ///     });
+    /// 
+    ///     var highUrgencyPhone = new Pagerduty.UserNotificationRule("highUrgencyPhone", new()
+    ///     {
+    ///         UserId = example.Id,
+    ///         StartDelayInMinutes = 1,
+    ///         Urgency = "high",
+    ///         ContactMethod = 
+    ///         {
+    ///             { "type", "phone_contact_method" },
+    ///             { "id", phone.Id },
+    ///         },
+    ///     });
+    /// 
+    ///     var lowUrgencyEmail = new Pagerduty.UserNotificationRule("lowUrgencyEmail", new()
+    ///     {
+    ///         UserId = example.Id,
+    ///         StartDelayInMinutes = 1,
+    ///         Urgency = "low",
+    ///         ContactMethod = 
+    ///         {
+    ///             { "type", "email_contact_method" },
+    ///             { "id", email.Id },
+    ///         },
+    ///     });
+    /// 
+    ///     var lowUrgencySms = new Pagerduty.UserNotificationRule("lowUrgencySms", new()
+    ///     {
+    ///         UserId = example.Id,
+    ///         StartDelayInMinutes = 10,
+    ///         Urgency = "low",
+    ///         ContactMethod = 
+    ///         {
+    ///             { "type", "sms_contact_method" },
+    ///             { "id", sms.Id },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -96,7 +100,7 @@ namespace Pulumi.Pagerduty
     /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/userNotificationRule:UserNotificationRule")]
-    public partial class UserNotificationRule : Pulumi.CustomResource
+    public partial class UserNotificationRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A contact method block, configured as a block described below.
@@ -166,7 +170,7 @@ namespace Pulumi.Pagerduty
         }
     }
 
-    public sealed class UserNotificationRuleArgs : Pulumi.ResourceArgs
+    public sealed class UserNotificationRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("contactMethod", required: true)]
         private InputMap<string>? _contactMethod;
@@ -201,9 +205,10 @@ namespace Pulumi.Pagerduty
         public UserNotificationRuleArgs()
         {
         }
+        public static new UserNotificationRuleArgs Empty => new UserNotificationRuleArgs();
     }
 
-    public sealed class UserNotificationRuleState : Pulumi.ResourceArgs
+    public sealed class UserNotificationRuleState : global::Pulumi.ResourceArgs
     {
         [Input("contactMethod")]
         private InputMap<string>? _contactMethod;
@@ -238,5 +243,6 @@ namespace Pulumi.Pagerduty
         public UserNotificationRuleState()
         {
         }
+        public static new UserNotificationRuleState Empty => new UserNotificationRuleState();
     }
 }

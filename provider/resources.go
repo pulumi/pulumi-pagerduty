@@ -188,6 +188,7 @@ func Provider() tfbridge.ProviderInfo {
 			"pagerduty_service_integration": {Tok: makeDataSource(mainMod, "getServiceIntegration")},
 			"pagerduty_tag":                 {Tok: makeDataSource(mainMod, "getTag")},
 			"pagerduty_event_orchestration": {Tok: makeDataSource(mainMod, "getEventOrchestration")},
+			"pagerduty_users":               {Tok: makeDataSource(mainMod, "getUsers")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			// List any npm dependencies and their versions

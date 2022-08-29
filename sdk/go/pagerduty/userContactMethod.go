@@ -19,53 +19,56 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := pagerduty.NewUser(ctx, "example", &pagerduty.UserArgs{
-// 			Email: pulumi.String("125.greenholt.earline@graham.name"),
-// 			Teams: pulumi.StringArray{
-// 				pulumi.Any(pagerduty_team.Example.Id),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = pagerduty.NewUserContactMethod(ctx, "email", &pagerduty.UserContactMethodArgs{
-// 			UserId:  example.ID(),
-// 			Type:    pulumi.String("email_contact_method"),
-// 			Address: pulumi.String("foo@bar.com"),
-// 			Label:   pulumi.String("Work"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = pagerduty.NewUserContactMethod(ctx, "phone", &pagerduty.UserContactMethodArgs{
-// 			UserId:      example.ID(),
-// 			Type:        pulumi.String("phone_contact_method"),
-// 			CountryCode: pulumi.Int(1),
-// 			Address:     pulumi.String("2025550199"),
-// 			Label:       pulumi.String("Work"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = pagerduty.NewUserContactMethod(ctx, "sms", &pagerduty.UserContactMethodArgs{
-// 			UserId:      example.ID(),
-// 			Type:        pulumi.String("sms_contact_method"),
-// 			CountryCode: pulumi.Int(1),
-// 			Address:     pulumi.String("2025550199"),
-// 			Label:       pulumi.String("Work"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := pagerduty.NewUser(ctx, "example", &pagerduty.UserArgs{
+//				Email: pulumi.String("125.greenholt.earline@graham.name"),
+//				Teams: pulumi.StringArray{
+//					pulumi.Any(pagerduty_team.Example.Id),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewUserContactMethod(ctx, "email", &pagerduty.UserContactMethodArgs{
+//				UserId:  example.ID(),
+//				Type:    pulumi.String("email_contact_method"),
+//				Address: pulumi.String("foo@bar.com"),
+//				Label:   pulumi.String("Work"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewUserContactMethod(ctx, "phone", &pagerduty.UserContactMethodArgs{
+//				UserId:      example.ID(),
+//				Type:        pulumi.String("phone_contact_method"),
+//				CountryCode: pulumi.Int(1),
+//				Address:     pulumi.String("2025550199"),
+//				Label:       pulumi.String("Work"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewUserContactMethod(ctx, "sms", &pagerduty.UserContactMethodArgs{
+//				UserId:      example.ID(),
+//				Type:        pulumi.String("sms_contact_method"),
+//				CountryCode: pulumi.Int(1),
+//				Address:     pulumi.String("2025550199"),
+//				Label:       pulumi.String("Work"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -73,7 +76,9 @@ import (
 // Contact methods can be imported using the `user_id` and the `id`, e.g.
 //
 // ```sh
-//  $ pulumi import pagerduty:index/userContactMethod:UserContactMethod main PLBP09X:PLBP09X
+//
+//	$ pulumi import pagerduty:index/userContactMethod:UserContactMethod main PLBP09X:PLBP09X
+//
 // ```
 type UserContactMethod struct {
 	pulumi.CustomResourceState
@@ -235,7 +240,7 @@ func (i *UserContactMethod) ToUserContactMethodOutputWithContext(ctx context.Con
 // UserContactMethodArrayInput is an input type that accepts UserContactMethodArray and UserContactMethodArrayOutput values.
 // You can construct a concrete instance of `UserContactMethodArrayInput` via:
 //
-//          UserContactMethodArray{ UserContactMethodArgs{...} }
+//	UserContactMethodArray{ UserContactMethodArgs{...} }
 type UserContactMethodArrayInput interface {
 	pulumi.Input
 
@@ -260,7 +265,7 @@ func (i UserContactMethodArray) ToUserContactMethodArrayOutputWithContext(ctx co
 // UserContactMethodMapInput is an input type that accepts UserContactMethodMap and UserContactMethodMapOutput values.
 // You can construct a concrete instance of `UserContactMethodMapInput` via:
 //
-//          UserContactMethodMap{ "key": UserContactMethodArgs{...} }
+//	UserContactMethodMap{ "key": UserContactMethodArgs{...} }
 type UserContactMethodMapInput interface {
 	pulumi.Input
 

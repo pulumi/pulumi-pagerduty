@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class WebhookSubscriptionFilterGetArgs : Pulumi.ResourceArgs
+    public sealed class WebhookSubscriptionFilterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The id of the object being used as the filter. This field is required for all filter types except account_reference.
@@ -27,5 +27,6 @@ namespace Pulumi.Pagerduty.Inputs
         public WebhookSubscriptionFilterGetArgs()
         {
         }
+        public static new WebhookSubscriptionFilterGetArgs Empty => new WebhookSubscriptionFilterGetArgs();
     }
 }

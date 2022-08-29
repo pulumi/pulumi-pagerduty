@@ -25,7 +25,7 @@ namespace Pulumi.Pagerduty
     }
 
 
-    public sealed class GetTeamArgs : Pulumi.InvokeArgs
+    public sealed class GetTeamArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the team to find in the PagerDuty API.
@@ -42,9 +42,10 @@ namespace Pulumi.Pagerduty
         public GetTeamArgs()
         {
         }
+        public static new GetTeamArgs Empty => new GetTeamArgs();
     }
 
-    public sealed class GetTeamInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTeamInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the team to find in the PagerDuty API.
@@ -61,6 +62,7 @@ namespace Pulumi.Pagerduty
         public GetTeamInvokeArgs()
         {
         }
+        public static new GetTeamInvokeArgs Empty => new GetTeamInvokeArgs();
     }
 
 

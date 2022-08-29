@@ -17,35 +17,24 @@ public final class ServiceIncidentUrgencyRule {
      * @return Incidents&#39; urgency during support hours.
      * 
      */
-    private final @Nullable ServiceIncidentUrgencyRuleDuringSupportHours duringSupportHours;
+    private @Nullable ServiceIncidentUrgencyRuleDuringSupportHours duringSupportHours;
     /**
      * @return Incidents&#39; urgency outside support hours.
      * 
      */
-    private final @Nullable ServiceIncidentUrgencyRuleOutsideSupportHours outsideSupportHours;
+    private @Nullable ServiceIncidentUrgencyRuleOutsideSupportHours outsideSupportHours;
     /**
      * @return The type of alert grouping; one of `intelligent`, `time` or `content_based`.
      * 
      */
-    private final String type;
+    private String type;
     /**
      * @return The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
      * 
      */
-    private final @Nullable String urgency;
+    private @Nullable String urgency;
 
-    @CustomType.Constructor
-    private ServiceIncidentUrgencyRule(
-        @CustomType.Parameter("duringSupportHours") @Nullable ServiceIncidentUrgencyRuleDuringSupportHours duringSupportHours,
-        @CustomType.Parameter("outsideSupportHours") @Nullable ServiceIncidentUrgencyRuleOutsideSupportHours outsideSupportHours,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("urgency") @Nullable String urgency) {
-        this.duringSupportHours = duringSupportHours;
-        this.outsideSupportHours = outsideSupportHours;
-        this.type = type;
-        this.urgency = urgency;
-    }
-
+    private ServiceIncidentUrgencyRule() {}
     /**
      * @return Incidents&#39; urgency during support hours.
      * 
@@ -82,17 +71,13 @@ public final class ServiceIncidentUrgencyRule {
     public static Builder builder(ServiceIncidentUrgencyRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ServiceIncidentUrgencyRuleDuringSupportHours duringSupportHours;
         private @Nullable ServiceIncidentUrgencyRuleOutsideSupportHours outsideSupportHours;
         private String type;
         private @Nullable String urgency;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceIncidentUrgencyRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.duringSupportHours = defaults.duringSupportHours;
@@ -101,23 +86,33 @@ public final class ServiceIncidentUrgencyRule {
     	      this.urgency = defaults.urgency;
         }
 
+        @CustomType.Setter
         public Builder duringSupportHours(@Nullable ServiceIncidentUrgencyRuleDuringSupportHours duringSupportHours) {
             this.duringSupportHours = duringSupportHours;
             return this;
         }
+        @CustomType.Setter
         public Builder outsideSupportHours(@Nullable ServiceIncidentUrgencyRuleOutsideSupportHours outsideSupportHours) {
             this.outsideSupportHours = outsideSupportHours;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder urgency(@Nullable String urgency) {
             this.urgency = urgency;
             return this;
-        }        public ServiceIncidentUrgencyRule build() {
-            return new ServiceIncidentUrgencyRule(duringSupportHours, outsideSupportHours, type, urgency);
+        }
+        public ServiceIncidentUrgencyRule build() {
+            final var o = new ServiceIncidentUrgencyRule();
+            o.duringSupportHours = duringSupportHours;
+            o.outsideSupportHours = outsideSupportHours;
+            o.type = type;
+            o.urgency = urgency;
+            return o;
         }
     }
 }

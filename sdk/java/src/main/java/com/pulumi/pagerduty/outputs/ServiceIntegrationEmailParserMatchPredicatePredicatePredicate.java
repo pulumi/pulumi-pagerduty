@@ -13,28 +13,19 @@ public final class ServiceIntegrationEmailParserMatchPredicatePredicatePredicate
      * @return Predicate value or valid regex.
      * 
      */
-    private final String matcher;
+    private String matcher;
     /**
      * @return Can be `subject`, `body` or `from_addresses`.
      * 
      */
-    private final String part;
+    private String part;
     /**
      * @return Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private ServiceIntegrationEmailParserMatchPredicatePredicatePredicate(
-        @CustomType.Parameter("matcher") String matcher,
-        @CustomType.Parameter("part") String part,
-        @CustomType.Parameter("type") String type) {
-        this.matcher = matcher;
-        this.part = part;
-        this.type = type;
-    }
-
+    private ServiceIntegrationEmailParserMatchPredicatePredicatePredicate() {}
     /**
      * @return Predicate value or valid regex.
      * 
@@ -64,16 +55,12 @@ public final class ServiceIntegrationEmailParserMatchPredicatePredicatePredicate
     public static Builder builder(ServiceIntegrationEmailParserMatchPredicatePredicatePredicate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String matcher;
         private String part;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceIntegrationEmailParserMatchPredicatePredicatePredicate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.matcher = defaults.matcher;
@@ -81,19 +68,27 @@ public final class ServiceIntegrationEmailParserMatchPredicatePredicatePredicate
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder matcher(String matcher) {
             this.matcher = Objects.requireNonNull(matcher);
             return this;
         }
+        @CustomType.Setter
         public Builder part(String part) {
             this.part = Objects.requireNonNull(part);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public ServiceIntegrationEmailParserMatchPredicatePredicatePredicate build() {
-            return new ServiceIntegrationEmailParserMatchPredicatePredicatePredicate(matcher, part, type);
+        }
+        public ServiceIntegrationEmailParserMatchPredicatePredicatePredicate build() {
+            final var o = new ServiceIntegrationEmailParserMatchPredicatePredicatePredicate();
+            o.matcher = matcher;
+            o.part = part;
+            o.type = type;
+            return o;
         }
     }
 }

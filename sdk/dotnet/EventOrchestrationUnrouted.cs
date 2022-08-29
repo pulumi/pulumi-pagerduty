@@ -20,60 +20,58 @@ namespace Pulumi.Pagerduty
     /// Alerts created for events that do not match the rule will have severity level set to `info` as defined in `catch_all` block.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Pagerduty = Pulumi.Pagerduty;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var unrouted = new Pagerduty.EventOrchestrationUnrouted("unrouted", new()
     ///     {
-    ///         var unrouted = new Pagerduty.EventOrchestrationUnrouted("unrouted", new Pagerduty.EventOrchestrationUnroutedArgs
+    ///         EventOrchestration = pagerduty_event_orchestration.My_monitor.Id,
+    ///         Sets = new[]
     ///         {
-    ///             EventOrchestration = pagerduty_event_orchestration.My_monitor.Id,
-    ///             Sets = 
+    ///             new Pagerduty.Inputs.EventOrchestrationUnroutedSetArgs
     ///             {
-    ///                 new Pagerduty.Inputs.EventOrchestrationUnroutedSetArgs
+    ///                 Id = "start",
+    ///                 Rules = new[]
     ///                 {
-    ///                     Id = "start",
-    ///                     Rules = 
+    ///                     new Pagerduty.Inputs.EventOrchestrationUnroutedSetRuleArgs
     ///                     {
-    ///                         new Pagerduty.Inputs.EventOrchestrationUnroutedSetRuleArgs
+    ///                         Label = "Update the summary of un-matched Critical alerts so they're easier to spot",
+    ///                         Conditions = new[]
     ///                         {
-    ///                             Label = "Update the summary of un-matched Critical alerts so they're easier to spot",
-    ///                             Conditions = 
+    ///                             new Pagerduty.Inputs.EventOrchestrationUnroutedSetRuleConditionArgs
     ///                             {
-    ///                                 new Pagerduty.Inputs.EventOrchestrationUnroutedSetRuleConditionArgs
-    ///                                 {
-    ///                                     Expression = "event.severity matches 'critical'",
-    ///                                 },
+    ///                                 Expression = "event.severity matches 'critical'",
     ///                             },
-    ///                             Actions = new Pagerduty.Inputs.EventOrchestrationUnroutedSetRuleActionsArgs
+    ///                         },
+    ///                         Actions = new Pagerduty.Inputs.EventOrchestrationUnroutedSetRuleActionsArgs
+    ///                         {
+    ///                             Severity = "critical",
+    ///                             Extractions = new[]
     ///                             {
-    ///                                 Severity = "critical",
-    ///                                 Extractions = 
+    ///                                 new Pagerduty.Inputs.EventOrchestrationUnroutedSetRuleActionsExtractionArgs
     ///                                 {
-    ///                                     new Pagerduty.Inputs.EventOrchestrationUnroutedSetRuleActionsExtractionArgs
-    ///                                     {
-    ///                                         Target = "event.summary",
-    ///                                         Template = "[Critical Unrouted] {{event.summary}}",
-    ///                                     },
+    ///                                     Target = "event.summary",
+    ///                                     Template = "[Critical Unrouted] {{event.summary}}",
     ///                                 },
     ///                             },
     ///                         },
     ///                     },
     ///                 },
     ///             },
-    ///             CatchAll = new Pagerduty.Inputs.EventOrchestrationUnroutedCatchAllArgs
+    ///         },
+    ///         CatchAll = new Pagerduty.Inputs.EventOrchestrationUnroutedCatchAllArgs
+    ///         {
+    ///             Actions = new Pagerduty.Inputs.EventOrchestrationUnroutedCatchAllActionsArgs
     ///             {
-    ///                 Actions = new Pagerduty.Inputs.EventOrchestrationUnroutedCatchAllActionsArgs
-    ///                 {
-    ///                     Severity = "info",
-    ///                 },
+    ///                 Severity = "info",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -85,7 +83,7 @@ namespace Pulumi.Pagerduty
     /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted")]
-    public partial class EventOrchestrationUnrouted : Pulumi.CustomResource
+    public partial class EventOrchestrationUnrouted : global::Pulumi.CustomResource
     {
         /// <summary>
         /// the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
@@ -149,7 +147,7 @@ namespace Pulumi.Pagerduty
         }
     }
 
-    public sealed class EventOrchestrationUnroutedArgs : Pulumi.ResourceArgs
+    public sealed class EventOrchestrationUnroutedArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
@@ -178,9 +176,10 @@ namespace Pulumi.Pagerduty
         public EventOrchestrationUnroutedArgs()
         {
         }
+        public static new EventOrchestrationUnroutedArgs Empty => new EventOrchestrationUnroutedArgs();
     }
 
-    public sealed class EventOrchestrationUnroutedState : Pulumi.ResourceArgs
+    public sealed class EventOrchestrationUnroutedState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
@@ -209,5 +208,6 @@ namespace Pulumi.Pagerduty
         public EventOrchestrationUnroutedState()
         {
         }
+        public static new EventOrchestrationUnroutedState Empty => new EventOrchestrationUnroutedState();
     }
 }

@@ -15,47 +15,48 @@ namespace Pulumi.Pagerduty
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Pagerduty = Pulumi.Pagerduty;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Pagerduty.User("example", new()
     ///     {
-    ///         var example = new Pagerduty.User("example", new Pagerduty.UserArgs
+    ///         Email = "125.greenholt.earline@graham.name",
+    ///         Teams = new[]
     ///         {
-    ///             Email = "125.greenholt.earline@graham.name",
-    ///             Teams = 
-    ///             {
-    ///                 pagerduty_team.Example.Id,
-    ///             },
-    ///         });
-    ///         var email = new Pagerduty.UserContactMethod("email", new Pagerduty.UserContactMethodArgs
-    ///         {
-    ///             UserId = example.Id,
-    ///             Type = "email_contact_method",
-    ///             Address = "foo@bar.com",
-    ///             Label = "Work",
-    ///         });
-    ///         var phone = new Pagerduty.UserContactMethod("phone", new Pagerduty.UserContactMethodArgs
-    ///         {
-    ///             UserId = example.Id,
-    ///             Type = "phone_contact_method",
-    ///             CountryCode = 1,
-    ///             Address = "2025550199",
-    ///             Label = "Work",
-    ///         });
-    ///         var sms = new Pagerduty.UserContactMethod("sms", new Pagerduty.UserContactMethodArgs
-    ///         {
-    ///             UserId = example.Id,
-    ///             Type = "sms_contact_method",
-    ///             CountryCode = 1,
-    ///             Address = "2025550199",
-    ///             Label = "Work",
-    ///         });
-    ///     }
+    ///             pagerduty_team.Example.Id,
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var email = new Pagerduty.UserContactMethod("email", new()
+    ///     {
+    ///         UserId = example.Id,
+    ///         Type = "email_contact_method",
+    ///         Address = "foo@bar.com",
+    ///         Label = "Work",
+    ///     });
+    /// 
+    ///     var phone = new Pagerduty.UserContactMethod("phone", new()
+    ///     {
+    ///         UserId = example.Id,
+    ///         Type = "phone_contact_method",
+    ///         CountryCode = 1,
+    ///         Address = "2025550199",
+    ///         Label = "Work",
+    ///     });
+    /// 
+    ///     var sms = new Pagerduty.UserContactMethod("sms", new()
+    ///     {
+    ///         UserId = example.Id,
+    ///         Type = "sms_contact_method",
+    ///         CountryCode = 1,
+    ///         Address = "2025550199",
+    ///         Label = "Work",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -67,7 +68,7 @@ namespace Pulumi.Pagerduty
     /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/userContactMethod:UserContactMethod")]
-    public partial class UserContactMethod : Pulumi.CustomResource
+    public partial class UserContactMethod : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The "address" to deliver to: `email`, `phone number`, etc., depending on the type.
@@ -161,7 +162,7 @@ namespace Pulumi.Pagerduty
         }
     }
 
-    public sealed class UserContactMethodArgs : Pulumi.ResourceArgs
+    public sealed class UserContactMethodArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The "address" to deliver to: `email`, `phone number`, etc., depending on the type.
@@ -202,9 +203,10 @@ namespace Pulumi.Pagerduty
         public UserContactMethodArgs()
         {
         }
+        public static new UserContactMethodArgs Empty => new UserContactMethodArgs();
     }
 
-    public sealed class UserContactMethodState : Pulumi.ResourceArgs
+    public sealed class UserContactMethodState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The "address" to deliver to: `email`, `phone number`, etc., depending on the type.
@@ -257,5 +259,6 @@ namespace Pulumi.Pagerduty
         public UserContactMethodState()
         {
         }
+        public static new UserContactMethodState Empty => new UserContactMethodState();
     }
 }

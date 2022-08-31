@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs : Pulumi.ResourceArgs
+    public sealed class EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name to identify the header
@@ -27,5 +27,6 @@ namespace Pulumi.Pagerduty.Inputs
         public EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs()
         {
         }
+        public static new EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs Empty => new EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs();
     }
 }

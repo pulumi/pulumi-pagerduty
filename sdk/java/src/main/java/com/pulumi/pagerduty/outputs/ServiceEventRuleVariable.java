@@ -17,28 +17,19 @@ public final class ServiceEventRuleVariable {
      * @return The name of the variable.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return The parameters for performing the operation to populate the variable.
      * 
      */
-    private final @Nullable List<ServiceEventRuleVariableParameter> parameters;
+    private @Nullable List<ServiceEventRuleVariableParameter> parameters;
     /**
      * @return Type of operation to populate the variable. Usually `regex`.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private ServiceEventRuleVariable(
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("parameters") @Nullable List<ServiceEventRuleVariableParameter> parameters,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.name = name;
-        this.parameters = parameters;
-        this.type = type;
-    }
-
+    private ServiceEventRuleVariable() {}
     /**
      * @return The name of the variable.
      * 
@@ -68,16 +59,12 @@ public final class ServiceEventRuleVariable {
     public static Builder builder(ServiceEventRuleVariable defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String name;
         private @Nullable List<ServiceEventRuleVariableParameter> parameters;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceEventRuleVariable defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -85,10 +72,12 @@ public final class ServiceEventRuleVariable {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(@Nullable List<ServiceEventRuleVariableParameter> parameters) {
             this.parameters = parameters;
             return this;
@@ -96,11 +85,17 @@ public final class ServiceEventRuleVariable {
         public Builder parameters(ServiceEventRuleVariableParameter... parameters) {
             return parameters(List.of(parameters));
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public ServiceEventRuleVariable build() {
-            return new ServiceEventRuleVariable(name, parameters, type);
+        }
+        public ServiceEventRuleVariable build() {
+            final var o = new ServiceEventRuleVariable();
+            o.name = name;
+            o.parameters = parameters;
+            o.type = type;
+            return o;
         }
     }
 }

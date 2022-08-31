@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class ServiceEventRuleActionsSuppressGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceEventRuleActionsSuppressGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number value of the `threshold_time_unit` before an incident is created.
@@ -39,5 +39,6 @@ namespace Pulumi.Pagerduty.Inputs
         public ServiceEventRuleActionsSuppressGetArgs()
         {
         }
+        public static new ServiceEventRuleActionsSuppressGetArgs Empty => new ServiceEventRuleActionsSuppressGetArgs();
     }
 }

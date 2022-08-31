@@ -11,45 +11,30 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceIntegrationEmailParserValueExtractor {
-    private final @Nullable String endsBefore;
+    private @Nullable String endsBefore;
     /**
      * @return Can be `subject` or `body`.
      * 
      */
-    private final String part;
+    private String part;
     /**
      * @return If `type` has value `regex` this value should contain valid regex.
      * 
      */
-    private final @Nullable String regex;
-    private final @Nullable String startsAfter;
+    private @Nullable String regex;
+    private @Nullable String startsAfter;
     /**
      * @return Can be `between`, `entire` or `regex`.
      * 
      */
-    private final String type;
+    private String type;
     /**
      * @return First value extractor should have name `incident_key` other value extractors should contain custom names.
      * 
      */
-    private final String valueName;
+    private String valueName;
 
-    @CustomType.Constructor
-    private ServiceIntegrationEmailParserValueExtractor(
-        @CustomType.Parameter("endsBefore") @Nullable String endsBefore,
-        @CustomType.Parameter("part") String part,
-        @CustomType.Parameter("regex") @Nullable String regex,
-        @CustomType.Parameter("startsAfter") @Nullable String startsAfter,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("valueName") String valueName) {
-        this.endsBefore = endsBefore;
-        this.part = part;
-        this.regex = regex;
-        this.startsAfter = startsAfter;
-        this.type = type;
-        this.valueName = valueName;
-    }
-
+    private ServiceIntegrationEmailParserValueExtractor() {}
     public Optional<String> endsBefore() {
         return Optional.ofNullable(this.endsBefore);
     }
@@ -92,7 +77,7 @@ public final class ServiceIntegrationEmailParserValueExtractor {
     public static Builder builder(ServiceIntegrationEmailParserValueExtractor defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String endsBefore;
         private String part;
@@ -100,11 +85,7 @@ public final class ServiceIntegrationEmailParserValueExtractor {
         private @Nullable String startsAfter;
         private String type;
         private String valueName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceIntegrationEmailParserValueExtractor defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endsBefore = defaults.endsBefore;
@@ -115,31 +96,45 @@ public final class ServiceIntegrationEmailParserValueExtractor {
     	      this.valueName = defaults.valueName;
         }
 
+        @CustomType.Setter
         public Builder endsBefore(@Nullable String endsBefore) {
             this.endsBefore = endsBefore;
             return this;
         }
+        @CustomType.Setter
         public Builder part(String part) {
             this.part = Objects.requireNonNull(part);
             return this;
         }
+        @CustomType.Setter
         public Builder regex(@Nullable String regex) {
             this.regex = regex;
             return this;
         }
+        @CustomType.Setter
         public Builder startsAfter(@Nullable String startsAfter) {
             this.startsAfter = startsAfter;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder valueName(String valueName) {
             this.valueName = Objects.requireNonNull(valueName);
             return this;
-        }        public ServiceIntegrationEmailParserValueExtractor build() {
-            return new ServiceIntegrationEmailParserValueExtractor(endsBefore, part, regex, startsAfter, type, valueName);
+        }
+        public ServiceIntegrationEmailParserValueExtractor build() {
+            final var o = new ServiceIntegrationEmailParserValueExtractor();
+            o.endsBefore = endsBefore;
+            o.part = part;
+            o.regex = regex;
+            o.startsAfter = startsAfter;
+            o.type = type;
+            o.valueName = valueName;
+            return o;
         }
     }
 }

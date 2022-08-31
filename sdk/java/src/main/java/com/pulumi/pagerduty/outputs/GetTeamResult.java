@@ -15,35 +15,24 @@ public final class GetTeamResult {
      * @return A description of the found team.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The name of the found team.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
      * 
      */
-    private final @Nullable String parent;
+    private @Nullable String parent;
 
-    @CustomType.Constructor
-    private GetTeamResult(
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("parent") @Nullable String parent) {
-        this.description = description;
-        this.id = id;
-        this.name = name;
-        this.parent = parent;
-    }
-
+    private GetTeamResult() {}
     /**
      * @return A description of the found team.
      * 
@@ -80,17 +69,13 @@ public final class GetTeamResult {
     public static Builder builder(GetTeamResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String description;
         private String id;
         private String name;
         private @Nullable String parent;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTeamResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
@@ -99,23 +84,33 @@ public final class GetTeamResult {
     	      this.parent = defaults.parent;
         }
 
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder parent(@Nullable String parent) {
             this.parent = parent;
             return this;
-        }        public GetTeamResult build() {
-            return new GetTeamResult(description, id, name, parent);
+        }
+        public GetTeamResult build() {
+            final var o = new GetTeamResult();
+            o.description = description;
+            o.id = id;
+            o.name = name;
+            o.parent = parent;
+            return o;
         }
     }
 }

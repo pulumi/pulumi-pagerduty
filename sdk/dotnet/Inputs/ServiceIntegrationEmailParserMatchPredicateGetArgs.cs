@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class ServiceIntegrationEmailParserMatchPredicateGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceIntegrationEmailParserMatchPredicateGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("predicates")]
         private InputList<Inputs.ServiceIntegrationEmailParserMatchPredicatePredicateGetArgs>? _predicates;
@@ -29,5 +29,6 @@ namespace Pulumi.Pagerduty.Inputs
         public ServiceIntegrationEmailParserMatchPredicateGetArgs()
         {
         }
+        public static new ServiceIntegrationEmailParserMatchPredicateGetArgs Empty => new ServiceIntegrationEmailParserMatchPredicateGetArgs();
     }
 }

@@ -13,13 +13,9 @@ public final class EventOrchestrationRouterCatchAll {
      * @return These are the actions that will be taken to change the resulting alert and incident.
      * 
      */
-    private final EventOrchestrationRouterCatchAllActions actions;
+    private EventOrchestrationRouterCatchAllActions actions;
 
-    @CustomType.Constructor
-    private EventOrchestrationRouterCatchAll(@CustomType.Parameter("actions") EventOrchestrationRouterCatchAllActions actions) {
-        this.actions = actions;
-    }
-
+    private EventOrchestrationRouterCatchAll() {}
     /**
      * @return These are the actions that will be taken to change the resulting alert and incident.
      * 
@@ -35,24 +31,24 @@ public final class EventOrchestrationRouterCatchAll {
     public static Builder builder(EventOrchestrationRouterCatchAll defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private EventOrchestrationRouterCatchAllActions actions;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventOrchestrationRouterCatchAll defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actions = defaults.actions;
         }
 
+        @CustomType.Setter
         public Builder actions(EventOrchestrationRouterCatchAllActions actions) {
             this.actions = Objects.requireNonNull(actions);
             return this;
-        }        public EventOrchestrationRouterCatchAll build() {
-            return new EventOrchestrationRouterCatchAll(actions);
+        }
+        public EventOrchestrationRouterCatchAll build() {
+            final var o = new EventOrchestrationRouterCatchAll();
+            o.actions = actions;
+            return o;
         }
     }
 }

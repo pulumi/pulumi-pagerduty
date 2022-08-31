@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class EscalationPolicyRuleTargetArgs : Pulumi.ResourceArgs
+    public sealed class EscalationPolicyRuleTargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A target ID
@@ -27,5 +27,6 @@ namespace Pulumi.Pagerduty.Inputs
         public EscalationPolicyRuleTargetArgs()
         {
         }
+        public static new EscalationPolicyRuleTargetArgs Empty => new EscalationPolicyRuleTargetArgs();
     }
 }

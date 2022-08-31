@@ -20,28 +20,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		parent, err := pagerduty.NewTeam(ctx, "parent", &pagerduty.TeamArgs{
-// 			Description: pulumi.String("Product and Engineering"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = pagerduty.NewTeam(ctx, "example", &pagerduty.TeamArgs{
-// 			Description: pulumi.String("All engineering"),
-// 			Parent:      parent.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			parent, err := pagerduty.NewTeam(ctx, "parent", &pagerduty.TeamArgs{
+//				Description: pulumi.String("Product and Engineering"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewTeam(ctx, "example", &pagerduty.TeamArgs{
+//				Description: pulumi.String("All engineering"),
+//				Parent:      parent.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,7 +52,9 @@ import (
 // Teams can be imported using the `id`, e.g.
 //
 // ```sh
-//  $ pulumi import pagerduty:index/team:Team main PLBP09X
+//
+//	$ pulumi import pagerduty:index/team:Team main PLBP09X
+//
 // ```
 type Team struct {
 	pulumi.CustomResourceState
@@ -161,7 +166,7 @@ func (i *Team) ToTeamOutputWithContext(ctx context.Context) TeamOutput {
 // TeamArrayInput is an input type that accepts TeamArray and TeamArrayOutput values.
 // You can construct a concrete instance of `TeamArrayInput` via:
 //
-//          TeamArray{ TeamArgs{...} }
+//	TeamArray{ TeamArgs{...} }
 type TeamArrayInput interface {
 	pulumi.Input
 
@@ -186,7 +191,7 @@ func (i TeamArray) ToTeamArrayOutputWithContext(ctx context.Context) TeamArrayOu
 // TeamMapInput is an input type that accepts TeamMap and TeamMapOutput values.
 // You can construct a concrete instance of `TeamMapInput` via:
 //
-//          TeamMap{ "key": TeamArgs{...} }
+//	TeamMap{ "key": TeamArgs{...} }
 type TeamMapInput interface {
 	pulumi.Input
 

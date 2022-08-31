@@ -19,27 +19,16 @@ public final class ServiceIntegrationEmailParser {
      * @return Can be `resolve` or `trigger`.
      * 
      */
-    private final String action;
+    private String action;
     /**
      * @return The ID of the service integration.
      * 
      */
-    private final @Nullable Integer id;
-    private final ServiceIntegrationEmailParserMatchPredicate matchPredicate;
-    private final @Nullable List<ServiceIntegrationEmailParserValueExtractor> valueExtractors;
+    private @Nullable Integer id;
+    private ServiceIntegrationEmailParserMatchPredicate matchPredicate;
+    private @Nullable List<ServiceIntegrationEmailParserValueExtractor> valueExtractors;
 
-    @CustomType.Constructor
-    private ServiceIntegrationEmailParser(
-        @CustomType.Parameter("action") String action,
-        @CustomType.Parameter("id") @Nullable Integer id,
-        @CustomType.Parameter("matchPredicate") ServiceIntegrationEmailParserMatchPredicate matchPredicate,
-        @CustomType.Parameter("valueExtractors") @Nullable List<ServiceIntegrationEmailParserValueExtractor> valueExtractors) {
-        this.action = action;
-        this.id = id;
-        this.matchPredicate = matchPredicate;
-        this.valueExtractors = valueExtractors;
-    }
-
+    private ServiceIntegrationEmailParser() {}
     /**
      * @return Can be `resolve` or `trigger`.
      * 
@@ -68,17 +57,13 @@ public final class ServiceIntegrationEmailParser {
     public static Builder builder(ServiceIntegrationEmailParser defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String action;
         private @Nullable Integer id;
         private ServiceIntegrationEmailParserMatchPredicate matchPredicate;
         private @Nullable List<ServiceIntegrationEmailParserValueExtractor> valueExtractors;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceIntegrationEmailParser defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
@@ -87,26 +72,36 @@ public final class ServiceIntegrationEmailParser {
     	      this.valueExtractors = defaults.valueExtractors;
         }
 
+        @CustomType.Setter
         public Builder action(String action) {
             this.action = Objects.requireNonNull(action);
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable Integer id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder matchPredicate(ServiceIntegrationEmailParserMatchPredicate matchPredicate) {
             this.matchPredicate = Objects.requireNonNull(matchPredicate);
             return this;
         }
+        @CustomType.Setter
         public Builder valueExtractors(@Nullable List<ServiceIntegrationEmailParserValueExtractor> valueExtractors) {
             this.valueExtractors = valueExtractors;
             return this;
         }
         public Builder valueExtractors(ServiceIntegrationEmailParserValueExtractor... valueExtractors) {
             return valueExtractors(List.of(valueExtractors));
-        }        public ServiceIntegrationEmailParser build() {
-            return new ServiceIntegrationEmailParser(action, id, matchPredicate, valueExtractors);
+        }
+        public ServiceIntegrationEmailParser build() {
+            final var o = new ServiceIntegrationEmailParser();
+            o.action = action;
+            o.id = id;
+            o.matchPredicate = matchPredicate;
+            o.valueExtractors = valueExtractors;
+            return o;
         }
     }
 }

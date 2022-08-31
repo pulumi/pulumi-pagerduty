@@ -17,21 +17,14 @@ public final class ServiceEventRuleConditionsSubcondition {
      * @return Type of operator to apply to the sub-condition. Can be `exists`,`nexists`,`equals`,`nequals`,`contains`,`ncontains`,`matches`, or `nmatches`.
      * 
      */
-    private final @Nullable String operator;
+    private @Nullable String operator;
     /**
      * @return Parameter for the sub-condition. It requires both a `path` and `value` to be set. The `path` value must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
      * 
      */
-    private final @Nullable List<ServiceEventRuleConditionsSubconditionParameter> parameters;
+    private @Nullable List<ServiceEventRuleConditionsSubconditionParameter> parameters;
 
-    @CustomType.Constructor
-    private ServiceEventRuleConditionsSubcondition(
-        @CustomType.Parameter("operator") @Nullable String operator,
-        @CustomType.Parameter("parameters") @Nullable List<ServiceEventRuleConditionsSubconditionParameter> parameters) {
-        this.operator = operator;
-        this.parameters = parameters;
-    }
-
+    private ServiceEventRuleConditionsSubcondition() {}
     /**
      * @return Type of operator to apply to the sub-condition. Can be `exists`,`nexists`,`equals`,`nequals`,`contains`,`ncontains`,`matches`, or `nmatches`.
      * 
@@ -54,33 +47,35 @@ public final class ServiceEventRuleConditionsSubcondition {
     public static Builder builder(ServiceEventRuleConditionsSubcondition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String operator;
         private @Nullable List<ServiceEventRuleConditionsSubconditionParameter> parameters;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceEventRuleConditionsSubcondition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.operator = defaults.operator;
     	      this.parameters = defaults.parameters;
         }
 
+        @CustomType.Setter
         public Builder operator(@Nullable String operator) {
             this.operator = operator;
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(@Nullable List<ServiceEventRuleConditionsSubconditionParameter> parameters) {
             this.parameters = parameters;
             return this;
         }
         public Builder parameters(ServiceEventRuleConditionsSubconditionParameter... parameters) {
             return parameters(List.of(parameters));
-        }        public ServiceEventRuleConditionsSubcondition build() {
-            return new ServiceEventRuleConditionsSubcondition(operator, parameters);
+        }
+        public ServiceEventRuleConditionsSubcondition build() {
+            final var o = new ServiceEventRuleConditionsSubcondition();
+            o.operator = operator;
+            o.parameters = parameters;
+            return o;
         }
     }
 }

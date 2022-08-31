@@ -17,35 +17,24 @@ public final class ServiceEventRuleActionsSuppress {
      * @return The number value of the `threshold_time_unit` before an incident is created.
      * 
      */
-    private final @Nullable Integer thresholdTimeAmount;
+    private @Nullable Integer thresholdTimeAmount;
     /**
      * @return The `seconds`,`minutes`, or `hours` the `threshold_time_amount` should be measured.
      * 
      */
-    private final @Nullable String thresholdTimeUnit;
+    private @Nullable String thresholdTimeUnit;
     /**
      * @return The number of alerts that should be suppressed.
      * 
      */
-    private final @Nullable Integer thresholdValue;
+    private @Nullable Integer thresholdValue;
     /**
      * @return The value for the operation. For example, an RE2 regular expression for regex-type variables.
      * 
      */
-    private final @Nullable Boolean value;
+    private @Nullable Boolean value;
 
-    @CustomType.Constructor
-    private ServiceEventRuleActionsSuppress(
-        @CustomType.Parameter("thresholdTimeAmount") @Nullable Integer thresholdTimeAmount,
-        @CustomType.Parameter("thresholdTimeUnit") @Nullable String thresholdTimeUnit,
-        @CustomType.Parameter("thresholdValue") @Nullable Integer thresholdValue,
-        @CustomType.Parameter("value") @Nullable Boolean value) {
-        this.thresholdTimeAmount = thresholdTimeAmount;
-        this.thresholdTimeUnit = thresholdTimeUnit;
-        this.thresholdValue = thresholdValue;
-        this.value = value;
-    }
-
+    private ServiceEventRuleActionsSuppress() {}
     /**
      * @return The number value of the `threshold_time_unit` before an incident is created.
      * 
@@ -82,17 +71,13 @@ public final class ServiceEventRuleActionsSuppress {
     public static Builder builder(ServiceEventRuleActionsSuppress defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer thresholdTimeAmount;
         private @Nullable String thresholdTimeUnit;
         private @Nullable Integer thresholdValue;
         private @Nullable Boolean value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceEventRuleActionsSuppress defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.thresholdTimeAmount = defaults.thresholdTimeAmount;
@@ -101,23 +86,33 @@ public final class ServiceEventRuleActionsSuppress {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder thresholdTimeAmount(@Nullable Integer thresholdTimeAmount) {
             this.thresholdTimeAmount = thresholdTimeAmount;
             return this;
         }
+        @CustomType.Setter
         public Builder thresholdTimeUnit(@Nullable String thresholdTimeUnit) {
             this.thresholdTimeUnit = thresholdTimeUnit;
             return this;
         }
+        @CustomType.Setter
         public Builder thresholdValue(@Nullable Integer thresholdValue) {
             this.thresholdValue = thresholdValue;
             return this;
         }
+        @CustomType.Setter
         public Builder value(@Nullable Boolean value) {
             this.value = value;
             return this;
-        }        public ServiceEventRuleActionsSuppress build() {
-            return new ServiceEventRuleActionsSuppress(thresholdTimeAmount, thresholdTimeUnit, thresholdValue, value);
+        }
+        public ServiceEventRuleActionsSuppress build() {
+            final var o = new ServiceEventRuleActionsSuppress();
+            o.thresholdTimeAmount = thresholdTimeAmount;
+            o.thresholdTimeUnit = thresholdTimeUnit;
+            o.thresholdValue = thresholdValue;
+            o.value = value;
+            return o;
         }
     }
 }

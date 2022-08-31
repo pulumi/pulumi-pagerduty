@@ -19,68 +19,71 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := pagerduty.LookupService(ctx, &GetServiceArgs{
-// 			Name: "My Service",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = pagerduty.NewWebhookSubscription(ctx, "foo", &pagerduty.WebhookSubscriptionArgs{
-// 			DeliveryMethods: WebhookSubscriptionDeliveryMethodArray{
-// 				&WebhookSubscriptionDeliveryMethodArgs{
-// 					Type: pulumi.String("http_delivery_method"),
-// 					Url:  pulumi.String("https://example.com/receive_a_pagerduty_webhook"),
-// 					CustomHeaders: WebhookSubscriptionDeliveryMethodCustomHeaderArray{
-// 						&WebhookSubscriptionDeliveryMethodCustomHeaderArgs{
-// 							Name:  pulumi.String("X-Foo"),
-// 							Value: pulumi.String("foo"),
-// 						},
-// 						&WebhookSubscriptionDeliveryMethodCustomHeaderArgs{
-// 							Name:  pulumi.String("X-Bar"),
-// 							Value: pulumi.String("bar"),
-// 						},
-// 					},
-// 				},
-// 			},
-// 			Description: pulumi.String(fmt.Sprintf("%vs", "%")),
-// 			Events: pulumi.StringArray{
-// 				pulumi.String("incident.acknowledged"),
-// 				pulumi.String("incident.annotated"),
-// 				pulumi.String("incident.delegated"),
-// 				pulumi.String("incident.escalated"),
-// 				pulumi.String("incident.priority_updated"),
-// 				pulumi.String("incident.reassigned"),
-// 				pulumi.String("incident.reopened"),
-// 				pulumi.String("incident.resolved"),
-// 				pulumi.String("incident.responder.added"),
-// 				pulumi.String("incident.responder.replied"),
-// 				pulumi.String("incident.status_update_published"),
-// 				pulumi.String("incident.triggered"),
-// 				pulumi.String("incident.unacknowledged"),
-// 			},
-// 			Active: pulumi.Bool(true),
-// 			Filters: WebhookSubscriptionFilterArray{
-// 				&WebhookSubscriptionFilterArgs{
-// 					Id:   pulumi.String(example.Id),
-// 					Type: pulumi.String("service_reference"),
-// 				},
-// 			},
-// 			Type: pulumi.String("webhook_subscription"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := pagerduty.LookupService(ctx, &GetServiceArgs{
+//				Name: "My Service",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewWebhookSubscription(ctx, "foo", &pagerduty.WebhookSubscriptionArgs{
+//				DeliveryMethods: WebhookSubscriptionDeliveryMethodArray{
+//					&WebhookSubscriptionDeliveryMethodArgs{
+//						Type: pulumi.String("http_delivery_method"),
+//						Url:  pulumi.String("https://example.com/receive_a_pagerduty_webhook"),
+//						CustomHeaders: WebhookSubscriptionDeliveryMethodCustomHeaderArray{
+//							&WebhookSubscriptionDeliveryMethodCustomHeaderArgs{
+//								Name:  pulumi.String("X-Foo"),
+//								Value: pulumi.String("foo"),
+//							},
+//							&WebhookSubscriptionDeliveryMethodCustomHeaderArgs{
+//								Name:  pulumi.String("X-Bar"),
+//								Value: pulumi.String("bar"),
+//							},
+//						},
+//					},
+//				},
+//				Description: pulumi.String(fmt.Sprintf("%vs", "%")),
+//				Events: pulumi.StringArray{
+//					pulumi.String("incident.acknowledged"),
+//					pulumi.String("incident.annotated"),
+//					pulumi.String("incident.delegated"),
+//					pulumi.String("incident.escalated"),
+//					pulumi.String("incident.priority_updated"),
+//					pulumi.String("incident.reassigned"),
+//					pulumi.String("incident.reopened"),
+//					pulumi.String("incident.resolved"),
+//					pulumi.String("incident.responder.added"),
+//					pulumi.String("incident.responder.replied"),
+//					pulumi.String("incident.status_update_published"),
+//					pulumi.String("incident.triggered"),
+//					pulumi.String("incident.unacknowledged"),
+//				},
+//				Active: pulumi.Bool(true),
+//				Filters: WebhookSubscriptionFilterArray{
+//					&WebhookSubscriptionFilterArgs{
+//						Id:   pulumi.String(example.Id),
+//						Type: pulumi.String("service_reference"),
+//					},
+//				},
+//				Type: pulumi.String("webhook_subscription"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -88,7 +91,9 @@ import (
 // Webhook Subscriptions can be imported using the `id`, e.g.
 //
 // ```sh
-//  $ pulumi import pagerduty:index/webhookSubscription:WebhookSubscription main PUABCDL
+//
+//	$ pulumi import pagerduty:index/webhookSubscription:WebhookSubscription main PUABCDL
+//
 // ```
 type WebhookSubscription struct {
 	pulumi.CustomResourceState
@@ -300,7 +305,7 @@ func (i *WebhookSubscription) ToWebhookSubscriptionOutputWithContext(ctx context
 // WebhookSubscriptionArrayInput is an input type that accepts WebhookSubscriptionArray and WebhookSubscriptionArrayOutput values.
 // You can construct a concrete instance of `WebhookSubscriptionArrayInput` via:
 //
-//          WebhookSubscriptionArray{ WebhookSubscriptionArgs{...} }
+//	WebhookSubscriptionArray{ WebhookSubscriptionArgs{...} }
 type WebhookSubscriptionArrayInput interface {
 	pulumi.Input
 
@@ -325,7 +330,7 @@ func (i WebhookSubscriptionArray) ToWebhookSubscriptionArrayOutputWithContext(ct
 // WebhookSubscriptionMapInput is an input type that accepts WebhookSubscriptionMap and WebhookSubscriptionMapOutput values.
 // You can construct a concrete instance of `WebhookSubscriptionMapInput` via:
 //
-//          WebhookSubscriptionMap{ "key": WebhookSubscriptionArgs{...} }
+//	WebhookSubscriptionMap{ "key": WebhookSubscriptionArgs{...} }
 type WebhookSubscriptionMapInput interface {
 	pulumi.Input
 

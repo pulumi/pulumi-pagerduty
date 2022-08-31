@@ -15,24 +15,21 @@ namespace Pulumi.Pagerduty
     /// ## Example of configuring a Global Event Orchestration
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Pagerduty = Pulumi.Pagerduty;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var engineering = new Pagerduty.Team("engineering", new Pagerduty.TeamArgs
-    ///         {
-    ///         });
-    ///         var myMonitor = new Pagerduty.EventOrchestration("myMonitor", new Pagerduty.EventOrchestrationArgs
-    ///         {
-    ///             Description = "Send events to a pair of services",
-    ///             Team = engineering.Id,
-    ///         });
-    ///     }
+    ///     var engineering = new Pagerduty.Team("engineering");
     /// 
-    /// }
+    ///     var myMonitor = new Pagerduty.EventOrchestration("myMonitor", new()
+    ///     {
+    ///         Description = "Send events to a pair of services",
+    ///         Team = engineering.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +41,7 @@ namespace Pulumi.Pagerduty
     /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/eventOrchestration:EventOrchestration")]
-    public partial class EventOrchestration : Pulumi.CustomResource
+    public partial class EventOrchestration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A human-friendly description of the Event Orchestration.
@@ -117,7 +114,7 @@ namespace Pulumi.Pagerduty
         }
     }
 
-    public sealed class EventOrchestrationArgs : Pulumi.ResourceArgs
+    public sealed class EventOrchestrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A human-friendly description of the Event Orchestration.
@@ -152,9 +149,10 @@ namespace Pulumi.Pagerduty
         public EventOrchestrationArgs()
         {
         }
+        public static new EventOrchestrationArgs Empty => new EventOrchestrationArgs();
     }
 
-    public sealed class EventOrchestrationState : Pulumi.ResourceArgs
+    public sealed class EventOrchestrationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A human-friendly description of the Event Orchestration.
@@ -192,5 +190,6 @@ namespace Pulumi.Pagerduty
         public EventOrchestrationState()
         {
         }
+        public static new EventOrchestrationState Empty => new EventOrchestrationState();
     }
 }

@@ -15,63 +15,65 @@ namespace Pulumi.Pagerduty
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Pagerduty = Pulumi.Pagerduty;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var servicenow = Pagerduty.GetExtensionSchema.Invoke(new()
     ///     {
-    ///         var servicenow = Output.Create(Pagerduty.GetExtensionSchema.InvokeAsync(new Pagerduty.GetExtensionSchemaArgs
+    ///         Name = "ServiceNow (v7)",
+    ///     });
+    /// 
+    ///     var exampleUser = new Pagerduty.User("exampleUser", new()
+    ///     {
+    ///         Email = "howard.james@example.domain",
+    ///     });
+    /// 
+    ///     var exampleEscalationPolicy = new Pagerduty.EscalationPolicy("exampleEscalationPolicy", new()
+    ///     {
+    ///         NumLoops = 2,
+    ///         Rules = new[]
     ///         {
-    ///             Name = "ServiceNow (v7)",
-    ///         }));
-    ///         var exampleUser = new Pagerduty.User("exampleUser", new Pagerduty.UserArgs
-    ///         {
-    ///             Email = "howard.james@example.domain",
-    ///         });
-    ///         var exampleEscalationPolicy = new Pagerduty.EscalationPolicy("exampleEscalationPolicy", new Pagerduty.EscalationPolicyArgs
-    ///         {
-    ///             NumLoops = 2,
-    ///             Rules = 
+    ///             new Pagerduty.Inputs.EscalationPolicyRuleArgs
     ///             {
-    ///                 new Pagerduty.Inputs.EscalationPolicyRuleArgs
+    ///                 EscalationDelayInMinutes = 10,
+    ///                 Targets = new[]
     ///                 {
-    ///                     EscalationDelayInMinutes = 10,
-    ///                     Targets = 
+    ///                     new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
     ///                     {
-    ///                         new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
-    ///                         {
-    ///                             Type = "user",
-    ///                             Id = exampleUser.Id,
-    ///                         },
+    ///                         Type = "user",
+    ///                         Id = exampleUser.Id,
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///         var exampleService = new Pagerduty.Service("exampleService", new Pagerduty.ServiceArgs
-    ///         {
-    ///             AutoResolveTimeout = "14400",
-    ///             AcknowledgementTimeout = "600",
-    ///             EscalationPolicy = exampleEscalationPolicy.Id,
-    ///         });
-    ///         var snow = new Pagerduty.ExtensionServiceNow("snow", new Pagerduty.ExtensionServiceNowArgs
-    ///         {
-    ///             ExtensionSchema = servicenow.Apply(servicenow =&gt; servicenow.Id),
-    ///             ExtensionObjects = 
-    ///             {
-    ///                 exampleService.Id,
-    ///             },
-    ///             SnowUser = "meeps",
-    ///             SnowPassword = "zorz",
-    ///             SyncOptions = "manual_sync",
-    ///             Target = "https://foo.servicenow.com/webhook_foo",
-    ///             TaskType = "incident",
-    ///             Referer = "None",
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleService = new Pagerduty.Service("exampleService", new()
+    ///     {
+    ///         AutoResolveTimeout = "14400",
+    ///         AcknowledgementTimeout = "600",
+    ///         EscalationPolicy = exampleEscalationPolicy.Id,
+    ///     });
+    /// 
+    ///     var snow = new Pagerduty.ExtensionServiceNow("snow", new()
+    ///     {
+    ///         ExtensionSchema = servicenow.Apply(getExtensionSchemaResult =&gt; getExtensionSchemaResult.Id),
+    ///         ExtensionObjects = new[]
+    ///         {
+    ///             exampleService.Id,
+    ///         },
+    ///         SnowUser = "meeps",
+    ///         SnowPassword = "zorz",
+    ///         SyncOptions = "manual_sync",
+    ///         Target = "https://foo.servicenow.com/webhook_foo",
+    ///         TaskType = "incident",
+    ///         Referer = "None",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -83,7 +85,7 @@ namespace Pulumi.Pagerduty
     /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/extensionServiceNow:ExtensionServiceNow")]
-    public partial class ExtensionServiceNow : Pulumi.CustomResource
+    public partial class ExtensionServiceNow : global::Pulumi.CustomResource
     {
         [Output("endpointUrl")]
         public Output<string?> EndpointUrl { get; private set; } = null!;
@@ -201,7 +203,7 @@ namespace Pulumi.Pagerduty
         }
     }
 
-    public sealed class ExtensionServiceNowArgs : Pulumi.ResourceArgs
+    public sealed class ExtensionServiceNowArgs : global::Pulumi.ResourceArgs
     {
         [Input("endpointUrl")]
         public Input<string>? EndpointUrl { get; set; }
@@ -278,9 +280,10 @@ namespace Pulumi.Pagerduty
         public ExtensionServiceNowArgs()
         {
         }
+        public static new ExtensionServiceNowArgs Empty => new ExtensionServiceNowArgs();
     }
 
-    public sealed class ExtensionServiceNowState : Pulumi.ResourceArgs
+    public sealed class ExtensionServiceNowState : global::Pulumi.ResourceArgs
     {
         [Input("endpointUrl")]
         public Input<string>? EndpointUrl { get; set; }
@@ -363,5 +366,6 @@ namespace Pulumi.Pagerduty
         public ExtensionServiceNowState()
         {
         }
+        public static new ExtensionServiceNowState Empty => new ExtensionServiceNowState();
     }
 }

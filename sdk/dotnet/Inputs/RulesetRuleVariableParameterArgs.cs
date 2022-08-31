@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class RulesetRuleVariableParameterArgs : Pulumi.ResourceArgs
+    public sealed class RulesetRuleVariableParameterArgs : global::Pulumi.ResourceArgs
     {
         [Input("path")]
         public Input<string>? Path { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.Pagerduty.Inputs
         public RulesetRuleVariableParameterArgs()
         {
         }
+        public static new RulesetRuleVariableParameterArgs Empty => new RulesetRuleVariableParameterArgs();
     }
 }

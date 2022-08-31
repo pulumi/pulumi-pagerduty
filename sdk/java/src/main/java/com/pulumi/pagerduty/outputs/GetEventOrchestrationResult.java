@@ -15,28 +15,19 @@ public final class GetEventOrchestrationResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return An integration for the Event Orchestration.
      * 
      */
-    private final List<GetEventOrchestrationIntegration> integrations;
+    private List<GetEventOrchestrationIntegration> integrations;
     /**
      * @return The name of the found Event Orchestration.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private GetEventOrchestrationResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("integrations") List<GetEventOrchestrationIntegration> integrations,
-        @CustomType.Parameter("name") String name) {
-        this.id = id;
-        this.integrations = integrations;
-        this.name = name;
-    }
-
+    private GetEventOrchestrationResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -66,16 +57,12 @@ public final class GetEventOrchestrationResult {
     public static Builder builder(GetEventOrchestrationResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private List<GetEventOrchestrationIntegration> integrations;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetEventOrchestrationResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -83,10 +70,12 @@ public final class GetEventOrchestrationResult {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder integrations(List<GetEventOrchestrationIntegration> integrations) {
             this.integrations = Objects.requireNonNull(integrations);
             return this;
@@ -94,11 +83,17 @@ public final class GetEventOrchestrationResult {
         public Builder integrations(GetEventOrchestrationIntegration... integrations) {
             return integrations(List.of(integrations));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public GetEventOrchestrationResult build() {
-            return new GetEventOrchestrationResult(id, integrations, name);
+        }
+        public GetEventOrchestrationResult build() {
+            final var o = new GetEventOrchestrationResult();
+            o.id = id;
+            o.integrations = integrations;
+            o.name = name;
+            return o;
         }
     }
 }

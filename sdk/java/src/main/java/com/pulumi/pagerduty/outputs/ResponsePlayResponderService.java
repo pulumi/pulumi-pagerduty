@@ -15,21 +15,14 @@ public final class ResponsePlayResponderService {
      * @return ID of the user defined as the responder
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private ResponsePlayResponderService(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.id = id;
-        this.type = type;
-    }
-
+    private ResponsePlayResponderService() {}
     /**
      * @return ID of the user defined as the responder
      * 
@@ -52,30 +45,32 @@ public final class ResponsePlayResponderService {
     public static Builder builder(ResponsePlayResponderService defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ResponsePlayResponderService defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public ResponsePlayResponderService build() {
-            return new ResponsePlayResponderService(id, type);
+        }
+        public ResponsePlayResponderService build() {
+            final var o = new ResponsePlayResponderService();
+            o.id = id;
+            o.type = type;
+            return o;
         }
     }
 }

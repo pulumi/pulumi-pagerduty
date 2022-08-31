@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class EventOrchestrationUnroutedSetArgs : Pulumi.ResourceArgs
+    public sealed class EventOrchestrationUnroutedSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of this set of rules. Rules in other sets can route events into this set using the rule's `route_to` property.
@@ -29,5 +29,6 @@ namespace Pulumi.Pagerduty.Inputs
         public EventOrchestrationUnroutedSetArgs()
         {
         }
+        public static new EventOrchestrationUnroutedSetArgs Empty => new EventOrchestrationUnroutedSetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class EscalationPolicyRuleGetArgs : Pulumi.ResourceArgs
+    public sealed class EscalationPolicyRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of minutes before an unacknowledged incident escalates away from this rule.
@@ -35,5 +35,6 @@ namespace Pulumi.Pagerduty.Inputs
         public EscalationPolicyRuleGetArgs()
         {
         }
+        public static new EscalationPolicyRuleGetArgs Empty => new EscalationPolicyRuleGetArgs();
     }
 }

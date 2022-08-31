@@ -13,21 +13,14 @@ public final class GetScheduleResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The short name of the found schedule.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private GetScheduleResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name) {
-        this.id = id;
-        this.name = name;
-    }
-
+    private GetScheduleResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -50,30 +43,32 @@ public final class GetScheduleResult {
     public static Builder builder(GetScheduleResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetScheduleResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public GetScheduleResult build() {
-            return new GetScheduleResult(id, name);
+        }
+        public GetScheduleResult build() {
+            final var o = new GetScheduleResult();
+            o.id = id;
+            o.name = name;
+            return o;
         }
     }
 }

@@ -19,42 +19,29 @@ public final class EventOrchestrationUnroutedSetRule {
      * @return Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
      * 
      */
-    private final EventOrchestrationUnroutedSetRuleActions actions;
+    private EventOrchestrationUnroutedSetRuleActions actions;
     /**
      * @return Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will `always` match against the rule.
      * 
      */
-    private final @Nullable List<EventOrchestrationUnroutedSetRuleCondition> conditions;
+    private @Nullable List<EventOrchestrationUnroutedSetRuleCondition> conditions;
     /**
      * @return Indicates whether the rule is disabled and would therefore not be evaluated.
      * 
      */
-    private final @Nullable Boolean disabled;
+    private @Nullable Boolean disabled;
     /**
      * @return The ID of this set of rules. Rules in other sets can route events into this set using the rule&#39;s `route_to` property.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return A description of this rule&#39;s purpose.
      * 
      */
-    private final @Nullable String label;
+    private @Nullable String label;
 
-    @CustomType.Constructor
-    private EventOrchestrationUnroutedSetRule(
-        @CustomType.Parameter("actions") EventOrchestrationUnroutedSetRuleActions actions,
-        @CustomType.Parameter("conditions") @Nullable List<EventOrchestrationUnroutedSetRuleCondition> conditions,
-        @CustomType.Parameter("disabled") @Nullable Boolean disabled,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("label") @Nullable String label) {
-        this.actions = actions;
-        this.conditions = conditions;
-        this.disabled = disabled;
-        this.id = id;
-        this.label = label;
-    }
-
+    private EventOrchestrationUnroutedSetRule() {}
     /**
      * @return Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
      * 
@@ -98,18 +85,14 @@ public final class EventOrchestrationUnroutedSetRule {
     public static Builder builder(EventOrchestrationUnroutedSetRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private EventOrchestrationUnroutedSetRuleActions actions;
         private @Nullable List<EventOrchestrationUnroutedSetRuleCondition> conditions;
         private @Nullable Boolean disabled;
         private @Nullable String id;
         private @Nullable String label;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventOrchestrationUnroutedSetRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actions = defaults.actions;
@@ -119,10 +102,12 @@ public final class EventOrchestrationUnroutedSetRule {
     	      this.label = defaults.label;
         }
 
+        @CustomType.Setter
         public Builder actions(EventOrchestrationUnroutedSetRuleActions actions) {
             this.actions = Objects.requireNonNull(actions);
             return this;
         }
+        @CustomType.Setter
         public Builder conditions(@Nullable List<EventOrchestrationUnroutedSetRuleCondition> conditions) {
             this.conditions = conditions;
             return this;
@@ -130,19 +115,29 @@ public final class EventOrchestrationUnroutedSetRule {
         public Builder conditions(EventOrchestrationUnroutedSetRuleCondition... conditions) {
             return conditions(List.of(conditions));
         }
+        @CustomType.Setter
         public Builder disabled(@Nullable Boolean disabled) {
             this.disabled = disabled;
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder label(@Nullable String label) {
             this.label = label;
             return this;
-        }        public EventOrchestrationUnroutedSetRule build() {
-            return new EventOrchestrationUnroutedSetRule(actions, conditions, disabled, id, label);
+        }
+        public EventOrchestrationUnroutedSetRule build() {
+            final var o = new EventOrchestrationUnroutedSetRule();
+            o.actions = actions;
+            o.conditions = conditions;
+            o.disabled = disabled;
+            o.id = id;
+            o.label = label;
+            return o;
         }
     }
 }

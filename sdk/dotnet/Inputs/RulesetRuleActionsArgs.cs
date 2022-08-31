@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class RulesetRuleActionsArgs : Pulumi.ResourceArgs
+    public sealed class RulesetRuleActionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotates")]
         private InputList<Inputs.RulesetRuleActionsAnnotateArgs>? _annotates;
@@ -111,5 +111,6 @@ namespace Pulumi.Pagerduty.Inputs
         public RulesetRuleActionsArgs()
         {
         }
+        public static new RulesetRuleActionsArgs Empty => new RulesetRuleActionsArgs();
     }
 }

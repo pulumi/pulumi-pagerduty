@@ -23,55 +23,58 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := pagerduty.NewEventOrchestrationRouter(ctx, "router", &pagerduty.EventOrchestrationRouterArgs{
-// 			EventOrchestration: pulumi.Any(pagerduty_event_orchestration.My_monitor.Id),
-// 			Set: &EventOrchestrationRouterSetArgs{
-// 				Id: pulumi.String("start"),
-// 				Rules: EventOrchestrationRouterSetRuleArray{
-// 					&EventOrchestrationRouterSetRuleArgs{
-// 						Label: pulumi.String("Events relating to our relational database"),
-// 						Conditions: EventOrchestrationRouterSetRuleConditionArray{
-// 							&EventOrchestrationRouterSetRuleConditionArgs{
-// 								Expression: pulumi.String("event.summary matches part 'database'"),
-// 							},
-// 							&EventOrchestrationRouterSetRuleConditionArgs{
-// 								Expression: pulumi.String("event.source matches regex 'db[0-9]+-server'"),
-// 							},
-// 						},
-// 						Actions: &EventOrchestrationRouterSetRuleActionsArgs{
-// 							RouteTo: pulumi.Any(pagerduty_service.Database.Id),
-// 						},
-// 					},
-// 					&EventOrchestrationRouterSetRuleArgs{
-// 						Conditions: EventOrchestrationRouterSetRuleConditionArray{
-// 							&EventOrchestrationRouterSetRuleConditionArgs{
-// 								Expression: pulumi.String("event.summary matches part 'www'"),
-// 							},
-// 						},
-// 						Actions: &EventOrchestrationRouterSetRuleActionsArgs{
-// 							RouteTo: pulumi.Any(pagerduty_service.Www.Id),
-// 						},
-// 					},
-// 				},
-// 			},
-// 			CatchAll: &EventOrchestrationRouterCatchAllArgs{
-// 				Actions: &EventOrchestrationRouterCatchAllActionsArgs{
-// 					RouteTo: pulumi.String("unrouted"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := pagerduty.NewEventOrchestrationRouter(ctx, "router", &pagerduty.EventOrchestrationRouterArgs{
+//				EventOrchestration: pulumi.Any(pagerduty_event_orchestration.My_monitor.Id),
+//				Set: &EventOrchestrationRouterSetArgs{
+//					Id: pulumi.String("start"),
+//					Rules: EventOrchestrationRouterSetRuleArray{
+//						&EventOrchestrationRouterSetRuleArgs{
+//							Label: pulumi.String("Events relating to our relational database"),
+//							Conditions: EventOrchestrationRouterSetRuleConditionArray{
+//								&EventOrchestrationRouterSetRuleConditionArgs{
+//									Expression: pulumi.String("event.summary matches part 'database'"),
+//								},
+//								&EventOrchestrationRouterSetRuleConditionArgs{
+//									Expression: pulumi.String("event.source matches regex 'db[0-9]+-server'"),
+//								},
+//							},
+//							Actions: &EventOrchestrationRouterSetRuleActionsArgs{
+//								RouteTo: pulumi.Any(pagerduty_service.Database.Id),
+//							},
+//						},
+//						&EventOrchestrationRouterSetRuleArgs{
+//							Conditions: EventOrchestrationRouterSetRuleConditionArray{
+//								&EventOrchestrationRouterSetRuleConditionArgs{
+//									Expression: pulumi.String("event.summary matches part 'www'"),
+//								},
+//							},
+//							Actions: &EventOrchestrationRouterSetRuleActionsArgs{
+//								RouteTo: pulumi.Any(pagerduty_service.Www.Id),
+//							},
+//						},
+//					},
+//				},
+//				CatchAll: &EventOrchestrationRouterCatchAllArgs{
+//					Actions: &EventOrchestrationRouterCatchAllActionsArgs{
+//						RouteTo: pulumi.String("unrouted"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -79,7 +82,9 @@ import (
 // Router can be imported using the `id` of the Event Orchestration, e.g.
 //
 // ```sh
-//  $ pulumi import pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter router 1b49abe7-26db-4439-a715-c6d883acfb3e
+//
+//	$ pulumi import pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter router 1b49abe7-26db-4439-a715-c6d883acfb3e
+//
 // ```
 type EventOrchestrationRouter struct {
 	pulumi.CustomResourceState
@@ -196,7 +201,7 @@ func (i *EventOrchestrationRouter) ToEventOrchestrationRouterOutputWithContext(c
 // EventOrchestrationRouterArrayInput is an input type that accepts EventOrchestrationRouterArray and EventOrchestrationRouterArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationRouterArrayInput` via:
 //
-//          EventOrchestrationRouterArray{ EventOrchestrationRouterArgs{...} }
+//	EventOrchestrationRouterArray{ EventOrchestrationRouterArgs{...} }
 type EventOrchestrationRouterArrayInput interface {
 	pulumi.Input
 
@@ -221,7 +226,7 @@ func (i EventOrchestrationRouterArray) ToEventOrchestrationRouterArrayOutputWith
 // EventOrchestrationRouterMapInput is an input type that accepts EventOrchestrationRouterMap and EventOrchestrationRouterMapOutput values.
 // You can construct a concrete instance of `EventOrchestrationRouterMapInput` via:
 //
-//          EventOrchestrationRouterMap{ "key": EventOrchestrationRouterArgs{...} }
+//	EventOrchestrationRouterMap{ "key": EventOrchestrationRouterArgs{...} }
 type EventOrchestrationRouterMapInput interface {
 	pulumi.Input
 

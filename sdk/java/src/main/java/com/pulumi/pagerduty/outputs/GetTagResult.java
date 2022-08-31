@@ -13,17 +13,10 @@ public final class GetTagResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String label;
+    private String id;
+    private String label;
 
-    @CustomType.Constructor
-    private GetTagResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("label") String label) {
-        this.id = id;
-        this.label = label;
-    }
-
+    private GetTagResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -42,30 +35,32 @@ public final class GetTagResult {
     public static Builder builder(GetTagResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String label;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTagResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.label = defaults.label;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder label(String label) {
             this.label = Objects.requireNonNull(label);
             return this;
-        }        public GetTagResult build() {
-            return new GetTagResult(id, label);
+        }
+        public GetTagResult build() {
+            final var o = new GetTagResult();
+            o.id = id;
+            o.label = label;
+            return o;
         }
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class EventOrchestrationServiceSetRuleActionsExtractionGetArgs : Pulumi.ResourceArgs
+    public sealed class EventOrchestrationServiceSetRuleActionsExtractionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
@@ -41,5 +41,6 @@ namespace Pulumi.Pagerduty.Inputs
         public EventOrchestrationServiceSetRuleActionsExtractionGetArgs()
         {
         }
+        public static new EventOrchestrationServiceSetRuleActionsExtractionGetArgs Empty => new EventOrchestrationServiceSetRuleActionsExtractionGetArgs();
     }
 }

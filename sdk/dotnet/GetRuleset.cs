@@ -19,87 +19,84 @@ namespace Pulumi.Pagerduty
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Pagerduty = Pulumi.Pagerduty;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Pagerduty.GetRuleset.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Pagerduty.GetRuleset.InvokeAsync(new Pagerduty.GetRulesetArgs
-        ///         {
-        ///             Name = "My Ruleset",
-        ///         }));
-        ///         var foo = new Pagerduty.RulesetRule("foo", new Pagerduty.RulesetRuleArgs
-        ///         {
-        ///             Ruleset = example.Apply(example =&gt; example.Id),
-        ///             Position = 0,
-        ///             Disabled = false,
-        ///             Conditions = new Pagerduty.Inputs.RulesetRuleConditionsArgs
-        ///             {
-        ///                 Operator = "and",
-        ///                 Subconditions = 
-        ///                 {
-        ///                     new Pagerduty.Inputs.RulesetRuleConditionsSubconditionArgs
-        ///                     {
-        ///                         Operator = "contains",
-        ///                         Parameters = 
-        ///                         {
-        ///                             new Pagerduty.Inputs.RulesetRuleConditionsSubconditionParameterArgs
-        ///                             {
-        ///                                 Value = "disk space",
-        ///                                 Path = "payload.summary",
-        ///                             },
-        ///                         },
-        ///                     },
-        ///                     new Pagerduty.Inputs.RulesetRuleConditionsSubconditionArgs
-        ///                     {
-        ///                         Operator = "contains",
-        ///                         Parameters = 
-        ///                         {
-        ///                             new Pagerduty.Inputs.RulesetRuleConditionsSubconditionParameterArgs
-        ///                             {
-        ///                                 Value = "db",
-        ///                                 Path = "payload.source",
-        ///                             },
-        ///                         },
-        ///                     },
-        ///                 },
-        ///             },
-        ///             Actions = new Pagerduty.Inputs.RulesetRuleActionsArgs
-        ///             {
-        ///                 Routes = 
-        ///                 {
-        ///                     new Pagerduty.Inputs.RulesetRuleActionsRouteArgs
-        ///                     {
-        ///                         Value = "P5DTL0K",
-        ///                     },
-        ///                 },
-        ///             },
-        ///         });
-        ///     }
+        ///         Name = "My Ruleset",
+        ///     });
         /// 
-        /// }
+        ///     var foo = new Pagerduty.RulesetRule("foo", new()
+        ///     {
+        ///         Ruleset = example.Apply(getRulesetResult =&gt; getRulesetResult.Id),
+        ///         Position = 0,
+        ///         Disabled = false,
+        ///         Conditions = new Pagerduty.Inputs.RulesetRuleConditionsArgs
+        ///         {
+        ///             Operator = "and",
+        ///             Subconditions = new[]
+        ///             {
+        ///                 new Pagerduty.Inputs.RulesetRuleConditionsSubconditionArgs
+        ///                 {
+        ///                     Operator = "contains",
+        ///                     Parameters = new[]
+        ///                     {
+        ///                         new Pagerduty.Inputs.RulesetRuleConditionsSubconditionParameterArgs
+        ///                         {
+        ///                             Value = "disk space",
+        ///                             Path = "payload.summary",
+        ///                         },
+        ///                     },
+        ///                 },
+        ///                 new Pagerduty.Inputs.RulesetRuleConditionsSubconditionArgs
+        ///                 {
+        ///                     Operator = "contains",
+        ///                     Parameters = new[]
+        ///                     {
+        ///                         new Pagerduty.Inputs.RulesetRuleConditionsSubconditionParameterArgs
+        ///                         {
+        ///                             Value = "db",
+        ///                             Path = "payload.source",
+        ///                         },
+        ///                     },
+        ///                 },
+        ///             },
+        ///         },
+        ///         Actions = new Pagerduty.Inputs.RulesetRuleActionsArgs
+        ///         {
+        ///             Routes = new[]
+        ///             {
+        ///                 new Pagerduty.Inputs.RulesetRuleActionsRouteArgs
+        ///                 {
+        ///                     Value = "P5DTL0K",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Default Global Ruleset
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Pagerduty = Pulumi.Pagerduty;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var defaultGlobal = Pagerduty.GetRuleset.Invoke(new()
         ///     {
-        ///         var defaultGlobal = Output.Create(Pagerduty.GetRuleset.InvokeAsync(new Pagerduty.GetRulesetArgs
-        ///         {
-        ///             Name = "Default Global",
-        ///         }));
-        ///     }
+        ///         Name = "Default Global",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -115,87 +112,84 @@ namespace Pulumi.Pagerduty
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Pagerduty = Pulumi.Pagerduty;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Pagerduty.GetRuleset.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Pagerduty.GetRuleset.InvokeAsync(new Pagerduty.GetRulesetArgs
-        ///         {
-        ///             Name = "My Ruleset",
-        ///         }));
-        ///         var foo = new Pagerduty.RulesetRule("foo", new Pagerduty.RulesetRuleArgs
-        ///         {
-        ///             Ruleset = example.Apply(example =&gt; example.Id),
-        ///             Position = 0,
-        ///             Disabled = false,
-        ///             Conditions = new Pagerduty.Inputs.RulesetRuleConditionsArgs
-        ///             {
-        ///                 Operator = "and",
-        ///                 Subconditions = 
-        ///                 {
-        ///                     new Pagerduty.Inputs.RulesetRuleConditionsSubconditionArgs
-        ///                     {
-        ///                         Operator = "contains",
-        ///                         Parameters = 
-        ///                         {
-        ///                             new Pagerduty.Inputs.RulesetRuleConditionsSubconditionParameterArgs
-        ///                             {
-        ///                                 Value = "disk space",
-        ///                                 Path = "payload.summary",
-        ///                             },
-        ///                         },
-        ///                     },
-        ///                     new Pagerduty.Inputs.RulesetRuleConditionsSubconditionArgs
-        ///                     {
-        ///                         Operator = "contains",
-        ///                         Parameters = 
-        ///                         {
-        ///                             new Pagerduty.Inputs.RulesetRuleConditionsSubconditionParameterArgs
-        ///                             {
-        ///                                 Value = "db",
-        ///                                 Path = "payload.source",
-        ///                             },
-        ///                         },
-        ///                     },
-        ///                 },
-        ///             },
-        ///             Actions = new Pagerduty.Inputs.RulesetRuleActionsArgs
-        ///             {
-        ///                 Routes = 
-        ///                 {
-        ///                     new Pagerduty.Inputs.RulesetRuleActionsRouteArgs
-        ///                     {
-        ///                         Value = "P5DTL0K",
-        ///                     },
-        ///                 },
-        ///             },
-        ///         });
-        ///     }
+        ///         Name = "My Ruleset",
+        ///     });
         /// 
-        /// }
+        ///     var foo = new Pagerduty.RulesetRule("foo", new()
+        ///     {
+        ///         Ruleset = example.Apply(getRulesetResult =&gt; getRulesetResult.Id),
+        ///         Position = 0,
+        ///         Disabled = false,
+        ///         Conditions = new Pagerduty.Inputs.RulesetRuleConditionsArgs
+        ///         {
+        ///             Operator = "and",
+        ///             Subconditions = new[]
+        ///             {
+        ///                 new Pagerduty.Inputs.RulesetRuleConditionsSubconditionArgs
+        ///                 {
+        ///                     Operator = "contains",
+        ///                     Parameters = new[]
+        ///                     {
+        ///                         new Pagerduty.Inputs.RulesetRuleConditionsSubconditionParameterArgs
+        ///                         {
+        ///                             Value = "disk space",
+        ///                             Path = "payload.summary",
+        ///                         },
+        ///                     },
+        ///                 },
+        ///                 new Pagerduty.Inputs.RulesetRuleConditionsSubconditionArgs
+        ///                 {
+        ///                     Operator = "contains",
+        ///                     Parameters = new[]
+        ///                     {
+        ///                         new Pagerduty.Inputs.RulesetRuleConditionsSubconditionParameterArgs
+        ///                         {
+        ///                             Value = "db",
+        ///                             Path = "payload.source",
+        ///                         },
+        ///                     },
+        ///                 },
+        ///             },
+        ///         },
+        ///         Actions = new Pagerduty.Inputs.RulesetRuleActionsArgs
+        ///         {
+        ///             Routes = new[]
+        ///             {
+        ///                 new Pagerduty.Inputs.RulesetRuleActionsRouteArgs
+        ///                 {
+        ///                     Value = "P5DTL0K",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Default Global Ruleset
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Pagerduty = Pulumi.Pagerduty;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var defaultGlobal = Pagerduty.GetRuleset.Invoke(new()
         ///     {
-        ///         var defaultGlobal = Output.Create(Pagerduty.GetRuleset.InvokeAsync(new Pagerduty.GetRulesetArgs
-        ///         {
-        ///             Name = "Default Global",
-        ///         }));
-        ///     }
+        ///         Name = "Default Global",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -205,7 +199,7 @@ namespace Pulumi.Pagerduty
     }
 
 
-    public sealed class GetRulesetArgs : Pulumi.InvokeArgs
+    public sealed class GetRulesetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the ruleset to find in the PagerDuty API.
@@ -216,9 +210,10 @@ namespace Pulumi.Pagerduty
         public GetRulesetArgs()
         {
         }
+        public static new GetRulesetArgs Empty => new GetRulesetArgs();
     }
 
-    public sealed class GetRulesetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRulesetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the ruleset to find in the PagerDuty API.
@@ -229,6 +224,7 @@ namespace Pulumi.Pagerduty
         public GetRulesetInvokeArgs()
         {
         }
+        public static new GetRulesetInvokeArgs Empty => new GetRulesetInvokeArgs();
     }
 
 

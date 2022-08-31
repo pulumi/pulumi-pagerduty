@@ -611,6 +611,21 @@ export interface GetEventOrchestrationIntegrationParameter {
     type: string;
 }
 
+export interface GetUsersUser {
+    /**
+     * The email to use to find a user in the PagerDuty API.
+     */
+    email: string;
+    /**
+     * The ID of the found user.
+     */
+    id: string;
+    /**
+     * The short name of the found user.
+     */
+    name: string;
+}
+
 export interface ResponsePlayResponder {
     /**
      * Description of escalation policy
@@ -976,7 +991,7 @@ export interface ServiceAlertGroupingParameters {
      */
     config?: outputs.ServiceAlertGroupingParametersConfig;
     /**
-     * The type of scheduled action. Currently, this must be set to `urgencyChange`.
+     * The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
      */
     type?: string;
 }
@@ -994,6 +1009,17 @@ export interface ServiceAlertGroupingParametersConfig {
      * The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
      */
     timeout?: number;
+}
+
+export interface ServiceAutoPauseNotificationsParameters {
+    /**
+     * Indicates whether alerts should be automatically suspended when identified as transient.  If not passed in, will default to 'false'.
+     */
+    enabled: boolean;
+    /**
+     * Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `enabled` is `true`. Must be omitted or set to `null` if `enabled` is `false`.
+     */
+    timeout: number;
 }
 
 export interface ServiceDependencyDependency {
@@ -1490,3 +1516,4 @@ export interface WebhookSubscriptionFilter {
      */
     type: string;
 }
+

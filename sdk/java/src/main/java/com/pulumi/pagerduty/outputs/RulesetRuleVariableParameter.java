@@ -11,21 +11,14 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RulesetRuleVariableParameter {
-    private final @Nullable String path;
+    private @Nullable String path;
     /**
      * @return Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
      * 
      */
-    private final @Nullable String value;
+    private @Nullable String value;
 
-    @CustomType.Constructor
-    private RulesetRuleVariableParameter(
-        @CustomType.Parameter("path") @Nullable String path,
-        @CustomType.Parameter("value") @Nullable String value) {
-        this.path = path;
-        this.value = value;
-    }
-
+    private RulesetRuleVariableParameter() {}
     public Optional<String> path() {
         return Optional.ofNullable(this.path);
     }
@@ -44,30 +37,32 @@ public final class RulesetRuleVariableParameter {
     public static Builder builder(RulesetRuleVariableParameter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String path;
         private @Nullable String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RulesetRuleVariableParameter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.path = defaults.path;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder path(@Nullable String path) {
             this.path = path;
             return this;
         }
+        @CustomType.Setter
         public Builder value(@Nullable String value) {
             this.value = value;
             return this;
-        }        public RulesetRuleVariableParameter build() {
-            return new RulesetRuleVariableParameter(path, value);
+        }
+        public RulesetRuleVariableParameter build() {
+            final var o = new RulesetRuleVariableParameter();
+            o.path = path;
+            o.value = value;
+            return o;
         }
     }
 }

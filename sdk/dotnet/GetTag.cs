@@ -19,30 +19,30 @@ namespace Pulumi.Pagerduty
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Pagerduty = Pulumi.Pagerduty;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var me = Pagerduty.GetUser.Invoke(new()
         ///     {
-        ///         var me = Output.Create(Pagerduty.GetUser.InvokeAsync(new Pagerduty.GetUserArgs
-        ///         {
-        ///             Email = "me@example.com",
-        ///         }));
-        ///         var devops = Output.Create(Pagerduty.GetTag.InvokeAsync(new Pagerduty.GetTagArgs
-        ///         {
-        ///             Label = "devops",
-        ///         }));
-        ///         var foo = new Pagerduty.TagAssignment("foo", new Pagerduty.TagAssignmentArgs
-        ///         {
-        ///             TagId = devops.Apply(devops =&gt; devops.Id),
-        ///             EntityId = me.Apply(me =&gt; me.Id),
-        ///             EntityType = "users",
-        ///         });
-        ///     }
+        ///         Email = "me@example.com",
+        ///     });
         /// 
-        /// }
+        ///     var devops = Pagerduty.GetTag.Invoke(new()
+        ///     {
+        ///         Label = "devops",
+        ///     });
+        /// 
+        ///     var foo = new Pagerduty.TagAssignment("foo", new()
+        ///     {
+        ///         TagId = devops.Apply(getTagResult =&gt; getTagResult.Id),
+        ///         EntityId = me.Apply(getUserResult =&gt; getUserResult.Id),
+        ///         EntityType = "users",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -58,30 +58,30 @@ namespace Pulumi.Pagerduty
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Pagerduty = Pulumi.Pagerduty;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var me = Pagerduty.GetUser.Invoke(new()
         ///     {
-        ///         var me = Output.Create(Pagerduty.GetUser.InvokeAsync(new Pagerduty.GetUserArgs
-        ///         {
-        ///             Email = "me@example.com",
-        ///         }));
-        ///         var devops = Output.Create(Pagerduty.GetTag.InvokeAsync(new Pagerduty.GetTagArgs
-        ///         {
-        ///             Label = "devops",
-        ///         }));
-        ///         var foo = new Pagerduty.TagAssignment("foo", new Pagerduty.TagAssignmentArgs
-        ///         {
-        ///             TagId = devops.Apply(devops =&gt; devops.Id),
-        ///             EntityId = me.Apply(me =&gt; me.Id),
-        ///             EntityType = "users",
-        ///         });
-        ///     }
+        ///         Email = "me@example.com",
+        ///     });
         /// 
-        /// }
+        ///     var devops = Pagerduty.GetTag.Invoke(new()
+        ///     {
+        ///         Label = "devops",
+        ///     });
+        /// 
+        ///     var foo = new Pagerduty.TagAssignment("foo", new()
+        ///     {
+        ///         TagId = devops.Apply(getTagResult =&gt; getTagResult.Id),
+        ///         EntityId = me.Apply(getUserResult =&gt; getUserResult.Id),
+        ///         EntityType = "users",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -91,7 +91,7 @@ namespace Pulumi.Pagerduty
     }
 
 
-    public sealed class GetTagArgs : Pulumi.InvokeArgs
+    public sealed class GetTagArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The label of the tag to find in the PagerDuty API.
@@ -102,9 +102,10 @@ namespace Pulumi.Pagerduty
         public GetTagArgs()
         {
         }
+        public static new GetTagArgs Empty => new GetTagArgs();
     }
 
-    public sealed class GetTagInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTagInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The label of the tag to find in the PagerDuty API.
@@ -115,6 +116,7 @@ namespace Pulumi.Pagerduty
         public GetTagInvokeArgs()
         {
         }
+        public static new GetTagInvokeArgs Empty => new GetTagInvokeArgs();
     }
 
 

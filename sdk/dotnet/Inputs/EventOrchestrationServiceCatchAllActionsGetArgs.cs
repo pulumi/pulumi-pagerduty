@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class EventOrchestrationServiceCatchAllActionsGetArgs : Pulumi.ResourceArgs
+    public sealed class EventOrchestrationServiceCatchAllActionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Add this text as a note on the resulting incident.
@@ -90,5 +90,6 @@ namespace Pulumi.Pagerduty.Inputs
         public EventOrchestrationServiceCatchAllActionsGetArgs()
         {
         }
+        public static new EventOrchestrationServiceCatchAllActionsGetArgs Empty => new EventOrchestrationServiceCatchAllActionsGetArgs();
     }
 }

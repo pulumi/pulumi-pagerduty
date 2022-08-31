@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class ServiceIntegrationEmailParserGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceIntegrationEmailParserGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Can be `resolve` or `trigger`.
@@ -38,5 +38,6 @@ namespace Pulumi.Pagerduty.Inputs
         public ServiceIntegrationEmailParserGetArgs()
         {
         }
+        public static new ServiceIntegrationEmailParserGetArgs Empty => new ServiceIntegrationEmailParserGetArgs();
     }
 }

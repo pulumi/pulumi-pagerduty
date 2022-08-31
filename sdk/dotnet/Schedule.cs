@@ -15,54 +15,52 @@ namespace Pulumi.Pagerduty
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Pagerduty = Pulumi.Pagerduty;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleUser = new Pagerduty.User("exampleUser", new()
     ///     {
-    ///         var exampleUser = new Pagerduty.User("exampleUser", new Pagerduty.UserArgs
+    ///         Email = "125.greenholt.earline@graham.name",
+    ///     });
+    /// 
+    ///     var exampleTeam = new Pagerduty.Team("exampleTeam");
+    /// 
+    ///     var foo = new Pagerduty.Schedule("foo", new()
+    ///     {
+    ///         TimeZone = "America/New_York",
+    ///         Layers = new[]
     ///         {
-    ///             Email = "125.greenholt.earline@graham.name",
-    ///         });
-    ///         var exampleTeam = new Pagerduty.Team("exampleTeam", new Pagerduty.TeamArgs
-    ///         {
-    ///         });
-    ///         var foo = new Pagerduty.Schedule("foo", new Pagerduty.ScheduleArgs
-    ///         {
-    ///             TimeZone = "America/New_York",
-    ///             Layers = 
+    ///             new Pagerduty.Inputs.ScheduleLayerArgs
     ///             {
-    ///                 new Pagerduty.Inputs.ScheduleLayerArgs
+    ///                 Name = "Night Shift",
+    ///                 Start = "2015-11-06T20:00:00-05:00",
+    ///                 RotationVirtualStart = "2015-11-06T20:00:00-05:00",
+    ///                 RotationTurnLengthSeconds = 86400,
+    ///                 Users = new[]
     ///                 {
-    ///                     Name = "Night Shift",
-    ///                     Start = "2015-11-06T20:00:00-05:00",
-    ///                     RotationVirtualStart = "2015-11-06T20:00:00-05:00",
-    ///                     RotationTurnLengthSeconds = 86400,
-    ///                     Users = 
+    ///                     exampleUser.Id,
+    ///                 },
+    ///                 Restrictions = new[]
+    ///                 {
+    ///                     new Pagerduty.Inputs.ScheduleLayerRestrictionArgs
     ///                     {
-    ///                         exampleUser.Id,
-    ///                     },
-    ///                     Restrictions = 
-    ///                     {
-    ///                         new Pagerduty.Inputs.ScheduleLayerRestrictionArgs
-    ///                         {
-    ///                             Type = "daily_restriction",
-    ///                             StartTimeOfDay = "08:00:00",
-    ///                             DurationSeconds = 32400,
-    ///                         },
+    ///                         Type = "daily_restriction",
+    ///                         StartTimeOfDay = "08:00:00",
+    ///                         DurationSeconds = 32400,
     ///                     },
     ///                 },
     ///             },
-    ///             Teams = 
-    ///             {
-    ///                 exampleTeam.Id,
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         Teams = new[]
+    ///         {
+    ///             exampleTeam.Id,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -74,7 +72,7 @@ namespace Pulumi.Pagerduty
     /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/schedule:Schedule")]
-    public partial class Schedule : Pulumi.CustomResource
+    public partial class Schedule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The description of the schedule.
@@ -161,7 +159,7 @@ namespace Pulumi.Pagerduty
         }
     }
 
-    public sealed class ScheduleArgs : Pulumi.ResourceArgs
+    public sealed class ScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the schedule.
@@ -217,9 +215,10 @@ namespace Pulumi.Pagerduty
         {
             Description = "Managed by Pulumi";
         }
+        public static new ScheduleArgs Empty => new ScheduleArgs();
     }
 
-    public sealed class ScheduleState : Pulumi.ResourceArgs
+    public sealed class ScheduleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the schedule.
@@ -283,5 +282,6 @@ namespace Pulumi.Pagerduty
         {
             Description = "Managed by Pulumi";
         }
+        public static new ScheduleState Empty => new ScheduleState();
     }
 }

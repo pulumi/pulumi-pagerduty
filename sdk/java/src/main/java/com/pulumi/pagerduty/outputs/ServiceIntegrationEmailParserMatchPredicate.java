@@ -12,21 +12,14 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceIntegrationEmailParserMatchPredicate {
-    private final @Nullable List<ServiceIntegrationEmailParserMatchPredicatePredicate> predicates;
+    private @Nullable List<ServiceIntegrationEmailParserMatchPredicatePredicate> predicates;
     /**
      * @return Can be `any` or `all`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private ServiceIntegrationEmailParserMatchPredicate(
-        @CustomType.Parameter("predicates") @Nullable List<ServiceIntegrationEmailParserMatchPredicatePredicate> predicates,
-        @CustomType.Parameter("type") String type) {
-        this.predicates = predicates;
-        this.type = type;
-    }
-
+    private ServiceIntegrationEmailParserMatchPredicate() {}
     public List<ServiceIntegrationEmailParserMatchPredicatePredicate> predicates() {
         return this.predicates == null ? List.of() : this.predicates;
     }
@@ -45,21 +38,18 @@ public final class ServiceIntegrationEmailParserMatchPredicate {
     public static Builder builder(ServiceIntegrationEmailParserMatchPredicate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<ServiceIntegrationEmailParserMatchPredicatePredicate> predicates;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceIntegrationEmailParserMatchPredicate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.predicates = defaults.predicates;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder predicates(@Nullable List<ServiceIntegrationEmailParserMatchPredicatePredicate> predicates) {
             this.predicates = predicates;
             return this;
@@ -67,11 +57,16 @@ public final class ServiceIntegrationEmailParserMatchPredicate {
         public Builder predicates(ServiceIntegrationEmailParserMatchPredicatePredicate... predicates) {
             return predicates(List.of(predicates));
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public ServiceIntegrationEmailParserMatchPredicate build() {
-            return new ServiceIntegrationEmailParserMatchPredicate(predicates, type);
+        }
+        public ServiceIntegrationEmailParserMatchPredicate build() {
+            final var o = new ServiceIntegrationEmailParserMatchPredicate();
+            o.predicates = predicates;
+            o.type = type;
+            return o;
         }
     }
 }

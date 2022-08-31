@@ -13,28 +13,19 @@ public final class GetPriorityResult {
      * @return A description of the found priority.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The name of the found priority.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private GetPriorityResult(
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name) {
-        this.description = description;
-        this.id = id;
-        this.name = name;
-    }
-
+    private GetPriorityResult() {}
     /**
      * @return A description of the found priority.
      * 
@@ -64,16 +55,12 @@ public final class GetPriorityResult {
     public static Builder builder(GetPriorityResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String description;
         private String id;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPriorityResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
@@ -81,19 +68,27 @@ public final class GetPriorityResult {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public GetPriorityResult build() {
-            return new GetPriorityResult(description, id, name);
+        }
+        public GetPriorityResult build() {
+            final var o = new GetPriorityResult();
+            o.description = description;
+            o.id = id;
+            o.name = name;
+            return o;
         }
     }
 }

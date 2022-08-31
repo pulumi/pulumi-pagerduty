@@ -15,13 +15,9 @@ public final class ServiceEventRuleActionsPriority {
      * @return The value for the operation. For example, an RE2 regular expression for regex-type variables.
      * 
      */
-    private final @Nullable String value;
+    private @Nullable String value;
 
-    @CustomType.Constructor
-    private ServiceEventRuleActionsPriority(@CustomType.Parameter("value") @Nullable String value) {
-        this.value = value;
-    }
-
+    private ServiceEventRuleActionsPriority() {}
     /**
      * @return The value for the operation. For example, an RE2 regular expression for regex-type variables.
      * 
@@ -37,24 +33,24 @@ public final class ServiceEventRuleActionsPriority {
     public static Builder builder(ServiceEventRuleActionsPriority defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceEventRuleActionsPriority defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder value(@Nullable String value) {
             this.value = value;
             return this;
-        }        public ServiceEventRuleActionsPriority build() {
-            return new ServiceEventRuleActionsPriority(value);
+        }
+        public ServiceEventRuleActionsPriority build() {
+            final var o = new ServiceEventRuleActionsPriority();
+            o.value = value;
+            return o;
         }
     }
 }

@@ -16,7 +16,9 @@ import (
 // Service Orchestration can be imported using the `id` of the Service, e.g.
 //
 // ```sh
-//  $ pulumi import pagerduty:index/eventOrchestrationService:EventOrchestrationService service PFEODA7
+//
+//	$ pulumi import pagerduty:index/eventOrchestrationService:EventOrchestrationService service PFEODA7
+//
 // ```
 type EventOrchestrationService struct {
 	pulumi.CustomResourceState
@@ -133,7 +135,7 @@ func (i *EventOrchestrationService) ToEventOrchestrationServiceOutputWithContext
 // EventOrchestrationServiceArrayInput is an input type that accepts EventOrchestrationServiceArray and EventOrchestrationServiceArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceArrayInput` via:
 //
-//          EventOrchestrationServiceArray{ EventOrchestrationServiceArgs{...} }
+//	EventOrchestrationServiceArray{ EventOrchestrationServiceArgs{...} }
 type EventOrchestrationServiceArrayInput interface {
 	pulumi.Input
 
@@ -158,7 +160,7 @@ func (i EventOrchestrationServiceArray) ToEventOrchestrationServiceArrayOutputWi
 // EventOrchestrationServiceMapInput is an input type that accepts EventOrchestrationServiceMap and EventOrchestrationServiceMapOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceMapInput` via:
 //
-//          EventOrchestrationServiceMap{ "key": EventOrchestrationServiceArgs{...} }
+//	EventOrchestrationServiceMap{ "key": EventOrchestrationServiceArgs{...} }
 type EventOrchestrationServiceMapInput interface {
 	pulumi.Input
 

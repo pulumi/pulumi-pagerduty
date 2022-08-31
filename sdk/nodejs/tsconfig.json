@@ -39,6 +39,7 @@
         "getTeam.ts",
         "getUser.ts",
         "getUserContactMethod.ts",
+        "getUsers.ts",
         "getVendor.ts",
         "index.ts",
         "maintenanceWindow.ts",

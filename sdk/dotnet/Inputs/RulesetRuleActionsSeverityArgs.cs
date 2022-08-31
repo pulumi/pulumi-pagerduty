@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class RulesetRuleActionsSeverityArgs : Pulumi.ResourceArgs
+    public sealed class RulesetRuleActionsSeverityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
@@ -21,5 +21,6 @@ namespace Pulumi.Pagerduty.Inputs
         public RulesetRuleActionsSeverityArgs()
         {
         }
+        public static new RulesetRuleActionsSeverityArgs Empty => new RulesetRuleActionsSeverityArgs();
     }
 }

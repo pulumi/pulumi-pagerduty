@@ -19,52 +19,55 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
-// 			Email: pulumi.String("125.greenholt.earline@graham.name"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleTeam, err := pagerduty.NewTeam(ctx, "exampleTeam", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = pagerduty.NewSchedule(ctx, "foo", &pagerduty.ScheduleArgs{
-// 			TimeZone: pulumi.String("America/New_York"),
-// 			Layers: ScheduleLayerArray{
-// 				&ScheduleLayerArgs{
-// 					Name:                      pulumi.String("Night Shift"),
-// 					Start:                     pulumi.String("2015-11-06T20:00:00-05:00"),
-// 					RotationVirtualStart:      pulumi.String("2015-11-06T20:00:00-05:00"),
-// 					RotationTurnLengthSeconds: pulumi.Int(86400),
-// 					Users: pulumi.StringArray{
-// 						exampleUser.ID(),
-// 					},
-// 					Restrictions: ScheduleLayerRestrictionArray{
-// 						&ScheduleLayerRestrictionArgs{
-// 							Type:            pulumi.String("daily_restriction"),
-// 							StartTimeOfDay:  pulumi.String("08:00:00"),
-// 							DurationSeconds: pulumi.Int(32400),
-// 						},
-// 					},
-// 				},
-// 			},
-// 			Teams: pulumi.StringArray{
-// 				exampleTeam.ID(),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
+//				Email: pulumi.String("125.greenholt.earline@graham.name"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleTeam, err := pagerduty.NewTeam(ctx, "exampleTeam", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewSchedule(ctx, "foo", &pagerduty.ScheduleArgs{
+//				TimeZone: pulumi.String("America/New_York"),
+//				Layers: ScheduleLayerArray{
+//					&ScheduleLayerArgs{
+//						Name:                      pulumi.String("Night Shift"),
+//						Start:                     pulumi.String("2015-11-06T20:00:00-05:00"),
+//						RotationVirtualStart:      pulumi.String("2015-11-06T20:00:00-05:00"),
+//						RotationTurnLengthSeconds: pulumi.Int(86400),
+//						Users: pulumi.StringArray{
+//							exampleUser.ID(),
+//						},
+//						Restrictions: ScheduleLayerRestrictionArray{
+//							&ScheduleLayerRestrictionArgs{
+//								Type:            pulumi.String("daily_restriction"),
+//								StartTimeOfDay:  pulumi.String("08:00:00"),
+//								DurationSeconds: pulumi.Int(32400),
+//							},
+//						},
+//					},
+//				},
+//				Teams: pulumi.StringArray{
+//					exampleTeam.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -72,7 +75,9 @@ import (
 // Schedules can be imported using the `id`, e.g.
 //
 // ```sh
-//  $ pulumi import pagerduty:index/schedule:Schedule main PLBP09X
+//
+//	$ pulumi import pagerduty:index/schedule:Schedule main PLBP09X
+//
 // ```
 type Schedule struct {
 	pulumi.CustomResourceState
@@ -232,7 +237,7 @@ func (i *Schedule) ToScheduleOutputWithContext(ctx context.Context) ScheduleOutp
 // ScheduleArrayInput is an input type that accepts ScheduleArray and ScheduleArrayOutput values.
 // You can construct a concrete instance of `ScheduleArrayInput` via:
 //
-//          ScheduleArray{ ScheduleArgs{...} }
+//	ScheduleArray{ ScheduleArgs{...} }
 type ScheduleArrayInput interface {
 	pulumi.Input
 
@@ -257,7 +262,7 @@ func (i ScheduleArray) ToScheduleArrayOutputWithContext(ctx context.Context) Sch
 // ScheduleMapInput is an input type that accepts ScheduleMap and ScheduleMapOutput values.
 // You can construct a concrete instance of `ScheduleMapInput` via:
 //
-//          ScheduleMap{ "key": ScheduleArgs{...} }
+//	ScheduleMap{ "key": ScheduleArgs{...} }
 type ScheduleMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class ServiceScheduledActionArgs : Pulumi.ResourceArgs
+    public sealed class ServiceScheduledActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("ats")]
         private InputList<Inputs.ServiceScheduledActionAtArgs>? _ats;
@@ -39,5 +39,6 @@ namespace Pulumi.Pagerduty.Inputs
         public ServiceScheduledActionArgs()
         {
         }
+        public static new ServiceScheduledActionArgs Empty => new ServiceScheduledActionArgs();
     }
 }

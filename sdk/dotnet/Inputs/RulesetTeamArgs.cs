@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class RulesetTeamArgs : Pulumi.ResourceArgs
+    public sealed class RulesetTeamArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the ruleset.
@@ -21,5 +21,6 @@ namespace Pulumi.Pagerduty.Inputs
         public RulesetTeamArgs()
         {
         }
+        public static new RulesetTeamArgs Empty => new RulesetTeamArgs();
     }
 }

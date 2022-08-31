@@ -16,35 +16,24 @@ public final class ScheduleLayerRestriction {
      * @return The duration of the restriction in `seconds`.
      * 
      */
-    private final Integer durationSeconds;
+    private Integer durationSeconds;
     /**
      * @return Number of the day when restriction starts. From 1 to 7 where 1 is Monday and 7 is Sunday.
      * 
      */
-    private final @Nullable Integer startDayOfWeek;
+    private @Nullable Integer startDayOfWeek;
     /**
      * @return The start time in `HH:mm:ss` format.
      * 
      */
-    private final String startTimeOfDay;
+    private String startTimeOfDay;
     /**
      * @return Can be `daily_restriction` or `weekly_restriction`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private ScheduleLayerRestriction(
-        @CustomType.Parameter("durationSeconds") Integer durationSeconds,
-        @CustomType.Parameter("startDayOfWeek") @Nullable Integer startDayOfWeek,
-        @CustomType.Parameter("startTimeOfDay") String startTimeOfDay,
-        @CustomType.Parameter("type") String type) {
-        this.durationSeconds = durationSeconds;
-        this.startDayOfWeek = startDayOfWeek;
-        this.startTimeOfDay = startTimeOfDay;
-        this.type = type;
-    }
-
+    private ScheduleLayerRestriction() {}
     /**
      * @return The duration of the restriction in `seconds`.
      * 
@@ -81,17 +70,13 @@ public final class ScheduleLayerRestriction {
     public static Builder builder(ScheduleLayerRestriction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer durationSeconds;
         private @Nullable Integer startDayOfWeek;
         private String startTimeOfDay;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScheduleLayerRestriction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.durationSeconds = defaults.durationSeconds;
@@ -100,23 +85,33 @@ public final class ScheduleLayerRestriction {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder durationSeconds(Integer durationSeconds) {
             this.durationSeconds = Objects.requireNonNull(durationSeconds);
             return this;
         }
+        @CustomType.Setter
         public Builder startDayOfWeek(@Nullable Integer startDayOfWeek) {
             this.startDayOfWeek = startDayOfWeek;
             return this;
         }
+        @CustomType.Setter
         public Builder startTimeOfDay(String startTimeOfDay) {
             this.startTimeOfDay = Objects.requireNonNull(startTimeOfDay);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public ScheduleLayerRestriction build() {
-            return new ScheduleLayerRestriction(durationSeconds, startDayOfWeek, startTimeOfDay, type);
+        }
+        public ScheduleLayerRestriction build() {
+            final var o = new ScheduleLayerRestriction();
+            o.durationSeconds = durationSeconds;
+            o.startDayOfWeek = startDayOfWeek;
+            o.startTimeOfDay = startTimeOfDay;
+            o.type = type;
+            return o;
         }
     }
 }

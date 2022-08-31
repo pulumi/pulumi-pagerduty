@@ -21,7 +21,7 @@ namespace Pulumi.Pagerduty
     /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/tagAssignment:TagAssignment")]
-    public partial class TagAssignment : Pulumi.CustomResource
+    public partial class TagAssignment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the entity.
@@ -85,7 +85,7 @@ namespace Pulumi.Pagerduty
         }
     }
 
-    public sealed class TagAssignmentArgs : Pulumi.ResourceArgs
+    public sealed class TagAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the entity.
@@ -108,9 +108,10 @@ namespace Pulumi.Pagerduty
         public TagAssignmentArgs()
         {
         }
+        public static new TagAssignmentArgs Empty => new TagAssignmentArgs();
     }
 
-    public sealed class TagAssignmentState : Pulumi.ResourceArgs
+    public sealed class TagAssignmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the entity.
@@ -133,5 +134,6 @@ namespace Pulumi.Pagerduty
         public TagAssignmentState()
         {
         }
+        public static new TagAssignmentState Empty => new TagAssignmentState();
     }
 }

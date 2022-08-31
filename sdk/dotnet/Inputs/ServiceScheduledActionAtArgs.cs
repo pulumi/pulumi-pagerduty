@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class ServiceScheduledActionAtArgs : Pulumi.ResourceArgs
+    public sealed class ServiceScheduledActionAtArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Designates either the start or the end of the scheduled action. Can be `support_hours_start` or `support_hours_end`.
@@ -27,5 +27,6 @@ namespace Pulumi.Pagerduty.Inputs
         public ServiceScheduledActionAtArgs()
         {
         }
+        public static new ServiceScheduledActionAtArgs Empty => new ServiceScheduledActionAtArgs();
     }
 }

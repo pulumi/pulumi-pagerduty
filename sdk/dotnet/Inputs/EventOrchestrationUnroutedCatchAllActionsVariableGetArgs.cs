@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class EventOrchestrationUnroutedCatchAllActionsVariableGetArgs : Pulumi.ResourceArgs
+    public sealed class EventOrchestrationUnroutedCatchAllActionsVariableGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the variable
@@ -39,5 +39,6 @@ namespace Pulumi.Pagerduty.Inputs
         public EventOrchestrationUnroutedCatchAllActionsVariableGetArgs()
         {
         }
+        public static new EventOrchestrationUnroutedCatchAllActionsVariableGetArgs Empty => new EventOrchestrationUnroutedCatchAllActionsVariableGetArgs();
     }
 }

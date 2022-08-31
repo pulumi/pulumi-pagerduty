@@ -18,42 +18,29 @@ public final class EventOrchestrationUnroutedSetRuleActions {
      * @return sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
      * 
      */
-    private final @Nullable String eventAction;
+    private @Nullable String eventAction;
     /**
      * @return Replace any CEF field or Custom Details object field using custom variables.
      * 
      */
-    private final @Nullable List<EventOrchestrationUnroutedSetRuleActionsExtraction> extractions;
+    private @Nullable List<EventOrchestrationUnroutedSetRuleActionsExtraction> extractions;
     /**
      * @return The ID of a Set from this Unrouted Orchestration whose rules you also want to use with event that match this rule.
      * 
      */
-    private final @Nullable String routeTo;
+    private @Nullable String routeTo;
     /**
      * @return sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
      * 
      */
-    private final @Nullable String severity;
+    private @Nullable String severity;
     /**
      * @return Populate variables from event payloads and use those variables in other event actions.
      * 
      */
-    private final @Nullable List<EventOrchestrationUnroutedSetRuleActionsVariable> variables;
+    private @Nullable List<EventOrchestrationUnroutedSetRuleActionsVariable> variables;
 
-    @CustomType.Constructor
-    private EventOrchestrationUnroutedSetRuleActions(
-        @CustomType.Parameter("eventAction") @Nullable String eventAction,
-        @CustomType.Parameter("extractions") @Nullable List<EventOrchestrationUnroutedSetRuleActionsExtraction> extractions,
-        @CustomType.Parameter("routeTo") @Nullable String routeTo,
-        @CustomType.Parameter("severity") @Nullable String severity,
-        @CustomType.Parameter("variables") @Nullable List<EventOrchestrationUnroutedSetRuleActionsVariable> variables) {
-        this.eventAction = eventAction;
-        this.extractions = extractions;
-        this.routeTo = routeTo;
-        this.severity = severity;
-        this.variables = variables;
-    }
-
+    private EventOrchestrationUnroutedSetRuleActions() {}
     /**
      * @return sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
      * 
@@ -97,18 +84,14 @@ public final class EventOrchestrationUnroutedSetRuleActions {
     public static Builder builder(EventOrchestrationUnroutedSetRuleActions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String eventAction;
         private @Nullable List<EventOrchestrationUnroutedSetRuleActionsExtraction> extractions;
         private @Nullable String routeTo;
         private @Nullable String severity;
         private @Nullable List<EventOrchestrationUnroutedSetRuleActionsVariable> variables;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventOrchestrationUnroutedSetRuleActions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.eventAction = defaults.eventAction;
@@ -118,10 +101,12 @@ public final class EventOrchestrationUnroutedSetRuleActions {
     	      this.variables = defaults.variables;
         }
 
+        @CustomType.Setter
         public Builder eventAction(@Nullable String eventAction) {
             this.eventAction = eventAction;
             return this;
         }
+        @CustomType.Setter
         public Builder extractions(@Nullable List<EventOrchestrationUnroutedSetRuleActionsExtraction> extractions) {
             this.extractions = extractions;
             return this;
@@ -129,22 +114,32 @@ public final class EventOrchestrationUnroutedSetRuleActions {
         public Builder extractions(EventOrchestrationUnroutedSetRuleActionsExtraction... extractions) {
             return extractions(List.of(extractions));
         }
+        @CustomType.Setter
         public Builder routeTo(@Nullable String routeTo) {
             this.routeTo = routeTo;
             return this;
         }
+        @CustomType.Setter
         public Builder severity(@Nullable String severity) {
             this.severity = severity;
             return this;
         }
+        @CustomType.Setter
         public Builder variables(@Nullable List<EventOrchestrationUnroutedSetRuleActionsVariable> variables) {
             this.variables = variables;
             return this;
         }
         public Builder variables(EventOrchestrationUnroutedSetRuleActionsVariable... variables) {
             return variables(List.of(variables));
-        }        public EventOrchestrationUnroutedSetRuleActions build() {
-            return new EventOrchestrationUnroutedSetRuleActions(eventAction, extractions, routeTo, severity, variables);
+        }
+        public EventOrchestrationUnroutedSetRuleActions build() {
+            final var o = new EventOrchestrationUnroutedSetRuleActions();
+            o.eventAction = eventAction;
+            o.extractions = extractions;
+            o.routeTo = routeTo;
+            o.severity = severity;
+            o.variables = variables;
+            return o;
         }
     }
 }

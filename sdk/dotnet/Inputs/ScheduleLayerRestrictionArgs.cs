@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class ScheduleLayerRestrictionArgs : Pulumi.ResourceArgs
+    public sealed class ScheduleLayerRestrictionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The duration of the restriction in `seconds`.
@@ -39,5 +39,6 @@ namespace Pulumi.Pagerduty.Inputs
         public ScheduleLayerRestrictionArgs()
         {
         }
+        public static new ScheduleLayerRestrictionArgs Empty => new ScheduleLayerRestrictionArgs();
     }
 }

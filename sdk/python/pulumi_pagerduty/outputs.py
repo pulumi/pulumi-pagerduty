@@ -78,6 +78,7 @@ __all__ = [
     'ScheduleLayerRestriction',
     'ServiceAlertGroupingParameters',
     'ServiceAlertGroupingParametersConfig',
+    'ServiceAutoPauseNotificationsParameters',
     'ServiceDependencyDependency',
     'ServiceDependencyDependencyDependentService',
     'ServiceDependencyDependencySupportingService',
@@ -115,6 +116,7 @@ __all__ = [
     'WebhookSubscriptionFilter',
     'GetEventOrchestrationIntegrationResult',
     'GetEventOrchestrationIntegrationParameterResult',
+    'GetUsersUserResult',
 ]
 
 @pulumi.output_type
@@ -3256,7 +3258,7 @@ class ServiceAlertGroupingParameters(dict):
                  type: Optional[str] = None):
         """
         :param 'ServiceAlertGroupingParametersConfigArgs' config: Alert grouping parameters dependent on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
-        :param str type: The type of scheduled action. Currently, this must be set to `urgency_change`.
+        :param str type: The type of alert grouping; one of `intelligent`, `time` or `content_based`.
         """
         if config is not None:
             pulumi.set(__self__, "config", config)
@@ -3275,7 +3277,7 @@ class ServiceAlertGroupingParameters(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        The type of scheduled action. Currently, this must be set to `urgency_change`.
+        The type of alert grouping; one of `intelligent`, `time` or `content_based`.
         """
         return pulumi.get(self, "type")
 
@@ -3319,6 +3321,37 @@ class ServiceAlertGroupingParametersConfig(dict):
     def timeout(self) -> Optional[int]:
         """
         The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
+        """
+        return pulumi.get(self, "timeout")
+
+
+@pulumi.output_type
+class ServiceAutoPauseNotificationsParameters(dict):
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 timeout: Optional[int] = None):
+        """
+        :param bool enabled: Indicates whether alerts should be automatically suspended when identified as transient.  If not passed in, will default to 'false'.
+        :param int timeout: Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `enabled` is `true`. Must be omitted or set to `null` if `enabled` is `false`.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Indicates whether alerts should be automatically suspended when identified as transient.  If not passed in, will default to 'false'.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[int]:
+        """
+        Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `enabled` is `true`. Must be omitted or set to `null` if `enabled` is `false`.
         """
         return pulumi.get(self, "timeout")
 
@@ -5058,5 +5091,45 @@ class GetEventOrchestrationIntegrationParameterResult(dict):
         Type of the routing key. `global` is the default type.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetUsersUserResult(dict):
+    def __init__(__self__, *,
+                 email: str,
+                 id: str,
+                 name: str):
+        """
+        :param str email: The email to use to find a user in the PagerDuty API.
+        :param str id: The ID of the found user.
+        :param str name: The short name of the found user.
+        """
+        pulumi.set(__self__, "email", email)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def email(self) -> str:
+        """
+        The email to use to find a user in the PagerDuty API.
+        """
+        return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the found user.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The short name of the found user.
+        """
+        return pulumi.get(self, "name")
 
 

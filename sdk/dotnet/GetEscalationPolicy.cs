@@ -19,26 +19,25 @@ namespace Pulumi.Pagerduty
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Pagerduty = Pulumi.Pagerduty;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var testEscalationPolicy = Pagerduty.GetEscalationPolicy.Invoke(new()
         ///     {
-        ///         var testEscalationPolicy = Output.Create(Pagerduty.GetEscalationPolicy.InvokeAsync(new Pagerduty.GetEscalationPolicyArgs
-        ///         {
-        ///             Name = "Engineering Escalation Policy",
-        ///         }));
-        ///         var testService = new Pagerduty.Service("testService", new Pagerduty.ServiceArgs
-        ///         {
-        ///             AutoResolveTimeout = "14400",
-        ///             AcknowledgementTimeout = "600",
-        ///             EscalationPolicy = testEscalationPolicy.Apply(testEscalationPolicy =&gt; testEscalationPolicy.Id),
-        ///         });
-        ///     }
+        ///         Name = "Engineering Escalation Policy",
+        ///     });
         /// 
-        /// }
+        ///     var testService = new Pagerduty.Service("testService", new()
+        ///     {
+        ///         AutoResolveTimeout = "14400",
+        ///         AcknowledgementTimeout = "600",
+        ///         EscalationPolicy = testEscalationPolicy.Apply(getEscalationPolicyResult =&gt; getEscalationPolicyResult.Id),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -54,26 +53,25 @@ namespace Pulumi.Pagerduty
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Pagerduty = Pulumi.Pagerduty;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var testEscalationPolicy = Pagerduty.GetEscalationPolicy.Invoke(new()
         ///     {
-        ///         var testEscalationPolicy = Output.Create(Pagerduty.GetEscalationPolicy.InvokeAsync(new Pagerduty.GetEscalationPolicyArgs
-        ///         {
-        ///             Name = "Engineering Escalation Policy",
-        ///         }));
-        ///         var testService = new Pagerduty.Service("testService", new Pagerduty.ServiceArgs
-        ///         {
-        ///             AutoResolveTimeout = "14400",
-        ///             AcknowledgementTimeout = "600",
-        ///             EscalationPolicy = testEscalationPolicy.Apply(testEscalationPolicy =&gt; testEscalationPolicy.Id),
-        ///         });
-        ///     }
+        ///         Name = "Engineering Escalation Policy",
+        ///     });
         /// 
-        /// }
+        ///     var testService = new Pagerduty.Service("testService", new()
+        ///     {
+        ///         AutoResolveTimeout = "14400",
+        ///         AcknowledgementTimeout = "600",
+        ///         EscalationPolicy = testEscalationPolicy.Apply(getEscalationPolicyResult =&gt; getEscalationPolicyResult.Id),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -83,7 +81,7 @@ namespace Pulumi.Pagerduty
     }
 
 
-    public sealed class GetEscalationPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetEscalationPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name to use to find an escalation policy in the PagerDuty API.
@@ -94,9 +92,10 @@ namespace Pulumi.Pagerduty
         public GetEscalationPolicyArgs()
         {
         }
+        public static new GetEscalationPolicyArgs Empty => new GetEscalationPolicyArgs();
     }
 
-    public sealed class GetEscalationPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEscalationPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name to use to find an escalation policy in the PagerDuty API.
@@ -107,6 +106,7 @@ namespace Pulumi.Pagerduty
         public GetEscalationPolicyInvokeArgs()
         {
         }
+        public static new GetEscalationPolicyInvokeArgs Empty => new GetEscalationPolicyInvokeArgs();
     }
 
 

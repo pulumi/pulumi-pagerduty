@@ -34,6 +34,8 @@ import com.pulumi.pagerduty.inputs.GetUserArgs;
 import com.pulumi.pagerduty.inputs.GetUserContactMethodArgs;
 import com.pulumi.pagerduty.inputs.GetUserContactMethodPlainArgs;
 import com.pulumi.pagerduty.inputs.GetUserPlainArgs;
+import com.pulumi.pagerduty.inputs.GetUsersArgs;
+import com.pulumi.pagerduty.inputs.GetUsersPlainArgs;
 import com.pulumi.pagerduty.inputs.GetVendorArgs;
 import com.pulumi.pagerduty.inputs.GetVendorPlainArgs;
 import com.pulumi.pagerduty.outputs.GetBusinessServiceResult;
@@ -49,6 +51,7 @@ import com.pulumi.pagerduty.outputs.GetTagResult;
 import com.pulumi.pagerduty.outputs.GetTeamResult;
 import com.pulumi.pagerduty.outputs.GetUserContactMethodResult;
 import com.pulumi.pagerduty.outputs.GetUserResult;
+import com.pulumi.pagerduty.outputs.GetUsersResult;
 import com.pulumi.pagerduty.outputs.GetVendorResult;
 import java.util.concurrent.CompletableFuture;
 
@@ -3044,6 +3047,378 @@ public final class PagerdutyFunctions {
      */
     public static CompletableFuture<GetUserContactMethodResult> getUserContactMethodPlain(GetUserContactMethodPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("pagerduty:index/getUserContactMethod:getUserContactMethod", TypeShape.of(GetUserContactMethodResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about [list of users](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources, optionally filtering by team ids.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetTeamArgs;
+     * import com.pulumi.pagerduty.inputs.GetUserArgs;
+     * import com.pulumi.pagerduty.User;
+     * import com.pulumi.pagerduty.UserArgs;
+     * import com.pulumi.pagerduty.TeamMembership;
+     * import com.pulumi.pagerduty.TeamMembershipArgs;
+     * import com.pulumi.pagerduty.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()
+     *             .name(&#34;devops&#34;)
+     *             .build());
+     * 
+     *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
+     *             .email(&#34;me@example.com&#34;)
+     *             .build());
+     * 
+     *         var exampleWTeam = new User(&#34;exampleWTeam&#34;, UserArgs.builder()        
+     *             .email(&#34;user-with-team@example.com&#34;)
+     *             .build());
+     * 
+     *         var example = new TeamMembership(&#34;example&#34;, TeamMembershipArgs.builder()        
+     *             .teamId(pagerduty_team.devops().id())
+     *             .userId(exampleWTeam.id())
+     *             .build());
+     * 
+     *         final var allUsers = PagerdutyFunctions.getUsers();
+     * 
+     *         final var fromDevopsTeam = PagerdutyFunctions.getUsers(GetUsersArgs.builder()
+     *             .teamIds(pagerduty_team.devops().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetUsersResult> getUsers() {
+        return getUsers(GetUsersArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about [list of users](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources, optionally filtering by team ids.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetTeamArgs;
+     * import com.pulumi.pagerduty.inputs.GetUserArgs;
+     * import com.pulumi.pagerduty.User;
+     * import com.pulumi.pagerduty.UserArgs;
+     * import com.pulumi.pagerduty.TeamMembership;
+     * import com.pulumi.pagerduty.TeamMembershipArgs;
+     * import com.pulumi.pagerduty.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()
+     *             .name(&#34;devops&#34;)
+     *             .build());
+     * 
+     *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
+     *             .email(&#34;me@example.com&#34;)
+     *             .build());
+     * 
+     *         var exampleWTeam = new User(&#34;exampleWTeam&#34;, UserArgs.builder()        
+     *             .email(&#34;user-with-team@example.com&#34;)
+     *             .build());
+     * 
+     *         var example = new TeamMembership(&#34;example&#34;, TeamMembershipArgs.builder()        
+     *             .teamId(pagerduty_team.devops().id())
+     *             .userId(exampleWTeam.id())
+     *             .build());
+     * 
+     *         final var allUsers = PagerdutyFunctions.getUsers();
+     * 
+     *         final var fromDevopsTeam = PagerdutyFunctions.getUsers(GetUsersArgs.builder()
+     *             .teamIds(pagerduty_team.devops().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetUsersResult> getUsersPlain() {
+        return getUsersPlain(GetUsersPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about [list of users](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources, optionally filtering by team ids.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetTeamArgs;
+     * import com.pulumi.pagerduty.inputs.GetUserArgs;
+     * import com.pulumi.pagerduty.User;
+     * import com.pulumi.pagerduty.UserArgs;
+     * import com.pulumi.pagerduty.TeamMembership;
+     * import com.pulumi.pagerduty.TeamMembershipArgs;
+     * import com.pulumi.pagerduty.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()
+     *             .name(&#34;devops&#34;)
+     *             .build());
+     * 
+     *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
+     *             .email(&#34;me@example.com&#34;)
+     *             .build());
+     * 
+     *         var exampleWTeam = new User(&#34;exampleWTeam&#34;, UserArgs.builder()        
+     *             .email(&#34;user-with-team@example.com&#34;)
+     *             .build());
+     * 
+     *         var example = new TeamMembership(&#34;example&#34;, TeamMembershipArgs.builder()        
+     *             .teamId(pagerduty_team.devops().id())
+     *             .userId(exampleWTeam.id())
+     *             .build());
+     * 
+     *         final var allUsers = PagerdutyFunctions.getUsers();
+     * 
+     *         final var fromDevopsTeam = PagerdutyFunctions.getUsers(GetUsersArgs.builder()
+     *             .teamIds(pagerduty_team.devops().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetUsersResult> getUsers(GetUsersArgs args) {
+        return getUsers(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about [list of users](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources, optionally filtering by team ids.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetTeamArgs;
+     * import com.pulumi.pagerduty.inputs.GetUserArgs;
+     * import com.pulumi.pagerduty.User;
+     * import com.pulumi.pagerduty.UserArgs;
+     * import com.pulumi.pagerduty.TeamMembership;
+     * import com.pulumi.pagerduty.TeamMembershipArgs;
+     * import com.pulumi.pagerduty.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()
+     *             .name(&#34;devops&#34;)
+     *             .build());
+     * 
+     *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
+     *             .email(&#34;me@example.com&#34;)
+     *             .build());
+     * 
+     *         var exampleWTeam = new User(&#34;exampleWTeam&#34;, UserArgs.builder()        
+     *             .email(&#34;user-with-team@example.com&#34;)
+     *             .build());
+     * 
+     *         var example = new TeamMembership(&#34;example&#34;, TeamMembershipArgs.builder()        
+     *             .teamId(pagerduty_team.devops().id())
+     *             .userId(exampleWTeam.id())
+     *             .build());
+     * 
+     *         final var allUsers = PagerdutyFunctions.getUsers();
+     * 
+     *         final var fromDevopsTeam = PagerdutyFunctions.getUsers(GetUsersArgs.builder()
+     *             .teamIds(pagerduty_team.devops().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetUsersResult> getUsersPlain(GetUsersPlainArgs args) {
+        return getUsersPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about [list of users](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources, optionally filtering by team ids.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetTeamArgs;
+     * import com.pulumi.pagerduty.inputs.GetUserArgs;
+     * import com.pulumi.pagerduty.User;
+     * import com.pulumi.pagerduty.UserArgs;
+     * import com.pulumi.pagerduty.TeamMembership;
+     * import com.pulumi.pagerduty.TeamMembershipArgs;
+     * import com.pulumi.pagerduty.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()
+     *             .name(&#34;devops&#34;)
+     *             .build());
+     * 
+     *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
+     *             .email(&#34;me@example.com&#34;)
+     *             .build());
+     * 
+     *         var exampleWTeam = new User(&#34;exampleWTeam&#34;, UserArgs.builder()        
+     *             .email(&#34;user-with-team@example.com&#34;)
+     *             .build());
+     * 
+     *         var example = new TeamMembership(&#34;example&#34;, TeamMembershipArgs.builder()        
+     *             .teamId(pagerduty_team.devops().id())
+     *             .userId(exampleWTeam.id())
+     *             .build());
+     * 
+     *         final var allUsers = PagerdutyFunctions.getUsers();
+     * 
+     *         final var fromDevopsTeam = PagerdutyFunctions.getUsers(GetUsersArgs.builder()
+     *             .teamIds(pagerduty_team.devops().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetUsersResult> getUsers(GetUsersArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getUsers:getUsers", TypeShape.of(GetUsersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about [list of users](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources, optionally filtering by team ids.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetTeamArgs;
+     * import com.pulumi.pagerduty.inputs.GetUserArgs;
+     * import com.pulumi.pagerduty.User;
+     * import com.pulumi.pagerduty.UserArgs;
+     * import com.pulumi.pagerduty.TeamMembership;
+     * import com.pulumi.pagerduty.TeamMembershipArgs;
+     * import com.pulumi.pagerduty.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()
+     *             .name(&#34;devops&#34;)
+     *             .build());
+     * 
+     *         final var me = PagerdutyFunctions.getUser(GetUserArgs.builder()
+     *             .email(&#34;me@example.com&#34;)
+     *             .build());
+     * 
+     *         var exampleWTeam = new User(&#34;exampleWTeam&#34;, UserArgs.builder()        
+     *             .email(&#34;user-with-team@example.com&#34;)
+     *             .build());
+     * 
+     *         var example = new TeamMembership(&#34;example&#34;, TeamMembershipArgs.builder()        
+     *             .teamId(pagerduty_team.devops().id())
+     *             .userId(exampleWTeam.id())
+     *             .build());
+     * 
+     *         final var allUsers = PagerdutyFunctions.getUsers();
+     * 
+     *         final var fromDevopsTeam = PagerdutyFunctions.getUsers(GetUsersArgs.builder()
+     *             .teamIds(pagerduty_team.devops().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetUsersResult> getUsersPlain(GetUsersPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("pagerduty:index/getUsers:getUsers", TypeShape.of(GetUsersResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get information about a specific [vendor](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODI1OQ-list-vendors) that you can use for a service integration (e.g. Amazon Cloudwatch, Splunk, Datadog).

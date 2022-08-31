@@ -21,7 +21,7 @@ namespace Pulumi.Pagerduty
     /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/rulesetRule:RulesetRule")]
-    public partial class RulesetRule : Pulumi.CustomResource
+    public partial class RulesetRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Actions to apply to an event if the conditions match.
@@ -115,7 +115,7 @@ namespace Pulumi.Pagerduty
         }
     }
 
-    public sealed class RulesetRuleArgs : Pulumi.ResourceArgs
+    public sealed class RulesetRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Actions to apply to an event if the conditions match.
@@ -174,9 +174,10 @@ namespace Pulumi.Pagerduty
         public RulesetRuleArgs()
         {
         }
+        public static new RulesetRuleArgs Empty => new RulesetRuleArgs();
     }
 
-    public sealed class RulesetRuleState : Pulumi.ResourceArgs
+    public sealed class RulesetRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Actions to apply to an event if the conditions match.
@@ -235,5 +236,6 @@ namespace Pulumi.Pagerduty
         public RulesetRuleState()
         {
         }
+        public static new RulesetRuleState Empty => new RulesetRuleState();
     }
 }

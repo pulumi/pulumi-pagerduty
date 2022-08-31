@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class ScheduleLayerArgs : Pulumi.ResourceArgs
+    public sealed class ScheduleLayerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The end time of the schedule layer. If not specified, the layer does not end.
@@ -78,5 +78,6 @@ namespace Pulumi.Pagerduty.Inputs
         public ScheduleLayerArgs()
         {
         }
+        public static new ScheduleLayerArgs Empty => new ScheduleLayerArgs();
     }
 }

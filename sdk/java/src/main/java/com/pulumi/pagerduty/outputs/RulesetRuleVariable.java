@@ -13,20 +13,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RulesetRuleVariable {
-    private final @Nullable String name;
-    private final @Nullable List<RulesetRuleVariableParameter> parameters;
-    private final @Nullable String type;
+    private @Nullable String name;
+    private @Nullable List<RulesetRuleVariableParameter> parameters;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private RulesetRuleVariable(
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("parameters") @Nullable List<RulesetRuleVariableParameter> parameters,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.name = name;
-        this.parameters = parameters;
-        this.type = type;
-    }
-
+    private RulesetRuleVariable() {}
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
@@ -44,16 +35,12 @@ public final class RulesetRuleVariable {
     public static Builder builder(RulesetRuleVariable defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String name;
         private @Nullable List<RulesetRuleVariableParameter> parameters;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RulesetRuleVariable defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -61,10 +48,12 @@ public final class RulesetRuleVariable {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(@Nullable List<RulesetRuleVariableParameter> parameters) {
             this.parameters = parameters;
             return this;
@@ -72,11 +61,17 @@ public final class RulesetRuleVariable {
         public Builder parameters(RulesetRuleVariableParameter... parameters) {
             return parameters(List.of(parameters));
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public RulesetRuleVariable build() {
-            return new RulesetRuleVariable(name, parameters, type);
+        }
+        public RulesetRuleVariable build() {
+            final var o = new RulesetRuleVariable();
+            o.name = name;
+            o.parameters = parameters;
+            o.type = type;
+            return o;
         }
     }
 }

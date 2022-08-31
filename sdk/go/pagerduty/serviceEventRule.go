@@ -19,105 +19,108 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := pagerduty.NewService(ctx, "example", &pagerduty.ServiceArgs{
-// 			AutoResolveTimeout:     pulumi.String("14400"),
-// 			AcknowledgementTimeout: pulumi.String("600"),
-// 			EscalationPolicy:       pulumi.Any(pagerduty_escalation_policy.Example.Id),
-// 			AlertCreation:          pulumi.String("create_alerts_and_incidents"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = pagerduty.NewServiceEventRule(ctx, "foo", &pagerduty.ServiceEventRuleArgs{
-// 			Service:  example.ID(),
-// 			Position: pulumi.Int(0),
-// 			Disabled: pulumi.Bool(true),
-// 			Conditions: &ServiceEventRuleConditionsArgs{
-// 				Operator: pulumi.String("and"),
-// 				Subconditions: ServiceEventRuleConditionsSubconditionArray{
-// 					&ServiceEventRuleConditionsSubconditionArgs{
-// 						Operator: pulumi.String("contains"),
-// 						Parameters: ServiceEventRuleConditionsSubconditionParameterArray{
-// 							&ServiceEventRuleConditionsSubconditionParameterArgs{
-// 								Value: pulumi.String("disk space"),
-// 								Path:  pulumi.String("summary"),
-// 							},
-// 						},
-// 					},
-// 				},
-// 			},
-// 			Variables: ServiceEventRuleVariableArray{
-// 				&ServiceEventRuleVariableArgs{
-// 					Type: pulumi.String("regex"),
-// 					Name: pulumi.String("Src"),
-// 					Parameters: ServiceEventRuleVariableParameterArray{
-// 						&ServiceEventRuleVariableParameterArgs{
-// 							Value: pulumi.String("(.*)"),
-// 							Path:  pulumi.String("source"),
-// 						},
-// 					},
-// 				},
-// 			},
-// 			Actions: &ServiceEventRuleActionsArgs{
-// 				Annotates: ServiceEventRuleActionsAnnotateArray{
-// 					&ServiceEventRuleActionsAnnotateArgs{
-// 						Value: pulumi.String("From Terraform"),
-// 					},
-// 				},
-// 				Extractions: ServiceEventRuleActionsExtractionArray{
-// 					&ServiceEventRuleActionsExtractionArgs{
-// 						Target: pulumi.String("dedup_key"),
-// 						Source: pulumi.String("source"),
-// 						Regex:  pulumi.String("(.*)"),
-// 					},
-// 					&ServiceEventRuleActionsExtractionArgs{
-// 						Target:   pulumi.String("summary"),
-// 						Template: pulumi.String("Warning: Disk Space Low on {{Src}}"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = pagerduty.NewServiceEventRule(ctx, "bar", &pagerduty.ServiceEventRuleArgs{
-// 			Service:  pulumi.Any(pagerduty_service.Foo.Id),
-// 			Position: pulumi.Int(1),
-// 			Disabled: pulumi.Bool(true),
-// 			Conditions: &ServiceEventRuleConditionsArgs{
-// 				Operator: pulumi.String("and"),
-// 				Subconditions: ServiceEventRuleConditionsSubconditionArray{
-// 					&ServiceEventRuleConditionsSubconditionArgs{
-// 						Operator: pulumi.String("contains"),
-// 						Parameters: ServiceEventRuleConditionsSubconditionParameterArray{
-// 							&ServiceEventRuleConditionsSubconditionParameterArgs{
-// 								Value: pulumi.String("cpu spike"),
-// 								Path:  pulumi.String("summary"),
-// 							},
-// 						},
-// 					},
-// 				},
-// 			},
-// 			Actions: &ServiceEventRuleActionsArgs{
-// 				Annotates: ServiceEventRuleActionsAnnotateArray{
-// 					&ServiceEventRuleActionsAnnotateArgs{
-// 						Value: pulumi.String("From Terraform"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := pagerduty.NewService(ctx, "example", &pagerduty.ServiceArgs{
+//				AutoResolveTimeout:     pulumi.String("14400"),
+//				AcknowledgementTimeout: pulumi.String("600"),
+//				EscalationPolicy:       pulumi.Any(pagerduty_escalation_policy.Example.Id),
+//				AlertCreation:          pulumi.String("create_alerts_and_incidents"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewServiceEventRule(ctx, "foo", &pagerduty.ServiceEventRuleArgs{
+//				Service:  example.ID(),
+//				Position: pulumi.Int(0),
+//				Disabled: pulumi.Bool(true),
+//				Conditions: &ServiceEventRuleConditionsArgs{
+//					Operator: pulumi.String("and"),
+//					Subconditions: ServiceEventRuleConditionsSubconditionArray{
+//						&ServiceEventRuleConditionsSubconditionArgs{
+//							Operator: pulumi.String("contains"),
+//							Parameters: ServiceEventRuleConditionsSubconditionParameterArray{
+//								&ServiceEventRuleConditionsSubconditionParameterArgs{
+//									Value: pulumi.String("disk space"),
+//									Path:  pulumi.String("summary"),
+//								},
+//							},
+//						},
+//					},
+//				},
+//				Variables: ServiceEventRuleVariableArray{
+//					&ServiceEventRuleVariableArgs{
+//						Type: pulumi.String("regex"),
+//						Name: pulumi.String("Src"),
+//						Parameters: ServiceEventRuleVariableParameterArray{
+//							&ServiceEventRuleVariableParameterArgs{
+//								Value: pulumi.String("(.*)"),
+//								Path:  pulumi.String("source"),
+//							},
+//						},
+//					},
+//				},
+//				Actions: &ServiceEventRuleActionsArgs{
+//					Annotates: ServiceEventRuleActionsAnnotateArray{
+//						&ServiceEventRuleActionsAnnotateArgs{
+//							Value: pulumi.String("From Terraform"),
+//						},
+//					},
+//					Extractions: ServiceEventRuleActionsExtractionArray{
+//						&ServiceEventRuleActionsExtractionArgs{
+//							Target: pulumi.String("dedup_key"),
+//							Source: pulumi.String("source"),
+//							Regex:  pulumi.String("(.*)"),
+//						},
+//						&ServiceEventRuleActionsExtractionArgs{
+//							Target:   pulumi.String("summary"),
+//							Template: pulumi.String("Warning: Disk Space Low on {{Src}}"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewServiceEventRule(ctx, "bar", &pagerduty.ServiceEventRuleArgs{
+//				Service:  pulumi.Any(pagerduty_service.Foo.Id),
+//				Position: pulumi.Int(1),
+//				Disabled: pulumi.Bool(true),
+//				Conditions: &ServiceEventRuleConditionsArgs{
+//					Operator: pulumi.String("and"),
+//					Subconditions: ServiceEventRuleConditionsSubconditionArray{
+//						&ServiceEventRuleConditionsSubconditionArgs{
+//							Operator: pulumi.String("contains"),
+//							Parameters: ServiceEventRuleConditionsSubconditionParameterArray{
+//								&ServiceEventRuleConditionsSubconditionParameterArgs{
+//									Value: pulumi.String("cpu spike"),
+//									Path:  pulumi.String("summary"),
+//								},
+//							},
+//						},
+//					},
+//				},
+//				Actions: &ServiceEventRuleActionsArgs{
+//					Annotates: ServiceEventRuleActionsAnnotateArray{
+//						&ServiceEventRuleActionsAnnotateArgs{
+//							Value: pulumi.String("From Terraform"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -125,7 +128,9 @@ import (
 // Service event rules can be imported using using the related `service` id and the `service_event_rule` id separated by a dot, e.g.
 //
 // ```sh
-//  $ pulumi import pagerduty:index/serviceEventRule:ServiceEventRule main a19cdca1-3d5e-4b52-bfea-8c8de04da243.19acac92-027a-4ea0-b06c-bbf516519601
+//
+//	$ pulumi import pagerduty:index/serviceEventRule:ServiceEventRule main a19cdca1-3d5e-4b52-bfea-8c8de04da243.19acac92-027a-4ea0-b06c-bbf516519601
+//
 // ```
 type ServiceEventRule struct {
 	pulumi.CustomResourceState
@@ -276,7 +281,7 @@ func (i *ServiceEventRule) ToServiceEventRuleOutputWithContext(ctx context.Conte
 // ServiceEventRuleArrayInput is an input type that accepts ServiceEventRuleArray and ServiceEventRuleArrayOutput values.
 // You can construct a concrete instance of `ServiceEventRuleArrayInput` via:
 //
-//          ServiceEventRuleArray{ ServiceEventRuleArgs{...} }
+//	ServiceEventRuleArray{ ServiceEventRuleArgs{...} }
 type ServiceEventRuleArrayInput interface {
 	pulumi.Input
 
@@ -301,7 +306,7 @@ func (i ServiceEventRuleArray) ToServiceEventRuleArrayOutputWithContext(ctx cont
 // ServiceEventRuleMapInput is an input type that accepts ServiceEventRuleMap and ServiceEventRuleMapOutput values.
 // You can construct a concrete instance of `ServiceEventRuleMapInput` via:
 //
-//          ServiceEventRuleMap{ "key": ServiceEventRuleArgs{...} }
+//	ServiceEventRuleMap{ "key": ServiceEventRuleArgs{...} }
 type ServiceEventRuleMapInput interface {
 	pulumi.Input
 

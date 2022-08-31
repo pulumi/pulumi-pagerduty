@@ -17,21 +17,14 @@ public final class RulesetRuleConditionsSubcondition {
      * @return Type of operator to apply to the sub-condition. Can be `exists`,`nexists`,`equals`,`nequals`,`contains`,`ncontains`,`matches`, or `nmatches`.
      * 
      */
-    private final @Nullable String operator;
+    private @Nullable String operator;
     /**
      * @return Parameter for the sub-condition. It requires both a `path` and `value` to be set.
      * 
      */
-    private final @Nullable List<RulesetRuleConditionsSubconditionParameter> parameters;
+    private @Nullable List<RulesetRuleConditionsSubconditionParameter> parameters;
 
-    @CustomType.Constructor
-    private RulesetRuleConditionsSubcondition(
-        @CustomType.Parameter("operator") @Nullable String operator,
-        @CustomType.Parameter("parameters") @Nullable List<RulesetRuleConditionsSubconditionParameter> parameters) {
-        this.operator = operator;
-        this.parameters = parameters;
-    }
-
+    private RulesetRuleConditionsSubcondition() {}
     /**
      * @return Type of operator to apply to the sub-condition. Can be `exists`,`nexists`,`equals`,`nequals`,`contains`,`ncontains`,`matches`, or `nmatches`.
      * 
@@ -54,33 +47,35 @@ public final class RulesetRuleConditionsSubcondition {
     public static Builder builder(RulesetRuleConditionsSubcondition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String operator;
         private @Nullable List<RulesetRuleConditionsSubconditionParameter> parameters;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RulesetRuleConditionsSubcondition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.operator = defaults.operator;
     	      this.parameters = defaults.parameters;
         }
 
+        @CustomType.Setter
         public Builder operator(@Nullable String operator) {
             this.operator = operator;
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(@Nullable List<RulesetRuleConditionsSubconditionParameter> parameters) {
             this.parameters = parameters;
             return this;
         }
         public Builder parameters(RulesetRuleConditionsSubconditionParameter... parameters) {
             return parameters(List.of(parameters));
-        }        public RulesetRuleConditionsSubcondition build() {
-            return new RulesetRuleConditionsSubcondition(operator, parameters);
+        }
+        public RulesetRuleConditionsSubcondition build() {
+            final var o = new RulesetRuleConditionsSubcondition();
+            o.operator = operator;
+            o.parameters = parameters;
+            return o;
         }
     }
 }

@@ -15,21 +15,14 @@ public final class ServiceEventRuleVariableParameter {
      * @return Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
      * 
      */
-    private final @Nullable String path;
+    private @Nullable String path;
     /**
      * @return The value for the operation. For example, an RE2 regular expression for regex-type variables.
      * 
      */
-    private final @Nullable String value;
+    private @Nullable String value;
 
-    @CustomType.Constructor
-    private ServiceEventRuleVariableParameter(
-        @CustomType.Parameter("path") @Nullable String path,
-        @CustomType.Parameter("value") @Nullable String value) {
-        this.path = path;
-        this.value = value;
-    }
-
+    private ServiceEventRuleVariableParameter() {}
     /**
      * @return Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
      * 
@@ -52,30 +45,32 @@ public final class ServiceEventRuleVariableParameter {
     public static Builder builder(ServiceEventRuleVariableParameter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String path;
         private @Nullable String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceEventRuleVariableParameter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.path = defaults.path;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder path(@Nullable String path) {
             this.path = path;
             return this;
         }
+        @CustomType.Setter
         public Builder value(@Nullable String value) {
             this.value = value;
             return this;
-        }        public ServiceEventRuleVariableParameter build() {
-            return new ServiceEventRuleVariableParameter(path, value);
+        }
+        public ServiceEventRuleVariableParameter build() {
+            final var o = new ServiceEventRuleVariableParameter();
+            o.path = path;
+            o.value = value;
+            return o;
         }
     }
 }

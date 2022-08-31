@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class ServiceSupportHoursArgs : Pulumi.ResourceArgs
+    public sealed class ServiceSupportHoursArgs : global::Pulumi.ResourceArgs
     {
         [Input("daysOfWeeks")]
         private InputList<int>? _daysOfWeeks;
@@ -52,5 +52,6 @@ namespace Pulumi.Pagerduty.Inputs
         public ServiceSupportHoursArgs()
         {
         }
+        public static new ServiceSupportHoursArgs Empty => new ServiceSupportHoursArgs();
     }
 }

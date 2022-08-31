@@ -18,41 +18,44 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		me, err := pagerduty.LookupUser(ctx, &GetUserArgs{
-// 			Email: "me@example.com",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		phonePush, err := pagerduty.LookupUserContactMethod(ctx, &GetUserContactMethodArgs{
-// 			UserId: me.Id,
-// 			Type:   "push_notification_contact_method",
-// 			Label:  "iPhone (John)",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = pagerduty.NewUserNotificationRule(ctx, "lowUrgencySms", &pagerduty.UserNotificationRuleArgs{
-// 			UserId:              pulumi.String(me.Id),
-// 			StartDelayInMinutes: pulumi.Int(5),
-// 			Urgency:             pulumi.String("high"),
-// 			ContactMethod: pulumi.StringMap{
-// 				"type": pulumi.String("push_notification_contact_method"),
-// 				"id":   pulumi.String(phonePush.Id),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			me, err := pagerduty.LookupUser(ctx, &GetUserArgs{
+//				Email: "me@example.com",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			phonePush, err := pagerduty.LookupUserContactMethod(ctx, &GetUserContactMethodArgs{
+//				UserId: me.Id,
+//				Type:   "push_notification_contact_method",
+//				Label:  "iPhone (John)",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewUserNotificationRule(ctx, "lowUrgencySms", &pagerduty.UserNotificationRuleArgs{
+//				UserId:              pulumi.String(me.Id),
+//				StartDelayInMinutes: pulumi.Int(5),
+//				Urgency:             pulumi.String("high"),
+//				ContactMethod: pulumi.StringMap{
+//					"type": pulumi.String("push_notification_contact_method"),
+//					"id":   pulumi.String(phonePush.Id),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupUserContactMethod(ctx *pulumi.Context, args *LookupUserContactMethodArgs, opts ...pulumi.InvokeOption) (*LookupUserContactMethodResult, error) {
 	var rv LookupUserContactMethodResult

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class ServiceAlertGroupingParametersArgs : Pulumi.ResourceArgs
+    public sealed class ServiceAlertGroupingParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Alert grouping parameters dependent on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
@@ -19,7 +19,7 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<Inputs.ServiceAlertGroupingParametersConfigArgs>? Config { get; set; }
 
         /// <summary>
-        /// The type of scheduled action. Currently, this must be set to `urgency_change`.
+        /// The type of alert grouping; one of `intelligent`, `time` or `content_based`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.Pagerduty.Inputs
         public ServiceAlertGroupingParametersArgs()
         {
         }
+        public static new ServiceAlertGroupingParametersArgs Empty => new ServiceAlertGroupingParametersArgs();
     }
 }

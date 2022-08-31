@@ -15,20 +15,18 @@ namespace Pulumi.Pagerduty
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Pagerduty = Pulumi.Pagerduty;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Pagerduty.Addon("example", new()
     ///     {
-    ///         var example = new Pagerduty.Addon("example", new Pagerduty.AddonArgs
-    ///         {
-    ///             Src = "https://intranet.example.com/status",
-    ///         });
-    ///     }
+    ///         Src = "https://intranet.example.com/status",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Pagerduty
     /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/addon:Addon")]
-    public partial class Addon : Pulumi.CustomResource
+    public partial class Addon : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the add-on.
@@ -98,7 +96,7 @@ namespace Pulumi.Pagerduty
         }
     }
 
-    public sealed class AddonArgs : Pulumi.ResourceArgs
+    public sealed class AddonArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the add-on.
@@ -115,9 +113,10 @@ namespace Pulumi.Pagerduty
         public AddonArgs()
         {
         }
+        public static new AddonArgs Empty => new AddonArgs();
     }
 
-    public sealed class AddonState : Pulumi.ResourceArgs
+    public sealed class AddonState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the add-on.
@@ -134,5 +133,6 @@ namespace Pulumi.Pagerduty
         public AddonState()
         {
         }
+        public static new AddonState Empty => new AddonState();
     }
 }

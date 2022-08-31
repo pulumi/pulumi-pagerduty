@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionGetArgs : Pulumi.ResourceArgs
+    public sealed class EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Id of the Process Automation action to be triggered.
@@ -21,5 +21,6 @@ namespace Pulumi.Pagerduty.Inputs
         public EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionGetArgs()
         {
         }
+        public static new EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionGetArgs Empty => new EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionGetArgs();
     }
 }

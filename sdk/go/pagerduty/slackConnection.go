@@ -23,57 +23,60 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		fooTeam, err := pagerduty.NewTeam(ctx, "fooTeam", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		p1, err := pagerduty.GetPriority(ctx, &GetPriorityArgs{
-// 			Name: "P1",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = pagerduty.NewSlackConnection(ctx, "fooSlackConnection", &pagerduty.SlackConnectionArgs{
-// 			SourceId:         fooTeam.ID(),
-// 			SourceType:       pulumi.String("team_reference"),
-// 			WorkspaceId:      pulumi.String("T02A123LV1A"),
-// 			ChannelId:        pulumi.String("C02CABCDAC9"),
-// 			NotificationType: pulumi.String("responder"),
-// 			Configs: SlackConnectionConfigArray{
-// 				&SlackConnectionConfigArgs{
-// 					Events: pulumi.StringArray{
-// 						pulumi.String("incident.triggered"),
-// 						pulumi.String("incident.acknowledged"),
-// 						pulumi.String("incident.escalated"),
-// 						pulumi.String("incident.resolved"),
-// 						pulumi.String("incident.reassigned"),
-// 						pulumi.String("incident.annotated"),
-// 						pulumi.String("incident.unacknowledged"),
-// 						pulumi.String("incident.delegated"),
-// 						pulumi.String("incident.priority_updated"),
-// 						pulumi.String("incident.responder.added"),
-// 						pulumi.String("incident.responder.replied"),
-// 						pulumi.String("incident.status_update_published"),
-// 						pulumi.String("incident.reopened"),
-// 					},
-// 					Priorities: pulumi.StringArray{
-// 						pulumi.String(p1.Id),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			fooTeam, err := pagerduty.NewTeam(ctx, "fooTeam", nil)
+//			if err != nil {
+//				return err
+//			}
+//			p1, err := pagerduty.GetPriority(ctx, &GetPriorityArgs{
+//				Name: "P1",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewSlackConnection(ctx, "fooSlackConnection", &pagerduty.SlackConnectionArgs{
+//				SourceId:         fooTeam.ID(),
+//				SourceType:       pulumi.String("team_reference"),
+//				WorkspaceId:      pulumi.String("T02A123LV1A"),
+//				ChannelId:        pulumi.String("C02CABCDAC9"),
+//				NotificationType: pulumi.String("responder"),
+//				Configs: SlackConnectionConfigArray{
+//					&SlackConnectionConfigArgs{
+//						Events: pulumi.StringArray{
+//							pulumi.String("incident.triggered"),
+//							pulumi.String("incident.acknowledged"),
+//							pulumi.String("incident.escalated"),
+//							pulumi.String("incident.resolved"),
+//							pulumi.String("incident.reassigned"),
+//							pulumi.String("incident.annotated"),
+//							pulumi.String("incident.unacknowledged"),
+//							pulumi.String("incident.delegated"),
+//							pulumi.String("incident.priority_updated"),
+//							pulumi.String("incident.responder.added"),
+//							pulumi.String("incident.responder.replied"),
+//							pulumi.String("incident.status_update_published"),
+//							pulumi.String("incident.reopened"),
+//						},
+//						Priorities: pulumi.StringArray{
+//							pulumi.String(p1.Id),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -81,7 +84,9 @@ import (
 // Slack connections can be imported using the related `workspace` ID and the `slack_connection` ID separated by a dot, e.g.
 //
 // ```sh
-//  $ pulumi import pagerduty:index/slackConnection:SlackConnection main T02A123LV1A.PUABCDL
+//
+//	$ pulumi import pagerduty:index/slackConnection:SlackConnection main T02A123LV1A.PUABCDL
+//
 // ```
 type SlackConnection struct {
 	pulumi.CustomResourceState
@@ -243,7 +248,7 @@ func (i *SlackConnection) ToSlackConnectionOutputWithContext(ctx context.Context
 // SlackConnectionArrayInput is an input type that accepts SlackConnectionArray and SlackConnectionArrayOutput values.
 // You can construct a concrete instance of `SlackConnectionArrayInput` via:
 //
-//          SlackConnectionArray{ SlackConnectionArgs{...} }
+//	SlackConnectionArray{ SlackConnectionArgs{...} }
 type SlackConnectionArrayInput interface {
 	pulumi.Input
 
@@ -268,7 +273,7 @@ func (i SlackConnectionArray) ToSlackConnectionArrayOutputWithContext(ctx contex
 // SlackConnectionMapInput is an input type that accepts SlackConnectionMap and SlackConnectionMapOutput values.
 // You can construct a concrete instance of `SlackConnectionMapInput` via:
 //
-//          SlackConnectionMap{ "key": SlackConnectionArgs{...} }
+//	SlackConnectionMap{ "key": SlackConnectionArgs{...} }
 type SlackConnectionMapInput interface {
 	pulumi.Input
 

@@ -13,13 +13,9 @@ public final class EventOrchestrationUnroutedSetRuleCondition {
      * @return A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
      * 
      */
-    private final String expression;
+    private String expression;
 
-    @CustomType.Constructor
-    private EventOrchestrationUnroutedSetRuleCondition(@CustomType.Parameter("expression") String expression) {
-        this.expression = expression;
-    }
-
+    private EventOrchestrationUnroutedSetRuleCondition() {}
     /**
      * @return A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
      * 
@@ -35,24 +31,24 @@ public final class EventOrchestrationUnroutedSetRuleCondition {
     public static Builder builder(EventOrchestrationUnroutedSetRuleCondition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String expression;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventOrchestrationUnroutedSetRuleCondition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.expression = defaults.expression;
         }
 
+        @CustomType.Setter
         public Builder expression(String expression) {
             this.expression = Objects.requireNonNull(expression);
             return this;
-        }        public EventOrchestrationUnroutedSetRuleCondition build() {
-            return new EventOrchestrationUnroutedSetRuleCondition(expression);
+        }
+        public EventOrchestrationUnroutedSetRuleCondition build() {
+            final var o = new EventOrchestrationUnroutedSetRuleCondition();
+            o.expression = expression;
+            return o;
         }
     }
 }

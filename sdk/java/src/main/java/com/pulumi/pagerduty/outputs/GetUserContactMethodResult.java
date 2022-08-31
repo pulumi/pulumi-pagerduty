@@ -15,73 +15,50 @@ public final class GetUserContactMethodResult {
      * @return The &#34;address&#34; to deliver to: `email`, `phone number`, etc., depending on the type.
      * 
      */
-    private final String address;
+    private String address;
     /**
      * @return If true, this phone has been blacklisted by PagerDuty and no messages will be sent to it. (Phone and SMS contact methods only.)
      * 
      */
-    private final Boolean blacklisted;
+    private Boolean blacklisted;
     /**
      * @return The 1-to-3 digit country calling code. (Phone and SMS contact methods only.)
      * 
      */
-    private final Integer countryCode;
+    private Integer countryCode;
     /**
      * @return Either `ios` or `android`, depending on the type of the device receiving notifications. (Push notification contact method only.)
      * 
      */
-    private final String deviceType;
+    private String deviceType;
     /**
      * @return If true, this phone is capable of receiving SMS messages. (Phone and SMS contact methods only.)
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The label (e.g., &#34;Work&#34;, &#34;Mobile&#34;, &#34;Ashley&#39;s iPhone&#34;, etc.).
      * 
      */
-    private final String label;
+    private String label;
     /**
      * @return Send an abbreviated email message instead of the standard email output. (Email contact method only.)
      * 
      */
-    private final Boolean sendShortEmail;
+    private Boolean sendShortEmail;
     /**
      * @return The type of the found contact method. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
      * 
      */
-    private final String type;
-    private final String userId;
+    private String type;
+    private String userId;
 
-    @CustomType.Constructor
-    private GetUserContactMethodResult(
-        @CustomType.Parameter("address") String address,
-        @CustomType.Parameter("blacklisted") Boolean blacklisted,
-        @CustomType.Parameter("countryCode") Integer countryCode,
-        @CustomType.Parameter("deviceType") String deviceType,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("label") String label,
-        @CustomType.Parameter("sendShortEmail") Boolean sendShortEmail,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("userId") String userId) {
-        this.address = address;
-        this.blacklisted = blacklisted;
-        this.countryCode = countryCode;
-        this.deviceType = deviceType;
-        this.enabled = enabled;
-        this.id = id;
-        this.label = label;
-        this.sendShortEmail = sendShortEmail;
-        this.type = type;
-        this.userId = userId;
-    }
-
+    private GetUserContactMethodResult() {}
     /**
      * @return The &#34;address&#34; to deliver to: `email`, `phone number`, etc., depending on the type.
      * 
@@ -156,7 +133,7 @@ public final class GetUserContactMethodResult {
     public static Builder builder(GetUserContactMethodResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String address;
         private Boolean blacklisted;
@@ -168,11 +145,7 @@ public final class GetUserContactMethodResult {
         private Boolean sendShortEmail;
         private String type;
         private String userId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetUserContactMethodResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.address = defaults.address;
@@ -187,47 +160,69 @@ public final class GetUserContactMethodResult {
     	      this.userId = defaults.userId;
         }
 
+        @CustomType.Setter
         public Builder address(String address) {
             this.address = Objects.requireNonNull(address);
             return this;
         }
+        @CustomType.Setter
         public Builder blacklisted(Boolean blacklisted) {
             this.blacklisted = Objects.requireNonNull(blacklisted);
             return this;
         }
+        @CustomType.Setter
         public Builder countryCode(Integer countryCode) {
             this.countryCode = Objects.requireNonNull(countryCode);
             return this;
         }
+        @CustomType.Setter
         public Builder deviceType(String deviceType) {
             this.deviceType = Objects.requireNonNull(deviceType);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder label(String label) {
             this.label = Objects.requireNonNull(label);
             return this;
         }
+        @CustomType.Setter
         public Builder sendShortEmail(Boolean sendShortEmail) {
             this.sendShortEmail = Objects.requireNonNull(sendShortEmail);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder userId(String userId) {
             this.userId = Objects.requireNonNull(userId);
             return this;
-        }        public GetUserContactMethodResult build() {
-            return new GetUserContactMethodResult(address, blacklisted, countryCode, deviceType, enabled, id, label, sendShortEmail, type, userId);
+        }
+        public GetUserContactMethodResult build() {
+            final var o = new GetUserContactMethodResult();
+            o.address = address;
+            o.blacklisted = blacklisted;
+            o.countryCode = countryCode;
+            o.deviceType = deviceType;
+            o.enabled = enabled;
+            o.id = id;
+            o.label = label;
+            o.sendShortEmail = sendShortEmail;
+            o.type = type;
+            o.userId = userId;
+            return o;
         }
     }
 }

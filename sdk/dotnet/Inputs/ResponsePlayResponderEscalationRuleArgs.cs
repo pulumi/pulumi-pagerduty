@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class ResponsePlayResponderEscalationRuleArgs : Pulumi.ResourceArgs
+    public sealed class ResponsePlayResponderEscalationRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of minutes before an unacknowledged incident escalates away from this rule.
@@ -39,5 +39,6 @@ namespace Pulumi.Pagerduty.Inputs
         public ResponsePlayResponderEscalationRuleArgs()
         {
         }
+        public static new ResponsePlayResponderEscalationRuleArgs Empty => new ResponsePlayResponderEscalationRuleArgs();
     }
 }

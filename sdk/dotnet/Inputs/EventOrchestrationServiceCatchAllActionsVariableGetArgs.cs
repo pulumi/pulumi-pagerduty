@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class EventOrchestrationServiceCatchAllActionsVariableGetArgs : Pulumi.ResourceArgs
+    public sealed class EventOrchestrationServiceCatchAllActionsVariableGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of this Webhook.
@@ -39,5 +39,6 @@ namespace Pulumi.Pagerduty.Inputs
         public EventOrchestrationServiceCatchAllActionsVariableGetArgs()
         {
         }
+        public static new EventOrchestrationServiceCatchAllActionsVariableGetArgs Empty => new EventOrchestrationServiceCatchAllActionsVariableGetArgs();
     }
 }

@@ -18,17 +18,10 @@ public final class EventOrchestrationIntegration {
      * * `parameters`
      * 
      */
-    private final @Nullable String id;
-    private final @Nullable List<EventOrchestrationIntegrationParameter> parameters;
+    private @Nullable String id;
+    private @Nullable List<EventOrchestrationIntegrationParameter> parameters;
 
-    @CustomType.Constructor
-    private EventOrchestrationIntegration(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("parameters") @Nullable List<EventOrchestrationIntegrationParameter> parameters) {
-        this.id = id;
-        this.parameters = parameters;
-    }
-
+    private EventOrchestrationIntegration() {}
     /**
      * @return ID of the integration
      * * `parameters`
@@ -48,33 +41,35 @@ public final class EventOrchestrationIntegration {
     public static Builder builder(EventOrchestrationIntegration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private @Nullable List<EventOrchestrationIntegrationParameter> parameters;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventOrchestrationIntegration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.parameters = defaults.parameters;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(@Nullable List<EventOrchestrationIntegrationParameter> parameters) {
             this.parameters = parameters;
             return this;
         }
         public Builder parameters(EventOrchestrationIntegrationParameter... parameters) {
             return parameters(List.of(parameters));
-        }        public EventOrchestrationIntegration build() {
-            return new EventOrchestrationIntegration(id, parameters);
+        }
+        public EventOrchestrationIntegration build() {
+            final var o = new EventOrchestrationIntegration();
+            o.id = id;
+            o.parameters = parameters;
+            return o;
         }
     }
 }

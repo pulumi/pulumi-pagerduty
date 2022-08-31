@@ -18,35 +18,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		me, err := pagerduty.LookupUser(ctx, &GetUserArgs{
-// 			Email: "me@example.com",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		devops, err := pagerduty.LookupTag(ctx, &GetTagArgs{
-// 			Label: "devops",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = pagerduty.NewTagAssignment(ctx, "foo", &pagerduty.TagAssignmentArgs{
-// 			TagId:      pulumi.String(devops.Id),
-// 			EntityId:   pulumi.String(me.Id),
-// 			EntityType: pulumi.String("users"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			me, err := pagerduty.LookupUser(ctx, &GetUserArgs{
+//				Email: "me@example.com",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			devops, err := pagerduty.LookupTag(ctx, &GetTagArgs{
+//				Label: "devops",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewTagAssignment(ctx, "foo", &pagerduty.TagAssignmentArgs{
+//				TagId:      pulumi.String(devops.Id),
+//				EntityId:   pulumi.String(me.Id),
+//				EntityType: pulumi.String("users"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupTag(ctx *pulumi.Context, args *LookupTagArgs, opts ...pulumi.InvokeOption) (*LookupTagResult, error) {
 	var rv LookupTagResult

@@ -18,68 +18,71 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		p1, err := pagerduty.GetPriority(ctx, &GetPriorityArgs{
-// 			Name: "P1",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		fooRuleset, err := pagerduty.NewRuleset(ctx, "fooRuleset", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = pagerduty.NewRulesetRule(ctx, "fooRulesetRule", &pagerduty.RulesetRuleArgs{
-// 			Ruleset:  fooRuleset.ID(),
-// 			Position: pulumi.Int(0),
-// 			Disabled: pulumi.Bool(false),
-// 			Conditions: &RulesetRuleConditionsArgs{
-// 				Operator: pulumi.String("and"),
-// 				Subconditions: RulesetRuleConditionsSubconditionArray{
-// 					&RulesetRuleConditionsSubconditionArgs{
-// 						Operator: pulumi.String("contains"),
-// 						Parameters: RulesetRuleConditionsSubconditionParameterArray{
-// 							&RulesetRuleConditionsSubconditionParameterArgs{
-// 								Value: pulumi.String("disk space"),
-// 								Path:  pulumi.String("payload.summary"),
-// 							},
-// 						},
-// 					},
-// 					&RulesetRuleConditionsSubconditionArgs{
-// 						Operator: pulumi.String("contains"),
-// 						Parameters: RulesetRuleConditionsSubconditionParameterArray{
-// 							&RulesetRuleConditionsSubconditionParameterArgs{
-// 								Value: pulumi.String("db"),
-// 								Path:  pulumi.String("payload.source"),
-// 							},
-// 						},
-// 					},
-// 				},
-// 			},
-// 			Actions: &RulesetRuleActionsArgs{
-// 				Routes: RulesetRuleActionsRouteArray{
-// 					&RulesetRuleActionsRouteArgs{
-// 						Value: pulumi.String("P5DTL0K"),
-// 					},
-// 				},
-// 				Priorities: RulesetRuleActionsPriorityArray{
-// 					&RulesetRuleActionsPriorityArgs{
-// 						Value: pulumi.String(p1.Id),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			p1, err := pagerduty.GetPriority(ctx, &GetPriorityArgs{
+//				Name: "P1",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			fooRuleset, err := pagerduty.NewRuleset(ctx, "fooRuleset", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewRulesetRule(ctx, "fooRulesetRule", &pagerduty.RulesetRuleArgs{
+//				Ruleset:  fooRuleset.ID(),
+//				Position: pulumi.Int(0),
+//				Disabled: pulumi.Bool(false),
+//				Conditions: &RulesetRuleConditionsArgs{
+//					Operator: pulumi.String("and"),
+//					Subconditions: RulesetRuleConditionsSubconditionArray{
+//						&RulesetRuleConditionsSubconditionArgs{
+//							Operator: pulumi.String("contains"),
+//							Parameters: RulesetRuleConditionsSubconditionParameterArray{
+//								&RulesetRuleConditionsSubconditionParameterArgs{
+//									Value: pulumi.String("disk space"),
+//									Path:  pulumi.String("payload.summary"),
+//								},
+//							},
+//						},
+//						&RulesetRuleConditionsSubconditionArgs{
+//							Operator: pulumi.String("contains"),
+//							Parameters: RulesetRuleConditionsSubconditionParameterArray{
+//								&RulesetRuleConditionsSubconditionParameterArgs{
+//									Value: pulumi.String("db"),
+//									Path:  pulumi.String("payload.source"),
+//								},
+//							},
+//						},
+//					},
+//				},
+//				Actions: &RulesetRuleActionsArgs{
+//					Routes: RulesetRuleActionsRouteArray{
+//						&RulesetRuleActionsRouteArgs{
+//							Value: pulumi.String("P5DTL0K"),
+//						},
+//					},
+//					Priorities: RulesetRuleActionsPriorityArray{
+//						&RulesetRuleActionsPriorityArgs{
+//							Value: pulumi.String(p1.Id),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetPriority(ctx *pulumi.Context, args *GetPriorityArgs, opts ...pulumi.InvokeOption) (*GetPriorityResult, error) {
 	var rv GetPriorityResult

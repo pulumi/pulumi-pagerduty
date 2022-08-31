@@ -13,13 +13,9 @@ public final class EventOrchestrationRouterCatchAllActions {
      * @return The ID of the target Service for the resulting alert.
      * 
      */
-    private final String routeTo;
+    private String routeTo;
 
-    @CustomType.Constructor
-    private EventOrchestrationRouterCatchAllActions(@CustomType.Parameter("routeTo") String routeTo) {
-        this.routeTo = routeTo;
-    }
-
+    private EventOrchestrationRouterCatchAllActions() {}
     /**
      * @return The ID of the target Service for the resulting alert.
      * 
@@ -35,24 +31,24 @@ public final class EventOrchestrationRouterCatchAllActions {
     public static Builder builder(EventOrchestrationRouterCatchAllActions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String routeTo;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventOrchestrationRouterCatchAllActions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.routeTo = defaults.routeTo;
         }
 
+        @CustomType.Setter
         public Builder routeTo(String routeTo) {
             this.routeTo = Objects.requireNonNull(routeTo);
             return this;
-        }        public EventOrchestrationRouterCatchAllActions build() {
-            return new EventOrchestrationRouterCatchAllActions(routeTo);
+        }
+        public EventOrchestrationRouterCatchAllActions build() {
+            final var o = new EventOrchestrationRouterCatchAllActions();
+            o.routeTo = routeTo;
+            return o;
         }
     }
 }

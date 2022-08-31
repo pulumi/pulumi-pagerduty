@@ -25,7 +25,7 @@ namespace Pulumi.Pagerduty
     }
 
 
-    public sealed class GetEventOrchestrationArgs : Pulumi.InvokeArgs
+    public sealed class GetEventOrchestrationArgs : global::Pulumi.InvokeArgs
     {
         [Input("integrations")]
         private List<Inputs.GetEventOrchestrationIntegrationArgs>? _integrations;
@@ -48,9 +48,10 @@ namespace Pulumi.Pagerduty
         public GetEventOrchestrationArgs()
         {
         }
+        public static new GetEventOrchestrationArgs Empty => new GetEventOrchestrationArgs();
     }
 
-    public sealed class GetEventOrchestrationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEventOrchestrationInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("integrations")]
         private InputList<Inputs.GetEventOrchestrationIntegrationInputArgs>? _integrations;
@@ -73,6 +74,7 @@ namespace Pulumi.Pagerduty
         public GetEventOrchestrationInvokeArgs()
         {
         }
+        public static new GetEventOrchestrationInvokeArgs Empty => new GetEventOrchestrationInvokeArgs();
     }
 
 

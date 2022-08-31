@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class RulesetRuleConditionsSubconditionArgs : Pulumi.ResourceArgs
+    public sealed class RulesetRuleConditionsSubconditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of operator to apply to the sub-condition. Can be `exists`,`nexists`,`equals`,`nequals`,`contains`,`ncontains`,`matches`, or `nmatches`.
@@ -33,5 +33,6 @@ namespace Pulumi.Pagerduty.Inputs
         public RulesetRuleConditionsSubconditionArgs()
         {
         }
+        public static new RulesetRuleConditionsSubconditionArgs Empty => new RulesetRuleConditionsSubconditionArgs();
     }
 }

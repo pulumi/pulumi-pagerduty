@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class ServiceIntegrationEmailParserValueExtractorArgs : Pulumi.ResourceArgs
+    public sealed class ServiceIntegrationEmailParserValueExtractorArgs : global::Pulumi.ResourceArgs
     {
         [Input("endsBefore")]
         public Input<string>? EndsBefore { get; set; }
@@ -45,5 +45,6 @@ namespace Pulumi.Pagerduty.Inputs
         public ServiceIntegrationEmailParserValueExtractorArgs()
         {
         }
+        public static new ServiceIntegrationEmailParserValueExtractorArgs Empty => new ServiceIntegrationEmailParserValueExtractorArgs();
     }
 }

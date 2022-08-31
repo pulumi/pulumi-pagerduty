@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class ServiceDependencyDependencyGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceDependencyDependencyGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("dependentServices", required: true)]
         private InputList<Inputs.ServiceDependencyDependencyDependentServiceGetArgs>? _dependentServices;
@@ -45,5 +45,6 @@ namespace Pulumi.Pagerduty.Inputs
         public ServiceDependencyDependencyGetArgs()
         {
         }
+        public static new ServiceDependencyDependencyGetArgs Empty => new ServiceDependencyDependencyGetArgs();
     }
 }

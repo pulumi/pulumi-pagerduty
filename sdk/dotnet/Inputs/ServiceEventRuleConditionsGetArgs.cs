@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class ServiceEventRuleConditionsGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceEventRuleConditionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Operator to combine sub-conditions. Can be `and` or `or`.
@@ -33,5 +33,6 @@ namespace Pulumi.Pagerduty.Inputs
         public ServiceEventRuleConditionsGetArgs()
         {
         }
+        public static new ServiceEventRuleConditionsGetArgs Empty => new ServiceEventRuleConditionsGetArgs();
     }
 }

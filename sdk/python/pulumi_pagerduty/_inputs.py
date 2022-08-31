@@ -77,6 +77,7 @@ __all__ = [
     'ScheduleLayerRestrictionArgs',
     'ServiceAlertGroupingParametersArgs',
     'ServiceAlertGroupingParametersConfigArgs',
+    'ServiceAutoPauseNotificationsParametersArgs',
     'ServiceDependencyDependencyArgs',
     'ServiceDependencyDependencyDependentServiceArgs',
     'ServiceDependencyDependencySupportingServiceArgs',
@@ -3643,7 +3644,7 @@ class ServiceAlertGroupingParametersArgs:
                  type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input['ServiceAlertGroupingParametersConfigArgs'] config: Alert grouping parameters dependent on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
-        :param pulumi.Input[str] type: The type of scheduled action. Currently, this must be set to `urgency_change`.
+        :param pulumi.Input[str] type: The type of alert grouping; one of `intelligent`, `time` or `content_based`.
         """
         if config is not None:
             pulumi.set(__self__, "config", config)
@@ -3666,7 +3667,7 @@ class ServiceAlertGroupingParametersArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of scheduled action. Currently, this must be set to `urgency_change`.
+        The type of alert grouping; one of `intelligent`, `time` or `content_based`.
         """
         return pulumi.get(self, "type")
 
@@ -3722,6 +3723,45 @@ class ServiceAlertGroupingParametersConfigArgs:
     def timeout(self) -> Optional[pulumi.Input[int]]:
         """
         The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout", value)
+
+
+@pulumi.input_type
+class ServiceAutoPauseNotificationsParametersArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 timeout: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Indicates whether alerts should be automatically suspended when identified as transient.  If not passed in, will default to 'false'.
+        :param pulumi.Input[int] timeout: Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `enabled` is `true`. Must be omitted or set to `null` if `enabled` is `false`.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether alerts should be automatically suspended when identified as transient.  If not passed in, will default to 'false'.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `enabled` is `true`. Must be omitted or set to `null` if `enabled` is `false`.
         """
         return pulumi.get(self, "timeout")
 

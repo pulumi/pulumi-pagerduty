@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class ServiceAlertGroupingParametersConfigArgs : Pulumi.ResourceArgs
+    public sealed class ServiceAlertGroupingParametersConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// One of `any` or `all`. This setting applies only when `type` is set to `content_based`. Group alerts based on one or all of `fields` value(s).
@@ -39,5 +39,6 @@ namespace Pulumi.Pagerduty.Inputs
         public ServiceAlertGroupingParametersConfigArgs()
         {
         }
+        public static new ServiceAlertGroupingParametersConfigArgs Empty => new ServiceAlertGroupingParametersConfigArgs();
     }
 }

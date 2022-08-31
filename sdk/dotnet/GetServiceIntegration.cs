@@ -19,21 +19,19 @@ namespace Pulumi.Pagerduty
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Pagerduty = Pulumi.Pagerduty;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Pagerduty.GetServiceIntegration.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Pagerduty.GetServiceIntegration.InvokeAsync(new Pagerduty.GetServiceIntegrationArgs
-        ///         {
-        ///             IntegrationSummary = "Datadog",
-        ///             ServiceName = "My Service",
-        ///         }));
-        ///     }
+        ///         IntegrationSummary = "Datadog",
+        ///         ServiceName = "My Service",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Pagerduty
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Pagerduty = Pulumi.Pagerduty;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Pagerduty.GetServiceIntegration.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Pagerduty.GetServiceIntegration.InvokeAsync(new Pagerduty.GetServiceIntegrationArgs
-        ///         {
-        ///             IntegrationSummary = "Datadog",
-        ///             ServiceName = "My Service",
-        ///         }));
-        ///     }
+        ///         IntegrationSummary = "Datadog",
+        ///         ServiceName = "My Service",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Pagerduty
     }
 
 
-    public sealed class GetServiceIntegrationArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceIntegrationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The integration summary used to find the desired integration on the service.
@@ -90,9 +86,10 @@ namespace Pulumi.Pagerduty
         public GetServiceIntegrationArgs()
         {
         }
+        public static new GetServiceIntegrationArgs Empty => new GetServiceIntegrationArgs();
     }
 
-    public sealed class GetServiceIntegrationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceIntegrationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The integration summary used to find the desired integration on the service.
@@ -109,6 +106,7 @@ namespace Pulumi.Pagerduty
         public GetServiceIntegrationInvokeArgs()
         {
         }
+        public static new GetServiceIntegrationInvokeArgs Empty => new GetServiceIntegrationInvokeArgs();
     }
 
 

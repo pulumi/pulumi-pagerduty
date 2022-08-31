@@ -19,58 +19,60 @@ namespace Pulumi.Pagerduty
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Pagerduty = Pulumi.Pagerduty;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var datadog = Pagerduty.GetVendor.Invoke(new()
         ///     {
-        ///         var datadog = Output.Create(Pagerduty.GetVendor.InvokeAsync(new Pagerduty.GetVendorArgs
+        ///         Name = "Datadog",
+        ///     });
+        /// 
+        ///     var exampleUser = new Pagerduty.User("exampleUser", new()
+        ///     {
+        ///         Email = "125.greenholt.earline@graham.name",
+        ///         Teams = new[]
         ///         {
-        ///             Name = "Datadog",
-        ///         }));
-        ///         var exampleUser = new Pagerduty.User("exampleUser", new Pagerduty.UserArgs
+        ///             pagerduty_team.Example.Id,
+        ///         },
+        ///     });
+        /// 
+        ///     var foo = new Pagerduty.EscalationPolicy("foo", new()
+        ///     {
+        ///         NumLoops = 2,
+        ///         Rules = new[]
         ///         {
-        ///             Email = "125.greenholt.earline@graham.name",
-        ///             Teams = 
+        ///             new Pagerduty.Inputs.EscalationPolicyRuleArgs
         ///             {
-        ///                 pagerduty_team.Example.Id,
-        ///             },
-        ///         });
-        ///         var foo = new Pagerduty.EscalationPolicy("foo", new Pagerduty.EscalationPolicyArgs
-        ///         {
-        ///             NumLoops = 2,
-        ///             Rules = 
-        ///             {
-        ///                 new Pagerduty.Inputs.EscalationPolicyRuleArgs
+        ///                 EscalationDelayInMinutes = 10,
+        ///                 Targets = new[]
         ///                 {
-        ///                     EscalationDelayInMinutes = 10,
-        ///                     Targets = 
+        ///                     new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
         ///                     {
-        ///                         new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
-        ///                         {
-        ///                             Type = "user",
-        ///                             Id = exampleUser.Id,
-        ///                         },
+        ///                         Type = "user",
+        ///                         Id = exampleUser.Id,
         ///                     },
         ///                 },
         ///             },
-        ///         });
-        ///         var exampleService = new Pagerduty.Service("exampleService", new Pagerduty.ServiceArgs
-        ///         {
-        ///             AutoResolveTimeout = "14400",
-        ///             AcknowledgementTimeout = "600",
-        ///             EscalationPolicy = pagerduty_escalation_policy.Example.Id,
-        ///         });
-        ///         var exampleServiceIntegration = new Pagerduty.ServiceIntegration("exampleServiceIntegration", new Pagerduty.ServiceIntegrationArgs
-        ///         {
-        ///             Vendor = datadog.Apply(datadog =&gt; datadog.Id),
-        ///             Service = exampleService.Id,
-        ///         });
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        ///     var exampleService = new Pagerduty.Service("exampleService", new()
+        ///     {
+        ///         AutoResolveTimeout = "14400",
+        ///         AcknowledgementTimeout = "600",
+        ///         EscalationPolicy = pagerduty_escalation_policy.Example.Id,
+        ///     });
+        /// 
+        ///     var exampleServiceIntegration = new Pagerduty.ServiceIntegration("exampleServiceIntegration", new()
+        ///     {
+        ///         Vendor = datadog.Apply(getVendorResult =&gt; getVendorResult.Id),
+        ///         Service = exampleService.Id,
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -86,58 +88,60 @@ namespace Pulumi.Pagerduty
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Pagerduty = Pulumi.Pagerduty;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var datadog = Pagerduty.GetVendor.Invoke(new()
         ///     {
-        ///         var datadog = Output.Create(Pagerduty.GetVendor.InvokeAsync(new Pagerduty.GetVendorArgs
+        ///         Name = "Datadog",
+        ///     });
+        /// 
+        ///     var exampleUser = new Pagerduty.User("exampleUser", new()
+        ///     {
+        ///         Email = "125.greenholt.earline@graham.name",
+        ///         Teams = new[]
         ///         {
-        ///             Name = "Datadog",
-        ///         }));
-        ///         var exampleUser = new Pagerduty.User("exampleUser", new Pagerduty.UserArgs
+        ///             pagerduty_team.Example.Id,
+        ///         },
+        ///     });
+        /// 
+        ///     var foo = new Pagerduty.EscalationPolicy("foo", new()
+        ///     {
+        ///         NumLoops = 2,
+        ///         Rules = new[]
         ///         {
-        ///             Email = "125.greenholt.earline@graham.name",
-        ///             Teams = 
+        ///             new Pagerduty.Inputs.EscalationPolicyRuleArgs
         ///             {
-        ///                 pagerduty_team.Example.Id,
-        ///             },
-        ///         });
-        ///         var foo = new Pagerduty.EscalationPolicy("foo", new Pagerduty.EscalationPolicyArgs
-        ///         {
-        ///             NumLoops = 2,
-        ///             Rules = 
-        ///             {
-        ///                 new Pagerduty.Inputs.EscalationPolicyRuleArgs
+        ///                 EscalationDelayInMinutes = 10,
+        ///                 Targets = new[]
         ///                 {
-        ///                     EscalationDelayInMinutes = 10,
-        ///                     Targets = 
+        ///                     new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
         ///                     {
-        ///                         new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
-        ///                         {
-        ///                             Type = "user",
-        ///                             Id = exampleUser.Id,
-        ///                         },
+        ///                         Type = "user",
+        ///                         Id = exampleUser.Id,
         ///                     },
         ///                 },
         ///             },
-        ///         });
-        ///         var exampleService = new Pagerduty.Service("exampleService", new Pagerduty.ServiceArgs
-        ///         {
-        ///             AutoResolveTimeout = "14400",
-        ///             AcknowledgementTimeout = "600",
-        ///             EscalationPolicy = pagerduty_escalation_policy.Example.Id,
-        ///         });
-        ///         var exampleServiceIntegration = new Pagerduty.ServiceIntegration("exampleServiceIntegration", new Pagerduty.ServiceIntegrationArgs
-        ///         {
-        ///             Vendor = datadog.Apply(datadog =&gt; datadog.Id),
-        ///             Service = exampleService.Id,
-        ///         });
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        ///     var exampleService = new Pagerduty.Service("exampleService", new()
+        ///     {
+        ///         AutoResolveTimeout = "14400",
+        ///         AcknowledgementTimeout = "600",
+        ///         EscalationPolicy = pagerduty_escalation_policy.Example.Id,
+        ///     });
+        /// 
+        ///     var exampleServiceIntegration = new Pagerduty.ServiceIntegration("exampleServiceIntegration", new()
+        ///     {
+        ///         Vendor = datadog.Apply(getVendorResult =&gt; getVendorResult.Id),
+        ///         Service = exampleService.Id,
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -147,7 +151,7 @@ namespace Pulumi.Pagerduty
     }
 
 
-    public sealed class GetVendorArgs : Pulumi.InvokeArgs
+    public sealed class GetVendorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The vendor name to use to find a vendor in the PagerDuty API.
@@ -158,9 +162,10 @@ namespace Pulumi.Pagerduty
         public GetVendorArgs()
         {
         }
+        public static new GetVendorArgs Empty => new GetVendorArgs();
     }
 
-    public sealed class GetVendorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVendorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The vendor name to use to find a vendor in the PagerDuty API.
@@ -171,6 +176,7 @@ namespace Pulumi.Pagerduty
         public GetVendorInvokeArgs()
         {
         }
+        public static new GetVendorInvokeArgs Empty => new GetVendorInvokeArgs();
     }
 
 

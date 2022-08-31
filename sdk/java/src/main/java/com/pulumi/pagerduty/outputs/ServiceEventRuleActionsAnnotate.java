@@ -15,13 +15,9 @@ public final class ServiceEventRuleActionsAnnotate {
      * @return The value for the operation. For example, an RE2 regular expression for regex-type variables.
      * 
      */
-    private final @Nullable String value;
+    private @Nullable String value;
 
-    @CustomType.Constructor
-    private ServiceEventRuleActionsAnnotate(@CustomType.Parameter("value") @Nullable String value) {
-        this.value = value;
-    }
-
+    private ServiceEventRuleActionsAnnotate() {}
     /**
      * @return The value for the operation. For example, an RE2 regular expression for regex-type variables.
      * 
@@ -37,24 +33,24 @@ public final class ServiceEventRuleActionsAnnotate {
     public static Builder builder(ServiceEventRuleActionsAnnotate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceEventRuleActionsAnnotate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder value(@Nullable String value) {
             this.value = value;
             return this;
-        }        public ServiceEventRuleActionsAnnotate build() {
-            return new ServiceEventRuleActionsAnnotate(value);
+        }
+        public ServiceEventRuleActionsAnnotate build() {
+            final var o = new ServiceEventRuleActionsAnnotate();
+            o.value = value;
+            return o;
         }
     }
 }

@@ -19,53 +19,56 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := pagerduty.NewServiceDependency(ctx, "foo", &pagerduty.ServiceDependencyArgs{
-// 			Dependency: &ServiceDependencyDependencyArgs{
-// 				DependentServices: ServiceDependencyDependencyDependentServiceArray{
-// 					&ServiceDependencyDependencyDependentServiceArgs{
-// 						Id:   pulumi.Any(pagerduty_business_service.Foo.Id),
-// 						Type: pulumi.Any(pagerduty_business_service.Foo.Type),
-// 					},
-// 				},
-// 				SupportingServices: ServiceDependencyDependencySupportingServiceArray{
-// 					&ServiceDependencyDependencySupportingServiceArgs{
-// 						Id:   pulumi.Any(pagerduty_service.Foo.Id),
-// 						Type: pulumi.Any(pagerduty_service.Foo.Type),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = pagerduty.NewServiceDependency(ctx, "bar", &pagerduty.ServiceDependencyArgs{
-// 			Dependency: &ServiceDependencyDependencyArgs{
-// 				DependentServices: ServiceDependencyDependencyDependentServiceArray{
-// 					&ServiceDependencyDependencyDependentServiceArgs{
-// 						Id:   pulumi.Any(pagerduty_business_service.Foo.Id),
-// 						Type: pulumi.Any(pagerduty_business_service.Foo.Type),
-// 					},
-// 				},
-// 				SupportingServices: ServiceDependencyDependencySupportingServiceArray{
-// 					&ServiceDependencyDependencySupportingServiceArgs{
-// 						Id:   pulumi.Any(pagerduty_service.Two.Id),
-// 						Type: pulumi.Any(pagerduty_service.Two.Type),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := pagerduty.NewServiceDependency(ctx, "foo", &pagerduty.ServiceDependencyArgs{
+//				Dependency: &ServiceDependencyDependencyArgs{
+//					DependentServices: ServiceDependencyDependencyDependentServiceArray{
+//						&ServiceDependencyDependencyDependentServiceArgs{
+//							Id:   pulumi.Any(pagerduty_business_service.Foo.Id),
+//							Type: pulumi.Any(pagerduty_business_service.Foo.Type),
+//						},
+//					},
+//					SupportingServices: ServiceDependencyDependencySupportingServiceArray{
+//						&ServiceDependencyDependencySupportingServiceArgs{
+//							Id:   pulumi.Any(pagerduty_service.Foo.Id),
+//							Type: pulumi.Any(pagerduty_service.Foo.Type),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewServiceDependency(ctx, "bar", &pagerduty.ServiceDependencyArgs{
+//				Dependency: &ServiceDependencyDependencyArgs{
+//					DependentServices: ServiceDependencyDependencyDependentServiceArray{
+//						&ServiceDependencyDependencyDependentServiceArgs{
+//							Id:   pulumi.Any(pagerduty_business_service.Foo.Id),
+//							Type: pulumi.Any(pagerduty_business_service.Foo.Type),
+//						},
+//					},
+//					SupportingServices: ServiceDependencyDependencySupportingServiceArray{
+//						&ServiceDependencyDependencySupportingServiceArgs{
+//							Id:   pulumi.Any(pagerduty_service.Two.Id),
+//							Type: pulumi.Any(pagerduty_service.Two.Type),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -73,7 +76,9 @@ import (
 // Service dependencies can be imported using the related supporting service id, supporting service type (`business_service` or `service`) and the dependency id separated by a dot, e.g.
 //
 // ```sh
-//  $ pulumi import pagerduty:index/serviceDependency:ServiceDependency main P4B2Z7G.business_service.D5RTHKRNGU4PYE90PJ
+//
+//	$ pulumi import pagerduty:index/serviceDependency:ServiceDependency main P4B2Z7G.business_service.D5RTHKRNGU4PYE90PJ
+//
 // ```
 type ServiceDependency struct {
 	pulumi.CustomResourceState
@@ -164,7 +169,7 @@ func (i *ServiceDependency) ToServiceDependencyOutputWithContext(ctx context.Con
 // ServiceDependencyArrayInput is an input type that accepts ServiceDependencyArray and ServiceDependencyArrayOutput values.
 // You can construct a concrete instance of `ServiceDependencyArrayInput` via:
 //
-//          ServiceDependencyArray{ ServiceDependencyArgs{...} }
+//	ServiceDependencyArray{ ServiceDependencyArgs{...} }
 type ServiceDependencyArrayInput interface {
 	pulumi.Input
 
@@ -189,7 +194,7 @@ func (i ServiceDependencyArray) ToServiceDependencyArrayOutputWithContext(ctx co
 // ServiceDependencyMapInput is an input type that accepts ServiceDependencyMap and ServiceDependencyMapOutput values.
 // You can construct a concrete instance of `ServiceDependencyMapInput` via:
 //
-//          ServiceDependencyMap{ "key": ServiceDependencyArgs{...} }
+//	ServiceDependencyMap{ "key": ServiceDependencyArgs{...} }
 type ServiceDependencyMapInput interface {
 	pulumi.Input
 

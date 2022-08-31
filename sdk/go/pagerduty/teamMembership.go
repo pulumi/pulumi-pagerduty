@@ -19,35 +19,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		fooUser, err := pagerduty.NewUser(ctx, "fooUser", &pagerduty.UserArgs{
-// 			Email: pulumi.String("foo@bar.com"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		fooTeam, err := pagerduty.NewTeam(ctx, "fooTeam", &pagerduty.TeamArgs{
-// 			Description: pulumi.String("foo"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = pagerduty.NewTeamMembership(ctx, "fooTeamMembership", &pagerduty.TeamMembershipArgs{
-// 			UserId: fooUser.ID(),
-// 			TeamId: fooTeam.ID(),
-// 			Role:   pulumi.String("manager"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			fooUser, err := pagerduty.NewUser(ctx, "fooUser", &pagerduty.UserArgs{
+//				Email: pulumi.String("foo@bar.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			fooTeam, err := pagerduty.NewTeam(ctx, "fooTeam", &pagerduty.TeamArgs{
+//				Description: pulumi.String("foo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewTeamMembership(ctx, "fooTeamMembership", &pagerduty.TeamMembershipArgs{
+//				UserId: fooUser.ID(),
+//				TeamId: fooTeam.ID(),
+//				Role:   pulumi.String("manager"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -55,7 +58,9 @@ import (
 // Team memberships can be imported using the `user_id` and `team_id`, e.g.
 //
 // ```sh
-//  $ pulumi import pagerduty:index/teamMembership:TeamMembership main PLBP09X:PLB09Z
+//
+//	$ pulumi import pagerduty:index/teamMembership:TeamMembership main PLBP09X:PLB09Z
+//
 // ```
 type TeamMembership struct {
 	pulumi.CustomResourceState
@@ -184,7 +189,7 @@ func (i *TeamMembership) ToTeamMembershipOutputWithContext(ctx context.Context) 
 // TeamMembershipArrayInput is an input type that accepts TeamMembershipArray and TeamMembershipArrayOutput values.
 // You can construct a concrete instance of `TeamMembershipArrayInput` via:
 //
-//          TeamMembershipArray{ TeamMembershipArgs{...} }
+//	TeamMembershipArray{ TeamMembershipArgs{...} }
 type TeamMembershipArrayInput interface {
 	pulumi.Input
 
@@ -209,7 +214,7 @@ func (i TeamMembershipArray) ToTeamMembershipArrayOutputWithContext(ctx context.
 // TeamMembershipMapInput is an input type that accepts TeamMembershipMap and TeamMembershipMapOutput values.
 // You can construct a concrete instance of `TeamMembershipMapInput` via:
 //
-//          TeamMembershipMap{ "key": TeamMembershipArgs{...} }
+//	TeamMembershipMap{ "key": TeamMembershipArgs{...} }
 type TeamMembershipMapInput interface {
 	pulumi.Input
 

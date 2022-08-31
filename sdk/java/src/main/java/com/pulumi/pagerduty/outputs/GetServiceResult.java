@@ -13,28 +13,19 @@ public final class GetServiceResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The short name of the found service.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetServiceResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("type") String type) {
-        this.id = id;
-        this.name = name;
-        this.type = type;
-    }
-
+    private GetServiceResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -64,16 +55,12 @@ public final class GetServiceResult {
     public static Builder builder(GetServiceResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String name;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetServiceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -81,19 +68,27 @@ public final class GetServiceResult {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetServiceResult build() {
-            return new GetServiceResult(id, name, type);
+        }
+        public GetServiceResult build() {
+            final var o = new GetServiceResult();
+            o.id = id;
+            o.name = name;
+            o.type = type;
+            return o;
         }
     }
 }

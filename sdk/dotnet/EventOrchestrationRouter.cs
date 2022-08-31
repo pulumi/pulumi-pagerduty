@@ -19,67 +19,65 @@ namespace Pulumi.Pagerduty
     /// This example assumes services used in the `route_to` configuration already exists. So it does not show creation of service resource.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Pagerduty = Pulumi.Pagerduty;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var router = new Pagerduty.EventOrchestrationRouter("router", new()
     ///     {
-    ///         var router = new Pagerduty.EventOrchestrationRouter("router", new Pagerduty.EventOrchestrationRouterArgs
+    ///         EventOrchestration = pagerduty_event_orchestration.My_monitor.Id,
+    ///         Set = new Pagerduty.Inputs.EventOrchestrationRouterSetArgs
     ///         {
-    ///             EventOrchestration = pagerduty_event_orchestration.My_monitor.Id,
-    ///             Set = new Pagerduty.Inputs.EventOrchestrationRouterSetArgs
+    ///             Id = "start",
+    ///             Rules = new[]
     ///             {
-    ///                 Id = "start",
-    ///                 Rules = 
+    ///                 new Pagerduty.Inputs.EventOrchestrationRouterSetRuleArgs
     ///                 {
-    ///                     new Pagerduty.Inputs.EventOrchestrationRouterSetRuleArgs
+    ///                     Label = "Events relating to our relational database",
+    ///                     Conditions = new[]
     ///                     {
-    ///                         Label = "Events relating to our relational database",
-    ///                         Conditions = 
+    ///                         new Pagerduty.Inputs.EventOrchestrationRouterSetRuleConditionArgs
     ///                         {
-    ///                             new Pagerduty.Inputs.EventOrchestrationRouterSetRuleConditionArgs
-    ///                             {
-    ///                                 Expression = "event.summary matches part 'database'",
-    ///                             },
-    ///                             new Pagerduty.Inputs.EventOrchestrationRouterSetRuleConditionArgs
-    ///                             {
-    ///                                 Expression = "event.source matches regex 'db[0-9]+-server'",
-    ///                             },
+    ///                             Expression = "event.summary matches part 'database'",
     ///                         },
-    ///                         Actions = new Pagerduty.Inputs.EventOrchestrationRouterSetRuleActionsArgs
+    ///                         new Pagerduty.Inputs.EventOrchestrationRouterSetRuleConditionArgs
     ///                         {
-    ///                             RouteTo = pagerduty_service.Database.Id,
+    ///                             Expression = "event.source matches regex 'db[0-9]+-server'",
     ///                         },
     ///                     },
-    ///                     new Pagerduty.Inputs.EventOrchestrationRouterSetRuleArgs
+    ///                     Actions = new Pagerduty.Inputs.EventOrchestrationRouterSetRuleActionsArgs
     ///                     {
-    ///                         Conditions = 
+    ///                         RouteTo = pagerduty_service.Database.Id,
+    ///                     },
+    ///                 },
+    ///                 new Pagerduty.Inputs.EventOrchestrationRouterSetRuleArgs
+    ///                 {
+    ///                     Conditions = new[]
+    ///                     {
+    ///                         new Pagerduty.Inputs.EventOrchestrationRouterSetRuleConditionArgs
     ///                         {
-    ///                             new Pagerduty.Inputs.EventOrchestrationRouterSetRuleConditionArgs
-    ///                             {
-    ///                                 Expression = "event.summary matches part 'www'",
-    ///                             },
+    ///                             Expression = "event.summary matches part 'www'",
     ///                         },
-    ///                         Actions = new Pagerduty.Inputs.EventOrchestrationRouterSetRuleActionsArgs
-    ///                         {
-    ///                             RouteTo = pagerduty_service.Www.Id,
-    ///                         },
+    ///                     },
+    ///                     Actions = new Pagerduty.Inputs.EventOrchestrationRouterSetRuleActionsArgs
+    ///                     {
+    ///                         RouteTo = pagerduty_service.Www.Id,
     ///                     },
     ///                 },
     ///             },
-    ///             CatchAll = new Pagerduty.Inputs.EventOrchestrationRouterCatchAllArgs
+    ///         },
+    ///         CatchAll = new Pagerduty.Inputs.EventOrchestrationRouterCatchAllArgs
+    ///         {
+    ///             Actions = new Pagerduty.Inputs.EventOrchestrationRouterCatchAllActionsArgs
     ///             {
-    ///                 Actions = new Pagerduty.Inputs.EventOrchestrationRouterCatchAllActionsArgs
-    ///                 {
-    ///                     RouteTo = "unrouted",
-    ///                 },
+    ///                 RouteTo = "unrouted",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -91,7 +89,7 @@ namespace Pulumi.Pagerduty
     /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter")]
-    public partial class EventOrchestrationRouter : Pulumi.CustomResource
+    public partial class EventOrchestrationRouter : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When none of the rules match an event, the event will be routed according to the catch_all settings.
@@ -155,7 +153,7 @@ namespace Pulumi.Pagerduty
         }
     }
 
-    public sealed class EventOrchestrationRouterArgs : Pulumi.ResourceArgs
+    public sealed class EventOrchestrationRouterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When none of the rules match an event, the event will be routed according to the catch_all settings.
@@ -178,9 +176,10 @@ namespace Pulumi.Pagerduty
         public EventOrchestrationRouterArgs()
         {
         }
+        public static new EventOrchestrationRouterArgs Empty => new EventOrchestrationRouterArgs();
     }
 
-    public sealed class EventOrchestrationRouterState : Pulumi.ResourceArgs
+    public sealed class EventOrchestrationRouterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When none of the rules match an event, the event will be routed according to the catch_all settings.
@@ -203,5 +202,6 @@ namespace Pulumi.Pagerduty
         public EventOrchestrationRouterState()
         {
         }
+        public static new EventOrchestrationRouterState Empty => new EventOrchestrationRouterState();
     }
 }

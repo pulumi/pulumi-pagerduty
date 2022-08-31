@@ -17,25 +17,24 @@ namespace Pulumi.Pagerduty
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Pagerduty = Pulumi.Pagerduty;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var parent = new Pagerduty.Team("parent", new()
     ///     {
-    ///         var parent = new Pagerduty.Team("parent", new Pagerduty.TeamArgs
-    ///         {
-    ///             Description = "Product and Engineering",
-    ///         });
-    ///         var example = new Pagerduty.Team("example", new Pagerduty.TeamArgs
-    ///         {
-    ///             Description = "All engineering",
-    ///             Parent = parent.Id,
-    ///         });
-    ///     }
+    ///         Description = "Product and Engineering",
+    ///     });
     /// 
-    /// }
+    ///     var example = new Pagerduty.Team("example", new()
+    ///     {
+    ///         Description = "All engineering",
+    ///         Parent = parent.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +46,7 @@ namespace Pulumi.Pagerduty
     /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/team:Team")]
-    public partial class Team : Pulumi.CustomResource
+    public partial class Team : global::Pulumi.CustomResource
     {
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
@@ -114,7 +113,7 @@ namespace Pulumi.Pagerduty
         }
     }
 
-    public sealed class TeamArgs : Pulumi.ResourceArgs
+    public sealed class TeamArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -135,9 +134,10 @@ namespace Pulumi.Pagerduty
         {
             Description = "Managed by Pulumi";
         }
+        public static new TeamArgs Empty => new TeamArgs();
     }
 
-    public sealed class TeamState : Pulumi.ResourceArgs
+    public sealed class TeamState : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -164,5 +164,6 @@ namespace Pulumi.Pagerduty
         {
             Description = "Managed by Pulumi";
         }
+        public static new TeamState Empty => new TeamState();
     }
 }

@@ -28,24 +28,15 @@ public final class SlackConnectionConfig {
      * - `incident.reopened`
      * 
      */
-    private final List<String> events;
-    private final @Nullable List<String> priorities;
+    private List<String> events;
+    private @Nullable List<String> priorities;
     /**
      * @return Allows you to filter events by urgency. Either `high` or `low`.
      * 
      */
-    private final @Nullable String urgency;
+    private @Nullable String urgency;
 
-    @CustomType.Constructor
-    private SlackConnectionConfig(
-        @CustomType.Parameter("events") List<String> events,
-        @CustomType.Parameter("priorities") @Nullable List<String> priorities,
-        @CustomType.Parameter("urgency") @Nullable String urgency) {
-        this.events = events;
-        this.priorities = priorities;
-        this.urgency = urgency;
-    }
-
+    private SlackConnectionConfig() {}
     /**
      * @return A list of strings to filter events by PagerDuty event type. `&#34;incident.triggered&#34;` is required. The follow event types are also possible:
      * - `incident.acknowledged`
@@ -83,16 +74,12 @@ public final class SlackConnectionConfig {
     public static Builder builder(SlackConnectionConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> events;
         private @Nullable List<String> priorities;
         private @Nullable String urgency;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SlackConnectionConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.events = defaults.events;
@@ -100,6 +87,7 @@ public final class SlackConnectionConfig {
     	      this.urgency = defaults.urgency;
         }
 
+        @CustomType.Setter
         public Builder events(List<String> events) {
             this.events = Objects.requireNonNull(events);
             return this;
@@ -107,6 +95,7 @@ public final class SlackConnectionConfig {
         public Builder events(String... events) {
             return events(List.of(events));
         }
+        @CustomType.Setter
         public Builder priorities(@Nullable List<String> priorities) {
             this.priorities = priorities;
             return this;
@@ -114,11 +103,17 @@ public final class SlackConnectionConfig {
         public Builder priorities(String... priorities) {
             return priorities(List.of(priorities));
         }
+        @CustomType.Setter
         public Builder urgency(@Nullable String urgency) {
             this.urgency = urgency;
             return this;
-        }        public SlackConnectionConfig build() {
-            return new SlackConnectionConfig(events, priorities, urgency);
+        }
+        public SlackConnectionConfig build() {
+            final var o = new SlackConnectionConfig();
+            o.events = events;
+            o.priorities = priorities;
+            o.urgency = urgency;
+            return o;
         }
     }
 }

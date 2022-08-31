@@ -13,27 +13,16 @@ public final class GetServiceIntegrationResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The integration key for the integration. This can be used to configure alerts.
      * 
      */
-    private final String integrationKey;
-    private final String integrationSummary;
-    private final String serviceName;
+    private String integrationKey;
+    private String integrationSummary;
+    private String serviceName;
 
-    @CustomType.Constructor
-    private GetServiceIntegrationResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("integrationKey") String integrationKey,
-        @CustomType.Parameter("integrationSummary") String integrationSummary,
-        @CustomType.Parameter("serviceName") String serviceName) {
-        this.id = id;
-        this.integrationKey = integrationKey;
-        this.integrationSummary = integrationSummary;
-        this.serviceName = serviceName;
-    }
-
+    private GetServiceIntegrationResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -62,17 +51,13 @@ public final class GetServiceIntegrationResult {
     public static Builder builder(GetServiceIntegrationResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String integrationKey;
         private String integrationSummary;
         private String serviceName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetServiceIntegrationResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -81,23 +66,33 @@ public final class GetServiceIntegrationResult {
     	      this.serviceName = defaults.serviceName;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder integrationKey(String integrationKey) {
             this.integrationKey = Objects.requireNonNull(integrationKey);
             return this;
         }
+        @CustomType.Setter
         public Builder integrationSummary(String integrationSummary) {
             this.integrationSummary = Objects.requireNonNull(integrationSummary);
             return this;
         }
+        @CustomType.Setter
         public Builder serviceName(String serviceName) {
             this.serviceName = Objects.requireNonNull(serviceName);
             return this;
-        }        public GetServiceIntegrationResult build() {
-            return new GetServiceIntegrationResult(id, integrationKey, integrationSummary, serviceName);
+        }
+        public GetServiceIntegrationResult build() {
+            final var o = new GetServiceIntegrationResult();
+            o.id = id;
+            o.integrationKey = integrationKey;
+            o.integrationSummary = integrationSummary;
+            o.serviceName = serviceName;
+            return o;
         }
     }
 }

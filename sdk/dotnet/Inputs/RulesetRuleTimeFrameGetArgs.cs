@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class RulesetRuleTimeFrameGetArgs : Pulumi.ResourceArgs
+    public sealed class RulesetRuleTimeFrameGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("activeBetweens")]
         private InputList<Inputs.RulesetRuleTimeFrameActiveBetweenGetArgs>? _activeBetweens;
@@ -39,5 +39,6 @@ namespace Pulumi.Pagerduty.Inputs
         public RulesetRuleTimeFrameGetArgs()
         {
         }
+        public static new RulesetRuleTimeFrameGetArgs Empty => new RulesetRuleTimeFrameGetArgs();
     }
 }

@@ -16,17 +16,10 @@ public final class EventOrchestrationServiceSet {
      * @return The ID of this set of rules. Rules in other sets can route events into this set using the rule&#39;s `route_to` property.
      * 
      */
-    private final String id;
-    private final @Nullable List<EventOrchestrationServiceSetRule> rules;
+    private String id;
+    private @Nullable List<EventOrchestrationServiceSetRule> rules;
 
-    @CustomType.Constructor
-    private EventOrchestrationServiceSet(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("rules") @Nullable List<EventOrchestrationServiceSetRule> rules) {
-        this.id = id;
-        this.rules = rules;
-    }
-
+    private EventOrchestrationServiceSet() {}
     /**
      * @return The ID of this set of rules. Rules in other sets can route events into this set using the rule&#39;s `route_to` property.
      * 
@@ -45,33 +38,35 @@ public final class EventOrchestrationServiceSet {
     public static Builder builder(EventOrchestrationServiceSet defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private @Nullable List<EventOrchestrationServiceSetRule> rules;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventOrchestrationServiceSet defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.rules = defaults.rules;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder rules(@Nullable List<EventOrchestrationServiceSetRule> rules) {
             this.rules = rules;
             return this;
         }
         public Builder rules(EventOrchestrationServiceSetRule... rules) {
             return rules(List.of(rules));
-        }        public EventOrchestrationServiceSet build() {
-            return new EventOrchestrationServiceSet(id, rules);
+        }
+        public EventOrchestrationServiceSet build() {
+            final var o = new EventOrchestrationServiceSet();
+            o.id = id;
+            o.rules = rules;
+            return o;
         }
     }
 }

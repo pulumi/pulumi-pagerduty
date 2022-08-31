@@ -16,7 +16,7 @@ namespace Pulumi.Pagerduty
     /// [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
     /// </summary>
     [PagerdutyResourceType("pulumi:providers:pagerduty")]
-    public partial class Provider : Pulumi.ProviderResource
+    public partial class Provider : global::Pulumi.ProviderResource
     {
         [Output("apiUrlOverride")]
         public Output<string?> ApiUrlOverride { get; private set; } = null!;
@@ -56,7 +56,7 @@ namespace Pulumi.Pagerduty
         }
     }
 
-    public sealed class ProviderArgs : Pulumi.ResourceArgs
+    public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
         [Input("apiUrlOverride")]
         public Input<string>? ApiUrlOverride { get; set; }
@@ -77,5 +77,6 @@ namespace Pulumi.Pagerduty
         {
             SkipCredentialsValidation = false;
         }
+        public static new ProviderArgs Empty => new ProviderArgs();
     }
 }

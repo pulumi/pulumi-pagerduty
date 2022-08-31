@@ -13,21 +13,14 @@ public final class ServiceDependencyDependencyDependentService {
      * @return The ID of the service dependency.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Can be `business_service`,  `service`, `business_service_reference` or `technical_service_reference`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private ServiceDependencyDependencyDependentService(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("type") String type) {
-        this.id = id;
-        this.type = type;
-    }
-
+    private ServiceDependencyDependencyDependentService() {}
     /**
      * @return The ID of the service dependency.
      * 
@@ -50,30 +43,32 @@ public final class ServiceDependencyDependencyDependentService {
     public static Builder builder(ServiceDependencyDependencyDependentService defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceDependencyDependencyDependentService defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public ServiceDependencyDependencyDependentService build() {
-            return new ServiceDependencyDependencyDependentService(id, type);
+        }
+        public ServiceDependencyDependencyDependentService build() {
+            final var o = new ServiceDependencyDependencyDependentService();
+            o.id = id;
+            o.type = type;
+            return o;
         }
     }
 }

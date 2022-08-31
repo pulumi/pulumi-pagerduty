@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class ResponsePlayResponderTeamArgs : Pulumi.ResourceArgs
+    public sealed class ResponsePlayResponderTeamArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the user defined as the responder
@@ -27,5 +27,6 @@ namespace Pulumi.Pagerduty.Inputs
         public ResponsePlayResponderTeamArgs()
         {
         }
+        public static new ResponsePlayResponderTeamArgs Empty => new ResponsePlayResponderTeamArgs();
     }
 }

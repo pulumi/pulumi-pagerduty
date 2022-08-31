@@ -15,21 +15,14 @@ public final class WebhookSubscriptionFilter {
      * @return The id of the object being used as the filter. This field is required for all filter types except account_reference.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return The type of object being used as the filter. Allowed values are `account_reference`, `service_reference`, and `team_reference`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private WebhookSubscriptionFilter(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("type") String type) {
-        this.id = id;
-        this.type = type;
-    }
-
+    private WebhookSubscriptionFilter() {}
     /**
      * @return The id of the object being used as the filter. This field is required for all filter types except account_reference.
      * 
@@ -52,30 +45,32 @@ public final class WebhookSubscriptionFilter {
     public static Builder builder(WebhookSubscriptionFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WebhookSubscriptionFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public WebhookSubscriptionFilter build() {
-            return new WebhookSubscriptionFilter(id, type);
+        }
+        public WebhookSubscriptionFilter build() {
+            final var o = new WebhookSubscriptionFilter();
+            o.id = id;
+            o.type = type;
+            return o;
         }
     }
 }

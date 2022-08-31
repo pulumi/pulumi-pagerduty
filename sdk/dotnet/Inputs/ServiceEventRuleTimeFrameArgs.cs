@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class ServiceEventRuleTimeFrameArgs : Pulumi.ResourceArgs
+    public sealed class ServiceEventRuleTimeFrameArgs : global::Pulumi.ResourceArgs
     {
         [Input("activeBetweens")]
         private InputList<Inputs.ServiceEventRuleTimeFrameActiveBetweenArgs>? _activeBetweens;
@@ -39,5 +39,6 @@ namespace Pulumi.Pagerduty.Inputs
         public ServiceEventRuleTimeFrameArgs()
         {
         }
+        public static new ServiceEventRuleTimeFrameArgs Empty => new ServiceEventRuleTimeFrameArgs();
     }
 }

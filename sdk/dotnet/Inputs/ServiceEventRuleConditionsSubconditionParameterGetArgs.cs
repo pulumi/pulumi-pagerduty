@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class ServiceEventRuleConditionsSubconditionParameterGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceEventRuleConditionsSubconditionParameterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
@@ -27,5 +27,6 @@ namespace Pulumi.Pagerduty.Inputs
         public ServiceEventRuleConditionsSubconditionParameterGetArgs()
         {
         }
+        public static new ServiceEventRuleConditionsSubconditionParameterGetArgs Empty => new ServiceEventRuleConditionsSubconditionParameterGetArgs();
     }
 }

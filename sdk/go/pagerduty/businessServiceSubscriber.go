@@ -19,49 +19,52 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleBusinessService, err := pagerduty.NewBusinessService(ctx, "exampleBusinessService", &pagerduty.BusinessServiceArgs{
-// 			Description:    pulumi.String("A very descriptive description of this business service"),
-// 			PointOfContact: pulumi.String("PagerDuty Admin"),
-// 			Team:           pulumi.String("P37RSRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		engteam, err := pagerduty.NewTeam(ctx, "engteam", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
-// 			Email: pulumi.String("125.greenholt.earline@graham.name"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = pagerduty.NewBusinessServiceSubscriber(ctx, "teamExample", &pagerduty.BusinessServiceSubscriberArgs{
-// 			SubscriberId:      engteam.ID(),
-// 			SubscriberType:    pulumi.String("team"),
-// 			BusinessServiceId: exampleBusinessService.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = pagerduty.NewBusinessServiceSubscriber(ctx, "userExample", &pagerduty.BusinessServiceSubscriberArgs{
-// 			SubscriberId:      exampleUser.ID(),
-// 			SubscriberType:    pulumi.String("user"),
-// 			BusinessServiceId: exampleBusinessService.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleBusinessService, err := pagerduty.NewBusinessService(ctx, "exampleBusinessService", &pagerduty.BusinessServiceArgs{
+//				Description:    pulumi.String("A very descriptive description of this business service"),
+//				PointOfContact: pulumi.String("PagerDuty Admin"),
+//				Team:           pulumi.String("P37RSRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			engteam, err := pagerduty.NewTeam(ctx, "engteam", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
+//				Email: pulumi.String("125.greenholt.earline@graham.name"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewBusinessServiceSubscriber(ctx, "teamExample", &pagerduty.BusinessServiceSubscriberArgs{
+//				SubscriberId:      engteam.ID(),
+//				SubscriberType:    pulumi.String("team"),
+//				BusinessServiceId: exampleBusinessService.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewBusinessServiceSubscriber(ctx, "userExample", &pagerduty.BusinessServiceSubscriberArgs{
+//				SubscriberId:      exampleUser.ID(),
+//				SubscriberType:    pulumi.String("user"),
+//				BusinessServiceId: exampleBusinessService.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -69,7 +72,9 @@ import (
 // Services can be imported using the `id` using the related business service ID, the subscriber type and the subscriber ID separated by a dot, e.g.
 //
 // ```sh
-//  $ pulumi import pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber main PLBP09X.team.PLBP09X
+//
+//	$ pulumi import pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber main PLBP09X.team.PLBP09X
+//
 // ```
 type BusinessServiceSubscriber struct {
 	pulumi.CustomResourceState
@@ -186,7 +191,7 @@ func (i *BusinessServiceSubscriber) ToBusinessServiceSubscriberOutputWithContext
 // BusinessServiceSubscriberArrayInput is an input type that accepts BusinessServiceSubscriberArray and BusinessServiceSubscriberArrayOutput values.
 // You can construct a concrete instance of `BusinessServiceSubscriberArrayInput` via:
 //
-//          BusinessServiceSubscriberArray{ BusinessServiceSubscriberArgs{...} }
+//	BusinessServiceSubscriberArray{ BusinessServiceSubscriberArgs{...} }
 type BusinessServiceSubscriberArrayInput interface {
 	pulumi.Input
 
@@ -211,7 +216,7 @@ func (i BusinessServiceSubscriberArray) ToBusinessServiceSubscriberArrayOutputWi
 // BusinessServiceSubscriberMapInput is an input type that accepts BusinessServiceSubscriberMap and BusinessServiceSubscriberMapOutput values.
 // You can construct a concrete instance of `BusinessServiceSubscriberMapInput` via:
 //
-//          BusinessServiceSubscriberMap{ "key": BusinessServiceSubscriberArgs{...} }
+//	BusinessServiceSubscriberMap{ "key": BusinessServiceSubscriberArgs{...} }
 type BusinessServiceSubscriberMapInput interface {
 	pulumi.Input
 

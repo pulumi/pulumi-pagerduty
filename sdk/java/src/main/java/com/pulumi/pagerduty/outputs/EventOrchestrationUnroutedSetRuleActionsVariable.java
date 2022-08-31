@@ -13,35 +13,24 @@ public final class EventOrchestrationUnroutedSetRuleActionsVariable {
      * @return The name of the variable
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Path to a field in an event, in dot-notation. This supports both [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data.
      * 
      */
-    private final String path;
+    private String path;
     /**
      * @return Only `regex` is supported
      * 
      */
-    private final String type;
+    private String type;
     /**
      * @return The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private EventOrchestrationUnroutedSetRuleActionsVariable(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("path") String path,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("value") String value) {
-        this.name = name;
-        this.path = path;
-        this.type = type;
-        this.value = value;
-    }
-
+    private EventOrchestrationUnroutedSetRuleActionsVariable() {}
     /**
      * @return The name of the variable
      * 
@@ -78,17 +67,13 @@ public final class EventOrchestrationUnroutedSetRuleActionsVariable {
     public static Builder builder(EventOrchestrationUnroutedSetRuleActionsVariable defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String path;
         private String type;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventOrchestrationUnroutedSetRuleActionsVariable defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -97,23 +82,33 @@ public final class EventOrchestrationUnroutedSetRuleActionsVariable {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder path(String path) {
             this.path = Objects.requireNonNull(path);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public EventOrchestrationUnroutedSetRuleActionsVariable build() {
-            return new EventOrchestrationUnroutedSetRuleActionsVariable(name, path, type, value);
+        }
+        public EventOrchestrationUnroutedSetRuleActionsVariable build() {
+            final var o = new EventOrchestrationUnroutedSetRuleActionsVariable();
+            o.name = name;
+            o.path = path;
+            o.type = type;
+            o.value = value;
+            return o;
         }
     }
 }

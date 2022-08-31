@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class EventOrchestrationIntegrationArgs : Pulumi.ResourceArgs
+    public sealed class EventOrchestrationIntegrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the integration
@@ -30,5 +30,6 @@ namespace Pulumi.Pagerduty.Inputs
         public EventOrchestrationIntegrationArgs()
         {
         }
+        public static new EventOrchestrationIntegrationArgs Empty => new EventOrchestrationIntegrationArgs();
     }
 }

@@ -22,80 +22,55 @@ public final class EventOrchestrationServiceSetRuleActions {
      * @return Add this text as a note on the resulting incident.
      * 
      */
-    private final @Nullable String annotate;
+    private @Nullable String annotate;
     /**
      * @return Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
      * 
      */
-    private final @Nullable EventOrchestrationServiceSetRuleActionsAutomationAction automationAction;
+    private @Nullable EventOrchestrationServiceSetRuleActionsAutomationAction automationAction;
     /**
      * @return sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
      * 
      */
-    private final @Nullable String eventAction;
+    private @Nullable String eventAction;
     /**
      * @return Replace any CEF field or Custom Details object field using custom variables.
      * 
      */
-    private final @Nullable List<EventOrchestrationServiceSetRuleActionsExtraction> extractions;
+    private @Nullable List<EventOrchestrationServiceSetRuleActionsExtraction> extractions;
     /**
      * @return Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
      * 
      */
-    private final @Nullable EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction pagerdutyAutomationAction;
-    private final @Nullable String priority;
+    private @Nullable EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction pagerdutyAutomationAction;
+    private @Nullable String priority;
     /**
      * @return The ID of a Set from this Service Orchestration whose rules you also want to use with event that match this rule.
      * 
      */
-    private final @Nullable String routeTo;
+    private @Nullable String routeTo;
     /**
      * @return sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
      * 
      */
-    private final @Nullable String severity;
+    private @Nullable String severity;
     /**
      * @return Set whether the resulting alert is suppressed. Suppressed alerts will not trigger an incident.
      * 
      */
-    private final @Nullable Boolean suppress;
+    private @Nullable Boolean suppress;
     /**
      * @return The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won&#39;t create an incident for this the resulting alert.
      * 
      */
-    private final @Nullable Integer suspend;
+    private @Nullable Integer suspend;
     /**
      * @return Populate variables from event payloads and use those variables in other event actions.
      * 
      */
-    private final @Nullable List<EventOrchestrationServiceSetRuleActionsVariable> variables;
+    private @Nullable List<EventOrchestrationServiceSetRuleActionsVariable> variables;
 
-    @CustomType.Constructor
-    private EventOrchestrationServiceSetRuleActions(
-        @CustomType.Parameter("annotate") @Nullable String annotate,
-        @CustomType.Parameter("automationAction") @Nullable EventOrchestrationServiceSetRuleActionsAutomationAction automationAction,
-        @CustomType.Parameter("eventAction") @Nullable String eventAction,
-        @CustomType.Parameter("extractions") @Nullable List<EventOrchestrationServiceSetRuleActionsExtraction> extractions,
-        @CustomType.Parameter("pagerdutyAutomationAction") @Nullable EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction pagerdutyAutomationAction,
-        @CustomType.Parameter("priority") @Nullable String priority,
-        @CustomType.Parameter("routeTo") @Nullable String routeTo,
-        @CustomType.Parameter("severity") @Nullable String severity,
-        @CustomType.Parameter("suppress") @Nullable Boolean suppress,
-        @CustomType.Parameter("suspend") @Nullable Integer suspend,
-        @CustomType.Parameter("variables") @Nullable List<EventOrchestrationServiceSetRuleActionsVariable> variables) {
-        this.annotate = annotate;
-        this.automationAction = automationAction;
-        this.eventAction = eventAction;
-        this.extractions = extractions;
-        this.pagerdutyAutomationAction = pagerdutyAutomationAction;
-        this.priority = priority;
-        this.routeTo = routeTo;
-        this.severity = severity;
-        this.suppress = suppress;
-        this.suspend = suspend;
-        this.variables = variables;
-    }
-
+    private EventOrchestrationServiceSetRuleActions() {}
     /**
      * @return Add this text as a note on the resulting incident.
      * 
@@ -177,7 +152,7 @@ public final class EventOrchestrationServiceSetRuleActions {
     public static Builder builder(EventOrchestrationServiceSetRuleActions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String annotate;
         private @Nullable EventOrchestrationServiceSetRuleActionsAutomationAction automationAction;
@@ -190,11 +165,7 @@ public final class EventOrchestrationServiceSetRuleActions {
         private @Nullable Boolean suppress;
         private @Nullable Integer suspend;
         private @Nullable List<EventOrchestrationServiceSetRuleActionsVariable> variables;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventOrchestrationServiceSetRuleActions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.annotate = defaults.annotate;
@@ -210,18 +181,22 @@ public final class EventOrchestrationServiceSetRuleActions {
     	      this.variables = defaults.variables;
         }
 
+        @CustomType.Setter
         public Builder annotate(@Nullable String annotate) {
             this.annotate = annotate;
             return this;
         }
+        @CustomType.Setter
         public Builder automationAction(@Nullable EventOrchestrationServiceSetRuleActionsAutomationAction automationAction) {
             this.automationAction = automationAction;
             return this;
         }
+        @CustomType.Setter
         public Builder eventAction(@Nullable String eventAction) {
             this.eventAction = eventAction;
             return this;
         }
+        @CustomType.Setter
         public Builder extractions(@Nullable List<EventOrchestrationServiceSetRuleActionsExtraction> extractions) {
             this.extractions = extractions;
             return this;
@@ -229,38 +204,58 @@ public final class EventOrchestrationServiceSetRuleActions {
         public Builder extractions(EventOrchestrationServiceSetRuleActionsExtraction... extractions) {
             return extractions(List.of(extractions));
         }
+        @CustomType.Setter
         public Builder pagerdutyAutomationAction(@Nullable EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction pagerdutyAutomationAction) {
             this.pagerdutyAutomationAction = pagerdutyAutomationAction;
             return this;
         }
+        @CustomType.Setter
         public Builder priority(@Nullable String priority) {
             this.priority = priority;
             return this;
         }
+        @CustomType.Setter
         public Builder routeTo(@Nullable String routeTo) {
             this.routeTo = routeTo;
             return this;
         }
+        @CustomType.Setter
         public Builder severity(@Nullable String severity) {
             this.severity = severity;
             return this;
         }
+        @CustomType.Setter
         public Builder suppress(@Nullable Boolean suppress) {
             this.suppress = suppress;
             return this;
         }
+        @CustomType.Setter
         public Builder suspend(@Nullable Integer suspend) {
             this.suspend = suspend;
             return this;
         }
+        @CustomType.Setter
         public Builder variables(@Nullable List<EventOrchestrationServiceSetRuleActionsVariable> variables) {
             this.variables = variables;
             return this;
         }
         public Builder variables(EventOrchestrationServiceSetRuleActionsVariable... variables) {
             return variables(List.of(variables));
-        }        public EventOrchestrationServiceSetRuleActions build() {
-            return new EventOrchestrationServiceSetRuleActions(annotate, automationAction, eventAction, extractions, pagerdutyAutomationAction, priority, routeTo, severity, suppress, suspend, variables);
+        }
+        public EventOrchestrationServiceSetRuleActions build() {
+            final var o = new EventOrchestrationServiceSetRuleActions();
+            o.annotate = annotate;
+            o.automationAction = automationAction;
+            o.eventAction = eventAction;
+            o.extractions = extractions;
+            o.pagerdutyAutomationAction = pagerdutyAutomationAction;
+            o.priority = priority;
+            o.routeTo = routeTo;
+            o.severity = severity;
+            o.suppress = suppress;
+            o.suspend = suspend;
+            o.variables = variables;
+            return o;
         }
     }
 }

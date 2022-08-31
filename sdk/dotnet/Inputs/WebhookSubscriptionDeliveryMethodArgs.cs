@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class WebhookSubscriptionDeliveryMethodArgs : Pulumi.ResourceArgs
+    public sealed class WebhookSubscriptionDeliveryMethodArgs : global::Pulumi.ResourceArgs
     {
         [Input("customHeaders")]
         private InputList<Inputs.WebhookSubscriptionDeliveryMethodCustomHeaderArgs>? _customHeaders;
@@ -45,5 +45,6 @@ namespace Pulumi.Pagerduty.Inputs
         public WebhookSubscriptionDeliveryMethodArgs()
         {
         }
+        public static new WebhookSubscriptionDeliveryMethodArgs Empty => new WebhookSubscriptionDeliveryMethodArgs();
     }
 }

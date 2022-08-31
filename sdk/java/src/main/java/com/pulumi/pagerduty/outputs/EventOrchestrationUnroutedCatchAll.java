@@ -13,13 +13,9 @@ public final class EventOrchestrationUnroutedCatchAll {
      * @return These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` _except_ `route_to` action.
      * 
      */
-    private final EventOrchestrationUnroutedCatchAllActions actions;
+    private EventOrchestrationUnroutedCatchAllActions actions;
 
-    @CustomType.Constructor
-    private EventOrchestrationUnroutedCatchAll(@CustomType.Parameter("actions") EventOrchestrationUnroutedCatchAllActions actions) {
-        this.actions = actions;
-    }
-
+    private EventOrchestrationUnroutedCatchAll() {}
     /**
      * @return These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` _except_ `route_to` action.
      * 
@@ -35,24 +31,24 @@ public final class EventOrchestrationUnroutedCatchAll {
     public static Builder builder(EventOrchestrationUnroutedCatchAll defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private EventOrchestrationUnroutedCatchAllActions actions;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventOrchestrationUnroutedCatchAll defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actions = defaults.actions;
         }
 
+        @CustomType.Setter
         public Builder actions(EventOrchestrationUnroutedCatchAllActions actions) {
             this.actions = Objects.requireNonNull(actions);
             return this;
-        }        public EventOrchestrationUnroutedCatchAll build() {
-            return new EventOrchestrationUnroutedCatchAll(actions);
+        }
+        public EventOrchestrationUnroutedCatchAll build() {
+            final var o = new EventOrchestrationUnroutedCatchAll();
+            o.actions = actions;
+            return o;
         }
     }
 }

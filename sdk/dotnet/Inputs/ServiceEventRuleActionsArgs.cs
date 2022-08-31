@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class ServiceEventRuleActionsArgs : Pulumi.ResourceArgs
+    public sealed class ServiceEventRuleActionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotates")]
         private InputList<Inputs.ServiceEventRuleActionsAnnotateArgs>? _annotates;
@@ -99,5 +99,6 @@ namespace Pulumi.Pagerduty.Inputs
         public ServiceEventRuleActionsArgs()
         {
         }
+        public static new ServiceEventRuleActionsArgs Empty => new ServiceEventRuleActionsArgs();
     }
 }

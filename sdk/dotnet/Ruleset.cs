@@ -15,26 +15,23 @@ namespace Pulumi.Pagerduty
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Pagerduty = Pulumi.Pagerduty;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var fooTeam = new Pagerduty.Team("fooTeam", new Pagerduty.TeamArgs
-    ///         {
-    ///         });
-    ///         var fooRuleset = new Pagerduty.Ruleset("fooRuleset", new Pagerduty.RulesetArgs
-    ///         {
-    ///             Team = new Pagerduty.Inputs.RulesetTeamArgs
-    ///             {
-    ///                 Id = fooTeam.Id,
-    ///             },
-    ///         });
-    ///     }
+    ///     var fooTeam = new Pagerduty.Team("fooTeam");
     /// 
-    /// }
+    ///     var fooRuleset = new Pagerduty.Ruleset("fooRuleset", new()
+    ///     {
+    ///         Team = new Pagerduty.Inputs.RulesetTeamArgs
+    ///         {
+    ///             Id = fooTeam.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +43,7 @@ namespace Pulumi.Pagerduty
     /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/ruleset:Ruleset")]
-    public partial class Ruleset : Pulumi.CustomResource
+    public partial class Ruleset : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Name of the ruleset.
@@ -116,7 +113,7 @@ namespace Pulumi.Pagerduty
         }
     }
 
-    public sealed class RulesetArgs : Pulumi.ResourceArgs
+    public sealed class RulesetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the ruleset.
@@ -133,9 +130,10 @@ namespace Pulumi.Pagerduty
         public RulesetArgs()
         {
         }
+        public static new RulesetArgs Empty => new RulesetArgs();
     }
 
-    public sealed class RulesetState : Pulumi.ResourceArgs
+    public sealed class RulesetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the ruleset.
@@ -170,5 +168,6 @@ namespace Pulumi.Pagerduty
         public RulesetState()
         {
         }
+        public static new RulesetState Empty => new RulesetState();
     }
 }

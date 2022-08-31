@@ -19,20 +19,18 @@ namespace Pulumi.Pagerduty
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Pagerduty = Pulumi.Pagerduty;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Pagerduty.GetBusinessService.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Pagerduty.GetBusinessService.InvokeAsync(new Pagerduty.GetBusinessServiceArgs
-        ///         {
-        ///             Name = "My Service",
-        ///         }));
-        ///     }
+        ///         Name = "My Service",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Pagerduty
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Pagerduty = Pulumi.Pagerduty;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Pagerduty.GetBusinessService.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Pagerduty.GetBusinessService.InvokeAsync(new Pagerduty.GetBusinessServiceArgs
-        ///         {
-        ///             Name = "My Service",
-        ///         }));
-        ///     }
+        ///         Name = "My Service",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Pagerduty
     }
 
 
-    public sealed class GetBusinessServiceArgs : Pulumi.InvokeArgs
+    public sealed class GetBusinessServiceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The business service name to use to find a business service in the PagerDuty API.
@@ -82,9 +78,10 @@ namespace Pulumi.Pagerduty
         public GetBusinessServiceArgs()
         {
         }
+        public static new GetBusinessServiceArgs Empty => new GetBusinessServiceArgs();
     }
 
-    public sealed class GetBusinessServiceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBusinessServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The business service name to use to find a business service in the PagerDuty API.
@@ -95,6 +92,7 @@ namespace Pulumi.Pagerduty
         public GetBusinessServiceInvokeArgs()
         {
         }
+        public static new GetBusinessServiceInvokeArgs Empty => new GetBusinessServiceInvokeArgs();
     }
 
 

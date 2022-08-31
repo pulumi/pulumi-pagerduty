@@ -18,23 +18,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := pagerduty.NewBusinessService(ctx, "example", &pagerduty.BusinessServiceArgs{
-// 			Description:    pulumi.String("A very descriptive description of this business service"),
-// 			PointOfContact: pulumi.String("PagerDuty Admin"),
-// 			Team:           pulumi.String("P37RSRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := pagerduty.NewBusinessService(ctx, "example", &pagerduty.BusinessServiceArgs{
+//				Description:    pulumi.String("A very descriptive description of this business service"),
+//				PointOfContact: pulumi.String("PagerDuty Admin"),
+//				Team:           pulumi.String("P37RSRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -42,7 +45,9 @@ import (
 // Services can be imported using the `id`, e.g.
 //
 // ```sh
-//  $ pulumi import pagerduty:index/businessService:BusinessService main PLBP09X
+//
+//	$ pulumi import pagerduty:index/businessService:BusinessService main PLBP09X
+//
 // ```
 type BusinessService struct {
 	pulumi.CustomResourceState
@@ -187,7 +192,7 @@ func (i *BusinessService) ToBusinessServiceOutputWithContext(ctx context.Context
 // BusinessServiceArrayInput is an input type that accepts BusinessServiceArray and BusinessServiceArrayOutput values.
 // You can construct a concrete instance of `BusinessServiceArrayInput` via:
 //
-//          BusinessServiceArray{ BusinessServiceArgs{...} }
+//	BusinessServiceArray{ BusinessServiceArgs{...} }
 type BusinessServiceArrayInput interface {
 	pulumi.Input
 
@@ -212,7 +217,7 @@ func (i BusinessServiceArray) ToBusinessServiceArrayOutputWithContext(ctx contex
 // BusinessServiceMapInput is an input type that accepts BusinessServiceMap and BusinessServiceMapOutput values.
 // You can construct a concrete instance of `BusinessServiceMapInput` via:
 //
-//          BusinessServiceMap{ "key": BusinessServiceArgs{...} }
+//	BusinessServiceMap{ "key": BusinessServiceArgs{...} }
 type BusinessServiceMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class ScheduleFinalScheduleArgs : Pulumi.ResourceArgs
+    public sealed class ScheduleFinalScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the schedule.
@@ -24,5 +24,6 @@ namespace Pulumi.Pagerduty.Inputs
         public ScheduleFinalScheduleArgs()
         {
         }
+        public static new ScheduleFinalScheduleArgs Empty => new ScheduleFinalScheduleArgs();
     }
 }

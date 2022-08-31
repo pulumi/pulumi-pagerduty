@@ -17,21 +17,14 @@ public final class ServiceEventRuleConditions {
      * @return Operator to combine sub-conditions. Can be `and` or `or`.
      * 
      */
-    private final @Nullable String operator;
+    private @Nullable String operator;
     /**
      * @return List of sub-conditions that define the condition.
      * 
      */
-    private final @Nullable List<ServiceEventRuleConditionsSubcondition> subconditions;
+    private @Nullable List<ServiceEventRuleConditionsSubcondition> subconditions;
 
-    @CustomType.Constructor
-    private ServiceEventRuleConditions(
-        @CustomType.Parameter("operator") @Nullable String operator,
-        @CustomType.Parameter("subconditions") @Nullable List<ServiceEventRuleConditionsSubcondition> subconditions) {
-        this.operator = operator;
-        this.subconditions = subconditions;
-    }
-
+    private ServiceEventRuleConditions() {}
     /**
      * @return Operator to combine sub-conditions. Can be `and` or `or`.
      * 
@@ -54,33 +47,35 @@ public final class ServiceEventRuleConditions {
     public static Builder builder(ServiceEventRuleConditions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String operator;
         private @Nullable List<ServiceEventRuleConditionsSubcondition> subconditions;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceEventRuleConditions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.operator = defaults.operator;
     	      this.subconditions = defaults.subconditions;
         }
 
+        @CustomType.Setter
         public Builder operator(@Nullable String operator) {
             this.operator = operator;
             return this;
         }
+        @CustomType.Setter
         public Builder subconditions(@Nullable List<ServiceEventRuleConditionsSubcondition> subconditions) {
             this.subconditions = subconditions;
             return this;
         }
         public Builder subconditions(ServiceEventRuleConditionsSubcondition... subconditions) {
             return subconditions(List.of(subconditions));
-        }        public ServiceEventRuleConditions build() {
-            return new ServiceEventRuleConditions(operator, subconditions);
+        }
+        public ServiceEventRuleConditions build() {
+            final var o = new ServiceEventRuleConditions();
+            o.operator = operator;
+            o.subconditions = subconditions;
+            return o;
         }
     }
 }

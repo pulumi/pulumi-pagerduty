@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class ServiceIncidentUrgencyRuleArgs : Pulumi.ResourceArgs
+    public sealed class ServiceIncidentUrgencyRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Incidents' urgency during support hours.
@@ -39,5 +39,6 @@ namespace Pulumi.Pagerduty.Inputs
         public ServiceIncidentUrgencyRuleArgs()
         {
         }
+        public static new ServiceIncidentUrgencyRuleArgs Empty => new ServiceIncidentUrgencyRuleArgs();
     }
 }

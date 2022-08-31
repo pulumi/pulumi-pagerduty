@@ -17,25 +17,23 @@ namespace Pulumi.Pagerduty
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Pagerduty = Pulumi.Pagerduty;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Pagerduty.MaintenanceWindow("example", new()
     ///     {
-    ///         var example = new Pagerduty.MaintenanceWindow("example", new Pagerduty.MaintenanceWindowArgs
+    ///         StartTime = "2015-11-09T20:00:00-05:00",
+    ///         EndTime = "2015-11-09T22:00:00-05:00",
+    ///         Services = new[]
     ///         {
-    ///             StartTime = "2015-11-09T20:00:00-05:00",
-    ///             EndTime = "2015-11-09T22:00:00-05:00",
-    ///             Services = 
-    ///             {
-    ///                 pagerduty_service.Example.Id,
-    ///             },
-    ///         });
-    ///     }
+    ///             pagerduty_service.Example.Id,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +45,7 @@ namespace Pulumi.Pagerduty
     /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/maintenanceWindow:MaintenanceWindow")]
-    public partial class MaintenanceWindow : Pulumi.CustomResource
+    public partial class MaintenanceWindow : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A description for the maintenance window.
@@ -117,7 +115,7 @@ namespace Pulumi.Pagerduty
         }
     }
 
-    public sealed class MaintenanceWindowArgs : Pulumi.ResourceArgs
+    public sealed class MaintenanceWindowArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description for the maintenance window.
@@ -153,9 +151,10 @@ namespace Pulumi.Pagerduty
         {
             Description = "Managed by Pulumi";
         }
+        public static new MaintenanceWindowArgs Empty => new MaintenanceWindowArgs();
     }
 
-    public sealed class MaintenanceWindowState : Pulumi.ResourceArgs
+    public sealed class MaintenanceWindowState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description for the maintenance window.
@@ -191,5 +190,6 @@ namespace Pulumi.Pagerduty
         {
             Description = "Managed by Pulumi";
         }
+        public static new MaintenanceWindowState Empty => new MaintenanceWindowState();
     }
 }

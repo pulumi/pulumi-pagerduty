@@ -15,50 +15,51 @@ namespace Pulumi.Pagerduty
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Pagerduty = Pulumi.Pagerduty;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleUser = new Pagerduty.User("exampleUser", new()
     ///     {
-    ///         var exampleUser = new Pagerduty.User("exampleUser", new Pagerduty.UserArgs
+    ///         Email = "125.greenholt.earline@graham.name",
+    ///     });
+    /// 
+    ///     var foo = new Pagerduty.EscalationPolicy("foo", new()
+    ///     {
+    ///         NumLoops = 2,
+    ///         Rules = new[]
     ///         {
-    ///             Email = "125.greenholt.earline@graham.name",
-    ///             Teams = 
+    ///             new Pagerduty.Inputs.EscalationPolicyRuleArgs
     ///             {
-    ///                 pagerduty_team.Example.Id,
-    ///             },
-    ///         });
-    ///         var foo = new Pagerduty.EscalationPolicy("foo", new Pagerduty.EscalationPolicyArgs
-    ///         {
-    ///             NumLoops = 2,
-    ///             Rules = 
-    ///             {
-    ///                 new Pagerduty.Inputs.EscalationPolicyRuleArgs
+    ///                 EscalationDelayInMinutes = 10,
+    ///                 Targets = new[]
     ///                 {
-    ///                     EscalationDelayInMinutes = 10,
-    ///                     Targets = 
+    ///                     new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
     ///                     {
-    ///                         new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
-    ///                         {
-    ///                             Type = "user",
-    ///                             Id = exampleUser.Id,
-    ///                         },
+    ///                         Type = "user_reference",
+    ///                         Id = exampleUser.Id,
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///         var exampleService = new Pagerduty.Service("exampleService", new Pagerduty.ServiceArgs
-    ///         {
-    ///             AutoResolveTimeout = "14400",
-    ///             AcknowledgementTimeout = "600",
-    ///             EscalationPolicy = pagerduty_escalation_policy.Example.Id,
-    ///             AlertCreation = "create_alerts_and_incidents",
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleService = new Pagerduty.Service("exampleService", new()
+    ///     {
+    ///         AutoResolveTimeout = "14400",
+    ///         AcknowledgementTimeout = "600",
+    ///         EscalationPolicy = foo.Id,
+    ///         AlertCreation = "create_alerts_and_incidents",
+    ///         AutoPauseNotificationsParameters = new Pagerduty.Inputs.ServiceAutoPauseNotificationsParametersArgs
+    ///         {
+    ///             Enabled = true,
+    ///             Timeout = 300,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -70,7 +71,7 @@ namespace Pulumi.Pagerduty
     /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/service:Service")]
-    public partial class Service : Pulumi.CustomResource
+    public partial class Service : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.  If not passed in, will default to '"1800"'.
@@ -101,6 +102,12 @@ namespace Pulumi.Pagerduty
         /// </summary>
         [Output("alertGroupingTimeout")]
         public Output<string> AlertGroupingTimeout { get; private set; } = null!;
+
+        /// <summary>
+        /// Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
+        /// </summary>
+        [Output("autoPauseNotificationsParameters")]
+        public Output<Outputs.ServiceAutoPauseNotificationsParameters> AutoPauseNotificationsParameters { get; private set; } = null!;
 
         /// <summary>
         /// Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
@@ -134,6 +141,12 @@ namespace Pulumi.Pagerduty
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The response play used by this service.
+        /// </summary>
+        [Output("responsePlay")]
+        public Output<string?> ResponsePlay { get; private set; } = null!;
 
         [Output("scheduledActions")]
         public Output<ImmutableArray<Outputs.ServiceScheduledAction>> ScheduledActions { get; private set; } = null!;
@@ -194,7 +207,7 @@ namespace Pulumi.Pagerduty
         }
     }
 
-    public sealed class ServiceArgs : Pulumi.ResourceArgs
+    public sealed class ServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.  If not passed in, will default to '"1800"'.
@@ -227,6 +240,12 @@ namespace Pulumi.Pagerduty
         public Input<string>? AlertGroupingTimeout { get; set; }
 
         /// <summary>
+        /// Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
+        /// </summary>
+        [Input("autoPauseNotificationsParameters")]
+        public Input<Inputs.ServiceAutoPauseNotificationsParametersArgs>? AutoPauseNotificationsParameters { get; set; }
+
+        /// <summary>
         /// Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
         /// </summary>
         [Input("autoResolveTimeout")]
@@ -250,6 +269,12 @@ namespace Pulumi.Pagerduty
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The response play used by this service.
+        /// </summary>
+        [Input("responsePlay")]
+        public Input<string>? ResponsePlay { get; set; }
+
         [Input("scheduledActions")]
         private InputList<Inputs.ServiceScheduledActionArgs>? _scheduledActions;
         public InputList<Inputs.ServiceScheduledActionArgs> ScheduledActions
@@ -265,9 +290,10 @@ namespace Pulumi.Pagerduty
         {
             Description = "Managed by Pulumi";
         }
+        public static new ServiceArgs Empty => new ServiceArgs();
     }
 
-    public sealed class ServiceState : Pulumi.ResourceArgs
+    public sealed class ServiceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `"null"` string.  If not passed in, will default to '"1800"'.
@@ -298,6 +324,12 @@ namespace Pulumi.Pagerduty
         /// </summary>
         [Input("alertGroupingTimeout")]
         public Input<string>? AlertGroupingTimeout { get; set; }
+
+        /// <summary>
+        /// Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
+        /// </summary>
+        [Input("autoPauseNotificationsParameters")]
+        public Input<Inputs.ServiceAutoPauseNotificationsParametersGetArgs>? AutoPauseNotificationsParameters { get; set; }
 
         /// <summary>
         /// Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
@@ -332,6 +364,12 @@ namespace Pulumi.Pagerduty
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The response play used by this service.
+        /// </summary>
+        [Input("responsePlay")]
+        public Input<string>? ResponsePlay { get; set; }
+
         [Input("scheduledActions")]
         private InputList<Inputs.ServiceScheduledActionGetArgs>? _scheduledActions;
         public InputList<Inputs.ServiceScheduledActionGetArgs> ScheduledActions
@@ -356,5 +394,6 @@ namespace Pulumi.Pagerduty
         {
             Description = "Managed by Pulumi";
         }
+        public static new ServiceState Empty => new ServiceState();
     }
 }

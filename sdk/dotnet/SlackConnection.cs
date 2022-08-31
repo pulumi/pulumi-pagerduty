@@ -19,57 +19,55 @@ namespace Pulumi.Pagerduty
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Pagerduty = Pulumi.Pagerduty;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var fooTeam = new Pagerduty.Team("fooTeam");
+    /// 
+    ///     var p1 = Pagerduty.GetPriority.Invoke(new()
     ///     {
-    ///         var fooTeam = new Pagerduty.Team("fooTeam", new Pagerduty.TeamArgs
+    ///         Name = "P1",
+    ///     });
+    /// 
+    ///     var fooSlackConnection = new Pagerduty.SlackConnection("fooSlackConnection", new()
+    ///     {
+    ///         SourceId = fooTeam.Id,
+    ///         SourceType = "team_reference",
+    ///         WorkspaceId = "T02A123LV1A",
+    ///         ChannelId = "C02CABCDAC9",
+    ///         NotificationType = "responder",
+    ///         Configs = new[]
     ///         {
-    ///         });
-    ///         var p1 = Output.Create(Pagerduty.GetPriority.InvokeAsync(new Pagerduty.GetPriorityArgs
-    ///         {
-    ///             Name = "P1",
-    ///         }));
-    ///         var fooSlackConnection = new Pagerduty.SlackConnection("fooSlackConnection", new Pagerduty.SlackConnectionArgs
-    ///         {
-    ///             SourceId = fooTeam.Id,
-    ///             SourceType = "team_reference",
-    ///             WorkspaceId = "T02A123LV1A",
-    ///             ChannelId = "C02CABCDAC9",
-    ///             NotificationType = "responder",
-    ///             Configs = 
+    ///             new Pagerduty.Inputs.SlackConnectionConfigArgs
     ///             {
-    ///                 new Pagerduty.Inputs.SlackConnectionConfigArgs
+    ///                 Events = new[]
     ///                 {
-    ///                     Events = 
-    ///                     {
-    ///                         "incident.triggered",
-    ///                         "incident.acknowledged",
-    ///                         "incident.escalated",
-    ///                         "incident.resolved",
-    ///                         "incident.reassigned",
-    ///                         "incident.annotated",
-    ///                         "incident.unacknowledged",
-    ///                         "incident.delegated",
-    ///                         "incident.priority_updated",
-    ///                         "incident.responder.added",
-    ///                         "incident.responder.replied",
-    ///                         "incident.status_update_published",
-    ///                         "incident.reopened",
-    ///                     },
-    ///                     Priorities = 
-    ///                     {
-    ///                         p1.Apply(p1 =&gt; p1.Id),
-    ///                     },
+    ///                     "incident.triggered",
+    ///                     "incident.acknowledged",
+    ///                     "incident.escalated",
+    ///                     "incident.resolved",
+    ///                     "incident.reassigned",
+    ///                     "incident.annotated",
+    ///                     "incident.unacknowledged",
+    ///                     "incident.delegated",
+    ///                     "incident.priority_updated",
+    ///                     "incident.responder.added",
+    ///                     "incident.responder.replied",
+    ///                     "incident.status_update_published",
+    ///                     "incident.reopened",
+    ///                 },
+    ///                 Priorities = new[]
+    ///                 {
+    ///                     p1.Apply(getPriorityResult =&gt; getPriorityResult.Id),
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -81,7 +79,7 @@ namespace Pulumi.Pagerduty
     /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/slackConnection:SlackConnection")]
-    public partial class SlackConnection : Pulumi.CustomResource
+    public partial class SlackConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of a Slack channel in the workspace.
@@ -169,7 +167,7 @@ namespace Pulumi.Pagerduty
         }
     }
 
-    public sealed class SlackConnectionArgs : Pulumi.ResourceArgs
+    public sealed class SlackConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of a Slack channel in the workspace.
@@ -216,9 +214,10 @@ namespace Pulumi.Pagerduty
         public SlackConnectionArgs()
         {
         }
+        public static new SlackConnectionArgs Empty => new SlackConnectionArgs();
     }
 
-    public sealed class SlackConnectionState : Pulumi.ResourceArgs
+    public sealed class SlackConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of a Slack channel in the workspace.
@@ -271,5 +270,6 @@ namespace Pulumi.Pagerduty
         public SlackConnectionState()
         {
         }
+        public static new SlackConnectionState Empty => new SlackConnectionState();
     }
 }

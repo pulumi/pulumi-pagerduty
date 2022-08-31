@@ -18,27 +18,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		fooTeam, err := pagerduty.NewTeam(ctx, "fooTeam", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = pagerduty.NewRuleset(ctx, "fooRuleset", &pagerduty.RulesetArgs{
-// 			Team: &RulesetTeamArgs{
-// 				Id: fooTeam.ID(),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			fooTeam, err := pagerduty.NewTeam(ctx, "fooTeam", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewRuleset(ctx, "fooRuleset", &pagerduty.RulesetArgs{
+//				Team: &RulesetTeamArgs{
+//					Id: fooTeam.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -46,7 +49,9 @@ import (
 // Rulesets can be imported using the `id`, e.g.
 //
 // ```sh
-//  $ pulumi import pagerduty:index/ruleset:Ruleset main 19acac92-027a-4ea0-b06c-bbf516519601
+//
+//	$ pulumi import pagerduty:index/ruleset:Ruleset main 19acac92-027a-4ea0-b06c-bbf516519601
+//
 // ```
 type Ruleset struct {
 	pulumi.CustomResourceState
@@ -156,7 +161,7 @@ func (i *Ruleset) ToRulesetOutputWithContext(ctx context.Context) RulesetOutput 
 // RulesetArrayInput is an input type that accepts RulesetArray and RulesetArrayOutput values.
 // You can construct a concrete instance of `RulesetArrayInput` via:
 //
-//          RulesetArray{ RulesetArgs{...} }
+//	RulesetArray{ RulesetArgs{...} }
 type RulesetArrayInput interface {
 	pulumi.Input
 
@@ -181,7 +186,7 @@ func (i RulesetArray) ToRulesetArrayOutputWithContext(ctx context.Context) Rules
 // RulesetMapInput is an input type that accepts RulesetMap and RulesetMapOutput values.
 // You can construct a concrete instance of `RulesetMapInput` via:
 //
-//          RulesetMap{ "key": RulesetArgs{...} }
+//	RulesetMap{ "key": RulesetArgs{...} }
 type RulesetMapInput interface {
 	pulumi.Input
 

@@ -15,21 +15,14 @@ public final class ServiceScheduledActionAt {
      * @return Designates either the start or the end of the scheduled action. Can be `support_hours_start` or `support_hours_end`.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return The type of time specification. Currently, this must be set to `named_time`.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private ServiceScheduledActionAt(
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.name = name;
-        this.type = type;
-    }
-
+    private ServiceScheduledActionAt() {}
     /**
      * @return Designates either the start or the end of the scheduled action. Can be `support_hours_start` or `support_hours_end`.
      * 
@@ -52,30 +45,32 @@ public final class ServiceScheduledActionAt {
     public static Builder builder(ServiceScheduledActionAt defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String name;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceScheduledActionAt defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public ServiceScheduledActionAt build() {
-            return new ServiceScheduledActionAt(name, type);
+        }
+        public ServiceScheduledActionAt build() {
+            final var o = new ServiceScheduledActionAt();
+            o.name = name;
+            o.type = type;
+            return o;
         }
     }
 }

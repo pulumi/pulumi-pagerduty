@@ -18,26 +18,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		engineering, err := pagerduty.NewTeam(ctx, "engineering", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = pagerduty.NewEventOrchestration(ctx, "myMonitor", &pagerduty.EventOrchestrationArgs{
-// 			Description: pulumi.String("Send events to a pair of services"),
-// 			Team:        engineering.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			engineering, err := pagerduty.NewTeam(ctx, "engineering", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewEventOrchestration(ctx, "myMonitor", &pagerduty.EventOrchestrationArgs{
+//				Description: pulumi.String("Send events to a pair of services"),
+//				Team:        engineering.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -45,7 +48,9 @@ import (
 // EventOrchestrations can be imported using the `id`, e.g.
 //
 // ```sh
-//  $ pulumi import pagerduty:index/eventOrchestration:EventOrchestration main 19acac92-027a-4ea0-b06c-bbf516519601
+//
+//	$ pulumi import pagerduty:index/eventOrchestration:EventOrchestration main 19acac92-027a-4ea0-b06c-bbf516519601
+//
 // ```
 type EventOrchestration struct {
 	pulumi.CustomResourceState
@@ -166,7 +171,7 @@ func (i *EventOrchestration) ToEventOrchestrationOutputWithContext(ctx context.C
 // EventOrchestrationArrayInput is an input type that accepts EventOrchestrationArray and EventOrchestrationArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationArrayInput` via:
 //
-//          EventOrchestrationArray{ EventOrchestrationArgs{...} }
+//	EventOrchestrationArray{ EventOrchestrationArgs{...} }
 type EventOrchestrationArrayInput interface {
 	pulumi.Input
 
@@ -191,7 +196,7 @@ func (i EventOrchestrationArray) ToEventOrchestrationArrayOutputWithContext(ctx 
 // EventOrchestrationMapInput is an input type that accepts EventOrchestrationMap and EventOrchestrationMapOutput values.
 // You can construct a concrete instance of `EventOrchestrationMapInput` via:
 //
-//          EventOrchestrationMap{ "key": EventOrchestrationArgs{...} }
+//	EventOrchestrationMap{ "key": EventOrchestrationArgs{...} }
 type EventOrchestrationMapInput interface {
 	pulumi.Input
 

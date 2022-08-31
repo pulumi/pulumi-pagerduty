@@ -15,30 +15,30 @@ namespace Pulumi.Pagerduty
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Pagerduty = Pulumi.Pagerduty;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var fooUser = new Pagerduty.User("fooUser", new()
     ///     {
-    ///         var fooUser = new Pagerduty.User("fooUser", new Pagerduty.UserArgs
-    ///         {
-    ///             Email = "foo@bar.com",
-    ///         });
-    ///         var fooTeam = new Pagerduty.Team("fooTeam", new Pagerduty.TeamArgs
-    ///         {
-    ///             Description = "foo",
-    ///         });
-    ///         var fooTeamMembership = new Pagerduty.TeamMembership("fooTeamMembership", new Pagerduty.TeamMembershipArgs
-    ///         {
-    ///             UserId = fooUser.Id,
-    ///             TeamId = fooTeam.Id,
-    ///             Role = "manager",
-    ///         });
-    ///     }
+    ///         Email = "foo@bar.com",
+    ///     });
     /// 
-    /// }
+    ///     var fooTeam = new Pagerduty.Team("fooTeam", new()
+    ///     {
+    ///         Description = "foo",
+    ///     });
+    /// 
+    ///     var fooTeamMembership = new Pagerduty.TeamMembership("fooTeamMembership", new()
+    ///     {
+    ///         UserId = fooUser.Id,
+    ///         TeamId = fooTeam.Id,
+    ///         Role = "manager",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +50,7 @@ namespace Pulumi.Pagerduty
     /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/teamMembership:TeamMembership")]
-    public partial class TeamMembership : Pulumi.CustomResource
+    public partial class TeamMembership : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  
@@ -117,7 +117,7 @@ namespace Pulumi.Pagerduty
         }
     }
 
-    public sealed class TeamMembershipArgs : Pulumi.ResourceArgs
+    public sealed class TeamMembershipArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  
@@ -143,9 +143,10 @@ namespace Pulumi.Pagerduty
         public TeamMembershipArgs()
         {
         }
+        public static new TeamMembershipArgs Empty => new TeamMembershipArgs();
     }
 
-    public sealed class TeamMembershipState : Pulumi.ResourceArgs
+    public sealed class TeamMembershipState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  
@@ -171,5 +172,6 @@ namespace Pulumi.Pagerduty
         public TeamMembershipState()
         {
         }
+        public static new TeamMembershipState Empty => new TeamMembershipState();
     }
 }

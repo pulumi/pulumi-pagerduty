@@ -15,13 +15,9 @@ public final class ServiceEventRuleActionsSuspend {
      * @return The value for the operation. For example, an RE2 regular expression for regex-type variables.
      * 
      */
-    private final @Nullable Integer value;
+    private @Nullable Integer value;
 
-    @CustomType.Constructor
-    private ServiceEventRuleActionsSuspend(@CustomType.Parameter("value") @Nullable Integer value) {
-        this.value = value;
-    }
-
+    private ServiceEventRuleActionsSuspend() {}
     /**
      * @return The value for the operation. For example, an RE2 regular expression for regex-type variables.
      * 
@@ -37,24 +33,24 @@ public final class ServiceEventRuleActionsSuspend {
     public static Builder builder(ServiceEventRuleActionsSuspend defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceEventRuleActionsSuspend defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder value(@Nullable Integer value) {
             this.value = value;
             return this;
-        }        public ServiceEventRuleActionsSuspend build() {
-            return new ServiceEventRuleActionsSuspend(value);
+        }
+        public ServiceEventRuleActionsSuspend build() {
+            final var o = new ServiceEventRuleActionsSuspend();
+            o.value = value;
+            return o;
         }
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class EventOrchestrationServiceCatchAllActionsAutomationActionArgs : Pulumi.ResourceArgs
+    public sealed class EventOrchestrationServiceCatchAllActionsAutomationActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
@@ -57,5 +57,6 @@ namespace Pulumi.Pagerduty.Inputs
         public EventOrchestrationServiceCatchAllActionsAutomationActionArgs()
         {
         }
+        public static new EventOrchestrationServiceCatchAllActionsAutomationActionArgs Empty => new EventOrchestrationServiceCatchAllActionsAutomationActionArgs();
     }
 }

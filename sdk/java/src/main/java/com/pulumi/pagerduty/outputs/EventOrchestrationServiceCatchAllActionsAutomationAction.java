@@ -19,42 +19,29 @@ public final class EventOrchestrationServiceCatchAllActionsAutomationAction {
      * @return When true, PagerDuty&#39;s servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
      * 
      */
-    private final @Nullable Boolean autoSend;
+    private @Nullable Boolean autoSend;
     /**
      * @return Specify custom key/value pairs that&#39;ll be sent with the webhook request as request headers.
      * 
      */
-    private final @Nullable List<EventOrchestrationServiceCatchAllActionsAutomationActionHeader> headers;
+    private @Nullable List<EventOrchestrationServiceCatchAllActionsAutomationActionHeader> headers;
     /**
      * @return Name of this Webhook.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Specify custom key/value pairs that&#39;ll be included in the webhook request&#39;s JSON payload.
      * 
      */
-    private final @Nullable List<EventOrchestrationServiceCatchAllActionsAutomationActionParameter> parameters;
+    private @Nullable List<EventOrchestrationServiceCatchAllActionsAutomationActionParameter> parameters;
     /**
      * @return The API endpoint where PagerDuty&#39;s servers will send the webhook request.
      * 
      */
-    private final String url;
+    private String url;
 
-    @CustomType.Constructor
-    private EventOrchestrationServiceCatchAllActionsAutomationAction(
-        @CustomType.Parameter("autoSend") @Nullable Boolean autoSend,
-        @CustomType.Parameter("headers") @Nullable List<EventOrchestrationServiceCatchAllActionsAutomationActionHeader> headers,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("parameters") @Nullable List<EventOrchestrationServiceCatchAllActionsAutomationActionParameter> parameters,
-        @CustomType.Parameter("url") String url) {
-        this.autoSend = autoSend;
-        this.headers = headers;
-        this.name = name;
-        this.parameters = parameters;
-        this.url = url;
-    }
-
+    private EventOrchestrationServiceCatchAllActionsAutomationAction() {}
     /**
      * @return When true, PagerDuty&#39;s servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
      * 
@@ -98,18 +85,14 @@ public final class EventOrchestrationServiceCatchAllActionsAutomationAction {
     public static Builder builder(EventOrchestrationServiceCatchAllActionsAutomationAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean autoSend;
         private @Nullable List<EventOrchestrationServiceCatchAllActionsAutomationActionHeader> headers;
         private String name;
         private @Nullable List<EventOrchestrationServiceCatchAllActionsAutomationActionParameter> parameters;
         private String url;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventOrchestrationServiceCatchAllActionsAutomationAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoSend = defaults.autoSend;
@@ -119,10 +102,12 @@ public final class EventOrchestrationServiceCatchAllActionsAutomationAction {
     	      this.url = defaults.url;
         }
 
+        @CustomType.Setter
         public Builder autoSend(@Nullable Boolean autoSend) {
             this.autoSend = autoSend;
             return this;
         }
+        @CustomType.Setter
         public Builder headers(@Nullable List<EventOrchestrationServiceCatchAllActionsAutomationActionHeader> headers) {
             this.headers = headers;
             return this;
@@ -130,10 +115,12 @@ public final class EventOrchestrationServiceCatchAllActionsAutomationAction {
         public Builder headers(EventOrchestrationServiceCatchAllActionsAutomationActionHeader... headers) {
             return headers(List.of(headers));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(@Nullable List<EventOrchestrationServiceCatchAllActionsAutomationActionParameter> parameters) {
             this.parameters = parameters;
             return this;
@@ -141,11 +128,19 @@ public final class EventOrchestrationServiceCatchAllActionsAutomationAction {
         public Builder parameters(EventOrchestrationServiceCatchAllActionsAutomationActionParameter... parameters) {
             return parameters(List.of(parameters));
         }
+        @CustomType.Setter
         public Builder url(String url) {
             this.url = Objects.requireNonNull(url);
             return this;
-        }        public EventOrchestrationServiceCatchAllActionsAutomationAction build() {
-            return new EventOrchestrationServiceCatchAllActionsAutomationAction(autoSend, headers, name, parameters, url);
+        }
+        public EventOrchestrationServiceCatchAllActionsAutomationAction build() {
+            final var o = new EventOrchestrationServiceCatchAllActionsAutomationAction();
+            o.autoSend = autoSend;
+            o.headers = headers;
+            o.name = name;
+            o.parameters = parameters;
+            o.url = url;
+            return o;
         }
     }
 }

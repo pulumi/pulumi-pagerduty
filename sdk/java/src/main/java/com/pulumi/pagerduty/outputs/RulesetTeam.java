@@ -13,13 +13,9 @@ public final class RulesetTeam {
      * @return The ID of the ruleset.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private RulesetTeam(@CustomType.Parameter("id") String id) {
-        this.id = id;
-    }
-
+    private RulesetTeam() {}
     /**
      * @return The ID of the ruleset.
      * 
@@ -35,24 +31,24 @@ public final class RulesetTeam {
     public static Builder builder(RulesetTeam defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RulesetTeam defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public RulesetTeam build() {
-            return new RulesetTeam(id);
+        }
+        public RulesetTeam build() {
+            final var o = new RulesetTeam();
+            o.id = id;
+            return o;
         }
     }
 }

@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := pagerduty.NewAddon(ctx, "example", &pagerduty.AddonArgs{
-// 			Src: pulumi.String("https://intranet.example.com/status"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := pagerduty.NewAddon(ctx, "example", &pagerduty.AddonArgs{
+//				Src: pulumi.String("https://intranet.example.com/status"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -41,7 +44,9 @@ import (
 // Add-ons can be imported using the `id`, e.g.
 //
 // ```sh
-//  $ pulumi import pagerduty:index/addon:Addon example P3DH5M6
+//
+//	$ pulumi import pagerduty:index/addon:Addon example P3DH5M6
+//
 // ```
 type Addon struct {
 	pulumi.CustomResourceState
@@ -142,7 +147,7 @@ func (i *Addon) ToAddonOutputWithContext(ctx context.Context) AddonOutput {
 // AddonArrayInput is an input type that accepts AddonArray and AddonArrayOutput values.
 // You can construct a concrete instance of `AddonArrayInput` via:
 //
-//          AddonArray{ AddonArgs{...} }
+//	AddonArray{ AddonArgs{...} }
 type AddonArrayInput interface {
 	pulumi.Input
 
@@ -167,7 +172,7 @@ func (i AddonArray) ToAddonArrayOutputWithContext(ctx context.Context) AddonArra
 // AddonMapInput is an input type that accepts AddonMap and AddonMapOutput values.
 // You can construct a concrete instance of `AddonMapInput` via:
 //
-//          AddonMap{ "key": AddonArgs{...} }
+//	AddonMap{ "key": AddonArgs{...} }
 type AddonMapInput interface {
 	pulumi.Input
 

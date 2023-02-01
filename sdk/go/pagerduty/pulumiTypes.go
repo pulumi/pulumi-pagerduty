@@ -10,6 +10,200 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AutomationActionsActionActionDataReference struct {
+	// The command to execute the script with.
+	InvocationCommand *string `pulumi:"invocationCommand"`
+	// The arguments to pass to the Process Automation job execution.
+	ProcessAutomationJobArguments *string `pulumi:"processAutomationJobArguments"`
+	// The ID of the Process Automation job to execute.
+	ProcessAutomationJobId *string `pulumi:"processAutomationJobId"`
+	// Body of the script to be executed on the Runner. Max length is 16777215 characters.
+	Script *string `pulumi:"script"`
+}
+
+// AutomationActionsActionActionDataReferenceInput is an input type that accepts AutomationActionsActionActionDataReferenceArgs and AutomationActionsActionActionDataReferenceOutput values.
+// You can construct a concrete instance of `AutomationActionsActionActionDataReferenceInput` via:
+//
+//	AutomationActionsActionActionDataReferenceArgs{...}
+type AutomationActionsActionActionDataReferenceInput interface {
+	pulumi.Input
+
+	ToAutomationActionsActionActionDataReferenceOutput() AutomationActionsActionActionDataReferenceOutput
+	ToAutomationActionsActionActionDataReferenceOutputWithContext(context.Context) AutomationActionsActionActionDataReferenceOutput
+}
+
+type AutomationActionsActionActionDataReferenceArgs struct {
+	// The command to execute the script with.
+	InvocationCommand pulumi.StringPtrInput `pulumi:"invocationCommand"`
+	// The arguments to pass to the Process Automation job execution.
+	ProcessAutomationJobArguments pulumi.StringPtrInput `pulumi:"processAutomationJobArguments"`
+	// The ID of the Process Automation job to execute.
+	ProcessAutomationJobId pulumi.StringPtrInput `pulumi:"processAutomationJobId"`
+	// Body of the script to be executed on the Runner. Max length is 16777215 characters.
+	Script pulumi.StringPtrInput `pulumi:"script"`
+}
+
+func (AutomationActionsActionActionDataReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationActionsActionActionDataReference)(nil)).Elem()
+}
+
+func (i AutomationActionsActionActionDataReferenceArgs) ToAutomationActionsActionActionDataReferenceOutput() AutomationActionsActionActionDataReferenceOutput {
+	return i.ToAutomationActionsActionActionDataReferenceOutputWithContext(context.Background())
+}
+
+func (i AutomationActionsActionActionDataReferenceArgs) ToAutomationActionsActionActionDataReferenceOutputWithContext(ctx context.Context) AutomationActionsActionActionDataReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionsActionActionDataReferenceOutput)
+}
+
+func (i AutomationActionsActionActionDataReferenceArgs) ToAutomationActionsActionActionDataReferencePtrOutput() AutomationActionsActionActionDataReferencePtrOutput {
+	return i.ToAutomationActionsActionActionDataReferencePtrOutputWithContext(context.Background())
+}
+
+func (i AutomationActionsActionActionDataReferenceArgs) ToAutomationActionsActionActionDataReferencePtrOutputWithContext(ctx context.Context) AutomationActionsActionActionDataReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionsActionActionDataReferenceOutput).ToAutomationActionsActionActionDataReferencePtrOutputWithContext(ctx)
+}
+
+// AutomationActionsActionActionDataReferencePtrInput is an input type that accepts AutomationActionsActionActionDataReferenceArgs, AutomationActionsActionActionDataReferencePtr and AutomationActionsActionActionDataReferencePtrOutput values.
+// You can construct a concrete instance of `AutomationActionsActionActionDataReferencePtrInput` via:
+//
+//	        AutomationActionsActionActionDataReferenceArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutomationActionsActionActionDataReferencePtrInput interface {
+	pulumi.Input
+
+	ToAutomationActionsActionActionDataReferencePtrOutput() AutomationActionsActionActionDataReferencePtrOutput
+	ToAutomationActionsActionActionDataReferencePtrOutputWithContext(context.Context) AutomationActionsActionActionDataReferencePtrOutput
+}
+
+type automationActionsActionActionDataReferencePtrType AutomationActionsActionActionDataReferenceArgs
+
+func AutomationActionsActionActionDataReferencePtr(v *AutomationActionsActionActionDataReferenceArgs) AutomationActionsActionActionDataReferencePtrInput {
+	return (*automationActionsActionActionDataReferencePtrType)(v)
+}
+
+func (*automationActionsActionActionDataReferencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationActionsActionActionDataReference)(nil)).Elem()
+}
+
+func (i *automationActionsActionActionDataReferencePtrType) ToAutomationActionsActionActionDataReferencePtrOutput() AutomationActionsActionActionDataReferencePtrOutput {
+	return i.ToAutomationActionsActionActionDataReferencePtrOutputWithContext(context.Background())
+}
+
+func (i *automationActionsActionActionDataReferencePtrType) ToAutomationActionsActionActionDataReferencePtrOutputWithContext(ctx context.Context) AutomationActionsActionActionDataReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionsActionActionDataReferencePtrOutput)
+}
+
+type AutomationActionsActionActionDataReferenceOutput struct{ *pulumi.OutputState }
+
+func (AutomationActionsActionActionDataReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationActionsActionActionDataReference)(nil)).Elem()
+}
+
+func (o AutomationActionsActionActionDataReferenceOutput) ToAutomationActionsActionActionDataReferenceOutput() AutomationActionsActionActionDataReferenceOutput {
+	return o
+}
+
+func (o AutomationActionsActionActionDataReferenceOutput) ToAutomationActionsActionActionDataReferenceOutputWithContext(ctx context.Context) AutomationActionsActionActionDataReferenceOutput {
+	return o
+}
+
+func (o AutomationActionsActionActionDataReferenceOutput) ToAutomationActionsActionActionDataReferencePtrOutput() AutomationActionsActionActionDataReferencePtrOutput {
+	return o.ToAutomationActionsActionActionDataReferencePtrOutputWithContext(context.Background())
+}
+
+func (o AutomationActionsActionActionDataReferenceOutput) ToAutomationActionsActionActionDataReferencePtrOutputWithContext(ctx context.Context) AutomationActionsActionActionDataReferencePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomationActionsActionActionDataReference) *AutomationActionsActionActionDataReference {
+		return &v
+	}).(AutomationActionsActionActionDataReferencePtrOutput)
+}
+
+// The command to execute the script with.
+func (o AutomationActionsActionActionDataReferenceOutput) InvocationCommand() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationActionsActionActionDataReference) *string { return v.InvocationCommand }).(pulumi.StringPtrOutput)
+}
+
+// The arguments to pass to the Process Automation job execution.
+func (o AutomationActionsActionActionDataReferenceOutput) ProcessAutomationJobArguments() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationActionsActionActionDataReference) *string { return v.ProcessAutomationJobArguments }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Process Automation job to execute.
+func (o AutomationActionsActionActionDataReferenceOutput) ProcessAutomationJobId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationActionsActionActionDataReference) *string { return v.ProcessAutomationJobId }).(pulumi.StringPtrOutput)
+}
+
+// Body of the script to be executed on the Runner. Max length is 16777215 characters.
+func (o AutomationActionsActionActionDataReferenceOutput) Script() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationActionsActionActionDataReference) *string { return v.Script }).(pulumi.StringPtrOutput)
+}
+
+type AutomationActionsActionActionDataReferencePtrOutput struct{ *pulumi.OutputState }
+
+func (AutomationActionsActionActionDataReferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationActionsActionActionDataReference)(nil)).Elem()
+}
+
+func (o AutomationActionsActionActionDataReferencePtrOutput) ToAutomationActionsActionActionDataReferencePtrOutput() AutomationActionsActionActionDataReferencePtrOutput {
+	return o
+}
+
+func (o AutomationActionsActionActionDataReferencePtrOutput) ToAutomationActionsActionActionDataReferencePtrOutputWithContext(ctx context.Context) AutomationActionsActionActionDataReferencePtrOutput {
+	return o
+}
+
+func (o AutomationActionsActionActionDataReferencePtrOutput) Elem() AutomationActionsActionActionDataReferenceOutput {
+	return o.ApplyT(func(v *AutomationActionsActionActionDataReference) AutomationActionsActionActionDataReference {
+		if v != nil {
+			return *v
+		}
+		var ret AutomationActionsActionActionDataReference
+		return ret
+	}).(AutomationActionsActionActionDataReferenceOutput)
+}
+
+// The command to execute the script with.
+func (o AutomationActionsActionActionDataReferencePtrOutput) InvocationCommand() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationActionsActionActionDataReference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InvocationCommand
+	}).(pulumi.StringPtrOutput)
+}
+
+// The arguments to pass to the Process Automation job execution.
+func (o AutomationActionsActionActionDataReferencePtrOutput) ProcessAutomationJobArguments() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationActionsActionActionDataReference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProcessAutomationJobArguments
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Process Automation job to execute.
+func (o AutomationActionsActionActionDataReferencePtrOutput) ProcessAutomationJobId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationActionsActionActionDataReference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProcessAutomationJobId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Body of the script to be executed on the Runner. Max length is 16777215 characters.
+func (o AutomationActionsActionActionDataReferencePtrOutput) Script() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationActionsActionActionDataReference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Script
+	}).(pulumi.StringPtrOutput)
+}
+
 type EscalationPolicyRule struct {
 	// The number of minutes before an unacknowledged incident escalates away from this rule.
 	EscalationDelayInMinutes int `pulumi:"escalationDelayInMinutes"`
@@ -230,7 +424,6 @@ func (o EscalationPolicyRuleTargetArrayOutput) Index(i pulumi.IntInput) Escalati
 
 type EventOrchestrationIntegration struct {
 	// ID of the integration
-	// * `parameters`
 	Id         *string                                  `pulumi:"id"`
 	Parameters []EventOrchestrationIntegrationParameter `pulumi:"parameters"`
 }
@@ -248,7 +441,6 @@ type EventOrchestrationIntegrationInput interface {
 
 type EventOrchestrationIntegrationArgs struct {
 	// ID of the integration
-	// * `parameters`
 	Id         pulumi.StringPtrInput                            `pulumi:"id"`
 	Parameters EventOrchestrationIntegrationParameterArrayInput `pulumi:"parameters"`
 }
@@ -305,7 +497,6 @@ func (o EventOrchestrationIntegrationOutput) ToEventOrchestrationIntegrationOutp
 }
 
 // ID of the integration
-// * `parameters`
 func (o EventOrchestrationIntegrationOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventOrchestrationIntegration) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -5025,6 +5216,242 @@ func (o EventOrchestrationUnroutedSetRuleConditionArrayOutput) Index(i pulumi.In
 	}).(EventOrchestrationUnroutedSetRuleConditionOutput)
 }
 
+type PagerdutyIncidentWorkflowStep struct {
+	// The action id for the workflow step, including the version. A list of actions available can be retrieved using the [PagerDuty API](https://developer.pagerduty.com/api-reference/aa192a25fac39-list-actions).
+	Action string `pulumi:"action"`
+	// The ID of the incident workflow.
+	Id *string `pulumi:"id"`
+	// The list of inputs for the workflow action.
+	Inputs []PagerdutyIncidentWorkflowStepInputType `pulumi:"inputs"`
+	// The name of the workflow step.
+	Name string `pulumi:"name"`
+}
+
+// PagerdutyIncidentWorkflowStepInput is an input type that accepts PagerdutyIncidentWorkflowStepArgs and PagerdutyIncidentWorkflowStepOutput values.
+// You can construct a concrete instance of `PagerdutyIncidentWorkflowStepInput` via:
+//
+//	PagerdutyIncidentWorkflowStepArgs{...}
+type PagerdutyIncidentWorkflowStepInput interface {
+	pulumi.Input
+
+	ToPagerdutyIncidentWorkflowStepOutput() PagerdutyIncidentWorkflowStepOutput
+	ToPagerdutyIncidentWorkflowStepOutputWithContext(context.Context) PagerdutyIncidentWorkflowStepOutput
+}
+
+type PagerdutyIncidentWorkflowStepArgs struct {
+	// The action id for the workflow step, including the version. A list of actions available can be retrieved using the [PagerDuty API](https://developer.pagerduty.com/api-reference/aa192a25fac39-list-actions).
+	Action pulumi.StringInput `pulumi:"action"`
+	// The ID of the incident workflow.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The list of inputs for the workflow action.
+	Inputs PagerdutyIncidentWorkflowStepInputTypeArrayInput `pulumi:"inputs"`
+	// The name of the workflow step.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (PagerdutyIncidentWorkflowStepArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PagerdutyIncidentWorkflowStep)(nil)).Elem()
+}
+
+func (i PagerdutyIncidentWorkflowStepArgs) ToPagerdutyIncidentWorkflowStepOutput() PagerdutyIncidentWorkflowStepOutput {
+	return i.ToPagerdutyIncidentWorkflowStepOutputWithContext(context.Background())
+}
+
+func (i PagerdutyIncidentWorkflowStepArgs) ToPagerdutyIncidentWorkflowStepOutputWithContext(ctx context.Context) PagerdutyIncidentWorkflowStepOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PagerdutyIncidentWorkflowStepOutput)
+}
+
+// PagerdutyIncidentWorkflowStepArrayInput is an input type that accepts PagerdutyIncidentWorkflowStepArray and PagerdutyIncidentWorkflowStepArrayOutput values.
+// You can construct a concrete instance of `PagerdutyIncidentWorkflowStepArrayInput` via:
+//
+//	PagerdutyIncidentWorkflowStepArray{ PagerdutyIncidentWorkflowStepArgs{...} }
+type PagerdutyIncidentWorkflowStepArrayInput interface {
+	pulumi.Input
+
+	ToPagerdutyIncidentWorkflowStepArrayOutput() PagerdutyIncidentWorkflowStepArrayOutput
+	ToPagerdutyIncidentWorkflowStepArrayOutputWithContext(context.Context) PagerdutyIncidentWorkflowStepArrayOutput
+}
+
+type PagerdutyIncidentWorkflowStepArray []PagerdutyIncidentWorkflowStepInput
+
+func (PagerdutyIncidentWorkflowStepArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PagerdutyIncidentWorkflowStep)(nil)).Elem()
+}
+
+func (i PagerdutyIncidentWorkflowStepArray) ToPagerdutyIncidentWorkflowStepArrayOutput() PagerdutyIncidentWorkflowStepArrayOutput {
+	return i.ToPagerdutyIncidentWorkflowStepArrayOutputWithContext(context.Background())
+}
+
+func (i PagerdutyIncidentWorkflowStepArray) ToPagerdutyIncidentWorkflowStepArrayOutputWithContext(ctx context.Context) PagerdutyIncidentWorkflowStepArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PagerdutyIncidentWorkflowStepArrayOutput)
+}
+
+type PagerdutyIncidentWorkflowStepOutput struct{ *pulumi.OutputState }
+
+func (PagerdutyIncidentWorkflowStepOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PagerdutyIncidentWorkflowStep)(nil)).Elem()
+}
+
+func (o PagerdutyIncidentWorkflowStepOutput) ToPagerdutyIncidentWorkflowStepOutput() PagerdutyIncidentWorkflowStepOutput {
+	return o
+}
+
+func (o PagerdutyIncidentWorkflowStepOutput) ToPagerdutyIncidentWorkflowStepOutputWithContext(ctx context.Context) PagerdutyIncidentWorkflowStepOutput {
+	return o
+}
+
+// The action id for the workflow step, including the version. A list of actions available can be retrieved using the [PagerDuty API](https://developer.pagerduty.com/api-reference/aa192a25fac39-list-actions).
+func (o PagerdutyIncidentWorkflowStepOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v PagerdutyIncidentWorkflowStep) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// The ID of the incident workflow.
+func (o PagerdutyIncidentWorkflowStepOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PagerdutyIncidentWorkflowStep) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The list of inputs for the workflow action.
+func (o PagerdutyIncidentWorkflowStepOutput) Inputs() PagerdutyIncidentWorkflowStepInputTypeArrayOutput {
+	return o.ApplyT(func(v PagerdutyIncidentWorkflowStep) []PagerdutyIncidentWorkflowStepInputType { return v.Inputs }).(PagerdutyIncidentWorkflowStepInputTypeArrayOutput)
+}
+
+// The name of the workflow step.
+func (o PagerdutyIncidentWorkflowStepOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PagerdutyIncidentWorkflowStep) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type PagerdutyIncidentWorkflowStepArrayOutput struct{ *pulumi.OutputState }
+
+func (PagerdutyIncidentWorkflowStepArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PagerdutyIncidentWorkflowStep)(nil)).Elem()
+}
+
+func (o PagerdutyIncidentWorkflowStepArrayOutput) ToPagerdutyIncidentWorkflowStepArrayOutput() PagerdutyIncidentWorkflowStepArrayOutput {
+	return o
+}
+
+func (o PagerdutyIncidentWorkflowStepArrayOutput) ToPagerdutyIncidentWorkflowStepArrayOutputWithContext(ctx context.Context) PagerdutyIncidentWorkflowStepArrayOutput {
+	return o
+}
+
+func (o PagerdutyIncidentWorkflowStepArrayOutput) Index(i pulumi.IntInput) PagerdutyIncidentWorkflowStepOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PagerdutyIncidentWorkflowStep {
+		return vs[0].([]PagerdutyIncidentWorkflowStep)[vs[1].(int)]
+	}).(PagerdutyIncidentWorkflowStepOutput)
+}
+
+type PagerdutyIncidentWorkflowStepInputType struct {
+	Generated *bool `pulumi:"generated"`
+	// The name of the input.
+	Name string `pulumi:"name"`
+	// The value of the input.
+	Value string `pulumi:"value"`
+}
+
+// PagerdutyIncidentWorkflowStepInputTypeInput is an input type that accepts PagerdutyIncidentWorkflowStepInputTypeArgs and PagerdutyIncidentWorkflowStepInputTypeOutput values.
+// You can construct a concrete instance of `PagerdutyIncidentWorkflowStepInputTypeInput` via:
+//
+//	PagerdutyIncidentWorkflowStepInputTypeArgs{...}
+type PagerdutyIncidentWorkflowStepInputTypeInput interface {
+	pulumi.Input
+
+	ToPagerdutyIncidentWorkflowStepInputTypeOutput() PagerdutyIncidentWorkflowStepInputTypeOutput
+	ToPagerdutyIncidentWorkflowStepInputTypeOutputWithContext(context.Context) PagerdutyIncidentWorkflowStepInputTypeOutput
+}
+
+type PagerdutyIncidentWorkflowStepInputTypeArgs struct {
+	Generated pulumi.BoolPtrInput `pulumi:"generated"`
+	// The name of the input.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of the input.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (PagerdutyIncidentWorkflowStepInputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PagerdutyIncidentWorkflowStepInputType)(nil)).Elem()
+}
+
+func (i PagerdutyIncidentWorkflowStepInputTypeArgs) ToPagerdutyIncidentWorkflowStepInputTypeOutput() PagerdutyIncidentWorkflowStepInputTypeOutput {
+	return i.ToPagerdutyIncidentWorkflowStepInputTypeOutputWithContext(context.Background())
+}
+
+func (i PagerdutyIncidentWorkflowStepInputTypeArgs) ToPagerdutyIncidentWorkflowStepInputTypeOutputWithContext(ctx context.Context) PagerdutyIncidentWorkflowStepInputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PagerdutyIncidentWorkflowStepInputTypeOutput)
+}
+
+// PagerdutyIncidentWorkflowStepInputTypeArrayInput is an input type that accepts PagerdutyIncidentWorkflowStepInputTypeArray and PagerdutyIncidentWorkflowStepInputTypeArrayOutput values.
+// You can construct a concrete instance of `PagerdutyIncidentWorkflowStepInputTypeArrayInput` via:
+//
+//	PagerdutyIncidentWorkflowStepInputTypeArray{ PagerdutyIncidentWorkflowStepInputTypeArgs{...} }
+type PagerdutyIncidentWorkflowStepInputTypeArrayInput interface {
+	pulumi.Input
+
+	ToPagerdutyIncidentWorkflowStepInputTypeArrayOutput() PagerdutyIncidentWorkflowStepInputTypeArrayOutput
+	ToPagerdutyIncidentWorkflowStepInputTypeArrayOutputWithContext(context.Context) PagerdutyIncidentWorkflowStepInputTypeArrayOutput
+}
+
+type PagerdutyIncidentWorkflowStepInputTypeArray []PagerdutyIncidentWorkflowStepInputTypeInput
+
+func (PagerdutyIncidentWorkflowStepInputTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PagerdutyIncidentWorkflowStepInputType)(nil)).Elem()
+}
+
+func (i PagerdutyIncidentWorkflowStepInputTypeArray) ToPagerdutyIncidentWorkflowStepInputTypeArrayOutput() PagerdutyIncidentWorkflowStepInputTypeArrayOutput {
+	return i.ToPagerdutyIncidentWorkflowStepInputTypeArrayOutputWithContext(context.Background())
+}
+
+func (i PagerdutyIncidentWorkflowStepInputTypeArray) ToPagerdutyIncidentWorkflowStepInputTypeArrayOutputWithContext(ctx context.Context) PagerdutyIncidentWorkflowStepInputTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PagerdutyIncidentWorkflowStepInputTypeArrayOutput)
+}
+
+type PagerdutyIncidentWorkflowStepInputTypeOutput struct{ *pulumi.OutputState }
+
+func (PagerdutyIncidentWorkflowStepInputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PagerdutyIncidentWorkflowStepInputType)(nil)).Elem()
+}
+
+func (o PagerdutyIncidentWorkflowStepInputTypeOutput) ToPagerdutyIncidentWorkflowStepInputTypeOutput() PagerdutyIncidentWorkflowStepInputTypeOutput {
+	return o
+}
+
+func (o PagerdutyIncidentWorkflowStepInputTypeOutput) ToPagerdutyIncidentWorkflowStepInputTypeOutputWithContext(ctx context.Context) PagerdutyIncidentWorkflowStepInputTypeOutput {
+	return o
+}
+
+func (o PagerdutyIncidentWorkflowStepInputTypeOutput) Generated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PagerdutyIncidentWorkflowStepInputType) *bool { return v.Generated }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the input.
+func (o PagerdutyIncidentWorkflowStepInputTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PagerdutyIncidentWorkflowStepInputType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value of the input.
+func (o PagerdutyIncidentWorkflowStepInputTypeOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v PagerdutyIncidentWorkflowStepInputType) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type PagerdutyIncidentWorkflowStepInputTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (PagerdutyIncidentWorkflowStepInputTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PagerdutyIncidentWorkflowStepInputType)(nil)).Elem()
+}
+
+func (o PagerdutyIncidentWorkflowStepInputTypeArrayOutput) ToPagerdutyIncidentWorkflowStepInputTypeArrayOutput() PagerdutyIncidentWorkflowStepInputTypeArrayOutput {
+	return o
+}
+
+func (o PagerdutyIncidentWorkflowStepInputTypeArrayOutput) ToPagerdutyIncidentWorkflowStepInputTypeArrayOutputWithContext(ctx context.Context) PagerdutyIncidentWorkflowStepInputTypeArrayOutput {
+	return o
+}
+
+func (o PagerdutyIncidentWorkflowStepInputTypeArrayOutput) Index(i pulumi.IntInput) PagerdutyIncidentWorkflowStepInputTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PagerdutyIncidentWorkflowStepInputType {
+		return vs[0].([]PagerdutyIncidentWorkflowStepInputType)[vs[1].(int)]
+	}).(PagerdutyIncidentWorkflowStepInputTypeOutput)
+}
+
 type ResponsePlayResponder struct {
 	// Description of escalation policy
 	Description *string `pulumi:"description"`
@@ -9448,7 +9875,7 @@ func (o ServiceEventRuleActionsPtrOutput) Suspends() ServiceEventRuleActionsSusp
 }
 
 type ServiceEventRuleActionsAnnotate struct {
-	// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value *string `pulumi:"value"`
 }
 
@@ -9464,7 +9891,7 @@ type ServiceEventRuleActionsAnnotateInput interface {
 }
 
 type ServiceEventRuleActionsAnnotateArgs struct {
-	// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -9519,7 +9946,7 @@ func (o ServiceEventRuleActionsAnnotateOutput) ToServiceEventRuleActionsAnnotate
 	return o
 }
 
-// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 func (o ServiceEventRuleActionsAnnotateOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceEventRuleActionsAnnotate) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -9545,7 +9972,7 @@ func (o ServiceEventRuleActionsAnnotateArrayOutput) Index(i pulumi.IntInput) Ser
 }
 
 type ServiceEventRuleActionsEventAction struct {
-	// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value *string `pulumi:"value"`
 }
 
@@ -9561,7 +9988,7 @@ type ServiceEventRuleActionsEventActionInput interface {
 }
 
 type ServiceEventRuleActionsEventActionArgs struct {
-	// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -9616,7 +10043,7 @@ func (o ServiceEventRuleActionsEventActionOutput) ToServiceEventRuleActionsEvent
 	return o
 }
 
-// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 func (o ServiceEventRuleActionsEventActionOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceEventRuleActionsEventAction) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -9766,7 +10193,7 @@ func (o ServiceEventRuleActionsExtractionArrayOutput) Index(i pulumi.IntInput) S
 }
 
 type ServiceEventRuleActionsPriority struct {
-	// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value *string `pulumi:"value"`
 }
 
@@ -9782,7 +10209,7 @@ type ServiceEventRuleActionsPriorityInput interface {
 }
 
 type ServiceEventRuleActionsPriorityArgs struct {
-	// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -9837,7 +10264,7 @@ func (o ServiceEventRuleActionsPriorityOutput) ToServiceEventRuleActionsPriority
 	return o
 }
 
-// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 func (o ServiceEventRuleActionsPriorityOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceEventRuleActionsPriority) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -9863,7 +10290,7 @@ func (o ServiceEventRuleActionsPriorityArrayOutput) Index(i pulumi.IntInput) Ser
 }
 
 type ServiceEventRuleActionsSeverity struct {
-	// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value *string `pulumi:"value"`
 }
 
@@ -9879,7 +10306,7 @@ type ServiceEventRuleActionsSeverityInput interface {
 }
 
 type ServiceEventRuleActionsSeverityArgs struct {
-	// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -9934,7 +10361,7 @@ func (o ServiceEventRuleActionsSeverityOutput) ToServiceEventRuleActionsSeverity
 	return o
 }
 
-// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 func (o ServiceEventRuleActionsSeverityOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceEventRuleActionsSeverity) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -9966,7 +10393,7 @@ type ServiceEventRuleActionsSuppress struct {
 	ThresholdTimeUnit *string `pulumi:"thresholdTimeUnit"`
 	// The number of alerts that should be suppressed.
 	ThresholdValue *int `pulumi:"thresholdValue"`
-	// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value *bool `pulumi:"value"`
 }
 
@@ -9988,7 +10415,7 @@ type ServiceEventRuleActionsSuppressArgs struct {
 	ThresholdTimeUnit pulumi.StringPtrInput `pulumi:"thresholdTimeUnit"`
 	// The number of alerts that should be suppressed.
 	ThresholdValue pulumi.IntPtrInput `pulumi:"thresholdValue"`
-	// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value pulumi.BoolPtrInput `pulumi:"value"`
 }
 
@@ -10058,7 +10485,7 @@ func (o ServiceEventRuleActionsSuppressOutput) ThresholdValue() pulumi.IntPtrOut
 	return o.ApplyT(func(v ServiceEventRuleActionsSuppress) *int { return v.ThresholdValue }).(pulumi.IntPtrOutput)
 }
 
-// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 func (o ServiceEventRuleActionsSuppressOutput) Value() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceEventRuleActionsSuppress) *bool { return v.Value }).(pulumi.BoolPtrOutput)
 }
@@ -10084,7 +10511,7 @@ func (o ServiceEventRuleActionsSuppressArrayOutput) Index(i pulumi.IntInput) Ser
 }
 
 type ServiceEventRuleActionsSuspend struct {
-	// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value *int `pulumi:"value"`
 }
 
@@ -10100,7 +10527,7 @@ type ServiceEventRuleActionsSuspendInput interface {
 }
 
 type ServiceEventRuleActionsSuspendArgs struct {
-	// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value pulumi.IntPtrInput `pulumi:"value"`
 }
 
@@ -10155,7 +10582,7 @@ func (o ServiceEventRuleActionsSuspendOutput) ToServiceEventRuleActionsSuspendOu
 	return o
 }
 
-// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 func (o ServiceEventRuleActionsSuspendOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceEventRuleActionsSuspend) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
@@ -10447,7 +10874,7 @@ func (o ServiceEventRuleConditionsSubconditionArrayOutput) Index(i pulumi.IntInp
 type ServiceEventRuleConditionsSubconditionParameter struct {
 	// Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
 	Path *string `pulumi:"path"`
-	// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value *string `pulumi:"value"`
 }
 
@@ -10465,7 +10892,7 @@ type ServiceEventRuleConditionsSubconditionParameterInput interface {
 type ServiceEventRuleConditionsSubconditionParameterArgs struct {
 	// Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
 	Path pulumi.StringPtrInput `pulumi:"path"`
-	// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -10525,7 +10952,7 @@ func (o ServiceEventRuleConditionsSubconditionParameterOutput) Path() pulumi.Str
 	return o.ApplyT(func(v ServiceEventRuleConditionsSubconditionParameter) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 func (o ServiceEventRuleConditionsSubconditionParameterOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceEventRuleConditionsSubconditionParameter) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -11056,7 +11483,7 @@ func (o ServiceEventRuleVariableArrayOutput) Index(i pulumi.IntInput) ServiceEve
 type ServiceEventRuleVariableParameter struct {
 	// Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
 	Path *string `pulumi:"path"`
-	// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value *string `pulumi:"value"`
 }
 
@@ -11074,7 +11501,7 @@ type ServiceEventRuleVariableParameterInput interface {
 type ServiceEventRuleVariableParameterArgs struct {
 	// Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
 	Path pulumi.StringPtrInput `pulumi:"path"`
-	// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+	// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -11134,7 +11561,7 @@ func (o ServiceEventRuleVariableParameterOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceEventRuleVariableParameter) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
 func (o ServiceEventRuleVariableParameterOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceEventRuleVariableParameter) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -13294,9 +13721,132 @@ func (o WebhookSubscriptionFilterArrayOutput) Index(i pulumi.IntInput) WebhookSu
 	}).(WebhookSubscriptionFilterOutput)
 }
 
+type GetAutomationActionsActionActionDataReference struct {
+	// (Optional) The command to execute the script with.
+	InvocationCommand string `pulumi:"invocationCommand"`
+	// (Optional) The arguments to pass to the Process Automation job execution.
+	ProcessAutomationJobArguments string `pulumi:"processAutomationJobArguments"`
+	// (Required for `processAutomation` action_type) The ID of the Process Automation job to execute.
+	ProcessAutomationJobId string `pulumi:"processAutomationJobId"`
+	// (Required for `script` action_type) Body of the script to be executed on the Runner. Max length is 16777215 characters.
+	Script string `pulumi:"script"`
+}
+
+// GetAutomationActionsActionActionDataReferenceInput is an input type that accepts GetAutomationActionsActionActionDataReferenceArgs and GetAutomationActionsActionActionDataReferenceOutput values.
+// You can construct a concrete instance of `GetAutomationActionsActionActionDataReferenceInput` via:
+//
+//	GetAutomationActionsActionActionDataReferenceArgs{...}
+type GetAutomationActionsActionActionDataReferenceInput interface {
+	pulumi.Input
+
+	ToGetAutomationActionsActionActionDataReferenceOutput() GetAutomationActionsActionActionDataReferenceOutput
+	ToGetAutomationActionsActionActionDataReferenceOutputWithContext(context.Context) GetAutomationActionsActionActionDataReferenceOutput
+}
+
+type GetAutomationActionsActionActionDataReferenceArgs struct {
+	// (Optional) The command to execute the script with.
+	InvocationCommand pulumi.StringInput `pulumi:"invocationCommand"`
+	// (Optional) The arguments to pass to the Process Automation job execution.
+	ProcessAutomationJobArguments pulumi.StringInput `pulumi:"processAutomationJobArguments"`
+	// (Required for `processAutomation` action_type) The ID of the Process Automation job to execute.
+	ProcessAutomationJobId pulumi.StringInput `pulumi:"processAutomationJobId"`
+	// (Required for `script` action_type) Body of the script to be executed on the Runner. Max length is 16777215 characters.
+	Script pulumi.StringInput `pulumi:"script"`
+}
+
+func (GetAutomationActionsActionActionDataReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutomationActionsActionActionDataReference)(nil)).Elem()
+}
+
+func (i GetAutomationActionsActionActionDataReferenceArgs) ToGetAutomationActionsActionActionDataReferenceOutput() GetAutomationActionsActionActionDataReferenceOutput {
+	return i.ToGetAutomationActionsActionActionDataReferenceOutputWithContext(context.Background())
+}
+
+func (i GetAutomationActionsActionActionDataReferenceArgs) ToGetAutomationActionsActionActionDataReferenceOutputWithContext(ctx context.Context) GetAutomationActionsActionActionDataReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutomationActionsActionActionDataReferenceOutput)
+}
+
+// GetAutomationActionsActionActionDataReferenceArrayInput is an input type that accepts GetAutomationActionsActionActionDataReferenceArray and GetAutomationActionsActionActionDataReferenceArrayOutput values.
+// You can construct a concrete instance of `GetAutomationActionsActionActionDataReferenceArrayInput` via:
+//
+//	GetAutomationActionsActionActionDataReferenceArray{ GetAutomationActionsActionActionDataReferenceArgs{...} }
+type GetAutomationActionsActionActionDataReferenceArrayInput interface {
+	pulumi.Input
+
+	ToGetAutomationActionsActionActionDataReferenceArrayOutput() GetAutomationActionsActionActionDataReferenceArrayOutput
+	ToGetAutomationActionsActionActionDataReferenceArrayOutputWithContext(context.Context) GetAutomationActionsActionActionDataReferenceArrayOutput
+}
+
+type GetAutomationActionsActionActionDataReferenceArray []GetAutomationActionsActionActionDataReferenceInput
+
+func (GetAutomationActionsActionActionDataReferenceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutomationActionsActionActionDataReference)(nil)).Elem()
+}
+
+func (i GetAutomationActionsActionActionDataReferenceArray) ToGetAutomationActionsActionActionDataReferenceArrayOutput() GetAutomationActionsActionActionDataReferenceArrayOutput {
+	return i.ToGetAutomationActionsActionActionDataReferenceArrayOutputWithContext(context.Background())
+}
+
+func (i GetAutomationActionsActionActionDataReferenceArray) ToGetAutomationActionsActionActionDataReferenceArrayOutputWithContext(ctx context.Context) GetAutomationActionsActionActionDataReferenceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutomationActionsActionActionDataReferenceArrayOutput)
+}
+
+type GetAutomationActionsActionActionDataReferenceOutput struct{ *pulumi.OutputState }
+
+func (GetAutomationActionsActionActionDataReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutomationActionsActionActionDataReference)(nil)).Elem()
+}
+
+func (o GetAutomationActionsActionActionDataReferenceOutput) ToGetAutomationActionsActionActionDataReferenceOutput() GetAutomationActionsActionActionDataReferenceOutput {
+	return o
+}
+
+func (o GetAutomationActionsActionActionDataReferenceOutput) ToGetAutomationActionsActionActionDataReferenceOutputWithContext(ctx context.Context) GetAutomationActionsActionActionDataReferenceOutput {
+	return o
+}
+
+// (Optional) The command to execute the script with.
+func (o GetAutomationActionsActionActionDataReferenceOutput) InvocationCommand() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutomationActionsActionActionDataReference) string { return v.InvocationCommand }).(pulumi.StringOutput)
+}
+
+// (Optional) The arguments to pass to the Process Automation job execution.
+func (o GetAutomationActionsActionActionDataReferenceOutput) ProcessAutomationJobArguments() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutomationActionsActionActionDataReference) string { return v.ProcessAutomationJobArguments }).(pulumi.StringOutput)
+}
+
+// (Required for `processAutomation` action_type) The ID of the Process Automation job to execute.
+func (o GetAutomationActionsActionActionDataReferenceOutput) ProcessAutomationJobId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutomationActionsActionActionDataReference) string { return v.ProcessAutomationJobId }).(pulumi.StringOutput)
+}
+
+// (Required for `script` action_type) Body of the script to be executed on the Runner. Max length is 16777215 characters.
+func (o GetAutomationActionsActionActionDataReferenceOutput) Script() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutomationActionsActionActionDataReference) string { return v.Script }).(pulumi.StringOutput)
+}
+
+type GetAutomationActionsActionActionDataReferenceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAutomationActionsActionActionDataReferenceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutomationActionsActionActionDataReference)(nil)).Elem()
+}
+
+func (o GetAutomationActionsActionActionDataReferenceArrayOutput) ToGetAutomationActionsActionActionDataReferenceArrayOutput() GetAutomationActionsActionActionDataReferenceArrayOutput {
+	return o
+}
+
+func (o GetAutomationActionsActionActionDataReferenceArrayOutput) ToGetAutomationActionsActionActionDataReferenceArrayOutputWithContext(ctx context.Context) GetAutomationActionsActionActionDataReferenceArrayOutput {
+	return o
+}
+
+func (o GetAutomationActionsActionActionDataReferenceArrayOutput) Index(i pulumi.IntInput) GetAutomationActionsActionActionDataReferenceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAutomationActionsActionActionDataReference {
+		return vs[0].([]GetAutomationActionsActionActionDataReference)[vs[1].(int)]
+	}).(GetAutomationActionsActionActionDataReferenceOutput)
+}
+
 type GetEventOrchestrationIntegration struct {
 	// ID of the integration
-	// * `parameters`
 	Id         string                                      `pulumi:"id"`
 	Parameters []GetEventOrchestrationIntegrationParameter `pulumi:"parameters"`
 }
@@ -13314,7 +13864,6 @@ type GetEventOrchestrationIntegrationInput interface {
 
 type GetEventOrchestrationIntegrationArgs struct {
 	// ID of the integration
-	// * `parameters`
 	Id         pulumi.StringInput                                  `pulumi:"id"`
 	Parameters GetEventOrchestrationIntegrationParameterArrayInput `pulumi:"parameters"`
 }
@@ -13371,7 +13920,6 @@ func (o GetEventOrchestrationIntegrationOutput) ToGetEventOrchestrationIntegrati
 }
 
 // ID of the integration
-// * `parameters`
 func (o GetEventOrchestrationIntegrationOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEventOrchestrationIntegration) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -13624,6 +14172,8 @@ func (o GetUsersUserArrayOutput) Index(i pulumi.IntInput) GetUsersUserOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationActionsActionActionDataReferenceInput)(nil)).Elem(), AutomationActionsActionActionDataReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationActionsActionActionDataReferencePtrInput)(nil)).Elem(), AutomationActionsActionActionDataReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EscalationPolicyRuleInput)(nil)).Elem(), EscalationPolicyRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EscalationPolicyRuleArrayInput)(nil)).Elem(), EscalationPolicyRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EscalationPolicyRuleTargetInput)(nil)).Elem(), EscalationPolicyRuleTargetArgs{})
@@ -13697,6 +14247,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationUnroutedSetRuleActionsVariableArrayInput)(nil)).Elem(), EventOrchestrationUnroutedSetRuleActionsVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationUnroutedSetRuleConditionInput)(nil)).Elem(), EventOrchestrationUnroutedSetRuleConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationUnroutedSetRuleConditionArrayInput)(nil)).Elem(), EventOrchestrationUnroutedSetRuleConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PagerdutyIncidentWorkflowStepInput)(nil)).Elem(), PagerdutyIncidentWorkflowStepArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PagerdutyIncidentWorkflowStepArrayInput)(nil)).Elem(), PagerdutyIncidentWorkflowStepArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PagerdutyIncidentWorkflowStepInputTypeInput)(nil)).Elem(), PagerdutyIncidentWorkflowStepInputTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PagerdutyIncidentWorkflowStepInputTypeArrayInput)(nil)).Elem(), PagerdutyIncidentWorkflowStepInputTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlayResponderInput)(nil)).Elem(), ResponsePlayResponderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlayResponderArrayInput)(nil)).Elem(), ResponsePlayResponderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlayResponderEscalationRuleInput)(nil)).Elem(), ResponsePlayResponderEscalationRuleArgs{})
@@ -13826,12 +14380,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookSubscriptionDeliveryMethodCustomHeaderArrayInput)(nil)).Elem(), WebhookSubscriptionDeliveryMethodCustomHeaderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookSubscriptionFilterInput)(nil)).Elem(), WebhookSubscriptionFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookSubscriptionFilterArrayInput)(nil)).Elem(), WebhookSubscriptionFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutomationActionsActionActionDataReferenceInput)(nil)).Elem(), GetAutomationActionsActionActionDataReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutomationActionsActionActionDataReferenceArrayInput)(nil)).Elem(), GetAutomationActionsActionActionDataReferenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationIntegrationInput)(nil)).Elem(), GetEventOrchestrationIntegrationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationIntegrationArrayInput)(nil)).Elem(), GetEventOrchestrationIntegrationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationIntegrationParameterInput)(nil)).Elem(), GetEventOrchestrationIntegrationParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationIntegrationParameterArrayInput)(nil)).Elem(), GetEventOrchestrationIntegrationParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserInput)(nil)).Elem(), GetUsersUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserArrayInput)(nil)).Elem(), GetUsersUserArray{})
+	pulumi.RegisterOutputType(AutomationActionsActionActionDataReferenceOutput{})
+	pulumi.RegisterOutputType(AutomationActionsActionActionDataReferencePtrOutput{})
 	pulumi.RegisterOutputType(EscalationPolicyRuleOutput{})
 	pulumi.RegisterOutputType(EscalationPolicyRuleArrayOutput{})
 	pulumi.RegisterOutputType(EscalationPolicyRuleTargetOutput{})
@@ -13905,6 +14463,10 @@ func init() {
 	pulumi.RegisterOutputType(EventOrchestrationUnroutedSetRuleActionsVariableArrayOutput{})
 	pulumi.RegisterOutputType(EventOrchestrationUnroutedSetRuleConditionOutput{})
 	pulumi.RegisterOutputType(EventOrchestrationUnroutedSetRuleConditionArrayOutput{})
+	pulumi.RegisterOutputType(PagerdutyIncidentWorkflowStepOutput{})
+	pulumi.RegisterOutputType(PagerdutyIncidentWorkflowStepArrayOutput{})
+	pulumi.RegisterOutputType(PagerdutyIncidentWorkflowStepInputTypeOutput{})
+	pulumi.RegisterOutputType(PagerdutyIncidentWorkflowStepInputTypeArrayOutput{})
 	pulumi.RegisterOutputType(ResponsePlayResponderOutput{})
 	pulumi.RegisterOutputType(ResponsePlayResponderArrayOutput{})
 	pulumi.RegisterOutputType(ResponsePlayResponderEscalationRuleOutput{})
@@ -14034,6 +14596,8 @@ func init() {
 	pulumi.RegisterOutputType(WebhookSubscriptionDeliveryMethodCustomHeaderArrayOutput{})
 	pulumi.RegisterOutputType(WebhookSubscriptionFilterOutput{})
 	pulumi.RegisterOutputType(WebhookSubscriptionFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetAutomationActionsActionActionDataReferenceOutput{})
+	pulumi.RegisterOutputType(GetAutomationActionsActionActionDataReferenceArrayOutput{})
 	pulumi.RegisterOutputType(GetEventOrchestrationIntegrationOutput{})
 	pulumi.RegisterOutputType(GetEventOrchestrationIntegrationArrayOutput{})
 	pulumi.RegisterOutputType(GetEventOrchestrationIntegrationParameterOutput{})

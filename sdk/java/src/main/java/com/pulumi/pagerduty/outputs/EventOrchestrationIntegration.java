@@ -15,7 +15,6 @@ import javax.annotation.Nullable;
 public final class EventOrchestrationIntegration {
     /**
      * @return ID of the integration
-     * * `parameters`
      * 
      */
     private @Nullable String id;
@@ -24,7 +23,6 @@ public final class EventOrchestrationIntegration {
     private EventOrchestrationIntegration() {}
     /**
      * @return ID of the integration
-     * * `parameters`
      * 
      */
     public Optional<String> id() {

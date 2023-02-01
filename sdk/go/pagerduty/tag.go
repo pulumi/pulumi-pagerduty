@@ -54,7 +54,8 @@ type Tag struct {
 	// URL at which the entity is uniquely displayed in the Web app.
 	HtmlUrl pulumi.StringOutput `pulumi:"htmlUrl"`
 	// The label of the tag.
-	Label   pulumi.StringOutput `pulumi:"label"`
+	Label pulumi.StringOutput `pulumi:"label"`
+	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
 	Summary pulumi.StringOutput `pulumi:"summary"`
 }
 
@@ -93,7 +94,8 @@ type tagState struct {
 	// URL at which the entity is uniquely displayed in the Web app.
 	HtmlUrl *string `pulumi:"htmlUrl"`
 	// The label of the tag.
-	Label   *string `pulumi:"label"`
+	Label *string `pulumi:"label"`
+	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
 	Summary *string `pulumi:"summary"`
 }
 
@@ -101,7 +103,8 @@ type TagState struct {
 	// URL at which the entity is uniquely displayed in the Web app.
 	HtmlUrl pulumi.StringPtrInput
 	// The label of the tag.
-	Label   pulumi.StringPtrInput
+	Label pulumi.StringPtrInput
+	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
 	Summary pulumi.StringPtrInput
 }
 
@@ -217,6 +220,7 @@ func (o TagOutput) Label() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.Label }).(pulumi.StringOutput)
 }
 
+// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
 func (o TagOutput) Summary() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.Summary }).(pulumi.StringOutput)
 }

@@ -7,6 +7,21 @@ import * as utilities from "./utilities";
 /**
  * A [tag](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEwMA-assign-tags) is applied to Escalation Policies, Teams or Users and can be used to filter them.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const exampleTag = new pagerduty.Tag("exampleTag", {label: "API"});
+ * const engteam = new pagerduty.Team("engteam", {});
+ * const exampleTagAssignment = new pagerduty.TagAssignment("exampleTagAssignment", {
+ *     tagId: exampleTag.id,
+ *     entityType: "teams",
+ *     entityId: engteam.id,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Tag assignments can be imported using the `id` which is constructed by taking the `entity` Type, `entity` ID and the `tag` ID separated by a dot, e.g.

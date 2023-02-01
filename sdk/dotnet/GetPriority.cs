@@ -93,7 +93,7 @@ namespace Pulumi.Pagerduty
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPriorityResult> InvokeAsync(GetPriorityArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPriorityResult>("pagerduty:index/getPriority:getPriority", args ?? new GetPriorityArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPriorityResult>("pagerduty:index/getPriority:getPriority", args ?? new GetPriorityArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information about a specific [priority](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE2NA-list-priorities) that you can use for other PagerDuty resources. A priority is a label representing the importance and impact of an incident. This feature is only available on Standard and Enterprise plans.
@@ -177,7 +177,7 @@ namespace Pulumi.Pagerduty
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetPriorityResult> Invoke(GetPriorityInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPriorityResult>("pagerduty:index/getPriority:getPriority", args ?? new GetPriorityInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPriorityResult>("pagerduty:index/getPriority:getPriority", args ?? new GetPriorityInvokeArgs(), options.WithDefaults());
     }
 
 

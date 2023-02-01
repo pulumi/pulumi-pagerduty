@@ -23,9 +23,17 @@ public final class BusinessServiceState extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * A URL at which the entity is uniquely displayed in the Web app.
+     * 
+     */
     @Import(name="htmlUrl")
     private @Nullable Output<String> htmlUrl;
 
+    /**
+     * @return A URL at which the entity is uniquely displayed in the Web app.
+     * 
+     */
     public Optional<Output<String>> htmlUrl() {
         return Optional.ofNullable(this.htmlUrl);
     }
@@ -60,16 +68,32 @@ public final class BusinessServiceState extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.pointOfContact);
     }
 
+    /**
+     * The API show URL at which the object is accessible.
+     * 
+     */
     @Import(name="self")
     private @Nullable Output<String> self;
 
+    /**
+     * @return The API show URL at which the object is accessible.
+     * 
+     */
     public Optional<Output<String>> self() {
         return Optional.ofNullable(this.self);
     }
 
+    /**
+     * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+     * 
+     */
     @Import(name="summary")
     private @Nullable Output<String> summary;
 
+    /**
+     * @return A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+     * 
+     */
     public Optional<Output<String>> summary() {
         return Optional.ofNullable(this.summary);
     }
@@ -152,11 +176,23 @@ public final class BusinessServiceState extends com.pulumi.resources.ResourceArg
             return description(Output.of(description));
         }
 
+        /**
+         * @param htmlUrl A URL at which the entity is uniquely displayed in the Web app.
+         * 
+         * @return builder
+         * 
+         */
         public Builder htmlUrl(@Nullable Output<String> htmlUrl) {
             $.htmlUrl = htmlUrl;
             return this;
         }
 
+        /**
+         * @param htmlUrl A URL at which the entity is uniquely displayed in the Web app.
+         * 
+         * @return builder
+         * 
+         */
         public Builder htmlUrl(String htmlUrl) {
             return htmlUrl(Output.of(htmlUrl));
         }
@@ -203,20 +239,44 @@ public final class BusinessServiceState extends com.pulumi.resources.ResourceArg
             return pointOfContact(Output.of(pointOfContact));
         }
 
+        /**
+         * @param self The API show URL at which the object is accessible.
+         * 
+         * @return builder
+         * 
+         */
         public Builder self(@Nullable Output<String> self) {
             $.self = self;
             return this;
         }
 
+        /**
+         * @param self The API show URL at which the object is accessible.
+         * 
+         * @return builder
+         * 
+         */
         public Builder self(String self) {
             return self(Output.of(self));
         }
 
+        /**
+         * @param summary A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+         * 
+         * @return builder
+         * 
+         */
         public Builder summary(@Nullable Output<String> summary) {
             $.summary = summary;
             return this;
         }
 
+        /**
+         * @param summary A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+         * 
+         * @return builder
+         * 
+         */
         public Builder summary(String summary) {
             return summary(Output.of(summary));
         }

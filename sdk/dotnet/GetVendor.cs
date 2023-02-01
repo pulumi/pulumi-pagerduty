@@ -78,7 +78,7 @@ namespace Pulumi.Pagerduty
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetVendorResult> InvokeAsync(GetVendorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVendorResult>("pagerduty:index/getVendor:getVendor", args ?? new GetVendorArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVendorResult>("pagerduty:index/getVendor:getVendor", args ?? new GetVendorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information about a specific [vendor](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODI1OQ-list-vendors) that you can use for a service integration (e.g. Amazon Cloudwatch, Splunk, Datadog).
@@ -147,7 +147,7 @@ namespace Pulumi.Pagerduty
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetVendorResult> Invoke(GetVendorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVendorResult>("pagerduty:index/getVendor:getVendor", args ?? new GetVendorInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVendorResult>("pagerduty:index/getVendor:getVendor", args ?? new GetVendorInvokeArgs(), options.WithDefaults());
     }
 
 

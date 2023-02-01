@@ -57,6 +57,9 @@ export class BusinessService extends pulumi.CustomResource {
     }
 
     public readonly description!: pulumi.Output<string>;
+    /**
+     * A URL at which the entity is uniquely displayed in the Web app.
+     */
     public /*out*/ readonly htmlUrl!: pulumi.Output<string>;
     /**
      * The name of the business service.
@@ -66,7 +69,13 @@ export class BusinessService extends pulumi.CustomResource {
      * The owner of the business service.
      */
     public readonly pointOfContact!: pulumi.Output<string | undefined>;
+    /**
+     * The API show URL at which the object is accessible.
+     */
     public /*out*/ readonly self!: pulumi.Output<string>;
+    /**
+     * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+     */
     public /*out*/ readonly summary!: pulumi.Output<string>;
     /**
      * ID of the team that owns the business service.
@@ -121,6 +130,9 @@ export class BusinessService extends pulumi.CustomResource {
  */
 export interface BusinessServiceState {
     description?: pulumi.Input<string>;
+    /**
+     * A URL at which the entity is uniquely displayed in the Web app.
+     */
     htmlUrl?: pulumi.Input<string>;
     /**
      * The name of the business service.
@@ -130,7 +142,13 @@ export interface BusinessServiceState {
      * The owner of the business service.
      */
     pointOfContact?: pulumi.Input<string>;
+    /**
+     * The API show URL at which the object is accessible.
+     */
     self?: pulumi.Input<string>;
+    /**
+     * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+     */
     summary?: pulumi.Input<string>;
     /**
      * ID of the team that owns the business service.

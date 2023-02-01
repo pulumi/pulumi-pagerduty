@@ -10,6 +10,7 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
+    'AutomationActionsActionActionDataReferenceArgs',
     'EscalationPolicyRuleArgs',
     'EscalationPolicyRuleTargetArgs',
     'EventOrchestrationIntegrationArgs',
@@ -48,6 +49,8 @@ __all__ = [
     'EventOrchestrationUnroutedSetRuleActionsExtractionArgs',
     'EventOrchestrationUnroutedSetRuleActionsVariableArgs',
     'EventOrchestrationUnroutedSetRuleConditionArgs',
+    'PagerdutyIncidentWorkflowStepArgs',
+    'PagerdutyIncidentWorkflowStepInputArgs',
     'ResponsePlayResponderArgs',
     'ResponsePlayResponderEscalationRuleArgs',
     'ResponsePlayResponderEscalationRuleTargetArgs',
@@ -116,6 +119,77 @@ __all__ = [
     'GetEventOrchestrationIntegrationArgs',
     'GetEventOrchestrationIntegrationParameterArgs',
 ]
+
+@pulumi.input_type
+class AutomationActionsActionActionDataReferenceArgs:
+    def __init__(__self__, *,
+                 invocation_command: Optional[pulumi.Input[str]] = None,
+                 process_automation_job_arguments: Optional[pulumi.Input[str]] = None,
+                 process_automation_job_id: Optional[pulumi.Input[str]] = None,
+                 script: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] invocation_command: The command to execute the script with.
+        :param pulumi.Input[str] process_automation_job_arguments: The arguments to pass to the Process Automation job execution.
+        :param pulumi.Input[str] process_automation_job_id: The ID of the Process Automation job to execute.
+        :param pulumi.Input[str] script: Body of the script to be executed on the Runner. Max length is 16777215 characters.
+        """
+        if invocation_command is not None:
+            pulumi.set(__self__, "invocation_command", invocation_command)
+        if process_automation_job_arguments is not None:
+            pulumi.set(__self__, "process_automation_job_arguments", process_automation_job_arguments)
+        if process_automation_job_id is not None:
+            pulumi.set(__self__, "process_automation_job_id", process_automation_job_id)
+        if script is not None:
+            pulumi.set(__self__, "script", script)
+
+    @property
+    @pulumi.getter(name="invocationCommand")
+    def invocation_command(self) -> Optional[pulumi.Input[str]]:
+        """
+        The command to execute the script with.
+        """
+        return pulumi.get(self, "invocation_command")
+
+    @invocation_command.setter
+    def invocation_command(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "invocation_command", value)
+
+    @property
+    @pulumi.getter(name="processAutomationJobArguments")
+    def process_automation_job_arguments(self) -> Optional[pulumi.Input[str]]:
+        """
+        The arguments to pass to the Process Automation job execution.
+        """
+        return pulumi.get(self, "process_automation_job_arguments")
+
+    @process_automation_job_arguments.setter
+    def process_automation_job_arguments(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "process_automation_job_arguments", value)
+
+    @property
+    @pulumi.getter(name="processAutomationJobId")
+    def process_automation_job_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Process Automation job to execute.
+        """
+        return pulumi.get(self, "process_automation_job_id")
+
+    @process_automation_job_id.setter
+    def process_automation_job_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "process_automation_job_id", value)
+
+    @property
+    @pulumi.getter
+    def script(self) -> Optional[pulumi.Input[str]]:
+        """
+        Body of the script to be executed on the Runner. Max length is 16777215 characters.
+        """
+        return pulumi.get(self, "script")
+
+    @script.setter
+    def script(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "script", value)
+
 
 @pulumi.input_type
 class EscalationPolicyRuleArgs:
@@ -211,7 +285,6 @@ class EventOrchestrationIntegrationArgs:
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationIntegrationParameterArgs']]]] = None):
         """
         :param pulumi.Input[str] id: ID of the integration
-               * `parameters`
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -223,7 +296,6 @@ class EventOrchestrationIntegrationArgs:
     def id(self) -> Optional[pulumi.Input[str]]:
         """
         ID of the integration
-        * `parameters`
         """
         return pulumi.get(self, "id")
 
@@ -2271,6 +2343,124 @@ class EventOrchestrationUnroutedSetRuleConditionArgs:
 
 
 @pulumi.input_type
+class PagerdutyIncidentWorkflowStepArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 id: Optional[pulumi.Input[str]] = None,
+                 inputs: Optional[pulumi.Input[Sequence[pulumi.Input['PagerdutyIncidentWorkflowStepInputArgs']]]] = None):
+        """
+        :param pulumi.Input[str] action: The action id for the workflow step, including the version. A list of actions available can be retrieved using the [PagerDuty API](https://developer.pagerduty.com/api-reference/aa192a25fac39-list-actions).
+        :param pulumi.Input[str] name: The name of the workflow step.
+        :param pulumi.Input[str] id: The ID of the incident workflow.
+        :param pulumi.Input[Sequence[pulumi.Input['PagerdutyIncidentWorkflowStepInputArgs']]] inputs: The list of inputs for the workflow action.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "name", name)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if inputs is not None:
+            pulumi.set(__self__, "inputs", inputs)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Input[str]:
+        """
+        The action id for the workflow step, including the version. A list of actions available can be retrieved using the [PagerDuty API](https://developer.pagerduty.com/api-reference/aa192a25fac39-list-actions).
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input[str]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the workflow step.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the incident workflow.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def inputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PagerdutyIncidentWorkflowStepInputArgs']]]]:
+        """
+        The list of inputs for the workflow action.
+        """
+        return pulumi.get(self, "inputs")
+
+    @inputs.setter
+    def inputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PagerdutyIncidentWorkflowStepInputArgs']]]]):
+        pulumi.set(self, "inputs", value)
+
+
+@pulumi.input_type
+class PagerdutyIncidentWorkflowStepInputArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str],
+                 generated: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the input.
+        :param pulumi.Input[str] value: The value of the input.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+        if generated is not None:
+            pulumi.set(__self__, "generated", generated)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the input.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value of the input.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def generated(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "generated")
+
+    @generated.setter
+    def generated(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "generated", value)
+
+
+@pulumi.input_type
 class ResponsePlayResponderArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
@@ -4021,7 +4211,7 @@ class ServiceEventRuleActionsAnnotateArgs:
     def __init__(__self__, *,
                  value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] value: The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        :param pulumi.Input[str] value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
         """
         if value is not None:
             pulumi.set(__self__, "value", value)
@@ -4030,7 +4220,7 @@ class ServiceEventRuleActionsAnnotateArgs:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
         """
-        The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
         """
         return pulumi.get(self, "value")
 
@@ -4044,7 +4234,7 @@ class ServiceEventRuleActionsEventActionArgs:
     def __init__(__self__, *,
                  value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] value: The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        :param pulumi.Input[str] value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
         """
         if value is not None:
             pulumi.set(__self__, "value", value)
@@ -4053,7 +4243,7 @@ class ServiceEventRuleActionsEventActionArgs:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
         """
-        The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
         """
         return pulumi.get(self, "value")
 
@@ -4138,7 +4328,7 @@ class ServiceEventRuleActionsPriorityArgs:
     def __init__(__self__, *,
                  value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] value: The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        :param pulumi.Input[str] value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
         """
         if value is not None:
             pulumi.set(__self__, "value", value)
@@ -4147,7 +4337,7 @@ class ServiceEventRuleActionsPriorityArgs:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
         """
-        The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
         """
         return pulumi.get(self, "value")
 
@@ -4161,7 +4351,7 @@ class ServiceEventRuleActionsSeverityArgs:
     def __init__(__self__, *,
                  value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] value: The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        :param pulumi.Input[str] value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
         """
         if value is not None:
             pulumi.set(__self__, "value", value)
@@ -4170,7 +4360,7 @@ class ServiceEventRuleActionsSeverityArgs:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
         """
-        The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
         """
         return pulumi.get(self, "value")
 
@@ -4190,7 +4380,7 @@ class ServiceEventRuleActionsSuppressArgs:
         :param pulumi.Input[int] threshold_time_amount: The number value of the `threshold_time_unit` before an incident is created.
         :param pulumi.Input[str] threshold_time_unit: The `seconds`,`minutes`, or `hours` the `threshold_time_amount` should be measured.
         :param pulumi.Input[int] threshold_value: The number of alerts that should be suppressed.
-        :param pulumi.Input[bool] value: The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        :param pulumi.Input[bool] value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
         """
         if threshold_time_amount is not None:
             pulumi.set(__self__, "threshold_time_amount", threshold_time_amount)
@@ -4241,7 +4431,7 @@ class ServiceEventRuleActionsSuppressArgs:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[bool]]:
         """
-        The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
         """
         return pulumi.get(self, "value")
 
@@ -4255,7 +4445,7 @@ class ServiceEventRuleActionsSuspendArgs:
     def __init__(__self__, *,
                  value: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] value: The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        :param pulumi.Input[int] value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
         """
         if value is not None:
             pulumi.set(__self__, "value", value)
@@ -4264,7 +4454,7 @@ class ServiceEventRuleActionsSuspendArgs:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[int]]:
         """
-        The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
         """
         return pulumi.get(self, "value")
 
@@ -4358,7 +4548,7 @@ class ServiceEventRuleConditionsSubconditionParameterArgs:
                  value: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] path: Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
-        :param pulumi.Input[str] value: The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        :param pulumi.Input[str] value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
         """
         if path is not None:
             pulumi.set(__self__, "path", path)
@@ -4381,7 +4571,7 @@ class ServiceEventRuleConditionsSubconditionParameterArgs:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
         """
-        The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
         """
         return pulumi.get(self, "value")
 
@@ -4601,7 +4791,7 @@ class ServiceEventRuleVariableParameterArgs:
                  value: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] path: Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
-        :param pulumi.Input[str] value: The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        :param pulumi.Input[str] value: Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
         """
         if path is not None:
             pulumi.set(__self__, "path", path)
@@ -4624,7 +4814,7 @@ class ServiceEventRuleVariableParameterArgs:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
         """
-        The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
         """
         return pulumi.get(self, "value")
 
@@ -5605,7 +5795,6 @@ class GetEventOrchestrationIntegrationArgs:
                  parameters: Sequence['GetEventOrchestrationIntegrationParameterArgs']):
         """
         :param str id: ID of the integration
-               * `parameters`
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "parameters", parameters)
@@ -5615,7 +5804,6 @@ class GetEventOrchestrationIntegrationArgs:
     def id(self) -> str:
         """
         ID of the integration
-        * `parameters`
         """
         return pulumi.get(self, "id")
 

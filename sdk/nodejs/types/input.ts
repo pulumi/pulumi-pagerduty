@@ -2,7 +2,27 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+
+export interface AutomationActionsActionActionDataReference {
+    /**
+     * The command to execute the script with.
+     */
+    invocationCommand?: pulumi.Input<string>;
+    /**
+     * The arguments to pass to the Process Automation job execution.
+     */
+    processAutomationJobArguments?: pulumi.Input<string>;
+    /**
+     * The ID of the Process Automation job to execute.
+     */
+    processAutomationJobId?: pulumi.Input<string>;
+    /**
+     * Body of the script to be executed on the Runner. Max length is 16777215 characters.
+     */
+    script?: pulumi.Input<string>;
+}
 
 export interface EscalationPolicyRule {
     /**
@@ -30,7 +50,6 @@ export interface EscalationPolicyRuleTarget {
 export interface EventOrchestrationIntegration {
     /**
      * ID of the integration
-     * * `parameters`
      */
     id?: pulumi.Input<string>;
     parameters?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationIntegrationParameter>[]>;
@@ -594,7 +613,6 @@ export interface EventOrchestrationUnroutedSetRuleCondition {
 export interface GetEventOrchestrationIntegration {
     /**
      * ID of the integration
-     * * `parameters`
      */
     id?: string;
     parameters?: inputs.GetEventOrchestrationIntegrationParameter[];
@@ -603,7 +621,6 @@ export interface GetEventOrchestrationIntegration {
 export interface GetEventOrchestrationIntegrationArgs {
     /**
      * ID of the integration
-     * * `parameters`
      */
     id?: pulumi.Input<string>;
     parameters?: pulumi.Input<pulumi.Input<inputs.GetEventOrchestrationIntegrationParameterArgs>[]>;
@@ -629,6 +646,37 @@ export interface GetEventOrchestrationIntegrationParameterArgs {
      * Type of the routing key. `global` is the default type.
      */
     type?: pulumi.Input<string>;
+}
+
+export interface PagerdutyIncidentWorkflowStep {
+    /**
+     * The action id for the workflow step, including the version. A list of actions available can be retrieved using the [PagerDuty API](https://developer.pagerduty.com/api-reference/aa192a25fac39-list-actions).
+     */
+    action: pulumi.Input<string>;
+    /**
+     * The ID of the incident workflow.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * The list of inputs for the workflow action.
+     */
+    inputs?: pulumi.Input<pulumi.Input<inputs.PagerdutyIncidentWorkflowStepInput>[]>;
+    /**
+     * The name of the workflow step.
+     */
+    name: pulumi.Input<string>;
+}
+
+export interface PagerdutyIncidentWorkflowStepInput {
+    generated?: pulumi.Input<boolean>;
+    /**
+     * The name of the input.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The value of the input.
+     */
+    value: pulumi.Input<string>;
 }
 
 export interface ResponsePlayResponder {
@@ -1097,14 +1145,14 @@ export interface ServiceEventRuleActions {
 
 export interface ServiceEventRuleActionsAnnotate {
     /**
-     * The value for the operation. For example, an RE2 regular expression for regex-type variables.
+     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
      */
     value?: pulumi.Input<string>;
 }
 
 export interface ServiceEventRuleActionsEventAction {
     /**
-     * The value for the operation. For example, an RE2 regular expression for regex-type variables.
+     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
      */
     value?: pulumi.Input<string>;
 }
@@ -1130,14 +1178,14 @@ export interface ServiceEventRuleActionsExtraction {
 
 export interface ServiceEventRuleActionsPriority {
     /**
-     * The value for the operation. For example, an RE2 regular expression for regex-type variables.
+     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
      */
     value?: pulumi.Input<string>;
 }
 
 export interface ServiceEventRuleActionsSeverity {
     /**
-     * The value for the operation. For example, an RE2 regular expression for regex-type variables.
+     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
      */
     value?: pulumi.Input<string>;
 }
@@ -1156,14 +1204,14 @@ export interface ServiceEventRuleActionsSuppress {
      */
     thresholdValue?: pulumi.Input<number>;
     /**
-     * The value for the operation. For example, an RE2 regular expression for regex-type variables.
+     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
      */
     value?: pulumi.Input<boolean>;
 }
 
 export interface ServiceEventRuleActionsSuspend {
     /**
-     * The value for the operation. For example, an RE2 regular expression for regex-type variables.
+     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
      */
     value?: pulumi.Input<number>;
 }
@@ -1196,7 +1244,7 @@ export interface ServiceEventRuleConditionsSubconditionParameter {
      */
     path?: pulumi.Input<string>;
     /**
-     * The value for the operation. For example, an RE2 regular expression for regex-type variables.
+     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
      */
     value?: pulumi.Input<string>;
 }
@@ -1263,7 +1311,7 @@ export interface ServiceEventRuleVariableParameter {
      */
     path?: pulumi.Input<string>;
     /**
-     * The value for the operation. For example, an RE2 regular expression for regex-type variables.
+     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
      */
     value?: pulumi.Input<string>;
 }

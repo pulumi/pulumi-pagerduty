@@ -399,7 +399,7 @@ class Extension(pulumi.CustomResource):
             __props__ = ExtensionArgs.__new__(ExtensionArgs)
 
             __props__.__dict__["config"] = config
-            __props__.__dict__["endpoint_url"] = endpoint_url
+            __props__.__dict__["endpoint_url"] = None if endpoint_url is None else pulumi.Output.secret(endpoint_url)
             if extension_objects is None and not opts.urn:
                 raise TypeError("Missing required property 'extension_objects'")
             __props__.__dict__["extension_objects"] = extension_objects
@@ -410,6 +410,8 @@ class Extension(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["html_url"] = None
             __props__.__dict__["summary"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["endpointUrl"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Extension, __self__).__init__(
             'pagerduty:index/extension:Extension',
             resource_name,

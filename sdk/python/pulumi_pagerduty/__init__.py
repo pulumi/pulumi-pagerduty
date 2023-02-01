@@ -6,6 +6,11 @@ from . import _utilities
 import typing
 # Export this package's modules as members:
 from .addon import *
+from .automation_actions_action import *
+from .automation_actions_action_service_association import *
+from .automation_actions_action_team_association import *
+from .automation_actions_runner import *
+from .automation_actions_runner_team_association import *
 from .business_service import *
 from .business_service_subscriber import *
 from .escalation_policy import *
@@ -16,10 +21,13 @@ from .event_orchestration_unrouted import *
 from .event_rule import *
 from .extension import *
 from .extension_service_now import *
+from .get_automation_actions_action import *
+from .get_automation_actions_runner import *
 from .get_business_service import *
 from .get_escalation_policy import *
 from .get_event_orchestration import *
 from .get_extension_schema import *
+from .get_incident_workflow import *
 from .get_priority import *
 from .get_ruleset import *
 from .get_schedule import *
@@ -32,6 +40,8 @@ from .get_user_contact_method import *
 from .get_users import *
 from .get_vendor import *
 from .maintenance_window import *
+from .pagerduty_incident_workflow import *
+from .pagerduty_incident_workflow_trigger import *
 from .provider import *
 from .response_play import *
 from .ruleset import *
@@ -69,6 +79,46 @@ _utilities.register(
   "fqn": "pulumi_pagerduty",
   "classes": {
    "pagerduty:index/addon:Addon": "Addon"
+  }
+ },
+ {
+  "pkg": "pagerduty",
+  "mod": "index/automationActionsAction",
+  "fqn": "pulumi_pagerduty",
+  "classes": {
+   "pagerduty:index/automationActionsAction:AutomationActionsAction": "AutomationActionsAction"
+  }
+ },
+ {
+  "pkg": "pagerduty",
+  "mod": "index/automationActionsActionServiceAssociation",
+  "fqn": "pulumi_pagerduty",
+  "classes": {
+   "pagerduty:index/automationActionsActionServiceAssociation:AutomationActionsActionServiceAssociation": "AutomationActionsActionServiceAssociation"
+  }
+ },
+ {
+  "pkg": "pagerduty",
+  "mod": "index/automationActionsActionTeamAssociation",
+  "fqn": "pulumi_pagerduty",
+  "classes": {
+   "pagerduty:index/automationActionsActionTeamAssociation:AutomationActionsActionTeamAssociation": "AutomationActionsActionTeamAssociation"
+  }
+ },
+ {
+  "pkg": "pagerduty",
+  "mod": "index/automationActionsRunner",
+  "fqn": "pulumi_pagerduty",
+  "classes": {
+   "pagerduty:index/automationActionsRunner:AutomationActionsRunner": "AutomationActionsRunner"
+  }
+ },
+ {
+  "pkg": "pagerduty",
+  "mod": "index/automationActionsRunnerTeamAssociation",
+  "fqn": "pulumi_pagerduty",
+  "classes": {
+   "pagerduty:index/automationActionsRunnerTeamAssociation:AutomationActionsRunnerTeamAssociation": "AutomationActionsRunnerTeamAssociation"
   }
  },
  {
@@ -157,6 +207,22 @@ _utilities.register(
   "fqn": "pulumi_pagerduty",
   "classes": {
    "pagerduty:index/maintenanceWindow:MaintenanceWindow": "MaintenanceWindow"
+  }
+ },
+ {
+  "pkg": "pagerduty",
+  "mod": "index/pagerdutyIncidentWorkflow",
+  "fqn": "pulumi_pagerduty",
+  "classes": {
+   "pagerduty:index/pagerdutyIncidentWorkflow:PagerdutyIncidentWorkflow": "PagerdutyIncidentWorkflow"
+  }
+ },
+ {
+  "pkg": "pagerduty",
+  "mod": "index/pagerdutyIncidentWorkflowTrigger",
+  "fqn": "pulumi_pagerduty",
+  "classes": {
+   "pagerduty:index/pagerdutyIncidentWorkflowTrigger:PagerdutyIncidentWorkflowTrigger": "PagerdutyIncidentWorkflowTrigger"
   }
  },
  {

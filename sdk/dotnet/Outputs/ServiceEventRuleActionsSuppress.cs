@@ -26,7 +26,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly int? ThresholdValue;
         /// <summary>
-        /// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        /// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
         /// </summary>
         public readonly bool? Value;
 

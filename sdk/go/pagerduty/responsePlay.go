@@ -30,7 +30,7 @@ import (
 //			exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
 //				Email: pulumi.String("125.greenholt.earline@graham.name"),
 //				Teams: pulumi.StringArray{
-//					pulumi.Any(pagerduty_team.Example.Id),
+//					pagerduty_team.Example.Id,
 //				},
 //			})
 //			if err != nil {
@@ -38,11 +38,11 @@ import (
 //			}
 //			exampleEscalationPolicy, err := pagerduty.NewEscalationPolicy(ctx, "exampleEscalationPolicy", &pagerduty.EscalationPolicyArgs{
 //				NumLoops: pulumi.Int(2),
-//				Rules: EscalationPolicyRuleArray{
-//					&EscalationPolicyRuleArgs{
+//				Rules: pagerduty.EscalationPolicyRuleArray{
+//					&pagerduty.EscalationPolicyRuleArgs{
 //						EscalationDelayInMinutes: pulumi.Int(10),
-//						Targets: EscalationPolicyRuleTargetArray{
-//							&EscalationPolicyRuleTargetArgs{
+//						Targets: pagerduty.EscalationPolicyRuleTargetArray{
+//							&pagerduty.EscalationPolicyRuleTargetArgs{
 //								Type: pulumi.String("user"),
 //								Id:   exampleUser.ID(),
 //							},
@@ -55,14 +55,14 @@ import (
 //			}
 //			_, err = pagerduty.NewResponsePlay(ctx, "exampleResponsePlay", &pagerduty.ResponsePlayArgs{
 //				From: exampleUser.Email,
-//				Responders: ResponsePlayResponderArray{
-//					&ResponsePlayResponderArgs{
+//				Responders: pagerduty.ResponsePlayResponderArray{
+//					&pagerduty.ResponsePlayResponderArgs{
 //						Type: pulumi.String("escalation_policy_reference"),
 //						Id:   exampleEscalationPolicy.ID(),
 //					},
 //				},
-//				Subscribers: ResponsePlaySubscriberArray{
-//					&ResponsePlaySubscriberArgs{
+//				Subscribers: pagerduty.ResponsePlaySubscriberArray{
+//					&pagerduty.ResponsePlaySubscriberArgs{
 //						Type: pulumi.String("user_reference"),
 //						Id:   exampleUser.ID(),
 //					},

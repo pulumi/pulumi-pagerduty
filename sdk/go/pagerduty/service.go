@@ -35,11 +35,11 @@ import (
 //			}
 //			foo, err := pagerduty.NewEscalationPolicy(ctx, "foo", &pagerduty.EscalationPolicyArgs{
 //				NumLoops: pulumi.Int(2),
-//				Rules: EscalationPolicyRuleArray{
-//					&EscalationPolicyRuleArgs{
+//				Rules: pagerduty.EscalationPolicyRuleArray{
+//					&pagerduty.EscalationPolicyRuleArgs{
 //						EscalationDelayInMinutes: pulumi.Int(10),
-//						Targets: EscalationPolicyRuleTargetArray{
-//							&EscalationPolicyRuleTargetArgs{
+//						Targets: pagerduty.EscalationPolicyRuleTargetArray{
+//							&pagerduty.EscalationPolicyRuleTargetArgs{
 //								Type: pulumi.String("user_reference"),
 //								Id:   exampleUser.ID(),
 //							},
@@ -55,7 +55,7 @@ import (
 //				AcknowledgementTimeout: pulumi.String("600"),
 //				EscalationPolicy:       foo.ID(),
 //				AlertCreation:          pulumi.String("create_alerts_and_incidents"),
-//				AutoPauseNotificationsParameters: &ServiceAutoPauseNotificationsParametersArgs{
+//				AutoPauseNotificationsParameters: &pagerduty.ServiceAutoPauseNotificationsParametersArgs{
 //					Enabled: pulumi.Bool(true),
 //					Timeout: pulumi.Int(300),
 //				},
@@ -99,20 +99,24 @@ type Service struct {
 	AutoPauseNotificationsParameters ServiceAutoPauseNotificationsParametersOutput `pulumi:"autoPauseNotificationsParameters"`
 	// Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
 	AutoResolveTimeout pulumi.StringPtrOutput `pulumi:"autoResolveTimeout"`
-	CreatedAt          pulumi.StringOutput    `pulumi:"createdAt"`
-	Description        pulumi.StringOutput    `pulumi:"description"`
+	// Creation timestamp of the service.
+	CreatedAt   pulumi.StringOutput `pulumi:"createdAt"`
+	Description pulumi.StringOutput `pulumi:"description"`
 	// The escalation policy used by this service.
-	EscalationPolicy      pulumi.StringOutput              `pulumi:"escalationPolicy"`
-	HtmlUrl               pulumi.StringOutput              `pulumi:"htmlUrl"`
-	IncidentUrgencyRule   ServiceIncidentUrgencyRuleOutput `pulumi:"incidentUrgencyRule"`
-	LastIncidentTimestamp pulumi.StringOutput              `pulumi:"lastIncidentTimestamp"`
+	EscalationPolicy pulumi.StringOutput `pulumi:"escalationPolicy"`
+	// URL at which the entity is uniquely displayed in the Web app.
+	HtmlUrl             pulumi.StringOutput              `pulumi:"htmlUrl"`
+	IncidentUrgencyRule ServiceIncidentUrgencyRuleOutput `pulumi:"incidentUrgencyRule"`
+	// Last incident timestamp of the service.
+	LastIncidentTimestamp pulumi.StringOutput `pulumi:"lastIncidentTimestamp"`
 	// The name of the service.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The response play used by this service.
 	ResponsePlay     pulumi.StringPtrOutput            `pulumi:"responsePlay"`
 	ScheduledActions ServiceScheduledActionArrayOutput `pulumi:"scheduledActions"`
-	Status           pulumi.StringOutput               `pulumi:"status"`
-	SupportHours     ServiceSupportHoursPtrOutput      `pulumi:"supportHours"`
+	// The status of the service.
+	Status       pulumi.StringOutput          `pulumi:"status"`
+	SupportHours ServiceSupportHoursPtrOutput `pulumi:"supportHours"`
 	// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -170,20 +174,24 @@ type serviceState struct {
 	AutoPauseNotificationsParameters *ServiceAutoPauseNotificationsParameters `pulumi:"autoPauseNotificationsParameters"`
 	// Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
 	AutoResolveTimeout *string `pulumi:"autoResolveTimeout"`
-	CreatedAt          *string `pulumi:"createdAt"`
-	Description        *string `pulumi:"description"`
+	// Creation timestamp of the service.
+	CreatedAt   *string `pulumi:"createdAt"`
+	Description *string `pulumi:"description"`
 	// The escalation policy used by this service.
-	EscalationPolicy      *string                     `pulumi:"escalationPolicy"`
-	HtmlUrl               *string                     `pulumi:"htmlUrl"`
-	IncidentUrgencyRule   *ServiceIncidentUrgencyRule `pulumi:"incidentUrgencyRule"`
-	LastIncidentTimestamp *string                     `pulumi:"lastIncidentTimestamp"`
+	EscalationPolicy *string `pulumi:"escalationPolicy"`
+	// URL at which the entity is uniquely displayed in the Web app.
+	HtmlUrl             *string                     `pulumi:"htmlUrl"`
+	IncidentUrgencyRule *ServiceIncidentUrgencyRule `pulumi:"incidentUrgencyRule"`
+	// Last incident timestamp of the service.
+	LastIncidentTimestamp *string `pulumi:"lastIncidentTimestamp"`
 	// The name of the service.
 	Name *string `pulumi:"name"`
 	// The response play used by this service.
 	ResponsePlay     *string                  `pulumi:"responsePlay"`
 	ScheduledActions []ServiceScheduledAction `pulumi:"scheduledActions"`
-	Status           *string                  `pulumi:"status"`
-	SupportHours     *ServiceSupportHours     `pulumi:"supportHours"`
+	// The status of the service.
+	Status       *string              `pulumi:"status"`
+	SupportHours *ServiceSupportHours `pulumi:"supportHours"`
 	// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
 	Type *string `pulumi:"type"`
 }
@@ -207,20 +215,24 @@ type ServiceState struct {
 	AutoPauseNotificationsParameters ServiceAutoPauseNotificationsParametersPtrInput
 	// Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
 	AutoResolveTimeout pulumi.StringPtrInput
-	CreatedAt          pulumi.StringPtrInput
-	Description        pulumi.StringPtrInput
+	// Creation timestamp of the service.
+	CreatedAt   pulumi.StringPtrInput
+	Description pulumi.StringPtrInput
 	// The escalation policy used by this service.
-	EscalationPolicy      pulumi.StringPtrInput
-	HtmlUrl               pulumi.StringPtrInput
-	IncidentUrgencyRule   ServiceIncidentUrgencyRulePtrInput
+	EscalationPolicy pulumi.StringPtrInput
+	// URL at which the entity is uniquely displayed in the Web app.
+	HtmlUrl             pulumi.StringPtrInput
+	IncidentUrgencyRule ServiceIncidentUrgencyRulePtrInput
+	// Last incident timestamp of the service.
 	LastIncidentTimestamp pulumi.StringPtrInput
 	// The name of the service.
 	Name pulumi.StringPtrInput
 	// The response play used by this service.
 	ResponsePlay     pulumi.StringPtrInput
 	ScheduledActions ServiceScheduledActionArrayInput
-	Status           pulumi.StringPtrInput
-	SupportHours     ServiceSupportHoursPtrInput
+	// The status of the service.
+	Status       pulumi.StringPtrInput
+	SupportHours ServiceSupportHoursPtrInput
 	// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
 	Type pulumi.StringPtrInput
 }
@@ -420,6 +432,7 @@ func (o ServiceOutput) AutoResolveTimeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.AutoResolveTimeout }).(pulumi.StringPtrOutput)
 }
 
+// Creation timestamp of the service.
 func (o ServiceOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
@@ -433,6 +446,7 @@ func (o ServiceOutput) EscalationPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.EscalationPolicy }).(pulumi.StringOutput)
 }
 
+// URL at which the entity is uniquely displayed in the Web app.
 func (o ServiceOutput) HtmlUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.HtmlUrl }).(pulumi.StringOutput)
 }
@@ -441,6 +455,7 @@ func (o ServiceOutput) IncidentUrgencyRule() ServiceIncidentUrgencyRuleOutput {
 	return o.ApplyT(func(v *Service) ServiceIncidentUrgencyRuleOutput { return v.IncidentUrgencyRule }).(ServiceIncidentUrgencyRuleOutput)
 }
 
+// Last incident timestamp of the service.
 func (o ServiceOutput) LastIncidentTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.LastIncidentTimestamp }).(pulumi.StringOutput)
 }
@@ -459,6 +474,7 @@ func (o ServiceOutput) ScheduledActions() ServiceScheduledActionArrayOutput {
 	return o.ApplyT(func(v *Service) ServiceScheduledActionArrayOutput { return v.ScheduledActions }).(ServiceScheduledActionArrayOutput)
 }
 
+// The status of the service.
 func (o ServiceOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

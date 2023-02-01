@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testEscalationPolicy, err := pagerduty.LookupEscalationPolicy(ctx, &GetEscalationPolicyArgs{
+//			testEscalationPolicy, err := pagerduty.LookupEscalationPolicy(ctx, &pagerduty.LookupEscalationPolicyArgs{
 //				Name: "Engineering Escalation Policy",
 //			}, nil)
 //			if err != nil {
@@ -35,7 +35,7 @@ import (
 //			_, err = pagerduty.NewService(ctx, "testService", &pagerduty.ServiceArgs{
 //				AutoResolveTimeout:     pulumi.String("14400"),
 //				AcknowledgementTimeout: pulumi.String("600"),
-//				EscalationPolicy:       pulumi.String(testEscalationPolicy.Id),
+//				EscalationPolicy:       *pulumi.String(testEscalationPolicy.Id),
 //			})
 //			if err != nil {
 //				return err

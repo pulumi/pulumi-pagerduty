@@ -40,13 +40,13 @@ import (
 //				Service:  example.ID(),
 //				Position: pulumi.Int(0),
 //				Disabled: pulumi.Bool(true),
-//				Conditions: &ServiceEventRuleConditionsArgs{
+//				Conditions: &pagerduty.ServiceEventRuleConditionsArgs{
 //					Operator: pulumi.String("and"),
-//					Subconditions: ServiceEventRuleConditionsSubconditionArray{
-//						&ServiceEventRuleConditionsSubconditionArgs{
+//					Subconditions: pagerduty.ServiceEventRuleConditionsSubconditionArray{
+//						&pagerduty.ServiceEventRuleConditionsSubconditionArgs{
 //							Operator: pulumi.String("contains"),
-//							Parameters: ServiceEventRuleConditionsSubconditionParameterArray{
-//								&ServiceEventRuleConditionsSubconditionParameterArgs{
+//							Parameters: pagerduty.ServiceEventRuleConditionsSubconditionParameterArray{
+//								&pagerduty.ServiceEventRuleConditionsSubconditionParameterArgs{
 //									Value: pulumi.String("disk space"),
 //									Path:  pulumi.String("summary"),
 //								},
@@ -54,31 +54,31 @@ import (
 //						},
 //					},
 //				},
-//				Variables: ServiceEventRuleVariableArray{
-//					&ServiceEventRuleVariableArgs{
+//				Variables: pagerduty.ServiceEventRuleVariableArray{
+//					&pagerduty.ServiceEventRuleVariableArgs{
 //						Type: pulumi.String("regex"),
 //						Name: pulumi.String("Src"),
-//						Parameters: ServiceEventRuleVariableParameterArray{
-//							&ServiceEventRuleVariableParameterArgs{
+//						Parameters: pagerduty.ServiceEventRuleVariableParameterArray{
+//							&pagerduty.ServiceEventRuleVariableParameterArgs{
 //								Value: pulumi.String("(.*)"),
 //								Path:  pulumi.String("source"),
 //							},
 //						},
 //					},
 //				},
-//				Actions: &ServiceEventRuleActionsArgs{
-//					Annotates: ServiceEventRuleActionsAnnotateArray{
-//						&ServiceEventRuleActionsAnnotateArgs{
+//				Actions: &pagerduty.ServiceEventRuleActionsArgs{
+//					Annotates: pagerduty.ServiceEventRuleActionsAnnotateArray{
+//						&pagerduty.ServiceEventRuleActionsAnnotateArgs{
 //							Value: pulumi.String("From Terraform"),
 //						},
 //					},
-//					Extractions: ServiceEventRuleActionsExtractionArray{
-//						&ServiceEventRuleActionsExtractionArgs{
+//					Extractions: pagerduty.ServiceEventRuleActionsExtractionArray{
+//						&pagerduty.ServiceEventRuleActionsExtractionArgs{
 //							Target: pulumi.String("dedup_key"),
 //							Source: pulumi.String("source"),
 //							Regex:  pulumi.String("(.*)"),
 //						},
-//						&ServiceEventRuleActionsExtractionArgs{
+//						&pagerduty.ServiceEventRuleActionsExtractionArgs{
 //							Target:   pulumi.String("summary"),
 //							Template: pulumi.String("Warning: Disk Space Low on {{Src}}"),
 //						},
@@ -92,13 +92,13 @@ import (
 //				Service:  pulumi.Any(pagerduty_service.Foo.Id),
 //				Position: pulumi.Int(1),
 //				Disabled: pulumi.Bool(true),
-//				Conditions: &ServiceEventRuleConditionsArgs{
+//				Conditions: &pagerduty.ServiceEventRuleConditionsArgs{
 //					Operator: pulumi.String("and"),
-//					Subconditions: ServiceEventRuleConditionsSubconditionArray{
-//						&ServiceEventRuleConditionsSubconditionArgs{
+//					Subconditions: pagerduty.ServiceEventRuleConditionsSubconditionArray{
+//						&pagerduty.ServiceEventRuleConditionsSubconditionArgs{
 //							Operator: pulumi.String("contains"),
-//							Parameters: ServiceEventRuleConditionsSubconditionParameterArray{
-//								&ServiceEventRuleConditionsSubconditionParameterArgs{
+//							Parameters: pagerduty.ServiceEventRuleConditionsSubconditionParameterArray{
+//								&pagerduty.ServiceEventRuleConditionsSubconditionParameterArgs{
 //									Value: pulumi.String("cpu spike"),
 //									Path:  pulumi.String("summary"),
 //								},
@@ -106,9 +106,9 @@ import (
 //						},
 //					},
 //				},
-//				Actions: &ServiceEventRuleActionsArgs{
-//					Annotates: ServiceEventRuleActionsAnnotateArray{
-//						&ServiceEventRuleActionsAnnotateArgs{
+//				Actions: &pagerduty.ServiceEventRuleActionsArgs{
+//					Annotates: pagerduty.ServiceEventRuleActionsAnnotateArray{
+//						&pagerduty.ServiceEventRuleActionsAnnotateArgs{
 //							Value: pulumi.String("From Terraform"),
 //						},
 //					},

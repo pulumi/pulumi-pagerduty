@@ -15,13 +15,13 @@ namespace Pulumi.Pagerduty
         /// Use this data source to get information about a specific Global [Event Orchestration](https://developer.pagerduty.com/api-reference/7ba0fe7bdb26a-list-event-orchestrations)
         /// </summary>
         public static Task<GetEventOrchestrationResult> InvokeAsync(GetEventOrchestrationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEventOrchestrationResult>("pagerduty:index/getEventOrchestration:getEventOrchestration", args ?? new GetEventOrchestrationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventOrchestrationResult>("pagerduty:index/getEventOrchestration:getEventOrchestration", args ?? new GetEventOrchestrationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information about a specific Global [Event Orchestration](https://developer.pagerduty.com/api-reference/7ba0fe7bdb26a-list-event-orchestrations)
         /// </summary>
         public static Output<GetEventOrchestrationResult> Invoke(GetEventOrchestrationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEventOrchestrationResult>("pagerduty:index/getEventOrchestration:getEventOrchestration", args ?? new GetEventOrchestrationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEventOrchestrationResult>("pagerduty:index/getEventOrchestration:getEventOrchestration", args ?? new GetEventOrchestrationInvokeArgs(), options.WithDefaults());
     }
 
 

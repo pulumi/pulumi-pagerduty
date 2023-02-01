@@ -34,21 +34,21 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := pagerduty.NewEventOrchestrationUnrouted(ctx, "unrouted", &pagerduty.EventOrchestrationUnroutedArgs{
 //				EventOrchestration: pulumi.Any(pagerduty_event_orchestration.My_monitor.Id),
-//				Sets: EventOrchestrationUnroutedSetArray{
-//					&EventOrchestrationUnroutedSetArgs{
+//				Sets: pagerduty.EventOrchestrationUnroutedSetArray{
+//					&pagerduty.EventOrchestrationUnroutedSetArgs{
 //						Id: pulumi.String("start"),
-//						Rules: EventOrchestrationUnroutedSetRuleArray{
-//							&EventOrchestrationUnroutedSetRuleArgs{
+//						Rules: pagerduty.EventOrchestrationUnroutedSetRuleArray{
+//							&pagerduty.EventOrchestrationUnroutedSetRuleArgs{
 //								Label: pulumi.String("Update the summary of un-matched Critical alerts so they're easier to spot"),
-//								Conditions: EventOrchestrationUnroutedSetRuleConditionArray{
-//									&EventOrchestrationUnroutedSetRuleConditionArgs{
+//								Conditions: pagerduty.EventOrchestrationUnroutedSetRuleConditionArray{
+//									&pagerduty.EventOrchestrationUnroutedSetRuleConditionArgs{
 //										Expression: pulumi.String("event.severity matches 'critical'"),
 //									},
 //								},
-//								Actions: &EventOrchestrationUnroutedSetRuleActionsArgs{
+//								Actions: &pagerduty.EventOrchestrationUnroutedSetRuleActionsArgs{
 //									Severity: pulumi.String("critical"),
-//									Extractions: EventOrchestrationUnroutedSetRuleActionsExtractionArray{
-//										&EventOrchestrationUnroutedSetRuleActionsExtractionArgs{
+//									Extractions: pagerduty.EventOrchestrationUnroutedSetRuleActionsExtractionArray{
+//										&pagerduty.EventOrchestrationUnroutedSetRuleActionsExtractionArgs{
 //											Target:   pulumi.String("event.summary"),
 //											Template: pulumi.String("[Critical Unrouted] {{event.summary}}"),
 //										},
@@ -58,8 +58,8 @@ import (
 //						},
 //					},
 //				},
-//				CatchAll: &EventOrchestrationUnroutedCatchAllArgs{
-//					Actions: &EventOrchestrationUnroutedCatchAllActionsArgs{
+//				CatchAll: &pagerduty.EventOrchestrationUnroutedCatchAllArgs{
+//					Actions: &pagerduty.EventOrchestrationUnroutedCatchAllActionsArgs{
 //						Severity: pulumi.String("info"),
 //					},
 //				},

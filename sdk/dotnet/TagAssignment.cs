@@ -12,6 +12,32 @@ namespace Pulumi.Pagerduty
     /// <summary>
     /// A [tag](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEwMA-assign-tags) is applied to Escalation Policies, Teams or Users and can be used to filter them.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Pagerduty = Pulumi.Pagerduty;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleTag = new Pagerduty.Tag("exampleTag", new()
+    ///     {
+    ///         Label = "API",
+    ///     });
+    /// 
+    ///     var engteam = new Pagerduty.Team("engteam");
+    /// 
+    ///     var exampleTagAssignment = new Pagerduty.TagAssignment("exampleTagAssignment", new()
+    ///     {
+    ///         TagId = exampleTag.Id,
+    ///         EntityType = "teams",
+    ///         EntityId = engteam.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Tag assignments can be imported using the `id` which is constructed by taking the `entity` Type, `entity` ID and the `tag` ID separated by a dot, e.g.

@@ -8,6 +8,10 @@ import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.pagerduty.Utilities;
+import com.pulumi.pagerduty.inputs.GetAutomationActionsActionArgs;
+import com.pulumi.pagerduty.inputs.GetAutomationActionsActionPlainArgs;
+import com.pulumi.pagerduty.inputs.GetAutomationActionsRunnerArgs;
+import com.pulumi.pagerduty.inputs.GetAutomationActionsRunnerPlainArgs;
 import com.pulumi.pagerduty.inputs.GetBusinessServiceArgs;
 import com.pulumi.pagerduty.inputs.GetBusinessServicePlainArgs;
 import com.pulumi.pagerduty.inputs.GetEscalationPolicyArgs;
@@ -16,6 +20,8 @@ import com.pulumi.pagerduty.inputs.GetEventOrchestrationArgs;
 import com.pulumi.pagerduty.inputs.GetEventOrchestrationPlainArgs;
 import com.pulumi.pagerduty.inputs.GetExtensionSchemaArgs;
 import com.pulumi.pagerduty.inputs.GetExtensionSchemaPlainArgs;
+import com.pulumi.pagerduty.inputs.GetIncidentWorkflowArgs;
+import com.pulumi.pagerduty.inputs.GetIncidentWorkflowPlainArgs;
 import com.pulumi.pagerduty.inputs.GetPriorityArgs;
 import com.pulumi.pagerduty.inputs.GetPriorityPlainArgs;
 import com.pulumi.pagerduty.inputs.GetRulesetArgs;
@@ -38,10 +44,13 @@ import com.pulumi.pagerduty.inputs.GetUsersArgs;
 import com.pulumi.pagerduty.inputs.GetUsersPlainArgs;
 import com.pulumi.pagerduty.inputs.GetVendorArgs;
 import com.pulumi.pagerduty.inputs.GetVendorPlainArgs;
+import com.pulumi.pagerduty.outputs.GetAutomationActionsActionResult;
+import com.pulumi.pagerduty.outputs.GetAutomationActionsRunnerResult;
 import com.pulumi.pagerduty.outputs.GetBusinessServiceResult;
 import com.pulumi.pagerduty.outputs.GetEscalationPolicyResult;
 import com.pulumi.pagerduty.outputs.GetEventOrchestrationResult;
 import com.pulumi.pagerduty.outputs.GetExtensionSchemaResult;
+import com.pulumi.pagerduty.outputs.GetIncidentWorkflowResult;
 import com.pulumi.pagerduty.outputs.GetPriorityResult;
 import com.pulumi.pagerduty.outputs.GetRulesetResult;
 import com.pulumi.pagerduty.outputs.GetScheduleResult;
@@ -57,7 +66,303 @@ import java.util.concurrent.CompletableFuture;
 
 public final class PagerdutyFunctions {
     /**
-     * Use this data source to get information about a specific [business service][1].
+     * Use this data source to get information about a specific [automation actions action](https://developer.pagerduty.com/api-reference/357ed15419f64-get-an-automation-action).
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetAutomationActionsActionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PagerdutyFunctions.getAutomationActionsAction(GetAutomationActionsActionArgs.builder()
+     *             .id(&#34;01CS1685B2UDM4I3XUUOXPPORM&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetAutomationActionsActionResult> getAutomationActionsAction(GetAutomationActionsActionArgs args) {
+        return getAutomationActionsAction(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about a specific [automation actions action](https://developer.pagerduty.com/api-reference/357ed15419f64-get-an-automation-action).
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetAutomationActionsActionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PagerdutyFunctions.getAutomationActionsAction(GetAutomationActionsActionArgs.builder()
+     *             .id(&#34;01CS1685B2UDM4I3XUUOXPPORM&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetAutomationActionsActionResult> getAutomationActionsActionPlain(GetAutomationActionsActionPlainArgs args) {
+        return getAutomationActionsActionPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about a specific [automation actions action](https://developer.pagerduty.com/api-reference/357ed15419f64-get-an-automation-action).
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetAutomationActionsActionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PagerdutyFunctions.getAutomationActionsAction(GetAutomationActionsActionArgs.builder()
+     *             .id(&#34;01CS1685B2UDM4I3XUUOXPPORM&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetAutomationActionsActionResult> getAutomationActionsAction(GetAutomationActionsActionArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getAutomationActionsAction:getAutomationActionsAction", TypeShape.of(GetAutomationActionsActionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [automation actions action](https://developer.pagerduty.com/api-reference/357ed15419f64-get-an-automation-action).
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetAutomationActionsActionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PagerdutyFunctions.getAutomationActionsAction(GetAutomationActionsActionArgs.builder()
+     *             .id(&#34;01CS1685B2UDM4I3XUUOXPPORM&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetAutomationActionsActionResult> getAutomationActionsActionPlain(GetAutomationActionsActionPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("pagerduty:index/getAutomationActionsAction:getAutomationActionsAction", TypeShape.of(GetAutomationActionsActionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [automation actions runner](https://developer.pagerduty.com/api-reference/aace61f84cbd0-get-an-automation-action-runner).
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetAutomationActionsRunnerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PagerdutyFunctions.getAutomationActionsRunner(GetAutomationActionsRunnerArgs.builder()
+     *             .id(&#34;01DBJLIGED17S1DQKQC2AV8XYZ&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetAutomationActionsRunnerResult> getAutomationActionsRunner(GetAutomationActionsRunnerArgs args) {
+        return getAutomationActionsRunner(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about a specific [automation actions runner](https://developer.pagerduty.com/api-reference/aace61f84cbd0-get-an-automation-action-runner).
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetAutomationActionsRunnerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PagerdutyFunctions.getAutomationActionsRunner(GetAutomationActionsRunnerArgs.builder()
+     *             .id(&#34;01DBJLIGED17S1DQKQC2AV8XYZ&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetAutomationActionsRunnerResult> getAutomationActionsRunnerPlain(GetAutomationActionsRunnerPlainArgs args) {
+        return getAutomationActionsRunnerPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about a specific [automation actions runner](https://developer.pagerduty.com/api-reference/aace61f84cbd0-get-an-automation-action-runner).
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetAutomationActionsRunnerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PagerdutyFunctions.getAutomationActionsRunner(GetAutomationActionsRunnerArgs.builder()
+     *             .id(&#34;01DBJLIGED17S1DQKQC2AV8XYZ&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetAutomationActionsRunnerResult> getAutomationActionsRunner(GetAutomationActionsRunnerArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getAutomationActionsRunner:getAutomationActionsRunner", TypeShape.of(GetAutomationActionsRunnerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [automation actions runner](https://developer.pagerduty.com/api-reference/aace61f84cbd0-get-an-automation-action-runner).
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetAutomationActionsRunnerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PagerdutyFunctions.getAutomationActionsRunner(GetAutomationActionsRunnerArgs.builder()
+     *             .id(&#34;01DBJLIGED17S1DQKQC2AV8XYZ&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetAutomationActionsRunnerResult> getAutomationActionsRunnerPlain(GetAutomationActionsRunnerPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("pagerduty:index/getAutomationActionsRunner:getAutomationActionsRunner", TypeShape.of(GetAutomationActionsRunnerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [business service](https://api-reference.pagerduty.com/#!/Business_Services/get_business_services).
      * 
      * ## Example Usage
      * ```java
@@ -94,7 +399,7 @@ public final class PagerdutyFunctions {
         return getBusinessService(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information about a specific [business service][1].
+     * Use this data source to get information about a specific [business service](https://api-reference.pagerduty.com/#!/Business_Services/get_business_services).
      * 
      * ## Example Usage
      * ```java
@@ -131,7 +436,7 @@ public final class PagerdutyFunctions {
         return getBusinessServicePlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information about a specific [business service][1].
+     * Use this data source to get information about a specific [business service](https://api-reference.pagerduty.com/#!/Business_Services/get_business_services).
      * 
      * ## Example Usage
      * ```java
@@ -168,7 +473,7 @@ public final class PagerdutyFunctions {
         return Deployment.getInstance().invoke("pagerduty:index/getBusinessService:getBusinessService", TypeShape.of(GetBusinessServiceResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get information about a specific [business service][1].
+     * Use this data source to get information about a specific [business service](https://api-reference.pagerduty.com/#!/Business_Services/get_business_services).
      * 
      * ## Example Usage
      * ```java
@@ -931,6 +1236,218 @@ public final class PagerdutyFunctions {
      */
     public static CompletableFuture<GetExtensionSchemaResult> getExtensionSchemaPlain(GetExtensionSchemaPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("pagerduty:index/getExtensionSchema:getExtensionSchema", TypeShape.of(GetExtensionSchemaResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) so that you can create a trigger for it.
+     * 
+     * &gt; The Incident Workflows feature is currently available in Early Access.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetIncidentWorkflowArgs;
+     * import com.pulumi.pagerduty.inputs.GetServiceArgs;
+     * import com.pulumi.pagerduty.PagerdutyIncidentWorkflowTrigger;
+     * import com.pulumi.pagerduty.PagerdutyIncidentWorkflowTriggerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myWorkflow = PagerdutyFunctions.getIncidentWorkflow(GetIncidentWorkflowArgs.builder()
+     *             .name(&#34;Some Workflow Name&#34;)
+     *             .build());
+     * 
+     *         final var firstService = PagerdutyFunctions.getService(GetServiceArgs.builder()
+     *             .name(&#34;My First Service&#34;)
+     *             .build());
+     * 
+     *         var automaticTrigger = new PagerdutyIncidentWorkflowTrigger(&#34;automaticTrigger&#34;, PagerdutyIncidentWorkflowTriggerArgs.builder()        
+     *             .type(&#34;conditional&#34;)
+     *             .workflow(myWorkflow.applyValue(getIncidentWorkflowResult -&gt; getIncidentWorkflowResult.id()))
+     *             .services(firstService.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .condition(&#34;incident.priority matches &#39;P1&#39;&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetIncidentWorkflowResult> getIncidentWorkflow(GetIncidentWorkflowArgs args) {
+        return getIncidentWorkflow(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about a specific [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) so that you can create a trigger for it.
+     * 
+     * &gt; The Incident Workflows feature is currently available in Early Access.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetIncidentWorkflowArgs;
+     * import com.pulumi.pagerduty.inputs.GetServiceArgs;
+     * import com.pulumi.pagerduty.PagerdutyIncidentWorkflowTrigger;
+     * import com.pulumi.pagerduty.PagerdutyIncidentWorkflowTriggerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myWorkflow = PagerdutyFunctions.getIncidentWorkflow(GetIncidentWorkflowArgs.builder()
+     *             .name(&#34;Some Workflow Name&#34;)
+     *             .build());
+     * 
+     *         final var firstService = PagerdutyFunctions.getService(GetServiceArgs.builder()
+     *             .name(&#34;My First Service&#34;)
+     *             .build());
+     * 
+     *         var automaticTrigger = new PagerdutyIncidentWorkflowTrigger(&#34;automaticTrigger&#34;, PagerdutyIncidentWorkflowTriggerArgs.builder()        
+     *             .type(&#34;conditional&#34;)
+     *             .workflow(myWorkflow.applyValue(getIncidentWorkflowResult -&gt; getIncidentWorkflowResult.id()))
+     *             .services(firstService.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .condition(&#34;incident.priority matches &#39;P1&#39;&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetIncidentWorkflowResult> getIncidentWorkflowPlain(GetIncidentWorkflowPlainArgs args) {
+        return getIncidentWorkflowPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about a specific [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) so that you can create a trigger for it.
+     * 
+     * &gt; The Incident Workflows feature is currently available in Early Access.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetIncidentWorkflowArgs;
+     * import com.pulumi.pagerduty.inputs.GetServiceArgs;
+     * import com.pulumi.pagerduty.PagerdutyIncidentWorkflowTrigger;
+     * import com.pulumi.pagerduty.PagerdutyIncidentWorkflowTriggerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myWorkflow = PagerdutyFunctions.getIncidentWorkflow(GetIncidentWorkflowArgs.builder()
+     *             .name(&#34;Some Workflow Name&#34;)
+     *             .build());
+     * 
+     *         final var firstService = PagerdutyFunctions.getService(GetServiceArgs.builder()
+     *             .name(&#34;My First Service&#34;)
+     *             .build());
+     * 
+     *         var automaticTrigger = new PagerdutyIncidentWorkflowTrigger(&#34;automaticTrigger&#34;, PagerdutyIncidentWorkflowTriggerArgs.builder()        
+     *             .type(&#34;conditional&#34;)
+     *             .workflow(myWorkflow.applyValue(getIncidentWorkflowResult -&gt; getIncidentWorkflowResult.id()))
+     *             .services(firstService.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .condition(&#34;incident.priority matches &#39;P1&#39;&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetIncidentWorkflowResult> getIncidentWorkflow(GetIncidentWorkflowArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getIncidentWorkflow:getIncidentWorkflow", TypeShape.of(GetIncidentWorkflowResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) so that you can create a trigger for it.
+     * 
+     * &gt; The Incident Workflows feature is currently available in Early Access.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetIncidentWorkflowArgs;
+     * import com.pulumi.pagerduty.inputs.GetServiceArgs;
+     * import com.pulumi.pagerduty.PagerdutyIncidentWorkflowTrigger;
+     * import com.pulumi.pagerduty.PagerdutyIncidentWorkflowTriggerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myWorkflow = PagerdutyFunctions.getIncidentWorkflow(GetIncidentWorkflowArgs.builder()
+     *             .name(&#34;Some Workflow Name&#34;)
+     *             .build());
+     * 
+     *         final var firstService = PagerdutyFunctions.getService(GetServiceArgs.builder()
+     *             .name(&#34;My First Service&#34;)
+     *             .build());
+     * 
+     *         var automaticTrigger = new PagerdutyIncidentWorkflowTrigger(&#34;automaticTrigger&#34;, PagerdutyIncidentWorkflowTriggerArgs.builder()        
+     *             .type(&#34;conditional&#34;)
+     *             .workflow(myWorkflow.applyValue(getIncidentWorkflowResult -&gt; getIncidentWorkflowResult.id()))
+     *             .services(firstService.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .condition(&#34;incident.priority matches &#39;P1&#39;&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetIncidentWorkflowResult> getIncidentWorkflowPlain(GetIncidentWorkflowPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("pagerduty:index/getIncidentWorkflow:getIncidentWorkflow", TypeShape.of(GetIncidentWorkflowResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get information about a specific [priority](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE2NA-list-priorities) that you can use for other PagerDuty resources. A priority is a label representing the importance and impact of an incident. This feature is only available on Standard and Enterprise plans.

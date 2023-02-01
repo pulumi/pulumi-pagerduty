@@ -33,37 +33,37 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := pagerduty.NewEventOrchestrationRouter(ctx, "router", &pagerduty.EventOrchestrationRouterArgs{
 //				EventOrchestration: pulumi.Any(pagerduty_event_orchestration.My_monitor.Id),
-//				Set: &EventOrchestrationRouterSetArgs{
+//				Set: &pagerduty.EventOrchestrationRouterSetArgs{
 //					Id: pulumi.String("start"),
-//					Rules: EventOrchestrationRouterSetRuleArray{
-//						&EventOrchestrationRouterSetRuleArgs{
+//					Rules: pagerduty.EventOrchestrationRouterSetRuleArray{
+//						&pagerduty.EventOrchestrationRouterSetRuleArgs{
 //							Label: pulumi.String("Events relating to our relational database"),
-//							Conditions: EventOrchestrationRouterSetRuleConditionArray{
-//								&EventOrchestrationRouterSetRuleConditionArgs{
+//							Conditions: pagerduty.EventOrchestrationRouterSetRuleConditionArray{
+//								&pagerduty.EventOrchestrationRouterSetRuleConditionArgs{
 //									Expression: pulumi.String("event.summary matches part 'database'"),
 //								},
-//								&EventOrchestrationRouterSetRuleConditionArgs{
+//								&pagerduty.EventOrchestrationRouterSetRuleConditionArgs{
 //									Expression: pulumi.String("event.source matches regex 'db[0-9]+-server'"),
 //								},
 //							},
-//							Actions: &EventOrchestrationRouterSetRuleActionsArgs{
+//							Actions: &pagerduty.EventOrchestrationRouterSetRuleActionsArgs{
 //								RouteTo: pulumi.Any(pagerduty_service.Database.Id),
 //							},
 //						},
-//						&EventOrchestrationRouterSetRuleArgs{
-//							Conditions: EventOrchestrationRouterSetRuleConditionArray{
-//								&EventOrchestrationRouterSetRuleConditionArgs{
+//						&pagerduty.EventOrchestrationRouterSetRuleArgs{
+//							Conditions: pagerduty.EventOrchestrationRouterSetRuleConditionArray{
+//								&pagerduty.EventOrchestrationRouterSetRuleConditionArgs{
 //									Expression: pulumi.String("event.summary matches part 'www'"),
 //								},
 //							},
-//							Actions: &EventOrchestrationRouterSetRuleActionsArgs{
+//							Actions: &pagerduty.EventOrchestrationRouterSetRuleActionsArgs{
 //								RouteTo: pulumi.Any(pagerduty_service.Www.Id),
 //							},
 //						},
 //					},
 //				},
-//				CatchAll: &EventOrchestrationRouterCatchAllArgs{
-//					Actions: &EventOrchestrationRouterCatchAllActionsArgs{
+//				CatchAll: &pagerduty.EventOrchestrationRouterCatchAllArgs{
+//					Actions: &pagerduty.EventOrchestrationRouterCatchAllActionsArgs{
 //						RouteTo: pulumi.String("unrouted"),
 //					},
 //				},

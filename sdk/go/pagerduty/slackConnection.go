@@ -35,7 +35,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			p1, err := pagerduty.GetPriority(ctx, &GetPriorityArgs{
+//			p1, err := pagerduty.GetPriority(ctx, &pagerduty.GetPriorityArgs{
 //				Name: "P1",
 //			}, nil)
 //			if err != nil {
@@ -47,8 +47,8 @@ import (
 //				WorkspaceId:      pulumi.String("T02A123LV1A"),
 //				ChannelId:        pulumi.String("C02CABCDAC9"),
 //				NotificationType: pulumi.String("responder"),
-//				Configs: SlackConnectionConfigArray{
-//					&SlackConnectionConfigArgs{
+//				Configs: pagerduty.SlackConnectionConfigArray{
+//					&pagerduty.SlackConnectionConfigArgs{
 //						Events: pulumi.StringArray{
 //							pulumi.String("incident.triggered"),
 //							pulumi.String("incident.acknowledged"),
@@ -65,7 +65,7 @@ import (
 //							pulumi.String("incident.reopened"),
 //						},
 //						Priorities: pulumi.StringArray{
-//							pulumi.String(p1.Id),
+//							*pulumi.String(p1.Id),
 //						},
 //					},
 //				},
@@ -92,14 +92,16 @@ type SlackConnection struct {
 	pulumi.CustomResourceState
 
 	// The ID of a Slack channel in the workspace.
-	ChannelId   pulumi.StringOutput `pulumi:"channelId"`
+	ChannelId pulumi.StringOutput `pulumi:"channelId"`
+	// Name of the Slack channel in Slack connection.
 	ChannelName pulumi.StringOutput `pulumi:"channelName"`
 	// Configuration options for the Slack connection that provide options to filter events.
 	Configs SlackConnectionConfigArrayOutput `pulumi:"configs"`
 	// Type of notification. Either `responder` or `stakeholder`.
 	NotificationType pulumi.StringOutput `pulumi:"notificationType"`
 	// The ID of the source in PagerDuty. Valid sources are services or teams.
-	SourceId   pulumi.StringOutput `pulumi:"sourceId"`
+	SourceId pulumi.StringOutput `pulumi:"sourceId"`
+	// Name of the source (team or service) in Slack connection.
 	SourceName pulumi.StringOutput `pulumi:"sourceName"`
 	// The type of the source. Either `teamReference` or `serviceReference`.
 	SourceType pulumi.StringOutput `pulumi:"sourceType"`
@@ -155,14 +157,16 @@ func GetSlackConnection(ctx *pulumi.Context,
 // Input properties used for looking up and filtering SlackConnection resources.
 type slackConnectionState struct {
 	// The ID of a Slack channel in the workspace.
-	ChannelId   *string `pulumi:"channelId"`
+	ChannelId *string `pulumi:"channelId"`
+	// Name of the Slack channel in Slack connection.
 	ChannelName *string `pulumi:"channelName"`
 	// Configuration options for the Slack connection that provide options to filter events.
 	Configs []SlackConnectionConfig `pulumi:"configs"`
 	// Type of notification. Either `responder` or `stakeholder`.
 	NotificationType *string `pulumi:"notificationType"`
 	// The ID of the source in PagerDuty. Valid sources are services or teams.
-	SourceId   *string `pulumi:"sourceId"`
+	SourceId *string `pulumi:"sourceId"`
+	// Name of the source (team or service) in Slack connection.
 	SourceName *string `pulumi:"sourceName"`
 	// The type of the source. Either `teamReference` or `serviceReference`.
 	SourceType *string `pulumi:"sourceType"`
@@ -172,14 +176,16 @@ type slackConnectionState struct {
 
 type SlackConnectionState struct {
 	// The ID of a Slack channel in the workspace.
-	ChannelId   pulumi.StringPtrInput
+	ChannelId pulumi.StringPtrInput
+	// Name of the Slack channel in Slack connection.
 	ChannelName pulumi.StringPtrInput
 	// Configuration options for the Slack connection that provide options to filter events.
 	Configs SlackConnectionConfigArrayInput
 	// Type of notification. Either `responder` or `stakeholder`.
 	NotificationType pulumi.StringPtrInput
 	// The ID of the source in PagerDuty. Valid sources are services or teams.
-	SourceId   pulumi.StringPtrInput
+	SourceId pulumi.StringPtrInput
+	// Name of the source (team or service) in Slack connection.
 	SourceName pulumi.StringPtrInput
 	// The type of the source. Either `teamReference` or `serviceReference`.
 	SourceType pulumi.StringPtrInput
@@ -314,6 +320,7 @@ func (o SlackConnectionOutput) ChannelId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SlackConnection) pulumi.StringOutput { return v.ChannelId }).(pulumi.StringOutput)
 }
 
+// Name of the Slack channel in Slack connection.
 func (o SlackConnectionOutput) ChannelName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SlackConnection) pulumi.StringOutput { return v.ChannelName }).(pulumi.StringOutput)
 }
@@ -333,6 +340,7 @@ func (o SlackConnectionOutput) SourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SlackConnection) pulumi.StringOutput { return v.SourceId }).(pulumi.StringOutput)
 }
 
+// Name of the source (team or service) in Slack connection.
 func (o SlackConnectionOutput) SourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SlackConnection) pulumi.StringOutput { return v.SourceName }).(pulumi.StringOutput)
 }

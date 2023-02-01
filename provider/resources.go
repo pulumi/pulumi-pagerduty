@@ -88,6 +88,21 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"pagerduty_addon": {Tok: makeResource(mainMod, "Addon")},
+			"pagerduty_automation_actions_action": {
+				Tok: makeResource(mainMod, "AutomationActionsAction"),
+			},
+			"pagerduty_automation_actions_action_service_association": {
+				Tok: makeResource(mainMod, "AutomationActionsActionServiceAssociation"),
+			},
+			"pagerduty_automation_actions_action_team_association": {
+				Tok: makeResource(mainMod, "AutomationActionsActionTeamAssociation"),
+			},
+			"pagerduty_automation_actions_runner": {
+				Tok: makeResource(mainMod, "AutomationActionsRunner"),
+			},
+			"pagerduty_automation_actions_runner_team_association": {
+				Tok: makeResource(mainMod, "AutomationActionsRunnerTeamAssociation"),
+			},
 			"pagerduty_business_service": {
 				Tok: makeResource(mainMod, "BusinessService"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -104,9 +119,11 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"pagerduty_event_rule":           {Tok: makeResource(mainMod, "EventRule")},
-			"pagerduty_extension":            {Tok: makeResource(mainMod, "Extension")},
-			"pagerduty_extension_servicenow": {Tok: makeResource(mainMod, "ExtensionServiceNow")},
+			"pagerduty_event_rule":                {Tok: makeResource(mainMod, "EventRule")},
+			"pagerduty_extension":                 {Tok: makeResource(mainMod, "Extension")},
+			"pagerduty_extension_servicenow":      {Tok: makeResource(mainMod, "ExtensionServiceNow")},
+			"pagerduty_incident_workflow":         {Tok: makeResource(mainMod, "PagerdutyIncidentWorkflow")},
+			"pagerduty_incident_workflow_trigger": {Tok: makeResource(mainMod, "PagerdutyIncidentWorkflowTrigger")},
 			"pagerduty_maintenance_window": {
 				Tok: makeResource(mainMod, "MaintenanceWindow"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -174,21 +191,24 @@ func Provider() tfbridge.ProviderInfo {
 			"pagerduty_event_orchestration_unrouted": {Tok: makeResource(mainMod, "EventOrchestrationUnrouted")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
-			"pagerduty_escalation_policy":   {Tok: makeDataSource(mainMod, "getEscalationPolicy")},
-			"pagerduty_extension_schema":    {Tok: makeDataSource(mainMod, "getExtensionSchema")},
-			"pagerduty_schedule":            {Tok: makeDataSource(mainMod, "getSchedule")},
-			"pagerduty_service":             {Tok: makeDataSource(mainMod, "getService")},
-			"pagerduty_user":                {Tok: makeDataSource(mainMod, "getUser")},
-			"pagerduty_team":                {Tok: makeDataSource(mainMod, "getTeam")},
-			"pagerduty_vendor":              {Tok: makeDataSource(mainMod, "getVendor")},
-			"pagerduty_business_service":    {Tok: makeDataSource(mainMod, "getBusinessService")},
-			"pagerduty_priority":            {Tok: makeDataSource(mainMod, "getPriority")},
-			"pagerduty_ruleset":             {Tok: makeDataSource(mainMod, "getRuleset")},
-			"pagerduty_user_contact_method": {Tok: makeDataSource(mainMod, "getUserContactMethod")},
-			"pagerduty_service_integration": {Tok: makeDataSource(mainMod, "getServiceIntegration")},
-			"pagerduty_tag":                 {Tok: makeDataSource(mainMod, "getTag")},
-			"pagerduty_event_orchestration": {Tok: makeDataSource(mainMod, "getEventOrchestration")},
-			"pagerduty_users":               {Tok: makeDataSource(mainMod, "getUsers")},
+			"pagerduty_automation_actions_action": {Tok: makeDataSource(mainMod, "getAutomationActionsAction")},
+			"pagerduty_automation_actions_runner": {Tok: makeDataSource(mainMod, "getAutomationActionsRunner")},
+			"pagerduty_escalation_policy":         {Tok: makeDataSource(mainMod, "getEscalationPolicy")},
+			"pagerduty_extension_schema":          {Tok: makeDataSource(mainMod, "getExtensionSchema")},
+			"pagerduty_incident_workflow":         {Tok: makeDataSource(mainMod, "getIncidentWorkflow")},
+			"pagerduty_schedule":                  {Tok: makeDataSource(mainMod, "getSchedule")},
+			"pagerduty_service":                   {Tok: makeDataSource(mainMod, "getService")},
+			"pagerduty_user":                      {Tok: makeDataSource(mainMod, "getUser")},
+			"pagerduty_team":                      {Tok: makeDataSource(mainMod, "getTeam")},
+			"pagerduty_vendor":                    {Tok: makeDataSource(mainMod, "getVendor")},
+			"pagerduty_business_service":          {Tok: makeDataSource(mainMod, "getBusinessService")},
+			"pagerduty_priority":                  {Tok: makeDataSource(mainMod, "getPriority")},
+			"pagerduty_ruleset":                   {Tok: makeDataSource(mainMod, "getRuleset")},
+			"pagerduty_user_contact_method":       {Tok: makeDataSource(mainMod, "getUserContactMethod")},
+			"pagerduty_service_integration":       {Tok: makeDataSource(mainMod, "getServiceIntegration")},
+			"pagerduty_tag":                       {Tok: makeDataSource(mainMod, "getTag")},
+			"pagerduty_event_orchestration":       {Tok: makeDataSource(mainMod, "getEventOrchestration")},
+			"pagerduty_users":                     {Tok: makeDataSource(mainMod, "getUsers")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			// List any npm dependencies and their versions

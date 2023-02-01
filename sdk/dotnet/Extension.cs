@@ -161,6 +161,10 @@ namespace Pulumi.Pagerduty
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "endpointUrl",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -190,12 +194,22 @@ namespace Pulumi.Pagerduty
         [Input("config")]
         public Input<string>? Config { get; set; }
 
+        [Input("endpointUrl")]
+        private Input<string>? _endpointUrl;
+
         /// <summary>
         /// The url of the extension.
         /// **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `pagerduty.getExtensionSchema` named `Generic V2 Webhook` doesn't accept `pagerduty.Extension` with no `endpoint_url`, but one with named `Slack` accepts.
         /// </summary>
-        [Input("endpointUrl")]
-        public Input<string>? EndpointUrl { get; set; }
+        public Input<string>? EndpointUrl
+        {
+            get => _endpointUrl;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _endpointUrl = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("extensionObjects", required: true)]
         private InputList<string>? _extensionObjects;
@@ -238,12 +252,22 @@ namespace Pulumi.Pagerduty
         [Input("config")]
         public Input<string>? Config { get; set; }
 
+        [Input("endpointUrl")]
+        private Input<string>? _endpointUrl;
+
         /// <summary>
         /// The url of the extension.
         /// **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `pagerduty.getExtensionSchema` named `Generic V2 Webhook` doesn't accept `pagerduty.Extension` with no `endpoint_url`, but one with named `Slack` accepts.
         /// </summary>
-        [Input("endpointUrl")]
-        public Input<string>? EndpointUrl { get; set; }
+        public Input<string>? EndpointUrl
+        {
+            get => _endpointUrl;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _endpointUrl = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("extensionObjects")]
         private InputList<string>? _extensionObjects;

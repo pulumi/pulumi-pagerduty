@@ -43,7 +43,7 @@ namespace Pulumi.Pagerduty
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetEscalationPolicyResult> InvokeAsync(GetEscalationPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEscalationPolicyResult>("pagerduty:index/getEscalationPolicy:getEscalationPolicy", args ?? new GetEscalationPolicyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEscalationPolicyResult>("pagerduty:index/getEscalationPolicy:getEscalationPolicy", args ?? new GetEscalationPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information about a specific [escalation policy](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEyNA-list-escalation-policies) that you can use for other PagerDuty resources.
@@ -77,7 +77,7 @@ namespace Pulumi.Pagerduty
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetEscalationPolicyResult> Invoke(GetEscalationPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEscalationPolicyResult>("pagerduty:index/getEscalationPolicy:getEscalationPolicy", args ?? new GetEscalationPolicyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEscalationPolicyResult>("pagerduty:index/getEscalationPolicy:getEscalationPolicy", args ?? new GetEscalationPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

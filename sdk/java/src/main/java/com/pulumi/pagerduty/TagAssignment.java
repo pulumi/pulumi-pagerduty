@@ -17,7 +17,6 @@ import javax.annotation.Nullable;
  * A [tag](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEwMA-assign-tags) is applied to Escalation Policies, Teams or Users and can be used to filter them.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -44,7 +43,6 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleTag = new Tag(&#34;exampleTag&#34;, TagArgs.builder()        
  *             .label(&#34;API&#34;)
- *             .type(&#34;tag&#34;)
  *             .build());
  * 
  *         var engteam = new Team(&#34;engteam&#34;);

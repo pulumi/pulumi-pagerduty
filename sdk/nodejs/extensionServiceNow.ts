@@ -179,12 +179,12 @@ export class ExtensionServiceNow extends pulumi.CustomResource {
             if ((!args || args.taskType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'taskType'");
             }
-            resourceInputs["endpointUrl"] = args ? args.endpointUrl : undefined;
+            resourceInputs["endpointUrl"] = args?.endpointUrl ? pulumi.secret(args.endpointUrl) : undefined;
             resourceInputs["extensionObjects"] = args ? args.extensionObjects : undefined;
             resourceInputs["extensionSchema"] = args ? args.extensionSchema : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["referer"] = args ? args.referer : undefined;
-            resourceInputs["snowPassword"] = args ? args.snowPassword : undefined;
+            resourceInputs["snowPassword"] = args?.snowPassword ? pulumi.secret(args.snowPassword) : undefined;
             resourceInputs["snowUser"] = args ? args.snowUser : undefined;
             resourceInputs["summary"] = args ? args.summary : undefined;
             resourceInputs["syncOptions"] = args ? args.syncOptions : undefined;
@@ -194,6 +194,8 @@ export class ExtensionServiceNow extends pulumi.CustomResource {
             resourceInputs["htmlUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["endpointUrl", "snowPassword"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ExtensionServiceNow.__pulumiType, name, resourceInputs, opts);
     }
 }

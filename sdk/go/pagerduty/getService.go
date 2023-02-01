@@ -26,21 +26,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleService, err := pagerduty.LookupService(ctx, &GetServiceArgs{
+//			exampleService, err := pagerduty.LookupService(ctx, &pagerduty.LookupServiceArgs{
 //				Name: "My Service",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			datadog, err := pagerduty.GetVendor(ctx, &GetVendorArgs{
+//			datadog, err := pagerduty.GetVendor(ctx, &pagerduty.GetVendorArgs{
 //				Name: "Datadog",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = pagerduty.NewServiceIntegration(ctx, "exampleServiceIntegration", &pagerduty.ServiceIntegrationArgs{
-//				Vendor:  pulumi.String(datadog.Id),
-//				Service: pulumi.String(exampleService.Id),
+//				Vendor:  *pulumi.String(datadog.Id),
+//				Service: *pulumi.String(exampleService.Id),
 //				Type:    pulumi.String("generic_events_api_inbound_integration"),
 //			})
 //			if err != nil {

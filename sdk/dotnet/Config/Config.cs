@@ -30,7 +30,7 @@ namespace Pulumi.Pagerduty
             }
         }
 
-        private static readonly Pulumi.Config __config = new Pulumi.Config("pagerduty");
+        private static readonly global::Pulumi.Config __config = new global::Pulumi.Config("pagerduty");
 
         private static readonly __Value<string?> _apiUrlOverride = new __Value<string?>(() => __config.Get("apiUrlOverride"));
         public static string? ApiUrlOverride

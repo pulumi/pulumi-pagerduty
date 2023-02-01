@@ -19,7 +19,6 @@ public final class EventOrchestrationIntegrationArgs extends com.pulumi.resource
 
     /**
      * ID of the integration
-     * * `parameters`
      * 
      */
     @Import(name="id")
@@ -27,7 +26,6 @@ public final class EventOrchestrationIntegrationArgs extends com.pulumi.resource
 
     /**
      * @return ID of the integration
-     * * `parameters`
      * 
      */
     public Optional<Output<String>> id() {
@@ -68,7 +66,6 @@ public final class EventOrchestrationIntegrationArgs extends com.pulumi.resource
 
         /**
          * @param id ID of the integration
-         * * `parameters`
          * 
          * @return builder
          * 
@@ -80,7 +77,6 @@ public final class EventOrchestrationIntegrationArgs extends com.pulumi.resource
 
         /**
          * @param id ID of the integration
-         * * `parameters`
          * 
          * @return builder
          * 

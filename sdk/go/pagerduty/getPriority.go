@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			p1, err := pagerduty.GetPriority(ctx, &GetPriorityArgs{
+//			p1, err := pagerduty.GetPriority(ctx, &pagerduty.GetPriorityArgs{
 //				Name: "P1",
 //			}, nil)
 //			if err != nil {
@@ -40,22 +40,22 @@ import (
 //				Ruleset:  fooRuleset.ID(),
 //				Position: pulumi.Int(0),
 //				Disabled: pulumi.Bool(false),
-//				Conditions: &RulesetRuleConditionsArgs{
+//				Conditions: &pagerduty.RulesetRuleConditionsArgs{
 //					Operator: pulumi.String("and"),
-//					Subconditions: RulesetRuleConditionsSubconditionArray{
-//						&RulesetRuleConditionsSubconditionArgs{
+//					Subconditions: pagerduty.RulesetRuleConditionsSubconditionArray{
+//						&pagerduty.RulesetRuleConditionsSubconditionArgs{
 //							Operator: pulumi.String("contains"),
-//							Parameters: RulesetRuleConditionsSubconditionParameterArray{
-//								&RulesetRuleConditionsSubconditionParameterArgs{
+//							Parameters: pagerduty.RulesetRuleConditionsSubconditionParameterArray{
+//								&pagerduty.RulesetRuleConditionsSubconditionParameterArgs{
 //									Value: pulumi.String("disk space"),
 //									Path:  pulumi.String("payload.summary"),
 //								},
 //							},
 //						},
-//						&RulesetRuleConditionsSubconditionArgs{
+//						&pagerduty.RulesetRuleConditionsSubconditionArgs{
 //							Operator: pulumi.String("contains"),
-//							Parameters: RulesetRuleConditionsSubconditionParameterArray{
-//								&RulesetRuleConditionsSubconditionParameterArgs{
+//							Parameters: pagerduty.RulesetRuleConditionsSubconditionParameterArray{
+//								&pagerduty.RulesetRuleConditionsSubconditionParameterArgs{
 //									Value: pulumi.String("db"),
 //									Path:  pulumi.String("payload.source"),
 //								},
@@ -63,15 +63,15 @@ import (
 //						},
 //					},
 //				},
-//				Actions: &RulesetRuleActionsArgs{
-//					Routes: RulesetRuleActionsRouteArray{
-//						&RulesetRuleActionsRouteArgs{
+//				Actions: &pagerduty.RulesetRuleActionsArgs{
+//					Routes: pagerduty.RulesetRuleActionsRouteArray{
+//						&pagerduty.RulesetRuleActionsRouteArgs{
 //							Value: pulumi.String("P5DTL0K"),
 //						},
 //					},
-//					Priorities: RulesetRuleActionsPriorityArray{
-//						&RulesetRuleActionsPriorityArgs{
-//							Value: pulumi.String(p1.Id),
+//					Priorities: pagerduty.RulesetRuleActionsPriorityArray{
+//						&pagerduty.RulesetRuleActionsPriorityArgs{
+//							Value: *pulumi.String(p1.Id),
 //						},
 //					},
 //				},

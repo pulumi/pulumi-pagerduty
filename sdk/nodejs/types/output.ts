@@ -663,7 +663,7 @@ export interface GetUsersUser {
     name: string;
 }
 
-export interface PagerdutyIncidentWorkflowStep {
+export interface IncidentWorkflowStep {
     /**
      * The action id for the workflow step, including the version. A list of actions available can be retrieved using the [PagerDuty API](https://developer.pagerduty.com/api-reference/aa192a25fac39-list-actions).
      */
@@ -675,14 +675,14 @@ export interface PagerdutyIncidentWorkflowStep {
     /**
      * The list of inputs for the workflow action.
      */
-    inputs: outputs.PagerdutyIncidentWorkflowStepInput[];
+    inputs: outputs.IncidentWorkflowStepInput[];
     /**
      * The name of the workflow step.
      */
     name: string;
 }
 
-export interface PagerdutyIncidentWorkflowStepInput {
+export interface IncidentWorkflowStepInput {
     generated: boolean;
     /**
      * The name of the input.

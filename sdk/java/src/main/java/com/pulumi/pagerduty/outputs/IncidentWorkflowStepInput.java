@@ -11,7 +11,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
-public final class PagerdutyIncidentWorkflowStepInput {
+public final class IncidentWorkflowStepInput {
     private @Nullable Boolean generated;
     /**
      * @return The name of the input.
@@ -24,7 +24,7 @@ public final class PagerdutyIncidentWorkflowStepInput {
      */
     private String value;
 
-    private PagerdutyIncidentWorkflowStepInput() {}
+    private IncidentWorkflowStepInput() {}
     public Optional<Boolean> generated() {
         return Optional.ofNullable(this.generated);
     }
@@ -47,7 +47,7 @@ public final class PagerdutyIncidentWorkflowStepInput {
         return new Builder();
     }
 
-    public static Builder builder(PagerdutyIncidentWorkflowStepInput defaults) {
+    public static Builder builder(IncidentWorkflowStepInput defaults) {
         return new Builder(defaults);
     }
     @CustomType.Builder
@@ -56,7 +56,7 @@ public final class PagerdutyIncidentWorkflowStepInput {
         private String name;
         private String value;
         public Builder() {}
-        public Builder(PagerdutyIncidentWorkflowStepInput defaults) {
+        public Builder(IncidentWorkflowStepInput defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.generated = defaults.generated;
     	      this.name = defaults.name;
@@ -78,8 +78,8 @@ public final class PagerdutyIncidentWorkflowStepInput {
             this.value = Objects.requireNonNull(value);
             return this;
         }
-        public PagerdutyIncidentWorkflowStepInput build() {
-            final var o = new PagerdutyIncidentWorkflowStepInput();
+        public IncidentWorkflowStepInput build() {
+            final var o = new IncidentWorkflowStepInput();
             o.generated = generated;
             o.name = name;
             o.value = value;

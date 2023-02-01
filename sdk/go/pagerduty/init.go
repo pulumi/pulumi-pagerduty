@@ -52,12 +52,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Extension{}
 	case "pagerduty:index/extensionServiceNow:ExtensionServiceNow":
 		r = &ExtensionServiceNow{}
+	case "pagerduty:index/incidentWorkflow:IncidentWorkflow":
+		r = &IncidentWorkflow{}
+	case "pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger":
+		r = &IncidentWorkflowTrigger{}
 	case "pagerduty:index/maintenanceWindow:MaintenanceWindow":
 		r = &MaintenanceWindow{}
-	case "pagerduty:index/pagerdutyIncidentWorkflow:PagerdutyIncidentWorkflow":
-		r = &PagerdutyIncidentWorkflow{}
-	case "pagerduty:index/pagerdutyIncidentWorkflowTrigger:PagerdutyIncidentWorkflowTrigger":
-		r = &PagerdutyIncidentWorkflowTrigger{}
 	case "pagerduty:index/responsePlay:ResponsePlay":
 		r = &ResponsePlay{}
 	case "pagerduty:index/ruleset:Ruleset":
@@ -202,17 +202,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"pagerduty",
+		"index/incidentWorkflow",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"pagerduty",
+		"index/incidentWorkflowTrigger",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"pagerduty",
 		"index/maintenanceWindow",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"pagerduty",
-		"index/pagerdutyIncidentWorkflow",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"pagerduty",
-		"index/pagerdutyIncidentWorkflowTrigger",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

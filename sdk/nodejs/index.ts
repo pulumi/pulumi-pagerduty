@@ -175,20 +175,20 @@ export const getVendor: typeof import("./getVendor").getVendor = null as any;
 export const getVendorOutput: typeof import("./getVendor").getVendorOutput = null as any;
 utilities.lazyLoad(exports, ["getVendor","getVendorOutput"], () => require("./getVendor"));
 
+export { IncidentWorkflowArgs, IncidentWorkflowState } from "./incidentWorkflow";
+export type IncidentWorkflow = import("./incidentWorkflow").IncidentWorkflow;
+export const IncidentWorkflow: typeof import("./incidentWorkflow").IncidentWorkflow = null as any;
+utilities.lazyLoad(exports, ["IncidentWorkflow"], () => require("./incidentWorkflow"));
+
+export { IncidentWorkflowTriggerArgs, IncidentWorkflowTriggerState } from "./incidentWorkflowTrigger";
+export type IncidentWorkflowTrigger = import("./incidentWorkflowTrigger").IncidentWorkflowTrigger;
+export const IncidentWorkflowTrigger: typeof import("./incidentWorkflowTrigger").IncidentWorkflowTrigger = null as any;
+utilities.lazyLoad(exports, ["IncidentWorkflowTrigger"], () => require("./incidentWorkflowTrigger"));
+
 export { MaintenanceWindowArgs, MaintenanceWindowState } from "./maintenanceWindow";
 export type MaintenanceWindow = import("./maintenanceWindow").MaintenanceWindow;
 export const MaintenanceWindow: typeof import("./maintenanceWindow").MaintenanceWindow = null as any;
 utilities.lazyLoad(exports, ["MaintenanceWindow"], () => require("./maintenanceWindow"));
-
-export { PagerdutyIncidentWorkflowArgs, PagerdutyIncidentWorkflowState } from "./pagerdutyIncidentWorkflow";
-export type PagerdutyIncidentWorkflow = import("./pagerdutyIncidentWorkflow").PagerdutyIncidentWorkflow;
-export const PagerdutyIncidentWorkflow: typeof import("./pagerdutyIncidentWorkflow").PagerdutyIncidentWorkflow = null as any;
-utilities.lazyLoad(exports, ["PagerdutyIncidentWorkflow"], () => require("./pagerdutyIncidentWorkflow"));
-
-export { PagerdutyIncidentWorkflowTriggerArgs, PagerdutyIncidentWorkflowTriggerState } from "./pagerdutyIncidentWorkflowTrigger";
-export type PagerdutyIncidentWorkflowTrigger = import("./pagerdutyIncidentWorkflowTrigger").PagerdutyIncidentWorkflowTrigger;
-export const PagerdutyIncidentWorkflowTrigger: typeof import("./pagerdutyIncidentWorkflowTrigger").PagerdutyIncidentWorkflowTrigger = null as any;
-utilities.lazyLoad(exports, ["PagerdutyIncidentWorkflowTrigger"], () => require("./pagerdutyIncidentWorkflowTrigger"));
 
 export { ProviderArgs } from "./provider";
 export type Provider = import("./provider").Provider;
@@ -326,12 +326,12 @@ const _module = {
                 return new Extension(name, <any>undefined, { urn })
             case "pagerduty:index/extensionServiceNow:ExtensionServiceNow":
                 return new ExtensionServiceNow(name, <any>undefined, { urn })
+            case "pagerduty:index/incidentWorkflow:IncidentWorkflow":
+                return new IncidentWorkflow(name, <any>undefined, { urn })
+            case "pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger":
+                return new IncidentWorkflowTrigger(name, <any>undefined, { urn })
             case "pagerduty:index/maintenanceWindow:MaintenanceWindow":
                 return new MaintenanceWindow(name, <any>undefined, { urn })
-            case "pagerduty:index/pagerdutyIncidentWorkflow:PagerdutyIncidentWorkflow":
-                return new PagerdutyIncidentWorkflow(name, <any>undefined, { urn })
-            case "pagerduty:index/pagerdutyIncidentWorkflowTrigger:PagerdutyIncidentWorkflowTrigger":
-                return new PagerdutyIncidentWorkflowTrigger(name, <any>undefined, { urn })
             case "pagerduty:index/responsePlay:ResponsePlay":
                 return new ResponsePlay(name, <any>undefined, { urn })
             case "pagerduty:index/ruleset:Ruleset":
@@ -387,9 +387,9 @@ pulumi.runtime.registerResourceModule("pagerduty", "index/eventOrchestrationUnro
 pulumi.runtime.registerResourceModule("pagerduty", "index/eventRule", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/extension", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/extensionServiceNow", _module)
+pulumi.runtime.registerResourceModule("pagerduty", "index/incidentWorkflow", _module)
+pulumi.runtime.registerResourceModule("pagerduty", "index/incidentWorkflowTrigger", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/maintenanceWindow", _module)
-pulumi.runtime.registerResourceModule("pagerduty", "index/pagerdutyIncidentWorkflow", _module)
-pulumi.runtime.registerResourceModule("pagerduty", "index/pagerdutyIncidentWorkflowTrigger", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/responsePlay", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/ruleset", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/rulesetRule", _module)

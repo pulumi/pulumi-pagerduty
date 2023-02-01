@@ -13,9 +13,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 
-public final class PagerdutyIncidentWorkflowTriggerArgs extends com.pulumi.resources.ResourceArgs {
+public final class IncidentWorkflowTriggerArgs extends com.pulumi.resources.ResourceArgs {
 
-    public static final PagerdutyIncidentWorkflowTriggerArgs Empty = new PagerdutyIncidentWorkflowTriggerArgs();
+    public static final IncidentWorkflowTriggerArgs Empty = new IncidentWorkflowTriggerArgs();
 
     /**
      * A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.
@@ -92,9 +92,9 @@ public final class PagerdutyIncidentWorkflowTriggerArgs extends com.pulumi.resou
         return this.workflow;
     }
 
-    private PagerdutyIncidentWorkflowTriggerArgs() {}
+    private IncidentWorkflowTriggerArgs() {}
 
-    private PagerdutyIncidentWorkflowTriggerArgs(PagerdutyIncidentWorkflowTriggerArgs $) {
+    private IncidentWorkflowTriggerArgs(IncidentWorkflowTriggerArgs $) {
         this.condition = $.condition;
         this.services = $.services;
         this.subscribedToAllServices = $.subscribedToAllServices;
@@ -105,19 +105,19 @@ public final class PagerdutyIncidentWorkflowTriggerArgs extends com.pulumi.resou
     public static Builder builder() {
         return new Builder();
     }
-    public static Builder builder(PagerdutyIncidentWorkflowTriggerArgs defaults) {
+    public static Builder builder(IncidentWorkflowTriggerArgs defaults) {
         return new Builder(defaults);
     }
 
     public static final class Builder {
-        private PagerdutyIncidentWorkflowTriggerArgs $;
+        private IncidentWorkflowTriggerArgs $;
 
         public Builder() {
-            $ = new PagerdutyIncidentWorkflowTriggerArgs();
+            $ = new IncidentWorkflowTriggerArgs();
         }
 
-        public Builder(PagerdutyIncidentWorkflowTriggerArgs defaults) {
-            $ = new PagerdutyIncidentWorkflowTriggerArgs(Objects.requireNonNull(defaults));
+        public Builder(IncidentWorkflowTriggerArgs defaults) {
+            $ = new IncidentWorkflowTriggerArgs(Objects.requireNonNull(defaults));
         }
 
         /**
@@ -235,7 +235,7 @@ public final class PagerdutyIncidentWorkflowTriggerArgs extends com.pulumi.resou
             return workflow(Output.of(workflow));
         }
 
-        public PagerdutyIncidentWorkflowTriggerArgs build() {
+        public IncidentWorkflowTriggerArgs build() {
             $.subscribedToAllServices = Objects.requireNonNull($.subscribedToAllServices, "expected parameter 'subscribedToAllServices' to be non-null");
             $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
             $.workflow = Objects.requireNonNull($.workflow, "expected parameter 'workflow' to be non-null");

@@ -77,7 +77,7 @@ def get_incident_workflow(name: Optional[str] = None,
 
     my_workflow = pagerduty.get_incident_workflow(name="Some Workflow Name")
     first_service = pagerduty.get_service(name="My First Service")
-    automatic_trigger = pagerduty.PagerdutyIncidentWorkflowTrigger("automaticTrigger",
+    automatic_trigger = pagerduty.IncidentWorkflowTrigger("automaticTrigger",
         type="conditional",
         workflow=my_workflow.id,
         services=[first_service.id],
@@ -114,7 +114,7 @@ def get_incident_workflow_output(name: Optional[pulumi.Input[str]] = None,
 
     my_workflow = pagerduty.get_incident_workflow(name="Some Workflow Name")
     first_service = pagerduty.get_service(name="My First Service")
-    automatic_trigger = pagerduty.PagerdutyIncidentWorkflowTrigger("automaticTrigger",
+    automatic_trigger = pagerduty.IncidentWorkflowTrigger("automaticTrigger",
         type="conditional",
         workflow=my_workflow.id,
         services=[first_service.id],

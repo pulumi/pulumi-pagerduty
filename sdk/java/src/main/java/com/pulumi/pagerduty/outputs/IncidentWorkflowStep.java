@@ -4,7 +4,7 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.pagerduty.outputs.PagerdutyIncidentWorkflowStepInput;
+import com.pulumi.pagerduty.outputs.IncidentWorkflowStepInput;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -12,7 +12,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
-public final class PagerdutyIncidentWorkflowStep {
+public final class IncidentWorkflowStep {
     /**
      * @return The action id for the workflow step, including the version. A list of actions available can be retrieved using the [PagerDuty API](https://developer.pagerduty.com/api-reference/aa192a25fac39-list-actions).
      * 
@@ -27,14 +27,14 @@ public final class PagerdutyIncidentWorkflowStep {
      * @return The list of inputs for the workflow action.
      * 
      */
-    private @Nullable List<PagerdutyIncidentWorkflowStepInput> inputs;
+    private @Nullable List<IncidentWorkflowStepInput> inputs;
     /**
      * @return The name of the workflow step.
      * 
      */
     private String name;
 
-    private PagerdutyIncidentWorkflowStep() {}
+    private IncidentWorkflowStep() {}
     /**
      * @return The action id for the workflow step, including the version. A list of actions available can be retrieved using the [PagerDuty API](https://developer.pagerduty.com/api-reference/aa192a25fac39-list-actions).
      * 
@@ -53,7 +53,7 @@ public final class PagerdutyIncidentWorkflowStep {
      * @return The list of inputs for the workflow action.
      * 
      */
-    public List<PagerdutyIncidentWorkflowStepInput> inputs() {
+    public List<IncidentWorkflowStepInput> inputs() {
         return this.inputs == null ? List.of() : this.inputs;
     }
     /**
@@ -68,17 +68,17 @@ public final class PagerdutyIncidentWorkflowStep {
         return new Builder();
     }
 
-    public static Builder builder(PagerdutyIncidentWorkflowStep defaults) {
+    public static Builder builder(IncidentWorkflowStep defaults) {
         return new Builder(defaults);
     }
     @CustomType.Builder
     public static final class Builder {
         private String action;
         private @Nullable String id;
-        private @Nullable List<PagerdutyIncidentWorkflowStepInput> inputs;
+        private @Nullable List<IncidentWorkflowStepInput> inputs;
         private String name;
         public Builder() {}
-        public Builder(PagerdutyIncidentWorkflowStep defaults) {
+        public Builder(IncidentWorkflowStep defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
     	      this.id = defaults.id;
@@ -97,11 +97,11 @@ public final class PagerdutyIncidentWorkflowStep {
             return this;
         }
         @CustomType.Setter
-        public Builder inputs(@Nullable List<PagerdutyIncidentWorkflowStepInput> inputs) {
+        public Builder inputs(@Nullable List<IncidentWorkflowStepInput> inputs) {
             this.inputs = inputs;
             return this;
         }
-        public Builder inputs(PagerdutyIncidentWorkflowStepInput... inputs) {
+        public Builder inputs(IncidentWorkflowStepInput... inputs) {
             return inputs(List.of(inputs));
         }
         @CustomType.Setter
@@ -109,8 +109,8 @@ public final class PagerdutyIncidentWorkflowStep {
             this.name = Objects.requireNonNull(name);
             return this;
         }
-        public PagerdutyIncidentWorkflowStep build() {
-            final var o = new PagerdutyIncidentWorkflowStep();
+        public IncidentWorkflowStep build() {
+            final var o = new IncidentWorkflowStep();
             o.action = action;
             o.id = id;
             o.inputs = inputs;

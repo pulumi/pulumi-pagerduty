@@ -11,7 +11,7 @@ namespace Pulumi.Pagerduty.Outputs
 {
 
     [OutputType]
-    public sealed class PagerdutyIncidentWorkflowStepInput
+    public sealed class IncidentWorkflowStepInput
     {
         public readonly bool? Generated;
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Pagerduty.Outputs
         public readonly string Value;
 
         [OutputConstructor]
-        private PagerdutyIncidentWorkflowStepInput(
+        private IncidentWorkflowStepInput(
             bool? generated,
 
             string name,

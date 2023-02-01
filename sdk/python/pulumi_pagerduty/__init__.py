@@ -39,9 +39,9 @@ from .get_user import *
 from .get_user_contact_method import *
 from .get_users import *
 from .get_vendor import *
+from .incident_workflow import *
+from .incident_workflow_trigger import *
 from .maintenance_window import *
-from .pagerduty_incident_workflow import *
-from .pagerduty_incident_workflow_trigger import *
 from .provider import *
 from .response_play import *
 from .ruleset import *
@@ -203,26 +203,26 @@ _utilities.register(
  },
  {
   "pkg": "pagerduty",
+  "mod": "index/incidentWorkflow",
+  "fqn": "pulumi_pagerduty",
+  "classes": {
+   "pagerduty:index/incidentWorkflow:IncidentWorkflow": "IncidentWorkflow"
+  }
+ },
+ {
+  "pkg": "pagerduty",
+  "mod": "index/incidentWorkflowTrigger",
+  "fqn": "pulumi_pagerduty",
+  "classes": {
+   "pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger": "IncidentWorkflowTrigger"
+  }
+ },
+ {
+  "pkg": "pagerduty",
   "mod": "index/maintenanceWindow",
   "fqn": "pulumi_pagerduty",
   "classes": {
    "pagerduty:index/maintenanceWindow:MaintenanceWindow": "MaintenanceWindow"
-  }
- },
- {
-  "pkg": "pagerduty",
-  "mod": "index/pagerdutyIncidentWorkflow",
-  "fqn": "pulumi_pagerduty",
-  "classes": {
-   "pagerduty:index/pagerdutyIncidentWorkflow:PagerdutyIncidentWorkflow": "PagerdutyIncidentWorkflow"
-  }
- },
- {
-  "pkg": "pagerduty",
-  "mod": "index/pagerdutyIncidentWorkflowTrigger",
-  "fqn": "pulumi_pagerduty",
-  "classes": {
-   "pagerduty:index/pagerdutyIncidentWorkflowTrigger:PagerdutyIncidentWorkflowTrigger": "PagerdutyIncidentWorkflowTrigger"
   }
  },
  {

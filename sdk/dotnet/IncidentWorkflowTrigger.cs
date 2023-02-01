@@ -23,18 +23,18 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myFirstWorkflow = new Pagerduty.PagerdutyIncidentWorkflow("myFirstWorkflow", new()
+    ///     var myFirstWorkflow = new Pagerduty.IncidentWorkflow("myFirstWorkflow", new()
     ///     {
     ///         Description = "This Incident Workflow is an example",
     ///         Steps = new[]
     ///         {
-    ///             new Pagerduty.Inputs.PagerdutyIncidentWorkflowStepArgs
+    ///             new Pagerduty.Inputs.IncidentWorkflowStepArgs
     ///             {
     ///                 Name = "Send Status Update",
     ///                 Action = "pagerduty.com:incident-workflows:send-status-update:1",
     ///                 Inputs = new[]
     ///                 {
-    ///                     new Pagerduty.Inputs.PagerdutyIncidentWorkflowStepInputArgs
+    ///                     new Pagerduty.Inputs.IncidentWorkflowStepInputArgs
     ///                     {
     ///                         Name = "Message",
     ///                         Value = "Example status message sent on {{current_date}}",
@@ -49,7 +49,7 @@ namespace Pulumi.Pagerduty
     ///         Name = "My First Service",
     ///     });
     /// 
-    ///     var automaticTrigger = new Pagerduty.PagerdutyIncidentWorkflowTrigger("automaticTrigger", new()
+    ///     var automaticTrigger = new Pagerduty.IncidentWorkflowTrigger("automaticTrigger", new()
     ///     {
     ///         Type = "conditional",
     ///         Workflow = myFirstWorkflow.Id,
@@ -66,7 +66,7 @@ namespace Pulumi.Pagerduty
     ///         Name = "devops",
     ///     });
     /// 
-    ///     var manualTrigger = new Pagerduty.PagerdutyIncidentWorkflowTrigger("manualTrigger", new()
+    ///     var manualTrigger = new Pagerduty.IncidentWorkflowTrigger("manualTrigger", new()
     ///     {
     ///         Type = "manual",
     ///         Workflow = myFirstWorkflow.Id,
@@ -84,11 +84,11 @@ namespace Pulumi.Pagerduty
     /// Incident workflows can be imported using the `id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import pagerduty:index/pagerdutyIncidentWorkflowTrigger:PagerdutyIncidentWorkflowTrigger pagerduty_incident_workflow_trigger PLBP09X
+    ///  $ pulumi import pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger pagerduty_incident_workflow_trigger PLBP09X
     /// ```
     /// </summary>
-    [PagerdutyResourceType("pagerduty:index/pagerdutyIncidentWorkflowTrigger:PagerdutyIncidentWorkflowTrigger")]
-    public partial class PagerdutyIncidentWorkflowTrigger : global::Pulumi.CustomResource
+    [PagerdutyResourceType("pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger")]
+    public partial class IncidentWorkflowTrigger : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.
@@ -122,19 +122,19 @@ namespace Pulumi.Pagerduty
 
 
         /// <summary>
-        /// Create a PagerdutyIncidentWorkflowTrigger resource with the given unique name, arguments, and options.
+        /// Create a IncidentWorkflowTrigger resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public PagerdutyIncidentWorkflowTrigger(string name, PagerdutyIncidentWorkflowTriggerArgs args, CustomResourceOptions? options = null)
-            : base("pagerduty:index/pagerdutyIncidentWorkflowTrigger:PagerdutyIncidentWorkflowTrigger", name, args ?? new PagerdutyIncidentWorkflowTriggerArgs(), MakeResourceOptions(options, ""))
+        public IncidentWorkflowTrigger(string name, IncidentWorkflowTriggerArgs args, CustomResourceOptions? options = null)
+            : base("pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger", name, args ?? new IncidentWorkflowTriggerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
-        private PagerdutyIncidentWorkflowTrigger(string name, Input<string> id, PagerdutyIncidentWorkflowTriggerState? state = null, CustomResourceOptions? options = null)
-            : base("pagerduty:index/pagerdutyIncidentWorkflowTrigger:PagerdutyIncidentWorkflowTrigger", name, state, MakeResourceOptions(options, id))
+        private IncidentWorkflowTrigger(string name, Input<string> id, IncidentWorkflowTriggerState? state = null, CustomResourceOptions? options = null)
+            : base("pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger", name, state, MakeResourceOptions(options, id))
         {
         }
 
@@ -150,7 +150,7 @@ namespace Pulumi.Pagerduty
             return merged;
         }
         /// <summary>
-        /// Get an existing PagerdutyIncidentWorkflowTrigger resource's state with the given name, ID, and optional extra
+        /// Get an existing IncidentWorkflowTrigger resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
@@ -158,13 +158,13 @@ namespace Pulumi.Pagerduty
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static PagerdutyIncidentWorkflowTrigger Get(string name, Input<string> id, PagerdutyIncidentWorkflowTriggerState? state = null, CustomResourceOptions? options = null)
+        public static IncidentWorkflowTrigger Get(string name, Input<string> id, IncidentWorkflowTriggerState? state = null, CustomResourceOptions? options = null)
         {
-            return new PagerdutyIncidentWorkflowTrigger(name, id, state, options);
+            return new IncidentWorkflowTrigger(name, id, state, options);
         }
     }
 
-    public sealed class PagerdutyIncidentWorkflowTriggerArgs : global::Pulumi.ResourceArgs
+    public sealed class IncidentWorkflowTriggerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.
@@ -202,13 +202,13 @@ namespace Pulumi.Pagerduty
         [Input("workflow", required: true)]
         public Input<string> Workflow { get; set; } = null!;
 
-        public PagerdutyIncidentWorkflowTriggerArgs()
+        public IncidentWorkflowTriggerArgs()
         {
         }
-        public static new PagerdutyIncidentWorkflowTriggerArgs Empty => new PagerdutyIncidentWorkflowTriggerArgs();
+        public static new IncidentWorkflowTriggerArgs Empty => new IncidentWorkflowTriggerArgs();
     }
 
-    public sealed class PagerdutyIncidentWorkflowTriggerState : global::Pulumi.ResourceArgs
+    public sealed class IncidentWorkflowTriggerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.
@@ -246,9 +246,9 @@ namespace Pulumi.Pagerduty
         [Input("workflow")]
         public Input<string>? Workflow { get; set; }
 
-        public PagerdutyIncidentWorkflowTriggerState()
+        public IncidentWorkflowTriggerState()
         {
         }
-        public static new PagerdutyIncidentWorkflowTriggerState Empty => new PagerdutyIncidentWorkflowTriggerState();
+        public static new IncidentWorkflowTriggerState Empty => new IncidentWorkflowTriggerState();
     }
 }

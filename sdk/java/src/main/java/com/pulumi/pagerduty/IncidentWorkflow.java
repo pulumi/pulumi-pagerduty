@@ -7,10 +7,10 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
-import com.pulumi.pagerduty.PagerdutyIncidentWorkflowArgs;
+import com.pulumi.pagerduty.IncidentWorkflowArgs;
 import com.pulumi.pagerduty.Utilities;
-import com.pulumi.pagerduty.inputs.PagerdutyIncidentWorkflowState;
-import com.pulumi.pagerduty.outputs.PagerdutyIncidentWorkflowStep;
+import com.pulumi.pagerduty.inputs.IncidentWorkflowState;
+import com.pulumi.pagerduty.outputs.IncidentWorkflowStep;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -28,9 +28,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.pagerduty.PagerdutyIncidentWorkflow;
- * import com.pulumi.pagerduty.PagerdutyIncidentWorkflowArgs;
- * import com.pulumi.pagerduty.inputs.PagerdutyIncidentWorkflowStepArgs;
+ * import com.pulumi.pagerduty.IncidentWorkflow;
+ * import com.pulumi.pagerduty.IncidentWorkflowArgs;
+ * import com.pulumi.pagerduty.inputs.IncidentWorkflowStepArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -44,11 +44,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myFirstWorkflow = new PagerdutyIncidentWorkflow(&#34;myFirstWorkflow&#34;, PagerdutyIncidentWorkflowArgs.builder()        
+ *         var myFirstWorkflow = new IncidentWorkflow(&#34;myFirstWorkflow&#34;, IncidentWorkflowArgs.builder()        
  *             .description(&#34;This Incident Workflow is an example&#34;)
- *             .steps(PagerdutyIncidentWorkflowStepArgs.builder()
+ *             .steps(IncidentWorkflowStepArgs.builder()
  *                 .action(&#34;pagerduty.com:incident-workflows:send-status-update:1&#34;)
- *                 .inputs(PagerdutyIncidentWorkflowStepInputArgs.builder()
+ *                 .inputs(IncidentWorkflowStepInputArgs.builder()
  *                     .name(&#34;Message&#34;)
  *                     .value(&#34;Example status message sent on {{current_date}}&#34;)
  *                     .build())
@@ -65,12 +65,12 @@ import javax.annotation.Nullable;
  * Incident workflows can be imported using the `id`, e.g.
  * 
  * ```sh
- *  $ pulumi import pagerduty:index/pagerdutyIncidentWorkflow:PagerdutyIncidentWorkflow major_incident_workflow PLBP09X
+ *  $ pulumi import pagerduty:index/incidentWorkflow:IncidentWorkflow major_incident_workflow PLBP09X
  * ```
  * 
  */
-@ResourceType(type="pagerduty:index/pagerdutyIncidentWorkflow:PagerdutyIncidentWorkflow")
-public class PagerdutyIncidentWorkflow extends com.pulumi.resources.CustomResource {
+@ResourceType(type="pagerduty:index/incidentWorkflow:IncidentWorkflow")
+public class IncidentWorkflow extends com.pulumi.resources.CustomResource {
     /**
      * The description of the workflow.
      * 
@@ -103,14 +103,14 @@ public class PagerdutyIncidentWorkflow extends com.pulumi.resources.CustomResour
      * The steps in the workflow.
      * 
      */
-    @Export(name="steps", type=List.class, parameters={PagerdutyIncidentWorkflowStep.class})
-    private Output<List<PagerdutyIncidentWorkflowStep>> steps;
+    @Export(name="steps", type=List.class, parameters={IncidentWorkflowStep.class})
+    private Output<List<IncidentWorkflowStep>> steps;
 
     /**
      * @return The steps in the workflow.
      * 
      */
-    public Output<List<PagerdutyIncidentWorkflowStep>> steps() {
+    public Output<List<IncidentWorkflowStep>> steps() {
         return this.steps;
     }
     /**
@@ -132,15 +132,15 @@ public class PagerdutyIncidentWorkflow extends com.pulumi.resources.CustomResour
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public PagerdutyIncidentWorkflow(String name) {
-        this(name, PagerdutyIncidentWorkflowArgs.Empty);
+    public IncidentWorkflow(String name) {
+        this(name, IncidentWorkflowArgs.Empty);
     }
     /**
      *
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PagerdutyIncidentWorkflow(String name, @Nullable PagerdutyIncidentWorkflowArgs args) {
+    public IncidentWorkflow(String name, @Nullable IncidentWorkflowArgs args) {
         this(name, args, null);
     }
     /**
@@ -149,12 +149,12 @@ public class PagerdutyIncidentWorkflow extends com.pulumi.resources.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PagerdutyIncidentWorkflow(String name, @Nullable PagerdutyIncidentWorkflowArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/pagerdutyIncidentWorkflow:PagerdutyIncidentWorkflow", name, args == null ? PagerdutyIncidentWorkflowArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public IncidentWorkflow(String name, @Nullable IncidentWorkflowArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("pagerduty:index/incidentWorkflow:IncidentWorkflow", name, args == null ? IncidentWorkflowArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
     }
 
-    private PagerdutyIncidentWorkflow(String name, Output<String> id, @Nullable PagerdutyIncidentWorkflowState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/pagerdutyIncidentWorkflow:PagerdutyIncidentWorkflow", name, state, makeResourceOptions(options, id));
+    private IncidentWorkflow(String name, Output<String> id, @Nullable IncidentWorkflowState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("pagerduty:index/incidentWorkflow:IncidentWorkflow", name, state, makeResourceOptions(options, id));
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
@@ -173,7 +173,7 @@ public class PagerdutyIncidentWorkflow extends com.pulumi.resources.CustomResour
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static PagerdutyIncidentWorkflow get(String name, Output<String> id, @Nullable PagerdutyIncidentWorkflowState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        return new PagerdutyIncidentWorkflow(name, id, state, options);
+    public static IncidentWorkflow get(String name, Output<String> id, @Nullable IncidentWorkflowState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        return new IncidentWorkflow(name, id, state, options);
     }
 }

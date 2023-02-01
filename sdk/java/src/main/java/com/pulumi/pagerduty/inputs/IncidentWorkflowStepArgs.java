@@ -5,7 +5,7 @@ package com.pulumi.pagerduty.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.pagerduty.inputs.PagerdutyIncidentWorkflowStepInputArgs;
+import com.pulumi.pagerduty.inputs.IncidentWorkflowStepInputArgs;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -13,9 +13,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 
-public final class PagerdutyIncidentWorkflowStepArgs extends com.pulumi.resources.ResourceArgs {
+public final class IncidentWorkflowStepArgs extends com.pulumi.resources.ResourceArgs {
 
-    public static final PagerdutyIncidentWorkflowStepArgs Empty = new PagerdutyIncidentWorkflowStepArgs();
+    public static final IncidentWorkflowStepArgs Empty = new IncidentWorkflowStepArgs();
 
     /**
      * The action id for the workflow step, including the version. A list of actions available can be retrieved using the [PagerDuty API](https://developer.pagerduty.com/api-reference/aa192a25fac39-list-actions).
@@ -52,13 +52,13 @@ public final class PagerdutyIncidentWorkflowStepArgs extends com.pulumi.resource
      * 
      */
     @Import(name="inputs")
-    private @Nullable Output<List<PagerdutyIncidentWorkflowStepInputArgs>> inputs;
+    private @Nullable Output<List<IncidentWorkflowStepInputArgs>> inputs;
 
     /**
      * @return The list of inputs for the workflow action.
      * 
      */
-    public Optional<Output<List<PagerdutyIncidentWorkflowStepInputArgs>>> inputs() {
+    public Optional<Output<List<IncidentWorkflowStepInputArgs>>> inputs() {
         return Optional.ofNullable(this.inputs);
     }
 
@@ -77,9 +77,9 @@ public final class PagerdutyIncidentWorkflowStepArgs extends com.pulumi.resource
         return this.name;
     }
 
-    private PagerdutyIncidentWorkflowStepArgs() {}
+    private IncidentWorkflowStepArgs() {}
 
-    private PagerdutyIncidentWorkflowStepArgs(PagerdutyIncidentWorkflowStepArgs $) {
+    private IncidentWorkflowStepArgs(IncidentWorkflowStepArgs $) {
         this.action = $.action;
         this.id = $.id;
         this.inputs = $.inputs;
@@ -89,19 +89,19 @@ public final class PagerdutyIncidentWorkflowStepArgs extends com.pulumi.resource
     public static Builder builder() {
         return new Builder();
     }
-    public static Builder builder(PagerdutyIncidentWorkflowStepArgs defaults) {
+    public static Builder builder(IncidentWorkflowStepArgs defaults) {
         return new Builder(defaults);
     }
 
     public static final class Builder {
-        private PagerdutyIncidentWorkflowStepArgs $;
+        private IncidentWorkflowStepArgs $;
 
         public Builder() {
-            $ = new PagerdutyIncidentWorkflowStepArgs();
+            $ = new IncidentWorkflowStepArgs();
         }
 
-        public Builder(PagerdutyIncidentWorkflowStepArgs defaults) {
-            $ = new PagerdutyIncidentWorkflowStepArgs(Objects.requireNonNull(defaults));
+        public Builder(IncidentWorkflowStepArgs defaults) {
+            $ = new IncidentWorkflowStepArgs(Objects.requireNonNull(defaults));
         }
 
         /**
@@ -152,7 +152,7 @@ public final class PagerdutyIncidentWorkflowStepArgs extends com.pulumi.resource
          * @return builder
          * 
          */
-        public Builder inputs(@Nullable Output<List<PagerdutyIncidentWorkflowStepInputArgs>> inputs) {
+        public Builder inputs(@Nullable Output<List<IncidentWorkflowStepInputArgs>> inputs) {
             $.inputs = inputs;
             return this;
         }
@@ -163,7 +163,7 @@ public final class PagerdutyIncidentWorkflowStepArgs extends com.pulumi.resource
          * @return builder
          * 
          */
-        public Builder inputs(List<PagerdutyIncidentWorkflowStepInputArgs> inputs) {
+        public Builder inputs(List<IncidentWorkflowStepInputArgs> inputs) {
             return inputs(Output.of(inputs));
         }
 
@@ -173,7 +173,7 @@ public final class PagerdutyIncidentWorkflowStepArgs extends com.pulumi.resource
          * @return builder
          * 
          */
-        public Builder inputs(PagerdutyIncidentWorkflowStepInputArgs... inputs) {
+        public Builder inputs(IncidentWorkflowStepInputArgs... inputs) {
             return inputs(List.of(inputs));
         }
 
@@ -198,7 +198,7 @@ public final class PagerdutyIncidentWorkflowStepArgs extends com.pulumi.resource
             return name(Output.of(name));
         }
 
-        public PagerdutyIncidentWorkflowStepArgs build() {
+        public IncidentWorkflowStepArgs build() {
             $.action = Objects.requireNonNull($.action, "expected parameter 'action' to be non-null");
             $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
             return $;

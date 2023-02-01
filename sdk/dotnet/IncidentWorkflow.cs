@@ -23,17 +23,17 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myFirstWorkflow = new Pagerduty.PagerdutyIncidentWorkflow("myFirstWorkflow", new()
+    ///     var myFirstWorkflow = new Pagerduty.IncidentWorkflow("myFirstWorkflow", new()
     ///     {
     ///         Description = "This Incident Workflow is an example",
     ///         Steps = new[]
     ///         {
-    ///             new Pagerduty.Inputs.PagerdutyIncidentWorkflowStepArgs
+    ///             new Pagerduty.Inputs.IncidentWorkflowStepArgs
     ///             {
     ///                 Action = "pagerduty.com:incident-workflows:send-status-update:1",
     ///                 Inputs = new[]
     ///                 {
-    ///                     new Pagerduty.Inputs.PagerdutyIncidentWorkflowStepInputArgs
+    ///                     new Pagerduty.Inputs.IncidentWorkflowStepInputArgs
     ///                     {
     ///                         Name = "Message",
     ///                         Value = "Example status message sent on {{current_date}}",
@@ -52,11 +52,11 @@ namespace Pulumi.Pagerduty
     /// Incident workflows can be imported using the `id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import pagerduty:index/pagerdutyIncidentWorkflow:PagerdutyIncidentWorkflow major_incident_workflow PLBP09X
+    ///  $ pulumi import pagerduty:index/incidentWorkflow:IncidentWorkflow major_incident_workflow PLBP09X
     /// ```
     /// </summary>
-    [PagerdutyResourceType("pagerduty:index/pagerdutyIncidentWorkflow:PagerdutyIncidentWorkflow")]
-    public partial class PagerdutyIncidentWorkflow : global::Pulumi.CustomResource
+    [PagerdutyResourceType("pagerduty:index/incidentWorkflow:IncidentWorkflow")]
+    public partial class IncidentWorkflow : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The description of the workflow.
@@ -74,7 +74,7 @@ namespace Pulumi.Pagerduty
         /// The steps in the workflow.
         /// </summary>
         [Output("steps")]
-        public Output<ImmutableArray<Outputs.PagerdutyIncidentWorkflowStep>> Steps { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.IncidentWorkflowStep>> Steps { get; private set; } = null!;
 
         /// <summary>
         /// A team ID. If specified then workflow edit permissions will be scoped to members of this team.
@@ -84,19 +84,19 @@ namespace Pulumi.Pagerduty
 
 
         /// <summary>
-        /// Create a PagerdutyIncidentWorkflow resource with the given unique name, arguments, and options.
+        /// Create a IncidentWorkflow resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public PagerdutyIncidentWorkflow(string name, PagerdutyIncidentWorkflowArgs? args = null, CustomResourceOptions? options = null)
-            : base("pagerduty:index/pagerdutyIncidentWorkflow:PagerdutyIncidentWorkflow", name, args ?? new PagerdutyIncidentWorkflowArgs(), MakeResourceOptions(options, ""))
+        public IncidentWorkflow(string name, IncidentWorkflowArgs? args = null, CustomResourceOptions? options = null)
+            : base("pagerduty:index/incidentWorkflow:IncidentWorkflow", name, args ?? new IncidentWorkflowArgs(), MakeResourceOptions(options, ""))
         {
         }
 
-        private PagerdutyIncidentWorkflow(string name, Input<string> id, PagerdutyIncidentWorkflowState? state = null, CustomResourceOptions? options = null)
-            : base("pagerduty:index/pagerdutyIncidentWorkflow:PagerdutyIncidentWorkflow", name, state, MakeResourceOptions(options, id))
+        private IncidentWorkflow(string name, Input<string> id, IncidentWorkflowState? state = null, CustomResourceOptions? options = null)
+            : base("pagerduty:index/incidentWorkflow:IncidentWorkflow", name, state, MakeResourceOptions(options, id))
         {
         }
 
@@ -112,7 +112,7 @@ namespace Pulumi.Pagerduty
             return merged;
         }
         /// <summary>
-        /// Get an existing PagerdutyIncidentWorkflow resource's state with the given name, ID, and optional extra
+        /// Get an existing IncidentWorkflow resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
@@ -120,13 +120,13 @@ namespace Pulumi.Pagerduty
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static PagerdutyIncidentWorkflow Get(string name, Input<string> id, PagerdutyIncidentWorkflowState? state = null, CustomResourceOptions? options = null)
+        public static IncidentWorkflow Get(string name, Input<string> id, IncidentWorkflowState? state = null, CustomResourceOptions? options = null)
         {
-            return new PagerdutyIncidentWorkflow(name, id, state, options);
+            return new IncidentWorkflow(name, id, state, options);
         }
     }
 
-    public sealed class PagerdutyIncidentWorkflowArgs : global::Pulumi.ResourceArgs
+    public sealed class IncidentWorkflowArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the workflow.
@@ -141,14 +141,14 @@ namespace Pulumi.Pagerduty
         public Input<string>? Name { get; set; }
 
         [Input("steps")]
-        private InputList<Inputs.PagerdutyIncidentWorkflowStepArgs>? _steps;
+        private InputList<Inputs.IncidentWorkflowStepArgs>? _steps;
 
         /// <summary>
         /// The steps in the workflow.
         /// </summary>
-        public InputList<Inputs.PagerdutyIncidentWorkflowStepArgs> Steps
+        public InputList<Inputs.IncidentWorkflowStepArgs> Steps
         {
-            get => _steps ?? (_steps = new InputList<Inputs.PagerdutyIncidentWorkflowStepArgs>());
+            get => _steps ?? (_steps = new InputList<Inputs.IncidentWorkflowStepArgs>());
             set => _steps = value;
         }
 
@@ -158,13 +158,13 @@ namespace Pulumi.Pagerduty
         [Input("team")]
         public Input<string>? Team { get; set; }
 
-        public PagerdutyIncidentWorkflowArgs()
+        public IncidentWorkflowArgs()
         {
         }
-        public static new PagerdutyIncidentWorkflowArgs Empty => new PagerdutyIncidentWorkflowArgs();
+        public static new IncidentWorkflowArgs Empty => new IncidentWorkflowArgs();
     }
 
-    public sealed class PagerdutyIncidentWorkflowState : global::Pulumi.ResourceArgs
+    public sealed class IncidentWorkflowState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the workflow.
@@ -179,14 +179,14 @@ namespace Pulumi.Pagerduty
         public Input<string>? Name { get; set; }
 
         [Input("steps")]
-        private InputList<Inputs.PagerdutyIncidentWorkflowStepGetArgs>? _steps;
+        private InputList<Inputs.IncidentWorkflowStepGetArgs>? _steps;
 
         /// <summary>
         /// The steps in the workflow.
         /// </summary>
-        public InputList<Inputs.PagerdutyIncidentWorkflowStepGetArgs> Steps
+        public InputList<Inputs.IncidentWorkflowStepGetArgs> Steps
         {
-            get => _steps ?? (_steps = new InputList<Inputs.PagerdutyIncidentWorkflowStepGetArgs>());
+            get => _steps ?? (_steps = new InputList<Inputs.IncidentWorkflowStepGetArgs>());
             set => _steps = value;
         }
 
@@ -196,9 +196,9 @@ namespace Pulumi.Pagerduty
         [Input("team")]
         public Input<string>? Team { get; set; }
 
-        public PagerdutyIncidentWorkflowState()
+        public IncidentWorkflowState()
         {
         }
-        public static new PagerdutyIncidentWorkflowState Empty => new PagerdutyIncidentWorkflowState();
+        public static new IncidentWorkflowState Empty => new IncidentWorkflowState();
     }
 }

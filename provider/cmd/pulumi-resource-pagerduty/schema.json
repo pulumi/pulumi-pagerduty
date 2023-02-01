@@ -1624,7 +1624,7 @@
                 "expression"
             ]
         },
-        "pagerduty:index/PagerdutyIncidentWorkflowStep:PagerdutyIncidentWorkflowStep": {
+        "pagerduty:index/IncidentWorkflowStep:IncidentWorkflowStep": {
             "properties": {
                 "action": {
                     "type": "string",
@@ -1647,7 +1647,7 @@
                 "inputs": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/pagerduty:index/PagerdutyIncidentWorkflowStepInput:PagerdutyIncidentWorkflowStepInput"
+                        "$ref": "#/types/pagerduty:index/IncidentWorkflowStepInput:IncidentWorkflowStepInput"
                     },
                     "description": "The list of inputs for the workflow action.\n",
                     "language": {
@@ -1682,7 +1682,7 @@
                 }
             }
         },
-        "pagerduty:index/PagerdutyIncidentWorkflowStepInput:PagerdutyIncidentWorkflowStepInput": {
+        "pagerduty:index/IncidentWorkflowStepInput:IncidentWorkflowStepInput": {
             "properties": {
                 "generated": {
                     "type": "boolean",
@@ -5588,6 +5588,172 @@
                 "type": "object"
             }
         },
+        "pagerduty:index/incidentWorkflow:IncidentWorkflow": {
+            "description": "An [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) is a series of steps which can be executed on an incident.\n\n\u003e The Incident Workflows feature is currently available in Early Access.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst myFirstWorkflow = new pagerduty.IncidentWorkflow(\"myFirstWorkflow\", {\n    description: \"This Incident Workflow is an example\",\n    steps: [{\n        action: \"pagerduty.com:incident-workflows:send-status-update:1\",\n        inputs: [{\n            name: \"Message\",\n            value: \"Example status message sent on {{current_date}}\",\n        }],\n        name: \"Send Status Update\",\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nmy_first_workflow = pagerduty.IncidentWorkflow(\"myFirstWorkflow\",\n    description=\"This Incident Workflow is an example\",\n    steps=[pagerduty.IncidentWorkflowStepArgs(\n        action=\"pagerduty.com:incident-workflows:send-status-update:1\",\n        inputs=[pagerduty.IncidentWorkflowStepInputArgs(\n            name=\"Message\",\n            value=\"Example status message sent on {{current_date}}\",\n        )],\n        name=\"Send Status Update\",\n    )])\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var myFirstWorkflow = new Pagerduty.IncidentWorkflow(\"myFirstWorkflow\", new()\n    {\n        Description = \"This Incident Workflow is an example\",\n        Steps = new[]\n        {\n            new Pagerduty.Inputs.IncidentWorkflowStepArgs\n            {\n                Action = \"pagerduty.com:incident-workflows:send-status-update:1\",\n                Inputs = new[]\n                {\n                    new Pagerduty.Inputs.IncidentWorkflowStepInputArgs\n                    {\n                        Name = \"Message\",\n                        Value = \"Example status message sent on {{current_date}}\",\n                    },\n                },\n                Name = \"Send Status Update\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := pagerduty.NewIncidentWorkflow(ctx, \"myFirstWorkflow\", \u0026pagerduty.IncidentWorkflowArgs{\n\t\t\tDescription: pulumi.String(\"This Incident Workflow is an example\"),\n\t\t\tSteps: pagerduty.IncidentWorkflowStepArray{\n\t\t\t\t\u0026pagerduty.IncidentWorkflowStepArgs{\n\t\t\t\t\tAction: pulumi.String(\"pagerduty.com:incident-workflows:send-status-update:1\"),\n\t\t\t\t\tInputs: pagerduty.IncidentWorkflowStepInputTypeArray{\n\t\t\t\t\t\t\u0026pagerduty.IncidentWorkflowStepInputTypeArgs{\n\t\t\t\t\t\t\tName:  pulumi.String(\"Message\"),\n\t\t\t\t\t\t\tValue: pulumi.String(\"Example status message sent on {{current_date}}\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t\tName: pulumi.String(\"Send Status Update\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.IncidentWorkflow;\nimport com.pulumi.pagerduty.IncidentWorkflowArgs;\nimport com.pulumi.pagerduty.inputs.IncidentWorkflowStepArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var myFirstWorkflow = new IncidentWorkflow(\"myFirstWorkflow\", IncidentWorkflowArgs.builder()        \n            .description(\"This Incident Workflow is an example\")\n            .steps(IncidentWorkflowStepArgs.builder()\n                .action(\"pagerduty.com:incident-workflows:send-status-update:1\")\n                .inputs(IncidentWorkflowStepInputArgs.builder()\n                    .name(\"Message\")\n                    .value(\"Example status message sent on {{current_date}}\")\n                    .build())\n                .name(\"Send Status Update\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  myFirstWorkflow:\n    type: pagerduty:IncidentWorkflow\n    properties:\n      description: This Incident Workflow is an example\n      steps:\n        - action: pagerduty.com:incident-workflows:send-status-update:1\n          inputs:\n            - name: Message\n              value: Example status message sent on {{current_date}}\n          name: Send Status Update\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nIncident workflows can be imported using the `id`, e.g.\n\n```sh\n $ pulumi import pagerduty:index/incidentWorkflow:IncidentWorkflow major_incident_workflow PLBP09X\n```\n\n ",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "The description of the workflow.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the workflow.\n"
+                },
+                "steps": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/IncidentWorkflowStep:IncidentWorkflowStep"
+                    },
+                    "description": "The steps in the workflow.\n"
+                },
+                "team": {
+                    "type": "string",
+                    "description": "A team ID. If specified then workflow edit permissions will be scoped to members of this team.\n"
+                }
+            },
+            "required": [
+                "name",
+                "steps"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "The description of the workflow.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the workflow.\n"
+                },
+                "steps": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/IncidentWorkflowStep:IncidentWorkflowStep"
+                    },
+                    "description": "The steps in the workflow.\n"
+                },
+                "team": {
+                    "type": "string",
+                    "description": "A team ID. If specified then workflow edit permissions will be scoped to members of this team.\n"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering IncidentWorkflow resources.\n",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "The description of the workflow.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the workflow.\n"
+                    },
+                    "steps": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/pagerduty:index/IncidentWorkflowStep:IncidentWorkflowStep"
+                        },
+                        "description": "The steps in the workflow.\n"
+                    },
+                    "team": {
+                        "type": "string",
+                        "description": "A team ID. If specified then workflow edit permissions will be scoped to members of this team.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger": {
+            "description": "An [Incident Workflow Trigger](https://support.pagerduty.com/docs/incident-workflows#triggers) defines when and if an [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) will be triggered.\n\n\u003e The Incident Workflows feature is currently available in Early Access.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst myFirstWorkflow = new pagerduty.IncidentWorkflow(\"myFirstWorkflow\", {\n    description: \"This Incident Workflow is an example\",\n    steps: [{\n        name: \"Send Status Update\",\n        action: \"pagerduty.com:incident-workflows:send-status-update:1\",\n        inputs: [{\n            name: \"Message\",\n            value: \"Example status message sent on {{current_date}}\",\n        }],\n    }],\n});\nconst firstService = pagerduty.getService({\n    name: \"My First Service\",\n});\nconst automaticTrigger = new pagerduty.IncidentWorkflowTrigger(\"automaticTrigger\", {\n    type: \"conditional\",\n    workflow: myFirstWorkflow.id,\n    services: [pagerduty_service.first_service.id],\n    condition: \"incident.priority matches 'P1'\",\n    subscribedToAllServices: false,\n});\nconst devops = pagerduty.getTeam({\n    name: \"devops\",\n});\nconst manualTrigger = new pagerduty.IncidentWorkflowTrigger(\"manualTrigger\", {\n    type: \"manual\",\n    workflow: myFirstWorkflow.id,\n    services: [pagerduty_service.first_service.id],\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nmy_first_workflow = pagerduty.IncidentWorkflow(\"myFirstWorkflow\",\n    description=\"This Incident Workflow is an example\",\n    steps=[pagerduty.IncidentWorkflowStepArgs(\n        name=\"Send Status Update\",\n        action=\"pagerduty.com:incident-workflows:send-status-update:1\",\n        inputs=[pagerduty.IncidentWorkflowStepInputArgs(\n            name=\"Message\",\n            value=\"Example status message sent on {{current_date}}\",\n        )],\n    )])\nfirst_service = pagerduty.get_service(name=\"My First Service\")\nautomatic_trigger = pagerduty.IncidentWorkflowTrigger(\"automaticTrigger\",\n    type=\"conditional\",\n    workflow=my_first_workflow.id,\n    services=[pagerduty_service[\"first_service\"][\"id\"]],\n    condition=\"incident.priority matches 'P1'\",\n    subscribed_to_all_services=False)\ndevops = pagerduty.get_team(name=\"devops\")\nmanual_trigger = pagerduty.IncidentWorkflowTrigger(\"manualTrigger\",\n    type=\"manual\",\n    workflow=my_first_workflow.id,\n    services=[pagerduty_service[\"first_service\"][\"id\"]])\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var myFirstWorkflow = new Pagerduty.IncidentWorkflow(\"myFirstWorkflow\", new()\n    {\n        Description = \"This Incident Workflow is an example\",\n        Steps = new[]\n        {\n            new Pagerduty.Inputs.IncidentWorkflowStepArgs\n            {\n                Name = \"Send Status Update\",\n                Action = \"pagerduty.com:incident-workflows:send-status-update:1\",\n                Inputs = new[]\n                {\n                    new Pagerduty.Inputs.IncidentWorkflowStepInputArgs\n                    {\n                        Name = \"Message\",\n                        Value = \"Example status message sent on {{current_date}}\",\n                    },\n                },\n            },\n        },\n    });\n\n    var firstService = Pagerduty.GetService.Invoke(new()\n    {\n        Name = \"My First Service\",\n    });\n\n    var automaticTrigger = new Pagerduty.IncidentWorkflowTrigger(\"automaticTrigger\", new()\n    {\n        Type = \"conditional\",\n        Workflow = myFirstWorkflow.Id,\n        Services = new[]\n        {\n            pagerduty_service.First_service.Id,\n        },\n        Condition = \"incident.priority matches 'P1'\",\n        SubscribedToAllServices = false,\n    });\n\n    var devops = Pagerduty.GetTeam.Invoke(new()\n    {\n        Name = \"devops\",\n    });\n\n    var manualTrigger = new Pagerduty.IncidentWorkflowTrigger(\"manualTrigger\", new()\n    {\n        Type = \"manual\",\n        Workflow = myFirstWorkflow.Id,\n        Services = new[]\n        {\n            pagerduty_service.First_service.Id,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmyFirstWorkflow, err := pagerduty.NewIncidentWorkflow(ctx, \"myFirstWorkflow\", \u0026pagerduty.IncidentWorkflowArgs{\n\t\t\tDescription: pulumi.String(\"This Incident Workflow is an example\"),\n\t\t\tSteps: pagerduty.IncidentWorkflowStepArray{\n\t\t\t\t\u0026pagerduty.IncidentWorkflowStepArgs{\n\t\t\t\t\tName:   pulumi.String(\"Send Status Update\"),\n\t\t\t\t\tAction: pulumi.String(\"pagerduty.com:incident-workflows:send-status-update:1\"),\n\t\t\t\t\tInputs: pagerduty.IncidentWorkflowStepInputTypeArray{\n\t\t\t\t\t\t\u0026pagerduty.IncidentWorkflowStepInputTypeArgs{\n\t\t\t\t\t\t\tName:  pulumi.String(\"Message\"),\n\t\t\t\t\t\t\tValue: pulumi.String(\"Example status message sent on {{current_date}}\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.LookupService(ctx, \u0026pagerduty.LookupServiceArgs{\n\t\t\tName: \"My First Service\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewIncidentWorkflowTrigger(ctx, \"automaticTrigger\", \u0026pagerduty.IncidentWorkflowTriggerArgs{\n\t\t\tType:     pulumi.String(\"conditional\"),\n\t\t\tWorkflow: myFirstWorkflow.ID(),\n\t\t\tServices: pulumi.StringArray{\n\t\t\t\tpagerduty_service.First_service.Id,\n\t\t\t},\n\t\t\tCondition:               pulumi.String(\"incident.priority matches 'P1'\"),\n\t\t\tSubscribedToAllServices: pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.LookupTeam(ctx, \u0026pagerduty.LookupTeamArgs{\n\t\t\tName: \"devops\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewIncidentWorkflowTrigger(ctx, \"manualTrigger\", \u0026pagerduty.IncidentWorkflowTriggerArgs{\n\t\t\tType:     pulumi.String(\"manual\"),\n\t\t\tWorkflow: myFirstWorkflow.ID(),\n\t\t\tServices: pulumi.StringArray{\n\t\t\t\tpagerduty_service.First_service.Id,\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.IncidentWorkflow;\nimport com.pulumi.pagerduty.IncidentWorkflowArgs;\nimport com.pulumi.pagerduty.inputs.IncidentWorkflowStepArgs;\nimport com.pulumi.pagerduty.PagerdutyFunctions;\nimport com.pulumi.pagerduty.inputs.GetServiceArgs;\nimport com.pulumi.pagerduty.IncidentWorkflowTrigger;\nimport com.pulumi.pagerduty.IncidentWorkflowTriggerArgs;\nimport com.pulumi.pagerduty.inputs.GetTeamArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var myFirstWorkflow = new IncidentWorkflow(\"myFirstWorkflow\", IncidentWorkflowArgs.builder()        \n            .description(\"This Incident Workflow is an example\")\n            .steps(IncidentWorkflowStepArgs.builder()\n                .name(\"Send Status Update\")\n                .action(\"pagerduty.com:incident-workflows:send-status-update:1\")\n                .inputs(IncidentWorkflowStepInputArgs.builder()\n                    .name(\"Message\")\n                    .value(\"Example status message sent on {{current_date}}\")\n                    .build())\n                .build())\n            .build());\n\n        final var firstService = PagerdutyFunctions.getService(GetServiceArgs.builder()\n            .name(\"My First Service\")\n            .build());\n\n        var automaticTrigger = new IncidentWorkflowTrigger(\"automaticTrigger\", IncidentWorkflowTriggerArgs.builder()        \n            .type(\"conditional\")\n            .workflow(myFirstWorkflow.id())\n            .services(pagerduty_service.first_service().id())\n            .condition(\"incident.priority matches 'P1'\")\n            .subscribedToAllServices(false)\n            .build());\n\n        final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()\n            .name(\"devops\")\n            .build());\n\n        var manualTrigger = new IncidentWorkflowTrigger(\"manualTrigger\", IncidentWorkflowTriggerArgs.builder()        \n            .type(\"manual\")\n            .workflow(myFirstWorkflow.id())\n            .services(pagerduty_service.first_service().id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  myFirstWorkflow:\n    type: pagerduty:IncidentWorkflow\n    properties:\n      description: This Incident Workflow is an example\n      steps:\n        - name: Send Status Update\n          action: pagerduty.com:incident-workflows:send-status-update:1\n          inputs:\n            - name: Message\n              value: Example status message sent on {{current_date}}\n  automaticTrigger:\n    type: pagerduty:IncidentWorkflowTrigger\n    properties:\n      type: conditional\n      workflow: ${myFirstWorkflow.id}\n      services:\n        - ${pagerduty_service.first_service.id}\n      condition: incident.priority matches 'P1'\n      subscribedToAllServices: false\n  manualTrigger:\n    type: pagerduty:IncidentWorkflowTrigger\n    properties:\n      type: manual\n      workflow: ${myFirstWorkflow.id}\n      services:\n        - ${pagerduty_service.first_service.id}\nvariables:\n  firstService:\n    fn::invoke:\n      Function: pagerduty:getService\n      Arguments:\n        name: My First Service\n  devops:\n    fn::invoke:\n      Function: pagerduty:getTeam\n      Arguments:\n        name: devops\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nIncident workflows can be imported using the `id`, e.g.\n\n```sh\n $ pulumi import pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger pagerduty_incident_workflow_trigger PLBP09X\n```\n\n ",
+            "properties": {
+                "condition": {
+                    "type": "string",
+                    "description": "A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.\n"
+                },
+                "services": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of service IDs. Incidents in any of the listed services are eligible to fire this trigger.\n"
+                },
+                "subscribedToAllServices": {
+                    "type": "boolean",
+                    "description": "Set to `true` if the trigger should be eligible for firing on all services. Only allowed to be `true` if the services list is not defined or empty.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "May be either `manual` or `conditional`.\n"
+                },
+                "workflow": {
+                    "type": "string",
+                    "description": "The workflow ID for the workflow to trigger.\n"
+                }
+            },
+            "required": [
+                "subscribedToAllServices",
+                "type",
+                "workflow"
+            ],
+            "inputProperties": {
+                "condition": {
+                    "type": "string",
+                    "description": "A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.\n"
+                },
+                "services": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of service IDs. Incidents in any of the listed services are eligible to fire this trigger.\n"
+                },
+                "subscribedToAllServices": {
+                    "type": "boolean",
+                    "description": "Set to `true` if the trigger should be eligible for firing on all services. Only allowed to be `true` if the services list is not defined or empty.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "May be either `manual` or `conditional`.\n"
+                },
+                "workflow": {
+                    "type": "string",
+                    "description": "The workflow ID for the workflow to trigger.\n"
+                }
+            },
+            "requiredInputs": [
+                "subscribedToAllServices",
+                "type",
+                "workflow"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering IncidentWorkflowTrigger resources.\n",
+                "properties": {
+                    "condition": {
+                        "type": "string",
+                        "description": "A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.\n"
+                    },
+                    "services": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of service IDs. Incidents in any of the listed services are eligible to fire this trigger.\n"
+                    },
+                    "subscribedToAllServices": {
+                        "type": "boolean",
+                        "description": "Set to `true` if the trigger should be eligible for firing on all services. Only allowed to be `true` if the services list is not defined or empty.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "May be either `manual` or `conditional`.\n"
+                    },
+                    "workflow": {
+                        "type": "string",
+                        "description": "The workflow ID for the workflow to trigger.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "pagerduty:index/maintenanceWindow:MaintenanceWindow": {
             "description": "A [maintenance window](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE1OA-create-a-maintenance-window) is used to temporarily disable one or more services for a set period of time. No incidents will be triggered and no notifications will be received while a service is disabled by a maintenance window.\n\nMaintenance windows are specified to start at a certain time and end after they have begun. Once started, a maintenance window cannot be deleted; it can only be ended immediately to re-enable the service.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst example = new pagerduty.MaintenanceWindow(\"example\", {\n    startTime: \"2015-11-09T20:00:00-05:00\",\n    endTime: \"2015-11-09T22:00:00-05:00\",\n    services: [pagerduty_service.example.id],\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nexample = pagerduty.MaintenanceWindow(\"example\",\n    start_time=\"2015-11-09T20:00:00-05:00\",\n    end_time=\"2015-11-09T22:00:00-05:00\",\n    services=[pagerduty_service[\"example\"][\"id\"]])\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Pagerduty.MaintenanceWindow(\"example\", new()\n    {\n        StartTime = \"2015-11-09T20:00:00-05:00\",\n        EndTime = \"2015-11-09T22:00:00-05:00\",\n        Services = new[]\n        {\n            pagerduty_service.Example.Id,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := pagerduty.NewMaintenanceWindow(ctx, \"example\", \u0026pagerduty.MaintenanceWindowArgs{\n\t\t\tStartTime: pulumi.String(\"2015-11-09T20:00:00-05:00\"),\n\t\t\tEndTime:   pulumi.String(\"2015-11-09T22:00:00-05:00\"),\n\t\t\tServices: pulumi.StringArray{\n\t\t\t\tpagerduty_service.Example.Id,\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.MaintenanceWindow;\nimport com.pulumi.pagerduty.MaintenanceWindowArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new MaintenanceWindow(\"example\", MaintenanceWindowArgs.builder()        \n            .startTime(\"2015-11-09T20:00:00-05:00\")\n            .endTime(\"2015-11-09T22:00:00-05:00\")\n            .services(pagerduty_service.example().id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: pagerduty:MaintenanceWindow\n    properties:\n      startTime: 2015-11-09T20:00:00-05:00\n      endTime: 2015-11-09T22:00:00-05:00\n      services:\n        - ${pagerduty_service.example.id}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nMaintenance windows can be imported using the `id`, e.g.\n\n```sh\n $ pulumi import pagerduty:index/maintenanceWindow:MaintenanceWindow main PLBP09X\n```\n\n ",
             "properties": {
@@ -5667,172 +5833,6 @@
                     "startTime": {
                         "type": "string",
                         "description": "The maintenance window's start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.\n"
-                    }
-                },
-                "type": "object"
-            }
-        },
-        "pagerduty:index/pagerdutyIncidentWorkflow:PagerdutyIncidentWorkflow": {
-            "description": "An [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) is a series of steps which can be executed on an incident.\n\n\u003e The Incident Workflows feature is currently available in Early Access.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst myFirstWorkflow = new pagerduty.PagerdutyIncidentWorkflow(\"myFirstWorkflow\", {\n    description: \"This Incident Workflow is an example\",\n    steps: [{\n        action: \"pagerduty.com:incident-workflows:send-status-update:1\",\n        inputs: [{\n            name: \"Message\",\n            value: \"Example status message sent on {{current_date}}\",\n        }],\n        name: \"Send Status Update\",\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nmy_first_workflow = pagerduty.PagerdutyIncidentWorkflow(\"myFirstWorkflow\",\n    description=\"This Incident Workflow is an example\",\n    steps=[pagerduty.PagerdutyIncidentWorkflowStepArgs(\n        action=\"pagerduty.com:incident-workflows:send-status-update:1\",\n        inputs=[pagerduty.PagerdutyIncidentWorkflowStepInputArgs(\n            name=\"Message\",\n            value=\"Example status message sent on {{current_date}}\",\n        )],\n        name=\"Send Status Update\",\n    )])\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var myFirstWorkflow = new Pagerduty.PagerdutyIncidentWorkflow(\"myFirstWorkflow\", new()\n    {\n        Description = \"This Incident Workflow is an example\",\n        Steps = new[]\n        {\n            new Pagerduty.Inputs.PagerdutyIncidentWorkflowStepArgs\n            {\n                Action = \"pagerduty.com:incident-workflows:send-status-update:1\",\n                Inputs = new[]\n                {\n                    new Pagerduty.Inputs.PagerdutyIncidentWorkflowStepInputArgs\n                    {\n                        Name = \"Message\",\n                        Value = \"Example status message sent on {{current_date}}\",\n                    },\n                },\n                Name = \"Send Status Update\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := pagerduty.NewPagerdutyIncidentWorkflow(ctx, \"myFirstWorkflow\", \u0026pagerduty.PagerdutyIncidentWorkflowArgs{\n\t\t\tDescription: pulumi.String(\"This Incident Workflow is an example\"),\n\t\t\tSteps: pagerduty.PagerdutyIncidentWorkflowStepArray{\n\t\t\t\t\u0026pagerduty.PagerdutyIncidentWorkflowStepArgs{\n\t\t\t\t\tAction: pulumi.String(\"pagerduty.com:incident-workflows:send-status-update:1\"),\n\t\t\t\t\tInputs: pagerduty.PagerdutyIncidentWorkflowStepInputTypeArray{\n\t\t\t\t\t\t\u0026pagerduty.PagerdutyIncidentWorkflowStepInputTypeArgs{\n\t\t\t\t\t\t\tName:  pulumi.String(\"Message\"),\n\t\t\t\t\t\t\tValue: pulumi.String(\"Example status message sent on {{current_date}}\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t\tName: pulumi.String(\"Send Status Update\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.PagerdutyIncidentWorkflow;\nimport com.pulumi.pagerduty.PagerdutyIncidentWorkflowArgs;\nimport com.pulumi.pagerduty.inputs.PagerdutyIncidentWorkflowStepArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var myFirstWorkflow = new PagerdutyIncidentWorkflow(\"myFirstWorkflow\", PagerdutyIncidentWorkflowArgs.builder()        \n            .description(\"This Incident Workflow is an example\")\n            .steps(PagerdutyIncidentWorkflowStepArgs.builder()\n                .action(\"pagerduty.com:incident-workflows:send-status-update:1\")\n                .inputs(PagerdutyIncidentWorkflowStepInputArgs.builder()\n                    .name(\"Message\")\n                    .value(\"Example status message sent on {{current_date}}\")\n                    .build())\n                .name(\"Send Status Update\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  myFirstWorkflow:\n    type: pagerduty:PagerdutyIncidentWorkflow\n    properties:\n      description: This Incident Workflow is an example\n      steps:\n        - action: pagerduty.com:incident-workflows:send-status-update:1\n          inputs:\n            - name: Message\n              value: Example status message sent on {{current_date}}\n          name: Send Status Update\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nIncident workflows can be imported using the `id`, e.g.\n\n```sh\n $ pulumi import pagerduty:index/pagerdutyIncidentWorkflow:PagerdutyIncidentWorkflow major_incident_workflow PLBP09X\n```\n\n ",
-            "properties": {
-                "description": {
-                    "type": "string",
-                    "description": "The description of the workflow.\n"
-                },
-                "name": {
-                    "type": "string",
-                    "description": "The name of the workflow.\n"
-                },
-                "steps": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/pagerduty:index/PagerdutyIncidentWorkflowStep:PagerdutyIncidentWorkflowStep"
-                    },
-                    "description": "The steps in the workflow.\n"
-                },
-                "team": {
-                    "type": "string",
-                    "description": "A team ID. If specified then workflow edit permissions will be scoped to members of this team.\n"
-                }
-            },
-            "required": [
-                "name",
-                "steps"
-            ],
-            "inputProperties": {
-                "description": {
-                    "type": "string",
-                    "description": "The description of the workflow.\n"
-                },
-                "name": {
-                    "type": "string",
-                    "description": "The name of the workflow.\n"
-                },
-                "steps": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/pagerduty:index/PagerdutyIncidentWorkflowStep:PagerdutyIncidentWorkflowStep"
-                    },
-                    "description": "The steps in the workflow.\n"
-                },
-                "team": {
-                    "type": "string",
-                    "description": "A team ID. If specified then workflow edit permissions will be scoped to members of this team.\n"
-                }
-            },
-            "stateInputs": {
-                "description": "Input properties used for looking up and filtering PagerdutyIncidentWorkflow resources.\n",
-                "properties": {
-                    "description": {
-                        "type": "string",
-                        "description": "The description of the workflow.\n"
-                    },
-                    "name": {
-                        "type": "string",
-                        "description": "The name of the workflow.\n"
-                    },
-                    "steps": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/types/pagerduty:index/PagerdutyIncidentWorkflowStep:PagerdutyIncidentWorkflowStep"
-                        },
-                        "description": "The steps in the workflow.\n"
-                    },
-                    "team": {
-                        "type": "string",
-                        "description": "A team ID. If specified then workflow edit permissions will be scoped to members of this team.\n"
-                    }
-                },
-                "type": "object"
-            }
-        },
-        "pagerduty:index/pagerdutyIncidentWorkflowTrigger:PagerdutyIncidentWorkflowTrigger": {
-            "description": "An [Incident Workflow Trigger](https://support.pagerduty.com/docs/incident-workflows#triggers) defines when and if an [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) will be triggered.\n\n\u003e The Incident Workflows feature is currently available in Early Access.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst myFirstWorkflow = new pagerduty.PagerdutyIncidentWorkflow(\"myFirstWorkflow\", {\n    description: \"This Incident Workflow is an example\",\n    steps: [{\n        name: \"Send Status Update\",\n        action: \"pagerduty.com:incident-workflows:send-status-update:1\",\n        inputs: [{\n            name: \"Message\",\n            value: \"Example status message sent on {{current_date}}\",\n        }],\n    }],\n});\nconst firstService = pagerduty.getService({\n    name: \"My First Service\",\n});\nconst automaticTrigger = new pagerduty.PagerdutyIncidentWorkflowTrigger(\"automaticTrigger\", {\n    type: \"conditional\",\n    workflow: myFirstWorkflow.id,\n    services: [pagerduty_service.first_service.id],\n    condition: \"incident.priority matches 'P1'\",\n    subscribedToAllServices: false,\n});\nconst devops = pagerduty.getTeam({\n    name: \"devops\",\n});\nconst manualTrigger = new pagerduty.PagerdutyIncidentWorkflowTrigger(\"manualTrigger\", {\n    type: \"manual\",\n    workflow: myFirstWorkflow.id,\n    services: [pagerduty_service.first_service.id],\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nmy_first_workflow = pagerduty.PagerdutyIncidentWorkflow(\"myFirstWorkflow\",\n    description=\"This Incident Workflow is an example\",\n    steps=[pagerduty.PagerdutyIncidentWorkflowStepArgs(\n        name=\"Send Status Update\",\n        action=\"pagerduty.com:incident-workflows:send-status-update:1\",\n        inputs=[pagerduty.PagerdutyIncidentWorkflowStepInputArgs(\n            name=\"Message\",\n            value=\"Example status message sent on {{current_date}}\",\n        )],\n    )])\nfirst_service = pagerduty.get_service(name=\"My First Service\")\nautomatic_trigger = pagerduty.PagerdutyIncidentWorkflowTrigger(\"automaticTrigger\",\n    type=\"conditional\",\n    workflow=my_first_workflow.id,\n    services=[pagerduty_service[\"first_service\"][\"id\"]],\n    condition=\"incident.priority matches 'P1'\",\n    subscribed_to_all_services=False)\ndevops = pagerduty.get_team(name=\"devops\")\nmanual_trigger = pagerduty.PagerdutyIncidentWorkflowTrigger(\"manualTrigger\",\n    type=\"manual\",\n    workflow=my_first_workflow.id,\n    services=[pagerduty_service[\"first_service\"][\"id\"]])\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var myFirstWorkflow = new Pagerduty.PagerdutyIncidentWorkflow(\"myFirstWorkflow\", new()\n    {\n        Description = \"This Incident Workflow is an example\",\n        Steps = new[]\n        {\n            new Pagerduty.Inputs.PagerdutyIncidentWorkflowStepArgs\n            {\n                Name = \"Send Status Update\",\n                Action = \"pagerduty.com:incident-workflows:send-status-update:1\",\n                Inputs = new[]\n                {\n                    new Pagerduty.Inputs.PagerdutyIncidentWorkflowStepInputArgs\n                    {\n                        Name = \"Message\",\n                        Value = \"Example status message sent on {{current_date}}\",\n                    },\n                },\n            },\n        },\n    });\n\n    var firstService = Pagerduty.GetService.Invoke(new()\n    {\n        Name = \"My First Service\",\n    });\n\n    var automaticTrigger = new Pagerduty.PagerdutyIncidentWorkflowTrigger(\"automaticTrigger\", new()\n    {\n        Type = \"conditional\",\n        Workflow = myFirstWorkflow.Id,\n        Services = new[]\n        {\n            pagerduty_service.First_service.Id,\n        },\n        Condition = \"incident.priority matches 'P1'\",\n        SubscribedToAllServices = false,\n    });\n\n    var devops = Pagerduty.GetTeam.Invoke(new()\n    {\n        Name = \"devops\",\n    });\n\n    var manualTrigger = new Pagerduty.PagerdutyIncidentWorkflowTrigger(\"manualTrigger\", new()\n    {\n        Type = \"manual\",\n        Workflow = myFirstWorkflow.Id,\n        Services = new[]\n        {\n            pagerduty_service.First_service.Id,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmyFirstWorkflow, err := pagerduty.NewPagerdutyIncidentWorkflow(ctx, \"myFirstWorkflow\", \u0026pagerduty.PagerdutyIncidentWorkflowArgs{\n\t\t\tDescription: pulumi.String(\"This Incident Workflow is an example\"),\n\t\t\tSteps: pagerduty.PagerdutyIncidentWorkflowStepArray{\n\t\t\t\t\u0026pagerduty.PagerdutyIncidentWorkflowStepArgs{\n\t\t\t\t\tName:   pulumi.String(\"Send Status Update\"),\n\t\t\t\t\tAction: pulumi.String(\"pagerduty.com:incident-workflows:send-status-update:1\"),\n\t\t\t\t\tInputs: pagerduty.PagerdutyIncidentWorkflowStepInputTypeArray{\n\t\t\t\t\t\t\u0026pagerduty.PagerdutyIncidentWorkflowStepInputTypeArgs{\n\t\t\t\t\t\t\tName:  pulumi.String(\"Message\"),\n\t\t\t\t\t\t\tValue: pulumi.String(\"Example status message sent on {{current_date}}\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.LookupService(ctx, \u0026pagerduty.LookupServiceArgs{\n\t\t\tName: \"My First Service\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewPagerdutyIncidentWorkflowTrigger(ctx, \"automaticTrigger\", \u0026pagerduty.PagerdutyIncidentWorkflowTriggerArgs{\n\t\t\tType:     pulumi.String(\"conditional\"),\n\t\t\tWorkflow: myFirstWorkflow.ID(),\n\t\t\tServices: pulumi.StringArray{\n\t\t\t\tpagerduty_service.First_service.Id,\n\t\t\t},\n\t\t\tCondition:               pulumi.String(\"incident.priority matches 'P1'\"),\n\t\t\tSubscribedToAllServices: pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.LookupTeam(ctx, \u0026pagerduty.LookupTeamArgs{\n\t\t\tName: \"devops\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewPagerdutyIncidentWorkflowTrigger(ctx, \"manualTrigger\", \u0026pagerduty.PagerdutyIncidentWorkflowTriggerArgs{\n\t\t\tType:     pulumi.String(\"manual\"),\n\t\t\tWorkflow: myFirstWorkflow.ID(),\n\t\t\tServices: pulumi.StringArray{\n\t\t\t\tpagerduty_service.First_service.Id,\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.PagerdutyIncidentWorkflow;\nimport com.pulumi.pagerduty.PagerdutyIncidentWorkflowArgs;\nimport com.pulumi.pagerduty.inputs.PagerdutyIncidentWorkflowStepArgs;\nimport com.pulumi.pagerduty.PagerdutyFunctions;\nimport com.pulumi.pagerduty.inputs.GetServiceArgs;\nimport com.pulumi.pagerduty.PagerdutyIncidentWorkflowTrigger;\nimport com.pulumi.pagerduty.PagerdutyIncidentWorkflowTriggerArgs;\nimport com.pulumi.pagerduty.inputs.GetTeamArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var myFirstWorkflow = new PagerdutyIncidentWorkflow(\"myFirstWorkflow\", PagerdutyIncidentWorkflowArgs.builder()        \n            .description(\"This Incident Workflow is an example\")\n            .steps(PagerdutyIncidentWorkflowStepArgs.builder()\n                .name(\"Send Status Update\")\n                .action(\"pagerduty.com:incident-workflows:send-status-update:1\")\n                .inputs(PagerdutyIncidentWorkflowStepInputArgs.builder()\n                    .name(\"Message\")\n                    .value(\"Example status message sent on {{current_date}}\")\n                    .build())\n                .build())\n            .build());\n\n        final var firstService = PagerdutyFunctions.getService(GetServiceArgs.builder()\n            .name(\"My First Service\")\n            .build());\n\n        var automaticTrigger = new PagerdutyIncidentWorkflowTrigger(\"automaticTrigger\", PagerdutyIncidentWorkflowTriggerArgs.builder()        \n            .type(\"conditional\")\n            .workflow(myFirstWorkflow.id())\n            .services(pagerduty_service.first_service().id())\n            .condition(\"incident.priority matches 'P1'\")\n            .subscribedToAllServices(false)\n            .build());\n\n        final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()\n            .name(\"devops\")\n            .build());\n\n        var manualTrigger = new PagerdutyIncidentWorkflowTrigger(\"manualTrigger\", PagerdutyIncidentWorkflowTriggerArgs.builder()        \n            .type(\"manual\")\n            .workflow(myFirstWorkflow.id())\n            .services(pagerduty_service.first_service().id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  myFirstWorkflow:\n    type: pagerduty:PagerdutyIncidentWorkflow\n    properties:\n      description: This Incident Workflow is an example\n      steps:\n        - name: Send Status Update\n          action: pagerduty.com:incident-workflows:send-status-update:1\n          inputs:\n            - name: Message\n              value: Example status message sent on {{current_date}}\n  automaticTrigger:\n    type: pagerduty:PagerdutyIncidentWorkflowTrigger\n    properties:\n      type: conditional\n      workflow: ${myFirstWorkflow.id}\n      services:\n        - ${pagerduty_service.first_service.id}\n      condition: incident.priority matches 'P1'\n      subscribedToAllServices: false\n  manualTrigger:\n    type: pagerduty:PagerdutyIncidentWorkflowTrigger\n    properties:\n      type: manual\n      workflow: ${myFirstWorkflow.id}\n      services:\n        - ${pagerduty_service.first_service.id}\nvariables:\n  firstService:\n    fn::invoke:\n      Function: pagerduty:getService\n      Arguments:\n        name: My First Service\n  devops:\n    fn::invoke:\n      Function: pagerduty:getTeam\n      Arguments:\n        name: devops\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nIncident workflows can be imported using the `id`, e.g.\n\n```sh\n $ pulumi import pagerduty:index/pagerdutyIncidentWorkflowTrigger:PagerdutyIncidentWorkflowTrigger pagerduty_incident_workflow_trigger PLBP09X\n```\n\n ",
-            "properties": {
-                "condition": {
-                    "type": "string",
-                    "description": "A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.\n"
-                },
-                "services": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "A list of service IDs. Incidents in any of the listed services are eligible to fire this trigger.\n"
-                },
-                "subscribedToAllServices": {
-                    "type": "boolean",
-                    "description": "Set to `true` if the trigger should be eligible for firing on all services. Only allowed to be `true` if the services list is not defined or empty.\n"
-                },
-                "type": {
-                    "type": "string",
-                    "description": "May be either `manual` or `conditional`.\n"
-                },
-                "workflow": {
-                    "type": "string",
-                    "description": "The workflow ID for the workflow to trigger.\n"
-                }
-            },
-            "required": [
-                "subscribedToAllServices",
-                "type",
-                "workflow"
-            ],
-            "inputProperties": {
-                "condition": {
-                    "type": "string",
-                    "description": "A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.\n"
-                },
-                "services": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "A list of service IDs. Incidents in any of the listed services are eligible to fire this trigger.\n"
-                },
-                "subscribedToAllServices": {
-                    "type": "boolean",
-                    "description": "Set to `true` if the trigger should be eligible for firing on all services. Only allowed to be `true` if the services list is not defined or empty.\n"
-                },
-                "type": {
-                    "type": "string",
-                    "description": "May be either `manual` or `conditional`.\n"
-                },
-                "workflow": {
-                    "type": "string",
-                    "description": "The workflow ID for the workflow to trigger.\n"
-                }
-            },
-            "requiredInputs": [
-                "subscribedToAllServices",
-                "type",
-                "workflow"
-            ],
-            "stateInputs": {
-                "description": "Input properties used for looking up and filtering PagerdutyIncidentWorkflowTrigger resources.\n",
-                "properties": {
-                    "condition": {
-                        "type": "string",
-                        "description": "A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.\n"
-                    },
-                    "services": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "description": "A list of service IDs. Incidents in any of the listed services are eligible to fire this trigger.\n"
-                    },
-                    "subscribedToAllServices": {
-                        "type": "boolean",
-                        "description": "Set to `true` if the trigger should be eligible for firing on all services. Only allowed to be `true` if the services list is not defined or empty.\n"
-                    },
-                    "type": {
-                        "type": "string",
-                        "description": "May be either `manual` or `conditional`.\n"
-                    },
-                    "workflow": {
-                        "type": "string",
-                        "description": "The workflow ID for the workflow to trigger.\n"
                     }
                 },
                 "type": "object"
@@ -8111,7 +8111,7 @@
             }
         },
         "pagerduty:index/getIncidentWorkflow:getIncidentWorkflow": {
-            "description": "Use this data source to get information about a specific [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) so that you can create a trigger for it.\n\n\u003e The Incident Workflows feature is currently available in Early Access.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst myWorkflow = pagerduty.getIncidentWorkflow({\n    name: \"Some Workflow Name\",\n});\nconst firstService = pagerduty.getService({\n    name: \"My First Service\",\n});\nconst automaticTrigger = new pagerduty.PagerdutyIncidentWorkflowTrigger(\"automaticTrigger\", {\n    type: \"conditional\",\n    workflow: myWorkflow.then(myWorkflow =\u003e myWorkflow.id),\n    services: [firstService.then(firstService =\u003e firstService.id)],\n    condition: \"incident.priority matches 'P1'\",\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nmy_workflow = pagerduty.get_incident_workflow(name=\"Some Workflow Name\")\nfirst_service = pagerduty.get_service(name=\"My First Service\")\nautomatic_trigger = pagerduty.PagerdutyIncidentWorkflowTrigger(\"automaticTrigger\",\n    type=\"conditional\",\n    workflow=my_workflow.id,\n    services=[first_service.id],\n    condition=\"incident.priority matches 'P1'\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var myWorkflow = Pagerduty.GetIncidentWorkflow.Invoke(new()\n    {\n        Name = \"Some Workflow Name\",\n    });\n\n    var firstService = Pagerduty.GetService.Invoke(new()\n    {\n        Name = \"My First Service\",\n    });\n\n    var automaticTrigger = new Pagerduty.PagerdutyIncidentWorkflowTrigger(\"automaticTrigger\", new()\n    {\n        Type = \"conditional\",\n        Workflow = myWorkflow.Apply(getIncidentWorkflowResult =\u003e getIncidentWorkflowResult.Id),\n        Services = new[]\n        {\n            firstService.Apply(getServiceResult =\u003e getServiceResult.Id),\n        },\n        Condition = \"incident.priority matches 'P1'\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmyWorkflow, err := pagerduty.GetIncidentWorkflow(ctx, \u0026pagerduty.GetIncidentWorkflowArgs{\n\t\t\tName: \"Some Workflow Name\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tfirstService, err := pagerduty.LookupService(ctx, \u0026pagerduty.LookupServiceArgs{\n\t\t\tName: \"My First Service\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewPagerdutyIncidentWorkflowTrigger(ctx, \"automaticTrigger\", \u0026pagerduty.PagerdutyIncidentWorkflowTriggerArgs{\n\t\t\tType:     pulumi.String(\"conditional\"),\n\t\t\tWorkflow: *pulumi.String(myWorkflow.Id),\n\t\t\tServices: pulumi.StringArray{\n\t\t\t\t*pulumi.String(firstService.Id),\n\t\t\t},\n\t\t\tCondition: pulumi.String(\"incident.priority matches 'P1'\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.PagerdutyFunctions;\nimport com.pulumi.pagerduty.inputs.GetIncidentWorkflowArgs;\nimport com.pulumi.pagerduty.inputs.GetServiceArgs;\nimport com.pulumi.pagerduty.PagerdutyIncidentWorkflowTrigger;\nimport com.pulumi.pagerduty.PagerdutyIncidentWorkflowTriggerArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var myWorkflow = PagerdutyFunctions.getIncidentWorkflow(GetIncidentWorkflowArgs.builder()\n            .name(\"Some Workflow Name\")\n            .build());\n\n        final var firstService = PagerdutyFunctions.getService(GetServiceArgs.builder()\n            .name(\"My First Service\")\n            .build());\n\n        var automaticTrigger = new PagerdutyIncidentWorkflowTrigger(\"automaticTrigger\", PagerdutyIncidentWorkflowTriggerArgs.builder()        \n            .type(\"conditional\")\n            .workflow(myWorkflow.applyValue(getIncidentWorkflowResult -\u003e getIncidentWorkflowResult.id()))\n            .services(firstService.applyValue(getServiceResult -\u003e getServiceResult.id()))\n            .condition(\"incident.priority matches 'P1'\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  automaticTrigger:\n    type: pagerduty:PagerdutyIncidentWorkflowTrigger\n    properties:\n      type: conditional\n      workflow: ${myWorkflow.id}\n      services:\n        - ${firstService.id}\n      condition: incident.priority matches 'P1'\nvariables:\n  myWorkflow:\n    fn::invoke:\n      Function: pagerduty:getIncidentWorkflow\n      Arguments:\n        name: Some Workflow Name\n  firstService:\n    fn::invoke:\n      Function: pagerduty:getService\n      Arguments:\n        name: My First Service\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "Use this data source to get information about a specific [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) so that you can create a trigger for it.\n\n\u003e The Incident Workflows feature is currently available in Early Access.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst myWorkflow = pagerduty.getIncidentWorkflow({\n    name: \"Some Workflow Name\",\n});\nconst firstService = pagerduty.getService({\n    name: \"My First Service\",\n});\nconst automaticTrigger = new pagerduty.IncidentWorkflowTrigger(\"automaticTrigger\", {\n    type: \"conditional\",\n    workflow: myWorkflow.then(myWorkflow =\u003e myWorkflow.id),\n    services: [firstService.then(firstService =\u003e firstService.id)],\n    condition: \"incident.priority matches 'P1'\",\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nmy_workflow = pagerduty.get_incident_workflow(name=\"Some Workflow Name\")\nfirst_service = pagerduty.get_service(name=\"My First Service\")\nautomatic_trigger = pagerduty.IncidentWorkflowTrigger(\"automaticTrigger\",\n    type=\"conditional\",\n    workflow=my_workflow.id,\n    services=[first_service.id],\n    condition=\"incident.priority matches 'P1'\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var myWorkflow = Pagerduty.GetIncidentWorkflow.Invoke(new()\n    {\n        Name = \"Some Workflow Name\",\n    });\n\n    var firstService = Pagerduty.GetService.Invoke(new()\n    {\n        Name = \"My First Service\",\n    });\n\n    var automaticTrigger = new Pagerduty.IncidentWorkflowTrigger(\"automaticTrigger\", new()\n    {\n        Type = \"conditional\",\n        Workflow = myWorkflow.Apply(getIncidentWorkflowResult =\u003e getIncidentWorkflowResult.Id),\n        Services = new[]\n        {\n            firstService.Apply(getServiceResult =\u003e getServiceResult.Id),\n        },\n        Condition = \"incident.priority matches 'P1'\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmyWorkflow, err := pagerduty.LookupIncidentWorkflow(ctx, \u0026pagerduty.LookupIncidentWorkflowArgs{\n\t\t\tName: \"Some Workflow Name\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tfirstService, err := pagerduty.LookupService(ctx, \u0026pagerduty.LookupServiceArgs{\n\t\t\tName: \"My First Service\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewIncidentWorkflowTrigger(ctx, \"automaticTrigger\", \u0026pagerduty.IncidentWorkflowTriggerArgs{\n\t\t\tType:     pulumi.String(\"conditional\"),\n\t\t\tWorkflow: *pulumi.String(myWorkflow.Id),\n\t\t\tServices: pulumi.StringArray{\n\t\t\t\t*pulumi.String(firstService.Id),\n\t\t\t},\n\t\t\tCondition: pulumi.String(\"incident.priority matches 'P1'\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.PagerdutyFunctions;\nimport com.pulumi.pagerduty.inputs.GetIncidentWorkflowArgs;\nimport com.pulumi.pagerduty.inputs.GetServiceArgs;\nimport com.pulumi.pagerduty.IncidentWorkflowTrigger;\nimport com.pulumi.pagerduty.IncidentWorkflowTriggerArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var myWorkflow = PagerdutyFunctions.getIncidentWorkflow(GetIncidentWorkflowArgs.builder()\n            .name(\"Some Workflow Name\")\n            .build());\n\n        final var firstService = PagerdutyFunctions.getService(GetServiceArgs.builder()\n            .name(\"My First Service\")\n            .build());\n\n        var automaticTrigger = new IncidentWorkflowTrigger(\"automaticTrigger\", IncidentWorkflowTriggerArgs.builder()        \n            .type(\"conditional\")\n            .workflow(myWorkflow.applyValue(getIncidentWorkflowResult -\u003e getIncidentWorkflowResult.id()))\n            .services(firstService.applyValue(getServiceResult -\u003e getServiceResult.id()))\n            .condition(\"incident.priority matches 'P1'\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  automaticTrigger:\n    type: pagerduty:IncidentWorkflowTrigger\n    properties:\n      type: conditional\n      workflow: ${myWorkflow.id}\n      services:\n        - ${firstService.id}\n      condition: incident.priority matches 'P1'\nvariables:\n  myWorkflow:\n    fn::invoke:\n      Function: pagerduty:getIncidentWorkflow\n      Arguments:\n        name: Some Workflow Name\n  firstService:\n    fn::invoke:\n      Function: pagerduty:getService\n      Arguments:\n        name: My First Service\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
                 "description": "A collection of arguments for invoking getIncidentWorkflow.\n",
                 "properties": {

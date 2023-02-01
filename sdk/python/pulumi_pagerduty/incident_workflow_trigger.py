@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
-__all__ = ['PagerdutyIncidentWorkflowTriggerArgs', 'PagerdutyIncidentWorkflowTrigger']
+__all__ = ['IncidentWorkflowTriggerArgs', 'IncidentWorkflowTrigger']
 
 @pulumi.input_type
-class PagerdutyIncidentWorkflowTriggerArgs:
+class IncidentWorkflowTriggerArgs:
     def __init__(__self__, *,
                  subscribed_to_all_services: pulumi.Input[bool],
                  type: pulumi.Input[str],
@@ -20,7 +20,7 @@ class PagerdutyIncidentWorkflowTriggerArgs:
                  condition: Optional[pulumi.Input[str]] = None,
                  services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        The set of arguments for constructing a PagerdutyIncidentWorkflowTrigger resource.
+        The set of arguments for constructing a IncidentWorkflowTrigger resource.
         :param pulumi.Input[bool] subscribed_to_all_services: Set to `true` if the trigger should be eligible for firing on all services. Only allowed to be `true` if the services list is not defined or empty.
         :param pulumi.Input[str] type: May be either `manual` or `conditional`.
         :param pulumi.Input[str] workflow: The workflow ID for the workflow to trigger.
@@ -97,7 +97,7 @@ class PagerdutyIncidentWorkflowTriggerArgs:
 
 
 @pulumi.input_type
-class _PagerdutyIncidentWorkflowTriggerState:
+class _IncidentWorkflowTriggerState:
     def __init__(__self__, *,
                  condition: Optional[pulumi.Input[str]] = None,
                  services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -105,7 +105,7 @@ class _PagerdutyIncidentWorkflowTriggerState:
                  type: Optional[pulumi.Input[str]] = None,
                  workflow: Optional[pulumi.Input[str]] = None):
         """
-        Input properties used for looking up and filtering PagerdutyIncidentWorkflowTrigger resources.
+        Input properties used for looking up and filtering IncidentWorkflowTrigger resources.
         :param pulumi.Input[str] condition: A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] services: A list of service IDs. Incidents in any of the listed services are eligible to fire this trigger.
         :param pulumi.Input[bool] subscribed_to_all_services: Set to `true` if the trigger should be eligible for firing on all services. Only allowed to be `true` if the services list is not defined or empty.
@@ -184,7 +184,7 @@ class _PagerdutyIncidentWorkflowTriggerState:
         pulumi.set(self, "workflow", value)
 
 
-class PagerdutyIncidentWorkflowTrigger(pulumi.CustomResource):
+class IncidentWorkflowTrigger(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -206,25 +206,25 @@ class PagerdutyIncidentWorkflowTrigger(pulumi.CustomResource):
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        my_first_workflow = pagerduty.PagerdutyIncidentWorkflow("myFirstWorkflow",
+        my_first_workflow = pagerduty.IncidentWorkflow("myFirstWorkflow",
             description="This Incident Workflow is an example",
-            steps=[pagerduty.PagerdutyIncidentWorkflowStepArgs(
+            steps=[pagerduty.IncidentWorkflowStepArgs(
                 name="Send Status Update",
                 action="pagerduty.com:incident-workflows:send-status-update:1",
-                inputs=[pagerduty.PagerdutyIncidentWorkflowStepInputArgs(
+                inputs=[pagerduty.IncidentWorkflowStepInputArgs(
                     name="Message",
                     value="Example status message sent on {{current_date}}",
                 )],
             )])
         first_service = pagerduty.get_service(name="My First Service")
-        automatic_trigger = pagerduty.PagerdutyIncidentWorkflowTrigger("automaticTrigger",
+        automatic_trigger = pagerduty.IncidentWorkflowTrigger("automaticTrigger",
             type="conditional",
             workflow=my_first_workflow.id,
             services=[pagerduty_service["first_service"]["id"]],
             condition="incident.priority matches 'P1'",
             subscribed_to_all_services=False)
         devops = pagerduty.get_team(name="devops")
-        manual_trigger = pagerduty.PagerdutyIncidentWorkflowTrigger("manualTrigger",
+        manual_trigger = pagerduty.IncidentWorkflowTrigger("manualTrigger",
             type="manual",
             workflow=my_first_workflow.id,
             services=[pagerduty_service["first_service"]["id"]])
@@ -235,7 +235,7 @@ class PagerdutyIncidentWorkflowTrigger(pulumi.CustomResource):
         Incident workflows can be imported using the `id`, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/pagerdutyIncidentWorkflowTrigger:PagerdutyIncidentWorkflowTrigger pagerduty_incident_workflow_trigger PLBP09X
+         $ pulumi import pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger pagerduty_incident_workflow_trigger PLBP09X
         ```
 
         :param str resource_name: The name of the resource.
@@ -250,7 +250,7 @@ class PagerdutyIncidentWorkflowTrigger(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PagerdutyIncidentWorkflowTriggerArgs,
+                 args: IncidentWorkflowTriggerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An [Incident Workflow Trigger](https://support.pagerduty.com/docs/incident-workflows#triggers) defines when and if an [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) will be triggered.
@@ -263,25 +263,25 @@ class PagerdutyIncidentWorkflowTrigger(pulumi.CustomResource):
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        my_first_workflow = pagerduty.PagerdutyIncidentWorkflow("myFirstWorkflow",
+        my_first_workflow = pagerduty.IncidentWorkflow("myFirstWorkflow",
             description="This Incident Workflow is an example",
-            steps=[pagerduty.PagerdutyIncidentWorkflowStepArgs(
+            steps=[pagerduty.IncidentWorkflowStepArgs(
                 name="Send Status Update",
                 action="pagerduty.com:incident-workflows:send-status-update:1",
-                inputs=[pagerduty.PagerdutyIncidentWorkflowStepInputArgs(
+                inputs=[pagerduty.IncidentWorkflowStepInputArgs(
                     name="Message",
                     value="Example status message sent on {{current_date}}",
                 )],
             )])
         first_service = pagerduty.get_service(name="My First Service")
-        automatic_trigger = pagerduty.PagerdutyIncidentWorkflowTrigger("automaticTrigger",
+        automatic_trigger = pagerduty.IncidentWorkflowTrigger("automaticTrigger",
             type="conditional",
             workflow=my_first_workflow.id,
             services=[pagerduty_service["first_service"]["id"]],
             condition="incident.priority matches 'P1'",
             subscribed_to_all_services=False)
         devops = pagerduty.get_team(name="devops")
-        manual_trigger = pagerduty.PagerdutyIncidentWorkflowTrigger("manualTrigger",
+        manual_trigger = pagerduty.IncidentWorkflowTrigger("manualTrigger",
             type="manual",
             workflow=my_first_workflow.id,
             services=[pagerduty_service["first_service"]["id"]])
@@ -292,16 +292,16 @@ class PagerdutyIncidentWorkflowTrigger(pulumi.CustomResource):
         Incident workflows can be imported using the `id`, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/pagerdutyIncidentWorkflowTrigger:PagerdutyIncidentWorkflowTrigger pagerduty_incident_workflow_trigger PLBP09X
+         $ pulumi import pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger pagerduty_incident_workflow_trigger PLBP09X
         ```
 
         :param str resource_name: The name of the resource.
-        :param PagerdutyIncidentWorkflowTriggerArgs args: The arguments to use to populate this resource's properties.
+        :param IncidentWorkflowTriggerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PagerdutyIncidentWorkflowTriggerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(IncidentWorkflowTriggerArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -322,7 +322,7 @@ class PagerdutyIncidentWorkflowTrigger(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PagerdutyIncidentWorkflowTriggerArgs.__new__(PagerdutyIncidentWorkflowTriggerArgs)
+            __props__ = IncidentWorkflowTriggerArgs.__new__(IncidentWorkflowTriggerArgs)
 
             __props__.__dict__["condition"] = condition
             __props__.__dict__["services"] = services
@@ -335,8 +335,8 @@ class PagerdutyIncidentWorkflowTrigger(pulumi.CustomResource):
             if workflow is None and not opts.urn:
                 raise TypeError("Missing required property 'workflow'")
             __props__.__dict__["workflow"] = workflow
-        super(PagerdutyIncidentWorkflowTrigger, __self__).__init__(
-            'pagerduty:index/pagerdutyIncidentWorkflowTrigger:PagerdutyIncidentWorkflowTrigger',
+        super(IncidentWorkflowTrigger, __self__).__init__(
+            'pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger',
             resource_name,
             __props__,
             opts)
@@ -349,9 +349,9 @@ class PagerdutyIncidentWorkflowTrigger(pulumi.CustomResource):
             services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             subscribed_to_all_services: Optional[pulumi.Input[bool]] = None,
             type: Optional[pulumi.Input[str]] = None,
-            workflow: Optional[pulumi.Input[str]] = None) -> 'PagerdutyIncidentWorkflowTrigger':
+            workflow: Optional[pulumi.Input[str]] = None) -> 'IncidentWorkflowTrigger':
         """
-        Get an existing PagerdutyIncidentWorkflowTrigger resource's state with the given name, id, and optional extra
+        Get an existing IncidentWorkflowTrigger resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -365,14 +365,14 @@ class PagerdutyIncidentWorkflowTrigger(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = _PagerdutyIncidentWorkflowTriggerState.__new__(_PagerdutyIncidentWorkflowTriggerState)
+        __props__ = _IncidentWorkflowTriggerState.__new__(_IncidentWorkflowTriggerState)
 
         __props__.__dict__["condition"] = condition
         __props__.__dict__["services"] = services
         __props__.__dict__["subscribed_to_all_services"] = subscribed_to_all_services
         __props__.__dict__["type"] = type
         __props__.__dict__["workflow"] = workflow
-        return PagerdutyIncidentWorkflowTrigger(resource_name, opts=opts, __props__=__props__)
+        return IncidentWorkflowTrigger(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter

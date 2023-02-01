@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			myWorkflow, err := pagerduty.GetIncidentWorkflow(ctx, &pagerduty.GetIncidentWorkflowArgs{
+//			myWorkflow, err := pagerduty.LookupIncidentWorkflow(ctx, &pagerduty.LookupIncidentWorkflowArgs{
 //				Name: "Some Workflow Name",
 //			}, nil)
 //			if err != nil {
@@ -40,7 +40,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewPagerdutyIncidentWorkflowTrigger(ctx, "automaticTrigger", &pagerduty.PagerdutyIncidentWorkflowTriggerArgs{
+//			_, err = pagerduty.NewIncidentWorkflowTrigger(ctx, "automaticTrigger", &pagerduty.IncidentWorkflowTriggerArgs{
 //				Type:     pulumi.String("conditional"),
 //				Workflow: *pulumi.String(myWorkflow.Id),
 //				Services: pulumi.StringArray{
@@ -56,8 +56,8 @@ import (
 //	}
 //
 // ```
-func GetIncidentWorkflow(ctx *pulumi.Context, args *GetIncidentWorkflowArgs, opts ...pulumi.InvokeOption) (*GetIncidentWorkflowResult, error) {
-	var rv GetIncidentWorkflowResult
+func LookupIncidentWorkflow(ctx *pulumi.Context, args *LookupIncidentWorkflowArgs, opts ...pulumi.InvokeOption) (*LookupIncidentWorkflowResult, error) {
+	var rv LookupIncidentWorkflowResult
 	err := ctx.Invoke("pagerduty:index/getIncidentWorkflow:getIncidentWorkflow", args, &rv, opts...)
 	if err != nil {
 		return nil, err
@@ -66,70 +66,70 @@ func GetIncidentWorkflow(ctx *pulumi.Context, args *GetIncidentWorkflowArgs, opt
 }
 
 // A collection of arguments for invoking getIncidentWorkflow.
-type GetIncidentWorkflowArgs struct {
+type LookupIncidentWorkflowArgs struct {
 	// The name of the workflow.
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getIncidentWorkflow.
-type GetIncidentWorkflowResult struct {
+type LookupIncidentWorkflowResult struct {
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 }
 
-func GetIncidentWorkflowOutput(ctx *pulumi.Context, args GetIncidentWorkflowOutputArgs, opts ...pulumi.InvokeOption) GetIncidentWorkflowResultOutput {
+func LookupIncidentWorkflowOutput(ctx *pulumi.Context, args LookupIncidentWorkflowOutputArgs, opts ...pulumi.InvokeOption) LookupIncidentWorkflowResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetIncidentWorkflowResult, error) {
-			args := v.(GetIncidentWorkflowArgs)
-			r, err := GetIncidentWorkflow(ctx, &args, opts...)
-			var s GetIncidentWorkflowResult
+		ApplyT(func(v interface{}) (LookupIncidentWorkflowResult, error) {
+			args := v.(LookupIncidentWorkflowArgs)
+			r, err := LookupIncidentWorkflow(ctx, &args, opts...)
+			var s LookupIncidentWorkflowResult
 			if r != nil {
 				s = *r
 			}
 			return s, err
-		}).(GetIncidentWorkflowResultOutput)
+		}).(LookupIncidentWorkflowResultOutput)
 }
 
 // A collection of arguments for invoking getIncidentWorkflow.
-type GetIncidentWorkflowOutputArgs struct {
+type LookupIncidentWorkflowOutputArgs struct {
 	// The name of the workflow.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
-func (GetIncidentWorkflowOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentWorkflowArgs)(nil)).Elem()
+func (LookupIncidentWorkflowOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIncidentWorkflowArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getIncidentWorkflow.
-type GetIncidentWorkflowResultOutput struct{ *pulumi.OutputState }
+type LookupIncidentWorkflowResultOutput struct{ *pulumi.OutputState }
 
-func (GetIncidentWorkflowResultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentWorkflowResult)(nil)).Elem()
+func (LookupIncidentWorkflowResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIncidentWorkflowResult)(nil)).Elem()
 }
 
-func (o GetIncidentWorkflowResultOutput) ToGetIncidentWorkflowResultOutput() GetIncidentWorkflowResultOutput {
+func (o LookupIncidentWorkflowResultOutput) ToLookupIncidentWorkflowResultOutput() LookupIncidentWorkflowResultOutput {
 	return o
 }
 
-func (o GetIncidentWorkflowResultOutput) ToGetIncidentWorkflowResultOutputWithContext(ctx context.Context) GetIncidentWorkflowResultOutput {
+func (o LookupIncidentWorkflowResultOutput) ToLookupIncidentWorkflowResultOutputWithContext(ctx context.Context) LookupIncidentWorkflowResultOutput {
 	return o
 }
 
-func (o GetIncidentWorkflowResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentWorkflowResult) string { return v.Description }).(pulumi.StringOutput)
+func (o LookupIncidentWorkflowResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIncidentWorkflowResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetIncidentWorkflowResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentWorkflowResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupIncidentWorkflowResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIncidentWorkflowResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-func (o GetIncidentWorkflowResultOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentWorkflowResult) string { return v.Name }).(pulumi.StringOutput)
+func (o LookupIncidentWorkflowResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIncidentWorkflowResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(GetIncidentWorkflowResultOutput{})
+	pulumi.RegisterOutputType(LookupIncidentWorkflowResultOutput{})
 }

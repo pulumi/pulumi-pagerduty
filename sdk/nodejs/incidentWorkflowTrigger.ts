@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const myFirstWorkflow = new pagerduty.PagerdutyIncidentWorkflow("myFirstWorkflow", {
+ * const myFirstWorkflow = new pagerduty.IncidentWorkflow("myFirstWorkflow", {
  *     description: "This Incident Workflow is an example",
  *     steps: [{
  *         name: "Send Status Update",
@@ -29,7 +29,7 @@ import * as utilities from "./utilities";
  * const firstService = pagerduty.getService({
  *     name: "My First Service",
  * });
- * const automaticTrigger = new pagerduty.PagerdutyIncidentWorkflowTrigger("automaticTrigger", {
+ * const automaticTrigger = new pagerduty.IncidentWorkflowTrigger("automaticTrigger", {
  *     type: "conditional",
  *     workflow: myFirstWorkflow.id,
  *     services: [pagerduty_service.first_service.id],
@@ -39,7 +39,7 @@ import * as utilities from "./utilities";
  * const devops = pagerduty.getTeam({
  *     name: "devops",
  * });
- * const manualTrigger = new pagerduty.PagerdutyIncidentWorkflowTrigger("manualTrigger", {
+ * const manualTrigger = new pagerduty.IncidentWorkflowTrigger("manualTrigger", {
  *     type: "manual",
  *     workflow: myFirstWorkflow.id,
  *     services: [pagerduty_service.first_service.id],
@@ -51,12 +51,12 @@ import * as utilities from "./utilities";
  * Incident workflows can be imported using the `id`, e.g.
  *
  * ```sh
- *  $ pulumi import pagerduty:index/pagerdutyIncidentWorkflowTrigger:PagerdutyIncidentWorkflowTrigger pagerduty_incident_workflow_trigger PLBP09X
+ *  $ pulumi import pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger pagerduty_incident_workflow_trigger PLBP09X
  * ```
  */
-export class PagerdutyIncidentWorkflowTrigger extends pulumi.CustomResource {
+export class IncidentWorkflowTrigger extends pulumi.CustomResource {
     /**
-     * Get an existing PagerdutyIncidentWorkflowTrigger resource's state with the given name, ID, and optional extra
+     * Get an existing IncidentWorkflowTrigger resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
@@ -64,22 +64,22 @@ export class PagerdutyIncidentWorkflowTrigger extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: PagerdutyIncidentWorkflowTriggerState, opts?: pulumi.CustomResourceOptions): PagerdutyIncidentWorkflowTrigger {
-        return new PagerdutyIncidentWorkflowTrigger(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: IncidentWorkflowTriggerState, opts?: pulumi.CustomResourceOptions): IncidentWorkflowTrigger {
+        return new IncidentWorkflowTrigger(name, <any>state, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'pagerduty:index/pagerdutyIncidentWorkflowTrigger:PagerdutyIncidentWorkflowTrigger';
+    public static readonly __pulumiType = 'pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger';
 
     /**
-     * Returns true if the given object is an instance of PagerdutyIncidentWorkflowTrigger.  This is designed to work even
+     * Returns true if the given object is an instance of IncidentWorkflowTrigger.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is PagerdutyIncidentWorkflowTrigger {
+    public static isInstance(obj: any): obj is IncidentWorkflowTrigger {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === PagerdutyIncidentWorkflowTrigger.__pulumiType;
+        return obj['__pulumiType'] === IncidentWorkflowTrigger.__pulumiType;
     }
 
     /**
@@ -104,25 +104,25 @@ export class PagerdutyIncidentWorkflowTrigger extends pulumi.CustomResource {
     public readonly workflow!: pulumi.Output<string>;
 
     /**
-     * Create a PagerdutyIncidentWorkflowTrigger resource with the given unique name, arguments, and options.
+     * Create a IncidentWorkflowTrigger resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PagerdutyIncidentWorkflowTriggerArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PagerdutyIncidentWorkflowTriggerArgs | PagerdutyIncidentWorkflowTriggerState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: IncidentWorkflowTriggerArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: IncidentWorkflowTriggerArgs | IncidentWorkflowTriggerState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
-            const state = argsOrState as PagerdutyIncidentWorkflowTriggerState | undefined;
+            const state = argsOrState as IncidentWorkflowTriggerState | undefined;
             resourceInputs["condition"] = state ? state.condition : undefined;
             resourceInputs["services"] = state ? state.services : undefined;
             resourceInputs["subscribedToAllServices"] = state ? state.subscribedToAllServices : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
             resourceInputs["workflow"] = state ? state.workflow : undefined;
         } else {
-            const args = argsOrState as PagerdutyIncidentWorkflowTriggerArgs | undefined;
+            const args = argsOrState as IncidentWorkflowTriggerArgs | undefined;
             if ((!args || args.subscribedToAllServices === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subscribedToAllServices'");
             }
@@ -139,14 +139,14 @@ export class PagerdutyIncidentWorkflowTrigger extends pulumi.CustomResource {
             resourceInputs["workflow"] = args ? args.workflow : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(PagerdutyIncidentWorkflowTrigger.__pulumiType, name, resourceInputs, opts);
+        super(IncidentWorkflowTrigger.__pulumiType, name, resourceInputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering PagerdutyIncidentWorkflowTrigger resources.
+ * Input properties used for looking up and filtering IncidentWorkflowTrigger resources.
  */
-export interface PagerdutyIncidentWorkflowTriggerState {
+export interface IncidentWorkflowTriggerState {
     /**
      * A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.
      */
@@ -170,9 +170,9 @@ export interface PagerdutyIncidentWorkflowTriggerState {
 }
 
 /**
- * The set of arguments for constructing a PagerdutyIncidentWorkflowTrigger resource.
+ * The set of arguments for constructing a IncidentWorkflowTrigger resource.
  */
-export interface PagerdutyIncidentWorkflowTriggerArgs {
+export interface IncidentWorkflowTriggerArgs {
     /**
      * A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.
      */

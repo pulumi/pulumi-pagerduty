@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class PagerdutyIncidentWorkflowStepGetArgs : global::Pulumi.ResourceArgs
+    public sealed class IncidentWorkflowStepGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The action id for the workflow step, including the version. A list of actions available can be retrieved using the [PagerDuty API](https://developer.pagerduty.com/api-reference/aa192a25fac39-list-actions).
@@ -25,14 +25,14 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<string>? Id { get; set; }
 
         [Input("inputs")]
-        private InputList<Inputs.PagerdutyIncidentWorkflowStepInputGetArgs>? _inputs;
+        private InputList<Inputs.IncidentWorkflowStepInputGetArgs>? _inputs;
 
         /// <summary>
         /// The list of inputs for the workflow action.
         /// </summary>
-        public InputList<Inputs.PagerdutyIncidentWorkflowStepInputGetArgs> Inputs
+        public InputList<Inputs.IncidentWorkflowStepInputGetArgs> Inputs
         {
-            get => _inputs ?? (_inputs = new InputList<Inputs.PagerdutyIncidentWorkflowStepInputGetArgs>());
+            get => _inputs ?? (_inputs = new InputList<Inputs.IncidentWorkflowStepInputGetArgs>());
             set => _inputs = value;
         }
 
@@ -42,9 +42,9 @@ namespace Pulumi.Pagerduty.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        public PagerdutyIncidentWorkflowStepGetArgs()
+        public IncidentWorkflowStepGetArgs()
         {
         }
-        public static new PagerdutyIncidentWorkflowStepGetArgs Empty => new PagerdutyIncidentWorkflowStepGetArgs();
+        public static new IncidentWorkflowStepGetArgs Empty => new IncidentWorkflowStepGetArgs();
     }
 }

@@ -5216,131 +5216,131 @@ func (o EventOrchestrationUnroutedSetRuleConditionArrayOutput) Index(i pulumi.In
 	}).(EventOrchestrationUnroutedSetRuleConditionOutput)
 }
 
-type PagerdutyIncidentWorkflowStep struct {
+type IncidentWorkflowStep struct {
 	// The action id for the workflow step, including the version. A list of actions available can be retrieved using the [PagerDuty API](https://developer.pagerduty.com/api-reference/aa192a25fac39-list-actions).
 	Action string `pulumi:"action"`
 	// The ID of the incident workflow.
 	Id *string `pulumi:"id"`
 	// The list of inputs for the workflow action.
-	Inputs []PagerdutyIncidentWorkflowStepInputType `pulumi:"inputs"`
+	Inputs []IncidentWorkflowStepInputType `pulumi:"inputs"`
 	// The name of the workflow step.
 	Name string `pulumi:"name"`
 }
 
-// PagerdutyIncidentWorkflowStepInput is an input type that accepts PagerdutyIncidentWorkflowStepArgs and PagerdutyIncidentWorkflowStepOutput values.
-// You can construct a concrete instance of `PagerdutyIncidentWorkflowStepInput` via:
+// IncidentWorkflowStepInput is an input type that accepts IncidentWorkflowStepArgs and IncidentWorkflowStepOutput values.
+// You can construct a concrete instance of `IncidentWorkflowStepInput` via:
 //
-//	PagerdutyIncidentWorkflowStepArgs{...}
-type PagerdutyIncidentWorkflowStepInput interface {
+//	IncidentWorkflowStepArgs{...}
+type IncidentWorkflowStepInput interface {
 	pulumi.Input
 
-	ToPagerdutyIncidentWorkflowStepOutput() PagerdutyIncidentWorkflowStepOutput
-	ToPagerdutyIncidentWorkflowStepOutputWithContext(context.Context) PagerdutyIncidentWorkflowStepOutput
+	ToIncidentWorkflowStepOutput() IncidentWorkflowStepOutput
+	ToIncidentWorkflowStepOutputWithContext(context.Context) IncidentWorkflowStepOutput
 }
 
-type PagerdutyIncidentWorkflowStepArgs struct {
+type IncidentWorkflowStepArgs struct {
 	// The action id for the workflow step, including the version. A list of actions available can be retrieved using the [PagerDuty API](https://developer.pagerduty.com/api-reference/aa192a25fac39-list-actions).
 	Action pulumi.StringInput `pulumi:"action"`
 	// The ID of the incident workflow.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The list of inputs for the workflow action.
-	Inputs PagerdutyIncidentWorkflowStepInputTypeArrayInput `pulumi:"inputs"`
+	Inputs IncidentWorkflowStepInputTypeArrayInput `pulumi:"inputs"`
 	// The name of the workflow step.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
-func (PagerdutyIncidentWorkflowStepArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PagerdutyIncidentWorkflowStep)(nil)).Elem()
+func (IncidentWorkflowStepArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentWorkflowStep)(nil)).Elem()
 }
 
-func (i PagerdutyIncidentWorkflowStepArgs) ToPagerdutyIncidentWorkflowStepOutput() PagerdutyIncidentWorkflowStepOutput {
-	return i.ToPagerdutyIncidentWorkflowStepOutputWithContext(context.Background())
+func (i IncidentWorkflowStepArgs) ToIncidentWorkflowStepOutput() IncidentWorkflowStepOutput {
+	return i.ToIncidentWorkflowStepOutputWithContext(context.Background())
 }
 
-func (i PagerdutyIncidentWorkflowStepArgs) ToPagerdutyIncidentWorkflowStepOutputWithContext(ctx context.Context) PagerdutyIncidentWorkflowStepOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PagerdutyIncidentWorkflowStepOutput)
+func (i IncidentWorkflowStepArgs) ToIncidentWorkflowStepOutputWithContext(ctx context.Context) IncidentWorkflowStepOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentWorkflowStepOutput)
 }
 
-// PagerdutyIncidentWorkflowStepArrayInput is an input type that accepts PagerdutyIncidentWorkflowStepArray and PagerdutyIncidentWorkflowStepArrayOutput values.
-// You can construct a concrete instance of `PagerdutyIncidentWorkflowStepArrayInput` via:
+// IncidentWorkflowStepArrayInput is an input type that accepts IncidentWorkflowStepArray and IncidentWorkflowStepArrayOutput values.
+// You can construct a concrete instance of `IncidentWorkflowStepArrayInput` via:
 //
-//	PagerdutyIncidentWorkflowStepArray{ PagerdutyIncidentWorkflowStepArgs{...} }
-type PagerdutyIncidentWorkflowStepArrayInput interface {
+//	IncidentWorkflowStepArray{ IncidentWorkflowStepArgs{...} }
+type IncidentWorkflowStepArrayInput interface {
 	pulumi.Input
 
-	ToPagerdutyIncidentWorkflowStepArrayOutput() PagerdutyIncidentWorkflowStepArrayOutput
-	ToPagerdutyIncidentWorkflowStepArrayOutputWithContext(context.Context) PagerdutyIncidentWorkflowStepArrayOutput
+	ToIncidentWorkflowStepArrayOutput() IncidentWorkflowStepArrayOutput
+	ToIncidentWorkflowStepArrayOutputWithContext(context.Context) IncidentWorkflowStepArrayOutput
 }
 
-type PagerdutyIncidentWorkflowStepArray []PagerdutyIncidentWorkflowStepInput
+type IncidentWorkflowStepArray []IncidentWorkflowStepInput
 
-func (PagerdutyIncidentWorkflowStepArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PagerdutyIncidentWorkflowStep)(nil)).Elem()
+func (IncidentWorkflowStepArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IncidentWorkflowStep)(nil)).Elem()
 }
 
-func (i PagerdutyIncidentWorkflowStepArray) ToPagerdutyIncidentWorkflowStepArrayOutput() PagerdutyIncidentWorkflowStepArrayOutput {
-	return i.ToPagerdutyIncidentWorkflowStepArrayOutputWithContext(context.Background())
+func (i IncidentWorkflowStepArray) ToIncidentWorkflowStepArrayOutput() IncidentWorkflowStepArrayOutput {
+	return i.ToIncidentWorkflowStepArrayOutputWithContext(context.Background())
 }
 
-func (i PagerdutyIncidentWorkflowStepArray) ToPagerdutyIncidentWorkflowStepArrayOutputWithContext(ctx context.Context) PagerdutyIncidentWorkflowStepArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PagerdutyIncidentWorkflowStepArrayOutput)
+func (i IncidentWorkflowStepArray) ToIncidentWorkflowStepArrayOutputWithContext(ctx context.Context) IncidentWorkflowStepArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentWorkflowStepArrayOutput)
 }
 
-type PagerdutyIncidentWorkflowStepOutput struct{ *pulumi.OutputState }
+type IncidentWorkflowStepOutput struct{ *pulumi.OutputState }
 
-func (PagerdutyIncidentWorkflowStepOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PagerdutyIncidentWorkflowStep)(nil)).Elem()
+func (IncidentWorkflowStepOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentWorkflowStep)(nil)).Elem()
 }
 
-func (o PagerdutyIncidentWorkflowStepOutput) ToPagerdutyIncidentWorkflowStepOutput() PagerdutyIncidentWorkflowStepOutput {
+func (o IncidentWorkflowStepOutput) ToIncidentWorkflowStepOutput() IncidentWorkflowStepOutput {
 	return o
 }
 
-func (o PagerdutyIncidentWorkflowStepOutput) ToPagerdutyIncidentWorkflowStepOutputWithContext(ctx context.Context) PagerdutyIncidentWorkflowStepOutput {
+func (o IncidentWorkflowStepOutput) ToIncidentWorkflowStepOutputWithContext(ctx context.Context) IncidentWorkflowStepOutput {
 	return o
 }
 
 // The action id for the workflow step, including the version. A list of actions available can be retrieved using the [PagerDuty API](https://developer.pagerduty.com/api-reference/aa192a25fac39-list-actions).
-func (o PagerdutyIncidentWorkflowStepOutput) Action() pulumi.StringOutput {
-	return o.ApplyT(func(v PagerdutyIncidentWorkflowStep) string { return v.Action }).(pulumi.StringOutput)
+func (o IncidentWorkflowStepOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v IncidentWorkflowStep) string { return v.Action }).(pulumi.StringOutput)
 }
 
 // The ID of the incident workflow.
-func (o PagerdutyIncidentWorkflowStepOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PagerdutyIncidentWorkflowStep) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o IncidentWorkflowStepOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentWorkflowStep) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The list of inputs for the workflow action.
-func (o PagerdutyIncidentWorkflowStepOutput) Inputs() PagerdutyIncidentWorkflowStepInputTypeArrayOutput {
-	return o.ApplyT(func(v PagerdutyIncidentWorkflowStep) []PagerdutyIncidentWorkflowStepInputType { return v.Inputs }).(PagerdutyIncidentWorkflowStepInputTypeArrayOutput)
+func (o IncidentWorkflowStepOutput) Inputs() IncidentWorkflowStepInputTypeArrayOutput {
+	return o.ApplyT(func(v IncidentWorkflowStep) []IncidentWorkflowStepInputType { return v.Inputs }).(IncidentWorkflowStepInputTypeArrayOutput)
 }
 
 // The name of the workflow step.
-func (o PagerdutyIncidentWorkflowStepOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PagerdutyIncidentWorkflowStep) string { return v.Name }).(pulumi.StringOutput)
+func (o IncidentWorkflowStepOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v IncidentWorkflowStep) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type PagerdutyIncidentWorkflowStepArrayOutput struct{ *pulumi.OutputState }
+type IncidentWorkflowStepArrayOutput struct{ *pulumi.OutputState }
 
-func (PagerdutyIncidentWorkflowStepArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PagerdutyIncidentWorkflowStep)(nil)).Elem()
+func (IncidentWorkflowStepArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IncidentWorkflowStep)(nil)).Elem()
 }
 
-func (o PagerdutyIncidentWorkflowStepArrayOutput) ToPagerdutyIncidentWorkflowStepArrayOutput() PagerdutyIncidentWorkflowStepArrayOutput {
+func (o IncidentWorkflowStepArrayOutput) ToIncidentWorkflowStepArrayOutput() IncidentWorkflowStepArrayOutput {
 	return o
 }
 
-func (o PagerdutyIncidentWorkflowStepArrayOutput) ToPagerdutyIncidentWorkflowStepArrayOutputWithContext(ctx context.Context) PagerdutyIncidentWorkflowStepArrayOutput {
+func (o IncidentWorkflowStepArrayOutput) ToIncidentWorkflowStepArrayOutputWithContext(ctx context.Context) IncidentWorkflowStepArrayOutput {
 	return o
 }
 
-func (o PagerdutyIncidentWorkflowStepArrayOutput) Index(i pulumi.IntInput) PagerdutyIncidentWorkflowStepOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PagerdutyIncidentWorkflowStep {
-		return vs[0].([]PagerdutyIncidentWorkflowStep)[vs[1].(int)]
-	}).(PagerdutyIncidentWorkflowStepOutput)
+func (o IncidentWorkflowStepArrayOutput) Index(i pulumi.IntInput) IncidentWorkflowStepOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IncidentWorkflowStep {
+		return vs[0].([]IncidentWorkflowStep)[vs[1].(int)]
+	}).(IncidentWorkflowStepOutput)
 }
 
-type PagerdutyIncidentWorkflowStepInputType struct {
+type IncidentWorkflowStepInputType struct {
 	Generated *bool `pulumi:"generated"`
 	// The name of the input.
 	Name string `pulumi:"name"`
@@ -5348,18 +5348,18 @@ type PagerdutyIncidentWorkflowStepInputType struct {
 	Value string `pulumi:"value"`
 }
 
-// PagerdutyIncidentWorkflowStepInputTypeInput is an input type that accepts PagerdutyIncidentWorkflowStepInputTypeArgs and PagerdutyIncidentWorkflowStepInputTypeOutput values.
-// You can construct a concrete instance of `PagerdutyIncidentWorkflowStepInputTypeInput` via:
+// IncidentWorkflowStepInputTypeInput is an input type that accepts IncidentWorkflowStepInputTypeArgs and IncidentWorkflowStepInputTypeOutput values.
+// You can construct a concrete instance of `IncidentWorkflowStepInputTypeInput` via:
 //
-//	PagerdutyIncidentWorkflowStepInputTypeArgs{...}
-type PagerdutyIncidentWorkflowStepInputTypeInput interface {
+//	IncidentWorkflowStepInputTypeArgs{...}
+type IncidentWorkflowStepInputTypeInput interface {
 	pulumi.Input
 
-	ToPagerdutyIncidentWorkflowStepInputTypeOutput() PagerdutyIncidentWorkflowStepInputTypeOutput
-	ToPagerdutyIncidentWorkflowStepInputTypeOutputWithContext(context.Context) PagerdutyIncidentWorkflowStepInputTypeOutput
+	ToIncidentWorkflowStepInputTypeOutput() IncidentWorkflowStepInputTypeOutput
+	ToIncidentWorkflowStepInputTypeOutputWithContext(context.Context) IncidentWorkflowStepInputTypeOutput
 }
 
-type PagerdutyIncidentWorkflowStepInputTypeArgs struct {
+type IncidentWorkflowStepInputTypeArgs struct {
 	Generated pulumi.BoolPtrInput `pulumi:"generated"`
 	// The name of the input.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -5367,89 +5367,89 @@ type PagerdutyIncidentWorkflowStepInputTypeArgs struct {
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
-func (PagerdutyIncidentWorkflowStepInputTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PagerdutyIncidentWorkflowStepInputType)(nil)).Elem()
+func (IncidentWorkflowStepInputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentWorkflowStepInputType)(nil)).Elem()
 }
 
-func (i PagerdutyIncidentWorkflowStepInputTypeArgs) ToPagerdutyIncidentWorkflowStepInputTypeOutput() PagerdutyIncidentWorkflowStepInputTypeOutput {
-	return i.ToPagerdutyIncidentWorkflowStepInputTypeOutputWithContext(context.Background())
+func (i IncidentWorkflowStepInputTypeArgs) ToIncidentWorkflowStepInputTypeOutput() IncidentWorkflowStepInputTypeOutput {
+	return i.ToIncidentWorkflowStepInputTypeOutputWithContext(context.Background())
 }
 
-func (i PagerdutyIncidentWorkflowStepInputTypeArgs) ToPagerdutyIncidentWorkflowStepInputTypeOutputWithContext(ctx context.Context) PagerdutyIncidentWorkflowStepInputTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PagerdutyIncidentWorkflowStepInputTypeOutput)
+func (i IncidentWorkflowStepInputTypeArgs) ToIncidentWorkflowStepInputTypeOutputWithContext(ctx context.Context) IncidentWorkflowStepInputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentWorkflowStepInputTypeOutput)
 }
 
-// PagerdutyIncidentWorkflowStepInputTypeArrayInput is an input type that accepts PagerdutyIncidentWorkflowStepInputTypeArray and PagerdutyIncidentWorkflowStepInputTypeArrayOutput values.
-// You can construct a concrete instance of `PagerdutyIncidentWorkflowStepInputTypeArrayInput` via:
+// IncidentWorkflowStepInputTypeArrayInput is an input type that accepts IncidentWorkflowStepInputTypeArray and IncidentWorkflowStepInputTypeArrayOutput values.
+// You can construct a concrete instance of `IncidentWorkflowStepInputTypeArrayInput` via:
 //
-//	PagerdutyIncidentWorkflowStepInputTypeArray{ PagerdutyIncidentWorkflowStepInputTypeArgs{...} }
-type PagerdutyIncidentWorkflowStepInputTypeArrayInput interface {
+//	IncidentWorkflowStepInputTypeArray{ IncidentWorkflowStepInputTypeArgs{...} }
+type IncidentWorkflowStepInputTypeArrayInput interface {
 	pulumi.Input
 
-	ToPagerdutyIncidentWorkflowStepInputTypeArrayOutput() PagerdutyIncidentWorkflowStepInputTypeArrayOutput
-	ToPagerdutyIncidentWorkflowStepInputTypeArrayOutputWithContext(context.Context) PagerdutyIncidentWorkflowStepInputTypeArrayOutput
+	ToIncidentWorkflowStepInputTypeArrayOutput() IncidentWorkflowStepInputTypeArrayOutput
+	ToIncidentWorkflowStepInputTypeArrayOutputWithContext(context.Context) IncidentWorkflowStepInputTypeArrayOutput
 }
 
-type PagerdutyIncidentWorkflowStepInputTypeArray []PagerdutyIncidentWorkflowStepInputTypeInput
+type IncidentWorkflowStepInputTypeArray []IncidentWorkflowStepInputTypeInput
 
-func (PagerdutyIncidentWorkflowStepInputTypeArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PagerdutyIncidentWorkflowStepInputType)(nil)).Elem()
+func (IncidentWorkflowStepInputTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IncidentWorkflowStepInputType)(nil)).Elem()
 }
 
-func (i PagerdutyIncidentWorkflowStepInputTypeArray) ToPagerdutyIncidentWorkflowStepInputTypeArrayOutput() PagerdutyIncidentWorkflowStepInputTypeArrayOutput {
-	return i.ToPagerdutyIncidentWorkflowStepInputTypeArrayOutputWithContext(context.Background())
+func (i IncidentWorkflowStepInputTypeArray) ToIncidentWorkflowStepInputTypeArrayOutput() IncidentWorkflowStepInputTypeArrayOutput {
+	return i.ToIncidentWorkflowStepInputTypeArrayOutputWithContext(context.Background())
 }
 
-func (i PagerdutyIncidentWorkflowStepInputTypeArray) ToPagerdutyIncidentWorkflowStepInputTypeArrayOutputWithContext(ctx context.Context) PagerdutyIncidentWorkflowStepInputTypeArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PagerdutyIncidentWorkflowStepInputTypeArrayOutput)
+func (i IncidentWorkflowStepInputTypeArray) ToIncidentWorkflowStepInputTypeArrayOutputWithContext(ctx context.Context) IncidentWorkflowStepInputTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentWorkflowStepInputTypeArrayOutput)
 }
 
-type PagerdutyIncidentWorkflowStepInputTypeOutput struct{ *pulumi.OutputState }
+type IncidentWorkflowStepInputTypeOutput struct{ *pulumi.OutputState }
 
-func (PagerdutyIncidentWorkflowStepInputTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PagerdutyIncidentWorkflowStepInputType)(nil)).Elem()
+func (IncidentWorkflowStepInputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentWorkflowStepInputType)(nil)).Elem()
 }
 
-func (o PagerdutyIncidentWorkflowStepInputTypeOutput) ToPagerdutyIncidentWorkflowStepInputTypeOutput() PagerdutyIncidentWorkflowStepInputTypeOutput {
+func (o IncidentWorkflowStepInputTypeOutput) ToIncidentWorkflowStepInputTypeOutput() IncidentWorkflowStepInputTypeOutput {
 	return o
 }
 
-func (o PagerdutyIncidentWorkflowStepInputTypeOutput) ToPagerdutyIncidentWorkflowStepInputTypeOutputWithContext(ctx context.Context) PagerdutyIncidentWorkflowStepInputTypeOutput {
+func (o IncidentWorkflowStepInputTypeOutput) ToIncidentWorkflowStepInputTypeOutputWithContext(ctx context.Context) IncidentWorkflowStepInputTypeOutput {
 	return o
 }
 
-func (o PagerdutyIncidentWorkflowStepInputTypeOutput) Generated() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v PagerdutyIncidentWorkflowStepInputType) *bool { return v.Generated }).(pulumi.BoolPtrOutput)
+func (o IncidentWorkflowStepInputTypeOutput) Generated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IncidentWorkflowStepInputType) *bool { return v.Generated }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the input.
-func (o PagerdutyIncidentWorkflowStepInputTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PagerdutyIncidentWorkflowStepInputType) string { return v.Name }).(pulumi.StringOutput)
+func (o IncidentWorkflowStepInputTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v IncidentWorkflowStepInputType) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The value of the input.
-func (o PagerdutyIncidentWorkflowStepInputTypeOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v PagerdutyIncidentWorkflowStepInputType) string { return v.Value }).(pulumi.StringOutput)
+func (o IncidentWorkflowStepInputTypeOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v IncidentWorkflowStepInputType) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type PagerdutyIncidentWorkflowStepInputTypeArrayOutput struct{ *pulumi.OutputState }
+type IncidentWorkflowStepInputTypeArrayOutput struct{ *pulumi.OutputState }
 
-func (PagerdutyIncidentWorkflowStepInputTypeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PagerdutyIncidentWorkflowStepInputType)(nil)).Elem()
+func (IncidentWorkflowStepInputTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IncidentWorkflowStepInputType)(nil)).Elem()
 }
 
-func (o PagerdutyIncidentWorkflowStepInputTypeArrayOutput) ToPagerdutyIncidentWorkflowStepInputTypeArrayOutput() PagerdutyIncidentWorkflowStepInputTypeArrayOutput {
+func (o IncidentWorkflowStepInputTypeArrayOutput) ToIncidentWorkflowStepInputTypeArrayOutput() IncidentWorkflowStepInputTypeArrayOutput {
 	return o
 }
 
-func (o PagerdutyIncidentWorkflowStepInputTypeArrayOutput) ToPagerdutyIncidentWorkflowStepInputTypeArrayOutputWithContext(ctx context.Context) PagerdutyIncidentWorkflowStepInputTypeArrayOutput {
+func (o IncidentWorkflowStepInputTypeArrayOutput) ToIncidentWorkflowStepInputTypeArrayOutputWithContext(ctx context.Context) IncidentWorkflowStepInputTypeArrayOutput {
 	return o
 }
 
-func (o PagerdutyIncidentWorkflowStepInputTypeArrayOutput) Index(i pulumi.IntInput) PagerdutyIncidentWorkflowStepInputTypeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PagerdutyIncidentWorkflowStepInputType {
-		return vs[0].([]PagerdutyIncidentWorkflowStepInputType)[vs[1].(int)]
-	}).(PagerdutyIncidentWorkflowStepInputTypeOutput)
+func (o IncidentWorkflowStepInputTypeArrayOutput) Index(i pulumi.IntInput) IncidentWorkflowStepInputTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IncidentWorkflowStepInputType {
+		return vs[0].([]IncidentWorkflowStepInputType)[vs[1].(int)]
+	}).(IncidentWorkflowStepInputTypeOutput)
 }
 
 type ResponsePlayResponder struct {
@@ -14247,10 +14247,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationUnroutedSetRuleActionsVariableArrayInput)(nil)).Elem(), EventOrchestrationUnroutedSetRuleActionsVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationUnroutedSetRuleConditionInput)(nil)).Elem(), EventOrchestrationUnroutedSetRuleConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationUnroutedSetRuleConditionArrayInput)(nil)).Elem(), EventOrchestrationUnroutedSetRuleConditionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PagerdutyIncidentWorkflowStepInput)(nil)).Elem(), PagerdutyIncidentWorkflowStepArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PagerdutyIncidentWorkflowStepArrayInput)(nil)).Elem(), PagerdutyIncidentWorkflowStepArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PagerdutyIncidentWorkflowStepInputTypeInput)(nil)).Elem(), PagerdutyIncidentWorkflowStepInputTypeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PagerdutyIncidentWorkflowStepInputTypeArrayInput)(nil)).Elem(), PagerdutyIncidentWorkflowStepInputTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IncidentWorkflowStepInput)(nil)).Elem(), IncidentWorkflowStepArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IncidentWorkflowStepArrayInput)(nil)).Elem(), IncidentWorkflowStepArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IncidentWorkflowStepInputTypeInput)(nil)).Elem(), IncidentWorkflowStepInputTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IncidentWorkflowStepInputTypeArrayInput)(nil)).Elem(), IncidentWorkflowStepInputTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlayResponderInput)(nil)).Elem(), ResponsePlayResponderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlayResponderArrayInput)(nil)).Elem(), ResponsePlayResponderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlayResponderEscalationRuleInput)(nil)).Elem(), ResponsePlayResponderEscalationRuleArgs{})
@@ -14463,10 +14463,10 @@ func init() {
 	pulumi.RegisterOutputType(EventOrchestrationUnroutedSetRuleActionsVariableArrayOutput{})
 	pulumi.RegisterOutputType(EventOrchestrationUnroutedSetRuleConditionOutput{})
 	pulumi.RegisterOutputType(EventOrchestrationUnroutedSetRuleConditionArrayOutput{})
-	pulumi.RegisterOutputType(PagerdutyIncidentWorkflowStepOutput{})
-	pulumi.RegisterOutputType(PagerdutyIncidentWorkflowStepArrayOutput{})
-	pulumi.RegisterOutputType(PagerdutyIncidentWorkflowStepInputTypeOutput{})
-	pulumi.RegisterOutputType(PagerdutyIncidentWorkflowStepInputTypeArrayOutput{})
+	pulumi.RegisterOutputType(IncidentWorkflowStepOutput{})
+	pulumi.RegisterOutputType(IncidentWorkflowStepArrayOutput{})
+	pulumi.RegisterOutputType(IncidentWorkflowStepInputTypeOutput{})
+	pulumi.RegisterOutputType(IncidentWorkflowStepInputTypeArrayOutput{})
 	pulumi.RegisterOutputType(ResponsePlayResponderOutput{})
 	pulumi.RegisterOutputType(ResponsePlayResponderArrayOutput{})
 	pulumi.RegisterOutputType(ResponsePlayResponderEscalationRuleOutput{})

@@ -11,7 +11,7 @@ namespace Pulumi.Pagerduty.Outputs
 {
 
     [OutputType]
-    public sealed class PagerdutyIncidentWorkflowStep
+    public sealed class IncidentWorkflowStep
     {
         /// <summary>
         /// The action id for the workflow step, including the version. A list of actions available can be retrieved using the [PagerDuty API](https://developer.pagerduty.com/api-reference/aa192a25fac39-list-actions).
@@ -24,19 +24,19 @@ namespace Pulumi.Pagerduty.Outputs
         /// <summary>
         /// The list of inputs for the workflow action.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PagerdutyIncidentWorkflowStepInput> Inputs;
+        public readonly ImmutableArray<Outputs.IncidentWorkflowStepInput> Inputs;
         /// <summary>
         /// The name of the workflow step.
         /// </summary>
         public readonly string Name;
 
         [OutputConstructor]
-        private PagerdutyIncidentWorkflowStep(
+        private IncidentWorkflowStep(
             string action,
 
             string? id,
 
-            ImmutableArray<Outputs.PagerdutyIncidentWorkflowStepInput> inputs,
+            ImmutableArray<Outputs.IncidentWorkflowStepInput> inputs,
 
             string name)
         {

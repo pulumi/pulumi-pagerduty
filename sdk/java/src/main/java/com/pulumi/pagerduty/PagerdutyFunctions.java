@@ -1252,8 +1252,8 @@ public final class PagerdutyFunctions {
      * import com.pulumi.pagerduty.PagerdutyFunctions;
      * import com.pulumi.pagerduty.inputs.GetIncidentWorkflowArgs;
      * import com.pulumi.pagerduty.inputs.GetServiceArgs;
-     * import com.pulumi.pagerduty.PagerdutyIncidentWorkflowTrigger;
-     * import com.pulumi.pagerduty.PagerdutyIncidentWorkflowTriggerArgs;
+     * import com.pulumi.pagerduty.IncidentWorkflowTrigger;
+     * import com.pulumi.pagerduty.IncidentWorkflowTriggerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1275,7 +1275,7 @@ public final class PagerdutyFunctions {
      *             .name(&#34;My First Service&#34;)
      *             .build());
      * 
-     *         var automaticTrigger = new PagerdutyIncidentWorkflowTrigger(&#34;automaticTrigger&#34;, PagerdutyIncidentWorkflowTriggerArgs.builder()        
+     *         var automaticTrigger = new IncidentWorkflowTrigger(&#34;automaticTrigger&#34;, IncidentWorkflowTriggerArgs.builder()        
      *             .type(&#34;conditional&#34;)
      *             .workflow(myWorkflow.applyValue(getIncidentWorkflowResult -&gt; getIncidentWorkflowResult.id()))
      *             .services(firstService.applyValue(getServiceResult -&gt; getServiceResult.id()))
@@ -1305,8 +1305,8 @@ public final class PagerdutyFunctions {
      * import com.pulumi.pagerduty.PagerdutyFunctions;
      * import com.pulumi.pagerduty.inputs.GetIncidentWorkflowArgs;
      * import com.pulumi.pagerduty.inputs.GetServiceArgs;
-     * import com.pulumi.pagerduty.PagerdutyIncidentWorkflowTrigger;
-     * import com.pulumi.pagerduty.PagerdutyIncidentWorkflowTriggerArgs;
+     * import com.pulumi.pagerduty.IncidentWorkflowTrigger;
+     * import com.pulumi.pagerduty.IncidentWorkflowTriggerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1328,7 +1328,7 @@ public final class PagerdutyFunctions {
      *             .name(&#34;My First Service&#34;)
      *             .build());
      * 
-     *         var automaticTrigger = new PagerdutyIncidentWorkflowTrigger(&#34;automaticTrigger&#34;, PagerdutyIncidentWorkflowTriggerArgs.builder()        
+     *         var automaticTrigger = new IncidentWorkflowTrigger(&#34;automaticTrigger&#34;, IncidentWorkflowTriggerArgs.builder()        
      *             .type(&#34;conditional&#34;)
      *             .workflow(myWorkflow.applyValue(getIncidentWorkflowResult -&gt; getIncidentWorkflowResult.id()))
      *             .services(firstService.applyValue(getServiceResult -&gt; getServiceResult.id()))
@@ -1358,8 +1358,8 @@ public final class PagerdutyFunctions {
      * import com.pulumi.pagerduty.PagerdutyFunctions;
      * import com.pulumi.pagerduty.inputs.GetIncidentWorkflowArgs;
      * import com.pulumi.pagerduty.inputs.GetServiceArgs;
-     * import com.pulumi.pagerduty.PagerdutyIncidentWorkflowTrigger;
-     * import com.pulumi.pagerduty.PagerdutyIncidentWorkflowTriggerArgs;
+     * import com.pulumi.pagerduty.IncidentWorkflowTrigger;
+     * import com.pulumi.pagerduty.IncidentWorkflowTriggerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1381,7 +1381,7 @@ public final class PagerdutyFunctions {
      *             .name(&#34;My First Service&#34;)
      *             .build());
      * 
-     *         var automaticTrigger = new PagerdutyIncidentWorkflowTrigger(&#34;automaticTrigger&#34;, PagerdutyIncidentWorkflowTriggerArgs.builder()        
+     *         var automaticTrigger = new IncidentWorkflowTrigger(&#34;automaticTrigger&#34;, IncidentWorkflowTriggerArgs.builder()        
      *             .type(&#34;conditional&#34;)
      *             .workflow(myWorkflow.applyValue(getIncidentWorkflowResult -&gt; getIncidentWorkflowResult.id()))
      *             .services(firstService.applyValue(getServiceResult -&gt; getServiceResult.id()))
@@ -1411,8 +1411,8 @@ public final class PagerdutyFunctions {
      * import com.pulumi.pagerduty.PagerdutyFunctions;
      * import com.pulumi.pagerduty.inputs.GetIncidentWorkflowArgs;
      * import com.pulumi.pagerduty.inputs.GetServiceArgs;
-     * import com.pulumi.pagerduty.PagerdutyIncidentWorkflowTrigger;
-     * import com.pulumi.pagerduty.PagerdutyIncidentWorkflowTriggerArgs;
+     * import com.pulumi.pagerduty.IncidentWorkflowTrigger;
+     * import com.pulumi.pagerduty.IncidentWorkflowTriggerArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1434,7 +1434,7 @@ public final class PagerdutyFunctions {
      *             .name(&#34;My First Service&#34;)
      *             .build());
      * 
-     *         var automaticTrigger = new PagerdutyIncidentWorkflowTrigger(&#34;automaticTrigger&#34;, PagerdutyIncidentWorkflowTriggerArgs.builder()        
+     *         var automaticTrigger = new IncidentWorkflowTrigger(&#34;automaticTrigger&#34;, IncidentWorkflowTriggerArgs.builder()        
      *             .type(&#34;conditional&#34;)
      *             .workflow(myWorkflow.applyValue(getIncidentWorkflowResult -&gt; getIncidentWorkflowResult.id()))
      *             .services(firstService.applyValue(getServiceResult -&gt; getServiceResult.id()))

@@ -50,8 +50,8 @@ __all__ = [
     'EventOrchestrationUnroutedSetRuleActionsExtraction',
     'EventOrchestrationUnroutedSetRuleActionsVariable',
     'EventOrchestrationUnroutedSetRuleCondition',
-    'PagerdutyIncidentWorkflowStep',
-    'PagerdutyIncidentWorkflowStepInput',
+    'IncidentWorkflowStep',
+    'IncidentWorkflowStepInput',
     'ResponsePlayResponder',
     'ResponsePlayResponderEscalationRule',
     'ResponsePlayResponderEscalationRuleTarget',
@@ -2081,17 +2081,17 @@ class EventOrchestrationUnroutedSetRuleCondition(dict):
 
 
 @pulumi.output_type
-class PagerdutyIncidentWorkflowStep(dict):
+class IncidentWorkflowStep(dict):
     def __init__(__self__, *,
                  action: str,
                  name: str,
                  id: Optional[str] = None,
-                 inputs: Optional[Sequence['outputs.PagerdutyIncidentWorkflowStepInput']] = None):
+                 inputs: Optional[Sequence['outputs.IncidentWorkflowStepInput']] = None):
         """
         :param str action: The action id for the workflow step, including the version. A list of actions available can be retrieved using the [PagerDuty API](https://developer.pagerduty.com/api-reference/aa192a25fac39-list-actions).
         :param str name: The name of the workflow step.
         :param str id: The ID of the incident workflow.
-        :param Sequence['PagerdutyIncidentWorkflowStepInputArgs'] inputs: The list of inputs for the workflow action.
+        :param Sequence['IncidentWorkflowStepInputArgs'] inputs: The list of inputs for the workflow action.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "name", name)
@@ -2126,7 +2126,7 @@ class PagerdutyIncidentWorkflowStep(dict):
 
     @property
     @pulumi.getter
-    def inputs(self) -> Optional[Sequence['outputs.PagerdutyIncidentWorkflowStepInput']]:
+    def inputs(self) -> Optional[Sequence['outputs.IncidentWorkflowStepInput']]:
         """
         The list of inputs for the workflow action.
         """
@@ -2134,7 +2134,7 @@ class PagerdutyIncidentWorkflowStep(dict):
 
 
 @pulumi.output_type
-class PagerdutyIncidentWorkflowStepInput(dict):
+class IncidentWorkflowStepInput(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str,

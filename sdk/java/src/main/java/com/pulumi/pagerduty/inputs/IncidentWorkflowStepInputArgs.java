@@ -12,9 +12,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 
-public final class PagerdutyIncidentWorkflowStepInputArgs extends com.pulumi.resources.ResourceArgs {
+public final class IncidentWorkflowStepInputArgs extends com.pulumi.resources.ResourceArgs {
 
-    public static final PagerdutyIncidentWorkflowStepInputArgs Empty = new PagerdutyIncidentWorkflowStepInputArgs();
+    public static final IncidentWorkflowStepInputArgs Empty = new IncidentWorkflowStepInputArgs();
 
     @Import(name="generated")
     private @Nullable Output<Boolean> generated;
@@ -53,9 +53,9 @@ public final class PagerdutyIncidentWorkflowStepInputArgs extends com.pulumi.res
         return this.value;
     }
 
-    private PagerdutyIncidentWorkflowStepInputArgs() {}
+    private IncidentWorkflowStepInputArgs() {}
 
-    private PagerdutyIncidentWorkflowStepInputArgs(PagerdutyIncidentWorkflowStepInputArgs $) {
+    private IncidentWorkflowStepInputArgs(IncidentWorkflowStepInputArgs $) {
         this.generated = $.generated;
         this.name = $.name;
         this.value = $.value;
@@ -64,19 +64,19 @@ public final class PagerdutyIncidentWorkflowStepInputArgs extends com.pulumi.res
     public static Builder builder() {
         return new Builder();
     }
-    public static Builder builder(PagerdutyIncidentWorkflowStepInputArgs defaults) {
+    public static Builder builder(IncidentWorkflowStepInputArgs defaults) {
         return new Builder(defaults);
     }
 
     public static final class Builder {
-        private PagerdutyIncidentWorkflowStepInputArgs $;
+        private IncidentWorkflowStepInputArgs $;
 
         public Builder() {
-            $ = new PagerdutyIncidentWorkflowStepInputArgs();
+            $ = new IncidentWorkflowStepInputArgs();
         }
 
-        public Builder(PagerdutyIncidentWorkflowStepInputArgs defaults) {
-            $ = new PagerdutyIncidentWorkflowStepInputArgs(Objects.requireNonNull(defaults));
+        public Builder(IncidentWorkflowStepInputArgs defaults) {
+            $ = new IncidentWorkflowStepInputArgs(Objects.requireNonNull(defaults));
         }
 
         public Builder generated(@Nullable Output<Boolean> generated) {
@@ -130,7 +130,7 @@ public final class PagerdutyIncidentWorkflowStepInputArgs extends com.pulumi.res
             return value(Output.of(value));
         }
 
-        public PagerdutyIncidentWorkflowStepInputArgs build() {
+        public IncidentWorkflowStepInputArgs build() {
             $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
             $.value = Objects.requireNonNull($.value, "expected parameter 'value' to be non-null");
             return $;

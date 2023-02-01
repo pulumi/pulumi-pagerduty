@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class PagerdutyIncidentWorkflowStepInputArgs : global::Pulumi.ResourceArgs
+    public sealed class IncidentWorkflowStepInputGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("generated")]
         public Input<bool>? Generated { get; set; }
@@ -27,9 +27,9 @@ namespace Pulumi.Pagerduty.Inputs
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
-        public PagerdutyIncidentWorkflowStepInputArgs()
+        public IncidentWorkflowStepInputGetArgs()
         {
         }
-        public static new PagerdutyIncidentWorkflowStepInputArgs Empty => new PagerdutyIncidentWorkflowStepInputArgs();
+        public static new IncidentWorkflowStepInputGetArgs Empty => new IncidentWorkflowStepInputGetArgs();
     }
 }

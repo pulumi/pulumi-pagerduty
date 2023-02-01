@@ -122,8 +122,8 @@ func Provider() tfbridge.ProviderInfo {
 			"pagerduty_event_rule":                {Tok: makeResource(mainMod, "EventRule")},
 			"pagerduty_extension":                 {Tok: makeResource(mainMod, "Extension")},
 			"pagerduty_extension_servicenow":      {Tok: makeResource(mainMod, "ExtensionServiceNow")},
-			"pagerduty_incident_workflow":         {Tok: makeResource(mainMod, "PagerdutyIncidentWorkflow")},
-			"pagerduty_incident_workflow_trigger": {Tok: makeResource(mainMod, "PagerdutyIncidentWorkflowTrigger")},
+			"pagerduty_incident_workflow":         {Tok: makeResource(mainMod, "IncidentWorkflow")},
+			"pagerduty_incident_workflow_trigger": {Tok: makeResource(mainMod, "IncidentWorkflowTrigger")},
 			"pagerduty_maintenance_window": {
 				Tok: makeResource(mainMod, "MaintenanceWindow"),
 				Fields: map[string]*tfbridge.SchemaInfo{

@@ -13,9 +13,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 
-public final class PagerdutyIncidentWorkflowTriggerState extends com.pulumi.resources.ResourceArgs {
+public final class IncidentWorkflowTriggerState extends com.pulumi.resources.ResourceArgs {
 
-    public static final PagerdutyIncidentWorkflowTriggerState Empty = new PagerdutyIncidentWorkflowTriggerState();
+    public static final IncidentWorkflowTriggerState Empty = new IncidentWorkflowTriggerState();
 
     /**
      * A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.
@@ -92,9 +92,9 @@ public final class PagerdutyIncidentWorkflowTriggerState extends com.pulumi.reso
         return Optional.ofNullable(this.workflow);
     }
 
-    private PagerdutyIncidentWorkflowTriggerState() {}
+    private IncidentWorkflowTriggerState() {}
 
-    private PagerdutyIncidentWorkflowTriggerState(PagerdutyIncidentWorkflowTriggerState $) {
+    private IncidentWorkflowTriggerState(IncidentWorkflowTriggerState $) {
         this.condition = $.condition;
         this.services = $.services;
         this.subscribedToAllServices = $.subscribedToAllServices;
@@ -105,19 +105,19 @@ public final class PagerdutyIncidentWorkflowTriggerState extends com.pulumi.reso
     public static Builder builder() {
         return new Builder();
     }
-    public static Builder builder(PagerdutyIncidentWorkflowTriggerState defaults) {
+    public static Builder builder(IncidentWorkflowTriggerState defaults) {
         return new Builder(defaults);
     }
 
     public static final class Builder {
-        private PagerdutyIncidentWorkflowTriggerState $;
+        private IncidentWorkflowTriggerState $;
 
         public Builder() {
-            $ = new PagerdutyIncidentWorkflowTriggerState();
+            $ = new IncidentWorkflowTriggerState();
         }
 
-        public Builder(PagerdutyIncidentWorkflowTriggerState defaults) {
-            $ = new PagerdutyIncidentWorkflowTriggerState(Objects.requireNonNull(defaults));
+        public Builder(IncidentWorkflowTriggerState defaults) {
+            $ = new IncidentWorkflowTriggerState(Objects.requireNonNull(defaults));
         }
 
         /**
@@ -235,7 +235,7 @@ public final class PagerdutyIncidentWorkflowTriggerState extends com.pulumi.reso
             return workflow(Output.of(workflow));
         }
 
-        public PagerdutyIncidentWorkflowTriggerState build() {
+        public IncidentWorkflowTriggerState build() {
             return $;
         }
     }

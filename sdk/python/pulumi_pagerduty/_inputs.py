@@ -49,8 +49,8 @@ __all__ = [
     'EventOrchestrationUnroutedSetRuleActionsExtractionArgs',
     'EventOrchestrationUnroutedSetRuleActionsVariableArgs',
     'EventOrchestrationUnroutedSetRuleConditionArgs',
-    'PagerdutyIncidentWorkflowStepArgs',
-    'PagerdutyIncidentWorkflowStepInputArgs',
+    'IncidentWorkflowStepArgs',
+    'IncidentWorkflowStepInputArgs',
     'ResponsePlayResponderArgs',
     'ResponsePlayResponderEscalationRuleArgs',
     'ResponsePlayResponderEscalationRuleTargetArgs',
@@ -2343,17 +2343,17 @@ class EventOrchestrationUnroutedSetRuleConditionArgs:
 
 
 @pulumi.input_type
-class PagerdutyIncidentWorkflowStepArgs:
+class IncidentWorkflowStepArgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
                  name: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None,
-                 inputs: Optional[pulumi.Input[Sequence[pulumi.Input['PagerdutyIncidentWorkflowStepInputArgs']]]] = None):
+                 inputs: Optional[pulumi.Input[Sequence[pulumi.Input['IncidentWorkflowStepInputArgs']]]] = None):
         """
         :param pulumi.Input[str] action: The action id for the workflow step, including the version. A list of actions available can be retrieved using the [PagerDuty API](https://developer.pagerduty.com/api-reference/aa192a25fac39-list-actions).
         :param pulumi.Input[str] name: The name of the workflow step.
         :param pulumi.Input[str] id: The ID of the incident workflow.
-        :param pulumi.Input[Sequence[pulumi.Input['PagerdutyIncidentWorkflowStepInputArgs']]] inputs: The list of inputs for the workflow action.
+        :param pulumi.Input[Sequence[pulumi.Input['IncidentWorkflowStepInputArgs']]] inputs: The list of inputs for the workflow action.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "name", name)
@@ -2400,19 +2400,19 @@ class PagerdutyIncidentWorkflowStepArgs:
 
     @property
     @pulumi.getter
-    def inputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PagerdutyIncidentWorkflowStepInputArgs']]]]:
+    def inputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IncidentWorkflowStepInputArgs']]]]:
         """
         The list of inputs for the workflow action.
         """
         return pulumi.get(self, "inputs")
 
     @inputs.setter
-    def inputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PagerdutyIncidentWorkflowStepInputArgs']]]]):
+    def inputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IncidentWorkflowStepInputArgs']]]]):
         pulumi.set(self, "inputs", value)
 
 
 @pulumi.input_type
-class PagerdutyIncidentWorkflowStepInputArgs:
+class IncidentWorkflowStepInputArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str],

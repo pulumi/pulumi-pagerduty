@@ -13,7 +13,7 @@ namespace Pulumi.Pagerduty.Inputs
     public sealed class ServiceEventRuleActionsSuspendGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        /// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
         /// </summary>
         [Input("value")]
         public Input<int>? Value { get; set; }

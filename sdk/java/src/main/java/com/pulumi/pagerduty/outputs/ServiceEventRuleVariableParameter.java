@@ -17,7 +17,7 @@ public final class ServiceEventRuleVariableParameter {
      */
     private @Nullable String path;
     /**
-     * @return The value for the operation. For example, an RE2 regular expression for regex-type variables.
+     * @return Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
      * 
      */
     private @Nullable String value;
@@ -31,7 +31,7 @@ public final class ServiceEventRuleVariableParameter {
         return Optional.ofNullable(this.path);
     }
     /**
-     * @return The value for the operation. For example, an RE2 regular expression for regex-type variables.
+     * @return Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
      * 
      */
     public Optional<String> value() {

@@ -66,9 +66,17 @@ public class BusinessService extends com.pulumi.resources.CustomResource {
     public Output<String> description() {
         return this.description;
     }
+    /**
+     * A URL at which the entity is uniquely displayed in the Web app.
+     * 
+     */
     @Export(name="htmlUrl", type=String.class, parameters={})
     private Output<String> htmlUrl;
 
+    /**
+     * @return A URL at which the entity is uniquely displayed in the Web app.
+     * 
+     */
     public Output<String> htmlUrl() {
         return this.htmlUrl;
     }
@@ -100,15 +108,31 @@ public class BusinessService extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> pointOfContact() {
         return Codegen.optional(this.pointOfContact);
     }
+    /**
+     * The API show URL at which the object is accessible.
+     * 
+     */
     @Export(name="self", type=String.class, parameters={})
     private Output<String> self;
 
+    /**
+     * @return The API show URL at which the object is accessible.
+     * 
+     */
     public Output<String> self() {
         return this.self;
     }
+    /**
+     * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+     * 
+     */
     @Export(name="summary", type=String.class, parameters={})
     private Output<String> summary;
 
+    /**
+     * @return A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+     * 
+     */
     public Output<String> summary() {
         return this.summary;
     }

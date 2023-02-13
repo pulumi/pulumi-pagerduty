@@ -818,7 +818,7 @@ class ServiceIntegration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="emailFilters")
-    def email_filters(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceIntegrationEmailFilter']]]:
+    def email_filters(self) -> pulumi.Output[Sequence['outputs.ServiceIntegrationEmailFilter']]:
         return pulumi.get(self, "email_filters")
 
     @property

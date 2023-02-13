@@ -53,13 +53,16 @@ type BusinessService struct {
 	pulumi.CustomResourceState
 
 	Description pulumi.StringOutput `pulumi:"description"`
-	HtmlUrl     pulumi.StringOutput `pulumi:"htmlUrl"`
+	// A URL at which the entity is uniquely displayed in the Web app.
+	HtmlUrl pulumi.StringOutput `pulumi:"htmlUrl"`
 	// The name of the business service.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The owner of the business service.
 	PointOfContact pulumi.StringPtrOutput `pulumi:"pointOfContact"`
-	Self           pulumi.StringOutput    `pulumi:"self"`
-	Summary        pulumi.StringOutput    `pulumi:"summary"`
+	// The API show URL at which the object is accessible.
+	Self pulumi.StringOutput `pulumi:"self"`
+	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+	Summary pulumi.StringOutput `pulumi:"summary"`
 	// ID of the team that owns the business service.
 	Team pulumi.StringPtrOutput `pulumi:"team"`
 	// **Deprecated** (Optional) Default (and only supported) value is `businessService`.
@@ -101,13 +104,16 @@ func GetBusinessService(ctx *pulumi.Context,
 // Input properties used for looking up and filtering BusinessService resources.
 type businessServiceState struct {
 	Description *string `pulumi:"description"`
-	HtmlUrl     *string `pulumi:"htmlUrl"`
+	// A URL at which the entity is uniquely displayed in the Web app.
+	HtmlUrl *string `pulumi:"htmlUrl"`
 	// The name of the business service.
 	Name *string `pulumi:"name"`
 	// The owner of the business service.
 	PointOfContact *string `pulumi:"pointOfContact"`
-	Self           *string `pulumi:"self"`
-	Summary        *string `pulumi:"summary"`
+	// The API show URL at which the object is accessible.
+	Self *string `pulumi:"self"`
+	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+	Summary *string `pulumi:"summary"`
 	// ID of the team that owns the business service.
 	Team *string `pulumi:"team"`
 	// **Deprecated** (Optional) Default (and only supported) value is `businessService`.
@@ -118,13 +124,16 @@ type businessServiceState struct {
 
 type BusinessServiceState struct {
 	Description pulumi.StringPtrInput
-	HtmlUrl     pulumi.StringPtrInput
+	// A URL at which the entity is uniquely displayed in the Web app.
+	HtmlUrl pulumi.StringPtrInput
 	// The name of the business service.
 	Name pulumi.StringPtrInput
 	// The owner of the business service.
 	PointOfContact pulumi.StringPtrInput
-	Self           pulumi.StringPtrInput
-	Summary        pulumi.StringPtrInput
+	// The API show URL at which the object is accessible.
+	Self pulumi.StringPtrInput
+	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+	Summary pulumi.StringPtrInput
 	// ID of the team that owns the business service.
 	Team pulumi.StringPtrInput
 	// **Deprecated** (Optional) Default (and only supported) value is `businessService`.
@@ -257,6 +266,7 @@ func (o BusinessServiceOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *BusinessService) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
+// A URL at which the entity is uniquely displayed in the Web app.
 func (o BusinessServiceOutput) HtmlUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *BusinessService) pulumi.StringOutput { return v.HtmlUrl }).(pulumi.StringOutput)
 }
@@ -271,10 +281,12 @@ func (o BusinessServiceOutput) PointOfContact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BusinessService) pulumi.StringPtrOutput { return v.PointOfContact }).(pulumi.StringPtrOutput)
 }
 
+// The API show URL at which the object is accessible.
 func (o BusinessServiceOutput) Self() pulumi.StringOutput {
 	return o.ApplyT(func(v *BusinessService) pulumi.StringOutput { return v.Self }).(pulumi.StringOutput)
 }
 
+// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
 func (o BusinessServiceOutput) Summary() pulumi.StringOutput {
 	return o.ApplyT(func(v *BusinessService) pulumi.StringOutput { return v.Summary }).(pulumi.StringOutput)
 }

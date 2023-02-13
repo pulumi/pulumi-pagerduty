@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -89,6 +90,9 @@ export class SlackConnection extends pulumi.CustomResource {
      * The ID of a Slack channel in the workspace.
      */
     public readonly channelId!: pulumi.Output<string>;
+    /**
+     * Name of the Slack channel in Slack connection.
+     */
     public /*out*/ readonly channelName!: pulumi.Output<string>;
     /**
      * Configuration options for the Slack connection that provide options to filter events.
@@ -102,6 +106,9 @@ export class SlackConnection extends pulumi.CustomResource {
      * The ID of the source in PagerDuty. Valid sources are services or teams.
      */
     public readonly sourceId!: pulumi.Output<string>;
+    /**
+     * Name of the source (team or service) in Slack connection.
+     */
     public /*out*/ readonly sourceName!: pulumi.Output<string>;
     /**
      * The type of the source. Either `teamReference` or `serviceReference`.
@@ -175,6 +182,9 @@ export interface SlackConnectionState {
      * The ID of a Slack channel in the workspace.
      */
     channelId?: pulumi.Input<string>;
+    /**
+     * Name of the Slack channel in Slack connection.
+     */
     channelName?: pulumi.Input<string>;
     /**
      * Configuration options for the Slack connection that provide options to filter events.
@@ -188,6 +198,9 @@ export interface SlackConnectionState {
      * The ID of the source in PagerDuty. Valid sources are services or teams.
      */
     sourceId?: pulumi.Input<string>;
+    /**
+     * Name of the source (team or service) in Slack connection.
+     */
     sourceName?: pulumi.Input<string>;
     /**
      * The type of the source. Either `teamReference` or `serviceReference`.

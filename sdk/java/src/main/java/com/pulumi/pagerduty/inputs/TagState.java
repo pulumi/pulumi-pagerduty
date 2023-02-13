@@ -45,9 +45,17 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.label);
     }
 
+    /**
+     * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
+     * 
+     */
     @Import(name="summary")
     private @Nullable Output<String> summary;
 
+    /**
+     * @return A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
+     * 
+     */
     public Optional<Output<String>> summary() {
         return Optional.ofNullable(this.summary);
     }
@@ -120,11 +128,23 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
             return label(Output.of(label));
         }
 
+        /**
+         * @param summary A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
+         * 
+         * @return builder
+         * 
+         */
         public Builder summary(@Nullable Output<String> summary) {
             $.summary = summary;
             return this;
         }
 
+        /**
+         * @param summary A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
+         * 
+         * @return builder
+         * 
+         */
         public Builder summary(String summary) {
             return summary(Output.of(summary));
         }

@@ -26,13 +26,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			me, err := pagerduty.LookupUser(ctx, &GetUserArgs{
+//			me, err := pagerduty.LookupUser(ctx, &pagerduty.LookupUserArgs{
 //				Email: "me@example.com",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			phonePush, err := pagerduty.LookupUserContactMethod(ctx, &GetUserContactMethodArgs{
+//			phonePush, err := pagerduty.LookupUserContactMethod(ctx, &pagerduty.LookupUserContactMethodArgs{
 //				UserId: me.Id,
 //				Type:   "push_notification_contact_method",
 //				Label:  "iPhone (John)",
@@ -41,12 +41,12 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewUserNotificationRule(ctx, "lowUrgencySms", &pagerduty.UserNotificationRuleArgs{
-//				UserId:              pulumi.String(me.Id),
+//				UserId:              *pulumi.String(me.Id),
 //				StartDelayInMinutes: pulumi.Int(5),
 //				Urgency:             pulumi.String("high"),
 //				ContactMethod: pulumi.StringMap{
 //					"type": pulumi.String("push_notification_contact_method"),
-//					"id":   pulumi.String(phonePush.Id),
+//					"id":   *pulumi.String(phonePush.Id),
 //				},
 //			})
 //			if err != nil {

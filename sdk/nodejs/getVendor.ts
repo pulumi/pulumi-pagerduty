@@ -42,11 +42,8 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getVendor(args: GetVendorArgs, opts?: pulumi.InvokeOptions): Promise<GetVendorResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("pagerduty:index/getVendor:getVendor", {
         "name": args.name,
     }, opts);
@@ -79,9 +76,45 @@ export interface GetVendorResult {
      */
     readonly type: string;
 }
-
+/**
+ * Use this data source to get information about a specific [vendor](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODI1OQ-list-vendors) that you can use for a service integration (e.g. Amazon Cloudwatch, Splunk, Datadog).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const datadog = pagerduty.getVendor({
+ *     name: "Datadog",
+ * });
+ * const exampleUser = new pagerduty.User("exampleUser", {
+ *     email: "125.greenholt.earline@graham.name",
+ *     teams: [pagerduty_team.example.id],
+ * });
+ * const foo = new pagerduty.EscalationPolicy("foo", {
+ *     numLoops: 2,
+ *     rules: [{
+ *         escalationDelayInMinutes: 10,
+ *         targets: [{
+ *             type: "user",
+ *             id: exampleUser.id,
+ *         }],
+ *     }],
+ * });
+ * const exampleService = new pagerduty.Service("exampleService", {
+ *     autoResolveTimeout: "14400",
+ *     acknowledgementTimeout: "600",
+ *     escalationPolicy: pagerduty_escalation_policy.example.id,
+ * });
+ * const exampleServiceIntegration = new pagerduty.ServiceIntegration("exampleServiceIntegration", {
+ *     vendor: datadog.then(datadog => datadog.id),
+ *     service: exampleService.id,
+ * });
+ * ```
+ */
 export function getVendorOutput(args: GetVendorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVendorResult> {
-    return pulumi.output(args).apply(a => getVendor(a, opts))
+    return pulumi.output(args).apply((a: any) => getVendor(a, opts))
 }
 
 /**

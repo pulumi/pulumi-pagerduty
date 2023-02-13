@@ -182,6 +182,11 @@ namespace Pulumi.Pagerduty
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "endpointUrl",
+                    "snowPassword",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -206,7 +211,16 @@ namespace Pulumi.Pagerduty
     public sealed class ExtensionServiceNowArgs : global::Pulumi.ResourceArgs
     {
         [Input("endpointUrl")]
-        public Input<string>? EndpointUrl { get; set; }
+        private Input<string>? _endpointUrl;
+        public Input<string>? EndpointUrl
+        {
+            get => _endpointUrl;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _endpointUrl = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("extensionObjects", required: true)]
         private InputList<string>? _extensionObjects;
@@ -238,11 +252,21 @@ namespace Pulumi.Pagerduty
         [Input("referer", required: true)]
         public Input<string> Referer { get; set; } = null!;
 
+        [Input("snowPassword", required: true)]
+        private Input<string>? _snowPassword;
+
         /// <summary>
         /// The ServiceNow password.
         /// </summary>
-        [Input("snowPassword", required: true)]
-        public Input<string> SnowPassword { get; set; } = null!;
+        public Input<string>? SnowPassword
+        {
+            get => _snowPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _snowPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The ServiceNow username.
@@ -286,7 +310,16 @@ namespace Pulumi.Pagerduty
     public sealed class ExtensionServiceNowState : global::Pulumi.ResourceArgs
     {
         [Input("endpointUrl")]
-        public Input<string>? EndpointUrl { get; set; }
+        private Input<string>? _endpointUrl;
+        public Input<string>? EndpointUrl
+        {
+            get => _endpointUrl;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _endpointUrl = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("extensionObjects")]
         private InputList<string>? _extensionObjects;
@@ -324,11 +357,21 @@ namespace Pulumi.Pagerduty
         [Input("referer")]
         public Input<string>? Referer { get; set; }
 
+        [Input("snowPassword")]
+        private Input<string>? _snowPassword;
+
         /// <summary>
         /// The ServiceNow password.
         /// </summary>
-        [Input("snowPassword")]
-        public Input<string>? SnowPassword { get; set; }
+        public Input<string>? SnowPassword
+        {
+            get => _snowPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _snowPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The ServiceNow username.

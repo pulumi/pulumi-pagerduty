@@ -132,6 +132,20 @@ class TagAssignment(pulumi.CustomResource):
         """
         A [tag](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEwMA-assign-tags) is applied to Escalation Policies, Teams or Users and can be used to filter them.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        example_tag = pagerduty.Tag("exampleTag", label="API")
+        engteam = pagerduty.Team("engteam")
+        example_tag_assignment = pagerduty.TagAssignment("exampleTagAssignment",
+            tag_id=example_tag.id,
+            entity_type="teams",
+            entity_id=engteam.id)
+        ```
+
         ## Import
 
         Tag assignments can be imported using the `id` which is constructed by taking the `entity` Type, `entity` ID and the `tag` ID separated by a dot, e.g.
@@ -154,6 +168,20 @@ class TagAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A [tag](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEwMA-assign-tags) is applied to Escalation Policies, Teams or Users and can be used to filter them.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        example_tag = pagerduty.Tag("exampleTag", label="API")
+        engteam = pagerduty.Team("engteam")
+        example_tag_assignment = pagerduty.TagAssignment("exampleTagAssignment",
+            tag_id=example_tag.id,
+            entity_type="teams",
+            entity_id=engteam.id)
+        ```
 
         ## Import
 

@@ -29,11 +29,8 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("pagerduty:index/getUser:getUser", {
         "email": args.email,
     }, opts);
@@ -63,9 +60,32 @@ export interface GetUserResult {
      */
     readonly name: string;
 }
-
+/**
+ * Use this data source to get information about a specific [user](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const me = pagerduty.getUser({
+ *     email: "me@example.com",
+ * });
+ * const foo = new pagerduty.EscalationPolicy("foo", {
+ *     numLoops: 2,
+ *     rules: [{
+ *         escalationDelayInMinutes: 10,
+ *         targets: [{
+ *             type: "user",
+ *             id: me.then(me => me.id),
+ *         }],
+ *     }],
+ * });
+ * ```
+ */
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
-    return pulumi.output(args).apply(a => getUser(a, opts))
+    return pulumi.output(args).apply((a: any) => getUser(a, opts))
 }
 
 /**

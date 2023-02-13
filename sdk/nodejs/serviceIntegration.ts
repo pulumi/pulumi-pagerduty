@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -168,7 +169,7 @@ export class ServiceIntegration extends pulumi.CustomResource {
      * Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.
      */
     public readonly emailFilterMode!: pulumi.Output<string>;
-    public readonly emailFilters!: pulumi.Output<outputs.ServiceIntegrationEmailFilter[] | undefined>;
+    public readonly emailFilters!: pulumi.Output<outputs.ServiceIntegrationEmailFilter[]>;
     /**
      * Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `onNewEmail`, `onNewEmailSubject`, `onlyIfNoOpenIncidents` or `useRules`.
      */

@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty
 {
     /// <summary>
-    /// A [contact method](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODI0MA-create-a-user-contact-method) is a contact method for a PagerDuty user (email, phone or SMS).
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

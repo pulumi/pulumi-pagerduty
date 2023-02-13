@@ -267,9 +267,13 @@ class _ServiceState:
         :param pulumi.Input[str] alert_grouping_timeout: (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
         :param pulumi.Input['ServiceAutoPauseNotificationsParametersArgs'] auto_pause_notifications_parameters: Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
         :param pulumi.Input[str] auto_resolve_timeout: Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
+        :param pulumi.Input[str] created_at: Creation timestamp of the service.
         :param pulumi.Input[str] escalation_policy: The escalation policy used by this service.
+        :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app.
+        :param pulumi.Input[str] last_incident_timestamp: Last incident timestamp of the service.
         :param pulumi.Input[str] name: The name of the service.
         :param pulumi.Input[str] response_play: The response play used by this service.
+        :param pulumi.Input[str] status: The status of the service.
         :param pulumi.Input[str] type: The type of alert grouping; one of `intelligent`, `time` or `content_based`.
         """
         if acknowledgement_timeout is not None:
@@ -406,6 +410,9 @@ class _ServiceState:
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[str]]:
+        """
+        Creation timestamp of the service.
+        """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
@@ -436,6 +443,9 @@ class _ServiceState:
     @property
     @pulumi.getter(name="htmlUrl")
     def html_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        URL at which the entity is uniquely displayed in the Web app.
+        """
         return pulumi.get(self, "html_url")
 
     @html_url.setter
@@ -454,6 +464,9 @@ class _ServiceState:
     @property
     @pulumi.getter(name="lastIncidentTimestamp")
     def last_incident_timestamp(self) -> Optional[pulumi.Input[str]]:
+        """
+        Last incident timestamp of the service.
+        """
         return pulumi.get(self, "last_incident_timestamp")
 
     @last_incident_timestamp.setter
@@ -496,6 +509,9 @@ class _ServiceState:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The status of the service.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -749,9 +765,13 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] alert_grouping_timeout: (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
         :param pulumi.Input[pulumi.InputType['ServiceAutoPauseNotificationsParametersArgs']] auto_pause_notifications_parameters: Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
         :param pulumi.Input[str] auto_resolve_timeout: Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
+        :param pulumi.Input[str] created_at: Creation timestamp of the service.
         :param pulumi.Input[str] escalation_policy: The escalation policy used by this service.
+        :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app.
+        :param pulumi.Input[str] last_incident_timestamp: Last incident timestamp of the service.
         :param pulumi.Input[str] name: The name of the service.
         :param pulumi.Input[str] response_play: The response play used by this service.
+        :param pulumi.Input[str] status: The status of the service.
         :param pulumi.Input[str] type: The type of alert grouping; one of `intelligent`, `time` or `content_based`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -838,6 +858,9 @@ class Service(pulumi.CustomResource):
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
+        """
+        Creation timestamp of the service.
+        """
         return pulumi.get(self, "created_at")
 
     @property
@@ -856,6 +879,9 @@ class Service(pulumi.CustomResource):
     @property
     @pulumi.getter(name="htmlUrl")
     def html_url(self) -> pulumi.Output[str]:
+        """
+        URL at which the entity is uniquely displayed in the Web app.
+        """
         return pulumi.get(self, "html_url")
 
     @property
@@ -866,6 +892,9 @@ class Service(pulumi.CustomResource):
     @property
     @pulumi.getter(name="lastIncidentTimestamp")
     def last_incident_timestamp(self) -> pulumi.Output[str]:
+        """
+        Last incident timestamp of the service.
+        """
         return pulumi.get(self, "last_incident_timestamp")
 
     @property
@@ -892,6 +921,9 @@ class Service(pulumi.CustomResource):
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
+        """
+        The status of the service.
+        """
         return pulumi.get(self, "status")
 
     @property

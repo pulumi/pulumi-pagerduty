@@ -44,6 +44,7 @@ class _TagState:
         Input properties used for looking up and filtering Tag resources.
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app.
         :param pulumi.Input[str] label: The label of the tag.
+        :param pulumi.Input[str] summary: A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
         """
         if html_url is not None:
             pulumi.set(__self__, "html_url", html_url)
@@ -79,6 +80,9 @@ class _TagState:
     @property
     @pulumi.getter
     def summary(self) -> Optional[pulumi.Input[str]]:
+        """
+        A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
+        """
         return pulumi.get(self, "summary")
 
     @summary.setter
@@ -195,6 +199,7 @@ class Tag(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app.
         :param pulumi.Input[str] label: The label of the tag.
+        :param pulumi.Input[str] summary: A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -224,5 +229,8 @@ class Tag(pulumi.CustomResource):
     @property
     @pulumi.getter
     def summary(self) -> pulumi.Output[str]:
+        """
+        A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
+        """
         return pulumi.get(self, "summary")
 

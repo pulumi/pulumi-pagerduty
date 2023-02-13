@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,7 +33,7 @@ import (
 //				StartTime: pulumi.String("2015-11-09T20:00:00-05:00"),
 //				EndTime:   pulumi.String("2015-11-09T22:00:00-05:00"),
 //				Services: pulumi.StringArray{
-//					pulumi.Any(pagerduty_service.Example.Id),
+//					pagerduty_service.Example.Id,
 //				},
 //			})
 //			if err != nil {

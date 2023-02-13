@@ -205,10 +205,10 @@ public class ServiceIntegration extends com.pulumi.resources.CustomResource {
         return this.emailFilterMode;
     }
     @Export(name="emailFilters", type=List.class, parameters={ServiceIntegrationEmailFilter.class})
-    private Output</* @Nullable */ List<ServiceIntegrationEmailFilter>> emailFilters;
+    private Output<List<ServiceIntegrationEmailFilter>> emailFilters;
 
-    public Output<Optional<List<ServiceIntegrationEmailFilter>>> emailFilters() {
-        return Codegen.optional(this.emailFilters);
+    public Output<List<ServiceIntegrationEmailFilter>> emailFilters() {
+        return this.emailFilters;
     }
     /**
      * Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `on_new_email`, `on_new_email_subject`, `only_if_no_open_incidents` or `use_rules`.

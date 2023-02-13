@@ -198,9 +198,17 @@ public class Service extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> autoResolveTimeout() {
         return Codegen.optional(this.autoResolveTimeout);
     }
+    /**
+     * Creation timestamp of the service.
+     * 
+     */
     @Export(name="createdAt", type=String.class, parameters={})
     private Output<String> createdAt;
 
+    /**
+     * @return Creation timestamp of the service.
+     * 
+     */
     public Output<String> createdAt() {
         return this.createdAt;
     }
@@ -224,9 +232,17 @@ public class Service extends com.pulumi.resources.CustomResource {
     public Output<String> escalationPolicy() {
         return this.escalationPolicy;
     }
+    /**
+     * URL at which the entity is uniquely displayed in the Web app.
+     * 
+     */
     @Export(name="htmlUrl", type=String.class, parameters={})
     private Output<String> htmlUrl;
 
+    /**
+     * @return URL at which the entity is uniquely displayed in the Web app.
+     * 
+     */
     public Output<String> htmlUrl() {
         return this.htmlUrl;
     }
@@ -236,9 +252,17 @@ public class Service extends com.pulumi.resources.CustomResource {
     public Output<ServiceIncidentUrgencyRule> incidentUrgencyRule() {
         return this.incidentUrgencyRule;
     }
+    /**
+     * Last incident timestamp of the service.
+     * 
+     */
     @Export(name="lastIncidentTimestamp", type=String.class, parameters={})
     private Output<String> lastIncidentTimestamp;
 
+    /**
+     * @return Last incident timestamp of the service.
+     * 
+     */
     public Output<String> lastIncidentTimestamp() {
         return this.lastIncidentTimestamp;
     }
@@ -276,9 +300,17 @@ public class Service extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<ServiceScheduledAction>>> scheduledActions() {
         return Codegen.optional(this.scheduledActions);
     }
+    /**
+     * The status of the service.
+     * 
+     */
     @Export(name="status", type=String.class, parameters={})
     private Output<String> status;
 
+    /**
+     * @return The status of the service.
+     * 
+     */
     public Output<String> status() {
         return this.status;
     }

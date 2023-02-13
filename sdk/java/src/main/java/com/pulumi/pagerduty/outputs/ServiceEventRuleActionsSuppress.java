@@ -29,7 +29,7 @@ public final class ServiceEventRuleActionsSuppress {
      */
     private @Nullable Integer thresholdValue;
     /**
-     * @return The value for the operation. For example, an RE2 regular expression for regex-type variables.
+     * @return Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
      * 
      */
     private @Nullable Boolean value;
@@ -57,7 +57,7 @@ public final class ServiceEventRuleActionsSuppress {
         return Optional.ofNullable(this.thresholdValue);
     }
     /**
-     * @return The value for the operation. For example, an RE2 regular expression for regex-type variables.
+     * @return Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
      * 
      */
     public Optional<Boolean> value() {

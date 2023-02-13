@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -105,14 +106,23 @@ export class Service extends pulumi.CustomResource {
      * Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
      */
     public readonly autoResolveTimeout!: pulumi.Output<string | undefined>;
+    /**
+     * Creation timestamp of the service.
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string>;
     /**
      * The escalation policy used by this service.
      */
     public readonly escalationPolicy!: pulumi.Output<string>;
+    /**
+     * URL at which the entity is uniquely displayed in the Web app.
+     */
     public /*out*/ readonly htmlUrl!: pulumi.Output<string>;
     public readonly incidentUrgencyRule!: pulumi.Output<outputs.ServiceIncidentUrgencyRule>;
+    /**
+     * Last incident timestamp of the service.
+     */
     public /*out*/ readonly lastIncidentTimestamp!: pulumi.Output<string>;
     /**
      * The name of the service.
@@ -123,6 +133,9 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly responsePlay!: pulumi.Output<string | undefined>;
     public readonly scheduledActions!: pulumi.Output<outputs.ServiceScheduledAction[] | undefined>;
+    /**
+     * The status of the service.
+     */
     public /*out*/ readonly status!: pulumi.Output<string>;
     public readonly supportHours!: pulumi.Output<outputs.ServiceSupportHours | undefined>;
     /**
@@ -228,14 +241,23 @@ export interface ServiceState {
      * Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `"null"` string.
      */
     autoResolveTimeout?: pulumi.Input<string>;
+    /**
+     * Creation timestamp of the service.
+     */
     createdAt?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     /**
      * The escalation policy used by this service.
      */
     escalationPolicy?: pulumi.Input<string>;
+    /**
+     * URL at which the entity is uniquely displayed in the Web app.
+     */
     htmlUrl?: pulumi.Input<string>;
     incidentUrgencyRule?: pulumi.Input<inputs.ServiceIncidentUrgencyRule>;
+    /**
+     * Last incident timestamp of the service.
+     */
     lastIncidentTimestamp?: pulumi.Input<string>;
     /**
      * The name of the service.
@@ -246,6 +268,9 @@ export interface ServiceState {
      */
     responsePlay?: pulumi.Input<string>;
     scheduledActions?: pulumi.Input<pulumi.Input<inputs.ServiceScheduledAction>[]>;
+    /**
+     * The status of the service.
+     */
     status?: pulumi.Input<string>;
     supportHours?: pulumi.Input<inputs.ServiceSupportHours>;
     /**

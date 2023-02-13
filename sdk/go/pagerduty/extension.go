@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			webhook, err := pagerduty.GetExtensionSchema(ctx, &GetExtensionSchemaArgs{
+//			webhook, err := pagerduty.GetExtensionSchema(ctx, &pagerduty.GetExtensionSchemaArgs{
 //				Name: "Generic V2 Webhook",
 //			}, nil)
 //			if err != nil {
@@ -43,11 +43,11 @@ import (
 //			}
 //			exampleEscalationPolicy, err := pagerduty.NewEscalationPolicy(ctx, "exampleEscalationPolicy", &pagerduty.EscalationPolicyArgs{
 //				NumLoops: pulumi.Int(2),
-//				Rules: EscalationPolicyRuleArray{
-//					&EscalationPolicyRuleArgs{
+//				Rules: pagerduty.EscalationPolicyRuleArray{
+//					&pagerduty.EscalationPolicyRuleArgs{
 //						EscalationDelayInMinutes: pulumi.Int(10),
-//						Targets: EscalationPolicyRuleTargetArray{
-//							&EscalationPolicyRuleTargetArgs{
+//						Targets: pagerduty.EscalationPolicyRuleTargetArray{
+//							&pagerduty.EscalationPolicyRuleTargetArgs{
 //								Type: pulumi.String("user"),
 //								Id:   exampleUser.ID(),
 //							},
@@ -68,7 +68,7 @@ import (
 //			}
 //			_, err = pagerduty.NewExtension(ctx, "slack", &pagerduty.ExtensionArgs{
 //				EndpointUrl:     pulumi.String("https://generic_webhook_url/XXXXXX/BBBBBB"),
-//				ExtensionSchema: pulumi.String(webhook.Id),
+//				ExtensionSchema: *pulumi.String(webhook.Id),
 //				ExtensionObjects: pulumi.StringArray{
 //					exampleService.ID(),
 //				},
@@ -137,6 +137,13 @@ func NewExtension(ctx *pulumi.Context,
 	if args.ExtensionSchema == nil {
 		return nil, errors.New("invalid value for required argument 'ExtensionSchema'")
 	}
+	if args.EndpointUrl != nil {
+		args.EndpointUrl = pulumi.ToSecret(args.EndpointUrl).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"endpointUrl",
+	})
+	opts = append(opts, secrets)
 	var resource Extension
 	err := ctx.RegisterResource("pagerduty:index/extension:Extension", name, args, &resource, opts...)
 	if err != nil {

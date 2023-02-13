@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,23 +29,23 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := pagerduty.LookupService(ctx, &GetServiceArgs{
+//			example, err := pagerduty.LookupService(ctx, &pagerduty.LookupServiceArgs{
 //				Name: "My Service",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = pagerduty.NewWebhookSubscription(ctx, "foo", &pagerduty.WebhookSubscriptionArgs{
-//				DeliveryMethods: WebhookSubscriptionDeliveryMethodArray{
-//					&WebhookSubscriptionDeliveryMethodArgs{
+//				DeliveryMethods: pagerduty.WebhookSubscriptionDeliveryMethodArray{
+//					&pagerduty.WebhookSubscriptionDeliveryMethodArgs{
 //						Type: pulumi.String("http_delivery_method"),
 //						Url:  pulumi.String("https://example.com/receive_a_pagerduty_webhook"),
-//						CustomHeaders: WebhookSubscriptionDeliveryMethodCustomHeaderArray{
-//							&WebhookSubscriptionDeliveryMethodCustomHeaderArgs{
+//						CustomHeaders: pagerduty.WebhookSubscriptionDeliveryMethodCustomHeaderArray{
+//							&pagerduty.WebhookSubscriptionDeliveryMethodCustomHeaderArgs{
 //								Name:  pulumi.String("X-Foo"),
 //								Value: pulumi.String("foo"),
 //							},
-//							&WebhookSubscriptionDeliveryMethodCustomHeaderArgs{
+//							&pagerduty.WebhookSubscriptionDeliveryMethodCustomHeaderArgs{
 //								Name:  pulumi.String("X-Bar"),
 //								Value: pulumi.String("bar"),
 //							},
@@ -69,9 +69,9 @@ import (
 //					pulumi.String("incident.unacknowledged"),
 //				},
 //				Active: pulumi.Bool(true),
-//				Filters: WebhookSubscriptionFilterArray{
-//					&WebhookSubscriptionFilterArgs{
-//						Id:   pulumi.String(example.Id),
+//				Filters: pagerduty.WebhookSubscriptionFilterArray{
+//					&pagerduty.WebhookSubscriptionFilterArgs{
+//						Id:   *pulumi.String(example.Id),
 //						Type: pulumi.String("service_reference"),
 //					},
 //				},

@@ -113,8 +113,11 @@ class _BusinessServiceState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering BusinessService resources.
+        :param pulumi.Input[str] html_url: A URL at which the entity is uniquely displayed in the Web app.
         :param pulumi.Input[str] name: The name of the business service.
         :param pulumi.Input[str] point_of_contact: The owner of the business service.
+        :param pulumi.Input[str] self: The API show URL at which the object is accessible.
+        :param pulumi.Input[str] summary: A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
         :param pulumi.Input[str] team: ID of the team that owns the business service.
         :param pulumi.Input[str] type: **Deprecated** (Optional) Default (and only supported) value is `business_service`.
         """
@@ -152,6 +155,9 @@ class _BusinessServiceState:
     @property
     @pulumi.getter(name="htmlUrl")
     def html_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        A URL at which the entity is uniquely displayed in the Web app.
+        """
         return pulumi.get(self, "html_url")
 
     @html_url.setter
@@ -185,6 +191,9 @@ class _BusinessServiceState:
     @property
     @pulumi.getter
     def self(self) -> Optional[pulumi.Input[str]]:
+        """
+        The API show URL at which the object is accessible.
+        """
         return pulumi.get(self, "self")
 
     @self.setter
@@ -194,6 +203,9 @@ class _BusinessServiceState:
     @property
     @pulumi.getter
     def summary(self) -> Optional[pulumi.Input[str]]:
+        """
+        A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+        """
         return pulumi.get(self, "summary")
 
     @summary.setter
@@ -362,8 +374,11 @@ class BusinessService(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] html_url: A URL at which the entity is uniquely displayed in the Web app.
         :param pulumi.Input[str] name: The name of the business service.
         :param pulumi.Input[str] point_of_contact: The owner of the business service.
+        :param pulumi.Input[str] self: The API show URL at which the object is accessible.
+        :param pulumi.Input[str] summary: A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
         :param pulumi.Input[str] team: ID of the team that owns the business service.
         :param pulumi.Input[str] type: **Deprecated** (Optional) Default (and only supported) value is `business_service`.
         """
@@ -389,6 +404,9 @@ class BusinessService(pulumi.CustomResource):
     @property
     @pulumi.getter(name="htmlUrl")
     def html_url(self) -> pulumi.Output[str]:
+        """
+        A URL at which the entity is uniquely displayed in the Web app.
+        """
         return pulumi.get(self, "html_url")
 
     @property
@@ -410,11 +428,17 @@ class BusinessService(pulumi.CustomResource):
     @property
     @pulumi.getter
     def self(self) -> pulumi.Output[str]:
+        """
+        The API show URL at which the object is accessible.
+        """
         return pulumi.get(self, "self")
 
     @property
     @pulumi.getter
     def summary(self) -> pulumi.Output[str]:
+        """
+        A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+        """
         return pulumi.get(self, "summary")
 
     @property

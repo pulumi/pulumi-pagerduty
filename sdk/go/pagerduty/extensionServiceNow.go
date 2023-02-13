@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			servicenow, err := pagerduty.GetExtensionSchema(ctx, &GetExtensionSchemaArgs{
+//			servicenow, err := pagerduty.GetExtensionSchema(ctx, &pagerduty.GetExtensionSchemaArgs{
 //				Name: "ServiceNow (v7)",
 //			}, nil)
 //			if err != nil {
@@ -41,11 +41,11 @@ import (
 //			}
 //			exampleEscalationPolicy, err := pagerduty.NewEscalationPolicy(ctx, "exampleEscalationPolicy", &pagerduty.EscalationPolicyArgs{
 //				NumLoops: pulumi.Int(2),
-//				Rules: EscalationPolicyRuleArray{
-//					&EscalationPolicyRuleArgs{
+//				Rules: pagerduty.EscalationPolicyRuleArray{
+//					&pagerduty.EscalationPolicyRuleArgs{
 //						EscalationDelayInMinutes: pulumi.Int(10),
-//						Targets: EscalationPolicyRuleTargetArray{
-//							&EscalationPolicyRuleTargetArgs{
+//						Targets: pagerduty.EscalationPolicyRuleTargetArray{
+//							&pagerduty.EscalationPolicyRuleTargetArgs{
 //								Type: pulumi.String("user"),
 //								Id:   exampleUser.ID(),
 //							},
@@ -65,7 +65,7 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewExtensionServiceNow(ctx, "snow", &pagerduty.ExtensionServiceNowArgs{
-//				ExtensionSchema: pulumi.String(servicenow.Id),
+//				ExtensionSchema: *pulumi.String(servicenow.Id),
 //				ExtensionObjects: pulumi.StringArray{
 //					exampleService.ID(),
 //				},
@@ -154,6 +154,17 @@ func NewExtensionServiceNow(ctx *pulumi.Context,
 	if args.TaskType == nil {
 		return nil, errors.New("invalid value for required argument 'TaskType'")
 	}
+	if args.EndpointUrl != nil {
+		args.EndpointUrl = pulumi.ToSecret(args.EndpointUrl).(pulumi.StringPtrInput)
+	}
+	if args.SnowPassword != nil {
+		args.SnowPassword = pulumi.ToSecret(args.SnowPassword).(pulumi.StringInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"endpointUrl",
+		"snowPassword",
+	})
+	opts = append(opts, secrets)
 	var resource ExtensionServiceNow
 	err := ctx.RegisterResource("pagerduty:index/extensionServiceNow:ExtensionServiceNow", name, args, &resource, opts...)
 	if err != nil {

@@ -26,7 +26,7 @@ class ExtensionArgs:
         :param pulumi.Input[str] extension_schema: This is the schema for this extension.
         :param pulumi.Input[str] config: The configuration of the service extension as string containing plain JSON-encoded data.
         :param pulumi.Input[str] endpoint_url: The url of the extension.
-               **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `get_extension_schema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpoint_url`, but one with named `Slack` accepts.
+               **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, _get_extension_schema_ named `Generic V2 Webhook` doesn't accept `Extension` with no `endpoint_url`, but one with named `Slack` accepts.
         :param pulumi.Input[str] name: The name of the service extension.
         """
         pulumi.set(__self__, "extension_objects", extension_objects)
@@ -81,7 +81,7 @@ class ExtensionArgs:
     def endpoint_url(self) -> Optional[pulumi.Input[str]]:
         """
         The url of the extension.
-        **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `get_extension_schema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpoint_url`, but one with named `Slack` accepts.
+        **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, _get_extension_schema_ named `Generic V2 Webhook` doesn't accept `Extension` with no `endpoint_url`, but one with named `Slack` accepts.
         """
         return pulumi.get(self, "endpoint_url")
 
@@ -126,7 +126,7 @@ class _ExtensionState:
         Input properties used for looking up and filtering Extension resources.
         :param pulumi.Input[str] config: The configuration of the service extension as string containing plain JSON-encoded data.
         :param pulumi.Input[str] endpoint_url: The url of the extension.
-               **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `get_extension_schema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpoint_url`, but one with named `Slack` accepts.
+               **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, _get_extension_schema_ named `Generic V2 Webhook` doesn't accept `Extension` with no `endpoint_url`, but one with named `Slack` accepts.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extension_objects: This is the objects for which the extension applies (An array of service ids).
         :param pulumi.Input[str] extension_schema: This is the schema for this extension.
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app
@@ -167,7 +167,7 @@ class _ExtensionState:
     def endpoint_url(self) -> Optional[pulumi.Input[str]]:
         """
         The url of the extension.
-        **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `get_extension_schema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpoint_url`, but one with named `Slack` accepts.
+        **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, _get_extension_schema_ named `Generic V2 Webhook` doesn't accept `Extension` with no `endpoint_url`, but one with named `Slack` accepts.
         """
         return pulumi.get(self, "endpoint_url")
 
@@ -309,7 +309,7 @@ class Extension(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] config: The configuration of the service extension as string containing plain JSON-encoded data.
         :param pulumi.Input[str] endpoint_url: The url of the extension.
-               **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `get_extension_schema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpoint_url`, but one with named `Slack` accepts.
+               **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, _get_extension_schema_ named `Generic V2 Webhook` doesn't accept `Extension` with no `endpoint_url`, but one with named `Slack` accepts.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extension_objects: This is the objects for which the extension applies (An array of service ids).
         :param pulumi.Input[str] extension_schema: This is the schema for this extension.
         :param pulumi.Input[str] name: The name of the service extension.
@@ -399,7 +399,7 @@ class Extension(pulumi.CustomResource):
             __props__ = ExtensionArgs.__new__(ExtensionArgs)
 
             __props__.__dict__["config"] = config
-            __props__.__dict__["endpoint_url"] = endpoint_url
+            __props__.__dict__["endpoint_url"] = None if endpoint_url is None else pulumi.Output.secret(endpoint_url)
             if extension_objects is None and not opts.urn:
                 raise TypeError("Missing required property 'extension_objects'")
             __props__.__dict__["extension_objects"] = extension_objects
@@ -410,6 +410,8 @@ class Extension(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["html_url"] = None
             __props__.__dict__["summary"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["endpointUrl"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Extension, __self__).__init__(
             'pagerduty:index/extension:Extension',
             resource_name,
@@ -437,7 +439,7 @@ class Extension(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] config: The configuration of the service extension as string containing plain JSON-encoded data.
         :param pulumi.Input[str] endpoint_url: The url of the extension.
-               **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `get_extension_schema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpoint_url`, but one with named `Slack` accepts.
+               **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, _get_extension_schema_ named `Generic V2 Webhook` doesn't accept `Extension` with no `endpoint_url`, but one with named `Slack` accepts.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extension_objects: This is the objects for which the extension applies (An array of service ids).
         :param pulumi.Input[str] extension_schema: This is the schema for this extension.
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app
@@ -471,7 +473,7 @@ class Extension(pulumi.CustomResource):
     def endpoint_url(self) -> pulumi.Output[Optional[str]]:
         """
         The url of the extension.
-        **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `get_extension_schema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpoint_url`, but one with named `Slack` accepts.
+        **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, _get_extension_schema_ named `Generic V2 Webhook` doesn't accept `Extension` with no `endpoint_url`, but one with named `Slack` accepts.
         """
         return pulumi.get(self, "endpoint_url")
 

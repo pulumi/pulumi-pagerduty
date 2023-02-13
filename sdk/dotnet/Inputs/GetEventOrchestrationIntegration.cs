@@ -14,7 +14,6 @@ namespace Pulumi.Pagerduty.Inputs
     {
         /// <summary>
         /// ID of the integration
-        /// * `parameters`
         /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;

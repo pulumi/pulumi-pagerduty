@@ -71,7 +71,7 @@ class AwaitableGetBusinessServiceResult(GetBusinessServiceResult):
 def get_business_service(name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBusinessServiceResult:
     """
-    Use this data source to get information about a specific [business service][1].
+    Use this data source to get information about a specific [business service](https://api-reference.pagerduty.com/#!/Business_Services/get_business_services).
 
     ## Example Usage
 
@@ -100,7 +100,7 @@ def get_business_service(name: Optional[str] = None,
 def get_business_service_output(name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBusinessServiceResult]:
     """
-    Use this data source to get information about a specific [business service][1].
+    Use this data source to get information about a specific [business service](https://api-reference.pagerduty.com/#!/Business_Services/get_business_services).
 
     ## Example Usage
 

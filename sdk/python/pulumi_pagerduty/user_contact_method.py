@@ -260,8 +260,6 @@ class UserContactMethod(pulumi.CustomResource):
                  user_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        A [contact method](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODI0MA-create-a-user-contact-method) is a contact method for a PagerDuty user (email, phone or SMS).
-
         ## Example Usage
 
         ```python
@@ -314,8 +312,6 @@ class UserContactMethod(pulumi.CustomResource):
                  args: UserContactMethodArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        A [contact method](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODI0MA-create-a-user-contact-method) is a contact method for a PagerDuty user (email, phone or SMS).
-
         ## Example Usage
 
         ```python

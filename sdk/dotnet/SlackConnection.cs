@@ -87,6 +87,9 @@ namespace Pulumi.Pagerduty
         [Output("channelId")]
         public Output<string> ChannelId { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the Slack channel in Slack connection.
+        /// </summary>
         [Output("channelName")]
         public Output<string> ChannelName { get; private set; } = null!;
 
@@ -108,6 +111,9 @@ namespace Pulumi.Pagerduty
         [Output("sourceId")]
         public Output<string> SourceId { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the source (team or service) in Slack connection.
+        /// </summary>
         [Output("sourceName")]
         public Output<string> SourceName { get; private set; } = null!;
 
@@ -225,6 +231,9 @@ namespace Pulumi.Pagerduty
         [Input("channelId")]
         public Input<string>? ChannelId { get; set; }
 
+        /// <summary>
+        /// Name of the Slack channel in Slack connection.
+        /// </summary>
         [Input("channelName")]
         public Input<string>? ChannelName { get; set; }
 
@@ -252,6 +261,9 @@ namespace Pulumi.Pagerduty
         [Input("sourceId")]
         public Input<string>? SourceId { get; set; }
 
+        /// <summary>
+        /// Name of the source (team or service) in Slack connection.
+        /// </summary>
         [Input("sourceName")]
         public Input<string>? SourceName { get; set; }
 

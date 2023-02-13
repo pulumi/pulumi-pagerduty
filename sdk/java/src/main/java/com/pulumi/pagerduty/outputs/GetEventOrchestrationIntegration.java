@@ -13,7 +13,6 @@ import java.util.Objects;
 public final class GetEventOrchestrationIntegration {
     /**
      * @return ID of the integration
-     * * `parameters`
      * 
      */
     private String id;
@@ -22,7 +21,6 @@ public final class GetEventOrchestrationIntegration {
     private GetEventOrchestrationIntegration() {}
     /**
      * @return ID of the integration
-     * * `parameters`
      * 
      */
     public String id() {

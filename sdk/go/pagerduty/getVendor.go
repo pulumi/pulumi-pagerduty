@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			datadog, err := pagerduty.GetVendor(ctx, &GetVendorArgs{
+//			datadog, err := pagerduty.GetVendor(ctx, &pagerduty.GetVendorArgs{
 //				Name: "Datadog",
 //			}, nil)
 //			if err != nil {
@@ -35,7 +35,7 @@ import (
 //			exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
 //				Email: pulumi.String("125.greenholt.earline@graham.name"),
 //				Teams: pulumi.StringArray{
-//					pulumi.Any(pagerduty_team.Example.Id),
+//					pagerduty_team.Example.Id,
 //				},
 //			})
 //			if err != nil {
@@ -43,11 +43,11 @@ import (
 //			}
 //			_, err = pagerduty.NewEscalationPolicy(ctx, "foo", &pagerduty.EscalationPolicyArgs{
 //				NumLoops: pulumi.Int(2),
-//				Rules: EscalationPolicyRuleArray{
-//					&EscalationPolicyRuleArgs{
+//				Rules: pagerduty.EscalationPolicyRuleArray{
+//					&pagerduty.EscalationPolicyRuleArgs{
 //						EscalationDelayInMinutes: pulumi.Int(10),
-//						Targets: EscalationPolicyRuleTargetArray{
-//							&EscalationPolicyRuleTargetArgs{
+//						Targets: pagerduty.EscalationPolicyRuleTargetArray{
+//							&pagerduty.EscalationPolicyRuleTargetArgs{
 //								Type: pulumi.String("user"),
 //								Id:   exampleUser.ID(),
 //							},
@@ -67,7 +67,7 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewServiceIntegration(ctx, "exampleServiceIntegration", &pagerduty.ServiceIntegrationArgs{
-//				Vendor:  pulumi.String(datadog.Id),
+//				Vendor:  *pulumi.String(datadog.Id),
 //				Service: exampleService.ID(),
 //			})
 //			if err != nil {

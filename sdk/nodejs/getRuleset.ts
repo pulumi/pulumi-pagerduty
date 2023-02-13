@@ -52,17 +52,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const defaultGlobal = pulumi.output(pagerduty.getRuleset({
+ * const defaultGlobal = pagerduty.getRuleset({
  *     name: "Default Global",
- * }));
+ * });
  * ```
  */
 export function getRuleset(args: GetRulesetArgs, opts?: pulumi.InvokeOptions): Promise<GetRulesetResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("pagerduty:index/getRuleset:getRuleset", {
         "name": args.name,
     }, opts);
@@ -95,9 +92,61 @@ export interface GetRulesetResult {
      */
     readonly routingKeys: string[];
 }
-
+/**
+ * Use this data source to get information about a specific [ruleset](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE3MQ-list-rulesets) that you can use for managing and grouping [event rules](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE3Ng-list-event-rules).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const example = pagerduty.getRuleset({
+ *     name: "My Ruleset",
+ * });
+ * const foo = new pagerduty.RulesetRule("foo", {
+ *     ruleset: example.then(example => example.id),
+ *     position: 0,
+ *     disabled: false,
+ *     conditions: {
+ *         operator: "and",
+ *         subconditions: [
+ *             {
+ *                 operator: "contains",
+ *                 parameters: [{
+ *                     value: "disk space",
+ *                     path: "payload.summary",
+ *                 }],
+ *             },
+ *             {
+ *                 operator: "contains",
+ *                 parameters: [{
+ *                     value: "db",
+ *                     path: "payload.source",
+ *                 }],
+ *             },
+ *         ],
+ *     },
+ *     actions: {
+ *         routes: [{
+ *             value: "P5DTL0K",
+ *         }],
+ *     },
+ * });
+ * ```
+ * ### Default Global Ruleset
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const defaultGlobal = pagerduty.getRuleset({
+ *     name: "Default Global",
+ * });
+ * ```
+ */
 export function getRulesetOutput(args: GetRulesetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRulesetResult> {
-    return pulumi.output(args).apply(a => getRuleset(a, opts))
+    return pulumi.output(args).apply((a: any) => getRuleset(a, opts))
 }
 
 /**

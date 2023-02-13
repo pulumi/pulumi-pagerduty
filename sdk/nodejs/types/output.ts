@@ -2,7 +2,27 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+
+export interface AutomationActionsActionActionDataReference {
+    /**
+     * The command to execute the script with.
+     */
+    invocationCommand?: string;
+    /**
+     * The arguments to pass to the Process Automation job execution.
+     */
+    processAutomationJobArguments?: string;
+    /**
+     * The ID of the Process Automation job to execute.
+     */
+    processAutomationJobId?: string;
+    /**
+     * Body of the script to be executed on the Runner. Max length is 16777215 characters.
+     */
+    script?: string;
+}
 
 export interface EscalationPolicyRule {
     /**
@@ -30,7 +50,6 @@ export interface EscalationPolicyRuleTarget {
 export interface EventOrchestrationIntegration {
     /**
      * ID of the integration
-     * * `parameters`
      */
     id: string;
     parameters: outputs.EventOrchestrationIntegrationParameter[];
@@ -591,16 +610,68 @@ export interface EventOrchestrationUnroutedSetRuleCondition {
     expression: string;
 }
 
+export interface GetAutomationActionsActionActionDataReference {
+    /**
+     * (Optional) The command to execute the script with.
+     */
+    invocationCommand: string;
+    /**
+     * (Optional) The arguments to pass to the Process Automation job execution.
+     */
+    processAutomationJobArguments: string;
+    /**
+     * (Required for `processAutomation` action_type) The ID of the Process Automation job to execute.
+     */
+    processAutomationJobId: string;
+    /**
+     * (Required for `script` action_type) Body of the script to be executed on the Runner. Max length is 16777215 characters.
+     */
+    script: string;
+}
+
 export interface GetEventOrchestrationIntegration {
     /**
      * ID of the integration
-     * * `parameters`
      */
     id: string;
     parameters: outputs.GetEventOrchestrationIntegrationParameter[];
 }
 
 export interface GetEventOrchestrationIntegrationParameter {
+    /**
+     * Routing key that routes to this Orchestration.
+     */
+    routingKey: string;
+    /**
+     * Type of the routing key. `global` is the default type.
+     */
+    type: string;
+}
+
+export interface GetEventOrchestrationsEventOrchestration {
+    /**
+     * ID of the integration
+     */
+    id: string;
+    /**
+     * An integration for the Event Orchestration.
+     */
+    integrations: outputs.GetEventOrchestrationsEventOrchestrationIntegration[];
+    /**
+     * The name of the found Event Orchestration.
+     */
+    name: string;
+}
+
+export interface GetEventOrchestrationsEventOrchestrationIntegration {
+    /**
+     * ID of the integration
+     */
+    id: string;
+    parameters: outputs.GetEventOrchestrationsEventOrchestrationIntegrationParameter[];
+}
+
+export interface GetEventOrchestrationsEventOrchestrationIntegrationParameter {
     /**
      * Routing key that routes to this Orchestration.
      */
@@ -624,6 +695,37 @@ export interface GetUsersUser {
      * The short name of the found user.
      */
     name: string;
+}
+
+export interface IncidentWorkflowStep {
+    /**
+     * The action id for the workflow step, including the version. A list of actions available can be retrieved using the [PagerDuty API](https://developer.pagerduty.com/api-reference/aa192a25fac39-list-actions).
+     */
+    action: string;
+    /**
+     * The ID of the incident workflow.
+     */
+    id: string;
+    /**
+     * The list of inputs for the workflow action.
+     */
+    inputs: outputs.IncidentWorkflowStepInput[];
+    /**
+     * The name of the workflow step.
+     */
+    name: string;
+}
+
+export interface IncidentWorkflowStepInput {
+    generated: boolean;
+    /**
+     * The name of the input.
+     */
+    name: string;
+    /**
+     * The value of the input.
+     */
+    value: string;
 }
 
 export interface ResponsePlayResponder {
@@ -1092,14 +1194,14 @@ export interface ServiceEventRuleActions {
 
 export interface ServiceEventRuleActionsAnnotate {
     /**
-     * The value for the operation. For example, an RE2 regular expression for regex-type variables.
+     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
      */
     value?: string;
 }
 
 export interface ServiceEventRuleActionsEventAction {
     /**
-     * The value for the operation. For example, an RE2 regular expression for regex-type variables.
+     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
      */
     value?: string;
 }
@@ -1125,14 +1227,14 @@ export interface ServiceEventRuleActionsExtraction {
 
 export interface ServiceEventRuleActionsPriority {
     /**
-     * The value for the operation. For example, an RE2 regular expression for regex-type variables.
+     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
      */
     value?: string;
 }
 
 export interface ServiceEventRuleActionsSeverity {
     /**
-     * The value for the operation. For example, an RE2 regular expression for regex-type variables.
+     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
      */
     value?: string;
 }
@@ -1151,14 +1253,14 @@ export interface ServiceEventRuleActionsSuppress {
      */
     thresholdValue?: number;
     /**
-     * The value for the operation. For example, an RE2 regular expression for regex-type variables.
+     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
      */
     value?: boolean;
 }
 
 export interface ServiceEventRuleActionsSuspend {
     /**
-     * The value for the operation. For example, an RE2 regular expression for regex-type variables.
+     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
      */
     value?: number;
 }
@@ -1191,7 +1293,7 @@ export interface ServiceEventRuleConditionsSubconditionParameter {
      */
     path?: string;
     /**
-     * The value for the operation. For example, an RE2 regular expression for regex-type variables.
+     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
      */
     value?: string;
 }
@@ -1258,7 +1360,7 @@ export interface ServiceEventRuleVariableParameter {
      */
     path?: string;
     /**
-     * The value for the operation. For example, an RE2 regular expression for regex-type variables.
+     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
      */
     value?: string;
 }

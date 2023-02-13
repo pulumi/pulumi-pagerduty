@@ -31,14 +31,14 @@ public final class ServiceEventRuleVariableParameterArgs extends com.pulumi.reso
     }
 
     /**
-     * The value for the operation. For example, an RE2 regular expression for regex-type variables.
+     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
      * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
-     * @return The value for the operation. For example, an RE2 regular expression for regex-type variables.
+     * @return Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
      * 
      */
     public Optional<Output<String>> value() {
@@ -92,7 +92,7 @@ public final class ServiceEventRuleVariableParameterArgs extends com.pulumi.reso
         }
 
         /**
-         * @param value The value for the operation. For example, an RE2 regular expression for regex-type variables.
+         * @param value Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ServiceEventRuleVariableParameterArgs extends com.pulumi.reso
         }
 
         /**
-         * @param value The value for the operation. For example, an RE2 regular expression for regex-type variables.
+         * @param value Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
          * 
          * @return builder
          * 

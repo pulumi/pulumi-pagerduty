@@ -15,7 +15,6 @@ namespace Pulumi.Pagerduty.Outputs
     {
         /// <summary>
         /// ID of the integration
-        /// * `parameters`
         /// </summary>
         public readonly string? Id;
         public readonly ImmutableArray<Outputs.EventOrchestrationIntegrationParameter> Parameters;

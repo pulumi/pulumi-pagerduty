@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,7 +30,7 @@ import (
 //			exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
 //				Email: pulumi.String("125.greenholt.earline@graham.name"),
 //				Teams: pulumi.StringArray{
-//					pulumi.Any(pagerduty_team.Example.Id),
+//					pagerduty_team.Example.Id,
 //				},
 //			})
 //			if err != nil {
@@ -38,11 +38,11 @@ import (
 //			}
 //			_, err = pagerduty.NewEscalationPolicy(ctx, "foo", &pagerduty.EscalationPolicyArgs{
 //				NumLoops: pulumi.Int(2),
-//				Rules: EscalationPolicyRuleArray{
-//					&EscalationPolicyRuleArgs{
+//				Rules: pagerduty.EscalationPolicyRuleArray{
+//					&pagerduty.EscalationPolicyRuleArgs{
 //						EscalationDelayInMinutes: pulumi.Int(10),
-//						Targets: EscalationPolicyRuleTargetArray{
-//							&EscalationPolicyRuleTargetArgs{
+//						Targets: pagerduty.EscalationPolicyRuleTargetArray{
+//							&pagerduty.EscalationPolicyRuleTargetArgs{
 //								Type: pulumi.String("user"),
 //								Id:   exampleUser.ID(),
 //							},
@@ -84,7 +84,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			datadogVendor, err := pagerduty.GetVendor(ctx, &GetVendorArgs{
+//			datadogVendor, err := pagerduty.GetVendor(ctx, &pagerduty.GetVendorArgs{
 //				Name: "Datadog",
 //			}, nil)
 //			if err != nil {
@@ -92,12 +92,12 @@ import (
 //			}
 //			_, err = pagerduty.NewServiceIntegration(ctx, "datadogServiceIntegration", &pagerduty.ServiceIntegrationArgs{
 //				Service: exampleService.ID(),
-//				Vendor:  pulumi.String(datadogVendor.Id),
+//				Vendor:  *pulumi.String(datadogVendor.Id),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			cloudwatchVendor, err := pagerduty.GetVendor(ctx, &GetVendorArgs{
+//			cloudwatchVendor, err := pagerduty.GetVendor(ctx, &pagerduty.GetVendorArgs{
 //				Name: "Cloudwatch",
 //			}, nil)
 //			if err != nil {
@@ -105,12 +105,12 @@ import (
 //			}
 //			_, err = pagerduty.NewServiceIntegration(ctx, "cloudwatchServiceIntegration", &pagerduty.ServiceIntegrationArgs{
 //				Service: exampleService.ID(),
-//				Vendor:  pulumi.String(cloudwatchVendor.Id),
+//				Vendor:  *pulumi.String(cloudwatchVendor.Id),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			emailVendor, err := pagerduty.GetVendor(ctx, &GetVendorArgs{
+//			emailVendor, err := pagerduty.GetVendor(ctx, &pagerduty.GetVendorArgs{
 //				Name: "Email",
 //			}, nil)
 //			if err != nil {
@@ -118,12 +118,12 @@ import (
 //			}
 //			_, err = pagerduty.NewServiceIntegration(ctx, "emailServiceIntegration", &pagerduty.ServiceIntegrationArgs{
 //				Service:               exampleService.ID(),
-//				Vendor:                pulumi.String(emailVendor.Id),
+//				Vendor:                *pulumi.String(emailVendor.Id),
 //				IntegrationEmail:      pulumi.String("s1@your_account.pagerduty.com"),
 //				EmailIncidentCreation: pulumi.String("use_rules"),
 //				EmailFilterMode:       pulumi.String("and-rules-email"),
-//				EmailFilters: ServiceIntegrationEmailFilterArray{
-//					&ServiceIntegrationEmailFilterArgs{
+//				EmailFilters: pagerduty.ServiceIntegrationEmailFilterArray{
+//					&pagerduty.ServiceIntegrationEmailFilterArgs{
 //						BodyMode:       pulumi.String("always"),
 //						BodyRegex:      nil,
 //						FromEmailMode:  pulumi.String("match"),
@@ -131,7 +131,7 @@ import (
 //						SubjectMode:    pulumi.String("match"),
 //						SubjectRegex:   pulumi.String("(CRITICAL*)"),
 //					},
-//					&ServiceIntegrationEmailFilterArgs{
+//					&pagerduty.ServiceIntegrationEmailFilterArgs{
 //						BodyMode:       pulumi.String("always"),
 //						BodyRegex:      nil,
 //						FromEmailMode:  pulumi.String("match"),
@@ -140,21 +140,21 @@ import (
 //						SubjectRegex:   pulumi.String("(CRITICAL*)"),
 //					},
 //				},
-//				EmailParsers: ServiceIntegrationEmailParserArray{
-//					&ServiceIntegrationEmailParserArgs{
+//				EmailParsers: pagerduty.ServiceIntegrationEmailParserArray{
+//					&pagerduty.ServiceIntegrationEmailParserArgs{
 //						Action: pulumi.String("resolve"),
-//						MatchPredicate: &ServiceIntegrationEmailParserMatchPredicateArgs{
+//						MatchPredicate: &pagerduty.ServiceIntegrationEmailParserMatchPredicateArgs{
 //							Type: pulumi.String("any"),
-//							Predicates: ServiceIntegrationEmailParserMatchPredicatePredicateArray{
-//								&ServiceIntegrationEmailParserMatchPredicatePredicateArgs{
+//							Predicates: pagerduty.ServiceIntegrationEmailParserMatchPredicatePredicateArray{
+//								&pagerduty.ServiceIntegrationEmailParserMatchPredicatePredicateArgs{
 //									Matcher: pulumi.String("foo"),
 //									Part:    pulumi.String("subject"),
 //									Type:    pulumi.String("contains"),
 //								},
-//								&ServiceIntegrationEmailParserMatchPredicatePredicateArgs{
+//								&pagerduty.ServiceIntegrationEmailParserMatchPredicatePredicateArgs{
 //									Type: pulumi.String("not"),
-//									Predicates: ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArray{
-//										&ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs{
+//									Predicates: pagerduty.ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArray{
+//										&pagerduty.ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs{
 //											Matcher: pulumi.String("(bar*)"),
 //											Part:    pulumi.String("body"),
 //											Type:    pulumi.String("regex"),
@@ -163,15 +163,15 @@ import (
 //								},
 //							},
 //						},
-//						ValueExtractors: ServiceIntegrationEmailParserValueExtractorArray{
-//							&ServiceIntegrationEmailParserValueExtractorArgs{
+//						ValueExtractors: pagerduty.ServiceIntegrationEmailParserValueExtractorArray{
+//							&pagerduty.ServiceIntegrationEmailParserValueExtractorArgs{
 //								EndsBefore:  pulumi.String("end"),
 //								Part:        pulumi.String("subject"),
 //								StartsAfter: pulumi.String("start"),
 //								Type:        pulumi.String("between"),
 //								ValueName:   pulumi.String("incident_key"),
 //							},
-//							&ServiceIntegrationEmailParserValueExtractorArgs{
+//							&pagerduty.ServiceIntegrationEmailParserValueExtractorArgs{
 //								EndsBefore:  pulumi.String("end"),
 //								Part:        pulumi.String("subject"),
 //								StartsAfter: pulumi.String("start"),

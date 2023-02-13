@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := pagerduty.LookupSchedule(ctx, &GetScheduleArgs{
+//			test, err := pagerduty.LookupSchedule(ctx, &pagerduty.LookupScheduleArgs{
 //				Name: "Daily Engineering Rotation",
 //			}, nil)
 //			if err != nil {
@@ -34,13 +34,13 @@ import (
 //			}
 //			_, err = pagerduty.NewEscalationPolicy(ctx, "foo", &pagerduty.EscalationPolicyArgs{
 //				NumLoops: pulumi.Int(2),
-//				Rules: EscalationPolicyRuleArray{
-//					&EscalationPolicyRuleArgs{
+//				Rules: pagerduty.EscalationPolicyRuleArray{
+//					&pagerduty.EscalationPolicyRuleArgs{
 //						EscalationDelayInMinutes: pulumi.Int(10),
-//						Targets: EscalationPolicyRuleTargetArray{
-//							&EscalationPolicyRuleTargetArgs{
+//						Targets: pagerduty.EscalationPolicyRuleTargetArray{
+//							&pagerduty.EscalationPolicyRuleTargetArgs{
 //								Type: pulumi.String("schedule"),
-//								Id:   pulumi.String(test.Id),
+//								Id:   *pulumi.String(test.Id),
 //							},
 //						},
 //					},

@@ -24,11 +24,8 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getEscalationPolicy(args: GetEscalationPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetEscalationPolicyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("pagerduty:index/getEscalationPolicy:getEscalationPolicy", {
         "name": args.name,
     }, opts);
@@ -57,9 +54,27 @@ export interface GetEscalationPolicyResult {
      */
     readonly name: string;
 }
-
+/**
+ * Use this data source to get information about a specific [escalation policy](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEyNA-list-escalation-policies) that you can use for other PagerDuty resources.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const testEscalationPolicy = pagerduty.getEscalationPolicy({
+ *     name: "Engineering Escalation Policy",
+ * });
+ * const testService = new pagerduty.Service("testService", {
+ *     autoResolveTimeout: "14400",
+ *     acknowledgementTimeout: "600",
+ *     escalationPolicy: testEscalationPolicy.then(testEscalationPolicy => testEscalationPolicy.id),
+ * });
+ * ```
+ */
 export function getEscalationPolicyOutput(args: GetEscalationPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEscalationPolicyResult> {
-    return pulumi.output(args).apply(a => getEscalationPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getEscalationPolicy(a, opts))
 }
 
 /**

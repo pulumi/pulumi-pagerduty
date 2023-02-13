@@ -13,9 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const example = new pagerduty.Tag("example", {
- *     label: "Product",
- * });
+ * const example = new pagerduty.Tag("example", {label: "Product"});
  * ```
  *
  * ## Import
@@ -62,6 +60,9 @@ export class Tag extends pulumi.CustomResource {
      * The label of the tag.
      */
     public readonly label!: pulumi.Output<string>;
+    /**
+     * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
+     */
     public /*out*/ readonly summary!: pulumi.Output<string>;
 
     /**
@@ -106,6 +107,9 @@ export interface TagState {
      * The label of the tag.
      */
     label?: pulumi.Input<string>;
+    /**
+     * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
+     */
     summary?: pulumi.Input<string>;
 }
 

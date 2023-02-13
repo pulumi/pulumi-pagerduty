@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceEventRuleActionsSuspend {
     /**
-     * @return The value for the operation. For example, an RE2 regular expression for regex-type variables.
+     * @return Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
      * 
      */
     private @Nullable Integer value;
 
     private ServiceEventRuleActionsSuspend() {}
     /**
-     * @return The value for the operation. For example, an RE2 regular expression for regex-type variables.
+     * @return Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
      * 
      */
     public Optional<Integer> value() {

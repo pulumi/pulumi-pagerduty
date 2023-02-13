@@ -19,7 +19,7 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// The value for the operation. For example, an RE2 regular expression for regex-type variables.
+        /// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

@@ -26,21 +26,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			me, err := pagerduty.LookupUser(ctx, &GetUserArgs{
+//			me, err := pagerduty.LookupUser(ctx, &pagerduty.LookupUserArgs{
 //				Email: "me@example.com",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			devops, err := pagerduty.LookupTag(ctx, &GetTagArgs{
+//			devops, err := pagerduty.LookupTag(ctx, &pagerduty.LookupTagArgs{
 //				Label: "devops",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = pagerduty.NewTagAssignment(ctx, "foo", &pagerduty.TagAssignmentArgs{
-//				TagId:      pulumi.String(devops.Id),
-//				EntityId:   pulumi.String(me.Id),
+//				TagId:      *pulumi.String(devops.Id),
+//				EntityId:   *pulumi.String(me.Id),
 //				EntityType: pulumi.String("users"),
 //			})
 //			if err != nil {

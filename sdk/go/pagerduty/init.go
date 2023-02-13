@@ -22,6 +22,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "pagerduty:index/addon:Addon":
 		r = &Addon{}
+	case "pagerduty:index/automationActionsAction:AutomationActionsAction":
+		r = &AutomationActionsAction{}
+	case "pagerduty:index/automationActionsActionServiceAssociation:AutomationActionsActionServiceAssociation":
+		r = &AutomationActionsActionServiceAssociation{}
+	case "pagerduty:index/automationActionsActionTeamAssociation:AutomationActionsActionTeamAssociation":
+		r = &AutomationActionsActionTeamAssociation{}
+	case "pagerduty:index/automationActionsRunner:AutomationActionsRunner":
+		r = &AutomationActionsRunner{}
+	case "pagerduty:index/automationActionsRunnerTeamAssociation:AutomationActionsRunnerTeamAssociation":
+		r = &AutomationActionsRunnerTeamAssociation{}
 	case "pagerduty:index/businessService:BusinessService":
 		r = &BusinessService{}
 	case "pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber":
@@ -42,6 +52,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Extension{}
 	case "pagerduty:index/extensionServiceNow:ExtensionServiceNow":
 		r = &ExtensionServiceNow{}
+	case "pagerduty:index/incidentWorkflow:IncidentWorkflow":
+		r = &IncidentWorkflow{}
+	case "pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger":
+		r = &IncidentWorkflowTrigger{}
 	case "pagerduty:index/maintenanceWindow:MaintenanceWindow":
 		r = &MaintenanceWindow{}
 	case "pagerduty:index/responsePlay:ResponsePlay":
@@ -113,6 +127,31 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"pagerduty",
+		"index/automationActionsAction",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"pagerduty",
+		"index/automationActionsActionServiceAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"pagerduty",
+		"index/automationActionsActionTeamAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"pagerduty",
+		"index/automationActionsRunner",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"pagerduty",
+		"index/automationActionsRunnerTeamAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"pagerduty",
 		"index/businessService",
 		&module{version},
 	)
@@ -159,6 +198,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"pagerduty",
 		"index/extensionServiceNow",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"pagerduty",
+		"index/incidentWorkflow",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"pagerduty",
+		"index/incidentWorkflowTrigger",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

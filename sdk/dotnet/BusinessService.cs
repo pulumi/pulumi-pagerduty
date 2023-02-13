@@ -45,6 +45,9 @@ namespace Pulumi.Pagerduty
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// A URL at which the entity is uniquely displayed in the Web app.
+        /// </summary>
         [Output("htmlUrl")]
         public Output<string> HtmlUrl { get; private set; } = null!;
 
@@ -60,9 +63,15 @@ namespace Pulumi.Pagerduty
         [Output("pointOfContact")]
         public Output<string?> PointOfContact { get; private set; } = null!;
 
+        /// <summary>
+        /// The API show URL at which the object is accessible.
+        /// </summary>
         [Output("self")]
         public Output<string> Self { get; private set; } = null!;
 
+        /// <summary>
+        /// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+        /// </summary>
         [Output("summary")]
         public Output<string> Summary { get; private set; } = null!;
 
@@ -163,6 +172,9 @@ namespace Pulumi.Pagerduty
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// A URL at which the entity is uniquely displayed in the Web app.
+        /// </summary>
         [Input("htmlUrl")]
         public Input<string>? HtmlUrl { get; set; }
 
@@ -178,9 +190,15 @@ namespace Pulumi.Pagerduty
         [Input("pointOfContact")]
         public Input<string>? PointOfContact { get; set; }
 
+        /// <summary>
+        /// The API show URL at which the object is accessible.
+        /// </summary>
         [Input("self")]
         public Input<string>? Self { get; set; }
 
+        /// <summary>
+        /// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+        /// </summary>
         [Input("summary")]
         public Input<string>? Summary { get; set; }
 

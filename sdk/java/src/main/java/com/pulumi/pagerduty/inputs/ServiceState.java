@@ -143,9 +143,17 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.autoResolveTimeout);
     }
 
+    /**
+     * Creation timestamp of the service.
+     * 
+     */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
+    /**
+     * @return Creation timestamp of the service.
+     * 
+     */
     public Optional<Output<String>> createdAt() {
         return Optional.ofNullable(this.createdAt);
     }
@@ -172,9 +180,17 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.escalationPolicy);
     }
 
+    /**
+     * URL at which the entity is uniquely displayed in the Web app.
+     * 
+     */
     @Import(name="htmlUrl")
     private @Nullable Output<String> htmlUrl;
 
+    /**
+     * @return URL at which the entity is uniquely displayed in the Web app.
+     * 
+     */
     public Optional<Output<String>> htmlUrl() {
         return Optional.ofNullable(this.htmlUrl);
     }
@@ -186,9 +202,17 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.incidentUrgencyRule);
     }
 
+    /**
+     * Last incident timestamp of the service.
+     * 
+     */
     @Import(name="lastIncidentTimestamp")
     private @Nullable Output<String> lastIncidentTimestamp;
 
+    /**
+     * @return Last incident timestamp of the service.
+     * 
+     */
     public Optional<Output<String>> lastIncidentTimestamp() {
         return Optional.ofNullable(this.lastIncidentTimestamp);
     }
@@ -230,9 +254,17 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.scheduledActions);
     }
 
+    /**
+     * The status of the service.
+     * 
+     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
+    /**
+     * @return The status of the service.
+     * 
+     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -464,11 +496,23 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
             return autoResolveTimeout(Output.of(autoResolveTimeout));
         }
 
+        /**
+         * @param createdAt Creation timestamp of the service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder createdAt(@Nullable Output<String> createdAt) {
             $.createdAt = createdAt;
             return this;
         }
 
+        /**
+         * @param createdAt Creation timestamp of the service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder createdAt(String createdAt) {
             return createdAt(Output.of(createdAt));
         }
@@ -503,11 +547,23 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
             return escalationPolicy(Output.of(escalationPolicy));
         }
 
+        /**
+         * @param htmlUrl URL at which the entity is uniquely displayed in the Web app.
+         * 
+         * @return builder
+         * 
+         */
         public Builder htmlUrl(@Nullable Output<String> htmlUrl) {
             $.htmlUrl = htmlUrl;
             return this;
         }
 
+        /**
+         * @param htmlUrl URL at which the entity is uniquely displayed in the Web app.
+         * 
+         * @return builder
+         * 
+         */
         public Builder htmlUrl(String htmlUrl) {
             return htmlUrl(Output.of(htmlUrl));
         }
@@ -521,11 +577,23 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
             return incidentUrgencyRule(Output.of(incidentUrgencyRule));
         }
 
+        /**
+         * @param lastIncidentTimestamp Last incident timestamp of the service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lastIncidentTimestamp(@Nullable Output<String> lastIncidentTimestamp) {
             $.lastIncidentTimestamp = lastIncidentTimestamp;
             return this;
         }
 
+        /**
+         * @param lastIncidentTimestamp Last incident timestamp of the service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lastIncidentTimestamp(String lastIncidentTimestamp) {
             return lastIncidentTimestamp(Output.of(lastIncidentTimestamp));
         }
@@ -585,11 +653,23 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
             return scheduledActions(List.of(scheduledActions));
         }
 
+        /**
+         * @param status The status of the service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
+        /**
+         * @param status The status of the service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

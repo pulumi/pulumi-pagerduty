@@ -17,7 +17,6 @@ public final class GetEventOrchestrationIntegrationArgs extends com.pulumi.resou
 
     /**
      * ID of the integration
-     * * `parameters`
      * 
      */
     @Import(name="id", required=true)
@@ -25,7 +24,6 @@ public final class GetEventOrchestrationIntegrationArgs extends com.pulumi.resou
 
     /**
      * @return ID of the integration
-     * * `parameters`
      * 
      */
     public Output<String> id() {
@@ -66,7 +64,6 @@ public final class GetEventOrchestrationIntegrationArgs extends com.pulumi.resou
 
         /**
          * @param id ID of the integration
-         * * `parameters`
          * 
          * @return builder
          * 
@@ -78,7 +75,6 @@ public final class GetEventOrchestrationIntegrationArgs extends com.pulumi.resou
 
         /**
          * @param id ID of the integration
-         * * `parameters`
          * 
          * @return builder
          * 

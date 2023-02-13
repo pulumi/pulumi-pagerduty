@@ -562,7 +562,7 @@ class ExtensionServiceNow(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ExtensionServiceNowArgs.__new__(ExtensionServiceNowArgs)
 
-            __props__.__dict__["endpoint_url"] = endpoint_url
+            __props__.__dict__["endpoint_url"] = None if endpoint_url is None else pulumi.Output.secret(endpoint_url)
             if extension_objects is None and not opts.urn:
                 raise TypeError("Missing required property 'extension_objects'")
             __props__.__dict__["extension_objects"] = extension_objects
@@ -575,7 +575,7 @@ class ExtensionServiceNow(pulumi.CustomResource):
             __props__.__dict__["referer"] = referer
             if snow_password is None and not opts.urn:
                 raise TypeError("Missing required property 'snow_password'")
-            __props__.__dict__["snow_password"] = snow_password
+            __props__.__dict__["snow_password"] = None if snow_password is None else pulumi.Output.secret(snow_password)
             if snow_user is None and not opts.urn:
                 raise TypeError("Missing required property 'snow_user'")
             __props__.__dict__["snow_user"] = snow_user
@@ -591,6 +591,8 @@ class ExtensionServiceNow(pulumi.CustomResource):
             __props__.__dict__["task_type"] = task_type
             __props__.__dict__["type"] = type
             __props__.__dict__["html_url"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["endpointUrl", "snowPassword"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ExtensionServiceNow, __self__).__init__(
             'pagerduty:index/extensionServiceNow:ExtensionServiceNow',
             resource_name,

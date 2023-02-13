@@ -32,9 +32,17 @@ public final class SlackConnectionState extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.channelId);
     }
 
+    /**
+     * Name of the Slack channel in Slack connection.
+     * 
+     */
     @Import(name="channelName")
     private @Nullable Output<String> channelName;
 
+    /**
+     * @return Name of the Slack channel in Slack connection.
+     * 
+     */
     public Optional<Output<String>> channelName() {
         return Optional.ofNullable(this.channelName);
     }
@@ -84,9 +92,17 @@ public final class SlackConnectionState extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.sourceId);
     }
 
+    /**
+     * Name of the source (team or service) in Slack connection.
+     * 
+     */
     @Import(name="sourceName")
     private @Nullable Output<String> sourceName;
 
+    /**
+     * @return Name of the source (team or service) in Slack connection.
+     * 
+     */
     public Optional<Output<String>> sourceName() {
         return Optional.ofNullable(this.sourceName);
     }
@@ -173,11 +189,23 @@ public final class SlackConnectionState extends com.pulumi.resources.ResourceArg
             return channelId(Output.of(channelId));
         }
 
+        /**
+         * @param channelName Name of the Slack channel in Slack connection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder channelName(@Nullable Output<String> channelName) {
             $.channelName = channelName;
             return this;
         }
 
+        /**
+         * @param channelName Name of the Slack channel in Slack connection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder channelName(String channelName) {
             return channelName(Output.of(channelName));
         }
@@ -255,11 +283,23 @@ public final class SlackConnectionState extends com.pulumi.resources.ResourceArg
             return sourceId(Output.of(sourceId));
         }
 
+        /**
+         * @param sourceName Name of the source (team or service) in Slack connection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceName(@Nullable Output<String> sourceName) {
             $.sourceName = sourceName;
             return this;
         }
 
+        /**
+         * @param sourceName Name of the source (team or service) in Slack connection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceName(String sourceName) {
             return sourceName(Output.of(sourceName));
         }

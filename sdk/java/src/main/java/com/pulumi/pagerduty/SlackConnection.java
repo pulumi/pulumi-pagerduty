@@ -108,9 +108,17 @@ public class SlackConnection extends com.pulumi.resources.CustomResource {
     public Output<String> channelId() {
         return this.channelId;
     }
+    /**
+     * Name of the Slack channel in Slack connection.
+     * 
+     */
     @Export(name="channelName", type=String.class, parameters={})
     private Output<String> channelName;
 
+    /**
+     * @return Name of the Slack channel in Slack connection.
+     * 
+     */
     public Output<String> channelName() {
         return this.channelName;
     }
@@ -156,9 +164,17 @@ public class SlackConnection extends com.pulumi.resources.CustomResource {
     public Output<String> sourceId() {
         return this.sourceId;
     }
+    /**
+     * Name of the source (team or service) in Slack connection.
+     * 
+     */
     @Export(name="sourceName", type=String.class, parameters={})
     private Output<String> sourceName;
 
+    /**
+     * @return Name of the source (team or service) in Slack connection.
+     * 
+     */
     public Output<String> sourceName() {
         return this.sourceName;
     }

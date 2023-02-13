@@ -2,18 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
  * Use this data source to get information about a specific Global [Event Orchestration](https://developer.pagerduty.com/api-reference/7ba0fe7bdb26a-list-event-orchestrations)
  */
 export function getEventOrchestration(args: GetEventOrchestrationArgs, opts?: pulumi.InvokeOptions): Promise<GetEventOrchestrationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("pagerduty:index/getEventOrchestration:getEventOrchestration", {
         "integrations": args.integrations,
         "name": args.name,
@@ -51,9 +49,11 @@ export interface GetEventOrchestrationResult {
      */
     readonly name: string;
 }
-
+/**
+ * Use this data source to get information about a specific Global [Event Orchestration](https://developer.pagerduty.com/api-reference/7ba0fe7bdb26a-list-event-orchestrations)
+ */
 export function getEventOrchestrationOutput(args: GetEventOrchestrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventOrchestrationResult> {
-    return pulumi.output(args).apply(a => getEventOrchestration(a, opts))
+    return pulumi.output(args).apply((a: any) => getEventOrchestration(a, opts))
 }
 
 /**

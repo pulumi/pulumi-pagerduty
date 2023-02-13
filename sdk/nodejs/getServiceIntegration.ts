@@ -13,18 +13,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const example = pulumi.output(pagerduty.getServiceIntegration({
+ * const example = pagerduty.getServiceIntegration({
  *     integrationSummary: "Datadog",
  *     serviceName: "My Service",
- * }));
+ * });
  * ```
  */
 export function getServiceIntegration(args: GetServiceIntegrationArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceIntegrationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("pagerduty:index/getServiceIntegration:getServiceIntegration", {
         "integrationSummary": args.integrationSummary,
         "serviceName": args.serviceName,
@@ -60,9 +57,23 @@ export interface GetServiceIntegrationResult {
     readonly integrationSummary: string;
     readonly serviceName: string;
 }
-
+/**
+ * Use this data source to get information about a specific service_integration.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const example = pagerduty.getServiceIntegration({
+ *     integrationSummary: "Datadog",
+ *     serviceName: "My Service",
+ * });
+ * ```
+ */
 export function getServiceIntegrationOutput(args: GetServiceIntegrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceIntegrationResult> {
-    return pulumi.output(args).apply(a => getServiceIntegration(a, opts))
+    return pulumi.output(args).apply((a: any) => getServiceIntegration(a, opts))
 }
 
 /**

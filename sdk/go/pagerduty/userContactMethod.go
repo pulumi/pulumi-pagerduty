@@ -7,12 +7,10 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A [contact method](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODI0MA-create-a-user-contact-method) is a contact method for a PagerDuty user (email, phone or SMS).
-//
 // ## Example Usage
 //
 // ```go
@@ -30,7 +28,7 @@ import (
 //			example, err := pagerduty.NewUser(ctx, "example", &pagerduty.UserArgs{
 //				Email: pulumi.String("125.greenholt.earline@graham.name"),
 //				Teams: pulumi.StringArray{
-//					pulumi.Any(pagerduty_team.Example.Id),
+//					pagerduty_team.Example.Id,
 //				},
 //			})
 //			if err != nil {

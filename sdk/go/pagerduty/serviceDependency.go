@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,15 +28,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := pagerduty.NewServiceDependency(ctx, "foo", &pagerduty.ServiceDependencyArgs{
-//				Dependency: &ServiceDependencyDependencyArgs{
-//					DependentServices: ServiceDependencyDependencyDependentServiceArray{
-//						&ServiceDependencyDependencyDependentServiceArgs{
+//				Dependency: &pagerduty.ServiceDependencyDependencyArgs{
+//					DependentServices: pagerduty.ServiceDependencyDependencyDependentServiceArray{
+//						&pagerduty.ServiceDependencyDependencyDependentServiceArgs{
 //							Id:   pulumi.Any(pagerduty_business_service.Foo.Id),
 //							Type: pulumi.Any(pagerduty_business_service.Foo.Type),
 //						},
 //					},
-//					SupportingServices: ServiceDependencyDependencySupportingServiceArray{
-//						&ServiceDependencyDependencySupportingServiceArgs{
+//					SupportingServices: pagerduty.ServiceDependencyDependencySupportingServiceArray{
+//						&pagerduty.ServiceDependencyDependencySupportingServiceArgs{
 //							Id:   pulumi.Any(pagerduty_service.Foo.Id),
 //							Type: pulumi.Any(pagerduty_service.Foo.Type),
 //						},
@@ -47,15 +47,15 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewServiceDependency(ctx, "bar", &pagerduty.ServiceDependencyArgs{
-//				Dependency: &ServiceDependencyDependencyArgs{
-//					DependentServices: ServiceDependencyDependencyDependentServiceArray{
-//						&ServiceDependencyDependencyDependentServiceArgs{
+//				Dependency: &pagerduty.ServiceDependencyDependencyArgs{
+//					DependentServices: pagerduty.ServiceDependencyDependencyDependentServiceArray{
+//						&pagerduty.ServiceDependencyDependencyDependentServiceArgs{
 //							Id:   pulumi.Any(pagerduty_business_service.Foo.Id),
 //							Type: pulumi.Any(pagerduty_business_service.Foo.Type),
 //						},
 //					},
-//					SupportingServices: ServiceDependencyDependencySupportingServiceArray{
-//						&ServiceDependencyDependencySupportingServiceArgs{
+//					SupportingServices: pagerduty.ServiceDependencyDependencySupportingServiceArray{
+//						&pagerduty.ServiceDependencyDependencySupportingServiceArgs{
 //							Id:   pulumi.Any(pagerduty_service.Two.Id),
 //							Type: pulumi.Any(pagerduty_service.Two.Type),
 //						},

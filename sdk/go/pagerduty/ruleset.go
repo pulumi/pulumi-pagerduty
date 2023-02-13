@@ -31,7 +31,7 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewRuleset(ctx, "fooRuleset", &pagerduty.RulesetArgs{
-//				Team: &RulesetTeamArgs{
+//				Team: &pagerduty.RulesetTeamArgs{
 //					Id: fooTeam.ID(),
 //				},
 //			})

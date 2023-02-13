@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Use this data source to get information about a specific [business service][1].
+ * Use this data source to get information about a specific [business service](https://api-reference.pagerduty.com/#!/Business_Services/get_business_services).
  *
  * ## Example Usage
  *
@@ -13,17 +13,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const example = pulumi.output(pagerduty.getBusinessService({
+ * const example = pagerduty.getBusinessService({
  *     name: "My Service",
- * }));
+ * });
  * ```
  */
 export function getBusinessService(args: GetBusinessServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetBusinessServiceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("pagerduty:index/getBusinessService:getBusinessService", {
         "name": args.name,
     }, opts);
@@ -56,9 +53,22 @@ export interface GetBusinessServiceResult {
      */
     readonly type: string;
 }
-
+/**
+ * Use this data source to get information about a specific [business service](https://api-reference.pagerduty.com/#!/Business_Services/get_business_services).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const example = pagerduty.getBusinessService({
+ *     name: "My Service",
+ * });
+ * ```
+ */
 export function getBusinessServiceOutput(args: GetBusinessServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBusinessServiceResult> {
-    return pulumi.output(args).apply(a => getBusinessService(a, opts))
+    return pulumi.output(args).apply((a: any) => getBusinessService(a, opts))
 }
 
 /**

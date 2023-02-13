@@ -52,6 +52,9 @@ namespace Pulumi.Pagerduty
         [Output("label")]
         public Output<string> Label { get; private set; } = null!;
 
+        /// <summary>
+        /// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
+        /// </summary>
         [Output("summary")]
         public Output<string> Summary { get; private set; } = null!;
 
@@ -127,6 +130,9 @@ namespace Pulumi.Pagerduty
         [Input("label")]
         public Input<string>? Label { get; set; }
 
+        /// <summary>
+        /// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
+        /// </summary>
         [Input("summary")]
         public Input<string>? Summary { get; set; }
 

@@ -115,6 +115,9 @@ namespace Pulumi.Pagerduty
         [Output("autoResolveTimeout")]
         public Output<string?> AutoResolveTimeout { get; private set; } = null!;
 
+        /// <summary>
+        /// Creation timestamp of the service.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
@@ -127,12 +130,18 @@ namespace Pulumi.Pagerduty
         [Output("escalationPolicy")]
         public Output<string> EscalationPolicy { get; private set; } = null!;
 
+        /// <summary>
+        /// URL at which the entity is uniquely displayed in the Web app.
+        /// </summary>
         [Output("htmlUrl")]
         public Output<string> HtmlUrl { get; private set; } = null!;
 
         [Output("incidentUrgencyRule")]
         public Output<Outputs.ServiceIncidentUrgencyRule> IncidentUrgencyRule { get; private set; } = null!;
 
+        /// <summary>
+        /// Last incident timestamp of the service.
+        /// </summary>
         [Output("lastIncidentTimestamp")]
         public Output<string> LastIncidentTimestamp { get; private set; } = null!;
 
@@ -151,6 +160,9 @@ namespace Pulumi.Pagerduty
         [Output("scheduledActions")]
         public Output<ImmutableArray<Outputs.ServiceScheduledAction>> ScheduledActions { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the service.
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -337,6 +349,9 @@ namespace Pulumi.Pagerduty
         [Input("autoResolveTimeout")]
         public Input<string>? AutoResolveTimeout { get; set; }
 
+        /// <summary>
+        /// Creation timestamp of the service.
+        /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
@@ -349,12 +364,18 @@ namespace Pulumi.Pagerduty
         [Input("escalationPolicy")]
         public Input<string>? EscalationPolicy { get; set; }
 
+        /// <summary>
+        /// URL at which the entity is uniquely displayed in the Web app.
+        /// </summary>
         [Input("htmlUrl")]
         public Input<string>? HtmlUrl { get; set; }
 
         [Input("incidentUrgencyRule")]
         public Input<Inputs.ServiceIncidentUrgencyRuleGetArgs>? IncidentUrgencyRule { get; set; }
 
+        /// <summary>
+        /// Last incident timestamp of the service.
+        /// </summary>
         [Input("lastIncidentTimestamp")]
         public Input<string>? LastIncidentTimestamp { get; set; }
 
@@ -378,6 +399,9 @@ namespace Pulumi.Pagerduty
             set => _scheduledActions = value;
         }
 
+        /// <summary>
+        /// The status of the service.
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

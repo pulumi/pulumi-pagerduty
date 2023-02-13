@@ -125,9 +125,11 @@ class _SlackConnectionState:
         """
         Input properties used for looking up and filtering SlackConnection resources.
         :param pulumi.Input[str] channel_id: The ID of a Slack channel in the workspace.
+        :param pulumi.Input[str] channel_name: Name of the Slack channel in Slack connection.
         :param pulumi.Input[Sequence[pulumi.Input['SlackConnectionConfigArgs']]] configs: Configuration options for the Slack connection that provide options to filter events.
         :param pulumi.Input[str] notification_type: Type of notification. Either `responder` or `stakeholder`.
         :param pulumi.Input[str] source_id: The ID of the source in PagerDuty. Valid sources are services or teams.
+        :param pulumi.Input[str] source_name: Name of the source (team or service) in Slack connection.
         :param pulumi.Input[str] source_type: The type of the source. Either `team_reference` or `service_reference`.
         :param pulumi.Input[str] workspace_id: The ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
         """
@@ -163,6 +165,9 @@ class _SlackConnectionState:
     @property
     @pulumi.getter(name="channelName")
     def channel_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Slack channel in Slack connection.
+        """
         return pulumi.get(self, "channel_name")
 
     @channel_name.setter
@@ -208,6 +213,9 @@ class _SlackConnectionState:
     @property
     @pulumi.getter(name="sourceName")
     def source_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the source (team or service) in Slack connection.
+        """
         return pulumi.get(self, "source_name")
 
     @source_name.setter
@@ -440,9 +448,11 @@ class SlackConnection(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] channel_id: The ID of a Slack channel in the workspace.
+        :param pulumi.Input[str] channel_name: Name of the Slack channel in Slack connection.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlackConnectionConfigArgs']]]] configs: Configuration options for the Slack connection that provide options to filter events.
         :param pulumi.Input[str] notification_type: Type of notification. Either `responder` or `stakeholder`.
         :param pulumi.Input[str] source_id: The ID of the source in PagerDuty. Valid sources are services or teams.
+        :param pulumi.Input[str] source_name: Name of the source (team or service) in Slack connection.
         :param pulumi.Input[str] source_type: The type of the source. Either `team_reference` or `service_reference`.
         :param pulumi.Input[str] workspace_id: The ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
         """
@@ -471,6 +481,9 @@ class SlackConnection(pulumi.CustomResource):
     @property
     @pulumi.getter(name="channelName")
     def channel_name(self) -> pulumi.Output[str]:
+        """
+        Name of the Slack channel in Slack connection.
+        """
         return pulumi.get(self, "channel_name")
 
     @property
@@ -500,6 +513,9 @@ class SlackConnection(pulumi.CustomResource):
     @property
     @pulumi.getter(name="sourceName")
     def source_name(self) -> pulumi.Output[str]:
+        """
+        Name of the source (team or service) in Slack connection.
+        """
         return pulumi.get(self, "source_name")
 
     @property

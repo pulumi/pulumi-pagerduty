@@ -146,7 +146,7 @@ export class Extension extends pulumi.CustomResource {
                 throw new Error("Missing required property 'extensionSchema'");
             }
             resourceInputs["config"] = args ? args.config : undefined;
-            resourceInputs["endpointUrl"] = args ? args.endpointUrl : undefined;
+            resourceInputs["endpointUrl"] = args?.endpointUrl ? pulumi.secret(args.endpointUrl) : undefined;
             resourceInputs["extensionObjects"] = args ? args.extensionObjects : undefined;
             resourceInputs["extensionSchema"] = args ? args.extensionSchema : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -155,6 +155,8 @@ export class Extension extends pulumi.CustomResource {
             resourceInputs["summary"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["endpointUrl"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Extension.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -24,6 +24,7 @@ import (
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
 // all of the token components used below.
@@ -220,6 +221,10 @@ func Provider() tfbridge.ProviderInfo {
 			},
 		},
 	}
+
+	err := prov.ComputeDefaults(tfbridge.TokensSingleModule(
+		"pagerduty_", mainMod, tfbridge.MakeStandardToken(mainPkg)))
+	contract.AssertNoError(err)
 
 	prov.SetAutonaming(255, "-")
 

@@ -1,0 +1,23 @@
+diff --git b/go.mod a/go.mod
+index 95c9a91d..e33368e1 100644
+--- b/go.mod
++++ a/go.mod
+@@ -1,4 +1,4 @@
+-module github.com/terraform-providers/terraform-provider-pagerduty
++module github.com/PagerDuty/terraform-provider-pagerduty
+ 
+ go 1.16
+ 
+diff --git b/main.go a/main.go
+index 85bfc478..dda57d7a 100644
+--- b/main.go
++++ a/main.go
+@@ -2,7 +2,7 @@ package main
+ 
+ import (
+ 	"github.com/hashicorp/terraform-plugin-sdk/v2/plugin"
+-	"github.com/terraform-providers/terraform-provider-pagerduty/pagerduty"
++	"github.com/PagerDuty/terraform-provider-pagerduty/pagerduty"
+ )
+ 
+ func main() {

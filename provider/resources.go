@@ -87,6 +87,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 		},
+		UpstreamRepoPath: "./upstream",
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"pagerduty_addon": {Tok: makeResource(mainMod, "Addon")},
 			"pagerduty_business_service": {

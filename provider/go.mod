@@ -9,7 +9,7 @@ require (
 )
 
 replace (
-	github.com/PagerDuty/terraform-provider-pagerduty => github.com/pulumi/terraform-provider-pagerduty v1.9.6-0.20230213193529-375b24ff4855
+	github.com/PagerDuty/terraform-provider-pagerduty => ../upstream
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220824175045-450992f2f5b9
 )
 

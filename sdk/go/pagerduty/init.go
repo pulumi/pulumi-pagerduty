@@ -36,6 +36,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BusinessService{}
 	case "pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber":
 		r = &BusinessServiceSubscriber{}
+	case "pagerduty:index/customField:CustomField":
+		r = &CustomField{}
+	case "pagerduty:index/customFieldOption:CustomFieldOption":
+		r = &CustomFieldOption{}
+	case "pagerduty:index/customFieldSchema:CustomFieldSchema":
+		r = &CustomFieldSchema{}
+	case "pagerduty:index/customFieldSchemaAssignment:CustomFieldSchemaAssignment":
+		r = &CustomFieldSchemaAssignment{}
+	case "pagerduty:index/customFieldSchemaFieldConfiguration:CustomFieldSchemaFieldConfiguration":
+		r = &CustomFieldSchemaFieldConfiguration{}
 	case "pagerduty:index/escalationPolicy:EscalationPolicy":
 		r = &EscalationPolicy{}
 	case "pagerduty:index/eventOrchestration:EventOrchestration":
@@ -158,6 +168,31 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"pagerduty",
 		"index/businessServiceSubscriber",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"pagerduty",
+		"index/customField",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"pagerduty",
+		"index/customFieldOption",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"pagerduty",
+		"index/customFieldSchema",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"pagerduty",
+		"index/customFieldSchemaAssignment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"pagerduty",
+		"index/customFieldSchemaFieldConfiguration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

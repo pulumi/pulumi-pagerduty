@@ -4939,6 +4939,338 @@
                 "type": "object"
             }
         },
+        "pagerduty:index/customField:CustomField": {
+            "description": "A [Custom Field](https://support.pagerduty.com/docs/custom-fields) is a resuable element which can be added to Custom Field Schemas.\n\n\u003e The Custom Fields feature is currently available in Early Access.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst csImpact = new pagerduty.CustomField(\"csImpact\", {datatype: \"string\"});\nconst sreEnvironment = new pagerduty.CustomField(\"sreEnvironment\", {\n    datatype: \"string\",\n    fixedOptions: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\ncs_impact = pagerduty.CustomField(\"csImpact\", datatype=\"string\")\nsre_environment = pagerduty.CustomField(\"sreEnvironment\",\n    datatype=\"string\",\n    fixed_options=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var csImpact = new Pagerduty.CustomField(\"csImpact\", new()\n    {\n        Datatype = \"string\",\n    });\n\n    var sreEnvironment = new Pagerduty.CustomField(\"sreEnvironment\", new()\n    {\n        Datatype = \"string\",\n        FixedOptions = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := pagerduty.NewCustomField(ctx, \"csImpact\", \u0026pagerduty.CustomFieldArgs{\n\t\t\tDatatype: pulumi.String(\"string\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewCustomField(ctx, \"sreEnvironment\", \u0026pagerduty.CustomFieldArgs{\n\t\t\tDatatype:     pulumi.String(\"string\"),\n\t\t\tFixedOptions: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.CustomField;\nimport com.pulumi.pagerduty.CustomFieldArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var csImpact = new CustomField(\"csImpact\", CustomFieldArgs.builder()        \n            .datatype(\"string\")\n            .build());\n\n        var sreEnvironment = new CustomField(\"sreEnvironment\", CustomFieldArgs.builder()        \n            .datatype(\"string\")\n            .fixedOptions(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  csImpact:\n    type: pagerduty:CustomField\n    properties:\n      datatype: string\n  sreEnvironment:\n    type: pagerduty:CustomField\n    properties:\n      datatype: string\n      fixedOptions: true\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nFields can be imported using the `id`, e.g.\n\n```sh\n $ pulumi import pagerduty:index/customField:CustomField sre_environment PLBP09X\n```\n\n ",
+            "properties": {
+                "datatype": {
+                    "type": "string",
+                    "description": "The datatype of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.\n"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "displayName": {
+                    "type": "string"
+                },
+                "fixedOptions": {
+                    "type": "boolean",
+                    "description": "True if the field can only accept values from a set of options.\n"
+                },
+                "multiValue": {
+                    "type": "boolean",
+                    "description": "True if the field can accept multiple values.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the field.\n"
+                }
+            },
+            "required": [
+                "datatype",
+                "displayName",
+                "name"
+            ],
+            "inputProperties": {
+                "datatype": {
+                    "type": "string",
+                    "description": "The datatype of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.\n"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "displayName": {
+                    "type": "string"
+                },
+                "fixedOptions": {
+                    "type": "boolean",
+                    "description": "True if the field can only accept values from a set of options.\n"
+                },
+                "multiValue": {
+                    "type": "boolean",
+                    "description": "True if the field can accept multiple values.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the field.\n"
+                }
+            },
+            "requiredInputs": [
+                "datatype",
+                "displayName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering CustomField resources.\n",
+                "properties": {
+                    "datatype": {
+                        "type": "string",
+                        "description": "The datatype of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.\n"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "displayName": {
+                        "type": "string"
+                    },
+                    "fixedOptions": {
+                        "type": "boolean",
+                        "description": "True if the field can only accept values from a set of options.\n"
+                    },
+                    "multiValue": {
+                        "type": "boolean",
+                        "description": "True if the field can accept multiple values.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the field.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "pagerduty:index/customFieldOption:CustomFieldOption": {
+            "description": "A Custom Field Option is a specific value that can be used for [Custom Fields](https://support.pagerduty.com/docs/custom-fields) that only allow values from a set of fixed option. \n\n\u003e The Custom Fields feature is currently available in Early Access.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst sreEnvironment = new pagerduty.CustomField(\"sreEnvironment\", {\n    datatype: \"string\",\n    fixedOptions: true,\n});\nconst devEnvironment = new pagerduty.CustomFieldOption(\"devEnvironment\", {\n    field: sreEnvironment.id,\n    datatype: \"string\",\n    value: \"dev\",\n});\nconst stageEnvironment = new pagerduty.CustomFieldOption(\"stageEnvironment\", {\n    field: sreEnvironment.id,\n    datatype: \"string\",\n    value: \"stage\",\n});\nconst prodEnvironment = new pagerduty.CustomFieldOption(\"prodEnvironment\", {\n    field: sreEnvironment.id,\n    datatype: \"string\",\n    value: \"prod\",\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nsre_environment = pagerduty.CustomField(\"sreEnvironment\",\n    datatype=\"string\",\n    fixed_options=True)\ndev_environment = pagerduty.CustomFieldOption(\"devEnvironment\",\n    field=sre_environment.id,\n    datatype=\"string\",\n    value=\"dev\")\nstage_environment = pagerduty.CustomFieldOption(\"stageEnvironment\",\n    field=sre_environment.id,\n    datatype=\"string\",\n    value=\"stage\")\nprod_environment = pagerduty.CustomFieldOption(\"prodEnvironment\",\n    field=sre_environment.id,\n    datatype=\"string\",\n    value=\"prod\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var sreEnvironment = new Pagerduty.CustomField(\"sreEnvironment\", new()\n    {\n        Datatype = \"string\",\n        FixedOptions = true,\n    });\n\n    var devEnvironment = new Pagerduty.CustomFieldOption(\"devEnvironment\", new()\n    {\n        Field = sreEnvironment.Id,\n        Datatype = \"string\",\n        Value = \"dev\",\n    });\n\n    var stageEnvironment = new Pagerduty.CustomFieldOption(\"stageEnvironment\", new()\n    {\n        Field = sreEnvironment.Id,\n        Datatype = \"string\",\n        Value = \"stage\",\n    });\n\n    var prodEnvironment = new Pagerduty.CustomFieldOption(\"prodEnvironment\", new()\n    {\n        Field = sreEnvironment.Id,\n        Datatype = \"string\",\n        Value = \"prod\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tsreEnvironment, err := pagerduty.NewCustomField(ctx, \"sreEnvironment\", \u0026pagerduty.CustomFieldArgs{\n\t\t\tDatatype:     pulumi.String(\"string\"),\n\t\t\tFixedOptions: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewCustomFieldOption(ctx, \"devEnvironment\", \u0026pagerduty.CustomFieldOptionArgs{\n\t\t\tField:    sreEnvironment.ID(),\n\t\t\tDatatype: pulumi.String(\"string\"),\n\t\t\tValue:    pulumi.String(\"dev\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewCustomFieldOption(ctx, \"stageEnvironment\", \u0026pagerduty.CustomFieldOptionArgs{\n\t\t\tField:    sreEnvironment.ID(),\n\t\t\tDatatype: pulumi.String(\"string\"),\n\t\t\tValue:    pulumi.String(\"stage\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewCustomFieldOption(ctx, \"prodEnvironment\", \u0026pagerduty.CustomFieldOptionArgs{\n\t\t\tField:    sreEnvironment.ID(),\n\t\t\tDatatype: pulumi.String(\"string\"),\n\t\t\tValue:    pulumi.String(\"prod\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.CustomField;\nimport com.pulumi.pagerduty.CustomFieldArgs;\nimport com.pulumi.pagerduty.CustomFieldOption;\nimport com.pulumi.pagerduty.CustomFieldOptionArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var sreEnvironment = new CustomField(\"sreEnvironment\", CustomFieldArgs.builder()        \n            .datatype(\"string\")\n            .fixedOptions(true)\n            .build());\n\n        var devEnvironment = new CustomFieldOption(\"devEnvironment\", CustomFieldOptionArgs.builder()        \n            .field(sreEnvironment.id())\n            .datatype(\"string\")\n            .value(\"dev\")\n            .build());\n\n        var stageEnvironment = new CustomFieldOption(\"stageEnvironment\", CustomFieldOptionArgs.builder()        \n            .field(sreEnvironment.id())\n            .datatype(\"string\")\n            .value(\"stage\")\n            .build());\n\n        var prodEnvironment = new CustomFieldOption(\"prodEnvironment\", CustomFieldOptionArgs.builder()        \n            .field(sreEnvironment.id())\n            .datatype(\"string\")\n            .value(\"prod\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  sreEnvironment:\n    type: pagerduty:CustomField\n    properties:\n      datatype: string\n      fixedOptions: true\n  devEnvironment:\n    type: pagerduty:CustomFieldOption\n    properties:\n      field: ${sreEnvironment.id}\n      datatype: string\n      value: dev\n  stageEnvironment:\n    type: pagerduty:CustomFieldOption\n    properties:\n      field: ${sreEnvironment.id}\n      datatype: string\n      value: stage\n  prodEnvironment:\n    type: pagerduty:CustomFieldOption\n    properties:\n      field: ${sreEnvironment.id}\n      datatype: string\n      value: prod\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "datatype": {
+                    "type": "string",
+                    "description": "The datatype of the field option. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.\n"
+                },
+                "field": {
+                    "type": "string",
+                    "description": "The ID of the field.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The allowed value.\n"
+                }
+            },
+            "required": [
+                "datatype",
+                "field",
+                "value"
+            ],
+            "inputProperties": {
+                "datatype": {
+                    "type": "string",
+                    "description": "The datatype of the field option. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.\n"
+                },
+                "field": {
+                    "type": "string",
+                    "description": "The ID of the field.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The allowed value.\n"
+                }
+            },
+            "requiredInputs": [
+                "datatype",
+                "field",
+                "value"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering CustomFieldOption resources.\n",
+                "properties": {
+                    "datatype": {
+                        "type": "string",
+                        "description": "The datatype of the field option. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.\n"
+                    },
+                    "field": {
+                        "type": "string",
+                        "description": "The ID of the field.\n"
+                    },
+                    "value": {
+                        "type": "string",
+                        "description": "The allowed value.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "pagerduty:index/customFieldSchema:CustomFieldSchema": {
+            "description": "A [Custom Field Schema](https://support.pagerduty.com/docs/custom-fields#schemas) is a set of Custom Fields which can be set on an incident.\n\n\u003e The Custom Fields feature is currently available in Early Access.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst csImpact = new pagerduty.CustomField(\"csImpact\", {datatype: \"string\"});\nconst mySchema = new pagerduty.CustomFieldSchema(\"mySchema\", {\n    description: \"Fields used on incidents\",\n    title: \"My Schema\",\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\ncs_impact = pagerduty.CustomField(\"csImpact\", datatype=\"string\")\nmy_schema = pagerduty.CustomFieldSchema(\"mySchema\",\n    description=\"Fields used on incidents\",\n    title=\"My Schema\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var csImpact = new Pagerduty.CustomField(\"csImpact\", new()\n    {\n        Datatype = \"string\",\n    });\n\n    var mySchema = new Pagerduty.CustomFieldSchema(\"mySchema\", new()\n    {\n        Description = \"Fields used on incidents\",\n        Title = \"My Schema\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := pagerduty.NewCustomField(ctx, \"csImpact\", \u0026pagerduty.CustomFieldArgs{\n\t\t\tDatatype: pulumi.String(\"string\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewCustomFieldSchema(ctx, \"mySchema\", \u0026pagerduty.CustomFieldSchemaArgs{\n\t\t\tDescription: pulumi.String(\"Fields used on incidents\"),\n\t\t\tTitle:       pulumi.String(\"My Schema\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.CustomField;\nimport com.pulumi.pagerduty.CustomFieldArgs;\nimport com.pulumi.pagerduty.CustomFieldSchema;\nimport com.pulumi.pagerduty.CustomFieldSchemaArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var csImpact = new CustomField(\"csImpact\", CustomFieldArgs.builder()        \n            .datatype(\"string\")\n            .build());\n\n        var mySchema = new CustomFieldSchema(\"mySchema\", CustomFieldSchemaArgs.builder()        \n            .description(\"Fields used on incidents\")\n            .title(\"My Schema\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  csImpact:\n    type: pagerduty:CustomField\n    properties:\n      datatype: string\n  mySchema:\n    type: pagerduty:CustomFieldSchema\n    properties:\n      description: Fields used on incidents\n      title: My Schema\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nFields schemas can be imported using the `id`, e.g.\n\n```sh\n $ pulumi import pagerduty:index/customFieldSchema:CustomFieldSchema my_schema PLBP09X\n```\n\n ",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "The description of the field schema.\n"
+                },
+                "title": {
+                    "type": "string",
+                    "description": "The title of the field schema.\n"
+                }
+            },
+            "required": [
+                "title"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "The description of the field schema.\n"
+                },
+                "title": {
+                    "type": "string",
+                    "description": "The title of the field schema.\n"
+                }
+            },
+            "requiredInputs": [
+                "title"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering CustomFieldSchema resources.\n",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "The description of the field schema.\n"
+                    },
+                    "title": {
+                        "type": "string",
+                        "description": "The title of the field schema.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "pagerduty:index/customFieldSchemaAssignment:CustomFieldSchemaAssignment": {
+            "description": "A [Custom Field Schema Assignment](https://support.pagerduty.com/docs/custom-fields#associate-schemas-with-services) is a relationship between a Custom Field Schema and a Service.\n\n\u003e The Custom Fields feature is currently available in Early Access.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst csImpact = new pagerduty.CustomField(\"csImpact\", {datatype: \"string\"});\nconst mySchema = new pagerduty.CustomFieldSchema(\"mySchema\", {\n    title: \"My Schema\",\n    description: \"Fields used on incidents\",\n});\nconst firstService = pagerduty.getService({\n    name: \"My First Service\",\n});\nconst assignment = new pagerduty.CustomFieldSchemaAssignment(\"assignment\", {\n    schema: mySchema.id,\n    service: firstService.then(firstService =\u003e firstService.id),\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\ncs_impact = pagerduty.CustomField(\"csImpact\", datatype=\"string\")\nmy_schema = pagerduty.CustomFieldSchema(\"mySchema\",\n    title=\"My Schema\",\n    description=\"Fields used on incidents\")\nfirst_service = pagerduty.get_service(name=\"My First Service\")\nassignment = pagerduty.CustomFieldSchemaAssignment(\"assignment\",\n    schema=my_schema.id,\n    service=first_service.id)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var csImpact = new Pagerduty.CustomField(\"csImpact\", new()\n    {\n        Datatype = \"string\",\n    });\n\n    var mySchema = new Pagerduty.CustomFieldSchema(\"mySchema\", new()\n    {\n        Title = \"My Schema\",\n        Description = \"Fields used on incidents\",\n    });\n\n    var firstService = Pagerduty.GetService.Invoke(new()\n    {\n        Name = \"My First Service\",\n    });\n\n    var assignment = new Pagerduty.CustomFieldSchemaAssignment(\"assignment\", new()\n    {\n        Schema = mySchema.Id,\n        Service = firstService.Apply(getServiceResult =\u003e getServiceResult.Id),\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := pagerduty.NewCustomField(ctx, \"csImpact\", \u0026pagerduty.CustomFieldArgs{\n\t\t\tDatatype: pulumi.String(\"string\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tmySchema, err := pagerduty.NewCustomFieldSchema(ctx, \"mySchema\", \u0026pagerduty.CustomFieldSchemaArgs{\n\t\t\tTitle:       pulumi.String(\"My Schema\"),\n\t\t\tDescription: pulumi.String(\"Fields used on incidents\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tfirstService, err := pagerduty.LookupService(ctx, \u0026pagerduty.LookupServiceArgs{\n\t\t\tName: \"My First Service\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewCustomFieldSchemaAssignment(ctx, \"assignment\", \u0026pagerduty.CustomFieldSchemaAssignmentArgs{\n\t\t\tSchema:  mySchema.ID(),\n\t\t\tService: *pulumi.String(firstService.Id),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.CustomField;\nimport com.pulumi.pagerduty.CustomFieldArgs;\nimport com.pulumi.pagerduty.CustomFieldSchema;\nimport com.pulumi.pagerduty.CustomFieldSchemaArgs;\nimport com.pulumi.pagerduty.PagerdutyFunctions;\nimport com.pulumi.pagerduty.inputs.GetServiceArgs;\nimport com.pulumi.pagerduty.CustomFieldSchemaAssignment;\nimport com.pulumi.pagerduty.CustomFieldSchemaAssignmentArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var csImpact = new CustomField(\"csImpact\", CustomFieldArgs.builder()        \n            .datatype(\"string\")\n            .build());\n\n        var mySchema = new CustomFieldSchema(\"mySchema\", CustomFieldSchemaArgs.builder()        \n            .title(\"My Schema\")\n            .description(\"Fields used on incidents\")\n            .build());\n\n        final var firstService = PagerdutyFunctions.getService(GetServiceArgs.builder()\n            .name(\"My First Service\")\n            .build());\n\n        var assignment = new CustomFieldSchemaAssignment(\"assignment\", CustomFieldSchemaAssignmentArgs.builder()        \n            .schema(mySchema.id())\n            .service(firstService.applyValue(getServiceResult -\u003e getServiceResult.id()))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  csImpact:\n    type: pagerduty:CustomField\n    properties:\n      datatype: string\n  mySchema:\n    type: pagerduty:CustomFieldSchema\n    properties:\n      title: My Schema\n      description: Fields used on incidents\n  assignment:\n    type: pagerduty:CustomFieldSchemaAssignment\n    properties:\n      schema: ${mySchema.id}\n      service: ${firstService.id}\nvariables:\n  firstService:\n    fn::invoke:\n      Function: pagerduty:getService\n      Arguments:\n        name: My First Service\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "schema": {
+                    "type": "string",
+                    "description": "The id of the field schema.\n"
+                },
+                "service": {
+                    "type": "string",
+                    "description": "The id of the service.\n"
+                }
+            },
+            "required": [
+                "schema",
+                "service"
+            ],
+            "inputProperties": {
+                "schema": {
+                    "type": "string",
+                    "description": "The id of the field schema.\n",
+                    "willReplaceOnChanges": true
+                },
+                "service": {
+                    "type": "string",
+                    "description": "The id of the service.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "schema",
+                "service"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering CustomFieldSchemaAssignment resources.\n",
+                "properties": {
+                    "schema": {
+                        "type": "string",
+                        "description": "The id of the field schema.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "service": {
+                        "type": "string",
+                        "description": "The id of the service.\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "pagerduty:index/customFieldSchemaFieldConfiguration:CustomFieldSchemaFieldConfiguration": {
+            "description": "A [Custom Field Configuration](https://support.pagerduty.com/docs/custom-fields#associate-schemas-with-services) is a declaration of a specific Custom Field in a specific Custom Field Schema.\n\n\u003e The Custom Fields feature is currently available in Early Access.\n",
+            "properties": {
+                "defaultValue": {
+                    "type": "string",
+                    "description": "The default value for the field.\n"
+                },
+                "defaultValueDatatype": {
+                    "type": "string",
+                    "description": "The datatype of the default value.\n"
+                },
+                "defaultValueMultiValue": {
+                    "type": "boolean",
+                    "description": "Whether or not the default value is multi-valued.\n"
+                },
+                "field": {
+                    "type": "string",
+                    "description": "The ID of the field.\n"
+                },
+                "required": {
+                    "type": "boolean",
+                    "description": "True if the field is required\n"
+                },
+                "schema": {
+                    "type": "string",
+                    "description": "The ID of the schema.\n"
+                }
+            },
+            "required": [
+                "field",
+                "schema"
+            ],
+            "inputProperties": {
+                "defaultValue": {
+                    "type": "string",
+                    "description": "The default value for the field.\n"
+                },
+                "defaultValueDatatype": {
+                    "type": "string",
+                    "description": "The datatype of the default value.\n"
+                },
+                "defaultValueMultiValue": {
+                    "type": "boolean",
+                    "description": "Whether or not the default value is multi-valued.\n"
+                },
+                "field": {
+                    "type": "string",
+                    "description": "The ID of the field.\n"
+                },
+                "required": {
+                    "type": "boolean",
+                    "description": "True if the field is required\n"
+                },
+                "schema": {
+                    "type": "string",
+                    "description": "The ID of the schema.\n"
+                }
+            },
+            "requiredInputs": [
+                "field",
+                "schema"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering CustomFieldSchemaFieldConfiguration resources.\n",
+                "properties": {
+                    "defaultValue": {
+                        "type": "string",
+                        "description": "The default value for the field.\n"
+                    },
+                    "defaultValueDatatype": {
+                        "type": "string",
+                        "description": "The datatype of the default value.\n"
+                    },
+                    "defaultValueMultiValue": {
+                        "type": "boolean",
+                        "description": "Whether or not the default value is multi-valued.\n"
+                    },
+                    "field": {
+                        "type": "string",
+                        "description": "The ID of the field.\n"
+                    },
+                    "required": {
+                        "type": "boolean",
+                        "description": "True if the field is required\n"
+                    },
+                    "schema": {
+                        "type": "string",
+                        "description": "The ID of the schema.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "pagerduty:index/escalationPolicy:EscalationPolicy": {
             "description": "An [escalation policy](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEyNQ-create-an-escalation-policy) determines what user or schedule will be notified first, second, and so on when an incident is triggered. Escalation policies are used by one or more services.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.Team;\nimport com.pulumi.pagerduty.TeamArgs;\nimport com.pulumi.pagerduty.User;\nimport com.pulumi.pagerduty.UserArgs;\nimport com.pulumi.pagerduty.EscalationPolicy;\nimport com.pulumi.pagerduty.EscalationPolicyArgs;\nimport com.pulumi.pagerduty.inputs.EscalationPolicyRuleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var exampleTeam = new Team(\"exampleTeam\", TeamArgs.builder()        \n            .description(\"All engineering\")\n            .build());\n\n        var exampleUser = new User(\"exampleUser\", UserArgs.builder()        \n            .email(\"125.greenholt.earline@graham.name\")\n            .teams(exampleTeam.id())\n            .build());\n\n        var exampleEscalationPolicy = new EscalationPolicy(\"exampleEscalationPolicy\", EscalationPolicyArgs.builder()        \n            .numLoops(2)\n            .teams(exampleTeam.id())\n            .rules(EscalationPolicyRuleArgs.builder()\n                .escalationDelayInMinutes(10)\n                .targets(                \n                    EscalationPolicyRuleTargetArgs.builder()\n                        .type(\"user_reference\")\n                        .id(exampleUser.id())\n                        .build(),\n                    EscalationPolicyRuleTargetArgs.builder()\n                        .type(\"user_reference\")\n                        .id(pagerduty_user.example2().id())\n                        .build())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleTeam:\n    type: pagerduty:Team\n    properties:\n      description: All engineering\n  exampleUser:\n    type: pagerduty:User\n    properties:\n      email: 125.greenholt.earline@graham.name\n      teams:\n        - ${exampleTeam.id}\n  exampleEscalationPolicy:\n    type: pagerduty:EscalationPolicy\n    properties:\n      numLoops: 2\n      teams:\n        - ${exampleTeam.id}\n      rules:\n        - escalationDelayInMinutes: 10\n          targets:\n            - type: user_reference\n              id: ${exampleUser.id}\n            - type: user_reference\n              id: ${pagerduty_user.example2.id}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nEscalation policies can be imported using the `id`, e.g.\n\n```sh\n $ pulumi import pagerduty:index/escalationPolicy:EscalationPolicy main PLBP09X\n```\n\n ",
             "properties": {
@@ -8096,6 +8428,96 @@
                 "required": [
                     "name",
                     "type",
+                    "id"
+                ]
+            }
+        },
+        "pagerduty:index/getCustomField:getCustomField": {
+            "description": "Use this data source to get information about a specific [Custom Field](https://support.pagerduty.com/docs/custom-fields) that you can add to a custom field schema.\n\n\u003e The Custom Fields feature is currently available in Early Access.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.PagerdutyFunctions;\nimport com.pulumi.pagerduty.inputs.GetCustomFieldArgs;\nimport com.pulumi.pagerduty.CustomFieldSchema;\nimport com.pulumi.pagerduty.CustomFieldSchemaArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var sreEnvironment = PagerdutyFunctions.getCustomField(GetCustomFieldArgs.builder()\n            .name(\"environment\")\n            .build());\n\n        var foo = new CustomFieldSchema(\"foo\", CustomFieldSchemaArgs.builder()        \n            .title(\"myschema\")\n            .description(\"some description\")\n            .field(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  foo:\n    type: pagerduty:CustomFieldSchema\n    properties:\n      title: myschema\n      description: some description\n      field:\n        - field: ${sreEnvironment.id}\nvariables:\n  sreEnvironment:\n    fn::invoke:\n      Function: pagerduty:getCustomField\n      Arguments:\n        name: environment\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getCustomField.\n",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the field.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getCustomField.\n",
+                "properties": {
+                    "datatype": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "displayName": {
+                        "type": "string"
+                    },
+                    "fixedOptions": {
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "multiValue": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "datatype",
+                    "description",
+                    "displayName",
+                    "fixedOptions",
+                    "multiValue",
+                    "name",
+                    "id"
+                ]
+            }
+        },
+        "pagerduty:index/getCustomFieldSchema:getCustomFieldSchema": {
+            "description": "Use this data source to get information about a specific [Custom Field Schema](https://support.pagerduty.com/docs/custom-fields#schemas) that you can assign to a service.\n\n\u003e The Custom Fields feature is currently available in Early Access.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst myschema = pagerduty.getCustomFieldSchema({\n    title: \"myschema title\",\n});\nconst firstService = pagerduty.getService({\n    name: \"My Service\",\n});\nconst foo = new pagerduty.CustomFieldSchemaAssignment(\"foo\", {\n    schema: myschema.then(myschema =\u003e myschema.id),\n    service: firstService.then(firstService =\u003e firstService.id),\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nmyschema = pagerduty.get_custom_field_schema(title=\"myschema title\")\nfirst_service = pagerduty.get_service(name=\"My Service\")\nfoo = pagerduty.CustomFieldSchemaAssignment(\"foo\",\n    schema=myschema.id,\n    service=first_service.id)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var myschema = Pagerduty.GetCustomFieldSchema.Invoke(new()\n    {\n        Title = \"myschema title\",\n    });\n\n    var firstService = Pagerduty.GetService.Invoke(new()\n    {\n        Name = \"My Service\",\n    });\n\n    var foo = new Pagerduty.CustomFieldSchemaAssignment(\"foo\", new()\n    {\n        Schema = myschema.Apply(getCustomFieldSchemaResult =\u003e getCustomFieldSchemaResult.Id),\n        Service = firstService.Apply(getServiceResult =\u003e getServiceResult.Id),\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmyschema, err := pagerduty.LookupCustomFieldSchema(ctx, \u0026pagerduty.LookupCustomFieldSchemaArgs{\n\t\t\tTitle: \"myschema title\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tfirstService, err := pagerduty.LookupService(ctx, \u0026pagerduty.LookupServiceArgs{\n\t\t\tName: \"My Service\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewCustomFieldSchemaAssignment(ctx, \"foo\", \u0026pagerduty.CustomFieldSchemaAssignmentArgs{\n\t\t\tSchema:  *pulumi.String(myschema.Id),\n\t\t\tService: *pulumi.String(firstService.Id),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.PagerdutyFunctions;\nimport com.pulumi.pagerduty.inputs.GetCustomFieldSchemaArgs;\nimport com.pulumi.pagerduty.inputs.GetServiceArgs;\nimport com.pulumi.pagerduty.CustomFieldSchemaAssignment;\nimport com.pulumi.pagerduty.CustomFieldSchemaAssignmentArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var myschema = PagerdutyFunctions.getCustomFieldSchema(GetCustomFieldSchemaArgs.builder()\n            .title(\"myschema title\")\n            .build());\n\n        final var firstService = PagerdutyFunctions.getService(GetServiceArgs.builder()\n            .name(\"My Service\")\n            .build());\n\n        var foo = new CustomFieldSchemaAssignment(\"foo\", CustomFieldSchemaAssignmentArgs.builder()        \n            .schema(myschema.applyValue(getCustomFieldSchemaResult -\u003e getCustomFieldSchemaResult.id()))\n            .service(firstService.applyValue(getServiceResult -\u003e getServiceResult.id()))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  foo:\n    type: pagerduty:CustomFieldSchemaAssignment\n    properties:\n      schema: ${myschema.id}\n      service: ${firstService.id}\nvariables:\n  myschema:\n    fn::invoke:\n      Function: pagerduty:getCustomFieldSchema\n      Arguments:\n        title: myschema title\n  firstService:\n    fn::invoke:\n      Function: pagerduty:getService\n      Arguments:\n        name: My Service\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getCustomFieldSchema.\n",
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "description": "The title of the field schema.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "title"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getCustomFieldSchema.\n",
+                "properties": {
+                    "description": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "title": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "description",
+                    "title",
                     "id"
                 ]
             }

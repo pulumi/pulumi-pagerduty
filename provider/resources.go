@@ -22,6 +22,7 @@ import (
 	"github.com/PagerDuty/terraform-provider-pagerduty/pagerduty"
 	"github.com/pulumi/pulumi-pagerduty/provider/v3/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
@@ -223,8 +224,8 @@ func Provider() tfbridge.ProviderInfo {
 		},
 	}
 
-	err := prov.ComputeDefaults(tfbridge.TokensSingleModule(
-		"pagerduty_", mainMod, tfbridge.MakeStandardToken(mainPkg)))
+	err := x.ComputeDefaults(&prov, x.TokensSingleModule("pagerduty_",
+		mainMod, x.MakeStandardToken(mainPkg)))
 	contract.AssertNoError(err)
 
 	prov.SetAutonaming(255, "-")

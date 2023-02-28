@@ -45,6 +45,31 @@ export type BusinessServiceSubscriber = import("./businessServiceSubscriber").Bu
 export const BusinessServiceSubscriber: typeof import("./businessServiceSubscriber").BusinessServiceSubscriber = null as any;
 utilities.lazyLoad(exports, ["BusinessServiceSubscriber"], () => require("./businessServiceSubscriber"));
 
+export { CustomFieldArgs, CustomFieldState } from "./customField";
+export type CustomField = import("./customField").CustomField;
+export const CustomField: typeof import("./customField").CustomField = null as any;
+utilities.lazyLoad(exports, ["CustomField"], () => require("./customField"));
+
+export { CustomFieldOptionArgs, CustomFieldOptionState } from "./customFieldOption";
+export type CustomFieldOption = import("./customFieldOption").CustomFieldOption;
+export const CustomFieldOption: typeof import("./customFieldOption").CustomFieldOption = null as any;
+utilities.lazyLoad(exports, ["CustomFieldOption"], () => require("./customFieldOption"));
+
+export { CustomFieldSchemaArgs, CustomFieldSchemaState } from "./customFieldSchema";
+export type CustomFieldSchema = import("./customFieldSchema").CustomFieldSchema;
+export const CustomFieldSchema: typeof import("./customFieldSchema").CustomFieldSchema = null as any;
+utilities.lazyLoad(exports, ["CustomFieldSchema"], () => require("./customFieldSchema"));
+
+export { CustomFieldSchemaAssignmentArgs, CustomFieldSchemaAssignmentState } from "./customFieldSchemaAssignment";
+export type CustomFieldSchemaAssignment = import("./customFieldSchemaAssignment").CustomFieldSchemaAssignment;
+export const CustomFieldSchemaAssignment: typeof import("./customFieldSchemaAssignment").CustomFieldSchemaAssignment = null as any;
+utilities.lazyLoad(exports, ["CustomFieldSchemaAssignment"], () => require("./customFieldSchemaAssignment"));
+
+export { CustomFieldSchemaFieldConfigurationArgs, CustomFieldSchemaFieldConfigurationState } from "./customFieldSchemaFieldConfiguration";
+export type CustomFieldSchemaFieldConfiguration = import("./customFieldSchemaFieldConfiguration").CustomFieldSchemaFieldConfiguration;
+export const CustomFieldSchemaFieldConfiguration: typeof import("./customFieldSchemaFieldConfiguration").CustomFieldSchemaFieldConfiguration = null as any;
+utilities.lazyLoad(exports, ["CustomFieldSchemaFieldConfiguration"], () => require("./customFieldSchemaFieldConfiguration"));
+
 export { EscalationPolicyArgs, EscalationPolicyState } from "./escalationPolicy";
 export type EscalationPolicy = import("./escalationPolicy").EscalationPolicy;
 export const EscalationPolicy: typeof import("./escalationPolicy").EscalationPolicy = null as any;
@@ -99,6 +124,16 @@ export { GetBusinessServiceArgs, GetBusinessServiceResult, GetBusinessServiceOut
 export const getBusinessService: typeof import("./getBusinessService").getBusinessService = null as any;
 export const getBusinessServiceOutput: typeof import("./getBusinessService").getBusinessServiceOutput = null as any;
 utilities.lazyLoad(exports, ["getBusinessService","getBusinessServiceOutput"], () => require("./getBusinessService"));
+
+export { GetCustomFieldArgs, GetCustomFieldResult, GetCustomFieldOutputArgs } from "./getCustomField";
+export const getCustomField: typeof import("./getCustomField").getCustomField = null as any;
+export const getCustomFieldOutput: typeof import("./getCustomField").getCustomFieldOutput = null as any;
+utilities.lazyLoad(exports, ["getCustomField","getCustomFieldOutput"], () => require("./getCustomField"));
+
+export { GetCustomFieldSchemaArgs, GetCustomFieldSchemaResult, GetCustomFieldSchemaOutputArgs } from "./getCustomFieldSchema";
+export const getCustomFieldSchema: typeof import("./getCustomFieldSchema").getCustomFieldSchema = null as any;
+export const getCustomFieldSchemaOutput: typeof import("./getCustomFieldSchema").getCustomFieldSchemaOutput = null as any;
+utilities.lazyLoad(exports, ["getCustomFieldSchema","getCustomFieldSchemaOutput"], () => require("./getCustomFieldSchema"));
 
 export { GetEscalationPolicyArgs, GetEscalationPolicyResult, GetEscalationPolicyOutputArgs } from "./getEscalationPolicy";
 export const getEscalationPolicy: typeof import("./getEscalationPolicy").getEscalationPolicy = null as any;
@@ -315,6 +350,16 @@ const _module = {
                 return new BusinessService(name, <any>undefined, { urn })
             case "pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber":
                 return new BusinessServiceSubscriber(name, <any>undefined, { urn })
+            case "pagerduty:index/customField:CustomField":
+                return new CustomField(name, <any>undefined, { urn })
+            case "pagerduty:index/customFieldOption:CustomFieldOption":
+                return new CustomFieldOption(name, <any>undefined, { urn })
+            case "pagerduty:index/customFieldSchema:CustomFieldSchema":
+                return new CustomFieldSchema(name, <any>undefined, { urn })
+            case "pagerduty:index/customFieldSchemaAssignment:CustomFieldSchemaAssignment":
+                return new CustomFieldSchemaAssignment(name, <any>undefined, { urn })
+            case "pagerduty:index/customFieldSchemaFieldConfiguration:CustomFieldSchemaFieldConfiguration":
+                return new CustomFieldSchemaFieldConfiguration(name, <any>undefined, { urn })
             case "pagerduty:index/escalationPolicy:EscalationPolicy":
                 return new EscalationPolicy(name, <any>undefined, { urn })
             case "pagerduty:index/eventOrchestration:EventOrchestration":
@@ -384,6 +429,11 @@ pulumi.runtime.registerResourceModule("pagerduty", "index/automationActionsRunne
 pulumi.runtime.registerResourceModule("pagerduty", "index/automationActionsRunnerTeamAssociation", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/businessService", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/businessServiceSubscriber", _module)
+pulumi.runtime.registerResourceModule("pagerduty", "index/customField", _module)
+pulumi.runtime.registerResourceModule("pagerduty", "index/customFieldOption", _module)
+pulumi.runtime.registerResourceModule("pagerduty", "index/customFieldSchema", _module)
+pulumi.runtime.registerResourceModule("pagerduty", "index/customFieldSchemaAssignment", _module)
+pulumi.runtime.registerResourceModule("pagerduty", "index/customFieldSchemaFieldConfiguration", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/escalationPolicy", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/eventOrchestration", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/eventOrchestrationRouter", _module)

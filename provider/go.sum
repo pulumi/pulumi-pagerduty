@@ -1062,8 +1062,8 @@ github.com/hashicorp/yamux v0.0.0-20180604194846-3520598351bb/go.mod h1:+NfK9FKe
 github.com/hashicorp/yamux v0.0.0-20181012175058-2f1d1f20f75d/go.mod h1:+NfK9FKeTrX5uv1uIXGdwYDTeHna2qgaIlx54MXqjAM=
 github.com/hashicorp/yamux v0.1.1 h1:yrQxtgseBDrq9Y652vSRDvsKCJKOUD+GzTS4Y0Y8pvE=
 github.com/hashicorp/yamux v0.1.1/go.mod h1:CtWFDAQgb7dxtzFs4tWbplKIe2jSi3+5vKbgIO0SLnQ=
-github.com/heimweh/go-pagerduty v0.0.0-20230117201746-310c225f8600 h1:mf9awB4qvSXN6fIo94bd/MnG2n3ts+i2KA+mZ3N92z4=
-github.com/heimweh/go-pagerduty v0.0.0-20230117201746-310c225f8600/go.mod h1:t9vftsO1IjYHGdgJXeemZtomCWnxi2SRgu0PRcRb2oY=
+github.com/heimweh/go-pagerduty v0.0.0-20230213205146-a7761402c92d h1:9OZp5Bgl1WDswugwBKLiTcxeCT/t0c293zUtXLL6OUc=
+github.com/heimweh/go-pagerduty v0.0.0-20230213205146-a7761402c92d/go.mod h1:t9vftsO1IjYHGdgJXeemZtomCWnxi2SRgu0PRcRb2oY=
 github.com/hetznercloud/hcloud-go v1.33.1/go.mod h1:XX/TQub3ge0yWR2yHWmnDVIrB+MQbda1pHxkUmDlUME=
 github.com/hetznercloud/hcloud-go v1.35.0/go.mod h1:mepQwR6va27S3UQthaEPGS86jtzSY9xWL1e9dyxXpgA=
 github.com/hexops/autogold v1.3.0 h1:IEtGNPxBeBu8RMn8eKWh/Ll9dVNgSnJ7bp/qHgMQ14o=
@@ -1526,8 +1526,8 @@ github.com/prometheus/prometheus v0.37.0/go.mod h1:egARUgz+K93zwqsVIAneFlLZefyGO
 github.com/prometheus/tsdb v0.7.1/go.mod h1:qhTCs0VvXwvX/y3TZrWD7rabWM+ijKTux40TwIPHuXU=
 github.com/pulumi/pulumi-java/pkg v0.7.1 h1:3tl36+I5BRYVXbq10mqDeh3X5kdJBaNDYiATOfEfgSY=
 github.com/pulumi/pulumi-java/pkg v0.7.1/go.mod h1:XdN2jYNlcQewr0MFecZfBnY3gnGcvV+WoPTzQqH48k4=
-github.com/pulumi/pulumi-terraform-bridge/v3 v3.40.0 h1:8rKlkIwxJ16DmmgVCb15aB95yl25UVXSQm9nvWZkf30=
-github.com/pulumi/pulumi-terraform-bridge/v3 v3.40.0/go.mod h1:McH/PLanWyrObVQIPwwZAffK26hxNXQScjp6NyGibpo=
+github.com/pulumi/pulumi-terraform-bridge/v3 v3.41.0 h1:Twyug6LwbFcWlXcnixHKasOb0p0Jv0BvFrhgqPwW9zQ=
+github.com/pulumi/pulumi-terraform-bridge/v3 v3.41.0/go.mod h1:McH/PLanWyrObVQIPwwZAffK26hxNXQScjp6NyGibpo=
 github.com/pulumi/pulumi-yaml v1.0.4 h1:p+989rW3AqkkxbzxtxccHKAN4xCJi3K2cRpvA2K84tw=
 github.com/pulumi/pulumi-yaml v1.0.4/go.mod h1:Szj8ud4Vqyq3oO1n3kzIUfaP3AiCjYZM4FYjOVWwJn8=
 github.com/pulumi/pulumi/pkg/v3 v3.54.0 h1:zA/hK4q5/+A4KHztQyXXbzCAVBbn/7z/4kBz+DKrR9w=

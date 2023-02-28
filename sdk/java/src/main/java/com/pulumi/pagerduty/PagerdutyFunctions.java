@@ -14,6 +14,10 @@ import com.pulumi.pagerduty.inputs.GetAutomationActionsRunnerArgs;
 import com.pulumi.pagerduty.inputs.GetAutomationActionsRunnerPlainArgs;
 import com.pulumi.pagerduty.inputs.GetBusinessServiceArgs;
 import com.pulumi.pagerduty.inputs.GetBusinessServicePlainArgs;
+import com.pulumi.pagerduty.inputs.GetCustomFieldArgs;
+import com.pulumi.pagerduty.inputs.GetCustomFieldPlainArgs;
+import com.pulumi.pagerduty.inputs.GetCustomFieldSchemaArgs;
+import com.pulumi.pagerduty.inputs.GetCustomFieldSchemaPlainArgs;
 import com.pulumi.pagerduty.inputs.GetEscalationPolicyArgs;
 import com.pulumi.pagerduty.inputs.GetEscalationPolicyPlainArgs;
 import com.pulumi.pagerduty.inputs.GetEventOrchestrationArgs;
@@ -49,6 +53,8 @@ import com.pulumi.pagerduty.inputs.GetVendorPlainArgs;
 import com.pulumi.pagerduty.outputs.GetAutomationActionsActionResult;
 import com.pulumi.pagerduty.outputs.GetAutomationActionsRunnerResult;
 import com.pulumi.pagerduty.outputs.GetBusinessServiceResult;
+import com.pulumi.pagerduty.outputs.GetCustomFieldResult;
+import com.pulumi.pagerduty.outputs.GetCustomFieldSchemaResult;
 import com.pulumi.pagerduty.outputs.GetEscalationPolicyResult;
 import com.pulumi.pagerduty.outputs.GetEventOrchestrationResult;
 import com.pulumi.pagerduty.outputs.GetEventOrchestrationsResult;
@@ -511,6 +517,402 @@ public final class PagerdutyFunctions {
      */
     public static CompletableFuture<GetBusinessServiceResult> getBusinessServicePlain(GetBusinessServicePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("pagerduty:index/getBusinessService:getBusinessService", TypeShape.of(GetBusinessServiceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [Custom Field](https://support.pagerduty.com/docs/custom-fields) that you can add to a custom field schema.
+     * 
+     * &gt; The Custom Fields feature is currently available in Early Access.
+     * 
+     * ## Example Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetCustomFieldArgs;
+     * import com.pulumi.pagerduty.CustomFieldSchema;
+     * import com.pulumi.pagerduty.CustomFieldSchemaArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var sreEnvironment = PagerdutyFunctions.getCustomField(GetCustomFieldArgs.builder()
+     *             .name(&#34;environment&#34;)
+     *             .build());
+     * 
+     *         var foo = new CustomFieldSchema(&#34;foo&#34;, CustomFieldSchemaArgs.builder()        
+     *             .title(&#34;myschema&#34;)
+     *             .description(&#34;some description&#34;)
+     *             .field(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetCustomFieldResult> getCustomField(GetCustomFieldArgs args) {
+        return getCustomField(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about a specific [Custom Field](https://support.pagerduty.com/docs/custom-fields) that you can add to a custom field schema.
+     * 
+     * &gt; The Custom Fields feature is currently available in Early Access.
+     * 
+     * ## Example Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetCustomFieldArgs;
+     * import com.pulumi.pagerduty.CustomFieldSchema;
+     * import com.pulumi.pagerduty.CustomFieldSchemaArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var sreEnvironment = PagerdutyFunctions.getCustomField(GetCustomFieldArgs.builder()
+     *             .name(&#34;environment&#34;)
+     *             .build());
+     * 
+     *         var foo = new CustomFieldSchema(&#34;foo&#34;, CustomFieldSchemaArgs.builder()        
+     *             .title(&#34;myschema&#34;)
+     *             .description(&#34;some description&#34;)
+     *             .field(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetCustomFieldResult> getCustomFieldPlain(GetCustomFieldPlainArgs args) {
+        return getCustomFieldPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about a specific [Custom Field](https://support.pagerduty.com/docs/custom-fields) that you can add to a custom field schema.
+     * 
+     * &gt; The Custom Fields feature is currently available in Early Access.
+     * 
+     * ## Example Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetCustomFieldArgs;
+     * import com.pulumi.pagerduty.CustomFieldSchema;
+     * import com.pulumi.pagerduty.CustomFieldSchemaArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var sreEnvironment = PagerdutyFunctions.getCustomField(GetCustomFieldArgs.builder()
+     *             .name(&#34;environment&#34;)
+     *             .build());
+     * 
+     *         var foo = new CustomFieldSchema(&#34;foo&#34;, CustomFieldSchemaArgs.builder()        
+     *             .title(&#34;myschema&#34;)
+     *             .description(&#34;some description&#34;)
+     *             .field(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetCustomFieldResult> getCustomField(GetCustomFieldArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getCustomField:getCustomField", TypeShape.of(GetCustomFieldResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [Custom Field](https://support.pagerduty.com/docs/custom-fields) that you can add to a custom field schema.
+     * 
+     * &gt; The Custom Fields feature is currently available in Early Access.
+     * 
+     * ## Example Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetCustomFieldArgs;
+     * import com.pulumi.pagerduty.CustomFieldSchema;
+     * import com.pulumi.pagerduty.CustomFieldSchemaArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var sreEnvironment = PagerdutyFunctions.getCustomField(GetCustomFieldArgs.builder()
+     *             .name(&#34;environment&#34;)
+     *             .build());
+     * 
+     *         var foo = new CustomFieldSchema(&#34;foo&#34;, CustomFieldSchemaArgs.builder()        
+     *             .title(&#34;myschema&#34;)
+     *             .description(&#34;some description&#34;)
+     *             .field(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetCustomFieldResult> getCustomFieldPlain(GetCustomFieldPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("pagerduty:index/getCustomField:getCustomField", TypeShape.of(GetCustomFieldResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [Custom Field Schema](https://support.pagerduty.com/docs/custom-fields#schemas) that you can assign to a service.
+     * 
+     * &gt; The Custom Fields feature is currently available in Early Access.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetCustomFieldSchemaArgs;
+     * import com.pulumi.pagerduty.inputs.GetServiceArgs;
+     * import com.pulumi.pagerduty.CustomFieldSchemaAssignment;
+     * import com.pulumi.pagerduty.CustomFieldSchemaAssignmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myschema = PagerdutyFunctions.getCustomFieldSchema(GetCustomFieldSchemaArgs.builder()
+     *             .title(&#34;myschema title&#34;)
+     *             .build());
+     * 
+     *         final var firstService = PagerdutyFunctions.getService(GetServiceArgs.builder()
+     *             .name(&#34;My Service&#34;)
+     *             .build());
+     * 
+     *         var foo = new CustomFieldSchemaAssignment(&#34;foo&#34;, CustomFieldSchemaAssignmentArgs.builder()        
+     *             .schema(myschema.applyValue(getCustomFieldSchemaResult -&gt; getCustomFieldSchemaResult.id()))
+     *             .service(firstService.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetCustomFieldSchemaResult> getCustomFieldSchema(GetCustomFieldSchemaArgs args) {
+        return getCustomFieldSchema(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about a specific [Custom Field Schema](https://support.pagerduty.com/docs/custom-fields#schemas) that you can assign to a service.
+     * 
+     * &gt; The Custom Fields feature is currently available in Early Access.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetCustomFieldSchemaArgs;
+     * import com.pulumi.pagerduty.inputs.GetServiceArgs;
+     * import com.pulumi.pagerduty.CustomFieldSchemaAssignment;
+     * import com.pulumi.pagerduty.CustomFieldSchemaAssignmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myschema = PagerdutyFunctions.getCustomFieldSchema(GetCustomFieldSchemaArgs.builder()
+     *             .title(&#34;myschema title&#34;)
+     *             .build());
+     * 
+     *         final var firstService = PagerdutyFunctions.getService(GetServiceArgs.builder()
+     *             .name(&#34;My Service&#34;)
+     *             .build());
+     * 
+     *         var foo = new CustomFieldSchemaAssignment(&#34;foo&#34;, CustomFieldSchemaAssignmentArgs.builder()        
+     *             .schema(myschema.applyValue(getCustomFieldSchemaResult -&gt; getCustomFieldSchemaResult.id()))
+     *             .service(firstService.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetCustomFieldSchemaResult> getCustomFieldSchemaPlain(GetCustomFieldSchemaPlainArgs args) {
+        return getCustomFieldSchemaPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about a specific [Custom Field Schema](https://support.pagerduty.com/docs/custom-fields#schemas) that you can assign to a service.
+     * 
+     * &gt; The Custom Fields feature is currently available in Early Access.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetCustomFieldSchemaArgs;
+     * import com.pulumi.pagerduty.inputs.GetServiceArgs;
+     * import com.pulumi.pagerduty.CustomFieldSchemaAssignment;
+     * import com.pulumi.pagerduty.CustomFieldSchemaAssignmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myschema = PagerdutyFunctions.getCustomFieldSchema(GetCustomFieldSchemaArgs.builder()
+     *             .title(&#34;myschema title&#34;)
+     *             .build());
+     * 
+     *         final var firstService = PagerdutyFunctions.getService(GetServiceArgs.builder()
+     *             .name(&#34;My Service&#34;)
+     *             .build());
+     * 
+     *         var foo = new CustomFieldSchemaAssignment(&#34;foo&#34;, CustomFieldSchemaAssignmentArgs.builder()        
+     *             .schema(myschema.applyValue(getCustomFieldSchemaResult -&gt; getCustomFieldSchemaResult.id()))
+     *             .service(firstService.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetCustomFieldSchemaResult> getCustomFieldSchema(GetCustomFieldSchemaArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getCustomFieldSchema:getCustomFieldSchema", TypeShape.of(GetCustomFieldSchemaResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [Custom Field Schema](https://support.pagerduty.com/docs/custom-fields#schemas) that you can assign to a service.
+     * 
+     * &gt; The Custom Fields feature is currently available in Early Access.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetCustomFieldSchemaArgs;
+     * import com.pulumi.pagerduty.inputs.GetServiceArgs;
+     * import com.pulumi.pagerduty.CustomFieldSchemaAssignment;
+     * import com.pulumi.pagerduty.CustomFieldSchemaAssignmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var myschema = PagerdutyFunctions.getCustomFieldSchema(GetCustomFieldSchemaArgs.builder()
+     *             .title(&#34;myschema title&#34;)
+     *             .build());
+     * 
+     *         final var firstService = PagerdutyFunctions.getService(GetServiceArgs.builder()
+     *             .name(&#34;My Service&#34;)
+     *             .build());
+     * 
+     *         var foo = new CustomFieldSchemaAssignment(&#34;foo&#34;, CustomFieldSchemaAssignmentArgs.builder()        
+     *             .schema(myschema.applyValue(getCustomFieldSchemaResult -&gt; getCustomFieldSchemaResult.id()))
+     *             .service(firstService.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetCustomFieldSchemaResult> getCustomFieldSchemaPlain(GetCustomFieldSchemaPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("pagerduty:index/getCustomFieldSchema:getCustomFieldSchema", TypeShape.of(GetCustomFieldSchemaResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get information about a specific [escalation policy](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEyNA-list-escalation-policies) that you can use for other PagerDuty resources.

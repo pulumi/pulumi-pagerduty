@@ -17,6 +17,7 @@ package pagerduty
 import (
 	"fmt"
 	"path/filepath"
+	"strings"
 	"unicode"
 
 	"github.com/PagerDuty/terraform-provider-pagerduty/pagerduty"
@@ -44,14 +45,6 @@ func makeMember(mod string, mem string) tokens.ModuleMember {
 // makeType manufactures a type token for the package and the given module and type.
 func makeType(mod string, typ string) tokens.Type {
 	return tokens.Type(makeMember(mod, typ))
-}
-
-// makeDataSource manufactures a standard resource token given a module and resource name.  It
-// automatically uses the main package and names the file by simply lower casing the data source's
-// first character.
-func makeDataSource(mod string, res string) tokens.ModuleMember {
-	fn := string(unicode.ToLower(rune(res[0]))) + res[1:]
-	return makeMember(mod+"/"+fn, res)
 }
 
 // makeResource manufactures a standard resource token given a module and resource name.  It
@@ -90,7 +83,6 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		UpstreamRepoPath: "./upstream",
 		Resources: map[string]*tfbridge.ResourceInfo{
-			"pagerduty_addon": {Tok: makeResource(mainMod, "Addon")},
 			"pagerduty_business_service": {
 				Tok: makeResource(mainMod, "BusinessService"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -107,8 +99,6 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"pagerduty_event_rule":           {Tok: makeResource(mainMod, "EventRule")},
-			"pagerduty_extension":            {Tok: makeResource(mainMod, "Extension")},
 			"pagerduty_extension_servicenow": {Tok: makeResource(mainMod, "ExtensionServiceNow")},
 			"pagerduty_maintenance_window": {
 				Tok: makeResource(mainMod, "MaintenanceWindow"),
@@ -118,8 +108,6 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"pagerduty_ruleset":      {Tok: makeResource(mainMod, "Ruleset")},
-			"pagerduty_ruleset_rule": {Tok: makeResource(mainMod, "RulesetRule")},
 			"pagerduty_schedule": {
 				Tok: makeResource(mainMod, "Schedule"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -136,8 +124,6 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"pagerduty_service_dependency":  {Tok: makeResource(mainMod, "ServiceDependency")},
-			"pagerduty_service_integration": {Tok: makeResource(mainMod, "ServiceIntegration")},
 			"pagerduty_team": {
 				Tok: makeResource(mainMod, "Team"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -146,7 +132,6 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"pagerduty_team_membership": {Tok: makeResource(mainMod, "TeamMembership")},
 			"pagerduty_user": {
 				Tok: makeResource(mainMod, "User"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -155,8 +140,6 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"pagerduty_user_contact_method":    {Tok: makeResource(mainMod, "UserContactMethod")},
-			"pagerduty_user_notification_rule": {Tok: makeResource(mainMod, "UserNotificationRule")},
 			"pagerduty_response_play": {
 				Tok: makeResource(mainMod, "ResponsePlay"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -165,33 +148,18 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"pagerduty_service_event_rule":           {Tok: makeResource(mainMod, "ServiceEventRule")},
-			"pagerduty_slack_connection":             {Tok: makeResource(mainMod, "SlackConnection")},
-			"pagerduty_tag":                          {Tok: makeResource(mainMod, "Tag")},
-			"pagerduty_tag_assignment":               {Tok: makeResource(mainMod, "TagAssignment")},
-			"pagerduty_business_service_subscriber":  {Tok: makeResource(mainMod, "BusinessServiceSubscriber")},
-			"pagerduty_webhook_subscription":         {Tok: makeResource(mainMod, "WebhookSubscription")},
-			"pagerduty_event_orchestration":          {Tok: makeResource(mainMod, "EventOrchestration")},
-			"pagerduty_event_orchestration_router":   {Tok: makeResource(mainMod, "EventOrchestrationRouter")},
-			"pagerduty_event_orchestration_service":  {Tok: makeResource(mainMod, "EventOrchestrationService")},
-			"pagerduty_event_orchestration_unrouted": {Tok: makeResource(mainMod, "EventOrchestrationUnrouted")},
-		},
-		DataSources: map[string]*tfbridge.DataSourceInfo{
-			"pagerduty_escalation_policy":   {Tok: makeDataSource(mainMod, "getEscalationPolicy")},
-			"pagerduty_extension_schema":    {Tok: makeDataSource(mainMod, "getExtensionSchema")},
-			"pagerduty_schedule":            {Tok: makeDataSource(mainMod, "getSchedule")},
-			"pagerduty_service":             {Tok: makeDataSource(mainMod, "getService")},
-			"pagerduty_user":                {Tok: makeDataSource(mainMod, "getUser")},
-			"pagerduty_team":                {Tok: makeDataSource(mainMod, "getTeam")},
-			"pagerduty_vendor":              {Tok: makeDataSource(mainMod, "getVendor")},
-			"pagerduty_business_service":    {Tok: makeDataSource(mainMod, "getBusinessService")},
-			"pagerduty_priority":            {Tok: makeDataSource(mainMod, "getPriority")},
-			"pagerduty_ruleset":             {Tok: makeDataSource(mainMod, "getRuleset")},
-			"pagerduty_user_contact_method": {Tok: makeDataSource(mainMod, "getUserContactMethod")},
-			"pagerduty_service_integration": {Tok: makeDataSource(mainMod, "getServiceIntegration")},
-			"pagerduty_tag":                 {Tok: makeDataSource(mainMod, "getTag")},
-			"pagerduty_event_orchestration": {Tok: makeDataSource(mainMod, "getEventOrchestration")},
-			"pagerduty_users":               {Tok: makeDataSource(mainMod, "getUsers")},
+			"pagerduty_custom_field": {
+				Tok: makeResource(mainMod, "CustomField"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// This field cannot be correctly auto-named. By
+					// mentioning it explicitly, we disable
+					// AutoNaming.
+					"name": tfbridge.AutoNameWithCustomOptions("name", tfbridge.AutoNameOptions{
+						Separator: "_",
+						Transform: customNameTransform,
+					}),
+				},
+			},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			// List any npm dependencies and their versions
@@ -231,4 +199,19 @@ func Provider() tfbridge.ProviderInfo {
 	prov.SetAutonaming(255, "-")
 
 	return prov
+}
+
+// CustomField.name can only contain 'a'-'z' '0'-'9' and '_'.
+//
+// Non-conforming runes are replaced with '_'.
+func customNameTransform(s string) string {
+	str := []rune(strings.ToLower(s))
+	for i, v := range str {
+		if (v >= 'a' && v <= 'z') ||
+			(v >= '0' && v <= '9') {
+			continue
+		}
+		str[i] = '_'
+	}
+	return string(str)
 }

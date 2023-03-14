@@ -20,8 +20,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -52,7 +50,7 @@ import (
 //						},
 //					},
 //				},
-//				Description: pulumi.String(fmt.Sprintf("%vs", "%")),
+//				Description: pulumi.String("%s"),
 //				Events: pulumi.StringArray{
 //					pulumi.String("incident.acknowledged"),
 //					pulumi.String("incident.annotated"),

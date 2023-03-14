@@ -25,6 +25,11 @@ public final class GetAutomationActionsActionActionDataReference {
      */
     private String processAutomationJobId;
     /**
+     * @return (Optional) The expression that filters on which nodes a Process Automation Job executes [Learn more](https://docs.rundeck.com/docs/manual/05-nodes.html#node-filtering).
+     * 
+     */
+    private String processAutomationNodeFilter;
+    /**
      * @return (Required for `script` action_type) Body of the script to be executed on the Runner. Max length is 16777215 characters.
      * 
      */
@@ -53,6 +58,13 @@ public final class GetAutomationActionsActionActionDataReference {
         return this.processAutomationJobId;
     }
     /**
+     * @return (Optional) The expression that filters on which nodes a Process Automation Job executes [Learn more](https://docs.rundeck.com/docs/manual/05-nodes.html#node-filtering).
+     * 
+     */
+    public String processAutomationNodeFilter() {
+        return this.processAutomationNodeFilter;
+    }
+    /**
      * @return (Required for `script` action_type) Body of the script to be executed on the Runner. Max length is 16777215 characters.
      * 
      */
@@ -72,6 +84,7 @@ public final class GetAutomationActionsActionActionDataReference {
         private String invocationCommand;
         private String processAutomationJobArguments;
         private String processAutomationJobId;
+        private String processAutomationNodeFilter;
         private String script;
         public Builder() {}
         public Builder(GetAutomationActionsActionActionDataReference defaults) {
@@ -79,6 +92,7 @@ public final class GetAutomationActionsActionActionDataReference {
     	      this.invocationCommand = defaults.invocationCommand;
     	      this.processAutomationJobArguments = defaults.processAutomationJobArguments;
     	      this.processAutomationJobId = defaults.processAutomationJobId;
+    	      this.processAutomationNodeFilter = defaults.processAutomationNodeFilter;
     	      this.script = defaults.script;
         }
 
@@ -98,6 +112,11 @@ public final class GetAutomationActionsActionActionDataReference {
             return this;
         }
         @CustomType.Setter
+        public Builder processAutomationNodeFilter(String processAutomationNodeFilter) {
+            this.processAutomationNodeFilter = Objects.requireNonNull(processAutomationNodeFilter);
+            return this;
+        }
+        @CustomType.Setter
         public Builder script(String script) {
             this.script = Objects.requireNonNull(script);
             return this;
@@ -107,6 +126,7 @@ public final class GetAutomationActionsActionActionDataReference {
             o.invocationCommand = invocationCommand;
             o.processAutomationJobArguments = processAutomationJobArguments;
             o.processAutomationJobId = processAutomationJobId;
+            o.processAutomationNodeFilter = processAutomationNodeFilter;
             o.script = script;
             return o;
         }

@@ -137,6 +137,8 @@ class AutomationActionsActionActionDataReference(dict):
             suggest = "process_automation_job_arguments"
         elif key == "processAutomationJobId":
             suggest = "process_automation_job_id"
+        elif key == "processAutomationNodeFilter":
+            suggest = "process_automation_node_filter"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AutomationActionsActionActionDataReference. Access the value via the '{suggest}' property getter instead.")
@@ -153,11 +155,13 @@ class AutomationActionsActionActionDataReference(dict):
                  invocation_command: Optional[str] = None,
                  process_automation_job_arguments: Optional[str] = None,
                  process_automation_job_id: Optional[str] = None,
+                 process_automation_node_filter: Optional[str] = None,
                  script: Optional[str] = None):
         """
         :param str invocation_command: The command to execute the script with.
         :param str process_automation_job_arguments: The arguments to pass to the Process Automation job execution.
         :param str process_automation_job_id: The ID of the Process Automation job to execute.
+        :param str process_automation_node_filter: The expression that filters on which nodes a Process Automation Job executes [Learn more](https://docs.rundeck.com/docs/manual/05-nodes.html#node-filtering).
         :param str script: Body of the script to be executed on the Runner. Max length is 16777215 characters.
         """
         if invocation_command is not None:
@@ -166,6 +170,8 @@ class AutomationActionsActionActionDataReference(dict):
             pulumi.set(__self__, "process_automation_job_arguments", process_automation_job_arguments)
         if process_automation_job_id is not None:
             pulumi.set(__self__, "process_automation_job_id", process_automation_job_id)
+        if process_automation_node_filter is not None:
+            pulumi.set(__self__, "process_automation_node_filter", process_automation_node_filter)
         if script is not None:
             pulumi.set(__self__, "script", script)
 
@@ -192,6 +198,14 @@ class AutomationActionsActionActionDataReference(dict):
         The ID of the Process Automation job to execute.
         """
         return pulumi.get(self, "process_automation_job_id")
+
+    @property
+    @pulumi.getter(name="processAutomationNodeFilter")
+    def process_automation_node_filter(self) -> Optional[str]:
+        """
+        The expression that filters on which nodes a Process Automation Job executes [Learn more](https://docs.rundeck.com/docs/manual/05-nodes.html#node-filtering).
+        """
+        return pulumi.get(self, "process_automation_node_filter")
 
     @property
     @pulumi.getter
@@ -5214,16 +5228,19 @@ class GetAutomationActionsActionActionDataReferenceResult(dict):
                  invocation_command: str,
                  process_automation_job_arguments: str,
                  process_automation_job_id: str,
+                 process_automation_node_filter: str,
                  script: str):
         """
         :param str invocation_command: (Optional) The command to execute the script with.
         :param str process_automation_job_arguments: (Optional) The arguments to pass to the Process Automation job execution.
         :param str process_automation_job_id: (Required for `process_automation` action_type) The ID of the Process Automation job to execute.
+        :param str process_automation_node_filter: (Optional) The expression that filters on which nodes a Process Automation Job executes [Learn more](https://docs.rundeck.com/docs/manual/05-nodes.html#node-filtering).
         :param str script: (Required for `script` action_type) Body of the script to be executed on the Runner. Max length is 16777215 characters.
         """
         pulumi.set(__self__, "invocation_command", invocation_command)
         pulumi.set(__self__, "process_automation_job_arguments", process_automation_job_arguments)
         pulumi.set(__self__, "process_automation_job_id", process_automation_job_id)
+        pulumi.set(__self__, "process_automation_node_filter", process_automation_node_filter)
         pulumi.set(__self__, "script", script)
 
     @property
@@ -5249,6 +5266,14 @@ class GetAutomationActionsActionActionDataReferenceResult(dict):
         (Required for `process_automation` action_type) The ID of the Process Automation job to execute.
         """
         return pulumi.get(self, "process_automation_job_id")
+
+    @property
+    @pulumi.getter(name="processAutomationNodeFilter")
+    def process_automation_node_filter(self) -> str:
+        """
+        (Optional) The expression that filters on which nodes a Process Automation Job executes [Learn more](https://docs.rundeck.com/docs/manual/05-nodes.html#node-filtering).
+        """
+        return pulumi.get(self, "process_automation_node_filter")
 
     @property
     @pulumi.getter

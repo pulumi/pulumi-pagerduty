@@ -25,6 +25,8 @@ type EventOrchestrationService struct {
 
 	// the `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
 	CatchAll EventOrchestrationServiceCatchAllOutput `pulumi:"catchAll"`
+	// Opt-in/out for switching the Service to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations).
+	EnableEventOrchestrationForService pulumi.BoolPtrOutput `pulumi:"enableEventOrchestrationForService"`
 	// ID of the Service to which this Service Orchestration belongs to.
 	Service pulumi.StringOutput `pulumi:"service"`
 	// A Service Orchestration must contain at least a "start" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.
@@ -71,6 +73,8 @@ func GetEventOrchestrationService(ctx *pulumi.Context,
 type eventOrchestrationServiceState struct {
 	// the `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
 	CatchAll *EventOrchestrationServiceCatchAll `pulumi:"catchAll"`
+	// Opt-in/out for switching the Service to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations).
+	EnableEventOrchestrationForService *bool `pulumi:"enableEventOrchestrationForService"`
 	// ID of the Service to which this Service Orchestration belongs to.
 	Service *string `pulumi:"service"`
 	// A Service Orchestration must contain at least a "start" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.
@@ -80,6 +84,8 @@ type eventOrchestrationServiceState struct {
 type EventOrchestrationServiceState struct {
 	// the `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
 	CatchAll EventOrchestrationServiceCatchAllPtrInput
+	// Opt-in/out for switching the Service to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations).
+	EnableEventOrchestrationForService pulumi.BoolPtrInput
 	// ID of the Service to which this Service Orchestration belongs to.
 	Service pulumi.StringPtrInput
 	// A Service Orchestration must contain at least a "start" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.
@@ -93,6 +99,8 @@ func (EventOrchestrationServiceState) ElementType() reflect.Type {
 type eventOrchestrationServiceArgs struct {
 	// the `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
 	CatchAll EventOrchestrationServiceCatchAll `pulumi:"catchAll"`
+	// Opt-in/out for switching the Service to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations).
+	EnableEventOrchestrationForService *bool `pulumi:"enableEventOrchestrationForService"`
 	// ID of the Service to which this Service Orchestration belongs to.
 	Service string `pulumi:"service"`
 	// A Service Orchestration must contain at least a "start" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.
@@ -103,6 +111,8 @@ type eventOrchestrationServiceArgs struct {
 type EventOrchestrationServiceArgs struct {
 	// the `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
 	CatchAll EventOrchestrationServiceCatchAllInput
+	// Opt-in/out for switching the Service to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations).
+	EnableEventOrchestrationForService pulumi.BoolPtrInput
 	// ID of the Service to which this Service Orchestration belongs to.
 	Service pulumi.StringInput
 	// A Service Orchestration must contain at least a "start" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.
@@ -199,6 +209,11 @@ func (o EventOrchestrationServiceOutput) ToEventOrchestrationServiceOutputWithCo
 // the `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
 func (o EventOrchestrationServiceOutput) CatchAll() EventOrchestrationServiceCatchAllOutput {
 	return o.ApplyT(func(v *EventOrchestrationService) EventOrchestrationServiceCatchAllOutput { return v.CatchAll }).(EventOrchestrationServiceCatchAllOutput)
+}
+
+// Opt-in/out for switching the Service to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations).
+func (o EventOrchestrationServiceOutput) EnableEventOrchestrationForService() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationService) pulumi.BoolPtrOutput { return v.EnableEventOrchestrationForService }).(pulumi.BoolPtrOutput)
 }
 
 // ID of the Service to which this Service Orchestration belongs to.

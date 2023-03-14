@@ -7,8 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Use this data source to get information about a specific [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) so that you can create a trigger for it.
  *
- * > The Incident Workflows feature is currently available in Early Access.
- *
  * ## Example Usage
  *
  * ```typescript
@@ -60,8 +58,6 @@ export interface GetIncidentWorkflowResult {
 }
 /**
  * Use this data source to get information about a specific [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) so that you can create a trigger for it.
- *
- * > The Incident Workflows feature is currently available in Early Access.
  *
  * ## Example Usage
  *

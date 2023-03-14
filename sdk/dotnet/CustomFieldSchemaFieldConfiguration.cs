@@ -13,6 +13,38 @@ namespace Pulumi.Pagerduty
     /// A [Custom Field Configuration](https://support.pagerduty.com/docs/custom-fields#associate-schemas-with-services) is a declaration of a specific Custom Field in a specific Custom Field Schema.
     /// 
     /// &gt; The Custom Fields feature is currently available in Early Access.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Pagerduty = Pulumi.Pagerduty;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var csImpact = new Pagerduty.CustomField("csImpact", new()
+    ///     {
+    ///         Datatype = "string",
+    ///     });
+    /// 
+    ///     var mySchema = new Pagerduty.CustomFieldSchema("mySchema", new()
+    ///     {
+    ///         Title = "My Schema",
+    ///         Description = "Fields used on incidents",
+    ///     });
+    /// 
+    ///     var firstFieldConfiguration = new Pagerduty.CustomFieldSchemaFieldConfiguration("firstFieldConfiguration", new()
+    ///     {
+    ///         Schema = mySchema.Id,
+    ///         Field = csImpact.Id,
+    ///         Required = true,
+    ///         DefaultValue = "none",
+    ///         DefaultValueDatatype = "string",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/customFieldSchemaFieldConfiguration:CustomFieldSchemaFieldConfiguration")]
     public partial class CustomFieldSchemaFieldConfiguration : global::Pulumi.CustomResource

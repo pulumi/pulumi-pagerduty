@@ -34,7 +34,7 @@ func NewProvider(ctx *pulumi.Context,
 	if args.Token == nil {
 		return nil, errors.New("invalid value for required argument 'Token'")
 	}
-	if isZero(args.SkipCredentialsValidation) {
+	if args.SkipCredentialsValidation == nil {
 		args.SkipCredentialsValidation = pulumi.BoolPtr(false)
 	}
 	var resource Provider

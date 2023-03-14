@@ -78,7 +78,7 @@ func NewBusinessService(ctx *pulumi.Context,
 		args = &BusinessServiceArgs{}
 	}
 
-	if isZero(args.Description) {
+	if args.Description == nil {
 		args.Description = pulumi.StringPtr("Managed by Pulumi")
 	}
 	var resource BusinessService

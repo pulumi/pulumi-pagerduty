@@ -112,7 +112,7 @@ func NewSchedule(ctx *pulumi.Context,
 	if args.TimeZone == nil {
 		return nil, errors.New("invalid value for required argument 'TimeZone'")
 	}
-	if isZero(args.Description) {
+	if args.Description == nil {
 		args.Description = pulumi.StringPtr("Managed by Pulumi")
 	}
 	var resource Schedule

@@ -12,8 +12,6 @@ import (
 
 // An [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) is a series of steps which can be executed on an incident.
 //
-// > The Incident Workflows feature is currently available in Early Access.
-//
 // ## Example Usage
 //
 // ```go

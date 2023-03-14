@@ -83,7 +83,7 @@ func NewMaintenanceWindow(ctx *pulumi.Context,
 	if args.StartTime == nil {
 		return nil, errors.New("invalid value for required argument 'StartTime'")
 	}
-	if isZero(args.Description) {
+	if args.Description == nil {
 		args.Description = pulumi.StringPtr("Managed by Pulumi")
 	}
 	var resource MaintenanceWindow

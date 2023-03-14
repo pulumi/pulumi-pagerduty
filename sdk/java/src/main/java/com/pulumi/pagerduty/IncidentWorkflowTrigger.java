@@ -19,8 +19,6 @@ import javax.annotation.Nullable;
 /**
  * An [Incident Workflow Trigger](https://support.pagerduty.com/docs/incident-workflows#triggers) defines when and if an [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) will be triggered.
  * 
- * &gt; The Incident Workflows feature is currently available in Early Access.
- * 
  * ## Example Usage
  * ```java
  * package generated_program;

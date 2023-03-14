@@ -19,8 +19,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -37,7 +35,7 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.GetEventOrchestrations(ctx, &pagerduty.GetEventOrchestrationsArgs{
-//				NameFilter: fmt.Sprintf(".*Orchestration$"),
+//				NameFilter: ".*Orchestration$",
 //			}, nil)
 //			if err != nil {
 //				return err

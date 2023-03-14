@@ -8,6 +8,26 @@ import * as utilities from "./utilities";
  * A [Custom Field Configuration](https://support.pagerduty.com/docs/custom-fields#associate-schemas-with-services) is a declaration of a specific Custom Field in a specific Custom Field Schema.
  *
  * > The Custom Fields feature is currently available in Early Access.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const csImpact = new pagerduty.CustomField("csImpact", {datatype: "string"});
+ * const mySchema = new pagerduty.CustomFieldSchema("mySchema", {
+ *     title: "My Schema",
+ *     description: "Fields used on incidents",
+ * });
+ * const firstFieldConfiguration = new pagerduty.CustomFieldSchemaFieldConfiguration("firstFieldConfiguration", {
+ *     schema: mySchema.id,
+ *     field: csImpact.id,
+ *     required: true,
+ *     defaultValue: "none",
+ *     defaultValueDatatype: "string",
+ * });
+ * ```
  */
 export class CustomFieldSchemaFieldConfiguration extends pulumi.CustomResource {
     /**

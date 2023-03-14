@@ -75,7 +75,7 @@ func NewTeam(ctx *pulumi.Context,
 		args = &TeamArgs{}
 	}
 
-	if isZero(args.Description) {
+	if args.Description == nil {
 		args.Description = pulumi.StringPtr("Managed by Pulumi")
 	}
 	var resource Team

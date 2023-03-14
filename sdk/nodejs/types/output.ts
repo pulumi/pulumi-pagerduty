@@ -19,6 +19,10 @@ export interface AutomationActionsActionActionDataReference {
      */
     processAutomationJobId?: string;
     /**
+     * The expression that filters on which nodes a Process Automation Job executes [Learn more](https://docs.rundeck.com/docs/manual/05-nodes.html#node-filtering).
+     */
+    processAutomationNodeFilter?: string;
+    /**
      * Body of the script to be executed on the Runner. Max length is 16777215 characters.
      */
     script?: string;
@@ -623,6 +627,10 @@ export interface GetAutomationActionsActionActionDataReference {
      * (Required for `processAutomation` action_type) The ID of the Process Automation job to execute.
      */
     processAutomationJobId: string;
+    /**
+     * (Optional) The expression that filters on which nodes a Process Automation Job executes [Learn more](https://docs.rundeck.com/docs/manual/05-nodes.html#node-filtering).
+     */
+    processAutomationNodeFilter: string;
     /**
      * (Required for `script` action_type) Body of the script to be executed on the Runner. Max length is 16777215 characters.
      */

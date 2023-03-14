@@ -61,6 +61,21 @@ public final class AutomationActionsActionActionDataReferenceArgs extends com.pu
     }
 
     /**
+     * The expression that filters on which nodes a Process Automation Job executes [Learn more](https://docs.rundeck.com/docs/manual/05-nodes.html#node-filtering).
+     * 
+     */
+    @Import(name="processAutomationNodeFilter")
+    private @Nullable Output<String> processAutomationNodeFilter;
+
+    /**
+     * @return The expression that filters on which nodes a Process Automation Job executes [Learn more](https://docs.rundeck.com/docs/manual/05-nodes.html#node-filtering).
+     * 
+     */
+    public Optional<Output<String>> processAutomationNodeFilter() {
+        return Optional.ofNullable(this.processAutomationNodeFilter);
+    }
+
+    /**
      * Body of the script to be executed on the Runner. Max length is 16777215 characters.
      * 
      */
@@ -81,6 +96,7 @@ public final class AutomationActionsActionActionDataReferenceArgs extends com.pu
         this.invocationCommand = $.invocationCommand;
         this.processAutomationJobArguments = $.processAutomationJobArguments;
         this.processAutomationJobId = $.processAutomationJobId;
+        this.processAutomationNodeFilter = $.processAutomationNodeFilter;
         this.script = $.script;
     }
 
@@ -163,6 +179,27 @@ public final class AutomationActionsActionActionDataReferenceArgs extends com.pu
          */
         public Builder processAutomationJobId(String processAutomationJobId) {
             return processAutomationJobId(Output.of(processAutomationJobId));
+        }
+
+        /**
+         * @param processAutomationNodeFilter The expression that filters on which nodes a Process Automation Job executes [Learn more](https://docs.rundeck.com/docs/manual/05-nodes.html#node-filtering).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder processAutomationNodeFilter(@Nullable Output<String> processAutomationNodeFilter) {
+            $.processAutomationNodeFilter = processAutomationNodeFilter;
+            return this;
+        }
+
+        /**
+         * @param processAutomationNodeFilter The expression that filters on which nodes a Process Automation Job executes [Learn more](https://docs.rundeck.com/docs/manual/05-nodes.html#node-filtering).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder processAutomationNodeFilter(String processAutomationNodeFilter) {
+            return processAutomationNodeFilter(Output.of(processAutomationNodeFilter));
         }
 
         /**

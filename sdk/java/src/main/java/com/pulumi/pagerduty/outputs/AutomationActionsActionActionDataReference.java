@@ -27,6 +27,11 @@ public final class AutomationActionsActionActionDataReference {
      */
     private @Nullable String processAutomationJobId;
     /**
+     * @return The expression that filters on which nodes a Process Automation Job executes [Learn more](https://docs.rundeck.com/docs/manual/05-nodes.html#node-filtering).
+     * 
+     */
+    private @Nullable String processAutomationNodeFilter;
+    /**
      * @return Body of the script to be executed on the Runner. Max length is 16777215 characters.
      * 
      */
@@ -55,6 +60,13 @@ public final class AutomationActionsActionActionDataReference {
         return Optional.ofNullable(this.processAutomationJobId);
     }
     /**
+     * @return The expression that filters on which nodes a Process Automation Job executes [Learn more](https://docs.rundeck.com/docs/manual/05-nodes.html#node-filtering).
+     * 
+     */
+    public Optional<String> processAutomationNodeFilter() {
+        return Optional.ofNullable(this.processAutomationNodeFilter);
+    }
+    /**
      * @return Body of the script to be executed on the Runner. Max length is 16777215 characters.
      * 
      */
@@ -74,6 +86,7 @@ public final class AutomationActionsActionActionDataReference {
         private @Nullable String invocationCommand;
         private @Nullable String processAutomationJobArguments;
         private @Nullable String processAutomationJobId;
+        private @Nullable String processAutomationNodeFilter;
         private @Nullable String script;
         public Builder() {}
         public Builder(AutomationActionsActionActionDataReference defaults) {
@@ -81,6 +94,7 @@ public final class AutomationActionsActionActionDataReference {
     	      this.invocationCommand = defaults.invocationCommand;
     	      this.processAutomationJobArguments = defaults.processAutomationJobArguments;
     	      this.processAutomationJobId = defaults.processAutomationJobId;
+    	      this.processAutomationNodeFilter = defaults.processAutomationNodeFilter;
     	      this.script = defaults.script;
         }
 
@@ -100,6 +114,11 @@ public final class AutomationActionsActionActionDataReference {
             return this;
         }
         @CustomType.Setter
+        public Builder processAutomationNodeFilter(@Nullable String processAutomationNodeFilter) {
+            this.processAutomationNodeFilter = processAutomationNodeFilter;
+            return this;
+        }
+        @CustomType.Setter
         public Builder script(@Nullable String script) {
             this.script = script;
             return this;
@@ -109,6 +128,7 @@ public final class AutomationActionsActionActionDataReference {
             o.invocationCommand = invocationCommand;
             o.processAutomationJobArguments = processAutomationJobArguments;
             o.processAutomationJobId = processAutomationJobId;
+            o.processAutomationNodeFilter = processAutomationNodeFilter;
             o.script = script;
             return o;
         }

@@ -131,7 +131,7 @@ func NewService(ctx *pulumi.Context,
 	if args.EscalationPolicy == nil {
 		return nil, errors.New("invalid value for required argument 'EscalationPolicy'")
 	}
-	if isZero(args.Description) {
+	if args.Description == nil {
 		args.Description = pulumi.StringPtr("Managed by Pulumi")
 	}
 	var resource Service

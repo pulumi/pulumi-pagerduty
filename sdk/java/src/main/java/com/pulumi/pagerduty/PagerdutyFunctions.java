@@ -1813,8 +1813,6 @@ public final class PagerdutyFunctions {
     /**
      * Use this data source to get information about a specific [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) so that you can create a trigger for it.
      * 
-     * &gt; The Incident Workflows feature is currently available in Early Access.
-     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -1865,8 +1863,6 @@ public final class PagerdutyFunctions {
     }
     /**
      * Use this data source to get information about a specific [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) so that you can create a trigger for it.
-     * 
-     * &gt; The Incident Workflows feature is currently available in Early Access.
      * 
      * ## Example Usage
      * ```java
@@ -1919,8 +1915,6 @@ public final class PagerdutyFunctions {
     /**
      * Use this data source to get information about a specific [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) so that you can create a trigger for it.
      * 
-     * &gt; The Incident Workflows feature is currently available in Early Access.
-     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -1971,8 +1965,6 @@ public final class PagerdutyFunctions {
     }
     /**
      * Use this data source to get information about a specific [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) so that you can create a trigger for it.
-     * 
-     * &gt; The Incident Workflows feature is currently available in Early Access.
      * 
      * ## Example Usage
      * ```java

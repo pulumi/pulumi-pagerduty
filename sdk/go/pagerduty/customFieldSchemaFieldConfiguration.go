@@ -14,6 +14,49 @@ import (
 // A [Custom Field Configuration](https://support.pagerduty.com/docs/custom-fields#associate-schemas-with-services) is a declaration of a specific Custom Field in a specific Custom Field Schema.
 //
 // > The Custom Fields feature is currently available in Early Access.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			csImpact, err := pagerduty.NewCustomField(ctx, "csImpact", &pagerduty.CustomFieldArgs{
+//				Datatype: pulumi.String("string"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			mySchema, err := pagerduty.NewCustomFieldSchema(ctx, "mySchema", &pagerduty.CustomFieldSchemaArgs{
+//				Title:       pulumi.String("My Schema"),
+//				Description: pulumi.String("Fields used on incidents"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewCustomFieldSchemaFieldConfiguration(ctx, "firstFieldConfiguration", &pagerduty.CustomFieldSchemaFieldConfigurationArgs{
+//				Schema:               mySchema.ID(),
+//				Field:                csImpact.ID(),
+//				Required:             pulumi.Bool(true),
+//				DefaultValue:         pulumi.String("none"),
+//				DefaultValueDatatype: pulumi.String("string"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type CustomFieldSchemaFieldConfiguration struct {
 	pulumi.CustomResourceState
 

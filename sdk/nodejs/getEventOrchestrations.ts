@@ -18,7 +18,7 @@ import * as utilities from "./utilities";
  * const tfOrchA = new pagerduty.EventOrchestration("tfOrchA", {});
  * const tfOrchB = new pagerduty.EventOrchestration("tfOrchB", {});
  * const tfMyMonitor = pagerduty.getEventOrchestrations({
- *     nameFilter: `.*Orchestration$`,
+ *     nameFilter: ".*Orchestration$",
  * });
  * ```
  */
@@ -66,7 +66,7 @@ export interface GetEventOrchestrationsResult {
  * const tfOrchA = new pagerduty.EventOrchestration("tfOrchA", {});
  * const tfOrchB = new pagerduty.EventOrchestration("tfOrchB", {});
  * const tfMyMonitor = pagerduty.getEventOrchestrations({
- *     nameFilter: `.*Orchestration$`,
+ *     nameFilter: ".*Orchestration$",
  * });
  * ```
  */

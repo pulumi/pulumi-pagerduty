@@ -234,6 +234,24 @@ class CustomFieldSchemaFieldConfiguration(pulumi.CustomResource):
 
         > The Custom Fields feature is currently available in Early Access.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        cs_impact = pagerduty.CustomField("csImpact", datatype="string")
+        my_schema = pagerduty.CustomFieldSchema("mySchema",
+            title="My Schema",
+            description="Fields used on incidents")
+        first_field_configuration = pagerduty.CustomFieldSchemaFieldConfiguration("firstFieldConfiguration",
+            schema=my_schema.id,
+            field=cs_impact.id,
+            required=True,
+            default_value="none",
+            default_value_datatype="string")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_value: The default value for the field.
@@ -253,6 +271,24 @@ class CustomFieldSchemaFieldConfiguration(pulumi.CustomResource):
         A [Custom Field Configuration](https://support.pagerduty.com/docs/custom-fields#associate-schemas-with-services) is a declaration of a specific Custom Field in a specific Custom Field Schema.
 
         > The Custom Fields feature is currently available in Early Access.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        cs_impact = pagerduty.CustomField("csImpact", datatype="string")
+        my_schema = pagerduty.CustomFieldSchema("mySchema",
+            title="My Schema",
+            description="Fields used on incidents")
+        first_field_configuration = pagerduty.CustomFieldSchemaFieldConfiguration("firstFieldConfiguration",
+            schema=my_schema.id,
+            field=cs_impact.id,
+            required=True,
+            default_value="none",
+            default_value_datatype="string")
+        ```
 
         :param str resource_name: The name of the resource.
         :param CustomFieldSchemaFieldConfigurationArgs args: The arguments to use to populate this resource's properties.

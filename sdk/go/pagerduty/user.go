@@ -90,7 +90,7 @@ func NewUser(ctx *pulumi.Context,
 	if args.Email == nil {
 		return nil, errors.New("invalid value for required argument 'Email'")
 	}
-	if isZero(args.Description) {
+	if args.Description == nil {
 		args.Description = pulumi.StringPtr("Managed by Pulumi")
 	}
 	var resource User

@@ -33,7 +33,7 @@ import * as utilities from "./utilities";
  *             },
  *         ],
  *     }],
- *     description: `%s`,
+ *     description: "%s",
  *     events: [
  *         "incident.acknowledged",
  *         "incident.annotated",

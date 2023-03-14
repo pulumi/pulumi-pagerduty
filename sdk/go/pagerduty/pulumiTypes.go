@@ -17,6 +17,8 @@ type AutomationActionsActionActionDataReference struct {
 	ProcessAutomationJobArguments *string `pulumi:"processAutomationJobArguments"`
 	// The ID of the Process Automation job to execute.
 	ProcessAutomationJobId *string `pulumi:"processAutomationJobId"`
+	// The expression that filters on which nodes a Process Automation Job executes [Learn more](https://docs.rundeck.com/docs/manual/05-nodes.html#node-filtering).
+	ProcessAutomationNodeFilter *string `pulumi:"processAutomationNodeFilter"`
 	// Body of the script to be executed on the Runner. Max length is 16777215 characters.
 	Script *string `pulumi:"script"`
 }
@@ -39,6 +41,8 @@ type AutomationActionsActionActionDataReferenceArgs struct {
 	ProcessAutomationJobArguments pulumi.StringPtrInput `pulumi:"processAutomationJobArguments"`
 	// The ID of the Process Automation job to execute.
 	ProcessAutomationJobId pulumi.StringPtrInput `pulumi:"processAutomationJobId"`
+	// The expression that filters on which nodes a Process Automation Job executes [Learn more](https://docs.rundeck.com/docs/manual/05-nodes.html#node-filtering).
+	ProcessAutomationNodeFilter pulumi.StringPtrInput `pulumi:"processAutomationNodeFilter"`
 	// Body of the script to be executed on the Runner. Max length is 16777215 characters.
 	Script pulumi.StringPtrInput `pulumi:"script"`
 }
@@ -135,6 +139,11 @@ func (o AutomationActionsActionActionDataReferenceOutput) ProcessAutomationJobId
 	return o.ApplyT(func(v AutomationActionsActionActionDataReference) *string { return v.ProcessAutomationJobId }).(pulumi.StringPtrOutput)
 }
 
+// The expression that filters on which nodes a Process Automation Job executes [Learn more](https://docs.rundeck.com/docs/manual/05-nodes.html#node-filtering).
+func (o AutomationActionsActionActionDataReferenceOutput) ProcessAutomationNodeFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationActionsActionActionDataReference) *string { return v.ProcessAutomationNodeFilter }).(pulumi.StringPtrOutput)
+}
+
 // Body of the script to be executed on the Runner. Max length is 16777215 characters.
 func (o AutomationActionsActionActionDataReferenceOutput) Script() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationActionsActionActionDataReference) *string { return v.Script }).(pulumi.StringPtrOutput)
@@ -191,6 +200,16 @@ func (o AutomationActionsActionActionDataReferencePtrOutput) ProcessAutomationJo
 			return nil
 		}
 		return v.ProcessAutomationJobId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The expression that filters on which nodes a Process Automation Job executes [Learn more](https://docs.rundeck.com/docs/manual/05-nodes.html#node-filtering).
+func (o AutomationActionsActionActionDataReferencePtrOutput) ProcessAutomationNodeFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationActionsActionActionDataReference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProcessAutomationNodeFilter
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -13728,6 +13747,8 @@ type GetAutomationActionsActionActionDataReference struct {
 	ProcessAutomationJobArguments string `pulumi:"processAutomationJobArguments"`
 	// (Required for `processAutomation` action_type) The ID of the Process Automation job to execute.
 	ProcessAutomationJobId string `pulumi:"processAutomationJobId"`
+	// (Optional) The expression that filters on which nodes a Process Automation Job executes [Learn more](https://docs.rundeck.com/docs/manual/05-nodes.html#node-filtering).
+	ProcessAutomationNodeFilter string `pulumi:"processAutomationNodeFilter"`
 	// (Required for `script` action_type) Body of the script to be executed on the Runner. Max length is 16777215 characters.
 	Script string `pulumi:"script"`
 }
@@ -13750,6 +13771,8 @@ type GetAutomationActionsActionActionDataReferenceArgs struct {
 	ProcessAutomationJobArguments pulumi.StringInput `pulumi:"processAutomationJobArguments"`
 	// (Required for `processAutomation` action_type) The ID of the Process Automation job to execute.
 	ProcessAutomationJobId pulumi.StringInput `pulumi:"processAutomationJobId"`
+	// (Optional) The expression that filters on which nodes a Process Automation Job executes [Learn more](https://docs.rundeck.com/docs/manual/05-nodes.html#node-filtering).
+	ProcessAutomationNodeFilter pulumi.StringInput `pulumi:"processAutomationNodeFilter"`
 	// (Required for `script` action_type) Body of the script to be executed on the Runner. Max length is 16777215 characters.
 	Script pulumi.StringInput `pulumi:"script"`
 }
@@ -13818,6 +13841,11 @@ func (o GetAutomationActionsActionActionDataReferenceOutput) ProcessAutomationJo
 // (Required for `processAutomation` action_type) The ID of the Process Automation job to execute.
 func (o GetAutomationActionsActionActionDataReferenceOutput) ProcessAutomationJobId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAutomationActionsActionActionDataReference) string { return v.ProcessAutomationJobId }).(pulumi.StringOutput)
+}
+
+// (Optional) The expression that filters on which nodes a Process Automation Job executes [Learn more](https://docs.rundeck.com/docs/manual/05-nodes.html#node-filtering).
+func (o GetAutomationActionsActionActionDataReferenceOutput) ProcessAutomationNodeFilter() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutomationActionsActionActionDataReference) string { return v.ProcessAutomationNodeFilter }).(pulumi.StringOutput)
 }
 
 // (Required for `script` action_type) Body of the script to be executed on the Runner. Max length is 16777215 characters.

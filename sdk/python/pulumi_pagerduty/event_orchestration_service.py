@@ -18,16 +18,20 @@ class EventOrchestrationServiceArgs:
     def __init__(__self__, *,
                  catch_all: pulumi.Input['EventOrchestrationServiceCatchAllArgs'],
                  service: pulumi.Input[str],
-                 sets: pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetArgs']]]):
+                 sets: pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetArgs']]],
+                 enable_event_orchestration_for_service: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a EventOrchestrationService resource.
         :param pulumi.Input['EventOrchestrationServiceCatchAllArgs'] catch_all: the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
         :param pulumi.Input[str] service: ID of the Service to which this Service Orchestration belongs to.
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetArgs']]] sets: A Service Orchestration must contain at least a "start" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.
+        :param pulumi.Input[bool] enable_event_orchestration_for_service: Opt-in/out for switching the Service to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations).
         """
         pulumi.set(__self__, "catch_all", catch_all)
         pulumi.set(__self__, "service", service)
         pulumi.set(__self__, "sets", sets)
+        if enable_event_orchestration_for_service is not None:
+            pulumi.set(__self__, "enable_event_orchestration_for_service", enable_event_orchestration_for_service)
 
     @property
     @pulumi.getter(name="catchAll")
@@ -65,21 +69,37 @@ class EventOrchestrationServiceArgs:
     def sets(self, value: pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetArgs']]]):
         pulumi.set(self, "sets", value)
 
+    @property
+    @pulumi.getter(name="enableEventOrchestrationForService")
+    def enable_event_orchestration_for_service(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Opt-in/out for switching the Service to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations).
+        """
+        return pulumi.get(self, "enable_event_orchestration_for_service")
+
+    @enable_event_orchestration_for_service.setter
+    def enable_event_orchestration_for_service(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_event_orchestration_for_service", value)
+
 
 @pulumi.input_type
 class _EventOrchestrationServiceState:
     def __init__(__self__, *,
                  catch_all: Optional[pulumi.Input['EventOrchestrationServiceCatchAllArgs']] = None,
+                 enable_event_orchestration_for_service: Optional[pulumi.Input[bool]] = None,
                  service: Optional[pulumi.Input[str]] = None,
                  sets: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetArgs']]]] = None):
         """
         Input properties used for looking up and filtering EventOrchestrationService resources.
         :param pulumi.Input['EventOrchestrationServiceCatchAllArgs'] catch_all: the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
+        :param pulumi.Input[bool] enable_event_orchestration_for_service: Opt-in/out for switching the Service to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations).
         :param pulumi.Input[str] service: ID of the Service to which this Service Orchestration belongs to.
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetArgs']]] sets: A Service Orchestration must contain at least a "start" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.
         """
         if catch_all is not None:
             pulumi.set(__self__, "catch_all", catch_all)
+        if enable_event_orchestration_for_service is not None:
+            pulumi.set(__self__, "enable_event_orchestration_for_service", enable_event_orchestration_for_service)
         if service is not None:
             pulumi.set(__self__, "service", service)
         if sets is not None:
@@ -96,6 +116,18 @@ class _EventOrchestrationServiceState:
     @catch_all.setter
     def catch_all(self, value: Optional[pulumi.Input['EventOrchestrationServiceCatchAllArgs']]):
         pulumi.set(self, "catch_all", value)
+
+    @property
+    @pulumi.getter(name="enableEventOrchestrationForService")
+    def enable_event_orchestration_for_service(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Opt-in/out for switching the Service to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations).
+        """
+        return pulumi.get(self, "enable_event_orchestration_for_service")
+
+    @enable_event_orchestration_for_service.setter
+    def enable_event_orchestration_for_service(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_event_orchestration_for_service", value)
 
     @property
     @pulumi.getter
@@ -128,6 +160,7 @@ class EventOrchestrationService(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catch_all: Optional[pulumi.Input[pulumi.InputType['EventOrchestrationServiceCatchAllArgs']]] = None,
+                 enable_event_orchestration_for_service: Optional[pulumi.Input[bool]] = None,
                  service: Optional[pulumi.Input[str]] = None,
                  sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventOrchestrationServiceSetArgs']]]]] = None,
                  __props__=None):
@@ -143,6 +176,7 @@ class EventOrchestrationService(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['EventOrchestrationServiceCatchAllArgs']] catch_all: the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
+        :param pulumi.Input[bool] enable_event_orchestration_for_service: Opt-in/out for switching the Service to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations).
         :param pulumi.Input[str] service: ID of the Service to which this Service Orchestration belongs to.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventOrchestrationServiceSetArgs']]]] sets: A Service Orchestration must contain at least a "start" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.
         """
@@ -177,6 +211,7 @@ class EventOrchestrationService(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catch_all: Optional[pulumi.Input[pulumi.InputType['EventOrchestrationServiceCatchAllArgs']]] = None,
+                 enable_event_orchestration_for_service: Optional[pulumi.Input[bool]] = None,
                  service: Optional[pulumi.Input[str]] = None,
                  sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventOrchestrationServiceSetArgs']]]]] = None,
                  __props__=None):
@@ -191,6 +226,7 @@ class EventOrchestrationService(pulumi.CustomResource):
             if catch_all is None and not opts.urn:
                 raise TypeError("Missing required property 'catch_all'")
             __props__.__dict__["catch_all"] = catch_all
+            __props__.__dict__["enable_event_orchestration_for_service"] = enable_event_orchestration_for_service
             if service is None and not opts.urn:
                 raise TypeError("Missing required property 'service'")
             __props__.__dict__["service"] = service
@@ -208,6 +244,7 @@ class EventOrchestrationService(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             catch_all: Optional[pulumi.Input[pulumi.InputType['EventOrchestrationServiceCatchAllArgs']]] = None,
+            enable_event_orchestration_for_service: Optional[pulumi.Input[bool]] = None,
             service: Optional[pulumi.Input[str]] = None,
             sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventOrchestrationServiceSetArgs']]]]] = None) -> 'EventOrchestrationService':
         """
@@ -218,6 +255,7 @@ class EventOrchestrationService(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['EventOrchestrationServiceCatchAllArgs']] catch_all: the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
+        :param pulumi.Input[bool] enable_event_orchestration_for_service: Opt-in/out for switching the Service to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations).
         :param pulumi.Input[str] service: ID of the Service to which this Service Orchestration belongs to.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventOrchestrationServiceSetArgs']]]] sets: A Service Orchestration must contain at least a "start" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.
         """
@@ -226,6 +264,7 @@ class EventOrchestrationService(pulumi.CustomResource):
         __props__ = _EventOrchestrationServiceState.__new__(_EventOrchestrationServiceState)
 
         __props__.__dict__["catch_all"] = catch_all
+        __props__.__dict__["enable_event_orchestration_for_service"] = enable_event_orchestration_for_service
         __props__.__dict__["service"] = service
         __props__.__dict__["sets"] = sets
         return EventOrchestrationService(resource_name, opts=opts, __props__=__props__)
@@ -237,6 +276,14 @@ class EventOrchestrationService(pulumi.CustomResource):
         the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
         """
         return pulumi.get(self, "catch_all")
+
+    @property
+    @pulumi.getter(name="enableEventOrchestrationForService")
+    def enable_event_orchestration_for_service(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Opt-in/out for switching the Service to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations).
+        """
+        return pulumi.get(self, "enable_event_orchestration_for_service")
 
     @property
     @pulumi.getter

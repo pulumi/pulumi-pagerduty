@@ -20,6 +20,53 @@ import javax.annotation.Nullable;
  * 
  * &gt; The Custom Fields feature is currently available in Early Access.
  * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.pagerduty.CustomField;
+ * import com.pulumi.pagerduty.CustomFieldArgs;
+ * import com.pulumi.pagerduty.CustomFieldSchema;
+ * import com.pulumi.pagerduty.CustomFieldSchemaArgs;
+ * import com.pulumi.pagerduty.CustomFieldSchemaFieldConfiguration;
+ * import com.pulumi.pagerduty.CustomFieldSchemaFieldConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var csImpact = new CustomField(&#34;csImpact&#34;, CustomFieldArgs.builder()        
+ *             .datatype(&#34;string&#34;)
+ *             .build());
+ * 
+ *         var mySchema = new CustomFieldSchema(&#34;mySchema&#34;, CustomFieldSchemaArgs.builder()        
+ *             .title(&#34;My Schema&#34;)
+ *             .description(&#34;Fields used on incidents&#34;)
+ *             .build());
+ * 
+ *         var firstFieldConfiguration = new CustomFieldSchemaFieldConfiguration(&#34;firstFieldConfiguration&#34;, CustomFieldSchemaFieldConfigurationArgs.builder()        
+ *             .schema(mySchema.id())
+ *             .field(csImpact.id())
+ *             .required(true)
+ *             .defaultValue(&#34;none&#34;)
+ *             .defaultValueDatatype(&#34;string&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  */
 @ResourceType(type="pagerduty:index/customFieldSchemaFieldConfiguration:CustomFieldSchemaFieldConfiguration")
 public class CustomFieldSchemaFieldConfiguration extends com.pulumi.resources.CustomResource {

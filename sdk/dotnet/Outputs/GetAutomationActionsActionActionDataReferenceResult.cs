@@ -26,6 +26,10 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly string ProcessAutomationJobId;
         /// <summary>
+        /// (Optional) The expression that filters on which nodes a Process Automation Job executes [Learn more](https://docs.rundeck.com/docs/manual/05-nodes.html#node-filtering).
+        /// </summary>
+        public readonly string ProcessAutomationNodeFilter;
+        /// <summary>
         /// (Required for `script` action_type) Body of the script to be executed on the Runner. Max length is 16777215 characters.
         /// </summary>
         public readonly string Script;
@@ -38,11 +42,14 @@ namespace Pulumi.Pagerduty.Outputs
 
             string processAutomationJobId,
 
+            string processAutomationNodeFilter,
+
             string script)
         {
             InvocationCommand = invocationCommand;
             ProcessAutomationJobArguments = processAutomationJobArguments;
             ProcessAutomationJobId = processAutomationJobId;
+            ProcessAutomationNodeFilter = processAutomationNodeFilter;
             Script = script;
         }
     }

@@ -48,6 +48,10 @@ export class EventOrchestrationService extends pulumi.CustomResource {
      */
     public readonly catchAll!: pulumi.Output<outputs.EventOrchestrationServiceCatchAll>;
     /**
+     * Opt-in/out for switching the Service to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations).
+     */
+    public readonly enableEventOrchestrationForService!: pulumi.Output<boolean | undefined>;
+    /**
      * ID of the Service to which this Service Orchestration belongs to.
      */
     public readonly service!: pulumi.Output<string>;
@@ -70,6 +74,7 @@ export class EventOrchestrationService extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as EventOrchestrationServiceState | undefined;
             resourceInputs["catchAll"] = state ? state.catchAll : undefined;
+            resourceInputs["enableEventOrchestrationForService"] = state ? state.enableEventOrchestrationForService : undefined;
             resourceInputs["service"] = state ? state.service : undefined;
             resourceInputs["sets"] = state ? state.sets : undefined;
         } else {
@@ -84,6 +89,7 @@ export class EventOrchestrationService extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sets'");
             }
             resourceInputs["catchAll"] = args ? args.catchAll : undefined;
+            resourceInputs["enableEventOrchestrationForService"] = args ? args.enableEventOrchestrationForService : undefined;
             resourceInputs["service"] = args ? args.service : undefined;
             resourceInputs["sets"] = args ? args.sets : undefined;
         }
@@ -100,6 +106,10 @@ export interface EventOrchestrationServiceState {
      * the `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
      */
     catchAll?: pulumi.Input<inputs.EventOrchestrationServiceCatchAll>;
+    /**
+     * Opt-in/out for switching the Service to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations).
+     */
+    enableEventOrchestrationForService?: pulumi.Input<boolean>;
     /**
      * ID of the Service to which this Service Orchestration belongs to.
      */
@@ -118,6 +128,10 @@ export interface EventOrchestrationServiceArgs {
      * the `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
      */
     catchAll: pulumi.Input<inputs.EventOrchestrationServiceCatchAll>;
+    /**
+     * Opt-in/out for switching the Service to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations).
+     */
+    enableEventOrchestrationForService?: pulumi.Input<boolean>;
     /**
      * ID of the Service to which this Service Orchestration belongs to.
      */

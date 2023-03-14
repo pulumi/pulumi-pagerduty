@@ -19,6 +19,10 @@ export interface AutomationActionsActionActionDataReference {
      */
     processAutomationJobId?: pulumi.Input<string>;
     /**
+     * The expression that filters on which nodes a Process Automation Job executes [Learn more](https://docs.rundeck.com/docs/manual/05-nodes.html#node-filtering).
+     */
+    processAutomationNodeFilter?: pulumi.Input<string>;
+    /**
      * Body of the script to be executed on the Runner. Max length is 16777215 characters.
      */
     script?: pulumi.Input<string>;

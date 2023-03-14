@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.pagerduty.inputs.EventOrchestrationServiceCatchAllArgs;
 import com.pulumi.pagerduty.inputs.EventOrchestrationServiceSetArgs;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -31,6 +32,21 @@ public final class EventOrchestrationServiceState extends com.pulumi.resources.R
      */
     public Optional<Output<EventOrchestrationServiceCatchAllArgs>> catchAll() {
         return Optional.ofNullable(this.catchAll);
+    }
+
+    /**
+     * Opt-in/out for switching the Service to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations).
+     * 
+     */
+    @Import(name="enableEventOrchestrationForService")
+    private @Nullable Output<Boolean> enableEventOrchestrationForService;
+
+    /**
+     * @return Opt-in/out for switching the Service to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations).
+     * 
+     */
+    public Optional<Output<Boolean>> enableEventOrchestrationForService() {
+        return Optional.ofNullable(this.enableEventOrchestrationForService);
     }
 
     /**
@@ -67,6 +83,7 @@ public final class EventOrchestrationServiceState extends com.pulumi.resources.R
 
     private EventOrchestrationServiceState(EventOrchestrationServiceState $) {
         this.catchAll = $.catchAll;
+        this.enableEventOrchestrationForService = $.enableEventOrchestrationForService;
         this.service = $.service;
         this.sets = $.sets;
     }
@@ -108,6 +125,27 @@ public final class EventOrchestrationServiceState extends com.pulumi.resources.R
          */
         public Builder catchAll(EventOrchestrationServiceCatchAllArgs catchAll) {
             return catchAll(Output.of(catchAll));
+        }
+
+        /**
+         * @param enableEventOrchestrationForService Opt-in/out for switching the Service to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableEventOrchestrationForService(@Nullable Output<Boolean> enableEventOrchestrationForService) {
+            $.enableEventOrchestrationForService = enableEventOrchestrationForService;
+            return this;
+        }
+
+        /**
+         * @param enableEventOrchestrationForService Opt-in/out for switching the Service to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableEventOrchestrationForService(Boolean enableEventOrchestrationForService) {
+            return enableEventOrchestrationForService(Output.of(enableEventOrchestrationForService));
         }
 
         /**

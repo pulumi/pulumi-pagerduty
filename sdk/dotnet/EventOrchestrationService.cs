@@ -28,6 +28,12 @@ namespace Pulumi.Pagerduty
         public Output<Outputs.EventOrchestrationServiceCatchAll> CatchAll { get; private set; } = null!;
 
         /// <summary>
+        /// Opt-in/out for switching the Service to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations).
+        /// </summary>
+        [Output("enableEventOrchestrationForService")]
+        public Output<bool?> EnableEventOrchestrationForService { get; private set; } = null!;
+
+        /// <summary>
         /// ID of the Service to which this Service Orchestration belongs to.
         /// </summary>
         [Output("service")]
@@ -92,6 +98,12 @@ namespace Pulumi.Pagerduty
         public Input<Inputs.EventOrchestrationServiceCatchAllArgs> CatchAll { get; set; } = null!;
 
         /// <summary>
+        /// Opt-in/out for switching the Service to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations).
+        /// </summary>
+        [Input("enableEventOrchestrationForService")]
+        public Input<bool>? EnableEventOrchestrationForService { get; set; }
+
+        /// <summary>
         /// ID of the Service to which this Service Orchestration belongs to.
         /// </summary>
         [Input("service", required: true)]
@@ -122,6 +134,12 @@ namespace Pulumi.Pagerduty
         /// </summary>
         [Input("catchAll")]
         public Input<Inputs.EventOrchestrationServiceCatchAllGetArgs>? CatchAll { get; set; }
+
+        /// <summary>
+        /// Opt-in/out for switching the Service to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations).
+        /// </summary>
+        [Input("enableEventOrchestrationForService")]
+        public Input<bool>? EnableEventOrchestrationForService { get; set; }
 
         /// <summary>
         /// ID of the Service to which this Service Orchestration belongs to.

@@ -126,11 +126,13 @@ class AutomationActionsActionActionDataReferenceArgs:
                  invocation_command: Optional[pulumi.Input[str]] = None,
                  process_automation_job_arguments: Optional[pulumi.Input[str]] = None,
                  process_automation_job_id: Optional[pulumi.Input[str]] = None,
+                 process_automation_node_filter: Optional[pulumi.Input[str]] = None,
                  script: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] invocation_command: The command to execute the script with.
         :param pulumi.Input[str] process_automation_job_arguments: The arguments to pass to the Process Automation job execution.
         :param pulumi.Input[str] process_automation_job_id: The ID of the Process Automation job to execute.
+        :param pulumi.Input[str] process_automation_node_filter: The expression that filters on which nodes a Process Automation Job executes [Learn more](https://docs.rundeck.com/docs/manual/05-nodes.html#node-filtering).
         :param pulumi.Input[str] script: Body of the script to be executed on the Runner. Max length is 16777215 characters.
         """
         if invocation_command is not None:
@@ -139,6 +141,8 @@ class AutomationActionsActionActionDataReferenceArgs:
             pulumi.set(__self__, "process_automation_job_arguments", process_automation_job_arguments)
         if process_automation_job_id is not None:
             pulumi.set(__self__, "process_automation_job_id", process_automation_job_id)
+        if process_automation_node_filter is not None:
+            pulumi.set(__self__, "process_automation_node_filter", process_automation_node_filter)
         if script is not None:
             pulumi.set(__self__, "script", script)
 
@@ -177,6 +181,18 @@ class AutomationActionsActionActionDataReferenceArgs:
     @process_automation_job_id.setter
     def process_automation_job_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "process_automation_job_id", value)
+
+    @property
+    @pulumi.getter(name="processAutomationNodeFilter")
+    def process_automation_node_filter(self) -> Optional[pulumi.Input[str]]:
+        """
+        The expression that filters on which nodes a Process Automation Job executes [Learn more](https://docs.rundeck.com/docs/manual/05-nodes.html#node-filtering).
+        """
+        return pulumi.get(self, "process_automation_node_filter")
+
+    @process_automation_node_filter.setter
+    def process_automation_node_filter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "process_automation_node_filter", value)
 
     @property
     @pulumi.getter

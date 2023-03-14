@@ -46,7 +46,7 @@ func NewEscalationPolicy(ctx *pulumi.Context,
 	if args.Rules == nil {
 		return nil, errors.New("invalid value for required argument 'Rules'")
 	}
-	if isZero(args.Description) {
+	if args.Description == nil {
 		args.Description = pulumi.StringPtr("Managed by Pulumi")
 	}
 	var resource EscalationPolicy

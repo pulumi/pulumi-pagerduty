@@ -20,8 +20,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -72,18 +70,7 @@ import (
 //				ExtensionObjects: pulumi.StringArray{
 //					exampleService.ID(),
 //				},
-//				Config: pulumi.String(fmt.Sprintf(`{
-//		"restrict": "any",
-//		"notify_types": {
-//				"resolve": false,
-//				"acknowledge": false,
-//				"assignments": false
-//		},
-//		"access_token": "XXX"
-//	}
-//
-// `)),
-//
+//				Config: pulumi.String("{\n	\"restrict\": \"any\",\n	\"notify_types\": {\n			\"resolve\": false,\n			\"acknowledge\": false,\n			\"assignments\": false\n	},\n	\"access_token\": \"XXX\"\n}\n"),
 //			})
 //			if err != nil {
 //				return err

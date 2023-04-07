@@ -14412,6 +14412,112 @@ func (o GetEventOrchestrationsEventOrchestrationIntegrationParameterArrayOutput)
 	}).(GetEventOrchestrationsEventOrchestrationIntegrationParameterOutput)
 }
 
+type GetServiceTeam struct {
+	// The ID of the found service.
+	Id string `pulumi:"id"`
+	// The service name to use to find a service in the PagerDuty API.
+	Name string `pulumi:"name"`
+}
+
+// GetServiceTeamInput is an input type that accepts GetServiceTeamArgs and GetServiceTeamOutput values.
+// You can construct a concrete instance of `GetServiceTeamInput` via:
+//
+//	GetServiceTeamArgs{...}
+type GetServiceTeamInput interface {
+	pulumi.Input
+
+	ToGetServiceTeamOutput() GetServiceTeamOutput
+	ToGetServiceTeamOutputWithContext(context.Context) GetServiceTeamOutput
+}
+
+type GetServiceTeamArgs struct {
+	// The ID of the found service.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The service name to use to find a service in the PagerDuty API.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetServiceTeamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceTeam)(nil)).Elem()
+}
+
+func (i GetServiceTeamArgs) ToGetServiceTeamOutput() GetServiceTeamOutput {
+	return i.ToGetServiceTeamOutputWithContext(context.Background())
+}
+
+func (i GetServiceTeamArgs) ToGetServiceTeamOutputWithContext(ctx context.Context) GetServiceTeamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceTeamOutput)
+}
+
+// GetServiceTeamArrayInput is an input type that accepts GetServiceTeamArray and GetServiceTeamArrayOutput values.
+// You can construct a concrete instance of `GetServiceTeamArrayInput` via:
+//
+//	GetServiceTeamArray{ GetServiceTeamArgs{...} }
+type GetServiceTeamArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceTeamArrayOutput() GetServiceTeamArrayOutput
+	ToGetServiceTeamArrayOutputWithContext(context.Context) GetServiceTeamArrayOutput
+}
+
+type GetServiceTeamArray []GetServiceTeamInput
+
+func (GetServiceTeamArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceTeam)(nil)).Elem()
+}
+
+func (i GetServiceTeamArray) ToGetServiceTeamArrayOutput() GetServiceTeamArrayOutput {
+	return i.ToGetServiceTeamArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceTeamArray) ToGetServiceTeamArrayOutputWithContext(ctx context.Context) GetServiceTeamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceTeamArrayOutput)
+}
+
+type GetServiceTeamOutput struct{ *pulumi.OutputState }
+
+func (GetServiceTeamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceTeam)(nil)).Elem()
+}
+
+func (o GetServiceTeamOutput) ToGetServiceTeamOutput() GetServiceTeamOutput {
+	return o
+}
+
+func (o GetServiceTeamOutput) ToGetServiceTeamOutputWithContext(ctx context.Context) GetServiceTeamOutput {
+	return o
+}
+
+// The ID of the found service.
+func (o GetServiceTeamOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceTeam) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The service name to use to find a service in the PagerDuty API.
+func (o GetServiceTeamOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceTeam) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetServiceTeamArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceTeamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceTeam)(nil)).Elem()
+}
+
+func (o GetServiceTeamArrayOutput) ToGetServiceTeamArrayOutput() GetServiceTeamArrayOutput {
+	return o
+}
+
+func (o GetServiceTeamArrayOutput) ToGetServiceTeamArrayOutputWithContext(ctx context.Context) GetServiceTeamArrayOutput {
+	return o
+}
+
+func (o GetServiceTeamArrayOutput) Index(i pulumi.IntInput) GetServiceTeamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceTeam {
+		return vs[0].([]GetServiceTeam)[vs[1].(int)]
+	}).(GetServiceTeamOutput)
+}
+
 type GetUsersUser struct {
 	// The email to use to find a user in the PagerDuty API.
 	Email string `pulumi:"email"`
@@ -14748,6 +14854,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationsEventOrchestrationIntegrationArrayInput)(nil)).Elem(), GetEventOrchestrationsEventOrchestrationIntegrationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationsEventOrchestrationIntegrationParameterInput)(nil)).Elem(), GetEventOrchestrationsEventOrchestrationIntegrationParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationsEventOrchestrationIntegrationParameterArrayInput)(nil)).Elem(), GetEventOrchestrationsEventOrchestrationIntegrationParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceTeamInput)(nil)).Elem(), GetServiceTeamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceTeamArrayInput)(nil)).Elem(), GetServiceTeamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserInput)(nil)).Elem(), GetUsersUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserArrayInput)(nil)).Elem(), GetUsersUserArray{})
 	pulumi.RegisterOutputType(AutomationActionsActionActionDataReferenceOutput{})
@@ -14970,6 +15078,8 @@ func init() {
 	pulumi.RegisterOutputType(GetEventOrchestrationsEventOrchestrationIntegrationArrayOutput{})
 	pulumi.RegisterOutputType(GetEventOrchestrationsEventOrchestrationIntegrationParameterOutput{})
 	pulumi.RegisterOutputType(GetEventOrchestrationsEventOrchestrationIntegrationParameterArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceTeamOutput{})
+	pulumi.RegisterOutputType(GetServiceTeamArrayOutput{})
 	pulumi.RegisterOutputType(GetUsersUserOutput{})
 	pulumi.RegisterOutputType(GetUsersUserArrayOutput{})
 }

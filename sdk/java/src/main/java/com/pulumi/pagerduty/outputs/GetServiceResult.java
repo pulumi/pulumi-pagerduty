@@ -4,11 +4,39 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.pagerduty.outputs.GetServiceTeam;
+import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetServiceResult {
+    /**
+     * @return Time in seconds that an incident changes to the Triggered State after being Acknowledged. Value is null if the feature is disabled. Value must not be negative. Setting this field to 0, null (or unset) will disable the feature.
+     * 
+     */
+    private Integer acknowledgementTimeout;
+    /**
+     * @return Whether a service creates only incidents, or both alerts and incidents. A service must create alerts in order to enable incident merging.
+     * 
+     */
+    private String alertCreation;
+    /**
+     * @return Time in seconds that an incident is automatically resolved if left open for that long. Value is null if the feature is disabled. Value must not be negative. Setting this field to 0, null (or unset) will disable the feature.
+     * 
+     */
+    private Integer autoResolveTimeout;
+    /**
+     * @return The user-provided description of the service.
+     * 
+     */
+    private String description;
+    /**
+     * @return The escalation policy associated with this service.
+     * 
+     */
+    private String escalationPolicy;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -20,12 +48,52 @@ public final class GetServiceResult {
      */
     private String name;
     /**
+     * @return The set of teams associated with the service.
+     * 
+     */
+    private List<GetServiceTeam> teams;
+    /**
      * @return The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
      * 
      */
     private String type;
 
     private GetServiceResult() {}
+    /**
+     * @return Time in seconds that an incident changes to the Triggered State after being Acknowledged. Value is null if the feature is disabled. Value must not be negative. Setting this field to 0, null (or unset) will disable the feature.
+     * 
+     */
+    public Integer acknowledgementTimeout() {
+        return this.acknowledgementTimeout;
+    }
+    /**
+     * @return Whether a service creates only incidents, or both alerts and incidents. A service must create alerts in order to enable incident merging.
+     * 
+     */
+    public String alertCreation() {
+        return this.alertCreation;
+    }
+    /**
+     * @return Time in seconds that an incident is automatically resolved if left open for that long. Value is null if the feature is disabled. Value must not be negative. Setting this field to 0, null (or unset) will disable the feature.
+     * 
+     */
+    public Integer autoResolveTimeout() {
+        return this.autoResolveTimeout;
+    }
+    /**
+     * @return The user-provided description of the service.
+     * 
+     */
+    public String description() {
+        return this.description;
+    }
+    /**
+     * @return The escalation policy associated with this service.
+     * 
+     */
+    public String escalationPolicy() {
+        return this.escalationPolicy;
+    }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -39,6 +107,13 @@ public final class GetServiceResult {
      */
     public String name() {
         return this.name;
+    }
+    /**
+     * @return The set of teams associated with the service.
+     * 
+     */
+    public List<GetServiceTeam> teams() {
+        return this.teams;
     }
     /**
      * @return The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
@@ -57,17 +132,54 @@ public final class GetServiceResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private Integer acknowledgementTimeout;
+        private String alertCreation;
+        private Integer autoResolveTimeout;
+        private String description;
+        private String escalationPolicy;
         private String id;
         private String name;
+        private List<GetServiceTeam> teams;
         private String type;
         public Builder() {}
         public Builder(GetServiceResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.acknowledgementTimeout = defaults.acknowledgementTimeout;
+    	      this.alertCreation = defaults.alertCreation;
+    	      this.autoResolveTimeout = defaults.autoResolveTimeout;
+    	      this.description = defaults.description;
+    	      this.escalationPolicy = defaults.escalationPolicy;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.teams = defaults.teams;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
+        public Builder acknowledgementTimeout(Integer acknowledgementTimeout) {
+            this.acknowledgementTimeout = Objects.requireNonNull(acknowledgementTimeout);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder alertCreation(String alertCreation) {
+            this.alertCreation = Objects.requireNonNull(alertCreation);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder autoResolveTimeout(Integer autoResolveTimeout) {
+            this.autoResolveTimeout = Objects.requireNonNull(autoResolveTimeout);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder description(String description) {
+            this.description = Objects.requireNonNull(description);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder escalationPolicy(String escalationPolicy) {
+            this.escalationPolicy = Objects.requireNonNull(escalationPolicy);
+            return this;
+        }
         @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
@@ -79,14 +191,28 @@ public final class GetServiceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder teams(List<GetServiceTeam> teams) {
+            this.teams = Objects.requireNonNull(teams);
+            return this;
+        }
+        public Builder teams(GetServiceTeam... teams) {
+            return teams(List.of(teams));
+        }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
         public GetServiceResult build() {
             final var o = new GetServiceResult();
+            o.acknowledgementTimeout = acknowledgementTimeout;
+            o.alertCreation = alertCreation;
+            o.autoResolveTimeout = autoResolveTimeout;
+            o.description = description;
+            o.escalationPolicy = escalationPolicy;
             o.id = id;
             o.name = name;
+            o.teams = teams;
             o.type = type;
             return o;
         }

@@ -690,6 +690,17 @@ export interface GetEventOrchestrationsEventOrchestrationIntegrationParameter {
     type: string;
 }
 
+export interface GetServiceTeam {
+    /**
+     * The ID of the found service.
+     */
+    id: string;
+    /**
+     * The service name to use to find a service in the PagerDuty API.
+     */
+    name: string;
+}
+
 export interface GetUsersUser {
     /**
      * The email to use to find a user in the PagerDuty API.

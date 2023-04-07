@@ -32,7 +32,7 @@ type EscalationPolicy struct {
 	NumLoops pulumi.IntPtrOutput `pulumi:"numLoops"`
 	// An Escalation rule block. Escalation rules documented below.
 	Rules EscalationPolicyRuleArrayOutput `pulumi:"rules"`
-	// Teams associated with the policy. Account must have the `teams` ability to use this parameter.
+	// Team associated with the policy (Only 1 team can be assigned to an Escalation Policy). Account must have the `teams` ability to use this parameter.
 	Teams pulumi.StringPtrOutput `pulumi:"teams"`
 }
 
@@ -78,7 +78,7 @@ type escalationPolicyState struct {
 	NumLoops *int `pulumi:"numLoops"`
 	// An Escalation rule block. Escalation rules documented below.
 	Rules []EscalationPolicyRule `pulumi:"rules"`
-	// Teams associated with the policy. Account must have the `teams` ability to use this parameter.
+	// Team associated with the policy (Only 1 team can be assigned to an Escalation Policy). Account must have the `teams` ability to use this parameter.
 	Teams *string `pulumi:"teams"`
 }
 
@@ -90,7 +90,7 @@ type EscalationPolicyState struct {
 	NumLoops pulumi.IntPtrInput
 	// An Escalation rule block. Escalation rules documented below.
 	Rules EscalationPolicyRuleArrayInput
-	// Teams associated with the policy. Account must have the `teams` ability to use this parameter.
+	// Team associated with the policy (Only 1 team can be assigned to an Escalation Policy). Account must have the `teams` ability to use this parameter.
 	Teams pulumi.StringPtrInput
 }
 
@@ -106,7 +106,7 @@ type escalationPolicyArgs struct {
 	NumLoops *int `pulumi:"numLoops"`
 	// An Escalation rule block. Escalation rules documented below.
 	Rules []EscalationPolicyRule `pulumi:"rules"`
-	// Teams associated with the policy. Account must have the `teams` ability to use this parameter.
+	// Team associated with the policy (Only 1 team can be assigned to an Escalation Policy). Account must have the `teams` ability to use this parameter.
 	Teams *string `pulumi:"teams"`
 }
 
@@ -119,7 +119,7 @@ type EscalationPolicyArgs struct {
 	NumLoops pulumi.IntPtrInput
 	// An Escalation rule block. Escalation rules documented below.
 	Rules EscalationPolicyRuleArrayInput
-	// Teams associated with the policy. Account must have the `teams` ability to use this parameter.
+	// Team associated with the policy (Only 1 team can be assigned to an Escalation Policy). Account must have the `teams` ability to use this parameter.
 	Teams pulumi.StringPtrInput
 }
 
@@ -229,7 +229,7 @@ func (o EscalationPolicyOutput) Rules() EscalationPolicyRuleArrayOutput {
 	return o.ApplyT(func(v *EscalationPolicy) EscalationPolicyRuleArrayOutput { return v.Rules }).(EscalationPolicyRuleArrayOutput)
 }
 
-// Teams associated with the policy. Account must have the `teams` ability to use this parameter.
+// Team associated with the policy (Only 1 team can be assigned to an Escalation Policy). Account must have the `teams` ability to use this parameter.
 func (o EscalationPolicyOutput) Teams() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EscalationPolicy) pulumi.StringPtrOutput { return v.Teams }).(pulumi.StringPtrOutput)
 }

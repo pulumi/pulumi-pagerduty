@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -49,6 +51,26 @@ export interface GetServiceArgs {
  */
 export interface GetServiceResult {
     /**
+     * Time in seconds that an incident changes to the Triggered State after being Acknowledged. Value is null if the feature is disabled. Value must not be negative. Setting this field to 0, null (or unset) will disable the feature.
+     */
+    readonly acknowledgementTimeout: number;
+    /**
+     * Whether a service creates only incidents, or both alerts and incidents. A service must create alerts in order to enable incident merging.
+     */
+    readonly alertCreation: string;
+    /**
+     * Time in seconds that an incident is automatically resolved if left open for that long. Value is null if the feature is disabled. Value must not be negative. Setting this field to 0, null (or unset) will disable the feature.
+     */
+    readonly autoResolveTimeout: number;
+    /**
+     * The user-provided description of the service.
+     */
+    readonly description: string;
+    /**
+     * The escalation policy associated with this service.
+     */
+    readonly escalationPolicy: string;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
@@ -56,6 +78,10 @@ export interface GetServiceResult {
      * The short name of the found service.
      */
     readonly name: string;
+    /**
+     * The set of teams associated with the service.
+     */
+    readonly teams: outputs.GetServiceTeam[];
     /**
      * The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
      */

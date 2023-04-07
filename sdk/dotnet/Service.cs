@@ -95,7 +95,7 @@ namespace Pulumi.Pagerduty
         /// Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
         /// </summary>
         [Output("alertGroupingParameters")]
-        public Output<Outputs.ServiceAlertGroupingParameters?> AlertGroupingParameters { get; private set; } = null!;
+        public Output<Outputs.ServiceAlertGroupingParameters> AlertGroupingParameters { get; private set; } = null!;
 
         /// <summary>
         /// (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,

@@ -123,6 +123,7 @@ __all__ = [
     'GetEventOrchestrationsEventOrchestrationResult',
     'GetEventOrchestrationsEventOrchestrationIntegrationResult',
     'GetEventOrchestrationsEventOrchestrationIntegrationParameterResult',
+    'GetServiceTeamResult',
     'GetUsersUserResult',
 ]
 
@@ -5430,6 +5431,35 @@ class GetEventOrchestrationsEventOrchestrationIntegrationParameterResult(dict):
         Type of the routing key. `global` is the default type.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetServiceTeamResult(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 name: str):
+        """
+        :param str id: The ID of the found service.
+        :param str name: The service name to use to find a service in the PagerDuty API.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the found service.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The service name to use to find a service in the PagerDuty API.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

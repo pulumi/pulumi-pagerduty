@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
+from . import outputs
 
 __all__ = [
     'GetServiceResult',
@@ -21,16 +22,74 @@ class GetServiceResult:
     """
     A collection of values returned by getService.
     """
-    def __init__(__self__, id=None, name=None, type=None):
+    def __init__(__self__, acknowledgement_timeout=None, alert_creation=None, auto_resolve_timeout=None, description=None, escalation_policy=None, id=None, name=None, teams=None, type=None):
+        if acknowledgement_timeout and not isinstance(acknowledgement_timeout, int):
+            raise TypeError("Expected argument 'acknowledgement_timeout' to be a int")
+        pulumi.set(__self__, "acknowledgement_timeout", acknowledgement_timeout)
+        if alert_creation and not isinstance(alert_creation, str):
+            raise TypeError("Expected argument 'alert_creation' to be a str")
+        pulumi.set(__self__, "alert_creation", alert_creation)
+        if auto_resolve_timeout and not isinstance(auto_resolve_timeout, int):
+            raise TypeError("Expected argument 'auto_resolve_timeout' to be a int")
+        pulumi.set(__self__, "auto_resolve_timeout", auto_resolve_timeout)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
+        if escalation_policy and not isinstance(escalation_policy, str):
+            raise TypeError("Expected argument 'escalation_policy' to be a str")
+        pulumi.set(__self__, "escalation_policy", escalation_policy)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if teams and not isinstance(teams, list):
+            raise TypeError("Expected argument 'teams' to be a list")
+        pulumi.set(__self__, "teams", teams)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="acknowledgementTimeout")
+    def acknowledgement_timeout(self) -> int:
+        """
+        Time in seconds that an incident changes to the Triggered State after being Acknowledged. Value is null if the feature is disabled. Value must not be negative. Setting this field to 0, null (or unset) will disable the feature.
+        """
+        return pulumi.get(self, "acknowledgement_timeout")
+
+    @property
+    @pulumi.getter(name="alertCreation")
+    def alert_creation(self) -> str:
+        """
+        Whether a service creates only incidents, or both alerts and incidents. A service must create alerts in order to enable incident merging.
+        """
+        return pulumi.get(self, "alert_creation")
+
+    @property
+    @pulumi.getter(name="autoResolveTimeout")
+    def auto_resolve_timeout(self) -> int:
+        """
+        Time in seconds that an incident is automatically resolved if left open for that long. Value is null if the feature is disabled. Value must not be negative. Setting this field to 0, null (or unset) will disable the feature.
+        """
+        return pulumi.get(self, "auto_resolve_timeout")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The user-provided description of the service.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="escalationPolicy")
+    def escalation_policy(self) -> str:
+        """
+        The escalation policy associated with this service.
+        """
+        return pulumi.get(self, "escalation_policy")
 
     @property
     @pulumi.getter
@@ -50,6 +109,14 @@ class GetServiceResult:
 
     @property
     @pulumi.getter
+    def teams(self) -> Sequence['outputs.GetServiceTeamResult']:
+        """
+        The set of teams associated with the service.
+        """
+        return pulumi.get(self, "teams")
+
+    @property
+    @pulumi.getter
     def type(self) -> str:
         """
         The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
@@ -63,8 +130,14 @@ class AwaitableGetServiceResult(GetServiceResult):
         if False:
             yield self
         return GetServiceResult(
+            acknowledgement_timeout=self.acknowledgement_timeout,
+            alert_creation=self.alert_creation,
+            auto_resolve_timeout=self.auto_resolve_timeout,
+            description=self.description,
+            escalation_policy=self.escalation_policy,
             id=self.id,
             name=self.name,
+            teams=self.teams,
             type=self.type)
 
 
@@ -96,8 +169,14 @@ def get_service(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('pagerduty:index/getService:getService', __args__, opts=opts, typ=GetServiceResult).value
 
     return AwaitableGetServiceResult(
+        acknowledgement_timeout=__ret__.acknowledgement_timeout,
+        alert_creation=__ret__.alert_creation,
+        auto_resolve_timeout=__ret__.auto_resolve_timeout,
+        description=__ret__.description,
+        escalation_policy=__ret__.escalation_policy,
         id=__ret__.id,
         name=__ret__.name,
+        teams=__ret__.teams,
         type=__ret__.type)
 
 

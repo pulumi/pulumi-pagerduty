@@ -72,14 +72,14 @@ public final class EscalationPolicyArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Teams associated with the policy. Account must have the `teams` ability to use this parameter.
+     * Team associated with the policy (Only 1 team can be assigned to an Escalation Policy). Account must have the `teams` ability to use this parameter.
      * 
      */
     @Import(name="teams")
     private @Nullable Output<String> teams;
 
     /**
-     * @return Teams associated with the policy. Account must have the `teams` ability to use this parameter.
+     * @return Team associated with the policy (Only 1 team can be assigned to an Escalation Policy). Account must have the `teams` ability to use this parameter.
      * 
      */
     public Optional<Output<String>> teams() {
@@ -197,7 +197,7 @@ public final class EscalationPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param teams Teams associated with the policy. Account must have the `teams` ability to use this parameter.
+         * @param teams Team associated with the policy (Only 1 team can be assigned to an Escalation Policy). Account must have the `teams` ability to use this parameter.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class EscalationPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param teams Teams associated with the policy. Account must have the `teams` ability to use this parameter.
+         * @param teams Team associated with the policy (Only 1 team can be assigned to an Escalation Policy). Account must have the `teams` ability to use this parameter.
          * 
          * @return builder
          * 

@@ -143,14 +143,14 @@ public class Service extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="alertGroupingParameters", type=ServiceAlertGroupingParameters.class, parameters={})
-    private Output</* @Nullable */ ServiceAlertGroupingParameters> alertGroupingParameters;
+    private Output<ServiceAlertGroupingParameters> alertGroupingParameters;
 
     /**
      * @return Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
      * 
      */
-    public Output<Optional<ServiceAlertGroupingParameters>> alertGroupingParameters() {
-        return Codegen.optional(this.alertGroupingParameters);
+    public Output<ServiceAlertGroupingParameters> alertGroupingParameters() {
+        return this.alertGroupingParameters;
     }
     /**
      * (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,

@@ -4,7 +4,7 @@
 package com.pulumi.pagerduty.inputs;
 
 import com.pulumi.core.annotations.Import;
-import com.pulumi.pagerduty.inputs.GetEventOrchestrationIntegration;
+import com.pulumi.pagerduty.inputs.GetEventOrchestrationIntegrationDetail;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -20,15 +20,15 @@ public final class GetEventOrchestrationPlainArgs extends com.pulumi.resources.I
      * An integration for the Event Orchestration.
      * 
      */
-    @Import(name="integrations")
-    private @Nullable List<GetEventOrchestrationIntegration> integrations;
+    @Import(name="integrationDetail")
+    private @Nullable List<GetEventOrchestrationIntegrationDetail> integrationDetail;
 
     /**
      * @return An integration for the Event Orchestration.
      * 
      */
-    public Optional<List<GetEventOrchestrationIntegration>> integrations() {
-        return Optional.ofNullable(this.integrations);
+    public Optional<List<GetEventOrchestrationIntegrationDetail>> integrationDetail() {
+        return Optional.ofNullable(this.integrationDetail);
     }
 
     /**
@@ -49,7 +49,7 @@ public final class GetEventOrchestrationPlainArgs extends com.pulumi.resources.I
     private GetEventOrchestrationPlainArgs() {}
 
     private GetEventOrchestrationPlainArgs(GetEventOrchestrationPlainArgs $) {
-        this.integrations = $.integrations;
+        this.integrationDetail = $.integrationDetail;
         this.name = $.name;
     }
 
@@ -72,24 +72,24 @@ public final class GetEventOrchestrationPlainArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param integrations An integration for the Event Orchestration.
+         * @param integrationDetail An integration for the Event Orchestration.
          * 
          * @return builder
          * 
          */
-        public Builder integrations(@Nullable List<GetEventOrchestrationIntegration> integrations) {
-            $.integrations = integrations;
+        public Builder integrationDetail(@Nullable List<GetEventOrchestrationIntegrationDetail> integrationDetail) {
+            $.integrationDetail = integrationDetail;
             return this;
         }
 
         /**
-         * @param integrations An integration for the Event Orchestration.
+         * @param integrationDetail An integration for the Event Orchestration.
          * 
          * @return builder
          * 
          */
-        public Builder integrations(GetEventOrchestrationIntegration... integrations) {
-            return integrations(List.of(integrations));
+        public Builder integrationDetail(GetEventOrchestrationIntegrationDetail... integrationDetail) {
+            return integrationDetail(List.of(integrationDetail));
         }
 
         /**

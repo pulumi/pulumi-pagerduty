@@ -132,8 +132,8 @@ __all__ = [
     'WebhookSubscriptionDeliveryMethodArgs',
     'WebhookSubscriptionDeliveryMethodCustomHeaderArgs',
     'WebhookSubscriptionFilterArgs',
-    'GetEventOrchestrationIntegrationArgs',
-    'GetEventOrchestrationIntegrationParameterArgs',
+    'GetEventOrchestrationIntegrationDetailArgs',
+    'GetEventOrchestrationIntegrationDetailParameterArgs',
     'GetLicensesLicenseArgs',
 ]
 
@@ -6956,11 +6956,11 @@ class WebhookSubscriptionFilterArgs:
 
 
 @pulumi.input_type
-class GetEventOrchestrationIntegrationArgs:
+class GetEventOrchestrationIntegrationDetailArgs:
     def __init__(__self__, *,
                  id: str,
                  label: str,
-                 parameters: Sequence['GetEventOrchestrationIntegrationParameterArgs']):
+                 parameters: Sequence['GetEventOrchestrationIntegrationDetailParameterArgs']):
         """
         :param str id: ID of the integration
         """
@@ -6991,16 +6991,16 @@ class GetEventOrchestrationIntegrationArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Sequence['GetEventOrchestrationIntegrationParameterArgs']:
+    def parameters(self) -> Sequence['GetEventOrchestrationIntegrationDetailParameterArgs']:
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Sequence['GetEventOrchestrationIntegrationParameterArgs']):
+    def parameters(self, value: Sequence['GetEventOrchestrationIntegrationDetailParameterArgs']):
         pulumi.set(self, "parameters", value)
 
 
 @pulumi.input_type
-class GetEventOrchestrationIntegrationParameterArgs:
+class GetEventOrchestrationIntegrationDetailParameterArgs:
     def __init__(__self__, *,
                  routing_key: str,
                  type: str):

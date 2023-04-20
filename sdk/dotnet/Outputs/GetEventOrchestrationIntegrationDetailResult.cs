@@ -11,22 +11,22 @@ namespace Pulumi.Pagerduty.Outputs
 {
 
     [OutputType]
-    public sealed class GetEventOrchestrationIntegrationResult
+    public sealed class GetEventOrchestrationIntegrationDetailResult
     {
         /// <summary>
         /// ID of the integration
         /// </summary>
         public readonly string Id;
         public readonly string Label;
-        public readonly ImmutableArray<Outputs.GetEventOrchestrationIntegrationParameterResult> Parameters;
+        public readonly ImmutableArray<Outputs.GetEventOrchestrationIntegrationDetailParameterResult> Parameters;
 
         [OutputConstructor]
-        private GetEventOrchestrationIntegrationResult(
+        private GetEventOrchestrationIntegrationDetailResult(
             string id,
 
             string label,
 
-            ImmutableArray<Outputs.GetEventOrchestrationIntegrationParameterResult> parameters)
+            ImmutableArray<Outputs.GetEventOrchestrationIntegrationDetailParameterResult> parameters)
         {
             Id = id;
             Label = label;

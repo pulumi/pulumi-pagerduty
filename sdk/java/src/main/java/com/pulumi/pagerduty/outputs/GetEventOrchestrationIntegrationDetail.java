@@ -4,21 +4,22 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.pagerduty.outputs.GetEventOrchestrationIntegrationParameter;
+import com.pulumi.pagerduty.outputs.GetEventOrchestrationIntegrationDetailParameter;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
 @CustomType
-public final class GetEventOrchestrationIntegration {
+public final class GetEventOrchestrationIntegrationDetail {
     /**
      * @return ID of the integration
      * 
      */
     private String id;
-    private List<GetEventOrchestrationIntegrationParameter> parameters;
+    private String label;
+    private List<GetEventOrchestrationIntegrationDetailParameter> parameters;
 
-    private GetEventOrchestrationIntegration() {}
+    private GetEventOrchestrationIntegrationDetail() {}
     /**
      * @return ID of the integration
      * 
@@ -26,7 +27,10 @@ public final class GetEventOrchestrationIntegration {
     public String id() {
         return this.id;
     }
-    public List<GetEventOrchestrationIntegrationParameter> parameters() {
+    public String label() {
+        return this.label;
+    }
+    public List<GetEventOrchestrationIntegrationDetailParameter> parameters() {
         return this.parameters;
     }
 
@@ -34,17 +38,19 @@ public final class GetEventOrchestrationIntegration {
         return new Builder();
     }
 
-    public static Builder builder(GetEventOrchestrationIntegration defaults) {
+    public static Builder builder(GetEventOrchestrationIntegrationDetail defaults) {
         return new Builder(defaults);
     }
     @CustomType.Builder
     public static final class Builder {
         private String id;
-        private List<GetEventOrchestrationIntegrationParameter> parameters;
+        private String label;
+        private List<GetEventOrchestrationIntegrationDetailParameter> parameters;
         public Builder() {}
-        public Builder(GetEventOrchestrationIntegration defaults) {
+        public Builder(GetEventOrchestrationIntegrationDetail defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
+    	      this.label = defaults.label;
     	      this.parameters = defaults.parameters;
         }
 
@@ -54,16 +60,22 @@ public final class GetEventOrchestrationIntegration {
             return this;
         }
         @CustomType.Setter
-        public Builder parameters(List<GetEventOrchestrationIntegrationParameter> parameters) {
+        public Builder label(String label) {
+            this.label = Objects.requireNonNull(label);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder parameters(List<GetEventOrchestrationIntegrationDetailParameter> parameters) {
             this.parameters = Objects.requireNonNull(parameters);
             return this;
         }
-        public Builder parameters(GetEventOrchestrationIntegrationParameter... parameters) {
+        public Builder parameters(GetEventOrchestrationIntegrationDetailParameter... parameters) {
             return parameters(List.of(parameters));
         }
-        public GetEventOrchestrationIntegration build() {
-            final var o = new GetEventOrchestrationIntegration();
+        public GetEventOrchestrationIntegrationDetail build() {
+            final var o = new GetEventOrchestrationIntegrationDetail();
             o.id = id;
+            o.label = label;
             o.parameters = parameters;
             return o;
         }

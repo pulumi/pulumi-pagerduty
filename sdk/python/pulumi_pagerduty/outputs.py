@@ -134,7 +134,8 @@ __all__ = [
     'WebhookSubscriptionDeliveryMethodCustomHeader',
     'WebhookSubscriptionFilter',
     'GetAutomationActionsActionActionDataReferenceResult',
-    'GetEventOrchestrationIntegrationResult',
+    'GetEventOrchestrationIntegrationDetailResult',
+    'GetEventOrchestrationIntegrationDetailParameterResult',
     'GetEventOrchestrationIntegrationParameterResult',
     'GetEventOrchestrationsEventOrchestrationResult',
     'GetEventOrchestrationsEventOrchestrationIntegrationResult',
@@ -6253,11 +6254,11 @@ class GetAutomationActionsActionActionDataReferenceResult(dict):
 
 
 @pulumi.output_type
-class GetEventOrchestrationIntegrationResult(dict):
+class GetEventOrchestrationIntegrationDetailResult(dict):
     def __init__(__self__, *,
                  id: str,
                  label: str,
-                 parameters: Sequence['outputs.GetEventOrchestrationIntegrationParameterResult']):
+                 parameters: Sequence['outputs.GetEventOrchestrationIntegrationDetailParameterResult']):
         """
         :param str id: ID of the integration
         """
@@ -6280,8 +6281,37 @@ class GetEventOrchestrationIntegrationResult(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Sequence['outputs.GetEventOrchestrationIntegrationParameterResult']:
+    def parameters(self) -> Sequence['outputs.GetEventOrchestrationIntegrationDetailParameterResult']:
         return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class GetEventOrchestrationIntegrationDetailParameterResult(dict):
+    def __init__(__self__, *,
+                 routing_key: str,
+                 type: str):
+        """
+        :param str routing_key: Routing key that routes to this Orchestration.
+        :param str type: Type of the routing key. `global` is the default type.
+        """
+        pulumi.set(__self__, "routing_key", routing_key)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="routingKey")
+    def routing_key(self) -> str:
+        """
+        Routing key that routes to this Orchestration.
+        """
+        return pulumi.get(self, "routing_key")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the routing key. `global` is the default type.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

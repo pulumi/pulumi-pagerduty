@@ -27,16 +27,16 @@ namespace Pulumi.Pagerduty
 
     public sealed class GetEventOrchestrationArgs : global::Pulumi.InvokeArgs
     {
-        [Input("integrations")]
-        private List<Inputs.GetEventOrchestrationIntegrationArgs>? _integrations;
+        [Input("integrationDetail")]
+        private List<Inputs.GetEventOrchestrationIntegrationDetailArgs>? _integrationDetail;
 
         /// <summary>
         /// An integration for the Event Orchestration.
         /// </summary>
-        public List<Inputs.GetEventOrchestrationIntegrationArgs> Integrations
+        public List<Inputs.GetEventOrchestrationIntegrationDetailArgs> IntegrationDetail
         {
-            get => _integrations ?? (_integrations = new List<Inputs.GetEventOrchestrationIntegrationArgs>());
-            set => _integrations = value;
+            get => _integrationDetail ?? (_integrationDetail = new List<Inputs.GetEventOrchestrationIntegrationDetailArgs>());
+            set => _integrationDetail = value;
         }
 
         /// <summary>
@@ -53,16 +53,16 @@ namespace Pulumi.Pagerduty
 
     public sealed class GetEventOrchestrationInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("integrations")]
-        private InputList<Inputs.GetEventOrchestrationIntegrationInputArgs>? _integrations;
+        [Input("integrationDetail")]
+        private InputList<Inputs.GetEventOrchestrationIntegrationDetailInputArgs>? _integrationDetail;
 
         /// <summary>
         /// An integration for the Event Orchestration.
         /// </summary>
-        public InputList<Inputs.GetEventOrchestrationIntegrationInputArgs> Integrations
+        public InputList<Inputs.GetEventOrchestrationIntegrationDetailInputArgs> IntegrationDetail
         {
-            get => _integrations ?? (_integrations = new InputList<Inputs.GetEventOrchestrationIntegrationInputArgs>());
-            set => _integrations = value;
+            get => _integrationDetail ?? (_integrationDetail = new InputList<Inputs.GetEventOrchestrationIntegrationDetailInputArgs>());
+            set => _integrationDetail = value;
         }
 
         /// <summary>
@@ -88,7 +88,7 @@ namespace Pulumi.Pagerduty
         /// <summary>
         /// An integration for the Event Orchestration.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetEventOrchestrationIntegrationResult> Integrations;
+        public readonly ImmutableArray<Outputs.GetEventOrchestrationIntegrationDetailResult> IntegrationDetail;
         /// <summary>
         /// The name of the found Event Orchestration.
         /// </summary>
@@ -98,12 +98,12 @@ namespace Pulumi.Pagerduty
         private GetEventOrchestrationResult(
             string id,
 
-            ImmutableArray<Outputs.GetEventOrchestrationIntegrationResult> integrations,
+            ImmutableArray<Outputs.GetEventOrchestrationIntegrationDetailResult> integrationDetail,
 
             string name)
         {
             Id = id;
-            Integrations = integrations;
+            IntegrationDetail = integrationDetail;
             Name = name;
         }
     }

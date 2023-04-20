@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class GetEventOrchestrationIntegrationInputArgs : global::Pulumi.ResourceArgs
+    public sealed class GetEventOrchestrationIntegrationDetailInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the integration
@@ -22,16 +22,16 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<string> Label { get; set; } = null!;
 
         [Input("parameters", required: true)]
-        private InputList<Inputs.GetEventOrchestrationIntegrationParameterInputArgs>? _parameters;
-        public InputList<Inputs.GetEventOrchestrationIntegrationParameterInputArgs> Parameters
+        private InputList<Inputs.GetEventOrchestrationIntegrationDetailParameterInputArgs>? _parameters;
+        public InputList<Inputs.GetEventOrchestrationIntegrationDetailParameterInputArgs> Parameters
         {
-            get => _parameters ?? (_parameters = new InputList<Inputs.GetEventOrchestrationIntegrationParameterInputArgs>());
+            get => _parameters ?? (_parameters = new InputList<Inputs.GetEventOrchestrationIntegrationDetailParameterInputArgs>());
             set => _parameters = value;
         }
 
-        public GetEventOrchestrationIntegrationInputArgs()
+        public GetEventOrchestrationIntegrationDetailInputArgs()
         {
         }
-        public static new GetEventOrchestrationIntegrationInputArgs Empty => new GetEventOrchestrationIntegrationInputArgs();
+        public static new GetEventOrchestrationIntegrationDetailInputArgs Empty => new GetEventOrchestrationIntegrationDetailInputArgs();
     }
 }

@@ -10,23 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty.Inputs
 {
 
-    public sealed class GetEventOrchestrationIntegrationParameterArgs : global::Pulumi.InvokeArgs
+    public sealed class GetEventOrchestrationIntegrationDetailParameterInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Routing key that routes to this Orchestration.
         /// </summary>
         [Input("routingKey", required: true)]
-        public string RoutingKey { get; set; } = null!;
+        public Input<string> RoutingKey { get; set; } = null!;
 
         /// <summary>
         /// Type of the routing key. `global` is the default type.
         /// </summary>
         [Input("type", required: true)]
-        public string Type { get; set; } = null!;
+        public Input<string> Type { get; set; } = null!;
 
-        public GetEventOrchestrationIntegrationParameterArgs()
+        public GetEventOrchestrationIntegrationDetailParameterInputArgs()
         {
         }
-        public static new GetEventOrchestrationIntegrationParameterArgs Empty => new GetEventOrchestrationIntegrationParameterArgs();
+        public static new GetEventOrchestrationIntegrationDetailParameterInputArgs Empty => new GetEventOrchestrationIntegrationDetailParameterInputArgs();
     }
 }

@@ -21,6 +21,8 @@ import com.pulumi.pagerduty.inputs.GetCustomFieldSchemaPlainArgs;
 import com.pulumi.pagerduty.inputs.GetEscalationPolicyArgs;
 import com.pulumi.pagerduty.inputs.GetEscalationPolicyPlainArgs;
 import com.pulumi.pagerduty.inputs.GetEventOrchestrationArgs;
+import com.pulumi.pagerduty.inputs.GetEventOrchestrationIntegrationArgs;
+import com.pulumi.pagerduty.inputs.GetEventOrchestrationIntegrationPlainArgs;
 import com.pulumi.pagerduty.inputs.GetEventOrchestrationPlainArgs;
 import com.pulumi.pagerduty.inputs.GetEventOrchestrationsArgs;
 import com.pulumi.pagerduty.inputs.GetEventOrchestrationsPlainArgs;
@@ -28,6 +30,10 @@ import com.pulumi.pagerduty.inputs.GetExtensionSchemaArgs;
 import com.pulumi.pagerduty.inputs.GetExtensionSchemaPlainArgs;
 import com.pulumi.pagerduty.inputs.GetIncidentWorkflowArgs;
 import com.pulumi.pagerduty.inputs.GetIncidentWorkflowPlainArgs;
+import com.pulumi.pagerduty.inputs.GetLicenseArgs;
+import com.pulumi.pagerduty.inputs.GetLicensePlainArgs;
+import com.pulumi.pagerduty.inputs.GetLicensesArgs;
+import com.pulumi.pagerduty.inputs.GetLicensesPlainArgs;
 import com.pulumi.pagerduty.inputs.GetPriorityArgs;
 import com.pulumi.pagerduty.inputs.GetPriorityPlainArgs;
 import com.pulumi.pagerduty.inputs.GetRulesetArgs;
@@ -56,10 +62,13 @@ import com.pulumi.pagerduty.outputs.GetBusinessServiceResult;
 import com.pulumi.pagerduty.outputs.GetCustomFieldResult;
 import com.pulumi.pagerduty.outputs.GetCustomFieldSchemaResult;
 import com.pulumi.pagerduty.outputs.GetEscalationPolicyResult;
+import com.pulumi.pagerduty.outputs.GetEventOrchestrationIntegrationResult;
 import com.pulumi.pagerduty.outputs.GetEventOrchestrationResult;
 import com.pulumi.pagerduty.outputs.GetEventOrchestrationsResult;
 import com.pulumi.pagerduty.outputs.GetExtensionSchemaResult;
 import com.pulumi.pagerduty.outputs.GetIncidentWorkflowResult;
+import com.pulumi.pagerduty.outputs.GetLicenseResult;
+import com.pulumi.pagerduty.outputs.GetLicensesResult;
 import com.pulumi.pagerduty.outputs.GetPriorityResult;
 import com.pulumi.pagerduty.outputs.GetRulesetResult;
 import com.pulumi.pagerduty.outputs.GetScheduleResult;
@@ -1347,6 +1356,170 @@ public final class PagerdutyFunctions {
         return Deployment.getInstance().invokeAsync("pagerduty:index/getEventOrchestration:getEventOrchestration", TypeShape.of(GetEventOrchestrationResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to get information about a specific [Integration](https://developer.pagerduty.com/api-reference/1c6607db389a8-get-an-integration-for-an-event-orchestration) for an Event Orchestration.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.EventOrchestration;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetEventOrchestrationIntegrationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var eventOrchestration = new EventOrchestration(&#34;eventOrchestration&#34;);
+     * 
+     *         final var integration = PagerdutyFunctions.getEventOrchestrationIntegration(GetEventOrchestrationIntegrationArgs.builder()
+     *             .eventOrchestration(eventOrchestration.id())
+     *             .label(&#34;Test Event Orchestration Default Integration&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetEventOrchestrationIntegrationResult> getEventOrchestrationIntegration(GetEventOrchestrationIntegrationArgs args) {
+        return getEventOrchestrationIntegration(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about a specific [Integration](https://developer.pagerduty.com/api-reference/1c6607db389a8-get-an-integration-for-an-event-orchestration) for an Event Orchestration.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.EventOrchestration;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetEventOrchestrationIntegrationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var eventOrchestration = new EventOrchestration(&#34;eventOrchestration&#34;);
+     * 
+     *         final var integration = PagerdutyFunctions.getEventOrchestrationIntegration(GetEventOrchestrationIntegrationArgs.builder()
+     *             .eventOrchestration(eventOrchestration.id())
+     *             .label(&#34;Test Event Orchestration Default Integration&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetEventOrchestrationIntegrationResult> getEventOrchestrationIntegrationPlain(GetEventOrchestrationIntegrationPlainArgs args) {
+        return getEventOrchestrationIntegrationPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about a specific [Integration](https://developer.pagerduty.com/api-reference/1c6607db389a8-get-an-integration-for-an-event-orchestration) for an Event Orchestration.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.EventOrchestration;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetEventOrchestrationIntegrationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var eventOrchestration = new EventOrchestration(&#34;eventOrchestration&#34;);
+     * 
+     *         final var integration = PagerdutyFunctions.getEventOrchestrationIntegration(GetEventOrchestrationIntegrationArgs.builder()
+     *             .eventOrchestration(eventOrchestration.id())
+     *             .label(&#34;Test Event Orchestration Default Integration&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetEventOrchestrationIntegrationResult> getEventOrchestrationIntegration(GetEventOrchestrationIntegrationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration", TypeShape.of(GetEventOrchestrationIntegrationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [Integration](https://developer.pagerduty.com/api-reference/1c6607db389a8-get-an-integration-for-an-event-orchestration) for an Event Orchestration.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.EventOrchestration;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetEventOrchestrationIntegrationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var eventOrchestration = new EventOrchestration(&#34;eventOrchestration&#34;);
+     * 
+     *         final var integration = PagerdutyFunctions.getEventOrchestrationIntegration(GetEventOrchestrationIntegrationArgs.builder()
+     *             .eventOrchestration(eventOrchestration.id())
+     *             .label(&#34;Test Event Orchestration Default Integration&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetEventOrchestrationIntegrationResult> getEventOrchestrationIntegrationPlain(GetEventOrchestrationIntegrationPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration", TypeShape.of(GetEventOrchestrationIntegrationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Use this data source to get information as a list about specific Global [Event Orchestrations](https://developer.pagerduty.com/api-reference/7ba0fe7bdb26a-list-event-orchestrations) filtered by a Regular Expression provided.
      * 
      * ## Example Usage
@@ -2015,6 +2188,576 @@ public final class PagerdutyFunctions {
         return Deployment.getInstance().invokeAsync("pagerduty:index/getIncidentWorkflow:getIncidentWorkflow", TypeShape.of(GetIncidentWorkflowResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to use a single purchased [license](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) to manage PagerDuty user resources. After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
+     * 
+     * &gt; It is preferred to set the `name` and `description` to their exact values or to set the `id`. However, this will require updating your configuration if the accounts products ever change. To avoid errors when account products change, you may set the `name` of a license to a valid substring such as `&#34;Full User&#34;` or `&#34;Stakeholder&#34;`.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetLicenseArgs;
+     * import com.pulumi.pagerduty.User;
+     * import com.pulumi.pagerduty.UserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var invalidRoles = &#34;owner&#34;;
+     * 
+     *         final var fullUser = PagerdutyFunctions.getLicense(GetLicenseArgs.builder()
+     *             .name(&#34;Full User&#34;)
+     *             .description(&#34;&#34;)
+     *             .build());
+     * 
+     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
+     *             .email(&#34;125.greenholt.earline@graham.name&#34;)
+     *             .license(fullUser.applyValue(getLicenseResult -&gt; getLicenseResult.id()))
+     *             .role(&#34;user&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetLicenseResult> getLicense() {
+        return getLicense(GetLicenseArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to use a single purchased [license](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) to manage PagerDuty user resources. After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
+     * 
+     * &gt; It is preferred to set the `name` and `description` to their exact values or to set the `id`. However, this will require updating your configuration if the accounts products ever change. To avoid errors when account products change, you may set the `name` of a license to a valid substring such as `&#34;Full User&#34;` or `&#34;Stakeholder&#34;`.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetLicenseArgs;
+     * import com.pulumi.pagerduty.User;
+     * import com.pulumi.pagerduty.UserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var invalidRoles = &#34;owner&#34;;
+     * 
+     *         final var fullUser = PagerdutyFunctions.getLicense(GetLicenseArgs.builder()
+     *             .name(&#34;Full User&#34;)
+     *             .description(&#34;&#34;)
+     *             .build());
+     * 
+     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
+     *             .email(&#34;125.greenholt.earline@graham.name&#34;)
+     *             .license(fullUser.applyValue(getLicenseResult -&gt; getLicenseResult.id()))
+     *             .role(&#34;user&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetLicenseResult> getLicensePlain() {
+        return getLicensePlain(GetLicensePlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to use a single purchased [license](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) to manage PagerDuty user resources. After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
+     * 
+     * &gt; It is preferred to set the `name` and `description` to their exact values or to set the `id`. However, this will require updating your configuration if the accounts products ever change. To avoid errors when account products change, you may set the `name` of a license to a valid substring such as `&#34;Full User&#34;` or `&#34;Stakeholder&#34;`.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetLicenseArgs;
+     * import com.pulumi.pagerduty.User;
+     * import com.pulumi.pagerduty.UserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var invalidRoles = &#34;owner&#34;;
+     * 
+     *         final var fullUser = PagerdutyFunctions.getLicense(GetLicenseArgs.builder()
+     *             .name(&#34;Full User&#34;)
+     *             .description(&#34;&#34;)
+     *             .build());
+     * 
+     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
+     *             .email(&#34;125.greenholt.earline@graham.name&#34;)
+     *             .license(fullUser.applyValue(getLicenseResult -&gt; getLicenseResult.id()))
+     *             .role(&#34;user&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetLicenseResult> getLicense(GetLicenseArgs args) {
+        return getLicense(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to use a single purchased [license](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) to manage PagerDuty user resources. After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
+     * 
+     * &gt; It is preferred to set the `name` and `description` to their exact values or to set the `id`. However, this will require updating your configuration if the accounts products ever change. To avoid errors when account products change, you may set the `name` of a license to a valid substring such as `&#34;Full User&#34;` or `&#34;Stakeholder&#34;`.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetLicenseArgs;
+     * import com.pulumi.pagerduty.User;
+     * import com.pulumi.pagerduty.UserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var invalidRoles = &#34;owner&#34;;
+     * 
+     *         final var fullUser = PagerdutyFunctions.getLicense(GetLicenseArgs.builder()
+     *             .name(&#34;Full User&#34;)
+     *             .description(&#34;&#34;)
+     *             .build());
+     * 
+     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
+     *             .email(&#34;125.greenholt.earline@graham.name&#34;)
+     *             .license(fullUser.applyValue(getLicenseResult -&gt; getLicenseResult.id()))
+     *             .role(&#34;user&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetLicenseResult> getLicensePlain(GetLicensePlainArgs args) {
+        return getLicensePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to use a single purchased [license](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) to manage PagerDuty user resources. After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
+     * 
+     * &gt; It is preferred to set the `name` and `description` to their exact values or to set the `id`. However, this will require updating your configuration if the accounts products ever change. To avoid errors when account products change, you may set the `name` of a license to a valid substring such as `&#34;Full User&#34;` or `&#34;Stakeholder&#34;`.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetLicenseArgs;
+     * import com.pulumi.pagerduty.User;
+     * import com.pulumi.pagerduty.UserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var invalidRoles = &#34;owner&#34;;
+     * 
+     *         final var fullUser = PagerdutyFunctions.getLicense(GetLicenseArgs.builder()
+     *             .name(&#34;Full User&#34;)
+     *             .description(&#34;&#34;)
+     *             .build());
+     * 
+     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
+     *             .email(&#34;125.greenholt.earline@graham.name&#34;)
+     *             .license(fullUser.applyValue(getLicenseResult -&gt; getLicenseResult.id()))
+     *             .role(&#34;user&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetLicenseResult> getLicense(GetLicenseArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getLicense:getLicense", TypeShape.of(GetLicenseResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to use a single purchased [license](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) to manage PagerDuty user resources. After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
+     * 
+     * &gt; It is preferred to set the `name` and `description` to their exact values or to set the `id`. However, this will require updating your configuration if the accounts products ever change. To avoid errors when account products change, you may set the `name` of a license to a valid substring such as `&#34;Full User&#34;` or `&#34;Stakeholder&#34;`.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetLicenseArgs;
+     * import com.pulumi.pagerduty.User;
+     * import com.pulumi.pagerduty.UserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var invalidRoles = &#34;owner&#34;;
+     * 
+     *         final var fullUser = PagerdutyFunctions.getLicense(GetLicenseArgs.builder()
+     *             .name(&#34;Full User&#34;)
+     *             .description(&#34;&#34;)
+     *             .build());
+     * 
+     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
+     *             .email(&#34;125.greenholt.earline@graham.name&#34;)
+     *             .license(fullUser.applyValue(getLicenseResult -&gt; getLicenseResult.id()))
+     *             .role(&#34;user&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetLicenseResult> getLicensePlain(GetLicensePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("pagerduty:index/getLicense:getLicense", TypeShape.of(GetLicenseResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetLicensesArgs;
+     * import com.pulumi.pagerduty.User;
+     * import com.pulumi.pagerduty.UserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var invalidRoles = &#34;owner&#34;;
+     * 
+     *         final var licenses = PagerdutyFunctions.getLicenses();
+     * 
+     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
+     *             .email(&#34;125.greenholt.earline@graham.name&#34;)
+     *             .license(licenses.applyValue(getLicensesResult -&gt; getLicensesResult.licenses()[0].id()))
+     *             .role(&#34;user&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetLicensesResult> getLicenses() {
+        return getLicenses(GetLicensesArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetLicensesArgs;
+     * import com.pulumi.pagerduty.User;
+     * import com.pulumi.pagerduty.UserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var invalidRoles = &#34;owner&#34;;
+     * 
+     *         final var licenses = PagerdutyFunctions.getLicenses();
+     * 
+     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
+     *             .email(&#34;125.greenholt.earline@graham.name&#34;)
+     *             .license(licenses.applyValue(getLicensesResult -&gt; getLicensesResult.licenses()[0].id()))
+     *             .role(&#34;user&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetLicensesResult> getLicensesPlain() {
+        return getLicensesPlain(GetLicensesPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetLicensesArgs;
+     * import com.pulumi.pagerduty.User;
+     * import com.pulumi.pagerduty.UserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var invalidRoles = &#34;owner&#34;;
+     * 
+     *         final var licenses = PagerdutyFunctions.getLicenses();
+     * 
+     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
+     *             .email(&#34;125.greenholt.earline@graham.name&#34;)
+     *             .license(licenses.applyValue(getLicensesResult -&gt; getLicensesResult.licenses()[0].id()))
+     *             .role(&#34;user&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetLicensesResult> getLicenses(GetLicensesArgs args) {
+        return getLicenses(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetLicensesArgs;
+     * import com.pulumi.pagerduty.User;
+     * import com.pulumi.pagerduty.UserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var invalidRoles = &#34;owner&#34;;
+     * 
+     *         final var licenses = PagerdutyFunctions.getLicenses();
+     * 
+     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
+     *             .email(&#34;125.greenholt.earline@graham.name&#34;)
+     *             .license(licenses.applyValue(getLicensesResult -&gt; getLicensesResult.licenses()[0].id()))
+     *             .role(&#34;user&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetLicensesResult> getLicensesPlain(GetLicensesPlainArgs args) {
+        return getLicensesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetLicensesArgs;
+     * import com.pulumi.pagerduty.User;
+     * import com.pulumi.pagerduty.UserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var invalidRoles = &#34;owner&#34;;
+     * 
+     *         final var licenses = PagerdutyFunctions.getLicenses();
+     * 
+     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
+     *             .email(&#34;125.greenholt.earline@graham.name&#34;)
+     *             .license(licenses.applyValue(getLicensesResult -&gt; getLicensesResult.licenses()[0].id()))
+     *             .role(&#34;user&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetLicensesResult> getLicenses(GetLicensesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getLicenses:getLicenses", TypeShape.of(GetLicensesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetLicensesArgs;
+     * import com.pulumi.pagerduty.User;
+     * import com.pulumi.pagerduty.UserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var invalidRoles = &#34;owner&#34;;
+     * 
+     *         final var licenses = PagerdutyFunctions.getLicenses();
+     * 
+     *         var example = new User(&#34;example&#34;, UserArgs.builder()        
+     *             .email(&#34;125.greenholt.earline@graham.name&#34;)
+     *             .license(licenses.applyValue(getLicensesResult -&gt; getLicensesResult.licenses()[0].id()))
+     *             .role(&#34;user&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetLicensesResult> getLicensesPlain(GetLicensesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("pagerduty:index/getLicenses:getLicenses", TypeShape.of(GetLicensesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Use this data source to get information about a specific [priority](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE2NA-list-priorities) that you can use for other PagerDuty resources. A priority is a label representing the importance and impact of an incident. This feature is only available on Standard and Enterprise plans.
      * 
      * ## Example Usage
@@ -2319,8 +3062,6 @@ public final class PagerdutyFunctions {
         return Deployment.getInstance().invokeAsync("pagerduty:index/getPriority:getPriority", TypeShape.of(GetPriorityResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get information about a specific [ruleset](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE3MQ-list-rulesets) that you can use for managing and grouping [event rules](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE3Ng-list-event-rules).
-     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -2418,8 +3159,6 @@ public final class PagerdutyFunctions {
         return getRuleset(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information about a specific [ruleset](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE3MQ-list-rulesets) that you can use for managing and grouping [event rules](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE3Ng-list-event-rules).
-     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -2517,8 +3256,6 @@ public final class PagerdutyFunctions {
         return getRulesetPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to get information about a specific [ruleset](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE3MQ-list-rulesets) that you can use for managing and grouping [event rules](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE3Ng-list-event-rules).
-     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -2616,8 +3353,6 @@ public final class PagerdutyFunctions {
         return Deployment.getInstance().invoke("pagerduty:index/getRuleset:getRuleset", TypeShape.of(GetRulesetResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to get information about a specific [ruleset](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE3MQ-list-rulesets) that you can use for managing and grouping [event rules](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE3Ng-list-event-rules).
-     * 
      * ## Example Usage
      * ```java
      * package generated_program;

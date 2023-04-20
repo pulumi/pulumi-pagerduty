@@ -116,6 +116,21 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The license id assigned to the user. If provided the user&#39;s role must exist in the assigned license&#39;s `valid_roles` list. To reference purchased licenses&#39; ids see data source `pagerduty.getLicenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
+     * 
+     */
+    @Import(name="license")
+    private @Nullable Output<String> license;
+
+    /**
+     * @return The license id assigned to the user. If provided the user&#39;s role must exist in the assigned license&#39;s `valid_roles` list. To reference purchased licenses&#39; ids see data source `pagerduty.getLicenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
+     * 
+     */
+    public Optional<Output<String>> license() {
+        return Optional.ofNullable(this.license);
+    }
+
+    /**
      * The name of the user.
      * 
      */
@@ -201,6 +216,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         this.htmlUrl = $.htmlUrl;
         this.invitationSent = $.invitationSent;
         this.jobTitle = $.jobTitle;
+        this.license = $.license;
         this.name = $.name;
         this.role = $.role;
         this.teams = $.teams;
@@ -358,6 +374,27 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder jobTitle(String jobTitle) {
             return jobTitle(Output.of(jobTitle));
+        }
+
+        /**
+         * @param license The license id assigned to the user. If provided the user&#39;s role must exist in the assigned license&#39;s `valid_roles` list. To reference purchased licenses&#39; ids see data source `pagerduty.getLicenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder license(@Nullable Output<String> license) {
+            $.license = license;
+            return this;
+        }
+
+        /**
+         * @param license The license id assigned to the user. If provided the user&#39;s role must exist in the assigned license&#39;s `valid_roles` list. To reference purchased licenses&#39; ids see data source `pagerduty.getLicenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder license(String license) {
+            return license(Output.of(license));
         }
 
         /**

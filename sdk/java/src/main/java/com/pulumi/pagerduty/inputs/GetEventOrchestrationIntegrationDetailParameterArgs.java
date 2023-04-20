@@ -9,9 +9,9 @@ import java.lang.String;
 import java.util.Objects;
 
 
-public final class GetEventOrchestrationIntegrationParameterArgs extends com.pulumi.resources.ResourceArgs {
+public final class GetEventOrchestrationIntegrationDetailParameterArgs extends com.pulumi.resources.ResourceArgs {
 
-    public static final GetEventOrchestrationIntegrationParameterArgs Empty = new GetEventOrchestrationIntegrationParameterArgs();
+    public static final GetEventOrchestrationIntegrationDetailParameterArgs Empty = new GetEventOrchestrationIntegrationDetailParameterArgs();
 
     /**
      * Routing key that routes to this Orchestration.
@@ -43,9 +43,9 @@ public final class GetEventOrchestrationIntegrationParameterArgs extends com.pul
         return this.type;
     }
 
-    private GetEventOrchestrationIntegrationParameterArgs() {}
+    private GetEventOrchestrationIntegrationDetailParameterArgs() {}
 
-    private GetEventOrchestrationIntegrationParameterArgs(GetEventOrchestrationIntegrationParameterArgs $) {
+    private GetEventOrchestrationIntegrationDetailParameterArgs(GetEventOrchestrationIntegrationDetailParameterArgs $) {
         this.routingKey = $.routingKey;
         this.type = $.type;
     }
@@ -53,19 +53,19 @@ public final class GetEventOrchestrationIntegrationParameterArgs extends com.pul
     public static Builder builder() {
         return new Builder();
     }
-    public static Builder builder(GetEventOrchestrationIntegrationParameterArgs defaults) {
+    public static Builder builder(GetEventOrchestrationIntegrationDetailParameterArgs defaults) {
         return new Builder(defaults);
     }
 
     public static final class Builder {
-        private GetEventOrchestrationIntegrationParameterArgs $;
+        private GetEventOrchestrationIntegrationDetailParameterArgs $;
 
         public Builder() {
-            $ = new GetEventOrchestrationIntegrationParameterArgs();
+            $ = new GetEventOrchestrationIntegrationDetailParameterArgs();
         }
 
-        public Builder(GetEventOrchestrationIntegrationParameterArgs defaults) {
-            $ = new GetEventOrchestrationIntegrationParameterArgs(Objects.requireNonNull(defaults));
+        public Builder(GetEventOrchestrationIntegrationDetailParameterArgs defaults) {
+            $ = new GetEventOrchestrationIntegrationDetailParameterArgs(Objects.requireNonNull(defaults));
         }
 
         /**
@@ -110,7 +110,7 @@ public final class GetEventOrchestrationIntegrationParameterArgs extends com.pul
             return type(Output.of(type));
         }
 
-        public GetEventOrchestrationIntegrationParameterArgs build() {
+        public GetEventOrchestrationIntegrationDetailParameterArgs build() {
             $.routingKey = Objects.requireNonNull($.routingKey, "expected parameter 'routingKey' to be non-null");
             $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
             return $;

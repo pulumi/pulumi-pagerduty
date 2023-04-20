@@ -138,14 +138,14 @@ public class EscalationPolicy extends com.pulumi.resources.CustomResource {
         return this.rules;
     }
     /**
-     * Teams associated with the policy. Account must have the `teams` ability to use this parameter.
+     * Team associated with the policy (Only 1 team can be assigned to an Escalation Policy). Account must have the `teams` ability to use this parameter.
      * 
      */
     @Export(name="teams", type=String.class, parameters={})
     private Output</* @Nullable */ String> teams;
 
     /**
-     * @return Teams associated with the policy. Account must have the `teams` ability to use this parameter.
+     * @return Team associated with the policy (Only 1 team can be assigned to an Escalation Policy). Account must have the `teams` ability to use this parameter.
      * 
      */
     public Output<Optional<String>> teams() {

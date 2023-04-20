@@ -16,6 +16,7 @@ public final class GetEventOrchestrationsEventOrchestrationIntegration {
      * 
      */
     private String id;
+    private String label;
     private List<GetEventOrchestrationsEventOrchestrationIntegrationParameter> parameters;
 
     private GetEventOrchestrationsEventOrchestrationIntegration() {}
@@ -25,6 +26,9 @@ public final class GetEventOrchestrationsEventOrchestrationIntegration {
      */
     public String id() {
         return this.id;
+    }
+    public String label() {
+        return this.label;
     }
     public List<GetEventOrchestrationsEventOrchestrationIntegrationParameter> parameters() {
         return this.parameters;
@@ -40,17 +44,24 @@ public final class GetEventOrchestrationsEventOrchestrationIntegration {
     @CustomType.Builder
     public static final class Builder {
         private String id;
+        private String label;
         private List<GetEventOrchestrationsEventOrchestrationIntegrationParameter> parameters;
         public Builder() {}
         public Builder(GetEventOrchestrationsEventOrchestrationIntegration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
+    	      this.label = defaults.label;
     	      this.parameters = defaults.parameters;
         }
 
         @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder label(String label) {
+            this.label = Objects.requireNonNull(label);
             return this;
         }
         @CustomType.Setter
@@ -64,6 +75,7 @@ public final class GetEventOrchestrationsEventOrchestrationIntegration {
         public GetEventOrchestrationsEventOrchestrationIntegration build() {
             final var o = new GetEventOrchestrationsEventOrchestrationIntegration();
             o.id = id;
+            o.label = label;
             o.parameters = parameters;
             return o;
         }

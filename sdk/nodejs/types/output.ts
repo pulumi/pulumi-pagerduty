@@ -941,13 +941,24 @@ export interface GetAutomationActionsActionActionDataReference {
     script: string;
 }
 
-export interface GetEventOrchestrationIntegration {
+export interface GetEventOrchestrationIntegrationDetail {
     /**
      * ID of the integration
      */
     id: string;
     label: string;
-    parameters: outputs.GetEventOrchestrationIntegrationParameter[];
+    parameters: outputs.GetEventOrchestrationIntegrationDetailParameter[];
+}
+
+export interface GetEventOrchestrationIntegrationDetailParameter {
+    /**
+     * Routing key that routes to this Orchestration.
+     */
+    routingKey: string;
+    /**
+     * Type of the routing key. `global` is the default type.
+     */
+    type: string;
 }
 
 export interface GetEventOrchestrationIntegrationParameter {

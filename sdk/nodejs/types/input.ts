@@ -918,25 +918,25 @@ export interface EventOrchestrationUnroutedSetRuleCondition {
     expression: pulumi.Input<string>;
 }
 
-export interface GetEventOrchestrationIntegration {
+export interface GetEventOrchestrationIntegrationDetail {
     /**
      * ID of the integration
      */
     id?: string;
     label?: string;
-    parameters?: inputs.GetEventOrchestrationIntegrationParameter[];
+    parameters?: inputs.GetEventOrchestrationIntegrationDetailParameter[];
 }
 
-export interface GetEventOrchestrationIntegrationArgs {
+export interface GetEventOrchestrationIntegrationDetailArgs {
     /**
      * ID of the integration
      */
     id?: pulumi.Input<string>;
     label?: pulumi.Input<string>;
-    parameters?: pulumi.Input<pulumi.Input<inputs.GetEventOrchestrationIntegrationParameterArgs>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.GetEventOrchestrationIntegrationDetailParameterArgs>[]>;
 }
 
-export interface GetEventOrchestrationIntegrationParameter {
+export interface GetEventOrchestrationIntegrationDetailParameter {
     /**
      * Routing key that routes to this Orchestration.
      */
@@ -947,7 +947,7 @@ export interface GetEventOrchestrationIntegrationParameter {
     type?: string;
 }
 
-export interface GetEventOrchestrationIntegrationParameterArgs {
+export interface GetEventOrchestrationIntegrationDetailParameterArgs {
     /**
      * Routing key that routes to this Orchestration.
      */

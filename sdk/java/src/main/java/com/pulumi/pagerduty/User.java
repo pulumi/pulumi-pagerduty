@@ -57,6 +57,8 @@ import javax.annotation.Nullable;
  *  $ pulumi import pagerduty:index/user:User main PLBP09X
  * ```
  * 
+ *  [1]https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user [2]https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license
+ * 
  */
 @ResourceType(type="pagerduty:index/user:User")
 public class User extends com.pulumi.resources.CustomResource {
@@ -149,6 +151,20 @@ public class User extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> jobTitle() {
         return Codegen.optional(this.jobTitle);
+    }
+    /**
+     * The license id assigned to the user. If provided the user&#39;s role must exist in the assigned license&#39;s `valid_roles` list. To reference purchased licenses&#39; ids see data source `pagerduty.getLicenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
+     * 
+     */
+    @Export(name="license", type=String.class, parameters={})
+    private Output<String> license;
+
+    /**
+     * @return The license id assigned to the user. If provided the user&#39;s role must exist in the assigned license&#39;s `valid_roles` list. To reference purchased licenses&#39; ids see data source `pagerduty.getLicenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
+     * 
+     */
+    public Output<String> license() {
+        return this.license;
     }
     /**
      * The name of the user.

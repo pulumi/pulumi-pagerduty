@@ -7,26 +7,29 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Pagerduty.Inputs
+namespace Pulumi.Pagerduty.Outputs
 {
 
-    public sealed class GetEventOrchestrationIntegrationParameterInputArgs : global::Pulumi.ResourceArgs
+    [OutputType]
+    public sealed class GetEventOrchestrationIntegrationDetailParameterResult
     {
         /// <summary>
         /// Routing key that routes to this Orchestration.
         /// </summary>
-        [Input("routingKey", required: true)]
-        public Input<string> RoutingKey { get; set; } = null!;
-
+        public readonly string RoutingKey;
         /// <summary>
         /// Type of the routing key. `global` is the default type.
         /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public readonly string Type;
 
-        public GetEventOrchestrationIntegrationParameterInputArgs()
+        [OutputConstructor]
+        private GetEventOrchestrationIntegrationDetailParameterResult(
+            string routingKey,
+
+            string type)
         {
+            RoutingKey = routingKey;
+            Type = type;
         }
-        public static new GetEventOrchestrationIntegrationParameterInputArgs Empty => new GetEventOrchestrationIntegrationParameterInputArgs();
     }
 }

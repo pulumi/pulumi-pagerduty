@@ -4,7 +4,7 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.pagerduty.outputs.GetEventOrchestrationIntegration;
+import com.pulumi.pagerduty.outputs.GetEventOrchestrationIntegrationDetail;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -20,7 +20,7 @@ public final class GetEventOrchestrationResult {
      * @return An integration for the Event Orchestration.
      * 
      */
-    private List<GetEventOrchestrationIntegration> integrations;
+    private List<GetEventOrchestrationIntegrationDetail> integrationDetail;
     /**
      * @return The name of the found Event Orchestration.
      * 
@@ -39,8 +39,8 @@ public final class GetEventOrchestrationResult {
      * @return An integration for the Event Orchestration.
      * 
      */
-    public List<GetEventOrchestrationIntegration> integrations() {
-        return this.integrations;
+    public List<GetEventOrchestrationIntegrationDetail> integrationDetail() {
+        return this.integrationDetail;
     }
     /**
      * @return The name of the found Event Orchestration.
@@ -60,13 +60,13 @@ public final class GetEventOrchestrationResult {
     @CustomType.Builder
     public static final class Builder {
         private String id;
-        private List<GetEventOrchestrationIntegration> integrations;
+        private List<GetEventOrchestrationIntegrationDetail> integrationDetail;
         private String name;
         public Builder() {}
         public Builder(GetEventOrchestrationResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
-    	      this.integrations = defaults.integrations;
+    	      this.integrationDetail = defaults.integrationDetail;
     	      this.name = defaults.name;
         }
 
@@ -76,12 +76,12 @@ public final class GetEventOrchestrationResult {
             return this;
         }
         @CustomType.Setter
-        public Builder integrations(List<GetEventOrchestrationIntegration> integrations) {
-            this.integrations = Objects.requireNonNull(integrations);
+        public Builder integrationDetail(List<GetEventOrchestrationIntegrationDetail> integrationDetail) {
+            this.integrationDetail = Objects.requireNonNull(integrationDetail);
             return this;
         }
-        public Builder integrations(GetEventOrchestrationIntegration... integrations) {
-            return integrations(List.of(integrations));
+        public Builder integrationDetail(GetEventOrchestrationIntegrationDetail... integrationDetail) {
+            return integrationDetail(List.of(integrationDetail));
         }
         @CustomType.Setter
         public Builder name(String name) {
@@ -91,7 +91,7 @@ public final class GetEventOrchestrationResult {
         public GetEventOrchestrationResult build() {
             final var o = new GetEventOrchestrationResult();
             o.id = id;
-            o.integrations = integrations;
+            o.integrationDetail = integrationDetail;
             o.name = name;
             return o;
         }

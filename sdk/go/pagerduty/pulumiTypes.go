@@ -16193,115 +16193,221 @@ func (o GetAutomationActionsActionActionDataReferenceArrayOutput) Index(i pulumi
 	}).(GetAutomationActionsActionActionDataReferenceOutput)
 }
 
-type GetEventOrchestrationIntegrationType struct {
+type GetEventOrchestrationIntegrationDetail struct {
 	// ID of the integration
-	Id         string                                      `pulumi:"id"`
-	Label      string                                      `pulumi:"label"`
-	Parameters []GetEventOrchestrationIntegrationParameter `pulumi:"parameters"`
+	Id         string                                            `pulumi:"id"`
+	Label      string                                            `pulumi:"label"`
+	Parameters []GetEventOrchestrationIntegrationDetailParameter `pulumi:"parameters"`
 }
 
-// GetEventOrchestrationIntegrationTypeInput is an input type that accepts GetEventOrchestrationIntegrationTypeArgs and GetEventOrchestrationIntegrationTypeOutput values.
-// You can construct a concrete instance of `GetEventOrchestrationIntegrationTypeInput` via:
+// GetEventOrchestrationIntegrationDetailInput is an input type that accepts GetEventOrchestrationIntegrationDetailArgs and GetEventOrchestrationIntegrationDetailOutput values.
+// You can construct a concrete instance of `GetEventOrchestrationIntegrationDetailInput` via:
 //
-//	GetEventOrchestrationIntegrationTypeArgs{...}
-type GetEventOrchestrationIntegrationTypeInput interface {
+//	GetEventOrchestrationIntegrationDetailArgs{...}
+type GetEventOrchestrationIntegrationDetailInput interface {
 	pulumi.Input
 
-	ToGetEventOrchestrationIntegrationTypeOutput() GetEventOrchestrationIntegrationTypeOutput
-	ToGetEventOrchestrationIntegrationTypeOutputWithContext(context.Context) GetEventOrchestrationIntegrationTypeOutput
+	ToGetEventOrchestrationIntegrationDetailOutput() GetEventOrchestrationIntegrationDetailOutput
+	ToGetEventOrchestrationIntegrationDetailOutputWithContext(context.Context) GetEventOrchestrationIntegrationDetailOutput
 }
 
-type GetEventOrchestrationIntegrationTypeArgs struct {
+type GetEventOrchestrationIntegrationDetailArgs struct {
 	// ID of the integration
-	Id         pulumi.StringInput                                  `pulumi:"id"`
-	Label      pulumi.StringInput                                  `pulumi:"label"`
-	Parameters GetEventOrchestrationIntegrationParameterArrayInput `pulumi:"parameters"`
+	Id         pulumi.StringInput                                        `pulumi:"id"`
+	Label      pulumi.StringInput                                        `pulumi:"label"`
+	Parameters GetEventOrchestrationIntegrationDetailParameterArrayInput `pulumi:"parameters"`
 }
 
-func (GetEventOrchestrationIntegrationTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEventOrchestrationIntegrationType)(nil)).Elem()
+func (GetEventOrchestrationIntegrationDetailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEventOrchestrationIntegrationDetail)(nil)).Elem()
 }
 
-func (i GetEventOrchestrationIntegrationTypeArgs) ToGetEventOrchestrationIntegrationTypeOutput() GetEventOrchestrationIntegrationTypeOutput {
-	return i.ToGetEventOrchestrationIntegrationTypeOutputWithContext(context.Background())
+func (i GetEventOrchestrationIntegrationDetailArgs) ToGetEventOrchestrationIntegrationDetailOutput() GetEventOrchestrationIntegrationDetailOutput {
+	return i.ToGetEventOrchestrationIntegrationDetailOutputWithContext(context.Background())
 }
 
-func (i GetEventOrchestrationIntegrationTypeArgs) ToGetEventOrchestrationIntegrationTypeOutputWithContext(ctx context.Context) GetEventOrchestrationIntegrationTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetEventOrchestrationIntegrationTypeOutput)
+func (i GetEventOrchestrationIntegrationDetailArgs) ToGetEventOrchestrationIntegrationDetailOutputWithContext(ctx context.Context) GetEventOrchestrationIntegrationDetailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEventOrchestrationIntegrationDetailOutput)
 }
 
-// GetEventOrchestrationIntegrationTypeArrayInput is an input type that accepts GetEventOrchestrationIntegrationTypeArray and GetEventOrchestrationIntegrationTypeArrayOutput values.
-// You can construct a concrete instance of `GetEventOrchestrationIntegrationTypeArrayInput` via:
+// GetEventOrchestrationIntegrationDetailArrayInput is an input type that accepts GetEventOrchestrationIntegrationDetailArray and GetEventOrchestrationIntegrationDetailArrayOutput values.
+// You can construct a concrete instance of `GetEventOrchestrationIntegrationDetailArrayInput` via:
 //
-//	GetEventOrchestrationIntegrationTypeArray{ GetEventOrchestrationIntegrationTypeArgs{...} }
-type GetEventOrchestrationIntegrationTypeArrayInput interface {
+//	GetEventOrchestrationIntegrationDetailArray{ GetEventOrchestrationIntegrationDetailArgs{...} }
+type GetEventOrchestrationIntegrationDetailArrayInput interface {
 	pulumi.Input
 
-	ToGetEventOrchestrationIntegrationTypeArrayOutput() GetEventOrchestrationIntegrationTypeArrayOutput
-	ToGetEventOrchestrationIntegrationTypeArrayOutputWithContext(context.Context) GetEventOrchestrationIntegrationTypeArrayOutput
+	ToGetEventOrchestrationIntegrationDetailArrayOutput() GetEventOrchestrationIntegrationDetailArrayOutput
+	ToGetEventOrchestrationIntegrationDetailArrayOutputWithContext(context.Context) GetEventOrchestrationIntegrationDetailArrayOutput
 }
 
-type GetEventOrchestrationIntegrationTypeArray []GetEventOrchestrationIntegrationTypeInput
+type GetEventOrchestrationIntegrationDetailArray []GetEventOrchestrationIntegrationDetailInput
 
-func (GetEventOrchestrationIntegrationTypeArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetEventOrchestrationIntegrationType)(nil)).Elem()
+func (GetEventOrchestrationIntegrationDetailArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEventOrchestrationIntegrationDetail)(nil)).Elem()
 }
 
-func (i GetEventOrchestrationIntegrationTypeArray) ToGetEventOrchestrationIntegrationTypeArrayOutput() GetEventOrchestrationIntegrationTypeArrayOutput {
-	return i.ToGetEventOrchestrationIntegrationTypeArrayOutputWithContext(context.Background())
+func (i GetEventOrchestrationIntegrationDetailArray) ToGetEventOrchestrationIntegrationDetailArrayOutput() GetEventOrchestrationIntegrationDetailArrayOutput {
+	return i.ToGetEventOrchestrationIntegrationDetailArrayOutputWithContext(context.Background())
 }
 
-func (i GetEventOrchestrationIntegrationTypeArray) ToGetEventOrchestrationIntegrationTypeArrayOutputWithContext(ctx context.Context) GetEventOrchestrationIntegrationTypeArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetEventOrchestrationIntegrationTypeArrayOutput)
+func (i GetEventOrchestrationIntegrationDetailArray) ToGetEventOrchestrationIntegrationDetailArrayOutputWithContext(ctx context.Context) GetEventOrchestrationIntegrationDetailArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEventOrchestrationIntegrationDetailArrayOutput)
 }
 
-type GetEventOrchestrationIntegrationTypeOutput struct{ *pulumi.OutputState }
+type GetEventOrchestrationIntegrationDetailOutput struct{ *pulumi.OutputState }
 
-func (GetEventOrchestrationIntegrationTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEventOrchestrationIntegrationType)(nil)).Elem()
+func (GetEventOrchestrationIntegrationDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEventOrchestrationIntegrationDetail)(nil)).Elem()
 }
 
-func (o GetEventOrchestrationIntegrationTypeOutput) ToGetEventOrchestrationIntegrationTypeOutput() GetEventOrchestrationIntegrationTypeOutput {
+func (o GetEventOrchestrationIntegrationDetailOutput) ToGetEventOrchestrationIntegrationDetailOutput() GetEventOrchestrationIntegrationDetailOutput {
 	return o
 }
 
-func (o GetEventOrchestrationIntegrationTypeOutput) ToGetEventOrchestrationIntegrationTypeOutputWithContext(ctx context.Context) GetEventOrchestrationIntegrationTypeOutput {
+func (o GetEventOrchestrationIntegrationDetailOutput) ToGetEventOrchestrationIntegrationDetailOutputWithContext(ctx context.Context) GetEventOrchestrationIntegrationDetailOutput {
 	return o
 }
 
 // ID of the integration
-func (o GetEventOrchestrationIntegrationTypeOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEventOrchestrationIntegrationType) string { return v.Id }).(pulumi.StringOutput)
+func (o GetEventOrchestrationIntegrationDetailOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventOrchestrationIntegrationDetail) string { return v.Id }).(pulumi.StringOutput)
 }
 
-func (o GetEventOrchestrationIntegrationTypeOutput) Label() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEventOrchestrationIntegrationType) string { return v.Label }).(pulumi.StringOutput)
+func (o GetEventOrchestrationIntegrationDetailOutput) Label() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventOrchestrationIntegrationDetail) string { return v.Label }).(pulumi.StringOutput)
 }
 
-func (o GetEventOrchestrationIntegrationTypeOutput) Parameters() GetEventOrchestrationIntegrationParameterArrayOutput {
-	return o.ApplyT(func(v GetEventOrchestrationIntegrationType) []GetEventOrchestrationIntegrationParameter {
+func (o GetEventOrchestrationIntegrationDetailOutput) Parameters() GetEventOrchestrationIntegrationDetailParameterArrayOutput {
+	return o.ApplyT(func(v GetEventOrchestrationIntegrationDetail) []GetEventOrchestrationIntegrationDetailParameter {
 		return v.Parameters
-	}).(GetEventOrchestrationIntegrationParameterArrayOutput)
+	}).(GetEventOrchestrationIntegrationDetailParameterArrayOutput)
 }
 
-type GetEventOrchestrationIntegrationTypeArrayOutput struct{ *pulumi.OutputState }
+type GetEventOrchestrationIntegrationDetailArrayOutput struct{ *pulumi.OutputState }
 
-func (GetEventOrchestrationIntegrationTypeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetEventOrchestrationIntegrationType)(nil)).Elem()
+func (GetEventOrchestrationIntegrationDetailArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEventOrchestrationIntegrationDetail)(nil)).Elem()
 }
 
-func (o GetEventOrchestrationIntegrationTypeArrayOutput) ToGetEventOrchestrationIntegrationTypeArrayOutput() GetEventOrchestrationIntegrationTypeArrayOutput {
+func (o GetEventOrchestrationIntegrationDetailArrayOutput) ToGetEventOrchestrationIntegrationDetailArrayOutput() GetEventOrchestrationIntegrationDetailArrayOutput {
 	return o
 }
 
-func (o GetEventOrchestrationIntegrationTypeArrayOutput) ToGetEventOrchestrationIntegrationTypeArrayOutputWithContext(ctx context.Context) GetEventOrchestrationIntegrationTypeArrayOutput {
+func (o GetEventOrchestrationIntegrationDetailArrayOutput) ToGetEventOrchestrationIntegrationDetailArrayOutputWithContext(ctx context.Context) GetEventOrchestrationIntegrationDetailArrayOutput {
 	return o
 }
 
-func (o GetEventOrchestrationIntegrationTypeArrayOutput) Index(i pulumi.IntInput) GetEventOrchestrationIntegrationTypeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEventOrchestrationIntegrationType {
-		return vs[0].([]GetEventOrchestrationIntegrationType)[vs[1].(int)]
-	}).(GetEventOrchestrationIntegrationTypeOutput)
+func (o GetEventOrchestrationIntegrationDetailArrayOutput) Index(i pulumi.IntInput) GetEventOrchestrationIntegrationDetailOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEventOrchestrationIntegrationDetail {
+		return vs[0].([]GetEventOrchestrationIntegrationDetail)[vs[1].(int)]
+	}).(GetEventOrchestrationIntegrationDetailOutput)
+}
+
+type GetEventOrchestrationIntegrationDetailParameter struct {
+	// Routing key that routes to this Orchestration.
+	RoutingKey string `pulumi:"routingKey"`
+	// Type of the routing key. `global` is the default type.
+	Type string `pulumi:"type"`
+}
+
+// GetEventOrchestrationIntegrationDetailParameterInput is an input type that accepts GetEventOrchestrationIntegrationDetailParameterArgs and GetEventOrchestrationIntegrationDetailParameterOutput values.
+// You can construct a concrete instance of `GetEventOrchestrationIntegrationDetailParameterInput` via:
+//
+//	GetEventOrchestrationIntegrationDetailParameterArgs{...}
+type GetEventOrchestrationIntegrationDetailParameterInput interface {
+	pulumi.Input
+
+	ToGetEventOrchestrationIntegrationDetailParameterOutput() GetEventOrchestrationIntegrationDetailParameterOutput
+	ToGetEventOrchestrationIntegrationDetailParameterOutputWithContext(context.Context) GetEventOrchestrationIntegrationDetailParameterOutput
+}
+
+type GetEventOrchestrationIntegrationDetailParameterArgs struct {
+	// Routing key that routes to this Orchestration.
+	RoutingKey pulumi.StringInput `pulumi:"routingKey"`
+	// Type of the routing key. `global` is the default type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetEventOrchestrationIntegrationDetailParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEventOrchestrationIntegrationDetailParameter)(nil)).Elem()
+}
+
+func (i GetEventOrchestrationIntegrationDetailParameterArgs) ToGetEventOrchestrationIntegrationDetailParameterOutput() GetEventOrchestrationIntegrationDetailParameterOutput {
+	return i.ToGetEventOrchestrationIntegrationDetailParameterOutputWithContext(context.Background())
+}
+
+func (i GetEventOrchestrationIntegrationDetailParameterArgs) ToGetEventOrchestrationIntegrationDetailParameterOutputWithContext(ctx context.Context) GetEventOrchestrationIntegrationDetailParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEventOrchestrationIntegrationDetailParameterOutput)
+}
+
+// GetEventOrchestrationIntegrationDetailParameterArrayInput is an input type that accepts GetEventOrchestrationIntegrationDetailParameterArray and GetEventOrchestrationIntegrationDetailParameterArrayOutput values.
+// You can construct a concrete instance of `GetEventOrchestrationIntegrationDetailParameterArrayInput` via:
+//
+//	GetEventOrchestrationIntegrationDetailParameterArray{ GetEventOrchestrationIntegrationDetailParameterArgs{...} }
+type GetEventOrchestrationIntegrationDetailParameterArrayInput interface {
+	pulumi.Input
+
+	ToGetEventOrchestrationIntegrationDetailParameterArrayOutput() GetEventOrchestrationIntegrationDetailParameterArrayOutput
+	ToGetEventOrchestrationIntegrationDetailParameterArrayOutputWithContext(context.Context) GetEventOrchestrationIntegrationDetailParameterArrayOutput
+}
+
+type GetEventOrchestrationIntegrationDetailParameterArray []GetEventOrchestrationIntegrationDetailParameterInput
+
+func (GetEventOrchestrationIntegrationDetailParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEventOrchestrationIntegrationDetailParameter)(nil)).Elem()
+}
+
+func (i GetEventOrchestrationIntegrationDetailParameterArray) ToGetEventOrchestrationIntegrationDetailParameterArrayOutput() GetEventOrchestrationIntegrationDetailParameterArrayOutput {
+	return i.ToGetEventOrchestrationIntegrationDetailParameterArrayOutputWithContext(context.Background())
+}
+
+func (i GetEventOrchestrationIntegrationDetailParameterArray) ToGetEventOrchestrationIntegrationDetailParameterArrayOutputWithContext(ctx context.Context) GetEventOrchestrationIntegrationDetailParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEventOrchestrationIntegrationDetailParameterArrayOutput)
+}
+
+type GetEventOrchestrationIntegrationDetailParameterOutput struct{ *pulumi.OutputState }
+
+func (GetEventOrchestrationIntegrationDetailParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEventOrchestrationIntegrationDetailParameter)(nil)).Elem()
+}
+
+func (o GetEventOrchestrationIntegrationDetailParameterOutput) ToGetEventOrchestrationIntegrationDetailParameterOutput() GetEventOrchestrationIntegrationDetailParameterOutput {
+	return o
+}
+
+func (o GetEventOrchestrationIntegrationDetailParameterOutput) ToGetEventOrchestrationIntegrationDetailParameterOutputWithContext(ctx context.Context) GetEventOrchestrationIntegrationDetailParameterOutput {
+	return o
+}
+
+// Routing key that routes to this Orchestration.
+func (o GetEventOrchestrationIntegrationDetailParameterOutput) RoutingKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventOrchestrationIntegrationDetailParameter) string { return v.RoutingKey }).(pulumi.StringOutput)
+}
+
+// Type of the routing key. `global` is the default type.
+func (o GetEventOrchestrationIntegrationDetailParameterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventOrchestrationIntegrationDetailParameter) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetEventOrchestrationIntegrationDetailParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEventOrchestrationIntegrationDetailParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEventOrchestrationIntegrationDetailParameter)(nil)).Elem()
+}
+
+func (o GetEventOrchestrationIntegrationDetailParameterArrayOutput) ToGetEventOrchestrationIntegrationDetailParameterArrayOutput() GetEventOrchestrationIntegrationDetailParameterArrayOutput {
+	return o
+}
+
+func (o GetEventOrchestrationIntegrationDetailParameterArrayOutput) ToGetEventOrchestrationIntegrationDetailParameterArrayOutputWithContext(ctx context.Context) GetEventOrchestrationIntegrationDetailParameterArrayOutput {
+	return o
+}
+
+func (o GetEventOrchestrationIntegrationDetailParameterArrayOutput) Index(i pulumi.IntInput) GetEventOrchestrationIntegrationDetailParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEventOrchestrationIntegrationDetailParameter {
+		return vs[0].([]GetEventOrchestrationIntegrationDetailParameter)[vs[1].(int)]
+	}).(GetEventOrchestrationIntegrationDetailParameterOutput)
 }
 
 type GetEventOrchestrationIntegrationParameter struct {
@@ -17385,8 +17491,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookSubscriptionFilterArrayInput)(nil)).Elem(), WebhookSubscriptionFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAutomationActionsActionActionDataReferenceInput)(nil)).Elem(), GetAutomationActionsActionActionDataReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAutomationActionsActionActionDataReferenceArrayInput)(nil)).Elem(), GetAutomationActionsActionActionDataReferenceArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationIntegrationTypeInput)(nil)).Elem(), GetEventOrchestrationIntegrationTypeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationIntegrationTypeArrayInput)(nil)).Elem(), GetEventOrchestrationIntegrationTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationIntegrationDetailInput)(nil)).Elem(), GetEventOrchestrationIntegrationDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationIntegrationDetailArrayInput)(nil)).Elem(), GetEventOrchestrationIntegrationDetailArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationIntegrationDetailParameterInput)(nil)).Elem(), GetEventOrchestrationIntegrationDetailParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationIntegrationDetailParameterArrayInput)(nil)).Elem(), GetEventOrchestrationIntegrationDetailParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationIntegrationParameterInput)(nil)).Elem(), GetEventOrchestrationIntegrationParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationIntegrationParameterArrayInput)(nil)).Elem(), GetEventOrchestrationIntegrationParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationsEventOrchestrationInput)(nil)).Elem(), GetEventOrchestrationsEventOrchestrationArgs{})
@@ -17642,8 +17750,10 @@ func init() {
 	pulumi.RegisterOutputType(WebhookSubscriptionFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetAutomationActionsActionActionDataReferenceOutput{})
 	pulumi.RegisterOutputType(GetAutomationActionsActionActionDataReferenceArrayOutput{})
-	pulumi.RegisterOutputType(GetEventOrchestrationIntegrationTypeOutput{})
-	pulumi.RegisterOutputType(GetEventOrchestrationIntegrationTypeArrayOutput{})
+	pulumi.RegisterOutputType(GetEventOrchestrationIntegrationDetailOutput{})
+	pulumi.RegisterOutputType(GetEventOrchestrationIntegrationDetailArrayOutput{})
+	pulumi.RegisterOutputType(GetEventOrchestrationIntegrationDetailParameterOutput{})
+	pulumi.RegisterOutputType(GetEventOrchestrationIntegrationDetailParameterArrayOutput{})
 	pulumi.RegisterOutputType(GetEventOrchestrationIntegrationParameterOutput{})
 	pulumi.RegisterOutputType(GetEventOrchestrationIntegrationParameterArrayOutput{})
 	pulumi.RegisterOutputType(GetEventOrchestrationsEventOrchestrationOutput{})

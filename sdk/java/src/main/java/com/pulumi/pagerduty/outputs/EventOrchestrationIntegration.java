@@ -18,6 +18,7 @@ public final class EventOrchestrationIntegration {
      * 
      */
     private @Nullable String id;
+    private @Nullable String label;
     private @Nullable List<EventOrchestrationIntegrationParameter> parameters;
 
     private EventOrchestrationIntegration() {}
@@ -27,6 +28,9 @@ public final class EventOrchestrationIntegration {
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
+    }
+    public Optional<String> label() {
+        return Optional.ofNullable(this.label);
     }
     public List<EventOrchestrationIntegrationParameter> parameters() {
         return this.parameters == null ? List.of() : this.parameters;
@@ -42,17 +46,24 @@ public final class EventOrchestrationIntegration {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
+        private @Nullable String label;
         private @Nullable List<EventOrchestrationIntegrationParameter> parameters;
         public Builder() {}
         public Builder(EventOrchestrationIntegration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
+    	      this.label = defaults.label;
     	      this.parameters = defaults.parameters;
         }
 
         @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder label(@Nullable String label) {
+            this.label = label;
             return this;
         }
         @CustomType.Setter
@@ -66,6 +77,7 @@ public final class EventOrchestrationIntegration {
         public EventOrchestrationIntegration build() {
             final var o = new EventOrchestrationIntegration();
             o.id = id;
+            o.label = label;
             o.parameters = parameters;
             return o;
         }

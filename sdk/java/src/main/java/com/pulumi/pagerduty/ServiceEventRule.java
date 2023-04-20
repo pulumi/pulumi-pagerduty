@@ -22,8 +22,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * A [service event rule](https://support.pagerduty.com/docs/rulesets#service-event-rules) allows you to set actions that should be taken on events for a service that meet the designated rule criteria.
- * 
  * ## Example Usage
  * ```java
  * package generated_program;

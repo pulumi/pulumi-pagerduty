@@ -26,7 +26,7 @@ class EscalationPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input['EscalationPolicyRuleArgs']]] rules: An Escalation rule block. Escalation rules documented below.
         :param pulumi.Input[str] name: The name of the escalation policy.
         :param pulumi.Input[int] num_loops: The number of times the escalation policy will repeat after reaching the end of its escalation.
-        :param pulumi.Input[str] teams: Teams associated with the policy. Account must have the `teams` ability to use this parameter.
+        :param pulumi.Input[str] teams: Team associated with the policy (Only 1 team can be assigned to an Escalation Policy). Account must have the `teams` ability to use this parameter.
         """
         pulumi.set(__self__, "rules", rules)
         if description is None:
@@ -89,7 +89,7 @@ class EscalationPolicyArgs:
     @pulumi.getter
     def teams(self) -> Optional[pulumi.Input[str]]:
         """
-        Teams associated with the policy. Account must have the `teams` ability to use this parameter.
+        Team associated with the policy (Only 1 team can be assigned to an Escalation Policy). Account must have the `teams` ability to use this parameter.
         """
         return pulumi.get(self, "teams")
 
@@ -111,7 +111,7 @@ class _EscalationPolicyState:
         :param pulumi.Input[str] name: The name of the escalation policy.
         :param pulumi.Input[int] num_loops: The number of times the escalation policy will repeat after reaching the end of its escalation.
         :param pulumi.Input[Sequence[pulumi.Input['EscalationPolicyRuleArgs']]] rules: An Escalation rule block. Escalation rules documented below.
-        :param pulumi.Input[str] teams: Teams associated with the policy. Account must have the `teams` ability to use this parameter.
+        :param pulumi.Input[str] teams: Team associated with the policy (Only 1 team can be assigned to an Escalation Policy). Account must have the `teams` ability to use this parameter.
         """
         if description is None:
             description = 'Managed by Pulumi'
@@ -175,7 +175,7 @@ class _EscalationPolicyState:
     @pulumi.getter
     def teams(self) -> Optional[pulumi.Input[str]]:
         """
-        Teams associated with the policy. Account must have the `teams` ability to use this parameter.
+        Team associated with the policy (Only 1 team can be assigned to an Escalation Policy). Account must have the `teams` ability to use this parameter.
         """
         return pulumi.get(self, "teams")
 
@@ -211,7 +211,7 @@ class EscalationPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the escalation policy.
         :param pulumi.Input[int] num_loops: The number of times the escalation policy will repeat after reaching the end of its escalation.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EscalationPolicyRuleArgs']]]] rules: An Escalation rule block. Escalation rules documented below.
-        :param pulumi.Input[str] teams: Teams associated with the policy. Account must have the `teams` ability to use this parameter.
+        :param pulumi.Input[str] teams: Team associated with the policy (Only 1 team can be assigned to an Escalation Policy). Account must have the `teams` ability to use this parameter.
         """
         ...
     @overload
@@ -293,7 +293,7 @@ class EscalationPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the escalation policy.
         :param pulumi.Input[int] num_loops: The number of times the escalation policy will repeat after reaching the end of its escalation.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EscalationPolicyRuleArgs']]]] rules: An Escalation rule block. Escalation rules documented below.
-        :param pulumi.Input[str] teams: Teams associated with the policy. Account must have the `teams` ability to use this parameter.
+        :param pulumi.Input[str] teams: Team associated with the policy (Only 1 team can be assigned to an Escalation Policy). Account must have the `teams` ability to use this parameter.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -339,7 +339,7 @@ class EscalationPolicy(pulumi.CustomResource):
     @pulumi.getter
     def teams(self) -> pulumi.Output[Optional[str]]:
         """
-        Teams associated with the policy. Account must have the `teams` ability to use this parameter.
+        Team associated with the policy (Only 1 team can be assigned to an Escalation Policy). Account must have the `teams` ability to use this parameter.
         """
         return pulumi.get(self, "teams")
 

@@ -13,7 +13,7 @@ export function getEventOrchestration(args: GetEventOrchestrationArgs, opts?: pu
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("pagerduty:index/getEventOrchestration:getEventOrchestration", {
-        "integrations": args.integrations,
+        "integrationDetail": args.integrationDetail,
         "name": args.name,
     }, opts);
 }
@@ -25,7 +25,7 @@ export interface GetEventOrchestrationArgs {
     /**
      * An integration for the Event Orchestration.
      */
-    integrations?: inputs.GetEventOrchestrationIntegration[];
+    integrationDetail?: inputs.GetEventOrchestrationIntegrationDetail[];
     /**
      * The name of the Global Event orchestration to find in the PagerDuty API.
      */
@@ -43,7 +43,7 @@ export interface GetEventOrchestrationResult {
     /**
      * An integration for the Event Orchestration.
      */
-    readonly integrations: outputs.GetEventOrchestrationIntegration[];
+    readonly integrationDetail: outputs.GetEventOrchestrationIntegrationDetail[];
     /**
      * The name of the found Event Orchestration.
      */
@@ -63,7 +63,7 @@ export interface GetEventOrchestrationOutputArgs {
     /**
      * An integration for the Event Orchestration.
      */
-    integrations?: pulumi.Input<pulumi.Input<inputs.GetEventOrchestrationIntegrationArgs>[]>;
+    integrationDetail?: pulumi.Input<pulumi.Input<inputs.GetEventOrchestrationIntegrationDetailArgs>[]>;
     /**
      * The name of the Global Event orchestration to find in the PagerDuty API.
      */

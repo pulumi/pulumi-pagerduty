@@ -143,8 +143,6 @@ class TeamMembership(pulumi.CustomResource):
                  user_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        A [team membership](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMg-add-a-user-to-a-team) manages memberships within a team.
-
         ## Example Usage
 
         ```python
@@ -183,8 +181,6 @@ class TeamMembership(pulumi.CustomResource):
                  args: TeamMembershipArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        A [team membership](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMg-add-a-user-to-a-team) manages memberships within a team.
-
         ## Example Usage
 
         ```python

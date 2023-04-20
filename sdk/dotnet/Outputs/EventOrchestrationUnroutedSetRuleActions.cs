@@ -22,7 +22,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.EventOrchestrationUnroutedSetRuleActionsExtraction> Extractions;
         /// <summary>
-        /// The ID of a Set from this Unrouted Orchestration whose rules you also want to use with event that match this rule.
+        /// The ID of a Set from this Unrouted Orchestration whose rules you also want to use with events that match this rule.
         /// </summary>
         public readonly string? RouteTo;
         /// <summary>

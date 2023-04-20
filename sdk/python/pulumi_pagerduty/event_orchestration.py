@@ -180,9 +180,9 @@ class EventOrchestration(pulumi.CustomResource):
                  team: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        [Global Event Orchestrations](https://support.pagerduty.com/docs/event-orchestration#global-orchestrations) allow you define a set of Event Rules, so that when you ingest events using the Orchestration's Routing Key your events will be routed to the correct Service, based on the event's content.
+        [Event Orchestrations](https://support.pagerduty.com/docs/event-orchestration) allow you define a set of Event Rules, so that when you ingest events using the Orchestration's Routing Key your events will be routed to the correct Global and/or Service Orchestration, based on the event's content.
 
-        ## Example of configuring a Global Event Orchestration
+        ## Example of configuring an Event Orchestration
 
         ```python
         import pulumi
@@ -216,9 +216,9 @@ class EventOrchestration(pulumi.CustomResource):
                  args: Optional[EventOrchestrationArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        [Global Event Orchestrations](https://support.pagerduty.com/docs/event-orchestration#global-orchestrations) allow you define a set of Event Rules, so that when you ingest events using the Orchestration's Routing Key your events will be routed to the correct Service, based on the event's content.
+        [Event Orchestrations](https://support.pagerduty.com/docs/event-orchestration) allow you define a set of Event Rules, so that when you ingest events using the Orchestration's Routing Key your events will be routed to the correct Global and/or Service Orchestration, based on the event's content.
 
-        ## Example of configuring a Global Event Orchestration
+        ## Example of configuring an Event Orchestration
 
         ```python
         import pulumi

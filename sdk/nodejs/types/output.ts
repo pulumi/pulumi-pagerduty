@@ -51,11 +51,315 @@ export interface EscalationPolicyRuleTarget {
     type?: string;
 }
 
+export interface EventOrchestrationGlobalCatchAll {
+    /**
+     * These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
+     */
+    actions: outputs.EventOrchestrationGlobalCatchAllActions;
+}
+
+export interface EventOrchestrationGlobalCatchAllActions {
+    /**
+     * Add this text as a note on the resulting incident.
+     */
+    annotate?: string;
+    /**
+     * Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+     */
+    automationAction?: outputs.EventOrchestrationGlobalCatchAllActionsAutomationAction;
+    /**
+     * When true, this event will be dropped. Dropped events will not trigger or resolve an alert or an incident. Dropped events will not be evaluated against router rules.
+     */
+    dropEvent?: boolean;
+    /**
+     * sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
+     */
+    eventAction?: string;
+    /**
+     * Replace any CEF field or Custom Details object field using custom variables.
+     */
+    extractions?: outputs.EventOrchestrationGlobalCatchAllActionsExtraction[];
+    priority?: string;
+    /**
+     * The ID of a Set from this Global Orchestration whose rules you also want to use with events that match this rule.
+     */
+    routeTo?: string;
+    /**
+     * sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
+     */
+    severity?: string;
+    /**
+     * Set whether the resulting alert is suppressed. Suppressed alerts will not trigger an incident.
+     */
+    suppress?: boolean;
+    /**
+     * The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won't create an incident for this alert.
+     */
+    suspend?: number;
+    /**
+     * Populate variables from event payloads and use those variables in other event actions.
+     */
+    variables?: outputs.EventOrchestrationGlobalCatchAllActionsVariable[];
+}
+
+export interface EventOrchestrationGlobalCatchAllActionsAutomationAction {
+    /**
+     * When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+     */
+    autoSend?: boolean;
+    /**
+     * Specify custom key/value pairs that'll be sent with the webhook request as request headers.
+     */
+    headers?: outputs.EventOrchestrationGlobalCatchAllActionsAutomationActionHeader[];
+    /**
+     * Name of this Webhook.
+     */
+    name: string;
+    /**
+     * Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
+     */
+    parameters?: outputs.EventOrchestrationGlobalCatchAllActionsAutomationActionParameter[];
+    /**
+     * The API endpoint where PagerDuty's servers will send the webhook request.
+     */
+    url: string;
+}
+
+export interface EventOrchestrationGlobalCatchAllActionsAutomationActionHeader {
+    /**
+     * Name to identify the header
+     */
+    key: string;
+    /**
+     * Value of this header
+     */
+    value: string;
+}
+
+export interface EventOrchestrationGlobalCatchAllActionsAutomationActionParameter {
+    /**
+     * Name to identify the header
+     */
+    key: string;
+    /**
+     * Value of this header
+     */
+    value: string;
+}
+
+export interface EventOrchestrationGlobalCatchAllActionsExtraction {
+    /**
+     * A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
+     */
+    regex?: string;
+    /**
+     * The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.
+     */
+    source?: string;
+    /**
+     * The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.
+     */
+    target: string;
+    /**
+     * A string that will be used to populate the `target` field. You can reference variables or event data within your template using double curly braces. For example:
+     * * Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`
+     * * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
+     */
+    template?: string;
+}
+
+export interface EventOrchestrationGlobalCatchAllActionsVariable {
+    /**
+     * Name of this Webhook.
+     */
+    name: string;
+    /**
+     * Path to a field in an event, in dot-notation. This supports both PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths).
+     */
+    path: string;
+    /**
+     * Only `regex` is supported
+     */
+    type: string;
+    /**
+     * Value of this header
+     */
+    value: string;
+}
+
+export interface EventOrchestrationGlobalSet {
+    /**
+     * The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
+     */
+    id: string;
+    rules?: outputs.EventOrchestrationGlobalSetRule[];
+}
+
+export interface EventOrchestrationGlobalSetRule {
+    /**
+     * Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+     */
+    actions: outputs.EventOrchestrationGlobalSetRuleActions;
+    /**
+     * Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will `always` match against the rule.
+     */
+    conditions?: outputs.EventOrchestrationGlobalSetRuleCondition[];
+    /**
+     * Indicates whether the rule is disabled and would therefore not be evaluated.
+     */
+    disabled?: boolean;
+    /**
+     * The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
+     */
+    id: string;
+    /**
+     * A description of this rule's purpose.
+     */
+    label?: string;
+}
+
+export interface EventOrchestrationGlobalSetRuleActions {
+    /**
+     * Add this text as a note on the resulting incident.
+     */
+    annotate?: string;
+    /**
+     * Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
+     */
+    automationAction?: outputs.EventOrchestrationGlobalSetRuleActionsAutomationAction;
+    /**
+     * When true, this event will be dropped. Dropped events will not trigger or resolve an alert or an incident. Dropped events will not be evaluated against router rules.
+     */
+    dropEvent?: boolean;
+    /**
+     * sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
+     */
+    eventAction?: string;
+    /**
+     * Replace any CEF field or Custom Details object field using custom variables.
+     */
+    extractions?: outputs.EventOrchestrationGlobalSetRuleActionsExtraction[];
+    priority?: string;
+    /**
+     * The ID of a Set from this Global Orchestration whose rules you also want to use with events that match this rule.
+     */
+    routeTo?: string;
+    /**
+     * sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
+     */
+    severity?: string;
+    /**
+     * Set whether the resulting alert is suppressed. Suppressed alerts will not trigger an incident.
+     */
+    suppress?: boolean;
+    /**
+     * The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won't create an incident for this alert.
+     */
+    suspend?: number;
+    /**
+     * Populate variables from event payloads and use those variables in other event actions.
+     */
+    variables?: outputs.EventOrchestrationGlobalSetRuleActionsVariable[];
+}
+
+export interface EventOrchestrationGlobalSetRuleActionsAutomationAction {
+    /**
+     * When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
+     */
+    autoSend?: boolean;
+    /**
+     * Specify custom key/value pairs that'll be sent with the webhook request as request headers.
+     */
+    headers?: outputs.EventOrchestrationGlobalSetRuleActionsAutomationActionHeader[];
+    /**
+     * Name of this Webhook.
+     */
+    name: string;
+    /**
+     * Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
+     */
+    parameters?: outputs.EventOrchestrationGlobalSetRuleActionsAutomationActionParameter[];
+    /**
+     * The API endpoint where PagerDuty's servers will send the webhook request.
+     */
+    url: string;
+}
+
+export interface EventOrchestrationGlobalSetRuleActionsAutomationActionHeader {
+    /**
+     * Name to identify the header
+     */
+    key: string;
+    /**
+     * Value of this header
+     */
+    value: string;
+}
+
+export interface EventOrchestrationGlobalSetRuleActionsAutomationActionParameter {
+    /**
+     * Name to identify the header
+     */
+    key: string;
+    /**
+     * Value of this header
+     */
+    value: string;
+}
+
+export interface EventOrchestrationGlobalSetRuleActionsExtraction {
+    /**
+     * A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
+     */
+    regex?: string;
+    /**
+     * The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths) like `event.summary` and you can reference previously-defined variables using a path like `variables.hostname`. This field can be ignored for `template` based extractions.
+     */
+    source?: string;
+    /**
+     * The PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) field that will be set with the value from the `template` or based on `regex` and `source` fields.
+     */
+    target: string;
+    /**
+     * A string that will be used to populate the `target` field. You can reference variables or event data within your template using double curly braces. For example:
+     * * Use variables named `ip` and `subnet` with a template like: `{{variables.ip}}/{{variables.subnet}}`
+     * * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
+     */
+    template?: string;
+}
+
+export interface EventOrchestrationGlobalSetRuleActionsVariable {
+    /**
+     * Name of this Webhook.
+     */
+    name: string;
+    /**
+     * Path to a field in an event, in dot-notation. This supports both PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths).
+     */
+    path: string;
+    /**
+     * Only `regex` is supported
+     */
+    type: string;
+    /**
+     * Value of this header
+     */
+    value: string;
+}
+
+export interface EventOrchestrationGlobalSetRuleCondition {
+    /**
+     * A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+     */
+    expression: string;
+}
+
 export interface EventOrchestrationIntegration {
     /**
      * ID of the integration
      */
     id: string;
+    label: string;
     parameters: outputs.EventOrchestrationIntegrationParameter[];
 }
 
@@ -159,7 +463,7 @@ export interface EventOrchestrationServiceCatchAllActions {
     pagerdutyAutomationAction?: outputs.EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction;
     priority?: string;
     /**
-     * The ID of a Set from this Service Orchestration whose rules you also want to use with event that match this rule.
+     * The ID of a Set from this Service Orchestration whose rules you also want to use with events that match this rule.
      */
     routeTo?: string;
     /**
@@ -171,7 +475,7 @@ export interface EventOrchestrationServiceCatchAllActions {
      */
     suppress?: boolean;
     /**
-     * The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won't create an incident for this the resulting alert.
+     * The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won't create an incident for this alert.
      */
     suspend?: number;
     /**
@@ -326,7 +630,7 @@ export interface EventOrchestrationServiceSetRuleActions {
     pagerdutyAutomationAction?: outputs.EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction;
     priority?: string;
     /**
-     * The ID of a Set from this Service Orchestration whose rules you also want to use with event that match this rule.
+     * The ID of a Set from this Service Orchestration whose rules you also want to use with events that match this rule.
      */
     routeTo?: string;
     /**
@@ -338,7 +642,7 @@ export interface EventOrchestrationServiceSetRuleActions {
      */
     suppress?: boolean;
     /**
-     * The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won't create an incident for this the resulting alert.
+     * The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won't create an incident for this alert.
      */
     suspend?: number;
     /**
@@ -554,7 +858,7 @@ export interface EventOrchestrationUnroutedSetRuleActions {
      */
     extractions?: outputs.EventOrchestrationUnroutedSetRuleActionsExtraction[];
     /**
-     * The ID of a Set from this Unrouted Orchestration whose rules you also want to use with event that match this rule.
+     * The ID of a Set from this Unrouted Orchestration whose rules you also want to use with events that match this rule.
      */
     routeTo?: string;
     /**
@@ -637,12 +941,24 @@ export interface GetAutomationActionsActionActionDataReference {
     script: string;
 }
 
-export interface GetEventOrchestrationIntegration {
+export interface GetEventOrchestrationIntegrationDetail {
     /**
      * ID of the integration
      */
     id: string;
-    parameters: outputs.GetEventOrchestrationIntegrationParameter[];
+    label: string;
+    parameters: outputs.GetEventOrchestrationIntegrationDetailParameter[];
+}
+
+export interface GetEventOrchestrationIntegrationDetailParameter {
+    /**
+     * Routing key that routes to this Orchestration.
+     */
+    routingKey: string;
+    /**
+     * Type of the routing key. `global` is the default type.
+     */
+    type: string;
 }
 
 export interface GetEventOrchestrationIntegrationParameter {
@@ -676,6 +992,7 @@ export interface GetEventOrchestrationsEventOrchestrationIntegration {
      * ID of the integration
      */
     id: string;
+    label: string;
     parameters: outputs.GetEventOrchestrationsEventOrchestrationIntegrationParameter[];
 }
 
@@ -688,6 +1005,55 @@ export interface GetEventOrchestrationsEventOrchestrationIntegrationParameter {
      * Type of the routing key. `global` is the default type.
      */
     type: string;
+}
+
+export interface GetLicensesLicense {
+    /**
+     * Available allocations to assign to users
+     */
+    allocationsAvailable: number;
+    /**
+     * The number of allocations already assigned to users
+     */
+    currentValue: number;
+    /**
+     * Description of the license
+     */
+    description: string;
+    htmlUrl: string;
+    /**
+     * Allows to override the default behavior for setting the `id` attribute that is required for data sources.
+     */
+    id: string;
+    /**
+     * Name of the license
+     */
+    name: string;
+    /**
+     * The role group for the license that determines the available `validRoles`
+     */
+    roleGroup: string;
+    self: string;
+    /**
+     * Summary of the license
+     */
+    summary: string;
+    type: string;
+    /**
+     * List of allowed roles that may be assigned to a user with this license
+     */
+    validRoles: string[];
+}
+
+export interface GetServiceTeam {
+    /**
+     * The ID of the found service.
+     */
+    id: string;
+    /**
+     * The service name to use to find a service in the PagerDuty API.
+     */
+    name: string;
 }
 
 export interface GetUsersUser {

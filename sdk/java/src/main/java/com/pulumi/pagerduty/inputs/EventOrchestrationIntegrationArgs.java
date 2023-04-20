@@ -32,6 +32,13 @@ public final class EventOrchestrationIntegrationArgs extends com.pulumi.resource
         return Optional.ofNullable(this.id);
     }
 
+    @Import(name="label")
+    private @Nullable Output<String> label;
+
+    public Optional<Output<String>> label() {
+        return Optional.ofNullable(this.label);
+    }
+
     @Import(name="parameters")
     private @Nullable Output<List<EventOrchestrationIntegrationParameterArgs>> parameters;
 
@@ -43,6 +50,7 @@ public final class EventOrchestrationIntegrationArgs extends com.pulumi.resource
 
     private EventOrchestrationIntegrationArgs(EventOrchestrationIntegrationArgs $) {
         this.id = $.id;
+        this.label = $.label;
         this.parameters = $.parameters;
     }
 
@@ -83,6 +91,15 @@ public final class EventOrchestrationIntegrationArgs extends com.pulumi.resource
          */
         public Builder id(String id) {
             return id(Output.of(id));
+        }
+
+        public Builder label(@Nullable Output<String> label) {
+            $.label = label;
+            return this;
+        }
+
+        public Builder label(String label) {
+            return label(Output.of(label));
         }
 
         public Builder parameters(@Nullable Output<List<EventOrchestrationIntegrationParameterArgs>> parameters) {

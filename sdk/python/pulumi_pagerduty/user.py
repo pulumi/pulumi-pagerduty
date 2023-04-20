@@ -18,6 +18,7 @@ class UserArgs:
                  color: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  job_title: Optional[pulumi.Input[str]] = None,
+                 license: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -27,6 +28,7 @@ class UserArgs:
         :param pulumi.Input[str] email: The user's email address.
         :param pulumi.Input[str] color: The schedule color for the user. Valid options are purple, red, green, blue, teal, orange, brown, turquoise, dark-slate-blue, cayenne, orange-red, dark-orchid, dark-slate-grey, lime, dark-magenta, lime-green, midnight-blue, deep-pink, dark-green, dark-orange, dark-cyan, darkolive-green, dark-slate-gray, grey20, firebrick, maroon, crimson, dark-red, dark-goldenrod, chocolate, medium-violet-red, sea-green, olivedrab, forest-green, dark-olive-green, blue-violet, royal-blue, indigo, slate-blue, saddle-brown, or steel-blue.
         :param pulumi.Input[str] job_title: The user's title.
+        :param pulumi.Input[str] license: The license id assigned to the user. If provided the user's role must exist in the assigned license's `valid_roles` list. To reference purchased licenses' ids see data source `get_licenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
         :param pulumi.Input[str] name: The name of the user.
         :param pulumi.Input[str] role: The user role. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.
                Notes:
@@ -45,6 +47,8 @@ class UserArgs:
             pulumi.set(__self__, "description", description)
         if job_title is not None:
             pulumi.set(__self__, "job_title", job_title)
+        if license is not None:
+            pulumi.set(__self__, "license", license)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if role is not None:
@@ -101,6 +105,18 @@ class UserArgs:
     @job_title.setter
     def job_title(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "job_title", value)
+
+    @property
+    @pulumi.getter
+    def license(self) -> Optional[pulumi.Input[str]]:
+        """
+        The license id assigned to the user. If provided the user's role must exist in the assigned license's `valid_roles` list. To reference purchased licenses' ids see data source `get_licenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
+        """
+        return pulumi.get(self, "license")
+
+    @license.setter
+    def license(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "license", value)
 
     @property
     @pulumi.getter
@@ -165,6 +181,7 @@ class _UserState:
                  html_url: Optional[pulumi.Input[str]] = None,
                  invitation_sent: Optional[pulumi.Input[bool]] = None,
                  job_title: Optional[pulumi.Input[str]] = None,
+                 license: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -177,6 +194,7 @@ class _UserState:
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app
         :param pulumi.Input[bool] invitation_sent: If true, the user has an outstanding invitation.
         :param pulumi.Input[str] job_title: The user's title.
+        :param pulumi.Input[str] license: The license id assigned to the user. If provided the user's role must exist in the assigned license's `valid_roles` list. To reference purchased licenses' ids see data source `get_licenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
         :param pulumi.Input[str] name: The name of the user.
         :param pulumi.Input[str] role: The user role. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.
                Notes:
@@ -202,6 +220,8 @@ class _UserState:
             pulumi.set(__self__, "invitation_sent", invitation_sent)
         if job_title is not None:
             pulumi.set(__self__, "job_title", job_title)
+        if license is not None:
+            pulumi.set(__self__, "license", license)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if role is not None:
@@ -297,6 +317,18 @@ class _UserState:
 
     @property
     @pulumi.getter
+    def license(self) -> Optional[pulumi.Input[str]]:
+        """
+        The license id assigned to the user. If provided the user's role must exist in the assigned license's `valid_roles` list. To reference purchased licenses' ids see data source `get_licenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
+        """
+        return pulumi.get(self, "license")
+
+    @license.setter
+    def license(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "license", value)
+
+    @property
+    @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the user.
@@ -357,6 +389,7 @@ class User(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  job_title: Optional[pulumi.Input[str]] = None,
+                 license: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -382,11 +415,14 @@ class User(pulumi.CustomResource):
          $ pulumi import pagerduty:index/user:User main PLBP09X
         ```
 
+         [1]https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user [2]https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] color: The schedule color for the user. Valid options are purple, red, green, blue, teal, orange, brown, turquoise, dark-slate-blue, cayenne, orange-red, dark-orchid, dark-slate-grey, lime, dark-magenta, lime-green, midnight-blue, deep-pink, dark-green, dark-orange, dark-cyan, darkolive-green, dark-slate-gray, grey20, firebrick, maroon, crimson, dark-red, dark-goldenrod, chocolate, medium-violet-red, sea-green, olivedrab, forest-green, dark-olive-green, blue-violet, royal-blue, indigo, slate-blue, saddle-brown, or steel-blue.
         :param pulumi.Input[str] email: The user's email address.
         :param pulumi.Input[str] job_title: The user's title.
+        :param pulumi.Input[str] license: The license id assigned to the user. If provided the user's role must exist in the assigned license's `valid_roles` list. To reference purchased licenses' ids see data source `get_licenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
         :param pulumi.Input[str] name: The name of the user.
         :param pulumi.Input[str] role: The user role. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.
                Notes:
@@ -422,6 +458,8 @@ class User(pulumi.CustomResource):
          $ pulumi import pagerduty:index/user:User main PLBP09X
         ```
 
+         [1]https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user [2]https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license
+
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -441,6 +479,7 @@ class User(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  job_title: Optional[pulumi.Input[str]] = None,
+                 license: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -462,6 +501,7 @@ class User(pulumi.CustomResource):
                 raise TypeError("Missing required property 'email'")
             __props__.__dict__["email"] = email
             __props__.__dict__["job_title"] = job_title
+            __props__.__dict__["license"] = license
             __props__.__dict__["name"] = name
             __props__.__dict__["role"] = role
             if teams is not None and not opts.urn:
@@ -489,6 +529,7 @@ class User(pulumi.CustomResource):
             html_url: Optional[pulumi.Input[str]] = None,
             invitation_sent: Optional[pulumi.Input[bool]] = None,
             job_title: Optional[pulumi.Input[str]] = None,
+            license: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             role: Optional[pulumi.Input[str]] = None,
             teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -506,6 +547,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app
         :param pulumi.Input[bool] invitation_sent: If true, the user has an outstanding invitation.
         :param pulumi.Input[str] job_title: The user's title.
+        :param pulumi.Input[str] license: The license id assigned to the user. If provided the user's role must exist in the assigned license's `valid_roles` list. To reference purchased licenses' ids see data source `get_licenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
         :param pulumi.Input[str] name: The name of the user.
         :param pulumi.Input[str] role: The user role. Can be `admin`, `limited_user`, `observer`, `owner`, `read_only_user`, `read_only_limited_user`, `restricted_access`, or `user`.
                Notes:
@@ -526,6 +568,7 @@ class User(pulumi.CustomResource):
         __props__.__dict__["html_url"] = html_url
         __props__.__dict__["invitation_sent"] = invitation_sent
         __props__.__dict__["job_title"] = job_title
+        __props__.__dict__["license"] = license
         __props__.__dict__["name"] = name
         __props__.__dict__["role"] = role
         __props__.__dict__["teams"] = teams
@@ -584,6 +627,14 @@ class User(pulumi.CustomResource):
         The user's title.
         """
         return pulumi.get(self, "job_title")
+
+    @property
+    @pulumi.getter
+    def license(self) -> pulumi.Output[str]:
+        """
+        The license id assigned to the user. If provided the user's role must exist in the assigned license's `valid_roles` list. To reference purchased licenses' ids see data source `get_licenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
+        """
+        return pulumi.get(self, "license")
 
     @property
     @pulumi.getter

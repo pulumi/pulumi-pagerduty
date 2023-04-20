@@ -45,7 +45,7 @@ namespace Pulumi.Pagerduty
         public Output<ImmutableArray<Outputs.EscalationPolicyRule>> Rules { get; private set; } = null!;
 
         /// <summary>
-        /// Teams associated with the policy. Account must have the `teams` ability to use this parameter.
+        /// Team associated with the policy (Only 1 team can be assigned to an Escalation Policy). Account must have the `teams` ability to use this parameter.
         /// </summary>
         [Output("teams")]
         public Output<string?> Teams { get; private set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.Pagerduty
         }
 
         /// <summary>
-        /// Teams associated with the policy. Account must have the `teams` ability to use this parameter.
+        /// Team associated with the policy (Only 1 team can be assigned to an Escalation Policy). Account must have the `teams` ability to use this parameter.
         /// </summary>
         [Input("teams")]
         public Input<string>? Teams { get; set; }
@@ -166,7 +166,7 @@ namespace Pulumi.Pagerduty
         }
 
         /// <summary>
-        /// Teams associated with the policy. Account must have the `teams` ability to use this parameter.
+        /// Team associated with the policy (Only 1 team can be assigned to an Escalation Policy). Account must have the `teams` ability to use this parameter.
         /// </summary>
         [Input("teams")]
         public Input<string>? Teams { get; set; }

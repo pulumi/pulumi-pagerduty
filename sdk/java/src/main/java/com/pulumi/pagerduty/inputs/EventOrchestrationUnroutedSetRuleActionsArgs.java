@@ -49,14 +49,14 @@ public final class EventOrchestrationUnroutedSetRuleActionsArgs extends com.pulu
     }
 
     /**
-     * The ID of a Set from this Unrouted Orchestration whose rules you also want to use with event that match this rule.
+     * The ID of a Set from this Unrouted Orchestration whose rules you also want to use with events that match this rule.
      * 
      */
     @Import(name="routeTo")
     private @Nullable Output<String> routeTo;
 
     /**
-     * @return The ID of a Set from this Unrouted Orchestration whose rules you also want to use with event that match this rule.
+     * @return The ID of a Set from this Unrouted Orchestration whose rules you also want to use with events that match this rule.
      * 
      */
     public Optional<Output<String>> routeTo() {
@@ -174,7 +174,7 @@ public final class EventOrchestrationUnroutedSetRuleActionsArgs extends com.pulu
         }
 
         /**
-         * @param routeTo The ID of a Set from this Unrouted Orchestration whose rules you also want to use with event that match this rule.
+         * @param routeTo The ID of a Set from this Unrouted Orchestration whose rules you also want to use with events that match this rule.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class EventOrchestrationUnroutedSetRuleActionsArgs extends com.pulu
         }
 
         /**
-         * @param routeTo The ID of a Set from this Unrouted Orchestration whose rules you also want to use with event that match this rule.
+         * @param routeTo The ID of a Set from this Unrouted Orchestration whose rules you also want to use with events that match this rule.
          * 
          * @return builder
          * 

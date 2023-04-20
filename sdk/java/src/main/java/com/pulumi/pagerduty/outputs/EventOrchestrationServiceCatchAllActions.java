@@ -45,7 +45,7 @@ public final class EventOrchestrationServiceCatchAllActions {
     private @Nullable EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction pagerdutyAutomationAction;
     private @Nullable String priority;
     /**
-     * @return The ID of a Set from this Service Orchestration whose rules you also want to use with event that match this rule.
+     * @return The ID of a Set from this Service Orchestration whose rules you also want to use with events that match this rule.
      * 
      */
     private @Nullable String routeTo;
@@ -60,7 +60,7 @@ public final class EventOrchestrationServiceCatchAllActions {
      */
     private @Nullable Boolean suppress;
     /**
-     * @return The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won&#39;t create an incident for this the resulting alert.
+     * @return The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won&#39;t create an incident for this alert.
      * 
      */
     private @Nullable Integer suspend;
@@ -110,7 +110,7 @@ public final class EventOrchestrationServiceCatchAllActions {
         return Optional.ofNullable(this.priority);
     }
     /**
-     * @return The ID of a Set from this Service Orchestration whose rules you also want to use with event that match this rule.
+     * @return The ID of a Set from this Service Orchestration whose rules you also want to use with events that match this rule.
      * 
      */
     public Optional<String> routeTo() {
@@ -131,7 +131,7 @@ public final class EventOrchestrationServiceCatchAllActions {
         return Optional.ofNullable(this.suppress);
     }
     /**
-     * @return The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won&#39;t create an incident for this the resulting alert.
+     * @return The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won&#39;t create an incident for this alert.
      * 
      */
     public Optional<Integer> suspend() {

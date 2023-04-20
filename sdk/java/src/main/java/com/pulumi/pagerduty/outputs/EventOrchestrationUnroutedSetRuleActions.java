@@ -25,7 +25,7 @@ public final class EventOrchestrationUnroutedSetRuleActions {
      */
     private @Nullable List<EventOrchestrationUnroutedSetRuleActionsExtraction> extractions;
     /**
-     * @return The ID of a Set from this Unrouted Orchestration whose rules you also want to use with event that match this rule.
+     * @return The ID of a Set from this Unrouted Orchestration whose rules you also want to use with events that match this rule.
      * 
      */
     private @Nullable String routeTo;
@@ -56,7 +56,7 @@ public final class EventOrchestrationUnroutedSetRuleActions {
         return this.extractions == null ? List.of() : this.extractions;
     }
     /**
-     * @return The ID of a Set from this Unrouted Orchestration whose rules you also want to use with event that match this rule.
+     * @return The ID of a Set from this Unrouted Orchestration whose rules you also want to use with events that match this rule.
      * 
      */
     public Optional<String> routeTo() {

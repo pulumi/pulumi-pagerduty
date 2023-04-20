@@ -80,6 +80,16 @@ export type EventOrchestration = import("./eventOrchestration").EventOrchestrati
 export const EventOrchestration: typeof import("./eventOrchestration").EventOrchestration = null as any;
 utilities.lazyLoad(exports, ["EventOrchestration"], () => require("./eventOrchestration"));
 
+export { EventOrchestrationGlobalArgs, EventOrchestrationGlobalState } from "./eventOrchestrationGlobal";
+export type EventOrchestrationGlobal = import("./eventOrchestrationGlobal").EventOrchestrationGlobal;
+export const EventOrchestrationGlobal: typeof import("./eventOrchestrationGlobal").EventOrchestrationGlobal = null as any;
+utilities.lazyLoad(exports, ["EventOrchestrationGlobal"], () => require("./eventOrchestrationGlobal"));
+
+export { EventOrchestrationIntegrationArgs, EventOrchestrationIntegrationState } from "./eventOrchestrationIntegration";
+export type EventOrchestrationIntegration = import("./eventOrchestrationIntegration").EventOrchestrationIntegration;
+export const EventOrchestrationIntegration: typeof import("./eventOrchestrationIntegration").EventOrchestrationIntegration = null as any;
+utilities.lazyLoad(exports, ["EventOrchestrationIntegration"], () => require("./eventOrchestrationIntegration"));
+
 export { EventOrchestrationRouterArgs, EventOrchestrationRouterState } from "./eventOrchestrationRouter";
 export type EventOrchestrationRouter = import("./eventOrchestrationRouter").EventOrchestrationRouter;
 export const EventOrchestrationRouter: typeof import("./eventOrchestrationRouter").EventOrchestrationRouter = null as any;
@@ -145,6 +155,11 @@ export const getEventOrchestration: typeof import("./getEventOrchestration").get
 export const getEventOrchestrationOutput: typeof import("./getEventOrchestration").getEventOrchestrationOutput = null as any;
 utilities.lazyLoad(exports, ["getEventOrchestration","getEventOrchestrationOutput"], () => require("./getEventOrchestration"));
 
+export { GetEventOrchestrationIntegrationArgs, GetEventOrchestrationIntegrationResult, GetEventOrchestrationIntegrationOutputArgs } from "./getEventOrchestrationIntegration";
+export const getEventOrchestrationIntegration: typeof import("./getEventOrchestrationIntegration").getEventOrchestrationIntegration = null as any;
+export const getEventOrchestrationIntegrationOutput: typeof import("./getEventOrchestrationIntegration").getEventOrchestrationIntegrationOutput = null as any;
+utilities.lazyLoad(exports, ["getEventOrchestrationIntegration","getEventOrchestrationIntegrationOutput"], () => require("./getEventOrchestrationIntegration"));
+
 export { GetEventOrchestrationsArgs, GetEventOrchestrationsResult, GetEventOrchestrationsOutputArgs } from "./getEventOrchestrations";
 export const getEventOrchestrations: typeof import("./getEventOrchestrations").getEventOrchestrations = null as any;
 export const getEventOrchestrationsOutput: typeof import("./getEventOrchestrations").getEventOrchestrationsOutput = null as any;
@@ -159,6 +174,16 @@ export { GetIncidentWorkflowArgs, GetIncidentWorkflowResult, GetIncidentWorkflow
 export const getIncidentWorkflow: typeof import("./getIncidentWorkflow").getIncidentWorkflow = null as any;
 export const getIncidentWorkflowOutput: typeof import("./getIncidentWorkflow").getIncidentWorkflowOutput = null as any;
 utilities.lazyLoad(exports, ["getIncidentWorkflow","getIncidentWorkflowOutput"], () => require("./getIncidentWorkflow"));
+
+export { GetLicenseArgs, GetLicenseResult, GetLicenseOutputArgs } from "./getLicense";
+export const getLicense: typeof import("./getLicense").getLicense = null as any;
+export const getLicenseOutput: typeof import("./getLicense").getLicenseOutput = null as any;
+utilities.lazyLoad(exports, ["getLicense","getLicenseOutput"], () => require("./getLicense"));
+
+export { GetLicensesArgs, GetLicensesResult, GetLicensesOutputArgs } from "./getLicenses";
+export const getLicenses: typeof import("./getLicenses").getLicenses = null as any;
+export const getLicensesOutput: typeof import("./getLicenses").getLicensesOutput = null as any;
+utilities.lazyLoad(exports, ["getLicenses","getLicensesOutput"], () => require("./getLicenses"));
 
 export { GetPriorityArgs, GetPriorityResult, GetPriorityOutputArgs } from "./getPriority";
 export const getPriority: typeof import("./getPriority").getPriority = null as any;
@@ -364,6 +389,10 @@ const _module = {
                 return new EscalationPolicy(name, <any>undefined, { urn })
             case "pagerduty:index/eventOrchestration:EventOrchestration":
                 return new EventOrchestration(name, <any>undefined, { urn })
+            case "pagerduty:index/eventOrchestrationGlobal:EventOrchestrationGlobal":
+                return new EventOrchestrationGlobal(name, <any>undefined, { urn })
+            case "pagerduty:index/eventOrchestrationIntegration:EventOrchestrationIntegration":
+                return new EventOrchestrationIntegration(name, <any>undefined, { urn })
             case "pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter":
                 return new EventOrchestrationRouter(name, <any>undefined, { urn })
             case "pagerduty:index/eventOrchestrationService:EventOrchestrationService":
@@ -436,6 +465,8 @@ pulumi.runtime.registerResourceModule("pagerduty", "index/customFieldSchemaAssig
 pulumi.runtime.registerResourceModule("pagerduty", "index/customFieldSchemaFieldConfiguration", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/escalationPolicy", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/eventOrchestration", _module)
+pulumi.runtime.registerResourceModule("pagerduty", "index/eventOrchestrationGlobal", _module)
+pulumi.runtime.registerResourceModule("pagerduty", "index/eventOrchestrationIntegration", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/eventOrchestrationRouter", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/eventOrchestrationService", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/eventOrchestrationUnrouted", _module)

@@ -52,7 +52,7 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<string>? Priority { get; set; }
 
         /// <summary>
-        /// The ID of a Set from this Service Orchestration whose rules you also want to use with event that match this rule.
+        /// The ID of a Set from this Service Orchestration whose rules you also want to use with events that match this rule.
         /// </summary>
         [Input("routeTo")]
         public Input<string>? RouteTo { get; set; }
@@ -70,7 +70,7 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<bool>? Suppress { get; set; }
 
         /// <summary>
-        /// The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won't create an incident for this the resulting alert.
+        /// The number of seconds to suspend the resulting alert before triggering. This effectively pauses incident notifications. If a `resolve` event arrives before the alert triggers then PagerDuty won't create an incident for this alert.
         /// </summary>
         [Input("suspend")]
         public Input<int>? Suspend { get; set; }

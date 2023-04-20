@@ -23,6 +23,8 @@ import * as utilities from "./utilities";
  * ```sh
  *  $ pulumi import pagerduty:index/user:User main PLBP09X
  * ```
+ *
+ *  [1]https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user [2]https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license
  */
 export class User extends pulumi.CustomResource {
     /**
@@ -78,6 +80,10 @@ export class User extends pulumi.CustomResource {
      */
     public readonly jobTitle!: pulumi.Output<string | undefined>;
     /**
+     * The license id assigned to the user. If provided the user's role must exist in the assigned license's `validRoles` list. To reference purchased licenses' ids see data source `pagerduty.getLicenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
+     */
+    public readonly license!: pulumi.Output<string>;
+    /**
      * The name of the user.
      */
     public readonly name!: pulumi.Output<string>;
@@ -120,6 +126,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["htmlUrl"] = state ? state.htmlUrl : undefined;
             resourceInputs["invitationSent"] = state ? state.invitationSent : undefined;
             resourceInputs["jobTitle"] = state ? state.jobTitle : undefined;
+            resourceInputs["license"] = state ? state.license : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["role"] = state ? state.role : undefined;
             resourceInputs["teams"] = state ? state.teams : undefined;
@@ -133,6 +140,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
             resourceInputs["email"] = args ? args.email : undefined;
             resourceInputs["jobTitle"] = args ? args.jobTitle : undefined;
+            resourceInputs["license"] = args ? args.license : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["role"] = args ? args.role : undefined;
             resourceInputs["teams"] = args ? args.teams : undefined;
@@ -176,6 +184,10 @@ export interface UserState {
      */
     jobTitle?: pulumi.Input<string>;
     /**
+     * The license id assigned to the user. If provided the user's role must exist in the assigned license's `validRoles` list. To reference purchased licenses' ids see data source `pagerduty.getLicenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
+     */
+    license?: pulumi.Input<string>;
+    /**
      * The name of the user.
      */
     name?: pulumi.Input<string>;
@@ -216,6 +228,10 @@ export interface UserArgs {
      * The user's title.
      */
     jobTitle?: pulumi.Input<string>;
+    /**
+     * The license id assigned to the user. If provided the user's role must exist in the assigned license's `validRoles` list. To reference purchased licenses' ids see data source `pagerduty.getLicenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
+     */
+    license?: pulumi.Input<string>;
     /**
      * The name of the user.
      */

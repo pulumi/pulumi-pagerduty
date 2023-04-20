@@ -134,8 +134,6 @@ class Ruleset(pulumi.CustomResource):
                  team: Optional[pulumi.Input[pulumi.InputType['RulesetTeamArgs']]] = None,
                  __props__=None):
         """
-        [Rulesets](https://support.pagerduty.com/docs/rulesets) allow you to route events to an endpoint and create collections of event rules, which define sets of actions to take based on event content.
-
         ## Example Usage
 
         ```python
@@ -168,8 +166,6 @@ class Ruleset(pulumi.CustomResource):
                  args: Optional[RulesetArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        [Rulesets](https://support.pagerduty.com/docs/rulesets) allow you to route events to an endpoint and create collections of event rules, which define sets of actions to take based on event content.
-
         ## Example Usage
 
         ```python

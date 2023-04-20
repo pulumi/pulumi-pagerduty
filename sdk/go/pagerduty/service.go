@@ -90,7 +90,7 @@ type Service struct {
 	// Deprecated: Use `alert_grouping_parameters.type`
 	AlertGrouping pulumi.StringOutput `pulumi:"alertGrouping"`
 	// Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
-	AlertGroupingParameters ServiceAlertGroupingParametersPtrOutput `pulumi:"alertGroupingParameters"`
+	AlertGroupingParameters ServiceAlertGroupingParametersOutput `pulumi:"alertGroupingParameters"`
 	// (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alertGrouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
 	//
 	// Deprecated: Use `alert_grouping_parameters.config.timeout`
@@ -409,8 +409,8 @@ func (o ServiceOutput) AlertGrouping() pulumi.StringOutput {
 }
 
 // Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
-func (o ServiceOutput) AlertGroupingParameters() ServiceAlertGroupingParametersPtrOutput {
-	return o.ApplyT(func(v *Service) ServiceAlertGroupingParametersPtrOutput { return v.AlertGroupingParameters }).(ServiceAlertGroupingParametersPtrOutput)
+func (o ServiceOutput) AlertGroupingParameters() ServiceAlertGroupingParametersOutput {
+	return o.ApplyT(func(v *Service) ServiceAlertGroupingParametersOutput { return v.AlertGroupingParameters }).(ServiceAlertGroupingParametersOutput)
 }
 
 // (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alertGrouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,

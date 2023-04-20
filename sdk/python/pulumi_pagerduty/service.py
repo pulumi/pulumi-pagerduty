@@ -825,7 +825,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="alertGroupingParameters")
-    def alert_grouping_parameters(self) -> pulumi.Output[Optional['outputs.ServiceAlertGroupingParameters']]:
+    def alert_grouping_parameters(self) -> pulumi.Output['outputs.ServiceAlertGroupingParameters']:
         """
         Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
         """

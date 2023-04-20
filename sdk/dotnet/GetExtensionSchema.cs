@@ -20,6 +20,7 @@ namespace Pulumi.Pagerduty
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Pagerduty = Pulumi.Pagerduty;
         /// 
@@ -93,6 +94,7 @@ namespace Pulumi.Pagerduty
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Pagerduty = Pulumi.Pagerduty;
         /// 

@@ -16,6 +16,8 @@ package pagerduty
 
 import (
 	"fmt"
+	// embed is used to store bridge-metadata.json in the compiled binary
+	_ "embed"
 	"path/filepath"
 	"strings"
 	"unicode"
@@ -161,6 +163,16 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 		},
+		DataSources: map[string]*tfbridge.DataSourceInfo{
+			"pagerduty_event_orchestration": {
+				Tok: tfbridge.MakeDataSource("pagerduty", mainMod, "getEventOrchestration"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"integration": {
+						Name: "integrationDetail",
+					},
+				},
+			},
+		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			// List any npm dependencies and their versions
 			Dependencies: map[string]string{
@@ -189,21 +201,25 @@ func Provider() tfbridge.ProviderInfo {
 			PackageReferences: map[string]string{
 				"Pulumi": "3.*",
 			},
-		},
+		}, MetadataInfo: tfbridge.NewProviderMetadata(metadata),
 	}
 
 	err := x.ComputeDefaults(&prov, x.TokensSingleModule("pagerduty_",
 		mainMod, x.MakeStandardToken(mainPkg)))
-	contract.AssertNoError(err)
+	contract.AssertNoErrorf(err, "computing defaults failed")
+	err = x.AutoAliasing(&prov, prov.GetMetadata())
+	contract.
+
+		// CustomField.name can only contain 'a'-'z' '0'-'9' and '_'.
+		//
+		// Non-conforming runes are replaced with '_'.
+		AssertNoErrorf(err, "auto aliasing apply failed")
 
 	prov.SetAutonaming(255, "-")
 
 	return prov
 }
 
-// CustomField.name can only contain 'a'-'z' '0'-'9' and '_'.
-//
-// Non-conforming runes are replaced with '_'.
 func customNameTransform(s string) string {
 	str := []rune(strings.ToLower(s))
 	for i, v := range str {
@@ -215,3 +231,6 @@ func customNameTransform(s string) string {
 	}
 	return string(str)
 }
+
+//go:embed cmd/pulumi-resource-pagerduty/bridge-metadata.json
+var metadata []byte

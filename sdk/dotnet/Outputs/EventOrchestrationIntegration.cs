@@ -17,15 +17,19 @@ namespace Pulumi.Pagerduty.Outputs
         /// ID of the integration
         /// </summary>
         public readonly string? Id;
+        public readonly string? Label;
         public readonly ImmutableArray<Outputs.EventOrchestrationIntegrationParameter> Parameters;
 
         [OutputConstructor]
         private EventOrchestrationIntegration(
             string? id,
 
+            string? label,
+
             ImmutableArray<Outputs.EventOrchestrationIntegrationParameter> parameters)
         {
             Id = id;
+            Label = label;
             Parameters = parameters;
         }
     }

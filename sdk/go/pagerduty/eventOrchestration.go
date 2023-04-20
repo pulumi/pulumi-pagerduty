@@ -10,9 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// [Global Event Orchestrations](https://support.pagerduty.com/docs/event-orchestration#global-orchestrations) allow you define a set of Event Rules, so that when you ingest events using the Orchestration's Routing Key your events will be routed to the correct Service, based on the event's content.
+// [Event Orchestrations](https://support.pagerduty.com/docs/event-orchestration) allow you define a set of Event Rules, so that when you ingest events using the Orchestration's Routing Key your events will be routed to the correct Global and/or Service Orchestration, based on the event's content.
 //
-// ## Example of configuring a Global Event Orchestration
+// ## Example of configuring an Event Orchestration
 //
 // ```go
 // package main
@@ -58,7 +58,7 @@ type EventOrchestration struct {
 	// A human-friendly description of the Event Orchestration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// An integration for the Event Orchestration.
-	Integrations EventOrchestrationIntegrationArrayOutput `pulumi:"integrations"`
+	Integrations EventOrchestrationIntegrationTypeArrayOutput `pulumi:"integrations"`
 	// Name of the Event Orchestration.
 	Name   pulumi.StringOutput `pulumi:"name"`
 	Routes pulumi.IntOutput    `pulumi:"routes"`
@@ -98,7 +98,7 @@ type eventOrchestrationState struct {
 	// A human-friendly description of the Event Orchestration.
 	Description *string `pulumi:"description"`
 	// An integration for the Event Orchestration.
-	Integrations []EventOrchestrationIntegration `pulumi:"integrations"`
+	Integrations []EventOrchestrationIntegrationType `pulumi:"integrations"`
 	// Name of the Event Orchestration.
 	Name   *string `pulumi:"name"`
 	Routes *int    `pulumi:"routes"`
@@ -110,7 +110,7 @@ type EventOrchestrationState struct {
 	// A human-friendly description of the Event Orchestration.
 	Description pulumi.StringPtrInput
 	// An integration for the Event Orchestration.
-	Integrations EventOrchestrationIntegrationArrayInput
+	Integrations EventOrchestrationIntegrationTypeArrayInput
 	// Name of the Event Orchestration.
 	Name   pulumi.StringPtrInput
 	Routes pulumi.IntPtrInput
@@ -126,7 +126,7 @@ type eventOrchestrationArgs struct {
 	// A human-friendly description of the Event Orchestration.
 	Description *string `pulumi:"description"`
 	// An integration for the Event Orchestration.
-	Integrations []EventOrchestrationIntegration `pulumi:"integrations"`
+	Integrations []EventOrchestrationIntegrationType `pulumi:"integrations"`
 	// Name of the Event Orchestration.
 	Name *string `pulumi:"name"`
 	// ID of the team that owns the Event Orchestration. If none is specified, only admins have access.
@@ -138,7 +138,7 @@ type EventOrchestrationArgs struct {
 	// A human-friendly description of the Event Orchestration.
 	Description pulumi.StringPtrInput
 	// An integration for the Event Orchestration.
-	Integrations EventOrchestrationIntegrationArrayInput
+	Integrations EventOrchestrationIntegrationTypeArrayInput
 	// Name of the Event Orchestration.
 	Name pulumi.StringPtrInput
 	// ID of the team that owns the Event Orchestration. If none is specified, only admins have access.
@@ -238,8 +238,8 @@ func (o EventOrchestrationOutput) Description() pulumi.StringPtrOutput {
 }
 
 // An integration for the Event Orchestration.
-func (o EventOrchestrationOutput) Integrations() EventOrchestrationIntegrationArrayOutput {
-	return o.ApplyT(func(v *EventOrchestration) EventOrchestrationIntegrationArrayOutput { return v.Integrations }).(EventOrchestrationIntegrationArrayOutput)
+func (o EventOrchestrationOutput) Integrations() EventOrchestrationIntegrationTypeArrayOutput {
+	return o.ApplyT(func(v *EventOrchestration) EventOrchestrationIntegrationTypeArrayOutput { return v.Integrations }).(EventOrchestrationIntegrationTypeArrayOutput)
 }
 
 // Name of the Event Orchestration.

@@ -1,0 +1,824 @@
+{
+    "auto-aliasing": {
+        "resources": {
+            "pagerduty_addon": {
+                "current": "pagerduty:index/addon:Addon"
+            },
+            "pagerduty_automation_actions_action": {
+                "current": "pagerduty:index/automationActionsAction:AutomationActionsAction"
+            },
+            "pagerduty_automation_actions_action_service_association": {
+                "current": "pagerduty:index/automationActionsActionServiceAssociation:AutomationActionsActionServiceAssociation"
+            },
+            "pagerduty_automation_actions_action_team_association": {
+                "current": "pagerduty:index/automationActionsActionTeamAssociation:AutomationActionsActionTeamAssociation"
+            },
+            "pagerduty_automation_actions_runner": {
+                "current": "pagerduty:index/automationActionsRunner:AutomationActionsRunner"
+            },
+            "pagerduty_automation_actions_runner_team_association": {
+                "current": "pagerduty:index/automationActionsRunnerTeamAssociation:AutomationActionsRunnerTeamAssociation"
+            },
+            "pagerduty_business_service": {
+                "current": "pagerduty:index/businessService:BusinessService"
+            },
+            "pagerduty_business_service_subscriber": {
+                "current": "pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber"
+            },
+            "pagerduty_custom_field": {
+                "current": "pagerduty:index/customField:CustomField"
+            },
+            "pagerduty_custom_field_option": {
+                "current": "pagerduty:index/customFieldOption:CustomFieldOption"
+            },
+            "pagerduty_custom_field_schema": {
+                "current": "pagerduty:index/customFieldSchema:CustomFieldSchema"
+            },
+            "pagerduty_custom_field_schema_assignment": {
+                "current": "pagerduty:index/customFieldSchemaAssignment:CustomFieldSchemaAssignment"
+            },
+            "pagerduty_custom_field_schema_field_configuration": {
+                "current": "pagerduty:index/customFieldSchemaFieldConfiguration:CustomFieldSchemaFieldConfiguration"
+            },
+            "pagerduty_escalation_policy": {
+                "current": "pagerduty:index/escalationPolicy:EscalationPolicy"
+            },
+            "pagerduty_event_orchestration": {
+                "current": "pagerduty:index/eventOrchestration:EventOrchestration"
+            },
+            "pagerduty_event_orchestration_global": {
+                "current": "pagerduty:index/eventOrchestrationGlobal:EventOrchestrationGlobal"
+            },
+            "pagerduty_event_orchestration_integration": {
+                "current": "pagerduty:index/eventOrchestrationIntegration:EventOrchestrationIntegration"
+            },
+            "pagerduty_event_orchestration_router": {
+                "current": "pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter"
+            },
+            "pagerduty_event_orchestration_service": {
+                "current": "pagerduty:index/eventOrchestrationService:EventOrchestrationService"
+            },
+            "pagerduty_event_orchestration_unrouted": {
+                "current": "pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted"
+            },
+            "pagerduty_event_rule": {
+                "current": "pagerduty:index/eventRule:EventRule"
+            },
+            "pagerduty_extension": {
+                "current": "pagerduty:index/extension:Extension"
+            },
+            "pagerduty_extension_servicenow": {
+                "current": "pagerduty:index/extensionServiceNow:ExtensionServiceNow"
+            },
+            "pagerduty_incident_workflow": {
+                "current": "pagerduty:index/incidentWorkflow:IncidentWorkflow"
+            },
+            "pagerduty_incident_workflow_trigger": {
+                "current": "pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger"
+            },
+            "pagerduty_maintenance_window": {
+                "current": "pagerduty:index/maintenanceWindow:MaintenanceWindow"
+            },
+            "pagerduty_response_play": {
+                "current": "pagerduty:index/responsePlay:ResponsePlay"
+            },
+            "pagerduty_ruleset": {
+                "current": "pagerduty:index/ruleset:Ruleset"
+            },
+            "pagerduty_ruleset_rule": {
+                "current": "pagerduty:index/rulesetRule:RulesetRule"
+            },
+            "pagerduty_schedule": {
+                "current": "pagerduty:index/schedule:Schedule"
+            },
+            "pagerduty_service": {
+                "current": "pagerduty:index/service:Service"
+            },
+            "pagerduty_service_dependency": {
+                "current": "pagerduty:index/serviceDependency:ServiceDependency"
+            },
+            "pagerduty_service_event_rule": {
+                "current": "pagerduty:index/serviceEventRule:ServiceEventRule"
+            },
+            "pagerduty_service_integration": {
+                "current": "pagerduty:index/serviceIntegration:ServiceIntegration"
+            },
+            "pagerduty_slack_connection": {
+                "current": "pagerduty:index/slackConnection:SlackConnection"
+            },
+            "pagerduty_tag": {
+                "current": "pagerduty:index/tag:Tag"
+            },
+            "pagerduty_tag_assignment": {
+                "current": "pagerduty:index/tagAssignment:TagAssignment"
+            },
+            "pagerduty_team": {
+                "current": "pagerduty:index/team:Team"
+            },
+            "pagerduty_team_membership": {
+                "current": "pagerduty:index/teamMembership:TeamMembership"
+            },
+            "pagerduty_user": {
+                "current": "pagerduty:index/user:User"
+            },
+            "pagerduty_user_contact_method": {
+                "current": "pagerduty:index/userContactMethod:UserContactMethod"
+            },
+            "pagerduty_user_notification_rule": {
+                "current": "pagerduty:index/userNotificationRule:UserNotificationRule"
+            },
+            "pagerduty_webhook_subscription": {
+                "current": "pagerduty:index/webhookSubscription:WebhookSubscription"
+            }
+        },
+        "datasources": {
+            "pagerduty_automation_actions_action": {
+                "current": "pagerduty:index/getAutomationActionsAction:getAutomationActionsAction"
+            },
+            "pagerduty_automation_actions_runner": {
+                "current": "pagerduty:index/getAutomationActionsRunner:getAutomationActionsRunner"
+            },
+            "pagerduty_business_service": {
+                "current": "pagerduty:index/getBusinessService:getBusinessService"
+            },
+            "pagerduty_custom_field": {
+                "current": "pagerduty:index/getCustomField:getCustomField"
+            },
+            "pagerduty_custom_field_schema": {
+                "current": "pagerduty:index/getCustomFieldSchema:getCustomFieldSchema"
+            },
+            "pagerduty_escalation_policy": {
+                "current": "pagerduty:index/getEscalationPolicy:getEscalationPolicy"
+            },
+            "pagerduty_event_orchestration": {
+                "current": "pagerduty:index/getEventOrchestration:getEventOrchestration"
+            },
+            "pagerduty_event_orchestration_integration": {
+                "current": "pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration"
+            },
+            "pagerduty_event_orchestrations": {
+                "current": "pagerduty:index/getEventOrchestrations:getEventOrchestrations"
+            },
+            "pagerduty_extension_schema": {
+                "current": "pagerduty:index/getExtensionSchema:getExtensionSchema"
+            },
+            "pagerduty_incident_workflow": {
+                "current": "pagerduty:index/getIncidentWorkflow:getIncidentWorkflow"
+            },
+            "pagerduty_license": {
+                "current": "pagerduty:index/getLicense:getLicense"
+            },
+            "pagerduty_licenses": {
+                "current": "pagerduty:index/getLicenses:getLicenses"
+            },
+            "pagerduty_priority": {
+                "current": "pagerduty:index/getPriority:getPriority"
+            },
+            "pagerduty_ruleset": {
+                "current": "pagerduty:index/getRuleset:getRuleset"
+            },
+            "pagerduty_schedule": {
+                "current": "pagerduty:index/getSchedule:getSchedule"
+            },
+            "pagerduty_service": {
+                "current": "pagerduty:index/getService:getService"
+            },
+            "pagerduty_service_integration": {
+                "current": "pagerduty:index/getServiceIntegration:getServiceIntegration"
+            },
+            "pagerduty_tag": {
+                "current": "pagerduty:index/getTag:getTag"
+            },
+            "pagerduty_team": {
+                "current": "pagerduty:index/getTeam:getTeam"
+            },
+            "pagerduty_user": {
+                "current": "pagerduty:index/getUser:getUser"
+            },
+            "pagerduty_user_contact_method": {
+                "current": "pagerduty:index/getUserContactMethod:getUserContactMethod"
+            },
+            "pagerduty_users": {
+                "current": "pagerduty:index/getUsers:getUsers"
+            },
+            "pagerduty_vendor": {
+                "current": "pagerduty:index/getVendor:getVendor"
+            }
+        }
+    },
+    "renames": {
+        "resources": {
+            "pagerduty:index/addon:Addon": "pagerduty_addon",
+            "pagerduty:index/automationActionsAction:AutomationActionsAction": "pagerduty_automation_actions_action",
+            "pagerduty:index/automationActionsActionServiceAssociation:AutomationActionsActionServiceAssociation": "pagerduty_automation_actions_action_service_association",
+            "pagerduty:index/automationActionsActionTeamAssociation:AutomationActionsActionTeamAssociation": "pagerduty_automation_actions_action_team_association",
+            "pagerduty:index/automationActionsRunner:AutomationActionsRunner": "pagerduty_automation_actions_runner",
+            "pagerduty:index/automationActionsRunnerTeamAssociation:AutomationActionsRunnerTeamAssociation": "pagerduty_automation_actions_runner_team_association",
+            "pagerduty:index/businessService:BusinessService": "pagerduty_business_service",
+            "pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber": "pagerduty_business_service_subscriber",
+            "pagerduty:index/customField:CustomField": "pagerduty_custom_field",
+            "pagerduty:index/customFieldOption:CustomFieldOption": "pagerduty_custom_field_option",
+            "pagerduty:index/customFieldSchema:CustomFieldSchema": "pagerduty_custom_field_schema",
+            "pagerduty:index/customFieldSchemaAssignment:CustomFieldSchemaAssignment": "pagerduty_custom_field_schema_assignment",
+            "pagerduty:index/customFieldSchemaFieldConfiguration:CustomFieldSchemaFieldConfiguration": "pagerduty_custom_field_schema_field_configuration",
+            "pagerduty:index/escalationPolicy:EscalationPolicy": "pagerduty_escalation_policy",
+            "pagerduty:index/eventOrchestration:EventOrchestration": "pagerduty_event_orchestration",
+            "pagerduty:index/eventOrchestrationGlobal:EventOrchestrationGlobal": "pagerduty_event_orchestration_global",
+            "pagerduty:index/eventOrchestrationIntegration:EventOrchestrationIntegration": "pagerduty_event_orchestration_integration",
+            "pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter": "pagerduty_event_orchestration_router",
+            "pagerduty:index/eventOrchestrationService:EventOrchestrationService": "pagerduty_event_orchestration_service",
+            "pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted": "pagerduty_event_orchestration_unrouted",
+            "pagerduty:index/eventRule:EventRule": "pagerduty_event_rule",
+            "pagerduty:index/extension:Extension": "pagerduty_extension",
+            "pagerduty:index/extensionServiceNow:ExtensionServiceNow": "pagerduty_extension_servicenow",
+            "pagerduty:index/incidentWorkflow:IncidentWorkflow": "pagerduty_incident_workflow",
+            "pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger": "pagerduty_incident_workflow_trigger",
+            "pagerduty:index/maintenanceWindow:MaintenanceWindow": "pagerduty_maintenance_window",
+            "pagerduty:index/responsePlay:ResponsePlay": "pagerduty_response_play",
+            "pagerduty:index/ruleset:Ruleset": "pagerduty_ruleset",
+            "pagerduty:index/rulesetRule:RulesetRule": "pagerduty_ruleset_rule",
+            "pagerduty:index/schedule:Schedule": "pagerduty_schedule",
+            "pagerduty:index/service:Service": "pagerduty_service",
+            "pagerduty:index/serviceDependency:ServiceDependency": "pagerduty_service_dependency",
+            "pagerduty:index/serviceEventRule:ServiceEventRule": "pagerduty_service_event_rule",
+            "pagerduty:index/serviceIntegration:ServiceIntegration": "pagerduty_service_integration",
+            "pagerduty:index/slackConnection:SlackConnection": "pagerduty_slack_connection",
+            "pagerduty:index/tag:Tag": "pagerduty_tag",
+            "pagerduty:index/tagAssignment:TagAssignment": "pagerduty_tag_assignment",
+            "pagerduty:index/team:Team": "pagerduty_team",
+            "pagerduty:index/teamMembership:TeamMembership": "pagerduty_team_membership",
+            "pagerduty:index/user:User": "pagerduty_user",
+            "pagerduty:index/userContactMethod:UserContactMethod": "pagerduty_user_contact_method",
+            "pagerduty:index/userNotificationRule:UserNotificationRule": "pagerduty_user_notification_rule",
+            "pagerduty:index/webhookSubscription:WebhookSubscription": "pagerduty_webhook_subscription"
+        },
+        "functions": {
+            "pagerduty:index/getAutomationActionsAction:getAutomationActionsAction": "pagerduty_automation_actions_action",
+            "pagerduty:index/getAutomationActionsRunner:getAutomationActionsRunner": "pagerduty_automation_actions_runner",
+            "pagerduty:index/getBusinessService:getBusinessService": "pagerduty_business_service",
+            "pagerduty:index/getCustomField:getCustomField": "pagerduty_custom_field",
+            "pagerduty:index/getCustomFieldSchema:getCustomFieldSchema": "pagerduty_custom_field_schema",
+            "pagerduty:index/getEscalationPolicy:getEscalationPolicy": "pagerduty_escalation_policy",
+            "pagerduty:index/getEventOrchestration:getEventOrchestration": "pagerduty_event_orchestration",
+            "pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration": "pagerduty_event_orchestration_integration",
+            "pagerduty:index/getEventOrchestrations:getEventOrchestrations": "pagerduty_event_orchestrations",
+            "pagerduty:index/getExtensionSchema:getExtensionSchema": "pagerduty_extension_schema",
+            "pagerduty:index/getIncidentWorkflow:getIncidentWorkflow": "pagerduty_incident_workflow",
+            "pagerduty:index/getLicense:getLicense": "pagerduty_license",
+            "pagerduty:index/getLicenses:getLicenses": "pagerduty_licenses",
+            "pagerduty:index/getPriority:getPriority": "pagerduty_priority",
+            "pagerduty:index/getRuleset:getRuleset": "pagerduty_ruleset",
+            "pagerduty:index/getSchedule:getSchedule": "pagerduty_schedule",
+            "pagerduty:index/getService:getService": "pagerduty_service",
+            "pagerduty:index/getServiceIntegration:getServiceIntegration": "pagerduty_service_integration",
+            "pagerduty:index/getTag:getTag": "pagerduty_tag",
+            "pagerduty:index/getTeam:getTeam": "pagerduty_team",
+            "pagerduty:index/getUser:getUser": "pagerduty_user",
+            "pagerduty:index/getUserContactMethod:getUserContactMethod": "pagerduty_user_contact_method",
+            "pagerduty:index/getUsers:getUsers": "pagerduty_users",
+            "pagerduty:index/getVendor:getVendor": "pagerduty_vendor"
+        },
+        "renamedProperties": {
+            "pagerduty:index/AutomationActionsActionActionDataReference:AutomationActionsActionActionDataReference": {
+                "invocationCommand": "invocation_command",
+                "processAutomationJobArguments": "process_automation_job_arguments",
+                "processAutomationJobId": "process_automation_job_id",
+                "processAutomationNodeFilter": "process_automation_node_filter"
+            },
+            "pagerduty:index/EscalationPolicyRule:EscalationPolicyRule": {
+                "escalationDelayInMinutes": "escalation_delay_in_minutes",
+                "targets": "target"
+            },
+            "pagerduty:index/EventOrchestrationGlobalCatchAllActions:EventOrchestrationGlobalCatchAllActions": {
+                "automationAction": "automation_action",
+                "dropEvent": "drop_event",
+                "eventAction": "event_action",
+                "extractions": "extraction",
+                "routeTo": "route_to",
+                "variables": "variable"
+            },
+            "pagerduty:index/EventOrchestrationGlobalCatchAllActionsAutomationAction:EventOrchestrationGlobalCatchAllActionsAutomationAction": {
+                "autoSend": "auto_send",
+                "headers": "header",
+                "parameters": "parameter"
+            },
+            "pagerduty:index/EventOrchestrationGlobalSet:EventOrchestrationGlobalSet": {
+                "rules": "rule"
+            },
+            "pagerduty:index/EventOrchestrationGlobalSetRule:EventOrchestrationGlobalSetRule": {
+                "conditions": "condition"
+            },
+            "pagerduty:index/EventOrchestrationGlobalSetRuleActions:EventOrchestrationGlobalSetRuleActions": {
+                "automationAction": "automation_action",
+                "dropEvent": "drop_event",
+                "eventAction": "event_action",
+                "extractions": "extraction",
+                "routeTo": "route_to",
+                "variables": "variable"
+            },
+            "pagerduty:index/EventOrchestrationGlobalSetRuleActionsAutomationAction:EventOrchestrationGlobalSetRuleActionsAutomationAction": {
+                "autoSend": "auto_send",
+                "headers": "header",
+                "parameters": "parameter"
+            },
+            "pagerduty:index/EventOrchestrationIntegrationParameter:EventOrchestrationIntegrationParameter": {
+                "routingKey": "routing_key"
+            },
+            "pagerduty:index/EventOrchestrationRouterCatchAllActions:EventOrchestrationRouterCatchAllActions": {
+                "routeTo": "route_to"
+            },
+            "pagerduty:index/EventOrchestrationRouterSet:EventOrchestrationRouterSet": {
+                "rules": "rule"
+            },
+            "pagerduty:index/EventOrchestrationRouterSetRule:EventOrchestrationRouterSetRule": {
+                "conditions": "condition"
+            },
+            "pagerduty:index/EventOrchestrationRouterSetRuleActions:EventOrchestrationRouterSetRuleActions": {
+                "routeTo": "route_to"
+            },
+            "pagerduty:index/EventOrchestrationServiceCatchAllActions:EventOrchestrationServiceCatchAllActions": {
+                "automationAction": "automation_action",
+                "eventAction": "event_action",
+                "extractions": "extraction",
+                "pagerdutyAutomationAction": "pagerduty_automation_action",
+                "routeTo": "route_to",
+                "variables": "variable"
+            },
+            "pagerduty:index/EventOrchestrationServiceCatchAllActionsAutomationAction:EventOrchestrationServiceCatchAllActionsAutomationAction": {
+                "autoSend": "auto_send",
+                "headers": "header",
+                "parameters": "parameter"
+            },
+            "pagerduty:index/EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction:EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction": {
+                "actionId": "action_id"
+            },
+            "pagerduty:index/EventOrchestrationServiceSet:EventOrchestrationServiceSet": {
+                "rules": "rule"
+            },
+            "pagerduty:index/EventOrchestrationServiceSetRule:EventOrchestrationServiceSetRule": {
+                "conditions": "condition"
+            },
+            "pagerduty:index/EventOrchestrationServiceSetRuleActions:EventOrchestrationServiceSetRuleActions": {
+                "automationAction": "automation_action",
+                "eventAction": "event_action",
+                "extractions": "extraction",
+                "pagerdutyAutomationAction": "pagerduty_automation_action",
+                "routeTo": "route_to",
+                "variables": "variable"
+            },
+            "pagerduty:index/EventOrchestrationServiceSetRuleActionsAutomationAction:EventOrchestrationServiceSetRuleActionsAutomationAction": {
+                "autoSend": "auto_send",
+                "headers": "header",
+                "parameters": "parameter"
+            },
+            "pagerduty:index/EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction:EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction": {
+                "actionId": "action_id"
+            },
+            "pagerduty:index/EventOrchestrationUnroutedCatchAllActions:EventOrchestrationUnroutedCatchAllActions": {
+                "eventAction": "event_action",
+                "extractions": "extraction",
+                "variables": "variable"
+            },
+            "pagerduty:index/EventOrchestrationUnroutedSet:EventOrchestrationUnroutedSet": {
+                "rules": "rule"
+            },
+            "pagerduty:index/EventOrchestrationUnroutedSetRule:EventOrchestrationUnroutedSetRule": {
+                "conditions": "condition"
+            },
+            "pagerduty:index/EventOrchestrationUnroutedSetRuleActions:EventOrchestrationUnroutedSetRuleActions": {
+                "eventAction": "event_action",
+                "extractions": "extraction",
+                "routeTo": "route_to",
+                "variables": "variable"
+            },
+            "pagerduty:index/IncidentWorkflowStep:IncidentWorkflowStep": {
+                "inputs": "input"
+            },
+            "pagerduty:index/ResponsePlayResponder:ResponsePlayResponder": {
+                "escalationRules": "escalation_rule",
+                "numLoops": "num_loops",
+                "onCallHandoffNotifications": "on_call_handoff_notifications",
+                "services": "service",
+                "teams": "team"
+            },
+            "pagerduty:index/ResponsePlayResponderEscalationRule:ResponsePlayResponderEscalationRule": {
+                "escalationDelayInMinutes": "escalation_delay_in_minutes",
+                "targets": "target"
+            },
+            "pagerduty:index/RulesetRuleActions:RulesetRuleActions": {
+                "annotates": "annotate",
+                "eventActions": "event_action",
+                "priorities": "priority",
+                "routes": "route",
+                "severities": "severity",
+                "suppresses": "suppress",
+                "suspends": "suspend"
+            },
+            "pagerduty:index/RulesetRuleActionsSuppress:RulesetRuleActionsSuppress": {
+                "thresholdTimeAmount": "threshold_time_amount",
+                "thresholdTimeUnit": "threshold_time_unit",
+                "thresholdValue": "threshold_value"
+            },
+            "pagerduty:index/RulesetRuleConditionsSubcondition:RulesetRuleConditionsSubcondition": {
+                "parameters": "parameter"
+            },
+            "pagerduty:index/RulesetRuleTimeFrame:RulesetRuleTimeFrame": {
+                "activeBetweens": "active_between",
+                "scheduledWeeklies": "scheduled_weekly"
+            },
+            "pagerduty:index/RulesetRuleTimeFrameActiveBetween:RulesetRuleTimeFrameActiveBetween": {
+                "endTime": "end_time",
+                "startTime": "start_time"
+            },
+            "pagerduty:index/RulesetRuleTimeFrameScheduledWeekly:RulesetRuleTimeFrameScheduledWeekly": {
+                "startTime": "start_time"
+            },
+            "pagerduty:index/ScheduleFinalSchedule:ScheduleFinalSchedule": {
+                "renderedCoveragePercentage": "rendered_coverage_percentage"
+            },
+            "pagerduty:index/ScheduleLayer:ScheduleLayer": {
+                "renderedCoveragePercentage": "rendered_coverage_percentage",
+                "restrictions": "restriction",
+                "rotationTurnLengthSeconds": "rotation_turn_length_seconds",
+                "rotationVirtualStart": "rotation_virtual_start"
+            },
+            "pagerduty:index/ScheduleLayerRestriction:ScheduleLayerRestriction": {
+                "durationSeconds": "duration_seconds",
+                "startDayOfWeek": "start_day_of_week",
+                "startTimeOfDay": "start_time_of_day"
+            },
+            "pagerduty:index/ServiceDependencyDependency:ServiceDependencyDependency": {
+                "dependentServices": "dependent_service",
+                "supportingServices": "supporting_service"
+            },
+            "pagerduty:index/ServiceEventRuleActions:ServiceEventRuleActions": {
+                "annotates": "annotate",
+                "eventActions": "event_action",
+                "priorities": "priority",
+                "severities": "severity",
+                "suppresses": "suppress",
+                "suspends": "suspend"
+            },
+            "pagerduty:index/ServiceEventRuleActionsSuppress:ServiceEventRuleActionsSuppress": {
+                "thresholdTimeAmount": "threshold_time_amount",
+                "thresholdTimeUnit": "threshold_time_unit",
+                "thresholdValue": "threshold_value"
+            },
+            "pagerduty:index/ServiceEventRuleConditionsSubcondition:ServiceEventRuleConditionsSubcondition": {
+                "parameters": "parameter"
+            },
+            "pagerduty:index/ServiceEventRuleTimeFrame:ServiceEventRuleTimeFrame": {
+                "activeBetweens": "active_between",
+                "scheduledWeeklies": "scheduled_weekly"
+            },
+            "pagerduty:index/ServiceEventRuleTimeFrameActiveBetween:ServiceEventRuleTimeFrameActiveBetween": {
+                "endTime": "end_time",
+                "startTime": "start_time"
+            },
+            "pagerduty:index/ServiceEventRuleTimeFrameScheduledWeekly:ServiceEventRuleTimeFrameScheduledWeekly": {
+                "startTime": "start_time"
+            },
+            "pagerduty:index/ServiceIncidentUrgencyRule:ServiceIncidentUrgencyRule": {
+                "duringSupportHours": "during_support_hours",
+                "outsideSupportHours": "outside_support_hours"
+            },
+            "pagerduty:index/ServiceIntegrationEmailFilter:ServiceIntegrationEmailFilter": {
+                "bodyMode": "body_mode",
+                "bodyRegex": "body_regex",
+                "fromEmailMode": "from_email_mode",
+                "fromEmailRegex": "from_email_regex",
+                "subjectMode": "subject_mode",
+                "subjectRegex": "subject_regex"
+            },
+            "pagerduty:index/ServiceIntegrationEmailParser:ServiceIntegrationEmailParser": {
+                "matchPredicate": "match_predicate",
+                "valueExtractors": "value_extractor"
+            },
+            "pagerduty:index/ServiceIntegrationEmailParserMatchPredicate:ServiceIntegrationEmailParserMatchPredicate": {
+                "predicates": "predicate"
+            },
+            "pagerduty:index/ServiceIntegrationEmailParserMatchPredicatePredicate:ServiceIntegrationEmailParserMatchPredicatePredicate": {
+                "predicates": "predicate"
+            },
+            "pagerduty:index/ServiceIntegrationEmailParserValueExtractor:ServiceIntegrationEmailParserValueExtractor": {
+                "endsBefore": "ends_before",
+                "startsAfter": "starts_after",
+                "valueName": "value_name"
+            },
+            "pagerduty:index/ServiceScheduledAction:ServiceScheduledAction": {
+                "ats": "at",
+                "toUrgency": "to_urgency"
+            },
+            "pagerduty:index/ServiceSupportHours:ServiceSupportHours": {
+                "daysOfWeeks": "days_of_week",
+                "endTime": "end_time",
+                "startTime": "start_time",
+                "timeZone": "time_zone"
+            },
+            "pagerduty:index/WebhookSubscriptionDeliveryMethod:WebhookSubscriptionDeliveryMethod": {
+                "customHeaders": "custom_header",
+                "temporarilyDisabled": "temporarily_disabled"
+            },
+            "pagerduty:index/automationActionsAction:AutomationActionsAction": {
+                "actionClassification": "action_classification",
+                "actionDataReference": "action_data_reference",
+                "actionType": "action_type",
+                "creationTime": "creation_time",
+                "modifyTime": "modify_time",
+                "runnerId": "runner_id",
+                "runnerType": "runner_type"
+            },
+            "pagerduty:index/automationActionsActionServiceAssociation:AutomationActionsActionServiceAssociation": {
+                "actionId": "action_id",
+                "serviceId": "service_id"
+            },
+            "pagerduty:index/automationActionsActionTeamAssociation:AutomationActionsActionTeamAssociation": {
+                "actionId": "action_id",
+                "teamId": "team_id"
+            },
+            "pagerduty:index/automationActionsRunner:AutomationActionsRunner": {
+                "creationTime": "creation_time",
+                "lastSeen": "last_seen",
+                "runbookApiKey": "runbook_api_key",
+                "runbookBaseUri": "runbook_base_uri",
+                "runnerType": "runner_type"
+            },
+            "pagerduty:index/automationActionsRunnerTeamAssociation:AutomationActionsRunnerTeamAssociation": {
+                "runnerId": "runner_id",
+                "teamId": "team_id"
+            },
+            "pagerduty:index/businessService:BusinessService": {
+                "htmlUrl": "html_url",
+                "pointOfContact": "point_of_contact"
+            },
+            "pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber": {
+                "businessServiceId": "business_service_id",
+                "subscriberId": "subscriber_id",
+                "subscriberType": "subscriber_type"
+            },
+            "pagerduty:index/customField:CustomField": {
+                "displayName": "display_name",
+                "fixedOptions": "fixed_options",
+                "multiValue": "multi_value"
+            },
+            "pagerduty:index/customFieldSchemaFieldConfiguration:CustomFieldSchemaFieldConfiguration": {
+                "defaultValue": "default_value",
+                "defaultValueDatatype": "default_value_datatype",
+                "defaultValueMultiValue": "default_value_multi_value"
+            },
+            "pagerduty:index/escalationPolicy:EscalationPolicy": {
+                "numLoops": "num_loops",
+                "rules": "rule"
+            },
+            "pagerduty:index/eventOrchestration:EventOrchestration": {
+                "integrations": "integration"
+            },
+            "pagerduty:index/eventOrchestrationGlobal:EventOrchestrationGlobal": {
+                "catchAll": "catch_all",
+                "eventOrchestration": "event_orchestration",
+                "sets": "set"
+            },
+            "pagerduty:index/eventOrchestrationIntegration:EventOrchestrationIntegration": {
+                "eventOrchestration": "event_orchestration"
+            },
+            "pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter": {
+                "catchAll": "catch_all",
+                "eventOrchestration": "event_orchestration"
+            },
+            "pagerduty:index/eventOrchestrationService:EventOrchestrationService": {
+                "catchAll": "catch_all",
+                "enableEventOrchestrationForService": "enable_event_orchestration_for_service",
+                "sets": "set"
+            },
+            "pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted": {
+                "catchAll": "catch_all",
+                "eventOrchestration": "event_orchestration",
+                "sets": "set"
+            },
+            "pagerduty:index/eventRule:EventRule": {
+                "actionJson": "action_json",
+                "advancedConditionJson": "advanced_condition_json",
+                "catchAll": "catch_all",
+                "conditionJson": "condition_json"
+            },
+            "pagerduty:index/extension:Extension": {
+                "endpointUrl": "endpoint_url",
+                "extensionObjects": "extension_objects",
+                "extensionSchema": "extension_schema",
+                "htmlUrl": "html_url"
+            },
+            "pagerduty:index/extensionServiceNow:ExtensionServiceNow": {
+                "endpointUrl": "endpoint_url",
+                "extensionObjects": "extension_objects",
+                "extensionSchema": "extension_schema",
+                "htmlUrl": "html_url",
+                "snowPassword": "snow_password",
+                "snowUser": "snow_user",
+                "syncOptions": "sync_options",
+                "taskType": "task_type"
+            },
+            "pagerduty:index/getAutomationActionsAction:getAutomationActionsAction": {
+                "actionClassification": "action_classification",
+                "actionDataReferences": "action_data_reference",
+                "actionType": "action_type",
+                "creationTime": "creation_time",
+                "modifyTime": "modify_time",
+                "runnerId": "runner_id",
+                "runnerType": "runner_type"
+            },
+            "pagerduty:index/getAutomationActionsActionActionDataReference:getAutomationActionsActionActionDataReference": {
+                "invocationCommand": "invocation_command",
+                "processAutomationJobArguments": "process_automation_job_arguments",
+                "processAutomationJobId": "process_automation_job_id",
+                "processAutomationNodeFilter": "process_automation_node_filter"
+            },
+            "pagerduty:index/getAutomationActionsRunner:getAutomationActionsRunner": {
+                "creationTime": "creation_time",
+                "lastSeen": "last_seen",
+                "runbookBaseUri": "runbook_base_uri",
+                "runnerType": "runner_type"
+            },
+            "pagerduty:index/getCustomField:getCustomField": {
+                "displayName": "display_name",
+                "fixedOptions": "fixed_options",
+                "multiValue": "multi_value"
+            },
+            "pagerduty:index/getEventOrchestration:getEventOrchestration": {
+                "integrations": "integration"
+            },
+            "pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration": {
+                "eventOrchestration": "event_orchestration"
+            },
+            "pagerduty:index/getEventOrchestrationIntegrationParameter:getEventOrchestrationIntegrationParameter": {
+                "routingKey": "routing_key"
+            },
+            "pagerduty:index/getEventOrchestrations:getEventOrchestrations": {
+                "eventOrchestrations": "event_orchestrations",
+                "nameFilter": "name_filter"
+            },
+            "pagerduty:index/getEventOrchestrationsEventOrchestration:getEventOrchestrationsEventOrchestration": {
+                "integrations": "integration"
+            },
+            "pagerduty:index/getEventOrchestrationsEventOrchestrationIntegrationParameter:getEventOrchestrationsEventOrchestrationIntegrationParameter": {
+                "routingKey": "routing_key"
+            },
+            "pagerduty:index/getLicense:getLicense": {
+                "allocationsAvailable": "allocations_available",
+                "currentValue": "current_value",
+                "htmlUrl": "html_url",
+                "roleGroup": "role_group",
+                "validRoles": "valid_roles"
+            },
+            "pagerduty:index/getLicensesLicense:getLicensesLicense": {
+                "allocationsAvailable": "allocations_available",
+                "currentValue": "current_value",
+                "htmlUrl": "html_url",
+                "roleGroup": "role_group",
+                "validRoles": "valid_roles"
+            },
+            "pagerduty:index/getRuleset:getRuleset": {
+                "routingKeys": "routing_keys"
+            },
+            "pagerduty:index/getService:getService": {
+                "acknowledgementTimeout": "acknowledgement_timeout",
+                "alertCreation": "alert_creation",
+                "autoResolveTimeout": "auto_resolve_timeout",
+                "escalationPolicy": "escalation_policy"
+            },
+            "pagerduty:index/getServiceIntegration:getServiceIntegration": {
+                "integrationKey": "integration_key",
+                "integrationSummary": "integration_summary",
+                "serviceName": "service_name"
+            },
+            "pagerduty:index/getUserContactMethod:getUserContactMethod": {
+                "countryCode": "country_code",
+                "deviceType": "device_type",
+                "sendShortEmail": "send_short_email",
+                "userId": "user_id"
+            },
+            "pagerduty:index/getUsers:getUsers": {
+                "teamIds": "team_ids"
+            },
+            "pagerduty:index/incidentWorkflow:IncidentWorkflow": {
+                "steps": "step"
+            },
+            "pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger": {
+                "subscribedToAllServices": "subscribed_to_all_services"
+            },
+            "pagerduty:index/maintenanceWindow:MaintenanceWindow": {
+                "endTime": "end_time",
+                "startTime": "start_time"
+            },
+            "pagerduty:index/responsePlay:ResponsePlay": {
+                "conferenceNumber": "conference_number",
+                "conferenceUrl": "conference_url",
+                "responders": "responder",
+                "respondersMessage": "responders_message",
+                "subscribers": "subscriber",
+                "subscribersMessage": "subscribers_message"
+            },
+            "pagerduty:index/ruleset:Ruleset": {
+                "routingKeys": "routing_keys"
+            },
+            "pagerduty:index/rulesetRule:RulesetRule": {
+                "catchAll": "catch_all",
+                "timeFrame": "time_frame",
+                "variables": "variable"
+            },
+            "pagerduty:index/schedule:Schedule": {
+                "finalSchedules": "final_schedule",
+                "layers": "layer",
+                "timeZone": "time_zone"
+            },
+            "pagerduty:index/service:Service": {
+                "acknowledgementTimeout": "acknowledgement_timeout",
+                "alertCreation": "alert_creation",
+                "alertGrouping": "alert_grouping",
+                "alertGroupingParameters": "alert_grouping_parameters",
+                "alertGroupingTimeout": "alert_grouping_timeout",
+                "autoPauseNotificationsParameters": "auto_pause_notifications_parameters",
+                "autoResolveTimeout": "auto_resolve_timeout",
+                "createdAt": "created_at",
+                "escalationPolicy": "escalation_policy",
+                "htmlUrl": "html_url",
+                "incidentUrgencyRule": "incident_urgency_rule",
+                "lastIncidentTimestamp": "last_incident_timestamp",
+                "responsePlay": "response_play",
+                "scheduledActions": "scheduled_actions",
+                "supportHours": "support_hours"
+            },
+            "pagerduty:index/serviceEventRule:ServiceEventRule": {
+                "timeFrame": "time_frame",
+                "variables": "variable"
+            },
+            "pagerduty:index/serviceIntegration:ServiceIntegration": {
+                "emailFilterMode": "email_filter_mode",
+                "emailFilters": "email_filter",
+                "emailIncidentCreation": "email_incident_creation",
+                "emailParsers": "email_parser",
+                "emailParsingFallback": "email_parsing_fallback",
+                "htmlUrl": "html_url",
+                "integrationEmail": "integration_email",
+                "integrationKey": "integration_key"
+            },
+            "pagerduty:index/slackConnection:SlackConnection": {
+                "channelId": "channel_id",
+                "channelName": "channel_name",
+                "configs": "config",
+                "notificationType": "notification_type",
+                "sourceId": "source_id",
+                "sourceName": "source_name",
+                "sourceType": "source_type",
+                "workspaceId": "workspace_id"
+            },
+            "pagerduty:index/tag:Tag": {
+                "htmlUrl": "html_url"
+            },
+            "pagerduty:index/tagAssignment:TagAssignment": {
+                "entityId": "entity_id",
+                "entityType": "entity_type",
+                "tagId": "tag_id"
+            },
+            "pagerduty:index/team:Team": {
+                "htmlUrl": "html_url"
+            },
+            "pagerduty:index/teamMembership:TeamMembership": {
+                "teamId": "team_id",
+                "userId": "user_id"
+            },
+            "pagerduty:index/user:User": {
+                "avatarUrl": "avatar_url",
+                "htmlUrl": "html_url",
+                "invitationSent": "invitation_sent",
+                "jobTitle": "job_title",
+                "timeZone": "time_zone"
+            },
+            "pagerduty:index/userContactMethod:UserContactMethod": {
+                "countryCode": "country_code",
+                "sendShortEmail": "send_short_email",
+                "userId": "user_id"
+            },
+            "pagerduty:index/userNotificationRule:UserNotificationRule": {
+                "contactMethod": "contact_method",
+                "startDelayInMinutes": "start_delay_in_minutes",
+                "userId": "user_id"
+            },
+            "pagerduty:index/webhookSubscription:WebhookSubscription": {
+                "deliveryMethods": "delivery_method",
+                "filters": "filter"
+            },
+            "pagerduty:index:Provider": {
+                "apiUrlOverride": "api_url_override",
+                "serviceRegion": "service_region",
+                "skipCredentialsValidation": "skip_credentials_validation",
+                "userToken": "user_token"
+            }
+        },
+        "renamedConfigProperties": {
+            "apiUrlOverride": "api_url_override",
+            "serviceRegion": "service_region",
+            "skipCredentialsValidation": "skip_credentials_validation",
+            "userToken": "user_token"
+        }
+    }
+}

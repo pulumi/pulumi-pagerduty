@@ -163,6 +163,16 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 		},
+		DataSources: map[string]*tfbridge.DataSourceInfo{
+			"pagerduty_event_orchestration": {
+				Tok: tfbridge.MakeDataSource("pagerduty", mainMod, "getEventOrchestration"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"integration": {
+						Name: "integrationDetail",
+					},
+				},
+			},
+		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			// List any npm dependencies and their versions
 			Dependencies: map[string]string{

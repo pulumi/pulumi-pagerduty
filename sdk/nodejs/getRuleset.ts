@@ -5,8 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Use this data source to get information about a specific [ruleset](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE3MQ-list-rulesets) that you can use for managing and grouping [event rules](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE3Ng-list-event-rules).
- *
  * ## Example Usage
  *
  * ```typescript
@@ -93,8 +91,6 @@ export interface GetRulesetResult {
     readonly routingKeys: string[];
 }
 /**
- * Use this data source to get information about a specific [ruleset](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE3MQ-list-rulesets) that you can use for managing and grouping [event rules](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE3Ng-list-event-rules).
- *
  * ## Example Usage
  *
  * ```typescript

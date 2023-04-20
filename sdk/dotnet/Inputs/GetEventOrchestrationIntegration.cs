@@ -18,6 +18,9 @@ namespace Pulumi.Pagerduty.Inputs
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
+        [Input("label", required: true)]
+        public string Label { get; set; } = null!;
+
         [Input("parameters", required: true)]
         private List<Inputs.GetEventOrchestrationIntegrationParameterArgs>? _parameters;
         public List<Inputs.GetEventOrchestrationIntegrationParameterArgs> Parameters

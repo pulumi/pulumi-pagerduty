@@ -48,6 +48,8 @@ import (
 //	$ pulumi import pagerduty:index/user:User main PLBP09X
 //
 // ```
+//
+//	[1]https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user [2]https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license
 type User struct {
 	pulumi.CustomResourceState
 
@@ -64,6 +66,8 @@ type User struct {
 	InvitationSent pulumi.BoolOutput `pulumi:"invitationSent"`
 	// The user's title.
 	JobTitle pulumi.StringPtrOutput `pulumi:"jobTitle"`
+	// The license id assigned to the user. If provided the user's role must exist in the assigned license's `validRoles` list. To reference purchased licenses' ids see data source `getLicenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
+	License pulumi.StringOutput `pulumi:"license"`
 	// The name of the user.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The user role. Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser`, `readOnlyLimitedUser`, `restrictedAccess`, or `user`.
@@ -128,6 +132,8 @@ type userState struct {
 	InvitationSent *bool `pulumi:"invitationSent"`
 	// The user's title.
 	JobTitle *string `pulumi:"jobTitle"`
+	// The license id assigned to the user. If provided the user's role must exist in the assigned license's `validRoles` list. To reference purchased licenses' ids see data source `getLicenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
+	License *string `pulumi:"license"`
 	// The name of the user.
 	Name *string `pulumi:"name"`
 	// The user role. Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser`, `readOnlyLimitedUser`, `restrictedAccess`, or `user`.
@@ -158,6 +164,8 @@ type UserState struct {
 	InvitationSent pulumi.BoolPtrInput
 	// The user's title.
 	JobTitle pulumi.StringPtrInput
+	// The license id assigned to the user. If provided the user's role must exist in the assigned license's `validRoles` list. To reference purchased licenses' ids see data source `getLicenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
+	License pulumi.StringPtrInput
 	// The name of the user.
 	Name pulumi.StringPtrInput
 	// The user role. Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser`, `readOnlyLimitedUser`, `restrictedAccess`, or `user`.
@@ -186,6 +194,8 @@ type userArgs struct {
 	Email string `pulumi:"email"`
 	// The user's title.
 	JobTitle *string `pulumi:"jobTitle"`
+	// The license id assigned to the user. If provided the user's role must exist in the assigned license's `validRoles` list. To reference purchased licenses' ids see data source `getLicenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
+	License *string `pulumi:"license"`
 	// The name of the user.
 	Name *string `pulumi:"name"`
 	// The user role. Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser`, `readOnlyLimitedUser`, `restrictedAccess`, or `user`.
@@ -211,6 +221,8 @@ type UserArgs struct {
 	Email pulumi.StringInput
 	// The user's title.
 	JobTitle pulumi.StringPtrInput
+	// The license id assigned to the user. If provided the user's role must exist in the assigned license's `validRoles` list. To reference purchased licenses' ids see data source `getLicenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
+	License pulumi.StringPtrInput
 	// The name of the user.
 	Name pulumi.StringPtrInput
 	// The user role. Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser`, `readOnlyLimitedUser`, `restrictedAccess`, or `user`.
@@ -346,6 +358,11 @@ func (o UserOutput) InvitationSent() pulumi.BoolOutput {
 // The user's title.
 func (o UserOutput) JobTitle() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.JobTitle }).(pulumi.StringPtrOutput)
+}
+
+// The license id assigned to the user. If provided the user's role must exist in the assigned license's `validRoles` list. To reference purchased licenses' ids see data source `getLicenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
+func (o UserOutput) License() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.License }).(pulumi.StringOutput)
 }
 
 // The name of the user.

@@ -16,6 +16,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Pagerduty = Pulumi.Pagerduty;
     /// 
@@ -36,6 +37,8 @@ namespace Pulumi.Pagerduty
     /// ```sh
     ///  $ pulumi import pagerduty:index/user:User main PLBP09X
     /// ```
+    /// 
+    ///  [1]https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user [2]https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/user:User")]
     public partial class User : global::Pulumi.CustomResource
@@ -78,6 +81,12 @@ namespace Pulumi.Pagerduty
         /// </summary>
         [Output("jobTitle")]
         public Output<string?> JobTitle { get; private set; } = null!;
+
+        /// <summary>
+        /// The license id assigned to the user. If provided the user's role must exist in the assigned license's `valid_roles` list. To reference purchased licenses' ids see data source `pagerduty.getLicenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
+        /// </summary>
+        [Output("license")]
+        public Output<string> License { get; private set; } = null!;
 
         /// <summary>
         /// The name of the user.
@@ -175,6 +184,12 @@ namespace Pulumi.Pagerduty
         public Input<string>? JobTitle { get; set; }
 
         /// <summary>
+        /// The license id assigned to the user. If provided the user's role must exist in the assigned license's `valid_roles` list. To reference purchased licenses' ids see data source `pagerduty.getLicenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
+        /// </summary>
+        [Input("license")]
+        public Input<string>? License { get; set; }
+
+        /// <summary>
         /// The name of the user.
         /// </summary>
         [Input("name")]
@@ -256,6 +271,12 @@ namespace Pulumi.Pagerduty
         /// </summary>
         [Input("jobTitle")]
         public Input<string>? JobTitle { get; set; }
+
+        /// <summary>
+        /// The license id assigned to the user. If provided the user's role must exist in the assigned license's `valid_roles` list. To reference purchased licenses' ids see data source `pagerduty.getLicenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
+        /// </summary>
+        [Input("license")]
+        public Input<string>? License { get; set; }
 
         /// <summary>
         /// The name of the user.

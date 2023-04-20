@@ -68,10 +68,22 @@ type LookupServiceArgs struct {
 
 // A collection of values returned by getService.
 type LookupServiceResult struct {
+	// Time in seconds that an incident changes to the Triggered State after being Acknowledged. Value is null if the feature is disabled. Value must not be negative. Setting this field to 0, null (or unset) will disable the feature.
+	AcknowledgementTimeout int `pulumi:"acknowledgementTimeout"`
+	// Whether a service creates only incidents, or both alerts and incidents. A service must create alerts in order to enable incident merging.
+	AlertCreation string `pulumi:"alertCreation"`
+	// Time in seconds that an incident is automatically resolved if left open for that long. Value is null if the feature is disabled. Value must not be negative. Setting this field to 0, null (or unset) will disable the feature.
+	AutoResolveTimeout int `pulumi:"autoResolveTimeout"`
+	// The user-provided description of the service.
+	Description string `pulumi:"description"`
+	// The escalation policy associated with this service.
+	EscalationPolicy string `pulumi:"escalationPolicy"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The short name of the found service.
 	Name string `pulumi:"name"`
+	// The set of teams associated with the service.
+	Teams []GetServiceTeam `pulumi:"teams"`
 	// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
 	Type string `pulumi:"type"`
 }
@@ -114,6 +126,31 @@ func (o LookupServiceResultOutput) ToLookupServiceResultOutputWithContext(ctx co
 	return o
 }
 
+// Time in seconds that an incident changes to the Triggered State after being Acknowledged. Value is null if the feature is disabled. Value must not be negative. Setting this field to 0, null (or unset) will disable the feature.
+func (o LookupServiceResultOutput) AcknowledgementTimeout() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupServiceResult) int { return v.AcknowledgementTimeout }).(pulumi.IntOutput)
+}
+
+// Whether a service creates only incidents, or both alerts and incidents. A service must create alerts in order to enable incident merging.
+func (o LookupServiceResultOutput) AlertCreation() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.AlertCreation }).(pulumi.StringOutput)
+}
+
+// Time in seconds that an incident is automatically resolved if left open for that long. Value is null if the feature is disabled. Value must not be negative. Setting this field to 0, null (or unset) will disable the feature.
+func (o LookupServiceResultOutput) AutoResolveTimeout() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupServiceResult) int { return v.AutoResolveTimeout }).(pulumi.IntOutput)
+}
+
+// The user-provided description of the service.
+func (o LookupServiceResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The escalation policy associated with this service.
+func (o LookupServiceResultOutput) EscalationPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.EscalationPolicy }).(pulumi.StringOutput)
+}
+
 // The provider-assigned unique ID for this managed resource.
 func (o LookupServiceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.Id }).(pulumi.StringOutput)
@@ -122,6 +159,11 @@ func (o LookupServiceResultOutput) Id() pulumi.StringOutput {
 // The short name of the found service.
 func (o LookupServiceResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The set of teams associated with the service.
+func (o LookupServiceResultOutput) Teams() GetServiceTeamArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []GetServiceTeam { return v.Teams }).(GetServiceTeamArrayOutput)
 }
 
 // The type of object. The value returned will be `service`. Can be used for passing to a service dependency.

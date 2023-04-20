@@ -50,6 +50,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EscalationPolicy{}
 	case "pagerduty:index/eventOrchestration:EventOrchestration":
 		r = &EventOrchestration{}
+	case "pagerduty:index/eventOrchestrationGlobal:EventOrchestrationGlobal":
+		r = &EventOrchestrationGlobal{}
+	case "pagerduty:index/eventOrchestrationIntegration:EventOrchestrationIntegration":
+		r = &EventOrchestrationIntegration{}
 	case "pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter":
 		r = &EventOrchestrationRouter{}
 	case "pagerduty:index/eventOrchestrationService:EventOrchestrationService":
@@ -203,6 +207,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"pagerduty",
 		"index/eventOrchestration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"pagerduty",
+		"index/eventOrchestrationGlobal",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"pagerduty",
+		"index/eventOrchestrationIntegration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

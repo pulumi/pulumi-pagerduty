@@ -20,6 +20,7 @@ namespace Pulumi.Pagerduty
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Pagerduty = Pulumi.Pagerduty;
         /// 
@@ -59,6 +60,7 @@ namespace Pulumi.Pagerduty
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Pagerduty = Pulumi.Pagerduty;
         /// 
@@ -124,6 +126,26 @@ namespace Pulumi.Pagerduty
     public sealed class GetServiceResult
     {
         /// <summary>
+        /// Time in seconds that an incident changes to the Triggered State after being Acknowledged. Value is null if the feature is disabled. Value must not be negative. Setting this field to 0, null (or unset) will disable the feature.
+        /// </summary>
+        public readonly int AcknowledgementTimeout;
+        /// <summary>
+        /// Whether a service creates only incidents, or both alerts and incidents. A service must create alerts in order to enable incident merging.
+        /// </summary>
+        public readonly string AlertCreation;
+        /// <summary>
+        /// Time in seconds that an incident is automatically resolved if left open for that long. Value is null if the feature is disabled. Value must not be negative. Setting this field to 0, null (or unset) will disable the feature.
+        /// </summary>
+        public readonly int AutoResolveTimeout;
+        /// <summary>
+        /// The user-provided description of the service.
+        /// </summary>
+        public readonly string Description;
+        /// <summary>
+        /// The escalation policy associated with this service.
+        /// </summary>
+        public readonly string EscalationPolicy;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -132,20 +154,42 @@ namespace Pulumi.Pagerduty
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The set of teams associated with the service.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetServiceTeamResult> Teams;
+        /// <summary>
         /// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetServiceResult(
+            int acknowledgementTimeout,
+
+            string alertCreation,
+
+            int autoResolveTimeout,
+
+            string description,
+
+            string escalationPolicy,
+
             string id,
 
             string name,
 
+            ImmutableArray<Outputs.GetServiceTeamResult> teams,
+
             string type)
         {
+            AcknowledgementTimeout = acknowledgementTimeout;
+            AlertCreation = alertCreation;
+            AutoResolveTimeout = autoResolveTimeout;
+            Description = description;
+            EscalationPolicy = escalationPolicy;
             Id = id;
             Name = name;
+            Teams = teams;
             Type = type;
         }
     }

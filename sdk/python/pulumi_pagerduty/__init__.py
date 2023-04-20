@@ -20,6 +20,8 @@ from .custom_field_schema_assignment import *
 from .custom_field_schema_field_configuration import *
 from .escalation_policy import *
 from .event_orchestration import *
+from .event_orchestration_global import *
+from .event_orchestration_integration import *
 from .event_orchestration_router import *
 from .event_orchestration_service import *
 from .event_orchestration_unrouted import *
@@ -33,9 +35,12 @@ from .get_custom_field import *
 from .get_custom_field_schema import *
 from .get_escalation_policy import *
 from .get_event_orchestration import *
+from .get_event_orchestration_integration import *
 from .get_event_orchestrations import *
 from .get_extension_schema import *
 from .get_incident_workflow import *
+from .get_license import *
+from .get_licenses import *
 from .get_priority import *
 from .get_ruleset import *
 from .get_schedule import *
@@ -199,6 +204,22 @@ _utilities.register(
   "fqn": "pulumi_pagerduty",
   "classes": {
    "pagerduty:index/eventOrchestration:EventOrchestration": "EventOrchestration"
+  }
+ },
+ {
+  "pkg": "pagerduty",
+  "mod": "index/eventOrchestrationGlobal",
+  "fqn": "pulumi_pagerduty",
+  "classes": {
+   "pagerduty:index/eventOrchestrationGlobal:EventOrchestrationGlobal": "EventOrchestrationGlobal"
+  }
+ },
+ {
+  "pkg": "pagerduty",
+  "mod": "index/eventOrchestrationIntegration",
+  "fqn": "pulumi_pagerduty",
+  "classes": {
+   "pagerduty:index/eventOrchestrationIntegration:EventOrchestrationIntegration": "EventOrchestrationIntegration"
   }
  },
  {

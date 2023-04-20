@@ -23,7 +23,7 @@ func LookupEventOrchestration(ctx *pulumi.Context, args *LookupEventOrchestratio
 // A collection of arguments for invoking getEventOrchestration.
 type LookupEventOrchestrationArgs struct {
 	// An integration for the Event Orchestration.
-	Integrations []GetEventOrchestrationIntegration `pulumi:"integrations"`
+	Integrations []GetEventOrchestrationIntegrationType `pulumi:"integrations"`
 	// The name of the Global Event orchestration to find in the PagerDuty API.
 	Name string `pulumi:"name"`
 }
@@ -33,7 +33,7 @@ type LookupEventOrchestrationResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// An integration for the Event Orchestration.
-	Integrations []GetEventOrchestrationIntegration `pulumi:"integrations"`
+	Integrations []GetEventOrchestrationIntegrationType `pulumi:"integrations"`
 	// The name of the found Event Orchestration.
 	Name string `pulumi:"name"`
 }
@@ -54,7 +54,7 @@ func LookupEventOrchestrationOutput(ctx *pulumi.Context, args LookupEventOrchest
 // A collection of arguments for invoking getEventOrchestration.
 type LookupEventOrchestrationOutputArgs struct {
 	// An integration for the Event Orchestration.
-	Integrations GetEventOrchestrationIntegrationArrayInput `pulumi:"integrations"`
+	Integrations GetEventOrchestrationIntegrationTypeArrayInput `pulumi:"integrations"`
 	// The name of the Global Event orchestration to find in the PagerDuty API.
 	Name pulumi.StringInput `pulumi:"name"`
 }
@@ -84,8 +84,8 @@ func (o LookupEventOrchestrationResultOutput) Id() pulumi.StringOutput {
 }
 
 // An integration for the Event Orchestration.
-func (o LookupEventOrchestrationResultOutput) Integrations() GetEventOrchestrationIntegrationArrayOutput {
-	return o.ApplyT(func(v LookupEventOrchestrationResult) []GetEventOrchestrationIntegration { return v.Integrations }).(GetEventOrchestrationIntegrationArrayOutput)
+func (o LookupEventOrchestrationResultOutput) Integrations() GetEventOrchestrationIntegrationTypeArrayOutput {
+	return o.ApplyT(func(v LookupEventOrchestrationResult) []GetEventOrchestrationIntegrationType { return v.Integrations }).(GetEventOrchestrationIntegrationTypeArrayOutput)
 }
 
 // The name of the found Event Orchestration.

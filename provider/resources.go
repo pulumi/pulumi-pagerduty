@@ -206,7 +206,7 @@ func Provider() tfbridge.ProviderInfo {
 
 	err := x.ComputeDefaults(&prov, x.TokensSingleModule("pagerduty_",
 		mainMod, x.MakeStandardToken(mainPkg)))
-	contract.AssertNoError(err)
+	contract.AssertNoErrorf(err, "computing defaults failed")
 	err = x.AutoAliasing(&prov, prov.GetMetadata())
 	contract.
 

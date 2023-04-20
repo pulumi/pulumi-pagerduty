@@ -644,10 +644,13 @@
                 "multiValue": "multi_value"
             },
             "pagerduty:index/getEventOrchestration:getEventOrchestration": {
-                "integrations": "integration"
+                "integrationDetail": "integration"
             },
             "pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration": {
                 "eventOrchestration": "event_orchestration"
+            },
+            "pagerduty:index/getEventOrchestrationIntegrationDetailParameter:getEventOrchestrationIntegrationDetailParameter": {
+                "routingKey": "routing_key"
             },
             "pagerduty:index/getEventOrchestrationIntegrationParameter:getEventOrchestrationIntegrationParameter": {
                 "routingKey": "routing_key"

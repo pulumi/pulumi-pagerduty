@@ -2879,7 +2879,7 @@
                 }
             }
         },
-        "pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration": {
+        "pagerduty:index/getEventOrchestrationIntegrationDetail:getEventOrchestrationIntegrationDetail": {
             "properties": {
                 "id": {
                     "type": "string",
@@ -2891,7 +2891,7 @@
                 "parameters": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/pagerduty:index/getEventOrchestrationIntegrationParameter:getEventOrchestrationIntegrationParameter"
+                        "$ref": "#/types/pagerduty:index/getEventOrchestrationIntegrationDetailParameter:getEventOrchestrationIntegrationDetailParameter"
                     }
                 }
             },
@@ -2900,6 +2900,28 @@
                 "id",
                 "label",
                 "parameters"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "pagerduty:index/getEventOrchestrationIntegrationDetailParameter:getEventOrchestrationIntegrationDetailParameter": {
+            "properties": {
+                "routingKey": {
+                    "type": "string",
+                    "description": "Routing key that routes to this Orchestration.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Type of the routing key. `global` is the default type.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "routingKey",
+                "type"
             ],
             "language": {
                 "nodejs": {
@@ -7572,10 +7594,10 @@
             "inputs": {
                 "description": "A collection of arguments for invoking getEventOrchestration.\n",
                 "properties": {
-                    "integrations": {
+                    "integrationDetail": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration"
+                            "$ref": "#/types/pagerduty:index/getEventOrchestrationIntegrationDetail:getEventOrchestrationIntegrationDetail"
                         },
                         "description": "An integration for the Event Orchestration.\n"
                     },
@@ -7596,10 +7618,10 @@
                         "type": "string",
                         "description": "The provider-assigned unique ID for this managed resource.\n"
                     },
-                    "integrations": {
+                    "integrationDetail": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration"
+                            "$ref": "#/types/pagerduty:index/getEventOrchestrationIntegrationDetail:getEventOrchestrationIntegrationDetail"
                         },
                         "description": "An integration for the Event Orchestration.\n"
                     },
@@ -7610,7 +7632,7 @@
                 },
                 "type": "object",
                 "required": [
-                    "integrations",
+                    "integrationDetail",
                     "name",
                     "id"
                 ]

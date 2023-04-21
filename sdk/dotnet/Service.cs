@@ -156,7 +156,7 @@ namespace Pulumi.Pagerduty
         /// The response play used by this service.
         /// </summary>
         [Output("responsePlay")]
-        public Output<string?> ResponsePlay { get; private set; } = null!;
+        public Output<string> ResponsePlay { get; private set; } = null!;
 
         [Output("scheduledActions")]
         public Output<ImmutableArray<Outputs.ServiceScheduledAction>> ScheduledActions { get; private set; } = null!;

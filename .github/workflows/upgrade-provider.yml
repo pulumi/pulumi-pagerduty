@@ -2,6 +2,7 @@
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GH_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
 jobs:
   update_bridge:
     name: upgrade-provider

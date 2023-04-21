@@ -50,7 +50,7 @@ jobs:
         SLACK_TITLE: ${{ inputs.provider-name }} upgrade result
         SLACK_USERNAME: provider-bot
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
-        SLACK_ICON_EMOJI: ":coconut:"
+        SLACK_ICON_EMOJI: ":taco:"
       if: ${{ failure() }}
       name: Notify failure
       uses: rtCamp/action-slack-notify@v2

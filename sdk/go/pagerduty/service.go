@@ -112,7 +112,7 @@ type Service struct {
 	// The name of the service.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The response play used by this service.
-	ResponsePlay     pulumi.StringPtrOutput            `pulumi:"responsePlay"`
+	ResponsePlay     pulumi.StringOutput               `pulumi:"responsePlay"`
 	ScheduledActions ServiceScheduledActionArrayOutput `pulumi:"scheduledActions"`
 	// The status of the service.
 	Status       pulumi.StringOutput          `pulumi:"status"`
@@ -466,8 +466,8 @@ func (o ServiceOutput) Name() pulumi.StringOutput {
 }
 
 // The response play used by this service.
-func (o ServiceOutput) ResponsePlay() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.ResponsePlay }).(pulumi.StringPtrOutput)
+func (o ServiceOutput) ResponsePlay() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.ResponsePlay }).(pulumi.StringOutput)
 }
 
 func (o ServiceOutput) ScheduledActions() ServiceScheduledActionArrayOutput {

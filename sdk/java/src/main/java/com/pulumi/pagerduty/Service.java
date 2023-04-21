@@ -285,14 +285,14 @@ public class Service extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="responsePlay", type=String.class, parameters={})
-    private Output</* @Nullable */ String> responsePlay;
+    private Output<String> responsePlay;
 
     /**
      * @return The response play used by this service.
      * 
      */
-    public Output<Optional<String>> responsePlay() {
-        return Codegen.optional(this.responsePlay);
+    public Output<String> responsePlay() {
+        return this.responsePlay;
     }
     @Export(name="scheduledActions", type=List.class, parameters={ServiceScheduledAction.class})
     private Output</* @Nullable */ List<ServiceScheduledAction>> scheduledActions;

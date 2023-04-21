@@ -19,6 +19,8 @@ jobs:
       uses: pulumi/action-install-pulumi-cli@v2
     - name: Checkout repo
       uses: actions/checkout@v3
+      with:
+        ref: master
     - name: Install upgrade-provider
       run: go install github.com/pulumi/upgrade-provider@aa9b8ed
     - name: Setup Gradle

@@ -20,8 +20,7 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v3
     - name: Install upgrade-provider
-      run: go install github.com/pulumi/upgrade-provider@aqiu/resolve-cwd
-    - name: Setup Gradle
+      run: go install github.com/pulumi/upgrade-provider@9ea6a6d
       uses: gradle/gradle-build-action@v2
       with:
         gradle-version: "7.6"

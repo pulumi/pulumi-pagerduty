@@ -41,7 +41,7 @@ jobs:
           PR opened at pulumi/${{ inputs.provider-name }}
         SLACK_TITLE: ${{ inputs.provider-name }} upgrade result
         SLACK_USERNAME: provider-bot
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
       name: Notify success
       uses: rtCamp/action-slack-notify@v2
     - env:

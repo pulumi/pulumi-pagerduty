@@ -131,7 +131,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * The response play used by this service.
      */
-    public readonly responsePlay!: pulumi.Output<string | undefined>;
+    public readonly responsePlay!: pulumi.Output<string>;
     public readonly scheduledActions!: pulumi.Output<outputs.ServiceScheduledAction[] | undefined>;
     /**
      * The status of the service.

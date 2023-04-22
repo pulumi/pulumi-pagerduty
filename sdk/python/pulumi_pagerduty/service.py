@@ -907,7 +907,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="responsePlay")
-    def response_play(self) -> pulumi.Output[Optional[str]]:
+    def response_play(self) -> pulumi.Output[str]:
         """
         The response play used by this service.
         """

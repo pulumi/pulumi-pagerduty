@@ -5,7 +5,12 @@
                 "current": "pagerduty:index/addon:Addon"
             },
             "pagerduty_automation_actions_action": {
-                "current": "pagerduty:index/automationActionsAction:AutomationActionsAction"
+                "current": "pagerduty:index/automationActionsAction:AutomationActionsAction",
+                "fields": {
+                    "action_data_reference": {
+                        "maxItemsOne": true
+                    }
+                }
             },
             "pagerduty_automation_actions_action_service_association": {
                 "current": "pagerduty:index/automationActionsActionServiceAssociation:AutomationActionsActionServiceAssociation"
@@ -41,70 +46,711 @@
                 "current": "pagerduty:index/customFieldSchemaFieldConfiguration:CustomFieldSchemaFieldConfiguration"
             },
             "pagerduty_escalation_policy": {
-                "current": "pagerduty:index/escalationPolicy:EscalationPolicy"
+                "current": "pagerduty:index/escalationPolicy:EscalationPolicy",
+                "fields": {
+                    "rule": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "target": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "teams": {
+                        "maxItemsOne": true
+                    }
+                }
             },
             "pagerduty_event_orchestration": {
-                "current": "pagerduty:index/eventOrchestration:EventOrchestration"
+                "current": "pagerduty:index/eventOrchestration:EventOrchestration",
+                "fields": {
+                    "integration": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "parameters": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "pagerduty_event_orchestration_global": {
-                "current": "pagerduty:index/eventOrchestrationGlobal:EventOrchestrationGlobal"
+                "current": "pagerduty:index/eventOrchestrationGlobal:EventOrchestrationGlobal",
+                "fields": {
+                    "catch_all": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "actions": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "automation_action": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "header": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "parameter": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "extraction": {
+                                                "maxItemsOne": false
+                                            },
+                                            "variable": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "set": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "rule": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "actions": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "automation_action": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "header": {
+                                                                        "maxItemsOne": false
+                                                                    },
+                                                                    "parameter": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "extraction": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "variable": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "condition": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "pagerduty_event_orchestration_integration": {
-                "current": "pagerduty:index/eventOrchestrationIntegration:EventOrchestrationIntegration"
+                "current": "pagerduty:index/eventOrchestrationIntegration:EventOrchestrationIntegration",
+                "fields": {
+                    "parameters": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "pagerduty_event_orchestration_router": {
-                "current": "pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter"
+                "current": "pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter",
+                "fields": {
+                    "catch_all": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "actions": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "set": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "rule": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "actions": {
+                                                "maxItemsOne": true
+                                            },
+                                            "condition": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "pagerduty_event_orchestration_service": {
-                "current": "pagerduty:index/eventOrchestrationService:EventOrchestrationService"
+                "current": "pagerduty:index/eventOrchestrationService:EventOrchestrationService",
+                "fields": {
+                    "catch_all": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "actions": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "automation_action": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "header": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "parameter": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "extraction": {
+                                                "maxItemsOne": false
+                                            },
+                                            "pagerduty_automation_action": {
+                                                "maxItemsOne": true
+                                            },
+                                            "variable": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "set": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "rule": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "actions": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "automation_action": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "header": {
+                                                                        "maxItemsOne": false
+                                                                    },
+                                                                    "parameter": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "extraction": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "pagerduty_automation_action": {
+                                                            "maxItemsOne": true
+                                                        },
+                                                        "variable": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "condition": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "pagerduty_event_orchestration_unrouted": {
-                "current": "pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted"
+                "current": "pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted",
+                "fields": {
+                    "catch_all": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "actions": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "extraction": {
+                                                "maxItemsOne": false
+                                            },
+                                            "variable": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "set": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "rule": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "actions": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "extraction": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "variable": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "condition": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "pagerduty_event_rule": {
                 "current": "pagerduty:index/eventRule:EventRule"
             },
             "pagerduty_extension": {
-                "current": "pagerduty:index/extension:Extension"
+                "current": "pagerduty:index/extension:Extension",
+                "fields": {
+                    "extension_objects": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "pagerduty_extension_servicenow": {
-                "current": "pagerduty:index/extensionServiceNow:ExtensionServiceNow"
+                "current": "pagerduty:index/extensionServiceNow:ExtensionServiceNow",
+                "fields": {
+                    "extension_objects": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "pagerduty_incident_workflow": {
-                "current": "pagerduty:index/incidentWorkflow:IncidentWorkflow"
+                "current": "pagerduty:index/incidentWorkflow:IncidentWorkflow",
+                "fields": {
+                    "step": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "input": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "pagerduty_incident_workflow_trigger": {
-                "current": "pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger"
+                "current": "pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger",
+                "fields": {
+                    "services": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "pagerduty_maintenance_window": {
-                "current": "pagerduty:index/maintenanceWindow:MaintenanceWindow"
+                "current": "pagerduty:index/maintenanceWindow:MaintenanceWindow",
+                "fields": {
+                    "services": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "pagerduty_response_play": {
-                "current": "pagerduty:index/responsePlay:ResponsePlay"
+                "current": "pagerduty:index/responsePlay:ResponsePlay",
+                "fields": {
+                    "responder": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "escalation_rule": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "target": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "service": {
+                                    "maxItemsOne": false
+                                },
+                                "team": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "subscriber": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "pagerduty_ruleset": {
-                "current": "pagerduty:index/ruleset:Ruleset"
+                "current": "pagerduty:index/ruleset:Ruleset",
+                "fields": {
+                    "routing_keys": {
+                        "maxItemsOne": false
+                    },
+                    "team": {
+                        "maxItemsOne": true
+                    }
+                }
             },
             "pagerduty_ruleset_rule": {
-                "current": "pagerduty:index/rulesetRule:RulesetRule"
+                "current": "pagerduty:index/rulesetRule:RulesetRule",
+                "fields": {
+                    "actions": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "annotate": {
+                                    "maxItemsOne": false
+                                },
+                                "event_action": {
+                                    "maxItemsOne": false
+                                },
+                                "extractions": {
+                                    "maxItemsOne": false
+                                },
+                                "priority": {
+                                    "maxItemsOne": false
+                                },
+                                "route": {
+                                    "maxItemsOne": false
+                                },
+                                "severity": {
+                                    "maxItemsOne": false
+                                },
+                                "suppress": {
+                                    "maxItemsOne": false
+                                },
+                                "suspend": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "conditions": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "subconditions": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "parameter": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "time_frame": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "active_between": {
+                                    "maxItemsOne": false
+                                },
+                                "scheduled_weekly": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "weekdays": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "variable": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "parameters": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "pagerduty_schedule": {
-                "current": "pagerduty:index/schedule:Schedule"
+                "current": "pagerduty:index/schedule:Schedule",
+                "fields": {
+                    "final_schedule": {
+                        "maxItemsOne": false
+                    },
+                    "layer": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "restriction": {
+                                    "maxItemsOne": false
+                                },
+                                "users": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "teams": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "pagerduty_service": {
-                "current": "pagerduty:index/service:Service"
+                "current": "pagerduty:index/service:Service",
+                "fields": {
+                    "alert_grouping_parameters": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "config": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "fields": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "auto_pause_notifications_parameters": {
+                        "maxItemsOne": true
+                    },
+                    "incident_urgency_rule": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "during_support_hours": {
+                                    "maxItemsOne": true
+                                },
+                                "outside_support_hours": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "scheduled_actions": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "at": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "support_hours": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "days_of_week": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "pagerduty_service_dependency": {
-                "current": "pagerduty:index/serviceDependency:ServiceDependency"
+                "current": "pagerduty:index/serviceDependency:ServiceDependency",
+                "fields": {
+                    "dependency": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "dependent_service": {
+                                    "maxItemsOne": false
+                                },
+                                "supporting_service": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "pagerduty_service_event_rule": {
-                "current": "pagerduty:index/serviceEventRule:ServiceEventRule"
+                "current": "pagerduty:index/serviceEventRule:ServiceEventRule",
+                "fields": {
+                    "actions": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "annotate": {
+                                    "maxItemsOne": false
+                                },
+                                "event_action": {
+                                    "maxItemsOne": false
+                                },
+                                "extractions": {
+                                    "maxItemsOne": false
+                                },
+                                "priority": {
+                                    "maxItemsOne": false
+                                },
+                                "severity": {
+                                    "maxItemsOne": false
+                                },
+                                "suppress": {
+                                    "maxItemsOne": false
+                                },
+                                "suspend": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "conditions": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "subconditions": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "parameter": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "time_frame": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "active_between": {
+                                    "maxItemsOne": false
+                                },
+                                "scheduled_weekly": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "weekdays": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "variable": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "parameters": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "pagerduty_service_integration": {
-                "current": "pagerduty:index/serviceIntegration:ServiceIntegration"
+                "current": "pagerduty:index/serviceIntegration:ServiceIntegration",
+                "fields": {
+                    "email_filter": {
+                        "maxItemsOne": false
+                    },
+                    "email_parser": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "match_predicate": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "predicate": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "predicate": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "value_extractor": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "pagerduty_slack_connection": {
-                "current": "pagerduty:index/slackConnection:SlackConnection"
+                "current": "pagerduty:index/slackConnection:SlackConnection",
+                "fields": {
+                    "config": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "events": {
+                                    "maxItemsOne": false
+                                },
+                                "priorities": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "pagerduty_tag": {
                 "current": "pagerduty:index/tag:Tag"
@@ -119,7 +765,12 @@
                 "current": "pagerduty:index/teamMembership:TeamMembership"
             },
             "pagerduty_user": {
-                "current": "pagerduty:index/user:User"
+                "current": "pagerduty:index/user:User",
+                "fields": {
+                    "teams": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "pagerduty_user_contact_method": {
                 "current": "pagerduty:index/userContactMethod:UserContactMethod"
@@ -128,7 +779,25 @@
                 "current": "pagerduty:index/userNotificationRule:UserNotificationRule"
             },
             "pagerduty_webhook_subscription": {
-                "current": "pagerduty:index/webhookSubscription:WebhookSubscription"
+                "current": "pagerduty:index/webhookSubscription:WebhookSubscription",
+                "fields": {
+                    "delivery_method": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "custom_header": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "events": {
+                        "maxItemsOne": false
+                    },
+                    "filter": {
+                        "maxItemsOne": false
+                    }
+                }
             }
         },
         "datasources": {

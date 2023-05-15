@@ -132,6 +132,8 @@ class _ExtensionState:
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app
         :param pulumi.Input[str] name: The name of the service extension.
         :param pulumi.Input[str] summary: A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+               
+               **Note:** You can use the `get_extension_schema` data source to locate the appropriate extension vendor ID.
         """
         if config is not None:
             pulumi.set(__self__, "config", config)
@@ -228,6 +230,8 @@ class _ExtensionState:
     def summary(self) -> Optional[pulumi.Input[str]]:
         """
         A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+
+        **Note:** You can use the `get_extension_schema` data source to locate the appropriate extension vendor ID.
         """
         return pulumi.get(self, "summary")
 
@@ -445,6 +449,8 @@ class Extension(pulumi.CustomResource):
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app
         :param pulumi.Input[str] name: The name of the service extension.
         :param pulumi.Input[str] summary: A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+               
+               **Note:** You can use the `get_extension_schema` data source to locate the appropriate extension vendor ID.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -514,6 +520,8 @@ class Extension(pulumi.CustomResource):
     def summary(self) -> pulumi.Output[str]:
         """
         A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+
+        **Note:** You can use the `get_extension_schema` data source to locate the appropriate extension vendor ID.
         """
         return pulumi.get(self, "summary")
 

@@ -7,6 +7,81 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * A [Global Orchestration](https://support.pagerduty.com/docs/event-orchestration#global-orchestrations) allows you to create a set of Event Rules. The Global Orchestration evaluates Events sent to it against each of its rules, beginning with the rules in the "start" set. When a matching rule is found, it can modify and enhance the event and can route the event to another set of rules within this Global Orchestration for further processing.
+ *
+ * ## Example of configuring a Global Orchestration
+ *
+ * This example shows creating `Team`, and `Event Orchestration` resources followed by creating a Global Orchestration to handle Events sent to that Event Orchestration.
+ *
+ * This example also shows using `priority` data source to configure `priority` action for a rule. If the Event matches the third rule in set "step-two" the resulting incident will have the Priority `P1`.
+ *
+ * This example shows a Global Orchestration that has nested sets: a rule in the "start" set has a `routeTo` action pointing at the "step-two" set.
+ *
+ * The `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set. In this example the `catchAll` doesn't have any `actions` so it'll leave events as-is.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const databaseTeam = new pagerduty.Team("databaseTeam", {});
+ * const eventOrchestration = new pagerduty.EventOrchestration("eventOrchestration", {team: databaseTeam.id});
+ * const p1 = pagerduty.getPriority({
+ *     name: "P1",
+ * });
+ * const global = new pagerduty.EventOrchestrationGlobal("global", {
+ *     eventOrchestration: eventOrchestration.id,
+ *     sets: [
+ *         {
+ *             id: "start",
+ *             rules: [{
+ *                 label: "Always annotate a note to all events",
+ *                 actions: {
+ *                     annotate: "This incident was created by the Database Team via a Global Orchestration",
+ *                     routeTo: "step-two",
+ *                 },
+ *             }],
+ *         },
+ *         {
+ *             id: "step-two",
+ *             rules: [
+ *                 {
+ *                     label: "Drop events that are marked as no-op",
+ *                     conditions: [{
+ *                         expression: "event.summary matches 'no-op'",
+ *                     }],
+ *                     actions: {
+ *                         dropEvent: true,
+ *                     },
+ *                 },
+ *                 {
+ *                     label: "If there's something wrong on the replica, then mark the alert as a warning",
+ *                     conditions: [{
+ *                         expression: "event.custom_details.hostname matches part 'replica'",
+ *                     }],
+ *                     actions: {
+ *                         severity: "warning",
+ *                     },
+ *                 },
+ *                 {
+ *                     label: "Otherwise, set the incident to P1 and run a diagnostic",
+ *                     actions: {
+ *                         priority: p1.then(p1 => p1.id),
+ *                         automationAction: {
+ *                             name: "db-diagnostic",
+ *                             url: "https://example.com/run-diagnostic",
+ *                             autoSend: true,
+ *                         },
+ *                     },
+ *                 },
+ *             ],
+ *         },
+ *     ],
+ *     catchAll: {
+ *         actions: {},
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Global Orchestration can be imported using the `id` of the Event Orchestration, e.g.

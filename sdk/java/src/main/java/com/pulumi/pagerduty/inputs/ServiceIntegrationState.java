@@ -164,6 +164,9 @@ public final class ServiceIntegrationState extends com.pulumi.resources.Resource
      * `nagios_inbound_integration`,
      * `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
      * 
+     * **Note:** This is meant for **generic** service integrations.
+     * To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
+     * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
@@ -179,6 +182,9 @@ public final class ServiceIntegrationState extends com.pulumi.resources.Resource
      * `keynote_inbound_integration`,
      * `nagios_inbound_integration`,
      * `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
+     * 
+     * **Note:** This is meant for **generic** service integrations.
+     * To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
      * 
      */
     public Optional<Output<String>> type() {
@@ -441,6 +447,9 @@ public final class ServiceIntegrationState extends com.pulumi.resources.Resource
          * `nagios_inbound_integration`,
          * `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
          * 
+         * **Note:** This is meant for **generic** service integrations.
+         * To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
+         * 
          * @return builder
          * 
          */
@@ -460,6 +469,9 @@ public final class ServiceIntegrationState extends com.pulumi.resources.Resource
          * `keynote_inbound_integration`,
          * `nagios_inbound_integration`,
          * `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
+         * 
+         * **Note:** This is meant for **generic** service integrations.
+         * To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
          * 
          * @return builder
          * 

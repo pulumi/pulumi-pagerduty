@@ -21,6 +21,10 @@ public final class ServiceIncidentUrgencyRule {
     /**
      * @return Incidents&#39; urgency outside support hours.
      * 
+     * When using `type = &#34;use_support_hours&#34;` in `incident_urgency_rule` you must specify exactly one (otherwise optional) `support_hours` block.
+     * Your PagerDuty account must have the `service_support_hours` ability to assign support hours.
+     * The block contains the following arguments:
+     * 
      */
     private @Nullable ServiceIncidentUrgencyRuleOutsideSupportHours outsideSupportHours;
     /**
@@ -44,6 +48,10 @@ public final class ServiceIncidentUrgencyRule {
     }
     /**
      * @return Incidents&#39; urgency outside support hours.
+     * 
+     * When using `type = &#34;use_support_hours&#34;` in `incident_urgency_rule` you must specify exactly one (otherwise optional) `support_hours` block.
+     * Your PagerDuty account must have the `service_support_hours` ability to assign support hours.
+     * The block contains the following arguments:
      * 
      */
     public Optional<ServiceIncidentUrgencyRuleOutsideSupportHours> outsideSupportHours() {

@@ -18,12 +18,16 @@ public final class RulesetRuleActionsExtractionArgs extends com.pulumi.resources
     /**
      * The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
      * 
+     * *- **OR** -*
+     * 
      */
     @Import(name="regex")
     private @Nullable Output<String> regex;
 
     /**
      * @return The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
+     * 
+     * *- **OR** -*
      * 
      */
     public Optional<Output<String>> regex() {
@@ -48,12 +52,16 @@ public final class RulesetRuleActionsExtractionArgs extends com.pulumi.resources
     /**
      * Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
      * 
+     * *NOTE: A rule can have multiple `extraction` objects attributed to it.*
+     * 
      */
     @Import(name="target")
     private @Nullable Output<String> target;
 
     /**
      * @return Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+     * 
+     * *NOTE: A rule can have multiple `extraction` objects attributed to it.*
      * 
      */
     public Optional<Output<String>> target() {
@@ -105,6 +113,8 @@ public final class RulesetRuleActionsExtractionArgs extends com.pulumi.resources
         /**
          * @param regex The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
          * 
+         * *- **OR** -*
+         * 
          * @return builder
          * 
          */
@@ -115,6 +125,8 @@ public final class RulesetRuleActionsExtractionArgs extends com.pulumi.resources
 
         /**
          * @param regex The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
+         * 
+         * *- **OR** -*
          * 
          * @return builder
          * 
@@ -147,6 +159,8 @@ public final class RulesetRuleActionsExtractionArgs extends com.pulumi.resources
         /**
          * @param target Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
          * 
+         * *NOTE: A rule can have multiple `extraction` objects attributed to it.*
+         * 
          * @return builder
          * 
          */
@@ -157,6 +171,8 @@ public final class RulesetRuleActionsExtractionArgs extends com.pulumi.resources
 
         /**
          * @param target Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+         * 
+         * *NOTE: A rule can have multiple `extraction` objects attributed to it.*
          * 
          * @return builder
          * 

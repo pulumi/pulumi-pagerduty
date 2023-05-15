@@ -42,6 +42,10 @@ public final class EventOrchestrationGlobalSetRuleActions {
      * 
      */
     private @Nullable List<EventOrchestrationGlobalSetRuleActionsExtraction> extractions;
+    /**
+     * @return The ID of the priority you want to set on resulting incident. Consider using the `pagerduty.getPriority` data source.
+     * 
+     */
     private @Nullable String priority;
     /**
      * @return The ID of a Set from this Global Orchestration whose rules you also want to use with events that match this rule.
@@ -105,6 +109,10 @@ public final class EventOrchestrationGlobalSetRuleActions {
     public List<EventOrchestrationGlobalSetRuleActionsExtraction> extractions() {
         return this.extractions == null ? List.of() : this.extractions;
     }
+    /**
+     * @return The ID of the priority you want to set on resulting incident. Consider using the `pagerduty.getPriority` data source.
+     * 
+     */
     public Optional<String> priority() {
         return Optional.ofNullable(this.priority);
     }

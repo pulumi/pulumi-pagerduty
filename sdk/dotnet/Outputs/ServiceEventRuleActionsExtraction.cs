@@ -15,6 +15,8 @@ namespace Pulumi.Pagerduty.Outputs
     {
         /// <summary>
         /// The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
+        /// 
+        /// *- **OR** -*
         /// </summary>
         public readonly string? Regex;
         /// <summary>
@@ -23,6 +25,8 @@ namespace Pulumi.Pagerduty.Outputs
         public readonly string? Source;
         /// <summary>
         /// Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+        /// 
+        /// *NOTE: A rule can have multiple `extraction` objects attributed to it.*
         /// </summary>
         public readonly string? Target;
         /// <summary>

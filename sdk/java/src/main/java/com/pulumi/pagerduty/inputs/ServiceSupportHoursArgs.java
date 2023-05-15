@@ -37,12 +37,20 @@ public final class ServiceSupportHoursArgs extends com.pulumi.resources.Resource
     /**
      * The support hours&#39; ending time of day.
      * 
+     * A `scheduled_actions` block is required when using `type = &#34;use_support_hours&#34;` in `incident_urgency_rule`.
+     * 
+     * The block contains the following arguments:
+     * 
      */
     @Import(name="endTime")
     private @Nullable Output<String> endTime;
 
     /**
      * @return The support hours&#39; ending time of day.
+     * 
+     * A `scheduled_actions` block is required when using `type = &#34;use_support_hours&#34;` in `incident_urgency_rule`.
+     * 
+     * The block contains the following arguments:
      * 
      */
     public Optional<Output<String>> endTime() {
@@ -159,6 +167,10 @@ public final class ServiceSupportHoursArgs extends com.pulumi.resources.Resource
         /**
          * @param endTime The support hours&#39; ending time of day.
          * 
+         * A `scheduled_actions` block is required when using `type = &#34;use_support_hours&#34;` in `incident_urgency_rule`.
+         * 
+         * The block contains the following arguments:
+         * 
          * @return builder
          * 
          */
@@ -169,6 +181,10 @@ public final class ServiceSupportHoursArgs extends com.pulumi.resources.Resource
 
         /**
          * @param endTime The support hours&#39; ending time of day.
+         * 
+         * A `scheduled_actions` block is required when using `type = &#34;use_support_hours&#34;` in `incident_urgency_rule`.
+         * 
+         * The block contains the following arguments:
          * 
          * @return builder
          * 

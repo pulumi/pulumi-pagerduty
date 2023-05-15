@@ -14,6 +14,8 @@ public final class ServiceEventRuleActionsExtraction {
     /**
      * @return The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
      * 
+     * *- **OR** -*
+     * 
      */
     private @Nullable String regex;
     /**
@@ -23,6 +25,8 @@ public final class ServiceEventRuleActionsExtraction {
     private @Nullable String source;
     /**
      * @return Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+     * 
+     * *NOTE: A rule can have multiple `extraction` objects attributed to it.*
      * 
      */
     private @Nullable String target;
@@ -35,6 +39,8 @@ public final class ServiceEventRuleActionsExtraction {
     private ServiceEventRuleActionsExtraction() {}
     /**
      * @return The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
+     * 
+     * *- **OR** -*
      * 
      */
     public Optional<String> regex() {
@@ -49,6 +55,8 @@ public final class ServiceEventRuleActionsExtraction {
     }
     /**
      * @return Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+     * 
+     * *NOTE: A rule can have multiple `extraction` objects attributed to it.*
      * 
      */
     public Optional<String> target() {

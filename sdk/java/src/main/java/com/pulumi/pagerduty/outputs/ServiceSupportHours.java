@@ -22,6 +22,10 @@ public final class ServiceSupportHours {
     /**
      * @return The support hours&#39; ending time of day.
      * 
+     * A `scheduled_actions` block is required when using `type = &#34;use_support_hours&#34;` in `incident_urgency_rule`.
+     * 
+     * The block contains the following arguments:
+     * 
      */
     private @Nullable String endTime;
     /**
@@ -51,6 +55,10 @@ public final class ServiceSupportHours {
     }
     /**
      * @return The support hours&#39; ending time of day.
+     * 
+     * A `scheduled_actions` block is required when using `type = &#34;use_support_hours&#34;` in `incident_urgency_rule`.
+     * 
+     * The block contains the following arguments:
      * 
      */
     public Optional<String> endTime() {

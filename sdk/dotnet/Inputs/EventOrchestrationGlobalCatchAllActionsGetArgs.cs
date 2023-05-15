@@ -48,6 +48,9 @@ namespace Pulumi.Pagerduty.Inputs
             set => _extractions = value;
         }
 
+        /// <summary>
+        /// The ID of the priority you want to set on resulting incident. Consider using the `pagerduty.getPriority` data source.
+        /// </summary>
         [Input("priority")]
         public Input<string>? Priority { get; set; }
 

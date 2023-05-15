@@ -40,12 +40,16 @@ public final class ServiceIntegrationEmailParserValueExtractorArgs extends com.p
     /**
      * If `type` has value `regex` this value should contain valid regex.
      * 
+     * **Note:** You can use the `pagerduty.getVendor` data source to locate the appropriate vendor ID.
+     * 
      */
     @Import(name="regex")
     private @Nullable Output<String> regex;
 
     /**
      * @return If `type` has value `regex` this value should contain valid regex.
+     * 
+     * **Note:** You can use the `pagerduty.getVendor` data source to locate the appropriate vendor ID.
      * 
      */
     public Optional<Output<String>> regex() {
@@ -151,6 +155,8 @@ public final class ServiceIntegrationEmailParserValueExtractorArgs extends com.p
         /**
          * @param regex If `type` has value `regex` this value should contain valid regex.
          * 
+         * **Note:** You can use the `pagerduty.getVendor` data source to locate the appropriate vendor ID.
+         * 
          * @return builder
          * 
          */
@@ -161,6 +167,8 @@ public final class ServiceIntegrationEmailParserValueExtractorArgs extends com.p
 
         /**
          * @param regex If `type` has value `regex` this value should contain valid regex.
+         * 
+         * **Note:** You can use the `pagerduty.getVendor` data source to locate the appropriate vendor ID.
          * 
          * @return builder
          * 

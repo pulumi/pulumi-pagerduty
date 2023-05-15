@@ -111,12 +111,16 @@ public final class ExtensionState extends com.pulumi.resources.ResourceArgs {
     /**
      * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
      * 
+     * **Note:** You can use the `pagerduty.getExtensionSchema` data source to locate the appropriate extension vendor ID.
+     * 
      */
     @Import(name="summary")
     private @Nullable Output<String> summary;
 
     /**
      * @return A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+     * 
+     * **Note:** You can use the `pagerduty.getExtensionSchema` data source to locate the appropriate extension vendor ID.
      * 
      */
     public Optional<Output<String>> summary() {
@@ -302,6 +306,8 @@ public final class ExtensionState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param summary A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
          * 
+         * **Note:** You can use the `pagerduty.getExtensionSchema` data source to locate the appropriate extension vendor ID.
+         * 
          * @return builder
          * 
          */
@@ -312,6 +318,8 @@ public final class ExtensionState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param summary A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+         * 
+         * **Note:** You can use the `pagerduty.getExtensionSchema` data source to locate the appropriate extension vendor ID.
          * 
          * @return builder
          * 

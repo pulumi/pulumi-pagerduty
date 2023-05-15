@@ -380,6 +380,7 @@ class EventOrchestrationGlobalCatchAllActions(dict):
         :param bool drop_event: When true, this event will be dropped. Dropped events will not trigger or resolve an alert or an incident. Dropped events will not be evaluated against router rules.
         :param str event_action: sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
         :param Sequence['EventOrchestrationGlobalCatchAllActionsExtractionArgs'] extractions: Replace any CEF field or Custom Details object field using custom variables.
+        :param str priority: The ID of the priority you want to set on resulting incident. Consider using the `get_priority` data source.
         :param str route_to: The ID of a Set from this Global Orchestration whose rules you also want to use with events that match this rule.
         :param str severity: sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
         :param bool suppress: Set whether the resulting alert is suppressed. Suppressed alerts will not trigger an incident.
@@ -452,6 +453,9 @@ class EventOrchestrationGlobalCatchAllActions(dict):
     @property
     @pulumi.getter
     def priority(self) -> Optional[str]:
+        """
+        The ID of the priority you want to set on resulting incident. Consider using the `get_priority` data source.
+        """
         return pulumi.get(self, "priority")
 
     @property
@@ -879,6 +883,7 @@ class EventOrchestrationGlobalSetRuleActions(dict):
         :param bool drop_event: When true, this event will be dropped. Dropped events will not trigger or resolve an alert or an incident. Dropped events will not be evaluated against router rules.
         :param str event_action: sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
         :param Sequence['EventOrchestrationGlobalSetRuleActionsExtractionArgs'] extractions: Replace any CEF field or Custom Details object field using custom variables.
+        :param str priority: The ID of the priority you want to set on resulting incident. Consider using the `get_priority` data source.
         :param str route_to: The ID of a Set from this Global Orchestration whose rules you also want to use with events that match this rule.
         :param str severity: sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
         :param bool suppress: Set whether the resulting alert is suppressed. Suppressed alerts will not trigger an incident.
@@ -951,6 +956,9 @@ class EventOrchestrationGlobalSetRuleActions(dict):
     @property
     @pulumi.getter
     def priority(self) -> Optional[str]:
+        """
+        The ID of the priority you want to set on resulting incident. Consider using the `get_priority` data source.
+        """
         return pulumi.get(self, "priority")
 
     @property
@@ -1603,6 +1611,7 @@ class EventOrchestrationServiceCatchAllActions(dict):
         :param str event_action: sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
         :param Sequence['EventOrchestrationServiceCatchAllActionsExtractionArgs'] extractions: Replace any CEF field or Custom Details object field using custom variables.
         :param 'EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs' pagerduty_automation_action: Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+        :param str priority: The ID of the priority you want to set on resulting incident. Consider using the `get_priority` data source.
         :param str route_to: The ID of a Set from this Service Orchestration whose rules you also want to use with events that match this rule.
         :param str severity: sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
         :param bool suppress: Set whether the resulting alert is suppressed. Suppressed alerts will not trigger an incident.
@@ -1675,6 +1684,9 @@ class EventOrchestrationServiceCatchAllActions(dict):
     @property
     @pulumi.getter
     def priority(self) -> Optional[str]:
+        """
+        The ID of the priority you want to set on resulting incident. Consider using the `get_priority` data source.
+        """
         return pulumi.get(self, "priority")
 
     @property
@@ -2137,6 +2149,7 @@ class EventOrchestrationServiceSetRuleActions(dict):
         :param str event_action: sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
         :param Sequence['EventOrchestrationServiceSetRuleActionsExtractionArgs'] extractions: Replace any CEF field or Custom Details object field using custom variables.
         :param 'EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs' pagerduty_automation_action: Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
+        :param str priority: The ID of the priority you want to set on resulting incident. Consider using the `get_priority` data source.
         :param str route_to: The ID of a Set from this Service Orchestration whose rules you also want to use with events that match this rule.
         :param str severity: sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
         :param bool suppress: Set whether the resulting alert is suppressed. Suppressed alerts will not trigger an incident.
@@ -2209,6 +2222,9 @@ class EventOrchestrationServiceSetRuleActions(dict):
     @property
     @pulumi.getter
     def priority(self) -> Optional[str]:
+        """
+        The ID of the priority you want to set on resulting incident. Consider using the `get_priority` data source.
+        """
         return pulumi.get(self, "priority")
 
     @property
@@ -3641,8 +3657,12 @@ class RulesetRuleActionsExtraction(dict):
                  template: Optional[str] = None):
         """
         :param str regex: The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
+               
+               *- **OR** -*
         :param str source: Field where the data is being copied from. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
         :param str target: Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+               
+               *NOTE: A rule can have multiple `extraction` objects attributed to it.*
         :param str template: A customized field message. This can also include variables extracted from the payload by using string interpolation.
         """
         if regex is not None:
@@ -3659,6 +3679,8 @@ class RulesetRuleActionsExtraction(dict):
     def regex(self) -> Optional[str]:
         """
         The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
+
+        *- **OR** -*
         """
         return pulumi.get(self, "regex")
 
@@ -3675,6 +3697,8 @@ class RulesetRuleActionsExtraction(dict):
     def target(self) -> Optional[str]:
         """
         Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+
+        *NOTE: A rule can have multiple `extraction` objects attributed to it.*
         """
         return pulumi.get(self, "target")
 
@@ -4002,6 +4026,9 @@ class RulesetRuleTimeFrameActiveBetween(dict):
     def __init__(__self__, *,
                  end_time: Optional[int] = None,
                  start_time: Optional[int] = None):
+        """
+        :param int start_time: A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `time_static` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
+        """
         if end_time is not None:
             pulumi.set(__self__, "end_time", end_time)
         if start_time is not None:
@@ -4015,6 +4042,9 @@ class RulesetRuleTimeFrameActiveBetween(dict):
     @property
     @pulumi.getter(name="startTime")
     def start_time(self) -> Optional[int]:
+        """
+        A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `time_static` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
+        """
         return pulumi.get(self, "start_time")
 
 
@@ -4044,6 +4074,7 @@ class RulesetRuleTimeFrameScheduledWeekly(dict):
                  weekdays: Optional[Sequence[int]] = None):
         """
         :param int duration: Length of time the schedule will be active in milliseconds. For example `duration = 2 * 60 * 60 * 1000` if you want your rule to apply for 2 hours, from the specified `start_time`.
+        :param int start_time: A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `time_static` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
         :param str timezone: [The name of the timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for the given schedule, which will be used to determine UTC offset including adjustment for daylight saving time. For example: `timezone = "America/Toronto"`
         :param Sequence[int] weekdays: An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
         """
@@ -4067,6 +4098,9 @@ class RulesetRuleTimeFrameScheduledWeekly(dict):
     @property
     @pulumi.getter(name="startTime")
     def start_time(self) -> Optional[int]:
+        """
+        A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `time_static` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
+        """
         return pulumi.get(self, "start_time")
 
     @property
@@ -4446,6 +4480,11 @@ class ServiceAlertGroupingParametersConfig(dict):
         :param str aggregate: One of `any` or `all`. This setting applies only when `type` is set to `content_based`. Group alerts based on one or all of `fields` value(s).
         :param Sequence[str] fields: Alerts will be grouped together if the content of these fields match. This setting applies only when `type` is set to `content_based`.
         :param int timeout: The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
+               
+               
+               You may specify one optional `incident_urgency_rule` block configuring what urgencies to use.
+               Your PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.
+               The block contains the following arguments:
         """
         if aggregate is not None:
             pulumi.set(__self__, "aggregate", aggregate)
@@ -4475,6 +4514,11 @@ class ServiceAlertGroupingParametersConfig(dict):
     def timeout(self) -> Optional[int]:
         """
         The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
+
+
+        You may specify one optional `incident_urgency_rule` block configuring what urgencies to use.
+        Your PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.
+        The block contains the following arguments:
         """
         return pulumi.get(self, "timeout")
 
@@ -4487,6 +4531,11 @@ class ServiceAutoPauseNotificationsParameters(dict):
         """
         :param bool enabled: Indicates whether alerts should be automatically suspended when identified as transient.  If not passed in, will default to 'false'.
         :param int timeout: Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `enabled` is `true`. Must be omitted or set to `null` if `enabled` is `false`.
+               
+               
+               You may specify one optional `incident_urgency_rule` block configuring what urgencies to use.
+               Your PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.
+               The block contains the following arguments:
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -4506,6 +4555,11 @@ class ServiceAutoPauseNotificationsParameters(dict):
     def timeout(self) -> Optional[int]:
         """
         Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `enabled` is `true`. Must be omitted or set to `null` if `enabled` is `false`.
+
+
+        You may specify one optional `incident_urgency_rule` block configuring what urgencies to use.
+        Your PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.
+        The block contains the following arguments:
         """
         return pulumi.get(self, "timeout")
 
@@ -4783,8 +4837,12 @@ class ServiceEventRuleActionsExtraction(dict):
                  template: Optional[str] = None):
         """
         :param str regex: The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
+               
+               *- **OR** -*
         :param str source: Field where the data is being copied from. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
         :param str target: Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+               
+               *NOTE: A rule can have multiple `extraction` objects attributed to it.*
         :param str template: A customized field message. This can also include variables extracted from the payload by using string interpolation.
         """
         if regex is not None:
@@ -4801,6 +4859,8 @@ class ServiceEventRuleActionsExtraction(dict):
     def regex(self) -> Optional[str]:
         """
         The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
+
+        *- **OR** -*
         """
         return pulumi.get(self, "regex")
 
@@ -4817,6 +4877,8 @@ class ServiceEventRuleActionsExtraction(dict):
     def target(self) -> Optional[str]:
         """
         Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+
+        *NOTE: A rule can have multiple `extraction` objects attributed to it.*
         """
         return pulumi.get(self, "target")
 
@@ -5331,6 +5393,10 @@ class ServiceIncidentUrgencyRule(dict):
         :param str type: The type of alert grouping; one of `intelligent`, `time` or `content_based`.
         :param 'ServiceIncidentUrgencyRuleDuringSupportHoursArgs' during_support_hours: Incidents' urgency during support hours.
         :param 'ServiceIncidentUrgencyRuleOutsideSupportHoursArgs' outside_support_hours: Incidents' urgency outside support hours.
+               
+               When using `type = "use_support_hours"` in `incident_urgency_rule` you must specify exactly one (otherwise optional) `support_hours` block.
+               Your PagerDuty account must have the `service_support_hours` ability to assign support hours.
+               The block contains the following arguments:
         :param str urgency: The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
         """
         pulumi.set(__self__, "type", type)
@@ -5362,6 +5428,10 @@ class ServiceIncidentUrgencyRule(dict):
     def outside_support_hours(self) -> Optional['outputs.ServiceIncidentUrgencyRuleOutsideSupportHours']:
         """
         Incidents' urgency outside support hours.
+
+        When using `type = "use_support_hours"` in `incident_urgency_rule` you must specify exactly one (otherwise optional) `support_hours` block.
+        Your PagerDuty account must have the `service_support_hours` ability to assign support hours.
+        The block contains the following arguments:
         """
         return pulumi.get(self, "outside_support_hours")
 
@@ -5769,6 +5839,8 @@ class ServiceIntegrationEmailParserValueExtractor(dict):
         :param str type: Can be `between`, `entire` or `regex`.
         :param str value_name: First value extractor should have name `incident_key` other value extractors should contain custom names.
         :param str regex: If `type` has value `regex` this value should contain valid regex.
+               
+               **Note:** You can use the `get_vendor` data source to locate the appropriate vendor ID.
         """
         pulumi.set(__self__, "part", part)
         pulumi.set(__self__, "type", type)
@@ -5814,6 +5886,8 @@ class ServiceIntegrationEmailParserValueExtractor(dict):
     def regex(self) -> Optional[str]:
         """
         If `type` has value `regex` this value should contain valid regex.
+
+        **Note:** You can use the `get_vendor` data source to locate the appropriate vendor ID.
         """
         return pulumi.get(self, "regex")
 
@@ -5890,6 +5964,53 @@ class ServiceScheduledActionAt(dict):
                  type: Optional[str] = None):
         """
         :param str name: Designates either the start or the end of the scheduled action. Can be `support_hours_start` or `support_hours_end`.
+               
+               Note that it is currently only possible to define the scheduled action when urgency is set to `high` for `during_support_hours` and to `low`  for `outside_support_hours` in `incident_urgency_rule`.
+               
+               Below is an example for a `Service` resource with `incident_urgency_rules` with `type = "use_support_hours"`, `support_hours` and a default `scheduled_action` as well.
+               
+               ```python
+               import pulumi
+               import pulumi_pagerduty as pagerduty
+               
+               foo = pagerduty.Service("foo",
+                   description="bar bar bar",
+                   auto_resolve_timeout="3600",
+                   acknowledgement_timeout="3600",
+                   escalation_policy=pagerduty_escalation_policy["foo"]["id"],
+                   incident_urgency_rule=pagerduty.ServiceIncidentUrgencyRuleArgs(
+                       type="use_support_hours",
+                       during_support_hours=pagerduty.ServiceIncidentUrgencyRuleDuringSupportHoursArgs(
+                           type="constant",
+                           urgency="high",
+                       ),
+                       outside_support_hours=pagerduty.ServiceIncidentUrgencyRuleOutsideSupportHoursArgs(
+                           type="constant",
+                           urgency="low",
+                       ),
+                   ),
+                   support_hours=pagerduty.ServiceSupportHoursArgs(
+                       type="fixed_time_per_day",
+                       time_zone="America/Lima",
+                       start_time="09:00:00",
+                       end_time="17:00:00",
+                       days_of_weeks=[
+                           1,
+                           2,
+                           3,
+                           4,
+                           5,
+                       ],
+                   ),
+                   scheduled_actions=[pagerduty.ServiceScheduledActionArgs(
+                       type="urgency_change",
+                       to_urgency="high",
+                       ats=[pagerduty.ServiceScheduledActionAtArgs(
+                           type="named_time",
+                           name="support_hours_start",
+                       )],
+                   )])
+               ```
         :param str type: The type of time specification. Currently, this must be set to `named_time`.
         """
         if name is not None:
@@ -5902,6 +6023,53 @@ class ServiceScheduledActionAt(dict):
     def name(self) -> Optional[str]:
         """
         Designates either the start or the end of the scheduled action. Can be `support_hours_start` or `support_hours_end`.
+
+        Note that it is currently only possible to define the scheduled action when urgency is set to `high` for `during_support_hours` and to `low`  for `outside_support_hours` in `incident_urgency_rule`.
+
+        Below is an example for a `Service` resource with `incident_urgency_rules` with `type = "use_support_hours"`, `support_hours` and a default `scheduled_action` as well.
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        foo = pagerduty.Service("foo",
+            description="bar bar bar",
+            auto_resolve_timeout="3600",
+            acknowledgement_timeout="3600",
+            escalation_policy=pagerduty_escalation_policy["foo"]["id"],
+            incident_urgency_rule=pagerduty.ServiceIncidentUrgencyRuleArgs(
+                type="use_support_hours",
+                during_support_hours=pagerduty.ServiceIncidentUrgencyRuleDuringSupportHoursArgs(
+                    type="constant",
+                    urgency="high",
+                ),
+                outside_support_hours=pagerduty.ServiceIncidentUrgencyRuleOutsideSupportHoursArgs(
+                    type="constant",
+                    urgency="low",
+                ),
+            ),
+            support_hours=pagerduty.ServiceSupportHoursArgs(
+                type="fixed_time_per_day",
+                time_zone="America/Lima",
+                start_time="09:00:00",
+                end_time="17:00:00",
+                days_of_weeks=[
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                ],
+            ),
+            scheduled_actions=[pagerduty.ServiceScheduledActionArgs(
+                type="urgency_change",
+                to_urgency="high",
+                ats=[pagerduty.ServiceScheduledActionAtArgs(
+                    type="named_time",
+                    name="support_hours_start",
+                )],
+            )])
+        ```
         """
         return pulumi.get(self, "name")
 
@@ -5949,6 +6117,10 @@ class ServiceSupportHours(dict):
         :param Sequence[int] days_of_weeks: Array of days of week as integers. `1` to `7`, `1` being
                Monday and `7` being Sunday.
         :param str end_time: The support hours' ending time of day.
+               
+               A `scheduled_actions` block is required when using `type = "use_support_hours"` in `incident_urgency_rule`.
+               
+               The block contains the following arguments:
         :param str start_time: The support hours' starting time of day.
         :param str time_zone: The time zone for the support hours.
         :param str type: The type of alert grouping; one of `intelligent`, `time` or `content_based`.
@@ -5978,6 +6150,10 @@ class ServiceSupportHours(dict):
     def end_time(self) -> Optional[str]:
         """
         The support hours' ending time of day.
+
+        A `scheduled_actions` block is required when using `type = "use_support_hours"` in `incident_urgency_rule`.
+
+        The block contains the following arguments:
         """
         return pulumi.get(self, "end_time")
 
@@ -6026,6 +6202,9 @@ class SlackConnectionConfig(dict):
                - `incident.responder.replied`
                - `incident.status_update_published`
                - `incident.reopened`
+        :param Sequence[str] priorities: Allows you to filter events by priority. Needs to be an array of PagerDuty priority IDs. Available through get_priority data source.
+               - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behaviour is to set `priorities` to `No Priority` value.
+               - When set to `["*"]` its corresponding value for `priorities` in Slack Connection's configuration will be `Any Priority`.
         :param str urgency: Allows you to filter events by urgency. Either `high` or `low`.
         """
         pulumi.set(__self__, "events", events)
@@ -6057,6 +6236,11 @@ class SlackConnectionConfig(dict):
     @property
     @pulumi.getter
     def priorities(self) -> Optional[Sequence[str]]:
+        """
+        Allows you to filter events by priority. Needs to be an array of PagerDuty priority IDs. Available through get_priority data source.
+        - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behaviour is to set `priorities` to `No Priority` value.
+        - When set to `["*"]` its corresponding value for `priorities` in Slack Connection's configuration will be `Any Priority`.
+        """
         return pulumi.get(self, "priorities")
 
     @property

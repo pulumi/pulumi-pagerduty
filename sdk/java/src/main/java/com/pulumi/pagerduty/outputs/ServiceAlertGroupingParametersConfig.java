@@ -26,6 +26,10 @@ public final class ServiceAlertGroupingParametersConfig {
     /**
      * @return The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
      * 
+     * You may specify one optional `incident_urgency_rule` block configuring what urgencies to use.
+     * Your PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.
+     * The block contains the following arguments:
+     * 
      */
     private @Nullable Integer timeout;
 
@@ -46,6 +50,10 @@ public final class ServiceAlertGroupingParametersConfig {
     }
     /**
      * @return The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
+     * 
+     * You may specify one optional `incident_urgency_rule` block configuring what urgencies to use.
+     * Your PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.
+     * The block contains the following arguments:
      * 
      */
     public Optional<Integer> timeout() {

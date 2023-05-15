@@ -326,6 +326,9 @@ public class ServiceIntegration extends com.pulumi.resources.CustomResource {
      * `nagios_inbound_integration`,
      * `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
      * 
+     * **Note:** This is meant for **generic** service integrations.
+     * To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
+     * 
      */
     @Export(name="type", type=String.class, parameters={})
     private Output<String> type;
@@ -341,6 +344,9 @@ public class ServiceIntegration extends com.pulumi.resources.CustomResource {
      * `keynote_inbound_integration`,
      * `nagios_inbound_integration`,
      * `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
+     * 
+     * **Note:** This is meant for **generic** service integrations.
+     * To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
      * 
      */
     public Output<String> type() {

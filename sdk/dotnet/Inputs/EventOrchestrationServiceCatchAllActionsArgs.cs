@@ -48,6 +48,9 @@ namespace Pulumi.Pagerduty.Inputs
         [Input("pagerdutyAutomationAction")]
         public Input<Inputs.EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs>? PagerdutyAutomationAction { get; set; }
 
+        /// <summary>
+        /// The ID of the priority you want to set on resulting incident. Consider using the `pagerduty.getPriority` data source.
+        /// </summary>
         [Input("priority")]
         public Input<string>? Priority { get; set; }
 

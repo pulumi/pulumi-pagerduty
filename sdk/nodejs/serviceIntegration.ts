@@ -210,6 +210,9 @@ export class ServiceIntegration extends pulumi.CustomResource {
      * `keynoteInboundIntegration`,
      * `nagiosInboundIntegration`,
      * `pingdomInboundIntegration`or `sqlMonitorInboundIntegration`.
+     *
+     * **Note:** This is meant for **generic** service integrations.
+     * To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -314,6 +317,9 @@ export interface ServiceIntegrationState {
      * `keynoteInboundIntegration`,
      * `nagiosInboundIntegration`,
      * `pingdomInboundIntegration`or `sqlMonitorInboundIntegration`.
+     *
+     * **Note:** This is meant for **generic** service integrations.
+     * To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
      */
     type?: pulumi.Input<string>;
     /**
@@ -367,6 +373,9 @@ export interface ServiceIntegrationArgs {
      * `keynoteInboundIntegration`,
      * `nagiosInboundIntegration`,
      * `pingdomInboundIntegration`or `sqlMonitorInboundIntegration`.
+     *
+     * **Note:** This is meant for **generic** service integrations.
+     * To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
      */
     type?: pulumi.Input<string>;
     /**

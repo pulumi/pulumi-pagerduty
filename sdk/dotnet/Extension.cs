@@ -132,6 +132,8 @@ namespace Pulumi.Pagerduty
 
         /// <summary>
         /// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+        /// 
+        /// **Note:** You can use the `pagerduty.getExtensionSchema` data source to locate the appropriate extension vendor ID.
         /// </summary>
         [Output("summary")]
         public Output<string> Summary { get; private set; } = null!;
@@ -302,6 +304,8 @@ namespace Pulumi.Pagerduty
 
         /// <summary>
         /// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+        /// 
+        /// **Note:** You can use the `pagerduty.getExtensionSchema` data source to locate the appropriate extension vendor ID.
         /// </summary>
         [Input("summary")]
         public Input<string>? Summary { get; set; }

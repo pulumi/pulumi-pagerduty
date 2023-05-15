@@ -20,6 +20,10 @@ namespace Pulumi.Pagerduty.Outputs
         public readonly ImmutableArray<int> DaysOfWeeks;
         /// <summary>
         /// The support hours' ending time of day.
+        /// 
+        /// A `scheduled_actions` block is required when using `type = "use_support_hours"` in `incident_urgency_rule`.
+        /// 
+        /// The block contains the following arguments:
         /// </summary>
         public readonly string? EndTime;
         /// <summary>

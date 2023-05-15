@@ -97,9 +97,17 @@ public final class EventOrchestrationServiceCatchAllActionsArgs extends com.pulu
         return Optional.ofNullable(this.pagerdutyAutomationAction);
     }
 
+    /**
+     * The ID of the priority you want to set on resulting incident. Consider using the `pagerduty.getPriority` data source.
+     * 
+     */
     @Import(name="priority")
     private @Nullable Output<String> priority;
 
+    /**
+     * @return The ID of the priority you want to set on resulting incident. Consider using the `pagerduty.getPriority` data source.
+     * 
+     */
     public Optional<Output<String>> priority() {
         return Optional.ofNullable(this.priority);
     }
@@ -328,11 +336,23 @@ public final class EventOrchestrationServiceCatchAllActionsArgs extends com.pulu
             return pagerdutyAutomationAction(Output.of(pagerdutyAutomationAction));
         }
 
+        /**
+         * @param priority The ID of the priority you want to set on resulting incident. Consider using the `pagerduty.getPriority` data source.
+         * 
+         * @return builder
+         * 
+         */
         public Builder priority(@Nullable Output<String> priority) {
             $.priority = priority;
             return this;
         }
 
+        /**
+         * @param priority The ID of the priority you want to set on resulting incident. Consider using the `pagerduty.getPriority` data source.
+         * 
+         * @return builder
+         * 
+         */
         public Builder priority(String priority) {
             return priority(Output.of(priority));
         }

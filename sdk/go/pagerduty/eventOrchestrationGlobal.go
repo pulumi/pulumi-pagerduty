@@ -11,6 +11,113 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// A [Global Orchestration](https://support.pagerduty.com/docs/event-orchestration#global-orchestrations) allows you to create a set of Event Rules. The Global Orchestration evaluates Events sent to it against each of its rules, beginning with the rules in the "start" set. When a matching rule is found, it can modify and enhance the event and can route the event to another set of rules within this Global Orchestration for further processing.
+//
+// ## Example of configuring a Global Orchestration
+//
+// This example shows creating `Team`, and `Event Orchestration` resources followed by creating a Global Orchestration to handle Events sent to that Event Orchestration.
+//
+// This example also shows using `priority` data source to configure `priority` action for a rule. If the Event matches the third rule in set "step-two" the resulting incident will have the Priority `P1`.
+//
+// This example shows a Global Orchestration that has nested sets: a rule in the "start" set has a `routeTo` action pointing at the "step-two" set.
+//
+// The `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set. In this example the `catchAll` doesn't have any `actions` so it'll leave events as-is.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			databaseTeam, err := pagerduty.NewTeam(ctx, "databaseTeam", nil)
+//			if err != nil {
+//				return err
+//			}
+//			eventOrchestration, err := pagerduty.NewEventOrchestration(ctx, "eventOrchestration", &pagerduty.EventOrchestrationArgs{
+//				Team: databaseTeam.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			p1, err := pagerduty.GetPriority(ctx, &pagerduty.GetPriorityArgs{
+//				Name: "P1",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewEventOrchestrationGlobal(ctx, "global", &pagerduty.EventOrchestrationGlobalArgs{
+//				EventOrchestration: eventOrchestration.ID(),
+//				Sets: pagerduty.EventOrchestrationGlobalSetArray{
+//					&pagerduty.EventOrchestrationGlobalSetArgs{
+//						Id: pulumi.String("start"),
+//						Rules: pagerduty.EventOrchestrationGlobalSetRuleArray{
+//							&pagerduty.EventOrchestrationGlobalSetRuleArgs{
+//								Label: pulumi.String("Always annotate a note to all events"),
+//								Actions: &pagerduty.EventOrchestrationGlobalSetRuleActionsArgs{
+//									Annotate: pulumi.String("This incident was created by the Database Team via a Global Orchestration"),
+//									RouteTo:  pulumi.String("step-two"),
+//								},
+//							},
+//						},
+//					},
+//					&pagerduty.EventOrchestrationGlobalSetArgs{
+//						Id: pulumi.String("step-two"),
+//						Rules: pagerduty.EventOrchestrationGlobalSetRuleArray{
+//							&pagerduty.EventOrchestrationGlobalSetRuleArgs{
+//								Label: pulumi.String("Drop events that are marked as no-op"),
+//								Conditions: pagerduty.EventOrchestrationGlobalSetRuleConditionArray{
+//									&pagerduty.EventOrchestrationGlobalSetRuleConditionArgs{
+//										Expression: pulumi.String("event.summary matches 'no-op'"),
+//									},
+//								},
+//								Actions: &pagerduty.EventOrchestrationGlobalSetRuleActionsArgs{
+//									DropEvent: pulumi.Bool(true),
+//								},
+//							},
+//							&pagerduty.EventOrchestrationGlobalSetRuleArgs{
+//								Label: pulumi.String("If there's something wrong on the replica, then mark the alert as a warning"),
+//								Conditions: pagerduty.EventOrchestrationGlobalSetRuleConditionArray{
+//									&pagerduty.EventOrchestrationGlobalSetRuleConditionArgs{
+//										Expression: pulumi.String("event.custom_details.hostname matches part 'replica'"),
+//									},
+//								},
+//								Actions: &pagerduty.EventOrchestrationGlobalSetRuleActionsArgs{
+//									Severity: pulumi.String("warning"),
+//								},
+//							},
+//							&pagerduty.EventOrchestrationGlobalSetRuleArgs{
+//								Label: pulumi.String("Otherwise, set the incident to P1 and run a diagnostic"),
+//								Actions: &pagerduty.EventOrchestrationGlobalSetRuleActionsArgs{
+//									Priority: *pulumi.String(p1.Id),
+//									AutomationAction: &pagerduty.EventOrchestrationGlobalSetRuleActionsAutomationActionArgs{
+//										Name:     pulumi.String("db-diagnostic"),
+//										Url:      pulumi.String("https://example.com/run-diagnostic"),
+//										AutoSend: pulumi.Bool(true),
+//									},
+//								},
+//							},
+//						},
+//					},
+//				},
+//				CatchAll: &pagerduty.EventOrchestrationGlobalCatchAllArgs{
+//					Actions: nil,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Global Orchestration can be imported using the `id` of the Event Orchestration, e.g.

@@ -33,6 +33,9 @@ namespace Pulumi.Pagerduty.Outputs
         /// Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
         /// </summary>
         public readonly Outputs.EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction? PagerdutyAutomationAction;
+        /// <summary>
+        /// The ID of the priority you want to set on resulting incident. Consider using the `pagerduty.getPriority` data source.
+        /// </summary>
         public readonly string? Priority;
         /// <summary>
         /// The ID of a Set from this Service Orchestration whose rules you also want to use with events that match this rule.

@@ -43,6 +43,10 @@ public final class EventOrchestrationServiceSetRuleActions {
      * 
      */
     private @Nullable EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction pagerdutyAutomationAction;
+    /**
+     * @return The ID of the priority you want to set on resulting incident. Consider using the `pagerduty.getPriority` data source.
+     * 
+     */
     private @Nullable String priority;
     /**
      * @return The ID of a Set from this Service Orchestration whose rules you also want to use with events that match this rule.
@@ -106,6 +110,10 @@ public final class EventOrchestrationServiceSetRuleActions {
     public Optional<EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction> pagerdutyAutomationAction() {
         return Optional.ofNullable(this.pagerdutyAutomationAction);
     }
+    /**
+     * @return The ID of the priority you want to set on resulting incident. Consider using the `pagerduty.getPriority` data source.
+     * 
+     */
     public Optional<String> priority() {
         return Optional.ofNullable(this.priority);
     }

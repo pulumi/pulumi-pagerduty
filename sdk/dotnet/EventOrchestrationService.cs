@@ -10,6 +10,206 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty
 {
     /// <summary>
+    /// A [Service Orchestration](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations) allows you to create a set of Event Rules. The Service Orchestration evaluates Events sent to this Service against each of its rules, beginning with the rules in the "start" set. When a matching rule is found, it can modify and enhance the event and can route the event to another set of rules within this Service Orchestration for further processing.
+    /// 
+    /// &gt; If you have a Service that uses [Service Event Rules](https://support.pagerduty.com/docs/rulesets#service-event-rules), you can switch to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations) at any time setting the attribute `enable_event_orchestration_for_service` to `true`. Please read the [Switch to Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#switch-to-service-orchestrations) instructions for more information.
+    /// 
+    /// ## Example of configuring a Service Orchestration
+    /// 
+    /// This example shows creating `Team`, `User`, `Escalation Policy`, and `Service` resources followed by creating a Service Orchestration to handle Events sent to that Service.
+    /// 
+    /// This example also shows using `priority` data source to configure `priority` action for a rule. If the Event matches the first rule in set "step-two" the resulting incident will have the Priority `P1`.
+    /// 
+    /// This example shows a Service Orchestration that has nested sets: a rule in the "start" set has a `route_to` action pointing at the "step-two" set.
+    /// 
+    /// The `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set. In this example the `catch_all` doesn't have any `actions` so it'll leave events as-is.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Pagerduty = Pulumi.Pagerduty;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var engineering = new Pagerduty.Team("engineering");
+    /// 
+    ///     var exampleUser = new Pagerduty.User("exampleUser", new()
+    ///     {
+    ///         Email = "125.greenholt.earline@graham.name",
+    ///         Teams = new[]
+    ///         {
+    ///             engineering.Id,
+    ///         },
+    ///     });
+    /// 
+    ///     var foo = new Pagerduty.EscalationPolicy("foo", new()
+    ///     {
+    ///         NumLoops = 2,
+    ///         Rules = new[]
+    ///         {
+    ///             new Pagerduty.Inputs.EscalationPolicyRuleArgs
+    ///             {
+    ///                 EscalationDelayInMinutes = 10,
+    ///                 Targets = new[]
+    ///                 {
+    ///                     new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
+    ///                     {
+    ///                         Type = "user",
+    ///                         Id = exampleUser.Id,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleService = new Pagerduty.Service("exampleService", new()
+    ///     {
+    ///         AutoResolveTimeout = "14400",
+    ///         AcknowledgementTimeout = "600",
+    ///         EscalationPolicy = pagerduty_escalation_policy.Example.Id,
+    ///         AlertCreation = "create_alerts_and_incidents",
+    ///     });
+    /// 
+    ///     var p1 = Pagerduty.GetPriority.Invoke(new()
+    ///     {
+    ///         Name = "P1",
+    ///     });
+    /// 
+    ///     var www = new Pagerduty.EventOrchestrationService("www", new()
+    ///     {
+    ///         Service = exampleService.Id,
+    ///         EnableEventOrchestrationForService = true,
+    ///         Sets = new[]
+    ///         {
+    ///             new Pagerduty.Inputs.EventOrchestrationServiceSetArgs
+    ///             {
+    ///                 Id = "start",
+    ///                 Rules = new[]
+    ///                 {
+    ///                     new Pagerduty.Inputs.EventOrchestrationServiceSetRuleArgs
+    ///                     {
+    ///                         Label = "Always apply some consistent event transformations to all events",
+    ///                         Actions = new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsArgs
+    ///                         {
+    ///                             Variables = new[]
+    ///                             {
+    ///                                 new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsVariableArgs
+    ///                                 {
+    ///                                     Name = "hostname",
+    ///                                     Path = "event.component",
+    ///                                     Value = "hostname: (.*)",
+    ///                                     Type = "regex",
+    ///                                 },
+    ///                             },
+    ///                             Extractions = new[]
+    ///                             {
+    ///                                 new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsExtractionArgs
+    ///                                 {
+    ///                                     Template = "{{variables.hostname}}",
+    ///                                     Target = "event.custom_details.hostname",
+    ///                                 },
+    ///                                 new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsExtractionArgs
+    ///                                 {
+    ///                                     Source = "event.source",
+    ///                                     Regex = "www (.*) service",
+    ///                                     Target = "event.source",
+    ///                                 },
+    ///                             },
+    ///                             RouteTo = "step-two",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Pagerduty.Inputs.EventOrchestrationServiceSetArgs
+    ///             {
+    ///                 Id = "step-two",
+    ///                 Rules = new[]
+    ///                 {
+    ///                     new Pagerduty.Inputs.EventOrchestrationServiceSetRuleArgs
+    ///                     {
+    ///                         Label = "All critical alerts should be treated as P1 incident",
+    ///                         Conditions = new[]
+    ///                         {
+    ///                             new Pagerduty.Inputs.EventOrchestrationServiceSetRuleConditionArgs
+    ///                             {
+    ///                                 Expression = "event.severity matches 'critical'",
+    ///                             },
+    ///                         },
+    ///                         Actions = new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsArgs
+    ///                         {
+    ///                             Annotate = "Please use our P1 runbook: https://docs.test/p1-runbook",
+    ///                             Priority = p1.Apply(getPriorityResult =&gt; getPriorityResult.Id),
+    ///                         },
+    ///                     },
+    ///                     new Pagerduty.Inputs.EventOrchestrationServiceSetRuleArgs
+    ///                     {
+    ///                         Label = "If there's something wrong on the canary let the team know about it in our deployments Slack channel",
+    ///                         Conditions = new[]
+    ///                         {
+    ///                             new Pagerduty.Inputs.EventOrchestrationServiceSetRuleConditionArgs
+    ///                             {
+    ///                                 Expression = "event.custom_details.hostname matches part 'canary'",
+    ///                             },
+    ///                         },
+    ///                         Actions = new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsArgs
+    ///                         {
+    ///                             AutomationAction = new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsAutomationActionArgs
+    ///                             {
+    ///                                 Name = "Canary Slack Notification",
+    ///                                 Url = "https://our-slack-listerner.test/canary-notification",
+    ///                                 AutoSend = true,
+    ///                                 Parameters = new[]
+    ///                                 {
+    ///                                     new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs
+    ///                                     {
+    ///                                         Key = "channel",
+    ///                                         Value = "#my-team-channel",
+    ///                                     },
+    ///                                     new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs
+    ///                                     {
+    ///                                         Key = "message",
+    ///                                         Value = "something is wrong with the canary deployment",
+    ///                                     },
+    ///                                 },
+    ///                                 Headers = new[]
+    ///                                 {
+    ///                                     new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs
+    ///                                     {
+    ///                                         Key = "X-Notification-Source",
+    ///                                         Value = "PagerDuty Incident Webhook",
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     new Pagerduty.Inputs.EventOrchestrationServiceSetRuleArgs
+    ///                     {
+    ///                         Label = "Never bother the on-call for info-level events outside of work hours",
+    ///                         Conditions = new[]
+    ///                         {
+    ///                             new Pagerduty.Inputs.EventOrchestrationServiceSetRuleConditionArgs
+    ///                             {
+    ///                                 Expression = "event.severity matches 'info' and not (now in Mon,Tue,Wed,Thu,Fri 09:00:00 to 17:00:00 America/Los_Angeles)",
+    ///                             },
+    ///                         },
+    ///                         Actions = new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsArgs
+    ///                         {
+    ///                             Suppress = true,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         CatchAll = new Pagerduty.Inputs.EventOrchestrationServiceCatchAllArgs
+    ///         {
+    ///             Actions = null,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Service Orchestration can be imported using the `id` of the Service, e.g.

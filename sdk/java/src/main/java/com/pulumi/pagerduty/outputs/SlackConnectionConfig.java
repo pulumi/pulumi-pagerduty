@@ -29,6 +29,12 @@ public final class SlackConnectionConfig {
      * 
      */
     private List<String> events;
+    /**
+     * @return Allows you to filter events by priority. Needs to be an array of PagerDuty priority IDs. Available through pagerduty.getPriority data source.
+     * - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behaviour is to set `priorities` to `No Priority` value.
+     * - When set to `[&#34;*&#34;]` its corresponding value for `priorities` in Slack Connection&#39;s configuration will be `Any Priority`.
+     * 
+     */
     private @Nullable List<String> priorities;
     /**
      * @return Allows you to filter events by urgency. Either `high` or `low`.
@@ -56,6 +62,12 @@ public final class SlackConnectionConfig {
     public List<String> events() {
         return this.events;
     }
+    /**
+     * @return Allows you to filter events by priority. Needs to be an array of PagerDuty priority IDs. Available through pagerduty.getPriority data source.
+     * - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behaviour is to set `priorities` to `No Priority` value.
+     * - When set to `[&#34;*&#34;]` its corresponding value for `priorities` in Slack Connection&#39;s configuration will be `Any Priority`.
+     * 
+     */
     public List<String> priorities() {
         return this.priorities == null ? List.of() : this.priorities;
     }

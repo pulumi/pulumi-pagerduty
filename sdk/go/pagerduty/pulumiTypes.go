@@ -589,7 +589,8 @@ type EventOrchestrationGlobalCatchAllActions struct {
 	EventAction *string `pulumi:"eventAction"`
 	// Replace any CEF field or Custom Details object field using custom variables.
 	Extractions []EventOrchestrationGlobalCatchAllActionsExtraction `pulumi:"extractions"`
-	Priority    *string                                             `pulumi:"priority"`
+	// The ID of the priority you want to set on resulting incident. Consider using the `getPriority` data source.
+	Priority *string `pulumi:"priority"`
 	// The ID of a Set from this Global Orchestration whose rules you also want to use with events that match this rule.
 	RouteTo *string `pulumi:"routeTo"`
 	// sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
@@ -624,7 +625,8 @@ type EventOrchestrationGlobalCatchAllActionsArgs struct {
 	EventAction pulumi.StringPtrInput `pulumi:"eventAction"`
 	// Replace any CEF field or Custom Details object field using custom variables.
 	Extractions EventOrchestrationGlobalCatchAllActionsExtractionArrayInput `pulumi:"extractions"`
-	Priority    pulumi.StringPtrInput                                       `pulumi:"priority"`
+	// The ID of the priority you want to set on resulting incident. Consider using the `getPriority` data source.
+	Priority pulumi.StringPtrInput `pulumi:"priority"`
 	// The ID of a Set from this Global Orchestration whose rules you also want to use with events that match this rule.
 	RouteTo pulumi.StringPtrInput `pulumi:"routeTo"`
 	// sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
@@ -743,6 +745,7 @@ func (o EventOrchestrationGlobalCatchAllActionsOutput) Extractions() EventOrches
 	}).(EventOrchestrationGlobalCatchAllActionsExtractionArrayOutput)
 }
 
+// The ID of the priority you want to set on resulting incident. Consider using the `getPriority` data source.
 func (o EventOrchestrationGlobalCatchAllActionsOutput) Priority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalCatchAllActions) *string { return v.Priority }).(pulumi.StringPtrOutput)
 }
@@ -848,6 +851,7 @@ func (o EventOrchestrationGlobalCatchAllActionsPtrOutput) Extractions() EventOrc
 	}).(EventOrchestrationGlobalCatchAllActionsExtractionArrayOutput)
 }
 
+// The ID of the priority you want to set on resulting incident. Consider using the `getPriority` data source.
 func (o EventOrchestrationGlobalCatchAllActionsPtrOutput) Priority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventOrchestrationGlobalCatchAllActions) *string {
 		if v == nil {
@@ -1839,7 +1843,8 @@ type EventOrchestrationGlobalSetRuleActions struct {
 	EventAction *string `pulumi:"eventAction"`
 	// Replace any CEF field or Custom Details object field using custom variables.
 	Extractions []EventOrchestrationGlobalSetRuleActionsExtraction `pulumi:"extractions"`
-	Priority    *string                                            `pulumi:"priority"`
+	// The ID of the priority you want to set on resulting incident. Consider using the `getPriority` data source.
+	Priority *string `pulumi:"priority"`
 	// The ID of a Set from this Global Orchestration whose rules you also want to use with events that match this rule.
 	RouteTo *string `pulumi:"routeTo"`
 	// sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
@@ -1874,7 +1879,8 @@ type EventOrchestrationGlobalSetRuleActionsArgs struct {
 	EventAction pulumi.StringPtrInput `pulumi:"eventAction"`
 	// Replace any CEF field or Custom Details object field using custom variables.
 	Extractions EventOrchestrationGlobalSetRuleActionsExtractionArrayInput `pulumi:"extractions"`
-	Priority    pulumi.StringPtrInput                                      `pulumi:"priority"`
+	// The ID of the priority you want to set on resulting incident. Consider using the `getPriority` data source.
+	Priority pulumi.StringPtrInput `pulumi:"priority"`
 	// The ID of a Set from this Global Orchestration whose rules you also want to use with events that match this rule.
 	RouteTo pulumi.StringPtrInput `pulumi:"routeTo"`
 	// sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
@@ -1942,6 +1948,7 @@ func (o EventOrchestrationGlobalSetRuleActionsOutput) Extractions() EventOrchest
 	}).(EventOrchestrationGlobalSetRuleActionsExtractionArrayOutput)
 }
 
+// The ID of the priority you want to set on resulting incident. Consider using the `getPriority` data source.
 func (o EventOrchestrationGlobalSetRuleActionsOutput) Priority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalSetRuleActions) *string { return v.Priority }).(pulumi.StringPtrOutput)
 }
@@ -3828,7 +3835,8 @@ type EventOrchestrationServiceCatchAllActions struct {
 	Extractions []EventOrchestrationServiceCatchAllActionsExtraction `pulumi:"extractions"`
 	// Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
 	PagerdutyAutomationAction *EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction `pulumi:"pagerdutyAutomationAction"`
-	Priority                  *string                                                            `pulumi:"priority"`
+	// The ID of the priority you want to set on resulting incident. Consider using the `getPriority` data source.
+	Priority *string `pulumi:"priority"`
 	// The ID of a Set from this Service Orchestration whose rules you also want to use with events that match this rule.
 	RouteTo *string `pulumi:"routeTo"`
 	// sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
@@ -3863,7 +3871,8 @@ type EventOrchestrationServiceCatchAllActionsArgs struct {
 	Extractions EventOrchestrationServiceCatchAllActionsExtractionArrayInput `pulumi:"extractions"`
 	// Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
 	PagerdutyAutomationAction EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrInput `pulumi:"pagerdutyAutomationAction"`
-	Priority                  pulumi.StringPtrInput                                                     `pulumi:"priority"`
+	// The ID of the priority you want to set on resulting incident. Consider using the `getPriority` data source.
+	Priority pulumi.StringPtrInput `pulumi:"priority"`
 	// The ID of a Set from this Service Orchestration whose rules you also want to use with events that match this rule.
 	RouteTo pulumi.StringPtrInput `pulumi:"routeTo"`
 	// sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
@@ -3984,6 +3993,7 @@ func (o EventOrchestrationServiceCatchAllActionsOutput) PagerdutyAutomationActio
 	}).(EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput)
 }
 
+// The ID of the priority you want to set on resulting incident. Consider using the `getPriority` data source.
 func (o EventOrchestrationServiceCatchAllActionsOutput) Priority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActions) *string { return v.Priority }).(pulumi.StringPtrOutput)
 }
@@ -4089,6 +4099,7 @@ func (o EventOrchestrationServiceCatchAllActionsPtrOutput) PagerdutyAutomationAc
 	}).(EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput)
 }
 
+// The ID of the priority you want to set on resulting incident. Consider using the `getPriority` data source.
 func (o EventOrchestrationServiceCatchAllActionsPtrOutput) Priority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventOrchestrationServiceCatchAllActions) *string {
 		if v == nil {
@@ -5217,7 +5228,8 @@ type EventOrchestrationServiceSetRuleActions struct {
 	Extractions []EventOrchestrationServiceSetRuleActionsExtraction `pulumi:"extractions"`
 	// Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
 	PagerdutyAutomationAction *EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction `pulumi:"pagerdutyAutomationAction"`
-	Priority                  *string                                                           `pulumi:"priority"`
+	// The ID of the priority you want to set on resulting incident. Consider using the `getPriority` data source.
+	Priority *string `pulumi:"priority"`
 	// The ID of a Set from this Service Orchestration whose rules you also want to use with events that match this rule.
 	RouteTo *string `pulumi:"routeTo"`
 	// sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
@@ -5252,7 +5264,8 @@ type EventOrchestrationServiceSetRuleActionsArgs struct {
 	Extractions EventOrchestrationServiceSetRuleActionsExtractionArrayInput `pulumi:"extractions"`
 	// Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
 	PagerdutyAutomationAction EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrInput `pulumi:"pagerdutyAutomationAction"`
-	Priority                  pulumi.StringPtrInput                                                    `pulumi:"priority"`
+	// The ID of the priority you want to set on resulting incident. Consider using the `getPriority` data source.
+	Priority pulumi.StringPtrInput `pulumi:"priority"`
 	// The ID of a Set from this Service Orchestration whose rules you also want to use with events that match this rule.
 	RouteTo pulumi.StringPtrInput `pulumi:"routeTo"`
 	// sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
@@ -5322,6 +5335,7 @@ func (o EventOrchestrationServiceSetRuleActionsOutput) PagerdutyAutomationAction
 	}).(EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput)
 }
 
+// The ID of the priority you want to set on resulting incident. Consider using the `getPriority` data source.
 func (o EventOrchestrationServiceSetRuleActionsOutput) Priority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActions) *string { return v.Priority }).(pulumi.StringPtrOutput)
 }
@@ -8967,10 +8981,14 @@ func (o RulesetRuleActionsEventActionArrayOutput) Index(i pulumi.IntInput) Rules
 
 type RulesetRuleActionsExtraction struct {
 	// The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
+	//
+	// *- **OR** -*
 	Regex *string `pulumi:"regex"`
 	// Field where the data is being copied from. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
 	Source *string `pulumi:"source"`
 	// Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+	//
+	// *NOTE: A rule can have multiple `extraction` objects attributed to it.*
 	Target *string `pulumi:"target"`
 	// A customized field message. This can also include variables extracted from the payload by using string interpolation.
 	Template *string `pulumi:"template"`
@@ -8989,10 +9007,14 @@ type RulesetRuleActionsExtractionInput interface {
 
 type RulesetRuleActionsExtractionArgs struct {
 	// The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
+	//
+	// *- **OR** -*
 	Regex pulumi.StringPtrInput `pulumi:"regex"`
 	// Field where the data is being copied from. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
 	Source pulumi.StringPtrInput `pulumi:"source"`
 	// Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+	//
+	// *NOTE: A rule can have multiple `extraction` objects attributed to it.*
 	Target pulumi.StringPtrInput `pulumi:"target"`
 	// A customized field message. This can also include variables extracted from the payload by using string interpolation.
 	Template pulumi.StringPtrInput `pulumi:"template"`
@@ -9050,6 +9072,8 @@ func (o RulesetRuleActionsExtractionOutput) ToRulesetRuleActionsExtractionOutput
 }
 
 // The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
+//
+// *- **OR** -*
 func (o RulesetRuleActionsExtractionOutput) Regex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RulesetRuleActionsExtraction) *string { return v.Regex }).(pulumi.StringPtrOutput)
 }
@@ -9060,6 +9084,8 @@ func (o RulesetRuleActionsExtractionOutput) Source() pulumi.StringPtrOutput {
 }
 
 // Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+//
+// *NOTE: A rule can have multiple `extraction` objects attributed to it.*
 func (o RulesetRuleActionsExtractionOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RulesetRuleActionsExtraction) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
@@ -10125,7 +10151,8 @@ func (o RulesetRuleTimeFramePtrOutput) ScheduledWeeklies() RulesetRuleTimeFrameS
 }
 
 type RulesetRuleTimeFrameActiveBetween struct {
-	EndTime   *int `pulumi:"endTime"`
+	EndTime *int `pulumi:"endTime"`
+	// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
 	StartTime *int `pulumi:"startTime"`
 }
 
@@ -10141,7 +10168,8 @@ type RulesetRuleTimeFrameActiveBetweenInput interface {
 }
 
 type RulesetRuleTimeFrameActiveBetweenArgs struct {
-	EndTime   pulumi.IntPtrInput `pulumi:"endTime"`
+	EndTime pulumi.IntPtrInput `pulumi:"endTime"`
+	// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
 	StartTime pulumi.IntPtrInput `pulumi:"startTime"`
 }
 
@@ -10200,6 +10228,7 @@ func (o RulesetRuleTimeFrameActiveBetweenOutput) EndTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RulesetRuleTimeFrameActiveBetween) *int { return v.EndTime }).(pulumi.IntPtrOutput)
 }
 
+// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
 func (o RulesetRuleTimeFrameActiveBetweenOutput) StartTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RulesetRuleTimeFrameActiveBetween) *int { return v.StartTime }).(pulumi.IntPtrOutput)
 }
@@ -10226,7 +10255,8 @@ func (o RulesetRuleTimeFrameActiveBetweenArrayOutput) Index(i pulumi.IntInput) R
 
 type RulesetRuleTimeFrameScheduledWeekly struct {
 	// Length of time the schedule will be active in milliseconds. For example `duration = 2 * 60 * 60 * 1000` if you want your rule to apply for 2 hours, from the specified `startTime`.
-	Duration  *int `pulumi:"duration"`
+	Duration *int `pulumi:"duration"`
+	// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
 	StartTime *int `pulumi:"startTime"`
 	// [The name of the timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for the given schedule, which will be used to determine UTC offset including adjustment for daylight saving time. For example: `timezone = "America/Toronto"`
 	Timezone *string `pulumi:"timezone"`
@@ -10247,7 +10277,8 @@ type RulesetRuleTimeFrameScheduledWeeklyInput interface {
 
 type RulesetRuleTimeFrameScheduledWeeklyArgs struct {
 	// Length of time the schedule will be active in milliseconds. For example `duration = 2 * 60 * 60 * 1000` if you want your rule to apply for 2 hours, from the specified `startTime`.
-	Duration  pulumi.IntPtrInput `pulumi:"duration"`
+	Duration pulumi.IntPtrInput `pulumi:"duration"`
+	// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
 	StartTime pulumi.IntPtrInput `pulumi:"startTime"`
 	// [The name of the timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for the given schedule, which will be used to determine UTC offset including adjustment for daylight saving time. For example: `timezone = "America/Toronto"`
 	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
@@ -10311,6 +10342,7 @@ func (o RulesetRuleTimeFrameScheduledWeeklyOutput) Duration() pulumi.IntPtrOutpu
 	return o.ApplyT(func(v RulesetRuleTimeFrameScheduledWeekly) *int { return v.Duration }).(pulumi.IntPtrOutput)
 }
 
+// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
 func (o RulesetRuleTimeFrameScheduledWeeklyOutput) StartTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RulesetRuleTimeFrameScheduledWeekly) *int { return v.StartTime }).(pulumi.IntPtrOutput)
 }
@@ -11246,6 +11278,10 @@ type ServiceAlertGroupingParametersConfig struct {
 	// Alerts will be grouped together if the content of these fields match. This setting applies only when `type` is set to `contentBased`.
 	Fields []string `pulumi:"fields"`
 	// The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
+	//
+	// You may specify one optional `incidentUrgencyRule` block configuring what urgencies to use.
+	// Your PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.
+	// The block contains the following arguments:
 	Timeout *int `pulumi:"timeout"`
 }
 
@@ -11266,6 +11302,10 @@ type ServiceAlertGroupingParametersConfigArgs struct {
 	// Alerts will be grouped together if the content of these fields match. This setting applies only when `type` is set to `contentBased`.
 	Fields pulumi.StringArrayInput `pulumi:"fields"`
 	// The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
+	//
+	// You may specify one optional `incidentUrgencyRule` block configuring what urgencies to use.
+	// Your PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.
+	// The block contains the following arguments:
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
 }
 
@@ -11357,6 +11397,10 @@ func (o ServiceAlertGroupingParametersConfigOutput) Fields() pulumi.StringArrayO
 }
 
 // The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
+//
+// You may specify one optional `incidentUrgencyRule` block configuring what urgencies to use.
+// Your PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.
+// The block contains the following arguments:
 func (o ServiceAlertGroupingParametersConfigOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceAlertGroupingParametersConfig) *int { return v.Timeout }).(pulumi.IntPtrOutput)
 }
@@ -11406,6 +11450,10 @@ func (o ServiceAlertGroupingParametersConfigPtrOutput) Fields() pulumi.StringArr
 }
 
 // The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
+//
+// You may specify one optional `incidentUrgencyRule` block configuring what urgencies to use.
+// Your PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.
+// The block contains the following arguments:
 func (o ServiceAlertGroupingParametersConfigPtrOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceAlertGroupingParametersConfig) *int {
 		if v == nil {
@@ -11419,6 +11467,10 @@ type ServiceAutoPauseNotificationsParameters struct {
 	// Indicates whether alerts should be automatically suspended when identified as transient.  If not passed in, will default to 'false'.
 	Enabled *bool `pulumi:"enabled"`
 	// Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `enabled` is `true`. Must be omitted or set to `null` if `enabled` is `false`.
+	//
+	// You may specify one optional `incidentUrgencyRule` block configuring what urgencies to use.
+	// Your PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.
+	// The block contains the following arguments:
 	Timeout *int `pulumi:"timeout"`
 }
 
@@ -11437,6 +11489,10 @@ type ServiceAutoPauseNotificationsParametersArgs struct {
 	// Indicates whether alerts should be automatically suspended when identified as transient.  If not passed in, will default to 'false'.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `enabled` is `true`. Must be omitted or set to `null` if `enabled` is `false`.
+	//
+	// You may specify one optional `incidentUrgencyRule` block configuring what urgencies to use.
+	// Your PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.
+	// The block contains the following arguments:
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
 }
 
@@ -11523,6 +11579,10 @@ func (o ServiceAutoPauseNotificationsParametersOutput) Enabled() pulumi.BoolPtrO
 }
 
 // Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `enabled` is `true`. Must be omitted or set to `null` if `enabled` is `false`.
+//
+// You may specify one optional `incidentUrgencyRule` block configuring what urgencies to use.
+// Your PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.
+// The block contains the following arguments:
 func (o ServiceAutoPauseNotificationsParametersOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceAutoPauseNotificationsParameters) *int { return v.Timeout }).(pulumi.IntPtrOutput)
 }
@@ -11562,6 +11622,10 @@ func (o ServiceAutoPauseNotificationsParametersPtrOutput) Enabled() pulumi.BoolP
 }
 
 // Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `enabled` is `true`. Must be omitted or set to `null` if `enabled` is `false`.
+//
+// You may specify one optional `incidentUrgencyRule` block configuring what urgencies to use.
+// Your PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.
+// The block contains the following arguments:
 func (o ServiceAutoPauseNotificationsParametersPtrOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceAutoPauseNotificationsParameters) *int {
 		if v == nil {
@@ -12409,10 +12473,14 @@ func (o ServiceEventRuleActionsEventActionArrayOutput) Index(i pulumi.IntInput) 
 
 type ServiceEventRuleActionsExtraction struct {
 	// The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
+	//
+	// *- **OR** -*
 	Regex *string `pulumi:"regex"`
 	// Field where the data is being copied from. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
 	Source *string `pulumi:"source"`
 	// Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+	//
+	// *NOTE: A rule can have multiple `extraction` objects attributed to it.*
 	Target *string `pulumi:"target"`
 	// A customized field message. This can also include variables extracted from the payload by using string interpolation.
 	Template *string `pulumi:"template"`
@@ -12431,10 +12499,14 @@ type ServiceEventRuleActionsExtractionInput interface {
 
 type ServiceEventRuleActionsExtractionArgs struct {
 	// The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
+	//
+	// *- **OR** -*
 	Regex pulumi.StringPtrInput `pulumi:"regex"`
 	// Field where the data is being copied from. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
 	Source pulumi.StringPtrInput `pulumi:"source"`
 	// Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+	//
+	// *NOTE: A rule can have multiple `extraction` objects attributed to it.*
 	Target pulumi.StringPtrInput `pulumi:"target"`
 	// A customized field message. This can also include variables extracted from the payload by using string interpolation.
 	Template pulumi.StringPtrInput `pulumi:"template"`
@@ -12492,6 +12564,8 @@ func (o ServiceEventRuleActionsExtractionOutput) ToServiceEventRuleActionsExtrac
 }
 
 // The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
+//
+// *- **OR** -*
 func (o ServiceEventRuleActionsExtractionOutput) Regex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceEventRuleActionsExtraction) *string { return v.Regex }).(pulumi.StringPtrOutput)
 }
@@ -12502,6 +12576,8 @@ func (o ServiceEventRuleActionsExtractionOutput) Source() pulumi.StringPtrOutput
 }
 
 // Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+//
+// *NOTE: A rule can have multiple `extraction` objects attributed to it.*
 func (o ServiceEventRuleActionsExtractionOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceEventRuleActionsExtraction) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
@@ -13929,6 +14005,10 @@ type ServiceIncidentUrgencyRule struct {
 	// Incidents' urgency during support hours.
 	DuringSupportHours *ServiceIncidentUrgencyRuleDuringSupportHours `pulumi:"duringSupportHours"`
 	// Incidents' urgency outside support hours.
+	//
+	// When using `type = "useSupportHours"` in `incidentUrgencyRule` you must specify exactly one (otherwise optional) `supportHours` block.
+	// Your PagerDuty account must have the `serviceSupportHours` ability to assign support hours.
+	// The block contains the following arguments:
 	OutsideSupportHours *ServiceIncidentUrgencyRuleOutsideSupportHours `pulumi:"outsideSupportHours"`
 	// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
 	Type string `pulumi:"type"`
@@ -13951,6 +14031,10 @@ type ServiceIncidentUrgencyRuleArgs struct {
 	// Incidents' urgency during support hours.
 	DuringSupportHours ServiceIncidentUrgencyRuleDuringSupportHoursPtrInput `pulumi:"duringSupportHours"`
 	// Incidents' urgency outside support hours.
+	//
+	// When using `type = "useSupportHours"` in `incidentUrgencyRule` you must specify exactly one (otherwise optional) `supportHours` block.
+	// Your PagerDuty account must have the `serviceSupportHours` ability to assign support hours.
+	// The block contains the following arguments:
 	OutsideSupportHours ServiceIncidentUrgencyRuleOutsideSupportHoursPtrInput `pulumi:"outsideSupportHours"`
 	// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -14043,6 +14127,10 @@ func (o ServiceIncidentUrgencyRuleOutput) DuringSupportHours() ServiceIncidentUr
 }
 
 // Incidents' urgency outside support hours.
+//
+// When using `type = "useSupportHours"` in `incidentUrgencyRule` you must specify exactly one (otherwise optional) `supportHours` block.
+// Your PagerDuty account must have the `serviceSupportHours` ability to assign support hours.
+// The block contains the following arguments:
 func (o ServiceIncidentUrgencyRuleOutput) OutsideSupportHours() ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput {
 	return o.ApplyT(func(v ServiceIncidentUrgencyRule) *ServiceIncidentUrgencyRuleOutsideSupportHours {
 		return v.OutsideSupportHours
@@ -14094,6 +14182,10 @@ func (o ServiceIncidentUrgencyRulePtrOutput) DuringSupportHours() ServiceInciden
 }
 
 // Incidents' urgency outside support hours.
+//
+// When using `type = "useSupportHours"` in `incidentUrgencyRule` you must specify exactly one (otherwise optional) `supportHours` block.
+// Your PagerDuty account must have the `serviceSupportHours` ability to assign support hours.
+// The block contains the following arguments:
 func (o ServiceIncidentUrgencyRulePtrOutput) OutsideSupportHours() ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput {
 	return o.ApplyT(func(v *ServiceIncidentUrgencyRule) *ServiceIncidentUrgencyRuleOutsideSupportHours {
 		if v == nil {
@@ -15011,6 +15103,8 @@ type ServiceIntegrationEmailParserValueExtractor struct {
 	// Can be `subject` or `body`.
 	Part string `pulumi:"part"`
 	// If `type` has value `regex` this value should contain valid regex.
+	//
+	// **Note:** You can use the `getVendor` data source to locate the appropriate vendor ID.
 	Regex       *string `pulumi:"regex"`
 	StartsAfter *string `pulumi:"startsAfter"`
 	// Can be `between`, `entire` or `regex`.
@@ -15035,6 +15129,8 @@ type ServiceIntegrationEmailParserValueExtractorArgs struct {
 	// Can be `subject` or `body`.
 	Part pulumi.StringInput `pulumi:"part"`
 	// If `type` has value `regex` this value should contain valid regex.
+	//
+	// **Note:** You can use the `getVendor` data source to locate the appropriate vendor ID.
 	Regex       pulumi.StringPtrInput `pulumi:"regex"`
 	StartsAfter pulumi.StringPtrInput `pulumi:"startsAfter"`
 	// Can be `between`, `entire` or `regex`.
@@ -15104,6 +15200,8 @@ func (o ServiceIntegrationEmailParserValueExtractorOutput) Part() pulumi.StringO
 }
 
 // If `type` has value `regex` this value should contain valid regex.
+//
+// **Note:** You can use the `getVendor` data source to locate the appropriate vendor ID.
 func (o ServiceIntegrationEmailParserValueExtractorOutput) Regex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceIntegrationEmailParserValueExtractor) *string { return v.Regex }).(pulumi.StringPtrOutput)
 }
@@ -15259,6 +15357,70 @@ func (o ServiceScheduledActionArrayOutput) Index(i pulumi.IntInput) ServiceSched
 
 type ServiceScheduledActionAt struct {
 	// Designates either the start or the end of the scheduled action. Can be `supportHoursStart` or `supportHoursEnd`.
+	//
+	// Note that it is currently only possible to define the scheduled action when urgency is set to `high` for `duringSupportHours` and to `low`  for `outsideSupportHours` in `incidentUrgencyRule`.
+	//
+	// Below is an example for a `Service` resource with `incidentUrgencyRules` with `type = "useSupportHours"`, `supportHours` and a default `scheduledAction` as well.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := pagerduty.NewService(ctx, "foo", &pagerduty.ServiceArgs{
+	// 			Description:            pulumi.String("bar bar bar"),
+	// 			AutoResolveTimeout:     pulumi.String("3600"),
+	// 			AcknowledgementTimeout: pulumi.String("3600"),
+	// 			EscalationPolicy:       pulumi.Any(pagerduty_escalation_policy.Foo.Id),
+	// 			IncidentUrgencyRule: &pagerduty.ServiceIncidentUrgencyRuleArgs{
+	// 				Type: pulumi.String("use_support_hours"),
+	// 				DuringSupportHours: &pagerduty.ServiceIncidentUrgencyRuleDuringSupportHoursArgs{
+	// 					Type:    pulumi.String("constant"),
+	// 					Urgency: pulumi.String("high"),
+	// 				},
+	// 				OutsideSupportHours: &pagerduty.ServiceIncidentUrgencyRuleOutsideSupportHoursArgs{
+	// 					Type:    pulumi.String("constant"),
+	// 					Urgency: pulumi.String("low"),
+	// 				},
+	// 			},
+	// 			SupportHours: &pagerduty.ServiceSupportHoursArgs{
+	// 				Type:      pulumi.String("fixed_time_per_day"),
+	// 				TimeZone:  pulumi.String("America/Lima"),
+	// 				StartTime: pulumi.String("09:00:00"),
+	// 				EndTime:   pulumi.String("17:00:00"),
+	// 				DaysOfWeeks: pulumi.IntArray{
+	// 					pulumi.Int(1),
+	// 					pulumi.Int(2),
+	// 					pulumi.Int(3),
+	// 					pulumi.Int(4),
+	// 					pulumi.Int(5),
+	// 				},
+	// 			},
+	// 			ScheduledActions: pagerduty.ServiceScheduledActionArray{
+	// 				&pagerduty.ServiceScheduledActionArgs{
+	// 					Type:      pulumi.String("urgency_change"),
+	// 					ToUrgency: pulumi.String("high"),
+	// 					Ats: pagerduty.ServiceScheduledActionAtArray{
+	// 						&pagerduty.ServiceScheduledActionAtArgs{
+	// 							Type: pulumi.String("named_time"),
+	// 							Name: pulumi.String("support_hours_start"),
+	// 						},
+	// 					},
+	// 				},
+	// 			},
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Name *string `pulumi:"name"`
 	// The type of time specification. Currently, this must be set to `namedTime`.
 	Type *string `pulumi:"type"`
@@ -15277,6 +15439,70 @@ type ServiceScheduledActionAtInput interface {
 
 type ServiceScheduledActionAtArgs struct {
 	// Designates either the start or the end of the scheduled action. Can be `supportHoursStart` or `supportHoursEnd`.
+	//
+	// Note that it is currently only possible to define the scheduled action when urgency is set to `high` for `duringSupportHours` and to `low`  for `outsideSupportHours` in `incidentUrgencyRule`.
+	//
+	// Below is an example for a `Service` resource with `incidentUrgencyRules` with `type = "useSupportHours"`, `supportHours` and a default `scheduledAction` as well.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := pagerduty.NewService(ctx, "foo", &pagerduty.ServiceArgs{
+	// 			Description:            pulumi.String("bar bar bar"),
+	// 			AutoResolveTimeout:     pulumi.String("3600"),
+	// 			AcknowledgementTimeout: pulumi.String("3600"),
+	// 			EscalationPolicy:       pulumi.Any(pagerduty_escalation_policy.Foo.Id),
+	// 			IncidentUrgencyRule: &pagerduty.ServiceIncidentUrgencyRuleArgs{
+	// 				Type: pulumi.String("use_support_hours"),
+	// 				DuringSupportHours: &pagerduty.ServiceIncidentUrgencyRuleDuringSupportHoursArgs{
+	// 					Type:    pulumi.String("constant"),
+	// 					Urgency: pulumi.String("high"),
+	// 				},
+	// 				OutsideSupportHours: &pagerduty.ServiceIncidentUrgencyRuleOutsideSupportHoursArgs{
+	// 					Type:    pulumi.String("constant"),
+	// 					Urgency: pulumi.String("low"),
+	// 				},
+	// 			},
+	// 			SupportHours: &pagerduty.ServiceSupportHoursArgs{
+	// 				Type:      pulumi.String("fixed_time_per_day"),
+	// 				TimeZone:  pulumi.String("America/Lima"),
+	// 				StartTime: pulumi.String("09:00:00"),
+	// 				EndTime:   pulumi.String("17:00:00"),
+	// 				DaysOfWeeks: pulumi.IntArray{
+	// 					pulumi.Int(1),
+	// 					pulumi.Int(2),
+	// 					pulumi.Int(3),
+	// 					pulumi.Int(4),
+	// 					pulumi.Int(5),
+	// 				},
+	// 			},
+	// 			ScheduledActions: pagerduty.ServiceScheduledActionArray{
+	// 				&pagerduty.ServiceScheduledActionArgs{
+	// 					Type:      pulumi.String("urgency_change"),
+	// 					ToUrgency: pulumi.String("high"),
+	// 					Ats: pagerduty.ServiceScheduledActionAtArray{
+	// 						&pagerduty.ServiceScheduledActionAtArgs{
+	// 							Type: pulumi.String("named_time"),
+	// 							Name: pulumi.String("support_hours_start"),
+	// 						},
+	// 					},
+	// 				},
+	// 			},
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The type of time specification. Currently, this must be set to `namedTime`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -15334,6 +15560,73 @@ func (o ServiceScheduledActionAtOutput) ToServiceScheduledActionAtOutputWithCont
 }
 
 // Designates either the start or the end of the scheduled action. Can be `supportHoursStart` or `supportHoursEnd`.
+//
+// Note that it is currently only possible to define the scheduled action when urgency is set to `high` for `duringSupportHours` and to `low`  for `outsideSupportHours` in `incidentUrgencyRule`.
+//
+// Below is an example for a `Service` resource with `incidentUrgencyRules` with `type = "useSupportHours"`, `supportHours` and a default `scheduledAction` as well.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := pagerduty.NewService(ctx, "foo", &pagerduty.ServiceArgs{
+//				Description:            pulumi.String("bar bar bar"),
+//				AutoResolveTimeout:     pulumi.String("3600"),
+//				AcknowledgementTimeout: pulumi.String("3600"),
+//				EscalationPolicy:       pulumi.Any(pagerduty_escalation_policy.Foo.Id),
+//				IncidentUrgencyRule: &pagerduty.ServiceIncidentUrgencyRuleArgs{
+//					Type: pulumi.String("use_support_hours"),
+//					DuringSupportHours: &pagerduty.ServiceIncidentUrgencyRuleDuringSupportHoursArgs{
+//						Type:    pulumi.String("constant"),
+//						Urgency: pulumi.String("high"),
+//					},
+//					OutsideSupportHours: &pagerduty.ServiceIncidentUrgencyRuleOutsideSupportHoursArgs{
+//						Type:    pulumi.String("constant"),
+//						Urgency: pulumi.String("low"),
+//					},
+//				},
+//				SupportHours: &pagerduty.ServiceSupportHoursArgs{
+//					Type:      pulumi.String("fixed_time_per_day"),
+//					TimeZone:  pulumi.String("America/Lima"),
+//					StartTime: pulumi.String("09:00:00"),
+//					EndTime:   pulumi.String("17:00:00"),
+//					DaysOfWeeks: pulumi.IntArray{
+//						pulumi.Int(1),
+//						pulumi.Int(2),
+//						pulumi.Int(3),
+//						pulumi.Int(4),
+//						pulumi.Int(5),
+//					},
+//				},
+//				ScheduledActions: pagerduty.ServiceScheduledActionArray{
+//					&pagerduty.ServiceScheduledActionArgs{
+//						Type:      pulumi.String("urgency_change"),
+//						ToUrgency: pulumi.String("high"),
+//						Ats: pagerduty.ServiceScheduledActionAtArray{
+//							&pagerduty.ServiceScheduledActionAtArgs{
+//								Type: pulumi.String("named_time"),
+//								Name: pulumi.String("support_hours_start"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o ServiceScheduledActionAtOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceScheduledActionAt) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -15368,6 +15661,10 @@ type ServiceSupportHours struct {
 	// Monday and `7` being Sunday.
 	DaysOfWeeks []int `pulumi:"daysOfWeeks"`
 	// The support hours' ending time of day.
+	//
+	// A `scheduledActions` block is required when using `type = "useSupportHours"` in `incidentUrgencyRule`.
+	//
+	// The block contains the following arguments:
 	EndTime *string `pulumi:"endTime"`
 	// The support hours' starting time of day.
 	StartTime *string `pulumi:"startTime"`
@@ -15393,6 +15690,10 @@ type ServiceSupportHoursArgs struct {
 	// Monday and `7` being Sunday.
 	DaysOfWeeks pulumi.IntArrayInput `pulumi:"daysOfWeeks"`
 	// The support hours' ending time of day.
+	//
+	// A `scheduledActions` block is required when using `type = "useSupportHours"` in `incidentUrgencyRule`.
+	//
+	// The block contains the following arguments:
 	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
 	// The support hours' starting time of day.
 	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
@@ -15486,6 +15787,10 @@ func (o ServiceSupportHoursOutput) DaysOfWeeks() pulumi.IntArrayOutput {
 }
 
 // The support hours' ending time of day.
+//
+// A `scheduledActions` block is required when using `type = "useSupportHours"` in `incidentUrgencyRule`.
+//
+// The block contains the following arguments:
 func (o ServiceSupportHoursOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceSupportHours) *string { return v.EndTime }).(pulumi.StringPtrOutput)
 }
@@ -15541,6 +15846,10 @@ func (o ServiceSupportHoursPtrOutput) DaysOfWeeks() pulumi.IntArrayOutput {
 }
 
 // The support hours' ending time of day.
+//
+// A `scheduledActions` block is required when using `type = "useSupportHours"` in `incidentUrgencyRule`.
+//
+// The block contains the following arguments:
 func (o ServiceSupportHoursPtrOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceSupportHours) *string {
 		if v == nil {
@@ -15594,7 +15903,10 @@ type SlackConnectionConfig struct {
 	// - `incident.responder.replied`
 	// - `incident.status_update_published`
 	// - `incident.reopened`
-	Events     []string `pulumi:"events"`
+	Events []string `pulumi:"events"`
+	// Allows you to filter events by priority. Needs to be an array of PagerDuty priority IDs. Available through getPriority data source.
+	// - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behaviour is to set `priorities` to `No Priority` value.
+	// - When set to `["*"]` its corresponding value for `priorities` in Slack Connection's configuration will be `Any Priority`.
 	Priorities []string `pulumi:"priorities"`
 	// Allows you to filter events by urgency. Either `high` or `low`.
 	Urgency *string `pulumi:"urgency"`
@@ -15625,7 +15937,10 @@ type SlackConnectionConfigArgs struct {
 	// - `incident.responder.replied`
 	// - `incident.status_update_published`
 	// - `incident.reopened`
-	Events     pulumi.StringArrayInput `pulumi:"events"`
+	Events pulumi.StringArrayInput `pulumi:"events"`
+	// Allows you to filter events by priority. Needs to be an array of PagerDuty priority IDs. Available through getPriority data source.
+	// - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behaviour is to set `priorities` to `No Priority` value.
+	// - When set to `["*"]` its corresponding value for `priorities` in Slack Connection's configuration will be `Any Priority`.
 	Priorities pulumi.StringArrayInput `pulumi:"priorities"`
 	// Allows you to filter events by urgency. Either `high` or `low`.
 	Urgency pulumi.StringPtrInput `pulumi:"urgency"`
@@ -15699,6 +16014,9 @@ func (o SlackConnectionConfigOutput) Events() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SlackConnectionConfig) []string { return v.Events }).(pulumi.StringArrayOutput)
 }
 
+// Allows you to filter events by priority. Needs to be an array of PagerDuty priority IDs. Available through getPriority data source.
+// - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behaviour is to set `priorities` to `No Priority` value.
+// - When set to `["*"]` its corresponding value for `priorities` in Slack Connection's configuration will be `Any Priority`.
 func (o SlackConnectionConfigOutput) Priorities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SlackConnectionConfig) []string { return v.Priorities }).(pulumi.StringArrayOutput)
 }

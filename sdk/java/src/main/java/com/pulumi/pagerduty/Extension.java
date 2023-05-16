@@ -195,12 +195,16 @@ public class Extension extends com.pulumi.resources.CustomResource {
     /**
      * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
      * 
+     * **Note:** You can use the `pagerduty.getExtensionSchema` data source to locate the appropriate extension vendor ID.
+     * 
      */
     @Export(name="summary", type=String.class, parameters={})
     private Output<String> summary;
 
     /**
      * @return A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+     * 
+     * **Note:** You can use the `pagerduty.getExtensionSchema` data source to locate the appropriate extension vendor ID.
      * 
      */
     public Output<String> summary() {

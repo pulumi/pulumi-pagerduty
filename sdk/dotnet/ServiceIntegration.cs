@@ -266,6 +266,9 @@ namespace Pulumi.Pagerduty
         /// `keynote_inbound_integration`,
         /// `nagios_inbound_integration`,
         /// `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
+        /// 
+        /// **Note:** This is meant for **generic** service integrations.
+        /// To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -391,6 +394,9 @@ namespace Pulumi.Pagerduty
         /// `keynote_inbound_integration`,
         /// `nagios_inbound_integration`,
         /// `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
+        /// 
+        /// **Note:** This is meant for **generic** service integrations.
+        /// To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -484,6 +490,9 @@ namespace Pulumi.Pagerduty
         /// `keynote_inbound_integration`,
         /// `nagios_inbound_integration`,
         /// `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
+        /// 
+        /// **Note:** This is meant for **generic** service integrations.
+        /// To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

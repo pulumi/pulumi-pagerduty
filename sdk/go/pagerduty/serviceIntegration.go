@@ -231,6 +231,9 @@ type ServiceIntegration struct {
 	// `keynoteInboundIntegration`,
 	// `nagiosInboundIntegration`,
 	// `pingdomInboundIntegration`or `sqlMonitorInboundIntegration`.
+	//
+	// **Note:** This is meant for **generic** service integrations.
+	// To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
 	Vendor pulumi.StringOutput `pulumi:"vendor"`
@@ -296,6 +299,9 @@ type serviceIntegrationState struct {
 	// `keynoteInboundIntegration`,
 	// `nagiosInboundIntegration`,
 	// `pingdomInboundIntegration`or `sqlMonitorInboundIntegration`.
+	//
+	// **Note:** This is meant for **generic** service integrations.
+	// To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
 	Type *string `pulumi:"type"`
 	// The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
 	Vendor *string `pulumi:"vendor"`
@@ -330,6 +336,9 @@ type ServiceIntegrationState struct {
 	// `keynoteInboundIntegration`,
 	// `nagiosInboundIntegration`,
 	// `pingdomInboundIntegration`or `sqlMonitorInboundIntegration`.
+	//
+	// **Note:** This is meant for **generic** service integrations.
+	// To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
 	Type pulumi.StringPtrInput
 	// The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
 	Vendor pulumi.StringPtrInput
@@ -366,6 +375,9 @@ type serviceIntegrationArgs struct {
 	// `keynoteInboundIntegration`,
 	// `nagiosInboundIntegration`,
 	// `pingdomInboundIntegration`or `sqlMonitorInboundIntegration`.
+	//
+	// **Note:** This is meant for **generic** service integrations.
+	// To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
 	Type *string `pulumi:"type"`
 	// The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
 	Vendor *string `pulumi:"vendor"`
@@ -399,6 +411,9 @@ type ServiceIntegrationArgs struct {
 	// `keynoteInboundIntegration`,
 	// `nagiosInboundIntegration`,
 	// `pingdomInboundIntegration`or `sqlMonitorInboundIntegration`.
+	//
+	// **Note:** This is meant for **generic** service integrations.
+	// To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
 	Type pulumi.StringPtrInput
 	// The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
 	Vendor pulumi.StringPtrInput
@@ -549,6 +564,9 @@ func (o ServiceIntegrationOutput) Service() pulumi.StringOutput {
 // `keynoteInboundIntegration`,
 // `nagiosInboundIntegration`,
 // `pingdomInboundIntegration`or `sqlMonitorInboundIntegration`.
+//
+// **Note:** This is meant for **generic** service integrations.
+// To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
 func (o ServiceIntegrationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceIntegration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

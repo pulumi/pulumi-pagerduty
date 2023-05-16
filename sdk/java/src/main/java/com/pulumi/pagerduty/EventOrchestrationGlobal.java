@@ -17,6 +17,111 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
+ * A [Global Orchestration](https://support.pagerduty.com/docs/event-orchestration#global-orchestrations) allows you to create a set of Event Rules. The Global Orchestration evaluates Events sent to it against each of its rules, beginning with the rules in the &#34;start&#34; set. When a matching rule is found, it can modify and enhance the event and can route the event to another set of rules within this Global Orchestration for further processing.
+ * 
+ * ## Example of configuring a Global Orchestration
+ * 
+ * This example shows creating `Team`, and `Event Orchestration` resources followed by creating a Global Orchestration to handle Events sent to that Event Orchestration.
+ * 
+ * This example also shows using `priority` data source to configure `priority` action for a rule. If the Event matches the third rule in set &#34;step-two&#34; the resulting incident will have the Priority `P1`.
+ * 
+ * This example shows a Global Orchestration that has nested sets: a rule in the &#34;start&#34; set has a `route_to` action pointing at the &#34;step-two&#34; set.
+ * 
+ * The `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set. In this example the `catch_all` doesn&#39;t have any `actions` so it&#39;ll leave events as-is.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.pagerduty.Team;
+ * import com.pulumi.pagerduty.EventOrchestration;
+ * import com.pulumi.pagerduty.EventOrchestrationArgs;
+ * import com.pulumi.pagerduty.PagerdutyFunctions;
+ * import com.pulumi.pagerduty.inputs.GetPriorityArgs;
+ * import com.pulumi.pagerduty.EventOrchestrationGlobal;
+ * import com.pulumi.pagerduty.EventOrchestrationGlobalArgs;
+ * import com.pulumi.pagerduty.inputs.EventOrchestrationGlobalSetArgs;
+ * import com.pulumi.pagerduty.inputs.EventOrchestrationGlobalCatchAllArgs;
+ * import com.pulumi.pagerduty.inputs.EventOrchestrationGlobalCatchAllActionsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var databaseTeam = new Team(&#34;databaseTeam&#34;);
+ * 
+ *         var eventOrchestration = new EventOrchestration(&#34;eventOrchestration&#34;, EventOrchestrationArgs.builder()        
+ *             .team(databaseTeam.id())
+ *             .build());
+ * 
+ *         final var p1 = PagerdutyFunctions.getPriority(GetPriorityArgs.builder()
+ *             .name(&#34;P1&#34;)
+ *             .build());
+ * 
+ *         var global = new EventOrchestrationGlobal(&#34;global&#34;, EventOrchestrationGlobalArgs.builder()        
+ *             .eventOrchestration(eventOrchestration.id())
+ *             .sets(            
+ *                 EventOrchestrationGlobalSetArgs.builder()
+ *                     .id(&#34;start&#34;)
+ *                     .rules(EventOrchestrationGlobalSetRuleArgs.builder()
+ *                         .label(&#34;Always annotate a note to all events&#34;)
+ *                         .actions(EventOrchestrationGlobalSetRuleActionsArgs.builder()
+ *                             .annotate(&#34;This incident was created by the Database Team via a Global Orchestration&#34;)
+ *                             .routeTo(&#34;step-two&#34;)
+ *                             .build())
+ *                         .build())
+ *                     .build(),
+ *                 EventOrchestrationGlobalSetArgs.builder()
+ *                     .id(&#34;step-two&#34;)
+ *                     .rules(                    
+ *                         EventOrchestrationGlobalSetRuleArgs.builder()
+ *                             .label(&#34;Drop events that are marked as no-op&#34;)
+ *                             .conditions(EventOrchestrationGlobalSetRuleConditionArgs.builder()
+ *                                 .expression(&#34;event.summary matches &#39;no-op&#39;&#34;)
+ *                                 .build())
+ *                             .actions(EventOrchestrationGlobalSetRuleActionsArgs.builder()
+ *                                 .dropEvent(true)
+ *                                 .build())
+ *                             .build(),
+ *                         EventOrchestrationGlobalSetRuleArgs.builder()
+ *                             .label(&#34;If there&#39;s something wrong on the replica, then mark the alert as a warning&#34;)
+ *                             .conditions(EventOrchestrationGlobalSetRuleConditionArgs.builder()
+ *                                 .expression(&#34;event.custom_details.hostname matches part &#39;replica&#39;&#34;)
+ *                                 .build())
+ *                             .actions(EventOrchestrationGlobalSetRuleActionsArgs.builder()
+ *                                 .severity(&#34;warning&#34;)
+ *                                 .build())
+ *                             .build(),
+ *                         EventOrchestrationGlobalSetRuleArgs.builder()
+ *                             .label(&#34;Otherwise, set the incident to P1 and run a diagnostic&#34;)
+ *                             .actions(EventOrchestrationGlobalSetRuleActionsArgs.builder()
+ *                                 .priority(p1.applyValue(getPriorityResult -&gt; getPriorityResult.id()))
+ *                                 .automationAction(EventOrchestrationGlobalSetRuleActionsAutomationActionArgs.builder()
+ *                                     .name(&#34;db-diagnostic&#34;)
+ *                                     .url(&#34;https://example.com/run-diagnostic&#34;)
+ *                                     .autoSend(true)
+ *                                     .build())
+ *                                 .build())
+ *                             .build())
+ *                     .build())
+ *             .catchAll(EventOrchestrationGlobalCatchAllArgs.builder()
+ *                 .actions()
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * Global Orchestration can be imported using the `id` of the Event Orchestration, e.g.

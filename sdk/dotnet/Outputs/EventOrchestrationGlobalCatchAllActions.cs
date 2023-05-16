@@ -33,6 +33,9 @@ namespace Pulumi.Pagerduty.Outputs
         /// Replace any CEF field or Custom Details object field using custom variables.
         /// </summary>
         public readonly ImmutableArray<Outputs.EventOrchestrationGlobalCatchAllActionsExtraction> Extractions;
+        /// <summary>
+        /// The ID of the priority you want to set on resulting incident. Consider using the `pagerduty.getPriority` data source.
+        /// </summary>
         public readonly string? Priority;
         /// <summary>
         /// The ID of a Set from this Global Orchestration whose rules you also want to use with events that match this rule.

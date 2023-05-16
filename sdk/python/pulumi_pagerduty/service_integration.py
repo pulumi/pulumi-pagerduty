@@ -46,6 +46,9 @@ class ServiceIntegrationArgs:
                `keynote_inbound_integration`,
                `nagios_inbound_integration`,
                `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
+               
+               **Note:** This is meant for **generic** service integrations.
+               To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
         :param pulumi.Input[str] vendor: The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
         """
         pulumi.set(__self__, "service", service)
@@ -186,6 +189,9 @@ class ServiceIntegrationArgs:
         `keynote_inbound_integration`,
         `nagios_inbound_integration`,
         `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
+
+        **Note:** This is meant for **generic** service integrations.
+        To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
         """
         return pulumi.get(self, "type")
 
@@ -241,6 +247,9 @@ class _ServiceIntegrationState:
                `keynote_inbound_integration`,
                `nagios_inbound_integration`,
                `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
+               
+               **Note:** This is meant for **generic** service integrations.
+               To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
         :param pulumi.Input[str] vendor: The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
         """
         if email_filter_mode is not None:
@@ -396,6 +405,9 @@ class _ServiceIntegrationState:
         `keynote_inbound_integration`,
         `nagios_inbound_integration`,
         `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
+
+        **Note:** This is meant for **generic** service integrations.
+        To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
         """
         return pulumi.get(self, "type")
 
@@ -568,6 +580,9 @@ class ServiceIntegration(pulumi.CustomResource):
                `keynote_inbound_integration`,
                `nagios_inbound_integration`,
                `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
+               
+               **Note:** This is meant for **generic** service integrations.
+               To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
         :param pulumi.Input[str] vendor: The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
         """
         ...
@@ -788,6 +803,9 @@ class ServiceIntegration(pulumi.CustomResource):
                `keynote_inbound_integration`,
                `nagios_inbound_integration`,
                `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
+               
+               **Note:** This is meant for **generic** service integrations.
+               To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
         :param pulumi.Input[str] vendor: The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -896,6 +914,9 @@ class ServiceIntegration(pulumi.CustomResource):
         `keynote_inbound_integration`,
         `nagios_inbound_integration`,
         `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
+
+        **Note:** This is meant for **generic** service integrations.
+        To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
         """
         return pulumi.get(self, "type")
 

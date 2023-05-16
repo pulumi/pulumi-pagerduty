@@ -79,6 +79,9 @@ export interface EventOrchestrationGlobalCatchAllActions {
      * Replace any CEF field or Custom Details object field using custom variables.
      */
     extractions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationGlobalCatchAllActionsExtraction>[]>;
+    /**
+     * The ID of the priority you want to set on resulting incident. Consider using the `pagerduty.getPriority` data source.
+     */
     priority?: pulumi.Input<string>;
     /**
      * The ID of a Set from this Global Orchestration whose rules you also want to use with events that match this rule.
@@ -239,6 +242,9 @@ export interface EventOrchestrationGlobalSetRuleActions {
      * Replace any CEF field or Custom Details object field using custom variables.
      */
     extractions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationGlobalSetRuleActionsExtraction>[]>;
+    /**
+     * The ID of the priority you want to set on resulting incident. Consider using the `pagerduty.getPriority` data source.
+     */
     priority?: pulumi.Input<string>;
     /**
      * The ID of a Set from this Global Orchestration whose rules you also want to use with events that match this rule.
@@ -461,6 +467,9 @@ export interface EventOrchestrationServiceCatchAllActions {
      * Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
      */
     pagerdutyAutomationAction?: pulumi.Input<inputs.EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction>;
+    /**
+     * The ID of the priority you want to set on resulting incident. Consider using the `pagerduty.getPriority` data source.
+     */
     priority?: pulumi.Input<string>;
     /**
      * The ID of a Set from this Service Orchestration whose rules you also want to use with events that match this rule.
@@ -628,6 +637,9 @@ export interface EventOrchestrationServiceSetRuleActions {
      * Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
      */
     pagerdutyAutomationAction?: pulumi.Input<inputs.EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction>;
+    /**
+     * The ID of the priority you want to set on resulting incident. Consider using the `pagerduty.getPriority` data source.
+     */
     priority?: pulumi.Input<string>;
     /**
      * The ID of a Set from this Service Orchestration whose rules you also want to use with events that match this rule.
@@ -1215,6 +1227,8 @@ export interface RulesetRuleActionsEventAction {
 export interface RulesetRuleActionsExtraction {
     /**
      * The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
+     *
+     * *- **OR** -*
      */
     regex?: pulumi.Input<string>;
     /**
@@ -1223,6 +1237,8 @@ export interface RulesetRuleActionsExtraction {
     source?: pulumi.Input<string>;
     /**
      * Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+     *
+     * *NOTE: A rule can have multiple `extraction` objects attributed to it.*
      */
     target?: pulumi.Input<string>;
     /**
@@ -1321,6 +1337,9 @@ export interface RulesetRuleTimeFrame {
 
 export interface RulesetRuleTimeFrameActiveBetween {
     endTime?: pulumi.Input<number>;
+    /**
+     * A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
+     */
     startTime?: pulumi.Input<number>;
 }
 
@@ -1329,6 +1348,9 @@ export interface RulesetRuleTimeFrameScheduledWeekly {
      * Length of time the schedule will be active in milliseconds. For example `duration = 2 * 60 * 60 * 1000` if you want your rule to apply for 2 hours, from the specified `startTime`.
      */
     duration?: pulumi.Input<number>;
+    /**
+     * A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
+     */
     startTime?: pulumi.Input<number>;
     /**
      * [The name of the timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for the given schedule, which will be used to determine UTC offset including adjustment for daylight saving time. For example: `timezone = "America/Toronto"`
@@ -1446,6 +1468,11 @@ export interface ServiceAlertGroupingParametersConfig {
     fields?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
+     *
+     *
+     * You may specify one optional `incidentUrgencyRule` block configuring what urgencies to use.
+     * Your PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.
+     * The block contains the following arguments:
      */
     timeout?: pulumi.Input<number>;
 }
@@ -1457,6 +1484,11 @@ export interface ServiceAutoPauseNotificationsParameters {
     enabled?: pulumi.Input<boolean>;
     /**
      * Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `enabled` is `true`. Must be omitted or set to `null` if `enabled` is `false`.
+     *
+     *
+     * You may specify one optional `incidentUrgencyRule` block configuring what urgencies to use.
+     * Your PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.
+     * The block contains the following arguments:
      */
     timeout?: pulumi.Input<number>;
 }
@@ -1546,6 +1578,8 @@ export interface ServiceEventRuleActionsEventAction {
 export interface ServiceEventRuleActionsExtraction {
     /**
      * The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
+     *
+     * *- **OR** -*
      */
     regex?: pulumi.Input<string>;
     /**
@@ -1554,6 +1588,8 @@ export interface ServiceEventRuleActionsExtraction {
     source?: pulumi.Input<string>;
     /**
      * Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
+     *
+     * *NOTE: A rule can have multiple `extraction` objects attributed to it.*
      */
     target?: pulumi.Input<string>;
     /**
@@ -1709,6 +1745,10 @@ export interface ServiceIncidentUrgencyRule {
     duringSupportHours?: pulumi.Input<inputs.ServiceIncidentUrgencyRuleDuringSupportHours>;
     /**
      * Incidents' urgency outside support hours.
+     *
+     * When using `type = "useSupportHours"` in `incidentUrgencyRule` you must specify exactly one (otherwise optional) `supportHours` block.
+     * Your PagerDuty account must have the `serviceSupportHours` ability to assign support hours.
+     * The block contains the following arguments:
      */
     outsideSupportHours?: pulumi.Input<inputs.ServiceIncidentUrgencyRuleOutsideSupportHours>;
     /**
@@ -1834,6 +1874,8 @@ export interface ServiceIntegrationEmailParserValueExtractor {
     part: pulumi.Input<string>;
     /**
      * If `type` has value `regex` this value should contain valid regex.
+     *
+     * **Note:** You can use the `pagerduty.getVendor` data source to locate the appropriate vendor ID.
      */
     regex?: pulumi.Input<string>;
     startsAfter?: pulumi.Input<string>;
@@ -1865,6 +1907,54 @@ export interface ServiceScheduledAction {
 export interface ServiceScheduledActionAt {
     /**
      * Designates either the start or the end of the scheduled action. Can be `supportHoursStart` or `supportHoursEnd`.
+     *
+     * Note that it is currently only possible to define the scheduled action when urgency is set to `high` for `duringSupportHours` and to `low`  for `outsideSupportHours` in `incidentUrgencyRule`.
+     *
+     * Below is an example for a `pagerduty.Service` resource with `incidentUrgencyRules` with `type = "useSupportHours"`, `supportHours` and a default `scheduledAction` as well.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * import * as pagerduty from "@pulumi/pagerduty";
+     *
+     * const foo = new pagerduty.Service("foo", {
+     *     description: "bar bar bar",
+     *     autoResolveTimeout: "3600",
+     *     acknowledgementTimeout: "3600",
+     *     escalationPolicy: pagerduty_escalation_policy.foo.id,
+     *     incidentUrgencyRule: {
+     *         type: "use_support_hours",
+     *         duringSupportHours: {
+     *             type: "constant",
+     *             urgency: "high",
+     *         },
+     *         outsideSupportHours: {
+     *             type: "constant",
+     *             urgency: "low",
+     *         },
+     *     },
+     *     supportHours: {
+     *         type: "fixed_time_per_day",
+     *         timeZone: "America/Lima",
+     *         startTime: "09:00:00",
+     *         endTime: "17:00:00",
+     *         daysOfWeeks: [
+     *             1,
+     *             2,
+     *             3,
+     *             4,
+     *             5,
+     *         ],
+     *     },
+     *     scheduledActions: [{
+     *         type: "urgency_change",
+     *         toUrgency: "high",
+     *         ats: [{
+     *             type: "named_time",
+     *             name: "support_hours_start",
+     *         }],
+     *     }],
+     * });
+     * ```
      */
     name?: pulumi.Input<string>;
     /**
@@ -1881,6 +1971,10 @@ export interface ServiceSupportHours {
     daysOfWeeks?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * The support hours' ending time of day.
+     *
+     * A `scheduledActions` block is required when using `type = "useSupportHours"` in `incidentUrgencyRule`.
+     *
+     * The block contains the following arguments:
      */
     endTime?: pulumi.Input<string>;
     /**
@@ -1914,6 +2008,11 @@ export interface SlackConnectionConfig {
      * - `incident.reopened`
      */
     events: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Allows you to filter events by priority. Needs to be an array of PagerDuty priority IDs. Available through pagerduty.getPriority data source.
+     * - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behaviour is to set `priorities` to `No Priority` value.
+     * - When set to `["*"]` its corresponding value for `priorities` in Slack Connection's configuration will be `Any Priority`.
+     */
     priorities?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Allows you to filter events by urgency. Either `high` or `low`.

@@ -20,6 +20,8 @@ namespace Pulumi.Pagerduty.Outputs
         public readonly string Part;
         /// <summary>
         /// If `type` has value `regex` this value should contain valid regex.
+        /// 
+        /// **Note:** You can use the `pagerduty.getVendor` data source to locate the appropriate vendor ID.
         /// </summary>
         public readonly string? Regex;
         public readonly string? StartsAfter;

@@ -23,6 +23,8 @@ namespace Pulumi.Pagerduty.Inputs
 
         /// <summary>
         /// If `type` has value `regex` this value should contain valid regex.
+        /// 
+        /// **Note:** You can use the `pagerduty.getVendor` data source to locate the appropriate vendor ID.
         /// </summary>
         [Input("regex")]
         public Input<string>? Regex { get; set; }

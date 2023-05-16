@@ -107,6 +107,8 @@ type Extension struct {
 	// The name of the service extension.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+	//
+	// **Note:** You can use the `getExtensionSchema` data source to locate the appropriate extension vendor ID.
 	Summary pulumi.StringOutput `pulumi:"summary"`
 	Type    pulumi.StringOutput `pulumi:"type"`
 }
@@ -167,6 +169,8 @@ type extensionState struct {
 	// The name of the service extension.
 	Name *string `pulumi:"name"`
 	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+	//
+	// **Note:** You can use the `getExtensionSchema` data source to locate the appropriate extension vendor ID.
 	Summary *string `pulumi:"summary"`
 	Type    *string `pulumi:"type"`
 }
@@ -186,6 +190,8 @@ type ExtensionState struct {
 	// The name of the service extension.
 	Name pulumi.StringPtrInput
 	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+	//
+	// **Note:** You can use the `getExtensionSchema` data source to locate the appropriate extension vendor ID.
 	Summary pulumi.StringPtrInput
 	Type    pulumi.StringPtrInput
 }
@@ -344,6 +350,8 @@ func (o ExtensionOutput) Name() pulumi.StringOutput {
 }
 
 // A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
+//
+// **Note:** You can use the `getExtensionSchema` data source to locate the appropriate extension vendor ID.
 func (o ExtensionOutput) Summary() pulumi.StringOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.Summary }).(pulumi.StringOutput)
 }

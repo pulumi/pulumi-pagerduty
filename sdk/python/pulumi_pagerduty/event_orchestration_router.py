@@ -160,7 +160,7 @@ class EventOrchestrationRouter(pulumi.CustomResource):
                             ),
                         ],
                         actions=pagerduty.EventOrchestrationRouterSetRuleActionsArgs(
-                            route_to=pagerduty_service["database"]["id"],
+                            route_to=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                         ),
                     ),
                     pagerduty.EventOrchestrationRouterSetRuleArgs(
@@ -168,7 +168,7 @@ class EventOrchestrationRouter(pulumi.CustomResource):
                             expression="event.summary matches part 'www'",
                         )],
                         actions=pagerduty.EventOrchestrationRouterSetRuleActionsArgs(
-                            route_to=pagerduty_service["www"]["id"],
+                            route_to=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                         ),
                     ),
                 ],
@@ -229,7 +229,7 @@ class EventOrchestrationRouter(pulumi.CustomResource):
                             ),
                         ],
                         actions=pagerduty.EventOrchestrationRouterSetRuleActionsArgs(
-                            route_to=pagerduty_service["database"]["id"],
+                            route_to=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                         ),
                     ),
                     pagerduty.EventOrchestrationRouterSetRuleArgs(
@@ -237,7 +237,7 @@ class EventOrchestrationRouter(pulumi.CustomResource):
                             expression="event.summary matches part 'www'",
                         )],
                         actions=pagerduty.EventOrchestrationRouterSetRuleActionsArgs(
-                            route_to=pagerduty_service["www"]["id"],
+                            route_to=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                         ),
                     ),
                 ],

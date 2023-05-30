@@ -1203,8 +1203,8 @@ github.com/hashicorp/yamux v0.0.0-20180604194846-3520598351bb/go.mod h1:+NfK9FKe
 github.com/hashicorp/yamux v0.0.0-20181012175058-2f1d1f20f75d/go.mod h1:+NfK9FKeTrX5uv1uIXGdwYDTeHna2qgaIlx54MXqjAM=
 github.com/hashicorp/yamux v0.1.1 h1:yrQxtgseBDrq9Y652vSRDvsKCJKOUD+GzTS4Y0Y8pvE=
 github.com/hashicorp/yamux v0.1.1/go.mod h1:CtWFDAQgb7dxtzFs4tWbplKIe2jSi3+5vKbgIO0SLnQ=
-github.com/heimweh/go-pagerduty v0.0.0-20230421012559-75399decbf4a h1:+Vx9G90IRa6Z3popoXtim2RJW2PrG/HTXXViEnN9gYI=
-github.com/heimweh/go-pagerduty v0.0.0-20230421012559-75399decbf4a/go.mod h1:t9vftsO1IjYHGdgJXeemZtomCWnxi2SRgu0PRcRb2oY=
+github.com/heimweh/go-pagerduty v0.0.0-20230530212721-f8e623cf74a8 h1:y46roLd2yPkE31WQyTsosxKOJtzY0CUfA/w4toqtR2U=
+github.com/heimweh/go-pagerduty v0.0.0-20230530212721-f8e623cf74a8/go.mod h1:t9vftsO1IjYHGdgJXeemZtomCWnxi2SRgu0PRcRb2oY=
 github.com/hetznercloud/hcloud-go v1.33.1/go.mod h1:XX/TQub3ge0yWR2yHWmnDVIrB+MQbda1pHxkUmDlUME=
 github.com/hetznercloud/hcloud-go v1.35.0/go.mod h1:mepQwR6va27S3UQthaEPGS86jtzSY9xWL1e9dyxXpgA=
 github.com/hexops/autogold v1.3.0 h1:IEtGNPxBeBu8RMn8eKWh/Ll9dVNgSnJ7bp/qHgMQ14o=

@@ -363,6 +363,12 @@
                     }
                 }
             },
+            "pagerduty_incident_custom_field": {
+                "current": "pagerduty:index/incidentCustomField:IncidentCustomField"
+            },
+            "pagerduty_incident_custom_field_option": {
+                "current": "pagerduty:index/incidentCustomFieldOption:IncidentCustomFieldOption"
+            },
             "pagerduty_incident_workflow": {
                 "current": "pagerduty:index/incidentWorkflow:IncidentWorkflow",
                 "fields": {
@@ -831,6 +837,9 @@
             "pagerduty_extension_schema": {
                 "current": "pagerduty:index/getExtensionSchema:getExtensionSchema"
             },
+            "pagerduty_incident_custom_field": {
+                "current": "pagerduty:index/getIncidentCustomField:getIncidentCustomField"
+            },
             "pagerduty_incident_workflow": {
                 "current": "pagerduty:index/getIncidentWorkflow:getIncidentWorkflow"
             },
@@ -900,6 +909,8 @@
             "pagerduty:index/eventRule:EventRule": "pagerduty_event_rule",
             "pagerduty:index/extension:Extension": "pagerduty_extension",
             "pagerduty:index/extensionServiceNow:ExtensionServiceNow": "pagerduty_extension_servicenow",
+            "pagerduty:index/incidentCustomField:IncidentCustomField": "pagerduty_incident_custom_field",
+            "pagerduty:index/incidentCustomFieldOption:IncidentCustomFieldOption": "pagerduty_incident_custom_field_option",
             "pagerduty:index/incidentWorkflow:IncidentWorkflow": "pagerduty_incident_workflow",
             "pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger": "pagerduty_incident_workflow_trigger",
             "pagerduty:index/maintenanceWindow:MaintenanceWindow": "pagerduty_maintenance_window",
@@ -932,6 +943,7 @@
             "pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration": "pagerduty_event_orchestration_integration",
             "pagerduty:index/getEventOrchestrations:getEventOrchestrations": "pagerduty_event_orchestrations",
             "pagerduty:index/getExtensionSchema:getExtensionSchema": "pagerduty_extension_schema",
+            "pagerduty:index/getIncidentCustomField:getIncidentCustomField": "pagerduty_incident_custom_field",
             "pagerduty:index/getIncidentWorkflow:getIncidentWorkflow": "pagerduty_incident_workflow",
             "pagerduty:index/getLicense:getLicense": "pagerduty_license",
             "pagerduty:index/getLicenses:getLicenses": "pagerduty_licenses",
@@ -1334,6 +1346,11 @@
             "pagerduty:index/getEventOrchestrationsEventOrchestrationIntegrationParameter:getEventOrchestrationsEventOrchestrationIntegrationParameter": {
                 "routingKey": "routing_key"
             },
+            "pagerduty:index/getIncidentCustomField:getIncidentCustomField": {
+                "dataType": "data_type",
+                "displayName": "display_name",
+                "fieldType": "field_type"
+            },
             "pagerduty:index/getLicense:getLicense": {
                 "allocationsAvailable": "allocations_available",
                 "currentValue": "current_value",
@@ -1370,6 +1387,15 @@
             },
             "pagerduty:index/getUsers:getUsers": {
                 "teamIds": "team_ids"
+            },
+            "pagerduty:index/incidentCustomField:IncidentCustomField": {
+                "dataType": "data_type",
+                "defaultValue": "default_value",
+                "displayName": "display_name",
+                "fieldType": "field_type"
+            },
+            "pagerduty:index/incidentCustomFieldOption:IncidentCustomFieldOption": {
+                "dataType": "data_type"
             },
             "pagerduty:index/incidentWorkflow:IncidentWorkflow": {
                 "steps": "step"

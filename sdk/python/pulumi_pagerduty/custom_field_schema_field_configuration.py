@@ -230,9 +230,14 @@ class CustomFieldSchemaFieldConfiguration(pulumi.CustomResource):
                  schema: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        !> This Resource is no longer functional. Documentation is left here for the purpose of documenting migration steps.
+
         A [Custom Field Configuration](https://support.pagerduty.com/docs/custom-fields#associate-schemas-with-services) is a declaration of a specific Custom Field in a specific Custom Field Schema.
 
-        > The Custom Fields feature is currently available in Early Access.
+        ## Migration
+
+        This resource has no currently functional counterpart. Custom Fields on Incidents are now applied globally
+        to incidents within an account and have no notion of a Field Schema.
 
         ## Example Usage
 
@@ -268,9 +273,14 @@ class CustomFieldSchemaFieldConfiguration(pulumi.CustomResource):
                  args: CustomFieldSchemaFieldConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        !> This Resource is no longer functional. Documentation is left here for the purpose of documenting migration steps.
+
         A [Custom Field Configuration](https://support.pagerduty.com/docs/custom-fields#associate-schemas-with-services) is a declaration of a specific Custom Field in a specific Custom Field Schema.
 
-        > The Custom Fields feature is currently available in Early Access.
+        ## Migration
+
+        This resource has no currently functional counterpart. Custom Fields on Incidents are now applied globally
+        to incidents within an account and have no notion of a Field Schema.
 
         ## Example Usage
 

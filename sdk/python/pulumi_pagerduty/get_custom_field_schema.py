@@ -65,9 +65,14 @@ class AwaitableGetCustomFieldSchemaResult(GetCustomFieldSchemaResult):
 def get_custom_field_schema(title: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomFieldSchemaResult:
     """
+    !> This Data Source is no longer functional. Documentation is left here for the purpose of documenting migration steps.
+
     Use this data source to get information about a specific [Custom Field Schema](https://support.pagerduty.com/docs/custom-fields#schemas) that you can assign to a service.
 
-    > The Custom Fields feature is currently available in Early Access.
+    ## Migration
+
+    This data source has no currently functional counterpart. Custom Fields on Incidents are now applied globally
+    to incidents within an account and have no notion of a Field Schema.
 
     ## Example Usage
 
@@ -100,9 +105,14 @@ def get_custom_field_schema(title: Optional[str] = None,
 def get_custom_field_schema_output(title: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomFieldSchemaResult]:
     """
+    !> This Data Source is no longer functional. Documentation is left here for the purpose of documenting migration steps.
+
     Use this data source to get information about a specific [Custom Field Schema](https://support.pagerduty.com/docs/custom-fields#schemas) that you can assign to a service.
 
-    > The Custom Fields feature is currently available in Early Access.
+    ## Migration
+
+    This data source has no currently functional counterpart. Custom Fields on Incidents are now applied globally
+    to incidents within an account and have no notion of a Field Schema.
 
     ## Example Usage
 

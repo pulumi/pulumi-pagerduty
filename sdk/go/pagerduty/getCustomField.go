@@ -10,9 +10,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// !> This Data Source is no longer functional. Documentation is left here for the purpose of documenting migration steps.
+//
 // Use this data source to get information about a specific [Custom Field](https://support.pagerduty.com/docs/custom-fields) that you can add to a custom field schema.
 //
-// > The Custom Fields feature is currently available in Early Access.
+// ## Migration
+//
+// The `incidentCustomField` data source provides similar functionality
+// with the same arguments and attributes. The key distinction is that while custom fields returned by this data source
+// may have only applied to a subset of incidents within the account, custom fields returned by the `incidentCustomField`
+// data source are applied to all incidents in the account.
 func LookupCustomField(ctx *pulumi.Context, args *LookupCustomFieldArgs, opts ...pulumi.InvokeOption) (*LookupCustomFieldResult, error) {
 	var rv LookupCustomFieldResult
 	err := ctx.Invoke("pagerduty:index/getCustomField:getCustomField", args, &rv, opts...)

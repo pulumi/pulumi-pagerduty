@@ -98,9 +98,14 @@ class CustomFieldSchemaAssignment(pulumi.CustomResource):
                  service: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        !> This Resource is no longer functional. Documentation is left here for the purpose of documenting migration steps.
+
         A [Custom Field Schema Assignment](https://support.pagerduty.com/docs/custom-fields#associate-schemas-with-services) is a relationship between a Custom Field Schema and a Service.
 
-        > The Custom Fields feature is currently available in Early Access.
+        ## Migration
+
+        This resource has no currently functional counterpart. Custom Fields on Incidents are now applied globally
+        to incidents within an account and have no notion of a Field Schema.
 
         ## Example Usage
 
@@ -130,9 +135,14 @@ class CustomFieldSchemaAssignment(pulumi.CustomResource):
                  args: CustomFieldSchemaAssignmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        !> This Resource is no longer functional. Documentation is left here for the purpose of documenting migration steps.
+
         A [Custom Field Schema Assignment](https://support.pagerduty.com/docs/custom-fields#associate-schemas-with-services) is a relationship between a Custom Field Schema and a Service.
 
-        > The Custom Fields feature is currently available in Early Access.
+        ## Migration
+
+        This resource has no currently functional counterpart. Custom Fields on Incidents are now applied globally
+        to incidents within an account and have no notion of a Field Schema.
 
         ## Example Usage
 

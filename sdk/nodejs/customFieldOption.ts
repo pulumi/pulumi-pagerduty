@@ -5,9 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * !> This Resource is no longer functional. Documentation is left here for the purpose of documenting migration steps.
+ *
  * A Custom Field Option is a specific value that can be used for [Custom Fields](https://support.pagerduty.com/docs/custom-fields) that only allow values from a set of fixed option.
  *
- * > The Custom Fields feature is currently available in Early Access.
+ * ## Migration
+ *
+ * The `incidentCustomFieldOption` resource provides similar functionality
+ * with largely the same arguments and attributes. The only significant change is that the `datatype` argument has been renamed `dataType`
+ * to match the Public API for the Custom Fields on Incidents feature.
  *
  * ## Example Usage
  *

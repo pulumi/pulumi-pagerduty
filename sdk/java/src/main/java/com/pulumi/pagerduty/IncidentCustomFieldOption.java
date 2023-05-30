@@ -7,22 +7,17 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
-import com.pulumi.pagerduty.CustomFieldOptionArgs;
+import com.pulumi.pagerduty.IncidentCustomFieldOptionArgs;
 import com.pulumi.pagerduty.Utilities;
-import com.pulumi.pagerduty.inputs.CustomFieldOptionState;
+import com.pulumi.pagerduty.inputs.IncidentCustomFieldOptionState;
 import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * !&gt; This Resource is no longer functional. Documentation is left here for the purpose of documenting migration steps.
+ * A Incident Custom Field Option is a specific value that can be used for an [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents) that only allow values from a set of fixed options,
+ * i.e. has the `field_type` of `single_value_fixed` or `multi_value_fixed`.
  * 
- * A Custom Field Option is a specific value that can be used for [Custom Fields](https://support.pagerduty.com/docs/custom-fields) that only allow values from a set of fixed option.
- * 
- * ## Migration
- * 
- * The `incident_custom_field_option` resource provides similar functionality
- * with largely the same arguments and attributes. The only significant change is that the `datatype` argument has been renamed `data_type`
- * to match the Public API for the Custom Fields on Incidents feature.
+ * &gt; The Custom Fields on Incidents feature is currently available in Early Access.
  * 
  * ## Example Usage
  * ```java
@@ -31,10 +26,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.pagerduty.CustomField;
- * import com.pulumi.pagerduty.CustomFieldArgs;
- * import com.pulumi.pagerduty.CustomFieldOption;
- * import com.pulumi.pagerduty.CustomFieldOptionArgs;
+ * import com.pulumi.pagerduty.IncidentCustomField;
+ * import com.pulumi.pagerduty.IncidentCustomFieldArgs;
+ * import com.pulumi.pagerduty.IncidentCustomFieldOption;
+ * import com.pulumi.pagerduty.IncidentCustomFieldOptionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -48,26 +43,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sreEnvironment = new CustomField(&#34;sreEnvironment&#34;, CustomFieldArgs.builder()        
- *             .datatype(&#34;string&#34;)
- *             .fixedOptions(true)
+ *         var sreEnvironment = new IncidentCustomField(&#34;sreEnvironment&#34;, IncidentCustomFieldArgs.builder()        
+ *             .dataType(&#34;string&#34;)
+ *             .fieldType(&#34;single_value_fixed&#34;)
  *             .build());
  * 
- *         var devEnvironment = new CustomFieldOption(&#34;devEnvironment&#34;, CustomFieldOptionArgs.builder()        
+ *         var devEnvironment = new IncidentCustomFieldOption(&#34;devEnvironment&#34;, IncidentCustomFieldOptionArgs.builder()        
  *             .field(sreEnvironment.id())
- *             .datatype(&#34;string&#34;)
+ *             .dataType(&#34;string&#34;)
  *             .value(&#34;dev&#34;)
  *             .build());
  * 
- *         var stageEnvironment = new CustomFieldOption(&#34;stageEnvironment&#34;, CustomFieldOptionArgs.builder()        
+ *         var stageEnvironment = new IncidentCustomFieldOption(&#34;stageEnvironment&#34;, IncidentCustomFieldOptionArgs.builder()        
  *             .field(sreEnvironment.id())
- *             .datatype(&#34;string&#34;)
+ *             .dataType(&#34;string&#34;)
  *             .value(&#34;stage&#34;)
  *             .build());
  * 
- *         var prodEnvironment = new CustomFieldOption(&#34;prodEnvironment&#34;, CustomFieldOptionArgs.builder()        
+ *         var prodEnvironment = new IncidentCustomFieldOption(&#34;prodEnvironment&#34;, IncidentCustomFieldOptionArgs.builder()        
  *             .field(sreEnvironment.id())
- *             .datatype(&#34;string&#34;)
+ *             .dataType(&#34;string&#34;)
  *             .value(&#34;prod&#34;)
  *             .build());
  * 
@@ -76,21 +71,21 @@ import javax.annotation.Nullable;
  * ```
  * 
  */
-@ResourceType(type="pagerduty:index/customFieldOption:CustomFieldOption")
-public class CustomFieldOption extends com.pulumi.resources.CustomResource {
+@ResourceType(type="pagerduty:index/incidentCustomFieldOption:IncidentCustomFieldOption")
+public class IncidentCustomFieldOption extends com.pulumi.resources.CustomResource {
     /**
-     * The datatype of the field option. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+     * The datatype of the field option. Only `string` is allowed here at present.
      * 
      */
-    @Export(name="datatype", type=String.class, parameters={})
-    private Output<String> datatype;
+    @Export(name="dataType", type=String.class, parameters={})
+    private Output<String> dataType;
 
     /**
-     * @return The datatype of the field option. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+     * @return The datatype of the field option. Only `string` is allowed here at present.
      * 
      */
-    public Output<String> datatype() {
-        return this.datatype;
+    public Output<String> dataType() {
+        return this.dataType;
     }
     /**
      * The ID of the field.
@@ -125,15 +120,15 @@ public class CustomFieldOption extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CustomFieldOption(String name) {
-        this(name, CustomFieldOptionArgs.Empty);
+    public IncidentCustomFieldOption(String name) {
+        this(name, IncidentCustomFieldOptionArgs.Empty);
     }
     /**
      *
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CustomFieldOption(String name, CustomFieldOptionArgs args) {
+    public IncidentCustomFieldOption(String name, IncidentCustomFieldOptionArgs args) {
         this(name, args, null);
     }
     /**
@@ -142,12 +137,12 @@ public class CustomFieldOption extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CustomFieldOption(String name, CustomFieldOptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/customFieldOption:CustomFieldOption", name, args == null ? CustomFieldOptionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public IncidentCustomFieldOption(String name, IncidentCustomFieldOptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("pagerduty:index/incidentCustomFieldOption:IncidentCustomFieldOption", name, args == null ? IncidentCustomFieldOptionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
     }
 
-    private CustomFieldOption(String name, Output<String> id, @Nullable CustomFieldOptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("pagerduty:index/customFieldOption:CustomFieldOption", name, state, makeResourceOptions(options, id));
+    private IncidentCustomFieldOption(String name, Output<String> id, @Nullable IncidentCustomFieldOptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("pagerduty:index/incidentCustomFieldOption:IncidentCustomFieldOption", name, state, makeResourceOptions(options, id));
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
@@ -166,7 +161,7 @@ public class CustomFieldOption extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CustomFieldOption get(String name, Output<String> id, @Nullable CustomFieldOptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        return new CustomFieldOption(name, id, state, options);
+    public static IncidentCustomFieldOption get(String name, Output<String> id, @Nullable IncidentCustomFieldOptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        return new IncidentCustomFieldOption(name, id, state, options);
     }
 }

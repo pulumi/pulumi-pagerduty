@@ -10,15 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty
 {
     /// <summary>
-    /// !&gt; This Resource is no longer functional. Documentation is left here for the purpose of documenting migration steps.
+    /// A Incident Custom Field Option is a specific value that can be used for an [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents) that only allow values from a set of fixed options,
+    /// i.e. has the `field_type` of `single_value_fixed` or `multi_value_fixed`.
     /// 
-    /// A Custom Field Option is a specific value that can be used for [Custom Fields](https://support.pagerduty.com/docs/custom-fields) that only allow values from a set of fixed option.
-    /// 
-    /// ## Migration
-    /// 
-    /// The `incident_custom_field_option` resource provides similar functionality
-    /// with largely the same arguments and attributes. The only significant change is that the `datatype` argument has been renamed `data_type`
-    /// to match the Public API for the Custom Fields on Incidents feature.
+    /// &gt; The Custom Fields on Incidents feature is currently available in Early Access.
     /// 
     /// ## Example Usage
     /// 
@@ -30,44 +25,44 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sreEnvironment = new Pagerduty.CustomField("sreEnvironment", new()
+    ///     var sreEnvironment = new Pagerduty.IncidentCustomField("sreEnvironment", new()
     ///     {
-    ///         Datatype = "string",
-    ///         FixedOptions = true,
+    ///         DataType = "string",
+    ///         FieldType = "single_value_fixed",
     ///     });
     /// 
-    ///     var devEnvironment = new Pagerduty.CustomFieldOption("devEnvironment", new()
+    ///     var devEnvironment = new Pagerduty.IncidentCustomFieldOption("devEnvironment", new()
     ///     {
     ///         Field = sreEnvironment.Id,
-    ///         Datatype = "string",
+    ///         DataType = "string",
     ///         Value = "dev",
     ///     });
     /// 
-    ///     var stageEnvironment = new Pagerduty.CustomFieldOption("stageEnvironment", new()
+    ///     var stageEnvironment = new Pagerduty.IncidentCustomFieldOption("stageEnvironment", new()
     ///     {
     ///         Field = sreEnvironment.Id,
-    ///         Datatype = "string",
+    ///         DataType = "string",
     ///         Value = "stage",
     ///     });
     /// 
-    ///     var prodEnvironment = new Pagerduty.CustomFieldOption("prodEnvironment", new()
+    ///     var prodEnvironment = new Pagerduty.IncidentCustomFieldOption("prodEnvironment", new()
     ///     {
     ///         Field = sreEnvironment.Id,
-    ///         Datatype = "string",
+    ///         DataType = "string",
     ///         Value = "prod",
     ///     });
     /// 
     /// });
     /// ```
     /// </summary>
-    [PagerdutyResourceType("pagerduty:index/customFieldOption:CustomFieldOption")]
-    public partial class CustomFieldOption : global::Pulumi.CustomResource
+    [PagerdutyResourceType("pagerduty:index/incidentCustomFieldOption:IncidentCustomFieldOption")]
+    public partial class IncidentCustomFieldOption : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The datatype of the field option. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+        /// The datatype of the field option. Only `string` is allowed here at present.
         /// </summary>
-        [Output("datatype")]
-        public Output<string> Datatype { get; private set; } = null!;
+        [Output("dataType")]
+        public Output<string> DataType { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the field.
@@ -83,19 +78,19 @@ namespace Pulumi.Pagerduty
 
 
         /// <summary>
-        /// Create a CustomFieldOption resource with the given unique name, arguments, and options.
+        /// Create a IncidentCustomFieldOption resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public CustomFieldOption(string name, CustomFieldOptionArgs args, CustomResourceOptions? options = null)
-            : base("pagerduty:index/customFieldOption:CustomFieldOption", name, args ?? new CustomFieldOptionArgs(), MakeResourceOptions(options, ""))
+        public IncidentCustomFieldOption(string name, IncidentCustomFieldOptionArgs args, CustomResourceOptions? options = null)
+            : base("pagerduty:index/incidentCustomFieldOption:IncidentCustomFieldOption", name, args ?? new IncidentCustomFieldOptionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
-        private CustomFieldOption(string name, Input<string> id, CustomFieldOptionState? state = null, CustomResourceOptions? options = null)
-            : base("pagerduty:index/customFieldOption:CustomFieldOption", name, state, MakeResourceOptions(options, id))
+        private IncidentCustomFieldOption(string name, Input<string> id, IncidentCustomFieldOptionState? state = null, CustomResourceOptions? options = null)
+            : base("pagerduty:index/incidentCustomFieldOption:IncidentCustomFieldOption", name, state, MakeResourceOptions(options, id))
         {
         }
 
@@ -111,7 +106,7 @@ namespace Pulumi.Pagerduty
             return merged;
         }
         /// <summary>
-        /// Get an existing CustomFieldOption resource's state with the given name, ID, and optional extra
+        /// Get an existing IncidentCustomFieldOption resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
@@ -119,19 +114,19 @@ namespace Pulumi.Pagerduty
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static CustomFieldOption Get(string name, Input<string> id, CustomFieldOptionState? state = null, CustomResourceOptions? options = null)
+        public static IncidentCustomFieldOption Get(string name, Input<string> id, IncidentCustomFieldOptionState? state = null, CustomResourceOptions? options = null)
         {
-            return new CustomFieldOption(name, id, state, options);
+            return new IncidentCustomFieldOption(name, id, state, options);
         }
     }
 
-    public sealed class CustomFieldOptionArgs : global::Pulumi.ResourceArgs
+    public sealed class IncidentCustomFieldOptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The datatype of the field option. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+        /// The datatype of the field option. Only `string` is allowed here at present.
         /// </summary>
-        [Input("datatype", required: true)]
-        public Input<string> Datatype { get; set; } = null!;
+        [Input("dataType", required: true)]
+        public Input<string> DataType { get; set; } = null!;
 
         /// <summary>
         /// The ID of the field.
@@ -145,19 +140,19 @@ namespace Pulumi.Pagerduty
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
-        public CustomFieldOptionArgs()
+        public IncidentCustomFieldOptionArgs()
         {
         }
-        public static new CustomFieldOptionArgs Empty => new CustomFieldOptionArgs();
+        public static new IncidentCustomFieldOptionArgs Empty => new IncidentCustomFieldOptionArgs();
     }
 
-    public sealed class CustomFieldOptionState : global::Pulumi.ResourceArgs
+    public sealed class IncidentCustomFieldOptionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The datatype of the field option. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+        /// The datatype of the field option. Only `string` is allowed here at present.
         /// </summary>
-        [Input("datatype")]
-        public Input<string>? Datatype { get; set; }
+        [Input("dataType")]
+        public Input<string>? DataType { get; set; }
 
         /// <summary>
         /// The ID of the field.
@@ -171,9 +166,9 @@ namespace Pulumi.Pagerduty
         [Input("value")]
         public Input<string>? Value { get; set; }
 
-        public CustomFieldOptionState()
+        public IncidentCustomFieldOptionState()
         {
         }
-        public static new CustomFieldOptionState Empty => new CustomFieldOptionState();
+        public static new IncidentCustomFieldOptionState Empty => new IncidentCustomFieldOptionState();
     }
 }

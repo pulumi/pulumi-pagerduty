@@ -9,35 +9,35 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
-__all__ = ['CustomFieldOptionArgs', 'CustomFieldOption']
+__all__ = ['IncidentCustomFieldOptionArgs', 'IncidentCustomFieldOption']
 
 @pulumi.input_type
-class CustomFieldOptionArgs:
+class IncidentCustomFieldOptionArgs:
     def __init__(__self__, *,
-                 datatype: pulumi.Input[str],
+                 data_type: pulumi.Input[str],
                  field: pulumi.Input[str],
                  value: pulumi.Input[str]):
         """
-        The set of arguments for constructing a CustomFieldOption resource.
-        :param pulumi.Input[str] datatype: The datatype of the field option. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+        The set of arguments for constructing a IncidentCustomFieldOption resource.
+        :param pulumi.Input[str] data_type: The datatype of the field option. Only `string` is allowed here at present.
         :param pulumi.Input[str] field: The ID of the field.
         :param pulumi.Input[str] value: The allowed value.
         """
-        pulumi.set(__self__, "datatype", datatype)
+        pulumi.set(__self__, "data_type", data_type)
         pulumi.set(__self__, "field", field)
         pulumi.set(__self__, "value", value)
 
     @property
-    @pulumi.getter
-    def datatype(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> pulumi.Input[str]:
         """
-        The datatype of the field option. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+        The datatype of the field option. Only `string` is allowed here at present.
         """
-        return pulumi.get(self, "datatype")
+        return pulumi.get(self, "data_type")
 
-    @datatype.setter
-    def datatype(self, value: pulumi.Input[str]):
-        pulumi.set(self, "datatype", value)
+    @data_type.setter
+    def data_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_type", value)
 
     @property
     @pulumi.getter
@@ -65,35 +65,35 @@ class CustomFieldOptionArgs:
 
 
 @pulumi.input_type
-class _CustomFieldOptionState:
+class _IncidentCustomFieldOptionState:
     def __init__(__self__, *,
-                 datatype: Optional[pulumi.Input[str]] = None,
+                 data_type: Optional[pulumi.Input[str]] = None,
                  field: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
-        Input properties used for looking up and filtering CustomFieldOption resources.
-        :param pulumi.Input[str] datatype: The datatype of the field option. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+        Input properties used for looking up and filtering IncidentCustomFieldOption resources.
+        :param pulumi.Input[str] data_type: The datatype of the field option. Only `string` is allowed here at present.
         :param pulumi.Input[str] field: The ID of the field.
         :param pulumi.Input[str] value: The allowed value.
         """
-        if datatype is not None:
-            pulumi.set(__self__, "datatype", datatype)
+        if data_type is not None:
+            pulumi.set(__self__, "data_type", data_type)
         if field is not None:
             pulumi.set(__self__, "field", field)
         if value is not None:
             pulumi.set(__self__, "value", value)
 
     @property
-    @pulumi.getter
-    def datatype(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The datatype of the field option. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+        The datatype of the field option. Only `string` is allowed here at present.
         """
-        return pulumi.get(self, "datatype")
+        return pulumi.get(self, "data_type")
 
-    @datatype.setter
-    def datatype(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "datatype", value)
+    @data_type.setter
+    def data_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_type", value)
 
     @property
     @pulumi.getter
@@ -120,25 +120,20 @@ class _CustomFieldOptionState:
         pulumi.set(self, "value", value)
 
 
-class CustomFieldOption(pulumi.CustomResource):
+class IncidentCustomFieldOption(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 datatype: Optional[pulumi.Input[str]] = None,
+                 data_type: Optional[pulumi.Input[str]] = None,
                  field: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        !> This Resource is no longer functional. Documentation is left here for the purpose of documenting migration steps.
+        A Incident Custom Field Option is a specific value that can be used for an [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents) that only allow values from a set of fixed options,
+        i.e. has the `field_type` of `single_value_fixed` or `multi_value_fixed`.
 
-        A Custom Field Option is a specific value that can be used for [Custom Fields](https://support.pagerduty.com/docs/custom-fields) that only allow values from a set of fixed option.
-
-        ## Migration
-
-        The `incident_custom_field_option` resource provides similar functionality
-        with largely the same arguments and attributes. The only significant change is that the `datatype` argument has been renamed `data_type`
-        to match the Public API for the Custom Fields on Incidents feature.
+        > The Custom Fields on Incidents feature is currently available in Early Access.
 
         ## Example Usage
 
@@ -146,26 +141,26 @@ class CustomFieldOption(pulumi.CustomResource):
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        sre_environment = pagerduty.CustomField("sreEnvironment",
-            datatype="string",
-            fixed_options=True)
-        dev_environment = pagerduty.CustomFieldOption("devEnvironment",
+        sre_environment = pagerduty.IncidentCustomField("sreEnvironment",
+            data_type="string",
+            field_type="single_value_fixed")
+        dev_environment = pagerduty.IncidentCustomFieldOption("devEnvironment",
             field=sre_environment.id,
-            datatype="string",
+            data_type="string",
             value="dev")
-        stage_environment = pagerduty.CustomFieldOption("stageEnvironment",
+        stage_environment = pagerduty.IncidentCustomFieldOption("stageEnvironment",
             field=sre_environment.id,
-            datatype="string",
+            data_type="string",
             value="stage")
-        prod_environment = pagerduty.CustomFieldOption("prodEnvironment",
+        prod_environment = pagerduty.IncidentCustomFieldOption("prodEnvironment",
             field=sre_environment.id,
-            datatype="string",
+            data_type="string",
             value="prod")
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] datatype: The datatype of the field option. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+        :param pulumi.Input[str] data_type: The datatype of the field option. Only `string` is allowed here at present.
         :param pulumi.Input[str] field: The ID of the field.
         :param pulumi.Input[str] value: The allowed value.
         """
@@ -173,18 +168,13 @@ class CustomFieldOption(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CustomFieldOptionArgs,
+                 args: IncidentCustomFieldOptionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        !> This Resource is no longer functional. Documentation is left here for the purpose of documenting migration steps.
+        A Incident Custom Field Option is a specific value that can be used for an [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents) that only allow values from a set of fixed options,
+        i.e. has the `field_type` of `single_value_fixed` or `multi_value_fixed`.
 
-        A Custom Field Option is a specific value that can be used for [Custom Fields](https://support.pagerduty.com/docs/custom-fields) that only allow values from a set of fixed option.
-
-        ## Migration
-
-        The `incident_custom_field_option` resource provides similar functionality
-        with largely the same arguments and attributes. The only significant change is that the `datatype` argument has been renamed `data_type`
-        to match the Public API for the Custom Fields on Incidents feature.
+        > The Custom Fields on Incidents feature is currently available in Early Access.
 
         ## Example Usage
 
@@ -192,30 +182,30 @@ class CustomFieldOption(pulumi.CustomResource):
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        sre_environment = pagerduty.CustomField("sreEnvironment",
-            datatype="string",
-            fixed_options=True)
-        dev_environment = pagerduty.CustomFieldOption("devEnvironment",
+        sre_environment = pagerduty.IncidentCustomField("sreEnvironment",
+            data_type="string",
+            field_type="single_value_fixed")
+        dev_environment = pagerduty.IncidentCustomFieldOption("devEnvironment",
             field=sre_environment.id,
-            datatype="string",
+            data_type="string",
             value="dev")
-        stage_environment = pagerduty.CustomFieldOption("stageEnvironment",
+        stage_environment = pagerduty.IncidentCustomFieldOption("stageEnvironment",
             field=sre_environment.id,
-            datatype="string",
+            data_type="string",
             value="stage")
-        prod_environment = pagerduty.CustomFieldOption("prodEnvironment",
+        prod_environment = pagerduty.IncidentCustomFieldOption("prodEnvironment",
             field=sre_environment.id,
-            datatype="string",
+            data_type="string",
             value="prod")
         ```
 
         :param str resource_name: The name of the resource.
-        :param CustomFieldOptionArgs args: The arguments to use to populate this resource's properties.
+        :param IncidentCustomFieldOptionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CustomFieldOptionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(IncidentCustomFieldOptionArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -224,7 +214,7 @@ class CustomFieldOption(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 datatype: Optional[pulumi.Input[str]] = None,
+                 data_type: Optional[pulumi.Input[str]] = None,
                  field: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -234,19 +224,19 @@ class CustomFieldOption(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CustomFieldOptionArgs.__new__(CustomFieldOptionArgs)
+            __props__ = IncidentCustomFieldOptionArgs.__new__(IncidentCustomFieldOptionArgs)
 
-            if datatype is None and not opts.urn:
-                raise TypeError("Missing required property 'datatype'")
-            __props__.__dict__["datatype"] = datatype
+            if data_type is None and not opts.urn:
+                raise TypeError("Missing required property 'data_type'")
+            __props__.__dict__["data_type"] = data_type
             if field is None and not opts.urn:
                 raise TypeError("Missing required property 'field'")
             __props__.__dict__["field"] = field
             if value is None and not opts.urn:
                 raise TypeError("Missing required property 'value'")
             __props__.__dict__["value"] = value
-        super(CustomFieldOption, __self__).__init__(
-            'pagerduty:index/customFieldOption:CustomFieldOption',
+        super(IncidentCustomFieldOption, __self__).__init__(
+            'pagerduty:index/incidentCustomFieldOption:IncidentCustomFieldOption',
             resource_name,
             __props__,
             opts)
@@ -255,36 +245,36 @@ class CustomFieldOption(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            datatype: Optional[pulumi.Input[str]] = None,
+            data_type: Optional[pulumi.Input[str]] = None,
             field: Optional[pulumi.Input[str]] = None,
-            value: Optional[pulumi.Input[str]] = None) -> 'CustomFieldOption':
+            value: Optional[pulumi.Input[str]] = None) -> 'IncidentCustomFieldOption':
         """
-        Get an existing CustomFieldOption resource's state with the given name, id, and optional extra
+        Get an existing IncidentCustomFieldOption resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] datatype: The datatype of the field option. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+        :param pulumi.Input[str] data_type: The datatype of the field option. Only `string` is allowed here at present.
         :param pulumi.Input[str] field: The ID of the field.
         :param pulumi.Input[str] value: The allowed value.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = _CustomFieldOptionState.__new__(_CustomFieldOptionState)
+        __props__ = _IncidentCustomFieldOptionState.__new__(_IncidentCustomFieldOptionState)
 
-        __props__.__dict__["datatype"] = datatype
+        __props__.__dict__["data_type"] = data_type
         __props__.__dict__["field"] = field
         __props__.__dict__["value"] = value
-        return CustomFieldOption(resource_name, opts=opts, __props__=__props__)
+        return IncidentCustomFieldOption(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter
-    def datatype(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> pulumi.Output[str]:
         """
-        The datatype of the field option. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+        The datatype of the field option. Only `string` is allowed here at present.
         """
-        return pulumi.get(self, "datatype")
+        return pulumi.get(self, "data_type")
 
     @property
     @pulumi.getter

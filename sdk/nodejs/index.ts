@@ -170,6 +170,11 @@ export const getExtensionSchema: typeof import("./getExtensionSchema").getExtens
 export const getExtensionSchemaOutput: typeof import("./getExtensionSchema").getExtensionSchemaOutput = null as any;
 utilities.lazyLoad(exports, ["getExtensionSchema","getExtensionSchemaOutput"], () => require("./getExtensionSchema"));
 
+export { GetIncidentCustomFieldArgs, GetIncidentCustomFieldResult, GetIncidentCustomFieldOutputArgs } from "./getIncidentCustomField";
+export const getIncidentCustomField: typeof import("./getIncidentCustomField").getIncidentCustomField = null as any;
+export const getIncidentCustomFieldOutput: typeof import("./getIncidentCustomField").getIncidentCustomFieldOutput = null as any;
+utilities.lazyLoad(exports, ["getIncidentCustomField","getIncidentCustomFieldOutput"], () => require("./getIncidentCustomField"));
+
 export { GetIncidentWorkflowArgs, GetIncidentWorkflowResult, GetIncidentWorkflowOutputArgs } from "./getIncidentWorkflow";
 export const getIncidentWorkflow: typeof import("./getIncidentWorkflow").getIncidentWorkflow = null as any;
 export const getIncidentWorkflowOutput: typeof import("./getIncidentWorkflow").getIncidentWorkflowOutput = null as any;
@@ -239,6 +244,16 @@ export { GetVendorArgs, GetVendorResult, GetVendorOutputArgs } from "./getVendor
 export const getVendor: typeof import("./getVendor").getVendor = null as any;
 export const getVendorOutput: typeof import("./getVendor").getVendorOutput = null as any;
 utilities.lazyLoad(exports, ["getVendor","getVendorOutput"], () => require("./getVendor"));
+
+export { IncidentCustomFieldArgs, IncidentCustomFieldState } from "./incidentCustomField";
+export type IncidentCustomField = import("./incidentCustomField").IncidentCustomField;
+export const IncidentCustomField: typeof import("./incidentCustomField").IncidentCustomField = null as any;
+utilities.lazyLoad(exports, ["IncidentCustomField"], () => require("./incidentCustomField"));
+
+export { IncidentCustomFieldOptionArgs, IncidentCustomFieldOptionState } from "./incidentCustomFieldOption";
+export type IncidentCustomFieldOption = import("./incidentCustomFieldOption").IncidentCustomFieldOption;
+export const IncidentCustomFieldOption: typeof import("./incidentCustomFieldOption").IncidentCustomFieldOption = null as any;
+utilities.lazyLoad(exports, ["IncidentCustomFieldOption"], () => require("./incidentCustomFieldOption"));
 
 export { IncidentWorkflowArgs, IncidentWorkflowState } from "./incidentWorkflow";
 export type IncidentWorkflow = import("./incidentWorkflow").IncidentWorkflow;
@@ -405,6 +420,10 @@ const _module = {
                 return new Extension(name, <any>undefined, { urn })
             case "pagerduty:index/extensionServiceNow:ExtensionServiceNow":
                 return new ExtensionServiceNow(name, <any>undefined, { urn })
+            case "pagerduty:index/incidentCustomField:IncidentCustomField":
+                return new IncidentCustomField(name, <any>undefined, { urn })
+            case "pagerduty:index/incidentCustomFieldOption:IncidentCustomFieldOption":
+                return new IncidentCustomFieldOption(name, <any>undefined, { urn })
             case "pagerduty:index/incidentWorkflow:IncidentWorkflow":
                 return new IncidentWorkflow(name, <any>undefined, { urn })
             case "pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger":
@@ -473,6 +492,8 @@ pulumi.runtime.registerResourceModule("pagerduty", "index/eventOrchestrationUnro
 pulumi.runtime.registerResourceModule("pagerduty", "index/eventRule", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/extension", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/extensionServiceNow", _module)
+pulumi.runtime.registerResourceModule("pagerduty", "index/incidentCustomField", _module)
+pulumi.runtime.registerResourceModule("pagerduty", "index/incidentCustomFieldOption", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/incidentWorkflow", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/incidentWorkflowTrigger", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/maintenanceWindow", _module)

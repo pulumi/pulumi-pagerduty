@@ -12,17 +12,31 @@ namespace Pulumi.Pagerduty
     public static class GetCustomField
     {
         /// <summary>
+        /// !&gt; This Data Source is no longer functional. Documentation is left here for the purpose of documenting migration steps.
+        /// 
         /// Use this data source to get information about a specific [Custom Field](https://support.pagerduty.com/docs/custom-fields) that you can add to a custom field schema.
         /// 
-        /// &gt; The Custom Fields feature is currently available in Early Access.
+        /// ## Migration
+        /// 
+        /// The `incident_custom_field` data source provides similar functionality
+        /// with the same arguments and attributes. The key distinction is that while custom fields returned by this data source
+        /// may have only applied to a subset of incidents within the account, custom fields returned by the `incident_custom_field`
+        /// data source are applied to all incidents in the account.
         /// </summary>
         public static Task<GetCustomFieldResult> InvokeAsync(GetCustomFieldArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomFieldResult>("pagerduty:index/getCustomField:getCustomField", args ?? new GetCustomFieldArgs(), options.WithDefaults());
 
         /// <summary>
+        /// !&gt; This Data Source is no longer functional. Documentation is left here for the purpose of documenting migration steps.
+        /// 
         /// Use this data source to get information about a specific [Custom Field](https://support.pagerduty.com/docs/custom-fields) that you can add to a custom field schema.
         /// 
-        /// &gt; The Custom Fields feature is currently available in Early Access.
+        /// ## Migration
+        /// 
+        /// The `incident_custom_field` data source provides similar functionality
+        /// with the same arguments and attributes. The key distinction is that while custom fields returned by this data source
+        /// may have only applied to a subset of incidents within the account, custom fields returned by the `incident_custom_field`
+        /// data source are applied to all incidents in the account.
         /// </summary>
         public static Output<GetCustomFieldResult> Invoke(GetCustomFieldInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomFieldResult>("pagerduty:index/getCustomField:getCustomField", args ?? new GetCustomFieldInvokeArgs(), options.WithDefaults());

@@ -14,9 +14,14 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * !&gt; This Resource is no longer functional. Documentation is left here for the purpose of documenting migration steps.
+ * 
  * A [Custom Field Schema Assignment](https://support.pagerduty.com/docs/custom-fields#associate-schemas-with-services) is a relationship between a Custom Field Schema and a Service.
  * 
- * &gt; The Custom Fields feature is currently available in Early Access.
+ * ## Migration
+ * 
+ * This resource has no currently functional counterpart. Custom Fields on Incidents are now applied globally
+ * to incidents within an account and have no notion of a Field Schema.
  * 
  * ## Example Usage
  * ```java

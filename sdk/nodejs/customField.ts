@@ -5,9 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * !> This Resource is no longer functional. Documentation is left here for the purpose of documenting migration steps.
+ *
  * A [Custom Field](https://support.pagerduty.com/docs/custom-fields) is a resuable element which can be added to Custom Field Schemas.
  *
- * > The Custom Fields feature is currently available in Early Access.
+ * ## Migration
+ *
+ * The `incidentCustomField` resource provides similar functionality
+ * with largely the same arguments and attributes. The key distinction is that while custom fields created by this data source
+ * may have only applied to a subset of incidents within the account after being added to a schema and assigned to a service,
+ * custom fields managed by the `incidentCustomField` resource are applied to all incidents in the account.
+ *
+ * Additionally:
+ * * The separate `multiValue` and `fixedOptions` arguments have been merged into a single argument
+ *   named `fieldType`.
+ * * The `datatype` argument has been renamed `dataType` to match the Public API for the Custom Fields on Incidents feature.
  *
  * ## Example Usage
  *

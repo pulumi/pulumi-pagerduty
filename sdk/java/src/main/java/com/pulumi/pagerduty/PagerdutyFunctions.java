@@ -28,6 +28,8 @@ import com.pulumi.pagerduty.inputs.GetEventOrchestrationsArgs;
 import com.pulumi.pagerduty.inputs.GetEventOrchestrationsPlainArgs;
 import com.pulumi.pagerduty.inputs.GetExtensionSchemaArgs;
 import com.pulumi.pagerduty.inputs.GetExtensionSchemaPlainArgs;
+import com.pulumi.pagerduty.inputs.GetIncidentCustomFieldArgs;
+import com.pulumi.pagerduty.inputs.GetIncidentCustomFieldPlainArgs;
 import com.pulumi.pagerduty.inputs.GetIncidentWorkflowArgs;
 import com.pulumi.pagerduty.inputs.GetIncidentWorkflowPlainArgs;
 import com.pulumi.pagerduty.inputs.GetLicenseArgs;
@@ -66,6 +68,7 @@ import com.pulumi.pagerduty.outputs.GetEventOrchestrationIntegrationResult;
 import com.pulumi.pagerduty.outputs.GetEventOrchestrationResult;
 import com.pulumi.pagerduty.outputs.GetEventOrchestrationsResult;
 import com.pulumi.pagerduty.outputs.GetExtensionSchemaResult;
+import com.pulumi.pagerduty.outputs.GetIncidentCustomFieldResult;
 import com.pulumi.pagerduty.outputs.GetIncidentWorkflowResult;
 import com.pulumi.pagerduty.outputs.GetLicenseResult;
 import com.pulumi.pagerduty.outputs.GetLicensesResult;
@@ -528,9 +531,16 @@ public final class PagerdutyFunctions {
         return Deployment.getInstance().invokeAsync("pagerduty:index/getBusinessService:getBusinessService", TypeShape.of(GetBusinessServiceResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * !&gt; This Data Source is no longer functional. Documentation is left here for the purpose of documenting migration steps.
+     * 
      * Use this data source to get information about a specific [Custom Field](https://support.pagerduty.com/docs/custom-fields) that you can add to a custom field schema.
      * 
-     * &gt; The Custom Fields feature is currently available in Early Access.
+     * ## Migration
+     * 
+     * The `incident_custom_field` data source provides similar functionality
+     * with the same arguments and attributes. The key distinction is that while custom fields returned by this data source
+     * may have only applied to a subset of incidents within the account, custom fields returned by the `incident_custom_field`
+     * data source are applied to all incidents in the account.
      * 
      * ## Example Usage
      * 
@@ -576,9 +586,16 @@ public final class PagerdutyFunctions {
         return getCustomField(args, InvokeOptions.Empty);
     }
     /**
+     * !&gt; This Data Source is no longer functional. Documentation is left here for the purpose of documenting migration steps.
+     * 
      * Use this data source to get information about a specific [Custom Field](https://support.pagerduty.com/docs/custom-fields) that you can add to a custom field schema.
      * 
-     * &gt; The Custom Fields feature is currently available in Early Access.
+     * ## Migration
+     * 
+     * The `incident_custom_field` data source provides similar functionality
+     * with the same arguments and attributes. The key distinction is that while custom fields returned by this data source
+     * may have only applied to a subset of incidents within the account, custom fields returned by the `incident_custom_field`
+     * data source are applied to all incidents in the account.
      * 
      * ## Example Usage
      * 
@@ -624,9 +641,16 @@ public final class PagerdutyFunctions {
         return getCustomFieldPlain(args, InvokeOptions.Empty);
     }
     /**
+     * !&gt; This Data Source is no longer functional. Documentation is left here for the purpose of documenting migration steps.
+     * 
      * Use this data source to get information about a specific [Custom Field](https://support.pagerduty.com/docs/custom-fields) that you can add to a custom field schema.
      * 
-     * &gt; The Custom Fields feature is currently available in Early Access.
+     * ## Migration
+     * 
+     * The `incident_custom_field` data source provides similar functionality
+     * with the same arguments and attributes. The key distinction is that while custom fields returned by this data source
+     * may have only applied to a subset of incidents within the account, custom fields returned by the `incident_custom_field`
+     * data source are applied to all incidents in the account.
      * 
      * ## Example Usage
      * 
@@ -672,9 +696,16 @@ public final class PagerdutyFunctions {
         return Deployment.getInstance().invoke("pagerduty:index/getCustomField:getCustomField", TypeShape.of(GetCustomFieldResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * !&gt; This Data Source is no longer functional. Documentation is left here for the purpose of documenting migration steps.
+     * 
      * Use this data source to get information about a specific [Custom Field](https://support.pagerduty.com/docs/custom-fields) that you can add to a custom field schema.
      * 
-     * &gt; The Custom Fields feature is currently available in Early Access.
+     * ## Migration
+     * 
+     * The `incident_custom_field` data source provides similar functionality
+     * with the same arguments and attributes. The key distinction is that while custom fields returned by this data source
+     * may have only applied to a subset of incidents within the account, custom fields returned by the `incident_custom_field`
+     * data source are applied to all incidents in the account.
      * 
      * ## Example Usage
      * 
@@ -720,9 +751,14 @@ public final class PagerdutyFunctions {
         return Deployment.getInstance().invokeAsync("pagerduty:index/getCustomField:getCustomField", TypeShape.of(GetCustomFieldResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * !&gt; This Data Source is no longer functional. Documentation is left here for the purpose of documenting migration steps.
+     * 
      * Use this data source to get information about a specific [Custom Field Schema](https://support.pagerduty.com/docs/custom-fields#schemas) that you can assign to a service.
      * 
-     * &gt; The Custom Fields feature is currently available in Early Access.
+     * ## Migration
+     * 
+     * This data source has no currently functional counterpart. Custom Fields on Incidents are now applied globally
+     * to incidents within an account and have no notion of a Field Schema.
      * 
      * ## Example Usage
      * ```java
@@ -771,9 +807,14 @@ public final class PagerdutyFunctions {
         return getCustomFieldSchema(args, InvokeOptions.Empty);
     }
     /**
+     * !&gt; This Data Source is no longer functional. Documentation is left here for the purpose of documenting migration steps.
+     * 
      * Use this data source to get information about a specific [Custom Field Schema](https://support.pagerduty.com/docs/custom-fields#schemas) that you can assign to a service.
      * 
-     * &gt; The Custom Fields feature is currently available in Early Access.
+     * ## Migration
+     * 
+     * This data source has no currently functional counterpart. Custom Fields on Incidents are now applied globally
+     * to incidents within an account and have no notion of a Field Schema.
      * 
      * ## Example Usage
      * ```java
@@ -822,9 +863,14 @@ public final class PagerdutyFunctions {
         return getCustomFieldSchemaPlain(args, InvokeOptions.Empty);
     }
     /**
+     * !&gt; This Data Source is no longer functional. Documentation is left here for the purpose of documenting migration steps.
+     * 
      * Use this data source to get information about a specific [Custom Field Schema](https://support.pagerduty.com/docs/custom-fields#schemas) that you can assign to a service.
      * 
-     * &gt; The Custom Fields feature is currently available in Early Access.
+     * ## Migration
+     * 
+     * This data source has no currently functional counterpart. Custom Fields on Incidents are now applied globally
+     * to incidents within an account and have no notion of a Field Schema.
      * 
      * ## Example Usage
      * ```java
@@ -873,9 +919,14 @@ public final class PagerdutyFunctions {
         return Deployment.getInstance().invoke("pagerduty:index/getCustomFieldSchema:getCustomFieldSchema", TypeShape.of(GetCustomFieldSchemaResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * !&gt; This Data Source is no longer functional. Documentation is left here for the purpose of documenting migration steps.
+     * 
      * Use this data source to get information about a specific [Custom Field Schema](https://support.pagerduty.com/docs/custom-fields#schemas) that you can assign to a service.
      * 
-     * &gt; The Custom Fields feature is currently available in Early Access.
+     * ## Migration
+     * 
+     * This data source has no currently functional counterpart. Custom Fields on Incidents are now applied globally
+     * to incidents within an account and have no notion of a Field Schema.
      * 
      * ## Example Usage
      * ```java
@@ -1982,6 +2033,194 @@ public final class PagerdutyFunctions {
      */
     public static CompletableFuture<GetExtensionSchemaResult> getExtensionSchemaPlain(GetExtensionSchemaPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("pagerduty:index/getExtensionSchema:getExtensionSchema", TypeShape.of(GetExtensionSchemaResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents).
+     * 
+     * &gt; The Custom Fields on Incidents feature is currently available in Early Access.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetIncidentCustomFieldArgs;
+     * import com.pulumi.pagerduty.IncidentCustomFieldOption;
+     * import com.pulumi.pagerduty.IncidentCustomFieldOptionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var environment = PagerdutyFunctions.getIncidentCustomField(GetIncidentCustomFieldArgs.builder()
+     *             .name(&#34;environment&#34;)
+     *             .build());
+     * 
+     *         var devEnvironment = new IncidentCustomFieldOption(&#34;devEnvironment&#34;, IncidentCustomFieldOptionArgs.builder()        
+     *             .field(environment.applyValue(getIncidentCustomFieldResult -&gt; getIncidentCustomFieldResult.id()))
+     *             .datatype(&#34;string&#34;)
+     *             .value(&#34;dev&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetIncidentCustomFieldResult> getIncidentCustomField(GetIncidentCustomFieldArgs args) {
+        return getIncidentCustomField(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about a specific [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents).
+     * 
+     * &gt; The Custom Fields on Incidents feature is currently available in Early Access.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetIncidentCustomFieldArgs;
+     * import com.pulumi.pagerduty.IncidentCustomFieldOption;
+     * import com.pulumi.pagerduty.IncidentCustomFieldOptionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var environment = PagerdutyFunctions.getIncidentCustomField(GetIncidentCustomFieldArgs.builder()
+     *             .name(&#34;environment&#34;)
+     *             .build());
+     * 
+     *         var devEnvironment = new IncidentCustomFieldOption(&#34;devEnvironment&#34;, IncidentCustomFieldOptionArgs.builder()        
+     *             .field(environment.applyValue(getIncidentCustomFieldResult -&gt; getIncidentCustomFieldResult.id()))
+     *             .datatype(&#34;string&#34;)
+     *             .value(&#34;dev&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetIncidentCustomFieldResult> getIncidentCustomFieldPlain(GetIncidentCustomFieldPlainArgs args) {
+        return getIncidentCustomFieldPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about a specific [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents).
+     * 
+     * &gt; The Custom Fields on Incidents feature is currently available in Early Access.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetIncidentCustomFieldArgs;
+     * import com.pulumi.pagerduty.IncidentCustomFieldOption;
+     * import com.pulumi.pagerduty.IncidentCustomFieldOptionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var environment = PagerdutyFunctions.getIncidentCustomField(GetIncidentCustomFieldArgs.builder()
+     *             .name(&#34;environment&#34;)
+     *             .build());
+     * 
+     *         var devEnvironment = new IncidentCustomFieldOption(&#34;devEnvironment&#34;, IncidentCustomFieldOptionArgs.builder()        
+     *             .field(environment.applyValue(getIncidentCustomFieldResult -&gt; getIncidentCustomFieldResult.id()))
+     *             .datatype(&#34;string&#34;)
+     *             .value(&#34;dev&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetIncidentCustomFieldResult> getIncidentCustomField(GetIncidentCustomFieldArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getIncidentCustomField:getIncidentCustomField", TypeShape.of(GetIncidentCustomFieldResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents).
+     * 
+     * &gt; The Custom Fields on Incidents feature is currently available in Early Access.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetIncidentCustomFieldArgs;
+     * import com.pulumi.pagerduty.IncidentCustomFieldOption;
+     * import com.pulumi.pagerduty.IncidentCustomFieldOptionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var environment = PagerdutyFunctions.getIncidentCustomField(GetIncidentCustomFieldArgs.builder()
+     *             .name(&#34;environment&#34;)
+     *             .build());
+     * 
+     *         var devEnvironment = new IncidentCustomFieldOption(&#34;devEnvironment&#34;, IncidentCustomFieldOptionArgs.builder()        
+     *             .field(environment.applyValue(getIncidentCustomFieldResult -&gt; getIncidentCustomFieldResult.id()))
+     *             .datatype(&#34;string&#34;)
+     *             .value(&#34;dev&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetIncidentCustomFieldResult> getIncidentCustomFieldPlain(GetIncidentCustomFieldPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("pagerduty:index/getIncidentCustomField:getIncidentCustomField", TypeShape.of(GetIncidentCustomFieldResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get information about a specific [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) so that you can create a trigger for it.

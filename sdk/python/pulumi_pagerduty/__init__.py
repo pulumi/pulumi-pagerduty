@@ -38,6 +38,7 @@ from .get_event_orchestration import *
 from .get_event_orchestration_integration import *
 from .get_event_orchestrations import *
 from .get_extension_schema import *
+from .get_incident_custom_field import *
 from .get_incident_workflow import *
 from .get_license import *
 from .get_licenses import *
@@ -52,6 +53,8 @@ from .get_user import *
 from .get_user_contact_method import *
 from .get_users import *
 from .get_vendor import *
+from .incident_custom_field import *
+from .incident_custom_field_option import *
 from .incident_workflow import *
 from .incident_workflow_trigger import *
 from .maintenance_window import *
@@ -268,6 +271,22 @@ _utilities.register(
   "fqn": "pulumi_pagerduty",
   "classes": {
    "pagerduty:index/extensionServiceNow:ExtensionServiceNow": "ExtensionServiceNow"
+  }
+ },
+ {
+  "pkg": "pagerduty",
+  "mod": "index/incidentCustomField",
+  "fqn": "pulumi_pagerduty",
+  "classes": {
+   "pagerduty:index/incidentCustomField:IncidentCustomField": "IncidentCustomField"
+  }
+ },
+ {
+  "pkg": "pagerduty",
+  "mod": "index/incidentCustomFieldOption",
+  "fqn": "pulumi_pagerduty",
+  "classes": {
+   "pagerduty:index/incidentCustomFieldOption:IncidentCustomFieldOption": "IncidentCustomFieldOption"
   }
  },
  {

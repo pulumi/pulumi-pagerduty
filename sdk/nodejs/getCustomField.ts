@@ -5,9 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * !> This Data Source is no longer functional. Documentation is left here for the purpose of documenting migration steps.
+ *
  * Use this data source to get information about a specific [Custom Field](https://support.pagerduty.com/docs/custom-fields) that you can add to a custom field schema.
  *
- * > The Custom Fields feature is currently available in Early Access.
+ * ## Migration
+ *
+ * The `incidentCustomField` data source provides similar functionality
+ * with the same arguments and attributes. The key distinction is that while custom fields returned by this data source
+ * may have only applied to a subset of incidents within the account, custom fields returned by the `incidentCustomField`
+ * data source are applied to all incidents in the account.
  */
 export function getCustomField(args: GetCustomFieldArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomFieldResult> {
 
@@ -43,9 +50,16 @@ export interface GetCustomFieldResult {
     readonly name: string;
 }
 /**
+ * !> This Data Source is no longer functional. Documentation is left here for the purpose of documenting migration steps.
+ *
  * Use this data source to get information about a specific [Custom Field](https://support.pagerduty.com/docs/custom-fields) that you can add to a custom field schema.
  *
- * > The Custom Fields feature is currently available in Early Access.
+ * ## Migration
+ *
+ * The `incidentCustomField` data source provides similar functionality
+ * with the same arguments and attributes. The key distinction is that while custom fields returned by this data source
+ * may have only applied to a subset of incidents within the account, custom fields returned by the `incidentCustomField`
+ * data source are applied to all incidents in the account.
  */
 export function getCustomFieldOutput(args: GetCustomFieldOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomFieldResult> {
     return pulumi.output(args).apply((a: any) => getCustomField(a, opts))

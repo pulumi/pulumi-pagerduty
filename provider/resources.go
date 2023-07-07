@@ -20,6 +20,7 @@ import (
 	_ "embed"
 	"path/filepath"
 	"strings"
+	// tzdata is used to ensure the provider works when deployed to OS-es that do not have it
 	_ "time/tzdata"
 	"unicode"
 

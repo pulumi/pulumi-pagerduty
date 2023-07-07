@@ -20,6 +20,7 @@ import (
 	_ "embed"
 	"path/filepath"
 	"strings"
+	_ "time/tzdata"
 	"unicode"
 
 	"github.com/PagerDuty/terraform-provider-pagerduty/pagerduty"

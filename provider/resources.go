@@ -205,8 +205,8 @@ func Provider() tfbridge.ProviderInfo {
 		}, MetadataInfo: tfbridge.NewProviderMetadata(metadata),
 	}
 
-	prov.MustComputeTokens(prov.SingleModule("pagerduty_",
-		mainMod, prov.MakeStandard(mainPkg)))
+	prov.MustComputeTokens(tfbridgetokens.SingleModule("pagerduty_",
+		mainMod, tfbridgetokens.MakeStandard(mainPkg)))
 	prov.MustApplyAutoAliases()
 
 	prov.SetAutonaming(255, "-")

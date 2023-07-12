@@ -123,14 +123,14 @@ public final class SlackConnectionState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
+     * The slack team (workspace) ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
      * 
      */
     @Import(name="workspaceId")
     private @Nullable Output<String> workspaceId;
 
     /**
-     * @return The ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
+     * @return The slack team (workspace) ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
      * 
      */
     public Optional<Output<String>> workspaceId() {
@@ -326,7 +326,7 @@ public final class SlackConnectionState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param workspaceId The ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
+         * @param workspaceId The slack team (workspace) ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
          * 
          * @return builder
          * 
@@ -337,7 +337,7 @@ public final class SlackConnectionState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param workspaceId The ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
+         * @param workspaceId The slack team (workspace) ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
          * 
          * @return builder
          * 

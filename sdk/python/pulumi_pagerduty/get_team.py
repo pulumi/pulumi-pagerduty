@@ -97,10 +97,10 @@ def get_team(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('pagerduty:index/getTeam:getTeam', __args__, opts=opts, typ=GetTeamResult).value
 
     return AwaitableGetTeamResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        parent=__ret__.parent)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        parent=pulumi.get(__ret__, 'parent'))
 
 
 @_utilities.lift_output_func(get_team)

@@ -189,16 +189,16 @@ def get_user_contact_method(label: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('pagerduty:index/getUserContactMethod:getUserContactMethod', __args__, opts=opts, typ=GetUserContactMethodResult).value
 
     return AwaitableGetUserContactMethodResult(
-        address=__ret__.address,
-        blacklisted=__ret__.blacklisted,
-        country_code=__ret__.country_code,
-        device_type=__ret__.device_type,
-        enabled=__ret__.enabled,
-        id=__ret__.id,
-        label=__ret__.label,
-        send_short_email=__ret__.send_short_email,
-        type=__ret__.type,
-        user_id=__ret__.user_id)
+        address=pulumi.get(__ret__, 'address'),
+        blacklisted=pulumi.get(__ret__, 'blacklisted'),
+        country_code=pulumi.get(__ret__, 'country_code'),
+        device_type=pulumi.get(__ret__, 'device_type'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        id=pulumi.get(__ret__, 'id'),
+        label=pulumi.get(__ret__, 'label'),
+        send_short_email=pulumi.get(__ret__, 'send_short_email'),
+        type=pulumi.get(__ret__, 'type'),
+        user_id=pulumi.get(__ret__, 'user_id'))
 
 
 @_utilities.lift_output_func(get_user_contact_method)

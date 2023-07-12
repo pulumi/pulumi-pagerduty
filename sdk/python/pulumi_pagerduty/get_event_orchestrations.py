@@ -91,9 +91,9 @@ def get_event_orchestrations(name_filter: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('pagerduty:index/getEventOrchestrations:getEventOrchestrations', __args__, opts=opts, typ=GetEventOrchestrationsResult).value
 
     return AwaitableGetEventOrchestrationsResult(
-        event_orchestrations=__ret__.event_orchestrations,
-        id=__ret__.id,
-        name_filter=__ret__.name_filter)
+        event_orchestrations=pulumi.get(__ret__, 'event_orchestrations'),
+        id=pulumi.get(__ret__, 'id'),
+        name_filter=pulumi.get(__ret__, 'name_filter'))
 
 
 @_utilities.lift_output_func(get_event_orchestrations)

@@ -96,9 +96,9 @@ def get_users(team_ids: Optional[Sequence[str]] = None,
     __ret__ = pulumi.runtime.invoke('pagerduty:index/getUsers:getUsers', __args__, opts=opts, typ=GetUsersResult).value
 
     return AwaitableGetUsersResult(
-        id=__ret__.id,
-        team_ids=__ret__.team_ids,
-        users=__ret__.users)
+        id=pulumi.get(__ret__, 'id'),
+        team_ids=pulumi.get(__ret__, 'team_ids'),
+        users=pulumi.get(__ret__, 'users'))
 
 
 @_utilities.lift_output_func(get_users)

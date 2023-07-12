@@ -2037,8 +2037,6 @@ public final class PagerdutyFunctions {
     /**
      * Use this data source to get information about a specific [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents).
      * 
-     * &gt; The Custom Fields on Incidents feature is currently available in Early Access.
-     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -2083,8 +2081,6 @@ public final class PagerdutyFunctions {
     }
     /**
      * Use this data source to get information about a specific [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents).
-     * 
-     * &gt; The Custom Fields on Incidents feature is currently available in Early Access.
      * 
      * ## Example Usage
      * ```java
@@ -2131,8 +2127,6 @@ public final class PagerdutyFunctions {
     /**
      * Use this data source to get information about a specific [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents).
      * 
-     * &gt; The Custom Fields on Incidents feature is currently available in Early Access.
-     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -2177,8 +2171,6 @@ public final class PagerdutyFunctions {
     }
     /**
      * Use this data source to get information about a specific [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents).
-     * 
-     * &gt; The Custom Fields on Incidents feature is currently available in Early Access.
      * 
      * ## Example Usage
      * ```java

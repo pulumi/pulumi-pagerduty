@@ -299,6 +299,101 @@ class RulesetRule(pulumi.CustomResource):
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulesetRuleVariableArgs']]]]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+        import pulumiverse_time as time
+
+        foo_team = pagerduty.Team("fooTeam")
+        foo_ruleset = pagerduty.Ruleset("fooRuleset", team=pagerduty.RulesetTeamArgs(
+            id=foo_team.id,
+        ))
+        # The pagerduty_ruleset_rule.foo rule defined below
+        # repeats daily from 9:30am - 11:30am using the America/New_York timezone.
+        # Thus it requires a time_static instance to represent 9:30am on an arbitrary date in that timezone.
+        # April 11th, 2019 was EDT (UTC-4) https://www.timeanddate.com/worldclock/converter.html?iso=20190411T133000&p1=179
+        eastern_time_at0930 = time.Static("easternTimeAt0930", rfc3339="2019-04-11T09:30:00-04:00")
+        foo_ruleset_rule = pagerduty.RulesetRule("fooRulesetRule",
+            ruleset=foo_ruleset.id,
+            position=0,
+            disabled=False,
+            time_frame=pagerduty.RulesetRuleTimeFrameArgs(
+                scheduled_weeklies=[pagerduty.RulesetRuleTimeFrameScheduledWeeklyArgs(
+                    weekdays=[
+                        2,
+                        4,
+                        6,
+                    ],
+                    start_time=eastern_time_at0930.unix.apply(lambda unix: unix * 1000),
+                    duration=2 * 60 * 60 * 1000,
+                    timezone="America/New_York",
+                )],
+            ),
+            conditions=pagerduty.RulesetRuleConditionsArgs(
+                operator="and",
+                subconditions=[
+                    pagerduty.RulesetRuleConditionsSubconditionArgs(
+                        operator="contains",
+                        parameters=[pagerduty.RulesetRuleConditionsSubconditionParameterArgs(
+                            value="disk space",
+                            path="payload.summary",
+                        )],
+                    ),
+                    pagerduty.RulesetRuleConditionsSubconditionArgs(
+                        operator="contains",
+                        parameters=[pagerduty.RulesetRuleConditionsSubconditionParameterArgs(
+                            value="db",
+                            path="payload.source",
+                        )],
+                    ),
+                ],
+            ),
+            variables=[pagerduty.RulesetRuleVariableArgs(
+                type="regex",
+                name="Src",
+                parameters=[pagerduty.RulesetRuleVariableParameterArgs(
+                    value="(.*)",
+                    path="payload.source",
+                )],
+            )],
+            actions=pagerduty.RulesetRuleActionsArgs(
+                routes=[pagerduty.RulesetRuleActionsRouteArgs(
+                    value=pagerduty_service["foo"]["id"],
+                )],
+                severities=[pagerduty.RulesetRuleActionsSeverityArgs(
+                    value="warning",
+                )],
+                annotates=[pagerduty.RulesetRuleActionsAnnotateArgs(
+                    value="From Terraform",
+                )],
+                extractions=[
+                    pagerduty.RulesetRuleActionsExtractionArgs(
+                        target="dedup_key",
+                        source="details.host",
+                        regex="(.*)",
+                    ),
+                    pagerduty.RulesetRuleActionsExtractionArgs(
+                        target="summary",
+                        template="Warning: Disk Space Low on {{Src}}",
+                    ),
+                ],
+            ))
+        catch_all = pagerduty.RulesetRule("catchAll",
+            ruleset=foo_ruleset.id,
+            position=1,
+            catch_all=True,
+            actions=pagerduty.RulesetRuleActionsArgs(
+                annotates=[pagerduty.RulesetRuleActionsAnnotateArgs(
+                    value="From Terraform",
+                )],
+                suppresses=[pagerduty.RulesetRuleActionsSuppressArgs(
+                    value=True,
+                )],
+            ))
+        ```
+
         ## Import
 
         Ruleset rules can be imported using the related `ruleset` ID and the `ruleset_rule` ID separated by a dot, e.g.
@@ -325,6 +420,101 @@ class RulesetRule(pulumi.CustomResource):
                  args: RulesetRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+        import pulumiverse_time as time
+
+        foo_team = pagerduty.Team("fooTeam")
+        foo_ruleset = pagerduty.Ruleset("fooRuleset", team=pagerduty.RulesetTeamArgs(
+            id=foo_team.id,
+        ))
+        # The pagerduty_ruleset_rule.foo rule defined below
+        # repeats daily from 9:30am - 11:30am using the America/New_York timezone.
+        # Thus it requires a time_static instance to represent 9:30am on an arbitrary date in that timezone.
+        # April 11th, 2019 was EDT (UTC-4) https://www.timeanddate.com/worldclock/converter.html?iso=20190411T133000&p1=179
+        eastern_time_at0930 = time.Static("easternTimeAt0930", rfc3339="2019-04-11T09:30:00-04:00")
+        foo_ruleset_rule = pagerduty.RulesetRule("fooRulesetRule",
+            ruleset=foo_ruleset.id,
+            position=0,
+            disabled=False,
+            time_frame=pagerduty.RulesetRuleTimeFrameArgs(
+                scheduled_weeklies=[pagerduty.RulesetRuleTimeFrameScheduledWeeklyArgs(
+                    weekdays=[
+                        2,
+                        4,
+                        6,
+                    ],
+                    start_time=eastern_time_at0930.unix.apply(lambda unix: unix * 1000),
+                    duration=2 * 60 * 60 * 1000,
+                    timezone="America/New_York",
+                )],
+            ),
+            conditions=pagerduty.RulesetRuleConditionsArgs(
+                operator="and",
+                subconditions=[
+                    pagerduty.RulesetRuleConditionsSubconditionArgs(
+                        operator="contains",
+                        parameters=[pagerduty.RulesetRuleConditionsSubconditionParameterArgs(
+                            value="disk space",
+                            path="payload.summary",
+                        )],
+                    ),
+                    pagerduty.RulesetRuleConditionsSubconditionArgs(
+                        operator="contains",
+                        parameters=[pagerduty.RulesetRuleConditionsSubconditionParameterArgs(
+                            value="db",
+                            path="payload.source",
+                        )],
+                    ),
+                ],
+            ),
+            variables=[pagerduty.RulesetRuleVariableArgs(
+                type="regex",
+                name="Src",
+                parameters=[pagerduty.RulesetRuleVariableParameterArgs(
+                    value="(.*)",
+                    path="payload.source",
+                )],
+            )],
+            actions=pagerduty.RulesetRuleActionsArgs(
+                routes=[pagerduty.RulesetRuleActionsRouteArgs(
+                    value=pagerduty_service["foo"]["id"],
+                )],
+                severities=[pagerduty.RulesetRuleActionsSeverityArgs(
+                    value="warning",
+                )],
+                annotates=[pagerduty.RulesetRuleActionsAnnotateArgs(
+                    value="From Terraform",
+                )],
+                extractions=[
+                    pagerduty.RulesetRuleActionsExtractionArgs(
+                        target="dedup_key",
+                        source="details.host",
+                        regex="(.*)",
+                    ),
+                    pagerduty.RulesetRuleActionsExtractionArgs(
+                        target="summary",
+                        template="Warning: Disk Space Low on {{Src}}",
+                    ),
+                ],
+            ))
+        catch_all = pagerduty.RulesetRule("catchAll",
+            ruleset=foo_ruleset.id,
+            position=1,
+            catch_all=True,
+            actions=pagerduty.RulesetRuleActionsArgs(
+                annotates=[pagerduty.RulesetRuleActionsAnnotateArgs(
+                    value="From Terraform",
+                )],
+                suppresses=[pagerduty.RulesetRuleActionsSuppressArgs(
+                    value=True,
+                )],
+            ))
+        ```
+
         ## Import
 
         Ruleset rules can be imported using the related `ruleset` ID and the `ruleset_rule` ID separated by a dot, e.g.

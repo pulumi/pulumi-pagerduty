@@ -160,14 +160,14 @@ def get_automation_actions_runner(description: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('pagerduty:index/getAutomationActionsRunner:getAutomationActionsRunner', __args__, opts=opts, typ=GetAutomationActionsRunnerResult).value
 
     return AwaitableGetAutomationActionsRunnerResult(
-        creation_time=__ret__.creation_time,
-        description=__ret__.description,
-        id=__ret__.id,
-        last_seen=__ret__.last_seen,
-        name=__ret__.name,
-        runbook_base_uri=__ret__.runbook_base_uri,
-        runner_type=__ret__.runner_type,
-        type=__ret__.type)
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        last_seen=pulumi.get(__ret__, 'last_seen'),
+        name=pulumi.get(__ret__, 'name'),
+        runbook_base_uri=pulumi.get(__ret__, 'runbook_base_uri'),
+        runner_type=pulumi.get(__ret__, 'runner_type'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_automation_actions_runner)

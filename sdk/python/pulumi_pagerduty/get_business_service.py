@@ -91,9 +91,9 @@ def get_business_service(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('pagerduty:index/getBusinessService:getBusinessService', __args__, opts=opts, typ=GetBusinessServiceResult).value
 
     return AwaitableGetBusinessServiceResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_business_service)

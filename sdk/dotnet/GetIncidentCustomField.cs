@@ -14,8 +14,6 @@ namespace Pulumi.Pagerduty
         /// <summary>
         /// Use this data source to get information about a specific [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents).
         /// 
-        /// &gt; The Custom Fields on Incidents feature is currently available in Early Access.
-        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
@@ -50,8 +48,6 @@ namespace Pulumi.Pagerduty
 
         /// <summary>
         /// Use this data source to get information about a specific [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents).
-        /// 
-        /// &gt; The Custom Fields on Incidents feature is currently available in Early Access.
         /// 
         /// {{% examples %}}
         /// ## Example Usage

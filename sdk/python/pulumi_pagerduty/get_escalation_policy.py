@@ -83,8 +83,8 @@ def get_escalation_policy(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('pagerduty:index/getEscalationPolicy:getEscalationPolicy', __args__, opts=opts, typ=GetEscalationPolicyResult).value
 
     return AwaitableGetEscalationPolicyResult(
-        id=__ret__.id,
-        name=__ret__.name)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_escalation_policy)

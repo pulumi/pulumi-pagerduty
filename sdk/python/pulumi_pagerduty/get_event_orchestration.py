@@ -87,9 +87,9 @@ def get_event_orchestration(integration_detail: Optional[Sequence[pulumi.InputTy
     __ret__ = pulumi.runtime.invoke('pagerduty:index/getEventOrchestration:getEventOrchestration', __args__, opts=opts, typ=GetEventOrchestrationResult).value
 
     return AwaitableGetEventOrchestrationResult(
-        id=__ret__.id,
-        integration_detail=__ret__.integration_detail,
-        name=__ret__.name)
+        id=pulumi.get(__ret__, 'id'),
+        integration_detail=pulumi.get(__ret__, 'integration_detail'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_event_orchestration)

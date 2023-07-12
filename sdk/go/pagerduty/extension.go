@@ -70,7 +70,18 @@ import (
 //				ExtensionObjects: pulumi.StringArray{
 //					exampleService.ID(),
 //				},
-//				Config: pulumi.String("{\n	\"restrict\": \"any\",\n	\"notify_types\": {\n			\"resolve\": false,\n			\"acknowledge\": false,\n			\"assignments\": false\n	},\n	\"access_token\": \"XXX\"\n}\n"),
+//				Config: pulumi.String(`{
+//		"restrict": "any",
+//		"notify_types": {
+//				"resolve": false,
+//				"acknowledge": false,
+//				"assignments": false
+//		},
+//		"access_token": "XXX"
+//	}
+//
+// `),
+//
 //			})
 //			if err != nil {
 //				return err

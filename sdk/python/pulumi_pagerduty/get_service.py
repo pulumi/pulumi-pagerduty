@@ -169,15 +169,15 @@ def get_service(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('pagerduty:index/getService:getService', __args__, opts=opts, typ=GetServiceResult).value
 
     return AwaitableGetServiceResult(
-        acknowledgement_timeout=__ret__.acknowledgement_timeout,
-        alert_creation=__ret__.alert_creation,
-        auto_resolve_timeout=__ret__.auto_resolve_timeout,
-        description=__ret__.description,
-        escalation_policy=__ret__.escalation_policy,
-        id=__ret__.id,
-        name=__ret__.name,
-        teams=__ret__.teams,
-        type=__ret__.type)
+        acknowledgement_timeout=pulumi.get(__ret__, 'acknowledgement_timeout'),
+        alert_creation=pulumi.get(__ret__, 'alert_creation'),
+        auto_resolve_timeout=pulumi.get(__ret__, 'auto_resolve_timeout'),
+        description=pulumi.get(__ret__, 'description'),
+        escalation_policy=pulumi.get(__ret__, 'escalation_policy'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        teams=pulumi.get(__ret__, 'teams'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_service)

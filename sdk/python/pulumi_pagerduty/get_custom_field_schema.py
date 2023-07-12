@@ -96,9 +96,9 @@ def get_custom_field_schema(title: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('pagerduty:index/getCustomFieldSchema:getCustomFieldSchema', __args__, opts=opts, typ=GetCustomFieldSchemaResult).value
 
     return AwaitableGetCustomFieldSchemaResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        title=__ret__.title)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        title=pulumi.get(__ret__, 'title'))
 
 
 @_utilities.lift_output_func(get_custom_field_schema)

@@ -101,10 +101,10 @@ def get_service_integration(integration_summary: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('pagerduty:index/getServiceIntegration:getServiceIntegration', __args__, opts=opts, typ=GetServiceIntegrationResult).value
 
     return AwaitableGetServiceIntegrationResult(
-        id=__ret__.id,
-        integration_key=__ret__.integration_key,
-        integration_summary=__ret__.integration_summary,
-        service_name=__ret__.service_name)
+        id=pulumi.get(__ret__, 'id'),
+        integration_key=pulumi.get(__ret__, 'integration_key'),
+        integration_summary=pulumi.get(__ret__, 'integration_summary'),
+        service_name=pulumi.get(__ret__, 'service_name'))
 
 
 @_utilities.lift_output_func(get_service_integration)

@@ -17,8 +17,6 @@ import javax.annotation.Nullable;
 /**
  * An [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents) defines a field which can be set on incidents in the target account.
  * 
- * &gt; The Custom Fields on Incidents feature is currently available in Early Access.
- * 
  * ## Example Usage
  * ```java
  * package generated_program;

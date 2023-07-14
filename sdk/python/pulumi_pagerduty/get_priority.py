@@ -123,9 +123,9 @@ def get_priority(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('pagerduty:index/getPriority:getPriority', __args__, opts=opts, typ=GetPriorityResult).value
 
     return AwaitableGetPriorityResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_priority)

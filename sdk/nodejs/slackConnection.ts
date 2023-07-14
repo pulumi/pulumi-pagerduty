@@ -115,7 +115,7 @@ export class SlackConnection extends pulumi.CustomResource {
      */
     public readonly sourceType!: pulumi.Output<string>;
     /**
-     * The ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
+     * The slack team (workspace) ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
      */
     public readonly workspaceId!: pulumi.Output<string>;
 
@@ -207,7 +207,7 @@ export interface SlackConnectionState {
      */
     sourceType?: pulumi.Input<string>;
     /**
-     * The ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
+     * The slack team (workspace) ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
      */
     workspaceId?: pulumi.Input<string>;
 }
@@ -237,7 +237,7 @@ export interface SlackConnectionArgs {
      */
     sourceType: pulumi.Input<string>;
     /**
-     * The ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
+     * The slack team (workspace) ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
      */
     workspaceId: pulumi.Input<string>;
 }

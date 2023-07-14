@@ -93,6 +93,9 @@ class BusinessServiceArgs:
         """
         **Deprecated** (Optional) Default (and only supported) value is `business_service`.
         """
+        warnings.warn("""This will change to a computed resource in the next major release.""", DeprecationWarning)
+        pulumi.log.warn("""type is deprecated: This will change to a computed resource in the next major release.""")
+
         return pulumi.get(self, "type")
 
     @type.setter
@@ -230,6 +233,9 @@ class _BusinessServiceState:
         """
         **Deprecated** (Optional) Default (and only supported) value is `business_service`.
         """
+        warnings.warn("""This will change to a computed resource in the next major release.""", DeprecationWarning)
+        pulumi.log.warn("""type is deprecated: This will change to a computed resource in the next major release.""")
+
         return pulumi.get(self, "type")
 
     @type.setter
@@ -455,5 +461,8 @@ class BusinessService(pulumi.CustomResource):
         """
         **Deprecated** (Optional) Default (and only supported) value is `business_service`.
         """
+        warnings.warn("""This will change to a computed resource in the next major release.""", DeprecationWarning)
+        pulumi.log.warn("""type is deprecated: This will change to a computed resource in the next major release.""")
+
         return pulumi.get(self, "type")
 

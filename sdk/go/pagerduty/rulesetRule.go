@@ -11,6 +11,150 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+//	"github.com/pulumi/pulumi-time/sdk/v1/go/time"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			fooTeam, err := pagerduty.NewTeam(ctx, "fooTeam", nil)
+//			if err != nil {
+//				return err
+//			}
+//			fooRuleset, err := pagerduty.NewRuleset(ctx, "fooRuleset", &pagerduty.RulesetArgs{
+//				Team: &pagerduty.RulesetTeamArgs{
+//					Id: fooTeam.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			easternTimeAt0930, err := index.NewTime_static(ctx, "easternTimeAt0930", &index.Time_staticArgs{
+//				Rfc3339: "2019-04-11T09:30:00-04:00",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewRulesetRule(ctx, "fooRulesetRule", &pagerduty.RulesetRuleArgs{
+//				Ruleset:  fooRuleset.ID(),
+//				Position: pulumi.Int(0),
+//				Disabled: pulumi.Bool(false),
+//				TimeFrame: &pagerduty.RulesetRuleTimeFrameArgs{
+//					ScheduledWeeklies: pagerduty.RulesetRuleTimeFrameScheduledWeeklyArray{
+//						&pagerduty.RulesetRuleTimeFrameScheduledWeeklyArgs{
+//							Weekdays: pulumi.IntArray{
+//								pulumi.Int(2),
+//								pulumi.Int(4),
+//								pulumi.Int(6),
+//							},
+//							StartTime: easternTimeAt0930.Unix * 1000,
+//							Duration:  2 * 60 * 60 * 1000,
+//							Timezone:  pulumi.String("America/New_York"),
+//						},
+//					},
+//				},
+//				Conditions: &pagerduty.RulesetRuleConditionsArgs{
+//					Operator: pulumi.String("and"),
+//					Subconditions: pagerduty.RulesetRuleConditionsSubconditionArray{
+//						&pagerduty.RulesetRuleConditionsSubconditionArgs{
+//							Operator: pulumi.String("contains"),
+//							Parameters: pagerduty.RulesetRuleConditionsSubconditionParameterArray{
+//								&pagerduty.RulesetRuleConditionsSubconditionParameterArgs{
+//									Value: pulumi.String("disk space"),
+//									Path:  pulumi.String("payload.summary"),
+//								},
+//							},
+//						},
+//						&pagerduty.RulesetRuleConditionsSubconditionArgs{
+//							Operator: pulumi.String("contains"),
+//							Parameters: pagerduty.RulesetRuleConditionsSubconditionParameterArray{
+//								&pagerduty.RulesetRuleConditionsSubconditionParameterArgs{
+//									Value: pulumi.String("db"),
+//									Path:  pulumi.String("payload.source"),
+//								},
+//							},
+//						},
+//					},
+//				},
+//				Variables: pagerduty.RulesetRuleVariableArray{
+//					&pagerduty.RulesetRuleVariableArgs{
+//						Type: pulumi.String("regex"),
+//						Name: pulumi.String("Src"),
+//						Parameters: pagerduty.RulesetRuleVariableParameterArray{
+//							&pagerduty.RulesetRuleVariableParameterArgs{
+//								Value: pulumi.String("(.*)"),
+//								Path:  pulumi.String("payload.source"),
+//							},
+//						},
+//					},
+//				},
+//				Actions: &pagerduty.RulesetRuleActionsArgs{
+//					Routes: pagerduty.RulesetRuleActionsRouteArray{
+//						&pagerduty.RulesetRuleActionsRouteArgs{
+//							Value: pulumi.Any(pagerduty_service.Foo.Id),
+//						},
+//					},
+//					Severities: pagerduty.RulesetRuleActionsSeverityArray{
+//						&pagerduty.RulesetRuleActionsSeverityArgs{
+//							Value: pulumi.String("warning"),
+//						},
+//					},
+//					Annotates: pagerduty.RulesetRuleActionsAnnotateArray{
+//						&pagerduty.RulesetRuleActionsAnnotateArgs{
+//							Value: pulumi.String("From Terraform"),
+//						},
+//					},
+//					Extractions: pagerduty.RulesetRuleActionsExtractionArray{
+//						&pagerduty.RulesetRuleActionsExtractionArgs{
+//							Target: pulumi.String("dedup_key"),
+//							Source: pulumi.String("details.host"),
+//							Regex:  pulumi.String("(.*)"),
+//						},
+//						&pagerduty.RulesetRuleActionsExtractionArgs{
+//							Target:   pulumi.String("summary"),
+//							Template: pulumi.String("Warning: Disk Space Low on {{Src}}"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewRulesetRule(ctx, "catchAll", &pagerduty.RulesetRuleArgs{
+//				Ruleset:  fooRuleset.ID(),
+//				Position: pulumi.Int(1),
+//				CatchAll: pulumi.Bool(true),
+//				Actions: &pagerduty.RulesetRuleActionsArgs{
+//					Annotates: pagerduty.RulesetRuleActionsAnnotateArray{
+//						&pagerduty.RulesetRuleActionsAnnotateArgs{
+//							Value: pulumi.String("From Terraform"),
+//						},
+//					},
+//					Suppresses: pagerduty.RulesetRuleActionsSuppressArray{
+//						&pagerduty.RulesetRuleActionsSuppressArgs{
+//							Value: pulumi.Bool(true),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Ruleset rules can be imported using the related `ruleset` ID and the `ruleset_rule` ID separated by a dot, e.g.

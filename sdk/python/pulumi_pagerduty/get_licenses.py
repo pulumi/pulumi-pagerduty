@@ -89,8 +89,8 @@ def get_licenses(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('pagerduty:index/getLicenses:getLicenses', __args__, opts=opts, typ=GetLicensesResult).value
 
     return AwaitableGetLicensesResult(
-        id=__ret__.id,
-        licenses=__ret__.licenses)
+        id=pulumi.get(__ret__, 'id'),
+        licenses=pulumi.get(__ret__, 'licenses'))
 
 
 @_utilities.lift_output_func(get_licenses)

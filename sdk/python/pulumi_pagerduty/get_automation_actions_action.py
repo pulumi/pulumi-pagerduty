@@ -209,17 +209,17 @@ def get_automation_actions_action(action_classification: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('pagerduty:index/getAutomationActionsAction:getAutomationActionsAction', __args__, opts=opts, typ=GetAutomationActionsActionResult).value
 
     return AwaitableGetAutomationActionsActionResult(
-        action_classification=__ret__.action_classification,
-        action_data_references=__ret__.action_data_references,
-        action_type=__ret__.action_type,
-        creation_time=__ret__.creation_time,
-        description=__ret__.description,
-        id=__ret__.id,
-        modify_time=__ret__.modify_time,
-        name=__ret__.name,
-        runner_id=__ret__.runner_id,
-        runner_type=__ret__.runner_type,
-        type=__ret__.type)
+        action_classification=pulumi.get(__ret__, 'action_classification'),
+        action_data_references=pulumi.get(__ret__, 'action_data_references'),
+        action_type=pulumi.get(__ret__, 'action_type'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        modify_time=pulumi.get(__ret__, 'modify_time'),
+        name=pulumi.get(__ret__, 'name'),
+        runner_id=pulumi.get(__ret__, 'runner_id'),
+        runner_type=pulumi.get(__ret__, 'runner_type'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_automation_actions_action)

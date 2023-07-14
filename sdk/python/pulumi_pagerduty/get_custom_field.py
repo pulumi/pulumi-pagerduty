@@ -121,13 +121,13 @@ def get_custom_field(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('pagerduty:index/getCustomField:getCustomField', __args__, opts=opts, typ=GetCustomFieldResult).value
 
     return AwaitableGetCustomFieldResult(
-        datatype=__ret__.datatype,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        fixed_options=__ret__.fixed_options,
-        id=__ret__.id,
-        multi_value=__ret__.multi_value,
-        name=__ret__.name)
+        datatype=pulumi.get(__ret__, 'datatype'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        fixed_options=pulumi.get(__ret__, 'fixed_options'),
+        id=pulumi.get(__ret__, 'id'),
+        multi_value=pulumi.get(__ret__, 'multi_value'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_custom_field)

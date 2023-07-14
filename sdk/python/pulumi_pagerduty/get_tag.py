@@ -81,8 +81,8 @@ def get_tag(label: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('pagerduty:index/getTag:getTag', __args__, opts=opts, typ=GetTagResult).value
 
     return AwaitableGetTagResult(
-        id=__ret__.id,
-        label=__ret__.label)
+        id=pulumi.get(__ret__, 'id'),
+        label=pulumi.get(__ret__, 'label'))
 
 
 @_utilities.lift_output_func(get_tag)

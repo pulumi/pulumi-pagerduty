@@ -808,7 +808,12 @@
         },
         "datasources": {
             "pagerduty_automation_actions_action": {
-                "current": "pagerduty:index/getAutomationActionsAction:getAutomationActionsAction"
+                "current": "pagerduty:index/getAutomationActionsAction:getAutomationActionsAction",
+                "fields": {
+                    "action_data_reference": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "pagerduty_automation_actions_runner": {
                 "current": "pagerduty:index/getAutomationActionsRunner:getAutomationActionsRunner"
@@ -826,13 +831,49 @@
                 "current": "pagerduty:index/getEscalationPolicy:getEscalationPolicy"
             },
             "pagerduty_event_orchestration": {
-                "current": "pagerduty:index/getEventOrchestration:getEventOrchestration"
+                "current": "pagerduty:index/getEventOrchestration:getEventOrchestration",
+                "fields": {
+                    "integration": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "parameters": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "pagerduty_event_orchestration_integration": {
-                "current": "pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration"
+                "current": "pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration",
+                "fields": {
+                    "parameters": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "pagerduty_event_orchestrations": {
-                "current": "pagerduty:index/getEventOrchestrations:getEventOrchestrations"
+                "current": "pagerduty:index/getEventOrchestrations:getEventOrchestrations",
+                "fields": {
+                    "event_orchestrations": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "integration": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "parameters": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "pagerduty_extension_schema": {
                 "current": "pagerduty:index/getExtensionSchema:getExtensionSchema"
@@ -844,22 +885,49 @@
                 "current": "pagerduty:index/getIncidentWorkflow:getIncidentWorkflow"
             },
             "pagerduty_license": {
-                "current": "pagerduty:index/getLicense:getLicense"
+                "current": "pagerduty:index/getLicense:getLicense",
+                "fields": {
+                    "valid_roles": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "pagerduty_licenses": {
-                "current": "pagerduty:index/getLicenses:getLicenses"
+                "current": "pagerduty:index/getLicenses:getLicenses",
+                "fields": {
+                    "licenses": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "valid_roles": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "pagerduty_priority": {
                 "current": "pagerduty:index/getPriority:getPriority"
             },
             "pagerduty_ruleset": {
-                "current": "pagerduty:index/getRuleset:getRuleset"
+                "current": "pagerduty:index/getRuleset:getRuleset",
+                "fields": {
+                    "routing_keys": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "pagerduty_schedule": {
                 "current": "pagerduty:index/getSchedule:getSchedule"
             },
             "pagerduty_service": {
-                "current": "pagerduty:index/getService:getService"
+                "current": "pagerduty:index/getService:getService",
+                "fields": {
+                    "teams": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "pagerduty_service_integration": {
                 "current": "pagerduty:index/getServiceIntegration:getServiceIntegration"
@@ -877,7 +945,15 @@
                 "current": "pagerduty:index/getUserContactMethod:getUserContactMethod"
             },
             "pagerduty_users": {
-                "current": "pagerduty:index/getUsers:getUsers"
+                "current": "pagerduty:index/getUsers:getUsers",
+                "fields": {
+                    "team_ids": {
+                        "maxItemsOne": false
+                    },
+                    "users": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "pagerduty_vendor": {
                 "current": "pagerduty:index/getVendor:getVendor"

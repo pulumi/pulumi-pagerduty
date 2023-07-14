@@ -121,6 +121,9 @@ class ServiceArgs:
         """
         (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan. This field is deprecated, use `alert_grouping_parameters.type` instead,
         """
+        warnings.warn("""Use `alert_grouping_parameters.type`""", DeprecationWarning)
+        pulumi.log.warn("""alert_grouping is deprecated: Use `alert_grouping_parameters.type`""")
+
         return pulumi.get(self, "alert_grouping")
 
     @alert_grouping.setter
@@ -145,6 +148,9 @@ class ServiceArgs:
         """
         (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
         """
+        warnings.warn("""Use `alert_grouping_parameters.config.timeout`""", DeprecationWarning)
+        pulumi.log.warn("""alert_grouping_timeout is deprecated: Use `alert_grouping_parameters.config.timeout`""")
+
         return pulumi.get(self, "alert_grouping_timeout")
 
     @alert_grouping_timeout.setter
@@ -353,6 +359,9 @@ class _ServiceState:
         """
         (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan. This field is deprecated, use `alert_grouping_parameters.type` instead,
         """
+        warnings.warn("""Use `alert_grouping_parameters.type`""", DeprecationWarning)
+        pulumi.log.warn("""alert_grouping is deprecated: Use `alert_grouping_parameters.type`""")
+
         return pulumi.get(self, "alert_grouping")
 
     @alert_grouping.setter
@@ -377,6 +386,9 @@ class _ServiceState:
         """
         (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
         """
+        warnings.warn("""Use `alert_grouping_parameters.config.timeout`""", DeprecationWarning)
+        pulumi.log.warn("""alert_grouping_timeout is deprecated: Use `alert_grouping_parameters.config.timeout`""")
+
         return pulumi.get(self, "alert_grouping_timeout")
 
     @alert_grouping_timeout.setter
@@ -821,6 +833,9 @@ class Service(pulumi.CustomResource):
         """
         (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan. This field is deprecated, use `alert_grouping_parameters.type` instead,
         """
+        warnings.warn("""Use `alert_grouping_parameters.type`""", DeprecationWarning)
+        pulumi.log.warn("""alert_grouping is deprecated: Use `alert_grouping_parameters.type`""")
+
         return pulumi.get(self, "alert_grouping")
 
     @property
@@ -837,6 +852,9 @@ class Service(pulumi.CustomResource):
         """
         (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
         """
+        warnings.warn("""Use `alert_grouping_parameters.config.timeout`""", DeprecationWarning)
+        pulumi.log.warn("""alert_grouping_timeout is deprecated: Use `alert_grouping_parameters.config.timeout`""")
+
         return pulumi.get(self, "alert_grouping_timeout")
 
     @property

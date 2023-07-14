@@ -94,8 +94,6 @@ def get_incident_custom_field(name: Optional[str] = None,
     """
     Use this data source to get information about a specific [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents).
 
-    > The Custom Fields on Incidents feature is currently available in Early Access.
-
     ## Example Usage
 
     ```python
@@ -118,12 +116,12 @@ def get_incident_custom_field(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('pagerduty:index/getIncidentCustomField:getIncidentCustomField', __args__, opts=opts, typ=GetIncidentCustomFieldResult).value
 
     return AwaitableGetIncidentCustomFieldResult(
-        data_type=__ret__.data_type,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        field_type=__ret__.field_type,
-        id=__ret__.id,
-        name=__ret__.name)
+        data_type=pulumi.get(__ret__, 'data_type'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        field_type=pulumi.get(__ret__, 'field_type'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_incident_custom_field)
@@ -131,8 +129,6 @@ def get_incident_custom_field_output(name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIncidentCustomFieldResult]:
     """
     Use this data source to get information about a specific [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents).
-
-    > The Custom Fields on Incidents feature is currently available in Early Access.
 
     ## Example Usage
 

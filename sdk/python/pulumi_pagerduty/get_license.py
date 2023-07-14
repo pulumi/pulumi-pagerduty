@@ -204,17 +204,17 @@ def get_license(allocations_available: Optional[int] = None,
     __ret__ = pulumi.runtime.invoke('pagerduty:index/getLicense:getLicense', __args__, opts=opts, typ=GetLicenseResult).value
 
     return AwaitableGetLicenseResult(
-        allocations_available=__ret__.allocations_available,
-        current_value=__ret__.current_value,
-        description=__ret__.description,
-        html_url=__ret__.html_url,
-        id=__ret__.id,
-        name=__ret__.name,
-        role_group=__ret__.role_group,
-        self=__ret__.self,
-        summary=__ret__.summary,
-        type=__ret__.type,
-        valid_roles=__ret__.valid_roles)
+        allocations_available=pulumi.get(__ret__, 'allocations_available'),
+        current_value=pulumi.get(__ret__, 'current_value'),
+        description=pulumi.get(__ret__, 'description'),
+        html_url=pulumi.get(__ret__, 'html_url'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        role_group=pulumi.get(__ret__, 'role_group'),
+        self=pulumi.get(__ret__, 'self'),
+        summary=pulumi.get(__ret__, 'summary'),
+        type=pulumi.get(__ret__, 'type'),
+        valid_roles=pulumi.get(__ret__, 'valid_roles'))
 
 
 @_utilities.lift_output_func(get_license)

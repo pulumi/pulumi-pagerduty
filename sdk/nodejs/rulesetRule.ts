@@ -7,6 +7,103 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ * import * as time from "@pulumi/time";
+ *
+ * const fooTeam = new pagerduty.Team("fooTeam", {});
+ * const fooRuleset = new pagerduty.Ruleset("fooRuleset", {team: {
+ *     id: fooTeam.id,
+ * }});
+ * // The pagerduty_ruleset_rule.foo rule defined below
+ * // repeats daily from 9:30am - 11:30am using the America/New_York timezone.
+ * // Thus it requires a time_static instance to represent 9:30am on an arbitrary date in that timezone.
+ * // April 11th, 2019 was EDT (UTC-4) https://www.timeanddate.com/worldclock/converter.html?iso=20190411T133000&p1=179
+ * const easternTimeAt0930 = new time.index.Time_static("easternTimeAt0930", {rfc3339: "2019-04-11T09:30:00-04:00"});
+ * const fooRulesetRule = new pagerduty.RulesetRule("fooRulesetRule", {
+ *     ruleset: fooRuleset.id,
+ *     position: 0,
+ *     disabled: false,
+ *     timeFrame: {
+ *         scheduledWeeklies: [{
+ *             weekdays: [
+ *                 2,
+ *                 4,
+ *                 6,
+ *             ],
+ *             startTime: easternTimeAt0930.unix * 1000,
+ *             duration: 2 * 60 * 60 * 1000,
+ *             timezone: "America/New_York",
+ *         }],
+ *     },
+ *     conditions: {
+ *         operator: "and",
+ *         subconditions: [
+ *             {
+ *                 operator: "contains",
+ *                 parameters: [{
+ *                     value: "disk space",
+ *                     path: "payload.summary",
+ *                 }],
+ *             },
+ *             {
+ *                 operator: "contains",
+ *                 parameters: [{
+ *                     value: "db",
+ *                     path: "payload.source",
+ *                 }],
+ *             },
+ *         ],
+ *     },
+ *     variables: [{
+ *         type: "regex",
+ *         name: "Src",
+ *         parameters: [{
+ *             value: "(.*)",
+ *             path: "payload.source",
+ *         }],
+ *     }],
+ *     actions: {
+ *         routes: [{
+ *             value: pagerduty_service.foo.id,
+ *         }],
+ *         severities: [{
+ *             value: "warning",
+ *         }],
+ *         annotates: [{
+ *             value: "From Terraform",
+ *         }],
+ *         extractions: [
+ *             {
+ *                 target: "dedup_key",
+ *                 source: "details.host",
+ *                 regex: "(.*)",
+ *             },
+ *             {
+ *                 target: "summary",
+ *                 template: "Warning: Disk Space Low on {{Src}}",
+ *             },
+ *         ],
+ *     },
+ * });
+ * const catchAll = new pagerduty.RulesetRule("catchAll", {
+ *     ruleset: fooRuleset.id,
+ *     position: 1,
+ *     catchAll: true,
+ *     actions: {
+ *         annotates: [{
+ *             value: "From Terraform",
+ *         }],
+ *         suppresses: [{
+ *             value: true,
+ *         }],
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Ruleset rules can be imported using the related `ruleset` ID and the `ruleset_rule` ID separated by a dot, e.g.

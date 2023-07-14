@@ -88,8 +88,8 @@ def get_schedule(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('pagerduty:index/getSchedule:getSchedule', __args__, opts=opts, typ=GetScheduleResult).value
 
     return AwaitableGetScheduleResult(
-        id=__ret__.id,
-        name=__ret__.name)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_schedule)

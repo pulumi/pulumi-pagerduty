@@ -152,6 +152,9 @@ class UserArgs:
         """
         A list of teams the user should belong to. Please use `TeamMembership` instead.
         """
+        warnings.warn("""Use the 'pagerduty_team_membership' resource instead.""", DeprecationWarning)
+        pulumi.log.warn("""teams is deprecated: Use the 'pagerduty_team_membership' resource instead.""")
+
         return pulumi.get(self, "teams")
 
     @teams.setter
@@ -361,6 +364,9 @@ class _UserState:
         """
         A list of teams the user should belong to. Please use `TeamMembership` instead.
         """
+        warnings.warn("""Use the 'pagerduty_team_membership' resource instead.""", DeprecationWarning)
+        pulumi.log.warn("""teams is deprecated: Use the 'pagerduty_team_membership' resource instead.""")
+
         return pulumi.get(self, "teams")
 
     @teams.setter
@@ -662,6 +668,9 @@ class User(pulumi.CustomResource):
         """
         A list of teams the user should belong to. Please use `TeamMembership` instead.
         """
+        warnings.warn("""Use the 'pagerduty_team_membership' resource instead.""", DeprecationWarning)
+        pulumi.log.warn("""teams is deprecated: Use the 'pagerduty_team_membership' resource instead.""")
+
         return pulumi.get(self, "teams")
 
     @property

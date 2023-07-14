@@ -29,7 +29,7 @@ class SlackConnectionArgs:
         :param pulumi.Input[str] notification_type: Type of notification. Either `responder` or `stakeholder`.
         :param pulumi.Input[str] source_id: The ID of the source in PagerDuty. Valid sources are services or teams.
         :param pulumi.Input[str] source_type: The type of the source. Either `team_reference` or `service_reference`.
-        :param pulumi.Input[str] workspace_id: The ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
+        :param pulumi.Input[str] workspace_id: The slack team (workspace) ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
         """
         pulumi.set(__self__, "channel_id", channel_id)
         pulumi.set(__self__, "configs", configs)
@@ -102,7 +102,7 @@ class SlackConnectionArgs:
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Input[str]:
         """
-        The ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
+        The slack team (workspace) ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
         """
         return pulumi.get(self, "workspace_id")
 
@@ -131,7 +131,7 @@ class _SlackConnectionState:
         :param pulumi.Input[str] source_id: The ID of the source in PagerDuty. Valid sources are services or teams.
         :param pulumi.Input[str] source_name: Name of the source (team or service) in Slack connection.
         :param pulumi.Input[str] source_type: The type of the source. Either `team_reference` or `service_reference`.
-        :param pulumi.Input[str] workspace_id: The ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
+        :param pulumi.Input[str] workspace_id: The slack team (workspace) ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
         """
         if channel_id is not None:
             pulumi.set(__self__, "channel_id", channel_id)
@@ -238,7 +238,7 @@ class _SlackConnectionState:
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
+        The slack team (workspace) ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
         """
         return pulumi.get(self, "workspace_id")
 
@@ -315,7 +315,7 @@ class SlackConnection(pulumi.CustomResource):
         :param pulumi.Input[str] notification_type: Type of notification. Either `responder` or `stakeholder`.
         :param pulumi.Input[str] source_id: The ID of the source in PagerDuty. Valid sources are services or teams.
         :param pulumi.Input[str] source_type: The type of the source. Either `team_reference` or `service_reference`.
-        :param pulumi.Input[str] workspace_id: The ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
+        :param pulumi.Input[str] workspace_id: The slack team (workspace) ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
         """
         ...
     @overload
@@ -454,7 +454,7 @@ class SlackConnection(pulumi.CustomResource):
         :param pulumi.Input[str] source_id: The ID of the source in PagerDuty. Valid sources are services or teams.
         :param pulumi.Input[str] source_name: Name of the source (team or service) in Slack connection.
         :param pulumi.Input[str] source_type: The type of the source. Either `team_reference` or `service_reference`.
-        :param pulumi.Input[str] workspace_id: The ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
+        :param pulumi.Input[str] workspace_id: The slack team (workspace) ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -530,7 +530,7 @@ class SlackConnection(pulumi.CustomResource):
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Output[str]:
         """
-        The ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
+        The slack team (workspace) ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
         """
         return pulumi.get(self, "workspace_id")
 

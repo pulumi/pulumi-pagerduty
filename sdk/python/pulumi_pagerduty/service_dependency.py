@@ -78,22 +78,22 @@ class ServiceDependency(pulumi.CustomResource):
 
         foo = pagerduty.ServiceDependency("foo", dependency=pagerduty.ServiceDependencyDependencyArgs(
             dependent_services=[pagerduty.ServiceDependencyDependencyDependentServiceArgs(
-                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                type=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                id=pagerduty_business_service["foo"]["id"],
+                type=pagerduty_business_service["foo"]["type"],
             )],
             supporting_services=[pagerduty.ServiceDependencyDependencySupportingServiceArgs(
-                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                type=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                id=pagerduty_service["foo"]["id"],
+                type=pagerduty_service["foo"]["type"],
             )],
         ))
         bar = pagerduty.ServiceDependency("bar", dependency=pagerduty.ServiceDependencyDependencyArgs(
             dependent_services=[pagerduty.ServiceDependencyDependencyDependentServiceArgs(
-                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                type=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                id=pagerduty_business_service["foo"]["id"],
+                type=pagerduty_business_service["foo"]["type"],
             )],
             supporting_services=[pagerduty.ServiceDependencyDependencySupportingServiceArgs(
-                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                type=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                id=pagerduty_service["two"]["id"],
+                type=pagerduty_service["two"]["type"],
             )],
         ))
         ```
@@ -127,22 +127,22 @@ class ServiceDependency(pulumi.CustomResource):
 
         foo = pagerduty.ServiceDependency("foo", dependency=pagerduty.ServiceDependencyDependencyArgs(
             dependent_services=[pagerduty.ServiceDependencyDependencyDependentServiceArgs(
-                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                type=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                id=pagerduty_business_service["foo"]["id"],
+                type=pagerduty_business_service["foo"]["type"],
             )],
             supporting_services=[pagerduty.ServiceDependencyDependencySupportingServiceArgs(
-                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                type=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                id=pagerduty_service["foo"]["id"],
+                type=pagerduty_service["foo"]["type"],
             )],
         ))
         bar = pagerduty.ServiceDependency("bar", dependency=pagerduty.ServiceDependencyDependencyArgs(
             dependent_services=[pagerduty.ServiceDependencyDependencyDependentServiceArgs(
-                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                type=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                id=pagerduty_business_service["foo"]["id"],
+                type=pagerduty_business_service["foo"]["type"],
             )],
             supporting_services=[pagerduty.ServiceDependencyDependencySupportingServiceArgs(
-                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                type=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                id=pagerduty_service["two"]["id"],
+                type=pagerduty_service["two"]["type"],
             )],
         ))
         ```

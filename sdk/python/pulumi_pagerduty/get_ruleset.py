@@ -125,9 +125,9 @@ def get_ruleset(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('pagerduty:index/getRuleset:getRuleset', __args__, opts=opts, typ=GetRulesetResult).value
 
     return AwaitableGetRulesetResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        routing_keys=__ret__.routing_keys)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        routing_keys=pulumi.get(__ret__, 'routing_keys'))
 
 
 @_utilities.lift_output_func(get_ruleset)

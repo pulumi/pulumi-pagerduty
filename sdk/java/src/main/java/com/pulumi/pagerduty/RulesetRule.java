@@ -22,6 +22,132 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.pagerduty.Team;
+ * import com.pulumi.pagerduty.Ruleset;
+ * import com.pulumi.pagerduty.RulesetArgs;
+ * import com.pulumi.pagerduty.inputs.RulesetTeamArgs;
+ * import com.pulumi.time.time_static;
+ * import com.pulumi.time.Time_staticArgs;
+ * import com.pulumi.pagerduty.RulesetRule;
+ * import com.pulumi.pagerduty.RulesetRuleArgs;
+ * import com.pulumi.pagerduty.inputs.RulesetRuleTimeFrameArgs;
+ * import com.pulumi.pagerduty.inputs.RulesetRuleConditionsArgs;
+ * import com.pulumi.pagerduty.inputs.RulesetRuleVariableArgs;
+ * import com.pulumi.pagerduty.inputs.RulesetRuleActionsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var fooTeam = new Team(&#34;fooTeam&#34;);
+ * 
+ *         var fooRuleset = new Ruleset(&#34;fooRuleset&#34;, RulesetArgs.builder()        
+ *             .team(RulesetTeamArgs.builder()
+ *                 .id(fooTeam.id())
+ *                 .build())
+ *             .build());
+ * 
+ *         var easternTimeAt0930 = new Time_static(&#34;easternTimeAt0930&#34;, Time_staticArgs.builder()        
+ *             .rfc3339(&#34;2019-04-11T09:30:00-04:00&#34;)
+ *             .build());
+ * 
+ *         var fooRulesetRule = new RulesetRule(&#34;fooRulesetRule&#34;, RulesetRuleArgs.builder()        
+ *             .ruleset(fooRuleset.id())
+ *             .position(0)
+ *             .disabled(&#34;false&#34;)
+ *             .timeFrame(RulesetRuleTimeFrameArgs.builder()
+ *                 .scheduledWeeklies(RulesetRuleTimeFrameScheduledWeeklyArgs.builder()
+ *                     .weekdays(                    
+ *                         2,
+ *                         4,
+ *                         6)
+ *                     .startTime(easternTimeAt0930.unix() * 1000)
+ *                     .duration(2 * 60 * 60 * 1000)
+ *                     .timezone(&#34;America/New_York&#34;)
+ *                     .build())
+ *                 .build())
+ *             .conditions(RulesetRuleConditionsArgs.builder()
+ *                 .operator(&#34;and&#34;)
+ *                 .subconditions(                
+ *                     RulesetRuleConditionsSubconditionArgs.builder()
+ *                         .operator(&#34;contains&#34;)
+ *                         .parameters(RulesetRuleConditionsSubconditionParameterArgs.builder()
+ *                             .value(&#34;disk space&#34;)
+ *                             .path(&#34;payload.summary&#34;)
+ *                             .build())
+ *                         .build(),
+ *                     RulesetRuleConditionsSubconditionArgs.builder()
+ *                         .operator(&#34;contains&#34;)
+ *                         .parameters(RulesetRuleConditionsSubconditionParameterArgs.builder()
+ *                             .value(&#34;db&#34;)
+ *                             .path(&#34;payload.source&#34;)
+ *                             .build())
+ *                         .build())
+ *                 .build())
+ *             .variables(RulesetRuleVariableArgs.builder()
+ *                 .type(&#34;regex&#34;)
+ *                 .name(&#34;Src&#34;)
+ *                 .parameters(RulesetRuleVariableParameterArgs.builder()
+ *                     .value(&#34;(.*)&#34;)
+ *                     .path(&#34;payload.source&#34;)
+ *                     .build())
+ *                 .build())
+ *             .actions(RulesetRuleActionsArgs.builder()
+ *                 .routes(RulesetRuleActionsRouteArgs.builder()
+ *                     .value(pagerduty_service.foo().id())
+ *                     .build())
+ *                 .severities(RulesetRuleActionsSeverityArgs.builder()
+ *                     .value(&#34;warning&#34;)
+ *                     .build())
+ *                 .annotates(RulesetRuleActionsAnnotateArgs.builder()
+ *                     .value(&#34;From Terraform&#34;)
+ *                     .build())
+ *                 .extractions(                
+ *                     RulesetRuleActionsExtractionArgs.builder()
+ *                         .target(&#34;dedup_key&#34;)
+ *                         .source(&#34;details.host&#34;)
+ *                         .regex(&#34;(.*)&#34;)
+ *                         .build(),
+ *                     RulesetRuleActionsExtractionArgs.builder()
+ *                         .target(&#34;summary&#34;)
+ *                         .template(&#34;Warning: Disk Space Low on {{Src}}&#34;)
+ *                         .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var catchAll = new RulesetRule(&#34;catchAll&#34;, RulesetRuleArgs.builder()        
+ *             .ruleset(fooRuleset.id())
+ *             .position(1)
+ *             .catchAll(true)
+ *             .actions(RulesetRuleActionsArgs.builder()
+ *                 .annotates(RulesetRuleActionsAnnotateArgs.builder()
+ *                     .value(&#34;From Terraform&#34;)
+ *                     .build())
+ *                 .suppresses(RulesetRuleActionsSuppressArgs.builder()
+ *                     .value(true)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * Ruleset rules can be imported using the related `ruleset` ID and the `ruleset_rule` ID separated by a dot, e.g.

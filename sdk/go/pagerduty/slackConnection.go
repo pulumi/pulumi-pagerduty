@@ -105,7 +105,7 @@ type SlackConnection struct {
 	SourceName pulumi.StringOutput `pulumi:"sourceName"`
 	// The type of the source. Either `teamReference` or `serviceReference`.
 	SourceType pulumi.StringOutput `pulumi:"sourceType"`
-	// The ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
+	// The slack team (workspace) ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
 	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
 }
 
@@ -170,7 +170,7 @@ type slackConnectionState struct {
 	SourceName *string `pulumi:"sourceName"`
 	// The type of the source. Either `teamReference` or `serviceReference`.
 	SourceType *string `pulumi:"sourceType"`
-	// The ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
+	// The slack team (workspace) ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
@@ -189,7 +189,7 @@ type SlackConnectionState struct {
 	SourceName pulumi.StringPtrInput
 	// The type of the source. Either `teamReference` or `serviceReference`.
 	SourceType pulumi.StringPtrInput
-	// The ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
+	// The slack team (workspace) ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
 	WorkspaceId pulumi.StringPtrInput
 }
 
@@ -208,7 +208,7 @@ type slackConnectionArgs struct {
 	SourceId string `pulumi:"sourceId"`
 	// The type of the source. Either `teamReference` or `serviceReference`.
 	SourceType string `pulumi:"sourceType"`
-	// The ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
+	// The slack team (workspace) ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
 	WorkspaceId string `pulumi:"workspaceId"`
 }
 
@@ -224,7 +224,7 @@ type SlackConnectionArgs struct {
 	SourceId pulumi.StringInput
 	// The type of the source. Either `teamReference` or `serviceReference`.
 	SourceType pulumi.StringInput
-	// The ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
+	// The slack team (workspace) ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
 	WorkspaceId pulumi.StringInput
 }
 
@@ -350,7 +350,7 @@ func (o SlackConnectionOutput) SourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *SlackConnection) pulumi.StringOutput { return v.SourceType }).(pulumi.StringOutput)
 }
 
-// The ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
+// The slack team (workspace) ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
 func (o SlackConnectionOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SlackConnection) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
 }

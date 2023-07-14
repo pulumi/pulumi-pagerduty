@@ -304,7 +304,7 @@ class RulesetRule(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
-        import pulumiverse_time as time
+        import pulumi_time as time
 
         foo_team = pagerduty.Team("fooTeam")
         foo_ruleset = pagerduty.Ruleset("fooRuleset", team=pagerduty.RulesetTeamArgs(
@@ -314,7 +314,7 @@ class RulesetRule(pulumi.CustomResource):
         # repeats daily from 9:30am - 11:30am using the America/New_York timezone.
         # Thus it requires a time_static instance to represent 9:30am on an arbitrary date in that timezone.
         # April 11th, 2019 was EDT (UTC-4) https://www.timeanddate.com/worldclock/converter.html?iso=20190411T133000&p1=179
-        eastern_time_at0930 = time.Static("easternTimeAt0930", rfc3339="2019-04-11T09:30:00-04:00")
+        eastern_time_at0930 = time.index.Time_static("easternTimeAt0930", rfc3339=2019-04-11T09:30:00-04:00)
         foo_ruleset_rule = pagerduty.RulesetRule("fooRulesetRule",
             ruleset=foo_ruleset.id,
             position=0,
@@ -326,7 +326,7 @@ class RulesetRule(pulumi.CustomResource):
                         4,
                         6,
                     ],
-                    start_time=eastern_time_at0930.unix.apply(lambda unix: unix * 1000),
+                    start_time=eastern_time_at0930["unix"] * 1000,
                     duration=2 * 60 * 60 * 1000,
                     timezone="America/New_York",
                 )],
@@ -425,7 +425,7 @@ class RulesetRule(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
-        import pulumiverse_time as time
+        import pulumi_time as time
 
         foo_team = pagerduty.Team("fooTeam")
         foo_ruleset = pagerduty.Ruleset("fooRuleset", team=pagerduty.RulesetTeamArgs(
@@ -435,7 +435,7 @@ class RulesetRule(pulumi.CustomResource):
         # repeats daily from 9:30am - 11:30am using the America/New_York timezone.
         # Thus it requires a time_static instance to represent 9:30am on an arbitrary date in that timezone.
         # April 11th, 2019 was EDT (UTC-4) https://www.timeanddate.com/worldclock/converter.html?iso=20190411T133000&p1=179
-        eastern_time_at0930 = time.Static("easternTimeAt0930", rfc3339="2019-04-11T09:30:00-04:00")
+        eastern_time_at0930 = time.index.Time_static("easternTimeAt0930", rfc3339=2019-04-11T09:30:00-04:00)
         foo_ruleset_rule = pagerduty.RulesetRule("fooRulesetRule",
             ruleset=foo_ruleset.id,
             position=0,
@@ -447,7 +447,7 @@ class RulesetRule(pulumi.CustomResource):
                         4,
                         6,
                     ],
-                    start_time=eastern_time_at0930.unix.apply(lambda unix: unix * 1000),
+                    start_time=eastern_time_at0930["unix"] * 1000,
                     duration=2 * 60 * 60 * 1000,
                     timezone="America/New_York",
                 )],

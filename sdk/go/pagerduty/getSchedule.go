@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -55,6 +56,7 @@ import (
 //
 // ```
 func LookupSchedule(ctx *pulumi.Context, args *LookupScheduleArgs, opts ...pulumi.InvokeOption) (*LookupScheduleResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupScheduleResult
 	err := ctx.Invoke("pagerduty:index/getSchedule:getSchedule", args, &rv, opts...)
 	if err != nil {

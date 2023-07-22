@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func LookupBusinessService(ctx *pulumi.Context, args *LookupBusinessServiceArgs, opts ...pulumi.InvokeOption) (*LookupBusinessServiceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBusinessServiceResult
 	err := ctx.Invoke("pagerduty:index/getBusinessService:getBusinessService", args, &rv, opts...)
 	if err != nil {

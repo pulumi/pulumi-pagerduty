@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -58,6 +59,7 @@ import (
 //
 // ```
 func LookupCustomFieldSchema(ctx *pulumi.Context, args *LookupCustomFieldSchemaArgs, opts ...pulumi.InvokeOption) (*LookupCustomFieldSchemaResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCustomFieldSchemaResult
 	err := ctx.Invoke("pagerduty:index/getCustomFieldSchema:getCustomFieldSchema", args, &rv, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -85,6 +86,7 @@ import (
 //
 // ```
 func GetPriority(ctx *pulumi.Context, args *GetPriorityArgs, opts ...pulumi.InvokeOption) (*GetPriorityResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPriorityResult
 	err := ctx.Invoke("pagerduty:index/getPriority:getPriority", args, &rv, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -87,6 +88,7 @@ func NewCustomFieldSchemaAssignment(ctx *pulumi.Context,
 	if args.Service == nil {
 		return nil, errors.New("invalid value for required argument 'Service'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CustomFieldSchemaAssignment
 	err := ctx.RegisterResource("pagerduty:index/customFieldSchemaAssignment:CustomFieldSchemaAssignment", name, args, &resource, opts...)
 	if err != nil {

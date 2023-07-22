@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -91,6 +92,7 @@ func NewIncidentCustomFieldOption(ctx *pulumi.Context,
 	if args.Value == nil {
 		return nil, errors.New("invalid value for required argument 'Value'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IncidentCustomFieldOption
 	err := ctx.RegisterResource("pagerduty:index/incidentCustomFieldOption:IncidentCustomFieldOption", name, args, &resource, opts...)
 	if err != nil {

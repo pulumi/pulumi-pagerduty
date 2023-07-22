@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func LookupEventOrchestrationIntegration(ctx *pulumi.Context, args *LookupEventOrchestrationIntegrationArgs, opts ...pulumi.InvokeOption) (*LookupEventOrchestrationIntegrationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEventOrchestrationIntegrationResult
 	err := ctx.Invoke("pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration", args, &rv, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -134,6 +135,7 @@ func NewSlackConnection(ctx *pulumi.Context,
 	if args.WorkspaceId == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SlackConnection
 	err := ctx.RegisterResource("pagerduty:index/slackConnection:SlackConnection", name, args, &resource, opts...)
 	if err != nil {

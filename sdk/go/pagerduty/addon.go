@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -67,6 +68,7 @@ func NewAddon(ctx *pulumi.Context,
 	if args.Src == nil {
 		return nil, errors.New("invalid value for required argument 'Src'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Addon
 	err := ctx.RegisterResource("pagerduty:index/addon:Addon", name, args, &resource, opts...)
 	if err != nil {

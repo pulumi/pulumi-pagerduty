@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -82,6 +83,7 @@ import (
 //
 // ```
 func GetExtensionSchema(ctx *pulumi.Context, args *GetExtensionSchemaArgs, opts ...pulumi.InvokeOption) (*GetExtensionSchemaResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetExtensionSchemaResult
 	err := ctx.Invoke("pagerduty:index/getExtensionSchema:getExtensionSchema", args, &rv, opts...)
 	if err != nil {

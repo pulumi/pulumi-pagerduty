@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -118,6 +119,7 @@ func NewUserContactMethod(ctx *pulumi.Context,
 	if args.UserId == nil {
 		return nil, errors.New("invalid value for required argument 'UserId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UserContactMethod
 	err := ctx.RegisterResource("pagerduty:index/userContactMethod:UserContactMethod", name, args, &resource, opts...)
 	if err != nil {

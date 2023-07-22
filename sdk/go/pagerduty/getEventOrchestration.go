@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Use this data source to get information about a specific Global [Event Orchestration](https://developer.pagerduty.com/api-reference/7ba0fe7bdb26a-list-event-orchestrations)
 func LookupEventOrchestration(ctx *pulumi.Context, args *LookupEventOrchestrationArgs, opts ...pulumi.InvokeOption) (*LookupEventOrchestrationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEventOrchestrationResult
 	err := ctx.Invoke("pagerduty:index/getEventOrchestration:getEventOrchestration", args, &rv, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -79,6 +80,7 @@ func NewIncidentWorkflow(ctx *pulumi.Context,
 		args = &IncidentWorkflowArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IncidentWorkflow
 	err := ctx.RegisterResource("pagerduty:index/incidentWorkflow:IncidentWorkflow", name, args, &resource, opts...)
 	if err != nil {

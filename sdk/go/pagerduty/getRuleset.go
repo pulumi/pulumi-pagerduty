@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -99,6 +100,7 @@ import (
 //
 // ```
 func LookupRuleset(ctx *pulumi.Context, args *LookupRulesetArgs, opts ...pulumi.InvokeOption) (*LookupRulesetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRulesetResult
 	err := ctx.Invoke("pagerduty:index/getRuleset:getRuleset", args, &rv, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -81,6 +82,7 @@ import (
 //
 // ```
 func GetVendor(ctx *pulumi.Context, args *GetVendorArgs, opts ...pulumi.InvokeOption) (*GetVendorResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVendorResult
 	err := ctx.Invoke("pagerduty:index/getVendor:getVendor", args, &rv, opts...)
 	if err != nil {

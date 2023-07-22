@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -144,6 +145,7 @@ func NewExtension(ctx *pulumi.Context,
 		"endpointUrl",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Extension
 	err := ctx.RegisterResource("pagerduty:index/extension:Extension", name, args, &resource, opts...)
 	if err != nil {

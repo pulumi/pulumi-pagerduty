@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -103,6 +104,7 @@ func NewBusinessServiceSubscriber(ctx *pulumi.Context,
 	if args.SubscriberType == nil {
 		return nil, errors.New("invalid value for required argument 'SubscriberType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BusinessServiceSubscriber
 	err := ctx.RegisterResource("pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber", name, args, &resource, opts...)
 	if err != nil {

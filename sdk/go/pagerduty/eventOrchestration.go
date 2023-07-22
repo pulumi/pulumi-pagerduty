@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -73,6 +74,7 @@ func NewEventOrchestration(ctx *pulumi.Context,
 		args = &EventOrchestrationArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventOrchestration
 	err := ctx.RegisterResource("pagerduty:index/eventOrchestration:EventOrchestration", name, args, &resource, opts...)
 	if err != nil {

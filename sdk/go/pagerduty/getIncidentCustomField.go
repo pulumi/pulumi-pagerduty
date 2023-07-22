@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,6 +47,7 @@ import (
 //
 // ```
 func LookupIncidentCustomField(ctx *pulumi.Context, args *LookupIncidentCustomFieldArgs, opts ...pulumi.InvokeOption) (*LookupIncidentCustomFieldResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupIncidentCustomFieldResult
 	err := ctx.Invoke("pagerduty:index/getIncidentCustomField:getIncidentCustomField", args, &rv, opts...)
 	if err != nil {

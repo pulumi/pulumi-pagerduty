@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,6 +47,7 @@ import (
 //
 // ```
 func GetEventOrchestrations(ctx *pulumi.Context, args *GetEventOrchestrationsArgs, opts ...pulumi.InvokeOption) (*GetEventOrchestrationsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEventOrchestrationsResult
 	err := ctx.Invoke("pagerduty:index/getEventOrchestrations:getEventOrchestrations", args, &rv, opts...)
 	if err != nil {

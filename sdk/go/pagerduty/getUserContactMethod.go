@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -58,6 +59,7 @@ import (
 //
 // ```
 func LookupUserContactMethod(ctx *pulumi.Context, args *LookupUserContactMethodArgs, opts ...pulumi.InvokeOption) (*LookupUserContactMethodResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupUserContactMethodResult
 	err := ctx.Invoke("pagerduty:index/getUserContactMethod:getUserContactMethod", args, &rv, opts...)
 	if err != nil {

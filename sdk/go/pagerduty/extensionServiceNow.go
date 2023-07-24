@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -165,6 +166,7 @@ func NewExtensionServiceNow(ctx *pulumi.Context,
 		"snowPassword",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ExtensionServiceNow
 	err := ctx.RegisterResource("pagerduty:index/extensionServiceNow:ExtensionServiceNow", name, args, &resource, opts...)
 	if err != nil {

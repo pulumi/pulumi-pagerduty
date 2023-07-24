@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,6 +22,7 @@ import (
 // may have only applied to a subset of incidents within the account, custom fields returned by the `incidentCustomField`
 // data source are applied to all incidents in the account.
 func LookupCustomField(ctx *pulumi.Context, args *LookupCustomFieldArgs, opts ...pulumi.InvokeOption) (*LookupCustomFieldResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCustomFieldResult
 	err := ctx.Invoke("pagerduty:index/getCustomField:getCustomField", args, &rv, opts...)
 	if err != nil {

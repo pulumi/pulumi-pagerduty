@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -206,6 +207,7 @@ func NewEventRule(ctx *pulumi.Context,
 	if args.ConditionJson == nil {
 		return nil, errors.New("invalid value for required argument 'ConditionJson'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventRule
 	err := ctx.RegisterResource("pagerduty:index/eventRule:EventRule", name, args, &resource, opts...)
 	if err != nil {

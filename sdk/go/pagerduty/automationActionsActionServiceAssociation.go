@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -117,6 +118,7 @@ func NewAutomationActionsActionServiceAssociation(ctx *pulumi.Context,
 	if args.ServiceId == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AutomationActionsActionServiceAssociation
 	err := ctx.RegisterResource("pagerduty:index/automationActionsActionServiceAssociation:AutomationActionsActionServiceAssociation", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -87,6 +88,7 @@ func NewTagAssignment(ctx *pulumi.Context,
 	if args.TagId == nil {
 		return nil, errors.New("invalid value for required argument 'TagId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TagAssignment
 	err := ctx.RegisterResource("pagerduty:index/tagAssignment:TagAssignment", name, args, &resource, opts...)
 	if err != nil {

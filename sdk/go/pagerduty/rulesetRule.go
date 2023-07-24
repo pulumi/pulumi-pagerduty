@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -195,6 +196,7 @@ func NewRulesetRule(ctx *pulumi.Context,
 	if args.Ruleset == nil {
 		return nil, errors.New("invalid value for required argument 'Ruleset'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RulesetRule
 	err := ctx.RegisterResource("pagerduty:index/rulesetRule:RulesetRule", name, args, &resource, opts...)
 	if err != nil {

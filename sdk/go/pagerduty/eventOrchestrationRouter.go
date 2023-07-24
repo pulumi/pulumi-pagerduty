@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -113,6 +114,7 @@ func NewEventOrchestrationRouter(ctx *pulumi.Context,
 	if args.Set == nil {
 		return nil, errors.New("invalid value for required argument 'Set'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventOrchestrationRouter
 	err := ctx.RegisterResource("pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter", name, args, &resource, opts...)
 	if err != nil {

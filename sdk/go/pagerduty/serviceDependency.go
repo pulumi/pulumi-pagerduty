@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -97,6 +98,7 @@ func NewServiceDependency(ctx *pulumi.Context,
 	if args.Dependency == nil {
 		return nil, errors.New("invalid value for required argument 'Dependency'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServiceDependency
 	err := ctx.RegisterResource("pagerduty:index/serviceDependency:ServiceDependency", name, args, &resource, opts...)
 	if err != nil {

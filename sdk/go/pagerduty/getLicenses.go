@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -47,6 +48,7 @@ import (
 //
 // ```
 func GetLicenses(ctx *pulumi.Context, args *GetLicensesArgs, opts ...pulumi.InvokeOption) (*GetLicensesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLicensesResult
 	err := ctx.Invoke("pagerduty:index/getLicenses:getLicenses", args, &rv, opts...)
 	if err != nil {

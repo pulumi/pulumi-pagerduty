@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -97,6 +98,7 @@ func NewCustomField(ctx *pulumi.Context,
 	if args.DisplayName == nil {
 		return nil, errors.New("invalid value for required argument 'DisplayName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CustomField
 	err := ctx.RegisterResource("pagerduty:index/customField:CustomField", name, args, &resource, opts...)
 	if err != nil {

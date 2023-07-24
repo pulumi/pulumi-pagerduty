@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -102,6 +103,7 @@ func NewAutomationActionsRunner(ctx *pulumi.Context,
 		"runbookApiKey",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AutomationActionsRunner
 	err := ctx.RegisterResource("pagerduty:index/automationActionsRunner:AutomationActionsRunner", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -86,6 +87,7 @@ func NewAutomationActionsRunnerTeamAssociation(ctx *pulumi.Context,
 	if args.TeamId == nil {
 		return nil, errors.New("invalid value for required argument 'TeamId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AutomationActionsRunnerTeamAssociation
 	err := ctx.RegisterResource("pagerduty:index/automationActionsRunnerTeamAssociation:AutomationActionsRunnerTeamAssociation", name, args, &resource, opts...)
 	if err != nil {

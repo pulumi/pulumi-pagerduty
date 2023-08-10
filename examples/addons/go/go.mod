@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-pagerduty/examples/addons/go
 
-go 1.19
+go 1.20
 
 require (
 	github.com/pulumi/pulumi-pagerduty/sdk/v3 v3.0.0

@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-pagerduty/provider/v3
 
-go 1.19
+go 1.20
 
 require (
 	github.com/PagerDuty/terraform-provider-pagerduty v0.0.0

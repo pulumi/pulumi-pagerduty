@@ -17,7 +17,7 @@ namespace Pulumi.Pagerduty
     /// using System.Linq;
     /// using Pulumi;
     /// using Pagerduty = Pulumi.Pagerduty;
-    /// using Time = Pulumi.Time;
+    /// using Time = Pulumiverse.Time;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -35,7 +35,7 @@ namespace Pulumi.Pagerduty
     ///     // repeats daily from 9:30am - 11:30am using the America/New_York timezone.
     ///     // Thus it requires a time_static instance to represent 9:30am on an arbitrary date in that timezone.
     ///     // April 11th, 2019 was EDT (UTC-4) https://www.timeanddate.com/worldclock/converter.html?iso=20190411T133000&amp;p1=179
-    ///     var easternTimeAt0930 = new Time.Index.Time_static("easternTimeAt0930", new()
+    ///     var easternTimeAt0930 = new Time.Static("easternTimeAt0930", new()
     ///     {
     ///         Rfc3339 = "2019-04-11T09:30:00-04:00",
     ///     });
@@ -57,7 +57,7 @@ namespace Pulumi.Pagerduty
     ///                         4,
     ///                         6,
     ///                     },
-    ///                     StartTime = easternTimeAt0930.Unix * 1000,
+    ///                     StartTime = easternTimeAt0930.Unix.Apply(unix =&gt; unix * 1000),
     ///                     Duration = 2 * 60 * 60 * 1000,
     ///                     Timezone = "America/New_York",
     ///                 },

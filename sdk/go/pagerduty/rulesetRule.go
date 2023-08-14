@@ -20,7 +20,7 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
-//	"github.com/pulumi/pulumi-time/sdk/v1/go/time"
+//	"github.com/pulumi/pulumi-time/sdk/go/time"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,8 +39,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			easternTimeAt0930, err := index.NewTime_static(ctx, "easternTimeAt0930", &index.Time_staticArgs{
-//				Rfc3339: "2019-04-11T09:30:00-04:00",
+//			easternTimeAt0930, err := time.NewStatic(ctx, "easternTimeAt0930", &time.StaticArgs{
+//				Rfc3339: pulumi.String("2019-04-11T09:30:00-04:00"),
 //			})
 //			if err != nil {
 //				return err
@@ -57,9 +57,11 @@ import (
 //								pulumi.Int(4),
 //								pulumi.Int(6),
 //							},
-//							StartTime: easternTimeAt0930.Unix * 1000,
-//							Duration:  2 * 60 * 60 * 1000,
-//							Timezone:  pulumi.String("America/New_York"),
+//							StartTime: easternTimeAt0930.Unix.ApplyT(func(unix int) (float64, error) {
+//								return unix * 1000, nil
+//							}).(pulumi.Float64Output),
+//							Duration: 2 * 60 * 60 * 1000,
+//							Timezone: pulumi.String("America/New_York"),
 //						},
 //					},
 //				},

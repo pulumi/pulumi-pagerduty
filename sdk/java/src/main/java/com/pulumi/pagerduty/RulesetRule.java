@@ -33,8 +33,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.pagerduty.Ruleset;
  * import com.pulumi.pagerduty.RulesetArgs;
  * import com.pulumi.pagerduty.inputs.RulesetTeamArgs;
- * import com.pulumi.time.time_static;
- * import com.pulumi.time.Time_staticArgs;
+ * import com.pulumi.time.Static;
+ * import com.pulumi.time.StaticArgs;
  * import com.pulumi.pagerduty.RulesetRule;
  * import com.pulumi.pagerduty.RulesetRuleArgs;
  * import com.pulumi.pagerduty.inputs.RulesetRuleTimeFrameArgs;
@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var easternTimeAt0930 = new Time_static(&#34;easternTimeAt0930&#34;, Time_staticArgs.builder()        
+ *         var easternTimeAt0930 = new Static(&#34;easternTimeAt0930&#34;, StaticArgs.builder()        
  *             .rfc3339(&#34;2019-04-11T09:30:00-04:00&#34;)
  *             .build());
  * 
@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  *                         2,
  *                         4,
  *                         6)
- *                     .startTime(easternTimeAt0930.unix() * 1000)
+ *                     .startTime(easternTimeAt0930.unix().applyValue(unix -&gt; unix * 1000))
  *                     .duration(2 * 60 * 60 * 1000)
  *                     .timezone(&#34;America/New_York&#34;)
  *                     .build())

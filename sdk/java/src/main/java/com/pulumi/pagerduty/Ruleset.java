@@ -68,7 +68,7 @@ public class Ruleset extends com.pulumi.resources.CustomResource {
      * Name of the ruleset.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -82,7 +82,7 @@ public class Ruleset extends com.pulumi.resources.CustomResource {
      * Routing keys routed to this ruleset.
      * 
      */
-    @Export(name="routingKeys", type=List.class, parameters={String.class})
+    @Export(name="routingKeys", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> routingKeys;
 
     /**
@@ -96,7 +96,7 @@ public class Ruleset extends com.pulumi.resources.CustomResource {
      * Reference to the team that owns the ruleset. If none is specified, only admins have access.
      * 
      */
-    @Export(name="team", type=RulesetTeam.class, parameters={})
+    @Export(name="team", refs={RulesetTeam.class}, tree="[0]")
     private Output</* @Nullable */ RulesetTeam> team;
 
     /**
@@ -110,7 +110,7 @@ public class Ruleset extends com.pulumi.resources.CustomResource {
      * Type of ruleset. Currently, only sets to `global`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**

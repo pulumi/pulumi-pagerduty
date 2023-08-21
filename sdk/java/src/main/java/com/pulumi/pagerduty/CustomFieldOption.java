@@ -82,7 +82,7 @@ public class CustomFieldOption extends com.pulumi.resources.CustomResource {
      * The datatype of the field option. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
      * 
      */
-    @Export(name="datatype", type=String.class, parameters={})
+    @Export(name="datatype", refs={String.class}, tree="[0]")
     private Output<String> datatype;
 
     /**
@@ -96,7 +96,7 @@ public class CustomFieldOption extends com.pulumi.resources.CustomResource {
      * The ID of the field.
      * 
      */
-    @Export(name="field", type=String.class, parameters={})
+    @Export(name="field", refs={String.class}, tree="[0]")
     private Output<String> field;
 
     /**
@@ -110,7 +110,7 @@ public class CustomFieldOption extends com.pulumi.resources.CustomResource {
      * The allowed value.
      * 
      */
-    @Export(name="value", type=String.class, parameters={})
+    @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
     /**

@@ -135,7 +135,7 @@ public class ServiceEventRule extends com.pulumi.resources.CustomResource {
      * Actions to apply to an event if the conditions match.
      * 
      */
-    @Export(name="actions", type=ServiceEventRuleActions.class, parameters={})
+    @Export(name="actions", refs={ServiceEventRuleActions.class}, tree="[0]")
     private Output</* @Nullable */ ServiceEventRuleActions> actions;
 
     /**
@@ -149,7 +149,7 @@ public class ServiceEventRule extends com.pulumi.resources.CustomResource {
      * Conditions evaluated to check if an event matches this event rule.
      * 
      */
-    @Export(name="conditions", type=ServiceEventRuleConditions.class, parameters={})
+    @Export(name="conditions", refs={ServiceEventRuleConditions.class}, tree="[0]")
     private Output</* @Nullable */ ServiceEventRuleConditions> conditions;
 
     /**
@@ -163,7 +163,7 @@ public class ServiceEventRule extends com.pulumi.resources.CustomResource {
      * Indicates whether the rule is disabled and would therefore not be evaluated.
      * 
      */
-    @Export(name="disabled", type=Boolean.class, parameters={})
+    @Export(name="disabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disabled;
 
     /**
@@ -177,7 +177,7 @@ public class ServiceEventRule extends com.pulumi.resources.CustomResource {
      * Position/index of the rule within the service.
      * 
      */
-    @Export(name="position", type=Integer.class, parameters={})
+    @Export(name="position", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> position;
 
     /**
@@ -191,7 +191,7 @@ public class ServiceEventRule extends com.pulumi.resources.CustomResource {
      * The ID of the service that the rule belongs to.
      * 
      */
-    @Export(name="service", type=String.class, parameters={})
+    @Export(name="service", refs={String.class}, tree="[0]")
     private Output<String> service;
 
     /**
@@ -205,7 +205,7 @@ public class ServiceEventRule extends com.pulumi.resources.CustomResource {
      * Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
      * 
      */
-    @Export(name="timeFrame", type=ServiceEventRuleTimeFrame.class, parameters={})
+    @Export(name="timeFrame", refs={ServiceEventRuleTimeFrame.class}, tree="[0]")
     private Output</* @Nullable */ ServiceEventRuleTimeFrame> timeFrame;
 
     /**
@@ -219,7 +219,7 @@ public class ServiceEventRule extends com.pulumi.resources.CustomResource {
      * Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
      * 
      */
-    @Export(name="variables", type=List.class, parameters={ServiceEventRuleVariable.class})
+    @Export(name="variables", refs={List.class,ServiceEventRuleVariable.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ServiceEventRuleVariable>> variables;
 
     /**

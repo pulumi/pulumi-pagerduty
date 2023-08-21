@@ -77,7 +77,7 @@ public class EventOrchestrationIntegration extends com.pulumi.resources.CustomRe
      * ID of the Event Orchestration to which this Integration belongs to. If value is changed, current Integration is associated with a newly provided ID.
      * 
      */
-    @Export(name="eventOrchestration", type=String.class, parameters={})
+    @Export(name="eventOrchestration", refs={String.class}, tree="[0]")
     private Output<String> eventOrchestration;
 
     /**
@@ -91,7 +91,7 @@ public class EventOrchestrationIntegration extends com.pulumi.resources.CustomRe
      * Name/description of the Integration.
      * 
      */
-    @Export(name="label", type=String.class, parameters={})
+    @Export(name="label", refs={String.class}, tree="[0]")
     private Output<String> label;
 
     /**
@@ -101,7 +101,7 @@ public class EventOrchestrationIntegration extends com.pulumi.resources.CustomRe
     public Output<String> label() {
         return this.label;
     }
-    @Export(name="parameters", type=List.class, parameters={EventOrchestrationIntegrationParameter.class})
+    @Export(name="parameters", refs={List.class,EventOrchestrationIntegrationParameter.class}, tree="[0,1]")
     private Output<List<EventOrchestrationIntegrationParameter>> parameters;
 
     public Output<List<EventOrchestrationIntegrationParameter>> parameters() {

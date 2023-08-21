@@ -86,7 +86,7 @@ public class BusinessServiceSubscriber extends com.pulumi.resources.CustomResour
      * The ID of the business service to subscribe to.
      * 
      */
-    @Export(name="businessServiceId", type=String.class, parameters={})
+    @Export(name="businessServiceId", refs={String.class}, tree="[0]")
     private Output<String> businessServiceId;
 
     /**
@@ -100,7 +100,7 @@ public class BusinessServiceSubscriber extends com.pulumi.resources.CustomResour
      * The ID of the subscriber entity.
      * 
      */
-    @Export(name="subscriberId", type=String.class, parameters={})
+    @Export(name="subscriberId", refs={String.class}, tree="[0]")
     private Output<String> subscriberId;
 
     /**
@@ -114,7 +114,7 @@ public class BusinessServiceSubscriber extends com.pulumi.resources.CustomResour
      * Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.
      * 
      */
-    @Export(name="subscriberType", type=String.class, parameters={})
+    @Export(name="subscriberType", refs={String.class}, tree="[0]")
     private Output<String> subscriberType;
 
     /**

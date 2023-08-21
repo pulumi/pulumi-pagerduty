@@ -197,7 +197,7 @@ public class EventOrchestrationService extends com.pulumi.resources.CustomResour
      * the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
      * 
      */
-    @Export(name="catchAll", type=EventOrchestrationServiceCatchAll.class, parameters={})
+    @Export(name="catchAll", refs={EventOrchestrationServiceCatchAll.class}, tree="[0]")
     private Output<EventOrchestrationServiceCatchAll> catchAll;
 
     /**
@@ -211,7 +211,7 @@ public class EventOrchestrationService extends com.pulumi.resources.CustomResour
      * Opt-in/out for switching the Service to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations).
      * 
      */
-    @Export(name="enableEventOrchestrationForService", type=Boolean.class, parameters={})
+    @Export(name="enableEventOrchestrationForService", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableEventOrchestrationForService;
 
     /**
@@ -225,7 +225,7 @@ public class EventOrchestrationService extends com.pulumi.resources.CustomResour
      * ID of the Service to which this Service Orchestration belongs to.
      * 
      */
-    @Export(name="service", type=String.class, parameters={})
+    @Export(name="service", refs={String.class}, tree="[0]")
     private Output<String> service;
 
     /**
@@ -239,7 +239,7 @@ public class EventOrchestrationService extends com.pulumi.resources.CustomResour
      * A Service Orchestration must contain at least a &#34;start&#34; set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.
      * 
      */
-    @Export(name="sets", type=List.class, parameters={EventOrchestrationServiceSet.class})
+    @Export(name="sets", refs={List.class,EventOrchestrationServiceSet.class}, tree="[0,1]")
     private Output<List<EventOrchestrationServiceSet>> sets;
 
     /**

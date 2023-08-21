@@ -66,7 +66,7 @@ public class MaintenanceWindow extends com.pulumi.resources.CustomResource {
      * A description for the maintenance window.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -80,7 +80,7 @@ public class MaintenanceWindow extends com.pulumi.resources.CustomResource {
      * The maintenance window&#39;s end time. This is when the services will start creating incidents again. This date must be in the future and after the `start_time`.
      * 
      */
-    @Export(name="endTime", type=String.class, parameters={})
+    @Export(name="endTime", refs={String.class}, tree="[0]")
     private Output<String> endTime;
 
     /**
@@ -94,7 +94,7 @@ public class MaintenanceWindow extends com.pulumi.resources.CustomResource {
      * A list of service IDs to include in the maintenance window.
      * 
      */
-    @Export(name="services", type=List.class, parameters={String.class})
+    @Export(name="services", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> services;
 
     /**
@@ -108,7 +108,7 @@ public class MaintenanceWindow extends com.pulumi.resources.CustomResource {
      * The maintenance window&#39;s start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
      * 
      */
-    @Export(name="startTime", type=String.class, parameters={})
+    @Export(name="startTime", refs={String.class}, tree="[0]")
     private Output<String> startTime;
 
     /**

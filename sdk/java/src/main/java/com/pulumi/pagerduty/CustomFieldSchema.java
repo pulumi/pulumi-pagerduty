@@ -76,7 +76,7 @@ public class CustomFieldSchema extends com.pulumi.resources.CustomResource {
      * The description of the field schema.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -90,7 +90,7 @@ public class CustomFieldSchema extends com.pulumi.resources.CustomResource {
      * The title of the field schema.
      * 
      */
-    @Export(name="title", type=String.class, parameters={})
+    @Export(name="title", refs={String.class}, tree="[0]")
     private Output<String> title;
 
     /**

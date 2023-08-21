@@ -77,7 +77,7 @@ public class AutomationActionsAction extends com.pulumi.resources.CustomResource
      * The category of the action. The only allowed values are `diagnostic` and `remediation`.
      * 
      */
-    @Export(name="actionClassification", type=String.class, parameters={})
+    @Export(name="actionClassification", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> actionClassification;
 
     /**
@@ -91,7 +91,7 @@ public class AutomationActionsAction extends com.pulumi.resources.CustomResource
      * Action Data block. Action Data is documented below.
      * 
      */
-    @Export(name="actionDataReference", type=AutomationActionsActionActionDataReference.class, parameters={})
+    @Export(name="actionDataReference", refs={AutomationActionsActionActionDataReference.class}, tree="[0]")
     private Output<AutomationActionsActionActionDataReference> actionDataReference;
 
     /**
@@ -105,7 +105,7 @@ public class AutomationActionsAction extends com.pulumi.resources.CustomResource
      * The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
      * 
      */
-    @Export(name="actionType", type=String.class, parameters={})
+    @Export(name="actionType", refs={String.class}, tree="[0]")
     private Output<String> actionType;
 
     /**
@@ -119,7 +119,7 @@ public class AutomationActionsAction extends com.pulumi.resources.CustomResource
      * The time action was created. Represented as an ISO 8601 timestamp.
      * 
      */
-    @Export(name="creationTime", type=String.class, parameters={})
+    @Export(name="creationTime", refs={String.class}, tree="[0]")
     private Output<String> creationTime;
 
     /**
@@ -133,7 +133,7 @@ public class AutomationActionsAction extends com.pulumi.resources.CustomResource
      * The description of the action. Max length is 1024 characters.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -147,7 +147,7 @@ public class AutomationActionsAction extends com.pulumi.resources.CustomResource
      * (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
      * 
      */
-    @Export(name="modifyTime", type=String.class, parameters={})
+    @Export(name="modifyTime", refs={String.class}, tree="[0]")
     private Output<String> modifyTime;
 
     /**
@@ -161,7 +161,7 @@ public class AutomationActionsAction extends com.pulumi.resources.CustomResource
      * The name of the action. Max length is 255 characters.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -175,7 +175,7 @@ public class AutomationActionsAction extends com.pulumi.resources.CustomResource
      * The Process Automation Actions runner to associate the action with. Cannot be changed for the `process_automation` action type once set.
      * 
      */
-    @Export(name="runnerId", type=String.class, parameters={})
+    @Export(name="runnerId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runnerId;
 
     /**
@@ -189,7 +189,7 @@ public class AutomationActionsAction extends com.pulumi.resources.CustomResource
      * (Optional) The type of the runner associated with the action.
      * 
      */
-    @Export(name="runnerType", type=String.class, parameters={})
+    @Export(name="runnerType", refs={String.class}, tree="[0]")
     private Output<String> runnerType;
 
     /**
@@ -203,7 +203,7 @@ public class AutomationActionsAction extends com.pulumi.resources.CustomResource
      * The type of object. The value returned will be `action`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**

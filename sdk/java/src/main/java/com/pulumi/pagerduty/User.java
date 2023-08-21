@@ -66,7 +66,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The URL of the user&#39;s avatar.
      * 
      */
-    @Export(name="avatarUrl", type=String.class, parameters={})
+    @Export(name="avatarUrl", refs={String.class}, tree="[0]")
     private Output<String> avatarUrl;
 
     /**
@@ -80,7 +80,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The schedule color for the user. Valid options are purple, red, green, blue, teal, orange, brown, turquoise, dark-slate-blue, cayenne, orange-red, dark-orchid, dark-slate-grey, lime, dark-magenta, lime-green, midnight-blue, deep-pink, dark-green, dark-orange, dark-cyan, darkolive-green, dark-slate-gray, grey20, firebrick, maroon, crimson, dark-red, dark-goldenrod, chocolate, medium-violet-red, sea-green, olivedrab, forest-green, dark-olive-green, blue-violet, royal-blue, indigo, slate-blue, saddle-brown, or steel-blue.
      * 
      */
-    @Export(name="color", type=String.class, parameters={})
+    @Export(name="color", refs={String.class}, tree="[0]")
     private Output<String> color;
 
     /**
@@ -90,7 +90,7 @@ public class User extends com.pulumi.resources.CustomResource {
     public Output<String> color() {
         return this.color;
     }
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     public Output<String> description() {
@@ -100,7 +100,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The user&#39;s email address.
      * 
      */
-    @Export(name="email", type=String.class, parameters={})
+    @Export(name="email", refs={String.class}, tree="[0]")
     private Output<String> email;
 
     /**
@@ -114,7 +114,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * URL at which the entity is uniquely displayed in the Web app
      * 
      */
-    @Export(name="htmlUrl", type=String.class, parameters={})
+    @Export(name="htmlUrl", refs={String.class}, tree="[0]")
     private Output<String> htmlUrl;
 
     /**
@@ -128,7 +128,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * If true, the user has an outstanding invitation.
      * 
      */
-    @Export(name="invitationSent", type=Boolean.class, parameters={})
+    @Export(name="invitationSent", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> invitationSent;
 
     /**
@@ -142,7 +142,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The user&#39;s title.
      * 
      */
-    @Export(name="jobTitle", type=String.class, parameters={})
+    @Export(name="jobTitle", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> jobTitle;
 
     /**
@@ -156,7 +156,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The license id assigned to the user. If provided the user&#39;s role must exist in the assigned license&#39;s `valid_roles` list. To reference purchased licenses&#39; ids see data source `pagerduty.getLicenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
      * 
      */
-    @Export(name="license", type=String.class, parameters={})
+    @Export(name="license", refs={String.class}, tree="[0]")
     private Output<String> license;
 
     /**
@@ -170,7 +170,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The name of the user.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -188,7 +188,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * * Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).
      * 
      */
-    @Export(name="role", type=String.class, parameters={})
+    @Export(name="role", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> role;
 
     /**
@@ -210,7 +210,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use the 'pagerduty_team_membership' resource instead. */
-    @Export(name="teams", type=List.class, parameters={String.class})
+    @Export(name="teams", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> teams;
 
     /**
@@ -224,7 +224,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The time zone of the user. Default is account default timezone.
      * 
      */
-    @Export(name="timeZone", type=String.class, parameters={})
+    @Export(name="timeZone", refs={String.class}, tree="[0]")
     private Output<String> timeZone;
 
     /**

@@ -107,7 +107,7 @@ public class WebhookSubscription extends com.pulumi.resources.CustomResource {
      * Determines whether the subscription will produce webhook events.
      * 
      */
-    @Export(name="active", type=Boolean.class, parameters={})
+    @Export(name="active", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> active;
 
     /**
@@ -121,7 +121,7 @@ public class WebhookSubscription extends com.pulumi.resources.CustomResource {
      * The object describing where to send the webhooks.
      * 
      */
-    @Export(name="deliveryMethods", type=List.class, parameters={WebhookSubscriptionDeliveryMethod.class})
+    @Export(name="deliveryMethods", refs={List.class,WebhookSubscriptionDeliveryMethod.class}, tree="[0,1]")
     private Output<List<WebhookSubscriptionDeliveryMethod>> deliveryMethods;
 
     /**
@@ -135,7 +135,7 @@ public class WebhookSubscription extends com.pulumi.resources.CustomResource {
      * A short description of the webhook subscription
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -162,7 +162,7 @@ public class WebhookSubscription extends com.pulumi.resources.CustomResource {
      * * `incident.unacknowledged`
      * 
      */
-    @Export(name="events", type=List.class, parameters={String.class})
+    @Export(name="events", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> events;
 
     /**
@@ -189,7 +189,7 @@ public class WebhookSubscription extends com.pulumi.resources.CustomResource {
      * determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `service_reference`, `team_reference` and `account_reference`.
      * 
      */
-    @Export(name="filters", type=List.class, parameters={WebhookSubscriptionFilter.class})
+    @Export(name="filters", refs={List.class,WebhookSubscriptionFilter.class}, tree="[0,1]")
     private Output<List<WebhookSubscriptionFilter>> filters;
 
     /**
@@ -203,7 +203,7 @@ public class WebhookSubscription extends com.pulumi.resources.CustomResource {
      * The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**

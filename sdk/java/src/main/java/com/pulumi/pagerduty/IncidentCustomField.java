@@ -68,7 +68,7 @@ public class IncidentCustomField extends com.pulumi.resources.CustomResource {
      * The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
      * 
      */
-    @Export(name="dataType", type=String.class, parameters={})
+    @Export(name="dataType", refs={String.class}, tree="[0]")
     private Output<String> dataType;
 
     /**
@@ -78,19 +78,19 @@ public class IncidentCustomField extends com.pulumi.resources.CustomResource {
     public Output<String> dataType() {
         return this.dataType;
     }
-    @Export(name="defaultValue", type=String.class, parameters={})
+    @Export(name="defaultValue", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultValue;
 
     public Output<Optional<String>> defaultValue() {
         return Codegen.optional(this.defaultValue);
     }
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     public Output<String> displayName() {
@@ -100,7 +100,7 @@ public class IncidentCustomField extends com.pulumi.resources.CustomResource {
      * The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
      * 
      */
-    @Export(name="fieldType", type=String.class, parameters={})
+    @Export(name="fieldType", refs={String.class}, tree="[0]")
     private Output<String> fieldType;
 
     /**
@@ -114,7 +114,7 @@ public class IncidentCustomField extends com.pulumi.resources.CustomResource {
      * The name of the field.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

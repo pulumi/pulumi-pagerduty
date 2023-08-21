@@ -61,7 +61,7 @@ public class Tag extends com.pulumi.resources.CustomResource {
      * URL at which the entity is uniquely displayed in the Web app.
      * 
      */
-    @Export(name="htmlUrl", type=String.class, parameters={})
+    @Export(name="htmlUrl", refs={String.class}, tree="[0]")
     private Output<String> htmlUrl;
 
     /**
@@ -75,7 +75,7 @@ public class Tag extends com.pulumi.resources.CustomResource {
      * The label of the tag.
      * 
      */
-    @Export(name="label", type=String.class, parameters={})
+    @Export(name="label", refs={String.class}, tree="[0]")
     private Output<String> label;
 
     /**
@@ -89,7 +89,7 @@ public class Tag extends com.pulumi.resources.CustomResource {
      * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
      * 
      */
-    @Export(name="summary", type=String.class, parameters={})
+    @Export(name="summary", refs={String.class}, tree="[0]")
     private Output<String> summary;
 
     /**

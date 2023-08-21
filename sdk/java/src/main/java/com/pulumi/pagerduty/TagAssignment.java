@@ -72,7 +72,7 @@ public class TagAssignment extends com.pulumi.resources.CustomResource {
      * The ID of the entity.
      * 
      */
-    @Export(name="entityId", type=String.class, parameters={})
+    @Export(name="entityId", refs={String.class}, tree="[0]")
     private Output<String> entityId;
 
     /**
@@ -86,7 +86,7 @@ public class TagAssignment extends com.pulumi.resources.CustomResource {
      * Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalation_policies`.
      * 
      */
-    @Export(name="entityType", type=String.class, parameters={})
+    @Export(name="entityType", refs={String.class}, tree="[0]")
     private Output<String> entityType;
 
     /**
@@ -100,7 +100,7 @@ public class TagAssignment extends com.pulumi.resources.CustomResource {
      * The ID of the tag.
      * 
      */
-    @Export(name="tagId", type=String.class, parameters={})
+    @Export(name="tagId", refs={String.class}, tree="[0]")
     private Output<String> tagId;
 
     /**

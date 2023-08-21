@@ -97,7 +97,7 @@ public class ResponsePlay extends com.pulumi.resources.CustomResource {
      * The telephone number that will be set as the conference number for any incident on which this response play is run.
      * 
      */
-    @Export(name="conferenceNumber", type=String.class, parameters={})
+    @Export(name="conferenceNumber", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> conferenceNumber;
 
     /**
@@ -111,7 +111,7 @@ public class ResponsePlay extends com.pulumi.resources.CustomResource {
      * The URL that will be set as the conference URL for any incident on which this response play is run.
      * 
      */
-    @Export(name="conferenceUrl", type=String.class, parameters={})
+    @Export(name="conferenceUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> conferenceUrl;
 
     /**
@@ -121,7 +121,7 @@ public class ResponsePlay extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> conferenceUrl() {
         return Codegen.optional(this.conferenceUrl);
     }
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     public Output<String> description() {
@@ -131,7 +131,7 @@ public class ResponsePlay extends com.pulumi.resources.CustomResource {
      * The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
      * 
      */
-    @Export(name="from", type=String.class, parameters={})
+    @Export(name="from", refs={String.class}, tree="[0]")
     private Output<String> from;
 
     /**
@@ -145,7 +145,7 @@ public class ResponsePlay extends com.pulumi.resources.CustomResource {
      * The name of the response play.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -159,7 +159,7 @@ public class ResponsePlay extends com.pulumi.resources.CustomResource {
      * A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
      * 
      */
-    @Export(name="responders", type=List.class, parameters={ResponsePlayResponder.class})
+    @Export(name="responders", refs={List.class,ResponsePlayResponder.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ResponsePlayResponder>> responders;
 
     /**
@@ -173,7 +173,7 @@ public class ResponsePlay extends com.pulumi.resources.CustomResource {
      * The message body of the notification that will be sent to this response play&#39;s set of responders. If empty, a default response request notification will be sent.
      * 
      */
-    @Export(name="respondersMessage", type=String.class, parameters={})
+    @Export(name="respondersMessage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> respondersMessage;
 
     /**
@@ -187,7 +187,7 @@ public class ResponsePlay extends com.pulumi.resources.CustomResource {
      * String representing how this response play is allowed to be run. Valid options are:
      * 
      */
-    @Export(name="runnability", type=String.class, parameters={})
+    @Export(name="runnability", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runnability;
 
     /**
@@ -201,7 +201,7 @@ public class ResponsePlay extends com.pulumi.resources.CustomResource {
      * A user and/or team to be added as a subscriber to any incident on which this response play is run. There can be multiple subscribers defined on a single response play.
      * 
      */
-    @Export(name="subscribers", type=List.class, parameters={ResponsePlaySubscriber.class})
+    @Export(name="subscribers", refs={List.class,ResponsePlaySubscriber.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ResponsePlaySubscriber>> subscribers;
 
     /**
@@ -215,7 +215,7 @@ public class ResponsePlay extends com.pulumi.resources.CustomResource {
      * The content of the notification that will be sent to all incident subscribers upon the running of this response play. Note that this includes any users who may have already been subscribed to the incident prior to the running of this response play. If empty, no notifications will be sent.
      * 
      */
-    @Export(name="subscribersMessage", type=String.class, parameters={})
+    @Export(name="subscribersMessage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subscribersMessage;
 
     /**
@@ -229,7 +229,7 @@ public class ResponsePlay extends com.pulumi.resources.CustomResource {
      * The ID of the team associated with the response play.
      * 
      */
-    @Export(name="team", type=String.class, parameters={})
+    @Export(name="team", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> team;
 
     /**
@@ -243,7 +243,7 @@ public class ResponsePlay extends com.pulumi.resources.CustomResource {
      * A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**

@@ -79,7 +79,7 @@ public class AutomationActionsActionTeamAssociation extends com.pulumi.resources
      * Id of the action.
      * 
      */
-    @Export(name="actionId", type=String.class, parameters={})
+    @Export(name="actionId", refs={String.class}, tree="[0]")
     private Output<String> actionId;
 
     /**
@@ -93,7 +93,7 @@ public class AutomationActionsActionTeamAssociation extends com.pulumi.resources
      * Id of the team associated to the action.
      * 
      */
-    @Export(name="teamId", type=String.class, parameters={})
+    @Export(name="teamId", refs={String.class}, tree="[0]")
     private Output<String> teamId;
 
     /**

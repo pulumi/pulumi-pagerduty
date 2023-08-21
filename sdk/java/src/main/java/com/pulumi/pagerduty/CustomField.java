@@ -82,7 +82,7 @@ public class CustomField extends com.pulumi.resources.CustomResource {
      * The datatype of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
      * 
      */
-    @Export(name="datatype", type=String.class, parameters={})
+    @Export(name="datatype", refs={String.class}, tree="[0]")
     private Output<String> datatype;
 
     /**
@@ -92,13 +92,13 @@ public class CustomField extends com.pulumi.resources.CustomResource {
     public Output<String> datatype() {
         return this.datatype;
     }
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     public Output<String> displayName() {
@@ -108,7 +108,7 @@ public class CustomField extends com.pulumi.resources.CustomResource {
      * True if the field can only accept values from a set of options.
      * 
      */
-    @Export(name="fixedOptions", type=Boolean.class, parameters={})
+    @Export(name="fixedOptions", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> fixedOptions;
 
     /**
@@ -122,7 +122,7 @@ public class CustomField extends com.pulumi.resources.CustomResource {
      * True if the field can accept multiple values.
      * 
      */
-    @Export(name="multiValue", type=Boolean.class, parameters={})
+    @Export(name="multiValue", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> multiValue;
 
     /**
@@ -136,7 +136,7 @@ public class CustomField extends com.pulumi.resources.CustomResource {
      * The name of the field.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

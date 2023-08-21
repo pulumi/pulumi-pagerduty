@@ -80,7 +80,7 @@ public class CustomFieldSchemaAssignment extends com.pulumi.resources.CustomReso
      * The id of the field schema.
      * 
      */
-    @Export(name="schema", type=String.class, parameters={})
+    @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
@@ -94,7 +94,7 @@ public class CustomFieldSchemaAssignment extends com.pulumi.resources.CustomReso
      * The id of the service.
      * 
      */
-    @Export(name="service", type=String.class, parameters={})
+    @Export(name="service", refs={String.class}, tree="[0]")
     private Output<String> service;
 
     /**

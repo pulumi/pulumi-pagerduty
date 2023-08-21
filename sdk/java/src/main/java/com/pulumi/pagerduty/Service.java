@@ -96,7 +96,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `&#34;null&#34;` string.  If not passed in, will default to &#39;&#34;1800&#34;&#39;.
      * 
      */
-    @Export(name="acknowledgementTimeout", type=String.class, parameters={})
+    @Export(name="acknowledgementTimeout", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> acknowledgementTimeout;
 
     /**
@@ -110,7 +110,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Must be one of two values. PagerDuty receives events from your monitoring systems and can then create incidents in different ways. Value &#34;create_incidents&#34; is default: events will create an incident that cannot be merged. Value &#34;create_alerts_and_incidents&#34; is the alternative: events will create an alert and then add it to a new incident, these incidents can be merged. This option is recommended.
      * 
      */
-    @Export(name="alertCreation", type=String.class, parameters={})
+    @Export(name="alertCreation", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> alertCreation;
 
     /**
@@ -128,7 +128,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use `alert_grouping_parameters.type` */
-    @Export(name="alertGrouping", type=String.class, parameters={})
+    @Export(name="alertGrouping", refs={String.class}, tree="[0]")
     private Output<String> alertGrouping;
 
     /**
@@ -142,7 +142,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
      * 
      */
-    @Export(name="alertGroupingParameters", type=ServiceAlertGroupingParameters.class, parameters={})
+    @Export(name="alertGroupingParameters", refs={ServiceAlertGroupingParameters.class}, tree="[0]")
     private Output<ServiceAlertGroupingParameters> alertGroupingParameters;
 
     /**
@@ -160,7 +160,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use `alert_grouping_parameters.config.timeout` */
-    @Export(name="alertGroupingTimeout", type=String.class, parameters={})
+    @Export(name="alertGroupingTimeout", refs={String.class}, tree="[0]")
     private Output<String> alertGroupingTimeout;
 
     /**
@@ -174,7 +174,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
      * 
      */
-    @Export(name="autoPauseNotificationsParameters", type=ServiceAutoPauseNotificationsParameters.class, parameters={})
+    @Export(name="autoPauseNotificationsParameters", refs={ServiceAutoPauseNotificationsParameters.class}, tree="[0]")
     private Output<ServiceAutoPauseNotificationsParameters> autoPauseNotificationsParameters;
 
     /**
@@ -188,7 +188,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `&#34;null&#34;` string.
      * 
      */
-    @Export(name="autoResolveTimeout", type=String.class, parameters={})
+    @Export(name="autoResolveTimeout", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> autoResolveTimeout;
 
     /**
@@ -202,7 +202,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Creation timestamp of the service.
      * 
      */
-    @Export(name="createdAt", type=String.class, parameters={})
+    @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
@@ -212,7 +212,7 @@ public class Service extends com.pulumi.resources.CustomResource {
     public Output<String> createdAt() {
         return this.createdAt;
     }
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     public Output<String> description() {
@@ -222,7 +222,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The escalation policy used by this service.
      * 
      */
-    @Export(name="escalationPolicy", type=String.class, parameters={})
+    @Export(name="escalationPolicy", refs={String.class}, tree="[0]")
     private Output<String> escalationPolicy;
 
     /**
@@ -236,7 +236,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * URL at which the entity is uniquely displayed in the Web app.
      * 
      */
-    @Export(name="htmlUrl", type=String.class, parameters={})
+    @Export(name="htmlUrl", refs={String.class}, tree="[0]")
     private Output<String> htmlUrl;
 
     /**
@@ -246,7 +246,7 @@ public class Service extends com.pulumi.resources.CustomResource {
     public Output<String> htmlUrl() {
         return this.htmlUrl;
     }
-    @Export(name="incidentUrgencyRule", type=ServiceIncidentUrgencyRule.class, parameters={})
+    @Export(name="incidentUrgencyRule", refs={ServiceIncidentUrgencyRule.class}, tree="[0]")
     private Output<ServiceIncidentUrgencyRule> incidentUrgencyRule;
 
     public Output<ServiceIncidentUrgencyRule> incidentUrgencyRule() {
@@ -256,7 +256,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Last incident timestamp of the service.
      * 
      */
-    @Export(name="lastIncidentTimestamp", type=String.class, parameters={})
+    @Export(name="lastIncidentTimestamp", refs={String.class}, tree="[0]")
     private Output<String> lastIncidentTimestamp;
 
     /**
@@ -270,7 +270,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The name of the service.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -284,7 +284,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The response play used by this service.
      * 
      */
-    @Export(name="responsePlay", type=String.class, parameters={})
+    @Export(name="responsePlay", refs={String.class}, tree="[0]")
     private Output<String> responsePlay;
 
     /**
@@ -294,7 +294,7 @@ public class Service extends com.pulumi.resources.CustomResource {
     public Output<String> responsePlay() {
         return this.responsePlay;
     }
-    @Export(name="scheduledActions", type=List.class, parameters={ServiceScheduledAction.class})
+    @Export(name="scheduledActions", refs={List.class,ServiceScheduledAction.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ServiceScheduledAction>> scheduledActions;
 
     public Output<Optional<List<ServiceScheduledAction>>> scheduledActions() {
@@ -304,7 +304,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The status of the service.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -314,7 +314,7 @@ public class Service extends com.pulumi.resources.CustomResource {
     public Output<String> status() {
         return this.status;
     }
-    @Export(name="supportHours", type=ServiceSupportHours.class, parameters={})
+    @Export(name="supportHours", refs={ServiceSupportHours.class}, tree="[0]")
     private Output</* @Nullable */ ServiceSupportHours> supportHours;
 
     public Output<Optional<ServiceSupportHours>> supportHours() {
@@ -324,7 +324,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The type of alert grouping; one of `intelligent`, `time` or `content_based`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**

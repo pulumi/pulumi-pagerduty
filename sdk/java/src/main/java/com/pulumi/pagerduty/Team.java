@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="pagerduty:index/team:Team")
 public class Team extends com.pulumi.resources.CustomResource {
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     public Output<String> description() {
@@ -75,7 +75,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * URL at which the entity is uniquely displayed in the Web app
      * 
      */
-    @Export(name="htmlUrl", type=String.class, parameters={})
+    @Export(name="htmlUrl", refs={String.class}, tree="[0]")
     private Output<String> htmlUrl;
 
     /**
@@ -89,7 +89,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * The name of the group.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -103,7 +103,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
      * 
      */
-    @Export(name="parent", type=String.class, parameters={})
+    @Export(name="parent", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> parent;
 
     /**

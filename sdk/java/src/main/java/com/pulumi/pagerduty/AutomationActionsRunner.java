@@ -78,7 +78,7 @@ public class AutomationActionsRunner extends com.pulumi.resources.CustomResource
      * The time runner was created. Represented as an ISO 8601 timestamp.
      * 
      */
-    @Export(name="creationTime", type=String.class, parameters={})
+    @Export(name="creationTime", refs={String.class}, tree="[0]")
     private Output<String> creationTime;
 
     /**
@@ -92,7 +92,7 @@ public class AutomationActionsRunner extends com.pulumi.resources.CustomResource
      * The description of the runner. Max length is 1024 characters.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -106,7 +106,7 @@ public class AutomationActionsRunner extends com.pulumi.resources.CustomResource
      * (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
      * 
      */
-    @Export(name="lastSeen", type=String.class, parameters={})
+    @Export(name="lastSeen", refs={String.class}, tree="[0]")
     private Output<String> lastSeen;
 
     /**
@@ -120,7 +120,7 @@ public class AutomationActionsRunner extends com.pulumi.resources.CustomResource
      * The name of the runner. Max length is 255 characters.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -134,7 +134,7 @@ public class AutomationActionsRunner extends com.pulumi.resources.CustomResource
      * The unique User API Token created in Runbook Automation.
      * 
      */
-    @Export(name="runbookApiKey", type=String.class, parameters={})
+    @Export(name="runbookApiKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runbookApiKey;
 
     /**
@@ -148,7 +148,7 @@ public class AutomationActionsRunner extends com.pulumi.resources.CustomResource
      * The subdomain for your Runbook Automation Instance.
      * 
      */
-    @Export(name="runbookBaseUri", type=String.class, parameters={})
+    @Export(name="runbookBaseUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runbookBaseUri;
 
     /**
@@ -162,7 +162,7 @@ public class AutomationActionsRunner extends com.pulumi.resources.CustomResource
      * The type of runner. The only allowed values is `runbook`.
      * 
      */
-    @Export(name="runnerType", type=String.class, parameters={})
+    @Export(name="runnerType", refs={String.class}, tree="[0]")
     private Output<String> runnerType;
 
     /**
@@ -176,7 +176,7 @@ public class AutomationActionsRunner extends com.pulumi.resources.CustomResource
      * The type of object. The value returned will be `runner`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**

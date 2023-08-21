@@ -88,7 +88,7 @@ public class UserContactMethod extends com.pulumi.resources.CustomResource {
      * The &#34;address&#34; to deliver to: `email`, `phone number`, etc., depending on the type.
      * 
      */
-    @Export(name="address", type=String.class, parameters={})
+    @Export(name="address", refs={String.class}, tree="[0]")
     private Output<String> address;
 
     /**
@@ -102,7 +102,7 @@ public class UserContactMethod extends com.pulumi.resources.CustomResource {
      * If true, this phone has been blacklisted by PagerDuty and no messages will be sent to it.
      * 
      */
-    @Export(name="blacklisted", type=Boolean.class, parameters={})
+    @Export(name="blacklisted", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> blacklisted;
 
     /**
@@ -116,7 +116,7 @@ public class UserContactMethod extends com.pulumi.resources.CustomResource {
      * The 1-to-3 digit country calling code. Required when using `phone_contact_method` or `sms_contact_method`.
      * 
      */
-    @Export(name="countryCode", type=Integer.class, parameters={})
+    @Export(name="countryCode", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> countryCode;
 
     /**
@@ -130,7 +130,7 @@ public class UserContactMethod extends com.pulumi.resources.CustomResource {
      * If true, this phone is capable of receiving SMS messages.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
     /**
@@ -144,7 +144,7 @@ public class UserContactMethod extends com.pulumi.resources.CustomResource {
      * The label (e.g., &#34;Work&#34;, &#34;Mobile&#34;, etc.).
      * 
      */
-    @Export(name="label", type=String.class, parameters={})
+    @Export(name="label", refs={String.class}, tree="[0]")
     private Output<String> label;
 
     /**
@@ -158,7 +158,7 @@ public class UserContactMethod extends com.pulumi.resources.CustomResource {
      * Send an abbreviated email message instead of the standard email output.
      * 
      */
-    @Export(name="sendShortEmail", type=Boolean.class, parameters={})
+    @Export(name="sendShortEmail", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sendShortEmail;
 
     /**
@@ -172,7 +172,7 @@ public class UserContactMethod extends com.pulumi.resources.CustomResource {
      * The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
@@ -186,7 +186,7 @@ public class UserContactMethod extends com.pulumi.resources.CustomResource {
      * The ID of the user.
      * 
      */
-    @Export(name="userId", type=String.class, parameters={})
+    @Export(name="userId", refs={String.class}, tree="[0]")
     private Output<String> userId;
 
     /**

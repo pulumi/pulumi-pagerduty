@@ -79,7 +79,7 @@ public class CustomFieldSchemaFieldConfiguration extends com.pulumi.resources.Cu
      * The default value for the field.
      * 
      */
-    @Export(name="defaultValue", type=String.class, parameters={})
+    @Export(name="defaultValue", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultValue;
 
     /**
@@ -93,7 +93,7 @@ public class CustomFieldSchemaFieldConfiguration extends com.pulumi.resources.Cu
      * The datatype of the default value.
      * 
      */
-    @Export(name="defaultValueDatatype", type=String.class, parameters={})
+    @Export(name="defaultValueDatatype", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultValueDatatype;
 
     /**
@@ -107,7 +107,7 @@ public class CustomFieldSchemaFieldConfiguration extends com.pulumi.resources.Cu
      * Whether or not the default value is multi-valued.
      * 
      */
-    @Export(name="defaultValueMultiValue", type=Boolean.class, parameters={})
+    @Export(name="defaultValueMultiValue", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> defaultValueMultiValue;
 
     /**
@@ -121,7 +121,7 @@ public class CustomFieldSchemaFieldConfiguration extends com.pulumi.resources.Cu
      * The ID of the field.
      * 
      */
-    @Export(name="field", type=String.class, parameters={})
+    @Export(name="field", refs={String.class}, tree="[0]")
     private Output<String> field;
 
     /**
@@ -135,7 +135,7 @@ public class CustomFieldSchemaFieldConfiguration extends com.pulumi.resources.Cu
      * True if the field is required
      * 
      */
-    @Export(name="required", type=Boolean.class, parameters={})
+    @Export(name="required", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> required;
 
     /**
@@ -149,7 +149,7 @@ public class CustomFieldSchemaFieldConfiguration extends com.pulumi.resources.Cu
      * The ID of the schema.
      * 
      */
-    @Export(name="schema", type=String.class, parameters={})
+    @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**

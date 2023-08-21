@@ -171,7 +171,7 @@ public class EventRule extends com.pulumi.resources.CustomResource {
      * A list of one or more actions for each rule. Each action within the list is itself a list.
      * 
      */
-    @Export(name="actionJson", type=String.class, parameters={})
+    @Export(name="actionJson", refs={String.class}, tree="[0]")
     private Output<String> actionJson;
 
     /**
@@ -185,7 +185,7 @@ public class EventRule extends com.pulumi.resources.CustomResource {
      * Contains a list of specific conditions including `active-between`,`scheduled-weekly`, and `frequency-over`. The first element in the list is the label for the condition, followed by a list of values for the specific condition. For more details on these conditions see [Advanced Condition](https://developer.pagerduty.com/docs/rest-api-v2/global-event-rules-api/#advanced-condition-parameter) in the PagerDuty API documentation.
      * 
      */
-    @Export(name="advancedConditionJson", type=String.class, parameters={})
+    @Export(name="advancedConditionJson", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> advancedConditionJson;
 
     /**
@@ -199,7 +199,7 @@ public class EventRule extends com.pulumi.resources.CustomResource {
      * A boolean that indicates whether the rule is a catch-all for the account. This field is read-only through the PagerDuty API.
      * 
      */
-    @Export(name="catchAll", type=Boolean.class, parameters={})
+    @Export(name="catchAll", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> catchAll;
 
     /**
@@ -213,7 +213,7 @@ public class EventRule extends com.pulumi.resources.CustomResource {
      * Contains a list of conditions. The first field in the list is `and` or `or`, followed by a list of operators and values.
      * 
      */
-    @Export(name="conditionJson", type=String.class, parameters={})
+    @Export(name="conditionJson", refs={String.class}, tree="[0]")
     private Output<String> conditionJson;
 
     /**

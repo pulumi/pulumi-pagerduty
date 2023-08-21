@@ -100,7 +100,7 @@ public class EventOrchestrationRouter extends com.pulumi.resources.CustomResourc
      * When none of the rules match an event, the event will be routed according to the catch_all settings.
      * 
      */
-    @Export(name="catchAll", type=EventOrchestrationRouterCatchAll.class, parameters={})
+    @Export(name="catchAll", refs={EventOrchestrationRouterCatchAll.class}, tree="[0]")
     private Output<EventOrchestrationRouterCatchAll> catchAll;
 
     /**
@@ -114,7 +114,7 @@ public class EventOrchestrationRouter extends com.pulumi.resources.CustomResourc
      * ID of the Event Orchestration to which the Router belongs.
      * 
      */
-    @Export(name="eventOrchestration", type=String.class, parameters={})
+    @Export(name="eventOrchestration", refs={String.class}, tree="[0]")
     private Output<String> eventOrchestration;
 
     /**
@@ -128,7 +128,7 @@ public class EventOrchestrationRouter extends com.pulumi.resources.CustomResourc
      * The Router contains a single set of rules  (the &#34;start&#34; set).
      * 
      */
-    @Export(name="set", type=EventOrchestrationRouterSet.class, parameters={})
+    @Export(name="set", refs={EventOrchestrationRouterSet.class}, tree="[0]")
     private Output<EventOrchestrationRouterSet> set;
 
     /**

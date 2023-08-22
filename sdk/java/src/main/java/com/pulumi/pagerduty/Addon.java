@@ -61,7 +61,7 @@ public class Addon extends com.pulumi.resources.CustomResource {
      * The name of the add-on.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -75,7 +75,7 @@ public class Addon extends com.pulumi.resources.CustomResource {
      * The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.
      * 
      */
-    @Export(name="src", type=String.class, parameters={})
+    @Export(name="src", refs={String.class}, tree="[0]")
     private Output<String> src;
 
     /**

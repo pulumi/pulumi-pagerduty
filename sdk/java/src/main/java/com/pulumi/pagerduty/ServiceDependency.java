@@ -84,7 +84,7 @@ public class ServiceDependency extends com.pulumi.resources.CustomResource {
      * The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
      * 
      */
-    @Export(name="dependency", type=ServiceDependencyDependency.class, parameters={})
+    @Export(name="dependency", refs={ServiceDependencyDependency.class}, tree="[0]")
     private Output<ServiceDependencyDependency> dependency;
 
     /**

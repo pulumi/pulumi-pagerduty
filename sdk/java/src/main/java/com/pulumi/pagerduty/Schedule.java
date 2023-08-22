@@ -89,7 +89,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * The description of the schedule.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -99,7 +99,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
     public Output<String> description() {
         return this.description;
     }
-    @Export(name="finalSchedules", type=List.class, parameters={ScheduleFinalSchedule.class})
+    @Export(name="finalSchedules", refs={List.class,ScheduleFinalSchedule.class}, tree="[0,1]")
     private Output<List<ScheduleFinalSchedule>> finalSchedules;
 
     public Output<List<ScheduleFinalSchedule>> finalSchedules() {
@@ -109,7 +109,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * A schedule layer block. Schedule layers documented below.
      * 
      */
-    @Export(name="layers", type=List.class, parameters={ScheduleLayer.class})
+    @Export(name="layers", refs={List.class,ScheduleLayer.class}, tree="[0,1]")
     private Output<List<ScheduleLayer>> layers;
 
     /**
@@ -123,7 +123,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * The name of the schedule.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -139,7 +139,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * If you do pass the `overflow` parameter, you will get one schedule entry returned with a start of `2011-06-01T00:00:00Z` and end of `2011-06-02T00:00:00Z`.
      * 
      */
-    @Export(name="overflow", type=Boolean.class, parameters={})
+    @Export(name="overflow", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> overflow;
 
     /**
@@ -155,7 +155,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * Teams associated with the schedule.
      * 
      */
-    @Export(name="teams", type=List.class, parameters={String.class})
+    @Export(name="teams", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> teams;
 
     /**
@@ -169,7 +169,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * The time zone of the schedule (e.g. `Europe/Berlin`).
      * 
      */
-    @Export(name="timeZone", type=String.class, parameters={})
+    @Export(name="timeZone", refs={String.class}, tree="[0]")
     private Output<String> timeZone;
 
     /**

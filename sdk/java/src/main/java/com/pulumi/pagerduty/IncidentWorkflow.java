@@ -73,7 +73,7 @@ public class IncidentWorkflow extends com.pulumi.resources.CustomResource {
      * The description of the workflow.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -87,7 +87,7 @@ public class IncidentWorkflow extends com.pulumi.resources.CustomResource {
      * The name of the workflow.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -101,7 +101,7 @@ public class IncidentWorkflow extends com.pulumi.resources.CustomResource {
      * The steps in the workflow.
      * 
      */
-    @Export(name="steps", type=List.class, parameters={IncidentWorkflowStep.class})
+    @Export(name="steps", refs={List.class,IncidentWorkflowStep.class}, tree="[0,1]")
     private Output<List<IncidentWorkflowStep>> steps;
 
     /**
@@ -115,7 +115,7 @@ public class IncidentWorkflow extends com.pulumi.resources.CustomResource {
      * A team ID. If specified then workflow edit permissions will be scoped to members of this team.
      * 
      */
-    @Export(name="team", type=String.class, parameters={})
+    @Export(name="team", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> team;
 
     /**

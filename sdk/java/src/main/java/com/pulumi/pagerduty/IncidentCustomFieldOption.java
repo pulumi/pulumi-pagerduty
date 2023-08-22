@@ -75,7 +75,7 @@ public class IncidentCustomFieldOption extends com.pulumi.resources.CustomResour
      * The datatype of the field option. Only `string` is allowed here at present.
      * 
      */
-    @Export(name="dataType", type=String.class, parameters={})
+    @Export(name="dataType", refs={String.class}, tree="[0]")
     private Output<String> dataType;
 
     /**
@@ -89,7 +89,7 @@ public class IncidentCustomFieldOption extends com.pulumi.resources.CustomResour
      * The ID of the field.
      * 
      */
-    @Export(name="field", type=String.class, parameters={})
+    @Export(name="field", refs={String.class}, tree="[0]")
     private Output<String> field;
 
     /**
@@ -103,7 +103,7 @@ public class IncidentCustomFieldOption extends com.pulumi.resources.CustomResour
      * The allowed value.
      * 
      */
-    @Export(name="value", type=String.class, parameters={})
+    @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
     /**

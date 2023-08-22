@@ -120,7 +120,7 @@ public class UserNotificationRule extends com.pulumi.resources.CustomResource {
      * A contact method block, configured as a block described below.
      * 
      */
-    @Export(name="contactMethod", type=Map.class, parameters={String.class, String.class})
+    @Export(name="contactMethod", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> contactMethod;
 
     /**
@@ -134,7 +134,7 @@ public class UserNotificationRule extends com.pulumi.resources.CustomResource {
      * The delay before firing the rule, in minutes.
      * 
      */
-    @Export(name="startDelayInMinutes", type=Integer.class, parameters={})
+    @Export(name="startDelayInMinutes", refs={Integer.class}, tree="[0]")
     private Output<Integer> startDelayInMinutes;
 
     /**
@@ -148,7 +148,7 @@ public class UserNotificationRule extends com.pulumi.resources.CustomResource {
      * Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
      * 
      */
-    @Export(name="urgency", type=String.class, parameters={})
+    @Export(name="urgency", refs={String.class}, tree="[0]")
     private Output<String> urgency;
 
     /**
@@ -162,7 +162,7 @@ public class UserNotificationRule extends com.pulumi.resources.CustomResource {
      * The ID of the user.
      * 
      */
-    @Export(name="userId", type=String.class, parameters={})
+    @Export(name="userId", refs={String.class}, tree="[0]")
     private Output<String> userId;
 
     /**

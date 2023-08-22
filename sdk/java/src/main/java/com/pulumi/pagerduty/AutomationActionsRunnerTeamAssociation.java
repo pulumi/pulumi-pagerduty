@@ -77,7 +77,7 @@ public class AutomationActionsRunnerTeamAssociation extends com.pulumi.resources
      * Id of the runner.
      * 
      */
-    @Export(name="runnerId", type=String.class, parameters={})
+    @Export(name="runnerId", refs={String.class}, tree="[0]")
     private Output<String> runnerId;
 
     /**
@@ -91,7 +91,7 @@ public class AutomationActionsRunnerTeamAssociation extends com.pulumi.resources
      * Id of the team associated with the runner.
      * 
      */
-    @Export(name="teamId", type=String.class, parameters={})
+    @Export(name="teamId", refs={String.class}, tree="[0]")
     private Output<String> teamId;
 
     /**

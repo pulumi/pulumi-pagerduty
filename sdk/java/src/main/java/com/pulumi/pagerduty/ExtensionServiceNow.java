@@ -100,7 +100,7 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="pagerduty:index/extensionServiceNow:ExtensionServiceNow")
 public class ExtensionServiceNow extends com.pulumi.resources.CustomResource {
-    @Export(name="endpointUrl", type=String.class, parameters={})
+    @Export(name="endpointUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> endpointUrl;
 
     public Output<Optional<String>> endpointUrl() {
@@ -110,7 +110,7 @@ public class ExtensionServiceNow extends com.pulumi.resources.CustomResource {
      * This is the objects for which the extension applies (An array of service ids).
      * 
      */
-    @Export(name="extensionObjects", type=List.class, parameters={String.class})
+    @Export(name="extensionObjects", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> extensionObjects;
 
     /**
@@ -124,7 +124,7 @@ public class ExtensionServiceNow extends com.pulumi.resources.CustomResource {
      * This is the schema for this extension.
      * 
      */
-    @Export(name="extensionSchema", type=String.class, parameters={})
+    @Export(name="extensionSchema", refs={String.class}, tree="[0]")
     private Output<String> extensionSchema;
 
     /**
@@ -138,7 +138,7 @@ public class ExtensionServiceNow extends com.pulumi.resources.CustomResource {
      * URL at which the entity is uniquely displayed in the Web app.
      * 
      */
-    @Export(name="htmlUrl", type=String.class, parameters={})
+    @Export(name="htmlUrl", refs={String.class}, tree="[0]")
     private Output<String> htmlUrl;
 
     /**
@@ -152,7 +152,7 @@ public class ExtensionServiceNow extends com.pulumi.resources.CustomResource {
      * The name of the service extension.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -166,7 +166,7 @@ public class ExtensionServiceNow extends com.pulumi.resources.CustomResource {
      * The ServiceNow referer.
      * 
      */
-    @Export(name="referer", type=String.class, parameters={})
+    @Export(name="referer", refs={String.class}, tree="[0]")
     private Output<String> referer;
 
     /**
@@ -180,7 +180,7 @@ public class ExtensionServiceNow extends com.pulumi.resources.CustomResource {
      * The ServiceNow password.
      * 
      */
-    @Export(name="snowPassword", type=String.class, parameters={})
+    @Export(name="snowPassword", refs={String.class}, tree="[0]")
     private Output<String> snowPassword;
 
     /**
@@ -194,7 +194,7 @@ public class ExtensionServiceNow extends com.pulumi.resources.CustomResource {
      * The ServiceNow username.
      * 
      */
-    @Export(name="snowUser", type=String.class, parameters={})
+    @Export(name="snowUser", refs={String.class}, tree="[0]")
     private Output<String> snowUser;
 
     /**
@@ -208,7 +208,7 @@ public class ExtensionServiceNow extends com.pulumi.resources.CustomResource {
      * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
      * 
      */
-    @Export(name="summary", type=String.class, parameters={})
+    @Export(name="summary", refs={String.class}, tree="[0]")
     private Output<String> summary;
 
     /**
@@ -222,7 +222,7 @@ public class ExtensionServiceNow extends com.pulumi.resources.CustomResource {
      * The ServiceNow sync option.
      * 
      */
-    @Export(name="syncOptions", type=String.class, parameters={})
+    @Export(name="syncOptions", refs={String.class}, tree="[0]")
     private Output<String> syncOptions;
 
     /**
@@ -236,7 +236,7 @@ public class ExtensionServiceNow extends com.pulumi.resources.CustomResource {
      * Target Webhook URL.
      * 
      */
-    @Export(name="target", type=String.class, parameters={})
+    @Export(name="target", refs={String.class}, tree="[0]")
     private Output<String> target;
 
     /**
@@ -250,7 +250,7 @@ public class ExtensionServiceNow extends com.pulumi.resources.CustomResource {
      * The ServiceNow task type, typically `incident`.
      * 
      */
-    @Export(name="taskType", type=String.class, parameters={})
+    @Export(name="taskType", refs={String.class}, tree="[0]")
     private Output<String> taskType;
 
     /**
@@ -260,7 +260,7 @@ public class ExtensionServiceNow extends com.pulumi.resources.CustomResource {
     public Output<String> taskType() {
         return this.taskType;
     }
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     public Output<String> type() {

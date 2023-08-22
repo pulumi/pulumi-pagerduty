@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="pagerduty:index/escalationPolicy:EscalationPolicy")
 public class EscalationPolicy extends com.pulumi.resources.CustomResource {
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     public Output<String> description() {
@@ -99,7 +99,7 @@ public class EscalationPolicy extends com.pulumi.resources.CustomResource {
      * The name of the escalation policy.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -113,7 +113,7 @@ public class EscalationPolicy extends com.pulumi.resources.CustomResource {
      * The number of times the escalation policy will repeat after reaching the end of its escalation.
      * 
      */
-    @Export(name="numLoops", type=Integer.class, parameters={})
+    @Export(name="numLoops", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> numLoops;
 
     /**
@@ -127,7 +127,7 @@ public class EscalationPolicy extends com.pulumi.resources.CustomResource {
      * An Escalation rule block. Escalation rules documented below.
      * 
      */
-    @Export(name="rules", type=List.class, parameters={EscalationPolicyRule.class})
+    @Export(name="rules", refs={List.class,EscalationPolicyRule.class}, tree="[0,1]")
     private Output<List<EscalationPolicyRule>> rules;
 
     /**
@@ -141,7 +141,7 @@ public class EscalationPolicy extends com.pulumi.resources.CustomResource {
      * Team associated with the policy (Only 1 team can be assigned to an Escalation Policy). Account must have the `teams` ability to use this parameter.
      * 
      */
-    @Export(name="teams", type=String.class, parameters={})
+    @Export(name="teams", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> teams;
 
     /**

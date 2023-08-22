@@ -110,7 +110,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * The configuration of the service extension as string containing plain JSON-encoded data.
      * 
      */
-    @Export(name="config", type=String.class, parameters={})
+    @Export(name="config", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> config;
 
     /**
@@ -125,7 +125,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `pagerduty.getExtensionSchema` named `Generic V2 Webhook` doesn&#39;t accept `pagerduty.Extension` with no `endpoint_url`, but one with named `Slack` accepts.
      * 
      */
-    @Export(name="endpointUrl", type=String.class, parameters={})
+    @Export(name="endpointUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> endpointUrl;
 
     /**
@@ -140,7 +140,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * This is the objects for which the extension applies (An array of service ids).
      * 
      */
-    @Export(name="extensionObjects", type=List.class, parameters={String.class})
+    @Export(name="extensionObjects", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> extensionObjects;
 
     /**
@@ -154,7 +154,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * This is the schema for this extension.
      * 
      */
-    @Export(name="extensionSchema", type=String.class, parameters={})
+    @Export(name="extensionSchema", refs={String.class}, tree="[0]")
     private Output<String> extensionSchema;
 
     /**
@@ -168,7 +168,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * URL at which the entity is uniquely displayed in the Web app
      * 
      */
-    @Export(name="htmlUrl", type=String.class, parameters={})
+    @Export(name="htmlUrl", refs={String.class}, tree="[0]")
     private Output<String> htmlUrl;
 
     /**
@@ -182,7 +182,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * The name of the service extension.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -198,7 +198,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * **Note:** You can use the `pagerduty.getExtensionSchema` data source to locate the appropriate extension vendor ID.
      * 
      */
-    @Export(name="summary", type=String.class, parameters={})
+    @Export(name="summary", refs={String.class}, tree="[0]")
     private Output<String> summary;
 
     /**
@@ -210,7 +210,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
     public Output<String> summary() {
         return this.summary;
     }
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     public Output<String> type() {

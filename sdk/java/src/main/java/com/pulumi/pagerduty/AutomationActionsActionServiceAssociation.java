@@ -107,7 +107,7 @@ public class AutomationActionsActionServiceAssociation extends com.pulumi.resour
      * Id of the action.
      * 
      */
-    @Export(name="actionId", type=String.class, parameters={})
+    @Export(name="actionId", refs={String.class}, tree="[0]")
     private Output<String> actionId;
 
     /**
@@ -121,7 +121,7 @@ public class AutomationActionsActionServiceAssociation extends com.pulumi.resour
      * Id of the service associated to the action.
      * 
      */
-    @Export(name="serviceId", type=String.class, parameters={})
+    @Export(name="serviceId", refs={String.class}, tree="[0]")
     private Output<String> serviceId;
 
     /**

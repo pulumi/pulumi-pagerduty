@@ -22,25 +22,25 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="pulumi:providers:pagerduty")
 public class Provider extends com.pulumi.resources.ProviderResource {
-    @Export(name="apiUrlOverride", type=String.class, parameters={})
+    @Export(name="apiUrlOverride", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> apiUrlOverride;
 
     public Output<Optional<String>> apiUrlOverride() {
         return Codegen.optional(this.apiUrlOverride);
     }
-    @Export(name="serviceRegion", type=String.class, parameters={})
+    @Export(name="serviceRegion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> serviceRegion;
 
     public Output<Optional<String>> serviceRegion() {
         return Codegen.optional(this.serviceRegion);
     }
-    @Export(name="token", type=String.class, parameters={})
+    @Export(name="token", refs={String.class}, tree="[0]")
     private Output<String> token;
 
     public Output<String> token() {
         return this.token;
     }
-    @Export(name="userToken", type=String.class, parameters={})
+    @Export(name="userToken", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userToken;
 
     public Output<Optional<String>> userToken() {

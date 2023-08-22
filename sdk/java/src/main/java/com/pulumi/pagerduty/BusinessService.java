@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="pagerduty:index/businessService:BusinessService")
 public class BusinessService extends com.pulumi.resources.CustomResource {
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     public Output<String> description() {
@@ -70,7 +70,7 @@ public class BusinessService extends com.pulumi.resources.CustomResource {
      * A URL at which the entity is uniquely displayed in the Web app.
      * 
      */
-    @Export(name="htmlUrl", type=String.class, parameters={})
+    @Export(name="htmlUrl", refs={String.class}, tree="[0]")
     private Output<String> htmlUrl;
 
     /**
@@ -84,7 +84,7 @@ public class BusinessService extends com.pulumi.resources.CustomResource {
      * The name of the business service.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -98,7 +98,7 @@ public class BusinessService extends com.pulumi.resources.CustomResource {
      * The owner of the business service.
      * 
      */
-    @Export(name="pointOfContact", type=String.class, parameters={})
+    @Export(name="pointOfContact", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> pointOfContact;
 
     /**
@@ -112,7 +112,7 @@ public class BusinessService extends com.pulumi.resources.CustomResource {
      * The API show URL at which the object is accessible.
      * 
      */
-    @Export(name="self", type=String.class, parameters={})
+    @Export(name="self", refs={String.class}, tree="[0]")
     private Output<String> self;
 
     /**
@@ -126,7 +126,7 @@ public class BusinessService extends com.pulumi.resources.CustomResource {
      * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
      * 
      */
-    @Export(name="summary", type=String.class, parameters={})
+    @Export(name="summary", refs={String.class}, tree="[0]")
     private Output<String> summary;
 
     /**
@@ -140,7 +140,7 @@ public class BusinessService extends com.pulumi.resources.CustomResource {
      * ID of the team that owns the business service.
      * 
      */
-    @Export(name="team", type=String.class, parameters={})
+    @Export(name="team", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> team;
 
     /**
@@ -158,7 +158,7 @@ public class BusinessService extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* This will change to a computed resource in the next major release. */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**

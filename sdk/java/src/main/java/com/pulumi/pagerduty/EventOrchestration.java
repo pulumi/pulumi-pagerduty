@@ -69,7 +69,7 @@ public class EventOrchestration extends com.pulumi.resources.CustomResource {
      * A human-friendly description of the Event Orchestration.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -83,7 +83,7 @@ public class EventOrchestration extends com.pulumi.resources.CustomResource {
      * An integration for the Event Orchestration.
      * 
      */
-    @Export(name="integrations", type=List.class, parameters={EventOrchestrationIntegration.class})
+    @Export(name="integrations", refs={List.class,EventOrchestrationIntegration.class}, tree="[0,1]")
     private Output<List<EventOrchestrationIntegration>> integrations;
 
     /**
@@ -97,7 +97,7 @@ public class EventOrchestration extends com.pulumi.resources.CustomResource {
      * Name of the Event Orchestration.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -107,7 +107,7 @@ public class EventOrchestration extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
-    @Export(name="routes", type=Integer.class, parameters={})
+    @Export(name="routes", refs={Integer.class}, tree="[0]")
     private Output<Integer> routes;
 
     public Output<Integer> routes() {
@@ -117,7 +117,7 @@ public class EventOrchestration extends com.pulumi.resources.CustomResource {
      * ID of the team that owns the Event Orchestration. If none is specified, only admins have access.
      * 
      */
-    @Export(name="team", type=String.class, parameters={})
+    @Export(name="team", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> team;
 
     /**

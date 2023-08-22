@@ -137,7 +137,7 @@ public class EventOrchestrationGlobal extends com.pulumi.resources.CustomResourc
      * the `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
      * 
      */
-    @Export(name="catchAll", type=EventOrchestrationGlobalCatchAll.class, parameters={})
+    @Export(name="catchAll", refs={EventOrchestrationGlobalCatchAll.class}, tree="[0]")
     private Output<EventOrchestrationGlobalCatchAll> catchAll;
 
     /**
@@ -151,7 +151,7 @@ public class EventOrchestrationGlobal extends com.pulumi.resources.CustomResourc
      * ID of the Event Orchestration to which this Global Orchestration belongs to.
      * 
      */
-    @Export(name="eventOrchestration", type=String.class, parameters={})
+    @Export(name="eventOrchestration", refs={String.class}, tree="[0]")
     private Output<String> eventOrchestration;
 
     /**
@@ -165,7 +165,7 @@ public class EventOrchestrationGlobal extends com.pulumi.resources.CustomResourc
      * A Global Orchestration must contain at least a &#34;start&#34; set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.
      * 
      */
-    @Export(name="sets", type=List.class, parameters={EventOrchestrationGlobalSet.class})
+    @Export(name="sets", refs={List.class,EventOrchestrationGlobalSet.class}, tree="[0,1]")
     private Output<List<EventOrchestrationGlobalSet>> sets;
 
     /**

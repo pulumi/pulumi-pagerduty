@@ -194,7 +194,7 @@ public class ServiceIntegration extends com.pulumi.resources.CustomResource {
      * Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.
      * 
      */
-    @Export(name="emailFilterMode", type=String.class, parameters={})
+    @Export(name="emailFilterMode", refs={String.class}, tree="[0]")
     private Output<String> emailFilterMode;
 
     /**
@@ -204,7 +204,7 @@ public class ServiceIntegration extends com.pulumi.resources.CustomResource {
     public Output<String> emailFilterMode() {
         return this.emailFilterMode;
     }
-    @Export(name="emailFilters", type=List.class, parameters={ServiceIntegrationEmailFilter.class})
+    @Export(name="emailFilters", refs={List.class,ServiceIntegrationEmailFilter.class}, tree="[0,1]")
     private Output<List<ServiceIntegrationEmailFilter>> emailFilters;
 
     public Output<List<ServiceIntegrationEmailFilter>> emailFilters() {
@@ -214,7 +214,7 @@ public class ServiceIntegration extends com.pulumi.resources.CustomResource {
      * Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `on_new_email`, `on_new_email_subject`, `only_if_no_open_incidents` or `use_rules`.
      * 
      */
-    @Export(name="emailIncidentCreation", type=String.class, parameters={})
+    @Export(name="emailIncidentCreation", refs={String.class}, tree="[0]")
     private Output<String> emailIncidentCreation;
 
     /**
@@ -224,7 +224,7 @@ public class ServiceIntegration extends com.pulumi.resources.CustomResource {
     public Output<String> emailIncidentCreation() {
         return this.emailIncidentCreation;
     }
-    @Export(name="emailParsers", type=List.class, parameters={ServiceIntegrationEmailParser.class})
+    @Export(name="emailParsers", refs={List.class,ServiceIntegrationEmailParser.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ServiceIntegrationEmailParser>> emailParsers;
 
     public Output<Optional<List<ServiceIntegrationEmailParser>>> emailParsers() {
@@ -234,7 +234,7 @@ public class ServiceIntegration extends com.pulumi.resources.CustomResource {
      * Can be `open_new_incident` or `discard`.
      * 
      */
-    @Export(name="emailParsingFallback", type=String.class, parameters={})
+    @Export(name="emailParsingFallback", refs={String.class}, tree="[0]")
     private Output<String> emailParsingFallback;
 
     /**
@@ -248,7 +248,7 @@ public class ServiceIntegration extends com.pulumi.resources.CustomResource {
      * URL at which the entity is uniquely displayed in the Web app.
      * 
      */
-    @Export(name="htmlUrl", type=String.class, parameters={})
+    @Export(name="htmlUrl", refs={String.class}, tree="[0]")
     private Output<String> htmlUrl;
 
     /**
@@ -262,7 +262,7 @@ public class ServiceIntegration extends com.pulumi.resources.CustomResource {
      * This is the unique fully-qualified email address used for routing emails to this integration for processing.
      * 
      */
-    @Export(name="integrationEmail", type=String.class, parameters={})
+    @Export(name="integrationEmail", refs={String.class}, tree="[0]")
     private Output<String> integrationEmail;
 
     /**
@@ -276,7 +276,7 @@ public class ServiceIntegration extends com.pulumi.resources.CustomResource {
      * This is the unique key used to route events to this integration when received via the PagerDuty Events API.
      * 
      */
-    @Export(name="integrationKey", type=String.class, parameters={})
+    @Export(name="integrationKey", refs={String.class}, tree="[0]")
     private Output<String> integrationKey;
 
     /**
@@ -290,7 +290,7 @@ public class ServiceIntegration extends com.pulumi.resources.CustomResource {
      * The name of the service integration.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -304,7 +304,7 @@ public class ServiceIntegration extends com.pulumi.resources.CustomResource {
      * The ID of the service the integration should belong to.
      * 
      */
-    @Export(name="service", type=String.class, parameters={})
+    @Export(name="service", refs={String.class}, tree="[0]")
     private Output<String> service;
 
     /**
@@ -330,7 +330,7 @@ public class ServiceIntegration extends com.pulumi.resources.CustomResource {
      * To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
@@ -356,7 +356,7 @@ public class ServiceIntegration extends com.pulumi.resources.CustomResource {
      * The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
      * 
      */
-    @Export(name="vendor", type=String.class, parameters={})
+    @Export(name="vendor", refs={String.class}, tree="[0]")
     private Output<String> vendor;
 
     /**

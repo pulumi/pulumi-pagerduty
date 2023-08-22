@@ -33,8 +33,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.pagerduty.Ruleset;
  * import com.pulumi.pagerduty.RulesetArgs;
  * import com.pulumi.pagerduty.inputs.RulesetTeamArgs;
- * import com.pulumi.time.time_static;
- * import com.pulumi.time.Time_staticArgs;
+ * import com.pulumi.time.Static;
+ * import com.pulumi.time.StaticArgs;
  * import com.pulumi.pagerduty.RulesetRule;
  * import com.pulumi.pagerduty.RulesetRuleArgs;
  * import com.pulumi.pagerduty.inputs.RulesetRuleTimeFrameArgs;
@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var easternTimeAt0930 = new Time_static(&#34;easternTimeAt0930&#34;, Time_staticArgs.builder()        
+ *         var easternTimeAt0930 = new Static(&#34;easternTimeAt0930&#34;, StaticArgs.builder()        
  *             .rfc3339(&#34;2019-04-11T09:30:00-04:00&#34;)
  *             .build());
  * 
@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  *                         2,
  *                         4,
  *                         6)
- *                     .startTime(easternTimeAt0930.unix() * 1000)
+ *                     .startTime(easternTimeAt0930.unix().applyValue(unix -&gt; unix * 1000))
  *                     .duration(2 * 60 * 60 * 1000)
  *                     .timezone(&#34;America/New_York&#34;)
  *                     .build())
@@ -163,7 +163,7 @@ public class RulesetRule extends com.pulumi.resources.CustomResource {
      * Actions to apply to an event if the conditions match.
      * 
      */
-    @Export(name="actions", type=RulesetRuleActions.class, parameters={})
+    @Export(name="actions", refs={RulesetRuleActions.class}, tree="[0]")
     private Output</* @Nullable */ RulesetRuleActions> actions;
 
     /**
@@ -177,7 +177,7 @@ public class RulesetRule extends com.pulumi.resources.CustomResource {
      * Indicates whether the Event Rule is the last Event Rule of the Ruleset that serves as a catch-all. It has limited functionality compared to other rules and always matches.
      * 
      */
-    @Export(name="catchAll", type=Boolean.class, parameters={})
+    @Export(name="catchAll", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> catchAll;
 
     /**
@@ -191,7 +191,7 @@ public class RulesetRule extends com.pulumi.resources.CustomResource {
      * Conditions evaluated to check if an event matches this event rule. Is always empty for the catch-all rule, though.
      * 
      */
-    @Export(name="conditions", type=RulesetRuleConditions.class, parameters={})
+    @Export(name="conditions", refs={RulesetRuleConditions.class}, tree="[0]")
     private Output</* @Nullable */ RulesetRuleConditions> conditions;
 
     /**
@@ -205,7 +205,7 @@ public class RulesetRule extends com.pulumi.resources.CustomResource {
      * Indicates whether the rule is disabled and would therefore not be evaluated.
      * 
      */
-    @Export(name="disabled", type=Boolean.class, parameters={})
+    @Export(name="disabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disabled;
 
     /**
@@ -219,7 +219,7 @@ public class RulesetRule extends com.pulumi.resources.CustomResource {
      * Position/index of the rule within the ruleset.
      * 
      */
-    @Export(name="position", type=Integer.class, parameters={})
+    @Export(name="position", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> position;
 
     /**
@@ -233,7 +233,7 @@ public class RulesetRule extends com.pulumi.resources.CustomResource {
      * The ID of the ruleset that the rule belongs to.
      * 
      */
-    @Export(name="ruleset", type=String.class, parameters={})
+    @Export(name="ruleset", refs={String.class}, tree="[0]")
     private Output<String> ruleset;
 
     /**
@@ -247,7 +247,7 @@ public class RulesetRule extends com.pulumi.resources.CustomResource {
      * Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
      * 
      */
-    @Export(name="timeFrame", type=RulesetRuleTimeFrame.class, parameters={})
+    @Export(name="timeFrame", refs={RulesetRuleTimeFrame.class}, tree="[0]")
     private Output</* @Nullable */ RulesetRuleTimeFrame> timeFrame;
 
     /**
@@ -261,7 +261,7 @@ public class RulesetRule extends com.pulumi.resources.CustomResource {
      * Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
      * 
      */
-    @Export(name="variables", type=List.class, parameters={RulesetRuleVariable.class})
+    @Export(name="variables", refs={List.class,RulesetRuleVariable.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RulesetRuleVariable>> variables;
 
     /**

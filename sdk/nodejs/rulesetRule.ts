@@ -12,7 +12,7 @@ import * as utilities from "./utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
- * import * as time from "@pulumi/time";
+ * import * as time from "@pulumiverse/time";
  *
  * const fooTeam = new pagerduty.Team("fooTeam", {});
  * const fooRuleset = new pagerduty.Ruleset("fooRuleset", {team: {
@@ -22,7 +22,7 @@ import * as utilities from "./utilities";
  * // repeats daily from 9:30am - 11:30am using the America/New_York timezone.
  * // Thus it requires a time_static instance to represent 9:30am on an arbitrary date in that timezone.
  * // April 11th, 2019 was EDT (UTC-4) https://www.timeanddate.com/worldclock/converter.html?iso=20190411T133000&p1=179
- * const easternTimeAt0930 = new time.index.Time_static("easternTimeAt0930", {rfc3339: "2019-04-11T09:30:00-04:00"});
+ * const easternTimeAt0930 = new time.Static("easternTimeAt0930", {rfc3339: "2019-04-11T09:30:00-04:00"});
  * const fooRulesetRule = new pagerduty.RulesetRule("fooRulesetRule", {
  *     ruleset: fooRuleset.id,
  *     position: 0,
@@ -34,7 +34,7 @@ import * as utilities from "./utilities";
  *                 4,
  *                 6,
  *             ],
- *             startTime: easternTimeAt0930.unix * 1000,
+ *             startTime: easternTimeAt0930.unix.apply(unix => unix * 1000),
  *             duration: 2 * 60 * 60 * 1000,
  *             timezone: "America/New_York",
  *         }],

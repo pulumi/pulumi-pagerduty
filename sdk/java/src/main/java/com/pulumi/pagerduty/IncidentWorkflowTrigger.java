@@ -100,7 +100,7 @@ public class IncidentWorkflowTrigger extends com.pulumi.resources.CustomResource
      * A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.
      * 
      */
-    @Export(name="condition", type=String.class, parameters={})
+    @Export(name="condition", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> condition;
 
     /**
@@ -114,7 +114,7 @@ public class IncidentWorkflowTrigger extends com.pulumi.resources.CustomResource
      * A list of service IDs. Incidents in any of the listed services are eligible to fire this trigger.
      * 
      */
-    @Export(name="services", type=List.class, parameters={String.class})
+    @Export(name="services", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> services;
 
     /**
@@ -128,7 +128,7 @@ public class IncidentWorkflowTrigger extends com.pulumi.resources.CustomResource
      * Set to `true` if the trigger should be eligible for firing on all services. Only allowed to be `true` if the services list is not defined or empty.
      * 
      */
-    @Export(name="subscribedToAllServices", type=Boolean.class, parameters={})
+    @Export(name="subscribedToAllServices", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> subscribedToAllServices;
 
     /**
@@ -142,7 +142,7 @@ public class IncidentWorkflowTrigger extends com.pulumi.resources.CustomResource
      * May be either `manual` or `conditional`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
@@ -156,7 +156,7 @@ public class IncidentWorkflowTrigger extends com.pulumi.resources.CustomResource
      * The workflow ID for the workflow to trigger.
      * 
      */
-    @Export(name="workflow", type=String.class, parameters={})
+    @Export(name="workflow", refs={String.class}, tree="[0]")
     private Output<String> workflow;
 
     /**

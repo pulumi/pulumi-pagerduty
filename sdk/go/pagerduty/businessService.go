@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A [business service](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODExNg-create-a-business-service) allows you to model capabilities that span multiple technical services and that may be owned by several different teams.
@@ -200,6 +201,12 @@ func (i *BusinessService) ToBusinessServiceOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(BusinessServiceOutput)
 }
 
+func (i *BusinessService) ToOutput(ctx context.Context) pulumix.Output[*BusinessService] {
+	return pulumix.Output[*BusinessService]{
+		OutputState: i.ToBusinessServiceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BusinessServiceArrayInput is an input type that accepts BusinessServiceArray and BusinessServiceArrayOutput values.
 // You can construct a concrete instance of `BusinessServiceArrayInput` via:
 //
@@ -223,6 +230,12 @@ func (i BusinessServiceArray) ToBusinessServiceArrayOutput() BusinessServiceArra
 
 func (i BusinessServiceArray) ToBusinessServiceArrayOutputWithContext(ctx context.Context) BusinessServiceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BusinessServiceArrayOutput)
+}
+
+func (i BusinessServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]*BusinessService] {
+	return pulumix.Output[[]*BusinessService]{
+		OutputState: i.ToBusinessServiceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BusinessServiceMapInput is an input type that accepts BusinessServiceMap and BusinessServiceMapOutput values.
@@ -250,6 +263,12 @@ func (i BusinessServiceMap) ToBusinessServiceMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(BusinessServiceMapOutput)
 }
 
+func (i BusinessServiceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BusinessService] {
+	return pulumix.Output[map[string]*BusinessService]{
+		OutputState: i.ToBusinessServiceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BusinessServiceOutput struct{ *pulumi.OutputState }
 
 func (BusinessServiceOutput) ElementType() reflect.Type {
@@ -262,6 +281,12 @@ func (o BusinessServiceOutput) ToBusinessServiceOutput() BusinessServiceOutput {
 
 func (o BusinessServiceOutput) ToBusinessServiceOutputWithContext(ctx context.Context) BusinessServiceOutput {
 	return o
+}
+
+func (o BusinessServiceOutput) ToOutput(ctx context.Context) pulumix.Output[*BusinessService] {
+	return pulumix.Output[*BusinessService]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BusinessServiceOutput) Description() pulumi.StringOutput {
@@ -319,6 +344,12 @@ func (o BusinessServiceArrayOutput) ToBusinessServiceArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o BusinessServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BusinessService] {
+	return pulumix.Output[[]*BusinessService]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BusinessServiceArrayOutput) Index(i pulumi.IntInput) BusinessServiceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BusinessService {
 		return vs[0].([]*BusinessService)[vs[1].(int)]
@@ -337,6 +368,12 @@ func (o BusinessServiceMapOutput) ToBusinessServiceMapOutput() BusinessServiceMa
 
 func (o BusinessServiceMapOutput) ToBusinessServiceMapOutputWithContext(ctx context.Context) BusinessServiceMapOutput {
 	return o
+}
+
+func (o BusinessServiceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BusinessService] {
+	return pulumix.Output[map[string]*BusinessService]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BusinessServiceMapOutput) MapIndex(k pulumi.StringInput) BusinessServiceOutput {

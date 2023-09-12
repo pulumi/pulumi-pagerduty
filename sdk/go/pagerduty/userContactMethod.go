@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -237,6 +238,12 @@ func (i *UserContactMethod) ToUserContactMethodOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(UserContactMethodOutput)
 }
 
+func (i *UserContactMethod) ToOutput(ctx context.Context) pulumix.Output[*UserContactMethod] {
+	return pulumix.Output[*UserContactMethod]{
+		OutputState: i.ToUserContactMethodOutputWithContext(ctx).OutputState,
+	}
+}
+
 // UserContactMethodArrayInput is an input type that accepts UserContactMethodArray and UserContactMethodArrayOutput values.
 // You can construct a concrete instance of `UserContactMethodArrayInput` via:
 //
@@ -260,6 +267,12 @@ func (i UserContactMethodArray) ToUserContactMethodArrayOutput() UserContactMeth
 
 func (i UserContactMethodArray) ToUserContactMethodArrayOutputWithContext(ctx context.Context) UserContactMethodArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserContactMethodArrayOutput)
+}
+
+func (i UserContactMethodArray) ToOutput(ctx context.Context) pulumix.Output[[]*UserContactMethod] {
+	return pulumix.Output[[]*UserContactMethod]{
+		OutputState: i.ToUserContactMethodArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // UserContactMethodMapInput is an input type that accepts UserContactMethodMap and UserContactMethodMapOutput values.
@@ -287,6 +300,12 @@ func (i UserContactMethodMap) ToUserContactMethodMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(UserContactMethodMapOutput)
 }
 
+func (i UserContactMethodMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserContactMethod] {
+	return pulumix.Output[map[string]*UserContactMethod]{
+		OutputState: i.ToUserContactMethodMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UserContactMethodOutput struct{ *pulumi.OutputState }
 
 func (UserContactMethodOutput) ElementType() reflect.Type {
@@ -299,6 +318,12 @@ func (o UserContactMethodOutput) ToUserContactMethodOutput() UserContactMethodOu
 
 func (o UserContactMethodOutput) ToUserContactMethodOutputWithContext(ctx context.Context) UserContactMethodOutput {
 	return o
+}
+
+func (o UserContactMethodOutput) ToOutput(ctx context.Context) pulumix.Output[*UserContactMethod] {
+	return pulumix.Output[*UserContactMethod]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The "address" to deliver to: `email`, `phone number`, etc., depending on the type.
@@ -355,6 +380,12 @@ func (o UserContactMethodArrayOutput) ToUserContactMethodArrayOutputWithContext(
 	return o
 }
 
+func (o UserContactMethodArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*UserContactMethod] {
+	return pulumix.Output[[]*UserContactMethod]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o UserContactMethodArrayOutput) Index(i pulumi.IntInput) UserContactMethodOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserContactMethod {
 		return vs[0].([]*UserContactMethod)[vs[1].(int)]
@@ -373,6 +404,12 @@ func (o UserContactMethodMapOutput) ToUserContactMethodMapOutput() UserContactMe
 
 func (o UserContactMethodMapOutput) ToUserContactMethodMapOutputWithContext(ctx context.Context) UserContactMethodMapOutput {
 	return o
+}
+
+func (o UserContactMethodMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserContactMethod] {
+	return pulumix.Output[map[string]*UserContactMethod]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserContactMethodMapOutput) MapIndex(k pulumi.StringInput) UserContactMethodOutput {

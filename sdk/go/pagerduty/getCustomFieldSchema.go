@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // !> This Data Source is no longer functional. Documentation is left here for the purpose of documenting migration steps.
@@ -118,6 +119,12 @@ func (o LookupCustomFieldSchemaResultOutput) ToLookupCustomFieldSchemaResultOutp
 
 func (o LookupCustomFieldSchemaResultOutput) ToLookupCustomFieldSchemaResultOutputWithContext(ctx context.Context) LookupCustomFieldSchemaResultOutput {
 	return o
+}
+
+func (o LookupCustomFieldSchemaResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCustomFieldSchemaResult] {
+	return pulumix.Output[LookupCustomFieldSchemaResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupCustomFieldSchemaResultOutput) Description() pulumi.StringOutput {

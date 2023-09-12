@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A [response play](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE2Ng-create-a-response-play) allows you to create packages of Incident Actions that can be applied during an Incident's life cycle.
@@ -283,6 +284,12 @@ func (i *ResponsePlay) ToResponsePlayOutputWithContext(ctx context.Context) Resp
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlayOutput)
 }
 
+func (i *ResponsePlay) ToOutput(ctx context.Context) pulumix.Output[*ResponsePlay] {
+	return pulumix.Output[*ResponsePlay]{
+		OutputState: i.ToResponsePlayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResponsePlayArrayInput is an input type that accepts ResponsePlayArray and ResponsePlayArrayOutput values.
 // You can construct a concrete instance of `ResponsePlayArrayInput` via:
 //
@@ -306,6 +313,12 @@ func (i ResponsePlayArray) ToResponsePlayArrayOutput() ResponsePlayArrayOutput {
 
 func (i ResponsePlayArray) ToResponsePlayArrayOutputWithContext(ctx context.Context) ResponsePlayArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlayArrayOutput)
+}
+
+func (i ResponsePlayArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResponsePlay] {
+	return pulumix.Output[[]*ResponsePlay]{
+		OutputState: i.ToResponsePlayArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ResponsePlayMapInput is an input type that accepts ResponsePlayMap and ResponsePlayMapOutput values.
@@ -333,6 +346,12 @@ func (i ResponsePlayMap) ToResponsePlayMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlayMapOutput)
 }
 
+func (i ResponsePlayMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResponsePlay] {
+	return pulumix.Output[map[string]*ResponsePlay]{
+		OutputState: i.ToResponsePlayMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResponsePlayOutput struct{ *pulumi.OutputState }
 
 func (ResponsePlayOutput) ElementType() reflect.Type {
@@ -345,6 +364,12 @@ func (o ResponsePlayOutput) ToResponsePlayOutput() ResponsePlayOutput {
 
 func (o ResponsePlayOutput) ToResponsePlayOutputWithContext(ctx context.Context) ResponsePlayOutput {
 	return o
+}
+
+func (o ResponsePlayOutput) ToOutput(ctx context.Context) pulumix.Output[*ResponsePlay] {
+	return pulumix.Output[*ResponsePlay]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The telephone number that will be set as the conference number for any incident on which this response play is run.
@@ -420,6 +445,12 @@ func (o ResponsePlayArrayOutput) ToResponsePlayArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o ResponsePlayArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResponsePlay] {
+	return pulumix.Output[[]*ResponsePlay]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResponsePlayArrayOutput) Index(i pulumi.IntInput) ResponsePlayOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResponsePlay {
 		return vs[0].([]*ResponsePlay)[vs[1].(int)]
@@ -438,6 +469,12 @@ func (o ResponsePlayMapOutput) ToResponsePlayMapOutput() ResponsePlayMapOutput {
 
 func (o ResponsePlayMapOutput) ToResponsePlayMapOutputWithContext(ctx context.Context) ResponsePlayMapOutput {
 	return o
+}
+
+func (o ResponsePlayMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResponsePlay] {
+	return pulumix.Output[map[string]*ResponsePlay]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResponsePlayMapOutput) MapIndex(k pulumi.StringInput) ResponsePlayOutput {

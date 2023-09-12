@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents) defines a field which can be set on incidents in the target account.
@@ -185,6 +186,12 @@ func (i *IncidentCustomField) ToIncidentCustomFieldOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentCustomFieldOutput)
 }
 
+func (i *IncidentCustomField) ToOutput(ctx context.Context) pulumix.Output[*IncidentCustomField] {
+	return pulumix.Output[*IncidentCustomField]{
+		OutputState: i.ToIncidentCustomFieldOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IncidentCustomFieldArrayInput is an input type that accepts IncidentCustomFieldArray and IncidentCustomFieldArrayOutput values.
 // You can construct a concrete instance of `IncidentCustomFieldArrayInput` via:
 //
@@ -208,6 +215,12 @@ func (i IncidentCustomFieldArray) ToIncidentCustomFieldArrayOutput() IncidentCus
 
 func (i IncidentCustomFieldArray) ToIncidentCustomFieldArrayOutputWithContext(ctx context.Context) IncidentCustomFieldArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentCustomFieldArrayOutput)
+}
+
+func (i IncidentCustomFieldArray) ToOutput(ctx context.Context) pulumix.Output[[]*IncidentCustomField] {
+	return pulumix.Output[[]*IncidentCustomField]{
+		OutputState: i.ToIncidentCustomFieldArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // IncidentCustomFieldMapInput is an input type that accepts IncidentCustomFieldMap and IncidentCustomFieldMapOutput values.
@@ -235,6 +248,12 @@ func (i IncidentCustomFieldMap) ToIncidentCustomFieldMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentCustomFieldMapOutput)
 }
 
+func (i IncidentCustomFieldMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IncidentCustomField] {
+	return pulumix.Output[map[string]*IncidentCustomField]{
+		OutputState: i.ToIncidentCustomFieldMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IncidentCustomFieldOutput struct{ *pulumi.OutputState }
 
 func (IncidentCustomFieldOutput) ElementType() reflect.Type {
@@ -247,6 +266,12 @@ func (o IncidentCustomFieldOutput) ToIncidentCustomFieldOutput() IncidentCustomF
 
 func (o IncidentCustomFieldOutput) ToIncidentCustomFieldOutputWithContext(ctx context.Context) IncidentCustomFieldOutput {
 	return o
+}
+
+func (o IncidentCustomFieldOutput) ToOutput(ctx context.Context) pulumix.Output[*IncidentCustomField] {
+	return pulumix.Output[*IncidentCustomField]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
@@ -290,6 +315,12 @@ func (o IncidentCustomFieldArrayOutput) ToIncidentCustomFieldArrayOutputWithCont
 	return o
 }
 
+func (o IncidentCustomFieldArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IncidentCustomField] {
+	return pulumix.Output[[]*IncidentCustomField]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IncidentCustomFieldArrayOutput) Index(i pulumi.IntInput) IncidentCustomFieldOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IncidentCustomField {
 		return vs[0].([]*IncidentCustomField)[vs[1].(int)]
@@ -308,6 +339,12 @@ func (o IncidentCustomFieldMapOutput) ToIncidentCustomFieldMapOutput() IncidentC
 
 func (o IncidentCustomFieldMapOutput) ToIncidentCustomFieldMapOutputWithContext(ctx context.Context) IncidentCustomFieldMapOutput {
 	return o
+}
+
+func (o IncidentCustomFieldMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IncidentCustomField] {
+	return pulumix.Output[map[string]*IncidentCustomField]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IncidentCustomFieldMapOutput) MapIndex(k pulumi.StringInput) IncidentCustomFieldOutput {

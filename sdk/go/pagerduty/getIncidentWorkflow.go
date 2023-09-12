@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about a specific [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) so that you can create a trigger for it.
@@ -115,6 +116,12 @@ func (o LookupIncidentWorkflowResultOutput) ToLookupIncidentWorkflowResultOutput
 
 func (o LookupIncidentWorkflowResultOutput) ToLookupIncidentWorkflowResultOutputWithContext(ctx context.Context) LookupIncidentWorkflowResultOutput {
 	return o
+}
+
+func (o LookupIncidentWorkflowResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupIncidentWorkflowResult] {
+	return pulumix.Output[LookupIncidentWorkflowResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupIncidentWorkflowResultOutput) Description() pulumi.StringOutput {

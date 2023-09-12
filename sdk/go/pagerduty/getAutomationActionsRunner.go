@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about a specific [automation actions runner](https://developer.pagerduty.com/api-reference/aace61f84cbd0-get-an-automation-action-runner).
@@ -122,6 +123,12 @@ func (o LookupAutomationActionsRunnerResultOutput) ToLookupAutomationActionsRunn
 
 func (o LookupAutomationActionsRunnerResultOutput) ToLookupAutomationActionsRunnerResultOutputWithContext(ctx context.Context) LookupAutomationActionsRunnerResultOutput {
 	return o
+}
+
+func (o LookupAutomationActionsRunnerResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAutomationActionsRunnerResult] {
+	return pulumix.Output[LookupAutomationActionsRunnerResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The time runner was created. Represented as an ISO 8601 timestamp.

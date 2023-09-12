@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A [webhook subscription](https://developer.pagerduty.com/docs/ZG9jOjExMDI5NTkw-v3-overview) allow you to receive HTTP callbacks when incidents are created, updated and deleted. These are also known as V3 Webhooks.
@@ -302,6 +303,12 @@ func (i *WebhookSubscription) ToWebhookSubscriptionOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookSubscriptionOutput)
 }
 
+func (i *WebhookSubscription) ToOutput(ctx context.Context) pulumix.Output[*WebhookSubscription] {
+	return pulumix.Output[*WebhookSubscription]{
+		OutputState: i.ToWebhookSubscriptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WebhookSubscriptionArrayInput is an input type that accepts WebhookSubscriptionArray and WebhookSubscriptionArrayOutput values.
 // You can construct a concrete instance of `WebhookSubscriptionArrayInput` via:
 //
@@ -325,6 +332,12 @@ func (i WebhookSubscriptionArray) ToWebhookSubscriptionArrayOutput() WebhookSubs
 
 func (i WebhookSubscriptionArray) ToWebhookSubscriptionArrayOutputWithContext(ctx context.Context) WebhookSubscriptionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookSubscriptionArrayOutput)
+}
+
+func (i WebhookSubscriptionArray) ToOutput(ctx context.Context) pulumix.Output[[]*WebhookSubscription] {
+	return pulumix.Output[[]*WebhookSubscription]{
+		OutputState: i.ToWebhookSubscriptionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // WebhookSubscriptionMapInput is an input type that accepts WebhookSubscriptionMap and WebhookSubscriptionMapOutput values.
@@ -352,6 +365,12 @@ func (i WebhookSubscriptionMap) ToWebhookSubscriptionMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookSubscriptionMapOutput)
 }
 
+func (i WebhookSubscriptionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*WebhookSubscription] {
+	return pulumix.Output[map[string]*WebhookSubscription]{
+		OutputState: i.ToWebhookSubscriptionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WebhookSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (WebhookSubscriptionOutput) ElementType() reflect.Type {
@@ -364,6 +383,12 @@ func (o WebhookSubscriptionOutput) ToWebhookSubscriptionOutput() WebhookSubscrip
 
 func (o WebhookSubscriptionOutput) ToWebhookSubscriptionOutputWithContext(ctx context.Context) WebhookSubscriptionOutput {
 	return o
+}
+
+func (o WebhookSubscriptionOutput) ToOutput(ctx context.Context) pulumix.Output[*WebhookSubscription] {
+	return pulumix.Output[*WebhookSubscription]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Determines whether the subscription will produce webhook events.
@@ -423,6 +448,12 @@ func (o WebhookSubscriptionArrayOutput) ToWebhookSubscriptionArrayOutputWithCont
 	return o
 }
 
+func (o WebhookSubscriptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*WebhookSubscription] {
+	return pulumix.Output[[]*WebhookSubscription]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WebhookSubscriptionArrayOutput) Index(i pulumi.IntInput) WebhookSubscriptionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WebhookSubscription {
 		return vs[0].([]*WebhookSubscription)[vs[1].(int)]
@@ -441,6 +472,12 @@ func (o WebhookSubscriptionMapOutput) ToWebhookSubscriptionMapOutput() WebhookSu
 
 func (o WebhookSubscriptionMapOutput) ToWebhookSubscriptionMapOutputWithContext(ctx context.Context) WebhookSubscriptionMapOutput {
 	return o
+}
+
+func (o WebhookSubscriptionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*WebhookSubscription] {
+	return pulumix.Output[map[string]*WebhookSubscription]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WebhookSubscriptionMapOutput) MapIndex(k pulumi.StringInput) WebhookSubscriptionOutput {

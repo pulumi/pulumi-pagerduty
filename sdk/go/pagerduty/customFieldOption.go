@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // !> This Resource is no longer functional. Documentation is left here for the purpose of documenting migration steps.
@@ -185,6 +186,12 @@ func (i *CustomFieldOption) ToCustomFieldOptionOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(CustomFieldOptionOutput)
 }
 
+func (i *CustomFieldOption) ToOutput(ctx context.Context) pulumix.Output[*CustomFieldOption] {
+	return pulumix.Output[*CustomFieldOption]{
+		OutputState: i.ToCustomFieldOptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CustomFieldOptionArrayInput is an input type that accepts CustomFieldOptionArray and CustomFieldOptionArrayOutput values.
 // You can construct a concrete instance of `CustomFieldOptionArrayInput` via:
 //
@@ -208,6 +215,12 @@ func (i CustomFieldOptionArray) ToCustomFieldOptionArrayOutput() CustomFieldOpti
 
 func (i CustomFieldOptionArray) ToCustomFieldOptionArrayOutputWithContext(ctx context.Context) CustomFieldOptionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomFieldOptionArrayOutput)
+}
+
+func (i CustomFieldOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]*CustomFieldOption] {
+	return pulumix.Output[[]*CustomFieldOption]{
+		OutputState: i.ToCustomFieldOptionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CustomFieldOptionMapInput is an input type that accepts CustomFieldOptionMap and CustomFieldOptionMapOutput values.
@@ -235,6 +248,12 @@ func (i CustomFieldOptionMap) ToCustomFieldOptionMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(CustomFieldOptionMapOutput)
 }
 
+func (i CustomFieldOptionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomFieldOption] {
+	return pulumix.Output[map[string]*CustomFieldOption]{
+		OutputState: i.ToCustomFieldOptionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomFieldOptionOutput struct{ *pulumi.OutputState }
 
 func (CustomFieldOptionOutput) ElementType() reflect.Type {
@@ -247,6 +266,12 @@ func (o CustomFieldOptionOutput) ToCustomFieldOptionOutput() CustomFieldOptionOu
 
 func (o CustomFieldOptionOutput) ToCustomFieldOptionOutputWithContext(ctx context.Context) CustomFieldOptionOutput {
 	return o
+}
+
+func (o CustomFieldOptionOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomFieldOption] {
+	return pulumix.Output[*CustomFieldOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The datatype of the field option. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
@@ -278,6 +303,12 @@ func (o CustomFieldOptionArrayOutput) ToCustomFieldOptionArrayOutputWithContext(
 	return o
 }
 
+func (o CustomFieldOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CustomFieldOption] {
+	return pulumix.Output[[]*CustomFieldOption]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CustomFieldOptionArrayOutput) Index(i pulumi.IntInput) CustomFieldOptionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CustomFieldOption {
 		return vs[0].([]*CustomFieldOption)[vs[1].(int)]
@@ -296,6 +327,12 @@ func (o CustomFieldOptionMapOutput) ToCustomFieldOptionMapOutput() CustomFieldOp
 
 func (o CustomFieldOptionMapOutput) ToCustomFieldOptionMapOutputWithContext(ctx context.Context) CustomFieldOptionMapOutput {
 	return o
+}
+
+func (o CustomFieldOptionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomFieldOption] {
+	return pulumix.Output[map[string]*CustomFieldOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CustomFieldOptionMapOutput) MapIndex(k pulumi.StringInput) CustomFieldOptionOutput {

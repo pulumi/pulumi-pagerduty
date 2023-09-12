@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An Event Orchestration Integration allows you to create and manage multiple Integrations (and Routing Keys) per Event Orchestration _and_ will allow you to move (migrate) Integrations _between_ two Event Orchestrations.
@@ -167,6 +168,12 @@ func (i *EventOrchestrationIntegration) ToEventOrchestrationIntegrationOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationIntegrationOutput)
 }
 
+func (i *EventOrchestrationIntegration) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationIntegration] {
+	return pulumix.Output[*EventOrchestrationIntegration]{
+		OutputState: i.ToEventOrchestrationIntegrationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventOrchestrationIntegrationArrayInput is an input type that accepts EventOrchestrationIntegrationArray and EventOrchestrationIntegrationArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationIntegrationArrayInput` via:
 //
@@ -190,6 +197,12 @@ func (i EventOrchestrationIntegrationArray) ToEventOrchestrationIntegrationArray
 
 func (i EventOrchestrationIntegrationArray) ToEventOrchestrationIntegrationArrayOutputWithContext(ctx context.Context) EventOrchestrationIntegrationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationIntegrationArrayOutput)
+}
+
+func (i EventOrchestrationIntegrationArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventOrchestrationIntegration] {
+	return pulumix.Output[[]*EventOrchestrationIntegration]{
+		OutputState: i.ToEventOrchestrationIntegrationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EventOrchestrationIntegrationMapInput is an input type that accepts EventOrchestrationIntegrationMap and EventOrchestrationIntegrationMapOutput values.
@@ -217,6 +230,12 @@ func (i EventOrchestrationIntegrationMap) ToEventOrchestrationIntegrationMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationIntegrationMapOutput)
 }
 
+func (i EventOrchestrationIntegrationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventOrchestrationIntegration] {
+	return pulumix.Output[map[string]*EventOrchestrationIntegration]{
+		OutputState: i.ToEventOrchestrationIntegrationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationIntegrationOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationIntegrationOutput) ElementType() reflect.Type {
@@ -229,6 +248,12 @@ func (o EventOrchestrationIntegrationOutput) ToEventOrchestrationIntegrationOutp
 
 func (o EventOrchestrationIntegrationOutput) ToEventOrchestrationIntegrationOutputWithContext(ctx context.Context) EventOrchestrationIntegrationOutput {
 	return o
+}
+
+func (o EventOrchestrationIntegrationOutput) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationIntegration] {
+	return pulumix.Output[*EventOrchestrationIntegration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ID of the Event Orchestration to which this Integration belongs to. If value is changed, current Integration is associated with a newly provided ID.
@@ -261,6 +286,12 @@ func (o EventOrchestrationIntegrationArrayOutput) ToEventOrchestrationIntegratio
 	return o
 }
 
+func (o EventOrchestrationIntegrationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventOrchestrationIntegration] {
+	return pulumix.Output[[]*EventOrchestrationIntegration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EventOrchestrationIntegrationArrayOutput) Index(i pulumi.IntInput) EventOrchestrationIntegrationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventOrchestrationIntegration {
 		return vs[0].([]*EventOrchestrationIntegration)[vs[1].(int)]
@@ -279,6 +310,12 @@ func (o EventOrchestrationIntegrationMapOutput) ToEventOrchestrationIntegrationM
 
 func (o EventOrchestrationIntegrationMapOutput) ToEventOrchestrationIntegrationMapOutputWithContext(ctx context.Context) EventOrchestrationIntegrationMapOutput {
 	return o
+}
+
+func (o EventOrchestrationIntegrationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventOrchestrationIntegration] {
+	return pulumix.Output[map[string]*EventOrchestrationIntegration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationIntegrationMapOutput) MapIndex(k pulumi.StringInput) EventOrchestrationIntegrationOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about a specific [automation actions action](https://developer.pagerduty.com/api-reference/357ed15419f64-get-an-automation-action).
@@ -144,6 +145,12 @@ func (o LookupAutomationActionsActionResultOutput) ToLookupAutomationActionsActi
 
 func (o LookupAutomationActionsActionResultOutput) ToLookupAutomationActionsActionResultOutputWithContext(ctx context.Context) LookupAutomationActionsActionResultOutput {
 	return o
+}
+
+func (o LookupAutomationActionsActionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAutomationActionsActionResult] {
+	return pulumix.Output[LookupAutomationActionsActionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) The category of the action. The only allowed values are `diagnostic` and `remediation`.

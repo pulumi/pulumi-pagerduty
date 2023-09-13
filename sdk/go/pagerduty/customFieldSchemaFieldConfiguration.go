@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // !> This Resource is no longer functional. Documentation is left here for the purpose of documenting migration steps.
@@ -203,6 +204,12 @@ func (i *CustomFieldSchemaFieldConfiguration) ToCustomFieldSchemaFieldConfigurat
 	return pulumi.ToOutputWithContext(ctx, i).(CustomFieldSchemaFieldConfigurationOutput)
 }
 
+func (i *CustomFieldSchemaFieldConfiguration) ToOutput(ctx context.Context) pulumix.Output[*CustomFieldSchemaFieldConfiguration] {
+	return pulumix.Output[*CustomFieldSchemaFieldConfiguration]{
+		OutputState: i.ToCustomFieldSchemaFieldConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CustomFieldSchemaFieldConfigurationArrayInput is an input type that accepts CustomFieldSchemaFieldConfigurationArray and CustomFieldSchemaFieldConfigurationArrayOutput values.
 // You can construct a concrete instance of `CustomFieldSchemaFieldConfigurationArrayInput` via:
 //
@@ -226,6 +233,12 @@ func (i CustomFieldSchemaFieldConfigurationArray) ToCustomFieldSchemaFieldConfig
 
 func (i CustomFieldSchemaFieldConfigurationArray) ToCustomFieldSchemaFieldConfigurationArrayOutputWithContext(ctx context.Context) CustomFieldSchemaFieldConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomFieldSchemaFieldConfigurationArrayOutput)
+}
+
+func (i CustomFieldSchemaFieldConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*CustomFieldSchemaFieldConfiguration] {
+	return pulumix.Output[[]*CustomFieldSchemaFieldConfiguration]{
+		OutputState: i.ToCustomFieldSchemaFieldConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CustomFieldSchemaFieldConfigurationMapInput is an input type that accepts CustomFieldSchemaFieldConfigurationMap and CustomFieldSchemaFieldConfigurationMapOutput values.
@@ -253,6 +266,12 @@ func (i CustomFieldSchemaFieldConfigurationMap) ToCustomFieldSchemaFieldConfigur
 	return pulumi.ToOutputWithContext(ctx, i).(CustomFieldSchemaFieldConfigurationMapOutput)
 }
 
+func (i CustomFieldSchemaFieldConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomFieldSchemaFieldConfiguration] {
+	return pulumix.Output[map[string]*CustomFieldSchemaFieldConfiguration]{
+		OutputState: i.ToCustomFieldSchemaFieldConfigurationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomFieldSchemaFieldConfigurationOutput struct{ *pulumi.OutputState }
 
 func (CustomFieldSchemaFieldConfigurationOutput) ElementType() reflect.Type {
@@ -265,6 +284,12 @@ func (o CustomFieldSchemaFieldConfigurationOutput) ToCustomFieldSchemaFieldConfi
 
 func (o CustomFieldSchemaFieldConfigurationOutput) ToCustomFieldSchemaFieldConfigurationOutputWithContext(ctx context.Context) CustomFieldSchemaFieldConfigurationOutput {
 	return o
+}
+
+func (o CustomFieldSchemaFieldConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomFieldSchemaFieldConfiguration] {
+	return pulumix.Output[*CustomFieldSchemaFieldConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The default value for the field.
@@ -311,6 +336,12 @@ func (o CustomFieldSchemaFieldConfigurationArrayOutput) ToCustomFieldSchemaField
 	return o
 }
 
+func (o CustomFieldSchemaFieldConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CustomFieldSchemaFieldConfiguration] {
+	return pulumix.Output[[]*CustomFieldSchemaFieldConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CustomFieldSchemaFieldConfigurationArrayOutput) Index(i pulumi.IntInput) CustomFieldSchemaFieldConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CustomFieldSchemaFieldConfiguration {
 		return vs[0].([]*CustomFieldSchemaFieldConfiguration)[vs[1].(int)]
@@ -329,6 +360,12 @@ func (o CustomFieldSchemaFieldConfigurationMapOutput) ToCustomFieldSchemaFieldCo
 
 func (o CustomFieldSchemaFieldConfigurationMapOutput) ToCustomFieldSchemaFieldConfigurationMapOutputWithContext(ctx context.Context) CustomFieldSchemaFieldConfigurationMapOutput {
 	return o
+}
+
+func (o CustomFieldSchemaFieldConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomFieldSchemaFieldConfiguration] {
+	return pulumix.Output[map[string]*CustomFieldSchemaFieldConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CustomFieldSchemaFieldConfigurationMapOutput) MapIndex(k pulumi.StringInput) CustomFieldSchemaFieldConfigurationOutput {

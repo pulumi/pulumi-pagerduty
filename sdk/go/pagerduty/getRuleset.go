@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -161,6 +162,12 @@ func (o LookupRulesetResultOutput) ToLookupRulesetResultOutput() LookupRulesetRe
 
 func (o LookupRulesetResultOutput) ToLookupRulesetResultOutputWithContext(ctx context.Context) LookupRulesetResultOutput {
 	return o
+}
+
+func (o LookupRulesetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRulesetResult] {
+	return pulumix.Output[LookupRulesetResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

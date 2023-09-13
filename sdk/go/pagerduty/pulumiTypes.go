@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -62,6 +63,12 @@ func (i AutomationActionsActionActionDataReferenceArgs) ToAutomationActionsActio
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionsActionActionDataReferenceOutput)
 }
 
+func (i AutomationActionsActionActionDataReferenceArgs) ToOutput(ctx context.Context) pulumix.Output[AutomationActionsActionActionDataReference] {
+	return pulumix.Output[AutomationActionsActionActionDataReference]{
+		OutputState: i.ToAutomationActionsActionActionDataReferenceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AutomationActionsActionActionDataReferenceArgs) ToAutomationActionsActionActionDataReferencePtrOutput() AutomationActionsActionActionDataReferencePtrOutput {
 	return i.ToAutomationActionsActionActionDataReferencePtrOutputWithContext(context.Background())
 }
@@ -103,6 +110,12 @@ func (i *automationActionsActionActionDataReferencePtrType) ToAutomationActionsA
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionsActionActionDataReferencePtrOutput)
 }
 
+func (i *automationActionsActionActionDataReferencePtrType) ToOutput(ctx context.Context) pulumix.Output[*AutomationActionsActionActionDataReference] {
+	return pulumix.Output[*AutomationActionsActionActionDataReference]{
+		OutputState: i.ToAutomationActionsActionActionDataReferencePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AutomationActionsActionActionDataReferenceOutput struct{ *pulumi.OutputState }
 
 func (AutomationActionsActionActionDataReferenceOutput) ElementType() reflect.Type {
@@ -125,6 +138,12 @@ func (o AutomationActionsActionActionDataReferenceOutput) ToAutomationActionsAct
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomationActionsActionActionDataReference) *AutomationActionsActionActionDataReference {
 		return &v
 	}).(AutomationActionsActionActionDataReferencePtrOutput)
+}
+
+func (o AutomationActionsActionActionDataReferenceOutput) ToOutput(ctx context.Context) pulumix.Output[AutomationActionsActionActionDataReference] {
+	return pulumix.Output[AutomationActionsActionActionDataReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The command to execute the script with.
@@ -164,6 +183,12 @@ func (o AutomationActionsActionActionDataReferencePtrOutput) ToAutomationActions
 
 func (o AutomationActionsActionActionDataReferencePtrOutput) ToAutomationActionsActionActionDataReferencePtrOutputWithContext(ctx context.Context) AutomationActionsActionActionDataReferencePtrOutput {
 	return o
+}
+
+func (o AutomationActionsActionActionDataReferencePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutomationActionsActionActionDataReference] {
+	return pulumix.Output[*AutomationActionsActionActionDataReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AutomationActionsActionActionDataReferencePtrOutput) Elem() AutomationActionsActionActionDataReferenceOutput {
@@ -265,6 +290,12 @@ func (i EscalationPolicyRuleArgs) ToEscalationPolicyRuleOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(EscalationPolicyRuleOutput)
 }
 
+func (i EscalationPolicyRuleArgs) ToOutput(ctx context.Context) pulumix.Output[EscalationPolicyRule] {
+	return pulumix.Output[EscalationPolicyRule]{
+		OutputState: i.ToEscalationPolicyRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EscalationPolicyRuleArrayInput is an input type that accepts EscalationPolicyRuleArray and EscalationPolicyRuleArrayOutput values.
 // You can construct a concrete instance of `EscalationPolicyRuleArrayInput` via:
 //
@@ -290,6 +321,12 @@ func (i EscalationPolicyRuleArray) ToEscalationPolicyRuleArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(EscalationPolicyRuleArrayOutput)
 }
 
+func (i EscalationPolicyRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]EscalationPolicyRule] {
+	return pulumix.Output[[]EscalationPolicyRule]{
+		OutputState: i.ToEscalationPolicyRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EscalationPolicyRuleOutput struct{ *pulumi.OutputState }
 
 func (EscalationPolicyRuleOutput) ElementType() reflect.Type {
@@ -302,6 +339,12 @@ func (o EscalationPolicyRuleOutput) ToEscalationPolicyRuleOutput() EscalationPol
 
 func (o EscalationPolicyRuleOutput) ToEscalationPolicyRuleOutputWithContext(ctx context.Context) EscalationPolicyRuleOutput {
 	return o
+}
+
+func (o EscalationPolicyRuleOutput) ToOutput(ctx context.Context) pulumix.Output[EscalationPolicyRule] {
+	return pulumix.Output[EscalationPolicyRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The number of minutes before an unacknowledged incident escalates away from this rule.
@@ -330,6 +373,12 @@ func (o EscalationPolicyRuleArrayOutput) ToEscalationPolicyRuleArrayOutput() Esc
 
 func (o EscalationPolicyRuleArrayOutput) ToEscalationPolicyRuleArrayOutputWithContext(ctx context.Context) EscalationPolicyRuleArrayOutput {
 	return o
+}
+
+func (o EscalationPolicyRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EscalationPolicyRule] {
+	return pulumix.Output[[]EscalationPolicyRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EscalationPolicyRuleArrayOutput) Index(i pulumi.IntInput) EscalationPolicyRuleOutput {
@@ -375,6 +424,12 @@ func (i EscalationPolicyRuleTargetArgs) ToEscalationPolicyRuleTargetOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(EscalationPolicyRuleTargetOutput)
 }
 
+func (i EscalationPolicyRuleTargetArgs) ToOutput(ctx context.Context) pulumix.Output[EscalationPolicyRuleTarget] {
+	return pulumix.Output[EscalationPolicyRuleTarget]{
+		OutputState: i.ToEscalationPolicyRuleTargetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EscalationPolicyRuleTargetArrayInput is an input type that accepts EscalationPolicyRuleTargetArray and EscalationPolicyRuleTargetArrayOutput values.
 // You can construct a concrete instance of `EscalationPolicyRuleTargetArrayInput` via:
 //
@@ -400,6 +455,12 @@ func (i EscalationPolicyRuleTargetArray) ToEscalationPolicyRuleTargetArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(EscalationPolicyRuleTargetArrayOutput)
 }
 
+func (i EscalationPolicyRuleTargetArray) ToOutput(ctx context.Context) pulumix.Output[[]EscalationPolicyRuleTarget] {
+	return pulumix.Output[[]EscalationPolicyRuleTarget]{
+		OutputState: i.ToEscalationPolicyRuleTargetArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EscalationPolicyRuleTargetOutput struct{ *pulumi.OutputState }
 
 func (EscalationPolicyRuleTargetOutput) ElementType() reflect.Type {
@@ -412,6 +473,12 @@ func (o EscalationPolicyRuleTargetOutput) ToEscalationPolicyRuleTargetOutput() E
 
 func (o EscalationPolicyRuleTargetOutput) ToEscalationPolicyRuleTargetOutputWithContext(ctx context.Context) EscalationPolicyRuleTargetOutput {
 	return o
+}
+
+func (o EscalationPolicyRuleTargetOutput) ToOutput(ctx context.Context) pulumix.Output[EscalationPolicyRuleTarget] {
+	return pulumix.Output[EscalationPolicyRuleTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A target ID
@@ -436,6 +503,12 @@ func (o EscalationPolicyRuleTargetArrayOutput) ToEscalationPolicyRuleTargetArray
 
 func (o EscalationPolicyRuleTargetArrayOutput) ToEscalationPolicyRuleTargetArrayOutputWithContext(ctx context.Context) EscalationPolicyRuleTargetArrayOutput {
 	return o
+}
+
+func (o EscalationPolicyRuleTargetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EscalationPolicyRuleTarget] {
+	return pulumix.Output[[]EscalationPolicyRuleTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EscalationPolicyRuleTargetArrayOutput) Index(i pulumi.IntInput) EscalationPolicyRuleTargetOutput {
@@ -475,6 +548,12 @@ func (i EventOrchestrationGlobalCatchAllArgs) ToEventOrchestrationGlobalCatchAll
 
 func (i EventOrchestrationGlobalCatchAllArgs) ToEventOrchestrationGlobalCatchAllOutputWithContext(ctx context.Context) EventOrchestrationGlobalCatchAllOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalCatchAllOutput)
+}
+
+func (i EventOrchestrationGlobalCatchAllArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationGlobalCatchAll] {
+	return pulumix.Output[EventOrchestrationGlobalCatchAll]{
+		OutputState: i.ToEventOrchestrationGlobalCatchAllOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i EventOrchestrationGlobalCatchAllArgs) ToEventOrchestrationGlobalCatchAllPtrOutput() EventOrchestrationGlobalCatchAllPtrOutput {
@@ -518,6 +597,12 @@ func (i *eventOrchestrationGlobalCatchAllPtrType) ToEventOrchestrationGlobalCatc
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalCatchAllPtrOutput)
 }
 
+func (i *eventOrchestrationGlobalCatchAllPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationGlobalCatchAll] {
+	return pulumix.Output[*EventOrchestrationGlobalCatchAll]{
+		OutputState: i.ToEventOrchestrationGlobalCatchAllPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationGlobalCatchAllOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationGlobalCatchAllOutput) ElementType() reflect.Type {
@@ -542,6 +627,12 @@ func (o EventOrchestrationGlobalCatchAllOutput) ToEventOrchestrationGlobalCatchA
 	}).(EventOrchestrationGlobalCatchAllPtrOutput)
 }
 
+func (o EventOrchestrationGlobalCatchAllOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationGlobalCatchAll] {
+	return pulumix.Output[EventOrchestrationGlobalCatchAll]{
+		OutputState: o.OutputState,
+	}
+}
+
 // These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
 func (o EventOrchestrationGlobalCatchAllOutput) Actions() EventOrchestrationGlobalCatchAllActionsOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalCatchAll) EventOrchestrationGlobalCatchAllActions { return v.Actions }).(EventOrchestrationGlobalCatchAllActionsOutput)
@@ -559,6 +650,12 @@ func (o EventOrchestrationGlobalCatchAllPtrOutput) ToEventOrchestrationGlobalCat
 
 func (o EventOrchestrationGlobalCatchAllPtrOutput) ToEventOrchestrationGlobalCatchAllPtrOutputWithContext(ctx context.Context) EventOrchestrationGlobalCatchAllPtrOutput {
 	return o
+}
+
+func (o EventOrchestrationGlobalCatchAllPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationGlobalCatchAll] {
+	return pulumix.Output[*EventOrchestrationGlobalCatchAll]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationGlobalCatchAllPtrOutput) Elem() EventOrchestrationGlobalCatchAllOutput {
@@ -654,6 +751,12 @@ func (i EventOrchestrationGlobalCatchAllActionsArgs) ToEventOrchestrationGlobalC
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalCatchAllActionsOutput)
 }
 
+func (i EventOrchestrationGlobalCatchAllActionsArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationGlobalCatchAllActions] {
+	return pulumix.Output[EventOrchestrationGlobalCatchAllActions]{
+		OutputState: i.ToEventOrchestrationGlobalCatchAllActionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventOrchestrationGlobalCatchAllActionsArgs) ToEventOrchestrationGlobalCatchAllActionsPtrOutput() EventOrchestrationGlobalCatchAllActionsPtrOutput {
 	return i.ToEventOrchestrationGlobalCatchAllActionsPtrOutputWithContext(context.Background())
 }
@@ -695,6 +798,12 @@ func (i *eventOrchestrationGlobalCatchAllActionsPtrType) ToEventOrchestrationGlo
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalCatchAllActionsPtrOutput)
 }
 
+func (i *eventOrchestrationGlobalCatchAllActionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationGlobalCatchAllActions] {
+	return pulumix.Output[*EventOrchestrationGlobalCatchAllActions]{
+		OutputState: i.ToEventOrchestrationGlobalCatchAllActionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationGlobalCatchAllActionsOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationGlobalCatchAllActionsOutput) ElementType() reflect.Type {
@@ -717,6 +826,12 @@ func (o EventOrchestrationGlobalCatchAllActionsOutput) ToEventOrchestrationGloba
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventOrchestrationGlobalCatchAllActions) *EventOrchestrationGlobalCatchAllActions {
 		return &v
 	}).(EventOrchestrationGlobalCatchAllActionsPtrOutput)
+}
+
+func (o EventOrchestrationGlobalCatchAllActionsOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationGlobalCatchAllActions] {
+	return pulumix.Output[EventOrchestrationGlobalCatchAllActions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Add this text as a note on the resulting incident.
@@ -792,6 +907,12 @@ func (o EventOrchestrationGlobalCatchAllActionsPtrOutput) ToEventOrchestrationGl
 
 func (o EventOrchestrationGlobalCatchAllActionsPtrOutput) ToEventOrchestrationGlobalCatchAllActionsPtrOutputWithContext(ctx context.Context) EventOrchestrationGlobalCatchAllActionsPtrOutput {
 	return o
+}
+
+func (o EventOrchestrationGlobalCatchAllActionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationGlobalCatchAllActions] {
+	return pulumix.Output[*EventOrchestrationGlobalCatchAllActions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationGlobalCatchAllActionsPtrOutput) Elem() EventOrchestrationGlobalCatchAllActionsOutput {
@@ -963,6 +1084,12 @@ func (i EventOrchestrationGlobalCatchAllActionsAutomationActionArgs) ToEventOrch
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalCatchAllActionsAutomationActionOutput)
 }
 
+func (i EventOrchestrationGlobalCatchAllActionsAutomationActionArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationGlobalCatchAllActionsAutomationAction] {
+	return pulumix.Output[EventOrchestrationGlobalCatchAllActionsAutomationAction]{
+		OutputState: i.ToEventOrchestrationGlobalCatchAllActionsAutomationActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventOrchestrationGlobalCatchAllActionsAutomationActionArgs) ToEventOrchestrationGlobalCatchAllActionsAutomationActionPtrOutput() EventOrchestrationGlobalCatchAllActionsAutomationActionPtrOutput {
 	return i.ToEventOrchestrationGlobalCatchAllActionsAutomationActionPtrOutputWithContext(context.Background())
 }
@@ -1004,6 +1131,12 @@ func (i *eventOrchestrationGlobalCatchAllActionsAutomationActionPtrType) ToEvent
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalCatchAllActionsAutomationActionPtrOutput)
 }
 
+func (i *eventOrchestrationGlobalCatchAllActionsAutomationActionPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationGlobalCatchAllActionsAutomationAction] {
+	return pulumix.Output[*EventOrchestrationGlobalCatchAllActionsAutomationAction]{
+		OutputState: i.ToEventOrchestrationGlobalCatchAllActionsAutomationActionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationGlobalCatchAllActionsAutomationActionOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationGlobalCatchAllActionsAutomationActionOutput) ElementType() reflect.Type {
@@ -1026,6 +1159,12 @@ func (o EventOrchestrationGlobalCatchAllActionsAutomationActionOutput) ToEventOr
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventOrchestrationGlobalCatchAllActionsAutomationAction) *EventOrchestrationGlobalCatchAllActionsAutomationAction {
 		return &v
 	}).(EventOrchestrationGlobalCatchAllActionsAutomationActionPtrOutput)
+}
+
+func (o EventOrchestrationGlobalCatchAllActionsAutomationActionOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationGlobalCatchAllActionsAutomationAction] {
+	return pulumix.Output[EventOrchestrationGlobalCatchAllActionsAutomationAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
@@ -1069,6 +1208,12 @@ func (o EventOrchestrationGlobalCatchAllActionsAutomationActionPtrOutput) ToEven
 
 func (o EventOrchestrationGlobalCatchAllActionsAutomationActionPtrOutput) ToEventOrchestrationGlobalCatchAllActionsAutomationActionPtrOutputWithContext(ctx context.Context) EventOrchestrationGlobalCatchAllActionsAutomationActionPtrOutput {
 	return o
+}
+
+func (o EventOrchestrationGlobalCatchAllActionsAutomationActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationGlobalCatchAllActionsAutomationAction] {
+	return pulumix.Output[*EventOrchestrationGlobalCatchAllActionsAutomationAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationGlobalCatchAllActionsAutomationActionPtrOutput) Elem() EventOrchestrationGlobalCatchAllActionsAutomationActionOutput {
@@ -1168,6 +1313,12 @@ func (i EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArgs) ToEve
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderOutput)
 }
 
+func (i EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationGlobalCatchAllActionsAutomationActionHeader] {
+	return pulumix.Output[EventOrchestrationGlobalCatchAllActionsAutomationActionHeader]{
+		OutputState: i.ToEventOrchestrationGlobalCatchAllActionsAutomationActionHeaderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArrayInput is an input type that accepts EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArray and EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArrayInput` via:
 //
@@ -1193,6 +1344,12 @@ func (i EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArray) ToEv
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArrayOutput)
 }
 
+func (i EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationGlobalCatchAllActionsAutomationActionHeader] {
+	return pulumix.Output[[]EventOrchestrationGlobalCatchAllActionsAutomationActionHeader]{
+		OutputState: i.ToEventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderOutput) ElementType() reflect.Type {
@@ -1205,6 +1362,12 @@ func (o EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderOutput) ToE
 
 func (o EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderOutput) ToEventOrchestrationGlobalCatchAllActionsAutomationActionHeaderOutputWithContext(ctx context.Context) EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderOutput {
 	return o
+}
+
+func (o EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationGlobalCatchAllActionsAutomationActionHeader] {
+	return pulumix.Output[EventOrchestrationGlobalCatchAllActionsAutomationActionHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name to identify the header
@@ -1229,6 +1392,12 @@ func (o EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArrayOutput
 
 func (o EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArrayOutput) ToEventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArrayOutputWithContext(ctx context.Context) EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArrayOutput {
 	return o
+}
+
+func (o EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationGlobalCatchAllActionsAutomationActionHeader] {
+	return pulumix.Output[[]EventOrchestrationGlobalCatchAllActionsAutomationActionHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArrayOutput) Index(i pulumi.IntInput) EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderOutput {
@@ -1274,6 +1443,12 @@ func (i EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArgs) To
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalCatchAllActionsAutomationActionParameterOutput)
 }
 
+func (i EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationGlobalCatchAllActionsAutomationActionParameter] {
+	return pulumix.Output[EventOrchestrationGlobalCatchAllActionsAutomationActionParameter]{
+		OutputState: i.ToEventOrchestrationGlobalCatchAllActionsAutomationActionParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArrayInput is an input type that accepts EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArray and EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArrayInput` via:
 //
@@ -1299,6 +1474,12 @@ func (i EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArray) T
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArrayOutput)
 }
 
+func (i EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationGlobalCatchAllActionsAutomationActionParameter] {
+	return pulumix.Output[[]EventOrchestrationGlobalCatchAllActionsAutomationActionParameter]{
+		OutputState: i.ToEventOrchestrationGlobalCatchAllActionsAutomationActionParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationGlobalCatchAllActionsAutomationActionParameterOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationGlobalCatchAllActionsAutomationActionParameterOutput) ElementType() reflect.Type {
@@ -1311,6 +1492,12 @@ func (o EventOrchestrationGlobalCatchAllActionsAutomationActionParameterOutput) 
 
 func (o EventOrchestrationGlobalCatchAllActionsAutomationActionParameterOutput) ToEventOrchestrationGlobalCatchAllActionsAutomationActionParameterOutputWithContext(ctx context.Context) EventOrchestrationGlobalCatchAllActionsAutomationActionParameterOutput {
 	return o
+}
+
+func (o EventOrchestrationGlobalCatchAllActionsAutomationActionParameterOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationGlobalCatchAllActionsAutomationActionParameter] {
+	return pulumix.Output[EventOrchestrationGlobalCatchAllActionsAutomationActionParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name to identify the header
@@ -1335,6 +1522,12 @@ func (o EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArrayOut
 
 func (o EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArrayOutput) ToEventOrchestrationGlobalCatchAllActionsAutomationActionParameterArrayOutputWithContext(ctx context.Context) EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArrayOutput {
 	return o
+}
+
+func (o EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationGlobalCatchAllActionsAutomationActionParameter] {
+	return pulumix.Output[[]EventOrchestrationGlobalCatchAllActionsAutomationActionParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArrayOutput) Index(i pulumi.IntInput) EventOrchestrationGlobalCatchAllActionsAutomationActionParameterOutput {
@@ -1392,6 +1585,12 @@ func (i EventOrchestrationGlobalCatchAllActionsExtractionArgs) ToEventOrchestrat
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalCatchAllActionsExtractionOutput)
 }
 
+func (i EventOrchestrationGlobalCatchAllActionsExtractionArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationGlobalCatchAllActionsExtraction] {
+	return pulumix.Output[EventOrchestrationGlobalCatchAllActionsExtraction]{
+		OutputState: i.ToEventOrchestrationGlobalCatchAllActionsExtractionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventOrchestrationGlobalCatchAllActionsExtractionArrayInput is an input type that accepts EventOrchestrationGlobalCatchAllActionsExtractionArray and EventOrchestrationGlobalCatchAllActionsExtractionArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationGlobalCatchAllActionsExtractionArrayInput` via:
 //
@@ -1417,6 +1616,12 @@ func (i EventOrchestrationGlobalCatchAllActionsExtractionArray) ToEventOrchestra
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalCatchAllActionsExtractionArrayOutput)
 }
 
+func (i EventOrchestrationGlobalCatchAllActionsExtractionArray) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationGlobalCatchAllActionsExtraction] {
+	return pulumix.Output[[]EventOrchestrationGlobalCatchAllActionsExtraction]{
+		OutputState: i.ToEventOrchestrationGlobalCatchAllActionsExtractionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationGlobalCatchAllActionsExtractionOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationGlobalCatchAllActionsExtractionOutput) ElementType() reflect.Type {
@@ -1429,6 +1634,12 @@ func (o EventOrchestrationGlobalCatchAllActionsExtractionOutput) ToEventOrchestr
 
 func (o EventOrchestrationGlobalCatchAllActionsExtractionOutput) ToEventOrchestrationGlobalCatchAllActionsExtractionOutputWithContext(ctx context.Context) EventOrchestrationGlobalCatchAllActionsExtractionOutput {
 	return o
+}
+
+func (o EventOrchestrationGlobalCatchAllActionsExtractionOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationGlobalCatchAllActionsExtraction] {
+	return pulumix.Output[EventOrchestrationGlobalCatchAllActionsExtraction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
@@ -1465,6 +1676,12 @@ func (o EventOrchestrationGlobalCatchAllActionsExtractionArrayOutput) ToEventOrc
 
 func (o EventOrchestrationGlobalCatchAllActionsExtractionArrayOutput) ToEventOrchestrationGlobalCatchAllActionsExtractionArrayOutputWithContext(ctx context.Context) EventOrchestrationGlobalCatchAllActionsExtractionArrayOutput {
 	return o
+}
+
+func (o EventOrchestrationGlobalCatchAllActionsExtractionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationGlobalCatchAllActionsExtraction] {
+	return pulumix.Output[[]EventOrchestrationGlobalCatchAllActionsExtraction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationGlobalCatchAllActionsExtractionArrayOutput) Index(i pulumi.IntInput) EventOrchestrationGlobalCatchAllActionsExtractionOutput {
@@ -1518,6 +1735,12 @@ func (i EventOrchestrationGlobalCatchAllActionsVariableArgs) ToEventOrchestratio
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalCatchAllActionsVariableOutput)
 }
 
+func (i EventOrchestrationGlobalCatchAllActionsVariableArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationGlobalCatchAllActionsVariable] {
+	return pulumix.Output[EventOrchestrationGlobalCatchAllActionsVariable]{
+		OutputState: i.ToEventOrchestrationGlobalCatchAllActionsVariableOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventOrchestrationGlobalCatchAllActionsVariableArrayInput is an input type that accepts EventOrchestrationGlobalCatchAllActionsVariableArray and EventOrchestrationGlobalCatchAllActionsVariableArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationGlobalCatchAllActionsVariableArrayInput` via:
 //
@@ -1543,6 +1766,12 @@ func (i EventOrchestrationGlobalCatchAllActionsVariableArray) ToEventOrchestrati
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalCatchAllActionsVariableArrayOutput)
 }
 
+func (i EventOrchestrationGlobalCatchAllActionsVariableArray) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationGlobalCatchAllActionsVariable] {
+	return pulumix.Output[[]EventOrchestrationGlobalCatchAllActionsVariable]{
+		OutputState: i.ToEventOrchestrationGlobalCatchAllActionsVariableArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationGlobalCatchAllActionsVariableOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationGlobalCatchAllActionsVariableOutput) ElementType() reflect.Type {
@@ -1555,6 +1784,12 @@ func (o EventOrchestrationGlobalCatchAllActionsVariableOutput) ToEventOrchestrat
 
 func (o EventOrchestrationGlobalCatchAllActionsVariableOutput) ToEventOrchestrationGlobalCatchAllActionsVariableOutputWithContext(ctx context.Context) EventOrchestrationGlobalCatchAllActionsVariableOutput {
 	return o
+}
+
+func (o EventOrchestrationGlobalCatchAllActionsVariableOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationGlobalCatchAllActionsVariable] {
+	return pulumix.Output[EventOrchestrationGlobalCatchAllActionsVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of this Webhook.
@@ -1589,6 +1824,12 @@ func (o EventOrchestrationGlobalCatchAllActionsVariableArrayOutput) ToEventOrche
 
 func (o EventOrchestrationGlobalCatchAllActionsVariableArrayOutput) ToEventOrchestrationGlobalCatchAllActionsVariableArrayOutputWithContext(ctx context.Context) EventOrchestrationGlobalCatchAllActionsVariableArrayOutput {
 	return o
+}
+
+func (o EventOrchestrationGlobalCatchAllActionsVariableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationGlobalCatchAllActionsVariable] {
+	return pulumix.Output[[]EventOrchestrationGlobalCatchAllActionsVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationGlobalCatchAllActionsVariableArrayOutput) Index(i pulumi.IntInput) EventOrchestrationGlobalCatchAllActionsVariableOutput {
@@ -1632,6 +1873,12 @@ func (i EventOrchestrationGlobalSetArgs) ToEventOrchestrationGlobalSetOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalSetOutput)
 }
 
+func (i EventOrchestrationGlobalSetArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationGlobalSet] {
+	return pulumix.Output[EventOrchestrationGlobalSet]{
+		OutputState: i.ToEventOrchestrationGlobalSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventOrchestrationGlobalSetArrayInput is an input type that accepts EventOrchestrationGlobalSetArray and EventOrchestrationGlobalSetArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationGlobalSetArrayInput` via:
 //
@@ -1657,6 +1904,12 @@ func (i EventOrchestrationGlobalSetArray) ToEventOrchestrationGlobalSetArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalSetArrayOutput)
 }
 
+func (i EventOrchestrationGlobalSetArray) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationGlobalSet] {
+	return pulumix.Output[[]EventOrchestrationGlobalSet]{
+		OutputState: i.ToEventOrchestrationGlobalSetArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationGlobalSetOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationGlobalSetOutput) ElementType() reflect.Type {
@@ -1669,6 +1922,12 @@ func (o EventOrchestrationGlobalSetOutput) ToEventOrchestrationGlobalSetOutput()
 
 func (o EventOrchestrationGlobalSetOutput) ToEventOrchestrationGlobalSetOutputWithContext(ctx context.Context) EventOrchestrationGlobalSetOutput {
 	return o
+}
+
+func (o EventOrchestrationGlobalSetOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationGlobalSet] {
+	return pulumix.Output[EventOrchestrationGlobalSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
@@ -1692,6 +1951,12 @@ func (o EventOrchestrationGlobalSetArrayOutput) ToEventOrchestrationGlobalSetArr
 
 func (o EventOrchestrationGlobalSetArrayOutput) ToEventOrchestrationGlobalSetArrayOutputWithContext(ctx context.Context) EventOrchestrationGlobalSetArrayOutput {
 	return o
+}
+
+func (o EventOrchestrationGlobalSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationGlobalSet] {
+	return pulumix.Output[[]EventOrchestrationGlobalSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationGlobalSetArrayOutput) Index(i pulumi.IntInput) EventOrchestrationGlobalSetOutput {
@@ -1749,6 +2014,12 @@ func (i EventOrchestrationGlobalSetRuleArgs) ToEventOrchestrationGlobalSetRuleOu
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalSetRuleOutput)
 }
 
+func (i EventOrchestrationGlobalSetRuleArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationGlobalSetRule] {
+	return pulumix.Output[EventOrchestrationGlobalSetRule]{
+		OutputState: i.ToEventOrchestrationGlobalSetRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventOrchestrationGlobalSetRuleArrayInput is an input type that accepts EventOrchestrationGlobalSetRuleArray and EventOrchestrationGlobalSetRuleArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationGlobalSetRuleArrayInput` via:
 //
@@ -1774,6 +2045,12 @@ func (i EventOrchestrationGlobalSetRuleArray) ToEventOrchestrationGlobalSetRuleA
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalSetRuleArrayOutput)
 }
 
+func (i EventOrchestrationGlobalSetRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationGlobalSetRule] {
+	return pulumix.Output[[]EventOrchestrationGlobalSetRule]{
+		OutputState: i.ToEventOrchestrationGlobalSetRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationGlobalSetRuleOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationGlobalSetRuleOutput) ElementType() reflect.Type {
@@ -1786,6 +2063,12 @@ func (o EventOrchestrationGlobalSetRuleOutput) ToEventOrchestrationGlobalSetRule
 
 func (o EventOrchestrationGlobalSetRuleOutput) ToEventOrchestrationGlobalSetRuleOutputWithContext(ctx context.Context) EventOrchestrationGlobalSetRuleOutput {
 	return o
+}
+
+func (o EventOrchestrationGlobalSetRuleOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationGlobalSetRule] {
+	return pulumix.Output[EventOrchestrationGlobalSetRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
@@ -1827,6 +2110,12 @@ func (o EventOrchestrationGlobalSetRuleArrayOutput) ToEventOrchestrationGlobalSe
 
 func (o EventOrchestrationGlobalSetRuleArrayOutput) ToEventOrchestrationGlobalSetRuleArrayOutputWithContext(ctx context.Context) EventOrchestrationGlobalSetRuleArrayOutput {
 	return o
+}
+
+func (o EventOrchestrationGlobalSetRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationGlobalSetRule] {
+	return pulumix.Output[[]EventOrchestrationGlobalSetRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationGlobalSetRuleArrayOutput) Index(i pulumi.IntInput) EventOrchestrationGlobalSetRuleOutput {
@@ -1908,6 +2197,12 @@ func (i EventOrchestrationGlobalSetRuleActionsArgs) ToEventOrchestrationGlobalSe
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalSetRuleActionsOutput)
 }
 
+func (i EventOrchestrationGlobalSetRuleActionsArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationGlobalSetRuleActions] {
+	return pulumix.Output[EventOrchestrationGlobalSetRuleActions]{
+		OutputState: i.ToEventOrchestrationGlobalSetRuleActionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationGlobalSetRuleActionsOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationGlobalSetRuleActionsOutput) ElementType() reflect.Type {
@@ -1920,6 +2215,12 @@ func (o EventOrchestrationGlobalSetRuleActionsOutput) ToEventOrchestrationGlobal
 
 func (o EventOrchestrationGlobalSetRuleActionsOutput) ToEventOrchestrationGlobalSetRuleActionsOutputWithContext(ctx context.Context) EventOrchestrationGlobalSetRuleActionsOutput {
 	return o
+}
+
+func (o EventOrchestrationGlobalSetRuleActionsOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationGlobalSetRuleActions] {
+	return pulumix.Output[EventOrchestrationGlobalSetRuleActions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Add this text as a note on the resulting incident.
@@ -2032,6 +2333,12 @@ func (i EventOrchestrationGlobalSetRuleActionsAutomationActionArgs) ToEventOrche
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalSetRuleActionsAutomationActionOutput)
 }
 
+func (i EventOrchestrationGlobalSetRuleActionsAutomationActionArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationGlobalSetRuleActionsAutomationAction] {
+	return pulumix.Output[EventOrchestrationGlobalSetRuleActionsAutomationAction]{
+		OutputState: i.ToEventOrchestrationGlobalSetRuleActionsAutomationActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventOrchestrationGlobalSetRuleActionsAutomationActionArgs) ToEventOrchestrationGlobalSetRuleActionsAutomationActionPtrOutput() EventOrchestrationGlobalSetRuleActionsAutomationActionPtrOutput {
 	return i.ToEventOrchestrationGlobalSetRuleActionsAutomationActionPtrOutputWithContext(context.Background())
 }
@@ -2073,6 +2380,12 @@ func (i *eventOrchestrationGlobalSetRuleActionsAutomationActionPtrType) ToEventO
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalSetRuleActionsAutomationActionPtrOutput)
 }
 
+func (i *eventOrchestrationGlobalSetRuleActionsAutomationActionPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationGlobalSetRuleActionsAutomationAction] {
+	return pulumix.Output[*EventOrchestrationGlobalSetRuleActionsAutomationAction]{
+		OutputState: i.ToEventOrchestrationGlobalSetRuleActionsAutomationActionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationGlobalSetRuleActionsAutomationActionOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationGlobalSetRuleActionsAutomationActionOutput) ElementType() reflect.Type {
@@ -2095,6 +2408,12 @@ func (o EventOrchestrationGlobalSetRuleActionsAutomationActionOutput) ToEventOrc
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventOrchestrationGlobalSetRuleActionsAutomationAction) *EventOrchestrationGlobalSetRuleActionsAutomationAction {
 		return &v
 	}).(EventOrchestrationGlobalSetRuleActionsAutomationActionPtrOutput)
+}
+
+func (o EventOrchestrationGlobalSetRuleActionsAutomationActionOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationGlobalSetRuleActionsAutomationAction] {
+	return pulumix.Output[EventOrchestrationGlobalSetRuleActionsAutomationAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
@@ -2138,6 +2457,12 @@ func (o EventOrchestrationGlobalSetRuleActionsAutomationActionPtrOutput) ToEvent
 
 func (o EventOrchestrationGlobalSetRuleActionsAutomationActionPtrOutput) ToEventOrchestrationGlobalSetRuleActionsAutomationActionPtrOutputWithContext(ctx context.Context) EventOrchestrationGlobalSetRuleActionsAutomationActionPtrOutput {
 	return o
+}
+
+func (o EventOrchestrationGlobalSetRuleActionsAutomationActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationGlobalSetRuleActionsAutomationAction] {
+	return pulumix.Output[*EventOrchestrationGlobalSetRuleActionsAutomationAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationGlobalSetRuleActionsAutomationActionPtrOutput) Elem() EventOrchestrationGlobalSetRuleActionsAutomationActionOutput {
@@ -2237,6 +2562,12 @@ func (i EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArgs) ToEven
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderOutput)
 }
 
+func (i EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationGlobalSetRuleActionsAutomationActionHeader] {
+	return pulumix.Output[EventOrchestrationGlobalSetRuleActionsAutomationActionHeader]{
+		OutputState: i.ToEventOrchestrationGlobalSetRuleActionsAutomationActionHeaderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArrayInput is an input type that accepts EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArray and EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArrayInput` via:
 //
@@ -2262,6 +2593,12 @@ func (i EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArray) ToEve
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArrayOutput)
 }
 
+func (i EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationGlobalSetRuleActionsAutomationActionHeader] {
+	return pulumix.Output[[]EventOrchestrationGlobalSetRuleActionsAutomationActionHeader]{
+		OutputState: i.ToEventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderOutput) ElementType() reflect.Type {
@@ -2274,6 +2611,12 @@ func (o EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderOutput) ToEv
 
 func (o EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderOutput) ToEventOrchestrationGlobalSetRuleActionsAutomationActionHeaderOutputWithContext(ctx context.Context) EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderOutput {
 	return o
+}
+
+func (o EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationGlobalSetRuleActionsAutomationActionHeader] {
+	return pulumix.Output[EventOrchestrationGlobalSetRuleActionsAutomationActionHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name to identify the header
@@ -2298,6 +2641,12 @@ func (o EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArrayOutput)
 
 func (o EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArrayOutput) ToEventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArrayOutputWithContext(ctx context.Context) EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArrayOutput {
 	return o
+}
+
+func (o EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationGlobalSetRuleActionsAutomationActionHeader] {
+	return pulumix.Output[[]EventOrchestrationGlobalSetRuleActionsAutomationActionHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArrayOutput) Index(i pulumi.IntInput) EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderOutput {
@@ -2343,6 +2692,12 @@ func (i EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArgs) ToE
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalSetRuleActionsAutomationActionParameterOutput)
 }
 
+func (i EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationGlobalSetRuleActionsAutomationActionParameter] {
+	return pulumix.Output[EventOrchestrationGlobalSetRuleActionsAutomationActionParameter]{
+		OutputState: i.ToEventOrchestrationGlobalSetRuleActionsAutomationActionParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArrayInput is an input type that accepts EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArray and EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArrayInput` via:
 //
@@ -2368,6 +2723,12 @@ func (i EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArray) To
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArrayOutput)
 }
 
+func (i EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationGlobalSetRuleActionsAutomationActionParameter] {
+	return pulumix.Output[[]EventOrchestrationGlobalSetRuleActionsAutomationActionParameter]{
+		OutputState: i.ToEventOrchestrationGlobalSetRuleActionsAutomationActionParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationGlobalSetRuleActionsAutomationActionParameterOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationGlobalSetRuleActionsAutomationActionParameterOutput) ElementType() reflect.Type {
@@ -2380,6 +2741,12 @@ func (o EventOrchestrationGlobalSetRuleActionsAutomationActionParameterOutput) T
 
 func (o EventOrchestrationGlobalSetRuleActionsAutomationActionParameterOutput) ToEventOrchestrationGlobalSetRuleActionsAutomationActionParameterOutputWithContext(ctx context.Context) EventOrchestrationGlobalSetRuleActionsAutomationActionParameterOutput {
 	return o
+}
+
+func (o EventOrchestrationGlobalSetRuleActionsAutomationActionParameterOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationGlobalSetRuleActionsAutomationActionParameter] {
+	return pulumix.Output[EventOrchestrationGlobalSetRuleActionsAutomationActionParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name to identify the header
@@ -2404,6 +2771,12 @@ func (o EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArrayOutp
 
 func (o EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArrayOutput) ToEventOrchestrationGlobalSetRuleActionsAutomationActionParameterArrayOutputWithContext(ctx context.Context) EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArrayOutput {
 	return o
+}
+
+func (o EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationGlobalSetRuleActionsAutomationActionParameter] {
+	return pulumix.Output[[]EventOrchestrationGlobalSetRuleActionsAutomationActionParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArrayOutput) Index(i pulumi.IntInput) EventOrchestrationGlobalSetRuleActionsAutomationActionParameterOutput {
@@ -2461,6 +2834,12 @@ func (i EventOrchestrationGlobalSetRuleActionsExtractionArgs) ToEventOrchestrati
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalSetRuleActionsExtractionOutput)
 }
 
+func (i EventOrchestrationGlobalSetRuleActionsExtractionArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationGlobalSetRuleActionsExtraction] {
+	return pulumix.Output[EventOrchestrationGlobalSetRuleActionsExtraction]{
+		OutputState: i.ToEventOrchestrationGlobalSetRuleActionsExtractionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventOrchestrationGlobalSetRuleActionsExtractionArrayInput is an input type that accepts EventOrchestrationGlobalSetRuleActionsExtractionArray and EventOrchestrationGlobalSetRuleActionsExtractionArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationGlobalSetRuleActionsExtractionArrayInput` via:
 //
@@ -2486,6 +2865,12 @@ func (i EventOrchestrationGlobalSetRuleActionsExtractionArray) ToEventOrchestrat
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalSetRuleActionsExtractionArrayOutput)
 }
 
+func (i EventOrchestrationGlobalSetRuleActionsExtractionArray) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationGlobalSetRuleActionsExtraction] {
+	return pulumix.Output[[]EventOrchestrationGlobalSetRuleActionsExtraction]{
+		OutputState: i.ToEventOrchestrationGlobalSetRuleActionsExtractionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationGlobalSetRuleActionsExtractionOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationGlobalSetRuleActionsExtractionOutput) ElementType() reflect.Type {
@@ -2498,6 +2883,12 @@ func (o EventOrchestrationGlobalSetRuleActionsExtractionOutput) ToEventOrchestra
 
 func (o EventOrchestrationGlobalSetRuleActionsExtractionOutput) ToEventOrchestrationGlobalSetRuleActionsExtractionOutputWithContext(ctx context.Context) EventOrchestrationGlobalSetRuleActionsExtractionOutput {
 	return o
+}
+
+func (o EventOrchestrationGlobalSetRuleActionsExtractionOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationGlobalSetRuleActionsExtraction] {
+	return pulumix.Output[EventOrchestrationGlobalSetRuleActionsExtraction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
@@ -2534,6 +2925,12 @@ func (o EventOrchestrationGlobalSetRuleActionsExtractionArrayOutput) ToEventOrch
 
 func (o EventOrchestrationGlobalSetRuleActionsExtractionArrayOutput) ToEventOrchestrationGlobalSetRuleActionsExtractionArrayOutputWithContext(ctx context.Context) EventOrchestrationGlobalSetRuleActionsExtractionArrayOutput {
 	return o
+}
+
+func (o EventOrchestrationGlobalSetRuleActionsExtractionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationGlobalSetRuleActionsExtraction] {
+	return pulumix.Output[[]EventOrchestrationGlobalSetRuleActionsExtraction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationGlobalSetRuleActionsExtractionArrayOutput) Index(i pulumi.IntInput) EventOrchestrationGlobalSetRuleActionsExtractionOutput {
@@ -2587,6 +2984,12 @@ func (i EventOrchestrationGlobalSetRuleActionsVariableArgs) ToEventOrchestration
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalSetRuleActionsVariableOutput)
 }
 
+func (i EventOrchestrationGlobalSetRuleActionsVariableArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationGlobalSetRuleActionsVariable] {
+	return pulumix.Output[EventOrchestrationGlobalSetRuleActionsVariable]{
+		OutputState: i.ToEventOrchestrationGlobalSetRuleActionsVariableOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventOrchestrationGlobalSetRuleActionsVariableArrayInput is an input type that accepts EventOrchestrationGlobalSetRuleActionsVariableArray and EventOrchestrationGlobalSetRuleActionsVariableArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationGlobalSetRuleActionsVariableArrayInput` via:
 //
@@ -2612,6 +3015,12 @@ func (i EventOrchestrationGlobalSetRuleActionsVariableArray) ToEventOrchestratio
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalSetRuleActionsVariableArrayOutput)
 }
 
+func (i EventOrchestrationGlobalSetRuleActionsVariableArray) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationGlobalSetRuleActionsVariable] {
+	return pulumix.Output[[]EventOrchestrationGlobalSetRuleActionsVariable]{
+		OutputState: i.ToEventOrchestrationGlobalSetRuleActionsVariableArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationGlobalSetRuleActionsVariableOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationGlobalSetRuleActionsVariableOutput) ElementType() reflect.Type {
@@ -2624,6 +3033,12 @@ func (o EventOrchestrationGlobalSetRuleActionsVariableOutput) ToEventOrchestrati
 
 func (o EventOrchestrationGlobalSetRuleActionsVariableOutput) ToEventOrchestrationGlobalSetRuleActionsVariableOutputWithContext(ctx context.Context) EventOrchestrationGlobalSetRuleActionsVariableOutput {
 	return o
+}
+
+func (o EventOrchestrationGlobalSetRuleActionsVariableOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationGlobalSetRuleActionsVariable] {
+	return pulumix.Output[EventOrchestrationGlobalSetRuleActionsVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of this Webhook.
@@ -2658,6 +3073,12 @@ func (o EventOrchestrationGlobalSetRuleActionsVariableArrayOutput) ToEventOrches
 
 func (o EventOrchestrationGlobalSetRuleActionsVariableArrayOutput) ToEventOrchestrationGlobalSetRuleActionsVariableArrayOutputWithContext(ctx context.Context) EventOrchestrationGlobalSetRuleActionsVariableArrayOutput {
 	return o
+}
+
+func (o EventOrchestrationGlobalSetRuleActionsVariableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationGlobalSetRuleActionsVariable] {
+	return pulumix.Output[[]EventOrchestrationGlobalSetRuleActionsVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationGlobalSetRuleActionsVariableArrayOutput) Index(i pulumi.IntInput) EventOrchestrationGlobalSetRuleActionsVariableOutput {
@@ -2699,6 +3120,12 @@ func (i EventOrchestrationGlobalSetRuleConditionArgs) ToEventOrchestrationGlobal
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalSetRuleConditionOutput)
 }
 
+func (i EventOrchestrationGlobalSetRuleConditionArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationGlobalSetRuleCondition] {
+	return pulumix.Output[EventOrchestrationGlobalSetRuleCondition]{
+		OutputState: i.ToEventOrchestrationGlobalSetRuleConditionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventOrchestrationGlobalSetRuleConditionArrayInput is an input type that accepts EventOrchestrationGlobalSetRuleConditionArray and EventOrchestrationGlobalSetRuleConditionArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationGlobalSetRuleConditionArrayInput` via:
 //
@@ -2724,6 +3151,12 @@ func (i EventOrchestrationGlobalSetRuleConditionArray) ToEventOrchestrationGloba
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalSetRuleConditionArrayOutput)
 }
 
+func (i EventOrchestrationGlobalSetRuleConditionArray) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationGlobalSetRuleCondition] {
+	return pulumix.Output[[]EventOrchestrationGlobalSetRuleCondition]{
+		OutputState: i.ToEventOrchestrationGlobalSetRuleConditionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationGlobalSetRuleConditionOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationGlobalSetRuleConditionOutput) ElementType() reflect.Type {
@@ -2736,6 +3169,12 @@ func (o EventOrchestrationGlobalSetRuleConditionOutput) ToEventOrchestrationGlob
 
 func (o EventOrchestrationGlobalSetRuleConditionOutput) ToEventOrchestrationGlobalSetRuleConditionOutputWithContext(ctx context.Context) EventOrchestrationGlobalSetRuleConditionOutput {
 	return o
+}
+
+func (o EventOrchestrationGlobalSetRuleConditionOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationGlobalSetRuleCondition] {
+	return pulumix.Output[EventOrchestrationGlobalSetRuleCondition]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
@@ -2755,6 +3194,12 @@ func (o EventOrchestrationGlobalSetRuleConditionArrayOutput) ToEventOrchestratio
 
 func (o EventOrchestrationGlobalSetRuleConditionArrayOutput) ToEventOrchestrationGlobalSetRuleConditionArrayOutputWithContext(ctx context.Context) EventOrchestrationGlobalSetRuleConditionArrayOutput {
 	return o
+}
+
+func (o EventOrchestrationGlobalSetRuleConditionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationGlobalSetRuleCondition] {
+	return pulumix.Output[[]EventOrchestrationGlobalSetRuleCondition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationGlobalSetRuleConditionArrayOutput) Index(i pulumi.IntInput) EventOrchestrationGlobalSetRuleConditionOutput {
@@ -2800,6 +3245,12 @@ func (i EventOrchestrationIntegrationTypeArgs) ToEventOrchestrationIntegrationTy
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationIntegrationTypeOutput)
 }
 
+func (i EventOrchestrationIntegrationTypeArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationIntegrationType] {
+	return pulumix.Output[EventOrchestrationIntegrationType]{
+		OutputState: i.ToEventOrchestrationIntegrationTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventOrchestrationIntegrationTypeArrayInput is an input type that accepts EventOrchestrationIntegrationTypeArray and EventOrchestrationIntegrationTypeArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationIntegrationTypeArrayInput` via:
 //
@@ -2825,6 +3276,12 @@ func (i EventOrchestrationIntegrationTypeArray) ToEventOrchestrationIntegrationT
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationIntegrationTypeArrayOutput)
 }
 
+func (i EventOrchestrationIntegrationTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationIntegrationType] {
+	return pulumix.Output[[]EventOrchestrationIntegrationType]{
+		OutputState: i.ToEventOrchestrationIntegrationTypeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationIntegrationTypeOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationIntegrationTypeOutput) ElementType() reflect.Type {
@@ -2837,6 +3294,12 @@ func (o EventOrchestrationIntegrationTypeOutput) ToEventOrchestrationIntegration
 
 func (o EventOrchestrationIntegrationTypeOutput) ToEventOrchestrationIntegrationTypeOutputWithContext(ctx context.Context) EventOrchestrationIntegrationTypeOutput {
 	return o
+}
+
+func (o EventOrchestrationIntegrationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationIntegrationType] {
+	return pulumix.Output[EventOrchestrationIntegrationType]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ID of the integration
@@ -2866,6 +3329,12 @@ func (o EventOrchestrationIntegrationTypeArrayOutput) ToEventOrchestrationIntegr
 
 func (o EventOrchestrationIntegrationTypeArrayOutput) ToEventOrchestrationIntegrationTypeArrayOutputWithContext(ctx context.Context) EventOrchestrationIntegrationTypeArrayOutput {
 	return o
+}
+
+func (o EventOrchestrationIntegrationTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationIntegrationType] {
+	return pulumix.Output[[]EventOrchestrationIntegrationType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationIntegrationTypeArrayOutput) Index(i pulumi.IntInput) EventOrchestrationIntegrationTypeOutput {
@@ -2911,6 +3380,12 @@ func (i EventOrchestrationIntegrationParameterArgs) ToEventOrchestrationIntegrat
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationIntegrationParameterOutput)
 }
 
+func (i EventOrchestrationIntegrationParameterArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationIntegrationParameter] {
+	return pulumix.Output[EventOrchestrationIntegrationParameter]{
+		OutputState: i.ToEventOrchestrationIntegrationParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventOrchestrationIntegrationParameterArrayInput is an input type that accepts EventOrchestrationIntegrationParameterArray and EventOrchestrationIntegrationParameterArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationIntegrationParameterArrayInput` via:
 //
@@ -2936,6 +3411,12 @@ func (i EventOrchestrationIntegrationParameterArray) ToEventOrchestrationIntegra
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationIntegrationParameterArrayOutput)
 }
 
+func (i EventOrchestrationIntegrationParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationIntegrationParameter] {
+	return pulumix.Output[[]EventOrchestrationIntegrationParameter]{
+		OutputState: i.ToEventOrchestrationIntegrationParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationIntegrationParameterOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationIntegrationParameterOutput) ElementType() reflect.Type {
@@ -2948,6 +3429,12 @@ func (o EventOrchestrationIntegrationParameterOutput) ToEventOrchestrationIntegr
 
 func (o EventOrchestrationIntegrationParameterOutput) ToEventOrchestrationIntegrationParameterOutputWithContext(ctx context.Context) EventOrchestrationIntegrationParameterOutput {
 	return o
+}
+
+func (o EventOrchestrationIntegrationParameterOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationIntegrationParameter] {
+	return pulumix.Output[EventOrchestrationIntegrationParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Routing key that routes to this Orchestration.
@@ -2972,6 +3459,12 @@ func (o EventOrchestrationIntegrationParameterArrayOutput) ToEventOrchestrationI
 
 func (o EventOrchestrationIntegrationParameterArrayOutput) ToEventOrchestrationIntegrationParameterArrayOutputWithContext(ctx context.Context) EventOrchestrationIntegrationParameterArrayOutput {
 	return o
+}
+
+func (o EventOrchestrationIntegrationParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationIntegrationParameter] {
+	return pulumix.Output[[]EventOrchestrationIntegrationParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationIntegrationParameterArrayOutput) Index(i pulumi.IntInput) EventOrchestrationIntegrationParameterOutput {
@@ -3011,6 +3504,12 @@ func (i EventOrchestrationRouterCatchAllArgs) ToEventOrchestrationRouterCatchAll
 
 func (i EventOrchestrationRouterCatchAllArgs) ToEventOrchestrationRouterCatchAllOutputWithContext(ctx context.Context) EventOrchestrationRouterCatchAllOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationRouterCatchAllOutput)
+}
+
+func (i EventOrchestrationRouterCatchAllArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationRouterCatchAll] {
+	return pulumix.Output[EventOrchestrationRouterCatchAll]{
+		OutputState: i.ToEventOrchestrationRouterCatchAllOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i EventOrchestrationRouterCatchAllArgs) ToEventOrchestrationRouterCatchAllPtrOutput() EventOrchestrationRouterCatchAllPtrOutput {
@@ -3054,6 +3553,12 @@ func (i *eventOrchestrationRouterCatchAllPtrType) ToEventOrchestrationRouterCatc
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationRouterCatchAllPtrOutput)
 }
 
+func (i *eventOrchestrationRouterCatchAllPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationRouterCatchAll] {
+	return pulumix.Output[*EventOrchestrationRouterCatchAll]{
+		OutputState: i.ToEventOrchestrationRouterCatchAllPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationRouterCatchAllOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationRouterCatchAllOutput) ElementType() reflect.Type {
@@ -3078,6 +3583,12 @@ func (o EventOrchestrationRouterCatchAllOutput) ToEventOrchestrationRouterCatchA
 	}).(EventOrchestrationRouterCatchAllPtrOutput)
 }
 
+func (o EventOrchestrationRouterCatchAllOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationRouterCatchAll] {
+	return pulumix.Output[EventOrchestrationRouterCatchAll]{
+		OutputState: o.OutputState,
+	}
+}
+
 // These are the actions that will be taken to change the resulting alert and incident.
 func (o EventOrchestrationRouterCatchAllOutput) Actions() EventOrchestrationRouterCatchAllActionsOutput {
 	return o.ApplyT(func(v EventOrchestrationRouterCatchAll) EventOrchestrationRouterCatchAllActions { return v.Actions }).(EventOrchestrationRouterCatchAllActionsOutput)
@@ -3095,6 +3606,12 @@ func (o EventOrchestrationRouterCatchAllPtrOutput) ToEventOrchestrationRouterCat
 
 func (o EventOrchestrationRouterCatchAllPtrOutput) ToEventOrchestrationRouterCatchAllPtrOutputWithContext(ctx context.Context) EventOrchestrationRouterCatchAllPtrOutput {
 	return o
+}
+
+func (o EventOrchestrationRouterCatchAllPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationRouterCatchAll] {
+	return pulumix.Output[*EventOrchestrationRouterCatchAll]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationRouterCatchAllPtrOutput) Elem() EventOrchestrationRouterCatchAllOutput {
@@ -3150,6 +3667,12 @@ func (i EventOrchestrationRouterCatchAllActionsArgs) ToEventOrchestrationRouterC
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationRouterCatchAllActionsOutput)
 }
 
+func (i EventOrchestrationRouterCatchAllActionsArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationRouterCatchAllActions] {
+	return pulumix.Output[EventOrchestrationRouterCatchAllActions]{
+		OutputState: i.ToEventOrchestrationRouterCatchAllActionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventOrchestrationRouterCatchAllActionsArgs) ToEventOrchestrationRouterCatchAllActionsPtrOutput() EventOrchestrationRouterCatchAllActionsPtrOutput {
 	return i.ToEventOrchestrationRouterCatchAllActionsPtrOutputWithContext(context.Background())
 }
@@ -3191,6 +3714,12 @@ func (i *eventOrchestrationRouterCatchAllActionsPtrType) ToEventOrchestrationRou
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationRouterCatchAllActionsPtrOutput)
 }
 
+func (i *eventOrchestrationRouterCatchAllActionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationRouterCatchAllActions] {
+	return pulumix.Output[*EventOrchestrationRouterCatchAllActions]{
+		OutputState: i.ToEventOrchestrationRouterCatchAllActionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationRouterCatchAllActionsOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationRouterCatchAllActionsOutput) ElementType() reflect.Type {
@@ -3215,6 +3744,12 @@ func (o EventOrchestrationRouterCatchAllActionsOutput) ToEventOrchestrationRoute
 	}).(EventOrchestrationRouterCatchAllActionsPtrOutput)
 }
 
+func (o EventOrchestrationRouterCatchAllActionsOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationRouterCatchAllActions] {
+	return pulumix.Output[EventOrchestrationRouterCatchAllActions]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the target Service for the resulting alert.
 func (o EventOrchestrationRouterCatchAllActionsOutput) RouteTo() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationRouterCatchAllActions) string { return v.RouteTo }).(pulumi.StringOutput)
@@ -3232,6 +3767,12 @@ func (o EventOrchestrationRouterCatchAllActionsPtrOutput) ToEventOrchestrationRo
 
 func (o EventOrchestrationRouterCatchAllActionsPtrOutput) ToEventOrchestrationRouterCatchAllActionsPtrOutputWithContext(ctx context.Context) EventOrchestrationRouterCatchAllActionsPtrOutput {
 	return o
+}
+
+func (o EventOrchestrationRouterCatchAllActionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationRouterCatchAllActions] {
+	return pulumix.Output[*EventOrchestrationRouterCatchAllActions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationRouterCatchAllActionsPtrOutput) Elem() EventOrchestrationRouterCatchAllActionsOutput {
@@ -3289,6 +3830,12 @@ func (i EventOrchestrationRouterSetArgs) ToEventOrchestrationRouterSetOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationRouterSetOutput)
 }
 
+func (i EventOrchestrationRouterSetArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationRouterSet] {
+	return pulumix.Output[EventOrchestrationRouterSet]{
+		OutputState: i.ToEventOrchestrationRouterSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventOrchestrationRouterSetArgs) ToEventOrchestrationRouterSetPtrOutput() EventOrchestrationRouterSetPtrOutput {
 	return i.ToEventOrchestrationRouterSetPtrOutputWithContext(context.Background())
 }
@@ -3330,6 +3877,12 @@ func (i *eventOrchestrationRouterSetPtrType) ToEventOrchestrationRouterSetPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationRouterSetPtrOutput)
 }
 
+func (i *eventOrchestrationRouterSetPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationRouterSet] {
+	return pulumix.Output[*EventOrchestrationRouterSet]{
+		OutputState: i.ToEventOrchestrationRouterSetPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationRouterSetOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationRouterSetOutput) ElementType() reflect.Type {
@@ -3354,6 +3907,12 @@ func (o EventOrchestrationRouterSetOutput) ToEventOrchestrationRouterSetPtrOutpu
 	}).(EventOrchestrationRouterSetPtrOutput)
 }
 
+func (o EventOrchestrationRouterSetOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationRouterSet] {
+	return pulumix.Output[EventOrchestrationRouterSet]{
+		OutputState: o.OutputState,
+	}
+}
+
 // ID of the `start` set. Router supports only one set and it's id has to be `start`
 func (o EventOrchestrationRouterSetOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationRouterSet) string { return v.Id }).(pulumi.StringOutput)
@@ -3375,6 +3934,12 @@ func (o EventOrchestrationRouterSetPtrOutput) ToEventOrchestrationRouterSetPtrOu
 
 func (o EventOrchestrationRouterSetPtrOutput) ToEventOrchestrationRouterSetPtrOutputWithContext(ctx context.Context) EventOrchestrationRouterSetPtrOutput {
 	return o
+}
+
+func (o EventOrchestrationRouterSetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationRouterSet] {
+	return pulumix.Output[*EventOrchestrationRouterSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationRouterSetPtrOutput) Elem() EventOrchestrationRouterSetOutput {
@@ -3455,6 +4020,12 @@ func (i EventOrchestrationRouterSetRuleArgs) ToEventOrchestrationRouterSetRuleOu
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationRouterSetRuleOutput)
 }
 
+func (i EventOrchestrationRouterSetRuleArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationRouterSetRule] {
+	return pulumix.Output[EventOrchestrationRouterSetRule]{
+		OutputState: i.ToEventOrchestrationRouterSetRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventOrchestrationRouterSetRuleArrayInput is an input type that accepts EventOrchestrationRouterSetRuleArray and EventOrchestrationRouterSetRuleArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationRouterSetRuleArrayInput` via:
 //
@@ -3480,6 +4051,12 @@ func (i EventOrchestrationRouterSetRuleArray) ToEventOrchestrationRouterSetRuleA
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationRouterSetRuleArrayOutput)
 }
 
+func (i EventOrchestrationRouterSetRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationRouterSetRule] {
+	return pulumix.Output[[]EventOrchestrationRouterSetRule]{
+		OutputState: i.ToEventOrchestrationRouterSetRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationRouterSetRuleOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationRouterSetRuleOutput) ElementType() reflect.Type {
@@ -3492,6 +4069,12 @@ func (o EventOrchestrationRouterSetRuleOutput) ToEventOrchestrationRouterSetRule
 
 func (o EventOrchestrationRouterSetRuleOutput) ToEventOrchestrationRouterSetRuleOutputWithContext(ctx context.Context) EventOrchestrationRouterSetRuleOutput {
 	return o
+}
+
+func (o EventOrchestrationRouterSetRuleOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationRouterSetRule] {
+	return pulumix.Output[EventOrchestrationRouterSetRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
@@ -3535,6 +4118,12 @@ func (o EventOrchestrationRouterSetRuleArrayOutput) ToEventOrchestrationRouterSe
 	return o
 }
 
+func (o EventOrchestrationRouterSetRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationRouterSetRule] {
+	return pulumix.Output[[]EventOrchestrationRouterSetRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EventOrchestrationRouterSetRuleArrayOutput) Index(i pulumi.IntInput) EventOrchestrationRouterSetRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventOrchestrationRouterSetRule {
 		return vs[0].([]EventOrchestrationRouterSetRule)[vs[1].(int)]
@@ -3574,6 +4163,12 @@ func (i EventOrchestrationRouterSetRuleActionsArgs) ToEventOrchestrationRouterSe
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationRouterSetRuleActionsOutput)
 }
 
+func (i EventOrchestrationRouterSetRuleActionsArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationRouterSetRuleActions] {
+	return pulumix.Output[EventOrchestrationRouterSetRuleActions]{
+		OutputState: i.ToEventOrchestrationRouterSetRuleActionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationRouterSetRuleActionsOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationRouterSetRuleActionsOutput) ElementType() reflect.Type {
@@ -3586,6 +4181,12 @@ func (o EventOrchestrationRouterSetRuleActionsOutput) ToEventOrchestrationRouter
 
 func (o EventOrchestrationRouterSetRuleActionsOutput) ToEventOrchestrationRouterSetRuleActionsOutputWithContext(ctx context.Context) EventOrchestrationRouterSetRuleActionsOutput {
 	return o
+}
+
+func (o EventOrchestrationRouterSetRuleActionsOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationRouterSetRuleActions] {
+	return pulumix.Output[EventOrchestrationRouterSetRuleActions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the target Service for the resulting alert.
@@ -3626,6 +4227,12 @@ func (i EventOrchestrationRouterSetRuleConditionArgs) ToEventOrchestrationRouter
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationRouterSetRuleConditionOutput)
 }
 
+func (i EventOrchestrationRouterSetRuleConditionArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationRouterSetRuleCondition] {
+	return pulumix.Output[EventOrchestrationRouterSetRuleCondition]{
+		OutputState: i.ToEventOrchestrationRouterSetRuleConditionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventOrchestrationRouterSetRuleConditionArrayInput is an input type that accepts EventOrchestrationRouterSetRuleConditionArray and EventOrchestrationRouterSetRuleConditionArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationRouterSetRuleConditionArrayInput` via:
 //
@@ -3651,6 +4258,12 @@ func (i EventOrchestrationRouterSetRuleConditionArray) ToEventOrchestrationRoute
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationRouterSetRuleConditionArrayOutput)
 }
 
+func (i EventOrchestrationRouterSetRuleConditionArray) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationRouterSetRuleCondition] {
+	return pulumix.Output[[]EventOrchestrationRouterSetRuleCondition]{
+		OutputState: i.ToEventOrchestrationRouterSetRuleConditionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationRouterSetRuleConditionOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationRouterSetRuleConditionOutput) ElementType() reflect.Type {
@@ -3663,6 +4276,12 @@ func (o EventOrchestrationRouterSetRuleConditionOutput) ToEventOrchestrationRout
 
 func (o EventOrchestrationRouterSetRuleConditionOutput) ToEventOrchestrationRouterSetRuleConditionOutputWithContext(ctx context.Context) EventOrchestrationRouterSetRuleConditionOutput {
 	return o
+}
+
+func (o EventOrchestrationRouterSetRuleConditionOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationRouterSetRuleCondition] {
+	return pulumix.Output[EventOrchestrationRouterSetRuleCondition]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
@@ -3682,6 +4301,12 @@ func (o EventOrchestrationRouterSetRuleConditionArrayOutput) ToEventOrchestratio
 
 func (o EventOrchestrationRouterSetRuleConditionArrayOutput) ToEventOrchestrationRouterSetRuleConditionArrayOutputWithContext(ctx context.Context) EventOrchestrationRouterSetRuleConditionArrayOutput {
 	return o
+}
+
+func (o EventOrchestrationRouterSetRuleConditionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationRouterSetRuleCondition] {
+	return pulumix.Output[[]EventOrchestrationRouterSetRuleCondition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationRouterSetRuleConditionArrayOutput) Index(i pulumi.IntInput) EventOrchestrationRouterSetRuleConditionOutput {
@@ -3721,6 +4346,12 @@ func (i EventOrchestrationServiceCatchAllArgs) ToEventOrchestrationServiceCatchA
 
 func (i EventOrchestrationServiceCatchAllArgs) ToEventOrchestrationServiceCatchAllOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCatchAllOutput)
+}
+
+func (i EventOrchestrationServiceCatchAllArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationServiceCatchAll] {
+	return pulumix.Output[EventOrchestrationServiceCatchAll]{
+		OutputState: i.ToEventOrchestrationServiceCatchAllOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i EventOrchestrationServiceCatchAllArgs) ToEventOrchestrationServiceCatchAllPtrOutput() EventOrchestrationServiceCatchAllPtrOutput {
@@ -3764,6 +4395,12 @@ func (i *eventOrchestrationServiceCatchAllPtrType) ToEventOrchestrationServiceCa
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCatchAllPtrOutput)
 }
 
+func (i *eventOrchestrationServiceCatchAllPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationServiceCatchAll] {
+	return pulumix.Output[*EventOrchestrationServiceCatchAll]{
+		OutputState: i.ToEventOrchestrationServiceCatchAllPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationServiceCatchAllOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationServiceCatchAllOutput) ElementType() reflect.Type {
@@ -3788,6 +4425,12 @@ func (o EventOrchestrationServiceCatchAllOutput) ToEventOrchestrationServiceCatc
 	}).(EventOrchestrationServiceCatchAllPtrOutput)
 }
 
+func (o EventOrchestrationServiceCatchAllOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationServiceCatchAll] {
+	return pulumix.Output[EventOrchestrationServiceCatchAll]{
+		OutputState: o.OutputState,
+	}
+}
+
 // These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
 func (o EventOrchestrationServiceCatchAllOutput) Actions() EventOrchestrationServiceCatchAllActionsOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceCatchAll) EventOrchestrationServiceCatchAllActions { return v.Actions }).(EventOrchestrationServiceCatchAllActionsOutput)
@@ -3805,6 +4448,12 @@ func (o EventOrchestrationServiceCatchAllPtrOutput) ToEventOrchestrationServiceC
 
 func (o EventOrchestrationServiceCatchAllPtrOutput) ToEventOrchestrationServiceCatchAllPtrOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllPtrOutput {
 	return o
+}
+
+func (o EventOrchestrationServiceCatchAllPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationServiceCatchAll] {
+	return pulumix.Output[*EventOrchestrationServiceCatchAll]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationServiceCatchAllPtrOutput) Elem() EventOrchestrationServiceCatchAllOutput {
@@ -3900,6 +4549,12 @@ func (i EventOrchestrationServiceCatchAllActionsArgs) ToEventOrchestrationServic
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCatchAllActionsOutput)
 }
 
+func (i EventOrchestrationServiceCatchAllActionsArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationServiceCatchAllActions] {
+	return pulumix.Output[EventOrchestrationServiceCatchAllActions]{
+		OutputState: i.ToEventOrchestrationServiceCatchAllActionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventOrchestrationServiceCatchAllActionsArgs) ToEventOrchestrationServiceCatchAllActionsPtrOutput() EventOrchestrationServiceCatchAllActionsPtrOutput {
 	return i.ToEventOrchestrationServiceCatchAllActionsPtrOutputWithContext(context.Background())
 }
@@ -3941,6 +4596,12 @@ func (i *eventOrchestrationServiceCatchAllActionsPtrType) ToEventOrchestrationSe
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCatchAllActionsPtrOutput)
 }
 
+func (i *eventOrchestrationServiceCatchAllActionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationServiceCatchAllActions] {
+	return pulumix.Output[*EventOrchestrationServiceCatchAllActions]{
+		OutputState: i.ToEventOrchestrationServiceCatchAllActionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationServiceCatchAllActionsOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationServiceCatchAllActionsOutput) ElementType() reflect.Type {
@@ -3963,6 +4624,12 @@ func (o EventOrchestrationServiceCatchAllActionsOutput) ToEventOrchestrationServ
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventOrchestrationServiceCatchAllActions) *EventOrchestrationServiceCatchAllActions {
 		return &v
 	}).(EventOrchestrationServiceCatchAllActionsPtrOutput)
+}
+
+func (o EventOrchestrationServiceCatchAllActionsOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationServiceCatchAllActions] {
+	return pulumix.Output[EventOrchestrationServiceCatchAllActions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Add this text as a note on the resulting incident.
@@ -4040,6 +4707,12 @@ func (o EventOrchestrationServiceCatchAllActionsPtrOutput) ToEventOrchestrationS
 
 func (o EventOrchestrationServiceCatchAllActionsPtrOutput) ToEventOrchestrationServiceCatchAllActionsPtrOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsPtrOutput {
 	return o
+}
+
+func (o EventOrchestrationServiceCatchAllActionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationServiceCatchAllActions] {
+	return pulumix.Output[*EventOrchestrationServiceCatchAllActions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationServiceCatchAllActionsPtrOutput) Elem() EventOrchestrationServiceCatchAllActionsOutput {
@@ -4211,6 +4884,12 @@ func (i EventOrchestrationServiceCatchAllActionsAutomationActionArgs) ToEventOrc
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCatchAllActionsAutomationActionOutput)
 }
 
+func (i EventOrchestrationServiceCatchAllActionsAutomationActionArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationServiceCatchAllActionsAutomationAction] {
+	return pulumix.Output[EventOrchestrationServiceCatchAllActionsAutomationAction]{
+		OutputState: i.ToEventOrchestrationServiceCatchAllActionsAutomationActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventOrchestrationServiceCatchAllActionsAutomationActionArgs) ToEventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput() EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput {
 	return i.ToEventOrchestrationServiceCatchAllActionsAutomationActionPtrOutputWithContext(context.Background())
 }
@@ -4252,6 +4931,12 @@ func (i *eventOrchestrationServiceCatchAllActionsAutomationActionPtrType) ToEven
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput)
 }
 
+func (i *eventOrchestrationServiceCatchAllActionsAutomationActionPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationServiceCatchAllActionsAutomationAction] {
+	return pulumix.Output[*EventOrchestrationServiceCatchAllActionsAutomationAction]{
+		OutputState: i.ToEventOrchestrationServiceCatchAllActionsAutomationActionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationServiceCatchAllActionsAutomationActionOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationServiceCatchAllActionsAutomationActionOutput) ElementType() reflect.Type {
@@ -4274,6 +4959,12 @@ func (o EventOrchestrationServiceCatchAllActionsAutomationActionOutput) ToEventO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventOrchestrationServiceCatchAllActionsAutomationAction) *EventOrchestrationServiceCatchAllActionsAutomationAction {
 		return &v
 	}).(EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput)
+}
+
+func (o EventOrchestrationServiceCatchAllActionsAutomationActionOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationServiceCatchAllActionsAutomationAction] {
+	return pulumix.Output[EventOrchestrationServiceCatchAllActionsAutomationAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
@@ -4317,6 +5008,12 @@ func (o EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput) ToEve
 
 func (o EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput) ToEventOrchestrationServiceCatchAllActionsAutomationActionPtrOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput {
 	return o
+}
+
+func (o EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationServiceCatchAllActionsAutomationAction] {
+	return pulumix.Output[*EventOrchestrationServiceCatchAllActionsAutomationAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput) Elem() EventOrchestrationServiceCatchAllActionsAutomationActionOutput {
@@ -4416,6 +5113,12 @@ func (i EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgs) ToEv
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutput)
 }
 
+func (i EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationServiceCatchAllActionsAutomationActionHeader] {
+	return pulumix.Output[EventOrchestrationServiceCatchAllActionsAutomationActionHeader]{
+		OutputState: i.ToEventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayInput is an input type that accepts EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArray and EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayInput` via:
 //
@@ -4441,6 +5144,12 @@ func (i EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArray) ToE
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutput)
 }
 
+func (i EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationServiceCatchAllActionsAutomationActionHeader] {
+	return pulumix.Output[[]EventOrchestrationServiceCatchAllActionsAutomationActionHeader]{
+		OutputState: i.ToEventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutput) ElementType() reflect.Type {
@@ -4453,6 +5162,12 @@ func (o EventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutput) To
 
 func (o EventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutput) ToEventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutput {
 	return o
+}
+
+func (o EventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationServiceCatchAllActionsAutomationActionHeader] {
+	return pulumix.Output[EventOrchestrationServiceCatchAllActionsAutomationActionHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name to identify the header
@@ -4477,6 +5192,12 @@ func (o EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutpu
 
 func (o EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutput) ToEventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutput {
 	return o
+}
+
+func (o EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationServiceCatchAllActionsAutomationActionHeader] {
+	return pulumix.Output[[]EventOrchestrationServiceCatchAllActionsAutomationActionHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutput) Index(i pulumi.IntInput) EventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutput {
@@ -4522,6 +5243,12 @@ func (i EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgs) T
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCatchAllActionsAutomationActionParameterOutput)
 }
 
+func (i EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationServiceCatchAllActionsAutomationActionParameter] {
+	return pulumix.Output[EventOrchestrationServiceCatchAllActionsAutomationActionParameter]{
+		OutputState: i.ToEventOrchestrationServiceCatchAllActionsAutomationActionParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayInput is an input type that accepts EventOrchestrationServiceCatchAllActionsAutomationActionParameterArray and EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayInput` via:
 //
@@ -4547,6 +5274,12 @@ func (i EventOrchestrationServiceCatchAllActionsAutomationActionParameterArray) 
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayOutput)
 }
 
+func (i EventOrchestrationServiceCatchAllActionsAutomationActionParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationServiceCatchAllActionsAutomationActionParameter] {
+	return pulumix.Output[[]EventOrchestrationServiceCatchAllActionsAutomationActionParameter]{
+		OutputState: i.ToEventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationServiceCatchAllActionsAutomationActionParameterOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationServiceCatchAllActionsAutomationActionParameterOutput) ElementType() reflect.Type {
@@ -4559,6 +5292,12 @@ func (o EventOrchestrationServiceCatchAllActionsAutomationActionParameterOutput)
 
 func (o EventOrchestrationServiceCatchAllActionsAutomationActionParameterOutput) ToEventOrchestrationServiceCatchAllActionsAutomationActionParameterOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsAutomationActionParameterOutput {
 	return o
+}
+
+func (o EventOrchestrationServiceCatchAllActionsAutomationActionParameterOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationServiceCatchAllActionsAutomationActionParameter] {
+	return pulumix.Output[EventOrchestrationServiceCatchAllActionsAutomationActionParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name to identify the header
@@ -4583,6 +5322,12 @@ func (o EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayOu
 
 func (o EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayOutput) ToEventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayOutput {
 	return o
+}
+
+func (o EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationServiceCatchAllActionsAutomationActionParameter] {
+	return pulumix.Output[[]EventOrchestrationServiceCatchAllActionsAutomationActionParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayOutput) Index(i pulumi.IntInput) EventOrchestrationServiceCatchAllActionsAutomationActionParameterOutput {
@@ -4640,6 +5385,12 @@ func (i EventOrchestrationServiceCatchAllActionsExtractionArgs) ToEventOrchestra
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCatchAllActionsExtractionOutput)
 }
 
+func (i EventOrchestrationServiceCatchAllActionsExtractionArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationServiceCatchAllActionsExtraction] {
+	return pulumix.Output[EventOrchestrationServiceCatchAllActionsExtraction]{
+		OutputState: i.ToEventOrchestrationServiceCatchAllActionsExtractionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventOrchestrationServiceCatchAllActionsExtractionArrayInput is an input type that accepts EventOrchestrationServiceCatchAllActionsExtractionArray and EventOrchestrationServiceCatchAllActionsExtractionArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceCatchAllActionsExtractionArrayInput` via:
 //
@@ -4665,6 +5416,12 @@ func (i EventOrchestrationServiceCatchAllActionsExtractionArray) ToEventOrchestr
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCatchAllActionsExtractionArrayOutput)
 }
 
+func (i EventOrchestrationServiceCatchAllActionsExtractionArray) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationServiceCatchAllActionsExtraction] {
+	return pulumix.Output[[]EventOrchestrationServiceCatchAllActionsExtraction]{
+		OutputState: i.ToEventOrchestrationServiceCatchAllActionsExtractionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationServiceCatchAllActionsExtractionOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationServiceCatchAllActionsExtractionOutput) ElementType() reflect.Type {
@@ -4677,6 +5434,12 @@ func (o EventOrchestrationServiceCatchAllActionsExtractionOutput) ToEventOrchest
 
 func (o EventOrchestrationServiceCatchAllActionsExtractionOutput) ToEventOrchestrationServiceCatchAllActionsExtractionOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsExtractionOutput {
 	return o
+}
+
+func (o EventOrchestrationServiceCatchAllActionsExtractionOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationServiceCatchAllActionsExtraction] {
+	return pulumix.Output[EventOrchestrationServiceCatchAllActionsExtraction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
@@ -4713,6 +5476,12 @@ func (o EventOrchestrationServiceCatchAllActionsExtractionArrayOutput) ToEventOr
 
 func (o EventOrchestrationServiceCatchAllActionsExtractionArrayOutput) ToEventOrchestrationServiceCatchAllActionsExtractionArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsExtractionArrayOutput {
 	return o
+}
+
+func (o EventOrchestrationServiceCatchAllActionsExtractionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationServiceCatchAllActionsExtraction] {
+	return pulumix.Output[[]EventOrchestrationServiceCatchAllActionsExtraction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationServiceCatchAllActionsExtractionArrayOutput) Index(i pulumi.IntInput) EventOrchestrationServiceCatchAllActionsExtractionOutput {
@@ -4752,6 +5521,12 @@ func (i EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs) T
 
 func (i EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs) ToEventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutput)
+}
+
+func (i EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction] {
+	return pulumix.Output[EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction]{
+		OutputState: i.ToEventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs) ToEventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput() EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput {
@@ -4795,6 +5570,12 @@ func (i *eventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrTyp
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput)
 }
 
+func (i *eventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction] {
+	return pulumix.Output[*EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction]{
+		OutputState: i.ToEventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutput) ElementType() reflect.Type {
@@ -4819,6 +5600,12 @@ func (o EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutput)
 	}).(EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput)
 }
 
+func (o EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction] {
+	return pulumix.Output[EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Id of the Process Automation action to be triggered.
 func (o EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutput) ActionId() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction) string { return v.ActionId }).(pulumi.StringOutput)
@@ -4836,6 +5623,12 @@ func (o EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutp
 
 func (o EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput) ToEventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput {
 	return o
+}
+
+func (o EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction] {
+	return pulumix.Output[*EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput) Elem() EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutput {
@@ -4903,6 +5696,12 @@ func (i EventOrchestrationServiceCatchAllActionsVariableArgs) ToEventOrchestrati
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCatchAllActionsVariableOutput)
 }
 
+func (i EventOrchestrationServiceCatchAllActionsVariableArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationServiceCatchAllActionsVariable] {
+	return pulumix.Output[EventOrchestrationServiceCatchAllActionsVariable]{
+		OutputState: i.ToEventOrchestrationServiceCatchAllActionsVariableOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventOrchestrationServiceCatchAllActionsVariableArrayInput is an input type that accepts EventOrchestrationServiceCatchAllActionsVariableArray and EventOrchestrationServiceCatchAllActionsVariableArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceCatchAllActionsVariableArrayInput` via:
 //
@@ -4928,6 +5727,12 @@ func (i EventOrchestrationServiceCatchAllActionsVariableArray) ToEventOrchestrat
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCatchAllActionsVariableArrayOutput)
 }
 
+func (i EventOrchestrationServiceCatchAllActionsVariableArray) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationServiceCatchAllActionsVariable] {
+	return pulumix.Output[[]EventOrchestrationServiceCatchAllActionsVariable]{
+		OutputState: i.ToEventOrchestrationServiceCatchAllActionsVariableArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationServiceCatchAllActionsVariableOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationServiceCatchAllActionsVariableOutput) ElementType() reflect.Type {
@@ -4940,6 +5745,12 @@ func (o EventOrchestrationServiceCatchAllActionsVariableOutput) ToEventOrchestra
 
 func (o EventOrchestrationServiceCatchAllActionsVariableOutput) ToEventOrchestrationServiceCatchAllActionsVariableOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsVariableOutput {
 	return o
+}
+
+func (o EventOrchestrationServiceCatchAllActionsVariableOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationServiceCatchAllActionsVariable] {
+	return pulumix.Output[EventOrchestrationServiceCatchAllActionsVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of this Webhook.
@@ -4974,6 +5785,12 @@ func (o EventOrchestrationServiceCatchAllActionsVariableArrayOutput) ToEventOrch
 
 func (o EventOrchestrationServiceCatchAllActionsVariableArrayOutput) ToEventOrchestrationServiceCatchAllActionsVariableArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsVariableArrayOutput {
 	return o
+}
+
+func (o EventOrchestrationServiceCatchAllActionsVariableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationServiceCatchAllActionsVariable] {
+	return pulumix.Output[[]EventOrchestrationServiceCatchAllActionsVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationServiceCatchAllActionsVariableArrayOutput) Index(i pulumi.IntInput) EventOrchestrationServiceCatchAllActionsVariableOutput {
@@ -5017,6 +5834,12 @@ func (i EventOrchestrationServiceSetArgs) ToEventOrchestrationServiceSetOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetOutput)
 }
 
+func (i EventOrchestrationServiceSetArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationServiceSet] {
+	return pulumix.Output[EventOrchestrationServiceSet]{
+		OutputState: i.ToEventOrchestrationServiceSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventOrchestrationServiceSetArrayInput is an input type that accepts EventOrchestrationServiceSetArray and EventOrchestrationServiceSetArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceSetArrayInput` via:
 //
@@ -5042,6 +5865,12 @@ func (i EventOrchestrationServiceSetArray) ToEventOrchestrationServiceSetArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetArrayOutput)
 }
 
+func (i EventOrchestrationServiceSetArray) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationServiceSet] {
+	return pulumix.Output[[]EventOrchestrationServiceSet]{
+		OutputState: i.ToEventOrchestrationServiceSetArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationServiceSetOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationServiceSetOutput) ElementType() reflect.Type {
@@ -5054,6 +5883,12 @@ func (o EventOrchestrationServiceSetOutput) ToEventOrchestrationServiceSetOutput
 
 func (o EventOrchestrationServiceSetOutput) ToEventOrchestrationServiceSetOutputWithContext(ctx context.Context) EventOrchestrationServiceSetOutput {
 	return o
+}
+
+func (o EventOrchestrationServiceSetOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationServiceSet] {
+	return pulumix.Output[EventOrchestrationServiceSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
@@ -5077,6 +5912,12 @@ func (o EventOrchestrationServiceSetArrayOutput) ToEventOrchestrationServiceSetA
 
 func (o EventOrchestrationServiceSetArrayOutput) ToEventOrchestrationServiceSetArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceSetArrayOutput {
 	return o
+}
+
+func (o EventOrchestrationServiceSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationServiceSet] {
+	return pulumix.Output[[]EventOrchestrationServiceSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationServiceSetArrayOutput) Index(i pulumi.IntInput) EventOrchestrationServiceSetOutput {
@@ -5134,6 +5975,12 @@ func (i EventOrchestrationServiceSetRuleArgs) ToEventOrchestrationServiceSetRule
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetRuleOutput)
 }
 
+func (i EventOrchestrationServiceSetRuleArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationServiceSetRule] {
+	return pulumix.Output[EventOrchestrationServiceSetRule]{
+		OutputState: i.ToEventOrchestrationServiceSetRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventOrchestrationServiceSetRuleArrayInput is an input type that accepts EventOrchestrationServiceSetRuleArray and EventOrchestrationServiceSetRuleArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceSetRuleArrayInput` via:
 //
@@ -5159,6 +6006,12 @@ func (i EventOrchestrationServiceSetRuleArray) ToEventOrchestrationServiceSetRul
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetRuleArrayOutput)
 }
 
+func (i EventOrchestrationServiceSetRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationServiceSetRule] {
+	return pulumix.Output[[]EventOrchestrationServiceSetRule]{
+		OutputState: i.ToEventOrchestrationServiceSetRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationServiceSetRuleOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationServiceSetRuleOutput) ElementType() reflect.Type {
@@ -5171,6 +6024,12 @@ func (o EventOrchestrationServiceSetRuleOutput) ToEventOrchestrationServiceSetRu
 
 func (o EventOrchestrationServiceSetRuleOutput) ToEventOrchestrationServiceSetRuleOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleOutput {
 	return o
+}
+
+func (o EventOrchestrationServiceSetRuleOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationServiceSetRule] {
+	return pulumix.Output[EventOrchestrationServiceSetRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
@@ -5212,6 +6071,12 @@ func (o EventOrchestrationServiceSetRuleArrayOutput) ToEventOrchestrationService
 
 func (o EventOrchestrationServiceSetRuleArrayOutput) ToEventOrchestrationServiceSetRuleArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleArrayOutput {
 	return o
+}
+
+func (o EventOrchestrationServiceSetRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationServiceSetRule] {
+	return pulumix.Output[[]EventOrchestrationServiceSetRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationServiceSetRuleArrayOutput) Index(i pulumi.IntInput) EventOrchestrationServiceSetRuleOutput {
@@ -5293,6 +6158,12 @@ func (i EventOrchestrationServiceSetRuleActionsArgs) ToEventOrchestrationService
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetRuleActionsOutput)
 }
 
+func (i EventOrchestrationServiceSetRuleActionsArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationServiceSetRuleActions] {
+	return pulumix.Output[EventOrchestrationServiceSetRuleActions]{
+		OutputState: i.ToEventOrchestrationServiceSetRuleActionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationServiceSetRuleActionsOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationServiceSetRuleActionsOutput) ElementType() reflect.Type {
@@ -5305,6 +6176,12 @@ func (o EventOrchestrationServiceSetRuleActionsOutput) ToEventOrchestrationServi
 
 func (o EventOrchestrationServiceSetRuleActionsOutput) ToEventOrchestrationServiceSetRuleActionsOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsOutput {
 	return o
+}
+
+func (o EventOrchestrationServiceSetRuleActionsOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationServiceSetRuleActions] {
+	return pulumix.Output[EventOrchestrationServiceSetRuleActions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Add this text as a note on the resulting incident.
@@ -5419,6 +6296,12 @@ func (i EventOrchestrationServiceSetRuleActionsAutomationActionArgs) ToEventOrch
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetRuleActionsAutomationActionOutput)
 }
 
+func (i EventOrchestrationServiceSetRuleActionsAutomationActionArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationServiceSetRuleActionsAutomationAction] {
+	return pulumix.Output[EventOrchestrationServiceSetRuleActionsAutomationAction]{
+		OutputState: i.ToEventOrchestrationServiceSetRuleActionsAutomationActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventOrchestrationServiceSetRuleActionsAutomationActionArgs) ToEventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput() EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput {
 	return i.ToEventOrchestrationServiceSetRuleActionsAutomationActionPtrOutputWithContext(context.Background())
 }
@@ -5460,6 +6343,12 @@ func (i *eventOrchestrationServiceSetRuleActionsAutomationActionPtrType) ToEvent
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput)
 }
 
+func (i *eventOrchestrationServiceSetRuleActionsAutomationActionPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationServiceSetRuleActionsAutomationAction] {
+	return pulumix.Output[*EventOrchestrationServiceSetRuleActionsAutomationAction]{
+		OutputState: i.ToEventOrchestrationServiceSetRuleActionsAutomationActionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationServiceSetRuleActionsAutomationActionOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationServiceSetRuleActionsAutomationActionOutput) ElementType() reflect.Type {
@@ -5482,6 +6371,12 @@ func (o EventOrchestrationServiceSetRuleActionsAutomationActionOutput) ToEventOr
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventOrchestrationServiceSetRuleActionsAutomationAction) *EventOrchestrationServiceSetRuleActionsAutomationAction {
 		return &v
 	}).(EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput)
+}
+
+func (o EventOrchestrationServiceSetRuleActionsAutomationActionOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationServiceSetRuleActionsAutomationAction] {
+	return pulumix.Output[EventOrchestrationServiceSetRuleActionsAutomationAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When true, PagerDuty's servers will automatically send this webhook request as soon as the resulting incident is created. When false, your incident responder will be able to manually trigger the Webhook via the PagerDuty website and mobile app.
@@ -5525,6 +6420,12 @@ func (o EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput) ToEven
 
 func (o EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput) ToEventOrchestrationServiceSetRuleActionsAutomationActionPtrOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput {
 	return o
+}
+
+func (o EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationServiceSetRuleActionsAutomationAction] {
+	return pulumix.Output[*EventOrchestrationServiceSetRuleActionsAutomationAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput) Elem() EventOrchestrationServiceSetRuleActionsAutomationActionOutput {
@@ -5624,6 +6525,12 @@ func (i EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs) ToEve
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutput)
 }
 
+func (i EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationServiceSetRuleActionsAutomationActionHeader] {
+	return pulumix.Output[EventOrchestrationServiceSetRuleActionsAutomationActionHeader]{
+		OutputState: i.ToEventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayInput is an input type that accepts EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArray and EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayInput` via:
 //
@@ -5649,6 +6556,12 @@ func (i EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArray) ToEv
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutput)
 }
 
+func (i EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationServiceSetRuleActionsAutomationActionHeader] {
+	return pulumix.Output[[]EventOrchestrationServiceSetRuleActionsAutomationActionHeader]{
+		OutputState: i.ToEventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutput) ElementType() reflect.Type {
@@ -5661,6 +6574,12 @@ func (o EventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutput) ToE
 
 func (o EventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutput) ToEventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutput {
 	return o
+}
+
+func (o EventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationServiceSetRuleActionsAutomationActionHeader] {
+	return pulumix.Output[EventOrchestrationServiceSetRuleActionsAutomationActionHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name to identify the header
@@ -5685,6 +6604,12 @@ func (o EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutput
 
 func (o EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutput) ToEventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutput {
 	return o
+}
+
+func (o EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationServiceSetRuleActionsAutomationActionHeader] {
+	return pulumix.Output[[]EventOrchestrationServiceSetRuleActionsAutomationActionHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutput) Index(i pulumi.IntInput) EventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutput {
@@ -5730,6 +6655,12 @@ func (i EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs) To
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetRuleActionsAutomationActionParameterOutput)
 }
 
+func (i EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationServiceSetRuleActionsAutomationActionParameter] {
+	return pulumix.Output[EventOrchestrationServiceSetRuleActionsAutomationActionParameter]{
+		OutputState: i.ToEventOrchestrationServiceSetRuleActionsAutomationActionParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayInput is an input type that accepts EventOrchestrationServiceSetRuleActionsAutomationActionParameterArray and EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayInput` via:
 //
@@ -5755,6 +6686,12 @@ func (i EventOrchestrationServiceSetRuleActionsAutomationActionParameterArray) T
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayOutput)
 }
 
+func (i EventOrchestrationServiceSetRuleActionsAutomationActionParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationServiceSetRuleActionsAutomationActionParameter] {
+	return pulumix.Output[[]EventOrchestrationServiceSetRuleActionsAutomationActionParameter]{
+		OutputState: i.ToEventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationServiceSetRuleActionsAutomationActionParameterOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationServiceSetRuleActionsAutomationActionParameterOutput) ElementType() reflect.Type {
@@ -5767,6 +6704,12 @@ func (o EventOrchestrationServiceSetRuleActionsAutomationActionParameterOutput) 
 
 func (o EventOrchestrationServiceSetRuleActionsAutomationActionParameterOutput) ToEventOrchestrationServiceSetRuleActionsAutomationActionParameterOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsAutomationActionParameterOutput {
 	return o
+}
+
+func (o EventOrchestrationServiceSetRuleActionsAutomationActionParameterOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationServiceSetRuleActionsAutomationActionParameter] {
+	return pulumix.Output[EventOrchestrationServiceSetRuleActionsAutomationActionParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name to identify the header
@@ -5791,6 +6734,12 @@ func (o EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayOut
 
 func (o EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayOutput) ToEventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayOutput {
 	return o
+}
+
+func (o EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationServiceSetRuleActionsAutomationActionParameter] {
+	return pulumix.Output[[]EventOrchestrationServiceSetRuleActionsAutomationActionParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayOutput) Index(i pulumi.IntInput) EventOrchestrationServiceSetRuleActionsAutomationActionParameterOutput {
@@ -5848,6 +6797,12 @@ func (i EventOrchestrationServiceSetRuleActionsExtractionArgs) ToEventOrchestrat
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetRuleActionsExtractionOutput)
 }
 
+func (i EventOrchestrationServiceSetRuleActionsExtractionArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationServiceSetRuleActionsExtraction] {
+	return pulumix.Output[EventOrchestrationServiceSetRuleActionsExtraction]{
+		OutputState: i.ToEventOrchestrationServiceSetRuleActionsExtractionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventOrchestrationServiceSetRuleActionsExtractionArrayInput is an input type that accepts EventOrchestrationServiceSetRuleActionsExtractionArray and EventOrchestrationServiceSetRuleActionsExtractionArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceSetRuleActionsExtractionArrayInput` via:
 //
@@ -5873,6 +6828,12 @@ func (i EventOrchestrationServiceSetRuleActionsExtractionArray) ToEventOrchestra
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetRuleActionsExtractionArrayOutput)
 }
 
+func (i EventOrchestrationServiceSetRuleActionsExtractionArray) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationServiceSetRuleActionsExtraction] {
+	return pulumix.Output[[]EventOrchestrationServiceSetRuleActionsExtraction]{
+		OutputState: i.ToEventOrchestrationServiceSetRuleActionsExtractionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationServiceSetRuleActionsExtractionOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationServiceSetRuleActionsExtractionOutput) ElementType() reflect.Type {
@@ -5885,6 +6846,12 @@ func (o EventOrchestrationServiceSetRuleActionsExtractionOutput) ToEventOrchestr
 
 func (o EventOrchestrationServiceSetRuleActionsExtractionOutput) ToEventOrchestrationServiceSetRuleActionsExtractionOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsExtractionOutput {
 	return o
+}
+
+func (o EventOrchestrationServiceSetRuleActionsExtractionOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationServiceSetRuleActionsExtraction] {
+	return pulumix.Output[EventOrchestrationServiceSetRuleActionsExtraction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
@@ -5921,6 +6888,12 @@ func (o EventOrchestrationServiceSetRuleActionsExtractionArrayOutput) ToEventOrc
 
 func (o EventOrchestrationServiceSetRuleActionsExtractionArrayOutput) ToEventOrchestrationServiceSetRuleActionsExtractionArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsExtractionArrayOutput {
 	return o
+}
+
+func (o EventOrchestrationServiceSetRuleActionsExtractionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationServiceSetRuleActionsExtraction] {
+	return pulumix.Output[[]EventOrchestrationServiceSetRuleActionsExtraction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationServiceSetRuleActionsExtractionArrayOutput) Index(i pulumi.IntInput) EventOrchestrationServiceSetRuleActionsExtractionOutput {
@@ -5960,6 +6933,12 @@ func (i EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs) To
 
 func (i EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs) ToEventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutput)
+}
+
+func (i EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction] {
+	return pulumix.Output[EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction]{
+		OutputState: i.ToEventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs) ToEventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput() EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput {
@@ -6003,6 +6982,12 @@ func (i *eventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrType
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput)
 }
 
+func (i *eventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction] {
+	return pulumix.Output[*EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction]{
+		OutputState: i.ToEventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutput) ElementType() reflect.Type {
@@ -6027,6 +7012,12 @@ func (o EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutput) 
 	}).(EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput)
 }
 
+func (o EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction] {
+	return pulumix.Output[EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Id of the Process Automation action to be triggered.
 func (o EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutput) ActionId() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction) string { return v.ActionId }).(pulumi.StringOutput)
@@ -6044,6 +7035,12 @@ func (o EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutpu
 
 func (o EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput) ToEventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput {
 	return o
+}
+
+func (o EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction] {
+	return pulumix.Output[*EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput) Elem() EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutput {
@@ -6111,6 +7108,12 @@ func (i EventOrchestrationServiceSetRuleActionsVariableArgs) ToEventOrchestratio
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetRuleActionsVariableOutput)
 }
 
+func (i EventOrchestrationServiceSetRuleActionsVariableArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationServiceSetRuleActionsVariable] {
+	return pulumix.Output[EventOrchestrationServiceSetRuleActionsVariable]{
+		OutputState: i.ToEventOrchestrationServiceSetRuleActionsVariableOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventOrchestrationServiceSetRuleActionsVariableArrayInput is an input type that accepts EventOrchestrationServiceSetRuleActionsVariableArray and EventOrchestrationServiceSetRuleActionsVariableArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceSetRuleActionsVariableArrayInput` via:
 //
@@ -6136,6 +7139,12 @@ func (i EventOrchestrationServiceSetRuleActionsVariableArray) ToEventOrchestrati
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetRuleActionsVariableArrayOutput)
 }
 
+func (i EventOrchestrationServiceSetRuleActionsVariableArray) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationServiceSetRuleActionsVariable] {
+	return pulumix.Output[[]EventOrchestrationServiceSetRuleActionsVariable]{
+		OutputState: i.ToEventOrchestrationServiceSetRuleActionsVariableArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationServiceSetRuleActionsVariableOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationServiceSetRuleActionsVariableOutput) ElementType() reflect.Type {
@@ -6148,6 +7157,12 @@ func (o EventOrchestrationServiceSetRuleActionsVariableOutput) ToEventOrchestrat
 
 func (o EventOrchestrationServiceSetRuleActionsVariableOutput) ToEventOrchestrationServiceSetRuleActionsVariableOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsVariableOutput {
 	return o
+}
+
+func (o EventOrchestrationServiceSetRuleActionsVariableOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationServiceSetRuleActionsVariable] {
+	return pulumix.Output[EventOrchestrationServiceSetRuleActionsVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of this Webhook.
@@ -6182,6 +7197,12 @@ func (o EventOrchestrationServiceSetRuleActionsVariableArrayOutput) ToEventOrche
 
 func (o EventOrchestrationServiceSetRuleActionsVariableArrayOutput) ToEventOrchestrationServiceSetRuleActionsVariableArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsVariableArrayOutput {
 	return o
+}
+
+func (o EventOrchestrationServiceSetRuleActionsVariableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationServiceSetRuleActionsVariable] {
+	return pulumix.Output[[]EventOrchestrationServiceSetRuleActionsVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationServiceSetRuleActionsVariableArrayOutput) Index(i pulumi.IntInput) EventOrchestrationServiceSetRuleActionsVariableOutput {
@@ -6223,6 +7244,12 @@ func (i EventOrchestrationServiceSetRuleConditionArgs) ToEventOrchestrationServi
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetRuleConditionOutput)
 }
 
+func (i EventOrchestrationServiceSetRuleConditionArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationServiceSetRuleCondition] {
+	return pulumix.Output[EventOrchestrationServiceSetRuleCondition]{
+		OutputState: i.ToEventOrchestrationServiceSetRuleConditionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventOrchestrationServiceSetRuleConditionArrayInput is an input type that accepts EventOrchestrationServiceSetRuleConditionArray and EventOrchestrationServiceSetRuleConditionArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceSetRuleConditionArrayInput` via:
 //
@@ -6248,6 +7275,12 @@ func (i EventOrchestrationServiceSetRuleConditionArray) ToEventOrchestrationServ
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetRuleConditionArrayOutput)
 }
 
+func (i EventOrchestrationServiceSetRuleConditionArray) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationServiceSetRuleCondition] {
+	return pulumix.Output[[]EventOrchestrationServiceSetRuleCondition]{
+		OutputState: i.ToEventOrchestrationServiceSetRuleConditionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationServiceSetRuleConditionOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationServiceSetRuleConditionOutput) ElementType() reflect.Type {
@@ -6260,6 +7293,12 @@ func (o EventOrchestrationServiceSetRuleConditionOutput) ToEventOrchestrationSer
 
 func (o EventOrchestrationServiceSetRuleConditionOutput) ToEventOrchestrationServiceSetRuleConditionOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleConditionOutput {
 	return o
+}
+
+func (o EventOrchestrationServiceSetRuleConditionOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationServiceSetRuleCondition] {
+	return pulumix.Output[EventOrchestrationServiceSetRuleCondition]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
@@ -6279,6 +7318,12 @@ func (o EventOrchestrationServiceSetRuleConditionArrayOutput) ToEventOrchestrati
 
 func (o EventOrchestrationServiceSetRuleConditionArrayOutput) ToEventOrchestrationServiceSetRuleConditionArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleConditionArrayOutput {
 	return o
+}
+
+func (o EventOrchestrationServiceSetRuleConditionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationServiceSetRuleCondition] {
+	return pulumix.Output[[]EventOrchestrationServiceSetRuleCondition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationServiceSetRuleConditionArrayOutput) Index(i pulumi.IntInput) EventOrchestrationServiceSetRuleConditionOutput {
@@ -6318,6 +7363,12 @@ func (i EventOrchestrationUnroutedCatchAllArgs) ToEventOrchestrationUnroutedCatc
 
 func (i EventOrchestrationUnroutedCatchAllArgs) ToEventOrchestrationUnroutedCatchAllOutputWithContext(ctx context.Context) EventOrchestrationUnroutedCatchAllOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedCatchAllOutput)
+}
+
+func (i EventOrchestrationUnroutedCatchAllArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationUnroutedCatchAll] {
+	return pulumix.Output[EventOrchestrationUnroutedCatchAll]{
+		OutputState: i.ToEventOrchestrationUnroutedCatchAllOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i EventOrchestrationUnroutedCatchAllArgs) ToEventOrchestrationUnroutedCatchAllPtrOutput() EventOrchestrationUnroutedCatchAllPtrOutput {
@@ -6361,6 +7412,12 @@ func (i *eventOrchestrationUnroutedCatchAllPtrType) ToEventOrchestrationUnrouted
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedCatchAllPtrOutput)
 }
 
+func (i *eventOrchestrationUnroutedCatchAllPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationUnroutedCatchAll] {
+	return pulumix.Output[*EventOrchestrationUnroutedCatchAll]{
+		OutputState: i.ToEventOrchestrationUnroutedCatchAllPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationUnroutedCatchAllOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationUnroutedCatchAllOutput) ElementType() reflect.Type {
@@ -6385,6 +7442,12 @@ func (o EventOrchestrationUnroutedCatchAllOutput) ToEventOrchestrationUnroutedCa
 	}).(EventOrchestrationUnroutedCatchAllPtrOutput)
 }
 
+func (o EventOrchestrationUnroutedCatchAllOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationUnroutedCatchAll] {
+	return pulumix.Output[EventOrchestrationUnroutedCatchAll]{
+		OutputState: o.OutputState,
+	}
+}
+
 // These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
 func (o EventOrchestrationUnroutedCatchAllOutput) Actions() EventOrchestrationUnroutedCatchAllActionsOutput {
 	return o.ApplyT(func(v EventOrchestrationUnroutedCatchAll) EventOrchestrationUnroutedCatchAllActions { return v.Actions }).(EventOrchestrationUnroutedCatchAllActionsOutput)
@@ -6402,6 +7465,12 @@ func (o EventOrchestrationUnroutedCatchAllPtrOutput) ToEventOrchestrationUnroute
 
 func (o EventOrchestrationUnroutedCatchAllPtrOutput) ToEventOrchestrationUnroutedCatchAllPtrOutputWithContext(ctx context.Context) EventOrchestrationUnroutedCatchAllPtrOutput {
 	return o
+}
+
+func (o EventOrchestrationUnroutedCatchAllPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationUnroutedCatchAll] {
+	return pulumix.Output[*EventOrchestrationUnroutedCatchAll]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationUnroutedCatchAllPtrOutput) Elem() EventOrchestrationUnroutedCatchAllOutput {
@@ -6471,6 +7540,12 @@ func (i EventOrchestrationUnroutedCatchAllActionsArgs) ToEventOrchestrationUnrou
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedCatchAllActionsOutput)
 }
 
+func (i EventOrchestrationUnroutedCatchAllActionsArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationUnroutedCatchAllActions] {
+	return pulumix.Output[EventOrchestrationUnroutedCatchAllActions]{
+		OutputState: i.ToEventOrchestrationUnroutedCatchAllActionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventOrchestrationUnroutedCatchAllActionsArgs) ToEventOrchestrationUnroutedCatchAllActionsPtrOutput() EventOrchestrationUnroutedCatchAllActionsPtrOutput {
 	return i.ToEventOrchestrationUnroutedCatchAllActionsPtrOutputWithContext(context.Background())
 }
@@ -6512,6 +7587,12 @@ func (i *eventOrchestrationUnroutedCatchAllActionsPtrType) ToEventOrchestrationU
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedCatchAllActionsPtrOutput)
 }
 
+func (i *eventOrchestrationUnroutedCatchAllActionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationUnroutedCatchAllActions] {
+	return pulumix.Output[*EventOrchestrationUnroutedCatchAllActions]{
+		OutputState: i.ToEventOrchestrationUnroutedCatchAllActionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationUnroutedCatchAllActionsOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationUnroutedCatchAllActionsOutput) ElementType() reflect.Type {
@@ -6534,6 +7615,12 @@ func (o EventOrchestrationUnroutedCatchAllActionsOutput) ToEventOrchestrationUnr
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventOrchestrationUnroutedCatchAllActions) *EventOrchestrationUnroutedCatchAllActions {
 		return &v
 	}).(EventOrchestrationUnroutedCatchAllActionsPtrOutput)
+}
+
+func (o EventOrchestrationUnroutedCatchAllActionsOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationUnroutedCatchAllActions] {
+	return pulumix.Output[EventOrchestrationUnroutedCatchAllActions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
@@ -6576,6 +7663,12 @@ func (o EventOrchestrationUnroutedCatchAllActionsPtrOutput) ToEventOrchestration
 
 func (o EventOrchestrationUnroutedCatchAllActionsPtrOutput) ToEventOrchestrationUnroutedCatchAllActionsPtrOutputWithContext(ctx context.Context) EventOrchestrationUnroutedCatchAllActionsPtrOutput {
 	return o
+}
+
+func (o EventOrchestrationUnroutedCatchAllActionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationUnroutedCatchAllActions] {
+	return pulumix.Output[*EventOrchestrationUnroutedCatchAllActions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationUnroutedCatchAllActionsPtrOutput) Elem() EventOrchestrationUnroutedCatchAllActionsOutput {
@@ -6686,6 +7779,12 @@ func (i EventOrchestrationUnroutedCatchAllActionsExtractionArgs) ToEventOrchestr
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedCatchAllActionsExtractionOutput)
 }
 
+func (i EventOrchestrationUnroutedCatchAllActionsExtractionArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationUnroutedCatchAllActionsExtraction] {
+	return pulumix.Output[EventOrchestrationUnroutedCatchAllActionsExtraction]{
+		OutputState: i.ToEventOrchestrationUnroutedCatchAllActionsExtractionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventOrchestrationUnroutedCatchAllActionsExtractionArrayInput is an input type that accepts EventOrchestrationUnroutedCatchAllActionsExtractionArray and EventOrchestrationUnroutedCatchAllActionsExtractionArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationUnroutedCatchAllActionsExtractionArrayInput` via:
 //
@@ -6711,6 +7810,12 @@ func (i EventOrchestrationUnroutedCatchAllActionsExtractionArray) ToEventOrchest
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedCatchAllActionsExtractionArrayOutput)
 }
 
+func (i EventOrchestrationUnroutedCatchAllActionsExtractionArray) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationUnroutedCatchAllActionsExtraction] {
+	return pulumix.Output[[]EventOrchestrationUnroutedCatchAllActionsExtraction]{
+		OutputState: i.ToEventOrchestrationUnroutedCatchAllActionsExtractionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationUnroutedCatchAllActionsExtractionOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationUnroutedCatchAllActionsExtractionOutput) ElementType() reflect.Type {
@@ -6723,6 +7828,12 @@ func (o EventOrchestrationUnroutedCatchAllActionsExtractionOutput) ToEventOrches
 
 func (o EventOrchestrationUnroutedCatchAllActionsExtractionOutput) ToEventOrchestrationUnroutedCatchAllActionsExtractionOutputWithContext(ctx context.Context) EventOrchestrationUnroutedCatchAllActionsExtractionOutput {
 	return o
+}
+
+func (o EventOrchestrationUnroutedCatchAllActionsExtractionOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationUnroutedCatchAllActionsExtraction] {
+	return pulumix.Output[EventOrchestrationUnroutedCatchAllActionsExtraction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
@@ -6759,6 +7870,12 @@ func (o EventOrchestrationUnroutedCatchAllActionsExtractionArrayOutput) ToEventO
 
 func (o EventOrchestrationUnroutedCatchAllActionsExtractionArrayOutput) ToEventOrchestrationUnroutedCatchAllActionsExtractionArrayOutputWithContext(ctx context.Context) EventOrchestrationUnroutedCatchAllActionsExtractionArrayOutput {
 	return o
+}
+
+func (o EventOrchestrationUnroutedCatchAllActionsExtractionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationUnroutedCatchAllActionsExtraction] {
+	return pulumix.Output[[]EventOrchestrationUnroutedCatchAllActionsExtraction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationUnroutedCatchAllActionsExtractionArrayOutput) Index(i pulumi.IntInput) EventOrchestrationUnroutedCatchAllActionsExtractionOutput {
@@ -6812,6 +7929,12 @@ func (i EventOrchestrationUnroutedCatchAllActionsVariableArgs) ToEventOrchestrat
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedCatchAllActionsVariableOutput)
 }
 
+func (i EventOrchestrationUnroutedCatchAllActionsVariableArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationUnroutedCatchAllActionsVariable] {
+	return pulumix.Output[EventOrchestrationUnroutedCatchAllActionsVariable]{
+		OutputState: i.ToEventOrchestrationUnroutedCatchAllActionsVariableOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventOrchestrationUnroutedCatchAllActionsVariableArrayInput is an input type that accepts EventOrchestrationUnroutedCatchAllActionsVariableArray and EventOrchestrationUnroutedCatchAllActionsVariableArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationUnroutedCatchAllActionsVariableArrayInput` via:
 //
@@ -6837,6 +7960,12 @@ func (i EventOrchestrationUnroutedCatchAllActionsVariableArray) ToEventOrchestra
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedCatchAllActionsVariableArrayOutput)
 }
 
+func (i EventOrchestrationUnroutedCatchAllActionsVariableArray) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationUnroutedCatchAllActionsVariable] {
+	return pulumix.Output[[]EventOrchestrationUnroutedCatchAllActionsVariable]{
+		OutputState: i.ToEventOrchestrationUnroutedCatchAllActionsVariableArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationUnroutedCatchAllActionsVariableOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationUnroutedCatchAllActionsVariableOutput) ElementType() reflect.Type {
@@ -6849,6 +7978,12 @@ func (o EventOrchestrationUnroutedCatchAllActionsVariableOutput) ToEventOrchestr
 
 func (o EventOrchestrationUnroutedCatchAllActionsVariableOutput) ToEventOrchestrationUnroutedCatchAllActionsVariableOutputWithContext(ctx context.Context) EventOrchestrationUnroutedCatchAllActionsVariableOutput {
 	return o
+}
+
+func (o EventOrchestrationUnroutedCatchAllActionsVariableOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationUnroutedCatchAllActionsVariable] {
+	return pulumix.Output[EventOrchestrationUnroutedCatchAllActionsVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the variable
@@ -6883,6 +8018,12 @@ func (o EventOrchestrationUnroutedCatchAllActionsVariableArrayOutput) ToEventOrc
 
 func (o EventOrchestrationUnroutedCatchAllActionsVariableArrayOutput) ToEventOrchestrationUnroutedCatchAllActionsVariableArrayOutputWithContext(ctx context.Context) EventOrchestrationUnroutedCatchAllActionsVariableArrayOutput {
 	return o
+}
+
+func (o EventOrchestrationUnroutedCatchAllActionsVariableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationUnroutedCatchAllActionsVariable] {
+	return pulumix.Output[[]EventOrchestrationUnroutedCatchAllActionsVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationUnroutedCatchAllActionsVariableArrayOutput) Index(i pulumi.IntInput) EventOrchestrationUnroutedCatchAllActionsVariableOutput {
@@ -6926,6 +8067,12 @@ func (i EventOrchestrationUnroutedSetArgs) ToEventOrchestrationUnroutedSetOutput
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedSetOutput)
 }
 
+func (i EventOrchestrationUnroutedSetArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationUnroutedSet] {
+	return pulumix.Output[EventOrchestrationUnroutedSet]{
+		OutputState: i.ToEventOrchestrationUnroutedSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventOrchestrationUnroutedSetArrayInput is an input type that accepts EventOrchestrationUnroutedSetArray and EventOrchestrationUnroutedSetArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationUnroutedSetArrayInput` via:
 //
@@ -6951,6 +8098,12 @@ func (i EventOrchestrationUnroutedSetArray) ToEventOrchestrationUnroutedSetArray
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedSetArrayOutput)
 }
 
+func (i EventOrchestrationUnroutedSetArray) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationUnroutedSet] {
+	return pulumix.Output[[]EventOrchestrationUnroutedSet]{
+		OutputState: i.ToEventOrchestrationUnroutedSetArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationUnroutedSetOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationUnroutedSetOutput) ElementType() reflect.Type {
@@ -6963,6 +8116,12 @@ func (o EventOrchestrationUnroutedSetOutput) ToEventOrchestrationUnroutedSetOutp
 
 func (o EventOrchestrationUnroutedSetOutput) ToEventOrchestrationUnroutedSetOutputWithContext(ctx context.Context) EventOrchestrationUnroutedSetOutput {
 	return o
+}
+
+func (o EventOrchestrationUnroutedSetOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationUnroutedSet] {
+	return pulumix.Output[EventOrchestrationUnroutedSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
@@ -6986,6 +8145,12 @@ func (o EventOrchestrationUnroutedSetArrayOutput) ToEventOrchestrationUnroutedSe
 
 func (o EventOrchestrationUnroutedSetArrayOutput) ToEventOrchestrationUnroutedSetArrayOutputWithContext(ctx context.Context) EventOrchestrationUnroutedSetArrayOutput {
 	return o
+}
+
+func (o EventOrchestrationUnroutedSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationUnroutedSet] {
+	return pulumix.Output[[]EventOrchestrationUnroutedSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationUnroutedSetArrayOutput) Index(i pulumi.IntInput) EventOrchestrationUnroutedSetOutput {
@@ -7043,6 +8208,12 @@ func (i EventOrchestrationUnroutedSetRuleArgs) ToEventOrchestrationUnroutedSetRu
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedSetRuleOutput)
 }
 
+func (i EventOrchestrationUnroutedSetRuleArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationUnroutedSetRule] {
+	return pulumix.Output[EventOrchestrationUnroutedSetRule]{
+		OutputState: i.ToEventOrchestrationUnroutedSetRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventOrchestrationUnroutedSetRuleArrayInput is an input type that accepts EventOrchestrationUnroutedSetRuleArray and EventOrchestrationUnroutedSetRuleArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationUnroutedSetRuleArrayInput` via:
 //
@@ -7068,6 +8239,12 @@ func (i EventOrchestrationUnroutedSetRuleArray) ToEventOrchestrationUnroutedSetR
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedSetRuleArrayOutput)
 }
 
+func (i EventOrchestrationUnroutedSetRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationUnroutedSetRule] {
+	return pulumix.Output[[]EventOrchestrationUnroutedSetRule]{
+		OutputState: i.ToEventOrchestrationUnroutedSetRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationUnroutedSetRuleOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationUnroutedSetRuleOutput) ElementType() reflect.Type {
@@ -7080,6 +8257,12 @@ func (o EventOrchestrationUnroutedSetRuleOutput) ToEventOrchestrationUnroutedSet
 
 func (o EventOrchestrationUnroutedSetRuleOutput) ToEventOrchestrationUnroutedSetRuleOutputWithContext(ctx context.Context) EventOrchestrationUnroutedSetRuleOutput {
 	return o
+}
+
+func (o EventOrchestrationUnroutedSetRuleOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationUnroutedSetRule] {
+	return pulumix.Output[EventOrchestrationUnroutedSetRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
@@ -7121,6 +8304,12 @@ func (o EventOrchestrationUnroutedSetRuleArrayOutput) ToEventOrchestrationUnrout
 
 func (o EventOrchestrationUnroutedSetRuleArrayOutput) ToEventOrchestrationUnroutedSetRuleArrayOutputWithContext(ctx context.Context) EventOrchestrationUnroutedSetRuleArrayOutput {
 	return o
+}
+
+func (o EventOrchestrationUnroutedSetRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationUnroutedSetRule] {
+	return pulumix.Output[[]EventOrchestrationUnroutedSetRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationUnroutedSetRuleArrayOutput) Index(i pulumi.IntInput) EventOrchestrationUnroutedSetRuleOutput {
@@ -7178,6 +8367,12 @@ func (i EventOrchestrationUnroutedSetRuleActionsArgs) ToEventOrchestrationUnrout
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedSetRuleActionsOutput)
 }
 
+func (i EventOrchestrationUnroutedSetRuleActionsArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationUnroutedSetRuleActions] {
+	return pulumix.Output[EventOrchestrationUnroutedSetRuleActions]{
+		OutputState: i.ToEventOrchestrationUnroutedSetRuleActionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationUnroutedSetRuleActionsOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationUnroutedSetRuleActionsOutput) ElementType() reflect.Type {
@@ -7190,6 +8385,12 @@ func (o EventOrchestrationUnroutedSetRuleActionsOutput) ToEventOrchestrationUnro
 
 func (o EventOrchestrationUnroutedSetRuleActionsOutput) ToEventOrchestrationUnroutedSetRuleActionsOutputWithContext(ctx context.Context) EventOrchestrationUnroutedSetRuleActionsOutput {
 	return o
+}
+
+func (o EventOrchestrationUnroutedSetRuleActionsOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationUnroutedSetRuleActions] {
+	return pulumix.Output[EventOrchestrationUnroutedSetRuleActions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
@@ -7270,6 +8471,12 @@ func (i EventOrchestrationUnroutedSetRuleActionsExtractionArgs) ToEventOrchestra
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedSetRuleActionsExtractionOutput)
 }
 
+func (i EventOrchestrationUnroutedSetRuleActionsExtractionArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationUnroutedSetRuleActionsExtraction] {
+	return pulumix.Output[EventOrchestrationUnroutedSetRuleActionsExtraction]{
+		OutputState: i.ToEventOrchestrationUnroutedSetRuleActionsExtractionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventOrchestrationUnroutedSetRuleActionsExtractionArrayInput is an input type that accepts EventOrchestrationUnroutedSetRuleActionsExtractionArray and EventOrchestrationUnroutedSetRuleActionsExtractionArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationUnroutedSetRuleActionsExtractionArrayInput` via:
 //
@@ -7295,6 +8502,12 @@ func (i EventOrchestrationUnroutedSetRuleActionsExtractionArray) ToEventOrchestr
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedSetRuleActionsExtractionArrayOutput)
 }
 
+func (i EventOrchestrationUnroutedSetRuleActionsExtractionArray) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationUnroutedSetRuleActionsExtraction] {
+	return pulumix.Output[[]EventOrchestrationUnroutedSetRuleActionsExtraction]{
+		OutputState: i.ToEventOrchestrationUnroutedSetRuleActionsExtractionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationUnroutedSetRuleActionsExtractionOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationUnroutedSetRuleActionsExtractionOutput) ElementType() reflect.Type {
@@ -7307,6 +8520,12 @@ func (o EventOrchestrationUnroutedSetRuleActionsExtractionOutput) ToEventOrchest
 
 func (o EventOrchestrationUnroutedSetRuleActionsExtractionOutput) ToEventOrchestrationUnroutedSetRuleActionsExtractionOutputWithContext(ctx context.Context) EventOrchestrationUnroutedSetRuleActionsExtractionOutput {
 	return o
+}
+
+func (o EventOrchestrationUnroutedSetRuleActionsExtractionOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationUnroutedSetRuleActionsExtraction] {
+	return pulumix.Output[EventOrchestrationUnroutedSetRuleActionsExtraction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) that will be matched against field specified via the `source` argument. If the regex contains one or more capture groups, their values will be extracted and appended together. If it contains no capture groups, the whole match is used. This field can be ignored for `template` based extractions.
@@ -7343,6 +8562,12 @@ func (o EventOrchestrationUnroutedSetRuleActionsExtractionArrayOutput) ToEventOr
 
 func (o EventOrchestrationUnroutedSetRuleActionsExtractionArrayOutput) ToEventOrchestrationUnroutedSetRuleActionsExtractionArrayOutputWithContext(ctx context.Context) EventOrchestrationUnroutedSetRuleActionsExtractionArrayOutput {
 	return o
+}
+
+func (o EventOrchestrationUnroutedSetRuleActionsExtractionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationUnroutedSetRuleActionsExtraction] {
+	return pulumix.Output[[]EventOrchestrationUnroutedSetRuleActionsExtraction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationUnroutedSetRuleActionsExtractionArrayOutput) Index(i pulumi.IntInput) EventOrchestrationUnroutedSetRuleActionsExtractionOutput {
@@ -7396,6 +8621,12 @@ func (i EventOrchestrationUnroutedSetRuleActionsVariableArgs) ToEventOrchestrati
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedSetRuleActionsVariableOutput)
 }
 
+func (i EventOrchestrationUnroutedSetRuleActionsVariableArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationUnroutedSetRuleActionsVariable] {
+	return pulumix.Output[EventOrchestrationUnroutedSetRuleActionsVariable]{
+		OutputState: i.ToEventOrchestrationUnroutedSetRuleActionsVariableOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventOrchestrationUnroutedSetRuleActionsVariableArrayInput is an input type that accepts EventOrchestrationUnroutedSetRuleActionsVariableArray and EventOrchestrationUnroutedSetRuleActionsVariableArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationUnroutedSetRuleActionsVariableArrayInput` via:
 //
@@ -7421,6 +8652,12 @@ func (i EventOrchestrationUnroutedSetRuleActionsVariableArray) ToEventOrchestrat
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedSetRuleActionsVariableArrayOutput)
 }
 
+func (i EventOrchestrationUnroutedSetRuleActionsVariableArray) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationUnroutedSetRuleActionsVariable] {
+	return pulumix.Output[[]EventOrchestrationUnroutedSetRuleActionsVariable]{
+		OutputState: i.ToEventOrchestrationUnroutedSetRuleActionsVariableArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationUnroutedSetRuleActionsVariableOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationUnroutedSetRuleActionsVariableOutput) ElementType() reflect.Type {
@@ -7433,6 +8670,12 @@ func (o EventOrchestrationUnroutedSetRuleActionsVariableOutput) ToEventOrchestra
 
 func (o EventOrchestrationUnroutedSetRuleActionsVariableOutput) ToEventOrchestrationUnroutedSetRuleActionsVariableOutputWithContext(ctx context.Context) EventOrchestrationUnroutedSetRuleActionsVariableOutput {
 	return o
+}
+
+func (o EventOrchestrationUnroutedSetRuleActionsVariableOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationUnroutedSetRuleActionsVariable] {
+	return pulumix.Output[EventOrchestrationUnroutedSetRuleActionsVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the variable
@@ -7467,6 +8710,12 @@ func (o EventOrchestrationUnroutedSetRuleActionsVariableArrayOutput) ToEventOrch
 
 func (o EventOrchestrationUnroutedSetRuleActionsVariableArrayOutput) ToEventOrchestrationUnroutedSetRuleActionsVariableArrayOutputWithContext(ctx context.Context) EventOrchestrationUnroutedSetRuleActionsVariableArrayOutput {
 	return o
+}
+
+func (o EventOrchestrationUnroutedSetRuleActionsVariableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationUnroutedSetRuleActionsVariable] {
+	return pulumix.Output[[]EventOrchestrationUnroutedSetRuleActionsVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationUnroutedSetRuleActionsVariableArrayOutput) Index(i pulumi.IntInput) EventOrchestrationUnroutedSetRuleActionsVariableOutput {
@@ -7508,6 +8757,12 @@ func (i EventOrchestrationUnroutedSetRuleConditionArgs) ToEventOrchestrationUnro
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedSetRuleConditionOutput)
 }
 
+func (i EventOrchestrationUnroutedSetRuleConditionArgs) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationUnroutedSetRuleCondition] {
+	return pulumix.Output[EventOrchestrationUnroutedSetRuleCondition]{
+		OutputState: i.ToEventOrchestrationUnroutedSetRuleConditionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventOrchestrationUnroutedSetRuleConditionArrayInput is an input type that accepts EventOrchestrationUnroutedSetRuleConditionArray and EventOrchestrationUnroutedSetRuleConditionArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationUnroutedSetRuleConditionArrayInput` via:
 //
@@ -7533,6 +8788,12 @@ func (i EventOrchestrationUnroutedSetRuleConditionArray) ToEventOrchestrationUnr
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedSetRuleConditionArrayOutput)
 }
 
+func (i EventOrchestrationUnroutedSetRuleConditionArray) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationUnroutedSetRuleCondition] {
+	return pulumix.Output[[]EventOrchestrationUnroutedSetRuleCondition]{
+		OutputState: i.ToEventOrchestrationUnroutedSetRuleConditionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationUnroutedSetRuleConditionOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationUnroutedSetRuleConditionOutput) ElementType() reflect.Type {
@@ -7545,6 +8806,12 @@ func (o EventOrchestrationUnroutedSetRuleConditionOutput) ToEventOrchestrationUn
 
 func (o EventOrchestrationUnroutedSetRuleConditionOutput) ToEventOrchestrationUnroutedSetRuleConditionOutputWithContext(ctx context.Context) EventOrchestrationUnroutedSetRuleConditionOutput {
 	return o
+}
+
+func (o EventOrchestrationUnroutedSetRuleConditionOutput) ToOutput(ctx context.Context) pulumix.Output[EventOrchestrationUnroutedSetRuleCondition] {
+	return pulumix.Output[EventOrchestrationUnroutedSetRuleCondition]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
@@ -7564,6 +8831,12 @@ func (o EventOrchestrationUnroutedSetRuleConditionArrayOutput) ToEventOrchestrat
 
 func (o EventOrchestrationUnroutedSetRuleConditionArrayOutput) ToEventOrchestrationUnroutedSetRuleConditionArrayOutputWithContext(ctx context.Context) EventOrchestrationUnroutedSetRuleConditionArrayOutput {
 	return o
+}
+
+func (o EventOrchestrationUnroutedSetRuleConditionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventOrchestrationUnroutedSetRuleCondition] {
+	return pulumix.Output[[]EventOrchestrationUnroutedSetRuleCondition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationUnroutedSetRuleConditionArrayOutput) Index(i pulumi.IntInput) EventOrchestrationUnroutedSetRuleConditionOutput {
@@ -7617,6 +8890,12 @@ func (i IncidentWorkflowStepArgs) ToIncidentWorkflowStepOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentWorkflowStepOutput)
 }
 
+func (i IncidentWorkflowStepArgs) ToOutput(ctx context.Context) pulumix.Output[IncidentWorkflowStep] {
+	return pulumix.Output[IncidentWorkflowStep]{
+		OutputState: i.ToIncidentWorkflowStepOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IncidentWorkflowStepArrayInput is an input type that accepts IncidentWorkflowStepArray and IncidentWorkflowStepArrayOutput values.
 // You can construct a concrete instance of `IncidentWorkflowStepArrayInput` via:
 //
@@ -7642,6 +8921,12 @@ func (i IncidentWorkflowStepArray) ToIncidentWorkflowStepArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentWorkflowStepArrayOutput)
 }
 
+func (i IncidentWorkflowStepArray) ToOutput(ctx context.Context) pulumix.Output[[]IncidentWorkflowStep] {
+	return pulumix.Output[[]IncidentWorkflowStep]{
+		OutputState: i.ToIncidentWorkflowStepArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IncidentWorkflowStepOutput struct{ *pulumi.OutputState }
 
 func (IncidentWorkflowStepOutput) ElementType() reflect.Type {
@@ -7654,6 +8939,12 @@ func (o IncidentWorkflowStepOutput) ToIncidentWorkflowStepOutput() IncidentWorkf
 
 func (o IncidentWorkflowStepOutput) ToIncidentWorkflowStepOutputWithContext(ctx context.Context) IncidentWorkflowStepOutput {
 	return o
+}
+
+func (o IncidentWorkflowStepOutput) ToOutput(ctx context.Context) pulumix.Output[IncidentWorkflowStep] {
+	return pulumix.Output[IncidentWorkflowStep]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The action id for the workflow step, including the version. A list of actions available can be retrieved using the [PagerDuty API](https://developer.pagerduty.com/api-reference/aa192a25fac39-list-actions).
@@ -7688,6 +8979,12 @@ func (o IncidentWorkflowStepArrayOutput) ToIncidentWorkflowStepArrayOutput() Inc
 
 func (o IncidentWorkflowStepArrayOutput) ToIncidentWorkflowStepArrayOutputWithContext(ctx context.Context) IncidentWorkflowStepArrayOutput {
 	return o
+}
+
+func (o IncidentWorkflowStepArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IncidentWorkflowStep] {
+	return pulumix.Output[[]IncidentWorkflowStep]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IncidentWorkflowStepArrayOutput) Index(i pulumi.IntInput) IncidentWorkflowStepOutput {
@@ -7735,6 +9032,12 @@ func (i IncidentWorkflowStepInputTypeArgs) ToIncidentWorkflowStepInputTypeOutput
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentWorkflowStepInputTypeOutput)
 }
 
+func (i IncidentWorkflowStepInputTypeArgs) ToOutput(ctx context.Context) pulumix.Output[IncidentWorkflowStepInputType] {
+	return pulumix.Output[IncidentWorkflowStepInputType]{
+		OutputState: i.ToIncidentWorkflowStepInputTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IncidentWorkflowStepInputTypeArrayInput is an input type that accepts IncidentWorkflowStepInputTypeArray and IncidentWorkflowStepInputTypeArrayOutput values.
 // You can construct a concrete instance of `IncidentWorkflowStepInputTypeArrayInput` via:
 //
@@ -7760,6 +9063,12 @@ func (i IncidentWorkflowStepInputTypeArray) ToIncidentWorkflowStepInputTypeArray
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentWorkflowStepInputTypeArrayOutput)
 }
 
+func (i IncidentWorkflowStepInputTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]IncidentWorkflowStepInputType] {
+	return pulumix.Output[[]IncidentWorkflowStepInputType]{
+		OutputState: i.ToIncidentWorkflowStepInputTypeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IncidentWorkflowStepInputTypeOutput struct{ *pulumi.OutputState }
 
 func (IncidentWorkflowStepInputTypeOutput) ElementType() reflect.Type {
@@ -7772,6 +9081,12 @@ func (o IncidentWorkflowStepInputTypeOutput) ToIncidentWorkflowStepInputTypeOutp
 
 func (o IncidentWorkflowStepInputTypeOutput) ToIncidentWorkflowStepInputTypeOutputWithContext(ctx context.Context) IncidentWorkflowStepInputTypeOutput {
 	return o
+}
+
+func (o IncidentWorkflowStepInputTypeOutput) ToOutput(ctx context.Context) pulumix.Output[IncidentWorkflowStepInputType] {
+	return pulumix.Output[IncidentWorkflowStepInputType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IncidentWorkflowStepInputTypeOutput) Generated() pulumi.BoolPtrOutput {
@@ -7800,6 +9115,12 @@ func (o IncidentWorkflowStepInputTypeArrayOutput) ToIncidentWorkflowStepInputTyp
 
 func (o IncidentWorkflowStepInputTypeArrayOutput) ToIncidentWorkflowStepInputTypeArrayOutputWithContext(ctx context.Context) IncidentWorkflowStepInputTypeArrayOutput {
 	return o
+}
+
+func (o IncidentWorkflowStepInputTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IncidentWorkflowStepInputType] {
+	return pulumix.Output[[]IncidentWorkflowStepInputType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IncidentWorkflowStepInputTypeArrayOutput) Index(i pulumi.IntInput) IncidentWorkflowStepInputTypeOutput {
@@ -7873,6 +9194,12 @@ func (i ResponsePlayResponderArgs) ToResponsePlayResponderOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlayResponderOutput)
 }
 
+func (i ResponsePlayResponderArgs) ToOutput(ctx context.Context) pulumix.Output[ResponsePlayResponder] {
+	return pulumix.Output[ResponsePlayResponder]{
+		OutputState: i.ToResponsePlayResponderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResponsePlayResponderArrayInput is an input type that accepts ResponsePlayResponderArray and ResponsePlayResponderArrayOutput values.
 // You can construct a concrete instance of `ResponsePlayResponderArrayInput` via:
 //
@@ -7898,6 +9225,12 @@ func (i ResponsePlayResponderArray) ToResponsePlayResponderArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlayResponderArrayOutput)
 }
 
+func (i ResponsePlayResponderArray) ToOutput(ctx context.Context) pulumix.Output[[]ResponsePlayResponder] {
+	return pulumix.Output[[]ResponsePlayResponder]{
+		OutputState: i.ToResponsePlayResponderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResponsePlayResponderOutput struct{ *pulumi.OutputState }
 
 func (ResponsePlayResponderOutput) ElementType() reflect.Type {
@@ -7910,6 +9243,12 @@ func (o ResponsePlayResponderOutput) ToResponsePlayResponderOutput() ResponsePla
 
 func (o ResponsePlayResponderOutput) ToResponsePlayResponderOutputWithContext(ctx context.Context) ResponsePlayResponderOutput {
 	return o
+}
+
+func (o ResponsePlayResponderOutput) ToOutput(ctx context.Context) pulumix.Output[ResponsePlayResponder] {
+	return pulumix.Output[ResponsePlayResponder]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Description of escalation policy
@@ -7971,6 +9310,12 @@ func (o ResponsePlayResponderArrayOutput) ToResponsePlayResponderArrayOutputWith
 	return o
 }
 
+func (o ResponsePlayResponderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResponsePlayResponder] {
+	return pulumix.Output[[]ResponsePlayResponder]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResponsePlayResponderArrayOutput) Index(i pulumi.IntInput) ResponsePlayResponderOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResponsePlayResponder {
 		return vs[0].([]ResponsePlayResponder)[vs[1].(int)]
@@ -8018,6 +9363,12 @@ func (i ResponsePlayResponderEscalationRuleArgs) ToResponsePlayResponderEscalati
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlayResponderEscalationRuleOutput)
 }
 
+func (i ResponsePlayResponderEscalationRuleArgs) ToOutput(ctx context.Context) pulumix.Output[ResponsePlayResponderEscalationRule] {
+	return pulumix.Output[ResponsePlayResponderEscalationRule]{
+		OutputState: i.ToResponsePlayResponderEscalationRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResponsePlayResponderEscalationRuleArrayInput is an input type that accepts ResponsePlayResponderEscalationRuleArray and ResponsePlayResponderEscalationRuleArrayOutput values.
 // You can construct a concrete instance of `ResponsePlayResponderEscalationRuleArrayInput` via:
 //
@@ -8043,6 +9394,12 @@ func (i ResponsePlayResponderEscalationRuleArray) ToResponsePlayResponderEscalat
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlayResponderEscalationRuleArrayOutput)
 }
 
+func (i ResponsePlayResponderEscalationRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]ResponsePlayResponderEscalationRule] {
+	return pulumix.Output[[]ResponsePlayResponderEscalationRule]{
+		OutputState: i.ToResponsePlayResponderEscalationRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResponsePlayResponderEscalationRuleOutput struct{ *pulumi.OutputState }
 
 func (ResponsePlayResponderEscalationRuleOutput) ElementType() reflect.Type {
@@ -8055,6 +9412,12 @@ func (o ResponsePlayResponderEscalationRuleOutput) ToResponsePlayResponderEscala
 
 func (o ResponsePlayResponderEscalationRuleOutput) ToResponsePlayResponderEscalationRuleOutputWithContext(ctx context.Context) ResponsePlayResponderEscalationRuleOutput {
 	return o
+}
+
+func (o ResponsePlayResponderEscalationRuleOutput) ToOutput(ctx context.Context) pulumix.Output[ResponsePlayResponderEscalationRule] {
+	return pulumix.Output[ResponsePlayResponderEscalationRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The number of minutes before an unacknowledged incident escalates away from this rule.
@@ -8086,6 +9449,12 @@ func (o ResponsePlayResponderEscalationRuleArrayOutput) ToResponsePlayResponderE
 
 func (o ResponsePlayResponderEscalationRuleArrayOutput) ToResponsePlayResponderEscalationRuleArrayOutputWithContext(ctx context.Context) ResponsePlayResponderEscalationRuleArrayOutput {
 	return o
+}
+
+func (o ResponsePlayResponderEscalationRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResponsePlayResponderEscalationRule] {
+	return pulumix.Output[[]ResponsePlayResponderEscalationRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResponsePlayResponderEscalationRuleArrayOutput) Index(i pulumi.IntInput) ResponsePlayResponderEscalationRuleOutput {
@@ -8131,6 +9500,12 @@ func (i ResponsePlayResponderEscalationRuleTargetArgs) ToResponsePlayResponderEs
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlayResponderEscalationRuleTargetOutput)
 }
 
+func (i ResponsePlayResponderEscalationRuleTargetArgs) ToOutput(ctx context.Context) pulumix.Output[ResponsePlayResponderEscalationRuleTarget] {
+	return pulumix.Output[ResponsePlayResponderEscalationRuleTarget]{
+		OutputState: i.ToResponsePlayResponderEscalationRuleTargetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResponsePlayResponderEscalationRuleTargetArrayInput is an input type that accepts ResponsePlayResponderEscalationRuleTargetArray and ResponsePlayResponderEscalationRuleTargetArrayOutput values.
 // You can construct a concrete instance of `ResponsePlayResponderEscalationRuleTargetArrayInput` via:
 //
@@ -8156,6 +9531,12 @@ func (i ResponsePlayResponderEscalationRuleTargetArray) ToResponsePlayResponderE
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlayResponderEscalationRuleTargetArrayOutput)
 }
 
+func (i ResponsePlayResponderEscalationRuleTargetArray) ToOutput(ctx context.Context) pulumix.Output[[]ResponsePlayResponderEscalationRuleTarget] {
+	return pulumix.Output[[]ResponsePlayResponderEscalationRuleTarget]{
+		OutputState: i.ToResponsePlayResponderEscalationRuleTargetArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResponsePlayResponderEscalationRuleTargetOutput struct{ *pulumi.OutputState }
 
 func (ResponsePlayResponderEscalationRuleTargetOutput) ElementType() reflect.Type {
@@ -8168,6 +9549,12 @@ func (o ResponsePlayResponderEscalationRuleTargetOutput) ToResponsePlayResponder
 
 func (o ResponsePlayResponderEscalationRuleTargetOutput) ToResponsePlayResponderEscalationRuleTargetOutputWithContext(ctx context.Context) ResponsePlayResponderEscalationRuleTargetOutput {
 	return o
+}
+
+func (o ResponsePlayResponderEscalationRuleTargetOutput) ToOutput(ctx context.Context) pulumix.Output[ResponsePlayResponderEscalationRuleTarget] {
+	return pulumix.Output[ResponsePlayResponderEscalationRuleTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ID of the user defined as the responder
@@ -8192,6 +9579,12 @@ func (o ResponsePlayResponderEscalationRuleTargetArrayOutput) ToResponsePlayResp
 
 func (o ResponsePlayResponderEscalationRuleTargetArrayOutput) ToResponsePlayResponderEscalationRuleTargetArrayOutputWithContext(ctx context.Context) ResponsePlayResponderEscalationRuleTargetArrayOutput {
 	return o
+}
+
+func (o ResponsePlayResponderEscalationRuleTargetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResponsePlayResponderEscalationRuleTarget] {
+	return pulumix.Output[[]ResponsePlayResponderEscalationRuleTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResponsePlayResponderEscalationRuleTargetArrayOutput) Index(i pulumi.IntInput) ResponsePlayResponderEscalationRuleTargetOutput {
@@ -8237,6 +9630,12 @@ func (i ResponsePlayResponderServiceArgs) ToResponsePlayResponderServiceOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlayResponderServiceOutput)
 }
 
+func (i ResponsePlayResponderServiceArgs) ToOutput(ctx context.Context) pulumix.Output[ResponsePlayResponderService] {
+	return pulumix.Output[ResponsePlayResponderService]{
+		OutputState: i.ToResponsePlayResponderServiceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResponsePlayResponderServiceArrayInput is an input type that accepts ResponsePlayResponderServiceArray and ResponsePlayResponderServiceArrayOutput values.
 // You can construct a concrete instance of `ResponsePlayResponderServiceArrayInput` via:
 //
@@ -8262,6 +9661,12 @@ func (i ResponsePlayResponderServiceArray) ToResponsePlayResponderServiceArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlayResponderServiceArrayOutput)
 }
 
+func (i ResponsePlayResponderServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]ResponsePlayResponderService] {
+	return pulumix.Output[[]ResponsePlayResponderService]{
+		OutputState: i.ToResponsePlayResponderServiceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResponsePlayResponderServiceOutput struct{ *pulumi.OutputState }
 
 func (ResponsePlayResponderServiceOutput) ElementType() reflect.Type {
@@ -8274,6 +9679,12 @@ func (o ResponsePlayResponderServiceOutput) ToResponsePlayResponderServiceOutput
 
 func (o ResponsePlayResponderServiceOutput) ToResponsePlayResponderServiceOutputWithContext(ctx context.Context) ResponsePlayResponderServiceOutput {
 	return o
+}
+
+func (o ResponsePlayResponderServiceOutput) ToOutput(ctx context.Context) pulumix.Output[ResponsePlayResponderService] {
+	return pulumix.Output[ResponsePlayResponderService]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ID of the user defined as the responder
@@ -8298,6 +9709,12 @@ func (o ResponsePlayResponderServiceArrayOutput) ToResponsePlayResponderServiceA
 
 func (o ResponsePlayResponderServiceArrayOutput) ToResponsePlayResponderServiceArrayOutputWithContext(ctx context.Context) ResponsePlayResponderServiceArrayOutput {
 	return o
+}
+
+func (o ResponsePlayResponderServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResponsePlayResponderService] {
+	return pulumix.Output[[]ResponsePlayResponderService]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResponsePlayResponderServiceArrayOutput) Index(i pulumi.IntInput) ResponsePlayResponderServiceOutput {
@@ -8343,6 +9760,12 @@ func (i ResponsePlayResponderTeamArgs) ToResponsePlayResponderTeamOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlayResponderTeamOutput)
 }
 
+func (i ResponsePlayResponderTeamArgs) ToOutput(ctx context.Context) pulumix.Output[ResponsePlayResponderTeam] {
+	return pulumix.Output[ResponsePlayResponderTeam]{
+		OutputState: i.ToResponsePlayResponderTeamOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResponsePlayResponderTeamArrayInput is an input type that accepts ResponsePlayResponderTeamArray and ResponsePlayResponderTeamArrayOutput values.
 // You can construct a concrete instance of `ResponsePlayResponderTeamArrayInput` via:
 //
@@ -8368,6 +9791,12 @@ func (i ResponsePlayResponderTeamArray) ToResponsePlayResponderTeamArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlayResponderTeamArrayOutput)
 }
 
+func (i ResponsePlayResponderTeamArray) ToOutput(ctx context.Context) pulumix.Output[[]ResponsePlayResponderTeam] {
+	return pulumix.Output[[]ResponsePlayResponderTeam]{
+		OutputState: i.ToResponsePlayResponderTeamArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResponsePlayResponderTeamOutput struct{ *pulumi.OutputState }
 
 func (ResponsePlayResponderTeamOutput) ElementType() reflect.Type {
@@ -8380,6 +9809,12 @@ func (o ResponsePlayResponderTeamOutput) ToResponsePlayResponderTeamOutput() Res
 
 func (o ResponsePlayResponderTeamOutput) ToResponsePlayResponderTeamOutputWithContext(ctx context.Context) ResponsePlayResponderTeamOutput {
 	return o
+}
+
+func (o ResponsePlayResponderTeamOutput) ToOutput(ctx context.Context) pulumix.Output[ResponsePlayResponderTeam] {
+	return pulumix.Output[ResponsePlayResponderTeam]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ID of the user defined as the responder
@@ -8404,6 +9839,12 @@ func (o ResponsePlayResponderTeamArrayOutput) ToResponsePlayResponderTeamArrayOu
 
 func (o ResponsePlayResponderTeamArrayOutput) ToResponsePlayResponderTeamArrayOutputWithContext(ctx context.Context) ResponsePlayResponderTeamArrayOutput {
 	return o
+}
+
+func (o ResponsePlayResponderTeamArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResponsePlayResponderTeam] {
+	return pulumix.Output[[]ResponsePlayResponderTeam]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResponsePlayResponderTeamArrayOutput) Index(i pulumi.IntInput) ResponsePlayResponderTeamOutput {
@@ -8449,6 +9890,12 @@ func (i ResponsePlaySubscriberArgs) ToResponsePlaySubscriberOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlaySubscriberOutput)
 }
 
+func (i ResponsePlaySubscriberArgs) ToOutput(ctx context.Context) pulumix.Output[ResponsePlaySubscriber] {
+	return pulumix.Output[ResponsePlaySubscriber]{
+		OutputState: i.ToResponsePlaySubscriberOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResponsePlaySubscriberArrayInput is an input type that accepts ResponsePlaySubscriberArray and ResponsePlaySubscriberArrayOutput values.
 // You can construct a concrete instance of `ResponsePlaySubscriberArrayInput` via:
 //
@@ -8474,6 +9921,12 @@ func (i ResponsePlaySubscriberArray) ToResponsePlaySubscriberArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlaySubscriberArrayOutput)
 }
 
+func (i ResponsePlaySubscriberArray) ToOutput(ctx context.Context) pulumix.Output[[]ResponsePlaySubscriber] {
+	return pulumix.Output[[]ResponsePlaySubscriber]{
+		OutputState: i.ToResponsePlaySubscriberArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResponsePlaySubscriberOutput struct{ *pulumi.OutputState }
 
 func (ResponsePlaySubscriberOutput) ElementType() reflect.Type {
@@ -8486,6 +9939,12 @@ func (o ResponsePlaySubscriberOutput) ToResponsePlaySubscriberOutput() ResponseP
 
 func (o ResponsePlaySubscriberOutput) ToResponsePlaySubscriberOutputWithContext(ctx context.Context) ResponsePlaySubscriberOutput {
 	return o
+}
+
+func (o ResponsePlaySubscriberOutput) ToOutput(ctx context.Context) pulumix.Output[ResponsePlaySubscriber] {
+	return pulumix.Output[ResponsePlaySubscriber]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ID of the user defined as the responder
@@ -8510,6 +9969,12 @@ func (o ResponsePlaySubscriberArrayOutput) ToResponsePlaySubscriberArrayOutput()
 
 func (o ResponsePlaySubscriberArrayOutput) ToResponsePlaySubscriberArrayOutputWithContext(ctx context.Context) ResponsePlaySubscriberArrayOutput {
 	return o
+}
+
+func (o ResponsePlaySubscriberArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResponsePlaySubscriber] {
+	return pulumix.Output[[]ResponsePlaySubscriber]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResponsePlaySubscriberArrayOutput) Index(i pulumi.IntInput) ResponsePlaySubscriberOutput {
@@ -8579,6 +10044,12 @@ func (i RulesetRuleActionsArgs) ToRulesetRuleActionsOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleActionsOutput)
 }
 
+func (i RulesetRuleActionsArgs) ToOutput(ctx context.Context) pulumix.Output[RulesetRuleActions] {
+	return pulumix.Output[RulesetRuleActions]{
+		OutputState: i.ToRulesetRuleActionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RulesetRuleActionsArgs) ToRulesetRuleActionsPtrOutput() RulesetRuleActionsPtrOutput {
 	return i.ToRulesetRuleActionsPtrOutputWithContext(context.Background())
 }
@@ -8620,6 +10091,12 @@ func (i *rulesetRuleActionsPtrType) ToRulesetRuleActionsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleActionsPtrOutput)
 }
 
+func (i *rulesetRuleActionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*RulesetRuleActions] {
+	return pulumix.Output[*RulesetRuleActions]{
+		OutputState: i.ToRulesetRuleActionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RulesetRuleActionsOutput struct{ *pulumi.OutputState }
 
 func (RulesetRuleActionsOutput) ElementType() reflect.Type {
@@ -8642,6 +10119,12 @@ func (o RulesetRuleActionsOutput) ToRulesetRuleActionsPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RulesetRuleActions) *RulesetRuleActions {
 		return &v
 	}).(RulesetRuleActionsPtrOutput)
+}
+
+func (o RulesetRuleActionsOutput) ToOutput(ctx context.Context) pulumix.Output[RulesetRuleActions] {
+	return pulumix.Output[RulesetRuleActions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Note added to the event.
@@ -8696,6 +10179,12 @@ func (o RulesetRuleActionsPtrOutput) ToRulesetRuleActionsPtrOutput() RulesetRule
 
 func (o RulesetRuleActionsPtrOutput) ToRulesetRuleActionsPtrOutputWithContext(ctx context.Context) RulesetRuleActionsPtrOutput {
 	return o
+}
+
+func (o RulesetRuleActionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RulesetRuleActions] {
+	return pulumix.Output[*RulesetRuleActions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RulesetRuleActionsPtrOutput) Elem() RulesetRuleActionsOutput {
@@ -8821,6 +10310,12 @@ func (i RulesetRuleActionsAnnotateArgs) ToRulesetRuleActionsAnnotateOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleActionsAnnotateOutput)
 }
 
+func (i RulesetRuleActionsAnnotateArgs) ToOutput(ctx context.Context) pulumix.Output[RulesetRuleActionsAnnotate] {
+	return pulumix.Output[RulesetRuleActionsAnnotate]{
+		OutputState: i.ToRulesetRuleActionsAnnotateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RulesetRuleActionsAnnotateArrayInput is an input type that accepts RulesetRuleActionsAnnotateArray and RulesetRuleActionsAnnotateArrayOutput values.
 // You can construct a concrete instance of `RulesetRuleActionsAnnotateArrayInput` via:
 //
@@ -8846,6 +10341,12 @@ func (i RulesetRuleActionsAnnotateArray) ToRulesetRuleActionsAnnotateArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleActionsAnnotateArrayOutput)
 }
 
+func (i RulesetRuleActionsAnnotateArray) ToOutput(ctx context.Context) pulumix.Output[[]RulesetRuleActionsAnnotate] {
+	return pulumix.Output[[]RulesetRuleActionsAnnotate]{
+		OutputState: i.ToRulesetRuleActionsAnnotateArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RulesetRuleActionsAnnotateOutput struct{ *pulumi.OutputState }
 
 func (RulesetRuleActionsAnnotateOutput) ElementType() reflect.Type {
@@ -8858,6 +10359,12 @@ func (o RulesetRuleActionsAnnotateOutput) ToRulesetRuleActionsAnnotateOutput() R
 
 func (o RulesetRuleActionsAnnotateOutput) ToRulesetRuleActionsAnnotateOutputWithContext(ctx context.Context) RulesetRuleActionsAnnotateOutput {
 	return o
+}
+
+func (o RulesetRuleActionsAnnotateOutput) ToOutput(ctx context.Context) pulumix.Output[RulesetRuleActionsAnnotate] {
+	return pulumix.Output[RulesetRuleActionsAnnotate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
@@ -8877,6 +10384,12 @@ func (o RulesetRuleActionsAnnotateArrayOutput) ToRulesetRuleActionsAnnotateArray
 
 func (o RulesetRuleActionsAnnotateArrayOutput) ToRulesetRuleActionsAnnotateArrayOutputWithContext(ctx context.Context) RulesetRuleActionsAnnotateArrayOutput {
 	return o
+}
+
+func (o RulesetRuleActionsAnnotateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RulesetRuleActionsAnnotate] {
+	return pulumix.Output[[]RulesetRuleActionsAnnotate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RulesetRuleActionsAnnotateArrayOutput) Index(i pulumi.IntInput) RulesetRuleActionsAnnotateOutput {
@@ -8918,6 +10431,12 @@ func (i RulesetRuleActionsEventActionArgs) ToRulesetRuleActionsEventActionOutput
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleActionsEventActionOutput)
 }
 
+func (i RulesetRuleActionsEventActionArgs) ToOutput(ctx context.Context) pulumix.Output[RulesetRuleActionsEventAction] {
+	return pulumix.Output[RulesetRuleActionsEventAction]{
+		OutputState: i.ToRulesetRuleActionsEventActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RulesetRuleActionsEventActionArrayInput is an input type that accepts RulesetRuleActionsEventActionArray and RulesetRuleActionsEventActionArrayOutput values.
 // You can construct a concrete instance of `RulesetRuleActionsEventActionArrayInput` via:
 //
@@ -8943,6 +10462,12 @@ func (i RulesetRuleActionsEventActionArray) ToRulesetRuleActionsEventActionArray
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleActionsEventActionArrayOutput)
 }
 
+func (i RulesetRuleActionsEventActionArray) ToOutput(ctx context.Context) pulumix.Output[[]RulesetRuleActionsEventAction] {
+	return pulumix.Output[[]RulesetRuleActionsEventAction]{
+		OutputState: i.ToRulesetRuleActionsEventActionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RulesetRuleActionsEventActionOutput struct{ *pulumi.OutputState }
 
 func (RulesetRuleActionsEventActionOutput) ElementType() reflect.Type {
@@ -8955,6 +10480,12 @@ func (o RulesetRuleActionsEventActionOutput) ToRulesetRuleActionsEventActionOutp
 
 func (o RulesetRuleActionsEventActionOutput) ToRulesetRuleActionsEventActionOutputWithContext(ctx context.Context) RulesetRuleActionsEventActionOutput {
 	return o
+}
+
+func (o RulesetRuleActionsEventActionOutput) ToOutput(ctx context.Context) pulumix.Output[RulesetRuleActionsEventAction] {
+	return pulumix.Output[RulesetRuleActionsEventAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
@@ -8974,6 +10505,12 @@ func (o RulesetRuleActionsEventActionArrayOutput) ToRulesetRuleActionsEventActio
 
 func (o RulesetRuleActionsEventActionArrayOutput) ToRulesetRuleActionsEventActionArrayOutputWithContext(ctx context.Context) RulesetRuleActionsEventActionArrayOutput {
 	return o
+}
+
+func (o RulesetRuleActionsEventActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RulesetRuleActionsEventAction] {
+	return pulumix.Output[[]RulesetRuleActionsEventAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RulesetRuleActionsEventActionArrayOutput) Index(i pulumi.IntInput) RulesetRuleActionsEventActionOutput {
@@ -9035,6 +10572,12 @@ func (i RulesetRuleActionsExtractionArgs) ToRulesetRuleActionsExtractionOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleActionsExtractionOutput)
 }
 
+func (i RulesetRuleActionsExtractionArgs) ToOutput(ctx context.Context) pulumix.Output[RulesetRuleActionsExtraction] {
+	return pulumix.Output[RulesetRuleActionsExtraction]{
+		OutputState: i.ToRulesetRuleActionsExtractionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RulesetRuleActionsExtractionArrayInput is an input type that accepts RulesetRuleActionsExtractionArray and RulesetRuleActionsExtractionArrayOutput values.
 // You can construct a concrete instance of `RulesetRuleActionsExtractionArrayInput` via:
 //
@@ -9060,6 +10603,12 @@ func (i RulesetRuleActionsExtractionArray) ToRulesetRuleActionsExtractionArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleActionsExtractionArrayOutput)
 }
 
+func (i RulesetRuleActionsExtractionArray) ToOutput(ctx context.Context) pulumix.Output[[]RulesetRuleActionsExtraction] {
+	return pulumix.Output[[]RulesetRuleActionsExtraction]{
+		OutputState: i.ToRulesetRuleActionsExtractionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RulesetRuleActionsExtractionOutput struct{ *pulumi.OutputState }
 
 func (RulesetRuleActionsExtractionOutput) ElementType() reflect.Type {
@@ -9072,6 +10621,12 @@ func (o RulesetRuleActionsExtractionOutput) ToRulesetRuleActionsExtractionOutput
 
 func (o RulesetRuleActionsExtractionOutput) ToRulesetRuleActionsExtractionOutputWithContext(ctx context.Context) RulesetRuleActionsExtractionOutput {
 	return o
+}
+
+func (o RulesetRuleActionsExtractionOutput) ToOutput(ctx context.Context) pulumix.Output[RulesetRuleActionsExtraction] {
+	return pulumix.Output[RulesetRuleActionsExtraction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
@@ -9110,6 +10665,12 @@ func (o RulesetRuleActionsExtractionArrayOutput) ToRulesetRuleActionsExtractionA
 
 func (o RulesetRuleActionsExtractionArrayOutput) ToRulesetRuleActionsExtractionArrayOutputWithContext(ctx context.Context) RulesetRuleActionsExtractionArrayOutput {
 	return o
+}
+
+func (o RulesetRuleActionsExtractionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RulesetRuleActionsExtraction] {
+	return pulumix.Output[[]RulesetRuleActionsExtraction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RulesetRuleActionsExtractionArrayOutput) Index(i pulumi.IntInput) RulesetRuleActionsExtractionOutput {
@@ -9151,6 +10712,12 @@ func (i RulesetRuleActionsPriorityArgs) ToRulesetRuleActionsPriorityOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleActionsPriorityOutput)
 }
 
+func (i RulesetRuleActionsPriorityArgs) ToOutput(ctx context.Context) pulumix.Output[RulesetRuleActionsPriority] {
+	return pulumix.Output[RulesetRuleActionsPriority]{
+		OutputState: i.ToRulesetRuleActionsPriorityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RulesetRuleActionsPriorityArrayInput is an input type that accepts RulesetRuleActionsPriorityArray and RulesetRuleActionsPriorityArrayOutput values.
 // You can construct a concrete instance of `RulesetRuleActionsPriorityArrayInput` via:
 //
@@ -9176,6 +10743,12 @@ func (i RulesetRuleActionsPriorityArray) ToRulesetRuleActionsPriorityArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleActionsPriorityArrayOutput)
 }
 
+func (i RulesetRuleActionsPriorityArray) ToOutput(ctx context.Context) pulumix.Output[[]RulesetRuleActionsPriority] {
+	return pulumix.Output[[]RulesetRuleActionsPriority]{
+		OutputState: i.ToRulesetRuleActionsPriorityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RulesetRuleActionsPriorityOutput struct{ *pulumi.OutputState }
 
 func (RulesetRuleActionsPriorityOutput) ElementType() reflect.Type {
@@ -9188,6 +10761,12 @@ func (o RulesetRuleActionsPriorityOutput) ToRulesetRuleActionsPriorityOutput() R
 
 func (o RulesetRuleActionsPriorityOutput) ToRulesetRuleActionsPriorityOutputWithContext(ctx context.Context) RulesetRuleActionsPriorityOutput {
 	return o
+}
+
+func (o RulesetRuleActionsPriorityOutput) ToOutput(ctx context.Context) pulumix.Output[RulesetRuleActionsPriority] {
+	return pulumix.Output[RulesetRuleActionsPriority]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
@@ -9207,6 +10786,12 @@ func (o RulesetRuleActionsPriorityArrayOutput) ToRulesetRuleActionsPriorityArray
 
 func (o RulesetRuleActionsPriorityArrayOutput) ToRulesetRuleActionsPriorityArrayOutputWithContext(ctx context.Context) RulesetRuleActionsPriorityArrayOutput {
 	return o
+}
+
+func (o RulesetRuleActionsPriorityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RulesetRuleActionsPriority] {
+	return pulumix.Output[[]RulesetRuleActionsPriority]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RulesetRuleActionsPriorityArrayOutput) Index(i pulumi.IntInput) RulesetRuleActionsPriorityOutput {
@@ -9248,6 +10833,12 @@ func (i RulesetRuleActionsRouteArgs) ToRulesetRuleActionsRouteOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleActionsRouteOutput)
 }
 
+func (i RulesetRuleActionsRouteArgs) ToOutput(ctx context.Context) pulumix.Output[RulesetRuleActionsRoute] {
+	return pulumix.Output[RulesetRuleActionsRoute]{
+		OutputState: i.ToRulesetRuleActionsRouteOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RulesetRuleActionsRouteArrayInput is an input type that accepts RulesetRuleActionsRouteArray and RulesetRuleActionsRouteArrayOutput values.
 // You can construct a concrete instance of `RulesetRuleActionsRouteArrayInput` via:
 //
@@ -9273,6 +10864,12 @@ func (i RulesetRuleActionsRouteArray) ToRulesetRuleActionsRouteArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleActionsRouteArrayOutput)
 }
 
+func (i RulesetRuleActionsRouteArray) ToOutput(ctx context.Context) pulumix.Output[[]RulesetRuleActionsRoute] {
+	return pulumix.Output[[]RulesetRuleActionsRoute]{
+		OutputState: i.ToRulesetRuleActionsRouteArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RulesetRuleActionsRouteOutput struct{ *pulumi.OutputState }
 
 func (RulesetRuleActionsRouteOutput) ElementType() reflect.Type {
@@ -9285,6 +10882,12 @@ func (o RulesetRuleActionsRouteOutput) ToRulesetRuleActionsRouteOutput() Ruleset
 
 func (o RulesetRuleActionsRouteOutput) ToRulesetRuleActionsRouteOutputWithContext(ctx context.Context) RulesetRuleActionsRouteOutput {
 	return o
+}
+
+func (o RulesetRuleActionsRouteOutput) ToOutput(ctx context.Context) pulumix.Output[RulesetRuleActionsRoute] {
+	return pulumix.Output[RulesetRuleActionsRoute]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
@@ -9304,6 +10907,12 @@ func (o RulesetRuleActionsRouteArrayOutput) ToRulesetRuleActionsRouteArrayOutput
 
 func (o RulesetRuleActionsRouteArrayOutput) ToRulesetRuleActionsRouteArrayOutputWithContext(ctx context.Context) RulesetRuleActionsRouteArrayOutput {
 	return o
+}
+
+func (o RulesetRuleActionsRouteArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RulesetRuleActionsRoute] {
+	return pulumix.Output[[]RulesetRuleActionsRoute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RulesetRuleActionsRouteArrayOutput) Index(i pulumi.IntInput) RulesetRuleActionsRouteOutput {
@@ -9345,6 +10954,12 @@ func (i RulesetRuleActionsSeverityArgs) ToRulesetRuleActionsSeverityOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleActionsSeverityOutput)
 }
 
+func (i RulesetRuleActionsSeverityArgs) ToOutput(ctx context.Context) pulumix.Output[RulesetRuleActionsSeverity] {
+	return pulumix.Output[RulesetRuleActionsSeverity]{
+		OutputState: i.ToRulesetRuleActionsSeverityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RulesetRuleActionsSeverityArrayInput is an input type that accepts RulesetRuleActionsSeverityArray and RulesetRuleActionsSeverityArrayOutput values.
 // You can construct a concrete instance of `RulesetRuleActionsSeverityArrayInput` via:
 //
@@ -9370,6 +10985,12 @@ func (i RulesetRuleActionsSeverityArray) ToRulesetRuleActionsSeverityArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleActionsSeverityArrayOutput)
 }
 
+func (i RulesetRuleActionsSeverityArray) ToOutput(ctx context.Context) pulumix.Output[[]RulesetRuleActionsSeverity] {
+	return pulumix.Output[[]RulesetRuleActionsSeverity]{
+		OutputState: i.ToRulesetRuleActionsSeverityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RulesetRuleActionsSeverityOutput struct{ *pulumi.OutputState }
 
 func (RulesetRuleActionsSeverityOutput) ElementType() reflect.Type {
@@ -9382,6 +11003,12 @@ func (o RulesetRuleActionsSeverityOutput) ToRulesetRuleActionsSeverityOutput() R
 
 func (o RulesetRuleActionsSeverityOutput) ToRulesetRuleActionsSeverityOutputWithContext(ctx context.Context) RulesetRuleActionsSeverityOutput {
 	return o
+}
+
+func (o RulesetRuleActionsSeverityOutput) ToOutput(ctx context.Context) pulumix.Output[RulesetRuleActionsSeverity] {
+	return pulumix.Output[RulesetRuleActionsSeverity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
@@ -9401,6 +11028,12 @@ func (o RulesetRuleActionsSeverityArrayOutput) ToRulesetRuleActionsSeverityArray
 
 func (o RulesetRuleActionsSeverityArrayOutput) ToRulesetRuleActionsSeverityArrayOutputWithContext(ctx context.Context) RulesetRuleActionsSeverityArrayOutput {
 	return o
+}
+
+func (o RulesetRuleActionsSeverityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RulesetRuleActionsSeverity] {
+	return pulumix.Output[[]RulesetRuleActionsSeverity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RulesetRuleActionsSeverityArrayOutput) Index(i pulumi.IntInput) RulesetRuleActionsSeverityOutput {
@@ -9454,6 +11087,12 @@ func (i RulesetRuleActionsSuppressArgs) ToRulesetRuleActionsSuppressOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleActionsSuppressOutput)
 }
 
+func (i RulesetRuleActionsSuppressArgs) ToOutput(ctx context.Context) pulumix.Output[RulesetRuleActionsSuppress] {
+	return pulumix.Output[RulesetRuleActionsSuppress]{
+		OutputState: i.ToRulesetRuleActionsSuppressOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RulesetRuleActionsSuppressArrayInput is an input type that accepts RulesetRuleActionsSuppressArray and RulesetRuleActionsSuppressArrayOutput values.
 // You can construct a concrete instance of `RulesetRuleActionsSuppressArrayInput` via:
 //
@@ -9479,6 +11118,12 @@ func (i RulesetRuleActionsSuppressArray) ToRulesetRuleActionsSuppressArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleActionsSuppressArrayOutput)
 }
 
+func (i RulesetRuleActionsSuppressArray) ToOutput(ctx context.Context) pulumix.Output[[]RulesetRuleActionsSuppress] {
+	return pulumix.Output[[]RulesetRuleActionsSuppress]{
+		OutputState: i.ToRulesetRuleActionsSuppressArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RulesetRuleActionsSuppressOutput struct{ *pulumi.OutputState }
 
 func (RulesetRuleActionsSuppressOutput) ElementType() reflect.Type {
@@ -9491,6 +11136,12 @@ func (o RulesetRuleActionsSuppressOutput) ToRulesetRuleActionsSuppressOutput() R
 
 func (o RulesetRuleActionsSuppressOutput) ToRulesetRuleActionsSuppressOutputWithContext(ctx context.Context) RulesetRuleActionsSuppressOutput {
 	return o
+}
+
+func (o RulesetRuleActionsSuppressOutput) ToOutput(ctx context.Context) pulumix.Output[RulesetRuleActionsSuppress] {
+	return pulumix.Output[RulesetRuleActionsSuppress]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The number value of the `thresholdTimeUnit` before an incident is created. Must be greater than 0.
@@ -9525,6 +11176,12 @@ func (o RulesetRuleActionsSuppressArrayOutput) ToRulesetRuleActionsSuppressArray
 
 func (o RulesetRuleActionsSuppressArrayOutput) ToRulesetRuleActionsSuppressArrayOutputWithContext(ctx context.Context) RulesetRuleActionsSuppressArrayOutput {
 	return o
+}
+
+func (o RulesetRuleActionsSuppressArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RulesetRuleActionsSuppress] {
+	return pulumix.Output[[]RulesetRuleActionsSuppress]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RulesetRuleActionsSuppressArrayOutput) Index(i pulumi.IntInput) RulesetRuleActionsSuppressOutput {
@@ -9566,6 +11223,12 @@ func (i RulesetRuleActionsSuspendArgs) ToRulesetRuleActionsSuspendOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleActionsSuspendOutput)
 }
 
+func (i RulesetRuleActionsSuspendArgs) ToOutput(ctx context.Context) pulumix.Output[RulesetRuleActionsSuspend] {
+	return pulumix.Output[RulesetRuleActionsSuspend]{
+		OutputState: i.ToRulesetRuleActionsSuspendOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RulesetRuleActionsSuspendArrayInput is an input type that accepts RulesetRuleActionsSuspendArray and RulesetRuleActionsSuspendArrayOutput values.
 // You can construct a concrete instance of `RulesetRuleActionsSuspendArrayInput` via:
 //
@@ -9591,6 +11254,12 @@ func (i RulesetRuleActionsSuspendArray) ToRulesetRuleActionsSuspendArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleActionsSuspendArrayOutput)
 }
 
+func (i RulesetRuleActionsSuspendArray) ToOutput(ctx context.Context) pulumix.Output[[]RulesetRuleActionsSuspend] {
+	return pulumix.Output[[]RulesetRuleActionsSuspend]{
+		OutputState: i.ToRulesetRuleActionsSuspendArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RulesetRuleActionsSuspendOutput struct{ *pulumi.OutputState }
 
 func (RulesetRuleActionsSuspendOutput) ElementType() reflect.Type {
@@ -9603,6 +11272,12 @@ func (o RulesetRuleActionsSuspendOutput) ToRulesetRuleActionsSuspendOutput() Rul
 
 func (o RulesetRuleActionsSuspendOutput) ToRulesetRuleActionsSuspendOutputWithContext(ctx context.Context) RulesetRuleActionsSuspendOutput {
 	return o
+}
+
+func (o RulesetRuleActionsSuspendOutput) ToOutput(ctx context.Context) pulumix.Output[RulesetRuleActionsSuspend] {
+	return pulumix.Output[RulesetRuleActionsSuspend]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
@@ -9622,6 +11297,12 @@ func (o RulesetRuleActionsSuspendArrayOutput) ToRulesetRuleActionsSuspendArrayOu
 
 func (o RulesetRuleActionsSuspendArrayOutput) ToRulesetRuleActionsSuspendArrayOutputWithContext(ctx context.Context) RulesetRuleActionsSuspendArrayOutput {
 	return o
+}
+
+func (o RulesetRuleActionsSuspendArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RulesetRuleActionsSuspend] {
+	return pulumix.Output[[]RulesetRuleActionsSuspend]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RulesetRuleActionsSuspendArrayOutput) Index(i pulumi.IntInput) RulesetRuleActionsSuspendOutput {
@@ -9667,6 +11348,12 @@ func (i RulesetRuleConditionsArgs) ToRulesetRuleConditionsOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleConditionsOutput)
 }
 
+func (i RulesetRuleConditionsArgs) ToOutput(ctx context.Context) pulumix.Output[RulesetRuleConditions] {
+	return pulumix.Output[RulesetRuleConditions]{
+		OutputState: i.ToRulesetRuleConditionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RulesetRuleConditionsArgs) ToRulesetRuleConditionsPtrOutput() RulesetRuleConditionsPtrOutput {
 	return i.ToRulesetRuleConditionsPtrOutputWithContext(context.Background())
 }
@@ -9708,6 +11395,12 @@ func (i *rulesetRuleConditionsPtrType) ToRulesetRuleConditionsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleConditionsPtrOutput)
 }
 
+func (i *rulesetRuleConditionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*RulesetRuleConditions] {
+	return pulumix.Output[*RulesetRuleConditions]{
+		OutputState: i.ToRulesetRuleConditionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RulesetRuleConditionsOutput struct{ *pulumi.OutputState }
 
 func (RulesetRuleConditionsOutput) ElementType() reflect.Type {
@@ -9732,6 +11425,12 @@ func (o RulesetRuleConditionsOutput) ToRulesetRuleConditionsPtrOutputWithContext
 	}).(RulesetRuleConditionsPtrOutput)
 }
 
+func (o RulesetRuleConditionsOutput) ToOutput(ctx context.Context) pulumix.Output[RulesetRuleConditions] {
+	return pulumix.Output[RulesetRuleConditions]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Operator to combine sub-conditions. Can be `and` or `or`.
 func (o RulesetRuleConditionsOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RulesetRuleConditions) *string { return v.Operator }).(pulumi.StringPtrOutput)
@@ -9754,6 +11453,12 @@ func (o RulesetRuleConditionsPtrOutput) ToRulesetRuleConditionsPtrOutput() Rules
 
 func (o RulesetRuleConditionsPtrOutput) ToRulesetRuleConditionsPtrOutputWithContext(ctx context.Context) RulesetRuleConditionsPtrOutput {
 	return o
+}
+
+func (o RulesetRuleConditionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RulesetRuleConditions] {
+	return pulumix.Output[*RulesetRuleConditions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RulesetRuleConditionsPtrOutput) Elem() RulesetRuleConditionsOutput {
@@ -9823,6 +11528,12 @@ func (i RulesetRuleConditionsSubconditionArgs) ToRulesetRuleConditionsSubconditi
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleConditionsSubconditionOutput)
 }
 
+func (i RulesetRuleConditionsSubconditionArgs) ToOutput(ctx context.Context) pulumix.Output[RulesetRuleConditionsSubcondition] {
+	return pulumix.Output[RulesetRuleConditionsSubcondition]{
+		OutputState: i.ToRulesetRuleConditionsSubconditionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RulesetRuleConditionsSubconditionArrayInput is an input type that accepts RulesetRuleConditionsSubconditionArray and RulesetRuleConditionsSubconditionArrayOutput values.
 // You can construct a concrete instance of `RulesetRuleConditionsSubconditionArrayInput` via:
 //
@@ -9848,6 +11559,12 @@ func (i RulesetRuleConditionsSubconditionArray) ToRulesetRuleConditionsSubcondit
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleConditionsSubconditionArrayOutput)
 }
 
+func (i RulesetRuleConditionsSubconditionArray) ToOutput(ctx context.Context) pulumix.Output[[]RulesetRuleConditionsSubcondition] {
+	return pulumix.Output[[]RulesetRuleConditionsSubcondition]{
+		OutputState: i.ToRulesetRuleConditionsSubconditionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RulesetRuleConditionsSubconditionOutput struct{ *pulumi.OutputState }
 
 func (RulesetRuleConditionsSubconditionOutput) ElementType() reflect.Type {
@@ -9860,6 +11577,12 @@ func (o RulesetRuleConditionsSubconditionOutput) ToRulesetRuleConditionsSubcondi
 
 func (o RulesetRuleConditionsSubconditionOutput) ToRulesetRuleConditionsSubconditionOutputWithContext(ctx context.Context) RulesetRuleConditionsSubconditionOutput {
 	return o
+}
+
+func (o RulesetRuleConditionsSubconditionOutput) ToOutput(ctx context.Context) pulumix.Output[RulesetRuleConditionsSubcondition] {
+	return pulumix.Output[RulesetRuleConditionsSubcondition]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Type of operator to apply to the sub-condition. Can be `exists`,`nexists`,`equals`,`nequals`,`contains`,`ncontains`,`matches`, or `nmatches`.
@@ -9886,6 +11609,12 @@ func (o RulesetRuleConditionsSubconditionArrayOutput) ToRulesetRuleConditionsSub
 
 func (o RulesetRuleConditionsSubconditionArrayOutput) ToRulesetRuleConditionsSubconditionArrayOutputWithContext(ctx context.Context) RulesetRuleConditionsSubconditionArrayOutput {
 	return o
+}
+
+func (o RulesetRuleConditionsSubconditionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RulesetRuleConditionsSubcondition] {
+	return pulumix.Output[[]RulesetRuleConditionsSubcondition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RulesetRuleConditionsSubconditionArrayOutput) Index(i pulumi.IntInput) RulesetRuleConditionsSubconditionOutput {
@@ -9929,6 +11658,12 @@ func (i RulesetRuleConditionsSubconditionParameterArgs) ToRulesetRuleConditionsS
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleConditionsSubconditionParameterOutput)
 }
 
+func (i RulesetRuleConditionsSubconditionParameterArgs) ToOutput(ctx context.Context) pulumix.Output[RulesetRuleConditionsSubconditionParameter] {
+	return pulumix.Output[RulesetRuleConditionsSubconditionParameter]{
+		OutputState: i.ToRulesetRuleConditionsSubconditionParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RulesetRuleConditionsSubconditionParameterArrayInput is an input type that accepts RulesetRuleConditionsSubconditionParameterArray and RulesetRuleConditionsSubconditionParameterArrayOutput values.
 // You can construct a concrete instance of `RulesetRuleConditionsSubconditionParameterArrayInput` via:
 //
@@ -9954,6 +11689,12 @@ func (i RulesetRuleConditionsSubconditionParameterArray) ToRulesetRuleConditions
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleConditionsSubconditionParameterArrayOutput)
 }
 
+func (i RulesetRuleConditionsSubconditionParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]RulesetRuleConditionsSubconditionParameter] {
+	return pulumix.Output[[]RulesetRuleConditionsSubconditionParameter]{
+		OutputState: i.ToRulesetRuleConditionsSubconditionParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RulesetRuleConditionsSubconditionParameterOutput struct{ *pulumi.OutputState }
 
 func (RulesetRuleConditionsSubconditionParameterOutput) ElementType() reflect.Type {
@@ -9966,6 +11707,12 @@ func (o RulesetRuleConditionsSubconditionParameterOutput) ToRulesetRuleCondition
 
 func (o RulesetRuleConditionsSubconditionParameterOutput) ToRulesetRuleConditionsSubconditionParameterOutputWithContext(ctx context.Context) RulesetRuleConditionsSubconditionParameterOutput {
 	return o
+}
+
+func (o RulesetRuleConditionsSubconditionParameterOutput) ToOutput(ctx context.Context) pulumix.Output[RulesetRuleConditionsSubconditionParameter] {
+	return pulumix.Output[RulesetRuleConditionsSubconditionParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RulesetRuleConditionsSubconditionParameterOutput) Path() pulumi.StringPtrOutput {
@@ -9989,6 +11736,12 @@ func (o RulesetRuleConditionsSubconditionParameterArrayOutput) ToRulesetRuleCond
 
 func (o RulesetRuleConditionsSubconditionParameterArrayOutput) ToRulesetRuleConditionsSubconditionParameterArrayOutputWithContext(ctx context.Context) RulesetRuleConditionsSubconditionParameterArrayOutput {
 	return o
+}
+
+func (o RulesetRuleConditionsSubconditionParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RulesetRuleConditionsSubconditionParameter] {
+	return pulumix.Output[[]RulesetRuleConditionsSubconditionParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RulesetRuleConditionsSubconditionParameterArrayOutput) Index(i pulumi.IntInput) RulesetRuleConditionsSubconditionParameterOutput {
@@ -10034,6 +11787,12 @@ func (i RulesetRuleTimeFrameArgs) ToRulesetRuleTimeFrameOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleTimeFrameOutput)
 }
 
+func (i RulesetRuleTimeFrameArgs) ToOutput(ctx context.Context) pulumix.Output[RulesetRuleTimeFrame] {
+	return pulumix.Output[RulesetRuleTimeFrame]{
+		OutputState: i.ToRulesetRuleTimeFrameOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RulesetRuleTimeFrameArgs) ToRulesetRuleTimeFramePtrOutput() RulesetRuleTimeFramePtrOutput {
 	return i.ToRulesetRuleTimeFramePtrOutputWithContext(context.Background())
 }
@@ -10075,6 +11834,12 @@ func (i *rulesetRuleTimeFramePtrType) ToRulesetRuleTimeFramePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleTimeFramePtrOutput)
 }
 
+func (i *rulesetRuleTimeFramePtrType) ToOutput(ctx context.Context) pulumix.Output[*RulesetRuleTimeFrame] {
+	return pulumix.Output[*RulesetRuleTimeFrame]{
+		OutputState: i.ToRulesetRuleTimeFramePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RulesetRuleTimeFrameOutput struct{ *pulumi.OutputState }
 
 func (RulesetRuleTimeFrameOutput) ElementType() reflect.Type {
@@ -10099,6 +11864,12 @@ func (o RulesetRuleTimeFrameOutput) ToRulesetRuleTimeFramePtrOutputWithContext(c
 	}).(RulesetRuleTimeFramePtrOutput)
 }
 
+func (o RulesetRuleTimeFrameOutput) ToOutput(ctx context.Context) pulumix.Output[RulesetRuleTimeFrame] {
+	return pulumix.Output[RulesetRuleTimeFrame]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Values for executing the rule during a specific time period.
 func (o RulesetRuleTimeFrameOutput) ActiveBetweens() RulesetRuleTimeFrameActiveBetweenArrayOutput {
 	return o.ApplyT(func(v RulesetRuleTimeFrame) []RulesetRuleTimeFrameActiveBetween { return v.ActiveBetweens }).(RulesetRuleTimeFrameActiveBetweenArrayOutput)
@@ -10121,6 +11892,12 @@ func (o RulesetRuleTimeFramePtrOutput) ToRulesetRuleTimeFramePtrOutput() Ruleset
 
 func (o RulesetRuleTimeFramePtrOutput) ToRulesetRuleTimeFramePtrOutputWithContext(ctx context.Context) RulesetRuleTimeFramePtrOutput {
 	return o
+}
+
+func (o RulesetRuleTimeFramePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RulesetRuleTimeFrame] {
+	return pulumix.Output[*RulesetRuleTimeFrame]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RulesetRuleTimeFramePtrOutput) Elem() RulesetRuleTimeFrameOutput {
@@ -10188,6 +11965,12 @@ func (i RulesetRuleTimeFrameActiveBetweenArgs) ToRulesetRuleTimeFrameActiveBetwe
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleTimeFrameActiveBetweenOutput)
 }
 
+func (i RulesetRuleTimeFrameActiveBetweenArgs) ToOutput(ctx context.Context) pulumix.Output[RulesetRuleTimeFrameActiveBetween] {
+	return pulumix.Output[RulesetRuleTimeFrameActiveBetween]{
+		OutputState: i.ToRulesetRuleTimeFrameActiveBetweenOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RulesetRuleTimeFrameActiveBetweenArrayInput is an input type that accepts RulesetRuleTimeFrameActiveBetweenArray and RulesetRuleTimeFrameActiveBetweenArrayOutput values.
 // You can construct a concrete instance of `RulesetRuleTimeFrameActiveBetweenArrayInput` via:
 //
@@ -10213,6 +11996,12 @@ func (i RulesetRuleTimeFrameActiveBetweenArray) ToRulesetRuleTimeFrameActiveBetw
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleTimeFrameActiveBetweenArrayOutput)
 }
 
+func (i RulesetRuleTimeFrameActiveBetweenArray) ToOutput(ctx context.Context) pulumix.Output[[]RulesetRuleTimeFrameActiveBetween] {
+	return pulumix.Output[[]RulesetRuleTimeFrameActiveBetween]{
+		OutputState: i.ToRulesetRuleTimeFrameActiveBetweenArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RulesetRuleTimeFrameActiveBetweenOutput struct{ *pulumi.OutputState }
 
 func (RulesetRuleTimeFrameActiveBetweenOutput) ElementType() reflect.Type {
@@ -10225,6 +12014,12 @@ func (o RulesetRuleTimeFrameActiveBetweenOutput) ToRulesetRuleTimeFrameActiveBet
 
 func (o RulesetRuleTimeFrameActiveBetweenOutput) ToRulesetRuleTimeFrameActiveBetweenOutputWithContext(ctx context.Context) RulesetRuleTimeFrameActiveBetweenOutput {
 	return o
+}
+
+func (o RulesetRuleTimeFrameActiveBetweenOutput) ToOutput(ctx context.Context) pulumix.Output[RulesetRuleTimeFrameActiveBetween] {
+	return pulumix.Output[RulesetRuleTimeFrameActiveBetween]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RulesetRuleTimeFrameActiveBetweenOutput) EndTime() pulumi.IntPtrOutput {
@@ -10248,6 +12043,12 @@ func (o RulesetRuleTimeFrameActiveBetweenArrayOutput) ToRulesetRuleTimeFrameActi
 
 func (o RulesetRuleTimeFrameActiveBetweenArrayOutput) ToRulesetRuleTimeFrameActiveBetweenArrayOutputWithContext(ctx context.Context) RulesetRuleTimeFrameActiveBetweenArrayOutput {
 	return o
+}
+
+func (o RulesetRuleTimeFrameActiveBetweenArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RulesetRuleTimeFrameActiveBetween] {
+	return pulumix.Output[[]RulesetRuleTimeFrameActiveBetween]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RulesetRuleTimeFrameActiveBetweenArrayOutput) Index(i pulumi.IntInput) RulesetRuleTimeFrameActiveBetweenOutput {
@@ -10301,6 +12102,12 @@ func (i RulesetRuleTimeFrameScheduledWeeklyArgs) ToRulesetRuleTimeFrameScheduled
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleTimeFrameScheduledWeeklyOutput)
 }
 
+func (i RulesetRuleTimeFrameScheduledWeeklyArgs) ToOutput(ctx context.Context) pulumix.Output[RulesetRuleTimeFrameScheduledWeekly] {
+	return pulumix.Output[RulesetRuleTimeFrameScheduledWeekly]{
+		OutputState: i.ToRulesetRuleTimeFrameScheduledWeeklyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RulesetRuleTimeFrameScheduledWeeklyArrayInput is an input type that accepts RulesetRuleTimeFrameScheduledWeeklyArray and RulesetRuleTimeFrameScheduledWeeklyArrayOutput values.
 // You can construct a concrete instance of `RulesetRuleTimeFrameScheduledWeeklyArrayInput` via:
 //
@@ -10326,6 +12133,12 @@ func (i RulesetRuleTimeFrameScheduledWeeklyArray) ToRulesetRuleTimeFrameSchedule
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleTimeFrameScheduledWeeklyArrayOutput)
 }
 
+func (i RulesetRuleTimeFrameScheduledWeeklyArray) ToOutput(ctx context.Context) pulumix.Output[[]RulesetRuleTimeFrameScheduledWeekly] {
+	return pulumix.Output[[]RulesetRuleTimeFrameScheduledWeekly]{
+		OutputState: i.ToRulesetRuleTimeFrameScheduledWeeklyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RulesetRuleTimeFrameScheduledWeeklyOutput struct{ *pulumi.OutputState }
 
 func (RulesetRuleTimeFrameScheduledWeeklyOutput) ElementType() reflect.Type {
@@ -10338,6 +12151,12 @@ func (o RulesetRuleTimeFrameScheduledWeeklyOutput) ToRulesetRuleTimeFrameSchedul
 
 func (o RulesetRuleTimeFrameScheduledWeeklyOutput) ToRulesetRuleTimeFrameScheduledWeeklyOutputWithContext(ctx context.Context) RulesetRuleTimeFrameScheduledWeeklyOutput {
 	return o
+}
+
+func (o RulesetRuleTimeFrameScheduledWeeklyOutput) ToOutput(ctx context.Context) pulumix.Output[RulesetRuleTimeFrameScheduledWeekly] {
+	return pulumix.Output[RulesetRuleTimeFrameScheduledWeekly]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Length of time the schedule will be active in milliseconds. For example `duration = 2 * 60 * 60 * 1000` if you want your rule to apply for 2 hours, from the specified `startTime`.
@@ -10372,6 +12191,12 @@ func (o RulesetRuleTimeFrameScheduledWeeklyArrayOutput) ToRulesetRuleTimeFrameSc
 
 func (o RulesetRuleTimeFrameScheduledWeeklyArrayOutput) ToRulesetRuleTimeFrameScheduledWeeklyArrayOutputWithContext(ctx context.Context) RulesetRuleTimeFrameScheduledWeeklyArrayOutput {
 	return o
+}
+
+func (o RulesetRuleTimeFrameScheduledWeeklyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RulesetRuleTimeFrameScheduledWeekly] {
+	return pulumix.Output[[]RulesetRuleTimeFrameScheduledWeekly]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RulesetRuleTimeFrameScheduledWeeklyArrayOutput) Index(i pulumi.IntInput) RulesetRuleTimeFrameScheduledWeeklyOutput {
@@ -10415,6 +12240,12 @@ func (i RulesetRuleVariableArgs) ToRulesetRuleVariableOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleVariableOutput)
 }
 
+func (i RulesetRuleVariableArgs) ToOutput(ctx context.Context) pulumix.Output[RulesetRuleVariable] {
+	return pulumix.Output[RulesetRuleVariable]{
+		OutputState: i.ToRulesetRuleVariableOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RulesetRuleVariableArrayInput is an input type that accepts RulesetRuleVariableArray and RulesetRuleVariableArrayOutput values.
 // You can construct a concrete instance of `RulesetRuleVariableArrayInput` via:
 //
@@ -10440,6 +12271,12 @@ func (i RulesetRuleVariableArray) ToRulesetRuleVariableArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleVariableArrayOutput)
 }
 
+func (i RulesetRuleVariableArray) ToOutput(ctx context.Context) pulumix.Output[[]RulesetRuleVariable] {
+	return pulumix.Output[[]RulesetRuleVariable]{
+		OutputState: i.ToRulesetRuleVariableArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RulesetRuleVariableOutput struct{ *pulumi.OutputState }
 
 func (RulesetRuleVariableOutput) ElementType() reflect.Type {
@@ -10452,6 +12289,12 @@ func (o RulesetRuleVariableOutput) ToRulesetRuleVariableOutput() RulesetRuleVari
 
 func (o RulesetRuleVariableOutput) ToRulesetRuleVariableOutputWithContext(ctx context.Context) RulesetRuleVariableOutput {
 	return o
+}
+
+func (o RulesetRuleVariableOutput) ToOutput(ctx context.Context) pulumix.Output[RulesetRuleVariable] {
+	return pulumix.Output[RulesetRuleVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RulesetRuleVariableOutput) Name() pulumi.StringPtrOutput {
@@ -10478,6 +12321,12 @@ func (o RulesetRuleVariableArrayOutput) ToRulesetRuleVariableArrayOutput() Rules
 
 func (o RulesetRuleVariableArrayOutput) ToRulesetRuleVariableArrayOutputWithContext(ctx context.Context) RulesetRuleVariableArrayOutput {
 	return o
+}
+
+func (o RulesetRuleVariableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RulesetRuleVariable] {
+	return pulumix.Output[[]RulesetRuleVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RulesetRuleVariableArrayOutput) Index(i pulumi.IntInput) RulesetRuleVariableOutput {
@@ -10521,6 +12370,12 @@ func (i RulesetRuleVariableParameterArgs) ToRulesetRuleVariableParameterOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleVariableParameterOutput)
 }
 
+func (i RulesetRuleVariableParameterArgs) ToOutput(ctx context.Context) pulumix.Output[RulesetRuleVariableParameter] {
+	return pulumix.Output[RulesetRuleVariableParameter]{
+		OutputState: i.ToRulesetRuleVariableParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RulesetRuleVariableParameterArrayInput is an input type that accepts RulesetRuleVariableParameterArray and RulesetRuleVariableParameterArrayOutput values.
 // You can construct a concrete instance of `RulesetRuleVariableParameterArrayInput` via:
 //
@@ -10546,6 +12401,12 @@ func (i RulesetRuleVariableParameterArray) ToRulesetRuleVariableParameterArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleVariableParameterArrayOutput)
 }
 
+func (i RulesetRuleVariableParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]RulesetRuleVariableParameter] {
+	return pulumix.Output[[]RulesetRuleVariableParameter]{
+		OutputState: i.ToRulesetRuleVariableParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RulesetRuleVariableParameterOutput struct{ *pulumi.OutputState }
 
 func (RulesetRuleVariableParameterOutput) ElementType() reflect.Type {
@@ -10558,6 +12419,12 @@ func (o RulesetRuleVariableParameterOutput) ToRulesetRuleVariableParameterOutput
 
 func (o RulesetRuleVariableParameterOutput) ToRulesetRuleVariableParameterOutputWithContext(ctx context.Context) RulesetRuleVariableParameterOutput {
 	return o
+}
+
+func (o RulesetRuleVariableParameterOutput) ToOutput(ctx context.Context) pulumix.Output[RulesetRuleVariableParameter] {
+	return pulumix.Output[RulesetRuleVariableParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RulesetRuleVariableParameterOutput) Path() pulumi.StringPtrOutput {
@@ -10581,6 +12448,12 @@ func (o RulesetRuleVariableParameterArrayOutput) ToRulesetRuleVariableParameterA
 
 func (o RulesetRuleVariableParameterArrayOutput) ToRulesetRuleVariableParameterArrayOutputWithContext(ctx context.Context) RulesetRuleVariableParameterArrayOutput {
 	return o
+}
+
+func (o RulesetRuleVariableParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RulesetRuleVariableParameter] {
+	return pulumix.Output[[]RulesetRuleVariableParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RulesetRuleVariableParameterArrayOutput) Index(i pulumi.IntInput) RulesetRuleVariableParameterOutput {
@@ -10620,6 +12493,12 @@ func (i RulesetTeamArgs) ToRulesetTeamOutput() RulesetTeamOutput {
 
 func (i RulesetTeamArgs) ToRulesetTeamOutputWithContext(ctx context.Context) RulesetTeamOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetTeamOutput)
+}
+
+func (i RulesetTeamArgs) ToOutput(ctx context.Context) pulumix.Output[RulesetTeam] {
+	return pulumix.Output[RulesetTeam]{
+		OutputState: i.ToRulesetTeamOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i RulesetTeamArgs) ToRulesetTeamPtrOutput() RulesetTeamPtrOutput {
@@ -10663,6 +12542,12 @@ func (i *rulesetTeamPtrType) ToRulesetTeamPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetTeamPtrOutput)
 }
 
+func (i *rulesetTeamPtrType) ToOutput(ctx context.Context) pulumix.Output[*RulesetTeam] {
+	return pulumix.Output[*RulesetTeam]{
+		OutputState: i.ToRulesetTeamPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RulesetTeamOutput struct{ *pulumi.OutputState }
 
 func (RulesetTeamOutput) ElementType() reflect.Type {
@@ -10687,6 +12572,12 @@ func (o RulesetTeamOutput) ToRulesetTeamPtrOutputWithContext(ctx context.Context
 	}).(RulesetTeamPtrOutput)
 }
 
+func (o RulesetTeamOutput) ToOutput(ctx context.Context) pulumix.Output[RulesetTeam] {
+	return pulumix.Output[RulesetTeam]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the ruleset.
 func (o RulesetTeamOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v RulesetTeam) string { return v.Id }).(pulumi.StringOutput)
@@ -10704,6 +12595,12 @@ func (o RulesetTeamPtrOutput) ToRulesetTeamPtrOutput() RulesetTeamPtrOutput {
 
 func (o RulesetTeamPtrOutput) ToRulesetTeamPtrOutputWithContext(ctx context.Context) RulesetTeamPtrOutput {
 	return o
+}
+
+func (o RulesetTeamPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RulesetTeam] {
+	return pulumix.Output[*RulesetTeam]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RulesetTeamPtrOutput) Elem() RulesetTeamOutput {
@@ -10761,6 +12658,12 @@ func (i ScheduleFinalScheduleArgs) ToScheduleFinalScheduleOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleFinalScheduleOutput)
 }
 
+func (i ScheduleFinalScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduleFinalSchedule] {
+	return pulumix.Output[ScheduleFinalSchedule]{
+		OutputState: i.ToScheduleFinalScheduleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ScheduleFinalScheduleArrayInput is an input type that accepts ScheduleFinalScheduleArray and ScheduleFinalScheduleArrayOutput values.
 // You can construct a concrete instance of `ScheduleFinalScheduleArrayInput` via:
 //
@@ -10786,6 +12689,12 @@ func (i ScheduleFinalScheduleArray) ToScheduleFinalScheduleArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleFinalScheduleArrayOutput)
 }
 
+func (i ScheduleFinalScheduleArray) ToOutput(ctx context.Context) pulumix.Output[[]ScheduleFinalSchedule] {
+	return pulumix.Output[[]ScheduleFinalSchedule]{
+		OutputState: i.ToScheduleFinalScheduleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ScheduleFinalScheduleOutput struct{ *pulumi.OutputState }
 
 func (ScheduleFinalScheduleOutput) ElementType() reflect.Type {
@@ -10798,6 +12707,12 @@ func (o ScheduleFinalScheduleOutput) ToScheduleFinalScheduleOutput() ScheduleFin
 
 func (o ScheduleFinalScheduleOutput) ToScheduleFinalScheduleOutputWithContext(ctx context.Context) ScheduleFinalScheduleOutput {
 	return o
+}
+
+func (o ScheduleFinalScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleFinalSchedule] {
+	return pulumix.Output[ScheduleFinalSchedule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the schedule.
@@ -10821,6 +12736,12 @@ func (o ScheduleFinalScheduleArrayOutput) ToScheduleFinalScheduleArrayOutput() S
 
 func (o ScheduleFinalScheduleArrayOutput) ToScheduleFinalScheduleArrayOutputWithContext(ctx context.Context) ScheduleFinalScheduleArrayOutput {
 	return o
+}
+
+func (o ScheduleFinalScheduleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScheduleFinalSchedule] {
+	return pulumix.Output[[]ScheduleFinalSchedule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScheduleFinalScheduleArrayOutput) Index(i pulumi.IntInput) ScheduleFinalScheduleOutput {
@@ -10892,6 +12813,12 @@ func (i ScheduleLayerArgs) ToScheduleLayerOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleLayerOutput)
 }
 
+func (i ScheduleLayerArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduleLayer] {
+	return pulumix.Output[ScheduleLayer]{
+		OutputState: i.ToScheduleLayerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ScheduleLayerArrayInput is an input type that accepts ScheduleLayerArray and ScheduleLayerArrayOutput values.
 // You can construct a concrete instance of `ScheduleLayerArrayInput` via:
 //
@@ -10917,6 +12844,12 @@ func (i ScheduleLayerArray) ToScheduleLayerArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleLayerArrayOutput)
 }
 
+func (i ScheduleLayerArray) ToOutput(ctx context.Context) pulumix.Output[[]ScheduleLayer] {
+	return pulumix.Output[[]ScheduleLayer]{
+		OutputState: i.ToScheduleLayerArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ScheduleLayerOutput struct{ *pulumi.OutputState }
 
 func (ScheduleLayerOutput) ElementType() reflect.Type {
@@ -10929,6 +12862,12 @@ func (o ScheduleLayerOutput) ToScheduleLayerOutput() ScheduleLayerOutput {
 
 func (o ScheduleLayerOutput) ToScheduleLayerOutputWithContext(ctx context.Context) ScheduleLayerOutput {
 	return o
+}
+
+func (o ScheduleLayerOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleLayer] {
+	return pulumix.Output[ScheduleLayer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The end time of the schedule layer. If not specified, the layer does not end.
@@ -10989,6 +12928,12 @@ func (o ScheduleLayerArrayOutput) ToScheduleLayerArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o ScheduleLayerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScheduleLayer] {
+	return pulumix.Output[[]ScheduleLayer]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScheduleLayerArrayOutput) Index(i pulumi.IntInput) ScheduleLayerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScheduleLayer {
 		return vs[0].([]ScheduleLayer)[vs[1].(int)]
@@ -11040,6 +12985,12 @@ func (i ScheduleLayerRestrictionArgs) ToScheduleLayerRestrictionOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleLayerRestrictionOutput)
 }
 
+func (i ScheduleLayerRestrictionArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduleLayerRestriction] {
+	return pulumix.Output[ScheduleLayerRestriction]{
+		OutputState: i.ToScheduleLayerRestrictionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ScheduleLayerRestrictionArrayInput is an input type that accepts ScheduleLayerRestrictionArray and ScheduleLayerRestrictionArrayOutput values.
 // You can construct a concrete instance of `ScheduleLayerRestrictionArrayInput` via:
 //
@@ -11065,6 +13016,12 @@ func (i ScheduleLayerRestrictionArray) ToScheduleLayerRestrictionArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleLayerRestrictionArrayOutput)
 }
 
+func (i ScheduleLayerRestrictionArray) ToOutput(ctx context.Context) pulumix.Output[[]ScheduleLayerRestriction] {
+	return pulumix.Output[[]ScheduleLayerRestriction]{
+		OutputState: i.ToScheduleLayerRestrictionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ScheduleLayerRestrictionOutput struct{ *pulumi.OutputState }
 
 func (ScheduleLayerRestrictionOutput) ElementType() reflect.Type {
@@ -11077,6 +13034,12 @@ func (o ScheduleLayerRestrictionOutput) ToScheduleLayerRestrictionOutput() Sched
 
 func (o ScheduleLayerRestrictionOutput) ToScheduleLayerRestrictionOutputWithContext(ctx context.Context) ScheduleLayerRestrictionOutput {
 	return o
+}
+
+func (o ScheduleLayerRestrictionOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleLayerRestriction] {
+	return pulumix.Output[ScheduleLayerRestriction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The duration of the restriction in `seconds`.
@@ -11111,6 +13074,12 @@ func (o ScheduleLayerRestrictionArrayOutput) ToScheduleLayerRestrictionArrayOutp
 
 func (o ScheduleLayerRestrictionArrayOutput) ToScheduleLayerRestrictionArrayOutputWithContext(ctx context.Context) ScheduleLayerRestrictionArrayOutput {
 	return o
+}
+
+func (o ScheduleLayerRestrictionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScheduleLayerRestriction] {
+	return pulumix.Output[[]ScheduleLayerRestriction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScheduleLayerRestrictionArrayOutput) Index(i pulumi.IntInput) ScheduleLayerRestrictionOutput {
@@ -11156,6 +13125,12 @@ func (i ServiceAlertGroupingParametersArgs) ToServiceAlertGroupingParametersOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAlertGroupingParametersOutput)
 }
 
+func (i ServiceAlertGroupingParametersArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceAlertGroupingParameters] {
+	return pulumix.Output[ServiceAlertGroupingParameters]{
+		OutputState: i.ToServiceAlertGroupingParametersOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServiceAlertGroupingParametersArgs) ToServiceAlertGroupingParametersPtrOutput() ServiceAlertGroupingParametersPtrOutput {
 	return i.ToServiceAlertGroupingParametersPtrOutputWithContext(context.Background())
 }
@@ -11197,6 +13172,12 @@ func (i *serviceAlertGroupingParametersPtrType) ToServiceAlertGroupingParameters
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAlertGroupingParametersPtrOutput)
 }
 
+func (i *serviceAlertGroupingParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceAlertGroupingParameters] {
+	return pulumix.Output[*ServiceAlertGroupingParameters]{
+		OutputState: i.ToServiceAlertGroupingParametersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceAlertGroupingParametersOutput struct{ *pulumi.OutputState }
 
 func (ServiceAlertGroupingParametersOutput) ElementType() reflect.Type {
@@ -11221,6 +13202,12 @@ func (o ServiceAlertGroupingParametersOutput) ToServiceAlertGroupingParametersPt
 	}).(ServiceAlertGroupingParametersPtrOutput)
 }
 
+func (o ServiceAlertGroupingParametersOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceAlertGroupingParameters] {
+	return pulumix.Output[ServiceAlertGroupingParameters]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Alert grouping parameters dependent on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
 func (o ServiceAlertGroupingParametersOutput) Config() ServiceAlertGroupingParametersConfigPtrOutput {
 	return o.ApplyT(func(v ServiceAlertGroupingParameters) *ServiceAlertGroupingParametersConfig { return v.Config }).(ServiceAlertGroupingParametersConfigPtrOutput)
@@ -11243,6 +13230,12 @@ func (o ServiceAlertGroupingParametersPtrOutput) ToServiceAlertGroupingParameter
 
 func (o ServiceAlertGroupingParametersPtrOutput) ToServiceAlertGroupingParametersPtrOutputWithContext(ctx context.Context) ServiceAlertGroupingParametersPtrOutput {
 	return o
+}
+
+func (o ServiceAlertGroupingParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceAlertGroupingParameters] {
+	return pulumix.Output[*ServiceAlertGroupingParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceAlertGroupingParametersPtrOutput) Elem() ServiceAlertGroupingParametersOutput {
@@ -11324,6 +13317,12 @@ func (i ServiceAlertGroupingParametersConfigArgs) ToServiceAlertGroupingParamete
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAlertGroupingParametersConfigOutput)
 }
 
+func (i ServiceAlertGroupingParametersConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceAlertGroupingParametersConfig] {
+	return pulumix.Output[ServiceAlertGroupingParametersConfig]{
+		OutputState: i.ToServiceAlertGroupingParametersConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServiceAlertGroupingParametersConfigArgs) ToServiceAlertGroupingParametersConfigPtrOutput() ServiceAlertGroupingParametersConfigPtrOutput {
 	return i.ToServiceAlertGroupingParametersConfigPtrOutputWithContext(context.Background())
 }
@@ -11365,6 +13364,12 @@ func (i *serviceAlertGroupingParametersConfigPtrType) ToServiceAlertGroupingPara
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAlertGroupingParametersConfigPtrOutput)
 }
 
+func (i *serviceAlertGroupingParametersConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceAlertGroupingParametersConfig] {
+	return pulumix.Output[*ServiceAlertGroupingParametersConfig]{
+		OutputState: i.ToServiceAlertGroupingParametersConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceAlertGroupingParametersConfigOutput struct{ *pulumi.OutputState }
 
 func (ServiceAlertGroupingParametersConfigOutput) ElementType() reflect.Type {
@@ -11387,6 +13392,12 @@ func (o ServiceAlertGroupingParametersConfigOutput) ToServiceAlertGroupingParame
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceAlertGroupingParametersConfig) *ServiceAlertGroupingParametersConfig {
 		return &v
 	}).(ServiceAlertGroupingParametersConfigPtrOutput)
+}
+
+func (o ServiceAlertGroupingParametersConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceAlertGroupingParametersConfig] {
+	return pulumix.Output[ServiceAlertGroupingParametersConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One of `any` or `all`. This setting applies only when `type` is set to `contentBased`. Group alerts based on one or all of `fields` value(s).
@@ -11420,6 +13431,12 @@ func (o ServiceAlertGroupingParametersConfigPtrOutput) ToServiceAlertGroupingPar
 
 func (o ServiceAlertGroupingParametersConfigPtrOutput) ToServiceAlertGroupingParametersConfigPtrOutputWithContext(ctx context.Context) ServiceAlertGroupingParametersConfigPtrOutput {
 	return o
+}
+
+func (o ServiceAlertGroupingParametersConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceAlertGroupingParametersConfig] {
+	return pulumix.Output[*ServiceAlertGroupingParametersConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceAlertGroupingParametersConfigPtrOutput) Elem() ServiceAlertGroupingParametersConfigOutput {
@@ -11511,6 +13528,12 @@ func (i ServiceAutoPauseNotificationsParametersArgs) ToServiceAutoPauseNotificat
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAutoPauseNotificationsParametersOutput)
 }
 
+func (i ServiceAutoPauseNotificationsParametersArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceAutoPauseNotificationsParameters] {
+	return pulumix.Output[ServiceAutoPauseNotificationsParameters]{
+		OutputState: i.ToServiceAutoPauseNotificationsParametersOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServiceAutoPauseNotificationsParametersArgs) ToServiceAutoPauseNotificationsParametersPtrOutput() ServiceAutoPauseNotificationsParametersPtrOutput {
 	return i.ToServiceAutoPauseNotificationsParametersPtrOutputWithContext(context.Background())
 }
@@ -11552,6 +13575,12 @@ func (i *serviceAutoPauseNotificationsParametersPtrType) ToServiceAutoPauseNotif
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAutoPauseNotificationsParametersPtrOutput)
 }
 
+func (i *serviceAutoPauseNotificationsParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceAutoPauseNotificationsParameters] {
+	return pulumix.Output[*ServiceAutoPauseNotificationsParameters]{
+		OutputState: i.ToServiceAutoPauseNotificationsParametersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceAutoPauseNotificationsParametersOutput struct{ *pulumi.OutputState }
 
 func (ServiceAutoPauseNotificationsParametersOutput) ElementType() reflect.Type {
@@ -11574,6 +13603,12 @@ func (o ServiceAutoPauseNotificationsParametersOutput) ToServiceAutoPauseNotific
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceAutoPauseNotificationsParameters) *ServiceAutoPauseNotificationsParameters {
 		return &v
 	}).(ServiceAutoPauseNotificationsParametersPtrOutput)
+}
+
+func (o ServiceAutoPauseNotificationsParametersOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceAutoPauseNotificationsParameters] {
+	return pulumix.Output[ServiceAutoPauseNotificationsParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Indicates whether alerts should be automatically suspended when identified as transient.  If not passed in, will default to 'false'.
@@ -11602,6 +13637,12 @@ func (o ServiceAutoPauseNotificationsParametersPtrOutput) ToServiceAutoPauseNoti
 
 func (o ServiceAutoPauseNotificationsParametersPtrOutput) ToServiceAutoPauseNotificationsParametersPtrOutputWithContext(ctx context.Context) ServiceAutoPauseNotificationsParametersPtrOutput {
 	return o
+}
+
+func (o ServiceAutoPauseNotificationsParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceAutoPauseNotificationsParameters] {
+	return pulumix.Output[*ServiceAutoPauseNotificationsParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceAutoPauseNotificationsParametersPtrOutput) Elem() ServiceAutoPauseNotificationsParametersOutput {
@@ -11679,6 +13720,12 @@ func (i ServiceDependencyDependencyArgs) ToServiceDependencyDependencyOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDependencyDependencyOutput)
 }
 
+func (i ServiceDependencyDependencyArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceDependencyDependency] {
+	return pulumix.Output[ServiceDependencyDependency]{
+		OutputState: i.ToServiceDependencyDependencyOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServiceDependencyDependencyArgs) ToServiceDependencyDependencyPtrOutput() ServiceDependencyDependencyPtrOutput {
 	return i.ToServiceDependencyDependencyPtrOutputWithContext(context.Background())
 }
@@ -11720,6 +13767,12 @@ func (i *serviceDependencyDependencyPtrType) ToServiceDependencyDependencyPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDependencyDependencyPtrOutput)
 }
 
+func (i *serviceDependencyDependencyPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceDependencyDependency] {
+	return pulumix.Output[*ServiceDependencyDependency]{
+		OutputState: i.ToServiceDependencyDependencyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceDependencyDependencyOutput struct{ *pulumi.OutputState }
 
 func (ServiceDependencyDependencyOutput) ElementType() reflect.Type {
@@ -11742,6 +13795,12 @@ func (o ServiceDependencyDependencyOutput) ToServiceDependencyDependencyPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceDependencyDependency) *ServiceDependencyDependency {
 		return &v
 	}).(ServiceDependencyDependencyPtrOutput)
+}
+
+func (o ServiceDependencyDependencyOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceDependencyDependency] {
+	return pulumix.Output[ServiceDependencyDependency]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The service that dependents on the supporting service. Dependency dependent service documented below.
@@ -11775,6 +13834,12 @@ func (o ServiceDependencyDependencyPtrOutput) ToServiceDependencyDependencyPtrOu
 
 func (o ServiceDependencyDependencyPtrOutput) ToServiceDependencyDependencyPtrOutputWithContext(ctx context.Context) ServiceDependencyDependencyPtrOutput {
 	return o
+}
+
+func (o ServiceDependencyDependencyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceDependencyDependency] {
+	return pulumix.Output[*ServiceDependencyDependency]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceDependencyDependencyPtrOutput) Elem() ServiceDependencyDependencyOutput {
@@ -11854,6 +13919,12 @@ func (i ServiceDependencyDependencyDependentServiceArgs) ToServiceDependencyDepe
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDependencyDependencyDependentServiceOutput)
 }
 
+func (i ServiceDependencyDependencyDependentServiceArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceDependencyDependencyDependentService] {
+	return pulumix.Output[ServiceDependencyDependencyDependentService]{
+		OutputState: i.ToServiceDependencyDependencyDependentServiceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceDependencyDependencyDependentServiceArrayInput is an input type that accepts ServiceDependencyDependencyDependentServiceArray and ServiceDependencyDependencyDependentServiceArrayOutput values.
 // You can construct a concrete instance of `ServiceDependencyDependencyDependentServiceArrayInput` via:
 //
@@ -11879,6 +13950,12 @@ func (i ServiceDependencyDependencyDependentServiceArray) ToServiceDependencyDep
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDependencyDependencyDependentServiceArrayOutput)
 }
 
+func (i ServiceDependencyDependencyDependentServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceDependencyDependencyDependentService] {
+	return pulumix.Output[[]ServiceDependencyDependencyDependentService]{
+		OutputState: i.ToServiceDependencyDependencyDependentServiceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceDependencyDependencyDependentServiceOutput struct{ *pulumi.OutputState }
 
 func (ServiceDependencyDependencyDependentServiceOutput) ElementType() reflect.Type {
@@ -11891,6 +13968,12 @@ func (o ServiceDependencyDependencyDependentServiceOutput) ToServiceDependencyDe
 
 func (o ServiceDependencyDependencyDependentServiceOutput) ToServiceDependencyDependencyDependentServiceOutputWithContext(ctx context.Context) ServiceDependencyDependencyDependentServiceOutput {
 	return o
+}
+
+func (o ServiceDependencyDependencyDependentServiceOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceDependencyDependencyDependentService] {
+	return pulumix.Output[ServiceDependencyDependencyDependentService]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the service dependency.
@@ -11915,6 +13998,12 @@ func (o ServiceDependencyDependencyDependentServiceArrayOutput) ToServiceDepende
 
 func (o ServiceDependencyDependencyDependentServiceArrayOutput) ToServiceDependencyDependencyDependentServiceArrayOutputWithContext(ctx context.Context) ServiceDependencyDependencyDependentServiceArrayOutput {
 	return o
+}
+
+func (o ServiceDependencyDependencyDependentServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceDependencyDependencyDependentService] {
+	return pulumix.Output[[]ServiceDependencyDependencyDependentService]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceDependencyDependencyDependentServiceArrayOutput) Index(i pulumi.IntInput) ServiceDependencyDependencyDependentServiceOutput {
@@ -11960,6 +14049,12 @@ func (i ServiceDependencyDependencySupportingServiceArgs) ToServiceDependencyDep
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDependencyDependencySupportingServiceOutput)
 }
 
+func (i ServiceDependencyDependencySupportingServiceArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceDependencyDependencySupportingService] {
+	return pulumix.Output[ServiceDependencyDependencySupportingService]{
+		OutputState: i.ToServiceDependencyDependencySupportingServiceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceDependencyDependencySupportingServiceArrayInput is an input type that accepts ServiceDependencyDependencySupportingServiceArray and ServiceDependencyDependencySupportingServiceArrayOutput values.
 // You can construct a concrete instance of `ServiceDependencyDependencySupportingServiceArrayInput` via:
 //
@@ -11985,6 +14080,12 @@ func (i ServiceDependencyDependencySupportingServiceArray) ToServiceDependencyDe
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDependencyDependencySupportingServiceArrayOutput)
 }
 
+func (i ServiceDependencyDependencySupportingServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceDependencyDependencySupportingService] {
+	return pulumix.Output[[]ServiceDependencyDependencySupportingService]{
+		OutputState: i.ToServiceDependencyDependencySupportingServiceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceDependencyDependencySupportingServiceOutput struct{ *pulumi.OutputState }
 
 func (ServiceDependencyDependencySupportingServiceOutput) ElementType() reflect.Type {
@@ -11997,6 +14098,12 @@ func (o ServiceDependencyDependencySupportingServiceOutput) ToServiceDependencyD
 
 func (o ServiceDependencyDependencySupportingServiceOutput) ToServiceDependencyDependencySupportingServiceOutputWithContext(ctx context.Context) ServiceDependencyDependencySupportingServiceOutput {
 	return o
+}
+
+func (o ServiceDependencyDependencySupportingServiceOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceDependencyDependencySupportingService] {
+	return pulumix.Output[ServiceDependencyDependencySupportingService]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the service dependency.
@@ -12021,6 +14128,12 @@ func (o ServiceDependencyDependencySupportingServiceArrayOutput) ToServiceDepend
 
 func (o ServiceDependencyDependencySupportingServiceArrayOutput) ToServiceDependencyDependencySupportingServiceArrayOutputWithContext(ctx context.Context) ServiceDependencyDependencySupportingServiceArrayOutput {
 	return o
+}
+
+func (o ServiceDependencyDependencySupportingServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceDependencyDependencySupportingService] {
+	return pulumix.Output[[]ServiceDependencyDependencySupportingService]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceDependencyDependencySupportingServiceArrayOutput) Index(i pulumi.IntInput) ServiceDependencyDependencySupportingServiceOutput {
@@ -12086,6 +14199,12 @@ func (i ServiceEventRuleActionsArgs) ToServiceEventRuleActionsOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleActionsOutput)
 }
 
+func (i ServiceEventRuleActionsArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceEventRuleActions] {
+	return pulumix.Output[ServiceEventRuleActions]{
+		OutputState: i.ToServiceEventRuleActionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServiceEventRuleActionsArgs) ToServiceEventRuleActionsPtrOutput() ServiceEventRuleActionsPtrOutput {
 	return i.ToServiceEventRuleActionsPtrOutputWithContext(context.Background())
 }
@@ -12127,6 +14246,12 @@ func (i *serviceEventRuleActionsPtrType) ToServiceEventRuleActionsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleActionsPtrOutput)
 }
 
+func (i *serviceEventRuleActionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceEventRuleActions] {
+	return pulumix.Output[*ServiceEventRuleActions]{
+		OutputState: i.ToServiceEventRuleActionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceEventRuleActionsOutput struct{ *pulumi.OutputState }
 
 func (ServiceEventRuleActionsOutput) ElementType() reflect.Type {
@@ -12149,6 +14274,12 @@ func (o ServiceEventRuleActionsOutput) ToServiceEventRuleActionsPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEventRuleActions) *ServiceEventRuleActions {
 		return &v
 	}).(ServiceEventRuleActionsPtrOutput)
+}
+
+func (o ServiceEventRuleActionsOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceEventRuleActions] {
+	return pulumix.Output[ServiceEventRuleActions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Note added to the event.
@@ -12198,6 +14329,12 @@ func (o ServiceEventRuleActionsPtrOutput) ToServiceEventRuleActionsPtrOutput() S
 
 func (o ServiceEventRuleActionsPtrOutput) ToServiceEventRuleActionsPtrOutputWithContext(ctx context.Context) ServiceEventRuleActionsPtrOutput {
 	return o
+}
+
+func (o ServiceEventRuleActionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceEventRuleActions] {
+	return pulumix.Output[*ServiceEventRuleActions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceEventRuleActionsPtrOutput) Elem() ServiceEventRuleActionsOutput {
@@ -12313,6 +14450,12 @@ func (i ServiceEventRuleActionsAnnotateArgs) ToServiceEventRuleActionsAnnotateOu
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleActionsAnnotateOutput)
 }
 
+func (i ServiceEventRuleActionsAnnotateArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceEventRuleActionsAnnotate] {
+	return pulumix.Output[ServiceEventRuleActionsAnnotate]{
+		OutputState: i.ToServiceEventRuleActionsAnnotateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceEventRuleActionsAnnotateArrayInput is an input type that accepts ServiceEventRuleActionsAnnotateArray and ServiceEventRuleActionsAnnotateArrayOutput values.
 // You can construct a concrete instance of `ServiceEventRuleActionsAnnotateArrayInput` via:
 //
@@ -12338,6 +14481,12 @@ func (i ServiceEventRuleActionsAnnotateArray) ToServiceEventRuleActionsAnnotateA
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleActionsAnnotateArrayOutput)
 }
 
+func (i ServiceEventRuleActionsAnnotateArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceEventRuleActionsAnnotate] {
+	return pulumix.Output[[]ServiceEventRuleActionsAnnotate]{
+		OutputState: i.ToServiceEventRuleActionsAnnotateArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceEventRuleActionsAnnotateOutput struct{ *pulumi.OutputState }
 
 func (ServiceEventRuleActionsAnnotateOutput) ElementType() reflect.Type {
@@ -12350,6 +14499,12 @@ func (o ServiceEventRuleActionsAnnotateOutput) ToServiceEventRuleActionsAnnotate
 
 func (o ServiceEventRuleActionsAnnotateOutput) ToServiceEventRuleActionsAnnotateOutputWithContext(ctx context.Context) ServiceEventRuleActionsAnnotateOutput {
 	return o
+}
+
+func (o ServiceEventRuleActionsAnnotateOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceEventRuleActionsAnnotate] {
+	return pulumix.Output[ServiceEventRuleActionsAnnotate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
@@ -12369,6 +14524,12 @@ func (o ServiceEventRuleActionsAnnotateArrayOutput) ToServiceEventRuleActionsAnn
 
 func (o ServiceEventRuleActionsAnnotateArrayOutput) ToServiceEventRuleActionsAnnotateArrayOutputWithContext(ctx context.Context) ServiceEventRuleActionsAnnotateArrayOutput {
 	return o
+}
+
+func (o ServiceEventRuleActionsAnnotateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceEventRuleActionsAnnotate] {
+	return pulumix.Output[[]ServiceEventRuleActionsAnnotate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceEventRuleActionsAnnotateArrayOutput) Index(i pulumi.IntInput) ServiceEventRuleActionsAnnotateOutput {
@@ -12410,6 +14571,12 @@ func (i ServiceEventRuleActionsEventActionArgs) ToServiceEventRuleActionsEventAc
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleActionsEventActionOutput)
 }
 
+func (i ServiceEventRuleActionsEventActionArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceEventRuleActionsEventAction] {
+	return pulumix.Output[ServiceEventRuleActionsEventAction]{
+		OutputState: i.ToServiceEventRuleActionsEventActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceEventRuleActionsEventActionArrayInput is an input type that accepts ServiceEventRuleActionsEventActionArray and ServiceEventRuleActionsEventActionArrayOutput values.
 // You can construct a concrete instance of `ServiceEventRuleActionsEventActionArrayInput` via:
 //
@@ -12435,6 +14602,12 @@ func (i ServiceEventRuleActionsEventActionArray) ToServiceEventRuleActionsEventA
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleActionsEventActionArrayOutput)
 }
 
+func (i ServiceEventRuleActionsEventActionArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceEventRuleActionsEventAction] {
+	return pulumix.Output[[]ServiceEventRuleActionsEventAction]{
+		OutputState: i.ToServiceEventRuleActionsEventActionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceEventRuleActionsEventActionOutput struct{ *pulumi.OutputState }
 
 func (ServiceEventRuleActionsEventActionOutput) ElementType() reflect.Type {
@@ -12447,6 +14620,12 @@ func (o ServiceEventRuleActionsEventActionOutput) ToServiceEventRuleActionsEvent
 
 func (o ServiceEventRuleActionsEventActionOutput) ToServiceEventRuleActionsEventActionOutputWithContext(ctx context.Context) ServiceEventRuleActionsEventActionOutput {
 	return o
+}
+
+func (o ServiceEventRuleActionsEventActionOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceEventRuleActionsEventAction] {
+	return pulumix.Output[ServiceEventRuleActionsEventAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
@@ -12466,6 +14645,12 @@ func (o ServiceEventRuleActionsEventActionArrayOutput) ToServiceEventRuleActions
 
 func (o ServiceEventRuleActionsEventActionArrayOutput) ToServiceEventRuleActionsEventActionArrayOutputWithContext(ctx context.Context) ServiceEventRuleActionsEventActionArrayOutput {
 	return o
+}
+
+func (o ServiceEventRuleActionsEventActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceEventRuleActionsEventAction] {
+	return pulumix.Output[[]ServiceEventRuleActionsEventAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceEventRuleActionsEventActionArrayOutput) Index(i pulumi.IntInput) ServiceEventRuleActionsEventActionOutput {
@@ -12527,6 +14712,12 @@ func (i ServiceEventRuleActionsExtractionArgs) ToServiceEventRuleActionsExtracti
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleActionsExtractionOutput)
 }
 
+func (i ServiceEventRuleActionsExtractionArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceEventRuleActionsExtraction] {
+	return pulumix.Output[ServiceEventRuleActionsExtraction]{
+		OutputState: i.ToServiceEventRuleActionsExtractionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceEventRuleActionsExtractionArrayInput is an input type that accepts ServiceEventRuleActionsExtractionArray and ServiceEventRuleActionsExtractionArrayOutput values.
 // You can construct a concrete instance of `ServiceEventRuleActionsExtractionArrayInput` via:
 //
@@ -12552,6 +14743,12 @@ func (i ServiceEventRuleActionsExtractionArray) ToServiceEventRuleActionsExtract
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleActionsExtractionArrayOutput)
 }
 
+func (i ServiceEventRuleActionsExtractionArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceEventRuleActionsExtraction] {
+	return pulumix.Output[[]ServiceEventRuleActionsExtraction]{
+		OutputState: i.ToServiceEventRuleActionsExtractionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceEventRuleActionsExtractionOutput struct{ *pulumi.OutputState }
 
 func (ServiceEventRuleActionsExtractionOutput) ElementType() reflect.Type {
@@ -12564,6 +14761,12 @@ func (o ServiceEventRuleActionsExtractionOutput) ToServiceEventRuleActionsExtrac
 
 func (o ServiceEventRuleActionsExtractionOutput) ToServiceEventRuleActionsExtractionOutputWithContext(ctx context.Context) ServiceEventRuleActionsExtractionOutput {
 	return o
+}
+
+func (o ServiceEventRuleActionsExtractionOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceEventRuleActionsExtraction] {
+	return pulumix.Output[ServiceEventRuleActionsExtraction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
@@ -12602,6 +14805,12 @@ func (o ServiceEventRuleActionsExtractionArrayOutput) ToServiceEventRuleActionsE
 
 func (o ServiceEventRuleActionsExtractionArrayOutput) ToServiceEventRuleActionsExtractionArrayOutputWithContext(ctx context.Context) ServiceEventRuleActionsExtractionArrayOutput {
 	return o
+}
+
+func (o ServiceEventRuleActionsExtractionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceEventRuleActionsExtraction] {
+	return pulumix.Output[[]ServiceEventRuleActionsExtraction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceEventRuleActionsExtractionArrayOutput) Index(i pulumi.IntInput) ServiceEventRuleActionsExtractionOutput {
@@ -12643,6 +14852,12 @@ func (i ServiceEventRuleActionsPriorityArgs) ToServiceEventRuleActionsPriorityOu
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleActionsPriorityOutput)
 }
 
+func (i ServiceEventRuleActionsPriorityArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceEventRuleActionsPriority] {
+	return pulumix.Output[ServiceEventRuleActionsPriority]{
+		OutputState: i.ToServiceEventRuleActionsPriorityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceEventRuleActionsPriorityArrayInput is an input type that accepts ServiceEventRuleActionsPriorityArray and ServiceEventRuleActionsPriorityArrayOutput values.
 // You can construct a concrete instance of `ServiceEventRuleActionsPriorityArrayInput` via:
 //
@@ -12668,6 +14883,12 @@ func (i ServiceEventRuleActionsPriorityArray) ToServiceEventRuleActionsPriorityA
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleActionsPriorityArrayOutput)
 }
 
+func (i ServiceEventRuleActionsPriorityArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceEventRuleActionsPriority] {
+	return pulumix.Output[[]ServiceEventRuleActionsPriority]{
+		OutputState: i.ToServiceEventRuleActionsPriorityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceEventRuleActionsPriorityOutput struct{ *pulumi.OutputState }
 
 func (ServiceEventRuleActionsPriorityOutput) ElementType() reflect.Type {
@@ -12680,6 +14901,12 @@ func (o ServiceEventRuleActionsPriorityOutput) ToServiceEventRuleActionsPriority
 
 func (o ServiceEventRuleActionsPriorityOutput) ToServiceEventRuleActionsPriorityOutputWithContext(ctx context.Context) ServiceEventRuleActionsPriorityOutput {
 	return o
+}
+
+func (o ServiceEventRuleActionsPriorityOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceEventRuleActionsPriority] {
+	return pulumix.Output[ServiceEventRuleActionsPriority]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
@@ -12699,6 +14926,12 @@ func (o ServiceEventRuleActionsPriorityArrayOutput) ToServiceEventRuleActionsPri
 
 func (o ServiceEventRuleActionsPriorityArrayOutput) ToServiceEventRuleActionsPriorityArrayOutputWithContext(ctx context.Context) ServiceEventRuleActionsPriorityArrayOutput {
 	return o
+}
+
+func (o ServiceEventRuleActionsPriorityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceEventRuleActionsPriority] {
+	return pulumix.Output[[]ServiceEventRuleActionsPriority]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceEventRuleActionsPriorityArrayOutput) Index(i pulumi.IntInput) ServiceEventRuleActionsPriorityOutput {
@@ -12740,6 +14973,12 @@ func (i ServiceEventRuleActionsSeverityArgs) ToServiceEventRuleActionsSeverityOu
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleActionsSeverityOutput)
 }
 
+func (i ServiceEventRuleActionsSeverityArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceEventRuleActionsSeverity] {
+	return pulumix.Output[ServiceEventRuleActionsSeverity]{
+		OutputState: i.ToServiceEventRuleActionsSeverityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceEventRuleActionsSeverityArrayInput is an input type that accepts ServiceEventRuleActionsSeverityArray and ServiceEventRuleActionsSeverityArrayOutput values.
 // You can construct a concrete instance of `ServiceEventRuleActionsSeverityArrayInput` via:
 //
@@ -12765,6 +15004,12 @@ func (i ServiceEventRuleActionsSeverityArray) ToServiceEventRuleActionsSeverityA
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleActionsSeverityArrayOutput)
 }
 
+func (i ServiceEventRuleActionsSeverityArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceEventRuleActionsSeverity] {
+	return pulumix.Output[[]ServiceEventRuleActionsSeverity]{
+		OutputState: i.ToServiceEventRuleActionsSeverityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceEventRuleActionsSeverityOutput struct{ *pulumi.OutputState }
 
 func (ServiceEventRuleActionsSeverityOutput) ElementType() reflect.Type {
@@ -12777,6 +15022,12 @@ func (o ServiceEventRuleActionsSeverityOutput) ToServiceEventRuleActionsSeverity
 
 func (o ServiceEventRuleActionsSeverityOutput) ToServiceEventRuleActionsSeverityOutputWithContext(ctx context.Context) ServiceEventRuleActionsSeverityOutput {
 	return o
+}
+
+func (o ServiceEventRuleActionsSeverityOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceEventRuleActionsSeverity] {
+	return pulumix.Output[ServiceEventRuleActionsSeverity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
@@ -12796,6 +15047,12 @@ func (o ServiceEventRuleActionsSeverityArrayOutput) ToServiceEventRuleActionsSev
 
 func (o ServiceEventRuleActionsSeverityArrayOutput) ToServiceEventRuleActionsSeverityArrayOutputWithContext(ctx context.Context) ServiceEventRuleActionsSeverityArrayOutput {
 	return o
+}
+
+func (o ServiceEventRuleActionsSeverityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceEventRuleActionsSeverity] {
+	return pulumix.Output[[]ServiceEventRuleActionsSeverity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceEventRuleActionsSeverityArrayOutput) Index(i pulumi.IntInput) ServiceEventRuleActionsSeverityOutput {
@@ -12849,6 +15106,12 @@ func (i ServiceEventRuleActionsSuppressArgs) ToServiceEventRuleActionsSuppressOu
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleActionsSuppressOutput)
 }
 
+func (i ServiceEventRuleActionsSuppressArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceEventRuleActionsSuppress] {
+	return pulumix.Output[ServiceEventRuleActionsSuppress]{
+		OutputState: i.ToServiceEventRuleActionsSuppressOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceEventRuleActionsSuppressArrayInput is an input type that accepts ServiceEventRuleActionsSuppressArray and ServiceEventRuleActionsSuppressArrayOutput values.
 // You can construct a concrete instance of `ServiceEventRuleActionsSuppressArrayInput` via:
 //
@@ -12874,6 +15137,12 @@ func (i ServiceEventRuleActionsSuppressArray) ToServiceEventRuleActionsSuppressA
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleActionsSuppressArrayOutput)
 }
 
+func (i ServiceEventRuleActionsSuppressArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceEventRuleActionsSuppress] {
+	return pulumix.Output[[]ServiceEventRuleActionsSuppress]{
+		OutputState: i.ToServiceEventRuleActionsSuppressArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceEventRuleActionsSuppressOutput struct{ *pulumi.OutputState }
 
 func (ServiceEventRuleActionsSuppressOutput) ElementType() reflect.Type {
@@ -12886,6 +15155,12 @@ func (o ServiceEventRuleActionsSuppressOutput) ToServiceEventRuleActionsSuppress
 
 func (o ServiceEventRuleActionsSuppressOutput) ToServiceEventRuleActionsSuppressOutputWithContext(ctx context.Context) ServiceEventRuleActionsSuppressOutput {
 	return o
+}
+
+func (o ServiceEventRuleActionsSuppressOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceEventRuleActionsSuppress] {
+	return pulumix.Output[ServiceEventRuleActionsSuppress]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The number value of the `thresholdTimeUnit` before an incident is created.
@@ -12920,6 +15195,12 @@ func (o ServiceEventRuleActionsSuppressArrayOutput) ToServiceEventRuleActionsSup
 
 func (o ServiceEventRuleActionsSuppressArrayOutput) ToServiceEventRuleActionsSuppressArrayOutputWithContext(ctx context.Context) ServiceEventRuleActionsSuppressArrayOutput {
 	return o
+}
+
+func (o ServiceEventRuleActionsSuppressArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceEventRuleActionsSuppress] {
+	return pulumix.Output[[]ServiceEventRuleActionsSuppress]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceEventRuleActionsSuppressArrayOutput) Index(i pulumi.IntInput) ServiceEventRuleActionsSuppressOutput {
@@ -12961,6 +15242,12 @@ func (i ServiceEventRuleActionsSuspendArgs) ToServiceEventRuleActionsSuspendOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleActionsSuspendOutput)
 }
 
+func (i ServiceEventRuleActionsSuspendArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceEventRuleActionsSuspend] {
+	return pulumix.Output[ServiceEventRuleActionsSuspend]{
+		OutputState: i.ToServiceEventRuleActionsSuspendOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceEventRuleActionsSuspendArrayInput is an input type that accepts ServiceEventRuleActionsSuspendArray and ServiceEventRuleActionsSuspendArrayOutput values.
 // You can construct a concrete instance of `ServiceEventRuleActionsSuspendArrayInput` via:
 //
@@ -12986,6 +15273,12 @@ func (i ServiceEventRuleActionsSuspendArray) ToServiceEventRuleActionsSuspendArr
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleActionsSuspendArrayOutput)
 }
 
+func (i ServiceEventRuleActionsSuspendArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceEventRuleActionsSuspend] {
+	return pulumix.Output[[]ServiceEventRuleActionsSuspend]{
+		OutputState: i.ToServiceEventRuleActionsSuspendArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceEventRuleActionsSuspendOutput struct{ *pulumi.OutputState }
 
 func (ServiceEventRuleActionsSuspendOutput) ElementType() reflect.Type {
@@ -12998,6 +15291,12 @@ func (o ServiceEventRuleActionsSuspendOutput) ToServiceEventRuleActionsSuspendOu
 
 func (o ServiceEventRuleActionsSuspendOutput) ToServiceEventRuleActionsSuspendOutputWithContext(ctx context.Context) ServiceEventRuleActionsSuspendOutput {
 	return o
+}
+
+func (o ServiceEventRuleActionsSuspendOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceEventRuleActionsSuspend] {
+	return pulumix.Output[ServiceEventRuleActionsSuspend]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
@@ -13017,6 +15316,12 @@ func (o ServiceEventRuleActionsSuspendArrayOutput) ToServiceEventRuleActionsSusp
 
 func (o ServiceEventRuleActionsSuspendArrayOutput) ToServiceEventRuleActionsSuspendArrayOutputWithContext(ctx context.Context) ServiceEventRuleActionsSuspendArrayOutput {
 	return o
+}
+
+func (o ServiceEventRuleActionsSuspendArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceEventRuleActionsSuspend] {
+	return pulumix.Output[[]ServiceEventRuleActionsSuspend]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceEventRuleActionsSuspendArrayOutput) Index(i pulumi.IntInput) ServiceEventRuleActionsSuspendOutput {
@@ -13062,6 +15367,12 @@ func (i ServiceEventRuleConditionsArgs) ToServiceEventRuleConditionsOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleConditionsOutput)
 }
 
+func (i ServiceEventRuleConditionsArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceEventRuleConditions] {
+	return pulumix.Output[ServiceEventRuleConditions]{
+		OutputState: i.ToServiceEventRuleConditionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServiceEventRuleConditionsArgs) ToServiceEventRuleConditionsPtrOutput() ServiceEventRuleConditionsPtrOutput {
 	return i.ToServiceEventRuleConditionsPtrOutputWithContext(context.Background())
 }
@@ -13103,6 +15414,12 @@ func (i *serviceEventRuleConditionsPtrType) ToServiceEventRuleConditionsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleConditionsPtrOutput)
 }
 
+func (i *serviceEventRuleConditionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceEventRuleConditions] {
+	return pulumix.Output[*ServiceEventRuleConditions]{
+		OutputState: i.ToServiceEventRuleConditionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceEventRuleConditionsOutput struct{ *pulumi.OutputState }
 
 func (ServiceEventRuleConditionsOutput) ElementType() reflect.Type {
@@ -13127,6 +15444,12 @@ func (o ServiceEventRuleConditionsOutput) ToServiceEventRuleConditionsPtrOutputW
 	}).(ServiceEventRuleConditionsPtrOutput)
 }
 
+func (o ServiceEventRuleConditionsOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceEventRuleConditions] {
+	return pulumix.Output[ServiceEventRuleConditions]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Operator to combine sub-conditions. Can be `and` or `or`.
 func (o ServiceEventRuleConditionsOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceEventRuleConditions) *string { return v.Operator }).(pulumi.StringPtrOutput)
@@ -13149,6 +15472,12 @@ func (o ServiceEventRuleConditionsPtrOutput) ToServiceEventRuleConditionsPtrOutp
 
 func (o ServiceEventRuleConditionsPtrOutput) ToServiceEventRuleConditionsPtrOutputWithContext(ctx context.Context) ServiceEventRuleConditionsPtrOutput {
 	return o
+}
+
+func (o ServiceEventRuleConditionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceEventRuleConditions] {
+	return pulumix.Output[*ServiceEventRuleConditions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceEventRuleConditionsPtrOutput) Elem() ServiceEventRuleConditionsOutput {
@@ -13218,6 +15547,12 @@ func (i ServiceEventRuleConditionsSubconditionArgs) ToServiceEventRuleConditions
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleConditionsSubconditionOutput)
 }
 
+func (i ServiceEventRuleConditionsSubconditionArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceEventRuleConditionsSubcondition] {
+	return pulumix.Output[ServiceEventRuleConditionsSubcondition]{
+		OutputState: i.ToServiceEventRuleConditionsSubconditionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceEventRuleConditionsSubconditionArrayInput is an input type that accepts ServiceEventRuleConditionsSubconditionArray and ServiceEventRuleConditionsSubconditionArrayOutput values.
 // You can construct a concrete instance of `ServiceEventRuleConditionsSubconditionArrayInput` via:
 //
@@ -13243,6 +15578,12 @@ func (i ServiceEventRuleConditionsSubconditionArray) ToServiceEventRuleCondition
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleConditionsSubconditionArrayOutput)
 }
 
+func (i ServiceEventRuleConditionsSubconditionArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceEventRuleConditionsSubcondition] {
+	return pulumix.Output[[]ServiceEventRuleConditionsSubcondition]{
+		OutputState: i.ToServiceEventRuleConditionsSubconditionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceEventRuleConditionsSubconditionOutput struct{ *pulumi.OutputState }
 
 func (ServiceEventRuleConditionsSubconditionOutput) ElementType() reflect.Type {
@@ -13255,6 +15596,12 @@ func (o ServiceEventRuleConditionsSubconditionOutput) ToServiceEventRuleConditio
 
 func (o ServiceEventRuleConditionsSubconditionOutput) ToServiceEventRuleConditionsSubconditionOutputWithContext(ctx context.Context) ServiceEventRuleConditionsSubconditionOutput {
 	return o
+}
+
+func (o ServiceEventRuleConditionsSubconditionOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceEventRuleConditionsSubcondition] {
+	return pulumix.Output[ServiceEventRuleConditionsSubcondition]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Type of operator to apply to the sub-condition. Can be `exists`,`nexists`,`equals`,`nequals`,`contains`,`ncontains`,`matches`, or `nmatches`.
@@ -13281,6 +15628,12 @@ func (o ServiceEventRuleConditionsSubconditionArrayOutput) ToServiceEventRuleCon
 
 func (o ServiceEventRuleConditionsSubconditionArrayOutput) ToServiceEventRuleConditionsSubconditionArrayOutputWithContext(ctx context.Context) ServiceEventRuleConditionsSubconditionArrayOutput {
 	return o
+}
+
+func (o ServiceEventRuleConditionsSubconditionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceEventRuleConditionsSubcondition] {
+	return pulumix.Output[[]ServiceEventRuleConditionsSubcondition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceEventRuleConditionsSubconditionArrayOutput) Index(i pulumi.IntInput) ServiceEventRuleConditionsSubconditionOutput {
@@ -13326,6 +15679,12 @@ func (i ServiceEventRuleConditionsSubconditionParameterArgs) ToServiceEventRuleC
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleConditionsSubconditionParameterOutput)
 }
 
+func (i ServiceEventRuleConditionsSubconditionParameterArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceEventRuleConditionsSubconditionParameter] {
+	return pulumix.Output[ServiceEventRuleConditionsSubconditionParameter]{
+		OutputState: i.ToServiceEventRuleConditionsSubconditionParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceEventRuleConditionsSubconditionParameterArrayInput is an input type that accepts ServiceEventRuleConditionsSubconditionParameterArray and ServiceEventRuleConditionsSubconditionParameterArrayOutput values.
 // You can construct a concrete instance of `ServiceEventRuleConditionsSubconditionParameterArrayInput` via:
 //
@@ -13351,6 +15710,12 @@ func (i ServiceEventRuleConditionsSubconditionParameterArray) ToServiceEventRule
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleConditionsSubconditionParameterArrayOutput)
 }
 
+func (i ServiceEventRuleConditionsSubconditionParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceEventRuleConditionsSubconditionParameter] {
+	return pulumix.Output[[]ServiceEventRuleConditionsSubconditionParameter]{
+		OutputState: i.ToServiceEventRuleConditionsSubconditionParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceEventRuleConditionsSubconditionParameterOutput struct{ *pulumi.OutputState }
 
 func (ServiceEventRuleConditionsSubconditionParameterOutput) ElementType() reflect.Type {
@@ -13363,6 +15728,12 @@ func (o ServiceEventRuleConditionsSubconditionParameterOutput) ToServiceEventRul
 
 func (o ServiceEventRuleConditionsSubconditionParameterOutput) ToServiceEventRuleConditionsSubconditionParameterOutputWithContext(ctx context.Context) ServiceEventRuleConditionsSubconditionParameterOutput {
 	return o
+}
+
+func (o ServiceEventRuleConditionsSubconditionParameterOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceEventRuleConditionsSubconditionParameter] {
+	return pulumix.Output[ServiceEventRuleConditionsSubconditionParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
@@ -13387,6 +15758,12 @@ func (o ServiceEventRuleConditionsSubconditionParameterArrayOutput) ToServiceEve
 
 func (o ServiceEventRuleConditionsSubconditionParameterArrayOutput) ToServiceEventRuleConditionsSubconditionParameterArrayOutputWithContext(ctx context.Context) ServiceEventRuleConditionsSubconditionParameterArrayOutput {
 	return o
+}
+
+func (o ServiceEventRuleConditionsSubconditionParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceEventRuleConditionsSubconditionParameter] {
+	return pulumix.Output[[]ServiceEventRuleConditionsSubconditionParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceEventRuleConditionsSubconditionParameterArrayOutput) Index(i pulumi.IntInput) ServiceEventRuleConditionsSubconditionParameterOutput {
@@ -13432,6 +15809,12 @@ func (i ServiceEventRuleTimeFrameArgs) ToServiceEventRuleTimeFrameOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleTimeFrameOutput)
 }
 
+func (i ServiceEventRuleTimeFrameArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceEventRuleTimeFrame] {
+	return pulumix.Output[ServiceEventRuleTimeFrame]{
+		OutputState: i.ToServiceEventRuleTimeFrameOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServiceEventRuleTimeFrameArgs) ToServiceEventRuleTimeFramePtrOutput() ServiceEventRuleTimeFramePtrOutput {
 	return i.ToServiceEventRuleTimeFramePtrOutputWithContext(context.Background())
 }
@@ -13473,6 +15856,12 @@ func (i *serviceEventRuleTimeFramePtrType) ToServiceEventRuleTimeFramePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleTimeFramePtrOutput)
 }
 
+func (i *serviceEventRuleTimeFramePtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceEventRuleTimeFrame] {
+	return pulumix.Output[*ServiceEventRuleTimeFrame]{
+		OutputState: i.ToServiceEventRuleTimeFramePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceEventRuleTimeFrameOutput struct{ *pulumi.OutputState }
 
 func (ServiceEventRuleTimeFrameOutput) ElementType() reflect.Type {
@@ -13495,6 +15884,12 @@ func (o ServiceEventRuleTimeFrameOutput) ToServiceEventRuleTimeFramePtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEventRuleTimeFrame) *ServiceEventRuleTimeFrame {
 		return &v
 	}).(ServiceEventRuleTimeFramePtrOutput)
+}
+
+func (o ServiceEventRuleTimeFrameOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceEventRuleTimeFrame] {
+	return pulumix.Output[ServiceEventRuleTimeFrame]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Values for executing the rule during a specific time period.
@@ -13521,6 +15916,12 @@ func (o ServiceEventRuleTimeFramePtrOutput) ToServiceEventRuleTimeFramePtrOutput
 
 func (o ServiceEventRuleTimeFramePtrOutput) ToServiceEventRuleTimeFramePtrOutputWithContext(ctx context.Context) ServiceEventRuleTimeFramePtrOutput {
 	return o
+}
+
+func (o ServiceEventRuleTimeFramePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceEventRuleTimeFrame] {
+	return pulumix.Output[*ServiceEventRuleTimeFrame]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceEventRuleTimeFramePtrOutput) Elem() ServiceEventRuleTimeFrameOutput {
@@ -13590,6 +15991,12 @@ func (i ServiceEventRuleTimeFrameActiveBetweenArgs) ToServiceEventRuleTimeFrameA
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleTimeFrameActiveBetweenOutput)
 }
 
+func (i ServiceEventRuleTimeFrameActiveBetweenArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceEventRuleTimeFrameActiveBetween] {
+	return pulumix.Output[ServiceEventRuleTimeFrameActiveBetween]{
+		OutputState: i.ToServiceEventRuleTimeFrameActiveBetweenOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceEventRuleTimeFrameActiveBetweenArrayInput is an input type that accepts ServiceEventRuleTimeFrameActiveBetweenArray and ServiceEventRuleTimeFrameActiveBetweenArrayOutput values.
 // You can construct a concrete instance of `ServiceEventRuleTimeFrameActiveBetweenArrayInput` via:
 //
@@ -13615,6 +16022,12 @@ func (i ServiceEventRuleTimeFrameActiveBetweenArray) ToServiceEventRuleTimeFrame
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleTimeFrameActiveBetweenArrayOutput)
 }
 
+func (i ServiceEventRuleTimeFrameActiveBetweenArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceEventRuleTimeFrameActiveBetween] {
+	return pulumix.Output[[]ServiceEventRuleTimeFrameActiveBetween]{
+		OutputState: i.ToServiceEventRuleTimeFrameActiveBetweenArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceEventRuleTimeFrameActiveBetweenOutput struct{ *pulumi.OutputState }
 
 func (ServiceEventRuleTimeFrameActiveBetweenOutput) ElementType() reflect.Type {
@@ -13627,6 +16040,12 @@ func (o ServiceEventRuleTimeFrameActiveBetweenOutput) ToServiceEventRuleTimeFram
 
 func (o ServiceEventRuleTimeFrameActiveBetweenOutput) ToServiceEventRuleTimeFrameActiveBetweenOutputWithContext(ctx context.Context) ServiceEventRuleTimeFrameActiveBetweenOutput {
 	return o
+}
+
+func (o ServiceEventRuleTimeFrameActiveBetweenOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceEventRuleTimeFrameActiveBetween] {
+	return pulumix.Output[ServiceEventRuleTimeFrameActiveBetween]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
@@ -13651,6 +16070,12 @@ func (o ServiceEventRuleTimeFrameActiveBetweenArrayOutput) ToServiceEventRuleTim
 
 func (o ServiceEventRuleTimeFrameActiveBetweenArrayOutput) ToServiceEventRuleTimeFrameActiveBetweenArrayOutputWithContext(ctx context.Context) ServiceEventRuleTimeFrameActiveBetweenArrayOutput {
 	return o
+}
+
+func (o ServiceEventRuleTimeFrameActiveBetweenArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceEventRuleTimeFrameActiveBetween] {
+	return pulumix.Output[[]ServiceEventRuleTimeFrameActiveBetween]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceEventRuleTimeFrameActiveBetweenArrayOutput) Index(i pulumi.IntInput) ServiceEventRuleTimeFrameActiveBetweenOutput {
@@ -13704,6 +16129,12 @@ func (i ServiceEventRuleTimeFrameScheduledWeeklyArgs) ToServiceEventRuleTimeFram
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleTimeFrameScheduledWeeklyOutput)
 }
 
+func (i ServiceEventRuleTimeFrameScheduledWeeklyArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceEventRuleTimeFrameScheduledWeekly] {
+	return pulumix.Output[ServiceEventRuleTimeFrameScheduledWeekly]{
+		OutputState: i.ToServiceEventRuleTimeFrameScheduledWeeklyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceEventRuleTimeFrameScheduledWeeklyArrayInput is an input type that accepts ServiceEventRuleTimeFrameScheduledWeeklyArray and ServiceEventRuleTimeFrameScheduledWeeklyArrayOutput values.
 // You can construct a concrete instance of `ServiceEventRuleTimeFrameScheduledWeeklyArrayInput` via:
 //
@@ -13729,6 +16160,12 @@ func (i ServiceEventRuleTimeFrameScheduledWeeklyArray) ToServiceEventRuleTimeFra
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleTimeFrameScheduledWeeklyArrayOutput)
 }
 
+func (i ServiceEventRuleTimeFrameScheduledWeeklyArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceEventRuleTimeFrameScheduledWeekly] {
+	return pulumix.Output[[]ServiceEventRuleTimeFrameScheduledWeekly]{
+		OutputState: i.ToServiceEventRuleTimeFrameScheduledWeeklyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceEventRuleTimeFrameScheduledWeeklyOutput struct{ *pulumi.OutputState }
 
 func (ServiceEventRuleTimeFrameScheduledWeeklyOutput) ElementType() reflect.Type {
@@ -13741,6 +16178,12 @@ func (o ServiceEventRuleTimeFrameScheduledWeeklyOutput) ToServiceEventRuleTimeFr
 
 func (o ServiceEventRuleTimeFrameScheduledWeeklyOutput) ToServiceEventRuleTimeFrameScheduledWeeklyOutputWithContext(ctx context.Context) ServiceEventRuleTimeFrameScheduledWeeklyOutput {
 	return o
+}
+
+func (o ServiceEventRuleTimeFrameScheduledWeeklyOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceEventRuleTimeFrameScheduledWeekly] {
+	return pulumix.Output[ServiceEventRuleTimeFrameScheduledWeekly]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Length of time the schedule will be active.  Unix timestamp in milliseconds.
@@ -13775,6 +16218,12 @@ func (o ServiceEventRuleTimeFrameScheduledWeeklyArrayOutput) ToServiceEventRuleT
 
 func (o ServiceEventRuleTimeFrameScheduledWeeklyArrayOutput) ToServiceEventRuleTimeFrameScheduledWeeklyArrayOutputWithContext(ctx context.Context) ServiceEventRuleTimeFrameScheduledWeeklyArrayOutput {
 	return o
+}
+
+func (o ServiceEventRuleTimeFrameScheduledWeeklyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceEventRuleTimeFrameScheduledWeekly] {
+	return pulumix.Output[[]ServiceEventRuleTimeFrameScheduledWeekly]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceEventRuleTimeFrameScheduledWeeklyArrayOutput) Index(i pulumi.IntInput) ServiceEventRuleTimeFrameScheduledWeeklyOutput {
@@ -13824,6 +16273,12 @@ func (i ServiceEventRuleVariableArgs) ToServiceEventRuleVariableOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleVariableOutput)
 }
 
+func (i ServiceEventRuleVariableArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceEventRuleVariable] {
+	return pulumix.Output[ServiceEventRuleVariable]{
+		OutputState: i.ToServiceEventRuleVariableOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceEventRuleVariableArrayInput is an input type that accepts ServiceEventRuleVariableArray and ServiceEventRuleVariableArrayOutput values.
 // You can construct a concrete instance of `ServiceEventRuleVariableArrayInput` via:
 //
@@ -13849,6 +16304,12 @@ func (i ServiceEventRuleVariableArray) ToServiceEventRuleVariableArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleVariableArrayOutput)
 }
 
+func (i ServiceEventRuleVariableArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceEventRuleVariable] {
+	return pulumix.Output[[]ServiceEventRuleVariable]{
+		OutputState: i.ToServiceEventRuleVariableArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceEventRuleVariableOutput struct{ *pulumi.OutputState }
 
 func (ServiceEventRuleVariableOutput) ElementType() reflect.Type {
@@ -13861,6 +16322,12 @@ func (o ServiceEventRuleVariableOutput) ToServiceEventRuleVariableOutput() Servi
 
 func (o ServiceEventRuleVariableOutput) ToServiceEventRuleVariableOutputWithContext(ctx context.Context) ServiceEventRuleVariableOutput {
 	return o
+}
+
+func (o ServiceEventRuleVariableOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceEventRuleVariable] {
+	return pulumix.Output[ServiceEventRuleVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the variable.
@@ -13890,6 +16357,12 @@ func (o ServiceEventRuleVariableArrayOutput) ToServiceEventRuleVariableArrayOutp
 
 func (o ServiceEventRuleVariableArrayOutput) ToServiceEventRuleVariableArrayOutputWithContext(ctx context.Context) ServiceEventRuleVariableArrayOutput {
 	return o
+}
+
+func (o ServiceEventRuleVariableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceEventRuleVariable] {
+	return pulumix.Output[[]ServiceEventRuleVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceEventRuleVariableArrayOutput) Index(i pulumi.IntInput) ServiceEventRuleVariableOutput {
@@ -13935,6 +16408,12 @@ func (i ServiceEventRuleVariableParameterArgs) ToServiceEventRuleVariableParamet
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleVariableParameterOutput)
 }
 
+func (i ServiceEventRuleVariableParameterArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceEventRuleVariableParameter] {
+	return pulumix.Output[ServiceEventRuleVariableParameter]{
+		OutputState: i.ToServiceEventRuleVariableParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceEventRuleVariableParameterArrayInput is an input type that accepts ServiceEventRuleVariableParameterArray and ServiceEventRuleVariableParameterArrayOutput values.
 // You can construct a concrete instance of `ServiceEventRuleVariableParameterArrayInput` via:
 //
@@ -13960,6 +16439,12 @@ func (i ServiceEventRuleVariableParameterArray) ToServiceEventRuleVariableParame
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleVariableParameterArrayOutput)
 }
 
+func (i ServiceEventRuleVariableParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceEventRuleVariableParameter] {
+	return pulumix.Output[[]ServiceEventRuleVariableParameter]{
+		OutputState: i.ToServiceEventRuleVariableParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceEventRuleVariableParameterOutput struct{ *pulumi.OutputState }
 
 func (ServiceEventRuleVariableParameterOutput) ElementType() reflect.Type {
@@ -13972,6 +16457,12 @@ func (o ServiceEventRuleVariableParameterOutput) ToServiceEventRuleVariableParam
 
 func (o ServiceEventRuleVariableParameterOutput) ToServiceEventRuleVariableParameterOutputWithContext(ctx context.Context) ServiceEventRuleVariableParameterOutput {
 	return o
+}
+
+func (o ServiceEventRuleVariableParameterOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceEventRuleVariableParameter] {
+	return pulumix.Output[ServiceEventRuleVariableParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
@@ -13996,6 +16487,12 @@ func (o ServiceEventRuleVariableParameterArrayOutput) ToServiceEventRuleVariable
 
 func (o ServiceEventRuleVariableParameterArrayOutput) ToServiceEventRuleVariableParameterArrayOutputWithContext(ctx context.Context) ServiceEventRuleVariableParameterArrayOutput {
 	return o
+}
+
+func (o ServiceEventRuleVariableParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceEventRuleVariableParameter] {
+	return pulumix.Output[[]ServiceEventRuleVariableParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceEventRuleVariableParameterArrayOutput) Index(i pulumi.IntInput) ServiceEventRuleVariableParameterOutput {
@@ -14057,6 +16554,12 @@ func (i ServiceIncidentUrgencyRuleArgs) ToServiceIncidentUrgencyRuleOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIncidentUrgencyRuleOutput)
 }
 
+func (i ServiceIncidentUrgencyRuleArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceIncidentUrgencyRule] {
+	return pulumix.Output[ServiceIncidentUrgencyRule]{
+		OutputState: i.ToServiceIncidentUrgencyRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServiceIncidentUrgencyRuleArgs) ToServiceIncidentUrgencyRulePtrOutput() ServiceIncidentUrgencyRulePtrOutput {
 	return i.ToServiceIncidentUrgencyRulePtrOutputWithContext(context.Background())
 }
@@ -14098,6 +16601,12 @@ func (i *serviceIncidentUrgencyRulePtrType) ToServiceIncidentUrgencyRulePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIncidentUrgencyRulePtrOutput)
 }
 
+func (i *serviceIncidentUrgencyRulePtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceIncidentUrgencyRule] {
+	return pulumix.Output[*ServiceIncidentUrgencyRule]{
+		OutputState: i.ToServiceIncidentUrgencyRulePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceIncidentUrgencyRuleOutput struct{ *pulumi.OutputState }
 
 func (ServiceIncidentUrgencyRuleOutput) ElementType() reflect.Type {
@@ -14120,6 +16629,12 @@ func (o ServiceIncidentUrgencyRuleOutput) ToServiceIncidentUrgencyRulePtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceIncidentUrgencyRule) *ServiceIncidentUrgencyRule {
 		return &v
 	}).(ServiceIncidentUrgencyRulePtrOutput)
+}
+
+func (o ServiceIncidentUrgencyRuleOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceIncidentUrgencyRule] {
+	return pulumix.Output[ServiceIncidentUrgencyRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Incidents' urgency during support hours.
@@ -14162,6 +16677,12 @@ func (o ServiceIncidentUrgencyRulePtrOutput) ToServiceIncidentUrgencyRulePtrOutp
 
 func (o ServiceIncidentUrgencyRulePtrOutput) ToServiceIncidentUrgencyRulePtrOutputWithContext(ctx context.Context) ServiceIncidentUrgencyRulePtrOutput {
 	return o
+}
+
+func (o ServiceIncidentUrgencyRulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceIncidentUrgencyRule] {
+	return pulumix.Output[*ServiceIncidentUrgencyRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceIncidentUrgencyRulePtrOutput) Elem() ServiceIncidentUrgencyRuleOutput {
@@ -14255,6 +16776,12 @@ func (i ServiceIncidentUrgencyRuleDuringSupportHoursArgs) ToServiceIncidentUrgen
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIncidentUrgencyRuleDuringSupportHoursOutput)
 }
 
+func (i ServiceIncidentUrgencyRuleDuringSupportHoursArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceIncidentUrgencyRuleDuringSupportHours] {
+	return pulumix.Output[ServiceIncidentUrgencyRuleDuringSupportHours]{
+		OutputState: i.ToServiceIncidentUrgencyRuleDuringSupportHoursOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServiceIncidentUrgencyRuleDuringSupportHoursArgs) ToServiceIncidentUrgencyRuleDuringSupportHoursPtrOutput() ServiceIncidentUrgencyRuleDuringSupportHoursPtrOutput {
 	return i.ToServiceIncidentUrgencyRuleDuringSupportHoursPtrOutputWithContext(context.Background())
 }
@@ -14296,6 +16823,12 @@ func (i *serviceIncidentUrgencyRuleDuringSupportHoursPtrType) ToServiceIncidentU
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIncidentUrgencyRuleDuringSupportHoursPtrOutput)
 }
 
+func (i *serviceIncidentUrgencyRuleDuringSupportHoursPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceIncidentUrgencyRuleDuringSupportHours] {
+	return pulumix.Output[*ServiceIncidentUrgencyRuleDuringSupportHours]{
+		OutputState: i.ToServiceIncidentUrgencyRuleDuringSupportHoursPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceIncidentUrgencyRuleDuringSupportHoursOutput struct{ *pulumi.OutputState }
 
 func (ServiceIncidentUrgencyRuleDuringSupportHoursOutput) ElementType() reflect.Type {
@@ -14320,6 +16853,12 @@ func (o ServiceIncidentUrgencyRuleDuringSupportHoursOutput) ToServiceIncidentUrg
 	}).(ServiceIncidentUrgencyRuleDuringSupportHoursPtrOutput)
 }
 
+func (o ServiceIncidentUrgencyRuleDuringSupportHoursOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceIncidentUrgencyRuleDuringSupportHours] {
+	return pulumix.Output[ServiceIncidentUrgencyRuleDuringSupportHours]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
 func (o ServiceIncidentUrgencyRuleDuringSupportHoursOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceIncidentUrgencyRuleDuringSupportHours) *string { return v.Type }).(pulumi.StringPtrOutput)
@@ -14342,6 +16881,12 @@ func (o ServiceIncidentUrgencyRuleDuringSupportHoursPtrOutput) ToServiceIncident
 
 func (o ServiceIncidentUrgencyRuleDuringSupportHoursPtrOutput) ToServiceIncidentUrgencyRuleDuringSupportHoursPtrOutputWithContext(ctx context.Context) ServiceIncidentUrgencyRuleDuringSupportHoursPtrOutput {
 	return o
+}
+
+func (o ServiceIncidentUrgencyRuleDuringSupportHoursPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceIncidentUrgencyRuleDuringSupportHours] {
+	return pulumix.Output[*ServiceIncidentUrgencyRuleDuringSupportHours]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceIncidentUrgencyRuleDuringSupportHoursPtrOutput) Elem() ServiceIncidentUrgencyRuleDuringSupportHoursOutput {
@@ -14411,6 +16956,12 @@ func (i ServiceIncidentUrgencyRuleOutsideSupportHoursArgs) ToServiceIncidentUrge
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIncidentUrgencyRuleOutsideSupportHoursOutput)
 }
 
+func (i ServiceIncidentUrgencyRuleOutsideSupportHoursArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceIncidentUrgencyRuleOutsideSupportHours] {
+	return pulumix.Output[ServiceIncidentUrgencyRuleOutsideSupportHours]{
+		OutputState: i.ToServiceIncidentUrgencyRuleOutsideSupportHoursOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServiceIncidentUrgencyRuleOutsideSupportHoursArgs) ToServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput() ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput {
 	return i.ToServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutputWithContext(context.Background())
 }
@@ -14452,6 +17003,12 @@ func (i *serviceIncidentUrgencyRuleOutsideSupportHoursPtrType) ToServiceIncident
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput)
 }
 
+func (i *serviceIncidentUrgencyRuleOutsideSupportHoursPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceIncidentUrgencyRuleOutsideSupportHours] {
+	return pulumix.Output[*ServiceIncidentUrgencyRuleOutsideSupportHours]{
+		OutputState: i.ToServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceIncidentUrgencyRuleOutsideSupportHoursOutput struct{ *pulumi.OutputState }
 
 func (ServiceIncidentUrgencyRuleOutsideSupportHoursOutput) ElementType() reflect.Type {
@@ -14476,6 +17033,12 @@ func (o ServiceIncidentUrgencyRuleOutsideSupportHoursOutput) ToServiceIncidentUr
 	}).(ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput)
 }
 
+func (o ServiceIncidentUrgencyRuleOutsideSupportHoursOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceIncidentUrgencyRuleOutsideSupportHours] {
+	return pulumix.Output[ServiceIncidentUrgencyRuleOutsideSupportHours]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
 func (o ServiceIncidentUrgencyRuleOutsideSupportHoursOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceIncidentUrgencyRuleOutsideSupportHours) *string { return v.Type }).(pulumi.StringPtrOutput)
@@ -14498,6 +17061,12 @@ func (o ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput) ToServiceInciden
 
 func (o ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput) ToServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutputWithContext(ctx context.Context) ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput {
 	return o
+}
+
+func (o ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceIncidentUrgencyRuleOutsideSupportHours] {
+	return pulumix.Output[*ServiceIncidentUrgencyRuleOutsideSupportHours]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceIncidentUrgencyRuleOutsideSupportHoursPtrOutput) Elem() ServiceIncidentUrgencyRuleOutsideSupportHoursOutput {
@@ -14587,6 +17156,12 @@ func (i ServiceIntegrationEmailFilterArgs) ToServiceIntegrationEmailFilterOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIntegrationEmailFilterOutput)
 }
 
+func (i ServiceIntegrationEmailFilterArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceIntegrationEmailFilter] {
+	return pulumix.Output[ServiceIntegrationEmailFilter]{
+		OutputState: i.ToServiceIntegrationEmailFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceIntegrationEmailFilterArrayInput is an input type that accepts ServiceIntegrationEmailFilterArray and ServiceIntegrationEmailFilterArrayOutput values.
 // You can construct a concrete instance of `ServiceIntegrationEmailFilterArrayInput` via:
 //
@@ -14612,6 +17187,12 @@ func (i ServiceIntegrationEmailFilterArray) ToServiceIntegrationEmailFilterArray
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIntegrationEmailFilterArrayOutput)
 }
 
+func (i ServiceIntegrationEmailFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceIntegrationEmailFilter] {
+	return pulumix.Output[[]ServiceIntegrationEmailFilter]{
+		OutputState: i.ToServiceIntegrationEmailFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceIntegrationEmailFilterOutput struct{ *pulumi.OutputState }
 
 func (ServiceIntegrationEmailFilterOutput) ElementType() reflect.Type {
@@ -14624,6 +17205,12 @@ func (o ServiceIntegrationEmailFilterOutput) ToServiceIntegrationEmailFilterOutp
 
 func (o ServiceIntegrationEmailFilterOutput) ToServiceIntegrationEmailFilterOutputWithContext(ctx context.Context) ServiceIntegrationEmailFilterOutput {
 	return o
+}
+
+func (o ServiceIntegrationEmailFilterOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceIntegrationEmailFilter] {
+	return pulumix.Output[ServiceIntegrationEmailFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Can be `always` or `match`.
@@ -14675,6 +17262,12 @@ func (o ServiceIntegrationEmailFilterArrayOutput) ToServiceIntegrationEmailFilte
 	return o
 }
 
+func (o ServiceIntegrationEmailFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceIntegrationEmailFilter] {
+	return pulumix.Output[[]ServiceIntegrationEmailFilter]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceIntegrationEmailFilterArrayOutput) Index(i pulumi.IntInput) ServiceIntegrationEmailFilterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceIntegrationEmailFilter {
 		return vs[0].([]ServiceIntegrationEmailFilter)[vs[1].(int)]
@@ -14722,6 +17315,12 @@ func (i ServiceIntegrationEmailParserArgs) ToServiceIntegrationEmailParserOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIntegrationEmailParserOutput)
 }
 
+func (i ServiceIntegrationEmailParserArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceIntegrationEmailParser] {
+	return pulumix.Output[ServiceIntegrationEmailParser]{
+		OutputState: i.ToServiceIntegrationEmailParserOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceIntegrationEmailParserArrayInput is an input type that accepts ServiceIntegrationEmailParserArray and ServiceIntegrationEmailParserArrayOutput values.
 // You can construct a concrete instance of `ServiceIntegrationEmailParserArrayInput` via:
 //
@@ -14747,6 +17346,12 @@ func (i ServiceIntegrationEmailParserArray) ToServiceIntegrationEmailParserArray
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIntegrationEmailParserArrayOutput)
 }
 
+func (i ServiceIntegrationEmailParserArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceIntegrationEmailParser] {
+	return pulumix.Output[[]ServiceIntegrationEmailParser]{
+		OutputState: i.ToServiceIntegrationEmailParserArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceIntegrationEmailParserOutput struct{ *pulumi.OutputState }
 
 func (ServiceIntegrationEmailParserOutput) ElementType() reflect.Type {
@@ -14759,6 +17364,12 @@ func (o ServiceIntegrationEmailParserOutput) ToServiceIntegrationEmailParserOutp
 
 func (o ServiceIntegrationEmailParserOutput) ToServiceIntegrationEmailParserOutputWithContext(ctx context.Context) ServiceIntegrationEmailParserOutput {
 	return o
+}
+
+func (o ServiceIntegrationEmailParserOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceIntegrationEmailParser] {
+	return pulumix.Output[ServiceIntegrationEmailParser]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Can be `resolve` or `trigger`.
@@ -14795,6 +17406,12 @@ func (o ServiceIntegrationEmailParserArrayOutput) ToServiceIntegrationEmailParse
 
 func (o ServiceIntegrationEmailParserArrayOutput) ToServiceIntegrationEmailParserArrayOutputWithContext(ctx context.Context) ServiceIntegrationEmailParserArrayOutput {
 	return o
+}
+
+func (o ServiceIntegrationEmailParserArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceIntegrationEmailParser] {
+	return pulumix.Output[[]ServiceIntegrationEmailParser]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceIntegrationEmailParserArrayOutput) Index(i pulumi.IntInput) ServiceIntegrationEmailParserOutput {
@@ -14838,6 +17455,12 @@ func (i ServiceIntegrationEmailParserMatchPredicateArgs) ToServiceIntegrationEma
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIntegrationEmailParserMatchPredicateOutput)
 }
 
+func (i ServiceIntegrationEmailParserMatchPredicateArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceIntegrationEmailParserMatchPredicate] {
+	return pulumix.Output[ServiceIntegrationEmailParserMatchPredicate]{
+		OutputState: i.ToServiceIntegrationEmailParserMatchPredicateOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceIntegrationEmailParserMatchPredicateOutput struct{ *pulumi.OutputState }
 
 func (ServiceIntegrationEmailParserMatchPredicateOutput) ElementType() reflect.Type {
@@ -14850,6 +17473,12 @@ func (o ServiceIntegrationEmailParserMatchPredicateOutput) ToServiceIntegrationE
 
 func (o ServiceIntegrationEmailParserMatchPredicateOutput) ToServiceIntegrationEmailParserMatchPredicateOutputWithContext(ctx context.Context) ServiceIntegrationEmailParserMatchPredicateOutput {
 	return o
+}
+
+func (o ServiceIntegrationEmailParserMatchPredicateOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceIntegrationEmailParserMatchPredicate] {
+	return pulumix.Output[ServiceIntegrationEmailParserMatchPredicate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceIntegrationEmailParserMatchPredicateOutput) Predicates() ServiceIntegrationEmailParserMatchPredicatePredicateArrayOutput {
@@ -14906,6 +17535,12 @@ func (i ServiceIntegrationEmailParserMatchPredicatePredicateArgs) ToServiceInteg
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIntegrationEmailParserMatchPredicatePredicateOutput)
 }
 
+func (i ServiceIntegrationEmailParserMatchPredicatePredicateArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceIntegrationEmailParserMatchPredicatePredicate] {
+	return pulumix.Output[ServiceIntegrationEmailParserMatchPredicatePredicate]{
+		OutputState: i.ToServiceIntegrationEmailParserMatchPredicatePredicateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceIntegrationEmailParserMatchPredicatePredicateArrayInput is an input type that accepts ServiceIntegrationEmailParserMatchPredicatePredicateArray and ServiceIntegrationEmailParserMatchPredicatePredicateArrayOutput values.
 // You can construct a concrete instance of `ServiceIntegrationEmailParserMatchPredicatePredicateArrayInput` via:
 //
@@ -14931,6 +17566,12 @@ func (i ServiceIntegrationEmailParserMatchPredicatePredicateArray) ToServiceInte
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIntegrationEmailParserMatchPredicatePredicateArrayOutput)
 }
 
+func (i ServiceIntegrationEmailParserMatchPredicatePredicateArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceIntegrationEmailParserMatchPredicatePredicate] {
+	return pulumix.Output[[]ServiceIntegrationEmailParserMatchPredicatePredicate]{
+		OutputState: i.ToServiceIntegrationEmailParserMatchPredicatePredicateArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceIntegrationEmailParserMatchPredicatePredicateOutput struct{ *pulumi.OutputState }
 
 func (ServiceIntegrationEmailParserMatchPredicatePredicateOutput) ElementType() reflect.Type {
@@ -14943,6 +17584,12 @@ func (o ServiceIntegrationEmailParserMatchPredicatePredicateOutput) ToServiceInt
 
 func (o ServiceIntegrationEmailParserMatchPredicatePredicateOutput) ToServiceIntegrationEmailParserMatchPredicatePredicateOutputWithContext(ctx context.Context) ServiceIntegrationEmailParserMatchPredicatePredicateOutput {
 	return o
+}
+
+func (o ServiceIntegrationEmailParserMatchPredicatePredicateOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceIntegrationEmailParserMatchPredicatePredicate] {
+	return pulumix.Output[ServiceIntegrationEmailParserMatchPredicatePredicate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Predicate value or valid regex.
@@ -14978,6 +17625,12 @@ func (o ServiceIntegrationEmailParserMatchPredicatePredicateArrayOutput) ToServi
 
 func (o ServiceIntegrationEmailParserMatchPredicatePredicateArrayOutput) ToServiceIntegrationEmailParserMatchPredicatePredicateArrayOutputWithContext(ctx context.Context) ServiceIntegrationEmailParserMatchPredicatePredicateArrayOutput {
 	return o
+}
+
+func (o ServiceIntegrationEmailParserMatchPredicatePredicateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceIntegrationEmailParserMatchPredicatePredicate] {
+	return pulumix.Output[[]ServiceIntegrationEmailParserMatchPredicatePredicate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceIntegrationEmailParserMatchPredicatePredicateArrayOutput) Index(i pulumi.IntInput) ServiceIntegrationEmailParserMatchPredicatePredicateOutput {
@@ -15027,6 +17680,12 @@ func (i ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs) ToSer
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIntegrationEmailParserMatchPredicatePredicatePredicateOutput)
 }
 
+func (i ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceIntegrationEmailParserMatchPredicatePredicatePredicate] {
+	return pulumix.Output[ServiceIntegrationEmailParserMatchPredicatePredicatePredicate]{
+		OutputState: i.ToServiceIntegrationEmailParserMatchPredicatePredicatePredicateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayInput is an input type that accepts ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArray and ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayOutput values.
 // You can construct a concrete instance of `ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayInput` via:
 //
@@ -15052,6 +17711,12 @@ func (i ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArray) ToSe
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayOutput)
 }
 
+func (i ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceIntegrationEmailParserMatchPredicatePredicatePredicate] {
+	return pulumix.Output[[]ServiceIntegrationEmailParserMatchPredicatePredicatePredicate]{
+		OutputState: i.ToServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceIntegrationEmailParserMatchPredicatePredicatePredicateOutput struct{ *pulumi.OutputState }
 
 func (ServiceIntegrationEmailParserMatchPredicatePredicatePredicateOutput) ElementType() reflect.Type {
@@ -15064,6 +17729,12 @@ func (o ServiceIntegrationEmailParserMatchPredicatePredicatePredicateOutput) ToS
 
 func (o ServiceIntegrationEmailParserMatchPredicatePredicatePredicateOutput) ToServiceIntegrationEmailParserMatchPredicatePredicatePredicateOutputWithContext(ctx context.Context) ServiceIntegrationEmailParserMatchPredicatePredicatePredicateOutput {
 	return o
+}
+
+func (o ServiceIntegrationEmailParserMatchPredicatePredicatePredicateOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceIntegrationEmailParserMatchPredicatePredicatePredicate] {
+	return pulumix.Output[ServiceIntegrationEmailParserMatchPredicatePredicatePredicate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Predicate value or valid regex.
@@ -15093,6 +17764,12 @@ func (o ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayOutput
 
 func (o ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayOutput) ToServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayOutputWithContext(ctx context.Context) ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayOutput {
 	return o
+}
+
+func (o ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceIntegrationEmailParserMatchPredicatePredicatePredicate] {
+	return pulumix.Output[[]ServiceIntegrationEmailParserMatchPredicatePredicatePredicate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArrayOutput) Index(i pulumi.IntInput) ServiceIntegrationEmailParserMatchPredicatePredicatePredicateOutput {
@@ -15154,6 +17831,12 @@ func (i ServiceIntegrationEmailParserValueExtractorArgs) ToServiceIntegrationEma
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIntegrationEmailParserValueExtractorOutput)
 }
 
+func (i ServiceIntegrationEmailParserValueExtractorArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceIntegrationEmailParserValueExtractor] {
+	return pulumix.Output[ServiceIntegrationEmailParserValueExtractor]{
+		OutputState: i.ToServiceIntegrationEmailParserValueExtractorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceIntegrationEmailParserValueExtractorArrayInput is an input type that accepts ServiceIntegrationEmailParserValueExtractorArray and ServiceIntegrationEmailParserValueExtractorArrayOutput values.
 // You can construct a concrete instance of `ServiceIntegrationEmailParserValueExtractorArrayInput` via:
 //
@@ -15179,6 +17862,12 @@ func (i ServiceIntegrationEmailParserValueExtractorArray) ToServiceIntegrationEm
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIntegrationEmailParserValueExtractorArrayOutput)
 }
 
+func (i ServiceIntegrationEmailParserValueExtractorArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceIntegrationEmailParserValueExtractor] {
+	return pulumix.Output[[]ServiceIntegrationEmailParserValueExtractor]{
+		OutputState: i.ToServiceIntegrationEmailParserValueExtractorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceIntegrationEmailParserValueExtractorOutput struct{ *pulumi.OutputState }
 
 func (ServiceIntegrationEmailParserValueExtractorOutput) ElementType() reflect.Type {
@@ -15191,6 +17880,12 @@ func (o ServiceIntegrationEmailParserValueExtractorOutput) ToServiceIntegrationE
 
 func (o ServiceIntegrationEmailParserValueExtractorOutput) ToServiceIntegrationEmailParserValueExtractorOutputWithContext(ctx context.Context) ServiceIntegrationEmailParserValueExtractorOutput {
 	return o
+}
+
+func (o ServiceIntegrationEmailParserValueExtractorOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceIntegrationEmailParserValueExtractor] {
+	return pulumix.Output[ServiceIntegrationEmailParserValueExtractor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceIntegrationEmailParserValueExtractorOutput) EndsBefore() pulumi.StringPtrOutput {
@@ -15235,6 +17930,12 @@ func (o ServiceIntegrationEmailParserValueExtractorArrayOutput) ToServiceIntegra
 
 func (o ServiceIntegrationEmailParserValueExtractorArrayOutput) ToServiceIntegrationEmailParserValueExtractorArrayOutputWithContext(ctx context.Context) ServiceIntegrationEmailParserValueExtractorArrayOutput {
 	return o
+}
+
+func (o ServiceIntegrationEmailParserValueExtractorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceIntegrationEmailParserValueExtractor] {
+	return pulumix.Output[[]ServiceIntegrationEmailParserValueExtractor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceIntegrationEmailParserValueExtractorArrayOutput) Index(i pulumi.IntInput) ServiceIntegrationEmailParserValueExtractorOutput {
@@ -15284,6 +17985,12 @@ func (i ServiceScheduledActionArgs) ToServiceScheduledActionOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceScheduledActionOutput)
 }
 
+func (i ServiceScheduledActionArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceScheduledAction] {
+	return pulumix.Output[ServiceScheduledAction]{
+		OutputState: i.ToServiceScheduledActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceScheduledActionArrayInput is an input type that accepts ServiceScheduledActionArray and ServiceScheduledActionArrayOutput values.
 // You can construct a concrete instance of `ServiceScheduledActionArrayInput` via:
 //
@@ -15309,6 +18016,12 @@ func (i ServiceScheduledActionArray) ToServiceScheduledActionArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceScheduledActionArrayOutput)
 }
 
+func (i ServiceScheduledActionArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceScheduledAction] {
+	return pulumix.Output[[]ServiceScheduledAction]{
+		OutputState: i.ToServiceScheduledActionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceScheduledActionOutput struct{ *pulumi.OutputState }
 
 func (ServiceScheduledActionOutput) ElementType() reflect.Type {
@@ -15321,6 +18034,12 @@ func (o ServiceScheduledActionOutput) ToServiceScheduledActionOutput() ServiceSc
 
 func (o ServiceScheduledActionOutput) ToServiceScheduledActionOutputWithContext(ctx context.Context) ServiceScheduledActionOutput {
 	return o
+}
+
+func (o ServiceScheduledActionOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceScheduledAction] {
+	return pulumix.Output[ServiceScheduledAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A block representing when the scheduled action will occur.
@@ -15350,6 +18069,12 @@ func (o ServiceScheduledActionArrayOutput) ToServiceScheduledActionArrayOutput()
 
 func (o ServiceScheduledActionArrayOutput) ToServiceScheduledActionArrayOutputWithContext(ctx context.Context) ServiceScheduledActionArrayOutput {
 	return o
+}
+
+func (o ServiceScheduledActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceScheduledAction] {
+	return pulumix.Output[[]ServiceScheduledAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceScheduledActionArrayOutput) Index(i pulumi.IntInput) ServiceScheduledActionOutput {
@@ -15523,6 +18248,12 @@ func (i ServiceScheduledActionAtArgs) ToServiceScheduledActionAtOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceScheduledActionAtOutput)
 }
 
+func (i ServiceScheduledActionAtArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceScheduledActionAt] {
+	return pulumix.Output[ServiceScheduledActionAt]{
+		OutputState: i.ToServiceScheduledActionAtOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceScheduledActionAtArrayInput is an input type that accepts ServiceScheduledActionAtArray and ServiceScheduledActionAtArrayOutput values.
 // You can construct a concrete instance of `ServiceScheduledActionAtArrayInput` via:
 //
@@ -15548,6 +18279,12 @@ func (i ServiceScheduledActionAtArray) ToServiceScheduledActionAtArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceScheduledActionAtArrayOutput)
 }
 
+func (i ServiceScheduledActionAtArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceScheduledActionAt] {
+	return pulumix.Output[[]ServiceScheduledActionAt]{
+		OutputState: i.ToServiceScheduledActionAtArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceScheduledActionAtOutput struct{ *pulumi.OutputState }
 
 func (ServiceScheduledActionAtOutput) ElementType() reflect.Type {
@@ -15560,6 +18297,12 @@ func (o ServiceScheduledActionAtOutput) ToServiceScheduledActionAtOutput() Servi
 
 func (o ServiceScheduledActionAtOutput) ToServiceScheduledActionAtOutputWithContext(ctx context.Context) ServiceScheduledActionAtOutput {
 	return o
+}
+
+func (o ServiceScheduledActionAtOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceScheduledActionAt] {
+	return pulumix.Output[ServiceScheduledActionAt]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Designates either the start or the end of the scheduled action. Can be `supportHoursStart` or `supportHoursEnd`.
@@ -15653,6 +18396,12 @@ func (o ServiceScheduledActionAtArrayOutput) ToServiceScheduledActionAtArrayOutp
 	return o
 }
 
+func (o ServiceScheduledActionAtArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceScheduledActionAt] {
+	return pulumix.Output[[]ServiceScheduledActionAt]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceScheduledActionAtArrayOutput) Index(i pulumi.IntInput) ServiceScheduledActionAtOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceScheduledActionAt {
 		return vs[0].([]ServiceScheduledActionAt)[vs[1].(int)]
@@ -15718,6 +18467,12 @@ func (i ServiceSupportHoursArgs) ToServiceSupportHoursOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceSupportHoursOutput)
 }
 
+func (i ServiceSupportHoursArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceSupportHours] {
+	return pulumix.Output[ServiceSupportHours]{
+		OutputState: i.ToServiceSupportHoursOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServiceSupportHoursArgs) ToServiceSupportHoursPtrOutput() ServiceSupportHoursPtrOutput {
 	return i.ToServiceSupportHoursPtrOutputWithContext(context.Background())
 }
@@ -15759,6 +18514,12 @@ func (i *serviceSupportHoursPtrType) ToServiceSupportHoursPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceSupportHoursPtrOutput)
 }
 
+func (i *serviceSupportHoursPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceSupportHours] {
+	return pulumix.Output[*ServiceSupportHours]{
+		OutputState: i.ToServiceSupportHoursPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceSupportHoursOutput struct{ *pulumi.OutputState }
 
 func (ServiceSupportHoursOutput) ElementType() reflect.Type {
@@ -15781,6 +18542,12 @@ func (o ServiceSupportHoursOutput) ToServiceSupportHoursPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceSupportHours) *ServiceSupportHours {
 		return &v
 	}).(ServiceSupportHoursPtrOutput)
+}
+
+func (o ServiceSupportHoursOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceSupportHours] {
+	return pulumix.Output[ServiceSupportHours]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Array of days of week as integers. `1` to `7`, `1` being
@@ -15825,6 +18592,12 @@ func (o ServiceSupportHoursPtrOutput) ToServiceSupportHoursPtrOutput() ServiceSu
 
 func (o ServiceSupportHoursPtrOutput) ToServiceSupportHoursPtrOutputWithContext(ctx context.Context) ServiceSupportHoursPtrOutput {
 	return o
+}
+
+func (o ServiceSupportHoursPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceSupportHours] {
+	return pulumix.Output[*ServiceSupportHours]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceSupportHoursPtrOutput) Elem() ServiceSupportHoursOutput {
@@ -15961,6 +18734,12 @@ func (i SlackConnectionConfigArgs) ToSlackConnectionConfigOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(SlackConnectionConfigOutput)
 }
 
+func (i SlackConnectionConfigArgs) ToOutput(ctx context.Context) pulumix.Output[SlackConnectionConfig] {
+	return pulumix.Output[SlackConnectionConfig]{
+		OutputState: i.ToSlackConnectionConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SlackConnectionConfigArrayInput is an input type that accepts SlackConnectionConfigArray and SlackConnectionConfigArrayOutput values.
 // You can construct a concrete instance of `SlackConnectionConfigArrayInput` via:
 //
@@ -15986,6 +18765,12 @@ func (i SlackConnectionConfigArray) ToSlackConnectionConfigArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(SlackConnectionConfigArrayOutput)
 }
 
+func (i SlackConnectionConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]SlackConnectionConfig] {
+	return pulumix.Output[[]SlackConnectionConfig]{
+		OutputState: i.ToSlackConnectionConfigArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SlackConnectionConfigOutput struct{ *pulumi.OutputState }
 
 func (SlackConnectionConfigOutput) ElementType() reflect.Type {
@@ -15998,6 +18783,12 @@ func (o SlackConnectionConfigOutput) ToSlackConnectionConfigOutput() SlackConnec
 
 func (o SlackConnectionConfigOutput) ToSlackConnectionConfigOutputWithContext(ctx context.Context) SlackConnectionConfigOutput {
 	return o
+}
+
+func (o SlackConnectionConfigOutput) ToOutput(ctx context.Context) pulumix.Output[SlackConnectionConfig] {
+	return pulumix.Output[SlackConnectionConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of strings to filter events by PagerDuty event type. `"incident.triggered"` is required. The follow event types are also possible:
@@ -16041,6 +18832,12 @@ func (o SlackConnectionConfigArrayOutput) ToSlackConnectionConfigArrayOutput() S
 
 func (o SlackConnectionConfigArrayOutput) ToSlackConnectionConfigArrayOutputWithContext(ctx context.Context) SlackConnectionConfigArrayOutput {
 	return o
+}
+
+func (o SlackConnectionConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SlackConnectionConfig] {
+	return pulumix.Output[[]SlackConnectionConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SlackConnectionConfigArrayOutput) Index(i pulumi.IntInput) SlackConnectionConfigOutput {
@@ -16094,6 +18891,12 @@ func (i WebhookSubscriptionDeliveryMethodArgs) ToWebhookSubscriptionDeliveryMeth
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookSubscriptionDeliveryMethodOutput)
 }
 
+func (i WebhookSubscriptionDeliveryMethodArgs) ToOutput(ctx context.Context) pulumix.Output[WebhookSubscriptionDeliveryMethod] {
+	return pulumix.Output[WebhookSubscriptionDeliveryMethod]{
+		OutputState: i.ToWebhookSubscriptionDeliveryMethodOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WebhookSubscriptionDeliveryMethodArrayInput is an input type that accepts WebhookSubscriptionDeliveryMethodArray and WebhookSubscriptionDeliveryMethodArrayOutput values.
 // You can construct a concrete instance of `WebhookSubscriptionDeliveryMethodArrayInput` via:
 //
@@ -16119,6 +18922,12 @@ func (i WebhookSubscriptionDeliveryMethodArray) ToWebhookSubscriptionDeliveryMet
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookSubscriptionDeliveryMethodArrayOutput)
 }
 
+func (i WebhookSubscriptionDeliveryMethodArray) ToOutput(ctx context.Context) pulumix.Output[[]WebhookSubscriptionDeliveryMethod] {
+	return pulumix.Output[[]WebhookSubscriptionDeliveryMethod]{
+		OutputState: i.ToWebhookSubscriptionDeliveryMethodArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WebhookSubscriptionDeliveryMethodOutput struct{ *pulumi.OutputState }
 
 func (WebhookSubscriptionDeliveryMethodOutput) ElementType() reflect.Type {
@@ -16131,6 +18940,12 @@ func (o WebhookSubscriptionDeliveryMethodOutput) ToWebhookSubscriptionDeliveryMe
 
 func (o WebhookSubscriptionDeliveryMethodOutput) ToWebhookSubscriptionDeliveryMethodOutputWithContext(ctx context.Context) WebhookSubscriptionDeliveryMethodOutput {
 	return o
+}
+
+func (o WebhookSubscriptionDeliveryMethodOutput) ToOutput(ctx context.Context) pulumix.Output[WebhookSubscriptionDeliveryMethod] {
+	return pulumix.Output[WebhookSubscriptionDeliveryMethod]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The customHeader of a webhook subscription define any optional headers that will be passed along with the payload to the destination URL.
@@ -16167,6 +18982,12 @@ func (o WebhookSubscriptionDeliveryMethodArrayOutput) ToWebhookSubscriptionDeliv
 
 func (o WebhookSubscriptionDeliveryMethodArrayOutput) ToWebhookSubscriptionDeliveryMethodArrayOutputWithContext(ctx context.Context) WebhookSubscriptionDeliveryMethodArrayOutput {
 	return o
+}
+
+func (o WebhookSubscriptionDeliveryMethodArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WebhookSubscriptionDeliveryMethod] {
+	return pulumix.Output[[]WebhookSubscriptionDeliveryMethod]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WebhookSubscriptionDeliveryMethodArrayOutput) Index(i pulumi.IntInput) WebhookSubscriptionDeliveryMethodOutput {
@@ -16208,6 +19029,12 @@ func (i WebhookSubscriptionDeliveryMethodCustomHeaderArgs) ToWebhookSubscription
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookSubscriptionDeliveryMethodCustomHeaderOutput)
 }
 
+func (i WebhookSubscriptionDeliveryMethodCustomHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[WebhookSubscriptionDeliveryMethodCustomHeader] {
+	return pulumix.Output[WebhookSubscriptionDeliveryMethodCustomHeader]{
+		OutputState: i.ToWebhookSubscriptionDeliveryMethodCustomHeaderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WebhookSubscriptionDeliveryMethodCustomHeaderArrayInput is an input type that accepts WebhookSubscriptionDeliveryMethodCustomHeaderArray and WebhookSubscriptionDeliveryMethodCustomHeaderArrayOutput values.
 // You can construct a concrete instance of `WebhookSubscriptionDeliveryMethodCustomHeaderArrayInput` via:
 //
@@ -16233,6 +19060,12 @@ func (i WebhookSubscriptionDeliveryMethodCustomHeaderArray) ToWebhookSubscriptio
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookSubscriptionDeliveryMethodCustomHeaderArrayOutput)
 }
 
+func (i WebhookSubscriptionDeliveryMethodCustomHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]WebhookSubscriptionDeliveryMethodCustomHeader] {
+	return pulumix.Output[[]WebhookSubscriptionDeliveryMethodCustomHeader]{
+		OutputState: i.ToWebhookSubscriptionDeliveryMethodCustomHeaderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WebhookSubscriptionDeliveryMethodCustomHeaderOutput struct{ *pulumi.OutputState }
 
 func (WebhookSubscriptionDeliveryMethodCustomHeaderOutput) ElementType() reflect.Type {
@@ -16245,6 +19078,12 @@ func (o WebhookSubscriptionDeliveryMethodCustomHeaderOutput) ToWebhookSubscripti
 
 func (o WebhookSubscriptionDeliveryMethodCustomHeaderOutput) ToWebhookSubscriptionDeliveryMethodCustomHeaderOutputWithContext(ctx context.Context) WebhookSubscriptionDeliveryMethodCustomHeaderOutput {
 	return o
+}
+
+func (o WebhookSubscriptionDeliveryMethodCustomHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[WebhookSubscriptionDeliveryMethodCustomHeader] {
+	return pulumix.Output[WebhookSubscriptionDeliveryMethodCustomHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WebhookSubscriptionDeliveryMethodCustomHeaderOutput) Name() pulumi.StringOutput {
@@ -16267,6 +19106,12 @@ func (o WebhookSubscriptionDeliveryMethodCustomHeaderArrayOutput) ToWebhookSubsc
 
 func (o WebhookSubscriptionDeliveryMethodCustomHeaderArrayOutput) ToWebhookSubscriptionDeliveryMethodCustomHeaderArrayOutputWithContext(ctx context.Context) WebhookSubscriptionDeliveryMethodCustomHeaderArrayOutput {
 	return o
+}
+
+func (o WebhookSubscriptionDeliveryMethodCustomHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WebhookSubscriptionDeliveryMethodCustomHeader] {
+	return pulumix.Output[[]WebhookSubscriptionDeliveryMethodCustomHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WebhookSubscriptionDeliveryMethodCustomHeaderArrayOutput) Index(i pulumi.IntInput) WebhookSubscriptionDeliveryMethodCustomHeaderOutput {
@@ -16312,6 +19157,12 @@ func (i WebhookSubscriptionFilterArgs) ToWebhookSubscriptionFilterOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookSubscriptionFilterOutput)
 }
 
+func (i WebhookSubscriptionFilterArgs) ToOutput(ctx context.Context) pulumix.Output[WebhookSubscriptionFilter] {
+	return pulumix.Output[WebhookSubscriptionFilter]{
+		OutputState: i.ToWebhookSubscriptionFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WebhookSubscriptionFilterArrayInput is an input type that accepts WebhookSubscriptionFilterArray and WebhookSubscriptionFilterArrayOutput values.
 // You can construct a concrete instance of `WebhookSubscriptionFilterArrayInput` via:
 //
@@ -16337,6 +19188,12 @@ func (i WebhookSubscriptionFilterArray) ToWebhookSubscriptionFilterArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookSubscriptionFilterArrayOutput)
 }
 
+func (i WebhookSubscriptionFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]WebhookSubscriptionFilter] {
+	return pulumix.Output[[]WebhookSubscriptionFilter]{
+		OutputState: i.ToWebhookSubscriptionFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WebhookSubscriptionFilterOutput struct{ *pulumi.OutputState }
 
 func (WebhookSubscriptionFilterOutput) ElementType() reflect.Type {
@@ -16349,6 +19206,12 @@ func (o WebhookSubscriptionFilterOutput) ToWebhookSubscriptionFilterOutput() Web
 
 func (o WebhookSubscriptionFilterOutput) ToWebhookSubscriptionFilterOutputWithContext(ctx context.Context) WebhookSubscriptionFilterOutput {
 	return o
+}
+
+func (o WebhookSubscriptionFilterOutput) ToOutput(ctx context.Context) pulumix.Output[WebhookSubscriptionFilter] {
+	return pulumix.Output[WebhookSubscriptionFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The id of the object being used as the filter. This field is required for all filter types except account_reference.
@@ -16373,6 +19236,12 @@ func (o WebhookSubscriptionFilterArrayOutput) ToWebhookSubscriptionFilterArrayOu
 
 func (o WebhookSubscriptionFilterArrayOutput) ToWebhookSubscriptionFilterArrayOutputWithContext(ctx context.Context) WebhookSubscriptionFilterArrayOutput {
 	return o
+}
+
+func (o WebhookSubscriptionFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WebhookSubscriptionFilter] {
+	return pulumix.Output[[]WebhookSubscriptionFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WebhookSubscriptionFilterArrayOutput) Index(i pulumi.IntInput) WebhookSubscriptionFilterOutput {
@@ -16430,6 +19299,12 @@ func (i GetAutomationActionsActionActionDataReferenceArgs) ToGetAutomationAction
 	return pulumi.ToOutputWithContext(ctx, i).(GetAutomationActionsActionActionDataReferenceOutput)
 }
 
+func (i GetAutomationActionsActionActionDataReferenceArgs) ToOutput(ctx context.Context) pulumix.Output[GetAutomationActionsActionActionDataReference] {
+	return pulumix.Output[GetAutomationActionsActionActionDataReference]{
+		OutputState: i.ToGetAutomationActionsActionActionDataReferenceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetAutomationActionsActionActionDataReferenceArrayInput is an input type that accepts GetAutomationActionsActionActionDataReferenceArray and GetAutomationActionsActionActionDataReferenceArrayOutput values.
 // You can construct a concrete instance of `GetAutomationActionsActionActionDataReferenceArrayInput` via:
 //
@@ -16455,6 +19330,12 @@ func (i GetAutomationActionsActionActionDataReferenceArray) ToGetAutomationActio
 	return pulumi.ToOutputWithContext(ctx, i).(GetAutomationActionsActionActionDataReferenceArrayOutput)
 }
 
+func (i GetAutomationActionsActionActionDataReferenceArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAutomationActionsActionActionDataReference] {
+	return pulumix.Output[[]GetAutomationActionsActionActionDataReference]{
+		OutputState: i.ToGetAutomationActionsActionActionDataReferenceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetAutomationActionsActionActionDataReferenceOutput struct{ *pulumi.OutputState }
 
 func (GetAutomationActionsActionActionDataReferenceOutput) ElementType() reflect.Type {
@@ -16467,6 +19348,12 @@ func (o GetAutomationActionsActionActionDataReferenceOutput) ToGetAutomationActi
 
 func (o GetAutomationActionsActionActionDataReferenceOutput) ToGetAutomationActionsActionActionDataReferenceOutputWithContext(ctx context.Context) GetAutomationActionsActionActionDataReferenceOutput {
 	return o
+}
+
+func (o GetAutomationActionsActionActionDataReferenceOutput) ToOutput(ctx context.Context) pulumix.Output[GetAutomationActionsActionActionDataReference] {
+	return pulumix.Output[GetAutomationActionsActionActionDataReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) The command to execute the script with.
@@ -16506,6 +19393,12 @@ func (o GetAutomationActionsActionActionDataReferenceArrayOutput) ToGetAutomatio
 
 func (o GetAutomationActionsActionActionDataReferenceArrayOutput) ToGetAutomationActionsActionActionDataReferenceArrayOutputWithContext(ctx context.Context) GetAutomationActionsActionActionDataReferenceArrayOutput {
 	return o
+}
+
+func (o GetAutomationActionsActionActionDataReferenceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAutomationActionsActionActionDataReference] {
+	return pulumix.Output[[]GetAutomationActionsActionActionDataReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetAutomationActionsActionActionDataReferenceArrayOutput) Index(i pulumi.IntInput) GetAutomationActionsActionActionDataReferenceOutput {
@@ -16551,6 +19444,12 @@ func (i GetEventOrchestrationIntegrationDetailArgs) ToGetEventOrchestrationInteg
 	return pulumi.ToOutputWithContext(ctx, i).(GetEventOrchestrationIntegrationDetailOutput)
 }
 
+func (i GetEventOrchestrationIntegrationDetailArgs) ToOutput(ctx context.Context) pulumix.Output[GetEventOrchestrationIntegrationDetail] {
+	return pulumix.Output[GetEventOrchestrationIntegrationDetail]{
+		OutputState: i.ToGetEventOrchestrationIntegrationDetailOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetEventOrchestrationIntegrationDetailArrayInput is an input type that accepts GetEventOrchestrationIntegrationDetailArray and GetEventOrchestrationIntegrationDetailArrayOutput values.
 // You can construct a concrete instance of `GetEventOrchestrationIntegrationDetailArrayInput` via:
 //
@@ -16576,6 +19475,12 @@ func (i GetEventOrchestrationIntegrationDetailArray) ToGetEventOrchestrationInte
 	return pulumi.ToOutputWithContext(ctx, i).(GetEventOrchestrationIntegrationDetailArrayOutput)
 }
 
+func (i GetEventOrchestrationIntegrationDetailArray) ToOutput(ctx context.Context) pulumix.Output[[]GetEventOrchestrationIntegrationDetail] {
+	return pulumix.Output[[]GetEventOrchestrationIntegrationDetail]{
+		OutputState: i.ToGetEventOrchestrationIntegrationDetailArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetEventOrchestrationIntegrationDetailOutput struct{ *pulumi.OutputState }
 
 func (GetEventOrchestrationIntegrationDetailOutput) ElementType() reflect.Type {
@@ -16588,6 +19493,12 @@ func (o GetEventOrchestrationIntegrationDetailOutput) ToGetEventOrchestrationInt
 
 func (o GetEventOrchestrationIntegrationDetailOutput) ToGetEventOrchestrationIntegrationDetailOutputWithContext(ctx context.Context) GetEventOrchestrationIntegrationDetailOutput {
 	return o
+}
+
+func (o GetEventOrchestrationIntegrationDetailOutput) ToOutput(ctx context.Context) pulumix.Output[GetEventOrchestrationIntegrationDetail] {
+	return pulumix.Output[GetEventOrchestrationIntegrationDetail]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ID of the integration
@@ -16617,6 +19528,12 @@ func (o GetEventOrchestrationIntegrationDetailArrayOutput) ToGetEventOrchestrati
 
 func (o GetEventOrchestrationIntegrationDetailArrayOutput) ToGetEventOrchestrationIntegrationDetailArrayOutputWithContext(ctx context.Context) GetEventOrchestrationIntegrationDetailArrayOutput {
 	return o
+}
+
+func (o GetEventOrchestrationIntegrationDetailArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetEventOrchestrationIntegrationDetail] {
+	return pulumix.Output[[]GetEventOrchestrationIntegrationDetail]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetEventOrchestrationIntegrationDetailArrayOutput) Index(i pulumi.IntInput) GetEventOrchestrationIntegrationDetailOutput {
@@ -16662,6 +19579,12 @@ func (i GetEventOrchestrationIntegrationDetailParameterArgs) ToGetEventOrchestra
 	return pulumi.ToOutputWithContext(ctx, i).(GetEventOrchestrationIntegrationDetailParameterOutput)
 }
 
+func (i GetEventOrchestrationIntegrationDetailParameterArgs) ToOutput(ctx context.Context) pulumix.Output[GetEventOrchestrationIntegrationDetailParameter] {
+	return pulumix.Output[GetEventOrchestrationIntegrationDetailParameter]{
+		OutputState: i.ToGetEventOrchestrationIntegrationDetailParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetEventOrchestrationIntegrationDetailParameterArrayInput is an input type that accepts GetEventOrchestrationIntegrationDetailParameterArray and GetEventOrchestrationIntegrationDetailParameterArrayOutput values.
 // You can construct a concrete instance of `GetEventOrchestrationIntegrationDetailParameterArrayInput` via:
 //
@@ -16687,6 +19610,12 @@ func (i GetEventOrchestrationIntegrationDetailParameterArray) ToGetEventOrchestr
 	return pulumi.ToOutputWithContext(ctx, i).(GetEventOrchestrationIntegrationDetailParameterArrayOutput)
 }
 
+func (i GetEventOrchestrationIntegrationDetailParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetEventOrchestrationIntegrationDetailParameter] {
+	return pulumix.Output[[]GetEventOrchestrationIntegrationDetailParameter]{
+		OutputState: i.ToGetEventOrchestrationIntegrationDetailParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetEventOrchestrationIntegrationDetailParameterOutput struct{ *pulumi.OutputState }
 
 func (GetEventOrchestrationIntegrationDetailParameterOutput) ElementType() reflect.Type {
@@ -16699,6 +19628,12 @@ func (o GetEventOrchestrationIntegrationDetailParameterOutput) ToGetEventOrchest
 
 func (o GetEventOrchestrationIntegrationDetailParameterOutput) ToGetEventOrchestrationIntegrationDetailParameterOutputWithContext(ctx context.Context) GetEventOrchestrationIntegrationDetailParameterOutput {
 	return o
+}
+
+func (o GetEventOrchestrationIntegrationDetailParameterOutput) ToOutput(ctx context.Context) pulumix.Output[GetEventOrchestrationIntegrationDetailParameter] {
+	return pulumix.Output[GetEventOrchestrationIntegrationDetailParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Routing key that routes to this Orchestration.
@@ -16723,6 +19658,12 @@ func (o GetEventOrchestrationIntegrationDetailParameterArrayOutput) ToGetEventOr
 
 func (o GetEventOrchestrationIntegrationDetailParameterArrayOutput) ToGetEventOrchestrationIntegrationDetailParameterArrayOutputWithContext(ctx context.Context) GetEventOrchestrationIntegrationDetailParameterArrayOutput {
 	return o
+}
+
+func (o GetEventOrchestrationIntegrationDetailParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetEventOrchestrationIntegrationDetailParameter] {
+	return pulumix.Output[[]GetEventOrchestrationIntegrationDetailParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetEventOrchestrationIntegrationDetailParameterArrayOutput) Index(i pulumi.IntInput) GetEventOrchestrationIntegrationDetailParameterOutput {
@@ -16768,6 +19709,12 @@ func (i GetEventOrchestrationIntegrationParameterArgs) ToGetEventOrchestrationIn
 	return pulumi.ToOutputWithContext(ctx, i).(GetEventOrchestrationIntegrationParameterOutput)
 }
 
+func (i GetEventOrchestrationIntegrationParameterArgs) ToOutput(ctx context.Context) pulumix.Output[GetEventOrchestrationIntegrationParameter] {
+	return pulumix.Output[GetEventOrchestrationIntegrationParameter]{
+		OutputState: i.ToGetEventOrchestrationIntegrationParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetEventOrchestrationIntegrationParameterArrayInput is an input type that accepts GetEventOrchestrationIntegrationParameterArray and GetEventOrchestrationIntegrationParameterArrayOutput values.
 // You can construct a concrete instance of `GetEventOrchestrationIntegrationParameterArrayInput` via:
 //
@@ -16793,6 +19740,12 @@ func (i GetEventOrchestrationIntegrationParameterArray) ToGetEventOrchestrationI
 	return pulumi.ToOutputWithContext(ctx, i).(GetEventOrchestrationIntegrationParameterArrayOutput)
 }
 
+func (i GetEventOrchestrationIntegrationParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetEventOrchestrationIntegrationParameter] {
+	return pulumix.Output[[]GetEventOrchestrationIntegrationParameter]{
+		OutputState: i.ToGetEventOrchestrationIntegrationParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetEventOrchestrationIntegrationParameterOutput struct{ *pulumi.OutputState }
 
 func (GetEventOrchestrationIntegrationParameterOutput) ElementType() reflect.Type {
@@ -16805,6 +19758,12 @@ func (o GetEventOrchestrationIntegrationParameterOutput) ToGetEventOrchestration
 
 func (o GetEventOrchestrationIntegrationParameterOutput) ToGetEventOrchestrationIntegrationParameterOutputWithContext(ctx context.Context) GetEventOrchestrationIntegrationParameterOutput {
 	return o
+}
+
+func (o GetEventOrchestrationIntegrationParameterOutput) ToOutput(ctx context.Context) pulumix.Output[GetEventOrchestrationIntegrationParameter] {
+	return pulumix.Output[GetEventOrchestrationIntegrationParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Routing key that routes to this Orchestration.
@@ -16829,6 +19788,12 @@ func (o GetEventOrchestrationIntegrationParameterArrayOutput) ToGetEventOrchestr
 
 func (o GetEventOrchestrationIntegrationParameterArrayOutput) ToGetEventOrchestrationIntegrationParameterArrayOutputWithContext(ctx context.Context) GetEventOrchestrationIntegrationParameterArrayOutput {
 	return o
+}
+
+func (o GetEventOrchestrationIntegrationParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetEventOrchestrationIntegrationParameter] {
+	return pulumix.Output[[]GetEventOrchestrationIntegrationParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetEventOrchestrationIntegrationParameterArrayOutput) Index(i pulumi.IntInput) GetEventOrchestrationIntegrationParameterOutput {
@@ -16878,6 +19843,12 @@ func (i GetEventOrchestrationsEventOrchestrationArgs) ToGetEventOrchestrationsEv
 	return pulumi.ToOutputWithContext(ctx, i).(GetEventOrchestrationsEventOrchestrationOutput)
 }
 
+func (i GetEventOrchestrationsEventOrchestrationArgs) ToOutput(ctx context.Context) pulumix.Output[GetEventOrchestrationsEventOrchestration] {
+	return pulumix.Output[GetEventOrchestrationsEventOrchestration]{
+		OutputState: i.ToGetEventOrchestrationsEventOrchestrationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetEventOrchestrationsEventOrchestrationArrayInput is an input type that accepts GetEventOrchestrationsEventOrchestrationArray and GetEventOrchestrationsEventOrchestrationArrayOutput values.
 // You can construct a concrete instance of `GetEventOrchestrationsEventOrchestrationArrayInput` via:
 //
@@ -16903,6 +19874,12 @@ func (i GetEventOrchestrationsEventOrchestrationArray) ToGetEventOrchestrationsE
 	return pulumi.ToOutputWithContext(ctx, i).(GetEventOrchestrationsEventOrchestrationArrayOutput)
 }
 
+func (i GetEventOrchestrationsEventOrchestrationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetEventOrchestrationsEventOrchestration] {
+	return pulumix.Output[[]GetEventOrchestrationsEventOrchestration]{
+		OutputState: i.ToGetEventOrchestrationsEventOrchestrationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetEventOrchestrationsEventOrchestrationOutput struct{ *pulumi.OutputState }
 
 func (GetEventOrchestrationsEventOrchestrationOutput) ElementType() reflect.Type {
@@ -16915,6 +19892,12 @@ func (o GetEventOrchestrationsEventOrchestrationOutput) ToGetEventOrchestrations
 
 func (o GetEventOrchestrationsEventOrchestrationOutput) ToGetEventOrchestrationsEventOrchestrationOutputWithContext(ctx context.Context) GetEventOrchestrationsEventOrchestrationOutput {
 	return o
+}
+
+func (o GetEventOrchestrationsEventOrchestrationOutput) ToOutput(ctx context.Context) pulumix.Output[GetEventOrchestrationsEventOrchestration] {
+	return pulumix.Output[GetEventOrchestrationsEventOrchestration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ID of the integration
@@ -16946,6 +19929,12 @@ func (o GetEventOrchestrationsEventOrchestrationArrayOutput) ToGetEventOrchestra
 
 func (o GetEventOrchestrationsEventOrchestrationArrayOutput) ToGetEventOrchestrationsEventOrchestrationArrayOutputWithContext(ctx context.Context) GetEventOrchestrationsEventOrchestrationArrayOutput {
 	return o
+}
+
+func (o GetEventOrchestrationsEventOrchestrationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetEventOrchestrationsEventOrchestration] {
+	return pulumix.Output[[]GetEventOrchestrationsEventOrchestration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetEventOrchestrationsEventOrchestrationArrayOutput) Index(i pulumi.IntInput) GetEventOrchestrationsEventOrchestrationOutput {
@@ -16991,6 +19980,12 @@ func (i GetEventOrchestrationsEventOrchestrationIntegrationArgs) ToGetEventOrche
 	return pulumi.ToOutputWithContext(ctx, i).(GetEventOrchestrationsEventOrchestrationIntegrationOutput)
 }
 
+func (i GetEventOrchestrationsEventOrchestrationIntegrationArgs) ToOutput(ctx context.Context) pulumix.Output[GetEventOrchestrationsEventOrchestrationIntegration] {
+	return pulumix.Output[GetEventOrchestrationsEventOrchestrationIntegration]{
+		OutputState: i.ToGetEventOrchestrationsEventOrchestrationIntegrationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetEventOrchestrationsEventOrchestrationIntegrationArrayInput is an input type that accepts GetEventOrchestrationsEventOrchestrationIntegrationArray and GetEventOrchestrationsEventOrchestrationIntegrationArrayOutput values.
 // You can construct a concrete instance of `GetEventOrchestrationsEventOrchestrationIntegrationArrayInput` via:
 //
@@ -17016,6 +20011,12 @@ func (i GetEventOrchestrationsEventOrchestrationIntegrationArray) ToGetEventOrch
 	return pulumi.ToOutputWithContext(ctx, i).(GetEventOrchestrationsEventOrchestrationIntegrationArrayOutput)
 }
 
+func (i GetEventOrchestrationsEventOrchestrationIntegrationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetEventOrchestrationsEventOrchestrationIntegration] {
+	return pulumix.Output[[]GetEventOrchestrationsEventOrchestrationIntegration]{
+		OutputState: i.ToGetEventOrchestrationsEventOrchestrationIntegrationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetEventOrchestrationsEventOrchestrationIntegrationOutput struct{ *pulumi.OutputState }
 
 func (GetEventOrchestrationsEventOrchestrationIntegrationOutput) ElementType() reflect.Type {
@@ -17028,6 +20029,12 @@ func (o GetEventOrchestrationsEventOrchestrationIntegrationOutput) ToGetEventOrc
 
 func (o GetEventOrchestrationsEventOrchestrationIntegrationOutput) ToGetEventOrchestrationsEventOrchestrationIntegrationOutputWithContext(ctx context.Context) GetEventOrchestrationsEventOrchestrationIntegrationOutput {
 	return o
+}
+
+func (o GetEventOrchestrationsEventOrchestrationIntegrationOutput) ToOutput(ctx context.Context) pulumix.Output[GetEventOrchestrationsEventOrchestrationIntegration] {
+	return pulumix.Output[GetEventOrchestrationsEventOrchestrationIntegration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ID of the integration
@@ -17057,6 +20064,12 @@ func (o GetEventOrchestrationsEventOrchestrationIntegrationArrayOutput) ToGetEve
 
 func (o GetEventOrchestrationsEventOrchestrationIntegrationArrayOutput) ToGetEventOrchestrationsEventOrchestrationIntegrationArrayOutputWithContext(ctx context.Context) GetEventOrchestrationsEventOrchestrationIntegrationArrayOutput {
 	return o
+}
+
+func (o GetEventOrchestrationsEventOrchestrationIntegrationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetEventOrchestrationsEventOrchestrationIntegration] {
+	return pulumix.Output[[]GetEventOrchestrationsEventOrchestrationIntegration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetEventOrchestrationsEventOrchestrationIntegrationArrayOutput) Index(i pulumi.IntInput) GetEventOrchestrationsEventOrchestrationIntegrationOutput {
@@ -17102,6 +20115,12 @@ func (i GetEventOrchestrationsEventOrchestrationIntegrationParameterArgs) ToGetE
 	return pulumi.ToOutputWithContext(ctx, i).(GetEventOrchestrationsEventOrchestrationIntegrationParameterOutput)
 }
 
+func (i GetEventOrchestrationsEventOrchestrationIntegrationParameterArgs) ToOutput(ctx context.Context) pulumix.Output[GetEventOrchestrationsEventOrchestrationIntegrationParameter] {
+	return pulumix.Output[GetEventOrchestrationsEventOrchestrationIntegrationParameter]{
+		OutputState: i.ToGetEventOrchestrationsEventOrchestrationIntegrationParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetEventOrchestrationsEventOrchestrationIntegrationParameterArrayInput is an input type that accepts GetEventOrchestrationsEventOrchestrationIntegrationParameterArray and GetEventOrchestrationsEventOrchestrationIntegrationParameterArrayOutput values.
 // You can construct a concrete instance of `GetEventOrchestrationsEventOrchestrationIntegrationParameterArrayInput` via:
 //
@@ -17127,6 +20146,12 @@ func (i GetEventOrchestrationsEventOrchestrationIntegrationParameterArray) ToGet
 	return pulumi.ToOutputWithContext(ctx, i).(GetEventOrchestrationsEventOrchestrationIntegrationParameterArrayOutput)
 }
 
+func (i GetEventOrchestrationsEventOrchestrationIntegrationParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetEventOrchestrationsEventOrchestrationIntegrationParameter] {
+	return pulumix.Output[[]GetEventOrchestrationsEventOrchestrationIntegrationParameter]{
+		OutputState: i.ToGetEventOrchestrationsEventOrchestrationIntegrationParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetEventOrchestrationsEventOrchestrationIntegrationParameterOutput struct{ *pulumi.OutputState }
 
 func (GetEventOrchestrationsEventOrchestrationIntegrationParameterOutput) ElementType() reflect.Type {
@@ -17139,6 +20164,12 @@ func (o GetEventOrchestrationsEventOrchestrationIntegrationParameterOutput) ToGe
 
 func (o GetEventOrchestrationsEventOrchestrationIntegrationParameterOutput) ToGetEventOrchestrationsEventOrchestrationIntegrationParameterOutputWithContext(ctx context.Context) GetEventOrchestrationsEventOrchestrationIntegrationParameterOutput {
 	return o
+}
+
+func (o GetEventOrchestrationsEventOrchestrationIntegrationParameterOutput) ToOutput(ctx context.Context) pulumix.Output[GetEventOrchestrationsEventOrchestrationIntegrationParameter] {
+	return pulumix.Output[GetEventOrchestrationsEventOrchestrationIntegrationParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Routing key that routes to this Orchestration.
@@ -17163,6 +20194,12 @@ func (o GetEventOrchestrationsEventOrchestrationIntegrationParameterArrayOutput)
 
 func (o GetEventOrchestrationsEventOrchestrationIntegrationParameterArrayOutput) ToGetEventOrchestrationsEventOrchestrationIntegrationParameterArrayOutputWithContext(ctx context.Context) GetEventOrchestrationsEventOrchestrationIntegrationParameterArrayOutput {
 	return o
+}
+
+func (o GetEventOrchestrationsEventOrchestrationIntegrationParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetEventOrchestrationsEventOrchestrationIntegrationParameter] {
+	return pulumix.Output[[]GetEventOrchestrationsEventOrchestrationIntegrationParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetEventOrchestrationsEventOrchestrationIntegrationParameterArrayOutput) Index(i pulumi.IntInput) GetEventOrchestrationsEventOrchestrationIntegrationParameterOutput {
@@ -17238,6 +20275,12 @@ func (i GetLicensesLicenseArgs) ToGetLicensesLicenseOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetLicensesLicenseOutput)
 }
 
+func (i GetLicensesLicenseArgs) ToOutput(ctx context.Context) pulumix.Output[GetLicensesLicense] {
+	return pulumix.Output[GetLicensesLicense]{
+		OutputState: i.ToGetLicensesLicenseOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetLicensesLicenseArrayInput is an input type that accepts GetLicensesLicenseArray and GetLicensesLicenseArrayOutput values.
 // You can construct a concrete instance of `GetLicensesLicenseArrayInput` via:
 //
@@ -17263,6 +20306,12 @@ func (i GetLicensesLicenseArray) ToGetLicensesLicenseArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetLicensesLicenseArrayOutput)
 }
 
+func (i GetLicensesLicenseArray) ToOutput(ctx context.Context) pulumix.Output[[]GetLicensesLicense] {
+	return pulumix.Output[[]GetLicensesLicense]{
+		OutputState: i.ToGetLicensesLicenseArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetLicensesLicenseOutput struct{ *pulumi.OutputState }
 
 func (GetLicensesLicenseOutput) ElementType() reflect.Type {
@@ -17275,6 +20324,12 @@ func (o GetLicensesLicenseOutput) ToGetLicensesLicenseOutput() GetLicensesLicens
 
 func (o GetLicensesLicenseOutput) ToGetLicensesLicenseOutputWithContext(ctx context.Context) GetLicensesLicenseOutput {
 	return o
+}
+
+func (o GetLicensesLicenseOutput) ToOutput(ctx context.Context) pulumix.Output[GetLicensesLicense] {
+	return pulumix.Output[GetLicensesLicense]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Available allocations to assign to users
@@ -17343,6 +20398,12 @@ func (o GetLicensesLicenseArrayOutput) ToGetLicensesLicenseArrayOutputWithContex
 	return o
 }
 
+func (o GetLicensesLicenseArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetLicensesLicense] {
+	return pulumix.Output[[]GetLicensesLicense]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetLicensesLicenseArrayOutput) Index(i pulumi.IntInput) GetLicensesLicenseOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLicensesLicense {
 		return vs[0].([]GetLicensesLicense)[vs[1].(int)]
@@ -17386,6 +20447,12 @@ func (i GetServiceTeamArgs) ToGetServiceTeamOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceTeamOutput)
 }
 
+func (i GetServiceTeamArgs) ToOutput(ctx context.Context) pulumix.Output[GetServiceTeam] {
+	return pulumix.Output[GetServiceTeam]{
+		OutputState: i.ToGetServiceTeamOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetServiceTeamArrayInput is an input type that accepts GetServiceTeamArray and GetServiceTeamArrayOutput values.
 // You can construct a concrete instance of `GetServiceTeamArrayInput` via:
 //
@@ -17411,6 +20478,12 @@ func (i GetServiceTeamArray) ToGetServiceTeamArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceTeamArrayOutput)
 }
 
+func (i GetServiceTeamArray) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceTeam] {
+	return pulumix.Output[[]GetServiceTeam]{
+		OutputState: i.ToGetServiceTeamArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetServiceTeamOutput struct{ *pulumi.OutputState }
 
 func (GetServiceTeamOutput) ElementType() reflect.Type {
@@ -17423,6 +20496,12 @@ func (o GetServiceTeamOutput) ToGetServiceTeamOutput() GetServiceTeamOutput {
 
 func (o GetServiceTeamOutput) ToGetServiceTeamOutputWithContext(ctx context.Context) GetServiceTeamOutput {
 	return o
+}
+
+func (o GetServiceTeamOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceTeam] {
+	return pulumix.Output[GetServiceTeam]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the found service.
@@ -17447,6 +20526,12 @@ func (o GetServiceTeamArrayOutput) ToGetServiceTeamArrayOutput() GetServiceTeamA
 
 func (o GetServiceTeamArrayOutput) ToGetServiceTeamArrayOutputWithContext(ctx context.Context) GetServiceTeamArrayOutput {
 	return o
+}
+
+func (o GetServiceTeamArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceTeam] {
+	return pulumix.Output[[]GetServiceTeam]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetServiceTeamArrayOutput) Index(i pulumi.IntInput) GetServiceTeamOutput {
@@ -17496,6 +20581,12 @@ func (i GetUsersUserArgs) ToGetUsersUserOutputWithContext(ctx context.Context) G
 	return pulumi.ToOutputWithContext(ctx, i).(GetUsersUserOutput)
 }
 
+func (i GetUsersUserArgs) ToOutput(ctx context.Context) pulumix.Output[GetUsersUser] {
+	return pulumix.Output[GetUsersUser]{
+		OutputState: i.ToGetUsersUserOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetUsersUserArrayInput is an input type that accepts GetUsersUserArray and GetUsersUserArrayOutput values.
 // You can construct a concrete instance of `GetUsersUserArrayInput` via:
 //
@@ -17521,6 +20612,12 @@ func (i GetUsersUserArray) ToGetUsersUserArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetUsersUserArrayOutput)
 }
 
+func (i GetUsersUserArray) ToOutput(ctx context.Context) pulumix.Output[[]GetUsersUser] {
+	return pulumix.Output[[]GetUsersUser]{
+		OutputState: i.ToGetUsersUserArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetUsersUserOutput struct{ *pulumi.OutputState }
 
 func (GetUsersUserOutput) ElementType() reflect.Type {
@@ -17533,6 +20630,12 @@ func (o GetUsersUserOutput) ToGetUsersUserOutput() GetUsersUserOutput {
 
 func (o GetUsersUserOutput) ToGetUsersUserOutputWithContext(ctx context.Context) GetUsersUserOutput {
 	return o
+}
+
+func (o GetUsersUserOutput) ToOutput(ctx context.Context) pulumix.Output[GetUsersUser] {
+	return pulumix.Output[GetUsersUser]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The email to use to find a user in the PagerDuty API.
@@ -17562,6 +20665,12 @@ func (o GetUsersUserArrayOutput) ToGetUsersUserArrayOutput() GetUsersUserArrayOu
 
 func (o GetUsersUserArrayOutput) ToGetUsersUserArrayOutputWithContext(ctx context.Context) GetUsersUserArrayOutput {
 	return o
+}
+
+func (o GetUsersUserArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetUsersUser] {
+	return pulumix.Output[[]GetUsersUser]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetUsersUserArrayOutput) Index(i pulumi.IntInput) GetUsersUserOutput {

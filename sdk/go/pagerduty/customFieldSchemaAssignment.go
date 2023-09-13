@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // !> This Resource is no longer functional. Documentation is left here for the purpose of documenting migration steps.
@@ -166,6 +167,12 @@ func (i *CustomFieldSchemaAssignment) ToCustomFieldSchemaAssignmentOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(CustomFieldSchemaAssignmentOutput)
 }
 
+func (i *CustomFieldSchemaAssignment) ToOutput(ctx context.Context) pulumix.Output[*CustomFieldSchemaAssignment] {
+	return pulumix.Output[*CustomFieldSchemaAssignment]{
+		OutputState: i.ToCustomFieldSchemaAssignmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CustomFieldSchemaAssignmentArrayInput is an input type that accepts CustomFieldSchemaAssignmentArray and CustomFieldSchemaAssignmentArrayOutput values.
 // You can construct a concrete instance of `CustomFieldSchemaAssignmentArrayInput` via:
 //
@@ -189,6 +196,12 @@ func (i CustomFieldSchemaAssignmentArray) ToCustomFieldSchemaAssignmentArrayOutp
 
 func (i CustomFieldSchemaAssignmentArray) ToCustomFieldSchemaAssignmentArrayOutputWithContext(ctx context.Context) CustomFieldSchemaAssignmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomFieldSchemaAssignmentArrayOutput)
+}
+
+func (i CustomFieldSchemaAssignmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*CustomFieldSchemaAssignment] {
+	return pulumix.Output[[]*CustomFieldSchemaAssignment]{
+		OutputState: i.ToCustomFieldSchemaAssignmentArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CustomFieldSchemaAssignmentMapInput is an input type that accepts CustomFieldSchemaAssignmentMap and CustomFieldSchemaAssignmentMapOutput values.
@@ -216,6 +229,12 @@ func (i CustomFieldSchemaAssignmentMap) ToCustomFieldSchemaAssignmentMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(CustomFieldSchemaAssignmentMapOutput)
 }
 
+func (i CustomFieldSchemaAssignmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomFieldSchemaAssignment] {
+	return pulumix.Output[map[string]*CustomFieldSchemaAssignment]{
+		OutputState: i.ToCustomFieldSchemaAssignmentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomFieldSchemaAssignmentOutput struct{ *pulumi.OutputState }
 
 func (CustomFieldSchemaAssignmentOutput) ElementType() reflect.Type {
@@ -228,6 +247,12 @@ func (o CustomFieldSchemaAssignmentOutput) ToCustomFieldSchemaAssignmentOutput()
 
 func (o CustomFieldSchemaAssignmentOutput) ToCustomFieldSchemaAssignmentOutputWithContext(ctx context.Context) CustomFieldSchemaAssignmentOutput {
 	return o
+}
+
+func (o CustomFieldSchemaAssignmentOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomFieldSchemaAssignment] {
+	return pulumix.Output[*CustomFieldSchemaAssignment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The id of the field schema.
@@ -254,6 +279,12 @@ func (o CustomFieldSchemaAssignmentArrayOutput) ToCustomFieldSchemaAssignmentArr
 	return o
 }
 
+func (o CustomFieldSchemaAssignmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CustomFieldSchemaAssignment] {
+	return pulumix.Output[[]*CustomFieldSchemaAssignment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CustomFieldSchemaAssignmentArrayOutput) Index(i pulumi.IntInput) CustomFieldSchemaAssignmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CustomFieldSchemaAssignment {
 		return vs[0].([]*CustomFieldSchemaAssignment)[vs[1].(int)]
@@ -272,6 +303,12 @@ func (o CustomFieldSchemaAssignmentMapOutput) ToCustomFieldSchemaAssignmentMapOu
 
 func (o CustomFieldSchemaAssignmentMapOutput) ToCustomFieldSchemaAssignmentMapOutputWithContext(ctx context.Context) CustomFieldSchemaAssignmentMapOutput {
 	return o
+}
+
+func (o CustomFieldSchemaAssignmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomFieldSchemaAssignment] {
+	return pulumix.Output[map[string]*CustomFieldSchemaAssignment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CustomFieldSchemaAssignmentMapOutput) MapIndex(k pulumi.StringInput) CustomFieldSchemaAssignmentOutput {

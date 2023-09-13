@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An Automation Actions [action association with a team](https://developer.pagerduty.com/api-reference/8f722dd91a4ba-associate-an-automation-action-with-a-team) configures the relation of a specific Action with a Team.
@@ -166,6 +167,12 @@ func (i *AutomationActionsActionTeamAssociation) ToAutomationActionsActionTeamAs
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionsActionTeamAssociationOutput)
 }
 
+func (i *AutomationActionsActionTeamAssociation) ToOutput(ctx context.Context) pulumix.Output[*AutomationActionsActionTeamAssociation] {
+	return pulumix.Output[*AutomationActionsActionTeamAssociation]{
+		OutputState: i.ToAutomationActionsActionTeamAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AutomationActionsActionTeamAssociationArrayInput is an input type that accepts AutomationActionsActionTeamAssociationArray and AutomationActionsActionTeamAssociationArrayOutput values.
 // You can construct a concrete instance of `AutomationActionsActionTeamAssociationArrayInput` via:
 //
@@ -189,6 +196,12 @@ func (i AutomationActionsActionTeamAssociationArray) ToAutomationActionsActionTe
 
 func (i AutomationActionsActionTeamAssociationArray) ToAutomationActionsActionTeamAssociationArrayOutputWithContext(ctx context.Context) AutomationActionsActionTeamAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionsActionTeamAssociationArrayOutput)
+}
+
+func (i AutomationActionsActionTeamAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*AutomationActionsActionTeamAssociation] {
+	return pulumix.Output[[]*AutomationActionsActionTeamAssociation]{
+		OutputState: i.ToAutomationActionsActionTeamAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AutomationActionsActionTeamAssociationMapInput is an input type that accepts AutomationActionsActionTeamAssociationMap and AutomationActionsActionTeamAssociationMapOutput values.
@@ -216,6 +229,12 @@ func (i AutomationActionsActionTeamAssociationMap) ToAutomationActionsActionTeam
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionsActionTeamAssociationMapOutput)
 }
 
+func (i AutomationActionsActionTeamAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AutomationActionsActionTeamAssociation] {
+	return pulumix.Output[map[string]*AutomationActionsActionTeamAssociation]{
+		OutputState: i.ToAutomationActionsActionTeamAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AutomationActionsActionTeamAssociationOutput struct{ *pulumi.OutputState }
 
 func (AutomationActionsActionTeamAssociationOutput) ElementType() reflect.Type {
@@ -228,6 +247,12 @@ func (o AutomationActionsActionTeamAssociationOutput) ToAutomationActionsActionT
 
 func (o AutomationActionsActionTeamAssociationOutput) ToAutomationActionsActionTeamAssociationOutputWithContext(ctx context.Context) AutomationActionsActionTeamAssociationOutput {
 	return o
+}
+
+func (o AutomationActionsActionTeamAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*AutomationActionsActionTeamAssociation] {
+	return pulumix.Output[*AutomationActionsActionTeamAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Id of the action.
@@ -254,6 +279,12 @@ func (o AutomationActionsActionTeamAssociationArrayOutput) ToAutomationActionsAc
 	return o
 }
 
+func (o AutomationActionsActionTeamAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AutomationActionsActionTeamAssociation] {
+	return pulumix.Output[[]*AutomationActionsActionTeamAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AutomationActionsActionTeamAssociationArrayOutput) Index(i pulumi.IntInput) AutomationActionsActionTeamAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AutomationActionsActionTeamAssociation {
 		return vs[0].([]*AutomationActionsActionTeamAssociation)[vs[1].(int)]
@@ -272,6 +303,12 @@ func (o AutomationActionsActionTeamAssociationMapOutput) ToAutomationActionsActi
 
 func (o AutomationActionsActionTeamAssociationMapOutput) ToAutomationActionsActionTeamAssociationMapOutputWithContext(ctx context.Context) AutomationActionsActionTeamAssociationMapOutput {
 	return o
+}
+
+func (o AutomationActionsActionTeamAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AutomationActionsActionTeamAssociation] {
+	return pulumix.Output[map[string]*AutomationActionsActionTeamAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AutomationActionsActionTeamAssociationMapOutput) MapIndex(k pulumi.StringInput) AutomationActionsActionTeamAssociationOutput {

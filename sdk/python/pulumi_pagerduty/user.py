@@ -421,8 +421,6 @@ class User(pulumi.CustomResource):
          $ pulumi import pagerduty:index/user:User main PLBP09X
         ```
 
-         [1]https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user [2]https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] color: The schedule color for the user. Valid options are purple, red, green, blue, teal, orange, brown, turquoise, dark-slate-blue, cayenne, orange-red, dark-orchid, dark-slate-grey, lime, dark-magenta, lime-green, midnight-blue, deep-pink, dark-green, dark-orange, dark-cyan, darkolive-green, dark-slate-gray, grey20, firebrick, maroon, crimson, dark-red, dark-goldenrod, chocolate, medium-violet-red, sea-green, olivedrab, forest-green, dark-olive-green, blue-violet, royal-blue, indigo, slate-blue, saddle-brown, or steel-blue.
@@ -463,8 +461,6 @@ class User(pulumi.CustomResource):
         ```sh
          $ pulumi import pagerduty:index/user:User main PLBP09X
         ```
-
-         [1]https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user [2]https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.

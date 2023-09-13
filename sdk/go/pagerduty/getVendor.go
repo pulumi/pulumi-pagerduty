@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about a specific [vendor](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODI1OQ-list-vendors) that you can use for a service integration (e.g. Amazon Cloudwatch, Splunk, Datadog).
@@ -143,6 +144,12 @@ func (o GetVendorResultOutput) ToGetVendorResultOutput() GetVendorResultOutput {
 
 func (o GetVendorResultOutput) ToGetVendorResultOutputWithContext(ctx context.Context) GetVendorResultOutput {
 	return o
+}
+
+func (o GetVendorResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetVendorResult] {
+	return pulumix.Output[GetVendorResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

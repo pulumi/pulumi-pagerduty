@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A [service dependency](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE5Mg-associate-service-dependencies) is a relationship between two services that this service uses, or that are used by this service, and are critical for successful operation.
@@ -168,6 +169,12 @@ func (i *ServiceDependency) ToServiceDependencyOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDependencyOutput)
 }
 
+func (i *ServiceDependency) ToOutput(ctx context.Context) pulumix.Output[*ServiceDependency] {
+	return pulumix.Output[*ServiceDependency]{
+		OutputState: i.ToServiceDependencyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceDependencyArrayInput is an input type that accepts ServiceDependencyArray and ServiceDependencyArrayOutput values.
 // You can construct a concrete instance of `ServiceDependencyArrayInput` via:
 //
@@ -191,6 +198,12 @@ func (i ServiceDependencyArray) ToServiceDependencyArrayOutput() ServiceDependen
 
 func (i ServiceDependencyArray) ToServiceDependencyArrayOutputWithContext(ctx context.Context) ServiceDependencyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDependencyArrayOutput)
+}
+
+func (i ServiceDependencyArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceDependency] {
+	return pulumix.Output[[]*ServiceDependency]{
+		OutputState: i.ToServiceDependencyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ServiceDependencyMapInput is an input type that accepts ServiceDependencyMap and ServiceDependencyMapOutput values.
@@ -218,6 +231,12 @@ func (i ServiceDependencyMap) ToServiceDependencyMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDependencyMapOutput)
 }
 
+func (i ServiceDependencyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceDependency] {
+	return pulumix.Output[map[string]*ServiceDependency]{
+		OutputState: i.ToServiceDependencyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceDependencyOutput struct{ *pulumi.OutputState }
 
 func (ServiceDependencyOutput) ElementType() reflect.Type {
@@ -230,6 +249,12 @@ func (o ServiceDependencyOutput) ToServiceDependencyOutput() ServiceDependencyOu
 
 func (o ServiceDependencyOutput) ToServiceDependencyOutputWithContext(ctx context.Context) ServiceDependencyOutput {
 	return o
+}
+
+func (o ServiceDependencyOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceDependency] {
+	return pulumix.Output[*ServiceDependency]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The relationship between the `supportingService` and `dependentService`. One and only one dependency block must be defined.
@@ -251,6 +276,12 @@ func (o ServiceDependencyArrayOutput) ToServiceDependencyArrayOutputWithContext(
 	return o
 }
 
+func (o ServiceDependencyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceDependency] {
+	return pulumix.Output[[]*ServiceDependency]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceDependencyArrayOutput) Index(i pulumi.IntInput) ServiceDependencyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceDependency {
 		return vs[0].([]*ServiceDependency)[vs[1].(int)]
@@ -269,6 +300,12 @@ func (o ServiceDependencyMapOutput) ToServiceDependencyMapOutput() ServiceDepend
 
 func (o ServiceDependencyMapOutput) ToServiceDependencyMapOutputWithContext(ctx context.Context) ServiceDependencyMapOutput {
 	return o
+}
+
+func (o ServiceDependencyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceDependency] {
+	return pulumix.Output[map[string]*ServiceDependency]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceDependencyMapOutput) MapIndex(k pulumi.StringInput) ServiceDependencyOutput {

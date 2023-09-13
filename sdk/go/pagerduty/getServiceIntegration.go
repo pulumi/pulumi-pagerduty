@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about a specific service_integration.
@@ -105,6 +106,12 @@ func (o LookupServiceIntegrationResultOutput) ToLookupServiceIntegrationResultOu
 
 func (o LookupServiceIntegrationResultOutput) ToLookupServiceIntegrationResultOutputWithContext(ctx context.Context) LookupServiceIntegrationResultOutput {
 	return o
+}
+
+func (o LookupServiceIntegrationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupServiceIntegrationResult] {
+	return pulumix.Output[LookupServiceIntegrationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

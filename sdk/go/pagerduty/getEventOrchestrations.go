@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information as a list about specific Global [Event Orchestrations](https://developer.pagerduty.com/api-reference/7ba0fe7bdb26a-list-event-orchestrations) filtered by a Regular Expression provided.
@@ -107,6 +108,12 @@ func (o GetEventOrchestrationsResultOutput) ToGetEventOrchestrationsResultOutput
 
 func (o GetEventOrchestrationsResultOutput) ToGetEventOrchestrationsResultOutputWithContext(ctx context.Context) GetEventOrchestrationsResultOutput {
 	return o
+}
+
+func (o GetEventOrchestrationsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetEventOrchestrationsResult] {
+	return pulumix.Output[GetEventOrchestrationsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetEventOrchestrationsResultOutput) EventOrchestrations() GetEventOrchestrationsEventOrchestrationArrayOutput {

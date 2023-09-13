@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A [Global Orchestration](https://support.pagerduty.com/docs/event-orchestration#global-orchestrations) allows you to create a set of Event Rules. The Global Orchestration evaluates Events sent to it against each of its rules, beginning with the rules in the "start" set. When a matching rule is found, it can modify and enhance the event and can route the event to another set of rules within this Global Orchestration for further processing.
@@ -241,6 +242,12 @@ func (i *EventOrchestrationGlobal) ToEventOrchestrationGlobalOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalOutput)
 }
 
+func (i *EventOrchestrationGlobal) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationGlobal] {
+	return pulumix.Output[*EventOrchestrationGlobal]{
+		OutputState: i.ToEventOrchestrationGlobalOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventOrchestrationGlobalArrayInput is an input type that accepts EventOrchestrationGlobalArray and EventOrchestrationGlobalArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationGlobalArrayInput` via:
 //
@@ -264,6 +271,12 @@ func (i EventOrchestrationGlobalArray) ToEventOrchestrationGlobalArrayOutput() E
 
 func (i EventOrchestrationGlobalArray) ToEventOrchestrationGlobalArrayOutputWithContext(ctx context.Context) EventOrchestrationGlobalArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalArrayOutput)
+}
+
+func (i EventOrchestrationGlobalArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventOrchestrationGlobal] {
+	return pulumix.Output[[]*EventOrchestrationGlobal]{
+		OutputState: i.ToEventOrchestrationGlobalArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EventOrchestrationGlobalMapInput is an input type that accepts EventOrchestrationGlobalMap and EventOrchestrationGlobalMapOutput values.
@@ -291,6 +304,12 @@ func (i EventOrchestrationGlobalMap) ToEventOrchestrationGlobalMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalMapOutput)
 }
 
+func (i EventOrchestrationGlobalMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventOrchestrationGlobal] {
+	return pulumix.Output[map[string]*EventOrchestrationGlobal]{
+		OutputState: i.ToEventOrchestrationGlobalMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationGlobalOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationGlobalOutput) ElementType() reflect.Type {
@@ -303,6 +322,12 @@ func (o EventOrchestrationGlobalOutput) ToEventOrchestrationGlobalOutput() Event
 
 func (o EventOrchestrationGlobalOutput) ToEventOrchestrationGlobalOutputWithContext(ctx context.Context) EventOrchestrationGlobalOutput {
 	return o
+}
+
+func (o EventOrchestrationGlobalOutput) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationGlobal] {
+	return pulumix.Output[*EventOrchestrationGlobal]{
+		OutputState: o.OutputState,
+	}
 }
 
 // the `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
@@ -334,6 +359,12 @@ func (o EventOrchestrationGlobalArrayOutput) ToEventOrchestrationGlobalArrayOutp
 	return o
 }
 
+func (o EventOrchestrationGlobalArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventOrchestrationGlobal] {
+	return pulumix.Output[[]*EventOrchestrationGlobal]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EventOrchestrationGlobalArrayOutput) Index(i pulumi.IntInput) EventOrchestrationGlobalOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventOrchestrationGlobal {
 		return vs[0].([]*EventOrchestrationGlobal)[vs[1].(int)]
@@ -352,6 +383,12 @@ func (o EventOrchestrationGlobalMapOutput) ToEventOrchestrationGlobalMapOutput()
 
 func (o EventOrchestrationGlobalMapOutput) ToEventOrchestrationGlobalMapOutputWithContext(ctx context.Context) EventOrchestrationGlobalMapOutput {
 	return o
+}
+
+func (o EventOrchestrationGlobalMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventOrchestrationGlobal] {
+	return pulumix.Output[map[string]*EventOrchestrationGlobal]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationGlobalMapOutput) MapIndex(k pulumi.StringInput) EventOrchestrationGlobalOutput {

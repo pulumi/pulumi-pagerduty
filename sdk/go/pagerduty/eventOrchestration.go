@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // [Event Orchestrations](https://support.pagerduty.com/docs/event-orchestration) allow you define a set of Event Rules, so that when you ingest events using the Orchestration's Routing Key your events will be routed to the correct Global and/or Service Orchestration, based on the event's content.
@@ -170,6 +171,12 @@ func (i *EventOrchestration) ToEventOrchestrationOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationOutput)
 }
 
+func (i *EventOrchestration) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestration] {
+	return pulumix.Output[*EventOrchestration]{
+		OutputState: i.ToEventOrchestrationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventOrchestrationArrayInput is an input type that accepts EventOrchestrationArray and EventOrchestrationArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationArrayInput` via:
 //
@@ -193,6 +200,12 @@ func (i EventOrchestrationArray) ToEventOrchestrationArrayOutput() EventOrchestr
 
 func (i EventOrchestrationArray) ToEventOrchestrationArrayOutputWithContext(ctx context.Context) EventOrchestrationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationArrayOutput)
+}
+
+func (i EventOrchestrationArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventOrchestration] {
+	return pulumix.Output[[]*EventOrchestration]{
+		OutputState: i.ToEventOrchestrationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EventOrchestrationMapInput is an input type that accepts EventOrchestrationMap and EventOrchestrationMapOutput values.
@@ -220,6 +233,12 @@ func (i EventOrchestrationMap) ToEventOrchestrationMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationMapOutput)
 }
 
+func (i EventOrchestrationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventOrchestration] {
+	return pulumix.Output[map[string]*EventOrchestration]{
+		OutputState: i.ToEventOrchestrationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventOrchestrationOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationOutput) ElementType() reflect.Type {
@@ -232,6 +251,12 @@ func (o EventOrchestrationOutput) ToEventOrchestrationOutput() EventOrchestratio
 
 func (o EventOrchestrationOutput) ToEventOrchestrationOutputWithContext(ctx context.Context) EventOrchestrationOutput {
 	return o
+}
+
+func (o EventOrchestrationOutput) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestration] {
+	return pulumix.Output[*EventOrchestration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A human-friendly description of the Event Orchestration.
@@ -272,6 +297,12 @@ func (o EventOrchestrationArrayOutput) ToEventOrchestrationArrayOutputWithContex
 	return o
 }
 
+func (o EventOrchestrationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventOrchestration] {
+	return pulumix.Output[[]*EventOrchestration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EventOrchestrationArrayOutput) Index(i pulumi.IntInput) EventOrchestrationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventOrchestration {
 		return vs[0].([]*EventOrchestration)[vs[1].(int)]
@@ -290,6 +321,12 @@ func (o EventOrchestrationMapOutput) ToEventOrchestrationMapOutput() EventOrches
 
 func (o EventOrchestrationMapOutput) ToEventOrchestrationMapOutputWithContext(ctx context.Context) EventOrchestrationMapOutput {
 	return o
+}
+
+func (o EventOrchestrationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventOrchestration] {
+	return pulumix.Output[map[string]*EventOrchestration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventOrchestrationMapOutput) MapIndex(k pulumi.StringInput) EventOrchestrationOutput {

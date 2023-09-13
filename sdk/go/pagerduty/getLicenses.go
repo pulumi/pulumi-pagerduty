@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users' licenses, the `currentValue` and `allocationsAvailable` attributes of licenses will change.
@@ -111,6 +112,12 @@ func (o GetLicensesResultOutput) ToGetLicensesResultOutput() GetLicensesResultOu
 
 func (o GetLicensesResultOutput) ToGetLicensesResultOutputWithContext(ctx context.Context) GetLicensesResultOutput {
 	return o
+}
+
+func (o GetLicensesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLicensesResult] {
+	return pulumix.Output[GetLicensesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ID of the license

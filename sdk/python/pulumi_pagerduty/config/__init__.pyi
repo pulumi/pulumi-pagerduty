@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 apiUrlOverride: Optional[str]
 
@@ -16,6 +17,8 @@ serviceRegion: Optional[str]
 skipCredentialsValidation: bool
 
 token: Optional[str]
+
+useAppOauthScopedToken: Optional[str]
 
 userToken: Optional[str]
 

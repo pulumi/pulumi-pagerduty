@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 import types
 
@@ -30,6 +31,10 @@ class _ExportableConfig(types.ModuleType):
     @property
     def token(self) -> Optional[str]:
         return __config__.get('token')
+
+    @property
+    def use_app_oauth_scoped_token(self) -> Optional[str]:
+        return __config__.get('useAppOauthScopedToken')
 
     @property
     def user_token(self) -> Optional[str]:

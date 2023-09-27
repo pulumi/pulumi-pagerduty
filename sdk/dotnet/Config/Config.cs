@@ -60,6 +60,13 @@ namespace Pulumi.Pagerduty
             set => _token.Set(value);
         }
 
+        private static readonly __Value<Pulumi.Pagerduty.Config.Types.UseAppOauthScopedToken?> _useAppOauthScopedToken = new __Value<Pulumi.Pagerduty.Config.Types.UseAppOauthScopedToken?>(() => __config.GetObject<Pulumi.Pagerduty.Config.Types.UseAppOauthScopedToken>("useAppOauthScopedToken"));
+        public static Pulumi.Pagerduty.Config.Types.UseAppOauthScopedToken? UseAppOauthScopedToken
+        {
+            get => _useAppOauthScopedToken.Get();
+            set => _useAppOauthScopedToken.Set(value);
+        }
+
         private static readonly __Value<string?> _userToken = new __Value<string?>(() => __config.Get("userToken"));
         public static string? UserToken
         {
@@ -67,5 +74,15 @@ namespace Pulumi.Pagerduty
             set => _userToken.Set(value);
         }
 
+        public static class Types
+        {
+
+             public class UseAppOauthScopedToken
+             {
+                public string PdClientId { get; set; }
+                public string PdClientSecret { get; set; }
+                public string PdSubdomain { get; set; }
+            }
+        }
     }
 }

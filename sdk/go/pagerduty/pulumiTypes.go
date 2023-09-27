@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
+	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
@@ -9129,6 +9129,193 @@ func (o IncidentWorkflowStepInputTypeArrayOutput) Index(i pulumi.IntInput) Incid
 	}).(IncidentWorkflowStepInputTypeOutput)
 }
 
+type ProviderUseAppOauthScopedToken struct {
+	PdClientId     string `pulumi:"pdClientId"`
+	PdClientSecret string `pulumi:"pdClientSecret"`
+	PdSubdomain    string `pulumi:"pdSubdomain"`
+}
+
+// ProviderUseAppOauthScopedTokenInput is an input type that accepts ProviderUseAppOauthScopedTokenArgs and ProviderUseAppOauthScopedTokenOutput values.
+// You can construct a concrete instance of `ProviderUseAppOauthScopedTokenInput` via:
+//
+//	ProviderUseAppOauthScopedTokenArgs{...}
+type ProviderUseAppOauthScopedTokenInput interface {
+	pulumi.Input
+
+	ToProviderUseAppOauthScopedTokenOutput() ProviderUseAppOauthScopedTokenOutput
+	ToProviderUseAppOauthScopedTokenOutputWithContext(context.Context) ProviderUseAppOauthScopedTokenOutput
+}
+
+type ProviderUseAppOauthScopedTokenArgs struct {
+	PdClientId     pulumi.StringInput `pulumi:"pdClientId"`
+	PdClientSecret pulumi.StringInput `pulumi:"pdClientSecret"`
+	PdSubdomain    pulumi.StringInput `pulumi:"pdSubdomain"`
+}
+
+func (ProviderUseAppOauthScopedTokenArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderUseAppOauthScopedToken)(nil)).Elem()
+}
+
+func (i ProviderUseAppOauthScopedTokenArgs) ToProviderUseAppOauthScopedTokenOutput() ProviderUseAppOauthScopedTokenOutput {
+	return i.ToProviderUseAppOauthScopedTokenOutputWithContext(context.Background())
+}
+
+func (i ProviderUseAppOauthScopedTokenArgs) ToProviderUseAppOauthScopedTokenOutputWithContext(ctx context.Context) ProviderUseAppOauthScopedTokenOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderUseAppOauthScopedTokenOutput)
+}
+
+func (i ProviderUseAppOauthScopedTokenArgs) ToOutput(ctx context.Context) pulumix.Output[ProviderUseAppOauthScopedToken] {
+	return pulumix.Output[ProviderUseAppOauthScopedToken]{
+		OutputState: i.ToProviderUseAppOauthScopedTokenOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ProviderUseAppOauthScopedTokenArgs) ToProviderUseAppOauthScopedTokenPtrOutput() ProviderUseAppOauthScopedTokenPtrOutput {
+	return i.ToProviderUseAppOauthScopedTokenPtrOutputWithContext(context.Background())
+}
+
+func (i ProviderUseAppOauthScopedTokenArgs) ToProviderUseAppOauthScopedTokenPtrOutputWithContext(ctx context.Context) ProviderUseAppOauthScopedTokenPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderUseAppOauthScopedTokenOutput).ToProviderUseAppOauthScopedTokenPtrOutputWithContext(ctx)
+}
+
+// ProviderUseAppOauthScopedTokenPtrInput is an input type that accepts ProviderUseAppOauthScopedTokenArgs, ProviderUseAppOauthScopedTokenPtr and ProviderUseAppOauthScopedTokenPtrOutput values.
+// You can construct a concrete instance of `ProviderUseAppOauthScopedTokenPtrInput` via:
+//
+//	        ProviderUseAppOauthScopedTokenArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProviderUseAppOauthScopedTokenPtrInput interface {
+	pulumi.Input
+
+	ToProviderUseAppOauthScopedTokenPtrOutput() ProviderUseAppOauthScopedTokenPtrOutput
+	ToProviderUseAppOauthScopedTokenPtrOutputWithContext(context.Context) ProviderUseAppOauthScopedTokenPtrOutput
+}
+
+type providerUseAppOauthScopedTokenPtrType ProviderUseAppOauthScopedTokenArgs
+
+func ProviderUseAppOauthScopedTokenPtr(v *ProviderUseAppOauthScopedTokenArgs) ProviderUseAppOauthScopedTokenPtrInput {
+	return (*providerUseAppOauthScopedTokenPtrType)(v)
+}
+
+func (*providerUseAppOauthScopedTokenPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderUseAppOauthScopedToken)(nil)).Elem()
+}
+
+func (i *providerUseAppOauthScopedTokenPtrType) ToProviderUseAppOauthScopedTokenPtrOutput() ProviderUseAppOauthScopedTokenPtrOutput {
+	return i.ToProviderUseAppOauthScopedTokenPtrOutputWithContext(context.Background())
+}
+
+func (i *providerUseAppOauthScopedTokenPtrType) ToProviderUseAppOauthScopedTokenPtrOutputWithContext(ctx context.Context) ProviderUseAppOauthScopedTokenPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderUseAppOauthScopedTokenPtrOutput)
+}
+
+func (i *providerUseAppOauthScopedTokenPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProviderUseAppOauthScopedToken] {
+	return pulumix.Output[*ProviderUseAppOauthScopedToken]{
+		OutputState: i.ToProviderUseAppOauthScopedTokenPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ProviderUseAppOauthScopedTokenOutput struct{ *pulumi.OutputState }
+
+func (ProviderUseAppOauthScopedTokenOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderUseAppOauthScopedToken)(nil)).Elem()
+}
+
+func (o ProviderUseAppOauthScopedTokenOutput) ToProviderUseAppOauthScopedTokenOutput() ProviderUseAppOauthScopedTokenOutput {
+	return o
+}
+
+func (o ProviderUseAppOauthScopedTokenOutput) ToProviderUseAppOauthScopedTokenOutputWithContext(ctx context.Context) ProviderUseAppOauthScopedTokenOutput {
+	return o
+}
+
+func (o ProviderUseAppOauthScopedTokenOutput) ToProviderUseAppOauthScopedTokenPtrOutput() ProviderUseAppOauthScopedTokenPtrOutput {
+	return o.ToProviderUseAppOauthScopedTokenPtrOutputWithContext(context.Background())
+}
+
+func (o ProviderUseAppOauthScopedTokenOutput) ToProviderUseAppOauthScopedTokenPtrOutputWithContext(ctx context.Context) ProviderUseAppOauthScopedTokenPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderUseAppOauthScopedToken) *ProviderUseAppOauthScopedToken {
+		return &v
+	}).(ProviderUseAppOauthScopedTokenPtrOutput)
+}
+
+func (o ProviderUseAppOauthScopedTokenOutput) ToOutput(ctx context.Context) pulumix.Output[ProviderUseAppOauthScopedToken] {
+	return pulumix.Output[ProviderUseAppOauthScopedToken]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ProviderUseAppOauthScopedTokenOutput) PdClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v ProviderUseAppOauthScopedToken) string { return v.PdClientId }).(pulumi.StringOutput)
+}
+
+func (o ProviderUseAppOauthScopedTokenOutput) PdClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v ProviderUseAppOauthScopedToken) string { return v.PdClientSecret }).(pulumi.StringOutput)
+}
+
+func (o ProviderUseAppOauthScopedTokenOutput) PdSubdomain() pulumi.StringOutput {
+	return o.ApplyT(func(v ProviderUseAppOauthScopedToken) string { return v.PdSubdomain }).(pulumi.StringOutput)
+}
+
+type ProviderUseAppOauthScopedTokenPtrOutput struct{ *pulumi.OutputState }
+
+func (ProviderUseAppOauthScopedTokenPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderUseAppOauthScopedToken)(nil)).Elem()
+}
+
+func (o ProviderUseAppOauthScopedTokenPtrOutput) ToProviderUseAppOauthScopedTokenPtrOutput() ProviderUseAppOauthScopedTokenPtrOutput {
+	return o
+}
+
+func (o ProviderUseAppOauthScopedTokenPtrOutput) ToProviderUseAppOauthScopedTokenPtrOutputWithContext(ctx context.Context) ProviderUseAppOauthScopedTokenPtrOutput {
+	return o
+}
+
+func (o ProviderUseAppOauthScopedTokenPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProviderUseAppOauthScopedToken] {
+	return pulumix.Output[*ProviderUseAppOauthScopedToken]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ProviderUseAppOauthScopedTokenPtrOutput) Elem() ProviderUseAppOauthScopedTokenOutput {
+	return o.ApplyT(func(v *ProviderUseAppOauthScopedToken) ProviderUseAppOauthScopedToken {
+		if v != nil {
+			return *v
+		}
+		var ret ProviderUseAppOauthScopedToken
+		return ret
+	}).(ProviderUseAppOauthScopedTokenOutput)
+}
+
+func (o ProviderUseAppOauthScopedTokenPtrOutput) PdClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderUseAppOauthScopedToken) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PdClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderUseAppOauthScopedTokenPtrOutput) PdClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderUseAppOauthScopedToken) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PdClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderUseAppOauthScopedTokenPtrOutput) PdSubdomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderUseAppOauthScopedToken) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PdSubdomain
+	}).(pulumi.StringPtrOutput)
+}
+
 type ResponsePlayResponder struct {
 	// Description of escalation policy
 	Description *string `pulumi:"description"`
@@ -18094,7 +18281,7 @@ type ServiceScheduledActionAt struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+	// 	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -18176,7 +18363,7 @@ type ServiceScheduledActionAtArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+	// 	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -18316,7 +18503,7 @@ func (o ServiceScheduledActionAtOutput) ToOutput(ctx context.Context) pulumix.Ou
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty"
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -20790,6 +20977,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IncidentWorkflowStepArrayInput)(nil)).Elem(), IncidentWorkflowStepArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IncidentWorkflowStepInputTypeInput)(nil)).Elem(), IncidentWorkflowStepInputTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IncidentWorkflowStepInputTypeArrayInput)(nil)).Elem(), IncidentWorkflowStepInputTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderUseAppOauthScopedTokenInput)(nil)).Elem(), ProviderUseAppOauthScopedTokenArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderUseAppOauthScopedTokenPtrInput)(nil)).Elem(), ProviderUseAppOauthScopedTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlayResponderInput)(nil)).Elem(), ResponsePlayResponderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlayResponderArrayInput)(nil)).Elem(), ResponsePlayResponderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlayResponderEscalationRuleInput)(nil)).Elem(), ResponsePlayResponderEscalationRuleArgs{})
@@ -21049,6 +21238,8 @@ func init() {
 	pulumi.RegisterOutputType(IncidentWorkflowStepArrayOutput{})
 	pulumi.RegisterOutputType(IncidentWorkflowStepInputTypeOutput{})
 	pulumi.RegisterOutputType(IncidentWorkflowStepInputTypeArrayOutput{})
+	pulumi.RegisterOutputType(ProviderUseAppOauthScopedTokenOutput{})
+	pulumi.RegisterOutputType(ProviderUseAppOauthScopedTokenPtrOutput{})
 	pulumi.RegisterOutputType(ResponsePlayResponderOutput{})
 	pulumi.RegisterOutputType(ResponsePlayResponderArrayOutput{})
 	pulumi.RegisterOutputType(ResponsePlayResponderEscalationRuleOutput{})

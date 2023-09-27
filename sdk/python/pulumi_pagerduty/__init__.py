@@ -13,11 +13,6 @@ from .automation_actions_runner import *
 from .automation_actions_runner_team_association import *
 from .business_service import *
 from .business_service_subscriber import *
-from .custom_field import *
-from .custom_field_option import *
-from .custom_field_schema import *
-from .custom_field_schema_assignment import *
-from .custom_field_schema_field_configuration import *
 from .escalation_policy import *
 from .event_orchestration import *
 from .event_orchestration_global import *
@@ -31,8 +26,6 @@ from .extension_service_now import *
 from .get_automation_actions_action import *
 from .get_automation_actions_runner import *
 from .get_business_service import *
-from .get_custom_field import *
-from .get_custom_field_schema import *
 from .get_escalation_policy import *
 from .get_event_orchestration import *
 from .get_event_orchestration_integration import *
@@ -151,46 +144,6 @@ _utilities.register(
   "fqn": "pulumi_pagerduty",
   "classes": {
    "pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber": "BusinessServiceSubscriber"
-  }
- },
- {
-  "pkg": "pagerduty",
-  "mod": "index/customField",
-  "fqn": "pulumi_pagerduty",
-  "classes": {
-   "pagerduty:index/customField:CustomField": "CustomField"
-  }
- },
- {
-  "pkg": "pagerduty",
-  "mod": "index/customFieldOption",
-  "fqn": "pulumi_pagerduty",
-  "classes": {
-   "pagerduty:index/customFieldOption:CustomFieldOption": "CustomFieldOption"
-  }
- },
- {
-  "pkg": "pagerduty",
-  "mod": "index/customFieldSchema",
-  "fqn": "pulumi_pagerduty",
-  "classes": {
-   "pagerduty:index/customFieldSchema:CustomFieldSchema": "CustomFieldSchema"
-  }
- },
- {
-  "pkg": "pagerduty",
-  "mod": "index/customFieldSchemaAssignment",
-  "fqn": "pulumi_pagerduty",
-  "classes": {
-   "pagerduty:index/customFieldSchemaAssignment:CustomFieldSchemaAssignment": "CustomFieldSchemaAssignment"
-  }
- },
- {
-  "pkg": "pagerduty",
-  "mod": "index/customFieldSchemaFieldConfiguration",
-  "fqn": "pulumi_pagerduty",
-  "classes": {
-   "pagerduty:index/customFieldSchemaFieldConfiguration:CustomFieldSchemaFieldConfiguration": "CustomFieldSchemaFieldConfiguration"
   }
  },
  {

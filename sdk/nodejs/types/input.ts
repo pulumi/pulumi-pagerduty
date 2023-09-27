@@ -1077,6 +1077,12 @@ export interface IncidentWorkflowStepInput {
     value: pulumi.Input<string>;
 }
 
+export interface ProviderUseAppOauthScopedToken {
+    pdClientId: pulumi.Input<string>;
+    pdClientSecret: pulumi.Input<string>;
+    pdSubdomain: pulumi.Input<string>;
+}
+
 export interface ResponsePlayResponder {
     /**
      * Description of escalation policy
@@ -2053,4 +2059,6 @@ export interface WebhookSubscriptionFilter {
      * The type of object being used as the filter. Allowed values are `accountReference`, `serviceReference`, and `teamReference`.
      */
     type: pulumi.Input<string>;
+}
+export namespace config {
 }

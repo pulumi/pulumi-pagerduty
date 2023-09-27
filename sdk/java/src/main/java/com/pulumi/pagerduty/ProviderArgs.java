@@ -6,6 +6,7 @@ package com.pulumi.pagerduty;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.core.internal.Codegen;
+import com.pulumi.pagerduty.inputs.ProviderUseAppOauthScopedTokenArgs;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -38,11 +39,18 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.skipCredentialsValidation);
     }
 
-    @Import(name="token", required=true)
-    private Output<String> token;
+    @Import(name="token")
+    private @Nullable Output<String> token;
 
-    public Output<String> token() {
-        return this.token;
+    public Optional<Output<String>> token() {
+        return Optional.ofNullable(this.token);
+    }
+
+    @Import(name="useAppOauthScopedToken", json=true)
+    private @Nullable Output<ProviderUseAppOauthScopedTokenArgs> useAppOauthScopedToken;
+
+    public Optional<Output<ProviderUseAppOauthScopedTokenArgs>> useAppOauthScopedToken() {
+        return Optional.ofNullable(this.useAppOauthScopedToken);
     }
 
     @Import(name="userToken")
@@ -59,6 +67,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.serviceRegion = $.serviceRegion;
         this.skipCredentialsValidation = $.skipCredentialsValidation;
         this.token = $.token;
+        this.useAppOauthScopedToken = $.useAppOauthScopedToken;
         this.userToken = $.userToken;
     }
 
@@ -107,13 +116,22 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
             return skipCredentialsValidation(Output.of(skipCredentialsValidation));
         }
 
-        public Builder token(Output<String> token) {
+        public Builder token(@Nullable Output<String> token) {
             $.token = token;
             return this;
         }
 
         public Builder token(String token) {
             return token(Output.of(token));
+        }
+
+        public Builder useAppOauthScopedToken(@Nullable Output<ProviderUseAppOauthScopedTokenArgs> useAppOauthScopedToken) {
+            $.useAppOauthScopedToken = useAppOauthScopedToken;
+            return this;
+        }
+
+        public Builder useAppOauthScopedToken(ProviderUseAppOauthScopedTokenArgs useAppOauthScopedToken) {
+            return useAppOauthScopedToken(Output.of(useAppOauthScopedToken));
         }
 
         public Builder userToken(@Nullable Output<String> userToken) {
@@ -127,7 +145,6 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         public ProviderArgs build() {
             $.skipCredentialsValidation = Codegen.booleanProp("skipCredentialsValidation").output().arg($.skipCredentialsValidation).def(false).getNullable();
-            $.token = Objects.requireNonNull($.token, "expected parameter 'token' to be non-null");
             return $;
         }
     }

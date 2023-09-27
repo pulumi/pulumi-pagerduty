@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty;
 
 import com.pulumi.core.internal.Codegen;
+import com.pulumi.pagerduty.config.inputs.UseAppOauthScopedToken;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Optional;
@@ -20,8 +21,11 @@ public final class Config {
     public Optional<Boolean> skipCredentialsValidation() {
         return Codegen.booleanProp("skipCredentialsValidation").config(config).def(false).get();
     }
-    public String token() {
-        return Codegen.stringProp("token").config(config).require();
+    public Optional<String> token() {
+        return Codegen.stringProp("token").config(config).get();
+    }
+    public Optional<UseAppOauthScopedToken> useAppOauthScopedToken() {
+        return Codegen.objectProp("useAppOauthScopedToken", UseAppOauthScopedToken.class).config(config).get();
     }
     public Optional<String> userToken() {
         return Codegen.stringProp("userToken").config(config).get();

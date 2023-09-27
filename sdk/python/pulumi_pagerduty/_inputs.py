@@ -67,6 +67,7 @@ __all__ = [
     'EventOrchestrationUnroutedSetRuleConditionArgs',
     'IncidentWorkflowStepArgs',
     'IncidentWorkflowStepInputArgs',
+    'ProviderUseAppOauthScopedTokenArgs',
     'ResponsePlayResponderArgs',
     'ResponsePlayResponderEscalationRuleArgs',
     'ResponsePlayResponderEscalationRuleTargetArgs',
@@ -3641,6 +3642,44 @@ class IncidentWorkflowStepInputArgs:
     @generated.setter
     def generated(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "generated", value)
+
+
+@pulumi.input_type
+class ProviderUseAppOauthScopedTokenArgs:
+    def __init__(__self__, *,
+                 pd_client_id: pulumi.Input[str],
+                 pd_client_secret: pulumi.Input[str],
+                 pd_subdomain: pulumi.Input[str]):
+        pulumi.set(__self__, "pd_client_id", pd_client_id)
+        pulumi.set(__self__, "pd_client_secret", pd_client_secret)
+        pulumi.set(__self__, "pd_subdomain", pd_subdomain)
+
+    @property
+    @pulumi.getter(name="pdClientId")
+    def pd_client_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "pd_client_id")
+
+    @pd_client_id.setter
+    def pd_client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "pd_client_id", value)
+
+    @property
+    @pulumi.getter(name="pdClientSecret")
+    def pd_client_secret(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "pd_client_secret")
+
+    @pd_client_secret.setter
+    def pd_client_secret(self, value: pulumi.Input[str]):
+        pulumi.set(self, "pd_client_secret", value)
+
+    @property
+    @pulumi.getter(name="pdSubdomain")
+    def pd_subdomain(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "pd_subdomain")
+
+    @pd_subdomain.setter
+    def pd_subdomain(self, value: pulumi.Input[str]):
+        pulumi.set(self, "pd_subdomain", value)
 
 
 @pulumi.input_type

@@ -7,8 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
-	"github.com/pulumi/pulumi-pagerduty/sdk/v3/go/pagerduty/internal"
+	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
@@ -22,7 +21,7 @@ type Provider struct {
 
 	ApiUrlOverride pulumi.StringPtrOutput `pulumi:"apiUrlOverride"`
 	ServiceRegion  pulumi.StringPtrOutput `pulumi:"serviceRegion"`
-	Token          pulumi.StringOutput    `pulumi:"token"`
+	Token          pulumi.StringPtrOutput `pulumi:"token"`
 	UserToken      pulumi.StringPtrOutput `pulumi:"userToken"`
 }
 
@@ -30,12 +29,9 @@ type Provider struct {
 func NewProvider(ctx *pulumi.Context,
 	name string, args *ProviderArgs, opts ...pulumi.ResourceOption) (*Provider, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ProviderArgs{}
 	}
 
-	if args.Token == nil {
-		return nil, errors.New("invalid value for required argument 'Token'")
-	}
 	if args.SkipCredentialsValidation == nil {
 		args.SkipCredentialsValidation = pulumi.BoolPtr(false)
 	}
@@ -49,11 +45,12 @@ func NewProvider(ctx *pulumi.Context,
 }
 
 type providerArgs struct {
-	ApiUrlOverride            *string `pulumi:"apiUrlOverride"`
-	ServiceRegion             *string `pulumi:"serviceRegion"`
-	SkipCredentialsValidation *bool   `pulumi:"skipCredentialsValidation"`
-	Token                     string  `pulumi:"token"`
-	UserToken                 *string `pulumi:"userToken"`
+	ApiUrlOverride            *string                         `pulumi:"apiUrlOverride"`
+	ServiceRegion             *string                         `pulumi:"serviceRegion"`
+	SkipCredentialsValidation *bool                           `pulumi:"skipCredentialsValidation"`
+	Token                     *string                         `pulumi:"token"`
+	UseAppOauthScopedToken    *ProviderUseAppOauthScopedToken `pulumi:"useAppOauthScopedToken"`
+	UserToken                 *string                         `pulumi:"userToken"`
 }
 
 // The set of arguments for constructing a Provider resource.
@@ -61,7 +58,8 @@ type ProviderArgs struct {
 	ApiUrlOverride            pulumi.StringPtrInput
 	ServiceRegion             pulumi.StringPtrInput
 	SkipCredentialsValidation pulumi.BoolPtrInput
-	Token                     pulumi.StringInput
+	Token                     pulumi.StringPtrInput
+	UseAppOauthScopedToken    ProviderUseAppOauthScopedTokenPtrInput
 	UserToken                 pulumi.StringPtrInput
 }
 
@@ -122,8 +120,8 @@ func (o ProviderOutput) ServiceRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ServiceRegion }).(pulumi.StringPtrOutput)
 }
 
-func (o ProviderOutput) Token() pulumi.StringOutput {
-	return o.ApplyT(func(v *Provider) pulumi.StringOutput { return v.Token }).(pulumi.StringOutput)
+func (o ProviderOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Token }).(pulumi.StringPtrOutput)
 }
 
 func (o ProviderOutput) UserToken() pulumi.StringPtrOutput {

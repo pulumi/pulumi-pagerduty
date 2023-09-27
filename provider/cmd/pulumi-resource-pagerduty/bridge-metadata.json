@@ -970,11 +970,6 @@
             "pagerduty:index/automationActionsRunnerTeamAssociation:AutomationActionsRunnerTeamAssociation": "pagerduty_automation_actions_runner_team_association",
             "pagerduty:index/businessService:BusinessService": "pagerduty_business_service",
             "pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber": "pagerduty_business_service_subscriber",
-            "pagerduty:index/customField:CustomField": "pagerduty_custom_field",
-            "pagerduty:index/customFieldOption:CustomFieldOption": "pagerduty_custom_field_option",
-            "pagerduty:index/customFieldSchema:CustomFieldSchema": "pagerduty_custom_field_schema",
-            "pagerduty:index/customFieldSchemaAssignment:CustomFieldSchemaAssignment": "pagerduty_custom_field_schema_assignment",
-            "pagerduty:index/customFieldSchemaFieldConfiguration:CustomFieldSchemaFieldConfiguration": "pagerduty_custom_field_schema_field_configuration",
             "pagerduty:index/escalationPolicy:EscalationPolicy": "pagerduty_escalation_policy",
             "pagerduty:index/eventOrchestration:EventOrchestration": "pagerduty_event_orchestration",
             "pagerduty:index/eventOrchestrationGlobal:EventOrchestrationGlobal": "pagerduty_event_orchestration_global",
@@ -1012,8 +1007,6 @@
             "pagerduty:index/getAutomationActionsAction:getAutomationActionsAction": "pagerduty_automation_actions_action",
             "pagerduty:index/getAutomationActionsRunner:getAutomationActionsRunner": "pagerduty_automation_actions_runner",
             "pagerduty:index/getBusinessService:getBusinessService": "pagerduty_business_service",
-            "pagerduty:index/getCustomField:getCustomField": "pagerduty_custom_field",
-            "pagerduty:index/getCustomFieldSchema:getCustomFieldSchema": "pagerduty_custom_field_schema",
             "pagerduty:index/getEscalationPolicy:getEscalationPolicy": "pagerduty_escalation_policy",
             "pagerduty:index/getEventOrchestration:getEventOrchestration": "pagerduty_event_orchestration",
             "pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration": "pagerduty_event_orchestration_integration",
@@ -1036,6 +1029,11 @@
             "pagerduty:index/getVendor:getVendor": "pagerduty_vendor"
         },
         "renamedProperties": {
+            "pagerduty:config/useAppOauthScopedToken:useAppOauthScopedToken": {
+                "pdClientId": "pd_client_id",
+                "pdClientSecret": "pd_client_secret",
+                "pdSubdomain": "pd_subdomain"
+            },
             "pagerduty:index/AutomationActionsActionActionDataReference:AutomationActionsActionActionDataReference": {
                 "invocationCommand": "invocation_command",
                 "processAutomationJobArguments": "process_automation_job_arguments",
@@ -1150,6 +1148,11 @@
             },
             "pagerduty:index/IncidentWorkflowStep:IncidentWorkflowStep": {
                 "inputs": "input"
+            },
+            "pagerduty:index/ProviderUseAppOauthScopedToken:ProviderUseAppOauthScopedToken": {
+                "pdClientId": "pd_client_id",
+                "pdClientSecret": "pd_client_secret",
+                "pdSubdomain": "pd_subdomain"
             },
             "pagerduty:index/ResponsePlayResponder:ResponsePlayResponder": {
                 "escalationRules": "escalation_rule",
@@ -1313,16 +1316,6 @@
                 "subscriberId": "subscriber_id",
                 "subscriberType": "subscriber_type"
             },
-            "pagerduty:index/customField:CustomField": {
-                "displayName": "display_name",
-                "fixedOptions": "fixed_options",
-                "multiValue": "multi_value"
-            },
-            "pagerduty:index/customFieldSchemaFieldConfiguration:CustomFieldSchemaFieldConfiguration": {
-                "defaultValue": "default_value",
-                "defaultValueDatatype": "default_value_datatype",
-                "defaultValueMultiValue": "default_value_multi_value"
-            },
             "pagerduty:index/escalationPolicy:EscalationPolicy": {
                 "numLoops": "num_loops",
                 "rules": "rule"
@@ -1394,11 +1387,6 @@
                 "lastSeen": "last_seen",
                 "runbookBaseUri": "runbook_base_uri",
                 "runnerType": "runner_type"
-            },
-            "pagerduty:index/getCustomField:getCustomField": {
-                "displayName": "display_name",
-                "fixedOptions": "fixed_options",
-                "multiValue": "multi_value"
             },
             "pagerduty:index/getEventOrchestration:getEventOrchestration": {
                 "integrationDetail": "integration"
@@ -1585,6 +1573,7 @@
                 "apiUrlOverride": "api_url_override",
                 "serviceRegion": "service_region",
                 "skipCredentialsValidation": "skip_credentials_validation",
+                "useAppOauthScopedToken": "use_app_oauth_scoped_token",
                 "userToken": "user_token"
             }
         },
@@ -1592,6 +1581,7 @@
             "apiUrlOverride": "api_url_override",
             "serviceRegion": "service_region",
             "skipCredentialsValidation": "skip_credentials_validation",
+            "useAppOauthScopedToken": "use_app_oauth_scoped_token",
             "userToken": "user_token"
         }
     }

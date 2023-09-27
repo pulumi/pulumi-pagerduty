@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-pagerduty/sdk/v3
+module github.com/pulumi/pulumi-pagerduty/sdk/v4
 
 go 1.21
 

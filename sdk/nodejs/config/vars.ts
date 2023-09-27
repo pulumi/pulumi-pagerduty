@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 declare var exports: any;
@@ -35,6 +37,14 @@ export declare const token: string | undefined;
 Object.defineProperty(exports, "token", {
     get() {
         return __config.get("token");
+    },
+    enumerable: true,
+});
+
+export declare const useAppOauthScopedToken: outputs.config.UseAppOauthScopedToken | undefined;
+Object.defineProperty(exports, "useAppOauthScopedToken", {
+    get() {
+        return __config.getObject<outputs.config.UseAppOauthScopedToken>("useAppOauthScopedToken");
     },
     enumerable: true,
 });

@@ -8,21 +8,22 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
+from ._inputs import *
 
 __all__ = ['ProviderArgs', 'Provider']
 
 @pulumi.input_type
 class ProviderArgs:
     def __init__(__self__, *,
-                 token: pulumi.Input[str],
                  api_url_override: Optional[pulumi.Input[str]] = None,
                  service_region: Optional[pulumi.Input[str]] = None,
                  skip_credentials_validation: Optional[pulumi.Input[bool]] = None,
+                 token: Optional[pulumi.Input[str]] = None,
+                 use_app_oauth_scoped_token: Optional[pulumi.Input['ProviderUseAppOauthScopedTokenArgs']] = None,
                  user_token: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Provider resource.
         """
-        pulumi.set(__self__, "token", token)
         if api_url_override is not None:
             pulumi.set(__self__, "api_url_override", api_url_override)
         if service_region is not None:
@@ -31,17 +32,12 @@ class ProviderArgs:
             skip_credentials_validation = False
         if skip_credentials_validation is not None:
             pulumi.set(__self__, "skip_credentials_validation", skip_credentials_validation)
+        if token is not None:
+            pulumi.set(__self__, "token", token)
+        if use_app_oauth_scoped_token is not None:
+            pulumi.set(__self__, "use_app_oauth_scoped_token", use_app_oauth_scoped_token)
         if user_token is not None:
             pulumi.set(__self__, "user_token", user_token)
-
-    @property
-    @pulumi.getter
-    def token(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "token")
-
-    @token.setter
-    def token(self, value: pulumi.Input[str]):
-        pulumi.set(self, "token", value)
 
     @property
     @pulumi.getter(name="apiUrlOverride")
@@ -71,6 +67,24 @@ class ProviderArgs:
         pulumi.set(self, "skip_credentials_validation", value)
 
     @property
+    @pulumi.getter
+    def token(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "token")
+
+    @token.setter
+    def token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "token", value)
+
+    @property
+    @pulumi.getter(name="useAppOauthScopedToken")
+    def use_app_oauth_scoped_token(self) -> Optional[pulumi.Input['ProviderUseAppOauthScopedTokenArgs']]:
+        return pulumi.get(self, "use_app_oauth_scoped_token")
+
+    @use_app_oauth_scoped_token.setter
+    def use_app_oauth_scoped_token(self, value: Optional[pulumi.Input['ProviderUseAppOauthScopedTokenArgs']]):
+        pulumi.set(self, "use_app_oauth_scoped_token", value)
+
+    @property
     @pulumi.getter(name="userToken")
     def user_token(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "user_token")
@@ -89,6 +103,7 @@ class Provider(pulumi.ProviderResource):
                  service_region: Optional[pulumi.Input[str]] = None,
                  skip_credentials_validation: Optional[pulumi.Input[bool]] = None,
                  token: Optional[pulumi.Input[str]] = None,
+                 use_app_oauth_scoped_token: Optional[pulumi.Input[pulumi.InputType['ProviderUseAppOauthScopedTokenArgs']]] = None,
                  user_token: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -104,7 +119,7 @@ class Provider(pulumi.ProviderResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ProviderArgs,
+                 args: Optional[ProviderArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The provider type for the pagerduty package. By default, resources use package-wide configuration
@@ -131,6 +146,7 @@ class Provider(pulumi.ProviderResource):
                  service_region: Optional[pulumi.Input[str]] = None,
                  skip_credentials_validation: Optional[pulumi.Input[bool]] = None,
                  token: Optional[pulumi.Input[str]] = None,
+                 use_app_oauth_scoped_token: Optional[pulumi.Input[pulumi.InputType['ProviderUseAppOauthScopedTokenArgs']]] = None,
                  user_token: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -146,9 +162,8 @@ class Provider(pulumi.ProviderResource):
             if skip_credentials_validation is None:
                 skip_credentials_validation = False
             __props__.__dict__["skip_credentials_validation"] = pulumi.Output.from_input(skip_credentials_validation).apply(pulumi.runtime.to_json) if skip_credentials_validation is not None else None
-            if token is None and not opts.urn:
-                raise TypeError("Missing required property 'token'")
             __props__.__dict__["token"] = token
+            __props__.__dict__["use_app_oauth_scoped_token"] = pulumi.Output.from_input(use_app_oauth_scoped_token).apply(pulumi.runtime.to_json) if use_app_oauth_scoped_token is not None else None
             __props__.__dict__["user_token"] = user_token
         super(Provider, __self__).__init__(
             'pagerduty',
@@ -168,7 +183,7 @@ class Provider(pulumi.ProviderResource):
 
     @property
     @pulumi.getter
-    def token(self) -> pulumi.Output[str]:
+    def token(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "token")
 
     @property

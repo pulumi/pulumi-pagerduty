@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -27,7 +29,7 @@ export class Provider extends pulumi.ProviderResource {
 
     public readonly apiUrlOverride!: pulumi.Output<string | undefined>;
     public readonly serviceRegion!: pulumi.Output<string | undefined>;
-    public readonly token!: pulumi.Output<string>;
+    public readonly token!: pulumi.Output<string | undefined>;
     public readonly userToken!: pulumi.Output<string | undefined>;
 
     /**
@@ -37,17 +39,15 @@ export class Provider extends pulumi.ProviderResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ProviderArgs, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            if ((!args || args.token === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'token'");
-            }
             resourceInputs["apiUrlOverride"] = args ? args.apiUrlOverride : undefined;
             resourceInputs["serviceRegion"] = args ? args.serviceRegion : undefined;
             resourceInputs["skipCredentialsValidation"] = pulumi.output((args ? args.skipCredentialsValidation : undefined) ?? false).apply(JSON.stringify);
             resourceInputs["token"] = args ? args.token : undefined;
+            resourceInputs["useAppOauthScopedToken"] = pulumi.output(args ? args.useAppOauthScopedToken : undefined).apply(JSON.stringify);
             resourceInputs["userToken"] = args ? args.userToken : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -62,6 +62,7 @@ export interface ProviderArgs {
     apiUrlOverride?: pulumi.Input<string>;
     serviceRegion?: pulumi.Input<string>;
     skipCredentialsValidation?: pulumi.Input<boolean>;
-    token: pulumi.Input<string>;
+    token?: pulumi.Input<string>;
+    useAppOauthScopedToken?: pulumi.Input<inputs.ProviderUseAppOauthScopedToken>;
     userToken?: pulumi.Input<string>;
 }

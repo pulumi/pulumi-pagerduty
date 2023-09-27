@@ -19,7 +19,6 @@ import (
 	// embed is used to store bridge-metadata.json in the compiled binary
 	_ "embed"
 	"path/filepath"
-	"strings"
 
 	// tzdata is used to ensure the provider works when deployed to OS-es that do not have it
 	_ "time/tzdata"
@@ -205,18 +204,6 @@ func Provider() tfbridge.ProviderInfo {
 	prov.SetAutonaming(255, "-")
 
 	return prov
-}
-
-func customNameTransform(s string) string {
-	str := []rune(strings.ToLower(s))
-	for i, v := range str {
-		if (v >= 'a' && v <= 'z') ||
-			(v >= '0' && v <= '9') {
-			continue
-		}
-		str[i] = '_'
-	}
-	return string(str)
 }
 
 //go:embed cmd/pulumi-resource-pagerduty/bridge-metadata.json

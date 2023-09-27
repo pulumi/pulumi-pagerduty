@@ -19,8 +19,8 @@ package main
 import (
 	_ "embed"
 
-	pagerduty "github.com/pulumi/pulumi-pagerduty/provider/v3"
-	"github.com/pulumi/pulumi-pagerduty/provider/v3/pkg/version"
+	pagerduty "github.com/pulumi/pulumi-pagerduty/provider/v4"
+	"github.com/pulumi/pulumi-pagerduty/provider/v4/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 )
 

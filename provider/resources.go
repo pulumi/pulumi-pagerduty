@@ -20,12 +20,13 @@ import (
 	_ "embed"
 	"path/filepath"
 	"strings"
+
 	// tzdata is used to ensure the provider works when deployed to OS-es that do not have it
 	_ "time/tzdata"
 	"unicode"
 
 	"github.com/PagerDuty/terraform-provider-pagerduty/pagerduty"
-	"github.com/pulumi/pulumi-pagerduty/provider/v3/pkg/version"
+	"github.com/pulumi/pulumi-pagerduty/provider/v4/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	tfbridgetokens "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
@@ -149,18 +150,6 @@ func Provider() tfbridge.ProviderInfo {
 					"description": {
 						Default: managedByPulumi,
 					},
-				},
-			},
-			"pagerduty_custom_field": {
-				Tok: makeResource(mainMod, "CustomField"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					// This field cannot be correctly auto-named. By
-					// mentioning it explicitly, we disable
-					// AutoNaming.
-					"name": tfbridge.AutoNameWithCustomOptions("name", tfbridge.AutoNameOptions{
-						Separator: "_",
-						Transform: customNameTransform,
-					}),
 				},
 			},
 		},

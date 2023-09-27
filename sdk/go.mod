@@ -1,9 +1,10 @@
-module github.com/pulumi/pulumi-pagerduty/sdk/v3
+module github.com/pulumi/pulumi-pagerduty/sdk/v4
 
 go 1.21
 
 require (
 	github.com/blang/semver v3.5.1+incompatible
+	github.com/pulumi/pulumi-pagerduty/sdk/v3 v3.11.2
 	github.com/pulumi/pulumi/sdk/v3 v3.81.0
 )
 

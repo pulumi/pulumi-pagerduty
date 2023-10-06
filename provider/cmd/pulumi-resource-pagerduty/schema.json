@@ -251,7 +251,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name of this Webhook.\n"
+                    "description": "The name of the variable\n"
                 },
                 "parameters": {
                     "type": "array",
@@ -275,11 +275,11 @@
             "properties": {
                 "key": {
                     "type": "string",
-                    "description": "Name to identify the header\n"
+                    "description": "Name to identify the parameter\n"
                 },
                 "value": {
                     "type": "string",
-                    "description": "Value of this header\n"
+                    "description": "The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.\n"
                 }
             },
             "type": "object",
@@ -292,11 +292,11 @@
             "properties": {
                 "key": {
                     "type": "string",
-                    "description": "Name to identify the header\n"
+                    "description": "Name to identify the parameter\n"
                 },
                 "value": {
                     "type": "string",
-                    "description": "Value of this header\n"
+                    "description": "The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.\n"
                 }
             },
             "type": "object",
@@ -333,7 +333,7 @@
             "properties": {
                 "name": {
                     "type": "string",
-                    "description": "Name of this Webhook.\n"
+                    "description": "The name of the variable\n"
                 },
                 "path": {
                     "type": "string",
@@ -345,7 +345,7 @@
                 },
                 "value": {
                     "type": "string",
-                    "description": "Value of this header\n"
+                    "description": "The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.\n"
                 }
             },
             "type": "object",
@@ -483,7 +483,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name of this Webhook.\n"
+                    "description": "The name of the variable\n"
                 },
                 "parameters": {
                     "type": "array",
@@ -507,11 +507,11 @@
             "properties": {
                 "key": {
                     "type": "string",
-                    "description": "Name to identify the header\n"
+                    "description": "Name to identify the parameter\n"
                 },
                 "value": {
                     "type": "string",
-                    "description": "Value of this header\n"
+                    "description": "The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.\n"
                 }
             },
             "type": "object",
@@ -524,11 +524,11 @@
             "properties": {
                 "key": {
                     "type": "string",
-                    "description": "Name to identify the header\n"
+                    "description": "Name to identify the parameter\n"
                 },
                 "value": {
                     "type": "string",
-                    "description": "Value of this header\n"
+                    "description": "The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.\n"
                 }
             },
             "type": "object",
@@ -565,7 +565,7 @@
             "properties": {
                 "name": {
                     "type": "string",
-                    "description": "Name of this Webhook.\n"
+                    "description": "The name of the variable\n"
                 },
                 "path": {
                     "type": "string",
@@ -577,7 +577,7 @@
                 },
                 "value": {
                     "type": "string",
-                    "description": "Value of this header\n"
+                    "description": "The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.\n"
                 }
             },
             "type": "object",
@@ -835,7 +835,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name of this Webhook.\n"
+                    "description": "The name of the variable\n"
                 },
                 "parameters": {
                     "type": "array",
@@ -859,11 +859,11 @@
             "properties": {
                 "key": {
                     "type": "string",
-                    "description": "Name to identify the header\n"
+                    "description": "Name to identify the parameter\n"
                 },
                 "value": {
                     "type": "string",
-                    "description": "Value of this header\n"
+                    "description": "The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.\n"
                 }
             },
             "type": "object",
@@ -876,11 +876,11 @@
             "properties": {
                 "key": {
                     "type": "string",
-                    "description": "Name to identify the header\n"
+                    "description": "Name to identify the parameter\n"
                 },
                 "value": {
                     "type": "string",
-                    "description": "Value of this header\n"
+                    "description": "The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.\n"
                 }
             },
             "type": "object",
@@ -929,7 +929,7 @@
             "properties": {
                 "name": {
                     "type": "string",
-                    "description": "Name of this Webhook.\n"
+                    "description": "The name of the variable\n"
                 },
                 "path": {
                     "type": "string",
@@ -941,7 +941,7 @@
                 },
                 "value": {
                     "type": "string",
-                    "description": "Value of this header\n"
+                    "description": "The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.\n"
                 }
             },
             "type": "object",
@@ -1079,7 +1079,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name of this Webhook.\n"
+                    "description": "The name of the variable\n"
                 },
                 "parameters": {
                     "type": "array",
@@ -1103,11 +1103,11 @@
             "properties": {
                 "key": {
                     "type": "string",
-                    "description": "Name to identify the header\n"
+                    "description": "Name to identify the parameter\n"
                 },
                 "value": {
                     "type": "string",
-                    "description": "Value of this header\n"
+                    "description": "The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.\n"
                 }
             },
             "type": "object",
@@ -1120,11 +1120,11 @@
             "properties": {
                 "key": {
                     "type": "string",
-                    "description": "Name to identify the header\n"
+                    "description": "Name to identify the parameter\n"
                 },
                 "value": {
                     "type": "string",
-                    "description": "Value of this header\n"
+                    "description": "The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.\n"
                 }
             },
             "type": "object",
@@ -1173,7 +1173,7 @@
             "properties": {
                 "name": {
                     "type": "string",
-                    "description": "Name of this Webhook.\n"
+                    "description": "The name of the variable\n"
                 },
                 "path": {
                     "type": "string",
@@ -1185,7 +1185,7 @@
                 },
                 "value": {
                     "type": "string",
-                    "description": "Value of this header\n"
+                    "description": "The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.\n"
                 }
             },
             "type": "object",
@@ -2158,7 +2158,7 @@
                 },
                 "timeout": {
                     "type": "integer",
-                    "description": "The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.\n\n\nYou may specify one optional `incident_urgency_rule` block configuring what urgencies to use.\nYour PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.\nThe block contains the following arguments:\n"
+                    "description": "The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.\n"
                 }
             },
             "type": "object"
@@ -2462,7 +2462,7 @@
                 },
                 "startTime": {
                     "type": "integer",
-                    "description": "Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `start_time` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `start_time` was `3,600,000` the it would be active starting at `01:00`.\n"
+                    "description": "Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.\n"
                 }
             },
             "type": "object"
@@ -2475,7 +2475,7 @@
                 },
                 "startTime": {
                     "type": "integer",
-                    "description": "Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `start_time` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `start_time` was `3,600,000` the it would be active starting at `01:00`.\n"
+                    "description": "Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.\n"
                 },
                 "timezone": {
                     "type": "string",

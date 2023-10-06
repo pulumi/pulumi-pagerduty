@@ -1,5 +1,5 @@
 provider: pagerduty
-major-version: 3
+major-version: 4
 env:
   PAGERDUTY_TOKEN: ${{ secrets.PAGERDUTY_TOKEN }}
 makeTemplate: bridged

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['BusinessServiceSubscriberArgs', 'BusinessServiceSubscriber']
@@ -23,9 +23,22 @@ class BusinessServiceSubscriberArgs:
         :param pulumi.Input[str] subscriber_id: The ID of the subscriber entity.
         :param pulumi.Input[str] subscriber_type: Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.
         """
-        pulumi.set(__self__, "business_service_id", business_service_id)
-        pulumi.set(__self__, "subscriber_id", subscriber_id)
-        pulumi.set(__self__, "subscriber_type", subscriber_type)
+        BusinessServiceSubscriberArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            business_service_id=business_service_id,
+            subscriber_id=subscriber_id,
+            subscriber_type=subscriber_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             business_service_id: pulumi.Input[str],
+             subscriber_id: pulumi.Input[str],
+             subscriber_type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("business_service_id", business_service_id)
+        _setter("subscriber_id", subscriber_id)
+        _setter("subscriber_type", subscriber_type)
 
     @property
     @pulumi.getter(name="businessServiceId")
@@ -76,12 +89,25 @@ class _BusinessServiceSubscriberState:
         :param pulumi.Input[str] subscriber_id: The ID of the subscriber entity.
         :param pulumi.Input[str] subscriber_type: Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.
         """
+        _BusinessServiceSubscriberState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            business_service_id=business_service_id,
+            subscriber_id=subscriber_id,
+            subscriber_type=subscriber_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             business_service_id: Optional[pulumi.Input[str]] = None,
+             subscriber_id: Optional[pulumi.Input[str]] = None,
+             subscriber_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if business_service_id is not None:
-            pulumi.set(__self__, "business_service_id", business_service_id)
+            _setter("business_service_id", business_service_id)
         if subscriber_id is not None:
-            pulumi.set(__self__, "subscriber_id", subscriber_id)
+            _setter("subscriber_id", subscriber_id)
         if subscriber_type is not None:
-            pulumi.set(__self__, "subscriber_type", subscriber_type)
+            _setter("subscriber_type", subscriber_type)
 
     @property
     @pulumi.getter(name="businessServiceId")
@@ -217,6 +243,10 @@ class BusinessServiceSubscriber(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BusinessServiceSubscriberArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['AutomationActionsActionTeamAssociationArgs', 'AutomationActionsActionTeamAssociation']
@@ -21,8 +21,19 @@ class AutomationActionsActionTeamAssociationArgs:
         :param pulumi.Input[str] action_id: Id of the action.
         :param pulumi.Input[str] team_id: Id of the team associated to the action.
         """
-        pulumi.set(__self__, "action_id", action_id)
-        pulumi.set(__self__, "team_id", team_id)
+        AutomationActionsActionTeamAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_id=action_id,
+            team_id=team_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_id: pulumi.Input[str],
+             team_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action_id", action_id)
+        _setter("team_id", team_id)
 
     @property
     @pulumi.getter(name="actionId")
@@ -59,10 +70,21 @@ class _AutomationActionsActionTeamAssociationState:
         :param pulumi.Input[str] action_id: Id of the action.
         :param pulumi.Input[str] team_id: Id of the team associated to the action.
         """
+        _AutomationActionsActionTeamAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_id=action_id,
+            team_id=team_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_id: Optional[pulumi.Input[str]] = None,
+             team_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if action_id is not None:
-            pulumi.set(__self__, "action_id", action_id)
+            _setter("action_id", action_id)
         if team_id is not None:
-            pulumi.set(__self__, "team_id", team_id)
+            _setter("team_id", team_id)
 
     @property
     @pulumi.getter(name="actionId")
@@ -176,6 +198,10 @@ class AutomationActionsActionTeamAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AutomationActionsActionTeamAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -14,14 +14,14 @@ public final class EventOrchestrationServiceSetRuleActionsVariableArgs extends c
     public static final EventOrchestrationServiceSetRuleActionsVariableArgs Empty = new EventOrchestrationServiceSetRuleActionsVariableArgs();
 
     /**
-     * Name of this Webhook.
+     * The name of the variable
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of this Webhook.
+     * @return The name of the variable
      * 
      */
     public Output<String> name() {
@@ -59,14 +59,14 @@ public final class EventOrchestrationServiceSetRuleActionsVariableArgs extends c
     }
 
     /**
-     * Value of this header
+     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return Value of this header
+     * @return The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
      * 
      */
     public Output<String> value() {
@@ -101,7 +101,7 @@ public final class EventOrchestrationServiceSetRuleActionsVariableArgs extends c
         }
 
         /**
-         * @param name Name of this Webhook.
+         * @param name The name of the variable
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class EventOrchestrationServiceSetRuleActionsVariableArgs extends c
         }
 
         /**
-         * @param name Name of this Webhook.
+         * @param name The name of the variable
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class EventOrchestrationServiceSetRuleActionsVariableArgs extends c
         }
 
         /**
-         * @param value Value of this header
+         * @param value The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class EventOrchestrationServiceSetRuleActionsVariableArgs extends c
         }
 
         /**
-         * @param value Value of this header
+         * @param value The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
          * 
          * @return builder
          * 

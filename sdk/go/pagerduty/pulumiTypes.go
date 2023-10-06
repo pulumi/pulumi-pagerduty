@@ -1040,7 +1040,7 @@ type EventOrchestrationGlobalCatchAllActionsAutomationAction struct {
 	AutoSend *bool `pulumi:"autoSend"`
 	// Specify custom key/value pairs that'll be sent with the webhook request as request headers.
 	Headers []EventOrchestrationGlobalCatchAllActionsAutomationActionHeader `pulumi:"headers"`
-	// Name of this Webhook.
+	// The name of the variable
 	Name string `pulumi:"name"`
 	// Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
 	Parameters []EventOrchestrationGlobalCatchAllActionsAutomationActionParameter `pulumi:"parameters"`
@@ -1064,7 +1064,7 @@ type EventOrchestrationGlobalCatchAllActionsAutomationActionArgs struct {
 	AutoSend pulumi.BoolPtrInput `pulumi:"autoSend"`
 	// Specify custom key/value pairs that'll be sent with the webhook request as request headers.
 	Headers EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArrayInput `pulumi:"headers"`
-	// Name of this Webhook.
+	// The name of the variable
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
 	Parameters EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArrayInput `pulumi:"parameters"`
@@ -1179,7 +1179,7 @@ func (o EventOrchestrationGlobalCatchAllActionsAutomationActionOutput) Headers()
 	}).(EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArrayOutput)
 }
 
-// Name of this Webhook.
+// The name of the variable
 func (o EventOrchestrationGlobalCatchAllActionsAutomationActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalCatchAllActionsAutomationAction) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1246,7 +1246,7 @@ func (o EventOrchestrationGlobalCatchAllActionsAutomationActionPtrOutput) Header
 	}).(EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArrayOutput)
 }
 
-// Name of this Webhook.
+// The name of the variable
 func (o EventOrchestrationGlobalCatchAllActionsAutomationActionPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventOrchestrationGlobalCatchAllActionsAutomationAction) *string {
 		if v == nil {
@@ -1277,9 +1277,9 @@ func (o EventOrchestrationGlobalCatchAllActionsAutomationActionPtrOutput) Url() 
 }
 
 type EventOrchestrationGlobalCatchAllActionsAutomationActionHeader struct {
-	// Name to identify the header
+	// Name to identify the parameter
 	Key string `pulumi:"key"`
-	// Value of this header
+	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
 	Value string `pulumi:"value"`
 }
 
@@ -1295,9 +1295,9 @@ type EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderInput interfac
 }
 
 type EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArgs struct {
-	// Name to identify the header
+	// Name to identify the parameter
 	Key pulumi.StringInput `pulumi:"key"`
-	// Value of this header
+	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1370,12 +1370,12 @@ func (o EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderOutput) ToO
 	}
 }
 
-// Name to identify the header
+// Name to identify the parameter
 func (o EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalCatchAllActionsAutomationActionHeader) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// Value of this header
+// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
 func (o EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalCatchAllActionsAutomationActionHeader) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1407,9 +1407,9 @@ func (o EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArrayOutput
 }
 
 type EventOrchestrationGlobalCatchAllActionsAutomationActionParameter struct {
-	// Name to identify the header
+	// Name to identify the parameter
 	Key string `pulumi:"key"`
-	// Value of this header
+	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
 	Value string `pulumi:"value"`
 }
 
@@ -1425,9 +1425,9 @@ type EventOrchestrationGlobalCatchAllActionsAutomationActionParameterInput inter
 }
 
 type EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArgs struct {
-	// Name to identify the header
+	// Name to identify the parameter
 	Key pulumi.StringInput `pulumi:"key"`
-	// Value of this header
+	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1500,12 +1500,12 @@ func (o EventOrchestrationGlobalCatchAllActionsAutomationActionParameterOutput) 
 	}
 }
 
-// Name to identify the header
+// Name to identify the parameter
 func (o EventOrchestrationGlobalCatchAllActionsAutomationActionParameterOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalCatchAllActionsAutomationActionParameter) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// Value of this header
+// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
 func (o EventOrchestrationGlobalCatchAllActionsAutomationActionParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalCatchAllActionsAutomationActionParameter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1691,13 +1691,13 @@ func (o EventOrchestrationGlobalCatchAllActionsExtractionArrayOutput) Index(i pu
 }
 
 type EventOrchestrationGlobalCatchAllActionsVariable struct {
-	// Name of this Webhook.
+	// The name of the variable
 	Name string `pulumi:"name"`
 	// Path to a field in an event, in dot-notation. This supports both PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths).
 	Path string `pulumi:"path"`
 	// Only `regex` is supported
 	Type string `pulumi:"type"`
-	// Value of this header
+	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
 	Value string `pulumi:"value"`
 }
 
@@ -1713,13 +1713,13 @@ type EventOrchestrationGlobalCatchAllActionsVariableInput interface {
 }
 
 type EventOrchestrationGlobalCatchAllActionsVariableArgs struct {
-	// Name of this Webhook.
+	// The name of the variable
 	Name pulumi.StringInput `pulumi:"name"`
 	// Path to a field in an event, in dot-notation. This supports both PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths).
 	Path pulumi.StringInput `pulumi:"path"`
 	// Only `regex` is supported
 	Type pulumi.StringInput `pulumi:"type"`
-	// Value of this header
+	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1792,7 +1792,7 @@ func (o EventOrchestrationGlobalCatchAllActionsVariableOutput) ToOutput(ctx cont
 	}
 }
 
-// Name of this Webhook.
+// The name of the variable
 func (o EventOrchestrationGlobalCatchAllActionsVariableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalCatchAllActionsVariable) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1807,7 +1807,7 @@ func (o EventOrchestrationGlobalCatchAllActionsVariableOutput) Type() pulumi.Str
 	return o.ApplyT(func(v EventOrchestrationGlobalCatchAllActionsVariable) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Value of this header
+// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
 func (o EventOrchestrationGlobalCatchAllActionsVariableOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalCatchAllActionsVariable) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2289,7 +2289,7 @@ type EventOrchestrationGlobalSetRuleActionsAutomationAction struct {
 	AutoSend *bool `pulumi:"autoSend"`
 	// Specify custom key/value pairs that'll be sent with the webhook request as request headers.
 	Headers []EventOrchestrationGlobalSetRuleActionsAutomationActionHeader `pulumi:"headers"`
-	// Name of this Webhook.
+	// The name of the variable
 	Name string `pulumi:"name"`
 	// Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
 	Parameters []EventOrchestrationGlobalSetRuleActionsAutomationActionParameter `pulumi:"parameters"`
@@ -2313,7 +2313,7 @@ type EventOrchestrationGlobalSetRuleActionsAutomationActionArgs struct {
 	AutoSend pulumi.BoolPtrInput `pulumi:"autoSend"`
 	// Specify custom key/value pairs that'll be sent with the webhook request as request headers.
 	Headers EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArrayInput `pulumi:"headers"`
-	// Name of this Webhook.
+	// The name of the variable
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
 	Parameters EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArrayInput `pulumi:"parameters"`
@@ -2428,7 +2428,7 @@ func (o EventOrchestrationGlobalSetRuleActionsAutomationActionOutput) Headers() 
 	}).(EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArrayOutput)
 }
 
-// Name of this Webhook.
+// The name of the variable
 func (o EventOrchestrationGlobalSetRuleActionsAutomationActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalSetRuleActionsAutomationAction) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2495,7 +2495,7 @@ func (o EventOrchestrationGlobalSetRuleActionsAutomationActionPtrOutput) Headers
 	}).(EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArrayOutput)
 }
 
-// Name of this Webhook.
+// The name of the variable
 func (o EventOrchestrationGlobalSetRuleActionsAutomationActionPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventOrchestrationGlobalSetRuleActionsAutomationAction) *string {
 		if v == nil {
@@ -2526,9 +2526,9 @@ func (o EventOrchestrationGlobalSetRuleActionsAutomationActionPtrOutput) Url() p
 }
 
 type EventOrchestrationGlobalSetRuleActionsAutomationActionHeader struct {
-	// Name to identify the header
+	// Name to identify the parameter
 	Key string `pulumi:"key"`
-	// Value of this header
+	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
 	Value string `pulumi:"value"`
 }
 
@@ -2544,9 +2544,9 @@ type EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderInput interface
 }
 
 type EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArgs struct {
-	// Name to identify the header
+	// Name to identify the parameter
 	Key pulumi.StringInput `pulumi:"key"`
-	// Value of this header
+	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2619,12 +2619,12 @@ func (o EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderOutput) ToOu
 	}
 }
 
-// Name to identify the header
+// Name to identify the parameter
 func (o EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalSetRuleActionsAutomationActionHeader) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// Value of this header
+// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
 func (o EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalSetRuleActionsAutomationActionHeader) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2656,9 +2656,9 @@ func (o EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArrayOutput)
 }
 
 type EventOrchestrationGlobalSetRuleActionsAutomationActionParameter struct {
-	// Name to identify the header
+	// Name to identify the parameter
 	Key string `pulumi:"key"`
-	// Value of this header
+	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
 	Value string `pulumi:"value"`
 }
 
@@ -2674,9 +2674,9 @@ type EventOrchestrationGlobalSetRuleActionsAutomationActionParameterInput interf
 }
 
 type EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArgs struct {
-	// Name to identify the header
+	// Name to identify the parameter
 	Key pulumi.StringInput `pulumi:"key"`
-	// Value of this header
+	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2749,12 +2749,12 @@ func (o EventOrchestrationGlobalSetRuleActionsAutomationActionParameterOutput) T
 	}
 }
 
-// Name to identify the header
+// Name to identify the parameter
 func (o EventOrchestrationGlobalSetRuleActionsAutomationActionParameterOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalSetRuleActionsAutomationActionParameter) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// Value of this header
+// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
 func (o EventOrchestrationGlobalSetRuleActionsAutomationActionParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalSetRuleActionsAutomationActionParameter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2940,13 +2940,13 @@ func (o EventOrchestrationGlobalSetRuleActionsExtractionArrayOutput) Index(i pul
 }
 
 type EventOrchestrationGlobalSetRuleActionsVariable struct {
-	// Name of this Webhook.
+	// The name of the variable
 	Name string `pulumi:"name"`
 	// Path to a field in an event, in dot-notation. This supports both PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths).
 	Path string `pulumi:"path"`
 	// Only `regex` is supported
 	Type string `pulumi:"type"`
-	// Value of this header
+	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
 	Value string `pulumi:"value"`
 }
 
@@ -2962,13 +2962,13 @@ type EventOrchestrationGlobalSetRuleActionsVariableInput interface {
 }
 
 type EventOrchestrationGlobalSetRuleActionsVariableArgs struct {
-	// Name of this Webhook.
+	// The name of the variable
 	Name pulumi.StringInput `pulumi:"name"`
 	// Path to a field in an event, in dot-notation. This supports both PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths).
 	Path pulumi.StringInput `pulumi:"path"`
 	// Only `regex` is supported
 	Type pulumi.StringInput `pulumi:"type"`
-	// Value of this header
+	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -3041,7 +3041,7 @@ func (o EventOrchestrationGlobalSetRuleActionsVariableOutput) ToOutput(ctx conte
 	}
 }
 
-// Name of this Webhook.
+// The name of the variable
 func (o EventOrchestrationGlobalSetRuleActionsVariableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalSetRuleActionsVariable) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3056,7 +3056,7 @@ func (o EventOrchestrationGlobalSetRuleActionsVariableOutput) Type() pulumi.Stri
 	return o.ApplyT(func(v EventOrchestrationGlobalSetRuleActionsVariable) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Value of this header
+// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
 func (o EventOrchestrationGlobalSetRuleActionsVariableOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalSetRuleActionsVariable) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -4840,7 +4840,7 @@ type EventOrchestrationServiceCatchAllActionsAutomationAction struct {
 	AutoSend *bool `pulumi:"autoSend"`
 	// Specify custom key/value pairs that'll be sent with the webhook request as request headers.
 	Headers []EventOrchestrationServiceCatchAllActionsAutomationActionHeader `pulumi:"headers"`
-	// Name of this Webhook.
+	// The name of the variable
 	Name string `pulumi:"name"`
 	// Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
 	Parameters []EventOrchestrationServiceCatchAllActionsAutomationActionParameter `pulumi:"parameters"`
@@ -4864,7 +4864,7 @@ type EventOrchestrationServiceCatchAllActionsAutomationActionArgs struct {
 	AutoSend pulumi.BoolPtrInput `pulumi:"autoSend"`
 	// Specify custom key/value pairs that'll be sent with the webhook request as request headers.
 	Headers EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayInput `pulumi:"headers"`
-	// Name of this Webhook.
+	// The name of the variable
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
 	Parameters EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayInput `pulumi:"parameters"`
@@ -4979,7 +4979,7 @@ func (o EventOrchestrationServiceCatchAllActionsAutomationActionOutput) Headers(
 	}).(EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutput)
 }
 
-// Name of this Webhook.
+// The name of the variable
 func (o EventOrchestrationServiceCatchAllActionsAutomationActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsAutomationAction) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -5046,7 +5046,7 @@ func (o EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput) Heade
 	}).(EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutput)
 }
 
-// Name of this Webhook.
+// The name of the variable
 func (o EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventOrchestrationServiceCatchAllActionsAutomationAction) *string {
 		if v == nil {
@@ -5077,9 +5077,9 @@ func (o EventOrchestrationServiceCatchAllActionsAutomationActionPtrOutput) Url()
 }
 
 type EventOrchestrationServiceCatchAllActionsAutomationActionHeader struct {
-	// Name to identify the header
+	// Name to identify the parameter
 	Key string `pulumi:"key"`
-	// Value of this header
+	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
 	Value string `pulumi:"value"`
 }
 
@@ -5095,9 +5095,9 @@ type EventOrchestrationServiceCatchAllActionsAutomationActionHeaderInput interfa
 }
 
 type EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgs struct {
-	// Name to identify the header
+	// Name to identify the parameter
 	Key pulumi.StringInput `pulumi:"key"`
-	// Value of this header
+	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -5170,12 +5170,12 @@ func (o EventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutput) To
 	}
 }
 
-// Name to identify the header
+// Name to identify the parameter
 func (o EventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsAutomationActionHeader) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// Value of this header
+// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
 func (o EventOrchestrationServiceCatchAllActionsAutomationActionHeaderOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsAutomationActionHeader) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -5207,9 +5207,9 @@ func (o EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArrayOutpu
 }
 
 type EventOrchestrationServiceCatchAllActionsAutomationActionParameter struct {
-	// Name to identify the header
+	// Name to identify the parameter
 	Key string `pulumi:"key"`
-	// Value of this header
+	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
 	Value string `pulumi:"value"`
 }
 
@@ -5225,9 +5225,9 @@ type EventOrchestrationServiceCatchAllActionsAutomationActionParameterInput inte
 }
 
 type EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgs struct {
-	// Name to identify the header
+	// Name to identify the parameter
 	Key pulumi.StringInput `pulumi:"key"`
-	// Value of this header
+	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -5300,12 +5300,12 @@ func (o EventOrchestrationServiceCatchAllActionsAutomationActionParameterOutput)
 	}
 }
 
-// Name to identify the header
+// Name to identify the parameter
 func (o EventOrchestrationServiceCatchAllActionsAutomationActionParameterOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsAutomationActionParameter) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// Value of this header
+// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
 func (o EventOrchestrationServiceCatchAllActionsAutomationActionParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsAutomationActionParameter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -5652,13 +5652,13 @@ func (o EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutp
 }
 
 type EventOrchestrationServiceCatchAllActionsVariable struct {
-	// Name of this Webhook.
+	// The name of the variable
 	Name string `pulumi:"name"`
 	// Path to a field in an event, in dot-notation. This supports both PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths).
 	Path string `pulumi:"path"`
 	// Only `regex` is supported
 	Type string `pulumi:"type"`
-	// Value of this header
+	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
 	Value string `pulumi:"value"`
 }
 
@@ -5674,13 +5674,13 @@ type EventOrchestrationServiceCatchAllActionsVariableInput interface {
 }
 
 type EventOrchestrationServiceCatchAllActionsVariableArgs struct {
-	// Name of this Webhook.
+	// The name of the variable
 	Name pulumi.StringInput `pulumi:"name"`
 	// Path to a field in an event, in dot-notation. This supports both PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths).
 	Path pulumi.StringInput `pulumi:"path"`
 	// Only `regex` is supported
 	Type pulumi.StringInput `pulumi:"type"`
-	// Value of this header
+	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -5753,7 +5753,7 @@ func (o EventOrchestrationServiceCatchAllActionsVariableOutput) ToOutput(ctx con
 	}
 }
 
-// Name of this Webhook.
+// The name of the variable
 func (o EventOrchestrationServiceCatchAllActionsVariableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsVariable) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -5768,7 +5768,7 @@ func (o EventOrchestrationServiceCatchAllActionsVariableOutput) Type() pulumi.St
 	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsVariable) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Value of this header
+// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
 func (o EventOrchestrationServiceCatchAllActionsVariableOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsVariable) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -6252,7 +6252,7 @@ type EventOrchestrationServiceSetRuleActionsAutomationAction struct {
 	AutoSend *bool `pulumi:"autoSend"`
 	// Specify custom key/value pairs that'll be sent with the webhook request as request headers.
 	Headers []EventOrchestrationServiceSetRuleActionsAutomationActionHeader `pulumi:"headers"`
-	// Name of this Webhook.
+	// The name of the variable
 	Name string `pulumi:"name"`
 	// Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
 	Parameters []EventOrchestrationServiceSetRuleActionsAutomationActionParameter `pulumi:"parameters"`
@@ -6276,7 +6276,7 @@ type EventOrchestrationServiceSetRuleActionsAutomationActionArgs struct {
 	AutoSend pulumi.BoolPtrInput `pulumi:"autoSend"`
 	// Specify custom key/value pairs that'll be sent with the webhook request as request headers.
 	Headers EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayInput `pulumi:"headers"`
-	// Name of this Webhook.
+	// The name of the variable
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specify custom key/value pairs that'll be included in the webhook request's JSON payload.
 	Parameters EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayInput `pulumi:"parameters"`
@@ -6391,7 +6391,7 @@ func (o EventOrchestrationServiceSetRuleActionsAutomationActionOutput) Headers()
 	}).(EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutput)
 }
 
-// Name of this Webhook.
+// The name of the variable
 func (o EventOrchestrationServiceSetRuleActionsAutomationActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsAutomationAction) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -6458,7 +6458,7 @@ func (o EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput) Header
 	}).(EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutput)
 }
 
-// Name of this Webhook.
+// The name of the variable
 func (o EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventOrchestrationServiceSetRuleActionsAutomationAction) *string {
 		if v == nil {
@@ -6489,9 +6489,9 @@ func (o EventOrchestrationServiceSetRuleActionsAutomationActionPtrOutput) Url() 
 }
 
 type EventOrchestrationServiceSetRuleActionsAutomationActionHeader struct {
-	// Name to identify the header
+	// Name to identify the parameter
 	Key string `pulumi:"key"`
-	// Value of this header
+	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
 	Value string `pulumi:"value"`
 }
 
@@ -6507,9 +6507,9 @@ type EventOrchestrationServiceSetRuleActionsAutomationActionHeaderInput interfac
 }
 
 type EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs struct {
-	// Name to identify the header
+	// Name to identify the parameter
 	Key pulumi.StringInput `pulumi:"key"`
-	// Value of this header
+	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -6582,12 +6582,12 @@ func (o EventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutput) ToO
 	}
 }
 
-// Name to identify the header
+// Name to identify the parameter
 func (o EventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsAutomationActionHeader) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// Value of this header
+// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
 func (o EventOrchestrationServiceSetRuleActionsAutomationActionHeaderOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsAutomationActionHeader) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -6619,9 +6619,9 @@ func (o EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArrayOutput
 }
 
 type EventOrchestrationServiceSetRuleActionsAutomationActionParameter struct {
-	// Name to identify the header
+	// Name to identify the parameter
 	Key string `pulumi:"key"`
-	// Value of this header
+	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
 	Value string `pulumi:"value"`
 }
 
@@ -6637,9 +6637,9 @@ type EventOrchestrationServiceSetRuleActionsAutomationActionParameterInput inter
 }
 
 type EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs struct {
-	// Name to identify the header
+	// Name to identify the parameter
 	Key pulumi.StringInput `pulumi:"key"`
-	// Value of this header
+	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -6712,12 +6712,12 @@ func (o EventOrchestrationServiceSetRuleActionsAutomationActionParameterOutput) 
 	}
 }
 
-// Name to identify the header
+// Name to identify the parameter
 func (o EventOrchestrationServiceSetRuleActionsAutomationActionParameterOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsAutomationActionParameter) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// Value of this header
+// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
 func (o EventOrchestrationServiceSetRuleActionsAutomationActionParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsAutomationActionParameter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -7064,13 +7064,13 @@ func (o EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutpu
 }
 
 type EventOrchestrationServiceSetRuleActionsVariable struct {
-	// Name of this Webhook.
+	// The name of the variable
 	Name string `pulumi:"name"`
 	// Path to a field in an event, in dot-notation. This supports both PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths).
 	Path string `pulumi:"path"`
 	// Only `regex` is supported
 	Type string `pulumi:"type"`
-	// Value of this header
+	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
 	Value string `pulumi:"value"`
 }
 
@@ -7086,13 +7086,13 @@ type EventOrchestrationServiceSetRuleActionsVariableInput interface {
 }
 
 type EventOrchestrationServiceSetRuleActionsVariableArgs struct {
-	// Name of this Webhook.
+	// The name of the variable
 	Name pulumi.StringInput `pulumi:"name"`
 	// Path to a field in an event, in dot-notation. This supports both PagerDuty Common Event Format [PD-CEF](https://support.pagerduty.com/docs/pd-cef) and non-CEF fields. Eg: Use `event.summary` for the `summary` CEF field. Use `raw_event.fieldname` to read from the original event `fieldname` data. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths).
 	Path pulumi.StringInput `pulumi:"path"`
 	// Only `regex` is supported
 	Type pulumi.StringInput `pulumi:"type"`
-	// Value of this header
+	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -7165,7 +7165,7 @@ func (o EventOrchestrationServiceSetRuleActionsVariableOutput) ToOutput(ctx cont
 	}
 }
 
-// Name of this Webhook.
+// The name of the variable
 func (o EventOrchestrationServiceSetRuleActionsVariableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsVariable) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -7180,7 +7180,7 @@ func (o EventOrchestrationServiceSetRuleActionsVariableOutput) Type() pulumi.Str
 	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsVariable) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Value of this header
+// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
 func (o EventOrchestrationServiceSetRuleActionsVariableOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsVariable) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -13461,10 +13461,6 @@ type ServiceAlertGroupingParametersConfig struct {
 	// Alerts will be grouped together if the content of these fields match. This setting applies only when `type` is set to `contentBased`.
 	Fields []string `pulumi:"fields"`
 	// The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
-	//
-	// You may specify one optional `incidentUrgencyRule` block configuring what urgencies to use.
-	// Your PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.
-	// The block contains the following arguments:
 	Timeout *int `pulumi:"timeout"`
 }
 
@@ -13485,10 +13481,6 @@ type ServiceAlertGroupingParametersConfigArgs struct {
 	// Alerts will be grouped together if the content of these fields match. This setting applies only when `type` is set to `contentBased`.
 	Fields pulumi.StringArrayInput `pulumi:"fields"`
 	// The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
-	//
-	// You may specify one optional `incidentUrgencyRule` block configuring what urgencies to use.
-	// Your PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.
-	// The block contains the following arguments:
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
 }
 
@@ -13598,10 +13590,6 @@ func (o ServiceAlertGroupingParametersConfigOutput) Fields() pulumi.StringArrayO
 }
 
 // The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
-//
-// You may specify one optional `incidentUrgencyRule` block configuring what urgencies to use.
-// Your PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.
-// The block contains the following arguments:
 func (o ServiceAlertGroupingParametersConfigOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceAlertGroupingParametersConfig) *int { return v.Timeout }).(pulumi.IntPtrOutput)
 }
@@ -13657,10 +13645,6 @@ func (o ServiceAlertGroupingParametersConfigPtrOutput) Fields() pulumi.StringArr
 }
 
 // The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
-//
-// You may specify one optional `incidentUrgencyRule` block configuring what urgencies to use.
-// Your PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.
-// The block contains the following arguments:
 func (o ServiceAlertGroupingParametersConfigPtrOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceAlertGroupingParametersConfig) *int {
 		if v == nil {
@@ -16144,7 +16128,7 @@ func (o ServiceEventRuleTimeFramePtrOutput) ScheduledWeeklies() ServiceEventRule
 type ServiceEventRuleTimeFrameActiveBetween struct {
 	// Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
 	EndTime *int `pulumi:"endTime"`
-	// Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `startTime` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `startTime` was `3,600,000` the it would be active starting at `01:00`.
+	// Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
 	StartTime *int `pulumi:"startTime"`
 }
 
@@ -16162,7 +16146,7 @@ type ServiceEventRuleTimeFrameActiveBetweenInput interface {
 type ServiceEventRuleTimeFrameActiveBetweenArgs struct {
 	// Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
 	EndTime pulumi.IntPtrInput `pulumi:"endTime"`
-	// Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `startTime` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `startTime` was `3,600,000` the it would be active starting at `01:00`.
+	// Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
 	StartTime pulumi.IntPtrInput `pulumi:"startTime"`
 }
 
@@ -16240,7 +16224,7 @@ func (o ServiceEventRuleTimeFrameActiveBetweenOutput) EndTime() pulumi.IntPtrOut
 	return o.ApplyT(func(v ServiceEventRuleTimeFrameActiveBetween) *int { return v.EndTime }).(pulumi.IntPtrOutput)
 }
 
-// Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `startTime` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `startTime` was `3,600,000` the it would be active starting at `01:00`.
+// Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
 func (o ServiceEventRuleTimeFrameActiveBetweenOutput) StartTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceEventRuleTimeFrameActiveBetween) *int { return v.StartTime }).(pulumi.IntPtrOutput)
 }
@@ -16274,7 +16258,7 @@ func (o ServiceEventRuleTimeFrameActiveBetweenArrayOutput) Index(i pulumi.IntInp
 type ServiceEventRuleTimeFrameScheduledWeekly struct {
 	// Length of time the schedule will be active.  Unix timestamp in milliseconds.
 	Duration *int `pulumi:"duration"`
-	// Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `startTime` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `startTime` was `3,600,000` the it would be active starting at `01:00`.
+	// Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
 	StartTime *int `pulumi:"startTime"`
 	// Timezone for the given schedule.
 	Timezone *string `pulumi:"timezone"`
@@ -16296,7 +16280,7 @@ type ServiceEventRuleTimeFrameScheduledWeeklyInput interface {
 type ServiceEventRuleTimeFrameScheduledWeeklyArgs struct {
 	// Length of time the schedule will be active.  Unix timestamp in milliseconds.
 	Duration pulumi.IntPtrInput `pulumi:"duration"`
-	// Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `startTime` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `startTime` was `3,600,000` the it would be active starting at `01:00`.
+	// Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
 	StartTime pulumi.IntPtrInput `pulumi:"startTime"`
 	// Timezone for the given schedule.
 	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
@@ -16378,7 +16362,7 @@ func (o ServiceEventRuleTimeFrameScheduledWeeklyOutput) Duration() pulumi.IntPtr
 	return o.ApplyT(func(v ServiceEventRuleTimeFrameScheduledWeekly) *int { return v.Duration }).(pulumi.IntPtrOutput)
 }
 
-// Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `startTime` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `startTime` was `3,600,000` the it would be active starting at `01:00`.
+// Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
 func (o ServiceEventRuleTimeFrameScheduledWeeklyOutput) StartTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceEventRuleTimeFrameScheduledWeekly) *int { return v.StartTime }).(pulumi.IntPtrOutput)
 }

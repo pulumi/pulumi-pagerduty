@@ -14,11 +14,11 @@ namespace Pulumi.Pagerduty.Outputs
     public sealed class EventOrchestrationServiceCatchAllActionsAutomationActionParameter
     {
         /// <summary>
-        /// Name to identify the header
+        /// Name to identify the parameter
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// Value of this header
+        /// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
         /// </summary>
         public readonly string Value;
 

@@ -26,7 +26,7 @@ public final class EventOrchestrationGlobalSetRuleActionsAutomationAction {
      */
     private @Nullable List<EventOrchestrationGlobalSetRuleActionsAutomationActionHeader> headers;
     /**
-     * @return Name of this Webhook.
+     * @return The name of the variable
      * 
      */
     private String name;
@@ -57,7 +57,7 @@ public final class EventOrchestrationGlobalSetRuleActionsAutomationAction {
         return this.headers == null ? List.of() : this.headers;
     }
     /**
-     * @return Name of this Webhook.
+     * @return The name of the variable
      * 
      */
     public String name() {

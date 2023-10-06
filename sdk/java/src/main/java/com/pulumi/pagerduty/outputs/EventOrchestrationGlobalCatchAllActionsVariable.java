@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class EventOrchestrationGlobalCatchAllActionsVariable {
     /**
-     * @return Name of this Webhook.
+     * @return The name of the variable
      * 
      */
     private String name;
@@ -25,14 +25,14 @@ public final class EventOrchestrationGlobalCatchAllActionsVariable {
      */
     private String type;
     /**
-     * @return Value of this header
+     * @return The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
      * 
      */
     private String value;
 
     private EventOrchestrationGlobalCatchAllActionsVariable() {}
     /**
-     * @return Name of this Webhook.
+     * @return The name of the variable
      * 
      */
     public String name() {
@@ -53,7 +53,7 @@ public final class EventOrchestrationGlobalCatchAllActionsVariable {
         return this.type;
     }
     /**
-     * @return Value of this header
+     * @return The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
      * 
      */
     public String value() {

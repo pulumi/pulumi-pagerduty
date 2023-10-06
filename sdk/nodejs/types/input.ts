@@ -115,7 +115,7 @@ export interface EventOrchestrationGlobalCatchAllActionsAutomationAction {
      */
     headers?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationGlobalCatchAllActionsAutomationActionHeader>[]>;
     /**
-     * Name of this Webhook.
+     * The name of the variable
      */
     name: pulumi.Input<string>;
     /**
@@ -130,22 +130,22 @@ export interface EventOrchestrationGlobalCatchAllActionsAutomationAction {
 
 export interface EventOrchestrationGlobalCatchAllActionsAutomationActionHeader {
     /**
-     * Name to identify the header
+     * Name to identify the parameter
      */
     key: pulumi.Input<string>;
     /**
-     * Value of this header
+     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
      */
     value: pulumi.Input<string>;
 }
 
 export interface EventOrchestrationGlobalCatchAllActionsAutomationActionParameter {
     /**
-     * Name to identify the header
+     * Name to identify the parameter
      */
     key: pulumi.Input<string>;
     /**
-     * Value of this header
+     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
      */
     value: pulumi.Input<string>;
 }
@@ -173,7 +173,7 @@ export interface EventOrchestrationGlobalCatchAllActionsExtraction {
 
 export interface EventOrchestrationGlobalCatchAllActionsVariable {
     /**
-     * Name of this Webhook.
+     * The name of the variable
      */
     name: pulumi.Input<string>;
     /**
@@ -185,7 +185,7 @@ export interface EventOrchestrationGlobalCatchAllActionsVariable {
      */
     type: pulumi.Input<string>;
     /**
-     * Value of this header
+     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
      */
     value: pulumi.Input<string>;
 }
@@ -278,7 +278,7 @@ export interface EventOrchestrationGlobalSetRuleActionsAutomationAction {
      */
     headers?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationGlobalSetRuleActionsAutomationActionHeader>[]>;
     /**
-     * Name of this Webhook.
+     * The name of the variable
      */
     name: pulumi.Input<string>;
     /**
@@ -293,22 +293,22 @@ export interface EventOrchestrationGlobalSetRuleActionsAutomationAction {
 
 export interface EventOrchestrationGlobalSetRuleActionsAutomationActionHeader {
     /**
-     * Name to identify the header
+     * Name to identify the parameter
      */
     key: pulumi.Input<string>;
     /**
-     * Value of this header
+     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
      */
     value: pulumi.Input<string>;
 }
 
 export interface EventOrchestrationGlobalSetRuleActionsAutomationActionParameter {
     /**
-     * Name to identify the header
+     * Name to identify the parameter
      */
     key: pulumi.Input<string>;
     /**
-     * Value of this header
+     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
      */
     value: pulumi.Input<string>;
 }
@@ -336,7 +336,7 @@ export interface EventOrchestrationGlobalSetRuleActionsExtraction {
 
 export interface EventOrchestrationGlobalSetRuleActionsVariable {
     /**
-     * Name of this Webhook.
+     * The name of the variable
      */
     name: pulumi.Input<string>;
     /**
@@ -348,7 +348,7 @@ export interface EventOrchestrationGlobalSetRuleActionsVariable {
      */
     type: pulumi.Input<string>;
     /**
-     * Value of this header
+     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
      */
     value: pulumi.Input<string>;
 }
@@ -503,7 +503,7 @@ export interface EventOrchestrationServiceCatchAllActionsAutomationAction {
      */
     headers?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceCatchAllActionsAutomationActionHeader>[]>;
     /**
-     * Name of this Webhook.
+     * The name of the variable
      */
     name: pulumi.Input<string>;
     /**
@@ -518,22 +518,22 @@ export interface EventOrchestrationServiceCatchAllActionsAutomationAction {
 
 export interface EventOrchestrationServiceCatchAllActionsAutomationActionHeader {
     /**
-     * Name to identify the header
+     * Name to identify the parameter
      */
     key: pulumi.Input<string>;
     /**
-     * Value of this header
+     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
      */
     value: pulumi.Input<string>;
 }
 
 export interface EventOrchestrationServiceCatchAllActionsAutomationActionParameter {
     /**
-     * Name to identify the header
+     * Name to identify the parameter
      */
     key: pulumi.Input<string>;
     /**
-     * Value of this header
+     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
      */
     value: pulumi.Input<string>;
 }
@@ -568,7 +568,7 @@ export interface EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActi
 
 export interface EventOrchestrationServiceCatchAllActionsVariable {
     /**
-     * Name of this Webhook.
+     * The name of the variable
      */
     name: pulumi.Input<string>;
     /**
@@ -580,7 +580,7 @@ export interface EventOrchestrationServiceCatchAllActionsVariable {
      */
     type: pulumi.Input<string>;
     /**
-     * Value of this header
+     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
      */
     value: pulumi.Input<string>;
 }
@@ -673,7 +673,7 @@ export interface EventOrchestrationServiceSetRuleActionsAutomationAction {
      */
     headers?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceSetRuleActionsAutomationActionHeader>[]>;
     /**
-     * Name of this Webhook.
+     * The name of the variable
      */
     name: pulumi.Input<string>;
     /**
@@ -688,22 +688,22 @@ export interface EventOrchestrationServiceSetRuleActionsAutomationAction {
 
 export interface EventOrchestrationServiceSetRuleActionsAutomationActionHeader {
     /**
-     * Name to identify the header
+     * Name to identify the parameter
      */
     key: pulumi.Input<string>;
     /**
-     * Value of this header
+     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
      */
     value: pulumi.Input<string>;
 }
 
 export interface EventOrchestrationServiceSetRuleActionsAutomationActionParameter {
     /**
-     * Name to identify the header
+     * Name to identify the parameter
      */
     key: pulumi.Input<string>;
     /**
-     * Value of this header
+     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
      */
     value: pulumi.Input<string>;
 }
@@ -738,7 +738,7 @@ export interface EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActio
 
 export interface EventOrchestrationServiceSetRuleActionsVariable {
     /**
-     * Name of this Webhook.
+     * The name of the variable
      */
     name: pulumi.Input<string>;
     /**
@@ -750,7 +750,7 @@ export interface EventOrchestrationServiceSetRuleActionsVariable {
      */
     type: pulumi.Input<string>;
     /**
-     * Value of this header
+     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
      */
     value: pulumi.Input<string>;
 }
@@ -1474,11 +1474,6 @@ export interface ServiceAlertGroupingParametersConfig {
     fields?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
-     *
-     *
-     * You may specify one optional `incidentUrgencyRule` block configuring what urgencies to use.
-     * Your PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.
-     * The block contains the following arguments:
      */
     timeout?: pulumi.Input<number>;
 }
@@ -1694,7 +1689,7 @@ export interface ServiceEventRuleTimeFrameActiveBetween {
      */
     endTime?: pulumi.Input<number>;
     /**
-     * Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `startTime` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `startTime` was `3,600,000` the it would be active starting at `01:00`.
+     * Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
      */
     startTime?: pulumi.Input<number>;
 }
@@ -1705,7 +1700,7 @@ export interface ServiceEventRuleTimeFrameScheduledWeekly {
      */
     duration?: pulumi.Input<number>;
     /**
-     * Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `startTime` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `startTime` was `3,600,000` the it would be active starting at `01:00`.
+     * Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
      */
     startTime?: pulumi.Input<number>;
     /**

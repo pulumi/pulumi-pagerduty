@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['TagArgs', 'Tag']
@@ -19,7 +19,16 @@ class TagArgs:
         The set of arguments for constructing a Tag resource.
         :param pulumi.Input[str] label: The label of the tag.
         """
-        pulumi.set(__self__, "label", label)
+        TagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            label=label,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             label: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("label", label)
 
     @property
     @pulumi.getter
@@ -46,12 +55,25 @@ class _TagState:
         :param pulumi.Input[str] label: The label of the tag.
         :param pulumi.Input[str] summary: A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
         """
+        _TagState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            html_url=html_url,
+            label=label,
+            summary=summary,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             html_url: Optional[pulumi.Input[str]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             summary: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if html_url is not None:
-            pulumi.set(__self__, "html_url", html_url)
+            _setter("html_url", html_url)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if summary is not None:
-            pulumi.set(__self__, "summary", summary)
+            _setter("summary", summary)
 
     @property
     @pulumi.getter(name="htmlUrl")
@@ -157,6 +179,10 @@ class Tag(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TagArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

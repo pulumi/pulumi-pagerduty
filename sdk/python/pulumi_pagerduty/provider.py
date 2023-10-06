@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from ._inputs import *
 
@@ -24,20 +24,39 @@ class ProviderArgs:
         """
         The set of arguments for constructing a Provider resource.
         """
+        ProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_url_override=api_url_override,
+            service_region=service_region,
+            skip_credentials_validation=skip_credentials_validation,
+            token=token,
+            use_app_oauth_scoped_token=use_app_oauth_scoped_token,
+            user_token=user_token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_url_override: Optional[pulumi.Input[str]] = None,
+             service_region: Optional[pulumi.Input[str]] = None,
+             skip_credentials_validation: Optional[pulumi.Input[bool]] = None,
+             token: Optional[pulumi.Input[str]] = None,
+             use_app_oauth_scoped_token: Optional[pulumi.Input['ProviderUseAppOauthScopedTokenArgs']] = None,
+             user_token: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if api_url_override is not None:
-            pulumi.set(__self__, "api_url_override", api_url_override)
+            _setter("api_url_override", api_url_override)
         if service_region is not None:
-            pulumi.set(__self__, "service_region", service_region)
+            _setter("service_region", service_region)
         if skip_credentials_validation is None:
             skip_credentials_validation = False
         if skip_credentials_validation is not None:
-            pulumi.set(__self__, "skip_credentials_validation", skip_credentials_validation)
+            _setter("skip_credentials_validation", skip_credentials_validation)
         if token is not None:
-            pulumi.set(__self__, "token", token)
+            _setter("token", token)
         if use_app_oauth_scoped_token is not None:
-            pulumi.set(__self__, "use_app_oauth_scoped_token", use_app_oauth_scoped_token)
+            _setter("use_app_oauth_scoped_token", use_app_oauth_scoped_token)
         if user_token is not None:
-            pulumi.set(__self__, "user_token", user_token)
+            _setter("user_token", user_token)
 
     @property
     @pulumi.getter(name="apiUrlOverride")
@@ -137,6 +156,10 @@ class Provider(pulumi.ProviderResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProviderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -163,6 +186,11 @@ class Provider(pulumi.ProviderResource):
                 skip_credentials_validation = False
             __props__.__dict__["skip_credentials_validation"] = pulumi.Output.from_input(skip_credentials_validation).apply(pulumi.runtime.to_json) if skip_credentials_validation is not None else None
             __props__.__dict__["token"] = token
+            if use_app_oauth_scoped_token is not None and not isinstance(use_app_oauth_scoped_token, ProviderUseAppOauthScopedTokenArgs):
+                use_app_oauth_scoped_token = use_app_oauth_scoped_token or {}
+                def _setter(key, value):
+                    use_app_oauth_scoped_token[key] = value
+                ProviderUseAppOauthScopedTokenArgs._configure(_setter, **use_app_oauth_scoped_token)
             __props__.__dict__["use_app_oauth_scoped_token"] = pulumi.Output.from_input(use_app_oauth_scoped_token).apply(pulumi.runtime.to_json) if use_app_oauth_scoped_token is not None else None
             __props__.__dict__["user_token"] = user_token
         super(Provider, __self__).__init__(

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,21 +35,44 @@ class RulesetRuleArgs:
         :param pulumi.Input['RulesetRuleTimeFrameArgs'] time_frame: Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
         :param pulumi.Input[Sequence[pulumi.Input['RulesetRuleVariableArgs']]] variables: Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
         """
-        pulumi.set(__self__, "ruleset", ruleset)
+        RulesetRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ruleset=ruleset,
+            actions=actions,
+            catch_all=catch_all,
+            conditions=conditions,
+            disabled=disabled,
+            position=position,
+            time_frame=time_frame,
+            variables=variables,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ruleset: pulumi.Input[str],
+             actions: Optional[pulumi.Input['RulesetRuleActionsArgs']] = None,
+             catch_all: Optional[pulumi.Input[bool]] = None,
+             conditions: Optional[pulumi.Input['RulesetRuleConditionsArgs']] = None,
+             disabled: Optional[pulumi.Input[bool]] = None,
+             position: Optional[pulumi.Input[int]] = None,
+             time_frame: Optional[pulumi.Input['RulesetRuleTimeFrameArgs']] = None,
+             variables: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleVariableArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ruleset", ruleset)
         if actions is not None:
-            pulumi.set(__self__, "actions", actions)
+            _setter("actions", actions)
         if catch_all is not None:
-            pulumi.set(__self__, "catch_all", catch_all)
+            _setter("catch_all", catch_all)
         if conditions is not None:
-            pulumi.set(__self__, "conditions", conditions)
+            _setter("conditions", conditions)
         if disabled is not None:
-            pulumi.set(__self__, "disabled", disabled)
+            _setter("disabled", disabled)
         if position is not None:
-            pulumi.set(__self__, "position", position)
+            _setter("position", position)
         if time_frame is not None:
-            pulumi.set(__self__, "time_frame", time_frame)
+            _setter("time_frame", time_frame)
         if variables is not None:
-            pulumi.set(__self__, "variables", variables)
+            _setter("variables", variables)
 
     @property
     @pulumi.getter
@@ -170,22 +193,45 @@ class _RulesetRuleState:
         :param pulumi.Input['RulesetRuleTimeFrameArgs'] time_frame: Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
         :param pulumi.Input[Sequence[pulumi.Input['RulesetRuleVariableArgs']]] variables: Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
         """
+        _RulesetRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            catch_all=catch_all,
+            conditions=conditions,
+            disabled=disabled,
+            position=position,
+            ruleset=ruleset,
+            time_frame=time_frame,
+            variables=variables,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Optional[pulumi.Input['RulesetRuleActionsArgs']] = None,
+             catch_all: Optional[pulumi.Input[bool]] = None,
+             conditions: Optional[pulumi.Input['RulesetRuleConditionsArgs']] = None,
+             disabled: Optional[pulumi.Input[bool]] = None,
+             position: Optional[pulumi.Input[int]] = None,
+             ruleset: Optional[pulumi.Input[str]] = None,
+             time_frame: Optional[pulumi.Input['RulesetRuleTimeFrameArgs']] = None,
+             variables: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleVariableArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if actions is not None:
-            pulumi.set(__self__, "actions", actions)
+            _setter("actions", actions)
         if catch_all is not None:
-            pulumi.set(__self__, "catch_all", catch_all)
+            _setter("catch_all", catch_all)
         if conditions is not None:
-            pulumi.set(__self__, "conditions", conditions)
+            _setter("conditions", conditions)
         if disabled is not None:
-            pulumi.set(__self__, "disabled", disabled)
+            _setter("disabled", disabled)
         if position is not None:
-            pulumi.set(__self__, "position", position)
+            _setter("position", position)
         if ruleset is not None:
-            pulumi.set(__self__, "ruleset", ruleset)
+            _setter("ruleset", ruleset)
         if time_frame is not None:
-            pulumi.set(__self__, "time_frame", time_frame)
+            _setter("time_frame", time_frame)
         if variables is not None:
-            pulumi.set(__self__, "variables", variables)
+            _setter("variables", variables)
 
     @property
     @pulumi.getter
@@ -533,6 +579,10 @@ class RulesetRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RulesetRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -555,14 +605,29 @@ class RulesetRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RulesetRuleArgs.__new__(RulesetRuleArgs)
 
+            if actions is not None and not isinstance(actions, RulesetRuleActionsArgs):
+                actions = actions or {}
+                def _setter(key, value):
+                    actions[key] = value
+                RulesetRuleActionsArgs._configure(_setter, **actions)
             __props__.__dict__["actions"] = actions
             __props__.__dict__["catch_all"] = catch_all
+            if conditions is not None and not isinstance(conditions, RulesetRuleConditionsArgs):
+                conditions = conditions or {}
+                def _setter(key, value):
+                    conditions[key] = value
+                RulesetRuleConditionsArgs._configure(_setter, **conditions)
             __props__.__dict__["conditions"] = conditions
             __props__.__dict__["disabled"] = disabled
             __props__.__dict__["position"] = position
             if ruleset is None and not opts.urn:
                 raise TypeError("Missing required property 'ruleset'")
             __props__.__dict__["ruleset"] = ruleset
+            if time_frame is not None and not isinstance(time_frame, RulesetRuleTimeFrameArgs):
+                time_frame = time_frame or {}
+                def _setter(key, value):
+                    time_frame[key] = value
+                RulesetRuleTimeFrameArgs._configure(_setter, **time_frame)
             __props__.__dict__["time_frame"] = time_frame
             __props__.__dict__["variables"] = variables
         super(RulesetRule, __self__).__init__(

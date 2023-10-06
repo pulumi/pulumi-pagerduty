@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['TagAssignmentArgs', 'TagAssignment']
@@ -23,9 +23,22 @@ class TagAssignmentArgs:
         :param pulumi.Input[str] entity_type: Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalation_policies`.
         :param pulumi.Input[str] tag_id: The ID of the tag.
         """
-        pulumi.set(__self__, "entity_id", entity_id)
-        pulumi.set(__self__, "entity_type", entity_type)
-        pulumi.set(__self__, "tag_id", tag_id)
+        TagAssignmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            entity_id=entity_id,
+            entity_type=entity_type,
+            tag_id=tag_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             entity_id: pulumi.Input[str],
+             entity_type: pulumi.Input[str],
+             tag_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("entity_id", entity_id)
+        _setter("entity_type", entity_type)
+        _setter("tag_id", tag_id)
 
     @property
     @pulumi.getter(name="entityId")
@@ -76,12 +89,25 @@ class _TagAssignmentState:
         :param pulumi.Input[str] entity_type: Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalation_policies`.
         :param pulumi.Input[str] tag_id: The ID of the tag.
         """
+        _TagAssignmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            entity_id=entity_id,
+            entity_type=entity_type,
+            tag_id=tag_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             entity_id: Optional[pulumi.Input[str]] = None,
+             entity_type: Optional[pulumi.Input[str]] = None,
+             tag_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if entity_id is not None:
-            pulumi.set(__self__, "entity_id", entity_id)
+            _setter("entity_id", entity_id)
         if entity_type is not None:
-            pulumi.set(__self__, "entity_type", entity_type)
+            _setter("entity_type", entity_type)
         if tag_id is not None:
-            pulumi.set(__self__, "tag_id", tag_id)
+            _setter("tag_id", tag_id)
 
     @property
     @pulumi.getter(name="entityId")
@@ -201,6 +227,10 @@ class TagAssignment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TagAssignmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,8 +23,19 @@ class EventOrchestrationIntegrationInitArgs:
         :param pulumi.Input[str] event_orchestration: ID of the Event Orchestration to which this Integration belongs to. If value is changed, current Integration is associated with a newly provided ID.
         :param pulumi.Input[str] label: Name/description of the Integration.
         """
-        pulumi.set(__self__, "event_orchestration", event_orchestration)
-        pulumi.set(__self__, "label", label)
+        EventOrchestrationIntegrationInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_orchestration=event_orchestration,
+            label=label,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_orchestration: pulumi.Input[str],
+             label: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("event_orchestration", event_orchestration)
+        _setter("label", label)
 
     @property
     @pulumi.getter(name="eventOrchestration")
@@ -62,12 +73,25 @@ class _EventOrchestrationIntegrationState:
         :param pulumi.Input[str] event_orchestration: ID of the Event Orchestration to which this Integration belongs to. If value is changed, current Integration is associated with a newly provided ID.
         :param pulumi.Input[str] label: Name/description of the Integration.
         """
+        _EventOrchestrationIntegrationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_orchestration=event_orchestration,
+            label=label,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_orchestration: Optional[pulumi.Input[str]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationIntegrationParameterArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if event_orchestration is not None:
-            pulumi.set(__self__, "event_orchestration", event_orchestration)
+            _setter("event_orchestration", event_orchestration)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter(name="eventOrchestration")
@@ -188,6 +212,10 @@ class EventOrchestrationIntegration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EventOrchestrationIntegrationInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

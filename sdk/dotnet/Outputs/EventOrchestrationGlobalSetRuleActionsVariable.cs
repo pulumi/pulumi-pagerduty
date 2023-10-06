@@ -14,7 +14,7 @@ namespace Pulumi.Pagerduty.Outputs
     public sealed class EventOrchestrationGlobalSetRuleActionsVariable
     {
         /// <summary>
-        /// Name of this Webhook.
+        /// The name of the variable
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Value of this header
+        /// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
         /// </summary>
         public readonly string Value;
 

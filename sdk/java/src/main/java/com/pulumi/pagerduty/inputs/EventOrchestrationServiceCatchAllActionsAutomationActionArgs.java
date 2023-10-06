@@ -50,14 +50,14 @@ public final class EventOrchestrationServiceCatchAllActionsAutomationActionArgs 
     }
 
     /**
-     * Name of this Webhook.
+     * The name of the variable
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of this Webhook.
+     * @return The name of the variable
      * 
      */
     public Output<String> name() {
@@ -175,7 +175,7 @@ public final class EventOrchestrationServiceCatchAllActionsAutomationActionArgs 
         }
 
         /**
-         * @param name Name of this Webhook.
+         * @param name The name of the variable
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class EventOrchestrationServiceCatchAllActionsAutomationActionArgs 
         }
 
         /**
-         * @param name Name of this Webhook.
+         * @param name The name of the variable
          * 
          * @return builder
          * 

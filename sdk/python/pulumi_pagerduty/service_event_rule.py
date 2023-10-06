@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,19 +33,40 @@ class ServiceEventRuleArgs:
         :param pulumi.Input['ServiceEventRuleTimeFrameArgs'] time_frame: Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
         :param pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleVariableArgs']]] variables: Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
         """
-        pulumi.set(__self__, "service", service)
+        ServiceEventRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            service=service,
+            actions=actions,
+            conditions=conditions,
+            disabled=disabled,
+            position=position,
+            time_frame=time_frame,
+            variables=variables,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             service: pulumi.Input[str],
+             actions: Optional[pulumi.Input['ServiceEventRuleActionsArgs']] = None,
+             conditions: Optional[pulumi.Input['ServiceEventRuleConditionsArgs']] = None,
+             disabled: Optional[pulumi.Input[bool]] = None,
+             position: Optional[pulumi.Input[int]] = None,
+             time_frame: Optional[pulumi.Input['ServiceEventRuleTimeFrameArgs']] = None,
+             variables: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleVariableArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("service", service)
         if actions is not None:
-            pulumi.set(__self__, "actions", actions)
+            _setter("actions", actions)
         if conditions is not None:
-            pulumi.set(__self__, "conditions", conditions)
+            _setter("conditions", conditions)
         if disabled is not None:
-            pulumi.set(__self__, "disabled", disabled)
+            _setter("disabled", disabled)
         if position is not None:
-            pulumi.set(__self__, "position", position)
+            _setter("position", position)
         if time_frame is not None:
-            pulumi.set(__self__, "time_frame", time_frame)
+            _setter("time_frame", time_frame)
         if variables is not None:
-            pulumi.set(__self__, "variables", variables)
+            _setter("variables", variables)
 
     @property
     @pulumi.getter
@@ -152,20 +173,41 @@ class _ServiceEventRuleState:
         :param pulumi.Input['ServiceEventRuleTimeFrameArgs'] time_frame: Settings for [scheduling the rule](https://support.pagerduty.com/docs/rulesets#section-scheduled-event-rules).
         :param pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleVariableArgs']]] variables: Populate variables from event payloads and use those variables in other event actions. *NOTE: A rule can have multiple `variable` objects.*
         """
+        _ServiceEventRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            conditions=conditions,
+            disabled=disabled,
+            position=position,
+            service=service,
+            time_frame=time_frame,
+            variables=variables,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Optional[pulumi.Input['ServiceEventRuleActionsArgs']] = None,
+             conditions: Optional[pulumi.Input['ServiceEventRuleConditionsArgs']] = None,
+             disabled: Optional[pulumi.Input[bool]] = None,
+             position: Optional[pulumi.Input[int]] = None,
+             service: Optional[pulumi.Input[str]] = None,
+             time_frame: Optional[pulumi.Input['ServiceEventRuleTimeFrameArgs']] = None,
+             variables: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleVariableArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if actions is not None:
-            pulumi.set(__self__, "actions", actions)
+            _setter("actions", actions)
         if conditions is not None:
-            pulumi.set(__self__, "conditions", conditions)
+            _setter("conditions", conditions)
         if disabled is not None:
-            pulumi.set(__self__, "disabled", disabled)
+            _setter("disabled", disabled)
         if position is not None:
-            pulumi.set(__self__, "position", position)
+            _setter("position", position)
         if service is not None:
-            pulumi.set(__self__, "service", service)
+            _setter("service", service)
         if time_frame is not None:
-            pulumi.set(__self__, "time_frame", time_frame)
+            _setter("time_frame", time_frame)
         if variables is not None:
-            pulumi.set(__self__, "variables", variables)
+            _setter("variables", variables)
 
     @property
     @pulumi.getter
@@ -449,6 +491,10 @@ class ServiceEventRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceEventRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -470,13 +516,28 @@ class ServiceEventRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceEventRuleArgs.__new__(ServiceEventRuleArgs)
 
+            if actions is not None and not isinstance(actions, ServiceEventRuleActionsArgs):
+                actions = actions or {}
+                def _setter(key, value):
+                    actions[key] = value
+                ServiceEventRuleActionsArgs._configure(_setter, **actions)
             __props__.__dict__["actions"] = actions
+            if conditions is not None and not isinstance(conditions, ServiceEventRuleConditionsArgs):
+                conditions = conditions or {}
+                def _setter(key, value):
+                    conditions[key] = value
+                ServiceEventRuleConditionsArgs._configure(_setter, **conditions)
             __props__.__dict__["conditions"] = conditions
             __props__.__dict__["disabled"] = disabled
             __props__.__dict__["position"] = position
             if service is None and not opts.urn:
                 raise TypeError("Missing required property 'service'")
             __props__.__dict__["service"] = service
+            if time_frame is not None and not isinstance(time_frame, ServiceEventRuleTimeFrameArgs):
+                time_frame = time_frame or {}
+                def _setter(key, value):
+                    time_frame[key] = value
+                ServiceEventRuleTimeFrameArgs._configure(_setter, **time_frame)
             __props__.__dict__["time_frame"] = time_frame
             __props__.__dict__["variables"] = variables
         super(ServiceEventRule, __self__).__init__(

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,24 +39,51 @@ class AutomationActionsActionArgs:
         :param pulumi.Input[str] runner_type: (Optional) The type of the runner associated with the action.
         :param pulumi.Input[str] type: The type of object. The value returned will be `action`.
         """
-        pulumi.set(__self__, "action_data_reference", action_data_reference)
-        pulumi.set(__self__, "action_type", action_type)
+        AutomationActionsActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_data_reference=action_data_reference,
+            action_type=action_type,
+            action_classification=action_classification,
+            creation_time=creation_time,
+            description=description,
+            modify_time=modify_time,
+            name=name,
+            runner_id=runner_id,
+            runner_type=runner_type,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_data_reference: pulumi.Input['AutomationActionsActionActionDataReferenceArgs'],
+             action_type: pulumi.Input[str],
+             action_classification: Optional[pulumi.Input[str]] = None,
+             creation_time: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             modify_time: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             runner_id: Optional[pulumi.Input[str]] = None,
+             runner_type: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action_data_reference", action_data_reference)
+        _setter("action_type", action_type)
         if action_classification is not None:
-            pulumi.set(__self__, "action_classification", action_classification)
+            _setter("action_classification", action_classification)
         if creation_time is not None:
-            pulumi.set(__self__, "creation_time", creation_time)
+            _setter("creation_time", creation_time)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if modify_time is not None:
-            pulumi.set(__self__, "modify_time", modify_time)
+            _setter("modify_time", modify_time)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if runner_id is not None:
-            pulumi.set(__self__, "runner_id", runner_id)
+            _setter("runner_id", runner_id)
         if runner_type is not None:
-            pulumi.set(__self__, "runner_type", runner_type)
+            _setter("runner_type", runner_type)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="actionDataReference")
@@ -205,26 +232,53 @@ class _AutomationActionsActionState:
         :param pulumi.Input[str] runner_type: (Optional) The type of the runner associated with the action.
         :param pulumi.Input[str] type: The type of object. The value returned will be `action`.
         """
+        _AutomationActionsActionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_classification=action_classification,
+            action_data_reference=action_data_reference,
+            action_type=action_type,
+            creation_time=creation_time,
+            description=description,
+            modify_time=modify_time,
+            name=name,
+            runner_id=runner_id,
+            runner_type=runner_type,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_classification: Optional[pulumi.Input[str]] = None,
+             action_data_reference: Optional[pulumi.Input['AutomationActionsActionActionDataReferenceArgs']] = None,
+             action_type: Optional[pulumi.Input[str]] = None,
+             creation_time: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             modify_time: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             runner_id: Optional[pulumi.Input[str]] = None,
+             runner_type: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if action_classification is not None:
-            pulumi.set(__self__, "action_classification", action_classification)
+            _setter("action_classification", action_classification)
         if action_data_reference is not None:
-            pulumi.set(__self__, "action_data_reference", action_data_reference)
+            _setter("action_data_reference", action_data_reference)
         if action_type is not None:
-            pulumi.set(__self__, "action_type", action_type)
+            _setter("action_type", action_type)
         if creation_time is not None:
-            pulumi.set(__self__, "creation_time", creation_time)
+            _setter("creation_time", creation_time)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if modify_time is not None:
-            pulumi.set(__self__, "modify_time", modify_time)
+            _setter("modify_time", modify_time)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if runner_id is not None:
-            pulumi.set(__self__, "runner_id", runner_id)
+            _setter("runner_id", runner_id)
         if runner_type is not None:
-            pulumi.set(__self__, "runner_type", runner_type)
+            _setter("runner_type", runner_type)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="actionClassification")
@@ -456,6 +510,10 @@ class AutomationActionsAction(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AutomationActionsActionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -481,6 +539,11 @@ class AutomationActionsAction(pulumi.CustomResource):
             __props__ = AutomationActionsActionArgs.__new__(AutomationActionsActionArgs)
 
             __props__.__dict__["action_classification"] = action_classification
+            if action_data_reference is not None and not isinstance(action_data_reference, AutomationActionsActionActionDataReferenceArgs):
+                action_data_reference = action_data_reference or {}
+                def _setter(key, value):
+                    action_data_reference[key] = value
+                AutomationActionsActionActionDataReferenceArgs._configure(_setter, **action_data_reference)
             if action_data_reference is None and not opts.urn:
                 raise TypeError("Missing required property 'action_data_reference'")
             __props__.__dict__["action_data_reference"] = action_data_reference

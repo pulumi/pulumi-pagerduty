@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['IncidentWorkflowTriggerArgs', 'IncidentWorkflowTrigger']
@@ -27,13 +27,30 @@ class IncidentWorkflowTriggerArgs:
         :param pulumi.Input[str] condition: A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] services: A list of service IDs. Incidents in any of the listed services are eligible to fire this trigger.
         """
-        pulumi.set(__self__, "subscribed_to_all_services", subscribed_to_all_services)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "workflow", workflow)
+        IncidentWorkflowTriggerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subscribed_to_all_services=subscribed_to_all_services,
+            type=type,
+            workflow=workflow,
+            condition=condition,
+            services=services,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subscribed_to_all_services: pulumi.Input[bool],
+             type: pulumi.Input[str],
+             workflow: pulumi.Input[str],
+             condition: Optional[pulumi.Input[str]] = None,
+             services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("subscribed_to_all_services", subscribed_to_all_services)
+        _setter("type", type)
+        _setter("workflow", workflow)
         if condition is not None:
-            pulumi.set(__self__, "condition", condition)
+            _setter("condition", condition)
         if services is not None:
-            pulumi.set(__self__, "services", services)
+            _setter("services", services)
 
     @property
     @pulumi.getter(name="subscribedToAllServices")
@@ -112,16 +129,33 @@ class _IncidentWorkflowTriggerState:
         :param pulumi.Input[str] type: May be either `manual` or `conditional`.
         :param pulumi.Input[str] workflow: The workflow ID for the workflow to trigger.
         """
+        _IncidentWorkflowTriggerState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            condition=condition,
+            services=services,
+            subscribed_to_all_services=subscribed_to_all_services,
+            type=type,
+            workflow=workflow,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             condition: Optional[pulumi.Input[str]] = None,
+             services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subscribed_to_all_services: Optional[pulumi.Input[bool]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             workflow: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if condition is not None:
-            pulumi.set(__self__, "condition", condition)
+            _setter("condition", condition)
         if services is not None:
-            pulumi.set(__self__, "services", services)
+            _setter("services", services)
         if subscribed_to_all_services is not None:
-            pulumi.set(__self__, "subscribed_to_all_services", subscribed_to_all_services)
+            _setter("subscribed_to_all_services", subscribed_to_all_services)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if workflow is not None:
-            pulumi.set(__self__, "workflow", workflow)
+            _setter("workflow", workflow)
 
     @property
     @pulumi.getter
@@ -301,6 +335,10 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IncidentWorkflowTriggerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

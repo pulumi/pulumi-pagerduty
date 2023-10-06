@@ -31,14 +31,14 @@ public final class ServiceEventRuleTimeFrameActiveBetweenArgs extends com.pulumi
     }
 
     /**
-     * Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `start_time` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `start_time` was `3,600,000` the it would be active starting at `01:00`.
+     * Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
      * 
      */
     @Import(name="startTime")
     private @Nullable Output<Integer> startTime;
 
     /**
-     * @return Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `start_time` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `start_time` was `3,600,000` the it would be active starting at `01:00`.
+     * @return Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
      * 
      */
     public Optional<Output<Integer>> startTime() {
@@ -92,7 +92,7 @@ public final class ServiceEventRuleTimeFrameActiveBetweenArgs extends com.pulumi
         }
 
         /**
-         * @param startTime Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `start_time` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `start_time` was `3,600,000` the it would be active starting at `01:00`.
+         * @param startTime Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ServiceEventRuleTimeFrameActiveBetweenArgs extends com.pulumi
         }
 
         /**
-         * @param startTime Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `start_time` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `start_time` was `3,600,000` the it would be active starting at `01:00`.
+         * @param startTime Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
          * 
          * @return builder
          * 

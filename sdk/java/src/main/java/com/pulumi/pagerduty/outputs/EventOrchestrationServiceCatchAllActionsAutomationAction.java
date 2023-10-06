@@ -26,7 +26,7 @@ public final class EventOrchestrationServiceCatchAllActionsAutomationAction {
      */
     private @Nullable List<EventOrchestrationServiceCatchAllActionsAutomationActionHeader> headers;
     /**
-     * @return Name of this Webhook.
+     * @return The name of the variable
      * 
      */
     private String name;
@@ -57,7 +57,7 @@ public final class EventOrchestrationServiceCatchAllActionsAutomationAction {
         return this.headers == null ? List.of() : this.headers;
     }
     /**
-     * @return Name of this Webhook.
+     * @return The name of the variable
      * 
      */
     public String name() {

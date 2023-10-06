@@ -115,7 +115,7 @@ export interface EventOrchestrationGlobalCatchAllActionsAutomationAction {
      */
     headers?: outputs.EventOrchestrationGlobalCatchAllActionsAutomationActionHeader[];
     /**
-     * Name of this Webhook.
+     * The name of the variable
      */
     name: string;
     /**
@@ -130,22 +130,22 @@ export interface EventOrchestrationGlobalCatchAllActionsAutomationAction {
 
 export interface EventOrchestrationGlobalCatchAllActionsAutomationActionHeader {
     /**
-     * Name to identify the header
+     * Name to identify the parameter
      */
     key: string;
     /**
-     * Value of this header
+     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
      */
     value: string;
 }
 
 export interface EventOrchestrationGlobalCatchAllActionsAutomationActionParameter {
     /**
-     * Name to identify the header
+     * Name to identify the parameter
      */
     key: string;
     /**
-     * Value of this header
+     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
      */
     value: string;
 }
@@ -173,7 +173,7 @@ export interface EventOrchestrationGlobalCatchAllActionsExtraction {
 
 export interface EventOrchestrationGlobalCatchAllActionsVariable {
     /**
-     * Name of this Webhook.
+     * The name of the variable
      */
     name: string;
     /**
@@ -185,7 +185,7 @@ export interface EventOrchestrationGlobalCatchAllActionsVariable {
      */
     type: string;
     /**
-     * Value of this header
+     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
      */
     value: string;
 }
@@ -278,7 +278,7 @@ export interface EventOrchestrationGlobalSetRuleActionsAutomationAction {
      */
     headers?: outputs.EventOrchestrationGlobalSetRuleActionsAutomationActionHeader[];
     /**
-     * Name of this Webhook.
+     * The name of the variable
      */
     name: string;
     /**
@@ -293,22 +293,22 @@ export interface EventOrchestrationGlobalSetRuleActionsAutomationAction {
 
 export interface EventOrchestrationGlobalSetRuleActionsAutomationActionHeader {
     /**
-     * Name to identify the header
+     * Name to identify the parameter
      */
     key: string;
     /**
-     * Value of this header
+     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
      */
     value: string;
 }
 
 export interface EventOrchestrationGlobalSetRuleActionsAutomationActionParameter {
     /**
-     * Name to identify the header
+     * Name to identify the parameter
      */
     key: string;
     /**
-     * Value of this header
+     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
      */
     value: string;
 }
@@ -336,7 +336,7 @@ export interface EventOrchestrationGlobalSetRuleActionsExtraction {
 
 export interface EventOrchestrationGlobalSetRuleActionsVariable {
     /**
-     * Name of this Webhook.
+     * The name of the variable
      */
     name: string;
     /**
@@ -348,7 +348,7 @@ export interface EventOrchestrationGlobalSetRuleActionsVariable {
      */
     type: string;
     /**
-     * Value of this header
+     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
      */
     value: string;
 }
@@ -503,7 +503,7 @@ export interface EventOrchestrationServiceCatchAllActionsAutomationAction {
      */
     headers?: outputs.EventOrchestrationServiceCatchAllActionsAutomationActionHeader[];
     /**
-     * Name of this Webhook.
+     * The name of the variable
      */
     name: string;
     /**
@@ -518,22 +518,22 @@ export interface EventOrchestrationServiceCatchAllActionsAutomationAction {
 
 export interface EventOrchestrationServiceCatchAllActionsAutomationActionHeader {
     /**
-     * Name to identify the header
+     * Name to identify the parameter
      */
     key: string;
     /**
-     * Value of this header
+     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
      */
     value: string;
 }
 
 export interface EventOrchestrationServiceCatchAllActionsAutomationActionParameter {
     /**
-     * Name to identify the header
+     * Name to identify the parameter
      */
     key: string;
     /**
-     * Value of this header
+     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
      */
     value: string;
 }
@@ -568,7 +568,7 @@ export interface EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActi
 
 export interface EventOrchestrationServiceCatchAllActionsVariable {
     /**
-     * Name of this Webhook.
+     * The name of the variable
      */
     name: string;
     /**
@@ -580,7 +580,7 @@ export interface EventOrchestrationServiceCatchAllActionsVariable {
      */
     type: string;
     /**
-     * Value of this header
+     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
      */
     value: string;
 }
@@ -673,7 +673,7 @@ export interface EventOrchestrationServiceSetRuleActionsAutomationAction {
      */
     headers?: outputs.EventOrchestrationServiceSetRuleActionsAutomationActionHeader[];
     /**
-     * Name of this Webhook.
+     * The name of the variable
      */
     name: string;
     /**
@@ -688,22 +688,22 @@ export interface EventOrchestrationServiceSetRuleActionsAutomationAction {
 
 export interface EventOrchestrationServiceSetRuleActionsAutomationActionHeader {
     /**
-     * Name to identify the header
+     * Name to identify the parameter
      */
     key: string;
     /**
-     * Value of this header
+     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
      */
     value: string;
 }
 
 export interface EventOrchestrationServiceSetRuleActionsAutomationActionParameter {
     /**
-     * Name to identify the header
+     * Name to identify the parameter
      */
     key: string;
     /**
-     * Value of this header
+     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
      */
     value: string;
 }
@@ -738,7 +738,7 @@ export interface EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActio
 
 export interface EventOrchestrationServiceSetRuleActionsVariable {
     /**
-     * Name of this Webhook.
+     * The name of the variable
      */
     name: string;
     /**
@@ -750,7 +750,7 @@ export interface EventOrchestrationServiceSetRuleActionsVariable {
      */
     type: string;
     /**
-     * Value of this header
+     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
      */
     value: string;
 }
@@ -1505,11 +1505,6 @@ export interface ServiceAlertGroupingParametersConfig {
     fields?: string[];
     /**
      * The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
-     *
-     *
-     * You may specify one optional `incidentUrgencyRule` block configuring what urgencies to use.
-     * Your PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.
-     * The block contains the following arguments:
      */
     timeout?: number;
 }
@@ -1725,7 +1720,7 @@ export interface ServiceEventRuleTimeFrameActiveBetween {
      */
     endTime?: number;
     /**
-     * Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `startTime` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `startTime` was `3,600,000` the it would be active starting at `01:00`.
+     * Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
      */
     startTime?: number;
 }
@@ -1736,7 +1731,7 @@ export interface ServiceEventRuleTimeFrameScheduledWeekly {
      */
     duration?: number;
     /**
-     * Time when the schedule will start. Unix timestamp in milliseconds. For example, if you have a rule with a `startTime` of `0` and a `duration` of `60,000` then that rule would be active from `00:00` to `00:01`. If the `startTime` was `3,600,000` the it would be active starting at `01:00`.
+     * Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
      */
     startTime?: number;
     /**

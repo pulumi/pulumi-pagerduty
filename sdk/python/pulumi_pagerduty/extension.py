@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ExtensionArgs', 'Extension']
@@ -29,16 +29,35 @@ class ExtensionArgs:
                **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `get_extension_schema` named `Generic V2 Webhook` doesn't accept `Extension` with no `endpoint_url`, but one with named `Slack` accepts.
         :param pulumi.Input[str] name: The name of the service extension.
         """
-        pulumi.set(__self__, "extension_objects", extension_objects)
-        pulumi.set(__self__, "extension_schema", extension_schema)
+        ExtensionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            extension_objects=extension_objects,
+            extension_schema=extension_schema,
+            config=config,
+            endpoint_url=endpoint_url,
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             extension_objects: pulumi.Input[Sequence[pulumi.Input[str]]],
+             extension_schema: pulumi.Input[str],
+             config: Optional[pulumi.Input[str]] = None,
+             endpoint_url: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("extension_objects", extension_objects)
+        _setter("extension_schema", extension_schema)
         if config is not None:
-            pulumi.set(__self__, "config", config)
+            _setter("config", config)
         if endpoint_url is not None:
-            pulumi.set(__self__, "endpoint_url", endpoint_url)
+            _setter("endpoint_url", endpoint_url)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="extensionObjects")
@@ -135,22 +154,45 @@ class _ExtensionState:
                
                **Note:** You can use the `get_extension_schema` data source to locate the appropriate extension vendor ID.
         """
+        _ExtensionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            config=config,
+            endpoint_url=endpoint_url,
+            extension_objects=extension_objects,
+            extension_schema=extension_schema,
+            html_url=html_url,
+            name=name,
+            summary=summary,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             config: Optional[pulumi.Input[str]] = None,
+             endpoint_url: Optional[pulumi.Input[str]] = None,
+             extension_objects: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             extension_schema: Optional[pulumi.Input[str]] = None,
+             html_url: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             summary: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if config is not None:
-            pulumi.set(__self__, "config", config)
+            _setter("config", config)
         if endpoint_url is not None:
-            pulumi.set(__self__, "endpoint_url", endpoint_url)
+            _setter("endpoint_url", endpoint_url)
         if extension_objects is not None:
-            pulumi.set(__self__, "extension_objects", extension_objects)
+            _setter("extension_objects", extension_objects)
         if extension_schema is not None:
-            pulumi.set(__self__, "extension_schema", extension_schema)
+            _setter("extension_schema", extension_schema)
         if html_url is not None:
-            pulumi.set(__self__, "html_url", html_url)
+            _setter("html_url", html_url)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if summary is not None:
-            pulumi.set(__self__, "summary", summary)
+            _setter("summary", summary)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -382,6 +424,10 @@ class Extension(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ExtensionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

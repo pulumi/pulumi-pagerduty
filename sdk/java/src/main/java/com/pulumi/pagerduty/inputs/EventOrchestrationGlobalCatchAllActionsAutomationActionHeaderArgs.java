@@ -14,14 +14,14 @@ public final class EventOrchestrationGlobalCatchAllActionsAutomationActionHeader
     public static final EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArgs Empty = new EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArgs();
 
     /**
-     * Name to identify the header
+     * Name to identify the parameter
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return Name to identify the header
+     * @return Name to identify the parameter
      * 
      */
     public Output<String> key() {
@@ -29,14 +29,14 @@ public final class EventOrchestrationGlobalCatchAllActionsAutomationActionHeader
     }
 
     /**
-     * Value of this header
+     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return Value of this header
+     * @return The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
      * 
      */
     public Output<String> value() {
@@ -69,7 +69,7 @@ public final class EventOrchestrationGlobalCatchAllActionsAutomationActionHeader
         }
 
         /**
-         * @param key Name to identify the header
+         * @param key Name to identify the parameter
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class EventOrchestrationGlobalCatchAllActionsAutomationActionHeader
         }
 
         /**
-         * @param key Name to identify the header
+         * @param key Name to identify the parameter
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class EventOrchestrationGlobalCatchAllActionsAutomationActionHeader
         }
 
         /**
-         * @param value Value of this header
+         * @param value The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class EventOrchestrationGlobalCatchAllActionsAutomationActionHeader
         }
 
         /**
-         * @param value Value of this header
+         * @param value The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
          * 
          * @return builder
          * 

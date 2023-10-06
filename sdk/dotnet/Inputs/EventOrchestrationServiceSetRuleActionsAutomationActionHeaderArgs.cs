@@ -13,13 +13,13 @@ namespace Pulumi.Pagerduty.Inputs
     public sealed class EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name to identify the header
+        /// Name to identify the parameter
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// Value of this header
+        /// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

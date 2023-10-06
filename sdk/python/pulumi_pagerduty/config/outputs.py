@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -19,9 +19,22 @@ class UseAppOauthScopedToken(dict):
                  pd_client_id: str,
                  pd_client_secret: str,
                  pd_subdomain: str):
-        pulumi.set(__self__, "pd_client_id", pd_client_id)
-        pulumi.set(__self__, "pd_client_secret", pd_client_secret)
-        pulumi.set(__self__, "pd_subdomain", pd_subdomain)
+        UseAppOauthScopedToken._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            pd_client_id=pd_client_id,
+            pd_client_secret=pd_client_secret,
+            pd_subdomain=pd_subdomain,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             pd_client_id: str,
+             pd_client_secret: str,
+             pd_subdomain: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("pd_client_id", pd_client_id)
+        _setter("pd_client_secret", pd_client_secret)
+        _setter("pd_subdomain", pd_subdomain)
 
     @property
     @pulumi.getter(name="pdClientId")

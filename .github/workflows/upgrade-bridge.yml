@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Call upgrade provider action
-      uses: pulumi/pulumi-upgrade-provider-action@b0d3d37b51eb4f0caf4f02554d9e2d44e5797cfe
+      uses: pulumi/pulumi-upgrade-provider-action@v0.0.7
       with:
         kind: bridge
     - env:

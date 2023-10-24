@@ -37,7 +37,13 @@ class EventOrchestrationRouterArgs:
              catch_all: pulumi.Input['EventOrchestrationRouterCatchAllArgs'],
              event_orchestration: pulumi.Input[str],
              set: pulumi.Input['EventOrchestrationRouterSetArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catchAll' in kwargs:
+            catch_all = kwargs['catchAll']
+        if 'eventOrchestration' in kwargs:
+            event_orchestration = kwargs['eventOrchestration']
+
         _setter("catch_all", catch_all)
         _setter("event_orchestration", event_orchestration)
         _setter("set", set)
@@ -103,7 +109,13 @@ class _EventOrchestrationRouterState:
              catch_all: Optional[pulumi.Input['EventOrchestrationRouterCatchAllArgs']] = None,
              event_orchestration: Optional[pulumi.Input[str]] = None,
              set: Optional[pulumi.Input['EventOrchestrationRouterSetArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catchAll' in kwargs:
+            catch_all = kwargs['catchAll']
+        if 'eventOrchestration' in kwargs:
+            event_orchestration = kwargs['eventOrchestration']
+
         if catch_all is not None:
             _setter("catch_all", catch_all)
         if event_orchestration is not None:

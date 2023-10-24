@@ -57,7 +57,13 @@ class RulesetRuleArgs:
              position: Optional[pulumi.Input[int]] = None,
              time_frame: Optional[pulumi.Input['RulesetRuleTimeFrameArgs']] = None,
              variables: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleVariableArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catchAll' in kwargs:
+            catch_all = kwargs['catchAll']
+        if 'timeFrame' in kwargs:
+            time_frame = kwargs['timeFrame']
+
         _setter("ruleset", ruleset)
         if actions is not None:
             _setter("actions", actions)
@@ -215,7 +221,13 @@ class _RulesetRuleState:
              ruleset: Optional[pulumi.Input[str]] = None,
              time_frame: Optional[pulumi.Input['RulesetRuleTimeFrameArgs']] = None,
              variables: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleVariableArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catchAll' in kwargs:
+            catch_all = kwargs['catchAll']
+        if 'timeFrame' in kwargs:
+            time_frame = kwargs['timeFrame']
+
         if actions is not None:
             _setter("actions", actions)
         if catch_all is not None:

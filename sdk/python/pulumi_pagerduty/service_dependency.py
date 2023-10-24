@@ -29,7 +29,9 @@ class ServiceDependencyArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              dependency: pulumi.Input['ServiceDependencyDependencyArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("dependency", dependency)
 
     @property
@@ -61,7 +63,9 @@ class _ServiceDependencyState:
     def _configure(
              _setter: Callable[[Any, Any], None],
              dependency: Optional[pulumi.Input['ServiceDependencyDependencyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if dependency is not None:
             _setter("dependency", dependency)
 

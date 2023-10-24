@@ -49,7 +49,19 @@ class SlackConnectionArgs:
              source_id: pulumi.Input[str],
              source_type: pulumi.Input[str],
              workspace_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelId' in kwargs:
+            channel_id = kwargs['channelId']
+        if 'notificationType' in kwargs:
+            notification_type = kwargs['notificationType']
+        if 'sourceId' in kwargs:
+            source_id = kwargs['sourceId']
+        if 'sourceType' in kwargs:
+            source_type = kwargs['sourceType']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         _setter("channel_id", channel_id)
         _setter("configs", configs)
         _setter("notification_type", notification_type)
@@ -174,7 +186,23 @@ class _SlackConnectionState:
              source_name: Optional[pulumi.Input[str]] = None,
              source_type: Optional[pulumi.Input[str]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelId' in kwargs:
+            channel_id = kwargs['channelId']
+        if 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+        if 'notificationType' in kwargs:
+            notification_type = kwargs['notificationType']
+        if 'sourceId' in kwargs:
+            source_id = kwargs['sourceId']
+        if 'sourceName' in kwargs:
+            source_name = kwargs['sourceName']
+        if 'sourceType' in kwargs:
+            source_type = kwargs['sourceType']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         if channel_id is not None:
             _setter("channel_id", channel_id)
         if channel_name is not None:

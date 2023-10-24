@@ -62,7 +62,11 @@ class WebhookSubscriptionArgs:
              active: Optional[pulumi.Input[bool]] = None,
              description: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deliveryMethods' in kwargs:
+            delivery_methods = kwargs['deliveryMethods']
+
         _setter("delivery_methods", delivery_methods)
         _setter("events", events)
         _setter("filters", filters)
@@ -208,7 +212,11 @@ class _WebhookSubscriptionState:
              events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              filters: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookSubscriptionFilterArgs']]]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deliveryMethods' in kwargs:
+            delivery_methods = kwargs['deliveryMethods']
+
         if active is not None:
             _setter("active", active)
         if delivery_methods is not None:

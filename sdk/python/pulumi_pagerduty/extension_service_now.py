@@ -69,7 +69,23 @@ class ExtensionServiceNowArgs:
              name: Optional[pulumi.Input[str]] = None,
              summary: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'extensionObjects' in kwargs:
+            extension_objects = kwargs['extensionObjects']
+        if 'extensionSchema' in kwargs:
+            extension_schema = kwargs['extensionSchema']
+        if 'snowPassword' in kwargs:
+            snow_password = kwargs['snowPassword']
+        if 'snowUser' in kwargs:
+            snow_user = kwargs['snowUser']
+        if 'syncOptions' in kwargs:
+            sync_options = kwargs['syncOptions']
+        if 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if 'endpointUrl' in kwargs:
+            endpoint_url = kwargs['endpointUrl']
+
         _setter("extension_objects", extension_objects)
         _setter("extension_schema", extension_schema)
         _setter("referer", referer)
@@ -288,7 +304,25 @@ class _ExtensionServiceNowState:
              target: Optional[pulumi.Input[str]] = None,
              task_type: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointUrl' in kwargs:
+            endpoint_url = kwargs['endpointUrl']
+        if 'extensionObjects' in kwargs:
+            extension_objects = kwargs['extensionObjects']
+        if 'extensionSchema' in kwargs:
+            extension_schema = kwargs['extensionSchema']
+        if 'htmlUrl' in kwargs:
+            html_url = kwargs['htmlUrl']
+        if 'snowPassword' in kwargs:
+            snow_password = kwargs['snowPassword']
+        if 'snowUser' in kwargs:
+            snow_user = kwargs['snowUser']
+        if 'syncOptions' in kwargs:
+            sync_options = kwargs['syncOptions']
+        if 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+
         if endpoint_url is not None:
             _setter("endpoint_url", endpoint_url)
         if extension_objects is not None:

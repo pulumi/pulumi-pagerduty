@@ -39,7 +39,15 @@ class UserNotificationRuleArgs:
              start_delay_in_minutes: pulumi.Input[int],
              urgency: pulumi.Input[str],
              user_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contactMethod' in kwargs:
+            contact_method = kwargs['contactMethod']
+        if 'startDelayInMinutes' in kwargs:
+            start_delay_in_minutes = kwargs['startDelayInMinutes']
+        if 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         _setter("contact_method", contact_method)
         _setter("start_delay_in_minutes", start_delay_in_minutes)
         _setter("urgency", urgency)
@@ -122,7 +130,15 @@ class _UserNotificationRuleState:
              start_delay_in_minutes: Optional[pulumi.Input[int]] = None,
              urgency: Optional[pulumi.Input[str]] = None,
              user_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contactMethod' in kwargs:
+            contact_method = kwargs['contactMethod']
+        if 'startDelayInMinutes' in kwargs:
+            start_delay_in_minutes = kwargs['startDelayInMinutes']
+        if 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         if contact_method is not None:
             _setter("contact_method", contact_method)
         if start_delay_in_minutes is not None:

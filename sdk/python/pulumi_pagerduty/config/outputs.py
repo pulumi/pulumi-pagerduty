@@ -31,7 +31,15 @@ class UseAppOauthScopedToken(dict):
              pd_client_id: str,
              pd_client_secret: str,
              pd_subdomain: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'pdClientId' in kwargs:
+            pd_client_id = kwargs['pdClientId']
+        if 'pdClientSecret' in kwargs:
+            pd_client_secret = kwargs['pdClientSecret']
+        if 'pdSubdomain' in kwargs:
+            pd_subdomain = kwargs['pdSubdomain']
+
         _setter("pd_client_id", pd_client_id)
         _setter("pd_client_secret", pd_client_secret)
         _setter("pd_subdomain", pd_subdomain)

@@ -199,7 +199,17 @@ class AutomationActionsActionActionDataReference(dict):
              process_automation_job_id: Optional[str] = None,
              process_automation_node_filter: Optional[str] = None,
              script: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'invocationCommand' in kwargs:
+            invocation_command = kwargs['invocationCommand']
+        if 'processAutomationJobArguments' in kwargs:
+            process_automation_job_arguments = kwargs['processAutomationJobArguments']
+        if 'processAutomationJobId' in kwargs:
+            process_automation_job_id = kwargs['processAutomationJobId']
+        if 'processAutomationNodeFilter' in kwargs:
+            process_automation_node_filter = kwargs['processAutomationNodeFilter']
+
         if invocation_command is not None:
             _setter("invocation_command", invocation_command)
         if process_automation_job_arguments is not None:
@@ -291,7 +301,11 @@ class EscalationPolicyRule(dict):
              escalation_delay_in_minutes: int,
              targets: Sequence['outputs.EscalationPolicyRuleTarget'],
              id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'escalationDelayInMinutes' in kwargs:
+            escalation_delay_in_minutes = kwargs['escalationDelayInMinutes']
+
         _setter("escalation_delay_in_minutes", escalation_delay_in_minutes)
         _setter("targets", targets)
         if id is not None:
@@ -338,7 +352,9 @@ class EscalationPolicyRuleTarget(dict):
              _setter: Callable[[Any, Any], None],
              id: str,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         if type is not None:
             _setter("type", type)
@@ -375,7 +391,9 @@ class EventOrchestrationGlobalCatchAll(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              actions: 'outputs.EventOrchestrationGlobalCatchAllActions',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("actions", actions)
 
     @property
@@ -465,7 +483,17 @@ class EventOrchestrationGlobalCatchAllActions(dict):
              suppress: Optional[bool] = None,
              suspend: Optional[int] = None,
              variables: Optional[Sequence['outputs.EventOrchestrationGlobalCatchAllActionsVariable']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAction' in kwargs:
+            automation_action = kwargs['automationAction']
+        if 'dropEvent' in kwargs:
+            drop_event = kwargs['dropEvent']
+        if 'eventAction' in kwargs:
+            event_action = kwargs['eventAction']
+        if 'routeTo' in kwargs:
+            route_to = kwargs['routeTo']
+
         if annotate is not None:
             _setter("annotate", annotate)
         if automation_action is not None:
@@ -626,7 +654,11 @@ class EventOrchestrationGlobalCatchAllActionsAutomationAction(dict):
              auto_send: Optional[bool] = None,
              headers: Optional[Sequence['outputs.EventOrchestrationGlobalCatchAllActionsAutomationActionHeader']] = None,
              parameters: Optional[Sequence['outputs.EventOrchestrationGlobalCatchAllActionsAutomationActionParameter']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoSend' in kwargs:
+            auto_send = kwargs['autoSend']
+
         _setter("name", name)
         _setter("url", url)
         if auto_send is not None:
@@ -696,7 +728,9 @@ class EventOrchestrationGlobalCatchAllActionsAutomationActionHeader(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -736,7 +770,9 @@ class EventOrchestrationGlobalCatchAllActionsAutomationActionParameter(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -786,7 +822,9 @@ class EventOrchestrationGlobalCatchAllActionsExtraction(dict):
              regex: Optional[str] = None,
              source: Optional[str] = None,
              template: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("target", target)
         if regex is not None:
             _setter("regex", regex)
@@ -857,7 +895,9 @@ class EventOrchestrationGlobalCatchAllActionsVariable(dict):
              path: str,
              type: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("path", path)
         _setter("type", type)
@@ -914,7 +954,9 @@ class EventOrchestrationGlobalSet(dict):
              _setter: Callable[[Any, Any], None],
              id: str,
              rules: Optional[Sequence['outputs.EventOrchestrationGlobalSetRule']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         if rules is not None:
             _setter("rules", rules)
@@ -964,7 +1006,9 @@ class EventOrchestrationGlobalSetRule(dict):
              disabled: Optional[bool] = None,
              id: Optional[str] = None,
              label: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("actions", actions)
         if conditions is not None:
             _setter("conditions", conditions)
@@ -1094,7 +1138,17 @@ class EventOrchestrationGlobalSetRuleActions(dict):
              suppress: Optional[bool] = None,
              suspend: Optional[int] = None,
              variables: Optional[Sequence['outputs.EventOrchestrationGlobalSetRuleActionsVariable']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAction' in kwargs:
+            automation_action = kwargs['automationAction']
+        if 'dropEvent' in kwargs:
+            drop_event = kwargs['dropEvent']
+        if 'eventAction' in kwargs:
+            event_action = kwargs['eventAction']
+        if 'routeTo' in kwargs:
+            route_to = kwargs['routeTo']
+
         if annotate is not None:
             _setter("annotate", annotate)
         if automation_action is not None:
@@ -1255,7 +1309,11 @@ class EventOrchestrationGlobalSetRuleActionsAutomationAction(dict):
              auto_send: Optional[bool] = None,
              headers: Optional[Sequence['outputs.EventOrchestrationGlobalSetRuleActionsAutomationActionHeader']] = None,
              parameters: Optional[Sequence['outputs.EventOrchestrationGlobalSetRuleActionsAutomationActionParameter']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoSend' in kwargs:
+            auto_send = kwargs['autoSend']
+
         _setter("name", name)
         _setter("url", url)
         if auto_send is not None:
@@ -1325,7 +1383,9 @@ class EventOrchestrationGlobalSetRuleActionsAutomationActionHeader(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1365,7 +1425,9 @@ class EventOrchestrationGlobalSetRuleActionsAutomationActionParameter(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1415,7 +1477,9 @@ class EventOrchestrationGlobalSetRuleActionsExtraction(dict):
              regex: Optional[str] = None,
              source: Optional[str] = None,
              template: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("target", target)
         if regex is not None:
             _setter("regex", regex)
@@ -1486,7 +1550,9 @@ class EventOrchestrationGlobalSetRuleActionsVariable(dict):
              path: str,
              type: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("path", path)
         _setter("type", type)
@@ -1540,7 +1606,9 @@ class EventOrchestrationGlobalSetRuleCondition(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              expression: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("expression", expression)
 
     @property
@@ -1573,7 +1641,9 @@ class EventOrchestrationIntegration(dict):
              id: Optional[str] = None,
              label: Optional[str] = None,
              parameters: Optional[Sequence['outputs.EventOrchestrationIntegrationParameter']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
             _setter("id", id)
         if label is not None:
@@ -1636,7 +1706,11 @@ class EventOrchestrationIntegrationParameter(dict):
              _setter: Callable[[Any, Any], None],
              routing_key: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'routingKey' in kwargs:
+            routing_key = kwargs['routingKey']
+
         if routing_key is not None:
             _setter("routing_key", routing_key)
         if type is not None:
@@ -1674,7 +1748,9 @@ class EventOrchestrationRouterCatchAll(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              actions: 'outputs.EventOrchestrationRouterCatchAllActions',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("actions", actions)
 
     @property
@@ -1718,7 +1794,11 @@ class EventOrchestrationRouterCatchAllActions(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              route_to: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'routeTo' in kwargs:
+            route_to = kwargs['routeTo']
+
         _setter("route_to", route_to)
 
     @property
@@ -1748,7 +1828,9 @@ class EventOrchestrationRouterSet(dict):
              _setter: Callable[[Any, Any], None],
              id: str,
              rules: Optional[Sequence['outputs.EventOrchestrationRouterSetRule']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         if rules is not None:
             _setter("rules", rules)
@@ -1798,7 +1880,9 @@ class EventOrchestrationRouterSetRule(dict):
              disabled: Optional[bool] = None,
              id: Optional[str] = None,
              label: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("actions", actions)
         if conditions is not None:
             _setter("conditions", conditions)
@@ -1882,7 +1966,11 @@ class EventOrchestrationRouterSetRuleActions(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              route_to: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'routeTo' in kwargs:
+            route_to = kwargs['routeTo']
+
         _setter("route_to", route_to)
 
     @property
@@ -1909,7 +1997,9 @@ class EventOrchestrationRouterSetRuleCondition(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              expression: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("expression", expression)
 
     @property
@@ -1936,7 +2026,9 @@ class EventOrchestrationServiceCatchAll(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              actions: 'outputs.EventOrchestrationServiceCatchAllActions',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("actions", actions)
 
     @property
@@ -2026,7 +2118,17 @@ class EventOrchestrationServiceCatchAllActions(dict):
              suppress: Optional[bool] = None,
              suspend: Optional[int] = None,
              variables: Optional[Sequence['outputs.EventOrchestrationServiceCatchAllActionsVariable']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAction' in kwargs:
+            automation_action = kwargs['automationAction']
+        if 'eventAction' in kwargs:
+            event_action = kwargs['eventAction']
+        if 'pagerdutyAutomationAction' in kwargs:
+            pagerduty_automation_action = kwargs['pagerdutyAutomationAction']
+        if 'routeTo' in kwargs:
+            route_to = kwargs['routeTo']
+
         if annotate is not None:
             _setter("annotate", annotate)
         if automation_action is not None:
@@ -2187,7 +2289,11 @@ class EventOrchestrationServiceCatchAllActionsAutomationAction(dict):
              auto_send: Optional[bool] = None,
              headers: Optional[Sequence['outputs.EventOrchestrationServiceCatchAllActionsAutomationActionHeader']] = None,
              parameters: Optional[Sequence['outputs.EventOrchestrationServiceCatchAllActionsAutomationActionParameter']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoSend' in kwargs:
+            auto_send = kwargs['autoSend']
+
         _setter("name", name)
         _setter("url", url)
         if auto_send is not None:
@@ -2257,7 +2363,9 @@ class EventOrchestrationServiceCatchAllActionsAutomationActionHeader(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2297,7 +2405,9 @@ class EventOrchestrationServiceCatchAllActionsAutomationActionParameter(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2347,7 +2457,9 @@ class EventOrchestrationServiceCatchAllActionsExtraction(dict):
              regex: Optional[str] = None,
              source: Optional[str] = None,
              template: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("target", target)
         if regex is not None:
             _setter("regex", regex)
@@ -2423,7 +2535,11 @@ class EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              action_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionId' in kwargs:
+            action_id = kwargs['actionId']
+
         _setter("action_id", action_id)
 
     @property
@@ -2462,7 +2578,9 @@ class EventOrchestrationServiceCatchAllActionsVariable(dict):
              path: str,
              type: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("path", path)
         _setter("type", type)
@@ -2519,7 +2637,9 @@ class EventOrchestrationServiceSet(dict):
              _setter: Callable[[Any, Any], None],
              id: str,
              rules: Optional[Sequence['outputs.EventOrchestrationServiceSetRule']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         if rules is not None:
             _setter("rules", rules)
@@ -2569,7 +2689,9 @@ class EventOrchestrationServiceSetRule(dict):
              disabled: Optional[bool] = None,
              id: Optional[str] = None,
              label: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("actions", actions)
         if conditions is not None:
             _setter("conditions", conditions)
@@ -2699,7 +2821,17 @@ class EventOrchestrationServiceSetRuleActions(dict):
              suppress: Optional[bool] = None,
              suspend: Optional[int] = None,
              variables: Optional[Sequence['outputs.EventOrchestrationServiceSetRuleActionsVariable']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAction' in kwargs:
+            automation_action = kwargs['automationAction']
+        if 'eventAction' in kwargs:
+            event_action = kwargs['eventAction']
+        if 'pagerdutyAutomationAction' in kwargs:
+            pagerduty_automation_action = kwargs['pagerdutyAutomationAction']
+        if 'routeTo' in kwargs:
+            route_to = kwargs['routeTo']
+
         if annotate is not None:
             _setter("annotate", annotate)
         if automation_action is not None:
@@ -2860,7 +2992,11 @@ class EventOrchestrationServiceSetRuleActionsAutomationAction(dict):
              auto_send: Optional[bool] = None,
              headers: Optional[Sequence['outputs.EventOrchestrationServiceSetRuleActionsAutomationActionHeader']] = None,
              parameters: Optional[Sequence['outputs.EventOrchestrationServiceSetRuleActionsAutomationActionParameter']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoSend' in kwargs:
+            auto_send = kwargs['autoSend']
+
         _setter("name", name)
         _setter("url", url)
         if auto_send is not None:
@@ -2930,7 +3066,9 @@ class EventOrchestrationServiceSetRuleActionsAutomationActionHeader(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2970,7 +3108,9 @@ class EventOrchestrationServiceSetRuleActionsAutomationActionParameter(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3020,7 +3160,9 @@ class EventOrchestrationServiceSetRuleActionsExtraction(dict):
              regex: Optional[str] = None,
              source: Optional[str] = None,
              template: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("target", target)
         if regex is not None:
             _setter("regex", regex)
@@ -3096,7 +3238,11 @@ class EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              action_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionId' in kwargs:
+            action_id = kwargs['actionId']
+
         _setter("action_id", action_id)
 
     @property
@@ -3135,7 +3281,9 @@ class EventOrchestrationServiceSetRuleActionsVariable(dict):
              path: str,
              type: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("path", path)
         _setter("type", type)
@@ -3189,7 +3337,9 @@ class EventOrchestrationServiceSetRuleCondition(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              expression: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("expression", expression)
 
     @property
@@ -3216,7 +3366,9 @@ class EventOrchestrationUnroutedCatchAll(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              actions: 'outputs.EventOrchestrationUnroutedCatchAllActions',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("actions", actions)
 
     @property
@@ -3275,7 +3427,11 @@ class EventOrchestrationUnroutedCatchAllActions(dict):
              severity: Optional[str] = None,
              suppress: Optional[bool] = None,
              variables: Optional[Sequence['outputs.EventOrchestrationUnroutedCatchAllActionsVariable']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventAction' in kwargs:
+            event_action = kwargs['eventAction']
+
         if event_action is not None:
             _setter("event_action", event_action)
         if extractions is not None:
@@ -3354,7 +3510,9 @@ class EventOrchestrationUnroutedCatchAllActionsExtraction(dict):
              regex: Optional[str] = None,
              source: Optional[str] = None,
              template: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("target", target)
         if regex is not None:
             _setter("regex", regex)
@@ -3425,7 +3583,9 @@ class EventOrchestrationUnroutedCatchAllActionsVariable(dict):
              path: str,
              type: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("path", path)
         _setter("type", type)
@@ -3482,7 +3642,9 @@ class EventOrchestrationUnroutedSet(dict):
              _setter: Callable[[Any, Any], None],
              id: str,
              rules: Optional[Sequence['outputs.EventOrchestrationUnroutedSetRule']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         if rules is not None:
             _setter("rules", rules)
@@ -3532,7 +3694,9 @@ class EventOrchestrationUnroutedSetRule(dict):
              disabled: Optional[bool] = None,
              id: Optional[str] = None,
              label: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("actions", actions)
         if conditions is not None:
             _setter("conditions", conditions)
@@ -3634,7 +3798,13 @@ class EventOrchestrationUnroutedSetRuleActions(dict):
              route_to: Optional[str] = None,
              severity: Optional[str] = None,
              variables: Optional[Sequence['outputs.EventOrchestrationUnroutedSetRuleActionsVariable']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventAction' in kwargs:
+            event_action = kwargs['eventAction']
+        if 'routeTo' in kwargs:
+            route_to = kwargs['routeTo']
+
         if event_action is not None:
             _setter("event_action", event_action)
         if extractions is not None:
@@ -3716,7 +3886,9 @@ class EventOrchestrationUnroutedSetRuleActionsExtraction(dict):
              regex: Optional[str] = None,
              source: Optional[str] = None,
              template: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("target", target)
         if regex is not None:
             _setter("regex", regex)
@@ -3787,7 +3959,9 @@ class EventOrchestrationUnroutedSetRuleActionsVariable(dict):
              path: str,
              type: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("path", path)
         _setter("type", type)
@@ -3841,7 +4015,9 @@ class EventOrchestrationUnroutedSetRuleCondition(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              expression: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("expression", expression)
 
     @property
@@ -3880,7 +4056,9 @@ class IncidentWorkflowStep(dict):
              name: str,
              id: Optional[str] = None,
              inputs: Optional[Sequence['outputs.IncidentWorkflowStepInput']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("action", action)
         _setter("name", name)
         if id is not None:
@@ -3943,7 +4121,9 @@ class IncidentWorkflowStepInput(dict):
              name: str,
              value: str,
              generated: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
         if generated is not None:
@@ -4039,7 +4219,15 @@ class ResponsePlayResponder(dict):
              services: Optional[Sequence['outputs.ResponsePlayResponderService']] = None,
              teams: Optional[Sequence['outputs.ResponsePlayResponderTeam']] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'escalationRules' in kwargs:
+            escalation_rules = kwargs['escalationRules']
+        if 'numLoops' in kwargs:
+            num_loops = kwargs['numLoops']
+        if 'onCallHandoffNotifications' in kwargs:
+            on_call_handoff_notifications = kwargs['onCallHandoffNotifications']
+
         if description is not None:
             _setter("description", description)
         if escalation_rules is not None:
@@ -4172,7 +4360,11 @@ class ResponsePlayResponderEscalationRule(dict):
              targets: Sequence['outputs.ResponsePlayResponderEscalationRuleTarget'],
              escalation_delay_in_minutes: Optional[int] = None,
              id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'escalationDelayInMinutes' in kwargs:
+            escalation_delay_in_minutes = kwargs['escalationDelayInMinutes']
+
         _setter("targets", targets)
         if escalation_delay_in_minutes is not None:
             _setter("escalation_delay_in_minutes", escalation_delay_in_minutes)
@@ -4223,7 +4415,9 @@ class ResponsePlayResponderEscalationRuleTarget(dict):
              _setter: Callable[[Any, Any], None],
              id: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
             _setter("id", id)
         if type is not None:
@@ -4265,7 +4459,9 @@ class ResponsePlayResponderService(dict):
              _setter: Callable[[Any, Any], None],
              id: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
             _setter("id", id)
         if type is not None:
@@ -4307,7 +4503,9 @@ class ResponsePlayResponderTeam(dict):
              _setter: Callable[[Any, Any], None],
              type: str,
              id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if id is not None:
             _setter("id", id)
@@ -4348,7 +4546,9 @@ class ResponsePlaySubscriber(dict):
              _setter: Callable[[Any, Any], None],
              id: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
             _setter("id", id)
         if type is not None:
@@ -4431,7 +4631,11 @@ class RulesetRuleActions(dict):
              severities: Optional[Sequence['outputs.RulesetRuleActionsSeverity']] = None,
              suppresses: Optional[Sequence['outputs.RulesetRuleActionsSuppress']] = None,
              suspends: Optional[Sequence['outputs.RulesetRuleActionsSuspend']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventActions' in kwargs:
+            event_actions = kwargs['eventActions']
+
         if annotates is not None:
             _setter("annotates", annotates)
         if event_actions is not None:
@@ -4529,7 +4733,9 @@ class RulesetRuleActionsAnnotate(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if value is not None:
             _setter("value", value)
 
@@ -4557,7 +4763,9 @@ class RulesetRuleActionsEventAction(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if value is not None:
             _setter("value", value)
 
@@ -4601,7 +4809,9 @@ class RulesetRuleActionsExtraction(dict):
              source: Optional[str] = None,
              target: Optional[str] = None,
              template: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if regex is not None:
             _setter("regex", regex)
         if source is not None:
@@ -4663,7 +4873,9 @@ class RulesetRuleActionsPriority(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if value is not None:
             _setter("value", value)
 
@@ -4691,7 +4903,9 @@ class RulesetRuleActionsRoute(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if value is not None:
             _setter("value", value)
 
@@ -4719,7 +4933,9 @@ class RulesetRuleActionsSeverity(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if value is not None:
             _setter("value", value)
 
@@ -4780,7 +4996,15 @@ class RulesetRuleActionsSuppress(dict):
              threshold_time_unit: Optional[str] = None,
              threshold_value: Optional[int] = None,
              value: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'thresholdTimeAmount' in kwargs:
+            threshold_time_amount = kwargs['thresholdTimeAmount']
+        if 'thresholdTimeUnit' in kwargs:
+            threshold_time_unit = kwargs['thresholdTimeUnit']
+        if 'thresholdValue' in kwargs:
+            threshold_value = kwargs['thresholdValue']
+
         if threshold_time_amount is not None:
             _setter("threshold_time_amount", threshold_time_amount)
         if threshold_time_unit is not None:
@@ -4838,7 +5062,9 @@ class RulesetRuleActionsSuspend(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if value is not None:
             _setter("value", value)
 
@@ -4870,7 +5096,9 @@ class RulesetRuleConditions(dict):
              _setter: Callable[[Any, Any], None],
              operator: Optional[str] = None,
              subconditions: Optional[Sequence['outputs.RulesetRuleConditionsSubcondition']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if operator is not None:
             _setter("operator", operator)
         if subconditions is not None:
@@ -4912,7 +5140,9 @@ class RulesetRuleConditionsSubcondition(dict):
              _setter: Callable[[Any, Any], None],
              operator: Optional[str] = None,
              parameters: Optional[Sequence['outputs.RulesetRuleConditionsSubconditionParameter']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if operator is not None:
             _setter("operator", operator)
         if parameters is not None:
@@ -4953,7 +5183,9 @@ class RulesetRuleConditionsSubconditionParameter(dict):
              _setter: Callable[[Any, Any], None],
              path: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if path is not None:
             _setter("path", path)
         if value is not None:
@@ -5011,7 +5243,13 @@ class RulesetRuleTimeFrame(dict):
              _setter: Callable[[Any, Any], None],
              active_betweens: Optional[Sequence['outputs.RulesetRuleTimeFrameActiveBetween']] = None,
              scheduled_weeklies: Optional[Sequence['outputs.RulesetRuleTimeFrameScheduledWeekly']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeBetweens' in kwargs:
+            active_betweens = kwargs['activeBetweens']
+        if 'scheduledWeeklies' in kwargs:
+            scheduled_weeklies = kwargs['scheduledWeeklies']
+
         if active_betweens is not None:
             _setter("active_betweens", active_betweens)
         if scheduled_weeklies is not None:
@@ -5071,7 +5309,13 @@ class RulesetRuleTimeFrameActiveBetween(dict):
              _setter: Callable[[Any, Any], None],
              end_time: Optional[int] = None,
              start_time: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         if end_time is not None:
             _setter("end_time", end_time)
         if start_time is not None:
@@ -5135,7 +5379,11 @@ class RulesetRuleTimeFrameScheduledWeekly(dict):
              start_time: Optional[int] = None,
              timezone: Optional[str] = None,
              weekdays: Optional[Sequence[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         if duration is not None:
             _setter("duration", duration)
         if start_time is not None:
@@ -5196,7 +5444,9 @@ class RulesetRuleVariable(dict):
              name: Optional[str] = None,
              parameters: Optional[Sequence['outputs.RulesetRuleVariableParameter']] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if parameters is not None:
@@ -5238,7 +5488,9 @@ class RulesetRuleVariableParameter(dict):
              _setter: Callable[[Any, Any], None],
              path: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if path is not None:
             _setter("path", path)
         if value is not None:
@@ -5273,7 +5525,9 @@ class RulesetTeam(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
 
     @property
@@ -5320,7 +5574,11 @@ class ScheduleFinalSchedule(dict):
              _setter: Callable[[Any, Any], None],
              name: Optional[str] = None,
              rendered_coverage_percentage: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'renderedCoveragePercentage' in kwargs:
+            rendered_coverage_percentage = kwargs['renderedCoveragePercentage']
+
         if name is not None:
             _setter("name", name)
         if rendered_coverage_percentage is not None:
@@ -5407,7 +5665,15 @@ class ScheduleLayer(dict):
              name: Optional[str] = None,
              rendered_coverage_percentage: Optional[str] = None,
              restrictions: Optional[Sequence['outputs.ScheduleLayerRestriction']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'rotationTurnLengthSeconds' in kwargs:
+            rotation_turn_length_seconds = kwargs['rotationTurnLengthSeconds']
+        if 'rotationVirtualStart' in kwargs:
+            rotation_virtual_start = kwargs['rotationVirtualStart']
+        if 'renderedCoveragePercentage' in kwargs:
+            rendered_coverage_percentage = kwargs['renderedCoveragePercentage']
+
         _setter("rotation_turn_length_seconds", rotation_turn_length_seconds)
         _setter("rotation_virtual_start", rotation_virtual_start)
         _setter("start", start)
@@ -5541,7 +5807,15 @@ class ScheduleLayerRestriction(dict):
              start_time_of_day: str,
              type: str,
              start_day_of_week: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'durationSeconds' in kwargs:
+            duration_seconds = kwargs['durationSeconds']
+        if 'startTimeOfDay' in kwargs:
+            start_time_of_day = kwargs['startTimeOfDay']
+        if 'startDayOfWeek' in kwargs:
+            start_day_of_week = kwargs['startDayOfWeek']
+
         _setter("duration_seconds", duration_seconds)
         _setter("start_time_of_day", start_time_of_day)
         _setter("type", type)
@@ -5600,7 +5874,9 @@ class ServiceAlertGroupingParameters(dict):
              _setter: Callable[[Any, Any], None],
              config: Optional['outputs.ServiceAlertGroupingParametersConfig'] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if config is not None:
             _setter("config", config)
         if type is not None:
@@ -5646,7 +5922,9 @@ class ServiceAlertGroupingParametersConfig(dict):
              aggregate: Optional[str] = None,
              fields: Optional[Sequence[str]] = None,
              timeout: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if aggregate is not None:
             _setter("aggregate", aggregate)
         if fields is not None:
@@ -5703,7 +5981,9 @@ class ServiceAutoPauseNotificationsParameters(dict):
              _setter: Callable[[Any, Any], None],
              enabled: Optional[bool] = None,
              timeout: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if enabled is not None:
             _setter("enabled", enabled)
         if timeout is not None:
@@ -5773,7 +6053,13 @@ class ServiceDependencyDependency(dict):
              dependent_services: Sequence['outputs.ServiceDependencyDependencyDependentService'],
              supporting_services: Sequence['outputs.ServiceDependencyDependencySupportingService'],
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dependentServices' in kwargs:
+            dependent_services = kwargs['dependentServices']
+        if 'supportingServices' in kwargs:
+            supporting_services = kwargs['supportingServices']
+
         _setter("dependent_services", dependent_services)
         _setter("supporting_services", supporting_services)
         if type is not None:
@@ -5823,7 +6109,9 @@ class ServiceDependencyDependencyDependentService(dict):
              _setter: Callable[[Any, Any], None],
              id: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         _setter("type", type)
 
@@ -5863,7 +6151,9 @@ class ServiceDependencyDependencySupportingService(dict):
              _setter: Callable[[Any, Any], None],
              id: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         _setter("type", type)
 
@@ -5940,7 +6230,11 @@ class ServiceEventRuleActions(dict):
              severities: Optional[Sequence['outputs.ServiceEventRuleActionsSeverity']] = None,
              suppresses: Optional[Sequence['outputs.ServiceEventRuleActionsSuppress']] = None,
              suspends: Optional[Sequence['outputs.ServiceEventRuleActionsSuspend']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventActions' in kwargs:
+            event_actions = kwargs['eventActions']
+
         if annotates is not None:
             _setter("annotates", annotates)
         if event_actions is not None:
@@ -6028,7 +6322,9 @@ class ServiceEventRuleActionsAnnotate(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if value is not None:
             _setter("value", value)
 
@@ -6056,7 +6352,9 @@ class ServiceEventRuleActionsEventAction(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if value is not None:
             _setter("value", value)
 
@@ -6100,7 +6398,9 @@ class ServiceEventRuleActionsExtraction(dict):
              source: Optional[str] = None,
              target: Optional[str] = None,
              template: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if regex is not None:
             _setter("regex", regex)
         if source is not None:
@@ -6162,7 +6462,9 @@ class ServiceEventRuleActionsPriority(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if value is not None:
             _setter("value", value)
 
@@ -6190,7 +6492,9 @@ class ServiceEventRuleActionsSeverity(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if value is not None:
             _setter("value", value)
 
@@ -6251,7 +6555,15 @@ class ServiceEventRuleActionsSuppress(dict):
              threshold_time_unit: Optional[str] = None,
              threshold_value: Optional[int] = None,
              value: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'thresholdTimeAmount' in kwargs:
+            threshold_time_amount = kwargs['thresholdTimeAmount']
+        if 'thresholdTimeUnit' in kwargs:
+            threshold_time_unit = kwargs['thresholdTimeUnit']
+        if 'thresholdValue' in kwargs:
+            threshold_value = kwargs['thresholdValue']
+
         if threshold_time_amount is not None:
             _setter("threshold_time_amount", threshold_time_amount)
         if threshold_time_unit is not None:
@@ -6309,7 +6621,9 @@ class ServiceEventRuleActionsSuspend(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if value is not None:
             _setter("value", value)
 
@@ -6341,7 +6655,9 @@ class ServiceEventRuleConditions(dict):
              _setter: Callable[[Any, Any], None],
              operator: Optional[str] = None,
              subconditions: Optional[Sequence['outputs.ServiceEventRuleConditionsSubcondition']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if operator is not None:
             _setter("operator", operator)
         if subconditions is not None:
@@ -6383,7 +6699,9 @@ class ServiceEventRuleConditionsSubcondition(dict):
              _setter: Callable[[Any, Any], None],
              operator: Optional[str] = None,
              parameters: Optional[Sequence['outputs.ServiceEventRuleConditionsSubconditionParameter']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if operator is not None:
             _setter("operator", operator)
         if parameters is not None:
@@ -6425,7 +6743,9 @@ class ServiceEventRuleConditionsSubconditionParameter(dict):
              _setter: Callable[[Any, Any], None],
              path: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if path is not None:
             _setter("path", path)
         if value is not None:
@@ -6486,7 +6806,13 @@ class ServiceEventRuleTimeFrame(dict):
              _setter: Callable[[Any, Any], None],
              active_betweens: Optional[Sequence['outputs.ServiceEventRuleTimeFrameActiveBetween']] = None,
              scheduled_weeklies: Optional[Sequence['outputs.ServiceEventRuleTimeFrameScheduledWeekly']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeBetweens' in kwargs:
+            active_betweens = kwargs['activeBetweens']
+        if 'scheduledWeeklies' in kwargs:
+            scheduled_weeklies = kwargs['scheduledWeeklies']
+
         if active_betweens is not None:
             _setter("active_betweens", active_betweens)
         if scheduled_weeklies is not None:
@@ -6547,7 +6873,13 @@ class ServiceEventRuleTimeFrameActiveBetween(dict):
              _setter: Callable[[Any, Any], None],
              end_time: Optional[int] = None,
              start_time: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         if end_time is not None:
             _setter("end_time", end_time)
         if start_time is not None:
@@ -6614,7 +6946,11 @@ class ServiceEventRuleTimeFrameScheduledWeekly(dict):
              start_time: Optional[int] = None,
              timezone: Optional[str] = None,
              weekdays: Optional[Sequence[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         if duration is not None:
             _setter("duration", duration)
         if start_time is not None:
@@ -6680,7 +7016,9 @@ class ServiceEventRuleVariable(dict):
              name: Optional[str] = None,
              parameters: Optional[Sequence['outputs.ServiceEventRuleVariableParameter']] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if parameters is not None:
@@ -6732,7 +7070,9 @@ class ServiceEventRuleVariableParameter(dict):
              _setter: Callable[[Any, Any], None],
              path: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if path is not None:
             _setter("path", path)
         if value is not None:
@@ -6805,7 +7145,13 @@ class ServiceIncidentUrgencyRule(dict):
              during_support_hours: Optional['outputs.ServiceIncidentUrgencyRuleDuringSupportHours'] = None,
              outside_support_hours: Optional['outputs.ServiceIncidentUrgencyRuleOutsideSupportHours'] = None,
              urgency: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'duringSupportHours' in kwargs:
+            during_support_hours = kwargs['duringSupportHours']
+        if 'outsideSupportHours' in kwargs:
+            outside_support_hours = kwargs['outsideSupportHours']
+
         _setter("type", type)
         if during_support_hours is not None:
             _setter("during_support_hours", during_support_hours)
@@ -6870,7 +7216,9 @@ class ServiceIncidentUrgencyRuleDuringSupportHours(dict):
              _setter: Callable[[Any, Any], None],
              type: Optional[str] = None,
              urgency: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if type is not None:
             _setter("type", type)
         if urgency is not None:
@@ -6912,7 +7260,9 @@ class ServiceIncidentUrgencyRuleOutsideSupportHours(dict):
              _setter: Callable[[Any, Any], None],
              type: Optional[str] = None,
              urgency: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if type is not None:
             _setter("type", type)
         if urgency is not None:
@@ -7001,7 +7351,21 @@ class ServiceIntegrationEmailFilter(dict):
              id: Optional[str] = None,
              subject_mode: Optional[str] = None,
              subject_regex: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bodyMode' in kwargs:
+            body_mode = kwargs['bodyMode']
+        if 'bodyRegex' in kwargs:
+            body_regex = kwargs['bodyRegex']
+        if 'fromEmailMode' in kwargs:
+            from_email_mode = kwargs['fromEmailMode']
+        if 'fromEmailRegex' in kwargs:
+            from_email_regex = kwargs['fromEmailRegex']
+        if 'subjectMode' in kwargs:
+            subject_mode = kwargs['subjectMode']
+        if 'subjectRegex' in kwargs:
+            subject_regex = kwargs['subjectRegex']
+
         if body_mode is not None:
             _setter("body_mode", body_mode)
         if body_regex is not None:
@@ -7118,7 +7482,13 @@ class ServiceIntegrationEmailParser(dict):
              match_predicate: 'outputs.ServiceIntegrationEmailParserMatchPredicate',
              id: Optional[int] = None,
              value_extractors: Optional[Sequence['outputs.ServiceIntegrationEmailParserValueExtractor']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchPredicate' in kwargs:
+            match_predicate = kwargs['matchPredicate']
+        if 'valueExtractors' in kwargs:
+            value_extractors = kwargs['valueExtractors']
+
         _setter("action", action)
         _setter("match_predicate", match_predicate)
         if id is not None:
@@ -7171,7 +7541,9 @@ class ServiceIntegrationEmailParserMatchPredicate(dict):
              _setter: Callable[[Any, Any], None],
              type: str,
              predicates: Optional[Sequence['outputs.ServiceIntegrationEmailParserMatchPredicatePredicate']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if predicates is not None:
             _setter("predicates", predicates)
@@ -7216,7 +7588,9 @@ class ServiceIntegrationEmailParserMatchPredicatePredicate(dict):
              matcher: Optional[str] = None,
              part: Optional[str] = None,
              predicates: Optional[Sequence['outputs.ServiceIntegrationEmailParserMatchPredicatePredicatePredicate']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if matcher is not None:
             _setter("matcher", matcher)
@@ -7278,7 +7652,9 @@ class ServiceIntegrationEmailParserMatchPredicatePredicatePredicate(dict):
              matcher: str,
              part: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("matcher", matcher)
         _setter("part", part)
         _setter("type", type)
@@ -7364,7 +7740,15 @@ class ServiceIntegrationEmailParserValueExtractor(dict):
              ends_before: Optional[str] = None,
              regex: Optional[str] = None,
              starts_after: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'valueName' in kwargs:
+            value_name = kwargs['valueName']
+        if 'endsBefore' in kwargs:
+            ends_before = kwargs['endsBefore']
+        if 'startsAfter' in kwargs:
+            starts_after = kwargs['startsAfter']
+
         _setter("part", part)
         _setter("type", type)
         _setter("value_name", value_name)
@@ -7460,7 +7844,11 @@ class ServiceScheduledAction(dict):
              ats: Optional[Sequence['outputs.ServiceScheduledActionAt']] = None,
              to_urgency: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'toUrgency' in kwargs:
+            to_urgency = kwargs['toUrgency']
+
         if ats is not None:
             _setter("ats", ats)
         if to_urgency is not None:
@@ -7559,7 +7947,9 @@ class ServiceScheduledActionAt(dict):
              _setter: Callable[[Any, Any], None],
              name: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if type is not None:
@@ -7688,7 +8078,17 @@ class ServiceSupportHours(dict):
              start_time: Optional[str] = None,
              time_zone: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'daysOfWeeks' in kwargs:
+            days_of_weeks = kwargs['daysOfWeeks']
+        if 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         if days_of_weeks is not None:
             _setter("days_of_weeks", days_of_weeks)
         if end_time is not None:
@@ -7783,7 +8183,9 @@ class SlackConnectionConfig(dict):
              events: Sequence[str],
              priorities: Optional[Sequence[str]] = None,
              urgency: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("events", events)
         if priorities is not None:
             _setter("priorities", priorities)
@@ -7875,7 +8277,13 @@ class WebhookSubscriptionDeliveryMethod(dict):
              temporarily_disabled: Optional[bool] = None,
              type: Optional[str] = None,
              url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customHeaders' in kwargs:
+            custom_headers = kwargs['customHeaders']
+        if 'temporarilyDisabled' in kwargs:
+            temporarily_disabled = kwargs['temporarilyDisabled']
+
         if custom_headers is not None:
             _setter("custom_headers", custom_headers)
         if temporarily_disabled is not None:
@@ -7933,7 +8341,9 @@ class WebhookSubscriptionDeliveryMethodCustomHeader(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -7967,7 +8377,9 @@ class WebhookSubscriptionFilter(dict):
              _setter: Callable[[Any, Any], None],
              type: str,
              id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if id is not None:
             _setter("id", id)
@@ -8020,7 +8432,17 @@ class GetAutomationActionsActionActionDataReferenceResult(dict):
              process_automation_job_id: str,
              process_automation_node_filter: str,
              script: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'invocationCommand' in kwargs:
+            invocation_command = kwargs['invocationCommand']
+        if 'processAutomationJobArguments' in kwargs:
+            process_automation_job_arguments = kwargs['processAutomationJobArguments']
+        if 'processAutomationJobId' in kwargs:
+            process_automation_job_id = kwargs['processAutomationJobId']
+        if 'processAutomationNodeFilter' in kwargs:
+            process_automation_node_filter = kwargs['processAutomationNodeFilter']
+
         _setter("invocation_command", invocation_command)
         _setter("process_automation_job_arguments", process_automation_job_arguments)
         _setter("process_automation_job_id", process_automation_job_id)
@@ -8089,7 +8511,9 @@ class GetEventOrchestrationIntegrationDetailResult(dict):
              id: str,
              label: str,
              parameters: Sequence['outputs.GetEventOrchestrationIntegrationDetailParameterResult'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         _setter("label", label)
         _setter("parameters", parameters)
@@ -8132,7 +8556,11 @@ class GetEventOrchestrationIntegrationDetailParameterResult(dict):
              _setter: Callable[[Any, Any], None],
              routing_key: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'routingKey' in kwargs:
+            routing_key = kwargs['routingKey']
+
         _setter("routing_key", routing_key)
         _setter("type", type)
 
@@ -8172,7 +8600,11 @@ class GetEventOrchestrationIntegrationParameterResult(dict):
              _setter: Callable[[Any, Any], None],
              routing_key: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'routingKey' in kwargs:
+            routing_key = kwargs['routingKey']
+
         _setter("routing_key", routing_key)
         _setter("type", type)
 
@@ -8216,7 +8648,9 @@ class GetEventOrchestrationsEventOrchestrationResult(dict):
              id: str,
              integrations: Sequence['outputs.GetEventOrchestrationsEventOrchestrationIntegrationResult'],
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         _setter("integrations", integrations)
         _setter("name", name)
@@ -8267,7 +8701,9 @@ class GetEventOrchestrationsEventOrchestrationIntegrationResult(dict):
              id: str,
              label: str,
              parameters: Sequence['outputs.GetEventOrchestrationsEventOrchestrationIntegrationParameterResult'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         _setter("label", label)
         _setter("parameters", parameters)
@@ -8310,7 +8746,11 @@ class GetEventOrchestrationsEventOrchestrationIntegrationParameterResult(dict):
              _setter: Callable[[Any, Any], None],
              routing_key: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'routingKey' in kwargs:
+            routing_key = kwargs['routingKey']
+
         _setter("routing_key", routing_key)
         _setter("type", type)
 
@@ -8383,7 +8823,19 @@ class GetLicensesLicenseResult(dict):
              summary: str,
              type: str,
              valid_roles: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allocationsAvailable' in kwargs:
+            allocations_available = kwargs['allocationsAvailable']
+        if 'currentValue' in kwargs:
+            current_value = kwargs['currentValue']
+        if 'htmlUrl' in kwargs:
+            html_url = kwargs['htmlUrl']
+        if 'roleGroup' in kwargs:
+            role_group = kwargs['roleGroup']
+        if 'validRoles' in kwargs:
+            valid_roles = kwargs['validRoles']
+
         _setter("allocations_available", allocations_available)
         _setter("current_value", current_value)
         _setter("description", description)
@@ -8495,7 +8947,9 @@ class GetServiceTeamResult(dict):
              _setter: Callable[[Any, Any], None],
              id: str,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         _setter("name", name)
 
@@ -8539,7 +8993,9 @@ class GetUsersUserResult(dict):
              email: str,
              id: str,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("email", email)
         _setter("id", id)
         _setter("name", name)

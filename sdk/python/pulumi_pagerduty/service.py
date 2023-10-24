@@ -77,7 +77,33 @@ class ServiceArgs:
              response_play: Optional[pulumi.Input[str]] = None,
              scheduled_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceScheduledActionArgs']]]] = None,
              support_hours: Optional[pulumi.Input['ServiceSupportHoursArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'escalationPolicy' in kwargs:
+            escalation_policy = kwargs['escalationPolicy']
+        if 'acknowledgementTimeout' in kwargs:
+            acknowledgement_timeout = kwargs['acknowledgementTimeout']
+        if 'alertCreation' in kwargs:
+            alert_creation = kwargs['alertCreation']
+        if 'alertGrouping' in kwargs:
+            alert_grouping = kwargs['alertGrouping']
+        if 'alertGroupingParameters' in kwargs:
+            alert_grouping_parameters = kwargs['alertGroupingParameters']
+        if 'alertGroupingTimeout' in kwargs:
+            alert_grouping_timeout = kwargs['alertGroupingTimeout']
+        if 'autoPauseNotificationsParameters' in kwargs:
+            auto_pause_notifications_parameters = kwargs['autoPauseNotificationsParameters']
+        if 'autoResolveTimeout' in kwargs:
+            auto_resolve_timeout = kwargs['autoResolveTimeout']
+        if 'incidentUrgencyRule' in kwargs:
+            incident_urgency_rule = kwargs['incidentUrgencyRule']
+        if 'responsePlay' in kwargs:
+            response_play = kwargs['responsePlay']
+        if 'scheduledActions' in kwargs:
+            scheduled_actions = kwargs['scheduledActions']
+        if 'supportHours' in kwargs:
+            support_hours = kwargs['supportHours']
+
         _setter("escalation_policy", escalation_policy)
         if acknowledgement_timeout is not None:
             _setter("acknowledgement_timeout", acknowledgement_timeout)
@@ -361,7 +387,39 @@ class _ServiceState:
              status: Optional[pulumi.Input[str]] = None,
              support_hours: Optional[pulumi.Input['ServiceSupportHoursArgs']] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'acknowledgementTimeout' in kwargs:
+            acknowledgement_timeout = kwargs['acknowledgementTimeout']
+        if 'alertCreation' in kwargs:
+            alert_creation = kwargs['alertCreation']
+        if 'alertGrouping' in kwargs:
+            alert_grouping = kwargs['alertGrouping']
+        if 'alertGroupingParameters' in kwargs:
+            alert_grouping_parameters = kwargs['alertGroupingParameters']
+        if 'alertGroupingTimeout' in kwargs:
+            alert_grouping_timeout = kwargs['alertGroupingTimeout']
+        if 'autoPauseNotificationsParameters' in kwargs:
+            auto_pause_notifications_parameters = kwargs['autoPauseNotificationsParameters']
+        if 'autoResolveTimeout' in kwargs:
+            auto_resolve_timeout = kwargs['autoResolveTimeout']
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'escalationPolicy' in kwargs:
+            escalation_policy = kwargs['escalationPolicy']
+        if 'htmlUrl' in kwargs:
+            html_url = kwargs['htmlUrl']
+        if 'incidentUrgencyRule' in kwargs:
+            incident_urgency_rule = kwargs['incidentUrgencyRule']
+        if 'lastIncidentTimestamp' in kwargs:
+            last_incident_timestamp = kwargs['lastIncidentTimestamp']
+        if 'responsePlay' in kwargs:
+            response_play = kwargs['responsePlay']
+        if 'scheduledActions' in kwargs:
+            scheduled_actions = kwargs['scheduledActions']
+        if 'supportHours' in kwargs:
+            support_hours = kwargs['supportHours']
+
         if acknowledgement_timeout is not None:
             _setter("acknowledgement_timeout", acknowledgement_timeout)
         if alert_creation is not None:

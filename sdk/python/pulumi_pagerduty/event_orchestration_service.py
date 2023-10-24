@@ -41,7 +41,13 @@ class EventOrchestrationServiceArgs:
              service: pulumi.Input[str],
              sets: pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetArgs']]],
              enable_event_orchestration_for_service: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catchAll' in kwargs:
+            catch_all = kwargs['catchAll']
+        if 'enableEventOrchestrationForService' in kwargs:
+            enable_event_orchestration_for_service = kwargs['enableEventOrchestrationForService']
+
         _setter("catch_all", catch_all)
         _setter("service", service)
         _setter("sets", sets)
@@ -125,7 +131,13 @@ class _EventOrchestrationServiceState:
              enable_event_orchestration_for_service: Optional[pulumi.Input[bool]] = None,
              service: Optional[pulumi.Input[str]] = None,
              sets: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catchAll' in kwargs:
+            catch_all = kwargs['catchAll']
+        if 'enableEventOrchestrationForService' in kwargs:
+            enable_event_orchestration_for_service = kwargs['enableEventOrchestrationForService']
+
         if catch_all is not None:
             _setter("catch_all", catch_all)
         if enable_event_orchestration_for_service is not None:

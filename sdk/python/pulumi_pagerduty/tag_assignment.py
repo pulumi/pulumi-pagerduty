@@ -35,7 +35,15 @@ class TagAssignmentArgs:
              entity_id: pulumi.Input[str],
              entity_type: pulumi.Input[str],
              tag_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'entityId' in kwargs:
+            entity_id = kwargs['entityId']
+        if 'entityType' in kwargs:
+            entity_type = kwargs['entityType']
+        if 'tagId' in kwargs:
+            tag_id = kwargs['tagId']
+
         _setter("entity_id", entity_id)
         _setter("entity_type", entity_type)
         _setter("tag_id", tag_id)
@@ -101,7 +109,15 @@ class _TagAssignmentState:
              entity_id: Optional[pulumi.Input[str]] = None,
              entity_type: Optional[pulumi.Input[str]] = None,
              tag_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'entityId' in kwargs:
+            entity_id = kwargs['entityId']
+        if 'entityType' in kwargs:
+            entity_type = kwargs['entityType']
+        if 'tagId' in kwargs:
+            tag_id = kwargs['tagId']
+
         if entity_id is not None:
             _setter("entity_id", entity_id)
         if entity_type is not None:

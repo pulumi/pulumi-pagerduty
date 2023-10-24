@@ -65,7 +65,23 @@ class AutomationActionsActionArgs:
              runner_id: Optional[pulumi.Input[str]] = None,
              runner_type: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionDataReference' in kwargs:
+            action_data_reference = kwargs['actionDataReference']
+        if 'actionType' in kwargs:
+            action_type = kwargs['actionType']
+        if 'actionClassification' in kwargs:
+            action_classification = kwargs['actionClassification']
+        if 'creationTime' in kwargs:
+            creation_time = kwargs['creationTime']
+        if 'modifyTime' in kwargs:
+            modify_time = kwargs['modifyTime']
+        if 'runnerId' in kwargs:
+            runner_id = kwargs['runnerId']
+        if 'runnerType' in kwargs:
+            runner_type = kwargs['runnerType']
+
         _setter("action_data_reference", action_data_reference)
         _setter("action_type", action_type)
         if action_classification is not None:
@@ -258,7 +274,23 @@ class _AutomationActionsActionState:
              runner_id: Optional[pulumi.Input[str]] = None,
              runner_type: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionClassification' in kwargs:
+            action_classification = kwargs['actionClassification']
+        if 'actionDataReference' in kwargs:
+            action_data_reference = kwargs['actionDataReference']
+        if 'actionType' in kwargs:
+            action_type = kwargs['actionType']
+        if 'creationTime' in kwargs:
+            creation_time = kwargs['creationTime']
+        if 'modifyTime' in kwargs:
+            modify_time = kwargs['modifyTime']
+        if 'runnerId' in kwargs:
+            runner_id = kwargs['runnerId']
+        if 'runnerType' in kwargs:
+            runner_type = kwargs['runnerType']
+
         if action_classification is not None:
             _setter("action_classification", action_classification)
         if action_data_reference is not None:

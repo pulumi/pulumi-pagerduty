@@ -33,7 +33,11 @@ class EventOrchestrationIntegrationInitArgs:
              _setter: Callable[[Any, Any], None],
              event_orchestration: pulumi.Input[str],
              label: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventOrchestration' in kwargs:
+            event_orchestration = kwargs['eventOrchestration']
+
         _setter("event_orchestration", event_orchestration)
         _setter("label", label)
 
@@ -85,7 +89,11 @@ class _EventOrchestrationIntegrationState:
              event_orchestration: Optional[pulumi.Input[str]] = None,
              label: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationIntegrationParameterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventOrchestration' in kwargs:
+            event_orchestration = kwargs['eventOrchestration']
+
         if event_orchestration is not None:
             _setter("event_orchestration", event_orchestration)
         if label is not None:

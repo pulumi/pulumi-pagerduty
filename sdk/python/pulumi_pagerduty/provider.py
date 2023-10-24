@@ -42,7 +42,19 @@ class ProviderArgs:
              token: Optional[pulumi.Input[str]] = None,
              use_app_oauth_scoped_token: Optional[pulumi.Input['ProviderUseAppOauthScopedTokenArgs']] = None,
              user_token: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiUrlOverride' in kwargs:
+            api_url_override = kwargs['apiUrlOverride']
+        if 'serviceRegion' in kwargs:
+            service_region = kwargs['serviceRegion']
+        if 'skipCredentialsValidation' in kwargs:
+            skip_credentials_validation = kwargs['skipCredentialsValidation']
+        if 'useAppOauthScopedToken' in kwargs:
+            use_app_oauth_scoped_token = kwargs['useAppOauthScopedToken']
+        if 'userToken' in kwargs:
+            user_token = kwargs['userToken']
+
         if api_url_override is not None:
             _setter("api_url_override", api_url_override)
         if service_region is not None:

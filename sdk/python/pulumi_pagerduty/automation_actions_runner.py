@@ -47,7 +47,17 @@ class AutomationActionsRunnerArgs:
              name: Optional[pulumi.Input[str]] = None,
              runbook_api_key: Optional[pulumi.Input[str]] = None,
              runbook_base_uri: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'runnerType' in kwargs:
+            runner_type = kwargs['runnerType']
+        if 'lastSeen' in kwargs:
+            last_seen = kwargs['lastSeen']
+        if 'runbookApiKey' in kwargs:
+            runbook_api_key = kwargs['runbookApiKey']
+        if 'runbookBaseUri' in kwargs:
+            runbook_base_uri = kwargs['runbookBaseUri']
+
         _setter("runner_type", runner_type)
         if description is not None:
             _setter("description", description)
@@ -177,7 +187,19 @@ class _AutomationActionsRunnerState:
              runbook_base_uri: Optional[pulumi.Input[str]] = None,
              runner_type: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'creationTime' in kwargs:
+            creation_time = kwargs['creationTime']
+        if 'lastSeen' in kwargs:
+            last_seen = kwargs['lastSeen']
+        if 'runbookApiKey' in kwargs:
+            runbook_api_key = kwargs['runbookApiKey']
+        if 'runbookBaseUri' in kwargs:
+            runbook_base_uri = kwargs['runbookBaseUri']
+        if 'runnerType' in kwargs:
+            runner_type = kwargs['runnerType']
+
         if creation_time is not None:
             _setter("creation_time", creation_time)
         if description is not None:

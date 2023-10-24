@@ -41,7 +41,9 @@ class EventOrchestrationArgs:
              integrations: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationIntegrationArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              team: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if description is not None:
             _setter("description", description)
         if integrations is not None:
@@ -131,7 +133,9 @@ class _EventOrchestrationState:
              name: Optional[pulumi.Input[str]] = None,
              routes: Optional[pulumi.Input[int]] = None,
              team: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if description is not None:
             _setter("description", description)
         if integrations is not None:

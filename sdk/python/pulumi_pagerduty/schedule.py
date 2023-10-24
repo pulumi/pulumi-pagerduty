@@ -51,7 +51,11 @@ class ScheduleArgs:
              name: Optional[pulumi.Input[str]] = None,
              overflow: Optional[pulumi.Input[bool]] = None,
              teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         _setter("layers", layers)
         _setter("time_zone", time_zone)
         if description is None:
@@ -181,7 +185,13 @@ class _ScheduleState:
              overflow: Optional[pulumi.Input[bool]] = None,
              teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              time_zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'finalSchedules' in kwargs:
+            final_schedules = kwargs['finalSchedules']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         if description is None:
             description = 'Managed by Pulumi'
         if description is not None:

@@ -44,7 +44,11 @@ class EscalationPolicyArgs:
              name: Optional[pulumi.Input[str]] = None,
              num_loops: Optional[pulumi.Input[int]] = None,
              teams: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'numLoops' in kwargs:
+            num_loops = kwargs['numLoops']
+
         _setter("rules", rules)
         if description is None:
             description = 'Managed by Pulumi'
@@ -146,7 +150,11 @@ class _EscalationPolicyState:
              num_loops: Optional[pulumi.Input[int]] = None,
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['EscalationPolicyRuleArgs']]]] = None,
              teams: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'numLoops' in kwargs:
+            num_loops = kwargs['numLoops']
+
         if description is None:
             description = 'Managed by Pulumi'
         if description is not None:

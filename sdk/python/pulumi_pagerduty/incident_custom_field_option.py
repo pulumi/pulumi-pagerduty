@@ -35,7 +35,11 @@ class IncidentCustomFieldOptionArgs:
              data_type: pulumi.Input[str],
              field: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataType' in kwargs:
+            data_type = kwargs['dataType']
+
         _setter("data_type", data_type)
         _setter("field", field)
         _setter("value", value)
@@ -101,7 +105,11 @@ class _IncidentCustomFieldOptionState:
              data_type: Optional[pulumi.Input[str]] = None,
              field: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataType' in kwargs:
+            data_type = kwargs['dataType']
+
         if data_type is not None:
             _setter("data_type", data_type)
         if field is not None:

@@ -72,7 +72,19 @@ class ResponsePlayArgs:
              subscribers_message: Optional[pulumi.Input[str]] = None,
              team: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'from' in kwargs:
+            from_ = kwargs['from']
+        if 'conferenceNumber' in kwargs:
+            conference_number = kwargs['conferenceNumber']
+        if 'conferenceUrl' in kwargs:
+            conference_url = kwargs['conferenceUrl']
+        if 'respondersMessage' in kwargs:
+            responders_message = kwargs['respondersMessage']
+        if 'subscribersMessage' in kwargs:
+            subscribers_message = kwargs['subscribersMessage']
+
         _setter("from_", from_)
         if conference_number is not None:
             _setter("conference_number", conference_number)
@@ -300,7 +312,19 @@ class _ResponsePlayState:
              subscribers_message: Optional[pulumi.Input[str]] = None,
              team: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'conferenceNumber' in kwargs:
+            conference_number = kwargs['conferenceNumber']
+        if 'conferenceUrl' in kwargs:
+            conference_url = kwargs['conferenceUrl']
+        if 'from' in kwargs:
+            from_ = kwargs['from']
+        if 'respondersMessage' in kwargs:
+            responders_message = kwargs['respondersMessage']
+        if 'subscribersMessage' in kwargs:
+            subscribers_message = kwargs['subscribersMessage']
+
         if conference_number is not None:
             _setter("conference_number", conference_number)
         if conference_url is not None:

@@ -35,7 +35,15 @@ class BusinessServiceSubscriberArgs:
              business_service_id: pulumi.Input[str],
              subscriber_id: pulumi.Input[str],
              subscriber_type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'businessServiceId' in kwargs:
+            business_service_id = kwargs['businessServiceId']
+        if 'subscriberId' in kwargs:
+            subscriber_id = kwargs['subscriberId']
+        if 'subscriberType' in kwargs:
+            subscriber_type = kwargs['subscriberType']
+
         _setter("business_service_id", business_service_id)
         _setter("subscriber_id", subscriber_id)
         _setter("subscriber_type", subscriber_type)
@@ -101,7 +109,15 @@ class _BusinessServiceSubscriberState:
              business_service_id: Optional[pulumi.Input[str]] = None,
              subscriber_id: Optional[pulumi.Input[str]] = None,
              subscriber_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'businessServiceId' in kwargs:
+            business_service_id = kwargs['businessServiceId']
+        if 'subscriberId' in kwargs:
+            subscriber_id = kwargs['subscriberId']
+        if 'subscriberType' in kwargs:
+            subscriber_type = kwargs['subscriberType']
+
         if business_service_id is not None:
             _setter("business_service_id", business_service_id)
         if subscriber_id is not None:

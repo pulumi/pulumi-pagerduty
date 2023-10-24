@@ -35,7 +35,15 @@ class EventRuleArgs:
              action_json: pulumi.Input[str],
              condition_json: pulumi.Input[str],
              advanced_condition_json: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionJson' in kwargs:
+            action_json = kwargs['actionJson']
+        if 'conditionJson' in kwargs:
+            condition_json = kwargs['conditionJson']
+        if 'advancedConditionJson' in kwargs:
+            advanced_condition_json = kwargs['advancedConditionJson']
+
         _setter("action_json", action_json)
         _setter("condition_json", condition_json)
         if advanced_condition_json is not None:
@@ -106,7 +114,17 @@ class _EventRuleState:
              advanced_condition_json: Optional[pulumi.Input[str]] = None,
              catch_all: Optional[pulumi.Input[bool]] = None,
              condition_json: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionJson' in kwargs:
+            action_json = kwargs['actionJson']
+        if 'advancedConditionJson' in kwargs:
+            advanced_condition_json = kwargs['advancedConditionJson']
+        if 'catchAll' in kwargs:
+            catch_all = kwargs['catchAll']
+        if 'conditionJson' in kwargs:
+            condition_json = kwargs['conditionJson']
+
         if action_json is not None:
             _setter("action_json", action_json)
         if advanced_condition_json is not None:

@@ -79,7 +79,23 @@ class ServiceIntegrationArgs:
              name: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              vendor: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'emailFilterMode' in kwargs:
+            email_filter_mode = kwargs['emailFilterMode']
+        if 'emailFilters' in kwargs:
+            email_filters = kwargs['emailFilters']
+        if 'emailIncidentCreation' in kwargs:
+            email_incident_creation = kwargs['emailIncidentCreation']
+        if 'emailParsers' in kwargs:
+            email_parsers = kwargs['emailParsers']
+        if 'emailParsingFallback' in kwargs:
+            email_parsing_fallback = kwargs['emailParsingFallback']
+        if 'integrationEmail' in kwargs:
+            integration_email = kwargs['integrationEmail']
+        if 'integrationKey' in kwargs:
+            integration_key = kwargs['integrationKey']
+
         _setter("service", service)
         if email_filter_mode is not None:
             _setter("email_filter_mode", email_filter_mode)
@@ -311,7 +327,25 @@ class _ServiceIntegrationState:
              service: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              vendor: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'emailFilterMode' in kwargs:
+            email_filter_mode = kwargs['emailFilterMode']
+        if 'emailFilters' in kwargs:
+            email_filters = kwargs['emailFilters']
+        if 'emailIncidentCreation' in kwargs:
+            email_incident_creation = kwargs['emailIncidentCreation']
+        if 'emailParsers' in kwargs:
+            email_parsers = kwargs['emailParsers']
+        if 'emailParsingFallback' in kwargs:
+            email_parsing_fallback = kwargs['emailParsingFallback']
+        if 'htmlUrl' in kwargs:
+            html_url = kwargs['htmlUrl']
+        if 'integrationEmail' in kwargs:
+            integration_email = kwargs['integrationEmail']
+        if 'integrationKey' in kwargs:
+            integration_key = kwargs['integrationKey']
+
         if email_filter_mode is not None:
             _setter("email_filter_mode", email_filter_mode)
         if email_filters is not None:

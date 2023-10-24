@@ -47,7 +47,15 @@ class UserContactMethodArgs:
              user_id: pulumi.Input[str],
              country_code: Optional[pulumi.Input[int]] = None,
              send_short_email: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userId' in kwargs:
+            user_id = kwargs['userId']
+        if 'countryCode' in kwargs:
+            country_code = kwargs['countryCode']
+        if 'sendShortEmail' in kwargs:
+            send_short_email = kwargs['sendShortEmail']
+
         _setter("address", address)
         _setter("label", label)
         _setter("type", type)
@@ -174,7 +182,15 @@ class _UserContactMethodState:
              send_short_email: Optional[pulumi.Input[bool]] = None,
              type: Optional[pulumi.Input[str]] = None,
              user_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'countryCode' in kwargs:
+            country_code = kwargs['countryCode']
+        if 'sendShortEmail' in kwargs:
+            send_short_email = kwargs['sendShortEmail']
+        if 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         if address is not None:
             _setter("address", address)
         if blacklisted is not None:

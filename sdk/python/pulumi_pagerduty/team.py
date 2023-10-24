@@ -34,7 +34,9 @@ class TeamArgs:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              parent: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if description is None:
             description = 'Managed by Pulumi'
         if description is not None:
@@ -105,7 +107,11 @@ class _TeamState:
              html_url: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              parent: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'htmlUrl' in kwargs:
+            html_url = kwargs['htmlUrl']
+
         if description is None:
             description = 'Managed by Pulumi'
         if description is not None:

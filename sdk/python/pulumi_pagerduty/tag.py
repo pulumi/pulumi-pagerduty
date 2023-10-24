@@ -27,7 +27,9 @@ class TagArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              label: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("label", label)
 
     @property
@@ -67,7 +69,11 @@ class _TagState:
              html_url: Optional[pulumi.Input[str]] = None,
              label: Optional[pulumi.Input[str]] = None,
              summary: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'htmlUrl' in kwargs:
+            html_url = kwargs['htmlUrl']
+
         if html_url is not None:
             _setter("html_url", html_url)
         if label is not None:

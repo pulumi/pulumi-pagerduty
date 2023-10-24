@@ -44,7 +44,17 @@ class IncidentCustomFieldArgs:
              default_value: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataType' in kwargs:
+            data_type = kwargs['dataType']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'fieldType' in kwargs:
+            field_type = kwargs['fieldType']
+        if 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+
         _setter("data_type", data_type)
         _setter("display_name", display_name)
         _setter("field_type", field_type)
@@ -152,7 +162,17 @@ class _IncidentCustomFieldState:
              display_name: Optional[pulumi.Input[str]] = None,
              field_type: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataType' in kwargs:
+            data_type = kwargs['dataType']
+        if 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'fieldType' in kwargs:
+            field_type = kwargs['fieldType']
+
         if data_type is not None:
             _setter("data_type", data_type)
         if default_value is not None:

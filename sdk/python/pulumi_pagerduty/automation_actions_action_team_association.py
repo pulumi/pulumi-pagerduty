@@ -31,7 +31,13 @@ class AutomationActionsActionTeamAssociationArgs:
              _setter: Callable[[Any, Any], None],
              action_id: pulumi.Input[str],
              team_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionId' in kwargs:
+            action_id = kwargs['actionId']
+        if 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+
         _setter("action_id", action_id)
         _setter("team_id", team_id)
 
@@ -80,7 +86,13 @@ class _AutomationActionsActionTeamAssociationState:
              _setter: Callable[[Any, Any], None],
              action_id: Optional[pulumi.Input[str]] = None,
              team_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionId' in kwargs:
+            action_id = kwargs['actionId']
+        if 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+
         if action_id is not None:
             _setter("action_id", action_id)
         if team_id is not None:

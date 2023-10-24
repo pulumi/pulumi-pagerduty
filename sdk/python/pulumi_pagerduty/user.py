@@ -62,7 +62,13 @@ class UserArgs:
              role: Optional[pulumi.Input[str]] = None,
              teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              time_zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'jobTitle' in kwargs:
+            job_title = kwargs['jobTitle']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         _setter("email", email)
         if color is not None:
             _setter("color", color)
@@ -262,7 +268,19 @@ class _UserState:
              role: Optional[pulumi.Input[str]] = None,
              teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              time_zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'avatarUrl' in kwargs:
+            avatar_url = kwargs['avatarUrl']
+        if 'htmlUrl' in kwargs:
+            html_url = kwargs['htmlUrl']
+        if 'invitationSent' in kwargs:
+            invitation_sent = kwargs['invitationSent']
+        if 'jobTitle' in kwargs:
+            job_title = kwargs['jobTitle']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         if avatar_url is not None:
             _setter("avatar_url", avatar_url)
         if color is not None:

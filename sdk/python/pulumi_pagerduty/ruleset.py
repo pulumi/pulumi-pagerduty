@@ -33,7 +33,9 @@ class RulesetArgs:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              team: Optional[pulumi.Input['RulesetTeamArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if team is not None:
@@ -92,7 +94,11 @@ class _RulesetState:
              routing_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              team: Optional[pulumi.Input['RulesetTeamArgs']] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'routingKeys' in kwargs:
+            routing_keys = kwargs['routingKeys']
+
         if name is not None:
             _setter("name", name)
         if routing_keys is not None:

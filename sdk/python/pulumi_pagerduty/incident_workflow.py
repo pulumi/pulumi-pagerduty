@@ -41,7 +41,9 @@ class IncidentWorkflowArgs:
              name: Optional[pulumi.Input[str]] = None,
              steps: Optional[pulumi.Input[Sequence[pulumi.Input['IncidentWorkflowStepArgs']]]] = None,
              team: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if description is not None:
             _setter("description", description)
         if name is not None:
@@ -128,7 +130,9 @@ class _IncidentWorkflowState:
              name: Optional[pulumi.Input[str]] = None,
              steps: Optional[pulumi.Input[Sequence[pulumi.Input['IncidentWorkflowStepArgs']]]] = None,
              team: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if description is not None:
             _setter("description", description)
         if name is not None:

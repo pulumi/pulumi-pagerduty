@@ -53,7 +53,11 @@ class ServiceEventRuleArgs:
              position: Optional[pulumi.Input[int]] = None,
              time_frame: Optional[pulumi.Input['ServiceEventRuleTimeFrameArgs']] = None,
              variables: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleVariableArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timeFrame' in kwargs:
+            time_frame = kwargs['timeFrame']
+
         _setter("service", service)
         if actions is not None:
             _setter("actions", actions)
@@ -193,7 +197,11 @@ class _ServiceEventRuleState:
              service: Optional[pulumi.Input[str]] = None,
              time_frame: Optional[pulumi.Input['ServiceEventRuleTimeFrameArgs']] = None,
              variables: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleVariableArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timeFrame' in kwargs:
+            time_frame = kwargs['timeFrame']
+
         if actions is not None:
             _setter("actions", actions)
         if conditions is not None:

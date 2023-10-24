@@ -169,7 +169,17 @@ class AutomationActionsActionActionDataReferenceArgs:
              process_automation_job_id: Optional[pulumi.Input[str]] = None,
              process_automation_node_filter: Optional[pulumi.Input[str]] = None,
              script: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'invocationCommand' in kwargs:
+            invocation_command = kwargs['invocationCommand']
+        if 'processAutomationJobArguments' in kwargs:
+            process_automation_job_arguments = kwargs['processAutomationJobArguments']
+        if 'processAutomationJobId' in kwargs:
+            process_automation_job_id = kwargs['processAutomationJobId']
+        if 'processAutomationNodeFilter' in kwargs:
+            process_automation_node_filter = kwargs['processAutomationNodeFilter']
+
         if invocation_command is not None:
             _setter("invocation_command", invocation_command)
         if process_automation_job_arguments is not None:
@@ -264,7 +274,11 @@ class EscalationPolicyRuleArgs:
              escalation_delay_in_minutes: pulumi.Input[int],
              targets: pulumi.Input[Sequence[pulumi.Input['EscalationPolicyRuleTargetArgs']]],
              id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'escalationDelayInMinutes' in kwargs:
+            escalation_delay_in_minutes = kwargs['escalationDelayInMinutes']
+
         _setter("escalation_delay_in_minutes", escalation_delay_in_minutes)
         _setter("targets", targets)
         if id is not None:
@@ -323,7 +337,9 @@ class EscalationPolicyRuleTargetArgs:
              _setter: Callable[[Any, Any], None],
              id: pulumi.Input[str],
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         if type is not None:
             _setter("type", type)
@@ -368,7 +384,9 @@ class EventOrchestrationGlobalCatchAllArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              actions: pulumi.Input['EventOrchestrationGlobalCatchAllActionsArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("actions", actions)
 
     @property
@@ -439,7 +457,17 @@ class EventOrchestrationGlobalCatchAllActionsArgs:
              suppress: Optional[pulumi.Input[bool]] = None,
              suspend: Optional[pulumi.Input[int]] = None,
              variables: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsVariableArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAction' in kwargs:
+            automation_action = kwargs['automationAction']
+        if 'dropEvent' in kwargs:
+            drop_event = kwargs['dropEvent']
+        if 'eventAction' in kwargs:
+            event_action = kwargs['eventAction']
+        if 'routeTo' in kwargs:
+            route_to = kwargs['routeTo']
+
         if annotate is not None:
             _setter("annotate", annotate)
         if automation_action is not None:
@@ -627,7 +655,11 @@ class EventOrchestrationGlobalCatchAllActionsAutomationActionArgs:
              auto_send: Optional[pulumi.Input[bool]] = None,
              headers: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArgs']]]] = None,
              parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoSend' in kwargs:
+            auto_send = kwargs['autoSend']
+
         _setter("name", name)
         _setter("url", url)
         if auto_send is not None:
@@ -717,7 +749,9 @@ class EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -765,7 +799,9 @@ class EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -823,7 +859,9 @@ class EventOrchestrationGlobalCatchAllActionsExtractionArgs:
              regex: Optional[pulumi.Input[str]] = None,
              source: Optional[pulumi.Input[str]] = None,
              template: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("target", target)
         if regex is not None:
             _setter("regex", regex)
@@ -910,7 +948,9 @@ class EventOrchestrationGlobalCatchAllActionsVariableArgs:
              path: pulumi.Input[str],
              type: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("path", path)
         _setter("type", type)
@@ -983,7 +1023,9 @@ class EventOrchestrationGlobalSetArgs:
              _setter: Callable[[Any, Any], None],
              id: pulumi.Input[str],
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         if rules is not None:
             _setter("rules", rules)
@@ -1041,7 +1083,9 @@ class EventOrchestrationGlobalSetRuleArgs:
              disabled: Optional[pulumi.Input[bool]] = None,
              id: Optional[pulumi.Input[str]] = None,
              label: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("actions", actions)
         if conditions is not None:
             _setter("conditions", conditions)
@@ -1168,7 +1212,17 @@ class EventOrchestrationGlobalSetRuleActionsArgs:
              suppress: Optional[pulumi.Input[bool]] = None,
              suspend: Optional[pulumi.Input[int]] = None,
              variables: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsVariableArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAction' in kwargs:
+            automation_action = kwargs['automationAction']
+        if 'dropEvent' in kwargs:
+            drop_event = kwargs['dropEvent']
+        if 'eventAction' in kwargs:
+            event_action = kwargs['eventAction']
+        if 'routeTo' in kwargs:
+            route_to = kwargs['routeTo']
+
         if annotate is not None:
             _setter("annotate", annotate)
         if automation_action is not None:
@@ -1356,7 +1410,11 @@ class EventOrchestrationGlobalSetRuleActionsAutomationActionArgs:
              auto_send: Optional[pulumi.Input[bool]] = None,
              headers: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArgs']]]] = None,
              parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoSend' in kwargs:
+            auto_send = kwargs['autoSend']
+
         _setter("name", name)
         _setter("url", url)
         if auto_send is not None:
@@ -1446,7 +1504,9 @@ class EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1494,7 +1554,9 @@ class EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1552,7 +1614,9 @@ class EventOrchestrationGlobalSetRuleActionsExtractionArgs:
              regex: Optional[pulumi.Input[str]] = None,
              source: Optional[pulumi.Input[str]] = None,
              template: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("target", target)
         if regex is not None:
             _setter("regex", regex)
@@ -1639,7 +1703,9 @@ class EventOrchestrationGlobalSetRuleActionsVariableArgs:
              path: pulumi.Input[str],
              type: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("path", path)
         _setter("type", type)
@@ -1709,7 +1775,9 @@ class EventOrchestrationGlobalSetRuleConditionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              expression: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("expression", expression)
 
     @property
@@ -1746,7 +1814,9 @@ class EventOrchestrationIntegrationArgs:
              id: Optional[pulumi.Input[str]] = None,
              label: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationIntegrationParameterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
             _setter("id", id)
         if label is not None:
@@ -1804,7 +1874,11 @@ class EventOrchestrationIntegrationParameterArgs:
              _setter: Callable[[Any, Any], None],
              routing_key: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'routingKey' in kwargs:
+            routing_key = kwargs['routingKey']
+
         if routing_key is not None:
             _setter("routing_key", routing_key)
         if type is not None:
@@ -1850,7 +1924,9 @@ class EventOrchestrationRouterCatchAllArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              actions: pulumi.Input['EventOrchestrationRouterCatchAllActionsArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("actions", actions)
 
     @property
@@ -1881,7 +1957,11 @@ class EventOrchestrationRouterCatchAllActionsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              route_to: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'routeTo' in kwargs:
+            route_to = kwargs['routeTo']
+
         _setter("route_to", route_to)
 
     @property
@@ -1915,7 +1995,9 @@ class EventOrchestrationRouterSetArgs:
              _setter: Callable[[Any, Any], None],
              id: pulumi.Input[str],
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationRouterSetRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         if rules is not None:
             _setter("rules", rules)
@@ -1973,7 +2055,9 @@ class EventOrchestrationRouterSetRuleArgs:
              disabled: Optional[pulumi.Input[bool]] = None,
              id: Optional[pulumi.Input[str]] = None,
              label: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("actions", actions)
         if conditions is not None:
             _setter("conditions", conditions)
@@ -2060,7 +2144,11 @@ class EventOrchestrationRouterSetRuleActionsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              route_to: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'routeTo' in kwargs:
+            route_to = kwargs['routeTo']
+
         _setter("route_to", route_to)
 
     @property
@@ -2091,7 +2179,9 @@ class EventOrchestrationRouterSetRuleConditionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              expression: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("expression", expression)
 
     @property
@@ -2122,7 +2212,9 @@ class EventOrchestrationServiceCatchAllArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              actions: pulumi.Input['EventOrchestrationServiceCatchAllActionsArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("actions", actions)
 
     @property
@@ -2193,7 +2285,17 @@ class EventOrchestrationServiceCatchAllActionsArgs:
              suppress: Optional[pulumi.Input[bool]] = None,
              suspend: Optional[pulumi.Input[int]] = None,
              variables: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsVariableArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAction' in kwargs:
+            automation_action = kwargs['automationAction']
+        if 'eventAction' in kwargs:
+            event_action = kwargs['eventAction']
+        if 'pagerdutyAutomationAction' in kwargs:
+            pagerduty_automation_action = kwargs['pagerdutyAutomationAction']
+        if 'routeTo' in kwargs:
+            route_to = kwargs['routeTo']
+
         if annotate is not None:
             _setter("annotate", annotate)
         if automation_action is not None:
@@ -2381,7 +2483,11 @@ class EventOrchestrationServiceCatchAllActionsAutomationActionArgs:
              auto_send: Optional[pulumi.Input[bool]] = None,
              headers: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgs']]]] = None,
              parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoSend' in kwargs:
+            auto_send = kwargs['autoSend']
+
         _setter("name", name)
         _setter("url", url)
         if auto_send is not None:
@@ -2471,7 +2577,9 @@ class EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2519,7 +2627,9 @@ class EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2577,7 +2687,9 @@ class EventOrchestrationServiceCatchAllActionsExtractionArgs:
              regex: Optional[pulumi.Input[str]] = None,
              source: Optional[pulumi.Input[str]] = None,
              template: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("target", target)
         if regex is not None:
             _setter("regex", regex)
@@ -2652,7 +2764,11 @@ class EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              action_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionId' in kwargs:
+            action_id = kwargs['actionId']
+
         _setter("action_id", action_id)
 
     @property
@@ -2695,7 +2811,9 @@ class EventOrchestrationServiceCatchAllActionsVariableArgs:
              path: pulumi.Input[str],
              type: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("path", path)
         _setter("type", type)
@@ -2768,7 +2886,9 @@ class EventOrchestrationServiceSetArgs:
              _setter: Callable[[Any, Any], None],
              id: pulumi.Input[str],
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         if rules is not None:
             _setter("rules", rules)
@@ -2826,7 +2946,9 @@ class EventOrchestrationServiceSetRuleArgs:
              disabled: Optional[pulumi.Input[bool]] = None,
              id: Optional[pulumi.Input[str]] = None,
              label: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("actions", actions)
         if conditions is not None:
             _setter("conditions", conditions)
@@ -2953,7 +3075,17 @@ class EventOrchestrationServiceSetRuleActionsArgs:
              suppress: Optional[pulumi.Input[bool]] = None,
              suspend: Optional[pulumi.Input[int]] = None,
              variables: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsVariableArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAction' in kwargs:
+            automation_action = kwargs['automationAction']
+        if 'eventAction' in kwargs:
+            event_action = kwargs['eventAction']
+        if 'pagerdutyAutomationAction' in kwargs:
+            pagerduty_automation_action = kwargs['pagerdutyAutomationAction']
+        if 'routeTo' in kwargs:
+            route_to = kwargs['routeTo']
+
         if annotate is not None:
             _setter("annotate", annotate)
         if automation_action is not None:
@@ -3141,7 +3273,11 @@ class EventOrchestrationServiceSetRuleActionsAutomationActionArgs:
              auto_send: Optional[pulumi.Input[bool]] = None,
              headers: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs']]]] = None,
              parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoSend' in kwargs:
+            auto_send = kwargs['autoSend']
+
         _setter("name", name)
         _setter("url", url)
         if auto_send is not None:
@@ -3231,7 +3367,9 @@ class EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3279,7 +3417,9 @@ class EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3337,7 +3477,9 @@ class EventOrchestrationServiceSetRuleActionsExtractionArgs:
              regex: Optional[pulumi.Input[str]] = None,
              source: Optional[pulumi.Input[str]] = None,
              template: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("target", target)
         if regex is not None:
             _setter("regex", regex)
@@ -3412,7 +3554,11 @@ class EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              action_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionId' in kwargs:
+            action_id = kwargs['actionId']
+
         _setter("action_id", action_id)
 
     @property
@@ -3455,7 +3601,9 @@ class EventOrchestrationServiceSetRuleActionsVariableArgs:
              path: pulumi.Input[str],
              type: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("path", path)
         _setter("type", type)
@@ -3525,7 +3673,9 @@ class EventOrchestrationServiceSetRuleConditionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              expression: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("expression", expression)
 
     @property
@@ -3556,7 +3706,9 @@ class EventOrchestrationUnroutedCatchAllArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              actions: pulumi.Input['EventOrchestrationUnroutedCatchAllActionsArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("actions", actions)
 
     @property
@@ -3602,7 +3754,11 @@ class EventOrchestrationUnroutedCatchAllActionsArgs:
              severity: Optional[pulumi.Input[str]] = None,
              suppress: Optional[pulumi.Input[bool]] = None,
              variables: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedCatchAllActionsVariableArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventAction' in kwargs:
+            event_action = kwargs['eventAction']
+
         if event_action is not None:
             _setter("event_action", event_action)
         if extractions is not None:
@@ -3701,7 +3857,9 @@ class EventOrchestrationUnroutedCatchAllActionsExtractionArgs:
              regex: Optional[pulumi.Input[str]] = None,
              source: Optional[pulumi.Input[str]] = None,
              template: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("target", target)
         if regex is not None:
             _setter("regex", regex)
@@ -3788,7 +3946,9 @@ class EventOrchestrationUnroutedCatchAllActionsVariableArgs:
              path: pulumi.Input[str],
              type: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("path", path)
         _setter("type", type)
@@ -3861,7 +4021,9 @@ class EventOrchestrationUnroutedSetArgs:
              _setter: Callable[[Any, Any], None],
              id: pulumi.Input[str],
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedSetRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         if rules is not None:
             _setter("rules", rules)
@@ -3919,7 +4081,9 @@ class EventOrchestrationUnroutedSetRuleArgs:
              disabled: Optional[pulumi.Input[bool]] = None,
              id: Optional[pulumi.Input[str]] = None,
              label: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("actions", actions)
         if conditions is not None:
             _setter("conditions", conditions)
@@ -4022,7 +4186,13 @@ class EventOrchestrationUnroutedSetRuleActionsArgs:
              route_to: Optional[pulumi.Input[str]] = None,
              severity: Optional[pulumi.Input[str]] = None,
              variables: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedSetRuleActionsVariableArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventAction' in kwargs:
+            event_action = kwargs['eventAction']
+        if 'routeTo' in kwargs:
+            route_to = kwargs['routeTo']
+
         if event_action is not None:
             _setter("event_action", event_action)
         if extractions is not None:
@@ -4124,7 +4294,9 @@ class EventOrchestrationUnroutedSetRuleActionsExtractionArgs:
              regex: Optional[pulumi.Input[str]] = None,
              source: Optional[pulumi.Input[str]] = None,
              template: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("target", target)
         if regex is not None:
             _setter("regex", regex)
@@ -4211,7 +4383,9 @@ class EventOrchestrationUnroutedSetRuleActionsVariableArgs:
              path: pulumi.Input[str],
              type: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("path", path)
         _setter("type", type)
@@ -4281,7 +4455,9 @@ class EventOrchestrationUnroutedSetRuleConditionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              expression: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("expression", expression)
 
     @property
@@ -4324,7 +4500,9 @@ class IncidentWorkflowStepArgs:
              name: pulumi.Input[str],
              id: Optional[pulumi.Input[str]] = None,
              inputs: Optional[pulumi.Input[Sequence[pulumi.Input['IncidentWorkflowStepInputArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("action", action)
         _setter("name", name)
         if id is not None:
@@ -4403,7 +4581,9 @@ class IncidentWorkflowStepInputArgs:
              name: pulumi.Input[str],
              value: pulumi.Input[str],
              generated: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
         if generated is not None:
@@ -4461,7 +4641,15 @@ class ProviderUseAppOauthScopedTokenArgs:
              pd_client_id: pulumi.Input[str],
              pd_client_secret: pulumi.Input[str],
              pd_subdomain: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'pdClientId' in kwargs:
+            pd_client_id = kwargs['pdClientId']
+        if 'pdClientSecret' in kwargs:
+            pd_client_secret = kwargs['pdClientSecret']
+        if 'pdSubdomain' in kwargs:
+            pd_subdomain = kwargs['pdSubdomain']
+
         _setter("pd_client_id", pd_client_id)
         _setter("pd_client_secret", pd_client_secret)
         _setter("pd_subdomain", pd_subdomain)
@@ -4541,7 +4729,15 @@ class ResponsePlayResponderArgs:
              services: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderServiceArgs']]]] = None,
              teams: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderTeamArgs']]]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'escalationRules' in kwargs:
+            escalation_rules = kwargs['escalationRules']
+        if 'numLoops' in kwargs:
+            num_loops = kwargs['numLoops']
+        if 'onCallHandoffNotifications' in kwargs:
+            on_call_handoff_notifications = kwargs['onCallHandoffNotifications']
+
         if description is not None:
             _setter("description", description)
         if escalation_rules is not None:
@@ -4693,7 +4889,11 @@ class ResponsePlayResponderEscalationRuleArgs:
              targets: pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderEscalationRuleTargetArgs']]],
              escalation_delay_in_minutes: Optional[pulumi.Input[int]] = None,
              id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'escalationDelayInMinutes' in kwargs:
+            escalation_delay_in_minutes = kwargs['escalationDelayInMinutes']
+
         _setter("targets", targets)
         if escalation_delay_in_minutes is not None:
             _setter("escalation_delay_in_minutes", escalation_delay_in_minutes)
@@ -4756,7 +4956,9 @@ class ResponsePlayResponderEscalationRuleTargetArgs:
              _setter: Callable[[Any, Any], None],
              id: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
             _setter("id", id)
         if type is not None:
@@ -4806,7 +5008,9 @@ class ResponsePlayResponderServiceArgs:
              _setter: Callable[[Any, Any], None],
              id: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
             _setter("id", id)
         if type is not None:
@@ -4856,7 +5060,9 @@ class ResponsePlayResponderTeamArgs:
              _setter: Callable[[Any, Any], None],
              type: pulumi.Input[str],
              id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if id is not None:
             _setter("id", id)
@@ -4905,7 +5111,9 @@ class ResponsePlaySubscriberArgs:
              _setter: Callable[[Any, Any], None],
              id: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
             _setter("id", id)
         if type is not None:
@@ -4979,7 +5187,11 @@ class RulesetRuleActionsArgs:
              severities: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsSeverityArgs']]]] = None,
              suppresses: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsSuppressArgs']]]] = None,
              suspends: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleActionsSuspendArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventActions' in kwargs:
+            event_actions = kwargs['eventActions']
+
         if annotates is not None:
             _setter("annotates", annotates)
         if event_actions is not None:
@@ -5109,7 +5321,9 @@ class RulesetRuleActionsAnnotateArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if value is not None:
             _setter("value", value)
 
@@ -5141,7 +5355,9 @@ class RulesetRuleActionsEventActionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if value is not None:
             _setter("value", value)
 
@@ -5189,7 +5405,9 @@ class RulesetRuleActionsExtractionArgs:
              source: Optional[pulumi.Input[str]] = None,
              target: Optional[pulumi.Input[str]] = None,
              template: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if regex is not None:
             _setter("regex", regex)
         if source is not None:
@@ -5267,7 +5485,9 @@ class RulesetRuleActionsPriorityArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if value is not None:
             _setter("value", value)
 
@@ -5299,7 +5519,9 @@ class RulesetRuleActionsRouteArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if value is not None:
             _setter("value", value)
 
@@ -5331,7 +5553,9 @@ class RulesetRuleActionsSeverityArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if value is not None:
             _setter("value", value)
 
@@ -5375,7 +5599,15 @@ class RulesetRuleActionsSuppressArgs:
              threshold_time_unit: Optional[pulumi.Input[str]] = None,
              threshold_value: Optional[pulumi.Input[int]] = None,
              value: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'thresholdTimeAmount' in kwargs:
+            threshold_time_amount = kwargs['thresholdTimeAmount']
+        if 'thresholdTimeUnit' in kwargs:
+            threshold_time_unit = kwargs['thresholdTimeUnit']
+        if 'thresholdValue' in kwargs:
+            threshold_value = kwargs['thresholdValue']
+
         if threshold_time_amount is not None:
             _setter("threshold_time_amount", threshold_time_amount)
         if threshold_time_unit is not None:
@@ -5449,7 +5681,9 @@ class RulesetRuleActionsSuspendArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              value: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if value is not None:
             _setter("value", value)
 
@@ -5485,7 +5719,9 @@ class RulesetRuleConditionsArgs:
              _setter: Callable[[Any, Any], None],
              operator: Optional[pulumi.Input[str]] = None,
              subconditions: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleConditionsSubconditionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if operator is not None:
             _setter("operator", operator)
         if subconditions is not None:
@@ -5535,7 +5771,9 @@ class RulesetRuleConditionsSubconditionArgs:
              _setter: Callable[[Any, Any], None],
              operator: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleConditionsSubconditionParameterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if operator is not None:
             _setter("operator", operator)
         if parameters is not None:
@@ -5584,7 +5822,9 @@ class RulesetRuleConditionsSubconditionParameterArgs:
              _setter: Callable[[Any, Any], None],
              path: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if path is not None:
             _setter("path", path)
         if value is not None:
@@ -5631,7 +5871,13 @@ class RulesetRuleTimeFrameArgs:
              _setter: Callable[[Any, Any], None],
              active_betweens: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleTimeFrameActiveBetweenArgs']]]] = None,
              scheduled_weeklies: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleTimeFrameScheduledWeeklyArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeBetweens' in kwargs:
+            active_betweens = kwargs['activeBetweens']
+        if 'scheduledWeeklies' in kwargs:
+            scheduled_weeklies = kwargs['scheduledWeeklies']
+
         if active_betweens is not None:
             _setter("active_betweens", active_betweens)
         if scheduled_weeklies is not None:
@@ -5680,7 +5926,13 @@ class RulesetRuleTimeFrameActiveBetweenArgs:
              _setter: Callable[[Any, Any], None],
              end_time: Optional[pulumi.Input[int]] = None,
              start_time: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         if end_time is not None:
             _setter("end_time", end_time)
         if start_time is not None:
@@ -5735,7 +5987,11 @@ class RulesetRuleTimeFrameScheduledWeeklyArgs:
              start_time: Optional[pulumi.Input[int]] = None,
              timezone: Optional[pulumi.Input[str]] = None,
              weekdays: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         if duration is not None:
             _setter("duration", duration)
         if start_time is not None:
@@ -5812,7 +6068,9 @@ class RulesetRuleVariableArgs:
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleVariableParameterArgs']]]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if parameters is not None:
@@ -5866,7 +6124,9 @@ class RulesetRuleVariableParameterArgs:
              _setter: Callable[[Any, Any], None],
              path: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if path is not None:
             _setter("path", path)
         if value is not None:
@@ -5909,7 +6169,9 @@ class RulesetTeamArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
 
     @property
@@ -5943,7 +6205,11 @@ class ScheduleFinalScheduleArgs:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              rendered_coverage_percentage: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'renderedCoveragePercentage' in kwargs:
+            rendered_coverage_percentage = kwargs['renderedCoveragePercentage']
+
         if name is not None:
             _setter("name", name)
         if rendered_coverage_percentage is not None:
@@ -6017,7 +6283,15 @@ class ScheduleLayerArgs:
              name: Optional[pulumi.Input[str]] = None,
              rendered_coverage_percentage: Optional[pulumi.Input[str]] = None,
              restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleLayerRestrictionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'rotationTurnLengthSeconds' in kwargs:
+            rotation_turn_length_seconds = kwargs['rotationTurnLengthSeconds']
+        if 'rotationVirtualStart' in kwargs:
+            rotation_virtual_start = kwargs['rotationVirtualStart']
+        if 'renderedCoveragePercentage' in kwargs:
+            rendered_coverage_percentage = kwargs['renderedCoveragePercentage']
+
         _setter("rotation_turn_length_seconds", rotation_turn_length_seconds)
         _setter("rotation_virtual_start", rotation_virtual_start)
         _setter("start", start)
@@ -6166,7 +6440,15 @@ class ScheduleLayerRestrictionArgs:
              start_time_of_day: pulumi.Input[str],
              type: pulumi.Input[str],
              start_day_of_week: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'durationSeconds' in kwargs:
+            duration_seconds = kwargs['durationSeconds']
+        if 'startTimeOfDay' in kwargs:
+            start_time_of_day = kwargs['startTimeOfDay']
+        if 'startDayOfWeek' in kwargs:
+            start_day_of_week = kwargs['startDayOfWeek']
+
         _setter("duration_seconds", duration_seconds)
         _setter("start_time_of_day", start_time_of_day)
         _setter("type", type)
@@ -6241,7 +6523,9 @@ class ServiceAlertGroupingParametersArgs:
              _setter: Callable[[Any, Any], None],
              config: Optional[pulumi.Input['ServiceAlertGroupingParametersConfigArgs']] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if config is not None:
             _setter("config", config)
         if type is not None:
@@ -6295,7 +6579,9 @@ class ServiceAlertGroupingParametersConfigArgs:
              aggregate: Optional[pulumi.Input[str]] = None,
              fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              timeout: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if aggregate is not None:
             _setter("aggregate", aggregate)
         if fields is not None:
@@ -6364,7 +6650,9 @@ class ServiceAutoPauseNotificationsParametersArgs:
              _setter: Callable[[Any, Any], None],
              enabled: Optional[pulumi.Input[bool]] = None,
              timeout: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if enabled is not None:
             _setter("enabled", enabled)
         if timeout is not None:
@@ -6423,7 +6711,13 @@ class ServiceDependencyDependencyArgs:
              dependent_services: pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencyDependentServiceArgs']]],
              supporting_services: pulumi.Input[Sequence[pulumi.Input['ServiceDependencyDependencySupportingServiceArgs']]],
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dependentServices' in kwargs:
+            dependent_services = kwargs['dependentServices']
+        if 'supportingServices' in kwargs:
+            supporting_services = kwargs['supportingServices']
+
         _setter("dependent_services", dependent_services)
         _setter("supporting_services", supporting_services)
         if type is not None:
@@ -6485,7 +6779,9 @@ class ServiceDependencyDependencyDependentServiceArgs:
              _setter: Callable[[Any, Any], None],
              id: pulumi.Input[str],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         _setter("type", type)
 
@@ -6533,7 +6829,9 @@ class ServiceDependencyDependencySupportingServiceArgs:
              _setter: Callable[[Any, Any], None],
              id: pulumi.Input[str],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         _setter("type", type)
 
@@ -6601,7 +6899,11 @@ class ServiceEventRuleActionsArgs:
              severities: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleActionsSeverityArgs']]]] = None,
              suppresses: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleActionsSuppressArgs']]]] = None,
              suspends: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleActionsSuspendArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventActions' in kwargs:
+            event_actions = kwargs['eventActions']
+
         if annotates is not None:
             _setter("annotates", annotates)
         if event_actions is not None:
@@ -6717,7 +7019,9 @@ class ServiceEventRuleActionsAnnotateArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if value is not None:
             _setter("value", value)
 
@@ -6749,7 +7053,9 @@ class ServiceEventRuleActionsEventActionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if value is not None:
             _setter("value", value)
 
@@ -6797,7 +7103,9 @@ class ServiceEventRuleActionsExtractionArgs:
              source: Optional[pulumi.Input[str]] = None,
              target: Optional[pulumi.Input[str]] = None,
              template: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if regex is not None:
             _setter("regex", regex)
         if source is not None:
@@ -6875,7 +7183,9 @@ class ServiceEventRuleActionsPriorityArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if value is not None:
             _setter("value", value)
 
@@ -6907,7 +7217,9 @@ class ServiceEventRuleActionsSeverityArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if value is not None:
             _setter("value", value)
 
@@ -6951,7 +7263,15 @@ class ServiceEventRuleActionsSuppressArgs:
              threshold_time_unit: Optional[pulumi.Input[str]] = None,
              threshold_value: Optional[pulumi.Input[int]] = None,
              value: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'thresholdTimeAmount' in kwargs:
+            threshold_time_amount = kwargs['thresholdTimeAmount']
+        if 'thresholdTimeUnit' in kwargs:
+            threshold_time_unit = kwargs['thresholdTimeUnit']
+        if 'thresholdValue' in kwargs:
+            threshold_value = kwargs['thresholdValue']
+
         if threshold_time_amount is not None:
             _setter("threshold_time_amount", threshold_time_amount)
         if threshold_time_unit is not None:
@@ -7025,7 +7345,9 @@ class ServiceEventRuleActionsSuspendArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              value: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if value is not None:
             _setter("value", value)
 
@@ -7061,7 +7383,9 @@ class ServiceEventRuleConditionsArgs:
              _setter: Callable[[Any, Any], None],
              operator: Optional[pulumi.Input[str]] = None,
              subconditions: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleConditionsSubconditionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if operator is not None:
             _setter("operator", operator)
         if subconditions is not None:
@@ -7111,7 +7435,9 @@ class ServiceEventRuleConditionsSubconditionArgs:
              _setter: Callable[[Any, Any], None],
              operator: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleConditionsSubconditionParameterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if operator is not None:
             _setter("operator", operator)
         if parameters is not None:
@@ -7161,7 +7487,9 @@ class ServiceEventRuleConditionsSubconditionParameterArgs:
              _setter: Callable[[Any, Any], None],
              path: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if path is not None:
             _setter("path", path)
         if value is not None:
@@ -7211,7 +7539,13 @@ class ServiceEventRuleTimeFrameArgs:
              _setter: Callable[[Any, Any], None],
              active_betweens: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleTimeFrameActiveBetweenArgs']]]] = None,
              scheduled_weeklies: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleTimeFrameScheduledWeeklyArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeBetweens' in kwargs:
+            active_betweens = kwargs['activeBetweens']
+        if 'scheduledWeeklies' in kwargs:
+            scheduled_weeklies = kwargs['scheduledWeeklies']
+
         if active_betweens is not None:
             _setter("active_betweens", active_betweens)
         if scheduled_weeklies is not None:
@@ -7261,7 +7595,13 @@ class ServiceEventRuleTimeFrameActiveBetweenArgs:
              _setter: Callable[[Any, Any], None],
              end_time: Optional[pulumi.Input[int]] = None,
              start_time: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         if end_time is not None:
             _setter("end_time", end_time)
         if start_time is not None:
@@ -7319,7 +7659,11 @@ class ServiceEventRuleTimeFrameScheduledWeeklyArgs:
              start_time: Optional[pulumi.Input[int]] = None,
              timezone: Optional[pulumi.Input[str]] = None,
              weekdays: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         if duration is not None:
             _setter("duration", duration)
         if start_time is not None:
@@ -7401,7 +7745,9 @@ class ServiceEventRuleVariableArgs:
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEventRuleVariableParameterArgs']]]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if parameters is not None:
@@ -7465,7 +7811,9 @@ class ServiceEventRuleVariableParameterArgs:
              _setter: Callable[[Any, Any], None],
              path: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if path is not None:
             _setter("path", path)
         if value is not None:
@@ -7527,7 +7875,13 @@ class ServiceIncidentUrgencyRuleArgs:
              during_support_hours: Optional[pulumi.Input['ServiceIncidentUrgencyRuleDuringSupportHoursArgs']] = None,
              outside_support_hours: Optional[pulumi.Input['ServiceIncidentUrgencyRuleOutsideSupportHoursArgs']] = None,
              urgency: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'duringSupportHours' in kwargs:
+            during_support_hours = kwargs['duringSupportHours']
+        if 'outsideSupportHours' in kwargs:
+            outside_support_hours = kwargs['outsideSupportHours']
+
         _setter("type", type)
         if during_support_hours is not None:
             _setter("during_support_hours", during_support_hours)
@@ -7608,7 +7962,9 @@ class ServiceIncidentUrgencyRuleDuringSupportHoursArgs:
              _setter: Callable[[Any, Any], None],
              type: Optional[pulumi.Input[str]] = None,
              urgency: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if type is not None:
             _setter("type", type)
         if urgency is not None:
@@ -7658,7 +8014,9 @@ class ServiceIncidentUrgencyRuleOutsideSupportHoursArgs:
              _setter: Callable[[Any, Any], None],
              type: Optional[pulumi.Input[str]] = None,
              urgency: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if type is not None:
             _setter("type", type)
         if urgency is not None:
@@ -7728,7 +8086,21 @@ class ServiceIntegrationEmailFilterArgs:
              id: Optional[pulumi.Input[str]] = None,
              subject_mode: Optional[pulumi.Input[str]] = None,
              subject_regex: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bodyMode' in kwargs:
+            body_mode = kwargs['bodyMode']
+        if 'bodyRegex' in kwargs:
+            body_regex = kwargs['bodyRegex']
+        if 'fromEmailMode' in kwargs:
+            from_email_mode = kwargs['fromEmailMode']
+        if 'fromEmailRegex' in kwargs:
+            from_email_regex = kwargs['fromEmailRegex']
+        if 'subjectMode' in kwargs:
+            subject_mode = kwargs['subjectMode']
+        if 'subjectRegex' in kwargs:
+            subject_regex = kwargs['subjectRegex']
+
         if body_mode is not None:
             _setter("body_mode", body_mode)
         if body_regex is not None:
@@ -7854,7 +8226,13 @@ class ServiceIntegrationEmailParserArgs:
              match_predicate: pulumi.Input['ServiceIntegrationEmailParserMatchPredicateArgs'],
              id: Optional[pulumi.Input[int]] = None,
              value_extractors: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceIntegrationEmailParserValueExtractorArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchPredicate' in kwargs:
+            match_predicate = kwargs['matchPredicate']
+        if 'valueExtractors' in kwargs:
+            value_extractors = kwargs['valueExtractors']
+
         _setter("action", action)
         _setter("match_predicate", match_predicate)
         if id is not None:
@@ -7923,7 +8301,9 @@ class ServiceIntegrationEmailParserMatchPredicateArgs:
              _setter: Callable[[Any, Any], None],
              type: pulumi.Input[str],
              predicates: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceIntegrationEmailParserMatchPredicatePredicateArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if predicates is not None:
             _setter("predicates", predicates)
@@ -7976,7 +8356,9 @@ class ServiceIntegrationEmailParserMatchPredicatePredicateArgs:
              matcher: Optional[pulumi.Input[str]] = None,
              part: Optional[pulumi.Input[str]] = None,
              predicates: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if matcher is not None:
             _setter("matcher", matcher)
@@ -8054,7 +8436,9 @@ class ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs:
              matcher: pulumi.Input[str],
              part: pulumi.Input[str],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("matcher", matcher)
         _setter("part", part)
         _setter("type", type)
@@ -8131,7 +8515,15 @@ class ServiceIntegrationEmailParserValueExtractorArgs:
              ends_before: Optional[pulumi.Input[str]] = None,
              regex: Optional[pulumi.Input[str]] = None,
              starts_after: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'valueName' in kwargs:
+            value_name = kwargs['valueName']
+        if 'endsBefore' in kwargs:
+            ends_before = kwargs['endsBefore']
+        if 'startsAfter' in kwargs:
+            starts_after = kwargs['startsAfter']
+
         _setter("part", part)
         _setter("type", type)
         _setter("value_name", value_name)
@@ -8234,7 +8626,11 @@ class ServiceScheduledActionArgs:
              ats: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceScheduledActionAtArgs']]]] = None,
              to_urgency: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'toUrgency' in kwargs:
+            to_urgency = kwargs['toUrgency']
+
         if ats is not None:
             _setter("ats", ats)
         if to_urgency is not None:
@@ -8345,7 +8741,9 @@ class ServiceScheduledActionAtArgs:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if type is not None:
@@ -8459,7 +8857,17 @@ class ServiceSupportHoursArgs:
              start_time: Optional[pulumi.Input[str]] = None,
              time_zone: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'daysOfWeeks' in kwargs:
+            days_of_weeks = kwargs['daysOfWeeks']
+        if 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         if days_of_weeks is not None:
             _setter("days_of_weeks", days_of_weeks)
         if end_time is not None:
@@ -8574,7 +8982,9 @@ class SlackConnectionConfigArgs:
              events: pulumi.Input[Sequence[pulumi.Input[str]]],
              priorities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              urgency: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("events", events)
         if priorities is not None:
             _setter("priorities", priorities)
@@ -8659,7 +9069,13 @@ class WebhookSubscriptionDeliveryMethodArgs:
              temporarily_disabled: Optional[pulumi.Input[bool]] = None,
              type: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customHeaders' in kwargs:
+            custom_headers = kwargs['customHeaders']
+        if 'temporarilyDisabled' in kwargs:
+            temporarily_disabled = kwargs['temporarilyDisabled']
+
         if custom_headers is not None:
             _setter("custom_headers", custom_headers)
         if temporarily_disabled is not None:
@@ -8733,7 +9149,9 @@ class WebhookSubscriptionDeliveryMethodCustomHeaderArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -8775,7 +9193,9 @@ class WebhookSubscriptionFilterArgs:
              _setter: Callable[[Any, Any], None],
              type: pulumi.Input[str],
              id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if id is not None:
             _setter("id", id)
@@ -8826,7 +9246,9 @@ class GetEventOrchestrationIntegrationDetailArgs:
              id: str,
              label: str,
              parameters: Sequence['GetEventOrchestrationIntegrationDetailParameterArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         _setter("label", label)
         _setter("parameters", parameters)
@@ -8881,7 +9303,11 @@ class GetEventOrchestrationIntegrationDetailParameterArgs:
              _setter: Callable[[Any, Any], None],
              routing_key: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'routingKey' in kwargs:
+            routing_key = kwargs['routingKey']
+
         _setter("routing_key", routing_key)
         _setter("type", type)
 
@@ -8962,7 +9388,19 @@ class GetLicensesLicenseArgs:
              summary: str,
              type: str,
              valid_roles: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allocationsAvailable' in kwargs:
+            allocations_available = kwargs['allocationsAvailable']
+        if 'currentValue' in kwargs:
+            current_value = kwargs['currentValue']
+        if 'htmlUrl' in kwargs:
+            html_url = kwargs['htmlUrl']
+        if 'roleGroup' in kwargs:
+            role_group = kwargs['roleGroup']
+        if 'validRoles' in kwargs:
+            valid_roles = kwargs['validRoles']
+
         _setter("allocations_available", allocations_available)
         _setter("current_value", current_value)
         _setter("description", description)

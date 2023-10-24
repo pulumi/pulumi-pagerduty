@@ -43,7 +43,11 @@ class IncidentWorkflowTriggerArgs:
              workflow: pulumi.Input[str],
              condition: Optional[pulumi.Input[str]] = None,
              services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subscribedToAllServices' in kwargs:
+            subscribed_to_all_services = kwargs['subscribedToAllServices']
+
         _setter("subscribed_to_all_services", subscribed_to_all_services)
         _setter("type", type)
         _setter("workflow", workflow)
@@ -145,7 +149,11 @@ class _IncidentWorkflowTriggerState:
              subscribed_to_all_services: Optional[pulumi.Input[bool]] = None,
              type: Optional[pulumi.Input[str]] = None,
              workflow: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subscribedToAllServices' in kwargs:
+            subscribed_to_all_services = kwargs['subscribedToAllServices']
+
         if condition is not None:
             _setter("condition", condition)
         if services is not None:

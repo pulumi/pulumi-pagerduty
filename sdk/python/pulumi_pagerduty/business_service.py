@@ -42,7 +42,11 @@ class BusinessServiceArgs:
              point_of_contact: Optional[pulumi.Input[str]] = None,
              team: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'pointOfContact' in kwargs:
+            point_of_contact = kwargs['pointOfContact']
+
         if description is None:
             description = 'Managed by Pulumi'
         if description is not None:
@@ -163,7 +167,13 @@ class _BusinessServiceState:
              summary: Optional[pulumi.Input[str]] = None,
              team: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'htmlUrl' in kwargs:
+            html_url = kwargs['htmlUrl']
+        if 'pointOfContact' in kwargs:
+            point_of_contact = kwargs['pointOfContact']
+
         if description is None:
             description = 'Managed by Pulumi'
         if description is not None:

@@ -47,7 +47,15 @@ class ExtensionArgs:
              endpoint_url: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'extensionObjects' in kwargs:
+            extension_objects = kwargs['extensionObjects']
+        if 'extensionSchema' in kwargs:
+            extension_schema = kwargs['extensionSchema']
+        if 'endpointUrl' in kwargs:
+            endpoint_url = kwargs['endpointUrl']
+
         _setter("extension_objects", extension_objects)
         _setter("extension_schema", extension_schema)
         if config is not None:
@@ -176,7 +184,17 @@ class _ExtensionState:
              name: Optional[pulumi.Input[str]] = None,
              summary: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointUrl' in kwargs:
+            endpoint_url = kwargs['endpointUrl']
+        if 'extensionObjects' in kwargs:
+            extension_objects = kwargs['extensionObjects']
+        if 'extensionSchema' in kwargs:
+            extension_schema = kwargs['extensionSchema']
+        if 'htmlUrl' in kwargs:
+            html_url = kwargs['htmlUrl']
+
         if config is not None:
             _setter("config", config)
         if endpoint_url is not None:

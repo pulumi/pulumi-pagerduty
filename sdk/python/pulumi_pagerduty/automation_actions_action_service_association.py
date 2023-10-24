@@ -31,7 +31,13 @@ class AutomationActionsActionServiceAssociationArgs:
              _setter: Callable[[Any, Any], None],
              action_id: pulumi.Input[str],
              service_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionId' in kwargs:
+            action_id = kwargs['actionId']
+        if 'serviceId' in kwargs:
+            service_id = kwargs['serviceId']
+
         _setter("action_id", action_id)
         _setter("service_id", service_id)
 
@@ -80,7 +86,13 @@ class _AutomationActionsActionServiceAssociationState:
              _setter: Callable[[Any, Any], None],
              action_id: Optional[pulumi.Input[str]] = None,
              service_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionId' in kwargs:
+            action_id = kwargs['actionId']
+        if 'serviceId' in kwargs:
+            service_id = kwargs['serviceId']
+
         if action_id is not None:
             _setter("action_id", action_id)
         if service_id is not None:

@@ -37,7 +37,13 @@ class EventOrchestrationUnroutedArgs:
              catch_all: pulumi.Input['EventOrchestrationUnroutedCatchAllArgs'],
              event_orchestration: pulumi.Input[str],
              sets: pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedSetArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catchAll' in kwargs:
+            catch_all = kwargs['catchAll']
+        if 'eventOrchestration' in kwargs:
+            event_orchestration = kwargs['eventOrchestration']
+
         _setter("catch_all", catch_all)
         _setter("event_orchestration", event_orchestration)
         _setter("sets", sets)
@@ -103,7 +109,13 @@ class _EventOrchestrationUnroutedState:
              catch_all: Optional[pulumi.Input['EventOrchestrationUnroutedCatchAllArgs']] = None,
              event_orchestration: Optional[pulumi.Input[str]] = None,
              sets: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedSetArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catchAll' in kwargs:
+            catch_all = kwargs['catchAll']
+        if 'eventOrchestration' in kwargs:
+            event_orchestration = kwargs['eventOrchestration']
+
         if catch_all is not None:
             _setter("catch_all", catch_all)
         if event_orchestration is not None:

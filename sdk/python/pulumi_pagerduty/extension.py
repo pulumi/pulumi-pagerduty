@@ -328,6 +328,43 @@ class Extension(pulumi.CustomResource):
         """
         An [extension](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEzMw-create-an-extension) can be associated with a service.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        webhook = pagerduty.get_extension_schema(name="Generic V2 Webhook")
+        example_user = pagerduty.User("exampleUser", email="howard.james@example.domain")
+        example_escalation_policy = pagerduty.EscalationPolicy("exampleEscalationPolicy",
+            num_loops=2,
+            rules=[pagerduty.EscalationPolicyRuleArgs(
+                escalation_delay_in_minutes=10,
+                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
+                    type="user",
+                    id=example_user.id,
+                )],
+            )])
+        example_service = pagerduty.Service("exampleService",
+            auto_resolve_timeout="14400",
+            acknowledgement_timeout="600",
+            escalation_policy=example_escalation_policy.id)
+        slack = pagerduty.Extension("slack",
+            endpoint_url="https://generic_webhook_url/XXXXXX/BBBBBB",
+            extension_schema=webhook.id,
+            extension_objects=[example_service.id],
+            config=\"\"\"{
+        	"restrict": "any",
+        	"notify_types": {
+        			"resolve": false,
+        			"acknowledge": false,
+        			"assignments": false
+        	},
+        	"access_token": "XXX"
+        }
+        \"\"\")
+        ```
+
         ## Import
 
         Extensions can be imported using the id.e.g.
@@ -353,6 +390,43 @@ class Extension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An [extension](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEzMw-create-an-extension) can be associated with a service.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        webhook = pagerduty.get_extension_schema(name="Generic V2 Webhook")
+        example_user = pagerduty.User("exampleUser", email="howard.james@example.domain")
+        example_escalation_policy = pagerduty.EscalationPolicy("exampleEscalationPolicy",
+            num_loops=2,
+            rules=[pagerduty.EscalationPolicyRuleArgs(
+                escalation_delay_in_minutes=10,
+                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
+                    type="user",
+                    id=example_user.id,
+                )],
+            )])
+        example_service = pagerduty.Service("exampleService",
+            auto_resolve_timeout="14400",
+            acknowledgement_timeout="600",
+            escalation_policy=example_escalation_policy.id)
+        slack = pagerduty.Extension("slack",
+            endpoint_url="https://generic_webhook_url/XXXXXX/BBBBBB",
+            extension_schema=webhook.id,
+            extension_objects=[example_service.id],
+            config=\"\"\"{
+        	"restrict": "any",
+        	"notify_types": {
+        			"resolve": false,
+        			"acknowledge": false,
+        			"assignments": false
+        	},
+        	"access_token": "XXX"
+        }
+        \"\"\")
+        ```
 
         ## Import
 

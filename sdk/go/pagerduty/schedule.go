@@ -15,6 +15,63 @@ import (
 
 // A [schedule](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE4Mg-create-a-schedule) determines the time periods that users are on call. Only on-call users are eligible to receive notifications from incidents.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
+//				Email: pulumi.String("125.greenholt.earline@graham.name"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleTeam, err := pagerduty.NewTeam(ctx, "exampleTeam", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewSchedule(ctx, "foo", &pagerduty.ScheduleArgs{
+//				TimeZone: pulumi.String("America/New_York"),
+//				Layers: pagerduty.ScheduleLayerArray{
+//					&pagerduty.ScheduleLayerArgs{
+//						Name:                      pulumi.String("Night Shift"),
+//						Start:                     pulumi.String("2015-11-06T20:00:00-05:00"),
+//						RotationVirtualStart:      pulumi.String("2015-11-06T20:00:00-05:00"),
+//						RotationTurnLengthSeconds: pulumi.Int(86400),
+//						Users: pulumi.StringArray{
+//							exampleUser.ID(),
+//						},
+//						Restrictions: pagerduty.ScheduleLayerRestrictionArray{
+//							&pagerduty.ScheduleLayerRestrictionArgs{
+//								Type:            pulumi.String("daily_restriction"),
+//								StartTimeOfDay:  pulumi.String("08:00:00"),
+//								DurationSeconds: pulumi.Int(32400),
+//							},
+//						},
+//					},
+//				},
+//				Teams: pulumi.StringArray{
+//					exampleTeam.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Schedules can be imported using the `id`, e.g.

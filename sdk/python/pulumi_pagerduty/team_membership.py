@@ -185,6 +185,20 @@ class TeamMembership(pulumi.CustomResource):
                  user_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        foo_user = pagerduty.User("fooUser", email="foo@bar.com")
+        foo_team = pagerduty.Team("fooTeam", description="foo")
+        foo_team_membership = pagerduty.TeamMembership("fooTeamMembership",
+            user_id=foo_user.id,
+            team_id=foo_team.id,
+            role="manager")
+        ```
+
         ## Import
 
         Team memberships can be imported using the `user_id` and `team_id`, e.g.
@@ -209,6 +223,20 @@ class TeamMembership(pulumi.CustomResource):
                  args: TeamMembershipArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        foo_user = pagerduty.User("fooUser", email="foo@bar.com")
+        foo_team = pagerduty.Team("fooTeam", description="foo")
+        foo_team_membership = pagerduty.TeamMembership("fooTeamMembership",
+            user_id=foo_user.id,
+            team_id=foo_team.id,
+            role="manager")
+        ```
+
         ## Import
 
         Team memberships can be imported using the `user_id` and `team_id`, e.g.

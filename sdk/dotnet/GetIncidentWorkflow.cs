@@ -13,12 +13,88 @@ namespace Pulumi.Pagerduty
     {
         /// <summary>
         /// Use this data source to get information about a specific [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) so that you can create a trigger for it.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var myWorkflow = Pagerduty.GetIncidentWorkflow.Invoke(new()
+        ///     {
+        ///         Name = "Some Workflow Name",
+        ///     });
+        /// 
+        ///     var firstService = Pagerduty.GetService.Invoke(new()
+        ///     {
+        ///         Name = "My First Service",
+        ///     });
+        /// 
+        ///     var automaticTrigger = new Pagerduty.IncidentWorkflowTrigger("automaticTrigger", new()
+        ///     {
+        ///         Type = "conditional",
+        ///         Workflow = myWorkflow.Apply(getIncidentWorkflowResult =&gt; getIncidentWorkflowResult.Id),
+        ///         Services = new[]
+        ///         {
+        ///             firstService.Apply(getServiceResult =&gt; getServiceResult.Id),
+        ///         },
+        ///         Condition = "incident.priority matches 'P1'",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetIncidentWorkflowResult> InvokeAsync(GetIncidentWorkflowArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIncidentWorkflowResult>("pagerduty:index/getIncidentWorkflow:getIncidentWorkflow", args ?? new GetIncidentWorkflowArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information about a specific [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) so that you can create a trigger for it.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var myWorkflow = Pagerduty.GetIncidentWorkflow.Invoke(new()
+        ///     {
+        ///         Name = "Some Workflow Name",
+        ///     });
+        /// 
+        ///     var firstService = Pagerduty.GetService.Invoke(new()
+        ///     {
+        ///         Name = "My First Service",
+        ///     });
+        /// 
+        ///     var automaticTrigger = new Pagerduty.IncidentWorkflowTrigger("automaticTrigger", new()
+        ///     {
+        ///         Type = "conditional",
+        ///         Workflow = myWorkflow.Apply(getIncidentWorkflowResult =&gt; getIncidentWorkflowResult.Id),
+        ///         Services = new[]
+        ///         {
+        ///             firstService.Apply(getServiceResult =&gt; getServiceResult.Id),
+        ///         },
+        ///         Condition = "incident.priority matches 'P1'",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetIncidentWorkflowResult> Invoke(GetIncidentWorkflowInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIncidentWorkflowResult>("pagerduty:index/getIncidentWorkflow:getIncidentWorkflow", args ?? new GetIncidentWorkflowInvokeArgs(), options.WithDefaults());

@@ -16,6 +16,39 @@ import (
 //
 // The account must have the `teams` ability to use the following resource.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			parent, err := pagerduty.NewTeam(ctx, "parent", &pagerduty.TeamArgs{
+//				Description: pulumi.String("Product and Engineering"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewTeam(ctx, "example", &pagerduty.TeamArgs{
+//				Description: pulumi.String("All engineering"),
+//				Parent:      parent.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Teams can be imported using the `id`, e.g.

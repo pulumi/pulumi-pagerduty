@@ -13,6 +13,116 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := pagerduty.NewService(ctx, "example", &pagerduty.ServiceArgs{
+//				AutoResolveTimeout:     pulumi.String("14400"),
+//				AcknowledgementTimeout: pulumi.String("600"),
+//				EscalationPolicy:       pulumi.Any(pagerduty_escalation_policy.Example.Id),
+//				AlertCreation:          pulumi.String("create_alerts_and_incidents"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewServiceEventRule(ctx, "foo", &pagerduty.ServiceEventRuleArgs{
+//				Service:  example.ID(),
+//				Position: pulumi.Int(0),
+//				Disabled: pulumi.Bool(true),
+//				Conditions: &pagerduty.ServiceEventRuleConditionsArgs{
+//					Operator: pulumi.String("and"),
+//					Subconditions: pagerduty.ServiceEventRuleConditionsSubconditionArray{
+//						&pagerduty.ServiceEventRuleConditionsSubconditionArgs{
+//							Operator: pulumi.String("contains"),
+//							Parameters: pagerduty.ServiceEventRuleConditionsSubconditionParameterArray{
+//								&pagerduty.ServiceEventRuleConditionsSubconditionParameterArgs{
+//									Value: pulumi.String("disk space"),
+//									Path:  pulumi.String("summary"),
+//								},
+//							},
+//						},
+//					},
+//				},
+//				Variables: pagerduty.ServiceEventRuleVariableArray{
+//					&pagerduty.ServiceEventRuleVariableArgs{
+//						Type: pulumi.String("regex"),
+//						Name: pulumi.String("Src"),
+//						Parameters: pagerduty.ServiceEventRuleVariableParameterArray{
+//							&pagerduty.ServiceEventRuleVariableParameterArgs{
+//								Value: pulumi.String("(.*)"),
+//								Path:  pulumi.String("source"),
+//							},
+//						},
+//					},
+//				},
+//				Actions: &pagerduty.ServiceEventRuleActionsArgs{
+//					Annotates: pagerduty.ServiceEventRuleActionsAnnotateArray{
+//						&pagerduty.ServiceEventRuleActionsAnnotateArgs{
+//							Value: pulumi.String("From Terraform"),
+//						},
+//					},
+//					Extractions: pagerduty.ServiceEventRuleActionsExtractionArray{
+//						&pagerduty.ServiceEventRuleActionsExtractionArgs{
+//							Target: pulumi.String("dedup_key"),
+//							Source: pulumi.String("source"),
+//							Regex:  pulumi.String("(.*)"),
+//						},
+//						&pagerduty.ServiceEventRuleActionsExtractionArgs{
+//							Target:   pulumi.String("summary"),
+//							Template: pulumi.String("Warning: Disk Space Low on {{Src}}"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewServiceEventRule(ctx, "bar", &pagerduty.ServiceEventRuleArgs{
+//				Service:  pulumi.Any(pagerduty_service.Foo.Id),
+//				Position: pulumi.Int(1),
+//				Disabled: pulumi.Bool(true),
+//				Conditions: &pagerduty.ServiceEventRuleConditionsArgs{
+//					Operator: pulumi.String("and"),
+//					Subconditions: pagerduty.ServiceEventRuleConditionsSubconditionArray{
+//						&pagerduty.ServiceEventRuleConditionsSubconditionArgs{
+//							Operator: pulumi.String("contains"),
+//							Parameters: pagerduty.ServiceEventRuleConditionsSubconditionParameterArray{
+//								&pagerduty.ServiceEventRuleConditionsSubconditionParameterArgs{
+//									Value: pulumi.String("cpu spike"),
+//									Path:  pulumi.String("summary"),
+//								},
+//							},
+//						},
+//					},
+//				},
+//				Actions: &pagerduty.ServiceEventRuleActionsArgs{
+//					Annotates: pagerduty.ServiceEventRuleActionsAnnotateArray{
+//						&pagerduty.ServiceEventRuleActionsAnnotateArgs{
+//							Value: pulumi.String("From Terraform"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Service event rules can be imported using using the related `service` id and the `service_event_rule` id separated by a dot, e.g.

@@ -173,6 +173,29 @@ class IncidentCustomFieldOption(pulumi.CustomResource):
         A Incident Custom Field Option is a specific value that can be used for an [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents) that only allow values from a set of fixed options,
         i.e. has the `field_type` of `single_value_fixed` or `multi_value_fixed`.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        sre_environment = pagerduty.IncidentCustomField("sreEnvironment",
+            data_type="string",
+            field_type="single_value_fixed")
+        dev_environment = pagerduty.IncidentCustomFieldOption("devEnvironment",
+            field=sre_environment.id,
+            data_type="string",
+            value="dev")
+        stage_environment = pagerduty.IncidentCustomFieldOption("stageEnvironment",
+            field=sre_environment.id,
+            data_type="string",
+            value="stage")
+        prod_environment = pagerduty.IncidentCustomFieldOption("prodEnvironment",
+            field=sre_environment.id,
+            data_type="string",
+            value="prod")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_type: The datatype of the field option. Only `string` is allowed here at present.
@@ -188,6 +211,29 @@ class IncidentCustomFieldOption(pulumi.CustomResource):
         """
         A Incident Custom Field Option is a specific value that can be used for an [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents) that only allow values from a set of fixed options,
         i.e. has the `field_type` of `single_value_fixed` or `multi_value_fixed`.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        sre_environment = pagerduty.IncidentCustomField("sreEnvironment",
+            data_type="string",
+            field_type="single_value_fixed")
+        dev_environment = pagerduty.IncidentCustomFieldOption("devEnvironment",
+            field=sre_environment.id,
+            data_type="string",
+            value="dev")
+        stage_environment = pagerduty.IncidentCustomFieldOption("stageEnvironment",
+            field=sre_environment.id,
+            data_type="string",
+            value="stage")
+        prod_environment = pagerduty.IncidentCustomFieldOption("prodEnvironment",
+            field=sre_environment.id,
+            data_type="string",
+            value="prod")
+        ```
 
         :param str resource_name: The name of the resource.
         :param IncidentCustomFieldOptionArgs args: The arguments to use to populate this resource's properties.

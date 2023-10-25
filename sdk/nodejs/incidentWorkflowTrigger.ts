@@ -7,6 +7,43 @@ import * as utilities from "./utilities";
 /**
  * An [Incident Workflow Trigger](https://support.pagerduty.com/docs/incident-workflows#triggers) defines when and if an [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) will be triggered.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const myFirstWorkflow = new pagerduty.IncidentWorkflow("myFirstWorkflow", {
+ *     description: "This Incident Workflow is an example",
+ *     steps: [{
+ *         name: "Send Status Update",
+ *         action: "pagerduty.com:incident-workflows:send-status-update:1",
+ *         inputs: [{
+ *             name: "Message",
+ *             value: "Example status message sent on {{current_date}}",
+ *         }],
+ *     }],
+ * });
+ * const firstService = pagerduty.getService({
+ *     name: "My First Service",
+ * });
+ * const automaticTrigger = new pagerduty.IncidentWorkflowTrigger("automaticTrigger", {
+ *     type: "conditional",
+ *     workflow: myFirstWorkflow.id,
+ *     services: [pagerduty_service.first_service.id],
+ *     condition: "incident.priority matches 'P1'",
+ *     subscribedToAllServices: false,
+ * });
+ * const devops = pagerduty.getTeam({
+ *     name: "devops",
+ * });
+ * const manualTrigger = new pagerduty.IncidentWorkflowTrigger("manualTrigger", {
+ *     type: "manual",
+ *     workflow: myFirstWorkflow.id,
+ *     services: [pagerduty_service.first_service.id],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Incident workflows can be imported using the `id`, e.g.

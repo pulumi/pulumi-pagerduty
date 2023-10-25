@@ -14,6 +14,29 @@ namespace Pulumi.Pagerduty
     /// 
     /// Maintenance windows are specified to start at a certain time and end after they have begun. Once started, a maintenance window cannot be deleted; it can only be ended immediately to re-enable the service.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Pagerduty = Pulumi.Pagerduty;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Pagerduty.MaintenanceWindow("example", new()
+    ///     {
+    ///         StartTime = "2015-11-09T20:00:00-05:00",
+    ///         EndTime = "2015-11-09T22:00:00-05:00",
+    ///         Services = new[]
+    ///         {
+    ///             pagerduty_service.Example.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Maintenance windows can be imported using the `id`, e.g.

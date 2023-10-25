@@ -76,6 +76,17 @@ def get_event_orchestration_integration(event_orchestration: Optional[str] = Non
     """
     Use this data source to get information about a specific [Integration](https://developer.pagerduty.com/api-reference/1c6607db389a8-get-an-integration-for-an-event-orchestration) for an Event Orchestration.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_pagerduty as pagerduty
+
+    event_orchestration = pagerduty.EventOrchestration("eventOrchestration")
+    integration = pagerduty.get_event_orchestration_integration_output(event_orchestration=event_orchestration.id,
+        label="Test Event Orchestration Default Integration")
+    ```
+
 
     :param str event_orchestration: ID of the Event Orchestration to which this Integration belongs.
     :param str id: ID of the Integration associated with the Event Orchestration. Specify either `id` or `label`. If both are specified `id` takes precedence.
@@ -102,6 +113,17 @@ def get_event_orchestration_integration_output(event_orchestration: Optional[pul
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventOrchestrationIntegrationResult]:
     """
     Use this data source to get information about a specific [Integration](https://developer.pagerduty.com/api-reference/1c6607db389a8-get-an-integration-for-an-event-orchestration) for an Event Orchestration.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_pagerduty as pagerduty
+
+    event_orchestration = pagerduty.EventOrchestration("eventOrchestration")
+    integration = pagerduty.get_event_orchestration_integration_output(event_orchestration=event_orchestration.id,
+        label="Test Event Orchestration Default Integration")
+    ```
 
 
     :param str event_orchestration: ID of the Event Orchestration to which this Integration belongs.

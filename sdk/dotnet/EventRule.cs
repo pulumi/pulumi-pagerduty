@@ -14,6 +14,154 @@ namespace Pulumi.Pagerduty
     /// 
     /// An [event rule](https://developer.pagerduty.com/docs/rest-api-v2/global-event-rules-api/) determines what happens to an event that is sent to PagerDuty by monitoring tools and other integrations.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Pagerduty = Pulumi.Pagerduty;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var second = new Pagerduty.EventRule("second", new()
+    ///     {
+    ///         ActionJson = JsonSerializer.Serialize(new[]
+    ///         {
+    ///             new[]
+    ///             {
+    ///                 "route",
+    ///                 "P5DTL0K",
+    ///             },
+    ///             new[]
+    ///             {
+    ///                 "severity",
+    ///                 "warning",
+    ///             },
+    ///             new[]
+    ///             {
+    ///                 "annotate",
+    ///                 "2 Managed by terraform",
+    ///             },
+    ///             new[]
+    ///             {
+    ///                 "priority",
+    ///                 "PL451DT",
+    ///             },
+    ///         }),
+    ///         ConditionJson = JsonSerializer.Serialize(new[]
+    ///         {
+    ///             "and",
+    ///             new[]
+    ///             {
+    ///                 "contains",
+    ///                 new[]
+    ///                 {
+    ///                     "path",
+    ///                     "payload",
+    ///                     "source",
+    ///                 },
+    ///                 "website",
+    ///             },
+    ///             new[]
+    ///             {
+    ///                 "contains",
+    ///                 new[]
+    ///                 {
+    ///                     "path",
+    ///                     "headers",
+    ///                     "from",
+    ///                     "0",
+    ///                     "address",
+    ///                 },
+    ///                 "homer",
+    ///             },
+    ///         }),
+    ///         AdvancedConditionJson = JsonSerializer.Serialize(new[]
+    ///         {
+    ///             new[]
+    ///             {
+    ///                 "scheduled-weekly",
+    ///                 1565392127032,
+    ///                 3600000,
+    ///                 "America/Los_Angeles",
+    ///                 new[]
+    ///                 {
+    ///                     1,
+    ///                     2,
+    ///                     3,
+    ///                     5,
+    ///                     7,
+    ///                 },
+    ///             },
+    ///         }),
+    ///     });
+    /// 
+    ///     var third = new Pagerduty.EventRule("third", new()
+    ///     {
+    ///         ActionJson = JsonSerializer.Serialize(new[]
+    ///         {
+    ///             new[]
+    ///             {
+    ///                 "route",
+    ///                 "P5DTL0K",
+    ///             },
+    ///             new[]
+    ///             {
+    ///                 "severity",
+    ///                 "warning",
+    ///             },
+    ///             new[]
+    ///             {
+    ///                 "annotate",
+    ///                 "3 Managed by terraform",
+    ///             },
+    ///             new[]
+    ///             {
+    ///                 "priority",
+    ///                 "PL451DT",
+    ///             },
+    ///         }),
+    ///         ConditionJson = JsonSerializer.Serialize(new[]
+    ///         {
+    ///             "and",
+    ///             new[]
+    ///             {
+    ///                 "contains",
+    ///                 new[]
+    ///                 {
+    ///                     "path",
+    ///                     "payload",
+    ///                     "source",
+    ///                 },
+    ///                 "website",
+    ///             },
+    ///             new[]
+    ///             {
+    ///                 "contains",
+    ///                 new[]
+    ///                 {
+    ///                     "path",
+    ///                     "headers",
+    ///                     "from",
+    ///                     "0",
+    ///                     "address",
+    ///                 },
+    ///                 "homer",
+    ///             },
+    ///         }),
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             pagerduty_event_rule.Two,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Event rules can be imported using the `id`, e.g.

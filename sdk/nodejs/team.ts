@@ -9,6 +9,19 @@ import * as utilities from "./utilities";
  *
  * The account must have the `teams` ability to use the following resource.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const parent = new pagerduty.Team("parent", {description: "Product and Engineering"});
+ * const example = new pagerduty.Team("example", {
+ *     description: "All engineering",
+ *     parent: parent.id,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Teams can be imported using the `id`, e.g.

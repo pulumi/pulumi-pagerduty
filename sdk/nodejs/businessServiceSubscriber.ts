@@ -7,6 +7,31 @@ import * as utilities from "./utilities";
 /**
  * A [business service subscriber](https://developer.pagerduty.com/api-reference/b3A6NDUwNDgxOQ-list-business-service-subscribers) allows you to subscribe users or teams to automatically receive updates about key business services.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const exampleBusinessService = new pagerduty.BusinessService("exampleBusinessService", {
+ *     description: "A very descriptive description of this business service",
+ *     pointOfContact: "PagerDuty Admin",
+ *     team: "P37RSRS",
+ * });
+ * const engteam = new pagerduty.Team("engteam", {});
+ * const exampleUser = new pagerduty.User("exampleUser", {email: "125.greenholt.earline@graham.name"});
+ * const teamExample = new pagerduty.BusinessServiceSubscriber("teamExample", {
+ *     subscriberId: engteam.id,
+ *     subscriberType: "team",
+ *     businessServiceId: exampleBusinessService.id,
+ * });
+ * const userExample = new pagerduty.BusinessServiceSubscriber("userExample", {
+ *     subscriberId: exampleUser.id,
+ *     subscriberType: "user",
+ *     businessServiceId: exampleBusinessService.id,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Services can be imported using the `id` using the related business service ID, the subscriber type and the subscriber ID separated by a dot, e.g.

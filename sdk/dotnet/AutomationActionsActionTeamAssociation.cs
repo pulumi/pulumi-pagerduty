@@ -12,6 +12,40 @@ namespace Pulumi.Pagerduty
     /// <summary>
     /// An Automation Actions [action association with a team](https://developer.pagerduty.com/api-reference/8f722dd91a4ba-associate-an-automation-action-with-a-team) configures the relation of a specific Action with a Team.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Pagerduty = Pulumi.Pagerduty;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Pagerduty.Team("example", new()
+    ///     {
+    ///         Description = "All engineering",
+    ///     });
+    /// 
+    ///     var paActionExample = new Pagerduty.AutomationActionsAction("paActionExample", new()
+    ///     {
+    ///         Description = "Description of the PA Action created via TF",
+    ///         ActionType = "process_automation",
+    ///         ActionDataReference = new Pagerduty.Inputs.AutomationActionsActionActionDataReferenceArgs
+    ///         {
+    ///             ProcessAutomationJobId = "P123456",
+    ///         },
+    ///     });
+    /// 
+    ///     var foo = new Pagerduty.AutomationActionsActionTeamAssociation("foo", new()
+    ///     {
+    ///         ActionId = paActionExample.Id,
+    ///         TeamId = example.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Action team association can be imported using the `action_id` and `team_id` separated by a colon, e.g.

@@ -15,6 +15,40 @@ import (
 
 // An [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents) defines a field which can be set on incidents in the target account.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := pagerduty.NewIncidentCustomField(ctx, "csImpact", &pagerduty.IncidentCustomFieldArgs{
+//				DataType:  pulumi.String("string"),
+//				FieldType: pulumi.String("single_value"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewIncidentCustomField(ctx, "sreEnvironment", &pagerduty.IncidentCustomFieldArgs{
+//				DataType:  pulumi.String("string"),
+//				FieldType: pulumi.String("single_value_fixed"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Fields can be imported using the `id`, e.g.

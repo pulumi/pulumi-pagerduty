@@ -8108,6 +8108,49 @@ class ServiceScheduledActionAt(dict):
                Note that it is currently only possible to define the scheduled action when urgency is set to `high` for `during_support_hours` and to `low`  for `outside_support_hours` in `incident_urgency_rule`.
                
                Below is an example for a `Service` resource with `incident_urgency_rules` with `type = "use_support_hours"`, `support_hours` and a default `scheduled_action` as well.
+               
+               ```python
+               import pulumi
+               import pulumi_pagerduty as pagerduty
+               
+               foo = pagerduty.Service("foo",
+                   description="bar bar bar",
+                   auto_resolve_timeout="3600",
+                   acknowledgement_timeout="3600",
+                   escalation_policy=pagerduty_escalation_policy["foo"]["id"],
+                   incident_urgency_rule=pagerduty.ServiceIncidentUrgencyRuleArgs(
+                       type="use_support_hours",
+                       during_support_hours=pagerduty.ServiceIncidentUrgencyRuleDuringSupportHoursArgs(
+                           type="constant",
+                           urgency="high",
+                       ),
+                       outside_support_hours=pagerduty.ServiceIncidentUrgencyRuleOutsideSupportHoursArgs(
+                           type="constant",
+                           urgency="low",
+                       ),
+                   ),
+                   support_hours=pagerduty.ServiceSupportHoursArgs(
+                       type="fixed_time_per_day",
+                       time_zone="America/Lima",
+                       start_time="09:00:00",
+                       end_time="17:00:00",
+                       days_of_weeks=[
+                           1,
+                           2,
+                           3,
+                           4,
+                           5,
+                       ],
+                   ),
+                   scheduled_actions=[pagerduty.ServiceScheduledActionArgs(
+                       type="urgency_change",
+                       to_urgency="high",
+                       ats=[pagerduty.ServiceScheduledActionAtArgs(
+                           type="named_time",
+                           name="support_hours_start",
+                       )],
+                   )])
+               ```
         :param str type: The type of time specification. Currently, this must be set to `named_time`.
         """
         ServiceScheduledActionAt._configure(
@@ -8137,6 +8180,49 @@ class ServiceScheduledActionAt(dict):
         Note that it is currently only possible to define the scheduled action when urgency is set to `high` for `during_support_hours` and to `low`  for `outside_support_hours` in `incident_urgency_rule`.
 
         Below is an example for a `Service` resource with `incident_urgency_rules` with `type = "use_support_hours"`, `support_hours` and a default `scheduled_action` as well.
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        foo = pagerduty.Service("foo",
+            description="bar bar bar",
+            auto_resolve_timeout="3600",
+            acknowledgement_timeout="3600",
+            escalation_policy=pagerduty_escalation_policy["foo"]["id"],
+            incident_urgency_rule=pagerduty.ServiceIncidentUrgencyRuleArgs(
+                type="use_support_hours",
+                during_support_hours=pagerduty.ServiceIncidentUrgencyRuleDuringSupportHoursArgs(
+                    type="constant",
+                    urgency="high",
+                ),
+                outside_support_hours=pagerduty.ServiceIncidentUrgencyRuleOutsideSupportHoursArgs(
+                    type="constant",
+                    urgency="low",
+                ),
+            ),
+            support_hours=pagerduty.ServiceSupportHoursArgs(
+                type="fixed_time_per_day",
+                time_zone="America/Lima",
+                start_time="09:00:00",
+                end_time="17:00:00",
+                days_of_weeks=[
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                ],
+            ),
+            scheduled_actions=[pagerduty.ServiceScheduledActionArgs(
+                type="urgency_change",
+                to_urgency="high",
+                ats=[pagerduty.ServiceScheduledActionAtArgs(
+                    type="named_time",
+                    name="support_hours_start",
+                )],
+            )])
+        ```
         """
         return pulumi.get(self, "name")
 

@@ -6,6 +6,17 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to get information about a specific [business service](https://api-reference.pagerduty.com/#!/Business_Services/get_business_services).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const example = pagerduty.getBusinessService({
+ *     name: "My Service",
+ * });
+ * ```
  */
 export function getBusinessService(args: GetBusinessServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetBusinessServiceResult> {
 
@@ -44,6 +55,17 @@ export interface GetBusinessServiceResult {
 }
 /**
  * Use this data source to get information about a specific [business service](https://api-reference.pagerduty.com/#!/Business_Services/get_business_services).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const example = pagerduty.getBusinessService({
+ *     name: "My Service",
+ * });
+ * ```
  */
 export function getBusinessServiceOutput(args: GetBusinessServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBusinessServiceResult> {
     return pulumi.output(args).apply((a: any) => getBusinessService(a, opts))

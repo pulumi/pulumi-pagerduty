@@ -12,6 +12,36 @@ namespace Pulumi.Pagerduty
     /// <summary>
     /// An Event Orchestration Integration allows you to create and manage multiple Integrations (and Routing Keys) per Event Orchestration _and_ will allow you to move (migrate) Integrations _between_ two Event Orchestrations.
     /// 
+    /// ## Example of configuring an Integration for an Event Orchestration
+    /// 
+    /// This example shows creating `Event Orchestration` and `Team` resources followed by creating an Event Orchestration Integration to handle Events sent to that Event Orchestration.
+    /// 
+    /// &gt; When a new Event Orchestration is created there will be one Integration (and Routing Key) included by default. Example below shows how to create an extra Integration associated with this Event Orchestration.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Pagerduty = Pulumi.Pagerduty;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var databaseTeam = new Pagerduty.Team("databaseTeam");
+    /// 
+    ///     var eventOrchestration = new Pagerduty.EventOrchestration("eventOrchestration", new()
+    ///     {
+    ///         Team = databaseTeam.Id,
+    ///     });
+    /// 
+    ///     var integration = new Pagerduty.EventOrchestrationIntegration("integration", new()
+    ///     {
+    ///         EventOrchestration = eventOrchestration.Id,
+    ///         Label = "Example integration",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Event Orchestration Integration can be imported using colon-separated IDs, which is the combination of the Event Orchestration ID followed by the Event Orchestration Integration ID, e.g.

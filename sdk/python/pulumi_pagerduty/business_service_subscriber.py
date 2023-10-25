@@ -180,6 +180,28 @@ class BusinessServiceSubscriber(pulumi.CustomResource):
         """
         A [business service subscriber](https://developer.pagerduty.com/api-reference/b3A6NDUwNDgxOQ-list-business-service-subscribers) allows you to subscribe users or teams to automatically receive updates about key business services.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        example_business_service = pagerduty.BusinessService("exampleBusinessService",
+            description="A very descriptive description of this business service",
+            point_of_contact="PagerDuty Admin",
+            team="P37RSRS")
+        engteam = pagerduty.Team("engteam")
+        example_user = pagerduty.User("exampleUser", email="125.greenholt.earline@graham.name")
+        team_example = pagerduty.BusinessServiceSubscriber("teamExample",
+            subscriber_id=engteam.id,
+            subscriber_type="team",
+            business_service_id=example_business_service.id)
+        user_example = pagerduty.BusinessServiceSubscriber("userExample",
+            subscriber_id=example_user.id,
+            subscriber_type="user",
+            business_service_id=example_business_service.id)
+        ```
+
         ## Import
 
         Services can be imported using the `id` using the related business service ID, the subscriber type and the subscriber ID separated by a dot, e.g.
@@ -202,6 +224,28 @@ class BusinessServiceSubscriber(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A [business service subscriber](https://developer.pagerduty.com/api-reference/b3A6NDUwNDgxOQ-list-business-service-subscribers) allows you to subscribe users or teams to automatically receive updates about key business services.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        example_business_service = pagerduty.BusinessService("exampleBusinessService",
+            description="A very descriptive description of this business service",
+            point_of_contact="PagerDuty Admin",
+            team="P37RSRS")
+        engteam = pagerduty.Team("engteam")
+        example_user = pagerduty.User("exampleUser", email="125.greenholt.earline@graham.name")
+        team_example = pagerduty.BusinessServiceSubscriber("teamExample",
+            subscriber_id=engteam.id,
+            subscriber_type="team",
+            business_service_id=example_business_service.id)
+        user_example = pagerduty.BusinessServiceSubscriber("userExample",
+            subscriber_id=example_user.id,
+            subscriber_type="user",
+            business_service_id=example_business_service.id)
+        ```
 
         ## Import
 

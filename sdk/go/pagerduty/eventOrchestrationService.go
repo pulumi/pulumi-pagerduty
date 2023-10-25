@@ -17,6 +17,180 @@ import (
 //
 // > If you have a Service that uses [Service Event Rules](https://support.pagerduty.com/docs/rulesets#service-event-rules), you can switch to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations) at any time setting the attribute `enableEventOrchestrationForService` to `true`. Please read the [Switch to Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#switch-to-service-orchestrations) instructions for more information.
 //
+// ## Example of configuring a Service Orchestration
+//
+// This example shows creating `Team`, `User`, `Escalation Policy`, and `Service` resources followed by creating a Service Orchestration to handle Events sent to that Service.
+//
+// This example also shows using `priority` data source to configure `priority` action for a rule. If the Event matches the first rule in set "step-two" the resulting incident will have the Priority `P1`.
+//
+// This example shows a Service Orchestration that has nested sets: a rule in the "start" set has a `routeTo` action pointing at the "step-two" set.
+//
+// The `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set. In this example the `catchAll` doesn't have any `actions` so it'll leave events as-is.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			engineering, err := pagerduty.NewTeam(ctx, "engineering", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
+//				Email: pulumi.String("125.greenholt.earline@graham.name"),
+//				Teams: pulumi.StringArray{
+//					engineering.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewEscalationPolicy(ctx, "foo", &pagerduty.EscalationPolicyArgs{
+//				NumLoops: pulumi.Int(2),
+//				Rules: pagerduty.EscalationPolicyRuleArray{
+//					&pagerduty.EscalationPolicyRuleArgs{
+//						EscalationDelayInMinutes: pulumi.Int(10),
+//						Targets: pagerduty.EscalationPolicyRuleTargetArray{
+//							&pagerduty.EscalationPolicyRuleTargetArgs{
+//								Type: pulumi.String("user"),
+//								Id:   exampleUser.ID(),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleService, err := pagerduty.NewService(ctx, "exampleService", &pagerduty.ServiceArgs{
+//				AutoResolveTimeout:     pulumi.String("14400"),
+//				AcknowledgementTimeout: pulumi.String("600"),
+//				EscalationPolicy:       pulumi.Any(pagerduty_escalation_policy.Example.Id),
+//				AlertCreation:          pulumi.String("create_alerts_and_incidents"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			p1, err := pagerduty.GetPriority(ctx, &pagerduty.GetPriorityArgs{
+//				Name: "P1",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewEventOrchestrationService(ctx, "www", &pagerduty.EventOrchestrationServiceArgs{
+//				Service:                            exampleService.ID(),
+//				EnableEventOrchestrationForService: pulumi.Bool(true),
+//				Sets: pagerduty.EventOrchestrationServiceSetArray{
+//					&pagerduty.EventOrchestrationServiceSetArgs{
+//						Id: pulumi.String("start"),
+//						Rules: pagerduty.EventOrchestrationServiceSetRuleArray{
+//							&pagerduty.EventOrchestrationServiceSetRuleArgs{
+//								Label: pulumi.String("Always apply some consistent event transformations to all events"),
+//								Actions: &pagerduty.EventOrchestrationServiceSetRuleActionsArgs{
+//									Variables: pagerduty.EventOrchestrationServiceSetRuleActionsVariableArray{
+//										&pagerduty.EventOrchestrationServiceSetRuleActionsVariableArgs{
+//											Name:  pulumi.String("hostname"),
+//											Path:  pulumi.String("event.component"),
+//											Value: pulumi.String("hostname: (.*)"),
+//											Type:  pulumi.String("regex"),
+//										},
+//									},
+//									Extractions: pagerduty.EventOrchestrationServiceSetRuleActionsExtractionArray{
+//										&pagerduty.EventOrchestrationServiceSetRuleActionsExtractionArgs{
+//											Template: pulumi.String("{{variables.hostname}}"),
+//											Target:   pulumi.String("event.custom_details.hostname"),
+//										},
+//										&pagerduty.EventOrchestrationServiceSetRuleActionsExtractionArgs{
+//											Source: pulumi.String("event.source"),
+//											Regex:  pulumi.String("www (.*) service"),
+//											Target: pulumi.String("event.source"),
+//										},
+//									},
+//									RouteTo: pulumi.String("step-two"),
+//								},
+//							},
+//						},
+//					},
+//					&pagerduty.EventOrchestrationServiceSetArgs{
+//						Id: pulumi.String("step-two"),
+//						Rules: pagerduty.EventOrchestrationServiceSetRuleArray{
+//							&pagerduty.EventOrchestrationServiceSetRuleArgs{
+//								Label: pulumi.String("All critical alerts should be treated as P1 incident"),
+//								Conditions: pagerduty.EventOrchestrationServiceSetRuleConditionArray{
+//									&pagerduty.EventOrchestrationServiceSetRuleConditionArgs{
+//										Expression: pulumi.String("event.severity matches 'critical'"),
+//									},
+//								},
+//								Actions: &pagerduty.EventOrchestrationServiceSetRuleActionsArgs{
+//									Annotate: pulumi.String("Please use our P1 runbook: https://docs.test/p1-runbook"),
+//									Priority: *pulumi.String(p1.Id),
+//								},
+//							},
+//							&pagerduty.EventOrchestrationServiceSetRuleArgs{
+//								Label: pulumi.String("If there's something wrong on the canary let the team know about it in our deployments Slack channel"),
+//								Conditions: pagerduty.EventOrchestrationServiceSetRuleConditionArray{
+//									&pagerduty.EventOrchestrationServiceSetRuleConditionArgs{
+//										Expression: pulumi.String("event.custom_details.hostname matches part 'canary'"),
+//									},
+//								},
+//								Actions: &pagerduty.EventOrchestrationServiceSetRuleActionsArgs{
+//									AutomationAction: &pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionArgs{
+//										Name:     pulumi.String("Canary Slack Notification"),
+//										Url:      pulumi.String("https://our-slack-listerner.test/canary-notification"),
+//										AutoSend: pulumi.Bool(true),
+//										Parameters: pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionParameterArray{
+//											&pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs{
+//												Key:   pulumi.String("channel"),
+//												Value: pulumi.String("#my-team-channel"),
+//											},
+//											&pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs{
+//												Key:   pulumi.String("message"),
+//												Value: pulumi.String("something is wrong with the canary deployment"),
+//											},
+//										},
+//										Headers: pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArray{
+//											&pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs{
+//												Key:   pulumi.String("X-Notification-Source"),
+//												Value: pulumi.String("PagerDuty Incident Webhook"),
+//											},
+//										},
+//									},
+//								},
+//							},
+//							&pagerduty.EventOrchestrationServiceSetRuleArgs{
+//								Label: pulumi.String("Never bother the on-call for info-level events outside of work hours"),
+//								Conditions: pagerduty.EventOrchestrationServiceSetRuleConditionArray{
+//									&pagerduty.EventOrchestrationServiceSetRuleConditionArgs{
+//										Expression: pulumi.String("event.severity matches 'info' and not (now in Mon,Tue,Wed,Thu,Fri 09:00:00 to 17:00:00 America/Los_Angeles)"),
+//									},
+//								},
+//								Actions: &pagerduty.EventOrchestrationServiceSetRuleActionsArgs{
+//									Suppress: pulumi.Bool(true),
+//								},
+//							},
+//						},
+//					},
+//				},
+//				CatchAll: &pagerduty.EventOrchestrationServiceCatchAllArgs{
+//					Actions: nil,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Service Orchestration can be imported using the `id` of the Service, e.g.

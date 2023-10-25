@@ -13,12 +13,96 @@ namespace Pulumi.Pagerduty
     {
         /// <summary>
         /// Use this data source to get information about a specific [user](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var me = Pagerduty.GetUser.Invoke(new()
+        ///     {
+        ///         Email = "me@example.com",
+        ///     });
+        /// 
+        ///     var foo = new Pagerduty.EscalationPolicy("foo", new()
+        ///     {
+        ///         NumLoops = 2,
+        ///         Rules = new[]
+        ///         {
+        ///             new Pagerduty.Inputs.EscalationPolicyRuleArgs
+        ///             {
+        ///                 EscalationDelayInMinutes = 10,
+        ///                 Targets = new[]
+        ///                 {
+        ///                     new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
+        ///                     {
+        ///                         Type = "user",
+        ///                         Id = me.Apply(getUserResult =&gt; getUserResult.Id),
+        ///                     },
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("pagerduty:index/getUser:getUser", args ?? new GetUserArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information about a specific [user](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var me = Pagerduty.GetUser.Invoke(new()
+        ///     {
+        ///         Email = "me@example.com",
+        ///     });
+        /// 
+        ///     var foo = new Pagerduty.EscalationPolicy("foo", new()
+        ///     {
+        ///         NumLoops = 2,
+        ///         Rules = new[]
+        ///         {
+        ///             new Pagerduty.Inputs.EscalationPolicyRuleArgs
+        ///             {
+        ///                 EscalationDelayInMinutes = 10,
+        ///                 Targets = new[]
+        ///                 {
+        ///                     new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
+        ///                     {
+        ///                         Type = "user",
+        ///                         Id = me.Apply(getUserResult =&gt; getUserResult.Id),
+        ///                     },
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("pagerduty:index/getUser:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());

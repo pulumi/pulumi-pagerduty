@@ -8,6 +8,21 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users' licenses, the `currentValue` and `allocationsAvailable` attributes of licenses will change.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const invalidRoles = ["owner"];
+ * const licenses = pagerduty.getLicenses({});
+ * const example = new pagerduty.User("example", {
+ *     email: "125.greenholt.earline@graham.name",
+ *     license: licenses.then(licenses => licenses.licenses?.[0]?.id),
+ *     role: "user",
+ * });
+ * ```
  */
 export function getLicenses(args?: GetLicensesArgs, opts?: pulumi.InvokeOptions): Promise<GetLicensesResult> {
     args = args || {};
@@ -48,6 +63,21 @@ export interface GetLicensesResult {
 }
 /**
  * Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users' licenses, the `currentValue` and `allocationsAvailable` attributes of licenses will change.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const invalidRoles = ["owner"];
+ * const licenses = pagerduty.getLicenses({});
+ * const example = new pagerduty.User("example", {
+ *     email: "125.greenholt.earline@graham.name",
+ *     license: licenses.then(licenses => licenses.licenses?.[0]?.id),
+ *     role: "user",
+ * });
+ * ```
  */
 export function getLicensesOutput(args?: GetLicensesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLicensesResult> {
     return pulumi.output(args).apply((a: any) => getLicenses(a, opts))

@@ -9,6 +9,25 @@ import * as utilities from "./utilities";
 /**
  * An [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) is a series of steps which can be executed on an incident.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const myFirstWorkflow = new pagerduty.IncidentWorkflow("myFirstWorkflow", {
+ *     description: "This Incident Workflow is an example",
+ *     steps: [{
+ *         action: "pagerduty.com:incident-workflows:send-status-update:1",
+ *         inputs: [{
+ *             name: "Message",
+ *             value: "Example status message sent on {{current_date}}",
+ *         }],
+ *         name: "Send Status Update",
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Incident workflows can be imported using the `id`, e.g.

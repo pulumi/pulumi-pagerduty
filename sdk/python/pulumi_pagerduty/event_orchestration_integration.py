@@ -150,6 +150,23 @@ class EventOrchestrationIntegration(pulumi.CustomResource):
         """
         An Event Orchestration Integration allows you to create and manage multiple Integrations (and Routing Keys) per Event Orchestration _and_ will allow you to move (migrate) Integrations _between_ two Event Orchestrations.
 
+        ## Example of configuring an Integration for an Event Orchestration
+
+        This example shows creating `Event Orchestration` and `Team` resources followed by creating an Event Orchestration Integration to handle Events sent to that Event Orchestration.
+
+        > When a new Event Orchestration is created there will be one Integration (and Routing Key) included by default. Example below shows how to create an extra Integration associated with this Event Orchestration.
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        database_team = pagerduty.Team("databaseTeam")
+        event_orchestration = pagerduty.EventOrchestration("eventOrchestration", team=database_team.id)
+        integration = pagerduty.EventOrchestrationIntegration("integration",
+            event_orchestration=event_orchestration.id,
+            label="Example integration")
+        ```
+
         ## Import
 
         Event Orchestration Integration can be imported using colon-separated IDs, which is the combination of the Event Orchestration ID followed by the Event Orchestration Integration ID, e.g.
@@ -171,6 +188,23 @@ class EventOrchestrationIntegration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Event Orchestration Integration allows you to create and manage multiple Integrations (and Routing Keys) per Event Orchestration _and_ will allow you to move (migrate) Integrations _between_ two Event Orchestrations.
+
+        ## Example of configuring an Integration for an Event Orchestration
+
+        This example shows creating `Event Orchestration` and `Team` resources followed by creating an Event Orchestration Integration to handle Events sent to that Event Orchestration.
+
+        > When a new Event Orchestration is created there will be one Integration (and Routing Key) included by default. Example below shows how to create an extra Integration associated with this Event Orchestration.
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        database_team = pagerduty.Team("databaseTeam")
+        event_orchestration = pagerduty.EventOrchestration("eventOrchestration", team=database_team.id)
+        integration = pagerduty.EventOrchestrationIntegration("integration",
+            event_orchestration=event_orchestration.id,
+            label="Example integration")
+        ```
 
         ## Import
 

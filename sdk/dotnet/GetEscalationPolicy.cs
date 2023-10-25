@@ -13,12 +13,70 @@ namespace Pulumi.Pagerduty
     {
         /// <summary>
         /// Use this data source to get information about a specific [escalation policy](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEyNA-list-escalation-policies) that you can use for other PagerDuty resources.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var testEscalationPolicy = Pagerduty.GetEscalationPolicy.Invoke(new()
+        ///     {
+        ///         Name = "Engineering Escalation Policy",
+        ///     });
+        /// 
+        ///     var testService = new Pagerduty.Service("testService", new()
+        ///     {
+        ///         AutoResolveTimeout = "14400",
+        ///         AcknowledgementTimeout = "600",
+        ///         EscalationPolicy = testEscalationPolicy.Apply(getEscalationPolicyResult =&gt; getEscalationPolicyResult.Id),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetEscalationPolicyResult> InvokeAsync(GetEscalationPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEscalationPolicyResult>("pagerduty:index/getEscalationPolicy:getEscalationPolicy", args ?? new GetEscalationPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information about a specific [escalation policy](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEyNA-list-escalation-policies) that you can use for other PagerDuty resources.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var testEscalationPolicy = Pagerduty.GetEscalationPolicy.Invoke(new()
+        ///     {
+        ///         Name = "Engineering Escalation Policy",
+        ///     });
+        /// 
+        ///     var testService = new Pagerduty.Service("testService", new()
+        ///     {
+        ///         AutoResolveTimeout = "14400",
+        ///         AcknowledgementTimeout = "600",
+        ///         EscalationPolicy = testEscalationPolicy.Apply(getEscalationPolicyResult =&gt; getEscalationPolicyResult.Id),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetEscalationPolicyResult> Invoke(GetEscalationPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEscalationPolicyResult>("pagerduty:index/getEscalationPolicy:getEscalationPolicy", args ?? new GetEscalationPolicyInvokeArgs(), options.WithDefaults());

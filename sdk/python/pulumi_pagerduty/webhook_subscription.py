@@ -337,6 +337,52 @@ class WebhookSubscription(pulumi.CustomResource):
         """
         A [webhook subscription](https://developer.pagerduty.com/docs/ZG9jOjExMDI5NTkw-v3-overview) allow you to receive HTTP callbacks when incidents are created, updated and deleted. These are also known as V3 Webhooks.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        example = pagerduty.get_service(name="My Service")
+        foo = pagerduty.WebhookSubscription("foo",
+            delivery_methods=[pagerduty.WebhookSubscriptionDeliveryMethodArgs(
+                type="http_delivery_method",
+                url="https://example.com/receive_a_pagerduty_webhook",
+                custom_headers=[
+                    pagerduty.WebhookSubscriptionDeliveryMethodCustomHeaderArgs(
+                        name="X-Foo",
+                        value="foo",
+                    ),
+                    pagerduty.WebhookSubscriptionDeliveryMethodCustomHeaderArgs(
+                        name="X-Bar",
+                        value="bar",
+                    ),
+                ],
+            )],
+            description="%s",
+            events=[
+                "incident.acknowledged",
+                "incident.annotated",
+                "incident.delegated",
+                "incident.escalated",
+                "incident.priority_updated",
+                "incident.reassigned",
+                "incident.reopened",
+                "incident.resolved",
+                "incident.responder.added",
+                "incident.responder.replied",
+                "incident.status_update_published",
+                "incident.triggered",
+                "incident.unacknowledged",
+            ],
+            active=True,
+            filters=[pagerduty.WebhookSubscriptionFilterArgs(
+                id=example.id,
+                type="service_reference",
+            )],
+            type="webhook_subscription")
+        ```
+
         ## Import
 
         Webhook Subscriptions can be imported using the `id`, e.g.
@@ -375,6 +421,52 @@ class WebhookSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A [webhook subscription](https://developer.pagerduty.com/docs/ZG9jOjExMDI5NTkw-v3-overview) allow you to receive HTTP callbacks when incidents are created, updated and deleted. These are also known as V3 Webhooks.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        example = pagerduty.get_service(name="My Service")
+        foo = pagerduty.WebhookSubscription("foo",
+            delivery_methods=[pagerduty.WebhookSubscriptionDeliveryMethodArgs(
+                type="http_delivery_method",
+                url="https://example.com/receive_a_pagerduty_webhook",
+                custom_headers=[
+                    pagerduty.WebhookSubscriptionDeliveryMethodCustomHeaderArgs(
+                        name="X-Foo",
+                        value="foo",
+                    ),
+                    pagerduty.WebhookSubscriptionDeliveryMethodCustomHeaderArgs(
+                        name="X-Bar",
+                        value="bar",
+                    ),
+                ],
+            )],
+            description="%s",
+            events=[
+                "incident.acknowledged",
+                "incident.annotated",
+                "incident.delegated",
+                "incident.escalated",
+                "incident.priority_updated",
+                "incident.reassigned",
+                "incident.reopened",
+                "incident.resolved",
+                "incident.responder.added",
+                "incident.responder.replied",
+                "incident.status_update_published",
+                "incident.triggered",
+                "incident.unacknowledged",
+            ],
+            active=True,
+            filters=[pagerduty.WebhookSubscriptionFilterArgs(
+                id=example.id,
+                type="service_reference",
+            )],
+            type="webhook_subscription")
+        ```
 
         ## Import
 

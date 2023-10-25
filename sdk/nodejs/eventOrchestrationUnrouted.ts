@@ -11,6 +11,41 @@ import * as utilities from "./utilities";
  *
  * The Unrouted Orchestration evaluates events sent to it against each of its rules, beginning with the rules in the "start" set. When a matching rule is found, it can modify and enhance the event and can route the event to another set of rules within this Unrouted Orchestration for further processing.
  *
+ * ## Example of configuring Unrouted Rules for an Orchestration
+ *
+ * In this example of an Unrouted Orchestration, the rule matches only if the condition is matched.
+ * Alerts created for events that do not match the rule will have severity level set to `info` as defined in `catchAll` block.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const unrouted = new pagerduty.EventOrchestrationUnrouted("unrouted", {
+ *     eventOrchestration: pagerduty_event_orchestration.my_monitor.id,
+ *     sets: [{
+ *         id: "start",
+ *         rules: [{
+ *             label: "Update the summary of un-matched Critical alerts so they're easier to spot",
+ *             conditions: [{
+ *                 expression: "event.severity matches 'critical'",
+ *             }],
+ *             actions: {
+ *                 severity: "critical",
+ *                 extractions: [{
+ *                     target: "event.summary",
+ *                     template: "[Critical Unrouted] {{event.summary}}",
+ *                 }],
+ *             },
+ *         }],
+ *     }],
+ *     catchAll: {
+ *         actions: {
+ *             severity: "info",
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Unrouted Orchestration can be imported using the `id` of the Event Orchestration, e.g.

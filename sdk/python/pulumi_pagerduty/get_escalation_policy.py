@@ -61,6 +61,19 @@ def get_escalation_policy(name: Optional[str] = None,
     """
     Use this data source to get information about a specific [escalation policy](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEyNA-list-escalation-policies) that you can use for other PagerDuty resources.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_pagerduty as pagerduty
+
+    test_escalation_policy = pagerduty.get_escalation_policy(name="Engineering Escalation Policy")
+    test_service = pagerduty.Service("testService",
+        auto_resolve_timeout="14400",
+        acknowledgement_timeout="600",
+        escalation_policy=test_escalation_policy.id)
+    ```
+
 
     :param str name: The name to use to find an escalation policy in the PagerDuty API.
     """
@@ -79,6 +92,19 @@ def get_escalation_policy_output(name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEscalationPolicyResult]:
     """
     Use this data source to get information about a specific [escalation policy](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEyNA-list-escalation-policies) that you can use for other PagerDuty resources.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_pagerduty as pagerduty
+
+    test_escalation_policy = pagerduty.get_escalation_policy(name="Engineering Escalation Policy")
+    test_service = pagerduty.Service("testService",
+        auto_resolve_timeout="14400",
+        acknowledgement_timeout="600",
+        escalation_policy=test_escalation_policy.id)
+    ```
 
 
     :param str name: The name to use to find an escalation policy in the PagerDuty API.

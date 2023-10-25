@@ -318,6 +318,76 @@ class ServiceEventRule(pulumi.CustomResource):
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEventRuleVariableArgs']]]]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        example = pagerduty.Service("example",
+            auto_resolve_timeout="14400",
+            acknowledgement_timeout="600",
+            escalation_policy=pagerduty_escalation_policy["example"]["id"],
+            alert_creation="create_alerts_and_incidents")
+        foo = pagerduty.ServiceEventRule("foo",
+            service=example.id,
+            position=0,
+            disabled=True,
+            conditions=pagerduty.ServiceEventRuleConditionsArgs(
+                operator="and",
+                subconditions=[pagerduty.ServiceEventRuleConditionsSubconditionArgs(
+                    operator="contains",
+                    parameters=[pagerduty.ServiceEventRuleConditionsSubconditionParameterArgs(
+                        value="disk space",
+                        path="summary",
+                    )],
+                )],
+            ),
+            variables=[pagerduty.ServiceEventRuleVariableArgs(
+                type="regex",
+                name="Src",
+                parameters=[pagerduty.ServiceEventRuleVariableParameterArgs(
+                    value="(.*)",
+                    path="source",
+                )],
+            )],
+            actions=pagerduty.ServiceEventRuleActionsArgs(
+                annotates=[pagerduty.ServiceEventRuleActionsAnnotateArgs(
+                    value="From Terraform",
+                )],
+                extractions=[
+                    pagerduty.ServiceEventRuleActionsExtractionArgs(
+                        target="dedup_key",
+                        source="source",
+                        regex="(.*)",
+                    ),
+                    pagerduty.ServiceEventRuleActionsExtractionArgs(
+                        target="summary",
+                        template="Warning: Disk Space Low on {{Src}}",
+                    ),
+                ],
+            ))
+        bar = pagerduty.ServiceEventRule("bar",
+            service=pagerduty_service["foo"]["id"],
+            position=1,
+            disabled=True,
+            conditions=pagerduty.ServiceEventRuleConditionsArgs(
+                operator="and",
+                subconditions=[pagerduty.ServiceEventRuleConditionsSubconditionArgs(
+                    operator="contains",
+                    parameters=[pagerduty.ServiceEventRuleConditionsSubconditionParameterArgs(
+                        value="cpu spike",
+                        path="summary",
+                    )],
+                )],
+            ),
+            actions=pagerduty.ServiceEventRuleActionsArgs(
+                annotates=[pagerduty.ServiceEventRuleActionsAnnotateArgs(
+                    value="From Terraform",
+                )],
+            ))
+        ```
+
         ## Import
 
         Service event rules can be imported using using the related `service` id and the `service_event_rule` id separated by a dot, e.g.
@@ -343,6 +413,76 @@ class ServiceEventRule(pulumi.CustomResource):
                  args: ServiceEventRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        example = pagerduty.Service("example",
+            auto_resolve_timeout="14400",
+            acknowledgement_timeout="600",
+            escalation_policy=pagerduty_escalation_policy["example"]["id"],
+            alert_creation="create_alerts_and_incidents")
+        foo = pagerduty.ServiceEventRule("foo",
+            service=example.id,
+            position=0,
+            disabled=True,
+            conditions=pagerduty.ServiceEventRuleConditionsArgs(
+                operator="and",
+                subconditions=[pagerduty.ServiceEventRuleConditionsSubconditionArgs(
+                    operator="contains",
+                    parameters=[pagerduty.ServiceEventRuleConditionsSubconditionParameterArgs(
+                        value="disk space",
+                        path="summary",
+                    )],
+                )],
+            ),
+            variables=[pagerduty.ServiceEventRuleVariableArgs(
+                type="regex",
+                name="Src",
+                parameters=[pagerduty.ServiceEventRuleVariableParameterArgs(
+                    value="(.*)",
+                    path="source",
+                )],
+            )],
+            actions=pagerduty.ServiceEventRuleActionsArgs(
+                annotates=[pagerduty.ServiceEventRuleActionsAnnotateArgs(
+                    value="From Terraform",
+                )],
+                extractions=[
+                    pagerduty.ServiceEventRuleActionsExtractionArgs(
+                        target="dedup_key",
+                        source="source",
+                        regex="(.*)",
+                    ),
+                    pagerduty.ServiceEventRuleActionsExtractionArgs(
+                        target="summary",
+                        template="Warning: Disk Space Low on {{Src}}",
+                    ),
+                ],
+            ))
+        bar = pagerduty.ServiceEventRule("bar",
+            service=pagerduty_service["foo"]["id"],
+            position=1,
+            disabled=True,
+            conditions=pagerduty.ServiceEventRuleConditionsArgs(
+                operator="and",
+                subconditions=[pagerduty.ServiceEventRuleConditionsSubconditionArgs(
+                    operator="contains",
+                    parameters=[pagerduty.ServiceEventRuleConditionsSubconditionParameterArgs(
+                        value="cpu spike",
+                        path="summary",
+                    )],
+                )],
+            ),
+            actions=pagerduty.ServiceEventRuleActionsArgs(
+                annotates=[pagerduty.ServiceEventRuleActionsAnnotateArgs(
+                    value="From Terraform",
+                )],
+            ))
+        ```
+
         ## Import
 
         Service event rules can be imported using using the related `service` id and the `service_event_rule` id separated by a dot, e.g.

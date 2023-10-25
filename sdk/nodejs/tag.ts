@@ -7,6 +7,15 @@ import * as utilities from "./utilities";
 /**
  * A [tag](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIxOA-create-a-tag) is applied to Escalation Policies, Teams or Users and can be used to filter them.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const example = new pagerduty.Tag("example", {label: "Product"});
+ * ```
+ *
  * ## Import
  *
  * Tags can be imported using the `id`, e.g.

@@ -7,6 +7,25 @@ import * as utilities from "./utilities";
 /**
  * An Automation Actions [runner association with a team](https://developer.pagerduty.com/api-reference/f662de6271a6e-associate-a-runner-with-a-team) configures the relation of a specific Runner with a Team.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const teamEntEng = new pagerduty.Team("teamEntEng", {description: "Enterprise engineering"});
+ * const paRunbookRunner = new pagerduty.AutomationActionsRunner("paRunbookRunner", {
+ *     description: "Description of the Runner created via TF",
+ *     runnerType: "runbook",
+ *     runbookBaseUri: "cat-cat",
+ *     runbookApiKey: "cat-secret",
+ * });
+ * const paRunnerEntEngAssoc = new pagerduty.AutomationActionsRunnerTeamAssociation("paRunnerEntEngAssoc", {
+ *     runnerId: paRunbookRunner.id,
+ *     teamId: teamEntEng.id,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Runner team association can be imported using the `runner_id` and `team_id` separated by a colon, e.g.

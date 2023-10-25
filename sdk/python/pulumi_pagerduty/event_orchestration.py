@@ -218,6 +218,18 @@ class EventOrchestration(pulumi.CustomResource):
         """
         [Event Orchestrations](https://support.pagerduty.com/docs/event-orchestration) allow you define a set of Event Rules, so that when you ingest events using the Orchestration's Routing Key your events will be routed to the correct Global and/or Service Orchestration, based on the event's content.
 
+        ## Example of configuring an Event Orchestration
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        engineering = pagerduty.Team("engineering")
+        my_monitor = pagerduty.EventOrchestration("myMonitor",
+            description="Send events to a pair of services",
+            team=engineering.id)
+        ```
+
         ## Import
 
         EventOrchestrations can be imported using the `id`, e.g.
@@ -241,6 +253,18 @@ class EventOrchestration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         [Event Orchestrations](https://support.pagerduty.com/docs/event-orchestration) allow you define a set of Event Rules, so that when you ingest events using the Orchestration's Routing Key your events will be routed to the correct Global and/or Service Orchestration, based on the event's content.
+
+        ## Example of configuring an Event Orchestration
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        engineering = pagerduty.Team("engineering")
+        my_monitor = pagerduty.EventOrchestration("myMonitor",
+            description="Send events to a pair of services",
+            team=engineering.id)
+        ```
 
         ## Import
 

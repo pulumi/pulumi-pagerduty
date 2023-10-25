@@ -219,6 +219,18 @@ class MaintenanceWindow(pulumi.CustomResource):
 
         Maintenance windows are specified to start at a certain time and end after they have begun. Once started, a maintenance window cannot be deleted; it can only be ended immediately to re-enable the service.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        example = pagerduty.MaintenanceWindow("example",
+            start_time="2015-11-09T20:00:00-05:00",
+            end_time="2015-11-09T22:00:00-05:00",
+            services=[pagerduty_service["example"]["id"]])
+        ```
+
         ## Import
 
         Maintenance windows can be imported using the `id`, e.g.
@@ -244,6 +256,18 @@ class MaintenanceWindow(pulumi.CustomResource):
         A [maintenance window](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE1OA-create-a-maintenance-window) is used to temporarily disable one or more services for a set period of time. No incidents will be triggered and no notifications will be received while a service is disabled by a maintenance window.
 
         Maintenance windows are specified to start at a certain time and end after they have begun. Once started, a maintenance window cannot be deleted; it can only be ended immediately to re-enable the service.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        example = pagerduty.MaintenanceWindow("example",
+            start_time="2015-11-09T20:00:00-05:00",
+            end_time="2015-11-09T22:00:00-05:00",
+            services=[pagerduty_service["example"]["id"]])
+        ```
 
         ## Import
 

@@ -178,6 +178,52 @@ class EventOrchestrationRouter(pulumi.CustomResource):
         """
         An Orchestration Router allows users to create a set of Event Rules. The Router evaluates events sent to this Orchestration against each of its rules, one at a time, and routes the event to a specific Service based on the first rule that matches. If an event doesn't match any rules, it'll be sent to service specified in the `catch_all` or to the "Unrouted" Orchestration if no service is specified.
 
+        ## Example of configuring Router rules for an Orchestration
+
+        In this example the user has defined the Router with two rules, each routing to a different service.
+
+        This example assumes services used in the `route_to` configuration already exists. So it does not show creation of service resource.
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        router = pagerduty.EventOrchestrationRouter("router",
+            event_orchestration=pagerduty_event_orchestration["my_monitor"]["id"],
+            set=pagerduty.EventOrchestrationRouterSetArgs(
+                id="start",
+                rules=[
+                    pagerduty.EventOrchestrationRouterSetRuleArgs(
+                        label="Events relating to our relational database",
+                        conditions=[
+                            pagerduty.EventOrchestrationRouterSetRuleConditionArgs(
+                                expression="event.summary matches part 'database'",
+                            ),
+                            pagerduty.EventOrchestrationRouterSetRuleConditionArgs(
+                                expression="event.source matches regex 'db[0-9]+-server'",
+                            ),
+                        ],
+                        actions=pagerduty.EventOrchestrationRouterSetRuleActionsArgs(
+                            route_to=pagerduty_service["database"]["id"],
+                        ),
+                    ),
+                    pagerduty.EventOrchestrationRouterSetRuleArgs(
+                        conditions=[pagerduty.EventOrchestrationRouterSetRuleConditionArgs(
+                            expression="event.summary matches part 'www'",
+                        )],
+                        actions=pagerduty.EventOrchestrationRouterSetRuleActionsArgs(
+                            route_to=pagerduty_service["www"]["id"],
+                        ),
+                    ),
+                ],
+            ),
+            catch_all=pagerduty.EventOrchestrationRouterCatchAllArgs(
+                actions=pagerduty.EventOrchestrationRouterCatchAllActionsArgs(
+                    route_to="unrouted",
+                ),
+            ))
+        ```
+
         ## Import
 
         Router can be imported using the `id` of the Event Orchestration, e.g.
@@ -200,6 +246,52 @@ class EventOrchestrationRouter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Orchestration Router allows users to create a set of Event Rules. The Router evaluates events sent to this Orchestration against each of its rules, one at a time, and routes the event to a specific Service based on the first rule that matches. If an event doesn't match any rules, it'll be sent to service specified in the `catch_all` or to the "Unrouted" Orchestration if no service is specified.
+
+        ## Example of configuring Router rules for an Orchestration
+
+        In this example the user has defined the Router with two rules, each routing to a different service.
+
+        This example assumes services used in the `route_to` configuration already exists. So it does not show creation of service resource.
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        router = pagerduty.EventOrchestrationRouter("router",
+            event_orchestration=pagerduty_event_orchestration["my_monitor"]["id"],
+            set=pagerduty.EventOrchestrationRouterSetArgs(
+                id="start",
+                rules=[
+                    pagerduty.EventOrchestrationRouterSetRuleArgs(
+                        label="Events relating to our relational database",
+                        conditions=[
+                            pagerduty.EventOrchestrationRouterSetRuleConditionArgs(
+                                expression="event.summary matches part 'database'",
+                            ),
+                            pagerduty.EventOrchestrationRouterSetRuleConditionArgs(
+                                expression="event.source matches regex 'db[0-9]+-server'",
+                            ),
+                        ],
+                        actions=pagerduty.EventOrchestrationRouterSetRuleActionsArgs(
+                            route_to=pagerduty_service["database"]["id"],
+                        ),
+                    ),
+                    pagerduty.EventOrchestrationRouterSetRuleArgs(
+                        conditions=[pagerduty.EventOrchestrationRouterSetRuleConditionArgs(
+                            expression="event.summary matches part 'www'",
+                        )],
+                        actions=pagerduty.EventOrchestrationRouterSetRuleActionsArgs(
+                            route_to=pagerduty_service["www"]["id"],
+                        ),
+                    ),
+                ],
+            ),
+            catch_all=pagerduty.EventOrchestrationRouterCatchAllArgs(
+                actions=pagerduty.EventOrchestrationRouterCatchAllActionsArgs(
+                    route_to="unrouted",
+                ),
+            ))
+        ```
 
         ## Import
 

@@ -13,12 +13,56 @@ namespace Pulumi.Pagerduty
     {
         /// <summary>
         /// Use this data source to get information about a specific [automation actions runner](https://developer.pagerduty.com/api-reference/aace61f84cbd0-get-an-automation-action-runner).
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Pagerduty.GetAutomationActionsRunner.Invoke(new()
+        ///     {
+        ///         Id = "01DBJLIGED17S1DQKQC2AV8XYZ",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAutomationActionsRunnerResult> InvokeAsync(GetAutomationActionsRunnerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAutomationActionsRunnerResult>("pagerduty:index/getAutomationActionsRunner:getAutomationActionsRunner", args ?? new GetAutomationActionsRunnerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information about a specific [automation actions runner](https://developer.pagerduty.com/api-reference/aace61f84cbd0-get-an-automation-action-runner).
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Pagerduty.GetAutomationActionsRunner.Invoke(new()
+        ///     {
+        ///         Id = "01DBJLIGED17S1DQKQC2AV8XYZ",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetAutomationActionsRunnerResult> Invoke(GetAutomationActionsRunnerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutomationActionsRunnerResult>("pagerduty:index/getAutomationActionsRunner:getAutomationActionsRunner", args ?? new GetAutomationActionsRunnerInvokeArgs(), options.WithDefaults());

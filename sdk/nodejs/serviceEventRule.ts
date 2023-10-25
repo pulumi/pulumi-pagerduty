@@ -7,6 +7,79 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const example = new pagerduty.Service("example", {
+ *     autoResolveTimeout: "14400",
+ *     acknowledgementTimeout: "600",
+ *     escalationPolicy: pagerduty_escalation_policy.example.id,
+ *     alertCreation: "create_alerts_and_incidents",
+ * });
+ * const foo = new pagerduty.ServiceEventRule("foo", {
+ *     service: example.id,
+ *     position: 0,
+ *     disabled: true,
+ *     conditions: {
+ *         operator: "and",
+ *         subconditions: [{
+ *             operator: "contains",
+ *             parameters: [{
+ *                 value: "disk space",
+ *                 path: "summary",
+ *             }],
+ *         }],
+ *     },
+ *     variables: [{
+ *         type: "regex",
+ *         name: "Src",
+ *         parameters: [{
+ *             value: "(.*)",
+ *             path: "source",
+ *         }],
+ *     }],
+ *     actions: {
+ *         annotates: [{
+ *             value: "From Terraform",
+ *         }],
+ *         extractions: [
+ *             {
+ *                 target: "dedup_key",
+ *                 source: "source",
+ *                 regex: "(.*)",
+ *             },
+ *             {
+ *                 target: "summary",
+ *                 template: "Warning: Disk Space Low on {{Src}}",
+ *             },
+ *         ],
+ *     },
+ * });
+ * const bar = new pagerduty.ServiceEventRule("bar", {
+ *     service: pagerduty_service.foo.id,
+ *     position: 1,
+ *     disabled: true,
+ *     conditions: {
+ *         operator: "and",
+ *         subconditions: [{
+ *             operator: "contains",
+ *             parameters: [{
+ *                 value: "cpu spike",
+ *                 path: "summary",
+ *             }],
+ *         }],
+ *     },
+ *     actions: {
+ *         annotates: [{
+ *             value: "From Terraform",
+ *         }],
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Service event rules can be imported using using the related `service` id and the `service_event_rule` id separated by a dot, e.g.

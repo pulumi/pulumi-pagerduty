@@ -10,6 +10,29 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Pagerduty = Pulumi.Pagerduty;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fooTeam = new Pagerduty.Team("fooTeam");
+    /// 
+    ///     var fooRuleset = new Pagerduty.Ruleset("fooRuleset", new()
+    ///     {
+    ///         Team = new Pagerduty.Inputs.RulesetTeamArgs
+    ///         {
+    ///             Id = fooTeam.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Rulesets can be imported using the `id`, e.g.

@@ -13,6 +13,49 @@ import (
 )
 
 // Use this data source to get information about a specific [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) so that you can create a trigger for it.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			myWorkflow, err := pagerduty.LookupIncidentWorkflow(ctx, &pagerduty.LookupIncidentWorkflowArgs{
+//				Name: "Some Workflow Name",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			firstService, err := pagerduty.LookupService(ctx, &pagerduty.LookupServiceArgs{
+//				Name: "My First Service",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewIncidentWorkflowTrigger(ctx, "automaticTrigger", &pagerduty.IncidentWorkflowTriggerArgs{
+//				Type:     pulumi.String("conditional"),
+//				Workflow: *pulumi.String(myWorkflow.Id),
+//				Services: pulumi.StringArray{
+//					*pulumi.String(firstService.Id),
+//				},
+//				Condition: pulumi.String("incident.priority matches 'P1'"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupIncidentWorkflow(ctx *pulumi.Context, args *LookupIncidentWorkflowArgs, opts ...pulumi.InvokeOption) (*LookupIncidentWorkflowResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupIncidentWorkflowResult

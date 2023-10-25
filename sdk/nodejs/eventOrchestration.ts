@@ -9,6 +9,19 @@ import * as utilities from "./utilities";
 /**
  * [Event Orchestrations](https://support.pagerduty.com/docs/event-orchestration) allow you define a set of Event Rules, so that when you ingest events using the Orchestration's Routing Key your events will be routed to the correct Global and/or Service Orchestration, based on the event's content.
  *
+ * ## Example of configuring an Event Orchestration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const engineering = new pagerduty.Team("engineering", {});
+ * const myMonitor = new pagerduty.EventOrchestration("myMonitor", {
+ *     description: "Send events to a pair of services",
+ *     team: engineering.id,
+ * });
+ * ```
+ *
  * ## Import
  *
  * EventOrchestrations can be imported using the `id`, e.g.

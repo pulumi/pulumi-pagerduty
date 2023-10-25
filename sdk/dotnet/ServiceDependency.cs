@@ -12,6 +12,65 @@ namespace Pulumi.Pagerduty
     /// <summary>
     /// A [service dependency](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE5Mg-associate-service-dependencies) is a relationship between two services that this service uses, or that are used by this service, and are critical for successful operation.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Pagerduty = Pulumi.Pagerduty;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new Pagerduty.ServiceDependency("foo", new()
+    ///     {
+    ///         Dependency = new Pagerduty.Inputs.ServiceDependencyDependencyArgs
+    ///         {
+    ///             DependentServices = new[]
+    ///             {
+    ///                 new Pagerduty.Inputs.ServiceDependencyDependencyDependentServiceArgs
+    ///                 {
+    ///                     Id = pagerduty_business_service.Foo.Id,
+    ///                     Type = pagerduty_business_service.Foo.Type,
+    ///                 },
+    ///             },
+    ///             SupportingServices = new[]
+    ///             {
+    ///                 new Pagerduty.Inputs.ServiceDependencyDependencySupportingServiceArgs
+    ///                 {
+    ///                     Id = pagerduty_service.Foo.Id,
+    ///                     Type = pagerduty_service.Foo.Type,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var bar = new Pagerduty.ServiceDependency("bar", new()
+    ///     {
+    ///         Dependency = new Pagerduty.Inputs.ServiceDependencyDependencyArgs
+    ///         {
+    ///             DependentServices = new[]
+    ///             {
+    ///                 new Pagerduty.Inputs.ServiceDependencyDependencyDependentServiceArgs
+    ///                 {
+    ///                     Id = pagerduty_business_service.Foo.Id,
+    ///                     Type = pagerduty_business_service.Foo.Type,
+    ///                 },
+    ///             },
+    ///             SupportingServices = new[]
+    ///             {
+    ///                 new Pagerduty.Inputs.ServiceDependencyDependencySupportingServiceArgs
+    ///                 {
+    ///                     Id = pagerduty_service.Two.Id,
+    ///                     Type = pagerduty_service.Two.Type,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Service dependencies can be imported using the related supporting service id, supporting service type (`business_service` or `service`) and the dependency id separated by a dot, e.g.

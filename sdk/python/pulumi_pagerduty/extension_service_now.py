@@ -538,6 +538,38 @@ class ExtensionServiceNow(pulumi.CustomResource):
         """
         A special case for [extension](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEzMw-create-an-extension) for ServiceNow.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        servicenow = pagerduty.get_extension_schema(name="ServiceNow (v7)")
+        example_user = pagerduty.User("exampleUser", email="howard.james@example.domain")
+        example_escalation_policy = pagerduty.EscalationPolicy("exampleEscalationPolicy",
+            num_loops=2,
+            rules=[pagerduty.EscalationPolicyRuleArgs(
+                escalation_delay_in_minutes=10,
+                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
+                    type="user",
+                    id=example_user.id,
+                )],
+            )])
+        example_service = pagerduty.Service("exampleService",
+            auto_resolve_timeout="14400",
+            acknowledgement_timeout="600",
+            escalation_policy=example_escalation_policy.id)
+        snow = pagerduty.ExtensionServiceNow("snow",
+            extension_schema=servicenow.id,
+            extension_objects=[example_service.id],
+            snow_user="meeps",
+            snow_password="zorz",
+            sync_options="manual_sync",
+            target="https://foo.servicenow.com/webhook_foo",
+            task_type="incident",
+            referer="None")
+        ```
+
         ## Import
 
         Extensions can be imported using the id.e.g.
@@ -567,6 +599,38 @@ class ExtensionServiceNow(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A special case for [extension](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEzMw-create-an-extension) for ServiceNow.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        servicenow = pagerduty.get_extension_schema(name="ServiceNow (v7)")
+        example_user = pagerduty.User("exampleUser", email="howard.james@example.domain")
+        example_escalation_policy = pagerduty.EscalationPolicy("exampleEscalationPolicy",
+            num_loops=2,
+            rules=[pagerduty.EscalationPolicyRuleArgs(
+                escalation_delay_in_minutes=10,
+                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
+                    type="user",
+                    id=example_user.id,
+                )],
+            )])
+        example_service = pagerduty.Service("exampleService",
+            auto_resolve_timeout="14400",
+            acknowledgement_timeout="600",
+            escalation_policy=example_escalation_policy.id)
+        snow = pagerduty.ExtensionServiceNow("snow",
+            extension_schema=servicenow.id,
+            extension_objects=[example_service.id],
+            snow_user="meeps",
+            snow_password="zorz",
+            sync_options="manual_sync",
+            target="https://foo.servicenow.com/webhook_foo",
+            task_type="incident",
+            referer="None")
+        ```
 
         ## Import
 

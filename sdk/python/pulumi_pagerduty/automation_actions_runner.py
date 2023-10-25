@@ -333,6 +333,21 @@ class AutomationActionsRunner(pulumi.CustomResource):
 
         > Only Runbook Automation (runbook) runners can be created.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        config = pulumi.Config()
+        r_unbookapikey = config.require("rUNBOOKAPIKEY")
+        example = pagerduty.AutomationActionsRunner("example",
+            description="Description of the Runner created via TF",
+            runner_type="runbook",
+            runbook_base_uri="rdcat.stg",
+            runbook_api_key=r_unbookapikey)
+        ```
+
         ## Import
 
         -> In the example below the `runbook_api_key` attribute has been omitted to avoid resource replacement after the import. Runners can be imported using the `id`, e.g. resource "pagerduty_automation_actions_runner" "example" {
@@ -368,6 +383,21 @@ class AutomationActionsRunner(pulumi.CustomResource):
         An Automation Actions [runner](https://developer.pagerduty.com/api-reference/d78999fb7e863-create-an-automation-action-runner) is the method for how actions are executed. This can be done locally using an installed runner agent or as a connection to a PD Runbook Automation instance.
 
         > Only Runbook Automation (runbook) runners can be created.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        config = pulumi.Config()
+        r_unbookapikey = config.require("rUNBOOKAPIKEY")
+        example = pagerduty.AutomationActionsRunner("example",
+            description="Description of the Runner created via TF",
+            runner_type="runbook",
+            runbook_base_uri="rdcat.stg",
+            runbook_api_key=r_unbookapikey)
+        ```
 
         ## Import
 

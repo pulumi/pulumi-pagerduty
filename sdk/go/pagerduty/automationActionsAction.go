@@ -15,6 +15,47 @@ import (
 
 // An Automation Actions [action](https://developer.pagerduty.com/api-reference/d64584a4371d3-create-an-automation-action) invokes jobs and workflows that are staged in Runbook Automation or Process Automation. It may also execute a command line script run by a Process Automation runner installed in your infrastructure.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := pagerduty.NewAutomationActionsAction(ctx, "paActionExample", &pagerduty.AutomationActionsActionArgs{
+//				ActionDataReference: &pagerduty.AutomationActionsActionActionDataReferenceArgs{
+//					ProcessAutomationJobId: pulumi.String("P123456"),
+//				},
+//				ActionType:  pulumi.String("process_automation"),
+//				Description: pulumi.String("Description of the PA Action created via TF"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewAutomationActionsAction(ctx, "scriptActionExample", &pagerduty.AutomationActionsActionArgs{
+//				ActionDataReference: &pagerduty.AutomationActionsActionActionDataReferenceArgs{
+//					InvocationCommand: pulumi.String("/usr/local/bin/python3"),
+//					Script:            pulumi.String("print(\"Hello from a Python script!\")"),
+//				},
+//				ActionType:  pulumi.String("script"),
+//				Description: pulumi.String("Description of the Script Action created via TF"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Actions can be imported using the `id`, e.g.

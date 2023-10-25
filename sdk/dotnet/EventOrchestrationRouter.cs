@@ -12,6 +12,75 @@ namespace Pulumi.Pagerduty
     /// <summary>
     /// An Orchestration Router allows users to create a set of Event Rules. The Router evaluates events sent to this Orchestration against each of its rules, one at a time, and routes the event to a specific Service based on the first rule that matches. If an event doesn't match any rules, it'll be sent to service specified in the `catch_all` or to the "Unrouted" Orchestration if no service is specified.
     /// 
+    /// ## Example of configuring Router rules for an Orchestration
+    /// 
+    /// In this example the user has defined the Router with two rules, each routing to a different service.
+    /// 
+    /// This example assumes services used in the `route_to` configuration already exists. So it does not show creation of service resource.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Pagerduty = Pulumi.Pagerduty;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var router = new Pagerduty.EventOrchestrationRouter("router", new()
+    ///     {
+    ///         EventOrchestration = pagerduty_event_orchestration.My_monitor.Id,
+    ///         Set = new Pagerduty.Inputs.EventOrchestrationRouterSetArgs
+    ///         {
+    ///             Id = "start",
+    ///             Rules = new[]
+    ///             {
+    ///                 new Pagerduty.Inputs.EventOrchestrationRouterSetRuleArgs
+    ///                 {
+    ///                     Label = "Events relating to our relational database",
+    ///                     Conditions = new[]
+    ///                     {
+    ///                         new Pagerduty.Inputs.EventOrchestrationRouterSetRuleConditionArgs
+    ///                         {
+    ///                             Expression = "event.summary matches part 'database'",
+    ///                         },
+    ///                         new Pagerduty.Inputs.EventOrchestrationRouterSetRuleConditionArgs
+    ///                         {
+    ///                             Expression = "event.source matches regex 'db[0-9]+-server'",
+    ///                         },
+    ///                     },
+    ///                     Actions = new Pagerduty.Inputs.EventOrchestrationRouterSetRuleActionsArgs
+    ///                     {
+    ///                         RouteTo = pagerduty_service.Database.Id,
+    ///                     },
+    ///                 },
+    ///                 new Pagerduty.Inputs.EventOrchestrationRouterSetRuleArgs
+    ///                 {
+    ///                     Conditions = new[]
+    ///                     {
+    ///                         new Pagerduty.Inputs.EventOrchestrationRouterSetRuleConditionArgs
+    ///                         {
+    ///                             Expression = "event.summary matches part 'www'",
+    ///                         },
+    ///                     },
+    ///                     Actions = new Pagerduty.Inputs.EventOrchestrationRouterSetRuleActionsArgs
+    ///                     {
+    ///                         RouteTo = pagerduty_service.Www.Id,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         CatchAll = new Pagerduty.Inputs.EventOrchestrationRouterCatchAllArgs
+    ///         {
+    ///             Actions = new Pagerduty.Inputs.EventOrchestrationRouterCatchAllActionsArgs
+    ///             {
+    ///                 RouteTo = "unrouted",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Router can be imported using the `id` of the Event Orchestration, e.g.

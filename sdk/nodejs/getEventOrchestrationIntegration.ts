@@ -8,19 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to get information about a specific [Integration](https://developer.pagerduty.com/api-reference/1c6607db389a8-get-an-integration-for-an-event-orchestration) for an Event Orchestration.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as pagerduty from "@pulumi/pagerduty";
- *
- * const eventOrchestration = new pagerduty.EventOrchestration("eventOrchestration", {});
- * const integration = pagerduty.getEventOrchestrationIntegrationOutput({
- *     eventOrchestration: eventOrchestration.id,
- *     label: "Test Event Orchestration Default Integration",
- * });
- * ```
  */
 export function getEventOrchestrationIntegration(args: GetEventOrchestrationIntegrationArgs, opts?: pulumi.InvokeOptions): Promise<GetEventOrchestrationIntegrationResult> {
 
@@ -61,19 +48,6 @@ export interface GetEventOrchestrationIntegrationResult {
 }
 /**
  * Use this data source to get information about a specific [Integration](https://developer.pagerduty.com/api-reference/1c6607db389a8-get-an-integration-for-an-event-orchestration) for an Event Orchestration.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as pagerduty from "@pulumi/pagerduty";
- *
- * const eventOrchestration = new pagerduty.EventOrchestration("eventOrchestration", {});
- * const integration = pagerduty.getEventOrchestrationIntegrationOutput({
- *     eventOrchestration: eventOrchestration.id,
- *     label: "Test Event Orchestration Default Integration",
- * });
- * ```
  */
 export function getEventOrchestrationIntegrationOutput(args: GetEventOrchestrationIntegrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventOrchestrationIntegrationResult> {
     return pulumi.output(args).apply((a: any) => getEventOrchestrationIntegration(a, opts))

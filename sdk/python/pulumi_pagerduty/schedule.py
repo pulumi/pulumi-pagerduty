@@ -45,13 +45,21 @@ class ScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             layers: pulumi.Input[Sequence[pulumi.Input['ScheduleLayerArgs']]],
-             time_zone: pulumi.Input[str],
+             layers: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleLayerArgs']]]] = None,
+             time_zone: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              overflow: Optional[pulumi.Input[bool]] = None,
              teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if layers is None:
+            raise TypeError("Missing 'layers' argument")
+        if time_zone is None and 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+        if time_zone is None:
+            raise TypeError("Missing 'time_zone' argument")
+
         _setter("layers", layers)
         _setter("time_zone", time_zone)
         if description is None:
@@ -181,7 +189,13 @@ class _ScheduleState:
              overflow: Optional[pulumi.Input[bool]] = None,
              teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              time_zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if final_schedules is None and 'finalSchedules' in kwargs:
+            final_schedules = kwargs['finalSchedules']
+        if time_zone is None and 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         if description is None:
             description = 'Managed by Pulumi'
         if description is not None:
@@ -298,31 +312,6 @@ class Schedule(pulumi.CustomResource):
         """
         A [schedule](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE4Mg-create-a-schedule) determines the time periods that users are on call. Only on-call users are eligible to receive notifications from incidents.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        example_user = pagerduty.User("exampleUser", email="125.greenholt.earline@graham.name")
-        example_team = pagerduty.Team("exampleTeam")
-        foo = pagerduty.Schedule("foo",
-            time_zone="America/New_York",
-            layers=[pagerduty.ScheduleLayerArgs(
-                name="Night Shift",
-                start="2015-11-06T20:00:00-05:00",
-                rotation_virtual_start="2015-11-06T20:00:00-05:00",
-                rotation_turn_length_seconds=86400,
-                users=[example_user.id],
-                restrictions=[pagerduty.ScheduleLayerRestrictionArgs(
-                    type="daily_restriction",
-                    start_time_of_day="08:00:00",
-                    duration_seconds=32400,
-                )],
-            )],
-            teams=[example_team.id])
-        ```
-
         ## Import
 
         Schedules can be imported using the `id`, e.g.
@@ -350,31 +339,6 @@ class Schedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A [schedule](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE4Mg-create-a-schedule) determines the time periods that users are on call. Only on-call users are eligible to receive notifications from incidents.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        example_user = pagerduty.User("exampleUser", email="125.greenholt.earline@graham.name")
-        example_team = pagerduty.Team("exampleTeam")
-        foo = pagerduty.Schedule("foo",
-            time_zone="America/New_York",
-            layers=[pagerduty.ScheduleLayerArgs(
-                name="Night Shift",
-                start="2015-11-06T20:00:00-05:00",
-                rotation_virtual_start="2015-11-06T20:00:00-05:00",
-                rotation_turn_length_seconds=86400,
-                users=[example_user.id],
-                restrictions=[pagerduty.ScheduleLayerRestrictionArgs(
-                    type="daily_restriction",
-                    start_time_of_day="08:00:00",
-                    duration_seconds=32400,
-                )],
-            )],
-            teams=[example_team.id])
-        ```
 
         ## Import
 

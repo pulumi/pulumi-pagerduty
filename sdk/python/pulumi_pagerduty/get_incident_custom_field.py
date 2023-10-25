@@ -94,19 +94,6 @@ def get_incident_custom_field(name: Optional[str] = None,
     """
     Use this data source to get information about a specific [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents).
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_pagerduty as pagerduty
-
-    environment = pagerduty.get_incident_custom_field(name="environment")
-    dev_environment = pagerduty.IncidentCustomFieldOption("devEnvironment",
-        field=environment.id,
-        datatype="string",
-        value="dev")
-    ```
-
 
     :param str name: The name of the field.
     """
@@ -129,19 +116,6 @@ def get_incident_custom_field_output(name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIncidentCustomFieldResult]:
     """
     Use this data source to get information about a specific [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_pagerduty as pagerduty
-
-    environment = pagerduty.get_incident_custom_field(name="environment")
-    dev_environment = pagerduty.IncidentCustomFieldOption("devEnvironment",
-        field=environment.id,
-        datatype="string",
-        value="dev")
-    ```
 
 
     :param str name: The name of the field.

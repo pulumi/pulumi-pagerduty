@@ -41,7 +41,9 @@ class IncidentWorkflowArgs:
              name: Optional[pulumi.Input[str]] = None,
              steps: Optional[pulumi.Input[Sequence[pulumi.Input['IncidentWorkflowStepArgs']]]] = None,
              team: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if description is not None:
             _setter("description", description)
         if name is not None:
@@ -128,7 +130,9 @@ class _IncidentWorkflowState:
              name: Optional[pulumi.Input[str]] = None,
              steps: Optional[pulumi.Input[Sequence[pulumi.Input['IncidentWorkflowStepArgs']]]] = None,
              team: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if description is not None:
             _setter("description", description)
         if name is not None:
@@ -200,24 +204,6 @@ class IncidentWorkflow(pulumi.CustomResource):
         """
         An [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) is a series of steps which can be executed on an incident.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        my_first_workflow = pagerduty.IncidentWorkflow("myFirstWorkflow",
-            description="This Incident Workflow is an example",
-            steps=[pagerduty.IncidentWorkflowStepArgs(
-                action="pagerduty.com:incident-workflows:send-status-update:1",
-                inputs=[pagerduty.IncidentWorkflowStepInputArgs(
-                    name="Message",
-                    value="Example status message sent on {{current_date}}",
-                )],
-                name="Send Status Update",
-            )])
-        ```
-
         ## Import
 
         Incident workflows can be imported using the `id`, e.g.
@@ -241,24 +227,6 @@ class IncidentWorkflow(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) is a series of steps which can be executed on an incident.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        my_first_workflow = pagerduty.IncidentWorkflow("myFirstWorkflow",
-            description="This Incident Workflow is an example",
-            steps=[pagerduty.IncidentWorkflowStepArgs(
-                action="pagerduty.com:incident-workflows:send-status-update:1",
-                inputs=[pagerduty.IncidentWorkflowStepInputArgs(
-                    name="Message",
-                    value="Example status message sent on {{current_date}}",
-                )],
-                name="Send Status Update",
-            )])
-        ```
 
         ## Import
 

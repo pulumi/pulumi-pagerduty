@@ -43,13 +43,37 @@ class SlackConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             channel_id: pulumi.Input[str],
-             configs: pulumi.Input[Sequence[pulumi.Input['SlackConnectionConfigArgs']]],
-             notification_type: pulumi.Input[str],
-             source_id: pulumi.Input[str],
-             source_type: pulumi.Input[str],
-             workspace_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             channel_id: Optional[pulumi.Input[str]] = None,
+             configs: Optional[pulumi.Input[Sequence[pulumi.Input['SlackConnectionConfigArgs']]]] = None,
+             notification_type: Optional[pulumi.Input[str]] = None,
+             source_id: Optional[pulumi.Input[str]] = None,
+             source_type: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if channel_id is None and 'channelId' in kwargs:
+            channel_id = kwargs['channelId']
+        if channel_id is None:
+            raise TypeError("Missing 'channel_id' argument")
+        if configs is None:
+            raise TypeError("Missing 'configs' argument")
+        if notification_type is None and 'notificationType' in kwargs:
+            notification_type = kwargs['notificationType']
+        if notification_type is None:
+            raise TypeError("Missing 'notification_type' argument")
+        if source_id is None and 'sourceId' in kwargs:
+            source_id = kwargs['sourceId']
+        if source_id is None:
+            raise TypeError("Missing 'source_id' argument")
+        if source_type is None and 'sourceType' in kwargs:
+            source_type = kwargs['sourceType']
+        if source_type is None:
+            raise TypeError("Missing 'source_type' argument")
+        if workspace_id is None and 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
+
         _setter("channel_id", channel_id)
         _setter("configs", configs)
         _setter("notification_type", notification_type)
@@ -174,7 +198,23 @@ class _SlackConnectionState:
              source_name: Optional[pulumi.Input[str]] = None,
              source_type: Optional[pulumi.Input[str]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if channel_id is None and 'channelId' in kwargs:
+            channel_id = kwargs['channelId']
+        if channel_name is None and 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+        if notification_type is None and 'notificationType' in kwargs:
+            notification_type = kwargs['notificationType']
+        if source_id is None and 'sourceId' in kwargs:
+            source_id = kwargs['sourceId']
+        if source_name is None and 'sourceName' in kwargs:
+            source_name = kwargs['sourceName']
+        if source_type is None and 'sourceType' in kwargs:
+            source_type = kwargs['sourceType']
+        if workspace_id is None and 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         if channel_id is not None:
             _setter("channel_id", channel_id)
         if channel_name is not None:
@@ -308,39 +348,6 @@ class SlackConnection(pulumi.CustomResource):
         * To first use this resource you will need to [map your PagerDuty account to a valid Slack Workspace](https://support.pagerduty.com/docs/slack-integration-guide#integration-walkthrough). *This can only be done through the PagerDuty UI.*
         * This resource requires a PagerDuty [user-level API key](https://support.pagerduty.com/docs/generating-api-keys#section-generating-a-personal-rest-api-key). This can be set as the `user_token` on the provider tag or as the `PAGERDUTY_USER_TOKEN` environment variable.
         * This resource is for configuring Slack V2 Next Generation connections. If you configured your Slack integration (V1 or V2) prior to August 10, 2021, you may migrate to the Slack V2 Next Generation update using this [migration instructions](https://support.pagerduty.com/docs/slack-integration-guide#migrate-to-slack-v2-next-generation), but if you configured your Slack integration after that date, you will have access to the update out of the box.
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        foo_team = pagerduty.Team("fooTeam")
-        p1 = pagerduty.get_priority(name="P1")
-        foo_slack_connection = pagerduty.SlackConnection("fooSlackConnection",
-            source_id=foo_team.id,
-            source_type="team_reference",
-            workspace_id="T02A123LV1A",
-            channel_id="C02CABCDAC9",
-            notification_type="responder",
-            configs=[pagerduty.SlackConnectionConfigArgs(
-                events=[
-                    "incident.triggered",
-                    "incident.acknowledged",
-                    "incident.escalated",
-                    "incident.resolved",
-                    "incident.reassigned",
-                    "incident.annotated",
-                    "incident.unacknowledged",
-                    "incident.delegated",
-                    "incident.priority_updated",
-                    "incident.responder.added",
-                    "incident.responder.replied",
-                    "incident.status_update_published",
-                    "incident.reopened",
-                ],
-                priorities=[p1.id],
-            )])
-        ```
 
         ## Import
 
@@ -372,39 +379,6 @@ class SlackConnection(pulumi.CustomResource):
         * To first use this resource you will need to [map your PagerDuty account to a valid Slack Workspace](https://support.pagerduty.com/docs/slack-integration-guide#integration-walkthrough). *This can only be done through the PagerDuty UI.*
         * This resource requires a PagerDuty [user-level API key](https://support.pagerduty.com/docs/generating-api-keys#section-generating-a-personal-rest-api-key). This can be set as the `user_token` on the provider tag or as the `PAGERDUTY_USER_TOKEN` environment variable.
         * This resource is for configuring Slack V2 Next Generation connections. If you configured your Slack integration (V1 or V2) prior to August 10, 2021, you may migrate to the Slack V2 Next Generation update using this [migration instructions](https://support.pagerduty.com/docs/slack-integration-guide#migrate-to-slack-v2-next-generation), but if you configured your Slack integration after that date, you will have access to the update out of the box.
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        foo_team = pagerduty.Team("fooTeam")
-        p1 = pagerduty.get_priority(name="P1")
-        foo_slack_connection = pagerduty.SlackConnection("fooSlackConnection",
-            source_id=foo_team.id,
-            source_type="team_reference",
-            workspace_id="T02A123LV1A",
-            channel_id="C02CABCDAC9",
-            notification_type="responder",
-            configs=[pagerduty.SlackConnectionConfigArgs(
-                events=[
-                    "incident.triggered",
-                    "incident.acknowledged",
-                    "incident.escalated",
-                    "incident.resolved",
-                    "incident.reassigned",
-                    "incident.annotated",
-                    "incident.unacknowledged",
-                    "incident.delegated",
-                    "incident.priority_updated",
-                    "incident.responder.added",
-                    "incident.responder.replied",
-                    "incident.status_update_published",
-                    "incident.reopened",
-                ],
-                priorities=[p1.id],
-            )])
-        ```
 
         ## Import
 

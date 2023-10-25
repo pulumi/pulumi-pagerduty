@@ -42,7 +42,19 @@ class ProviderArgs:
              token: Optional[pulumi.Input[str]] = None,
              use_app_oauth_scoped_token: Optional[pulumi.Input['ProviderUseAppOauthScopedTokenArgs']] = None,
              user_token: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_url_override is None and 'apiUrlOverride' in kwargs:
+            api_url_override = kwargs['apiUrlOverride']
+        if service_region is None and 'serviceRegion' in kwargs:
+            service_region = kwargs['serviceRegion']
+        if skip_credentials_validation is None and 'skipCredentialsValidation' in kwargs:
+            skip_credentials_validation = kwargs['skipCredentialsValidation']
+        if use_app_oauth_scoped_token is None and 'useAppOauthScopedToken' in kwargs:
+            use_app_oauth_scoped_token = kwargs['useAppOauthScopedToken']
+        if user_token is None and 'userToken' in kwargs:
+            user_token = kwargs['userToken']
+
         if api_url_override is not None:
             _setter("api_url_override", api_url_override)
         if service_region is not None:
@@ -186,11 +198,7 @@ class Provider(pulumi.ProviderResource):
                 skip_credentials_validation = False
             __props__.__dict__["skip_credentials_validation"] = pulumi.Output.from_input(skip_credentials_validation).apply(pulumi.runtime.to_json) if skip_credentials_validation is not None else None
             __props__.__dict__["token"] = token
-            if use_app_oauth_scoped_token is not None and not isinstance(use_app_oauth_scoped_token, ProviderUseAppOauthScopedTokenArgs):
-                use_app_oauth_scoped_token = use_app_oauth_scoped_token or {}
-                def _setter(key, value):
-                    use_app_oauth_scoped_token[key] = value
-                ProviderUseAppOauthScopedTokenArgs._configure(_setter, **use_app_oauth_scoped_token)
+            use_app_oauth_scoped_token = _utilities.configure(use_app_oauth_scoped_token, ProviderUseAppOauthScopedTokenArgs, True)
             __props__.__dict__["use_app_oauth_scoped_token"] = pulumi.Output.from_input(use_app_oauth_scoped_token).apply(pulumi.runtime.to_json) if use_app_oauth_scoped_token is not None else None
             __props__.__dict__["user_token"] = user_token
         super(Provider, __self__).__init__(

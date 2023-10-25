@@ -8,19 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to get information as a list about specific Global [Event Orchestrations](https://developer.pagerduty.com/api-reference/7ba0fe7bdb26a-list-event-orchestrations) filtered by a Regular Expression provided.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as pagerduty from "@pulumi/pagerduty";
- *
- * const tfOrchA = new pagerduty.EventOrchestration("tfOrchA", {});
- * const tfOrchB = new pagerduty.EventOrchestration("tfOrchB", {});
- * const tfMyMonitor = pagerduty.getEventOrchestrations({
- *     nameFilter: ".*Orchestration$",
- * });
- * ```
  */
 export function getEventOrchestrations(args: GetEventOrchestrationsArgs, opts?: pulumi.InvokeOptions): Promise<GetEventOrchestrationsResult> {
 
@@ -56,19 +43,6 @@ export interface GetEventOrchestrationsResult {
 }
 /**
  * Use this data source to get information as a list about specific Global [Event Orchestrations](https://developer.pagerduty.com/api-reference/7ba0fe7bdb26a-list-event-orchestrations) filtered by a Regular Expression provided.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as pagerduty from "@pulumi/pagerduty";
- *
- * const tfOrchA = new pagerduty.EventOrchestration("tfOrchA", {});
- * const tfOrchB = new pagerduty.EventOrchestration("tfOrchB", {});
- * const tfMyMonitor = pagerduty.getEventOrchestrations({
- *     nameFilter: ".*Orchestration$",
- * });
- * ```
  */
 export function getEventOrchestrationsOutput(args: GetEventOrchestrationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventOrchestrationsResult> {
     return pulumi.output(args).apply((a: any) => getEventOrchestrations(a, opts))

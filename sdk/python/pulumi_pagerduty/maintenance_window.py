@@ -35,11 +35,23 @@ class MaintenanceWindowArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             end_time: pulumi.Input[str],
-             services: pulumi.Input[Sequence[pulumi.Input[str]]],
-             start_time: pulumi.Input[str],
+             end_time: Optional[pulumi.Input[str]] = None,
+             services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if end_time is None and 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if end_time is None:
+            raise TypeError("Missing 'end_time' argument")
+        if services is None:
+            raise TypeError("Missing 'services' argument")
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if start_time is None:
+            raise TypeError("Missing 'start_time' argument")
+
         _setter("end_time", end_time)
         _setter("services", services)
         _setter("start_time", start_time)
@@ -125,7 +137,13 @@ class _MaintenanceWindowState:
              end_time: Optional[pulumi.Input[str]] = None,
              services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              start_time: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if end_time is None and 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         if description is None:
             description = 'Managed by Pulumi'
         if description is not None:
@@ -201,18 +219,6 @@ class MaintenanceWindow(pulumi.CustomResource):
 
         Maintenance windows are specified to start at a certain time and end after they have begun. Once started, a maintenance window cannot be deleted; it can only be ended immediately to re-enable the service.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        example = pagerduty.MaintenanceWindow("example",
-            start_time="2015-11-09T20:00:00-05:00",
-            end_time="2015-11-09T22:00:00-05:00",
-            services=[pagerduty_service["example"]["id"]])
-        ```
-
         ## Import
 
         Maintenance windows can be imported using the `id`, e.g.
@@ -238,18 +244,6 @@ class MaintenanceWindow(pulumi.CustomResource):
         A [maintenance window](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE1OA-create-a-maintenance-window) is used to temporarily disable one or more services for a set period of time. No incidents will be triggered and no notifications will be received while a service is disabled by a maintenance window.
 
         Maintenance windows are specified to start at a certain time and end after they have begun. Once started, a maintenance window cannot be deleted; it can only be ended immediately to re-enable the service.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        example = pagerduty.MaintenanceWindow("example",
-            start_time="2015-11-09T20:00:00-05:00",
-            end_time="2015-11-09T22:00:00-05:00",
-            services=[pagerduty_service["example"]["id"]])
-        ```
 
         ## Import
 

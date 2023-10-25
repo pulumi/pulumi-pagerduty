@@ -71,17 +71,6 @@ def get_event_orchestrations(name_filter: Optional[str] = None,
     """
     Use this data source to get information as a list about specific Global [Event Orchestrations](https://developer.pagerduty.com/api-reference/7ba0fe7bdb26a-list-event-orchestrations) filtered by a Regular Expression provided.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_pagerduty as pagerduty
-
-    tf_orch_a = pagerduty.EventOrchestration("tfOrchA")
-    tf_orch_b = pagerduty.EventOrchestration("tfOrchB")
-    tf_my_monitor = pagerduty.get_event_orchestrations(name_filter=".*Orchestration$")
-    ```
-
 
     :param str name_filter: The regex name of Global Event orchestrations to find in the PagerDuty API.
     """
@@ -101,17 +90,6 @@ def get_event_orchestrations_output(name_filter: Optional[pulumi.Input[str]] = N
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventOrchestrationsResult]:
     """
     Use this data source to get information as a list about specific Global [Event Orchestrations](https://developer.pagerduty.com/api-reference/7ba0fe7bdb26a-list-event-orchestrations) filtered by a Regular Expression provided.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_pagerduty as pagerduty
-
-    tf_orch_a = pagerduty.EventOrchestration("tfOrchA")
-    tf_orch_b = pagerduty.EventOrchestration("tfOrchB")
-    tf_my_monitor = pagerduty.get_event_orchestrations(name_filter=".*Orchestration$")
-    ```
 
 
     :param str name_filter: The regex name of Global Event orchestrations to find in the PagerDuty API.

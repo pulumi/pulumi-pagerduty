@@ -7,15 +7,6 @@ import * as utilities from "./utilities";
 /**
  * A [user](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user) is a member of a PagerDuty account that have the ability to interact with incidents and other data on the account.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as pagerduty from "@pulumi/pagerduty";
- *
- * const example = new pagerduty.User("example", {email: "125.greenholt.earline@graham.name"});
- * ```
- *
  * ## Import
  *
  * Users can be imported using the `id`, e.g.

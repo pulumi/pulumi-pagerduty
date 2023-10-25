@@ -10,36 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Pagerduty = Pulumi.Pagerduty;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var fooUser = new Pagerduty.User("fooUser", new()
-    ///     {
-    ///         Email = "foo@bar.com",
-    ///     });
-    /// 
-    ///     var fooTeam = new Pagerduty.Team("fooTeam", new()
-    ///     {
-    ///         Description = "foo",
-    ///     });
-    /// 
-    ///     var fooTeamMembership = new Pagerduty.TeamMembership("fooTeamMembership", new()
-    ///     {
-    ///         UserId = fooUser.Id,
-    ///         TeamId = fooTeam.Id,
-    ///         Role = "manager",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Team memberships can be imported using the `user_id` and `team_id`, e.g.

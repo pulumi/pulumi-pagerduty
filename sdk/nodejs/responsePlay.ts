@@ -9,40 +9,6 @@ import * as utilities from "./utilities";
 /**
  * A [response play](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE2Ng-create-a-response-play) allows you to create packages of Incident Actions that can be applied during an Incident's life cycle.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as pagerduty from "@pulumi/pagerduty";
- *
- * const exampleUser = new pagerduty.User("exampleUser", {
- *     email: "125.greenholt.earline@graham.name",
- *     teams: [pagerduty_team.example.id],
- * });
- * const exampleEscalationPolicy = new pagerduty.EscalationPolicy("exampleEscalationPolicy", {
- *     numLoops: 2,
- *     rules: [{
- *         escalationDelayInMinutes: 10,
- *         targets: [{
- *             type: "user",
- *             id: exampleUser.id,
- *         }],
- *     }],
- * });
- * const exampleResponsePlay = new pagerduty.ResponsePlay("exampleResponsePlay", {
- *     from: exampleUser.email,
- *     responders: [{
- *         type: "escalation_policy_reference",
- *         id: exampleEscalationPolicy.id,
- *     }],
- *     subscribers: [{
- *         type: "user_reference",
- *         id: exampleUser.id,
- *     }],
- *     runnability: "services",
- * });
- * ```
- *
  * ## Import
  *
  * Response Plays can be imported using the `id.from(email)`, e.g.

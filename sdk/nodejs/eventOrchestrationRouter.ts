@@ -9,53 +9,6 @@ import * as utilities from "./utilities";
 /**
  * An Orchestration Router allows users to create a set of Event Rules. The Router evaluates events sent to this Orchestration against each of its rules, one at a time, and routes the event to a specific Service based on the first rule that matches. If an event doesn't match any rules, it'll be sent to service specified in the `catchAll` or to the "Unrouted" Orchestration if no service is specified.
  *
- * ## Example of configuring Router rules for an Orchestration
- *
- * In this example the user has defined the Router with two rules, each routing to a different service.
- *
- * This example assumes services used in the `routeTo` configuration already exists. So it does not show creation of service resource.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as pagerduty from "@pulumi/pagerduty";
- *
- * const router = new pagerduty.EventOrchestrationRouter("router", {
- *     eventOrchestration: pagerduty_event_orchestration.my_monitor.id,
- *     set: {
- *         id: "start",
- *         rules: [
- *             {
- *                 label: "Events relating to our relational database",
- *                 conditions: [
- *                     {
- *                         expression: "event.summary matches part 'database'",
- *                     },
- *                     {
- *                         expression: "event.source matches regex 'db[0-9]+-server'",
- *                     },
- *                 ],
- *                 actions: {
- *                     routeTo: pagerduty_service.database.id,
- *                 },
- *             },
- *             {
- *                 conditions: [{
- *                     expression: "event.summary matches part 'www'",
- *                 }],
- *                 actions: {
- *                     routeTo: pagerduty_service.www.id,
- *                 },
- *             },
- *         ],
- *     },
- *     catchAll: {
- *         actions: {
- *             routeTo: "unrouted",
- *         },
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Router can be imported using the `id` of the Event Orchestration, e.g.

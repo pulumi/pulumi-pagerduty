@@ -13,40 +13,6 @@ import (
 )
 
 // Use this data source to get information about a specific [escalation policy](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEyNA-list-escalation-policies) that you can use for other PagerDuty resources.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testEscalationPolicy, err := pagerduty.LookupEscalationPolicy(ctx, &pagerduty.LookupEscalationPolicyArgs{
-//				Name: "Engineering Escalation Policy",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = pagerduty.NewService(ctx, "testService", &pagerduty.ServiceArgs{
-//				AutoResolveTimeout:     pulumi.String("14400"),
-//				AcknowledgementTimeout: pulumi.String("600"),
-//				EscalationPolicy:       *pulumi.String(testEscalationPolicy.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupEscalationPolicy(ctx *pulumi.Context, args *LookupEscalationPolicyArgs, opts ...pulumi.InvokeOption) (*LookupEscalationPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEscalationPolicyResult

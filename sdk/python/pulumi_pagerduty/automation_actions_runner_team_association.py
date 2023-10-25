@@ -29,9 +29,19 @@ class AutomationActionsRunnerTeamAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             runner_id: pulumi.Input[str],
-             team_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             runner_id: Optional[pulumi.Input[str]] = None,
+             team_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if runner_id is None and 'runnerId' in kwargs:
+            runner_id = kwargs['runnerId']
+        if runner_id is None:
+            raise TypeError("Missing 'runner_id' argument")
+        if team_id is None and 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+        if team_id is None:
+            raise TypeError("Missing 'team_id' argument")
+
         _setter("runner_id", runner_id)
         _setter("team_id", team_id)
 
@@ -80,7 +90,13 @@ class _AutomationActionsRunnerTeamAssociationState:
              _setter: Callable[[Any, Any], None],
              runner_id: Optional[pulumi.Input[str]] = None,
              team_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if runner_id is None and 'runnerId' in kwargs:
+            runner_id = kwargs['runnerId']
+        if team_id is None and 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+
         if runner_id is not None:
             _setter("runner_id", runner_id)
         if team_id is not None:
@@ -122,23 +138,6 @@ class AutomationActionsRunnerTeamAssociation(pulumi.CustomResource):
         """
         An Automation Actions [runner association with a team](https://developer.pagerduty.com/api-reference/f662de6271a6e-associate-a-runner-with-a-team) configures the relation of a specific Runner with a Team.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        team_ent_eng = pagerduty.Team("teamEntEng", description="Enterprise engineering")
-        pa_runbook_runner = pagerduty.AutomationActionsRunner("paRunbookRunner",
-            description="Description of the Runner created via TF",
-            runner_type="runbook",
-            runbook_base_uri="cat-cat",
-            runbook_api_key="cat-secret")
-        pa_runner_ent_eng_assoc = pagerduty.AutomationActionsRunnerTeamAssociation("paRunnerEntEngAssoc",
-            runner_id=pa_runbook_runner.id,
-            team_id=team_ent_eng.id)
-        ```
-
         ## Import
 
         Runner team association can be imported using the `runner_id` and `team_id` separated by a colon, e.g.
@@ -160,23 +159,6 @@ class AutomationActionsRunnerTeamAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Automation Actions [runner association with a team](https://developer.pagerduty.com/api-reference/f662de6271a6e-associate-a-runner-with-a-team) configures the relation of a specific Runner with a Team.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        team_ent_eng = pagerduty.Team("teamEntEng", description="Enterprise engineering")
-        pa_runbook_runner = pagerduty.AutomationActionsRunner("paRunbookRunner",
-            description="Description of the Runner created via TF",
-            runner_type="runbook",
-            runbook_base_uri="cat-cat",
-            runbook_api_key="cat-secret")
-        pa_runner_ent_eng_assoc = pagerduty.AutomationActionsRunnerTeamAssociation("paRunnerEntEngAssoc",
-            runner_id=pa_runbook_runner.id,
-            team_id=team_ent_eng.id)
-        ```
 
         ## Import
 

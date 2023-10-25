@@ -53,7 +53,7 @@ class UserArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             email: pulumi.Input[str],
+             email: Optional[pulumi.Input[str]] = None,
              color: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              job_title: Optional[pulumi.Input[str]] = None,
@@ -62,7 +62,15 @@ class UserArgs:
              role: Optional[pulumi.Input[str]] = None,
              teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              time_zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if email is None:
+            raise TypeError("Missing 'email' argument")
+        if job_title is None and 'jobTitle' in kwargs:
+            job_title = kwargs['jobTitle']
+        if time_zone is None and 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         _setter("email", email)
         if color is not None:
             _setter("color", color)
@@ -262,7 +270,19 @@ class _UserState:
              role: Optional[pulumi.Input[str]] = None,
              teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              time_zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if avatar_url is None and 'avatarUrl' in kwargs:
+            avatar_url = kwargs['avatarUrl']
+        if html_url is None and 'htmlUrl' in kwargs:
+            html_url = kwargs['htmlUrl']
+        if invitation_sent is None and 'invitationSent' in kwargs:
+            invitation_sent = kwargs['invitationSent']
+        if job_title is None and 'jobTitle' in kwargs:
+            job_title = kwargs['jobTitle']
+        if time_zone is None and 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         if avatar_url is not None:
             _setter("avatar_url", avatar_url)
         if color is not None:
@@ -460,15 +480,6 @@ class User(pulumi.CustomResource):
         """
         A [user](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user) is a member of a PagerDuty account that have the ability to interact with incidents and other data on the account.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        example = pagerduty.User("example", email="125.greenholt.earline@graham.name")
-        ```
-
         ## Import
 
         Users can be imported using the `id`, e.g.
@@ -500,15 +511,6 @@ class User(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A [user](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user) is a member of a PagerDuty account that have the ability to interact with incidents and other data on the account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        example = pagerduty.User("example", email="125.greenholt.earline@graham.name")
-        ```
 
         ## Import
 

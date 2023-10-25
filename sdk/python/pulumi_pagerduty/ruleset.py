@@ -33,7 +33,9 @@ class RulesetArgs:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              team: Optional[pulumi.Input['RulesetTeamArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if team is not None:
@@ -92,7 +94,11 @@ class _RulesetState:
              routing_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              team: Optional[pulumi.Input['RulesetTeamArgs']] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if routing_keys is None and 'routingKeys' in kwargs:
+            routing_keys = kwargs['routingKeys']
+
         if name is not None:
             _setter("name", name)
         if routing_keys is not None:
@@ -160,18 +166,6 @@ class Ruleset(pulumi.CustomResource):
                  team: Optional[pulumi.Input[pulumi.InputType['RulesetTeamArgs']]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        foo_team = pagerduty.Team("fooTeam")
-        foo_ruleset = pagerduty.Ruleset("fooRuleset", team=pagerduty.RulesetTeamArgs(
-            id=foo_team.id,
-        ))
-        ```
-
         ## Import
 
         Rulesets can be imported using the `id`, e.g.
@@ -192,18 +186,6 @@ class Ruleset(pulumi.CustomResource):
                  args: Optional[RulesetArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        foo_team = pagerduty.Team("fooTeam")
-        foo_ruleset = pagerduty.Ruleset("fooRuleset", team=pagerduty.RulesetTeamArgs(
-            id=foo_team.id,
-        ))
-        ```
-
         ## Import
 
         Rulesets can be imported using the `id`, e.g.
@@ -243,11 +225,7 @@ class Ruleset(pulumi.CustomResource):
             __props__ = RulesetArgs.__new__(RulesetArgs)
 
             __props__.__dict__["name"] = name
-            if team is not None and not isinstance(team, RulesetTeamArgs):
-                team = team or {}
-                def _setter(key, value):
-                    team[key] = value
-                RulesetTeamArgs._configure(_setter, **team)
+            team = _utilities.configure(team, RulesetTeamArgs, True)
             __props__.__dict__["team"] = team
             __props__.__dict__["routing_keys"] = None
             __props__.__dict__["type"] = None

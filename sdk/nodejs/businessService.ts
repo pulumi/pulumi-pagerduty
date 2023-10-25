@@ -7,19 +7,6 @@ import * as utilities from "./utilities";
 /**
  * A [business service](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODExNg-create-a-business-service) allows you to model capabilities that span multiple technical services and that may be owned by several different teams.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as pagerduty from "@pulumi/pagerduty";
- *
- * const example = new pagerduty.BusinessService("example", {
- *     description: "A very descriptive description of this business service",
- *     pointOfContact: "PagerDuty Admin",
- *     team: "P37RSRS",
- * });
- * ```
- *
  * ## Import
  *
  * Services can be imported using the `id`, e.g.

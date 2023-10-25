@@ -55,8 +55,8 @@ class AutomationActionsActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action_data_reference: pulumi.Input['AutomationActionsActionActionDataReferenceArgs'],
-             action_type: pulumi.Input[str],
+             action_data_reference: Optional[pulumi.Input['AutomationActionsActionActionDataReferenceArgs']] = None,
+             action_type: Optional[pulumi.Input[str]] = None,
              action_classification: Optional[pulumi.Input[str]] = None,
              creation_time: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -65,7 +65,27 @@ class AutomationActionsActionArgs:
              runner_id: Optional[pulumi.Input[str]] = None,
              runner_type: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_data_reference is None and 'actionDataReference' in kwargs:
+            action_data_reference = kwargs['actionDataReference']
+        if action_data_reference is None:
+            raise TypeError("Missing 'action_data_reference' argument")
+        if action_type is None and 'actionType' in kwargs:
+            action_type = kwargs['actionType']
+        if action_type is None:
+            raise TypeError("Missing 'action_type' argument")
+        if action_classification is None and 'actionClassification' in kwargs:
+            action_classification = kwargs['actionClassification']
+        if creation_time is None and 'creationTime' in kwargs:
+            creation_time = kwargs['creationTime']
+        if modify_time is None and 'modifyTime' in kwargs:
+            modify_time = kwargs['modifyTime']
+        if runner_id is None and 'runnerId' in kwargs:
+            runner_id = kwargs['runnerId']
+        if runner_type is None and 'runnerType' in kwargs:
+            runner_type = kwargs['runnerType']
+
         _setter("action_data_reference", action_data_reference)
         _setter("action_type", action_type)
         if action_classification is not None:
@@ -258,7 +278,23 @@ class _AutomationActionsActionState:
              runner_id: Optional[pulumi.Input[str]] = None,
              runner_type: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_classification is None and 'actionClassification' in kwargs:
+            action_classification = kwargs['actionClassification']
+        if action_data_reference is None and 'actionDataReference' in kwargs:
+            action_data_reference = kwargs['actionDataReference']
+        if action_type is None and 'actionType' in kwargs:
+            action_type = kwargs['actionType']
+        if creation_time is None and 'creationTime' in kwargs:
+            creation_time = kwargs['creationTime']
+        if modify_time is None and 'modifyTime' in kwargs:
+            modify_time = kwargs['modifyTime']
+        if runner_id is None and 'runnerId' in kwargs:
+            runner_id = kwargs['runnerId']
+        if runner_type is None and 'runnerType' in kwargs:
+            runner_type = kwargs['runnerType']
+
         if action_classification is not None:
             _setter("action_classification", action_classification)
         if action_data_reference is not None:
@@ -420,27 +456,6 @@ class AutomationActionsAction(pulumi.CustomResource):
         """
         An Automation Actions [action](https://developer.pagerduty.com/api-reference/d64584a4371d3-create-an-automation-action) invokes jobs and workflows that are staged in Runbook Automation or Process Automation. It may also execute a command line script run by a Process Automation runner installed in your infrastructure.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        pa_action_example = pagerduty.AutomationActionsAction("paActionExample",
-            action_data_reference=pagerduty.AutomationActionsActionActionDataReferenceArgs(
-                process_automation_job_id="P123456",
-            ),
-            action_type="process_automation",
-            description="Description of the PA Action created via TF")
-        script_action_example = pagerduty.AutomationActionsAction("scriptActionExample",
-            action_data_reference=pagerduty.AutomationActionsActionActionDataReferenceArgs(
-                invocation_command="/usr/local/bin/python3",
-                script="print(\\"Hello from a Python script!\\")",
-            ),
-            action_type="script",
-            description="Description of the Script Action created via TF")
-        ```
-
         ## Import
 
         Actions can be imported using the `id`, e.g.
@@ -470,27 +485,6 @@ class AutomationActionsAction(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Automation Actions [action](https://developer.pagerduty.com/api-reference/d64584a4371d3-create-an-automation-action) invokes jobs and workflows that are staged in Runbook Automation or Process Automation. It may also execute a command line script run by a Process Automation runner installed in your infrastructure.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        pa_action_example = pagerduty.AutomationActionsAction("paActionExample",
-            action_data_reference=pagerduty.AutomationActionsActionActionDataReferenceArgs(
-                process_automation_job_id="P123456",
-            ),
-            action_type="process_automation",
-            description="Description of the PA Action created via TF")
-        script_action_example = pagerduty.AutomationActionsAction("scriptActionExample",
-            action_data_reference=pagerduty.AutomationActionsActionActionDataReferenceArgs(
-                invocation_command="/usr/local/bin/python3",
-                script="print(\\"Hello from a Python script!\\")",
-            ),
-            action_type="script",
-            description="Description of the Script Action created via TF")
-        ```
 
         ## Import
 
@@ -539,11 +533,7 @@ class AutomationActionsAction(pulumi.CustomResource):
             __props__ = AutomationActionsActionArgs.__new__(AutomationActionsActionArgs)
 
             __props__.__dict__["action_classification"] = action_classification
-            if action_data_reference is not None and not isinstance(action_data_reference, AutomationActionsActionActionDataReferenceArgs):
-                action_data_reference = action_data_reference or {}
-                def _setter(key, value):
-                    action_data_reference[key] = value
-                AutomationActionsActionActionDataReferenceArgs._configure(_setter, **action_data_reference)
+            action_data_reference = _utilities.configure(action_data_reference, AutomationActionsActionActionDataReferenceArgs, True)
             if action_data_reference is None and not opts.urn:
                 raise TypeError("Missing required property 'action_data_reference'")
             __props__.__dict__["action_data_reference"] = action_data_reference

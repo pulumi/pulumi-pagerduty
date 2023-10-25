@@ -12,27 +12,6 @@ namespace Pulumi.Pagerduty
     /// <summary>
     /// [Event Orchestrations](https://support.pagerduty.com/docs/event-orchestration) allow you define a set of Event Rules, so that when you ingest events using the Orchestration's Routing Key your events will be routed to the correct Global and/or Service Orchestration, based on the event's content.
     /// 
-    /// ## Example of configuring an Event Orchestration
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Pagerduty = Pulumi.Pagerduty;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var engineering = new Pagerduty.Team("engineering");
-    /// 
-    ///     var myMonitor = new Pagerduty.EventOrchestration("myMonitor", new()
-    ///     {
-    ///         Description = "Send events to a pair of services",
-    ///         Team = engineering.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// EventOrchestrations can be imported using the `id`, e.g.

@@ -17,38 +17,6 @@ import (
 //
 // > Only Runbook Automation (runbook) runners can be created.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			rUNBOOKAPIKEY := cfg.Require("rUNBOOKAPIKEY")
-//			_, err := pagerduty.NewAutomationActionsRunner(ctx, "example", &pagerduty.AutomationActionsRunnerArgs{
-//				Description:    pulumi.String("Description of the Runner created via TF"),
-//				RunnerType:     pulumi.String("runbook"),
-//				RunbookBaseUri: pulumi.String("rdcat.stg"),
-//				RunbookApiKey:  pulumi.String(rUNBOOKAPIKEY),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // -> In the example below the `runbook_api_key` attribute has been omitted to avoid resource replacement after the import. Runners can be imported using the `id`, e.g. resource "pagerduty_automation_actions_runner" "example" {

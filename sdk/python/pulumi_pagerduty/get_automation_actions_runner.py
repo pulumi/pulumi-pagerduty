@@ -136,15 +136,6 @@ def get_automation_actions_runner(description: Optional[str] = None,
     """
     Use this data source to get information about a specific [automation actions runner](https://developer.pagerduty.com/api-reference/aace61f84cbd0-get-an-automation-action-runner).
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_pagerduty as pagerduty
-
-    example = pagerduty.get_automation_actions_runner(id="01DBJLIGED17S1DQKQC2AV8XYZ")
-    ```
-
 
     :param str description: (Optional) The description of the runner.
     :param str id: The id of the automation actions runner in the PagerDuty API.
@@ -178,15 +169,6 @@ def get_automation_actions_runner_output(description: Optional[pulumi.Input[Opti
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAutomationActionsRunnerResult]:
     """
     Use this data source to get information about a specific [automation actions runner](https://developer.pagerduty.com/api-reference/aace61f84cbd0-get-an-automation-action-runner).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_pagerduty as pagerduty
-
-    example = pagerduty.get_automation_actions_runner(id="01DBJLIGED17S1DQKQC2AV8XYZ")
-    ```
 
 
     :param str description: (Optional) The description of the runner.

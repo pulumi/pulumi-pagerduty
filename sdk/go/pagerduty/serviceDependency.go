@@ -15,64 +15,6 @@ import (
 
 // A [service dependency](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE5Mg-associate-service-dependencies) is a relationship between two services that this service uses, or that are used by this service, and are critical for successful operation.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := pagerduty.NewServiceDependency(ctx, "foo", &pagerduty.ServiceDependencyArgs{
-//				Dependency: &pagerduty.ServiceDependencyDependencyArgs{
-//					DependentServices: pagerduty.ServiceDependencyDependencyDependentServiceArray{
-//						&pagerduty.ServiceDependencyDependencyDependentServiceArgs{
-//							Id:   pulumi.Any(pagerduty_business_service.Foo.Id),
-//							Type: pulumi.Any(pagerduty_business_service.Foo.Type),
-//						},
-//					},
-//					SupportingServices: pagerduty.ServiceDependencyDependencySupportingServiceArray{
-//						&pagerduty.ServiceDependencyDependencySupportingServiceArgs{
-//							Id:   pulumi.Any(pagerduty_service.Foo.Id),
-//							Type: pulumi.Any(pagerduty_service.Foo.Type),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = pagerduty.NewServiceDependency(ctx, "bar", &pagerduty.ServiceDependencyArgs{
-//				Dependency: &pagerduty.ServiceDependencyDependencyArgs{
-//					DependentServices: pagerduty.ServiceDependencyDependencyDependentServiceArray{
-//						&pagerduty.ServiceDependencyDependencyDependentServiceArgs{
-//							Id:   pulumi.Any(pagerduty_business_service.Foo.Id),
-//							Type: pulumi.Any(pagerduty_business_service.Foo.Type),
-//						},
-//					},
-//					SupportingServices: pagerduty.ServiceDependencyDependencySupportingServiceArray{
-//						&pagerduty.ServiceDependencyDependencySupportingServiceArgs{
-//							Id:   pulumi.Any(pagerduty_service.Two.Id),
-//							Type: pulumi.Any(pagerduty_service.Two.Type),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Service dependencies can be imported using the related supporting service id, supporting service type (`business_service` or `service`) and the dependency id separated by a dot, e.g.

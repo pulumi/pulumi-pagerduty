@@ -15,48 +15,6 @@ import (
 
 // An Automation Actions [runner association with a team](https://developer.pagerduty.com/api-reference/f662de6271a6e-associate-a-runner-with-a-team) configures the relation of a specific Runner with a Team.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			teamEntEng, err := pagerduty.NewTeam(ctx, "teamEntEng", &pagerduty.TeamArgs{
-//				Description: pulumi.String("Enterprise engineering"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			paRunbookRunner, err := pagerduty.NewAutomationActionsRunner(ctx, "paRunbookRunner", &pagerduty.AutomationActionsRunnerArgs{
-//				Description:    pulumi.String("Description of the Runner created via TF"),
-//				RunnerType:     pulumi.String("runbook"),
-//				RunbookBaseUri: pulumi.String("cat-cat"),
-//				RunbookApiKey:  pulumi.String("cat-secret"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = pagerduty.NewAutomationActionsRunnerTeamAssociation(ctx, "paRunnerEntEngAssoc", &pagerduty.AutomationActionsRunnerTeamAssociationArgs{
-//				RunnerId: paRunbookRunner.ID(),
-//				TeamId:   teamEntEng.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Runner team association can be imported using the `runner_id` and `team_id` separated by a colon, e.g.

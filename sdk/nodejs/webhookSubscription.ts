@@ -9,55 +9,6 @@ import * as utilities from "./utilities";
 /**
  * A [webhook subscription](https://developer.pagerduty.com/docs/ZG9jOjExMDI5NTkw-v3-overview) allow you to receive HTTP callbacks when incidents are created, updated and deleted. These are also known as V3 Webhooks.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as pagerduty from "@pulumi/pagerduty";
- *
- * const example = pagerduty.getService({
- *     name: "My Service",
- * });
- * const foo = new pagerduty.WebhookSubscription("foo", {
- *     deliveryMethods: [{
- *         type: "http_delivery_method",
- *         url: "https://example.com/receive_a_pagerduty_webhook",
- *         customHeaders: [
- *             {
- *                 name: "X-Foo",
- *                 value: "foo",
- *             },
- *             {
- *                 name: "X-Bar",
- *                 value: "bar",
- *             },
- *         ],
- *     }],
- *     description: "%s",
- *     events: [
- *         "incident.acknowledged",
- *         "incident.annotated",
- *         "incident.delegated",
- *         "incident.escalated",
- *         "incident.priority_updated",
- *         "incident.reassigned",
- *         "incident.reopened",
- *         "incident.resolved",
- *         "incident.responder.added",
- *         "incident.responder.replied",
- *         "incident.status_update_published",
- *         "incident.triggered",
- *         "incident.unacknowledged",
- *     ],
- *     active: true,
- *     filters: [{
- *         id: example.then(example => example.id),
- *         type: "service_reference",
- *     }],
- *     type: "webhook_subscription",
- * });
- * ```
- *
  * ## Import
  *
  * Webhook Subscriptions can be imported using the `id`, e.g.

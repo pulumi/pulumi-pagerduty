@@ -34,10 +34,22 @@ class EventOrchestrationUnroutedArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             catch_all: pulumi.Input['EventOrchestrationUnroutedCatchAllArgs'],
-             event_orchestration: pulumi.Input[str],
-             sets: pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedSetArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             catch_all: Optional[pulumi.Input['EventOrchestrationUnroutedCatchAllArgs']] = None,
+             event_orchestration: Optional[pulumi.Input[str]] = None,
+             sets: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedSetArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if catch_all is None and 'catchAll' in kwargs:
+            catch_all = kwargs['catchAll']
+        if catch_all is None:
+            raise TypeError("Missing 'catch_all' argument")
+        if event_orchestration is None and 'eventOrchestration' in kwargs:
+            event_orchestration = kwargs['eventOrchestration']
+        if event_orchestration is None:
+            raise TypeError("Missing 'event_orchestration' argument")
+        if sets is None:
+            raise TypeError("Missing 'sets' argument")
+
         _setter("catch_all", catch_all)
         _setter("event_orchestration", event_orchestration)
         _setter("sets", sets)
@@ -103,7 +115,13 @@ class _EventOrchestrationUnroutedState:
              catch_all: Optional[pulumi.Input['EventOrchestrationUnroutedCatchAllArgs']] = None,
              event_orchestration: Optional[pulumi.Input[str]] = None,
              sets: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedSetArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if catch_all is None and 'catchAll' in kwargs:
+            catch_all = kwargs['catchAll']
+        if event_orchestration is None and 'eventOrchestration' in kwargs:
+            event_orchestration = kwargs['eventOrchestration']
+
         if catch_all is not None:
             _setter("catch_all", catch_all)
         if event_orchestration is not None:
@@ -162,40 +180,6 @@ class EventOrchestrationUnrouted(pulumi.CustomResource):
 
         The Unrouted Orchestration evaluates events sent to it against each of its rules, beginning with the rules in the "start" set. When a matching rule is found, it can modify and enhance the event and can route the event to another set of rules within this Unrouted Orchestration for further processing.
 
-        ## Example of configuring Unrouted Rules for an Orchestration
-
-        In this example of an Unrouted Orchestration, the rule matches only if the condition is matched.
-        Alerts created for events that do not match the rule will have severity level set to `info` as defined in `catch_all` block.
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        unrouted = pagerduty.EventOrchestrationUnrouted("unrouted",
-            event_orchestration=pagerduty_event_orchestration["my_monitor"]["id"],
-            sets=[pagerduty.EventOrchestrationUnroutedSetArgs(
-                id="start",
-                rules=[pagerduty.EventOrchestrationUnroutedSetRuleArgs(
-                    label="Update the summary of un-matched Critical alerts so they're easier to spot",
-                    conditions=[pagerduty.EventOrchestrationUnroutedSetRuleConditionArgs(
-                        expression="event.severity matches 'critical'",
-                    )],
-                    actions=pagerduty.EventOrchestrationUnroutedSetRuleActionsArgs(
-                        severity="critical",
-                        extractions=[pagerduty.EventOrchestrationUnroutedSetRuleActionsExtractionArgs(
-                            target="event.summary",
-                            template="[Critical Unrouted] {{event.summary}}",
-                        )],
-                    ),
-                )],
-            )],
-            catch_all=pagerduty.EventOrchestrationUnroutedCatchAllArgs(
-                actions=pagerduty.EventOrchestrationUnroutedCatchAllActionsArgs(
-                    severity="info",
-                ),
-            ))
-        ```
-
         ## Import
 
         Unrouted Orchestration can be imported using the `id` of the Event Orchestration, e.g.
@@ -220,40 +204,6 @@ class EventOrchestrationUnrouted(pulumi.CustomResource):
         An Unrouted Orchestration allows users to create a set of Event Rules that will be evaluated against all events that don't match any rules in the Orchestration's Router.
 
         The Unrouted Orchestration evaluates events sent to it against each of its rules, beginning with the rules in the "start" set. When a matching rule is found, it can modify and enhance the event and can route the event to another set of rules within this Unrouted Orchestration for further processing.
-
-        ## Example of configuring Unrouted Rules for an Orchestration
-
-        In this example of an Unrouted Orchestration, the rule matches only if the condition is matched.
-        Alerts created for events that do not match the rule will have severity level set to `info` as defined in `catch_all` block.
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        unrouted = pagerduty.EventOrchestrationUnrouted("unrouted",
-            event_orchestration=pagerduty_event_orchestration["my_monitor"]["id"],
-            sets=[pagerduty.EventOrchestrationUnroutedSetArgs(
-                id="start",
-                rules=[pagerduty.EventOrchestrationUnroutedSetRuleArgs(
-                    label="Update the summary of un-matched Critical alerts so they're easier to spot",
-                    conditions=[pagerduty.EventOrchestrationUnroutedSetRuleConditionArgs(
-                        expression="event.severity matches 'critical'",
-                    )],
-                    actions=pagerduty.EventOrchestrationUnroutedSetRuleActionsArgs(
-                        severity="critical",
-                        extractions=[pagerduty.EventOrchestrationUnroutedSetRuleActionsExtractionArgs(
-                            target="event.summary",
-                            template="[Critical Unrouted] {{event.summary}}",
-                        )],
-                    ),
-                )],
-            )],
-            catch_all=pagerduty.EventOrchestrationUnroutedCatchAllArgs(
-                actions=pagerduty.EventOrchestrationUnroutedCatchAllActionsArgs(
-                    severity="info",
-                ),
-            ))
-        ```
 
         ## Import
 
@@ -294,11 +244,7 @@ class EventOrchestrationUnrouted(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EventOrchestrationUnroutedArgs.__new__(EventOrchestrationUnroutedArgs)
 
-            if catch_all is not None and not isinstance(catch_all, EventOrchestrationUnroutedCatchAllArgs):
-                catch_all = catch_all or {}
-                def _setter(key, value):
-                    catch_all[key] = value
-                EventOrchestrationUnroutedCatchAllArgs._configure(_setter, **catch_all)
+            catch_all = _utilities.configure(catch_all, EventOrchestrationUnroutedCatchAllArgs, True)
             if catch_all is None and not opts.urn:
                 raise TypeError("Missing required property 'catch_all'")
             __props__.__dict__["catch_all"] = catch_all

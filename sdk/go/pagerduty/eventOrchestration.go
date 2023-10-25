@@ -14,37 +14,6 @@ import (
 
 // [Event Orchestrations](https://support.pagerduty.com/docs/event-orchestration) allow you define a set of Event Rules, so that when you ingest events using the Orchestration's Routing Key your events will be routed to the correct Global and/or Service Orchestration, based on the event's content.
 //
-// ## Example of configuring an Event Orchestration
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			engineering, err := pagerduty.NewTeam(ctx, "engineering", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = pagerduty.NewEventOrchestration(ctx, "myMonitor", &pagerduty.EventOrchestrationArgs{
-//				Description: pulumi.String("Send events to a pair of services"),
-//				Team:        engineering.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // EventOrchestrations can be imported using the `id`, e.g.

@@ -13,52 +13,6 @@ import (
 )
 
 // Use this data source to get information about a specific [contact method](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzOQ-list-a-user-s-contact-methods) of a PagerDuty [user](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			me, err := pagerduty.LookupUser(ctx, &pagerduty.LookupUserArgs{
-//				Email: "me@example.com",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			phonePush, err := pagerduty.LookupUserContactMethod(ctx, &pagerduty.LookupUserContactMethodArgs{
-//				UserId: me.Id,
-//				Type:   "push_notification_contact_method",
-//				Label:  "iPhone (John)",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = pagerduty.NewUserNotificationRule(ctx, "lowUrgencySms", &pagerduty.UserNotificationRuleArgs{
-//				UserId:              *pulumi.String(me.Id),
-//				StartDelayInMinutes: pulumi.Int(5),
-//				Urgency:             pulumi.String("high"),
-//				ContactMethod: pulumi.StringMap{
-//					"type": pulumi.String("push_notification_contact_method"),
-//					"id":   *pulumi.String(phonePush.Id),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupUserContactMethod(ctx *pulumi.Context, args *LookupUserContactMethodArgs, opts ...pulumi.InvokeOption) (*LookupUserContactMethodResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupUserContactMethodResult

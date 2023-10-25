@@ -15,49 +15,6 @@ import (
 
 // An Automation Actions [action association with a team](https://developer.pagerduty.com/api-reference/8f722dd91a4ba-associate-an-automation-action-with-a-team) configures the relation of a specific Action with a Team.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := pagerduty.NewTeam(ctx, "example", &pagerduty.TeamArgs{
-//				Description: pulumi.String("All engineering"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			paActionExample, err := pagerduty.NewAutomationActionsAction(ctx, "paActionExample", &pagerduty.AutomationActionsActionArgs{
-//				Description: pulumi.String("Description of the PA Action created via TF"),
-//				ActionType:  pulumi.String("process_automation"),
-//				ActionDataReference: &pagerduty.AutomationActionsActionActionDataReferenceArgs{
-//					ProcessAutomationJobId: pulumi.String("P123456"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = pagerduty.NewAutomationActionsActionTeamAssociation(ctx, "foo", &pagerduty.AutomationActionsActionTeamAssociationArgs{
-//				ActionId: paActionExample.ID(),
-//				TeamId:   example.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Action team association can be imported using the `action_id` and `team_id` separated by a colon, e.g.

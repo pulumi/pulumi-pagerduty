@@ -7,18 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as pagerduty from "@pulumi/pagerduty";
- *
- * const fooTeam = new pagerduty.Team("fooTeam", {});
- * const fooRuleset = new pagerduty.Ruleset("fooRuleset", {team: {
- *     id: fooTeam.id,
- * }});
- * ```
- *
  * ## Import
  *
  * Rulesets can be imported using the `id`, e.g.

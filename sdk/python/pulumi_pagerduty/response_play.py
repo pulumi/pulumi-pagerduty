@@ -60,7 +60,7 @@ class ResponsePlayArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             from_: pulumi.Input[str],
+             from_: Optional[pulumi.Input[str]] = None,
              conference_number: Optional[pulumi.Input[str]] = None,
              conference_url: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -72,7 +72,21 @@ class ResponsePlayArgs:
              subscribers_message: Optional[pulumi.Input[str]] = None,
              team: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if from_ is None and 'from' in kwargs:
+            from_ = kwargs['from']
+        if from_ is None:
+            raise TypeError("Missing 'from_' argument")
+        if conference_number is None and 'conferenceNumber' in kwargs:
+            conference_number = kwargs['conferenceNumber']
+        if conference_url is None and 'conferenceUrl' in kwargs:
+            conference_url = kwargs['conferenceUrl']
+        if responders_message is None and 'respondersMessage' in kwargs:
+            responders_message = kwargs['respondersMessage']
+        if subscribers_message is None and 'subscribersMessage' in kwargs:
+            subscribers_message = kwargs['subscribersMessage']
+
         _setter("from_", from_)
         if conference_number is not None:
             _setter("conference_number", conference_number)
@@ -300,7 +314,19 @@ class _ResponsePlayState:
              subscribers_message: Optional[pulumi.Input[str]] = None,
              team: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if conference_number is None and 'conferenceNumber' in kwargs:
+            conference_number = kwargs['conferenceNumber']
+        if conference_url is None and 'conferenceUrl' in kwargs:
+            conference_url = kwargs['conferenceUrl']
+        if from_ is None and 'from' in kwargs:
+            from_ = kwargs['from']
+        if responders_message is None and 'respondersMessage' in kwargs:
+            responders_message = kwargs['respondersMessage']
+        if subscribers_message is None and 'subscribersMessage' in kwargs:
+            subscribers_message = kwargs['subscribersMessage']
+
         if conference_number is not None:
             _setter("conference_number", conference_number)
         if conference_url is not None:
@@ -491,37 +517,6 @@ class ResponsePlay(pulumi.CustomResource):
         """
         A [response play](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE2Ng-create-a-response-play) allows you to create packages of Incident Actions that can be applied during an Incident's life cycle.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        example_user = pagerduty.User("exampleUser",
-            email="125.greenholt.earline@graham.name",
-            teams=[pagerduty_team["example"]["id"]])
-        example_escalation_policy = pagerduty.EscalationPolicy("exampleEscalationPolicy",
-            num_loops=2,
-            rules=[pagerduty.EscalationPolicyRuleArgs(
-                escalation_delay_in_minutes=10,
-                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                    type="user",
-                    id=example_user.id,
-                )],
-            )])
-        example_response_play = pagerduty.ResponsePlay("exampleResponsePlay",
-            from_=example_user.email,
-            responders=[pagerduty.ResponsePlayResponderArgs(
-                type="escalation_policy_reference",
-                id=example_escalation_policy.id,
-            )],
-            subscribers=[pagerduty.ResponsePlaySubscriberArgs(
-                type="user_reference",
-                id=example_user.id,
-            )],
-            runnability="services")
-        ```
-
         ## Import
 
         Response Plays can be imported using the `id.from(email)`, e.g.
@@ -552,37 +547,6 @@ class ResponsePlay(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A [response play](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE2Ng-create-a-response-play) allows you to create packages of Incident Actions that can be applied during an Incident's life cycle.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        example_user = pagerduty.User("exampleUser",
-            email="125.greenholt.earline@graham.name",
-            teams=[pagerduty_team["example"]["id"]])
-        example_escalation_policy = pagerduty.EscalationPolicy("exampleEscalationPolicy",
-            num_loops=2,
-            rules=[pagerduty.EscalationPolicyRuleArgs(
-                escalation_delay_in_minutes=10,
-                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                    type="user",
-                    id=example_user.id,
-                )],
-            )])
-        example_response_play = pagerduty.ResponsePlay("exampleResponsePlay",
-            from_=example_user.email,
-            responders=[pagerduty.ResponsePlayResponderArgs(
-                type="escalation_policy_reference",
-                id=example_escalation_policy.id,
-            )],
-            subscribers=[pagerduty.ResponsePlaySubscriberArgs(
-                type="user_reference",
-                id=example_user.id,
-            )],
-            runnability="services")
-        ```
 
         ## Import
 

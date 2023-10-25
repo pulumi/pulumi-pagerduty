@@ -63,7 +63,7 @@ class ServiceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             escalation_policy: pulumi.Input[str],
+             escalation_policy: Optional[pulumi.Input[str]] = None,
              acknowledgement_timeout: Optional[pulumi.Input[str]] = None,
              alert_creation: Optional[pulumi.Input[str]] = None,
              alert_grouping: Optional[pulumi.Input[str]] = None,
@@ -77,7 +77,35 @@ class ServiceArgs:
              response_play: Optional[pulumi.Input[str]] = None,
              scheduled_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceScheduledActionArgs']]]] = None,
              support_hours: Optional[pulumi.Input['ServiceSupportHoursArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if escalation_policy is None and 'escalationPolicy' in kwargs:
+            escalation_policy = kwargs['escalationPolicy']
+        if escalation_policy is None:
+            raise TypeError("Missing 'escalation_policy' argument")
+        if acknowledgement_timeout is None and 'acknowledgementTimeout' in kwargs:
+            acknowledgement_timeout = kwargs['acknowledgementTimeout']
+        if alert_creation is None and 'alertCreation' in kwargs:
+            alert_creation = kwargs['alertCreation']
+        if alert_grouping is None and 'alertGrouping' in kwargs:
+            alert_grouping = kwargs['alertGrouping']
+        if alert_grouping_parameters is None and 'alertGroupingParameters' in kwargs:
+            alert_grouping_parameters = kwargs['alertGroupingParameters']
+        if alert_grouping_timeout is None and 'alertGroupingTimeout' in kwargs:
+            alert_grouping_timeout = kwargs['alertGroupingTimeout']
+        if auto_pause_notifications_parameters is None and 'autoPauseNotificationsParameters' in kwargs:
+            auto_pause_notifications_parameters = kwargs['autoPauseNotificationsParameters']
+        if auto_resolve_timeout is None and 'autoResolveTimeout' in kwargs:
+            auto_resolve_timeout = kwargs['autoResolveTimeout']
+        if incident_urgency_rule is None and 'incidentUrgencyRule' in kwargs:
+            incident_urgency_rule = kwargs['incidentUrgencyRule']
+        if response_play is None and 'responsePlay' in kwargs:
+            response_play = kwargs['responsePlay']
+        if scheduled_actions is None and 'scheduledActions' in kwargs:
+            scheduled_actions = kwargs['scheduledActions']
+        if support_hours is None and 'supportHours' in kwargs:
+            support_hours = kwargs['supportHours']
+
         _setter("escalation_policy", escalation_policy)
         if acknowledgement_timeout is not None:
             _setter("acknowledgement_timeout", acknowledgement_timeout)
@@ -361,7 +389,39 @@ class _ServiceState:
              status: Optional[pulumi.Input[str]] = None,
              support_hours: Optional[pulumi.Input['ServiceSupportHoursArgs']] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if acknowledgement_timeout is None and 'acknowledgementTimeout' in kwargs:
+            acknowledgement_timeout = kwargs['acknowledgementTimeout']
+        if alert_creation is None and 'alertCreation' in kwargs:
+            alert_creation = kwargs['alertCreation']
+        if alert_grouping is None and 'alertGrouping' in kwargs:
+            alert_grouping = kwargs['alertGrouping']
+        if alert_grouping_parameters is None and 'alertGroupingParameters' in kwargs:
+            alert_grouping_parameters = kwargs['alertGroupingParameters']
+        if alert_grouping_timeout is None and 'alertGroupingTimeout' in kwargs:
+            alert_grouping_timeout = kwargs['alertGroupingTimeout']
+        if auto_pause_notifications_parameters is None and 'autoPauseNotificationsParameters' in kwargs:
+            auto_pause_notifications_parameters = kwargs['autoPauseNotificationsParameters']
+        if auto_resolve_timeout is None and 'autoResolveTimeout' in kwargs:
+            auto_resolve_timeout = kwargs['autoResolveTimeout']
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if escalation_policy is None and 'escalationPolicy' in kwargs:
+            escalation_policy = kwargs['escalationPolicy']
+        if html_url is None and 'htmlUrl' in kwargs:
+            html_url = kwargs['htmlUrl']
+        if incident_urgency_rule is None and 'incidentUrgencyRule' in kwargs:
+            incident_urgency_rule = kwargs['incidentUrgencyRule']
+        if last_incident_timestamp is None and 'lastIncidentTimestamp' in kwargs:
+            last_incident_timestamp = kwargs['lastIncidentTimestamp']
+        if response_play is None and 'responsePlay' in kwargs:
+            response_play = kwargs['responsePlay']
+        if scheduled_actions is None and 'scheduledActions' in kwargs:
+            scheduled_actions = kwargs['scheduledActions']
+        if support_hours is None and 'supportHours' in kwargs:
+            support_hours = kwargs['supportHours']
+
         if acknowledgement_timeout is not None:
             _setter("acknowledgement_timeout", acknowledgement_timeout)
         if alert_creation is not None:
@@ -655,33 +715,6 @@ class Service(pulumi.CustomResource):
         """
         A [service](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE5Nw-create-a-service) represents something you monitor (like a web service, email service, or database service). It is a container for related incidents that associates them with escalation policies.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        example_user = pagerduty.User("exampleUser", email="125.greenholt.earline@graham.name")
-        foo = pagerduty.EscalationPolicy("foo",
-            num_loops=2,
-            rules=[pagerduty.EscalationPolicyRuleArgs(
-                escalation_delay_in_minutes=10,
-                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                    type="user_reference",
-                    id=example_user.id,
-                )],
-            )])
-        example_service = pagerduty.Service("exampleService",
-            auto_resolve_timeout="14400",
-            acknowledgement_timeout="600",
-            escalation_policy=foo.id,
-            alert_creation="create_alerts_and_incidents",
-            auto_pause_notifications_parameters=pagerduty.ServiceAutoPauseNotificationsParametersArgs(
-                enabled=True,
-                timeout=300,
-            ))
-        ```
-
         ## Import
 
         Services can be imported using the `id`, e.g.
@@ -711,33 +744,6 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A [service](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE5Nw-create-a-service) represents something you monitor (like a web service, email service, or database service). It is a container for related incidents that associates them with escalation policies.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        example_user = pagerduty.User("exampleUser", email="125.greenholt.earline@graham.name")
-        foo = pagerduty.EscalationPolicy("foo",
-            num_loops=2,
-            rules=[pagerduty.EscalationPolicyRuleArgs(
-                escalation_delay_in_minutes=10,
-                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                    type="user_reference",
-                    id=example_user.id,
-                )],
-            )])
-        example_service = pagerduty.Service("exampleService",
-            auto_resolve_timeout="14400",
-            acknowledgement_timeout="600",
-            escalation_policy=foo.id,
-            alert_creation="create_alerts_and_incidents",
-            auto_pause_notifications_parameters=pagerduty.ServiceAutoPauseNotificationsParametersArgs(
-                enabled=True,
-                timeout=300,
-            ))
-        ```
 
         ## Import
 
@@ -792,18 +798,10 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["acknowledgement_timeout"] = acknowledgement_timeout
             __props__.__dict__["alert_creation"] = alert_creation
             __props__.__dict__["alert_grouping"] = alert_grouping
-            if alert_grouping_parameters is not None and not isinstance(alert_grouping_parameters, ServiceAlertGroupingParametersArgs):
-                alert_grouping_parameters = alert_grouping_parameters or {}
-                def _setter(key, value):
-                    alert_grouping_parameters[key] = value
-                ServiceAlertGroupingParametersArgs._configure(_setter, **alert_grouping_parameters)
+            alert_grouping_parameters = _utilities.configure(alert_grouping_parameters, ServiceAlertGroupingParametersArgs, True)
             __props__.__dict__["alert_grouping_parameters"] = alert_grouping_parameters
             __props__.__dict__["alert_grouping_timeout"] = alert_grouping_timeout
-            if auto_pause_notifications_parameters is not None and not isinstance(auto_pause_notifications_parameters, ServiceAutoPauseNotificationsParametersArgs):
-                auto_pause_notifications_parameters = auto_pause_notifications_parameters or {}
-                def _setter(key, value):
-                    auto_pause_notifications_parameters[key] = value
-                ServiceAutoPauseNotificationsParametersArgs._configure(_setter, **auto_pause_notifications_parameters)
+            auto_pause_notifications_parameters = _utilities.configure(auto_pause_notifications_parameters, ServiceAutoPauseNotificationsParametersArgs, True)
             __props__.__dict__["auto_pause_notifications_parameters"] = auto_pause_notifications_parameters
             __props__.__dict__["auto_resolve_timeout"] = auto_resolve_timeout
             if description is None:
@@ -812,20 +810,12 @@ class Service(pulumi.CustomResource):
             if escalation_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'escalation_policy'")
             __props__.__dict__["escalation_policy"] = escalation_policy
-            if incident_urgency_rule is not None and not isinstance(incident_urgency_rule, ServiceIncidentUrgencyRuleArgs):
-                incident_urgency_rule = incident_urgency_rule or {}
-                def _setter(key, value):
-                    incident_urgency_rule[key] = value
-                ServiceIncidentUrgencyRuleArgs._configure(_setter, **incident_urgency_rule)
+            incident_urgency_rule = _utilities.configure(incident_urgency_rule, ServiceIncidentUrgencyRuleArgs, True)
             __props__.__dict__["incident_urgency_rule"] = incident_urgency_rule
             __props__.__dict__["name"] = name
             __props__.__dict__["response_play"] = response_play
             __props__.__dict__["scheduled_actions"] = scheduled_actions
-            if support_hours is not None and not isinstance(support_hours, ServiceSupportHoursArgs):
-                support_hours = support_hours or {}
-                def _setter(key, value):
-                    support_hours[key] = value
-                ServiceSupportHoursArgs._configure(_setter, **support_hours)
+            support_hours = _utilities.configure(support_hours, ServiceSupportHoursArgs, True)
             __props__.__dict__["support_hours"] = support_hours
             __props__.__dict__["created_at"] = None
             __props__.__dict__["html_url"] = None

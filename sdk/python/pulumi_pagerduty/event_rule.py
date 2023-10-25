@@ -32,10 +32,22 @@ class EventRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action_json: pulumi.Input[str],
-             condition_json: pulumi.Input[str],
+             action_json: Optional[pulumi.Input[str]] = None,
+             condition_json: Optional[pulumi.Input[str]] = None,
              advanced_condition_json: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_json is None and 'actionJson' in kwargs:
+            action_json = kwargs['actionJson']
+        if action_json is None:
+            raise TypeError("Missing 'action_json' argument")
+        if condition_json is None and 'conditionJson' in kwargs:
+            condition_json = kwargs['conditionJson']
+        if condition_json is None:
+            raise TypeError("Missing 'condition_json' argument")
+        if advanced_condition_json is None and 'advancedConditionJson' in kwargs:
+            advanced_condition_json = kwargs['advancedConditionJson']
+
         _setter("action_json", action_json)
         _setter("condition_json", condition_json)
         if advanced_condition_json is not None:
@@ -106,7 +118,17 @@ class _EventRuleState:
              advanced_condition_json: Optional[pulumi.Input[str]] = None,
              catch_all: Optional[pulumi.Input[bool]] = None,
              condition_json: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_json is None and 'actionJson' in kwargs:
+            action_json = kwargs['actionJson']
+        if advanced_condition_json is None and 'advancedConditionJson' in kwargs:
+            advanced_condition_json = kwargs['advancedConditionJson']
+        if catch_all is None and 'catchAll' in kwargs:
+            catch_all = kwargs['catchAll']
+        if condition_json is None and 'conditionJson' in kwargs:
+            condition_json = kwargs['conditionJson']
+
         if action_json is not None:
             _setter("action_json", action_json)
         if advanced_condition_json is not None:
@@ -179,113 +201,6 @@ class EventRule(pulumi.CustomResource):
 
         An [event rule](https://developer.pagerduty.com/docs/rest-api-v2/global-event-rules-api/) determines what happens to an event that is sent to PagerDuty by monitoring tools and other integrations.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_pagerduty as pagerduty
-
-        second = pagerduty.EventRule("second",
-            action_json=json.dumps([
-                [
-                    "route",
-                    "P5DTL0K",
-                ],
-                [
-                    "severity",
-                    "warning",
-                ],
-                [
-                    "annotate",
-                    "2 Managed by terraform",
-                ],
-                [
-                    "priority",
-                    "PL451DT",
-                ],
-            ]),
-            condition_json=json.dumps([
-                "and",
-                [
-                    "contains",
-                    [
-                        "path",
-                        "payload",
-                        "source",
-                    ],
-                    "website",
-                ],
-                [
-                    "contains",
-                    [
-                        "path",
-                        "headers",
-                        "from",
-                        "0",
-                        "address",
-                    ],
-                    "homer",
-                ],
-            ]),
-            advanced_condition_json=json.dumps([[
-                "scheduled-weekly",
-                1565392127032,
-                3600000,
-                "America/Los_Angeles",
-                [
-                    1,
-                    2,
-                    3,
-                    5,
-                    7,
-                ],
-            ]]))
-        third = pagerduty.EventRule("third",
-            action_json=json.dumps([
-                [
-                    "route",
-                    "P5DTL0K",
-                ],
-                [
-                    "severity",
-                    "warning",
-                ],
-                [
-                    "annotate",
-                    "3 Managed by terraform",
-                ],
-                [
-                    "priority",
-                    "PL451DT",
-                ],
-            ]),
-            condition_json=json.dumps([
-                "and",
-                [
-                    "contains",
-                    [
-                        "path",
-                        "payload",
-                        "source",
-                    ],
-                    "website",
-                ],
-                [
-                    "contains",
-                    [
-                        "path",
-                        "headers",
-                        "from",
-                        "0",
-                        "address",
-                    ],
-                    "homer",
-                ],
-            ]),
-            opts=pulumi.ResourceOptions(depends_on=[pagerduty_event_rule["two"]]))
-        ```
-
         ## Import
 
         Event rules can be imported using the `id`, e.g.
@@ -310,113 +225,6 @@ class EventRule(pulumi.CustomResource):
         *NOTE: The `EventRule` resource has been deprecated in favor of the Ruleset and RulesetRule resources. Please use the `ruleset` based resources for working with Event Rules.*
 
         An [event rule](https://developer.pagerduty.com/docs/rest-api-v2/global-event-rules-api/) determines what happens to an event that is sent to PagerDuty by monitoring tools and other integrations.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_pagerduty as pagerduty
-
-        second = pagerduty.EventRule("second",
-            action_json=json.dumps([
-                [
-                    "route",
-                    "P5DTL0K",
-                ],
-                [
-                    "severity",
-                    "warning",
-                ],
-                [
-                    "annotate",
-                    "2 Managed by terraform",
-                ],
-                [
-                    "priority",
-                    "PL451DT",
-                ],
-            ]),
-            condition_json=json.dumps([
-                "and",
-                [
-                    "contains",
-                    [
-                        "path",
-                        "payload",
-                        "source",
-                    ],
-                    "website",
-                ],
-                [
-                    "contains",
-                    [
-                        "path",
-                        "headers",
-                        "from",
-                        "0",
-                        "address",
-                    ],
-                    "homer",
-                ],
-            ]),
-            advanced_condition_json=json.dumps([[
-                "scheduled-weekly",
-                1565392127032,
-                3600000,
-                "America/Los_Angeles",
-                [
-                    1,
-                    2,
-                    3,
-                    5,
-                    7,
-                ],
-            ]]))
-        third = pagerduty.EventRule("third",
-            action_json=json.dumps([
-                [
-                    "route",
-                    "P5DTL0K",
-                ],
-                [
-                    "severity",
-                    "warning",
-                ],
-                [
-                    "annotate",
-                    "3 Managed by terraform",
-                ],
-                [
-                    "priority",
-                    "PL451DT",
-                ],
-            ]),
-            condition_json=json.dumps([
-                "and",
-                [
-                    "contains",
-                    [
-                        "path",
-                        "payload",
-                        "source",
-                    ],
-                    "website",
-                ],
-                [
-                    "contains",
-                    [
-                        "path",
-                        "headers",
-                        "from",
-                        "0",
-                        "address",
-                    ],
-                    "homer",
-                ],
-            ]),
-            opts=pulumi.ResourceOptions(depends_on=[pagerduty_event_rule["two"]]))
-        ```
 
         ## Import
 

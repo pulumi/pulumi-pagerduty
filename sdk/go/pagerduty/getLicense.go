@@ -15,44 +15,6 @@ import (
 // Use this data source to use a single purchased [license](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) to manage PagerDuty user resources. After applying changes to users' licenses, the `currentValue` and `allocationsAvailable` attributes of licenses will change.
 //
 // > It is preferred to set the `name` and `description` to their exact values or to set the `id`. However, this will require updating your configuration if the accounts products ever change. To avoid errors when account products change, you may set the `name` of a license to a valid substring such as `"Full User"` or `"Stakeholder"`.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_ := []string{
-//				"owner",
-//			}
-//			fullUser, err := pagerduty.GetLicense(ctx, &pagerduty.GetLicenseArgs{
-//				Name:        pulumi.StringRef("Full User"),
-//				Description: pulumi.StringRef(""),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = pagerduty.NewUser(ctx, "example", &pagerduty.UserArgs{
-//				Email:   pulumi.String("125.greenholt.earline@graham.name"),
-//				License: *pulumi.String(fullUser.Id),
-//				Role:    pulumi.String("user"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetLicense(ctx *pulumi.Context, args *GetLicenseArgs, opts ...pulumi.InvokeOption) (*GetLicenseResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLicenseResult

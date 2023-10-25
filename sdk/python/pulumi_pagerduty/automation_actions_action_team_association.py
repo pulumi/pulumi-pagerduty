@@ -29,9 +29,19 @@ class AutomationActionsActionTeamAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action_id: pulumi.Input[str],
-             team_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             action_id: Optional[pulumi.Input[str]] = None,
+             team_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_id is None and 'actionId' in kwargs:
+            action_id = kwargs['actionId']
+        if action_id is None:
+            raise TypeError("Missing 'action_id' argument")
+        if team_id is None and 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+        if team_id is None:
+            raise TypeError("Missing 'team_id' argument")
+
         _setter("action_id", action_id)
         _setter("team_id", team_id)
 
@@ -80,7 +90,13 @@ class _AutomationActionsActionTeamAssociationState:
              _setter: Callable[[Any, Any], None],
              action_id: Optional[pulumi.Input[str]] = None,
              team_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_id is None and 'actionId' in kwargs:
+            action_id = kwargs['actionId']
+        if team_id is None and 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+
         if action_id is not None:
             _setter("action_id", action_id)
         if team_id is not None:
@@ -122,24 +138,6 @@ class AutomationActionsActionTeamAssociation(pulumi.CustomResource):
         """
         An Automation Actions [action association with a team](https://developer.pagerduty.com/api-reference/8f722dd91a4ba-associate-an-automation-action-with-a-team) configures the relation of a specific Action with a Team.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        example = pagerduty.Team("example", description="All engineering")
-        pa_action_example = pagerduty.AutomationActionsAction("paActionExample",
-            description="Description of the PA Action created via TF",
-            action_type="process_automation",
-            action_data_reference=pagerduty.AutomationActionsActionActionDataReferenceArgs(
-                process_automation_job_id="P123456",
-            ))
-        foo = pagerduty.AutomationActionsActionTeamAssociation("foo",
-            action_id=pa_action_example.id,
-            team_id=example.id)
-        ```
-
         ## Import
 
         Action team association can be imported using the `action_id` and `team_id` separated by a colon, e.g.
@@ -161,24 +159,6 @@ class AutomationActionsActionTeamAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Automation Actions [action association with a team](https://developer.pagerduty.com/api-reference/8f722dd91a4ba-associate-an-automation-action-with-a-team) configures the relation of a specific Action with a Team.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        example = pagerduty.Team("example", description="All engineering")
-        pa_action_example = pagerduty.AutomationActionsAction("paActionExample",
-            description="Description of the PA Action created via TF",
-            action_type="process_automation",
-            action_data_reference=pagerduty.AutomationActionsActionActionDataReferenceArgs(
-                process_automation_job_id="P123456",
-            ))
-        foo = pagerduty.AutomationActionsActionTeamAssociation("foo",
-            action_id=pa_action_example.id,
-            team_id=example.id)
-        ```
 
         ## Import
 

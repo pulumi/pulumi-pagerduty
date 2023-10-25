@@ -14,67 +14,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// The Unrouted Orchestration evaluates events sent to it against each of its rules, beginning with the rules in the "start" set. When a matching rule is found, it can modify and enhance the event and can route the event to another set of rules within this Unrouted Orchestration for further processing.
     /// 
-    /// ## Example of configuring Unrouted Rules for an Orchestration
-    /// 
-    /// In this example of an Unrouted Orchestration, the rule matches only if the condition is matched.
-    /// Alerts created for events that do not match the rule will have severity level set to `info` as defined in `catch_all` block.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Pagerduty = Pulumi.Pagerduty;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var unrouted = new Pagerduty.EventOrchestrationUnrouted("unrouted", new()
-    ///     {
-    ///         EventOrchestration = pagerduty_event_orchestration.My_monitor.Id,
-    ///         Sets = new[]
-    ///         {
-    ///             new Pagerduty.Inputs.EventOrchestrationUnroutedSetArgs
-    ///             {
-    ///                 Id = "start",
-    ///                 Rules = new[]
-    ///                 {
-    ///                     new Pagerduty.Inputs.EventOrchestrationUnroutedSetRuleArgs
-    ///                     {
-    ///                         Label = "Update the summary of un-matched Critical alerts so they're easier to spot",
-    ///                         Conditions = new[]
-    ///                         {
-    ///                             new Pagerduty.Inputs.EventOrchestrationUnroutedSetRuleConditionArgs
-    ///                             {
-    ///                                 Expression = "event.severity matches 'critical'",
-    ///                             },
-    ///                         },
-    ///                         Actions = new Pagerduty.Inputs.EventOrchestrationUnroutedSetRuleActionsArgs
-    ///                         {
-    ///                             Severity = "critical",
-    ///                             Extractions = new[]
-    ///                             {
-    ///                                 new Pagerduty.Inputs.EventOrchestrationUnroutedSetRuleActionsExtractionArgs
-    ///                                 {
-    ///                                     Target = "event.summary",
-    ///                                     Template = "[Critical Unrouted] {{event.summary}}",
-    ///                                 },
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///         CatchAll = new Pagerduty.Inputs.EventOrchestrationUnroutedCatchAllArgs
-    ///         {
-    ///             Actions = new Pagerduty.Inputs.EventOrchestrationUnroutedCatchAllActionsArgs
-    ///             {
-    ///                 Severity = "info",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Unrouted Orchestration can be imported using the `id` of the Event Orchestration, e.g.

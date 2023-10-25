@@ -7,46 +7,6 @@ import * as utilities from "./utilities";
 /**
  * An Automation Actions [action association with a service](https://developer.pagerduty.com/api-reference/5d2f051f3fb43-associate-an-automation-action-with-a-service) configures the relation of a specific Action with a Service.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as pagerduty from "@pulumi/pagerduty";
- *
- * const exampleUser = new pagerduty.User("exampleUser", {email: "125.greenholt.earline@graham.name"});
- * const fooEscalationPolicy = new pagerduty.EscalationPolicy("fooEscalationPolicy", {
- *     numLoops: 2,
- *     rules: [{
- *         escalationDelayInMinutes: 10,
- *         targets: [{
- *             type: "user_reference",
- *             id: exampleUser.id,
- *         }],
- *     }],
- * });
- * const exampleService = new pagerduty.Service("exampleService", {
- *     autoResolveTimeout: "14400",
- *     acknowledgementTimeout: "600",
- *     escalationPolicy: fooEscalationPolicy.id,
- *     alertCreation: "create_alerts_and_incidents",
- *     autoPauseNotificationsParameters: {
- *         enabled: true,
- *         timeout: 300,
- *     },
- * });
- * const paActionExample = new pagerduty.AutomationActionsAction("paActionExample", {
- *     description: "Description of the PA Action created via TF",
- *     actionType: "process_automation",
- *     actionDataReference: {
- *         processAutomationJobId: "P123456",
- *     },
- * });
- * const fooAutomationActionsActionServiceAssociation = new pagerduty.AutomationActionsActionServiceAssociation("fooAutomationActionsActionServiceAssociation", {
- *     actionId: paActionExample.id,
- *     serviceId: exampleService.id,
- * });
- * ```
- *
  * ## Import
  *
  * Action service association can be imported using the `action_id` and `service_id` separated by a colon, e.g.

@@ -6,22 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to get information about a specific [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as pagerduty from "@pulumi/pagerduty";
- *
- * const environment = pagerduty.getIncidentCustomField({
- *     name: "environment",
- * });
- * const devEnvironment = new pagerduty.IncidentCustomFieldOption("devEnvironment", {
- *     field: environment.then(environment => environment.id),
- *     datatype: "string",
- *     value: "dev",
- * });
- * ```
  */
 export function getIncidentCustomField(args: GetIncidentCustomFieldArgs, opts?: pulumi.InvokeOptions): Promise<GetIncidentCustomFieldResult> {
 
@@ -57,22 +41,6 @@ export interface GetIncidentCustomFieldResult {
 }
 /**
  * Use this data source to get information about a specific [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as pagerduty from "@pulumi/pagerduty";
- *
- * const environment = pagerduty.getIncidentCustomField({
- *     name: "environment",
- * });
- * const devEnvironment = new pagerduty.IncidentCustomFieldOption("devEnvironment", {
- *     field: environment.then(environment => environment.id),
- *     datatype: "string",
- *     value: "dev",
- * });
- * ```
  */
 export function getIncidentCustomFieldOutput(args: GetIncidentCustomFieldOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIncidentCustomFieldResult> {
     return pulumi.output(args).apply((a: any) => getIncidentCustomField(a, opts))

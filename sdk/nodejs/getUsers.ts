@@ -8,29 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to get information about [list of users](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources, optionally filtering by team ids.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as pagerduty from "@pulumi/pagerduty";
- *
- * const devops = pagerduty.getTeam({
- *     name: "devops",
- * });
- * const me = pagerduty.getUser({
- *     email: "me@example.com",
- * });
- * const exampleWTeam = new pagerduty.User("exampleWTeam", {email: "user-with-team@example.com"});
- * const example = new pagerduty.TeamMembership("example", {
- *     teamId: pagerduty_team.devops.id,
- *     userId: exampleWTeam.id,
- * });
- * const allUsers = pagerduty.getUsers({});
- * const fromDevopsTeam = pagerduty.getUsers({
- *     teamIds: [pagerduty_team.devops.id],
- * });
- * ```
  */
 export function getUsers(args?: GetUsersArgs, opts?: pulumi.InvokeOptions): Promise<GetUsersResult> {
     args = args || {};
@@ -67,29 +44,6 @@ export interface GetUsersResult {
 }
 /**
  * Use this data source to get information about [list of users](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources, optionally filtering by team ids.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as pagerduty from "@pulumi/pagerduty";
- *
- * const devops = pagerduty.getTeam({
- *     name: "devops",
- * });
- * const me = pagerduty.getUser({
- *     email: "me@example.com",
- * });
- * const exampleWTeam = new pagerduty.User("exampleWTeam", {email: "user-with-team@example.com"});
- * const example = new pagerduty.TeamMembership("example", {
- *     teamId: pagerduty_team.devops.id,
- *     userId: exampleWTeam.id,
- * });
- * const allUsers = pagerduty.getUsers({});
- * const fromDevopsTeam = pagerduty.getUsers({
- *     teamIds: [pagerduty_team.devops.id],
- * });
- * ```
  */
 export function getUsersOutput(args?: GetUsersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUsersResult> {
     return pulumi.output(args).apply((a: any) => getUsers(a, opts))

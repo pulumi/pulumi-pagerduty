@@ -13,41 +13,6 @@ import (
 )
 
 // Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users' licenses, the `currentValue` and `allocationsAvailable` attributes of licenses will change.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_ := []string{
-//				"owner",
-//			}
-//			licenses, err := pagerduty.GetLicenses(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = pagerduty.NewUser(ctx, "example", &pagerduty.UserArgs{
-//				Email:   pulumi.String("125.greenholt.earline@graham.name"),
-//				License: *pulumi.String(licenses.Licenses[0].Id),
-//				Role:    pulumi.String("user"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetLicenses(ctx *pulumi.Context, args *GetLicensesArgs, opts ...pulumi.InvokeOption) (*GetLicensesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLicensesResult

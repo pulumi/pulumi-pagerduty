@@ -7,43 +7,6 @@ import * as utilities from "./utilities";
 /**
  * A special case for [extension](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEzMw-create-an-extension) for ServiceNow.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as pagerduty from "@pulumi/pagerduty";
- *
- * const servicenow = pagerduty.getExtensionSchema({
- *     name: "ServiceNow (v7)",
- * });
- * const exampleUser = new pagerduty.User("exampleUser", {email: "howard.james@example.domain"});
- * const exampleEscalationPolicy = new pagerduty.EscalationPolicy("exampleEscalationPolicy", {
- *     numLoops: 2,
- *     rules: [{
- *         escalationDelayInMinutes: 10,
- *         targets: [{
- *             type: "user",
- *             id: exampleUser.id,
- *         }],
- *     }],
- * });
- * const exampleService = new pagerduty.Service("exampleService", {
- *     autoResolveTimeout: "14400",
- *     acknowledgementTimeout: "600",
- *     escalationPolicy: exampleEscalationPolicy.id,
- * });
- * const snow = new pagerduty.ExtensionServiceNow("snow", {
- *     extensionSchema: servicenow.then(servicenow => servicenow.id),
- *     extensionObjects: [exampleService.id],
- *     snowUser: "meeps",
- *     snowPassword: "zorz",
- *     syncOptions: "manual_sync",
- *     target: "https://foo.servicenow.com/webhook_foo",
- *     taskType: "incident",
- *     referer: "None",
- * });
- * ```
- *
  * ## Import
  *
  * Extensions can be imported using the id.e.g.

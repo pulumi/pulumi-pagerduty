@@ -31,9 +31,17 @@ class EventOrchestrationIntegrationInitArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             event_orchestration: pulumi.Input[str],
-             label: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             event_orchestration: Optional[pulumi.Input[str]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if event_orchestration is None and 'eventOrchestration' in kwargs:
+            event_orchestration = kwargs['eventOrchestration']
+        if event_orchestration is None:
+            raise TypeError("Missing 'event_orchestration' argument")
+        if label is None:
+            raise TypeError("Missing 'label' argument")
+
         _setter("event_orchestration", event_orchestration)
         _setter("label", label)
 
@@ -85,7 +93,11 @@ class _EventOrchestrationIntegrationState:
              event_orchestration: Optional[pulumi.Input[str]] = None,
              label: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationIntegrationParameterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if event_orchestration is None and 'eventOrchestration' in kwargs:
+            event_orchestration = kwargs['eventOrchestration']
+
         if event_orchestration is not None:
             _setter("event_orchestration", event_orchestration)
         if label is not None:
@@ -138,23 +150,6 @@ class EventOrchestrationIntegration(pulumi.CustomResource):
         """
         An Event Orchestration Integration allows you to create and manage multiple Integrations (and Routing Keys) per Event Orchestration _and_ will allow you to move (migrate) Integrations _between_ two Event Orchestrations.
 
-        ## Example of configuring an Integration for an Event Orchestration
-
-        This example shows creating `Event Orchestration` and `Team` resources followed by creating an Event Orchestration Integration to handle Events sent to that Event Orchestration.
-
-        > When a new Event Orchestration is created there will be one Integration (and Routing Key) included by default. Example below shows how to create an extra Integration associated with this Event Orchestration.
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        database_team = pagerduty.Team("databaseTeam")
-        event_orchestration = pagerduty.EventOrchestration("eventOrchestration", team=database_team.id)
-        integration = pagerduty.EventOrchestrationIntegration("integration",
-            event_orchestration=event_orchestration.id,
-            label="Example integration")
-        ```
-
         ## Import
 
         Event Orchestration Integration can be imported using colon-separated IDs, which is the combination of the Event Orchestration ID followed by the Event Orchestration Integration ID, e.g.
@@ -176,23 +171,6 @@ class EventOrchestrationIntegration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Event Orchestration Integration allows you to create and manage multiple Integrations (and Routing Keys) per Event Orchestration _and_ will allow you to move (migrate) Integrations _between_ two Event Orchestrations.
-
-        ## Example of configuring an Integration for an Event Orchestration
-
-        This example shows creating `Event Orchestration` and `Team` resources followed by creating an Event Orchestration Integration to handle Events sent to that Event Orchestration.
-
-        > When a new Event Orchestration is created there will be one Integration (and Routing Key) included by default. Example below shows how to create an extra Integration associated with this Event Orchestration.
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        database_team = pagerduty.Team("databaseTeam")
-        event_orchestration = pagerduty.EventOrchestration("eventOrchestration", team=database_team.id)
-        integration = pagerduty.EventOrchestrationIntegration("integration",
-            event_orchestration=event_orchestration.id,
-            label="Example integration")
-        ```
 
         ## Import
 

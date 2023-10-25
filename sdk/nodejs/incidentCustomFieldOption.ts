@@ -7,33 +7,6 @@ import * as utilities from "./utilities";
 /**
  * A Incident Custom Field Option is a specific value that can be used for an [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents) that only allow values from a set of fixed options,
  * i.e. has the `fieldType` of `singleValueFixed` or `multiValueFixed`.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as pagerduty from "@pulumi/pagerduty";
- *
- * const sreEnvironment = new pagerduty.IncidentCustomField("sreEnvironment", {
- *     dataType: "string",
- *     fieldType: "single_value_fixed",
- * });
- * const devEnvironment = new pagerduty.IncidentCustomFieldOption("devEnvironment", {
- *     field: sreEnvironment.id,
- *     dataType: "string",
- *     value: "dev",
- * });
- * const stageEnvironment = new pagerduty.IncidentCustomFieldOption("stageEnvironment", {
- *     field: sreEnvironment.id,
- *     dataType: "string",
- *     value: "stage",
- * });
- * const prodEnvironment = new pagerduty.IncidentCustomFieldOption("prodEnvironment", {
- *     field: sreEnvironment.id,
- *     dataType: "string",
- *     value: "prod",
- * });
- * ```
  */
 export class IncidentCustomFieldOption extends pulumi.CustomResource {
     /**

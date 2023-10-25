@@ -38,12 +38,22 @@ class IncidentWorkflowTriggerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             subscribed_to_all_services: pulumi.Input[bool],
-             type: pulumi.Input[str],
-             workflow: pulumi.Input[str],
+             subscribed_to_all_services: Optional[pulumi.Input[bool]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             workflow: Optional[pulumi.Input[str]] = None,
              condition: Optional[pulumi.Input[str]] = None,
              services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if subscribed_to_all_services is None and 'subscribedToAllServices' in kwargs:
+            subscribed_to_all_services = kwargs['subscribedToAllServices']
+        if subscribed_to_all_services is None:
+            raise TypeError("Missing 'subscribed_to_all_services' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if workflow is None:
+            raise TypeError("Missing 'workflow' argument")
+
         _setter("subscribed_to_all_services", subscribed_to_all_services)
         _setter("type", type)
         _setter("workflow", workflow)
@@ -145,7 +155,11 @@ class _IncidentWorkflowTriggerState:
              subscribed_to_all_services: Optional[pulumi.Input[bool]] = None,
              type: Optional[pulumi.Input[str]] = None,
              workflow: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if subscribed_to_all_services is None and 'subscribedToAllServices' in kwargs:
+            subscribed_to_all_services = kwargs['subscribedToAllServices']
+
         if condition is not None:
             _setter("condition", condition)
         if services is not None:
@@ -232,36 +246,6 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
         """
         An [Incident Workflow Trigger](https://support.pagerduty.com/docs/incident-workflows#triggers) defines when and if an [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) will be triggered.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        my_first_workflow = pagerduty.IncidentWorkflow("myFirstWorkflow",
-            description="This Incident Workflow is an example",
-            steps=[pagerduty.IncidentWorkflowStepArgs(
-                name="Send Status Update",
-                action="pagerduty.com:incident-workflows:send-status-update:1",
-                inputs=[pagerduty.IncidentWorkflowStepInputArgs(
-                    name="Message",
-                    value="Example status message sent on {{current_date}}",
-                )],
-            )])
-        first_service = pagerduty.get_service(name="My First Service")
-        automatic_trigger = pagerduty.IncidentWorkflowTrigger("automaticTrigger",
-            type="conditional",
-            workflow=my_first_workflow.id,
-            services=[pagerduty_service["first_service"]["id"]],
-            condition="incident.priority matches 'P1'",
-            subscribed_to_all_services=False)
-        devops = pagerduty.get_team(name="devops")
-        manual_trigger = pagerduty.IncidentWorkflowTrigger("manualTrigger",
-            type="manual",
-            workflow=my_first_workflow.id,
-            services=[pagerduty_service["first_service"]["id"]])
-        ```
-
         ## Import
 
         Incident workflows can be imported using the `id`, e.g.
@@ -286,36 +270,6 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An [Incident Workflow Trigger](https://support.pagerduty.com/docs/incident-workflows#triggers) defines when and if an [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) will be triggered.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        my_first_workflow = pagerduty.IncidentWorkflow("myFirstWorkflow",
-            description="This Incident Workflow is an example",
-            steps=[pagerduty.IncidentWorkflowStepArgs(
-                name="Send Status Update",
-                action="pagerduty.com:incident-workflows:send-status-update:1",
-                inputs=[pagerduty.IncidentWorkflowStepInputArgs(
-                    name="Message",
-                    value="Example status message sent on {{current_date}}",
-                )],
-            )])
-        first_service = pagerduty.get_service(name="My First Service")
-        automatic_trigger = pagerduty.IncidentWorkflowTrigger("automaticTrigger",
-            type="conditional",
-            workflow=my_first_workflow.id,
-            services=[pagerduty_service["first_service"]["id"]],
-            condition="incident.priority matches 'P1'",
-            subscribed_to_all_services=False)
-        devops = pagerduty.get_team(name="devops")
-        manual_trigger = pagerduty.IncidentWorkflowTrigger("manualTrigger",
-            type="manual",
-            workflow=my_first_workflow.id,
-            services=[pagerduty_service["first_service"]["id"]])
-        ```
 
         ## Import
 

@@ -41,13 +41,29 @@ class UserContactMethodArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             address: pulumi.Input[str],
-             label: pulumi.Input[str],
-             type: pulumi.Input[str],
-             user_id: pulumi.Input[str],
+             address: Optional[pulumi.Input[str]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             user_id: Optional[pulumi.Input[str]] = None,
              country_code: Optional[pulumi.Input[int]] = None,
              send_short_email: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if address is None:
+            raise TypeError("Missing 'address' argument")
+        if label is None:
+            raise TypeError("Missing 'label' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if user_id is None and 'userId' in kwargs:
+            user_id = kwargs['userId']
+        if user_id is None:
+            raise TypeError("Missing 'user_id' argument")
+        if country_code is None and 'countryCode' in kwargs:
+            country_code = kwargs['countryCode']
+        if send_short_email is None and 'sendShortEmail' in kwargs:
+            send_short_email = kwargs['sendShortEmail']
+
         _setter("address", address)
         _setter("label", label)
         _setter("type", type)
@@ -174,7 +190,15 @@ class _UserContactMethodState:
              send_short_email: Optional[pulumi.Input[bool]] = None,
              type: Optional[pulumi.Input[str]] = None,
              user_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if country_code is None and 'countryCode' in kwargs:
+            country_code = kwargs['countryCode']
+        if send_short_email is None and 'sendShortEmail' in kwargs:
+            send_short_email = kwargs['sendShortEmail']
+        if user_id is None and 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         if address is not None:
             _setter("address", address)
         if blacklisted is not None:
@@ -302,34 +326,6 @@ class UserContactMethod(pulumi.CustomResource):
                  user_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        example = pagerduty.User("example",
-            email="125.greenholt.earline@graham.name",
-            teams=[pagerduty_team["example"]["id"]])
-        email = pagerduty.UserContactMethod("email",
-            user_id=example.id,
-            type="email_contact_method",
-            address="foo@bar.com",
-            label="Work")
-        phone = pagerduty.UserContactMethod("phone",
-            user_id=example.id,
-            type="phone_contact_method",
-            country_code=1,
-            address="2025550199",
-            label="Work")
-        sms = pagerduty.UserContactMethod("sms",
-            user_id=example.id,
-            type="sms_contact_method",
-            country_code=1,
-            address="2025550199",
-            label="Work")
-        ```
-
         ## Import
 
         Contact methods can be imported using the `user_id` and the `id`, e.g.
@@ -354,34 +350,6 @@ class UserContactMethod(pulumi.CustomResource):
                  args: UserContactMethodArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        example = pagerduty.User("example",
-            email="125.greenholt.earline@graham.name",
-            teams=[pagerduty_team["example"]["id"]])
-        email = pagerduty.UserContactMethod("email",
-            user_id=example.id,
-            type="email_contact_method",
-            address="foo@bar.com",
-            label="Work")
-        phone = pagerduty.UserContactMethod("phone",
-            user_id=example.id,
-            type="phone_contact_method",
-            country_code=1,
-            address="2025550199",
-            label="Work")
-        sms = pagerduty.UserContactMethod("sms",
-            user_id=example.id,
-            type="sms_contact_method",
-            country_code=1,
-            address="2025550199",
-            label="Work")
-        ```
-
         ## Import
 
         Contact methods can be imported using the `user_id` and the `id`, e.g.

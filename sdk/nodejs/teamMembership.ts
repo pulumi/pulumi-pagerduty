@@ -5,21 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as pagerduty from "@pulumi/pagerduty";
- *
- * const fooUser = new pagerduty.User("fooUser", {email: "foo@bar.com"});
- * const fooTeam = new pagerduty.Team("fooTeam", {description: "foo"});
- * const fooTeamMembership = new pagerduty.TeamMembership("fooTeamMembership", {
- *     userId: fooUser.id,
- *     teamId: fooTeam.id,
- *     role: "manager",
- * });
- * ```
- *
  * ## Import
  *
  * Team memberships can be imported using the `user_id` and `team_id`, e.g.

@@ -68,7 +68,7 @@ class ServiceIntegrationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             service: pulumi.Input[str],
+             service: Optional[pulumi.Input[str]] = None,
              email_filter_mode: Optional[pulumi.Input[str]] = None,
              email_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceIntegrationEmailFilterArgs']]]] = None,
              email_incident_creation: Optional[pulumi.Input[str]] = None,
@@ -79,7 +79,25 @@ class ServiceIntegrationArgs:
              name: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              vendor: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if service is None:
+            raise TypeError("Missing 'service' argument")
+        if email_filter_mode is None and 'emailFilterMode' in kwargs:
+            email_filter_mode = kwargs['emailFilterMode']
+        if email_filters is None and 'emailFilters' in kwargs:
+            email_filters = kwargs['emailFilters']
+        if email_incident_creation is None and 'emailIncidentCreation' in kwargs:
+            email_incident_creation = kwargs['emailIncidentCreation']
+        if email_parsers is None and 'emailParsers' in kwargs:
+            email_parsers = kwargs['emailParsers']
+        if email_parsing_fallback is None and 'emailParsingFallback' in kwargs:
+            email_parsing_fallback = kwargs['emailParsingFallback']
+        if integration_email is None and 'integrationEmail' in kwargs:
+            integration_email = kwargs['integrationEmail']
+        if integration_key is None and 'integrationKey' in kwargs:
+            integration_key = kwargs['integrationKey']
+
         _setter("service", service)
         if email_filter_mode is not None:
             _setter("email_filter_mode", email_filter_mode)
@@ -311,7 +329,25 @@ class _ServiceIntegrationState:
              service: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              vendor: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if email_filter_mode is None and 'emailFilterMode' in kwargs:
+            email_filter_mode = kwargs['emailFilterMode']
+        if email_filters is None and 'emailFilters' in kwargs:
+            email_filters = kwargs['emailFilters']
+        if email_incident_creation is None and 'emailIncidentCreation' in kwargs:
+            email_incident_creation = kwargs['emailIncidentCreation']
+        if email_parsers is None and 'emailParsers' in kwargs:
+            email_parsers = kwargs['emailParsers']
+        if email_parsing_fallback is None and 'emailParsingFallback' in kwargs:
+            email_parsing_fallback = kwargs['emailParsingFallback']
+        if html_url is None and 'htmlUrl' in kwargs:
+            html_url = kwargs['htmlUrl']
+        if integration_email is None and 'integrationEmail' in kwargs:
+            integration_email = kwargs['integrationEmail']
+        if integration_key is None and 'integrationKey' in kwargs:
+            integration_key = kwargs['integrationKey']
+
         if email_filter_mode is not None:
             _setter("email_filter_mode", email_filter_mode)
         if email_filters is not None:
@@ -508,111 +544,6 @@ class ServiceIntegration(pulumi.CustomResource):
         """
         A [service integration](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1services~1%7Bid%7D~1integrations/post) is an integration that belongs to a service.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        example_user = pagerduty.User("exampleUser",
-            email="125.greenholt.earline@graham.name",
-            teams=[pagerduty_team["example"]["id"]])
-        foo = pagerduty.EscalationPolicy("foo",
-            num_loops=2,
-            rules=[pagerduty.EscalationPolicyRuleArgs(
-                escalation_delay_in_minutes=10,
-                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                    type="user",
-                    id=example_user.id,
-                )],
-            )])
-        example_service = pagerduty.Service("exampleService",
-            auto_resolve_timeout="14400",
-            acknowledgement_timeout="600",
-            escalation_policy=pagerduty_escalation_policy["example"]["id"])
-        example_service_integration = pagerduty.ServiceIntegration("exampleServiceIntegration",
-            type="generic_events_api_inbound_integration",
-            service=example_service.id)
-        apiv2 = pagerduty.ServiceIntegration("apiv2",
-            type="events_api_v2_inbound_integration",
-            integration_key="12345678910testtesttesttesttes",
-            service=example_service.id)
-        email_x = pagerduty.ServiceIntegration("emailX",
-            type="generic_email_inbound_integration",
-            integration_email="ecommerce@subdomain.pagerduty.com",
-            service=example_service.id)
-        datadog_vendor = pagerduty.get_vendor(name="Datadog")
-        datadog_service_integration = pagerduty.ServiceIntegration("datadogServiceIntegration",
-            service=example_service.id,
-            vendor=datadog_vendor.id)
-        cloudwatch_vendor = pagerduty.get_vendor(name="Cloudwatch")
-        cloudwatch_service_integration = pagerduty.ServiceIntegration("cloudwatchServiceIntegration",
-            service=example_service.id,
-            vendor=cloudwatch_vendor.id)
-        email_vendor = pagerduty.get_vendor(name="Email")
-        email_service_integration = pagerduty.ServiceIntegration("emailServiceIntegration",
-            service=example_service.id,
-            vendor=email_vendor.id,
-            integration_email="s1@your_account.pagerduty.com",
-            email_incident_creation="use_rules",
-            email_filter_mode="and-rules-email",
-            email_filters=[
-                pagerduty.ServiceIntegrationEmailFilterArgs(
-                    body_mode="always",
-                    body_regex=None,
-                    from_email_mode="match",
-                    from_email_regex="(@foo.test*)",
-                    subject_mode="match",
-                    subject_regex="(CRITICAL*)",
-                ),
-                pagerduty.ServiceIntegrationEmailFilterArgs(
-                    body_mode="always",
-                    body_regex=None,
-                    from_email_mode="match",
-                    from_email_regex="(@bar.com*)",
-                    subject_mode="match",
-                    subject_regex="(CRITICAL*)",
-                ),
-            ],
-            email_parsers=[pagerduty.ServiceIntegrationEmailParserArgs(
-                action="resolve",
-                match_predicate=pagerduty.ServiceIntegrationEmailParserMatchPredicateArgs(
-                    type="any",
-                    predicates=[
-                        pagerduty.ServiceIntegrationEmailParserMatchPredicatePredicateArgs(
-                            matcher="foo",
-                            part="subject",
-                            type="contains",
-                        ),
-                        pagerduty.ServiceIntegrationEmailParserMatchPredicatePredicateArgs(
-                            type="not",
-                            predicates=[pagerduty.ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs(
-                                matcher="(bar*)",
-                                part="body",
-                                type="regex",
-                            )],
-                        ),
-                    ],
-                ),
-                value_extractors=[
-                    pagerduty.ServiceIntegrationEmailParserValueExtractorArgs(
-                        ends_before="end",
-                        part="subject",
-                        starts_after="start",
-                        type="between",
-                        value_name="incident_key",
-                    ),
-                    pagerduty.ServiceIntegrationEmailParserValueExtractorArgs(
-                        ends_before="end",
-                        part="subject",
-                        starts_after="start",
-                        type="between",
-                        value_name="FieldName1",
-                    ),
-                ],
-            )])
-        ```
-
         ## Import
 
         Services can be imported using their related `service` id and service integration `id` separated by a dot, e.g.
@@ -653,111 +584,6 @@ class ServiceIntegration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A [service integration](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1services~1%7Bid%7D~1integrations/post) is an integration that belongs to a service.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        example_user = pagerduty.User("exampleUser",
-            email="125.greenholt.earline@graham.name",
-            teams=[pagerduty_team["example"]["id"]])
-        foo = pagerduty.EscalationPolicy("foo",
-            num_loops=2,
-            rules=[pagerduty.EscalationPolicyRuleArgs(
-                escalation_delay_in_minutes=10,
-                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                    type="user",
-                    id=example_user.id,
-                )],
-            )])
-        example_service = pagerduty.Service("exampleService",
-            auto_resolve_timeout="14400",
-            acknowledgement_timeout="600",
-            escalation_policy=pagerduty_escalation_policy["example"]["id"])
-        example_service_integration = pagerduty.ServiceIntegration("exampleServiceIntegration",
-            type="generic_events_api_inbound_integration",
-            service=example_service.id)
-        apiv2 = pagerduty.ServiceIntegration("apiv2",
-            type="events_api_v2_inbound_integration",
-            integration_key="12345678910testtesttesttesttes",
-            service=example_service.id)
-        email_x = pagerduty.ServiceIntegration("emailX",
-            type="generic_email_inbound_integration",
-            integration_email="ecommerce@subdomain.pagerduty.com",
-            service=example_service.id)
-        datadog_vendor = pagerduty.get_vendor(name="Datadog")
-        datadog_service_integration = pagerduty.ServiceIntegration("datadogServiceIntegration",
-            service=example_service.id,
-            vendor=datadog_vendor.id)
-        cloudwatch_vendor = pagerduty.get_vendor(name="Cloudwatch")
-        cloudwatch_service_integration = pagerduty.ServiceIntegration("cloudwatchServiceIntegration",
-            service=example_service.id,
-            vendor=cloudwatch_vendor.id)
-        email_vendor = pagerduty.get_vendor(name="Email")
-        email_service_integration = pagerduty.ServiceIntegration("emailServiceIntegration",
-            service=example_service.id,
-            vendor=email_vendor.id,
-            integration_email="s1@your_account.pagerduty.com",
-            email_incident_creation="use_rules",
-            email_filter_mode="and-rules-email",
-            email_filters=[
-                pagerduty.ServiceIntegrationEmailFilterArgs(
-                    body_mode="always",
-                    body_regex=None,
-                    from_email_mode="match",
-                    from_email_regex="(@foo.test*)",
-                    subject_mode="match",
-                    subject_regex="(CRITICAL*)",
-                ),
-                pagerduty.ServiceIntegrationEmailFilterArgs(
-                    body_mode="always",
-                    body_regex=None,
-                    from_email_mode="match",
-                    from_email_regex="(@bar.com*)",
-                    subject_mode="match",
-                    subject_regex="(CRITICAL*)",
-                ),
-            ],
-            email_parsers=[pagerduty.ServiceIntegrationEmailParserArgs(
-                action="resolve",
-                match_predicate=pagerduty.ServiceIntegrationEmailParserMatchPredicateArgs(
-                    type="any",
-                    predicates=[
-                        pagerduty.ServiceIntegrationEmailParserMatchPredicatePredicateArgs(
-                            matcher="foo",
-                            part="subject",
-                            type="contains",
-                        ),
-                        pagerduty.ServiceIntegrationEmailParserMatchPredicatePredicateArgs(
-                            type="not",
-                            predicates=[pagerduty.ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs(
-                                matcher="(bar*)",
-                                part="body",
-                                type="regex",
-                            )],
-                        ),
-                    ],
-                ),
-                value_extractors=[
-                    pagerduty.ServiceIntegrationEmailParserValueExtractorArgs(
-                        ends_before="end",
-                        part="subject",
-                        starts_after="start",
-                        type="between",
-                        value_name="incident_key",
-                    ),
-                    pagerduty.ServiceIntegrationEmailParserValueExtractorArgs(
-                        ends_before="end",
-                        part="subject",
-                        starts_after="start",
-                        type="between",
-                        value_name="FieldName1",
-                    ),
-                ],
-            )])
-        ```
 
         ## Import
 

@@ -71,22 +71,6 @@ def get_users(team_ids: Optional[Sequence[str]] = None,
     """
     Use this data source to get information about [list of users](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources, optionally filtering by team ids.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_pagerduty as pagerduty
-
-    devops = pagerduty.get_team(name="devops")
-    me = pagerduty.get_user(email="me@example.com")
-    example_w_team = pagerduty.User("exampleWTeam", email="user-with-team@example.com")
-    example = pagerduty.TeamMembership("example",
-        team_id=pagerduty_team["devops"]["id"],
-        user_id=example_w_team.id)
-    all_users = pagerduty.get_users()
-    from_devops_team = pagerduty.get_users(team_ids=[pagerduty_team["devops"]["id"]])
-    ```
-
 
     :param Sequence[str] team_ids: List of team IDs. Only results related to these teams will be returned. Account must have the `teams` ability to use this parameter.
     """
@@ -106,22 +90,6 @@ def get_users_output(team_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] =
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUsersResult]:
     """
     Use this data source to get information about [list of users](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources, optionally filtering by team ids.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_pagerduty as pagerduty
-
-    devops = pagerduty.get_team(name="devops")
-    me = pagerduty.get_user(email="me@example.com")
-    example_w_team = pagerduty.User("exampleWTeam", email="user-with-team@example.com")
-    example = pagerduty.TeamMembership("example",
-        team_id=pagerduty_team["devops"]["id"],
-        user_id=example_w_team.id)
-    all_users = pagerduty.get_users()
-    from_devops_team = pagerduty.get_users(team_ids=[pagerduty_team["devops"]["id"]])
-    ```
 
 
     :param Sequence[str] team_ids: List of team IDs. Only results related to these teams will be returned. Account must have the `teams` ability to use this parameter.

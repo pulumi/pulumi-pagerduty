@@ -71,51 +71,7 @@ class AwaitableGetRulesetResult(GetRulesetResult):
 def get_ruleset(name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRulesetResult:
     """
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_pagerduty as pagerduty
-
-    example = pagerduty.get_ruleset(name="My Ruleset")
-    foo = pagerduty.RulesetRule("foo",
-        ruleset=example.id,
-        position=0,
-        disabled=False,
-        conditions=pagerduty.RulesetRuleConditionsArgs(
-            operator="and",
-            subconditions=[
-                pagerduty.RulesetRuleConditionsSubconditionArgs(
-                    operator="contains",
-                    parameters=[pagerduty.RulesetRuleConditionsSubconditionParameterArgs(
-                        value="disk space",
-                        path="payload.summary",
-                    )],
-                ),
-                pagerduty.RulesetRuleConditionsSubconditionArgs(
-                    operator="contains",
-                    parameters=[pagerduty.RulesetRuleConditionsSubconditionParameterArgs(
-                        value="db",
-                        path="payload.source",
-                    )],
-                ),
-            ],
-        ),
-        actions=pagerduty.RulesetRuleActionsArgs(
-            routes=[pagerduty.RulesetRuleActionsRouteArgs(
-                value="P5DTL0K",
-            )],
-        ))
-    ```
-    ### Default Global Ruleset
-
-    ```python
-    import pulumi
-    import pulumi_pagerduty as pagerduty
-
-    default_global = pagerduty.get_ruleset(name="Default Global")
-    ```
-
+    Use this data source to access information about an existing resource.
 
     :param str name: The name of the ruleset to find in the PagerDuty API.
     """
@@ -134,51 +90,7 @@ def get_ruleset(name: Optional[str] = None,
 def get_ruleset_output(name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRulesetResult]:
     """
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_pagerduty as pagerduty
-
-    example = pagerduty.get_ruleset(name="My Ruleset")
-    foo = pagerduty.RulesetRule("foo",
-        ruleset=example.id,
-        position=0,
-        disabled=False,
-        conditions=pagerduty.RulesetRuleConditionsArgs(
-            operator="and",
-            subconditions=[
-                pagerduty.RulesetRuleConditionsSubconditionArgs(
-                    operator="contains",
-                    parameters=[pagerduty.RulesetRuleConditionsSubconditionParameterArgs(
-                        value="disk space",
-                        path="payload.summary",
-                    )],
-                ),
-                pagerduty.RulesetRuleConditionsSubconditionArgs(
-                    operator="contains",
-                    parameters=[pagerduty.RulesetRuleConditionsSubconditionParameterArgs(
-                        value="db",
-                        path="payload.source",
-                    )],
-                ),
-            ],
-        ),
-        actions=pagerduty.RulesetRuleActionsArgs(
-            routes=[pagerduty.RulesetRuleActionsRouteArgs(
-                value="P5DTL0K",
-            )],
-        ))
-    ```
-    ### Default Global Ruleset
-
-    ```python
-    import pulumi
-    import pulumi_pagerduty as pagerduty
-
-    default_global = pagerduty.get_ruleset(name="Default Global")
-    ```
-
+    Use this data source to access information about an existing resource.
 
     :param str name: The name of the ruleset to find in the PagerDuty API.
     """

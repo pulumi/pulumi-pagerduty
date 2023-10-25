@@ -80,16 +80,6 @@ def get_service_integration(integration_summary: Optional[str] = None,
     """
     Use this data source to get information about a specific service_integration.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_pagerduty as pagerduty
-
-    example = pagerduty.get_service_integration(integration_summary="Datadog",
-        service_name="My Service")
-    ```
-
 
     :param str integration_summary: The integration summary used to find the desired integration on the service.
     :param str service_name: The service name to use to find a service in the PagerDuty API.
@@ -113,16 +103,6 @@ def get_service_integration_output(integration_summary: Optional[pulumi.Input[st
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceIntegrationResult]:
     """
     Use this data source to get information about a specific service_integration.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_pagerduty as pagerduty
-
-    example = pagerduty.get_service_integration(integration_summary="Datadog",
-        service_name="My Service")
-    ```
 
 
     :param str integration_summary: The integration summary used to find the desired integration on the service.

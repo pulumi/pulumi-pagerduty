@@ -42,7 +42,11 @@ class BusinessServiceArgs:
              point_of_contact: Optional[pulumi.Input[str]] = None,
              team: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if point_of_contact is None and 'pointOfContact' in kwargs:
+            point_of_contact = kwargs['pointOfContact']
+
         if description is None:
             description = 'Managed by Pulumi'
         if description is not None:
@@ -163,7 +167,13 @@ class _BusinessServiceState:
              summary: Optional[pulumi.Input[str]] = None,
              team: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if html_url is None and 'htmlUrl' in kwargs:
+            html_url = kwargs['htmlUrl']
+        if point_of_contact is None and 'pointOfContact' in kwargs:
+            point_of_contact = kwargs['pointOfContact']
+
         if description is None:
             description = 'Managed by Pulumi'
         if description is not None:
@@ -297,18 +307,6 @@ class BusinessService(pulumi.CustomResource):
         """
         A [business service](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODExNg-create-a-business-service) allows you to model capabilities that span multiple technical services and that may be owned by several different teams.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        example = pagerduty.BusinessService("example",
-            description="A very descriptive description of this business service",
-            point_of_contact="PagerDuty Admin",
-            team="P37RSRS")
-        ```
-
         ## Import
 
         Services can be imported using the `id`, e.g.
@@ -332,18 +330,6 @@ class BusinessService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A [business service](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODExNg-create-a-business-service) allows you to model capabilities that span multiple technical services and that may be owned by several different teams.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        example = pagerduty.BusinessService("example",
-            description="A very descriptive description of this business service",
-            point_of_contact="PagerDuty Admin",
-            team="P37RSRS")
-        ```
 
         ## Import
 

@@ -41,13 +41,25 @@ class AutomationActionsRunnerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             runner_type: pulumi.Input[str],
+             runner_type: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              last_seen: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              runbook_api_key: Optional[pulumi.Input[str]] = None,
              runbook_base_uri: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if runner_type is None and 'runnerType' in kwargs:
+            runner_type = kwargs['runnerType']
+        if runner_type is None:
+            raise TypeError("Missing 'runner_type' argument")
+        if last_seen is None and 'lastSeen' in kwargs:
+            last_seen = kwargs['lastSeen']
+        if runbook_api_key is None and 'runbookApiKey' in kwargs:
+            runbook_api_key = kwargs['runbookApiKey']
+        if runbook_base_uri is None and 'runbookBaseUri' in kwargs:
+            runbook_base_uri = kwargs['runbookBaseUri']
+
         _setter("runner_type", runner_type)
         if description is not None:
             _setter("description", description)
@@ -177,7 +189,19 @@ class _AutomationActionsRunnerState:
              runbook_base_uri: Optional[pulumi.Input[str]] = None,
              runner_type: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if creation_time is None and 'creationTime' in kwargs:
+            creation_time = kwargs['creationTime']
+        if last_seen is None and 'lastSeen' in kwargs:
+            last_seen = kwargs['lastSeen']
+        if runbook_api_key is None and 'runbookApiKey' in kwargs:
+            runbook_api_key = kwargs['runbookApiKey']
+        if runbook_base_uri is None and 'runbookBaseUri' in kwargs:
+            runbook_base_uri = kwargs['runbookBaseUri']
+        if runner_type is None and 'runnerType' in kwargs:
+            runner_type = kwargs['runnerType']
+
         if creation_time is not None:
             _setter("creation_time", creation_time)
         if description is not None:
@@ -309,21 +333,6 @@ class AutomationActionsRunner(pulumi.CustomResource):
 
         > Only Runbook Automation (runbook) runners can be created.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        config = pulumi.Config()
-        r_unbookapikey = config.require("rUNBOOKAPIKEY")
-        example = pagerduty.AutomationActionsRunner("example",
-            description="Description of the Runner created via TF",
-            runner_type="runbook",
-            runbook_base_uri="rdcat.stg",
-            runbook_api_key=r_unbookapikey)
-        ```
-
         ## Import
 
         -> In the example below the `runbook_api_key` attribute has been omitted to avoid resource replacement after the import. Runners can be imported using the `id`, e.g. resource "pagerduty_automation_actions_runner" "example" {
@@ -359,21 +368,6 @@ class AutomationActionsRunner(pulumi.CustomResource):
         An Automation Actions [runner](https://developer.pagerduty.com/api-reference/d78999fb7e863-create-an-automation-action-runner) is the method for how actions are executed. This can be done locally using an installed runner agent or as a connection to a PD Runbook Automation instance.
 
         > Only Runbook Automation (runbook) runners can be created.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        config = pulumi.Config()
-        r_unbookapikey = config.require("rUNBOOKAPIKEY")
-        example = pagerduty.AutomationActionsRunner("example",
-            description="Description of the Runner created via TF",
-            runner_type="runbook",
-            runbook_base_uri="rdcat.stg",
-            runbook_api_key=r_unbookapikey)
-        ```
 
         ## Import
 

@@ -57,19 +57,51 @@ class ExtensionServiceNowArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             extension_objects: pulumi.Input[Sequence[pulumi.Input[str]]],
-             extension_schema: pulumi.Input[str],
-             referer: pulumi.Input[str],
-             snow_password: pulumi.Input[str],
-             snow_user: pulumi.Input[str],
-             sync_options: pulumi.Input[str],
-             target: pulumi.Input[str],
-             task_type: pulumi.Input[str],
+             extension_objects: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             extension_schema: Optional[pulumi.Input[str]] = None,
+             referer: Optional[pulumi.Input[str]] = None,
+             snow_password: Optional[pulumi.Input[str]] = None,
+             snow_user: Optional[pulumi.Input[str]] = None,
+             sync_options: Optional[pulumi.Input[str]] = None,
+             target: Optional[pulumi.Input[str]] = None,
+             task_type: Optional[pulumi.Input[str]] = None,
              endpoint_url: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              summary: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if extension_objects is None and 'extensionObjects' in kwargs:
+            extension_objects = kwargs['extensionObjects']
+        if extension_objects is None:
+            raise TypeError("Missing 'extension_objects' argument")
+        if extension_schema is None and 'extensionSchema' in kwargs:
+            extension_schema = kwargs['extensionSchema']
+        if extension_schema is None:
+            raise TypeError("Missing 'extension_schema' argument")
+        if referer is None:
+            raise TypeError("Missing 'referer' argument")
+        if snow_password is None and 'snowPassword' in kwargs:
+            snow_password = kwargs['snowPassword']
+        if snow_password is None:
+            raise TypeError("Missing 'snow_password' argument")
+        if snow_user is None and 'snowUser' in kwargs:
+            snow_user = kwargs['snowUser']
+        if snow_user is None:
+            raise TypeError("Missing 'snow_user' argument")
+        if sync_options is None and 'syncOptions' in kwargs:
+            sync_options = kwargs['syncOptions']
+        if sync_options is None:
+            raise TypeError("Missing 'sync_options' argument")
+        if target is None:
+            raise TypeError("Missing 'target' argument")
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if endpoint_url is None and 'endpointUrl' in kwargs:
+            endpoint_url = kwargs['endpointUrl']
+
         _setter("extension_objects", extension_objects)
         _setter("extension_schema", extension_schema)
         _setter("referer", referer)
@@ -288,7 +320,25 @@ class _ExtensionServiceNowState:
              target: Optional[pulumi.Input[str]] = None,
              task_type: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if endpoint_url is None and 'endpointUrl' in kwargs:
+            endpoint_url = kwargs['endpointUrl']
+        if extension_objects is None and 'extensionObjects' in kwargs:
+            extension_objects = kwargs['extensionObjects']
+        if extension_schema is None and 'extensionSchema' in kwargs:
+            extension_schema = kwargs['extensionSchema']
+        if html_url is None and 'htmlUrl' in kwargs:
+            html_url = kwargs['htmlUrl']
+        if snow_password is None and 'snowPassword' in kwargs:
+            snow_password = kwargs['snowPassword']
+        if snow_user is None and 'snowUser' in kwargs:
+            snow_user = kwargs['snowUser']
+        if sync_options is None and 'syncOptions' in kwargs:
+            sync_options = kwargs['syncOptions']
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+
         if endpoint_url is not None:
             _setter("endpoint_url", endpoint_url)
         if extension_objects is not None:
@@ -488,38 +538,6 @@ class ExtensionServiceNow(pulumi.CustomResource):
         """
         A special case for [extension](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEzMw-create-an-extension) for ServiceNow.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        servicenow = pagerduty.get_extension_schema(name="ServiceNow (v7)")
-        example_user = pagerduty.User("exampleUser", email="howard.james@example.domain")
-        example_escalation_policy = pagerduty.EscalationPolicy("exampleEscalationPolicy",
-            num_loops=2,
-            rules=[pagerduty.EscalationPolicyRuleArgs(
-                escalation_delay_in_minutes=10,
-                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                    type="user",
-                    id=example_user.id,
-                )],
-            )])
-        example_service = pagerduty.Service("exampleService",
-            auto_resolve_timeout="14400",
-            acknowledgement_timeout="600",
-            escalation_policy=example_escalation_policy.id)
-        snow = pagerduty.ExtensionServiceNow("snow",
-            extension_schema=servicenow.id,
-            extension_objects=[example_service.id],
-            snow_user="meeps",
-            snow_password="zorz",
-            sync_options="manual_sync",
-            target="https://foo.servicenow.com/webhook_foo",
-            task_type="incident",
-            referer="None")
-        ```
-
         ## Import
 
         Extensions can be imported using the id.e.g.
@@ -549,38 +567,6 @@ class ExtensionServiceNow(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A special case for [extension](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEzMw-create-an-extension) for ServiceNow.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        servicenow = pagerduty.get_extension_schema(name="ServiceNow (v7)")
-        example_user = pagerduty.User("exampleUser", email="howard.james@example.domain")
-        example_escalation_policy = pagerduty.EscalationPolicy("exampleEscalationPolicy",
-            num_loops=2,
-            rules=[pagerduty.EscalationPolicyRuleArgs(
-                escalation_delay_in_minutes=10,
-                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                    type="user",
-                    id=example_user.id,
-                )],
-            )])
-        example_service = pagerduty.Service("exampleService",
-            auto_resolve_timeout="14400",
-            acknowledgement_timeout="600",
-            escalation_policy=example_escalation_policy.id)
-        snow = pagerduty.ExtensionServiceNow("snow",
-            extension_schema=servicenow.id,
-            extension_objects=[example_service.id],
-            snow_user="meeps",
-            snow_password="zorz",
-            sync_options="manual_sync",
-            target="https://foo.servicenow.com/webhook_foo",
-            task_type="incident",
-            referer="None")
-        ```
 
         ## Import
 

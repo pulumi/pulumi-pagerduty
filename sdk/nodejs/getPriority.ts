@@ -6,50 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to get information about a specific [priority](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE2NA-list-priorities) that you can use for other PagerDuty resources. A priority is a label representing the importance and impact of an incident. This feature is only available on Standard and Enterprise plans.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as pagerduty from "@pulumi/pagerduty";
- *
- * const p1 = pagerduty.getPriority({
- *     name: "P1",
- * });
- * const fooRuleset = new pagerduty.Ruleset("fooRuleset", {});
- * const fooRulesetRule = new pagerduty.RulesetRule("fooRulesetRule", {
- *     ruleset: fooRuleset.id,
- *     position: 0,
- *     disabled: false,
- *     conditions: {
- *         operator: "and",
- *         subconditions: [
- *             {
- *                 operator: "contains",
- *                 parameters: [{
- *                     value: "disk space",
- *                     path: "payload.summary",
- *                 }],
- *             },
- *             {
- *                 operator: "contains",
- *                 parameters: [{
- *                     value: "db",
- *                     path: "payload.source",
- *                 }],
- *             },
- *         ],
- *     },
- *     actions: {
- *         routes: [{
- *             value: "P5DTL0K",
- *         }],
- *         priorities: [{
- *             value: p1.then(p1 => p1.id),
- *         }],
- *     },
- * });
- * ```
  */
 export function getPriority(args: GetPriorityArgs, opts?: pulumi.InvokeOptions): Promise<GetPriorityResult> {
 
@@ -88,50 +44,6 @@ export interface GetPriorityResult {
 }
 /**
  * Use this data source to get information about a specific [priority](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE2NA-list-priorities) that you can use for other PagerDuty resources. A priority is a label representing the importance and impact of an incident. This feature is only available on Standard and Enterprise plans.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as pagerduty from "@pulumi/pagerduty";
- *
- * const p1 = pagerduty.getPriority({
- *     name: "P1",
- * });
- * const fooRuleset = new pagerduty.Ruleset("fooRuleset", {});
- * const fooRulesetRule = new pagerduty.RulesetRule("fooRulesetRule", {
- *     ruleset: fooRuleset.id,
- *     position: 0,
- *     disabled: false,
- *     conditions: {
- *         operator: "and",
- *         subconditions: [
- *             {
- *                 operator: "contains",
- *                 parameters: [{
- *                     value: "disk space",
- *                     path: "payload.summary",
- *                 }],
- *             },
- *             {
- *                 operator: "contains",
- *                 parameters: [{
- *                     value: "db",
- *                     path: "payload.source",
- *                 }],
- *             },
- *         ],
- *     },
- *     actions: {
- *         routes: [{
- *             value: "P5DTL0K",
- *         }],
- *         priorities: [{
- *             value: p1.then(p1 => p1.id),
- *         }],
- *     },
- * });
- * ```
  */
 export function getPriorityOutput(args: GetPriorityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPriorityResult> {
     return pulumi.output(args).apply((a: any) => getPriority(a, opts))

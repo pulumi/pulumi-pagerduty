@@ -12,58 +12,6 @@ namespace Pulumi.Pagerduty
     /// <summary>
     /// A [schedule](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE4Mg-create-a-schedule) determines the time periods that users are on call. Only on-call users are eligible to receive notifications from incidents.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Pagerduty = Pulumi.Pagerduty;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleUser = new Pagerduty.User("exampleUser", new()
-    ///     {
-    ///         Email = "125.greenholt.earline@graham.name",
-    ///     });
-    /// 
-    ///     var exampleTeam = new Pagerduty.Team("exampleTeam");
-    /// 
-    ///     var foo = new Pagerduty.Schedule("foo", new()
-    ///     {
-    ///         TimeZone = "America/New_York",
-    ///         Layers = new[]
-    ///         {
-    ///             new Pagerduty.Inputs.ScheduleLayerArgs
-    ///             {
-    ///                 Name = "Night Shift",
-    ///                 Start = "2015-11-06T20:00:00-05:00",
-    ///                 RotationVirtualStart = "2015-11-06T20:00:00-05:00",
-    ///                 RotationTurnLengthSeconds = 86400,
-    ///                 Users = new[]
-    ///                 {
-    ///                     exampleUser.Id,
-    ///                 },
-    ///                 Restrictions = new[]
-    ///                 {
-    ///                     new Pagerduty.Inputs.ScheduleLayerRestrictionArgs
-    ///                     {
-    ///                         Type = "daily_restriction",
-    ///                         StartTimeOfDay = "08:00:00",
-    ///                         DurationSeconds = 32400,
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///         Teams = new[]
-    ///         {
-    ///             exampleTeam.Id,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Schedules can be imported using the `id`, e.g.

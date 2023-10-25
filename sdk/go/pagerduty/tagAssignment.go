@@ -15,44 +15,6 @@ import (
 
 // A [tag](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEwMA-assign-tags) is applied to Escalation Policies, Teams or Users and can be used to filter them.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleTag, err := pagerduty.NewTag(ctx, "exampleTag", &pagerduty.TagArgs{
-//				Label: pulumi.String("API"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			engteam, err := pagerduty.NewTeam(ctx, "engteam", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = pagerduty.NewTagAssignment(ctx, "exampleTagAssignment", &pagerduty.TagAssignmentArgs{
-//				TagId:      exampleTag.ID(),
-//				EntityType: pulumi.String("teams"),
-//				EntityId:   engteam.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Tag assignments can be imported using the `id` which is constructed by taking the `entity` Type, `entity` ID and the `tag` ID separated by a dot, e.g.

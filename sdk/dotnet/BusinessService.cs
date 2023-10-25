@@ -12,26 +12,6 @@ namespace Pulumi.Pagerduty
     /// <summary>
     /// A [business service](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODExNg-create-a-business-service) allows you to model capabilities that span multiple technical services and that may be owned by several different teams.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Pagerduty = Pulumi.Pagerduty;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Pagerduty.BusinessService("example", new()
-    ///     {
-    ///         Description = "A very descriptive description of this business service",
-    ///         PointOfContact = "PagerDuty Admin",
-    ///         Team = "P37RSRS",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Services can be imported using the `id`, e.g.

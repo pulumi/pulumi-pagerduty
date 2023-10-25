@@ -49,7 +49,7 @@ class RulesetRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ruleset: pulumi.Input[str],
+             ruleset: Optional[pulumi.Input[str]] = None,
              actions: Optional[pulumi.Input['RulesetRuleActionsArgs']] = None,
              catch_all: Optional[pulumi.Input[bool]] = None,
              conditions: Optional[pulumi.Input['RulesetRuleConditionsArgs']] = None,
@@ -57,7 +57,15 @@ class RulesetRuleArgs:
              position: Optional[pulumi.Input[int]] = None,
              time_frame: Optional[pulumi.Input['RulesetRuleTimeFrameArgs']] = None,
              variables: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleVariableArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ruleset is None:
+            raise TypeError("Missing 'ruleset' argument")
+        if catch_all is None and 'catchAll' in kwargs:
+            catch_all = kwargs['catchAll']
+        if time_frame is None and 'timeFrame' in kwargs:
+            time_frame = kwargs['timeFrame']
+
         _setter("ruleset", ruleset)
         if actions is not None:
             _setter("actions", actions)
@@ -215,7 +223,13 @@ class _RulesetRuleState:
              ruleset: Optional[pulumi.Input[str]] = None,
              time_frame: Optional[pulumi.Input['RulesetRuleTimeFrameArgs']] = None,
              variables: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleVariableArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if catch_all is None and 'catchAll' in kwargs:
+            catch_all = kwargs['catchAll']
+        if time_frame is None and 'timeFrame' in kwargs:
+            time_frame = kwargs['timeFrame']
+
         if actions is not None:
             _setter("actions", actions)
         if catch_all is not None:
@@ -345,101 +359,6 @@ class RulesetRule(pulumi.CustomResource):
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulesetRuleVariableArgs']]]]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-        import pulumiverse_time as time
-
-        foo_team = pagerduty.Team("fooTeam")
-        foo_ruleset = pagerduty.Ruleset("fooRuleset", team=pagerduty.RulesetTeamArgs(
-            id=foo_team.id,
-        ))
-        # The pagerduty_ruleset_rule.foo rule defined below
-        # repeats daily from 9:30am - 11:30am using the America/New_York timezone.
-        # Thus it requires a time_static instance to represent 9:30am on an arbitrary date in that timezone.
-        # April 11th, 2019 was EDT (UTC-4) https://www.timeanddate.com/worldclock/converter.html?iso=20190411T133000&p1=179
-        eastern_time_at0930 = time.Static("easternTimeAt0930", rfc3339="2019-04-11T09:30:00-04:00")
-        foo_ruleset_rule = pagerduty.RulesetRule("fooRulesetRule",
-            ruleset=foo_ruleset.id,
-            position=0,
-            disabled=False,
-            time_frame=pagerduty.RulesetRuleTimeFrameArgs(
-                scheduled_weeklies=[pagerduty.RulesetRuleTimeFrameScheduledWeeklyArgs(
-                    weekdays=[
-                        2,
-                        4,
-                        6,
-                    ],
-                    start_time=eastern_time_at0930.unix.apply(lambda unix: unix * 1000),
-                    duration=2 * 60 * 60 * 1000,
-                    timezone="America/New_York",
-                )],
-            ),
-            conditions=pagerduty.RulesetRuleConditionsArgs(
-                operator="and",
-                subconditions=[
-                    pagerduty.RulesetRuleConditionsSubconditionArgs(
-                        operator="contains",
-                        parameters=[pagerduty.RulesetRuleConditionsSubconditionParameterArgs(
-                            value="disk space",
-                            path="payload.summary",
-                        )],
-                    ),
-                    pagerduty.RulesetRuleConditionsSubconditionArgs(
-                        operator="contains",
-                        parameters=[pagerduty.RulesetRuleConditionsSubconditionParameterArgs(
-                            value="db",
-                            path="payload.source",
-                        )],
-                    ),
-                ],
-            ),
-            variables=[pagerduty.RulesetRuleVariableArgs(
-                type="regex",
-                name="Src",
-                parameters=[pagerduty.RulesetRuleVariableParameterArgs(
-                    value="(.*)",
-                    path="payload.source",
-                )],
-            )],
-            actions=pagerduty.RulesetRuleActionsArgs(
-                routes=[pagerduty.RulesetRuleActionsRouteArgs(
-                    value=pagerduty_service["foo"]["id"],
-                )],
-                severities=[pagerduty.RulesetRuleActionsSeverityArgs(
-                    value="warning",
-                )],
-                annotates=[pagerduty.RulesetRuleActionsAnnotateArgs(
-                    value="From Terraform",
-                )],
-                extractions=[
-                    pagerduty.RulesetRuleActionsExtractionArgs(
-                        target="dedup_key",
-                        source="details.host",
-                        regex="(.*)",
-                    ),
-                    pagerduty.RulesetRuleActionsExtractionArgs(
-                        target="summary",
-                        template="Warning: Disk Space Low on {{Src}}",
-                    ),
-                ],
-            ))
-        catch_all = pagerduty.RulesetRule("catchAll",
-            ruleset=foo_ruleset.id,
-            position=1,
-            catch_all=True,
-            actions=pagerduty.RulesetRuleActionsArgs(
-                annotates=[pagerduty.RulesetRuleActionsAnnotateArgs(
-                    value="From Terraform",
-                )],
-                suppresses=[pagerduty.RulesetRuleActionsSuppressArgs(
-                    value=True,
-                )],
-            ))
-        ```
-
         ## Import
 
         Ruleset rules can be imported using the related `ruleset` ID and the `ruleset_rule` ID separated by a dot, e.g.
@@ -466,101 +385,6 @@ class RulesetRule(pulumi.CustomResource):
                  args: RulesetRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-        import pulumiverse_time as time
-
-        foo_team = pagerduty.Team("fooTeam")
-        foo_ruleset = pagerduty.Ruleset("fooRuleset", team=pagerduty.RulesetTeamArgs(
-            id=foo_team.id,
-        ))
-        # The pagerduty_ruleset_rule.foo rule defined below
-        # repeats daily from 9:30am - 11:30am using the America/New_York timezone.
-        # Thus it requires a time_static instance to represent 9:30am on an arbitrary date in that timezone.
-        # April 11th, 2019 was EDT (UTC-4) https://www.timeanddate.com/worldclock/converter.html?iso=20190411T133000&p1=179
-        eastern_time_at0930 = time.Static("easternTimeAt0930", rfc3339="2019-04-11T09:30:00-04:00")
-        foo_ruleset_rule = pagerduty.RulesetRule("fooRulesetRule",
-            ruleset=foo_ruleset.id,
-            position=0,
-            disabled=False,
-            time_frame=pagerduty.RulesetRuleTimeFrameArgs(
-                scheduled_weeklies=[pagerduty.RulesetRuleTimeFrameScheduledWeeklyArgs(
-                    weekdays=[
-                        2,
-                        4,
-                        6,
-                    ],
-                    start_time=eastern_time_at0930.unix.apply(lambda unix: unix * 1000),
-                    duration=2 * 60 * 60 * 1000,
-                    timezone="America/New_York",
-                )],
-            ),
-            conditions=pagerduty.RulesetRuleConditionsArgs(
-                operator="and",
-                subconditions=[
-                    pagerduty.RulesetRuleConditionsSubconditionArgs(
-                        operator="contains",
-                        parameters=[pagerduty.RulesetRuleConditionsSubconditionParameterArgs(
-                            value="disk space",
-                            path="payload.summary",
-                        )],
-                    ),
-                    pagerduty.RulesetRuleConditionsSubconditionArgs(
-                        operator="contains",
-                        parameters=[pagerduty.RulesetRuleConditionsSubconditionParameterArgs(
-                            value="db",
-                            path="payload.source",
-                        )],
-                    ),
-                ],
-            ),
-            variables=[pagerduty.RulesetRuleVariableArgs(
-                type="regex",
-                name="Src",
-                parameters=[pagerduty.RulesetRuleVariableParameterArgs(
-                    value="(.*)",
-                    path="payload.source",
-                )],
-            )],
-            actions=pagerduty.RulesetRuleActionsArgs(
-                routes=[pagerduty.RulesetRuleActionsRouteArgs(
-                    value=pagerduty_service["foo"]["id"],
-                )],
-                severities=[pagerduty.RulesetRuleActionsSeverityArgs(
-                    value="warning",
-                )],
-                annotates=[pagerduty.RulesetRuleActionsAnnotateArgs(
-                    value="From Terraform",
-                )],
-                extractions=[
-                    pagerduty.RulesetRuleActionsExtractionArgs(
-                        target="dedup_key",
-                        source="details.host",
-                        regex="(.*)",
-                    ),
-                    pagerduty.RulesetRuleActionsExtractionArgs(
-                        target="summary",
-                        template="Warning: Disk Space Low on {{Src}}",
-                    ),
-                ],
-            ))
-        catch_all = pagerduty.RulesetRule("catchAll",
-            ruleset=foo_ruleset.id,
-            position=1,
-            catch_all=True,
-            actions=pagerduty.RulesetRuleActionsArgs(
-                annotates=[pagerduty.RulesetRuleActionsAnnotateArgs(
-                    value="From Terraform",
-                )],
-                suppresses=[pagerduty.RulesetRuleActionsSuppressArgs(
-                    value=True,
-                )],
-            ))
-        ```
-
         ## Import
 
         Ruleset rules can be imported using the related `ruleset` ID and the `ruleset_rule` ID separated by a dot, e.g.
@@ -605,29 +429,17 @@ class RulesetRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RulesetRuleArgs.__new__(RulesetRuleArgs)
 
-            if actions is not None and not isinstance(actions, RulesetRuleActionsArgs):
-                actions = actions or {}
-                def _setter(key, value):
-                    actions[key] = value
-                RulesetRuleActionsArgs._configure(_setter, **actions)
+            actions = _utilities.configure(actions, RulesetRuleActionsArgs, True)
             __props__.__dict__["actions"] = actions
             __props__.__dict__["catch_all"] = catch_all
-            if conditions is not None and not isinstance(conditions, RulesetRuleConditionsArgs):
-                conditions = conditions or {}
-                def _setter(key, value):
-                    conditions[key] = value
-                RulesetRuleConditionsArgs._configure(_setter, **conditions)
+            conditions = _utilities.configure(conditions, RulesetRuleConditionsArgs, True)
             __props__.__dict__["conditions"] = conditions
             __props__.__dict__["disabled"] = disabled
             __props__.__dict__["position"] = position
             if ruleset is None and not opts.urn:
                 raise TypeError("Missing required property 'ruleset'")
             __props__.__dict__["ruleset"] = ruleset
-            if time_frame is not None and not isinstance(time_frame, RulesetRuleTimeFrameArgs):
-                time_frame = time_frame or {}
-                def _setter(key, value):
-                    time_frame[key] = value
-                RulesetRuleTimeFrameArgs._configure(_setter, **time_frame)
+            time_frame = _utilities.configure(time_frame, RulesetRuleTimeFrameArgs, True)
             __props__.__dict__["time_frame"] = time_frame
             __props__.__dict__["variables"] = variables
         super(RulesetRule, __self__).__init__(

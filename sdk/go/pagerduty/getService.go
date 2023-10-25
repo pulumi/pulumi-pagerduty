@@ -13,46 +13,6 @@ import (
 )
 
 // Use this data source to get information about a specific [service](https://api-reference.pagerduty.com/#!/Services/get_services).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleService, err := pagerduty.LookupService(ctx, &pagerduty.LookupServiceArgs{
-//				Name: "My Service",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			datadog, err := pagerduty.GetVendor(ctx, &pagerduty.GetVendorArgs{
-//				Name: "Datadog",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = pagerduty.NewServiceIntegration(ctx, "exampleServiceIntegration", &pagerduty.ServiceIntegrationArgs{
-//				Vendor:  *pulumi.String(datadog.Id),
-//				Service: *pulumi.String(exampleService.Id),
-//				Type:    pulumi.String("generic_events_api_inbound_integration"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.InvokeOption) (*LookupServiceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServiceResult

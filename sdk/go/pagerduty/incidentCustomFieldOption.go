@@ -15,57 +15,6 @@ import (
 
 // A Incident Custom Field Option is a specific value that can be used for an [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents) that only allow values from a set of fixed options,
 // i.e. has the `fieldType` of `singleValueFixed` or `multiValueFixed`.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			sreEnvironment, err := pagerduty.NewIncidentCustomField(ctx, "sreEnvironment", &pagerduty.IncidentCustomFieldArgs{
-//				DataType:  pulumi.String("string"),
-//				FieldType: pulumi.String("single_value_fixed"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = pagerduty.NewIncidentCustomFieldOption(ctx, "devEnvironment", &pagerduty.IncidentCustomFieldOptionArgs{
-//				Field:    sreEnvironment.ID(),
-//				DataType: pulumi.String("string"),
-//				Value:    pulumi.String("dev"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = pagerduty.NewIncidentCustomFieldOption(ctx, "stageEnvironment", &pagerduty.IncidentCustomFieldOptionArgs{
-//				Field:    sreEnvironment.ID(),
-//				DataType: pulumi.String("string"),
-//				Value:    pulumi.String("stage"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = pagerduty.NewIncidentCustomFieldOption(ctx, "prodEnvironment", &pagerduty.IncidentCustomFieldOptionArgs{
-//				Field:    sreEnvironment.ID(),
-//				DataType: pulumi.String("string"),
-//				Value:    pulumi.String("prod"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type IncidentCustomFieldOption struct {
 	pulumi.CustomResourceState
 

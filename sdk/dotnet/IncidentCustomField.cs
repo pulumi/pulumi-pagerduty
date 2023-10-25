@@ -12,31 +12,6 @@ namespace Pulumi.Pagerduty
     /// <summary>
     /// An [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents) defines a field which can be set on incidents in the target account.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Pagerduty = Pulumi.Pagerduty;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var csImpact = new Pagerduty.IncidentCustomField("csImpact", new()
-    ///     {
-    ///         DataType = "string",
-    ///         FieldType = "single_value",
-    ///     });
-    /// 
-    ///     var sreEnvironment = new Pagerduty.IncidentCustomField("sreEnvironment", new()
-    ///     {
-    ///         DataType = "string",
-    ///         FieldType = "single_value_fixed",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Fields can be imported using the `id`, e.g.

@@ -12,40 +12,6 @@ namespace Pulumi.Pagerduty
     /// <summary>
     /// An [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) is a series of steps which can be executed on an incident.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Pagerduty = Pulumi.Pagerduty;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var myFirstWorkflow = new Pagerduty.IncidentWorkflow("myFirstWorkflow", new()
-    ///     {
-    ///         Description = "This Incident Workflow is an example",
-    ///         Steps = new[]
-    ///         {
-    ///             new Pagerduty.Inputs.IncidentWorkflowStepArgs
-    ///             {
-    ///                 Action = "pagerduty.com:incident-workflows:send-status-update:1",
-    ///                 Inputs = new[]
-    ///                 {
-    ///                     new Pagerduty.Inputs.IncidentWorkflowStepInputArgs
-    ///                     {
-    ///                         Name = "Message",
-    ///                         Value = "Example status message sent on {{current_date}}",
-    ///                     },
-    ///                 },
-    ///                 Name = "Send Status Update",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Incident workflows can be imported using the `id`, e.g.

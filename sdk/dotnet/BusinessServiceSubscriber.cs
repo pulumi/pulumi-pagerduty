@@ -12,47 +12,6 @@ namespace Pulumi.Pagerduty
     /// <summary>
     /// A [business service subscriber](https://developer.pagerduty.com/api-reference/b3A6NDUwNDgxOQ-list-business-service-subscribers) allows you to subscribe users or teams to automatically receive updates about key business services.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Pagerduty = Pulumi.Pagerduty;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleBusinessService = new Pagerduty.BusinessService("exampleBusinessService", new()
-    ///     {
-    ///         Description = "A very descriptive description of this business service",
-    ///         PointOfContact = "PagerDuty Admin",
-    ///         Team = "P37RSRS",
-    ///     });
-    /// 
-    ///     var engteam = new Pagerduty.Team("engteam");
-    /// 
-    ///     var exampleUser = new Pagerduty.User("exampleUser", new()
-    ///     {
-    ///         Email = "125.greenholt.earline@graham.name",
-    ///     });
-    /// 
-    ///     var teamExample = new Pagerduty.BusinessServiceSubscriber("teamExample", new()
-    ///     {
-    ///         SubscriberId = engteam.Id,
-    ///         SubscriberType = "team",
-    ///         BusinessServiceId = exampleBusinessService.Id,
-    ///     });
-    /// 
-    ///     var userExample = new Pagerduty.BusinessServiceSubscriber("userExample", new()
-    ///     {
-    ///         SubscriberId = exampleUser.Id,
-    ///         SubscriberType = "user",
-    ///         BusinessServiceId = exampleBusinessService.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Services can be imported using the `id` using the related business service ID, the subscriber type and the subscriber ID separated by a dot, e.g.

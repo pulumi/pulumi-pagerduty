@@ -29,9 +29,19 @@ class AutomationActionsActionServiceAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action_id: pulumi.Input[str],
-             service_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             action_id: Optional[pulumi.Input[str]] = None,
+             service_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_id is None and 'actionId' in kwargs:
+            action_id = kwargs['actionId']
+        if action_id is None:
+            raise TypeError("Missing 'action_id' argument")
+        if service_id is None and 'serviceId' in kwargs:
+            service_id = kwargs['serviceId']
+        if service_id is None:
+            raise TypeError("Missing 'service_id' argument")
+
         _setter("action_id", action_id)
         _setter("service_id", service_id)
 
@@ -80,7 +90,13 @@ class _AutomationActionsActionServiceAssociationState:
              _setter: Callable[[Any, Any], None],
              action_id: Optional[pulumi.Input[str]] = None,
              service_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_id is None and 'actionId' in kwargs:
+            action_id = kwargs['actionId']
+        if service_id is None and 'serviceId' in kwargs:
+            service_id = kwargs['serviceId']
+
         if action_id is not None:
             _setter("action_id", action_id)
         if service_id is not None:
@@ -122,42 +138,6 @@ class AutomationActionsActionServiceAssociation(pulumi.CustomResource):
         """
         An Automation Actions [action association with a service](https://developer.pagerduty.com/api-reference/5d2f051f3fb43-associate-an-automation-action-with-a-service) configures the relation of a specific Action with a Service.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        example_user = pagerduty.User("exampleUser", email="125.greenholt.earline@graham.name")
-        foo_escalation_policy = pagerduty.EscalationPolicy("fooEscalationPolicy",
-            num_loops=2,
-            rules=[pagerduty.EscalationPolicyRuleArgs(
-                escalation_delay_in_minutes=10,
-                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                    type="user_reference",
-                    id=example_user.id,
-                )],
-            )])
-        example_service = pagerduty.Service("exampleService",
-            auto_resolve_timeout="14400",
-            acknowledgement_timeout="600",
-            escalation_policy=foo_escalation_policy.id,
-            alert_creation="create_alerts_and_incidents",
-            auto_pause_notifications_parameters=pagerduty.ServiceAutoPauseNotificationsParametersArgs(
-                enabled=True,
-                timeout=300,
-            ))
-        pa_action_example = pagerduty.AutomationActionsAction("paActionExample",
-            description="Description of the PA Action created via TF",
-            action_type="process_automation",
-            action_data_reference=pagerduty.AutomationActionsActionActionDataReferenceArgs(
-                process_automation_job_id="P123456",
-            ))
-        foo_automation_actions_action_service_association = pagerduty.AutomationActionsActionServiceAssociation("fooAutomationActionsActionServiceAssociation",
-            action_id=pa_action_example.id,
-            service_id=example_service.id)
-        ```
-
         ## Import
 
         Action service association can be imported using the `action_id` and `service_id` separated by a colon, e.g.
@@ -179,42 +159,6 @@ class AutomationActionsActionServiceAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Automation Actions [action association with a service](https://developer.pagerduty.com/api-reference/5d2f051f3fb43-associate-an-automation-action-with-a-service) configures the relation of a specific Action with a Service.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        example_user = pagerduty.User("exampleUser", email="125.greenholt.earline@graham.name")
-        foo_escalation_policy = pagerduty.EscalationPolicy("fooEscalationPolicy",
-            num_loops=2,
-            rules=[pagerduty.EscalationPolicyRuleArgs(
-                escalation_delay_in_minutes=10,
-                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                    type="user_reference",
-                    id=example_user.id,
-                )],
-            )])
-        example_service = pagerduty.Service("exampleService",
-            auto_resolve_timeout="14400",
-            acknowledgement_timeout="600",
-            escalation_policy=foo_escalation_policy.id,
-            alert_creation="create_alerts_and_incidents",
-            auto_pause_notifications_parameters=pagerduty.ServiceAutoPauseNotificationsParametersArgs(
-                enabled=True,
-                timeout=300,
-            ))
-        pa_action_example = pagerduty.AutomationActionsAction("paActionExample",
-            description="Description of the PA Action created via TF",
-            action_type="process_automation",
-            action_data_reference=pagerduty.AutomationActionsActionActionDataReferenceArgs(
-                process_automation_job_id="P123456",
-            ))
-        foo_automation_actions_action_service_association = pagerduty.AutomationActionsActionServiceAssociation("fooAutomationActionsActionServiceAssociation",
-            action_id=pa_action_example.id,
-            service_id=example_service.id)
-        ```
 
         ## Import
 

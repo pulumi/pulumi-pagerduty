@@ -9,29 +9,6 @@ import * as utilities from "./utilities";
 /**
  * An Automation Actions [action](https://developer.pagerduty.com/api-reference/d64584a4371d3-create-an-automation-action) invokes jobs and workflows that are staged in Runbook Automation or Process Automation. It may also execute a command line script run by a Process Automation runner installed in your infrastructure.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as pagerduty from "@pulumi/pagerduty";
- *
- * const paActionExample = new pagerduty.AutomationActionsAction("paActionExample", {
- *     actionDataReference: {
- *         processAutomationJobId: "P123456",
- *     },
- *     actionType: "process_automation",
- *     description: "Description of the PA Action created via TF",
- * });
- * const scriptActionExample = new pagerduty.AutomationActionsAction("scriptActionExample", {
- *     actionDataReference: {
- *         invocationCommand: "/usr/local/bin/python3",
- *         script: "print(\"Hello from a Python script!\")",
- *     },
- *     actionType: "script",
- *     description: "Description of the Script Action created via TF",
- * });
- * ```
- *
  * ## Import
  *
  * Actions can be imported using the `id`, e.g.

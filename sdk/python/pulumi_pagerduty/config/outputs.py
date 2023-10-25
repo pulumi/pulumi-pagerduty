@@ -28,10 +28,24 @@ class UseAppOauthScopedToken(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             pd_client_id: str,
-             pd_client_secret: str,
-             pd_subdomain: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             pd_client_id: Optional[str] = None,
+             pd_client_secret: Optional[str] = None,
+             pd_subdomain: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if pd_client_id is None and 'pdClientId' in kwargs:
+            pd_client_id = kwargs['pdClientId']
+        if pd_client_id is None:
+            raise TypeError("Missing 'pd_client_id' argument")
+        if pd_client_secret is None and 'pdClientSecret' in kwargs:
+            pd_client_secret = kwargs['pdClientSecret']
+        if pd_client_secret is None:
+            raise TypeError("Missing 'pd_client_secret' argument")
+        if pd_subdomain is None and 'pdSubdomain' in kwargs:
+            pd_subdomain = kwargs['pdSubdomain']
+        if pd_subdomain is None:
+            raise TypeError("Missing 'pd_subdomain' argument")
+
         _setter("pd_client_id", pd_client_id)
         _setter("pd_client_secret", pd_client_secret)
         _setter("pd_subdomain", pd_subdomain)

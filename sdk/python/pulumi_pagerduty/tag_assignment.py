@@ -32,10 +32,24 @@ class TagAssignmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             entity_id: pulumi.Input[str],
-             entity_type: pulumi.Input[str],
-             tag_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             entity_id: Optional[pulumi.Input[str]] = None,
+             entity_type: Optional[pulumi.Input[str]] = None,
+             tag_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if entity_id is None and 'entityId' in kwargs:
+            entity_id = kwargs['entityId']
+        if entity_id is None:
+            raise TypeError("Missing 'entity_id' argument")
+        if entity_type is None and 'entityType' in kwargs:
+            entity_type = kwargs['entityType']
+        if entity_type is None:
+            raise TypeError("Missing 'entity_type' argument")
+        if tag_id is None and 'tagId' in kwargs:
+            tag_id = kwargs['tagId']
+        if tag_id is None:
+            raise TypeError("Missing 'tag_id' argument")
+
         _setter("entity_id", entity_id)
         _setter("entity_type", entity_type)
         _setter("tag_id", tag_id)
@@ -101,7 +115,15 @@ class _TagAssignmentState:
              entity_id: Optional[pulumi.Input[str]] = None,
              entity_type: Optional[pulumi.Input[str]] = None,
              tag_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if entity_id is None and 'entityId' in kwargs:
+            entity_id = kwargs['entityId']
+        if entity_type is None and 'entityType' in kwargs:
+            entity_type = kwargs['entityType']
+        if tag_id is None and 'tagId' in kwargs:
+            tag_id = kwargs['tagId']
+
         if entity_id is not None:
             _setter("entity_id", entity_id)
         if entity_type is not None:
@@ -158,20 +180,6 @@ class TagAssignment(pulumi.CustomResource):
         """
         A [tag](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEwMA-assign-tags) is applied to Escalation Policies, Teams or Users and can be used to filter them.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        example_tag = pagerduty.Tag("exampleTag", label="API")
-        engteam = pagerduty.Team("engteam")
-        example_tag_assignment = pagerduty.TagAssignment("exampleTagAssignment",
-            tag_id=example_tag.id,
-            entity_type="teams",
-            entity_id=engteam.id)
-        ```
-
         ## Import
 
         Tag assignments can be imported using the `id` which is constructed by taking the `entity` Type, `entity` ID and the `tag` ID separated by a dot, e.g.
@@ -194,20 +202,6 @@ class TagAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A [tag](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEwMA-assign-tags) is applied to Escalation Policies, Teams or Users and can be used to filter them.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        example_tag = pagerduty.Tag("exampleTag", label="API")
-        engteam = pagerduty.Team("engteam")
-        example_tag_assignment = pagerduty.TagAssignment("exampleTagAssignment",
-            tag_id=example_tag.id,
-            entity_type="teams",
-            entity_id=engteam.id)
-        ```
 
         ## Import
 

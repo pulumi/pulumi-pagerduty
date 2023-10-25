@@ -6,27 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to get information about a specific [schedule](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE4MQ-list-schedules) that you can use for other PagerDuty resources.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as pagerduty from "@pulumi/pagerduty";
- *
- * const test = pagerduty.getSchedule({
- *     name: "Daily Engineering Rotation",
- * });
- * const foo = new pagerduty.EscalationPolicy("foo", {
- *     numLoops: 2,
- *     rules: [{
- *         escalationDelayInMinutes: 10,
- *         targets: [{
- *             type: "schedule",
- *             id: test.then(test => test.id),
- *         }],
- *     }],
- * });
- * ```
  */
 export function getSchedule(args: GetScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduleResult> {
 
@@ -61,27 +40,6 @@ export interface GetScheduleResult {
 }
 /**
  * Use this data source to get information about a specific [schedule](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE4MQ-list-schedules) that you can use for other PagerDuty resources.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as pagerduty from "@pulumi/pagerduty";
- *
- * const test = pagerduty.getSchedule({
- *     name: "Daily Engineering Rotation",
- * });
- * const foo = new pagerduty.EscalationPolicy("foo", {
- *     numLoops: 2,
- *     rules: [{
- *         escalationDelayInMinutes: 10,
- *         targets: [{
- *             type: "schedule",
- *             id: test.then(test => test.id),
- *         }],
- *     }],
- * });
- * ```
  */
 export function getScheduleOutput(args: GetScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduleResult> {
     return pulumi.output(args).apply((a: any) => getSchedule(a, opts))

@@ -14,44 +14,6 @@ import (
 
 // An [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) is a series of steps which can be executed on an incident.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := pagerduty.NewIncidentWorkflow(ctx, "myFirstWorkflow", &pagerduty.IncidentWorkflowArgs{
-//				Description: pulumi.String("This Incident Workflow is an example"),
-//				Steps: pagerduty.IncidentWorkflowStepArray{
-//					&pagerduty.IncidentWorkflowStepArgs{
-//						Action: pulumi.String("pagerduty.com:incident-workflows:send-status-update:1"),
-//						Inputs: pagerduty.IncidentWorkflowStepInputTypeArray{
-//							&pagerduty.IncidentWorkflowStepInputTypeArgs{
-//								Name:  pulumi.String("Message"),
-//								Value: pulumi.String("Example status message sent on {{current_date}}"),
-//							},
-//						},
-//						Name: pulumi.String("Send Status Update"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Incident workflows can be imported using the `id`, e.g.

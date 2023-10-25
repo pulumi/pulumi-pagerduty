@@ -4,57 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as pagerduty from "@pulumi/pagerduty";
- *
- * const example = pagerduty.getRuleset({
- *     name: "My Ruleset",
- * });
- * const foo = new pagerduty.RulesetRule("foo", {
- *     ruleset: example.then(example => example.id),
- *     position: 0,
- *     disabled: false,
- *     conditions: {
- *         operator: "and",
- *         subconditions: [
- *             {
- *                 operator: "contains",
- *                 parameters: [{
- *                     value: "disk space",
- *                     path: "payload.summary",
- *                 }],
- *             },
- *             {
- *                 operator: "contains",
- *                 parameters: [{
- *                     value: "db",
- *                     path: "payload.source",
- *                 }],
- *             },
- *         ],
- *     },
- *     actions: {
- *         routes: [{
- *             value: "P5DTL0K",
- *         }],
- *     },
- * });
- * ```
- * ### Default Global Ruleset
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as pagerduty from "@pulumi/pagerduty";
- *
- * const defaultGlobal = pagerduty.getRuleset({
- *     name: "Default Global",
- * });
- * ```
- */
 export function getRuleset(args: GetRulesetArgs, opts?: pulumi.InvokeOptions): Promise<GetRulesetResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -90,57 +39,6 @@ export interface GetRulesetResult {
      */
     readonly routingKeys: string[];
 }
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as pagerduty from "@pulumi/pagerduty";
- *
- * const example = pagerduty.getRuleset({
- *     name: "My Ruleset",
- * });
- * const foo = new pagerduty.RulesetRule("foo", {
- *     ruleset: example.then(example => example.id),
- *     position: 0,
- *     disabled: false,
- *     conditions: {
- *         operator: "and",
- *         subconditions: [
- *             {
- *                 operator: "contains",
- *                 parameters: [{
- *                     value: "disk space",
- *                     path: "payload.summary",
- *                 }],
- *             },
- *             {
- *                 operator: "contains",
- *                 parameters: [{
- *                     value: "db",
- *                     path: "payload.source",
- *                 }],
- *             },
- *         ],
- *     },
- *     actions: {
- *         routes: [{
- *             value: "P5DTL0K",
- *         }],
- *     },
- * });
- * ```
- * ### Default Global Ruleset
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as pagerduty from "@pulumi/pagerduty";
- *
- * const defaultGlobal = pagerduty.getRuleset({
- *     name: "Default Global",
- * });
- * ```
- */
 export function getRulesetOutput(args: GetRulesetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRulesetResult> {
     return pulumi.output(args).apply((a: any) => getRuleset(a, opts))
 }

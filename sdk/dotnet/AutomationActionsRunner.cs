@@ -14,29 +14,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// &gt; Only Runbook Automation (runbook) runners can be created.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Pagerduty = Pulumi.Pagerduty;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var config = new Config();
-    ///     var rUNBOOKAPIKEY = config.Require("rUNBOOKAPIKEY");
-    ///     var example = new Pagerduty.AutomationActionsRunner("example", new()
-    ///     {
-    ///         Description = "Description of the Runner created via TF",
-    ///         RunnerType = "runbook",
-    ///         RunbookBaseUri = "rdcat.stg",
-    ///         RunbookApiKey = rUNBOOKAPIKEY,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// -&gt; In the example below the `runbook_api_key` attribute has been omitted to avoid resource replacement after the import. Runners can be imported using the `id`, e.g. resource "pagerduty_automation_actions_runner" "example" {

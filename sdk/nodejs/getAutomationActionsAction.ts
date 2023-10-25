@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to get information about a specific [automation actions action](https://developer.pagerduty.com/api-reference/357ed15419f64-get-an-automation-action).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as pagerduty from "@pulumi/pagerduty";
- *
- * const example = pagerduty.getAutomationActionsAction({
- *     id: "01CS1685B2UDM4I3XUUOXPPORM",
- * });
- * ```
  */
 export function getAutomationActionsAction(args: GetAutomationActionsActionArgs, opts?: pulumi.InvokeOptions): Promise<GetAutomationActionsActionResult> {
 
@@ -124,17 +113,6 @@ export interface GetAutomationActionsActionResult {
 }
 /**
  * Use this data source to get information about a specific [automation actions action](https://developer.pagerduty.com/api-reference/357ed15419f64-get-an-automation-action).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as pagerduty from "@pulumi/pagerduty";
- *
- * const example = pagerduty.getAutomationActionsAction({
- *     id: "01CS1685B2UDM4I3XUUOXPPORM",
- * });
- * ```
  */
 export function getAutomationActionsActionOutput(args: GetAutomationActionsActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutomationActionsActionResult> {
     return pulumi.output(args).apply((a: any) => getAutomationActionsAction(a, opts))

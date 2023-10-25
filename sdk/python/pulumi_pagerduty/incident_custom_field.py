@@ -38,13 +38,29 @@ class IncidentCustomFieldArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_type: pulumi.Input[str],
-             display_name: pulumi.Input[str],
-             field_type: pulumi.Input[str],
+             data_type: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             field_type: Optional[pulumi.Input[str]] = None,
              default_value: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_type is None and 'dataType' in kwargs:
+            data_type = kwargs['dataType']
+        if data_type is None:
+            raise TypeError("Missing 'data_type' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if field_type is None and 'fieldType' in kwargs:
+            field_type = kwargs['fieldType']
+        if field_type is None:
+            raise TypeError("Missing 'field_type' argument")
+        if default_value is None and 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+
         _setter("data_type", data_type)
         _setter("display_name", display_name)
         _setter("field_type", field_type)
@@ -152,7 +168,17 @@ class _IncidentCustomFieldState:
              display_name: Optional[pulumi.Input[str]] = None,
              field_type: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_type is None and 'dataType' in kwargs:
+            data_type = kwargs['dataType']
+        if default_value is None and 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if field_type is None and 'fieldType' in kwargs:
+            field_type = kwargs['fieldType']
+
         if data_type is not None:
             _setter("data_type", data_type)
         if default_value is not None:
@@ -245,20 +271,6 @@ class IncidentCustomField(pulumi.CustomResource):
         """
         An [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents) defines a field which can be set on incidents in the target account.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        cs_impact = pagerduty.IncidentCustomField("csImpact",
-            data_type="string",
-            field_type="single_value")
-        sre_environment = pagerduty.IncidentCustomField("sreEnvironment",
-            data_type="string",
-            field_type="single_value_fixed")
-        ```
-
         ## Import
 
         Fields can be imported using the `id`, e.g.
@@ -281,20 +293,6 @@ class IncidentCustomField(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents) defines a field which can be set on incidents in the target account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        cs_impact = pagerduty.IncidentCustomField("csImpact",
-            data_type="string",
-            field_type="single_value")
-        sre_environment = pagerduty.IncidentCustomField("sreEnvironment",
-            data_type="string",
-            field_type="single_value_fixed")
-        ```
 
         ## Import
 

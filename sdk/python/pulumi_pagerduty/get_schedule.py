@@ -61,24 +61,6 @@ def get_schedule(name: Optional[str] = None,
     """
     Use this data source to get information about a specific [schedule](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE4MQ-list-schedules) that you can use for other PagerDuty resources.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_pagerduty as pagerduty
-
-    test = pagerduty.get_schedule(name="Daily Engineering Rotation")
-    foo = pagerduty.EscalationPolicy("foo",
-        num_loops=2,
-        rules=[pagerduty.EscalationPolicyRuleArgs(
-            escalation_delay_in_minutes=10,
-            targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                type="schedule",
-                id=test.id,
-            )],
-        )])
-    ```
-
 
     :param str name: The name to use to find a schedule in the PagerDuty API.
     """
@@ -97,24 +79,6 @@ def get_schedule_output(name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduleResult]:
     """
     Use this data source to get information about a specific [schedule](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE4MQ-list-schedules) that you can use for other PagerDuty resources.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_pagerduty as pagerduty
-
-    test = pagerduty.get_schedule(name="Daily Engineering Rotation")
-    foo = pagerduty.EscalationPolicy("foo",
-        num_loops=2,
-        rules=[pagerduty.EscalationPolicyRuleArgs(
-            escalation_delay_in_minutes=10,
-            targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                type="schedule",
-                id=test.id,
-            )],
-        )])
-    ```
 
 
     :param str name: The name to use to find a schedule in the PagerDuty API.

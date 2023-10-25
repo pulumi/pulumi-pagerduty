@@ -41,13 +41,25 @@ class ExtensionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             extension_objects: pulumi.Input[Sequence[pulumi.Input[str]]],
-             extension_schema: pulumi.Input[str],
+             extension_objects: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             extension_schema: Optional[pulumi.Input[str]] = None,
              config: Optional[pulumi.Input[str]] = None,
              endpoint_url: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if extension_objects is None and 'extensionObjects' in kwargs:
+            extension_objects = kwargs['extensionObjects']
+        if extension_objects is None:
+            raise TypeError("Missing 'extension_objects' argument")
+        if extension_schema is None and 'extensionSchema' in kwargs:
+            extension_schema = kwargs['extensionSchema']
+        if extension_schema is None:
+            raise TypeError("Missing 'extension_schema' argument")
+        if endpoint_url is None and 'endpointUrl' in kwargs:
+            endpoint_url = kwargs['endpointUrl']
+
         _setter("extension_objects", extension_objects)
         _setter("extension_schema", extension_schema)
         if config is not None:
@@ -176,7 +188,17 @@ class _ExtensionState:
              name: Optional[pulumi.Input[str]] = None,
              summary: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if endpoint_url is None and 'endpointUrl' in kwargs:
+            endpoint_url = kwargs['endpointUrl']
+        if extension_objects is None and 'extensionObjects' in kwargs:
+            extension_objects = kwargs['extensionObjects']
+        if extension_schema is None and 'extensionSchema' in kwargs:
+            extension_schema = kwargs['extensionSchema']
+        if html_url is None and 'htmlUrl' in kwargs:
+            html_url = kwargs['htmlUrl']
+
         if config is not None:
             _setter("config", config)
         if endpoint_url is not None:
@@ -306,43 +328,6 @@ class Extension(pulumi.CustomResource):
         """
         An [extension](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEzMw-create-an-extension) can be associated with a service.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        webhook = pagerduty.get_extension_schema(name="Generic V2 Webhook")
-        example_user = pagerduty.User("exampleUser", email="howard.james@example.domain")
-        example_escalation_policy = pagerduty.EscalationPolicy("exampleEscalationPolicy",
-            num_loops=2,
-            rules=[pagerduty.EscalationPolicyRuleArgs(
-                escalation_delay_in_minutes=10,
-                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                    type="user",
-                    id=example_user.id,
-                )],
-            )])
-        example_service = pagerduty.Service("exampleService",
-            auto_resolve_timeout="14400",
-            acknowledgement_timeout="600",
-            escalation_policy=example_escalation_policy.id)
-        slack = pagerduty.Extension("slack",
-            endpoint_url="https://generic_webhook_url/XXXXXX/BBBBBB",
-            extension_schema=webhook.id,
-            extension_objects=[example_service.id],
-            config=\"\"\"{
-        	"restrict": "any",
-        	"notify_types": {
-        			"resolve": false,
-        			"acknowledge": false,
-        			"assignments": false
-        	},
-        	"access_token": "XXX"
-        }
-        \"\"\")
-        ```
-
         ## Import
 
         Extensions can be imported using the id.e.g.
@@ -368,43 +353,6 @@ class Extension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An [extension](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEzMw-create-an-extension) can be associated with a service.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        webhook = pagerduty.get_extension_schema(name="Generic V2 Webhook")
-        example_user = pagerduty.User("exampleUser", email="howard.james@example.domain")
-        example_escalation_policy = pagerduty.EscalationPolicy("exampleEscalationPolicy",
-            num_loops=2,
-            rules=[pagerduty.EscalationPolicyRuleArgs(
-                escalation_delay_in_minutes=10,
-                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                    type="user",
-                    id=example_user.id,
-                )],
-            )])
-        example_service = pagerduty.Service("exampleService",
-            auto_resolve_timeout="14400",
-            acknowledgement_timeout="600",
-            escalation_policy=example_escalation_policy.id)
-        slack = pagerduty.Extension("slack",
-            endpoint_url="https://generic_webhook_url/XXXXXX/BBBBBB",
-            extension_schema=webhook.id,
-            extension_objects=[example_service.id],
-            config=\"\"\"{
-        	"restrict": "any",
-        	"notify_types": {
-        			"resolve": false,
-        			"acknowledge": false,
-        			"assignments": false
-        	},
-        	"access_token": "XXX"
-        }
-        \"\"\")
-        ```
 
         ## Import
 

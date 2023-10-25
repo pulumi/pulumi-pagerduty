@@ -13,32 +13,6 @@ import (
 )
 
 // Use this data source to get information about a specific [automation actions runner](https://developer.pagerduty.com/api-reference/aace61f84cbd0-get-an-automation-action-runner).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := pagerduty.LookupAutomationActionsRunner(ctx, &pagerduty.LookupAutomationActionsRunnerArgs{
-//				Id: "01DBJLIGED17S1DQKQC2AV8XYZ",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupAutomationActionsRunner(ctx *pulumi.Context, args *LookupAutomationActionsRunnerArgs, opts ...pulumi.InvokeOption) (*LookupAutomationActionsRunnerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAutomationActionsRunnerResult

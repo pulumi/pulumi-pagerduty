@@ -32,10 +32,24 @@ class BusinessServiceSubscriberArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             business_service_id: pulumi.Input[str],
-             subscriber_id: pulumi.Input[str],
-             subscriber_type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             business_service_id: Optional[pulumi.Input[str]] = None,
+             subscriber_id: Optional[pulumi.Input[str]] = None,
+             subscriber_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if business_service_id is None and 'businessServiceId' in kwargs:
+            business_service_id = kwargs['businessServiceId']
+        if business_service_id is None:
+            raise TypeError("Missing 'business_service_id' argument")
+        if subscriber_id is None and 'subscriberId' in kwargs:
+            subscriber_id = kwargs['subscriberId']
+        if subscriber_id is None:
+            raise TypeError("Missing 'subscriber_id' argument")
+        if subscriber_type is None and 'subscriberType' in kwargs:
+            subscriber_type = kwargs['subscriberType']
+        if subscriber_type is None:
+            raise TypeError("Missing 'subscriber_type' argument")
+
         _setter("business_service_id", business_service_id)
         _setter("subscriber_id", subscriber_id)
         _setter("subscriber_type", subscriber_type)
@@ -101,7 +115,15 @@ class _BusinessServiceSubscriberState:
              business_service_id: Optional[pulumi.Input[str]] = None,
              subscriber_id: Optional[pulumi.Input[str]] = None,
              subscriber_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if business_service_id is None and 'businessServiceId' in kwargs:
+            business_service_id = kwargs['businessServiceId']
+        if subscriber_id is None and 'subscriberId' in kwargs:
+            subscriber_id = kwargs['subscriberId']
+        if subscriber_type is None and 'subscriberType' in kwargs:
+            subscriber_type = kwargs['subscriberType']
+
         if business_service_id is not None:
             _setter("business_service_id", business_service_id)
         if subscriber_id is not None:
@@ -158,28 +180,6 @@ class BusinessServiceSubscriber(pulumi.CustomResource):
         """
         A [business service subscriber](https://developer.pagerduty.com/api-reference/b3A6NDUwNDgxOQ-list-business-service-subscribers) allows you to subscribe users or teams to automatically receive updates about key business services.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        example_business_service = pagerduty.BusinessService("exampleBusinessService",
-            description="A very descriptive description of this business service",
-            point_of_contact="PagerDuty Admin",
-            team="P37RSRS")
-        engteam = pagerduty.Team("engteam")
-        example_user = pagerduty.User("exampleUser", email="125.greenholt.earline@graham.name")
-        team_example = pagerduty.BusinessServiceSubscriber("teamExample",
-            subscriber_id=engteam.id,
-            subscriber_type="team",
-            business_service_id=example_business_service.id)
-        user_example = pagerduty.BusinessServiceSubscriber("userExample",
-            subscriber_id=example_user.id,
-            subscriber_type="user",
-            business_service_id=example_business_service.id)
-        ```
-
         ## Import
 
         Services can be imported using the `id` using the related business service ID, the subscriber type and the subscriber ID separated by a dot, e.g.
@@ -202,28 +202,6 @@ class BusinessServiceSubscriber(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A [business service subscriber](https://developer.pagerduty.com/api-reference/b3A6NDUwNDgxOQ-list-business-service-subscribers) allows you to subscribe users or teams to automatically receive updates about key business services.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        example_business_service = pagerduty.BusinessService("exampleBusinessService",
-            description="A very descriptive description of this business service",
-            point_of_contact="PagerDuty Admin",
-            team="P37RSRS")
-        engteam = pagerduty.Team("engteam")
-        example_user = pagerduty.User("exampleUser", email="125.greenholt.earline@graham.name")
-        team_example = pagerduty.BusinessServiceSubscriber("teamExample",
-            subscriber_id=engteam.id,
-            subscriber_type="team",
-            business_service_id=example_business_service.id)
-        user_example = pagerduty.BusinessServiceSubscriber("userExample",
-            subscriber_id=example_user.id,
-            subscriber_type="user",
-            business_service_id=example_business_service.id)
-        ```
 
         ## Import
 

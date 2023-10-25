@@ -13,70 +13,12 @@ namespace Pulumi.Pagerduty
     {
         /// <summary>
         /// Use this data source to get information about a specific [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents).
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Pagerduty = Pulumi.Pagerduty;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var environment = Pagerduty.GetIncidentCustomField.Invoke(new()
-        ///     {
-        ///         Name = "environment",
-        ///     });
-        /// 
-        ///     var devEnvironment = new Pagerduty.IncidentCustomFieldOption("devEnvironment", new()
-        ///     {
-        ///         Field = environment.Apply(getIncidentCustomFieldResult =&gt; getIncidentCustomFieldResult.Id),
-        ///         Datatype = "string",
-        ///         Value = "dev",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetIncidentCustomFieldResult> InvokeAsync(GetIncidentCustomFieldArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIncidentCustomFieldResult>("pagerduty:index/getIncidentCustomField:getIncidentCustomField", args ?? new GetIncidentCustomFieldArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information about a specific [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents).
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Pagerduty = Pulumi.Pagerduty;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var environment = Pagerduty.GetIncidentCustomField.Invoke(new()
-        ///     {
-        ///         Name = "environment",
-        ///     });
-        /// 
-        ///     var devEnvironment = new Pagerduty.IncidentCustomFieldOption("devEnvironment", new()
-        ///     {
-        ///         Field = environment.Apply(getIncidentCustomFieldResult =&gt; getIncidentCustomFieldResult.Id),
-        ///         Datatype = "string",
-        ///         Value = "dev",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetIncidentCustomFieldResult> Invoke(GetIncidentCustomFieldInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIncidentCustomFieldResult>("pagerduty:index/getIncidentCustomField:getIncidentCustomField", args ?? new GetIncidentCustomFieldInvokeArgs(), options.WithDefaults());

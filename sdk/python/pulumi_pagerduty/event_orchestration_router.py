@@ -34,10 +34,22 @@ class EventOrchestrationRouterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             catch_all: pulumi.Input['EventOrchestrationRouterCatchAllArgs'],
-             event_orchestration: pulumi.Input[str],
-             set: pulumi.Input['EventOrchestrationRouterSetArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             catch_all: Optional[pulumi.Input['EventOrchestrationRouterCatchAllArgs']] = None,
+             event_orchestration: Optional[pulumi.Input[str]] = None,
+             set: Optional[pulumi.Input['EventOrchestrationRouterSetArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if catch_all is None and 'catchAll' in kwargs:
+            catch_all = kwargs['catchAll']
+        if catch_all is None:
+            raise TypeError("Missing 'catch_all' argument")
+        if event_orchestration is None and 'eventOrchestration' in kwargs:
+            event_orchestration = kwargs['eventOrchestration']
+        if event_orchestration is None:
+            raise TypeError("Missing 'event_orchestration' argument")
+        if set is None:
+            raise TypeError("Missing 'set' argument")
+
         _setter("catch_all", catch_all)
         _setter("event_orchestration", event_orchestration)
         _setter("set", set)
@@ -103,7 +115,13 @@ class _EventOrchestrationRouterState:
              catch_all: Optional[pulumi.Input['EventOrchestrationRouterCatchAllArgs']] = None,
              event_orchestration: Optional[pulumi.Input[str]] = None,
              set: Optional[pulumi.Input['EventOrchestrationRouterSetArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if catch_all is None and 'catchAll' in kwargs:
+            catch_all = kwargs['catchAll']
+        if event_orchestration is None and 'eventOrchestration' in kwargs:
+            event_orchestration = kwargs['eventOrchestration']
+
         if catch_all is not None:
             _setter("catch_all", catch_all)
         if event_orchestration is not None:
@@ -160,52 +178,6 @@ class EventOrchestrationRouter(pulumi.CustomResource):
         """
         An Orchestration Router allows users to create a set of Event Rules. The Router evaluates events sent to this Orchestration against each of its rules, one at a time, and routes the event to a specific Service based on the first rule that matches. If an event doesn't match any rules, it'll be sent to service specified in the `catch_all` or to the "Unrouted" Orchestration if no service is specified.
 
-        ## Example of configuring Router rules for an Orchestration
-
-        In this example the user has defined the Router with two rules, each routing to a different service.
-
-        This example assumes services used in the `route_to` configuration already exists. So it does not show creation of service resource.
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        router = pagerduty.EventOrchestrationRouter("router",
-            event_orchestration=pagerduty_event_orchestration["my_monitor"]["id"],
-            set=pagerduty.EventOrchestrationRouterSetArgs(
-                id="start",
-                rules=[
-                    pagerduty.EventOrchestrationRouterSetRuleArgs(
-                        label="Events relating to our relational database",
-                        conditions=[
-                            pagerduty.EventOrchestrationRouterSetRuleConditionArgs(
-                                expression="event.summary matches part 'database'",
-                            ),
-                            pagerduty.EventOrchestrationRouterSetRuleConditionArgs(
-                                expression="event.source matches regex 'db[0-9]+-server'",
-                            ),
-                        ],
-                        actions=pagerduty.EventOrchestrationRouterSetRuleActionsArgs(
-                            route_to=pagerduty_service["database"]["id"],
-                        ),
-                    ),
-                    pagerduty.EventOrchestrationRouterSetRuleArgs(
-                        conditions=[pagerduty.EventOrchestrationRouterSetRuleConditionArgs(
-                            expression="event.summary matches part 'www'",
-                        )],
-                        actions=pagerduty.EventOrchestrationRouterSetRuleActionsArgs(
-                            route_to=pagerduty_service["www"]["id"],
-                        ),
-                    ),
-                ],
-            ),
-            catch_all=pagerduty.EventOrchestrationRouterCatchAllArgs(
-                actions=pagerduty.EventOrchestrationRouterCatchAllActionsArgs(
-                    route_to="unrouted",
-                ),
-            ))
-        ```
-
         ## Import
 
         Router can be imported using the `id` of the Event Orchestration, e.g.
@@ -228,52 +200,6 @@ class EventOrchestrationRouter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Orchestration Router allows users to create a set of Event Rules. The Router evaluates events sent to this Orchestration against each of its rules, one at a time, and routes the event to a specific Service based on the first rule that matches. If an event doesn't match any rules, it'll be sent to service specified in the `catch_all` or to the "Unrouted" Orchestration if no service is specified.
-
-        ## Example of configuring Router rules for an Orchestration
-
-        In this example the user has defined the Router with two rules, each routing to a different service.
-
-        This example assumes services used in the `route_to` configuration already exists. So it does not show creation of service resource.
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        router = pagerduty.EventOrchestrationRouter("router",
-            event_orchestration=pagerduty_event_orchestration["my_monitor"]["id"],
-            set=pagerduty.EventOrchestrationRouterSetArgs(
-                id="start",
-                rules=[
-                    pagerduty.EventOrchestrationRouterSetRuleArgs(
-                        label="Events relating to our relational database",
-                        conditions=[
-                            pagerduty.EventOrchestrationRouterSetRuleConditionArgs(
-                                expression="event.summary matches part 'database'",
-                            ),
-                            pagerduty.EventOrchestrationRouterSetRuleConditionArgs(
-                                expression="event.source matches regex 'db[0-9]+-server'",
-                            ),
-                        ],
-                        actions=pagerduty.EventOrchestrationRouterSetRuleActionsArgs(
-                            route_to=pagerduty_service["database"]["id"],
-                        ),
-                    ),
-                    pagerduty.EventOrchestrationRouterSetRuleArgs(
-                        conditions=[pagerduty.EventOrchestrationRouterSetRuleConditionArgs(
-                            expression="event.summary matches part 'www'",
-                        )],
-                        actions=pagerduty.EventOrchestrationRouterSetRuleActionsArgs(
-                            route_to=pagerduty_service["www"]["id"],
-                        ),
-                    ),
-                ],
-            ),
-            catch_all=pagerduty.EventOrchestrationRouterCatchAllArgs(
-                actions=pagerduty.EventOrchestrationRouterCatchAllActionsArgs(
-                    route_to="unrouted",
-                ),
-            ))
-        ```
 
         ## Import
 
@@ -314,22 +240,14 @@ class EventOrchestrationRouter(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EventOrchestrationRouterArgs.__new__(EventOrchestrationRouterArgs)
 
-            if catch_all is not None and not isinstance(catch_all, EventOrchestrationRouterCatchAllArgs):
-                catch_all = catch_all or {}
-                def _setter(key, value):
-                    catch_all[key] = value
-                EventOrchestrationRouterCatchAllArgs._configure(_setter, **catch_all)
+            catch_all = _utilities.configure(catch_all, EventOrchestrationRouterCatchAllArgs, True)
             if catch_all is None and not opts.urn:
                 raise TypeError("Missing required property 'catch_all'")
             __props__.__dict__["catch_all"] = catch_all
             if event_orchestration is None and not opts.urn:
                 raise TypeError("Missing required property 'event_orchestration'")
             __props__.__dict__["event_orchestration"] = event_orchestration
-            if set is not None and not isinstance(set, EventOrchestrationRouterSetArgs):
-                set = set or {}
-                def _setter(key, value):
-                    set[key] = value
-                EventOrchestrationRouterSetArgs._configure(_setter, **set)
+            set = _utilities.configure(set, EventOrchestrationRouterSetArgs, True)
             if set is None and not opts.urn:
                 raise TypeError("Missing required property 'set'")
             __props__.__dict__["set"] = set

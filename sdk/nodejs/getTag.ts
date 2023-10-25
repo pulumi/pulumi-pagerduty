@@ -6,25 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to get information about a specific [tag](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIxNw-list-tags) that you can use to assign to users, teams, and escalation_policies.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as pagerduty from "@pulumi/pagerduty";
- *
- * const me = pagerduty.getUser({
- *     email: "me@example.com",
- * });
- * const devops = pagerduty.getTag({
- *     label: "devops",
- * });
- * const foo = new pagerduty.TagAssignment("foo", {
- *     tagId: devops.then(devops => devops.id),
- *     entityId: me.then(me => me.id),
- *     entityType: "users",
- * });
- * ```
  */
 export function getTag(args: GetTagArgs, opts?: pulumi.InvokeOptions): Promise<GetTagResult> {
 
@@ -56,25 +37,6 @@ export interface GetTagResult {
 }
 /**
  * Use this data source to get information about a specific [tag](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIxNw-list-tags) that you can use to assign to users, teams, and escalation_policies.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as pagerduty from "@pulumi/pagerduty";
- *
- * const me = pagerduty.getUser({
- *     email: "me@example.com",
- * });
- * const devops = pagerduty.getTag({
- *     label: "devops",
- * });
- * const foo = new pagerduty.TagAssignment("foo", {
- *     tagId: devops.then(devops => devops.id),
- *     entityId: me.then(me => me.id),
- *     entityType: "users",
- * });
- * ```
  */
 export function getTagOutput(args: GetTagOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagResult> {
     return pulumi.output(args).apply((a: any) => getTag(a, opts))

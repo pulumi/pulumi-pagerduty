@@ -39,12 +39,18 @@ class EscalationPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             rules: pulumi.Input[Sequence[pulumi.Input['EscalationPolicyRuleArgs']]],
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['EscalationPolicyRuleArgs']]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              num_loops: Optional[pulumi.Input[int]] = None,
              teams: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rules is None:
+            raise TypeError("Missing 'rules' argument")
+        if num_loops is None and 'numLoops' in kwargs:
+            num_loops = kwargs['numLoops']
+
         _setter("rules", rules)
         if description is None:
             description = 'Managed by Pulumi'
@@ -146,7 +152,11 @@ class _EscalationPolicyState:
              num_loops: Optional[pulumi.Input[int]] = None,
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['EscalationPolicyRuleArgs']]]] = None,
              teams: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if num_loops is None and 'numLoops' in kwargs:
+            num_loops = kwargs['numLoops']
+
         if description is None:
             description = 'Managed by Pulumi'
         if description is not None:

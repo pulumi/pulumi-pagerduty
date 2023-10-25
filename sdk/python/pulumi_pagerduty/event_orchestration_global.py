@@ -34,10 +34,22 @@ class EventOrchestrationGlobalArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             catch_all: pulumi.Input['EventOrchestrationGlobalCatchAllArgs'],
-             event_orchestration: pulumi.Input[str],
-             sets: pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             catch_all: Optional[pulumi.Input['EventOrchestrationGlobalCatchAllArgs']] = None,
+             event_orchestration: Optional[pulumi.Input[str]] = None,
+             sets: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if catch_all is None and 'catchAll' in kwargs:
+            catch_all = kwargs['catchAll']
+        if catch_all is None:
+            raise TypeError("Missing 'catch_all' argument")
+        if event_orchestration is None and 'eventOrchestration' in kwargs:
+            event_orchestration = kwargs['eventOrchestration']
+        if event_orchestration is None:
+            raise TypeError("Missing 'event_orchestration' argument")
+        if sets is None:
+            raise TypeError("Missing 'sets' argument")
+
         _setter("catch_all", catch_all)
         _setter("event_orchestration", event_orchestration)
         _setter("sets", sets)
@@ -103,7 +115,13 @@ class _EventOrchestrationGlobalState:
              catch_all: Optional[pulumi.Input['EventOrchestrationGlobalCatchAllArgs']] = None,
              event_orchestration: Optional[pulumi.Input[str]] = None,
              sets: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if catch_all is None and 'catchAll' in kwargs:
+            catch_all = kwargs['catchAll']
+        if event_orchestration is None and 'eventOrchestration' in kwargs:
+            event_orchestration = kwargs['eventOrchestration']
+
         if catch_all is not None:
             _setter("catch_all", catch_all)
         if event_orchestration is not None:
@@ -160,76 +178,6 @@ class EventOrchestrationGlobal(pulumi.CustomResource):
         """
         A [Global Orchestration](https://support.pagerduty.com/docs/event-orchestration#global-orchestrations) allows you to create a set of Event Rules. The Global Orchestration evaluates Events sent to it against each of its rules, beginning with the rules in the "start" set. When a matching rule is found, it can modify and enhance the event and can route the event to another set of rules within this Global Orchestration for further processing.
 
-        ## Example of configuring a Global Orchestration
-
-        This example shows creating `Team`, and `Event Orchestration` resources followed by creating a Global Orchestration to handle Events sent to that Event Orchestration.
-
-        This example also shows using `priority` data source to configure `priority` action for a rule. If the Event matches the third rule in set "step-two" the resulting incident will have the Priority `P1`.
-
-        This example shows a Global Orchestration that has nested sets: a rule in the "start" set has a `route_to` action pointing at the "step-two" set.
-
-        The `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set. In this example the `catch_all` doesn't have any `actions` so it'll leave events as-is.
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        database_team = pagerduty.Team("databaseTeam")
-        event_orchestration = pagerduty.EventOrchestration("eventOrchestration", team=database_team.id)
-        p1 = pagerduty.get_priority(name="P1")
-        global_ = pagerduty.EventOrchestrationGlobal("global",
-            event_orchestration=event_orchestration.id,
-            sets=[
-                pagerduty.EventOrchestrationGlobalSetArgs(
-                    id="start",
-                    rules=[pagerduty.EventOrchestrationGlobalSetRuleArgs(
-                        label="Always annotate a note to all events",
-                        actions=pagerduty.EventOrchestrationGlobalSetRuleActionsArgs(
-                            annotate="This incident was created by the Database Team via a Global Orchestration",
-                            route_to="step-two",
-                        ),
-                    )],
-                ),
-                pagerduty.EventOrchestrationGlobalSetArgs(
-                    id="step-two",
-                    rules=[
-                        pagerduty.EventOrchestrationGlobalSetRuleArgs(
-                            label="Drop events that are marked as no-op",
-                            conditions=[pagerduty.EventOrchestrationGlobalSetRuleConditionArgs(
-                                expression="event.summary matches 'no-op'",
-                            )],
-                            actions=pagerduty.EventOrchestrationGlobalSetRuleActionsArgs(
-                                drop_event=True,
-                            ),
-                        ),
-                        pagerduty.EventOrchestrationGlobalSetRuleArgs(
-                            label="If there's something wrong on the replica, then mark the alert as a warning",
-                            conditions=[pagerduty.EventOrchestrationGlobalSetRuleConditionArgs(
-                                expression="event.custom_details.hostname matches part 'replica'",
-                            )],
-                            actions=pagerduty.EventOrchestrationGlobalSetRuleActionsArgs(
-                                severity="warning",
-                            ),
-                        ),
-                        pagerduty.EventOrchestrationGlobalSetRuleArgs(
-                            label="Otherwise, set the incident to P1 and run a diagnostic",
-                            actions=pagerduty.EventOrchestrationGlobalSetRuleActionsArgs(
-                                priority=p1.id,
-                                automation_action=pagerduty.EventOrchestrationGlobalSetRuleActionsAutomationActionArgs(
-                                    name="db-diagnostic",
-                                    url="https://example.com/run-diagnostic",
-                                    auto_send=True,
-                                ),
-                            ),
-                        ),
-                    ],
-                ),
-            ],
-            catch_all=pagerduty.EventOrchestrationGlobalCatchAllArgs(
-                actions=pagerduty.EventOrchestrationGlobalCatchAllActionsArgs(),
-            ))
-        ```
-
         ## Import
 
         Global Orchestration can be imported using the `id` of the Event Orchestration, e.g.
@@ -252,76 +200,6 @@ class EventOrchestrationGlobal(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A [Global Orchestration](https://support.pagerduty.com/docs/event-orchestration#global-orchestrations) allows you to create a set of Event Rules. The Global Orchestration evaluates Events sent to it against each of its rules, beginning with the rules in the "start" set. When a matching rule is found, it can modify and enhance the event and can route the event to another set of rules within this Global Orchestration for further processing.
-
-        ## Example of configuring a Global Orchestration
-
-        This example shows creating `Team`, and `Event Orchestration` resources followed by creating a Global Orchestration to handle Events sent to that Event Orchestration.
-
-        This example also shows using `priority` data source to configure `priority` action for a rule. If the Event matches the third rule in set "step-two" the resulting incident will have the Priority `P1`.
-
-        This example shows a Global Orchestration that has nested sets: a rule in the "start" set has a `route_to` action pointing at the "step-two" set.
-
-        The `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set. In this example the `catch_all` doesn't have any `actions` so it'll leave events as-is.
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        database_team = pagerduty.Team("databaseTeam")
-        event_orchestration = pagerduty.EventOrchestration("eventOrchestration", team=database_team.id)
-        p1 = pagerduty.get_priority(name="P1")
-        global_ = pagerduty.EventOrchestrationGlobal("global",
-            event_orchestration=event_orchestration.id,
-            sets=[
-                pagerduty.EventOrchestrationGlobalSetArgs(
-                    id="start",
-                    rules=[pagerduty.EventOrchestrationGlobalSetRuleArgs(
-                        label="Always annotate a note to all events",
-                        actions=pagerduty.EventOrchestrationGlobalSetRuleActionsArgs(
-                            annotate="This incident was created by the Database Team via a Global Orchestration",
-                            route_to="step-two",
-                        ),
-                    )],
-                ),
-                pagerduty.EventOrchestrationGlobalSetArgs(
-                    id="step-two",
-                    rules=[
-                        pagerduty.EventOrchestrationGlobalSetRuleArgs(
-                            label="Drop events that are marked as no-op",
-                            conditions=[pagerduty.EventOrchestrationGlobalSetRuleConditionArgs(
-                                expression="event.summary matches 'no-op'",
-                            )],
-                            actions=pagerduty.EventOrchestrationGlobalSetRuleActionsArgs(
-                                drop_event=True,
-                            ),
-                        ),
-                        pagerduty.EventOrchestrationGlobalSetRuleArgs(
-                            label="If there's something wrong on the replica, then mark the alert as a warning",
-                            conditions=[pagerduty.EventOrchestrationGlobalSetRuleConditionArgs(
-                                expression="event.custom_details.hostname matches part 'replica'",
-                            )],
-                            actions=pagerduty.EventOrchestrationGlobalSetRuleActionsArgs(
-                                severity="warning",
-                            ),
-                        ),
-                        pagerduty.EventOrchestrationGlobalSetRuleArgs(
-                            label="Otherwise, set the incident to P1 and run a diagnostic",
-                            actions=pagerduty.EventOrchestrationGlobalSetRuleActionsArgs(
-                                priority=p1.id,
-                                automation_action=pagerduty.EventOrchestrationGlobalSetRuleActionsAutomationActionArgs(
-                                    name="db-diagnostic",
-                                    url="https://example.com/run-diagnostic",
-                                    auto_send=True,
-                                ),
-                            ),
-                        ),
-                    ],
-                ),
-            ],
-            catch_all=pagerduty.EventOrchestrationGlobalCatchAllArgs(
-                actions=pagerduty.EventOrchestrationGlobalCatchAllActionsArgs(),
-            ))
-        ```
 
         ## Import
 
@@ -362,11 +240,7 @@ class EventOrchestrationGlobal(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EventOrchestrationGlobalArgs.__new__(EventOrchestrationGlobalArgs)
 
-            if catch_all is not None and not isinstance(catch_all, EventOrchestrationGlobalCatchAllArgs):
-                catch_all = catch_all or {}
-                def _setter(key, value):
-                    catch_all[key] = value
-                EventOrchestrationGlobalCatchAllArgs._configure(_setter, **catch_all)
+            catch_all = _utilities.configure(catch_all, EventOrchestrationGlobalCatchAllArgs, True)
             if catch_all is None and not opts.urn:
                 raise TypeError("Missing required property 'catch_all'")
             __props__.__dict__["catch_all"] = catch_all

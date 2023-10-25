@@ -35,11 +35,27 @@ class UserNotificationRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             contact_method: pulumi.Input[Mapping[str, pulumi.Input[str]]],
-             start_delay_in_minutes: pulumi.Input[int],
-             urgency: pulumi.Input[str],
-             user_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             contact_method: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             start_delay_in_minutes: Optional[pulumi.Input[int]] = None,
+             urgency: Optional[pulumi.Input[str]] = None,
+             user_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if contact_method is None and 'contactMethod' in kwargs:
+            contact_method = kwargs['contactMethod']
+        if contact_method is None:
+            raise TypeError("Missing 'contact_method' argument")
+        if start_delay_in_minutes is None and 'startDelayInMinutes' in kwargs:
+            start_delay_in_minutes = kwargs['startDelayInMinutes']
+        if start_delay_in_minutes is None:
+            raise TypeError("Missing 'start_delay_in_minutes' argument")
+        if urgency is None:
+            raise TypeError("Missing 'urgency' argument")
+        if user_id is None and 'userId' in kwargs:
+            user_id = kwargs['userId']
+        if user_id is None:
+            raise TypeError("Missing 'user_id' argument")
+
         _setter("contact_method", contact_method)
         _setter("start_delay_in_minutes", start_delay_in_minutes)
         _setter("urgency", urgency)
@@ -122,7 +138,15 @@ class _UserNotificationRuleState:
              start_delay_in_minutes: Optional[pulumi.Input[int]] = None,
              urgency: Optional[pulumi.Input[str]] = None,
              user_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if contact_method is None and 'contactMethod' in kwargs:
+            contact_method = kwargs['contactMethod']
+        if start_delay_in_minutes is None and 'startDelayInMinutes' in kwargs:
+            start_delay_in_minutes = kwargs['startDelayInMinutes']
+        if user_id is None and 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         if contact_method is not None:
             _setter("contact_method", contact_method)
         if start_delay_in_minutes is not None:
@@ -194,56 +218,6 @@ class UserNotificationRule(pulumi.CustomResource):
         """
         A [notification rule](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODI0NQ-create-a-user-notification-rule) configures where and when a PagerDuty user is notified when a triggered incident is assigned to them. Unique notification rules can be created for both high and low-urgency incidents.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        example = pagerduty.User("example", email="125.greenholt.earline@graham.name")
-        email = pagerduty.UserContactMethod("email",
-            user_id=example.id,
-            type="email_contact_method",
-            address="foo@bar.com",
-            label="Work")
-        phone = pagerduty.UserContactMethod("phone",
-            user_id=example.id,
-            type="phone_contact_method",
-            country_code=1,
-            address="2025550199",
-            label="Work")
-        sms = pagerduty.UserContactMethod("sms",
-            user_id=example.id,
-            type="sms_contact_method",
-            country_code=1,
-            address="2025550199",
-            label="Work")
-        high_urgency_phone = pagerduty.UserNotificationRule("highUrgencyPhone",
-            user_id=example.id,
-            start_delay_in_minutes=1,
-            urgency="high",
-            contact_method={
-                "type": "phone_contact_method",
-                "id": phone.id,
-            })
-        low_urgency_email = pagerduty.UserNotificationRule("lowUrgencyEmail",
-            user_id=example.id,
-            start_delay_in_minutes=1,
-            urgency="low",
-            contact_method={
-                "type": "email_contact_method",
-                "id": email.id,
-            })
-        low_urgency_sms = pagerduty.UserNotificationRule("lowUrgencySms",
-            user_id=example.id,
-            start_delay_in_minutes=10,
-            urgency="low",
-            contact_method={
-                "type": "sms_contact_method",
-                "id": sms.id,
-            })
-        ```
-
         ## Import
 
         User notification rules can be imported using the `user_id` and the `id`, e.g.
@@ -267,56 +241,6 @@ class UserNotificationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A [notification rule](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODI0NQ-create-a-user-notification-rule) configures where and when a PagerDuty user is notified when a triggered incident is assigned to them. Unique notification rules can be created for both high and low-urgency incidents.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_pagerduty as pagerduty
-
-        example = pagerduty.User("example", email="125.greenholt.earline@graham.name")
-        email = pagerduty.UserContactMethod("email",
-            user_id=example.id,
-            type="email_contact_method",
-            address="foo@bar.com",
-            label="Work")
-        phone = pagerduty.UserContactMethod("phone",
-            user_id=example.id,
-            type="phone_contact_method",
-            country_code=1,
-            address="2025550199",
-            label="Work")
-        sms = pagerduty.UserContactMethod("sms",
-            user_id=example.id,
-            type="sms_contact_method",
-            country_code=1,
-            address="2025550199",
-            label="Work")
-        high_urgency_phone = pagerduty.UserNotificationRule("highUrgencyPhone",
-            user_id=example.id,
-            start_delay_in_minutes=1,
-            urgency="high",
-            contact_method={
-                "type": "phone_contact_method",
-                "id": phone.id,
-            })
-        low_urgency_email = pagerduty.UserNotificationRule("lowUrgencyEmail",
-            user_id=example.id,
-            start_delay_in_minutes=1,
-            urgency="low",
-            contact_method={
-                "type": "email_contact_method",
-                "id": email.id,
-            })
-        low_urgency_sms = pagerduty.UserNotificationRule("lowUrgencySms",
-            user_id=example.id,
-            start_delay_in_minutes=10,
-            urgency="low",
-            contact_method={
-                "type": "sms_contact_method",
-                "id": sms.id,
-            })
-        ```
 
         ## Import
 

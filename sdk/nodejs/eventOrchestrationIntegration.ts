@@ -9,24 +9,6 @@ import * as utilities from "./utilities";
 /**
  * An Event Orchestration Integration allows you to create and manage multiple Integrations (and Routing Keys) per Event Orchestration _and_ will allow you to move (migrate) Integrations _between_ two Event Orchestrations.
  *
- * ## Example of configuring an Integration for an Event Orchestration
- *
- * This example shows creating `Event Orchestration` and `Team` resources followed by creating an Event Orchestration Integration to handle Events sent to that Event Orchestration.
- *
- * > When a new Event Orchestration is created there will be one Integration (and Routing Key) included by default. Example below shows how to create an extra Integration associated with this Event Orchestration.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as pagerduty from "@pulumi/pagerduty";
- *
- * const databaseTeam = new pagerduty.Team("databaseTeam", {});
- * const eventOrchestration = new pagerduty.EventOrchestration("eventOrchestration", {team: databaseTeam.id});
- * const integration = new pagerduty.EventOrchestrationIntegration("integration", {
- *     eventOrchestration: eventOrchestration.id,
- *     label: "Example integration",
- * });
- * ```
- *
  * ## Import
  *
  * Event Orchestration Integration can be imported using colon-separated IDs, which is the combination of the Event Orchestration ID followed by the Event Orchestration Integration ID, e.g.

@@ -13,46 +13,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooUser, err := pagerduty.NewUser(ctx, "fooUser", &pagerduty.UserArgs{
-//				Email: pulumi.String("foo@bar.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			fooTeam, err := pagerduty.NewTeam(ctx, "fooTeam", &pagerduty.TeamArgs{
-//				Description: pulumi.String("foo"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = pagerduty.NewTeamMembership(ctx, "fooTeamMembership", &pagerduty.TeamMembershipArgs{
-//				UserId: fooUser.ID(),
-//				TeamId: fooTeam.ID(),
-//				Role:   pulumi.String("manager"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Team memberships can be imported using the `user_id` and `team_id`, e.g.

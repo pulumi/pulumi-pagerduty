@@ -15,6 +15,62 @@ import (
 
 // A [service](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE5Nw-create-a-service) represents something you monitor (like a web service, email service, or database service). It is a container for related incidents that associates them with escalation policies.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
+//				Email: pulumi.String("125.greenholt.earline@graham.name"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			foo, err := pagerduty.NewEscalationPolicy(ctx, "foo", &pagerduty.EscalationPolicyArgs{
+//				NumLoops: pulumi.Int(2),
+//				Rules: pagerduty.EscalationPolicyRuleArray{
+//					&pagerduty.EscalationPolicyRuleArgs{
+//						EscalationDelayInMinutes: pulumi.Int(10),
+//						Targets: pagerduty.EscalationPolicyRuleTargetArray{
+//							&pagerduty.EscalationPolicyRuleTargetArgs{
+//								Type: pulumi.String("user_reference"),
+//								Id:   exampleUser.ID(),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewService(ctx, "exampleService", &pagerduty.ServiceArgs{
+//				AutoResolveTimeout:     pulumi.String("14400"),
+//				AcknowledgementTimeout: pulumi.String("600"),
+//				EscalationPolicy:       foo.ID(),
+//				AlertCreation:          pulumi.String("create_alerts_and_incidents"),
+//				AutoPauseNotificationsParameters: &pagerduty.ServiceAutoPauseNotificationsParametersArgs{
+//					Enabled: pulumi.Bool(true),
+//					Timeout: pulumi.Int(300),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Services can be imported using the `id`, e.g.

@@ -13,12 +13,62 @@ namespace Pulumi.Pagerduty
     {
         /// <summary>
         /// Use this data source to get information about a specific [Integration](https://developer.pagerduty.com/api-reference/1c6607db389a8-get-an-integration-for-an-event-orchestration) for an Event Orchestration.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var eventOrchestration = new Pagerduty.EventOrchestration("eventOrchestration");
+        /// 
+        ///     var integration = Pagerduty.GetEventOrchestrationIntegration.Invoke(new()
+        ///     {
+        ///         EventOrchestration = eventOrchestration.Id,
+        ///         Label = "Test Event Orchestration Default Integration",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetEventOrchestrationIntegrationResult> InvokeAsync(GetEventOrchestrationIntegrationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventOrchestrationIntegrationResult>("pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration", args ?? new GetEventOrchestrationIntegrationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information about a specific [Integration](https://developer.pagerduty.com/api-reference/1c6607db389a8-get-an-integration-for-an-event-orchestration) for an Event Orchestration.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var eventOrchestration = new Pagerduty.EventOrchestration("eventOrchestration");
+        /// 
+        ///     var integration = Pagerduty.GetEventOrchestrationIntegration.Invoke(new()
+        ///     {
+        ///         EventOrchestration = eventOrchestration.Id,
+        ///         Label = "Test Event Orchestration Default Integration",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetEventOrchestrationIntegrationResult> Invoke(GetEventOrchestrationIntegrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventOrchestrationIntegrationResult>("pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration", args ?? new GetEventOrchestrationIntegrationInvokeArgs(), options.WithDefaults());

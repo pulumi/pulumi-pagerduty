@@ -217,6 +217,126 @@ class EventOrchestrationService(pulumi.CustomResource):
 
         > If you have a Service that uses [Service Event Rules](https://support.pagerduty.com/docs/rulesets#service-event-rules), you can switch to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations) at any time setting the attribute `enable_event_orchestration_for_service` to `true`. Please read the [Switch to Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#switch-to-service-orchestrations) instructions for more information.
 
+        ## Example of configuring a Service Orchestration
+
+        This example shows creating `Team`, `User`, `Escalation Policy`, and `Service` resources followed by creating a Service Orchestration to handle Events sent to that Service.
+
+        This example also shows using `priority` data source to configure `priority` action for a rule. If the Event matches the first rule in set "step-two" the resulting incident will have the Priority `P1`.
+
+        This example shows a Service Orchestration that has nested sets: a rule in the "start" set has a `route_to` action pointing at the "step-two" set.
+
+        The `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set. In this example the `catch_all` doesn't have any `actions` so it'll leave events as-is.
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        engineering = pagerduty.Team("engineering")
+        example_user = pagerduty.User("exampleUser",
+            email="125.greenholt.earline@graham.name",
+            teams=[engineering.id])
+        foo = pagerduty.EscalationPolicy("foo",
+            num_loops=2,
+            rules=[pagerduty.EscalationPolicyRuleArgs(
+                escalation_delay_in_minutes=10,
+                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
+                    type="user",
+                    id=example_user.id,
+                )],
+            )])
+        example_service = pagerduty.Service("exampleService",
+            auto_resolve_timeout="14400",
+            acknowledgement_timeout="600",
+            escalation_policy=pagerduty_escalation_policy["example"]["id"],
+            alert_creation="create_alerts_and_incidents")
+        p1 = pagerduty.get_priority(name="P1")
+        www = pagerduty.EventOrchestrationService("www",
+            service=example_service.id,
+            enable_event_orchestration_for_service=True,
+            sets=[
+                pagerduty.EventOrchestrationServiceSetArgs(
+                    id="start",
+                    rules=[pagerduty.EventOrchestrationServiceSetRuleArgs(
+                        label="Always apply some consistent event transformations to all events",
+                        actions=pagerduty.EventOrchestrationServiceSetRuleActionsArgs(
+                            variables=[pagerduty.EventOrchestrationServiceSetRuleActionsVariableArgs(
+                                name="hostname",
+                                path="event.component",
+                                value="hostname: (.*)",
+                                type="regex",
+                            )],
+                            extractions=[
+                                pagerduty.EventOrchestrationServiceSetRuleActionsExtractionArgs(
+                                    template="{{variables.hostname}}",
+                                    target="event.custom_details.hostname",
+                                ),
+                                pagerduty.EventOrchestrationServiceSetRuleActionsExtractionArgs(
+                                    source="event.source",
+                                    regex="www (.*) service",
+                                    target="event.source",
+                                ),
+                            ],
+                            route_to="step-two",
+                        ),
+                    )],
+                ),
+                pagerduty.EventOrchestrationServiceSetArgs(
+                    id="step-two",
+                    rules=[
+                        pagerduty.EventOrchestrationServiceSetRuleArgs(
+                            label="All critical alerts should be treated as P1 incident",
+                            conditions=[pagerduty.EventOrchestrationServiceSetRuleConditionArgs(
+                                expression="event.severity matches 'critical'",
+                            )],
+                            actions=pagerduty.EventOrchestrationServiceSetRuleActionsArgs(
+                                annotate="Please use our P1 runbook: https://docs.test/p1-runbook",
+                                priority=p1.id,
+                            ),
+                        ),
+                        pagerduty.EventOrchestrationServiceSetRuleArgs(
+                            label="If there's something wrong on the canary let the team know about it in our deployments Slack channel",
+                            conditions=[pagerduty.EventOrchestrationServiceSetRuleConditionArgs(
+                                expression="event.custom_details.hostname matches part 'canary'",
+                            )],
+                            actions=pagerduty.EventOrchestrationServiceSetRuleActionsArgs(
+                                automation_action=pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionArgs(
+                                    name="Canary Slack Notification",
+                                    url="https://our-slack-listerner.test/canary-notification",
+                                    auto_send=True,
+                                    parameters=[
+                                        pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs(
+                                            key="channel",
+                                            value="#my-team-channel",
+                                        ),
+                                        pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs(
+                                            key="message",
+                                            value="something is wrong with the canary deployment",
+                                        ),
+                                    ],
+                                    headers=[pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs(
+                                        key="X-Notification-Source",
+                                        value="PagerDuty Incident Webhook",
+                                    )],
+                                ),
+                            ),
+                        ),
+                        pagerduty.EventOrchestrationServiceSetRuleArgs(
+                            label="Never bother the on-call for info-level events outside of work hours",
+                            conditions=[pagerduty.EventOrchestrationServiceSetRuleConditionArgs(
+                                expression="event.severity matches 'info' and not (now in Mon,Tue,Wed,Thu,Fri 09:00:00 to 17:00:00 America/Los_Angeles)",
+                            )],
+                            actions=pagerduty.EventOrchestrationServiceSetRuleActionsArgs(
+                                suppress=True,
+                            ),
+                        ),
+                    ],
+                ),
+            ],
+            catch_all=pagerduty.EventOrchestrationServiceCatchAllArgs(
+                actions=pagerduty.EventOrchestrationServiceCatchAllActionsArgs(),
+            ))
+        ```
+
         ## Import
 
         Service Orchestration can be imported using the `id` of the Service, e.g.
@@ -242,6 +362,126 @@ class EventOrchestrationService(pulumi.CustomResource):
         A [Service Orchestration](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations) allows you to create a set of Event Rules. The Service Orchestration evaluates Events sent to this Service against each of its rules, beginning with the rules in the "start" set. When a matching rule is found, it can modify and enhance the event and can route the event to another set of rules within this Service Orchestration for further processing.
 
         > If you have a Service that uses [Service Event Rules](https://support.pagerduty.com/docs/rulesets#service-event-rules), you can switch to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations) at any time setting the attribute `enable_event_orchestration_for_service` to `true`. Please read the [Switch to Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#switch-to-service-orchestrations) instructions for more information.
+
+        ## Example of configuring a Service Orchestration
+
+        This example shows creating `Team`, `User`, `Escalation Policy`, and `Service` resources followed by creating a Service Orchestration to handle Events sent to that Service.
+
+        This example also shows using `priority` data source to configure `priority` action for a rule. If the Event matches the first rule in set "step-two" the resulting incident will have the Priority `P1`.
+
+        This example shows a Service Orchestration that has nested sets: a rule in the "start" set has a `route_to` action pointing at the "step-two" set.
+
+        The `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set. In this example the `catch_all` doesn't have any `actions` so it'll leave events as-is.
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        engineering = pagerduty.Team("engineering")
+        example_user = pagerduty.User("exampleUser",
+            email="125.greenholt.earline@graham.name",
+            teams=[engineering.id])
+        foo = pagerduty.EscalationPolicy("foo",
+            num_loops=2,
+            rules=[pagerduty.EscalationPolicyRuleArgs(
+                escalation_delay_in_minutes=10,
+                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
+                    type="user",
+                    id=example_user.id,
+                )],
+            )])
+        example_service = pagerduty.Service("exampleService",
+            auto_resolve_timeout="14400",
+            acknowledgement_timeout="600",
+            escalation_policy=pagerduty_escalation_policy["example"]["id"],
+            alert_creation="create_alerts_and_incidents")
+        p1 = pagerduty.get_priority(name="P1")
+        www = pagerduty.EventOrchestrationService("www",
+            service=example_service.id,
+            enable_event_orchestration_for_service=True,
+            sets=[
+                pagerduty.EventOrchestrationServiceSetArgs(
+                    id="start",
+                    rules=[pagerduty.EventOrchestrationServiceSetRuleArgs(
+                        label="Always apply some consistent event transformations to all events",
+                        actions=pagerduty.EventOrchestrationServiceSetRuleActionsArgs(
+                            variables=[pagerduty.EventOrchestrationServiceSetRuleActionsVariableArgs(
+                                name="hostname",
+                                path="event.component",
+                                value="hostname: (.*)",
+                                type="regex",
+                            )],
+                            extractions=[
+                                pagerduty.EventOrchestrationServiceSetRuleActionsExtractionArgs(
+                                    template="{{variables.hostname}}",
+                                    target="event.custom_details.hostname",
+                                ),
+                                pagerduty.EventOrchestrationServiceSetRuleActionsExtractionArgs(
+                                    source="event.source",
+                                    regex="www (.*) service",
+                                    target="event.source",
+                                ),
+                            ],
+                            route_to="step-two",
+                        ),
+                    )],
+                ),
+                pagerduty.EventOrchestrationServiceSetArgs(
+                    id="step-two",
+                    rules=[
+                        pagerduty.EventOrchestrationServiceSetRuleArgs(
+                            label="All critical alerts should be treated as P1 incident",
+                            conditions=[pagerduty.EventOrchestrationServiceSetRuleConditionArgs(
+                                expression="event.severity matches 'critical'",
+                            )],
+                            actions=pagerduty.EventOrchestrationServiceSetRuleActionsArgs(
+                                annotate="Please use our P1 runbook: https://docs.test/p1-runbook",
+                                priority=p1.id,
+                            ),
+                        ),
+                        pagerduty.EventOrchestrationServiceSetRuleArgs(
+                            label="If there's something wrong on the canary let the team know about it in our deployments Slack channel",
+                            conditions=[pagerduty.EventOrchestrationServiceSetRuleConditionArgs(
+                                expression="event.custom_details.hostname matches part 'canary'",
+                            )],
+                            actions=pagerduty.EventOrchestrationServiceSetRuleActionsArgs(
+                                automation_action=pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionArgs(
+                                    name="Canary Slack Notification",
+                                    url="https://our-slack-listerner.test/canary-notification",
+                                    auto_send=True,
+                                    parameters=[
+                                        pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs(
+                                            key="channel",
+                                            value="#my-team-channel",
+                                        ),
+                                        pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs(
+                                            key="message",
+                                            value="something is wrong with the canary deployment",
+                                        ),
+                                    ],
+                                    headers=[pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs(
+                                        key="X-Notification-Source",
+                                        value="PagerDuty Incident Webhook",
+                                    )],
+                                ),
+                            ),
+                        ),
+                        pagerduty.EventOrchestrationServiceSetRuleArgs(
+                            label="Never bother the on-call for info-level events outside of work hours",
+                            conditions=[pagerduty.EventOrchestrationServiceSetRuleConditionArgs(
+                                expression="event.severity matches 'info' and not (now in Mon,Tue,Wed,Thu,Fri 09:00:00 to 17:00:00 America/Los_Angeles)",
+                            )],
+                            actions=pagerduty.EventOrchestrationServiceSetRuleActionsArgs(
+                                suppress=True,
+                            ),
+                        ),
+                    ],
+                ),
+            ],
+            catch_all=pagerduty.EventOrchestrationServiceCatchAllArgs(
+                actions=pagerduty.EventOrchestrationServiceCatchAllActionsArgs(),
+            ))
+        ```
 
         ## Import
 

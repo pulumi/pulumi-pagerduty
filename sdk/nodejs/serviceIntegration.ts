@@ -9,6 +9,126 @@ import * as utilities from "./utilities";
 /**
  * A [service integration](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1services~1%7Bid%7D~1integrations/post) is an integration that belongs to a service.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const exampleUser = new pagerduty.User("exampleUser", {
+ *     email: "125.greenholt.earline@graham.name",
+ *     teams: [pagerduty_team.example.id],
+ * });
+ * const foo = new pagerduty.EscalationPolicy("foo", {
+ *     numLoops: 2,
+ *     rules: [{
+ *         escalationDelayInMinutes: 10,
+ *         targets: [{
+ *             type: "user",
+ *             id: exampleUser.id,
+ *         }],
+ *     }],
+ * });
+ * const exampleService = new pagerduty.Service("exampleService", {
+ *     autoResolveTimeout: "14400",
+ *     acknowledgementTimeout: "600",
+ *     escalationPolicy: pagerduty_escalation_policy.example.id,
+ * });
+ * const exampleServiceIntegration = new pagerduty.ServiceIntegration("exampleServiceIntegration", {
+ *     type: "generic_events_api_inbound_integration",
+ *     service: exampleService.id,
+ * });
+ * const apiv2 = new pagerduty.ServiceIntegration("apiv2", {
+ *     type: "events_api_v2_inbound_integration",
+ *     integrationKey: "12345678910testtesttesttesttes",
+ *     service: exampleService.id,
+ * });
+ * const emailX = new pagerduty.ServiceIntegration("emailX", {
+ *     type: "generic_email_inbound_integration",
+ *     integrationEmail: "ecommerce@subdomain.pagerduty.com",
+ *     service: exampleService.id,
+ * });
+ * const datadogVendor = pagerduty.getVendor({
+ *     name: "Datadog",
+ * });
+ * const datadogServiceIntegration = new pagerduty.ServiceIntegration("datadogServiceIntegration", {
+ *     service: exampleService.id,
+ *     vendor: datadogVendor.then(datadogVendor => datadogVendor.id),
+ * });
+ * const cloudwatchVendor = pagerduty.getVendor({
+ *     name: "Cloudwatch",
+ * });
+ * const cloudwatchServiceIntegration = new pagerduty.ServiceIntegration("cloudwatchServiceIntegration", {
+ *     service: exampleService.id,
+ *     vendor: cloudwatchVendor.then(cloudwatchVendor => cloudwatchVendor.id),
+ * });
+ * const emailVendor = pagerduty.getVendor({
+ *     name: "Email",
+ * });
+ * const emailServiceIntegration = new pagerduty.ServiceIntegration("emailServiceIntegration", {
+ *     service: exampleService.id,
+ *     vendor: emailVendor.then(emailVendor => emailVendor.id),
+ *     integrationEmail: "s1@your_account.pagerduty.com",
+ *     emailIncidentCreation: "use_rules",
+ *     emailFilterMode: "and-rules-email",
+ *     emailFilters: [
+ *         {
+ *             bodyMode: "always",
+ *             bodyRegex: undefined,
+ *             fromEmailMode: "match",
+ *             fromEmailRegex: "(@foo.test*)",
+ *             subjectMode: "match",
+ *             subjectRegex: "(CRITICAL*)",
+ *         },
+ *         {
+ *             bodyMode: "always",
+ *             bodyRegex: undefined,
+ *             fromEmailMode: "match",
+ *             fromEmailRegex: "(@bar.com*)",
+ *             subjectMode: "match",
+ *             subjectRegex: "(CRITICAL*)",
+ *         },
+ *     ],
+ *     emailParsers: [{
+ *         action: "resolve",
+ *         matchPredicate: {
+ *             type: "any",
+ *             predicates: [
+ *                 {
+ *                     matcher: "foo",
+ *                     part: "subject",
+ *                     type: "contains",
+ *                 },
+ *                 {
+ *                     type: "not",
+ *                     predicates: [{
+ *                         matcher: "(bar*)",
+ *                         part: "body",
+ *                         type: "regex",
+ *                     }],
+ *                 },
+ *             ],
+ *         },
+ *         valueExtractors: [
+ *             {
+ *                 endsBefore: "end",
+ *                 part: "subject",
+ *                 startsAfter: "start",
+ *                 type: "between",
+ *                 valueName: "incident_key",
+ *             },
+ *             {
+ *                 endsBefore: "end",
+ *                 part: "subject",
+ *                 startsAfter: "start",
+ *                 type: "between",
+ *                 valueName: "FieldName1",
+ *             },
+ *         ],
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Services can be imported using their related `service` id and service integration `id` separated by a dot, e.g.

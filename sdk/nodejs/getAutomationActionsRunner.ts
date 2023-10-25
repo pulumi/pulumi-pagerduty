@@ -6,6 +6,17 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to get information about a specific [automation actions runner](https://developer.pagerduty.com/api-reference/aace61f84cbd0-get-an-automation-action-runner).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const example = pagerduty.getAutomationActionsRunner({
+ *     id: "01DBJLIGED17S1DQKQC2AV8XYZ",
+ * });
+ * ```
  */
 export function getAutomationActionsRunner(args: GetAutomationActionsRunnerArgs, opts?: pulumi.InvokeOptions): Promise<GetAutomationActionsRunnerResult> {
 
@@ -79,6 +90,17 @@ export interface GetAutomationActionsRunnerResult {
 }
 /**
  * Use this data source to get information about a specific [automation actions runner](https://developer.pagerduty.com/api-reference/aace61f84cbd0-get-an-automation-action-runner).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const example = pagerduty.getAutomationActionsRunner({
+ *     id: "01DBJLIGED17S1DQKQC2AV8XYZ",
+ * });
+ * ```
  */
 export function getAutomationActionsRunnerOutput(args: GetAutomationActionsRunnerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutomationActionsRunnerResult> {
     return pulumi.output(args).apply((a: any) => getAutomationActionsRunner(a, opts))

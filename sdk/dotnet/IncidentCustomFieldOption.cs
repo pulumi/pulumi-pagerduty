@@ -12,6 +12,46 @@ namespace Pulumi.Pagerduty
     /// <summary>
     /// A Incident Custom Field Option is a specific value that can be used for an [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents) that only allow values from a set of fixed options,
     /// i.e. has the `field_type` of `single_value_fixed` or `multi_value_fixed`.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Pagerduty = Pulumi.Pagerduty;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sreEnvironment = new Pagerduty.IncidentCustomField("sreEnvironment", new()
+    ///     {
+    ///         DataType = "string",
+    ///         FieldType = "single_value_fixed",
+    ///     });
+    /// 
+    ///     var devEnvironment = new Pagerduty.IncidentCustomFieldOption("devEnvironment", new()
+    ///     {
+    ///         Field = sreEnvironment.Id,
+    ///         DataType = "string",
+    ///         Value = "dev",
+    ///     });
+    /// 
+    ///     var stageEnvironment = new Pagerduty.IncidentCustomFieldOption("stageEnvironment", new()
+    ///     {
+    ///         Field = sreEnvironment.Id,
+    ///         DataType = "string",
+    ///         Value = "stage",
+    ///     });
+    /// 
+    ///     var prodEnvironment = new Pagerduty.IncidentCustomFieldOption("prodEnvironment", new()
+    ///     {
+    ///         Field = sreEnvironment.Id,
+    ///         DataType = "string",
+    ///         Value = "prod",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/incidentCustomFieldOption:IncidentCustomFieldOption")]
     public partial class IncidentCustomFieldOption : global::Pulumi.CustomResource

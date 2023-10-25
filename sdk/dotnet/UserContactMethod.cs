@@ -10,6 +10,54 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Pagerduty = Pulumi.Pagerduty;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Pagerduty.User("example", new()
+    ///     {
+    ///         Email = "125.greenholt.earline@graham.name",
+    ///         Teams = new[]
+    ///         {
+    ///             pagerduty_team.Example.Id,
+    ///         },
+    ///     });
+    /// 
+    ///     var email = new Pagerduty.UserContactMethod("email", new()
+    ///     {
+    ///         UserId = example.Id,
+    ///         Type = "email_contact_method",
+    ///         Address = "foo@bar.com",
+    ///         Label = "Work",
+    ///     });
+    /// 
+    ///     var phone = new Pagerduty.UserContactMethod("phone", new()
+    ///     {
+    ///         UserId = example.Id,
+    ///         Type = "phone_contact_method",
+    ///         CountryCode = 1,
+    ///         Address = "2025550199",
+    ///         Label = "Work",
+    ///     });
+    /// 
+    ///     var sms = new Pagerduty.UserContactMethod("sms", new()
+    ///     {
+    ///         UserId = example.Id,
+    ///         Type = "sms_contact_method",
+    ///         CountryCode = 1,
+    ///         Address = "2025550199",
+    ///         Label = "Work",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Contact methods can be imported using the `user_id` and the `id`, e.g.

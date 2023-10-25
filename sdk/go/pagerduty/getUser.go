@@ -13,6 +13,49 @@ import (
 )
 
 // Use this data source to get information about a specific [user](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			me, err := pagerduty.LookupUser(ctx, &pagerduty.LookupUserArgs{
+//				Email: "me@example.com",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewEscalationPolicy(ctx, "foo", &pagerduty.EscalationPolicyArgs{
+//				NumLoops: pulumi.Int(2),
+//				Rules: pagerduty.EscalationPolicyRuleArray{
+//					&pagerduty.EscalationPolicyRuleArgs{
+//						EscalationDelayInMinutes: pulumi.Int(10),
+//						Targets: pagerduty.EscalationPolicyRuleTargetArray{
+//							&pagerduty.EscalationPolicyRuleTargetArgs{
+//								Type: pulumi.String("user"),
+//								Id:   *pulumi.String(me.Id),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.InvokeOption) (*LookupUserResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupUserResult

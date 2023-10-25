@@ -13,12 +13,108 @@ namespace Pulumi.Pagerduty
     {
         /// <summary>
         /// Use this data source to get information about [list of users](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources, optionally filtering by team ids.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var devops = Pagerduty.GetTeam.Invoke(new()
+        ///     {
+        ///         Name = "devops",
+        ///     });
+        /// 
+        ///     var me = Pagerduty.GetUser.Invoke(new()
+        ///     {
+        ///         Email = "me@example.com",
+        ///     });
+        /// 
+        ///     var exampleWTeam = new Pagerduty.User("exampleWTeam", new()
+        ///     {
+        ///         Email = "user-with-team@example.com",
+        ///     });
+        /// 
+        ///     var example = new Pagerduty.TeamMembership("example", new()
+        ///     {
+        ///         TeamId = pagerduty_team.Devops.Id,
+        ///         UserId = exampleWTeam.Id,
+        ///     });
+        /// 
+        ///     var allUsers = Pagerduty.GetUsers.Invoke();
+        /// 
+        ///     var fromDevopsTeam = Pagerduty.GetUsers.Invoke(new()
+        ///     {
+        ///         TeamIds = new[]
+        ///         {
+        ///             pagerduty_team.Devops.Id,
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetUsersResult> InvokeAsync(GetUsersArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUsersResult>("pagerduty:index/getUsers:getUsers", args ?? new GetUsersArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information about [list of users](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources, optionally filtering by team ids.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var devops = Pagerduty.GetTeam.Invoke(new()
+        ///     {
+        ///         Name = "devops",
+        ///     });
+        /// 
+        ///     var me = Pagerduty.GetUser.Invoke(new()
+        ///     {
+        ///         Email = "me@example.com",
+        ///     });
+        /// 
+        ///     var exampleWTeam = new Pagerduty.User("exampleWTeam", new()
+        ///     {
+        ///         Email = "user-with-team@example.com",
+        ///     });
+        /// 
+        ///     var example = new Pagerduty.TeamMembership("example", new()
+        ///     {
+        ///         TeamId = pagerduty_team.Devops.Id,
+        ///         UserId = exampleWTeam.Id,
+        ///     });
+        /// 
+        ///     var allUsers = Pagerduty.GetUsers.Invoke();
+        /// 
+        ///     var fromDevopsTeam = Pagerduty.GetUsers.Invoke(new()
+        ///     {
+        ///         TeamIds = new[]
+        ///         {
+        ///             pagerduty_team.Devops.Id,
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetUsersResult> Invoke(GetUsersInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUsersResult>("pagerduty:index/getUsers:getUsers", args ?? new GetUsersInvokeArgs(), options.WithDefaults());

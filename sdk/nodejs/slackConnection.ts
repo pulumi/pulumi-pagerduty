@@ -13,6 +13,42 @@ import * as utilities from "./utilities";
  * * To first use this resource you will need to [map your PagerDuty account to a valid Slack Workspace](https://support.pagerduty.com/docs/slack-integration-guide#integration-walkthrough). *This can only be done through the PagerDuty UI.*
  * * This resource requires a PagerDuty [user-level API key](https://support.pagerduty.com/docs/generating-api-keys#section-generating-a-personal-rest-api-key). This can be set as the `userToken` on the provider tag or as the `PAGERDUTY_USER_TOKEN` environment variable.
  * * This resource is for configuring Slack V2 Next Generation connections. If you configured your Slack integration (V1 or V2) prior to August 10, 2021, you may migrate to the Slack V2 Next Generation update using this [migration instructions](https://support.pagerduty.com/docs/slack-integration-guide#migrate-to-slack-v2-next-generation), but if you configured your Slack integration after that date, you will have access to the update out of the box.
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const fooTeam = new pagerduty.Team("fooTeam", {});
+ * const p1 = pagerduty.getPriority({
+ *     name: "P1",
+ * });
+ * const fooSlackConnection = new pagerduty.SlackConnection("fooSlackConnection", {
+ *     sourceId: fooTeam.id,
+ *     sourceType: "team_reference",
+ *     workspaceId: "T02A123LV1A",
+ *     channelId: "C02CABCDAC9",
+ *     notificationType: "responder",
+ *     configs: [{
+ *         events: [
+ *             "incident.triggered",
+ *             "incident.acknowledged",
+ *             "incident.escalated",
+ *             "incident.resolved",
+ *             "incident.reassigned",
+ *             "incident.annotated",
+ *             "incident.unacknowledged",
+ *             "incident.delegated",
+ *             "incident.priority_updated",
+ *             "incident.responder.added",
+ *             "incident.responder.replied",
+ *             "incident.status_update_published",
+ *             "incident.reopened",
+ *         ],
+ *         priorities: [p1.then(p1 => p1.id)],
+ *     }],
+ * });
+ * ```
  *
  * ## Import
  *

@@ -6,6 +6,31 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to get information about a specific [contact method](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzOQ-list-a-user-s-contact-methods) of a PagerDuty [user](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const me = pagerduty.getUser({
+ *     email: "me@example.com",
+ * });
+ * const phonePush = me.then(me => pagerduty.getUserContactMethod({
+ *     userId: me.id,
+ *     type: "push_notification_contact_method",
+ *     label: "iPhone (John)",
+ * }));
+ * const lowUrgencySms = new pagerduty.UserNotificationRule("lowUrgencySms", {
+ *     userId: me.then(me => me.id),
+ *     startDelayInMinutes: 5,
+ *     urgency: "high",
+ *     contactMethod: {
+ *         type: "push_notification_contact_method",
+ *         id: phonePush.then(phonePush => phonePush.id),
+ *     },
+ * });
+ * ```
  */
 export function getUserContactMethod(args: GetUserContactMethodArgs, opts?: pulumi.InvokeOptions): Promise<GetUserContactMethodResult> {
 
@@ -79,6 +104,31 @@ export interface GetUserContactMethodResult {
 }
 /**
  * Use this data source to get information about a specific [contact method](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzOQ-list-a-user-s-contact-methods) of a PagerDuty [user](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const me = pagerduty.getUser({
+ *     email: "me@example.com",
+ * });
+ * const phonePush = me.then(me => pagerduty.getUserContactMethod({
+ *     userId: me.id,
+ *     type: "push_notification_contact_method",
+ *     label: "iPhone (John)",
+ * }));
+ * const lowUrgencySms = new pagerduty.UserNotificationRule("lowUrgencySms", {
+ *     userId: me.then(me => me.id),
+ *     startDelayInMinutes: 5,
+ *     urgency: "high",
+ *     contactMethod: {
+ *         type: "push_notification_contact_method",
+ *         id: phonePush.then(phonePush => phonePush.id),
+ *     },
+ * });
+ * ```
  */
 export function getUserContactMethodOutput(args: GetUserContactMethodOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserContactMethodResult> {
     return pulumi.output(args).apply((a: any) => getUserContactMethod(a, opts))

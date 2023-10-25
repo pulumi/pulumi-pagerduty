@@ -12,6 +12,76 @@ namespace Pulumi.Pagerduty
     /// <summary>
     /// A [webhook subscription](https://developer.pagerduty.com/docs/ZG9jOjExMDI5NTkw-v3-overview) allow you to receive HTTP callbacks when incidents are created, updated and deleted. These are also known as V3 Webhooks.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Pagerduty = Pulumi.Pagerduty;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = Pagerduty.GetService.Invoke(new()
+    ///     {
+    ///         Name = "My Service",
+    ///     });
+    /// 
+    ///     var foo = new Pagerduty.WebhookSubscription("foo", new()
+    ///     {
+    ///         DeliveryMethods = new[]
+    ///         {
+    ///             new Pagerduty.Inputs.WebhookSubscriptionDeliveryMethodArgs
+    ///             {
+    ///                 Type = "http_delivery_method",
+    ///                 Url = "https://example.com/receive_a_pagerduty_webhook",
+    ///                 CustomHeaders = new[]
+    ///                 {
+    ///                     new Pagerduty.Inputs.WebhookSubscriptionDeliveryMethodCustomHeaderArgs
+    ///                     {
+    ///                         Name = "X-Foo",
+    ///                         Value = "foo",
+    ///                     },
+    ///                     new Pagerduty.Inputs.WebhookSubscriptionDeliveryMethodCustomHeaderArgs
+    ///                     {
+    ///                         Name = "X-Bar",
+    ///                         Value = "bar",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Description = "%s",
+    ///         Events = new[]
+    ///         {
+    ///             "incident.acknowledged",
+    ///             "incident.annotated",
+    ///             "incident.delegated",
+    ///             "incident.escalated",
+    ///             "incident.priority_updated",
+    ///             "incident.reassigned",
+    ///             "incident.reopened",
+    ///             "incident.resolved",
+    ///             "incident.responder.added",
+    ///             "incident.responder.replied",
+    ///             "incident.status_update_published",
+    ///             "incident.triggered",
+    ///             "incident.unacknowledged",
+    ///         },
+    ///         Active = true,
+    ///         Filters = new[]
+    ///         {
+    ///             new Pagerduty.Inputs.WebhookSubscriptionFilterArgs
+    ///             {
+    ///                 Id = example.Apply(getServiceResult =&gt; getServiceResult.Id),
+    ///                 Type = "service_reference",
+    ///             },
+    ///         },
+    ///         Type = "webhook_subscription",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Webhook Subscriptions can be imported using the `id`, e.g.

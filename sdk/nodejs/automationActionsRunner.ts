@@ -9,6 +9,22 @@ import * as utilities from "./utilities";
  *
  * > Only Runbook Automation (runbook) runners can be created.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const config = new pulumi.Config();
+ * const rUNBOOKAPIKEY = config.require("rUNBOOKAPIKEY");
+ * const example = new pagerduty.AutomationActionsRunner("example", {
+ *     description: "Description of the Runner created via TF",
+ *     runnerType: "runbook",
+ *     runbookBaseUri: "rdcat.stg",
+ *     runbookApiKey: rUNBOOKAPIKEY,
+ * });
+ * ```
+ *
  * ## Import
  *
  * -> In the example below the `runbook_api_key` attribute has been omitted to avoid resource replacement after the import. Runners can be imported using the `id`, e.g. resource "pagerduty_automation_actions_runner" "example" {

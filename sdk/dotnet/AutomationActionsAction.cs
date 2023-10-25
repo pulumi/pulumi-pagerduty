@@ -12,6 +12,40 @@ namespace Pulumi.Pagerduty
     /// <summary>
     /// An Automation Actions [action](https://developer.pagerduty.com/api-reference/d64584a4371d3-create-an-automation-action) invokes jobs and workflows that are staged in Runbook Automation or Process Automation. It may also execute a command line script run by a Process Automation runner installed in your infrastructure.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Pagerduty = Pulumi.Pagerduty;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var paActionExample = new Pagerduty.AutomationActionsAction("paActionExample", new()
+    ///     {
+    ///         ActionDataReference = new Pagerduty.Inputs.AutomationActionsActionActionDataReferenceArgs
+    ///         {
+    ///             ProcessAutomationJobId = "P123456",
+    ///         },
+    ///         ActionType = "process_automation",
+    ///         Description = "Description of the PA Action created via TF",
+    ///     });
+    /// 
+    ///     var scriptActionExample = new Pagerduty.AutomationActionsAction("scriptActionExample", new()
+    ///     {
+    ///         ActionDataReference = new Pagerduty.Inputs.AutomationActionsActionActionDataReferenceArgs
+    ///         {
+    ///             InvocationCommand = "/usr/local/bin/python3",
+    ///             Script = "print(\"Hello from a Python script!\")",
+    ///         },
+    ///         ActionType = "script",
+    ///         Description = "Description of the Script Action created via TF",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Actions can be imported using the `id`, e.g.

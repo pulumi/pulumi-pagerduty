@@ -94,6 +94,34 @@ class ServiceDependency(pulumi.CustomResource):
         """
         A [service dependency](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE5Mg-associate-service-dependencies) is a relationship between two services that this service uses, or that are used by this service, and are critical for successful operation.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        foo = pagerduty.ServiceDependency("foo", dependency=pagerduty.ServiceDependencyDependencyArgs(
+            dependent_services=[pagerduty.ServiceDependencyDependencyDependentServiceArgs(
+                id=pagerduty_business_service["foo"]["id"],
+                type=pagerduty_business_service["foo"]["type"],
+            )],
+            supporting_services=[pagerduty.ServiceDependencyDependencySupportingServiceArgs(
+                id=pagerduty_service["foo"]["id"],
+                type=pagerduty_service["foo"]["type"],
+            )],
+        ))
+        bar = pagerduty.ServiceDependency("bar", dependency=pagerduty.ServiceDependencyDependencyArgs(
+            dependent_services=[pagerduty.ServiceDependencyDependencyDependentServiceArgs(
+                id=pagerduty_business_service["foo"]["id"],
+                type=pagerduty_business_service["foo"]["type"],
+            )],
+            supporting_services=[pagerduty.ServiceDependencyDependencySupportingServiceArgs(
+                id=pagerduty_service["two"]["id"],
+                type=pagerduty_service["two"]["type"],
+            )],
+        ))
+        ```
+
         ## Import
 
         Service dependencies can be imported using the related supporting service id, supporting service type (`business_service` or `service`) and the dependency id separated by a dot, e.g.
@@ -114,6 +142,34 @@ class ServiceDependency(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A [service dependency](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE5Mg-associate-service-dependencies) is a relationship between two services that this service uses, or that are used by this service, and are critical for successful operation.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        foo = pagerduty.ServiceDependency("foo", dependency=pagerduty.ServiceDependencyDependencyArgs(
+            dependent_services=[pagerduty.ServiceDependencyDependencyDependentServiceArgs(
+                id=pagerduty_business_service["foo"]["id"],
+                type=pagerduty_business_service["foo"]["type"],
+            )],
+            supporting_services=[pagerduty.ServiceDependencyDependencySupportingServiceArgs(
+                id=pagerduty_service["foo"]["id"],
+                type=pagerduty_service["foo"]["type"],
+            )],
+        ))
+        bar = pagerduty.ServiceDependency("bar", dependency=pagerduty.ServiceDependencyDependencyArgs(
+            dependent_services=[pagerduty.ServiceDependencyDependencyDependentServiceArgs(
+                id=pagerduty_business_service["foo"]["id"],
+                type=pagerduty_business_service["foo"]["type"],
+            )],
+            supporting_services=[pagerduty.ServiceDependencyDependencySupportingServiceArgs(
+                id=pagerduty_service["two"]["id"],
+                type=pagerduty_service["two"]["type"],
+            )],
+        ))
+        ```
 
         ## Import
 

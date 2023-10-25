@@ -15,6 +15,60 @@ import (
 
 // A [business service subscriber](https://developer.pagerduty.com/api-reference/b3A6NDUwNDgxOQ-list-business-service-subscribers) allows you to subscribe users or teams to automatically receive updates about key business services.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleBusinessService, err := pagerduty.NewBusinessService(ctx, "exampleBusinessService", &pagerduty.BusinessServiceArgs{
+//				Description:    pulumi.String("A very descriptive description of this business service"),
+//				PointOfContact: pulumi.String("PagerDuty Admin"),
+//				Team:           pulumi.String("P37RSRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			engteam, err := pagerduty.NewTeam(ctx, "engteam", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
+//				Email: pulumi.String("125.greenholt.earline@graham.name"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewBusinessServiceSubscriber(ctx, "teamExample", &pagerduty.BusinessServiceSubscriberArgs{
+//				SubscriberId:      engteam.ID(),
+//				SubscriberType:    pulumi.String("team"),
+//				BusinessServiceId: exampleBusinessService.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewBusinessServiceSubscriber(ctx, "userExample", &pagerduty.BusinessServiceSubscriberArgs{
+//				SubscriberId:      exampleUser.ID(),
+//				SubscriberType:    pulumi.String("user"),
+//				BusinessServiceId: exampleBusinessService.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Services can be imported using the `id` using the related business service ID, the subscriber type and the subscriber ID separated by a dot, e.g.

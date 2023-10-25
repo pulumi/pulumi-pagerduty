@@ -326,6 +326,34 @@ class UserContactMethod(pulumi.CustomResource):
                  user_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        example = pagerduty.User("example",
+            email="125.greenholt.earline@graham.name",
+            teams=[pagerduty_team["example"]["id"]])
+        email = pagerduty.UserContactMethod("email",
+            user_id=example.id,
+            type="email_contact_method",
+            address="foo@bar.com",
+            label="Work")
+        phone = pagerduty.UserContactMethod("phone",
+            user_id=example.id,
+            type="phone_contact_method",
+            country_code=1,
+            address="2025550199",
+            label="Work")
+        sms = pagerduty.UserContactMethod("sms",
+            user_id=example.id,
+            type="sms_contact_method",
+            country_code=1,
+            address="2025550199",
+            label="Work")
+        ```
+
         ## Import
 
         Contact methods can be imported using the `user_id` and the `id`, e.g.
@@ -350,6 +378,34 @@ class UserContactMethod(pulumi.CustomResource):
                  args: UserContactMethodArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        example = pagerduty.User("example",
+            email="125.greenholt.earline@graham.name",
+            teams=[pagerduty_team["example"]["id"]])
+        email = pagerduty.UserContactMethod("email",
+            user_id=example.id,
+            type="email_contact_method",
+            address="foo@bar.com",
+            label="Work")
+        phone = pagerduty.UserContactMethod("phone",
+            user_id=example.id,
+            type="phone_contact_method",
+            country_code=1,
+            address="2025550199",
+            label="Work")
+        sms = pagerduty.UserContactMethod("sms",
+            user_id=example.id,
+            type="sms_contact_method",
+            country_code=1,
+            address="2025550199",
+            label="Work")
+        ```
+
         ## Import
 
         Contact methods can be imported using the `user_id` and the `id`, e.g.

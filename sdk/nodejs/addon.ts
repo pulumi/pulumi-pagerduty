@@ -7,6 +7,15 @@ import * as utilities from "./utilities";
 /**
  * With [add-ons](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEwNQ-install-an-add-on), third-party developers can write their own add-ons to PagerDuty's UI. Given a configuration containing a src parameter, that URL will be embedded in an iframe on a page that's available to users from a drop-down menu.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const example = new pagerduty.Addon("example", {src: "https://intranet.example.com/status"});
+ * ```
+ *
  * ## Import
  *
  * Add-ons can be imported using the `id`, e.g.

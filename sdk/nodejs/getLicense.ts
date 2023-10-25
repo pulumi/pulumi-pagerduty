@@ -8,6 +8,24 @@ import * as utilities from "./utilities";
  * Use this data source to use a single purchased [license](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) to manage PagerDuty user resources. After applying changes to users' licenses, the `currentValue` and `allocationsAvailable` attributes of licenses will change.
  *
  * > It is preferred to set the `name` and `description` to their exact values or to set the `id`. However, this will require updating your configuration if the accounts products ever change. To avoid errors when account products change, you may set the `name` of a license to a valid substring such as `"Full User"` or `"Stakeholder"`.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const invalidRoles = ["owner"];
+ * const fullUser = pagerduty.getLicense({
+ *     name: "Full User",
+ *     description: "",
+ * });
+ * const example = new pagerduty.User("example", {
+ *     email: "125.greenholt.earline@graham.name",
+ *     license: fullUser.then(fullUser => fullUser.id),
+ *     role: "user",
+ * });
+ * ```
  */
 export function getLicense(args?: GetLicenseArgs, opts?: pulumi.InvokeOptions): Promise<GetLicenseResult> {
     args = args || {};
@@ -104,6 +122,24 @@ export interface GetLicenseResult {
  * Use this data source to use a single purchased [license](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) to manage PagerDuty user resources. After applying changes to users' licenses, the `currentValue` and `allocationsAvailable` attributes of licenses will change.
  *
  * > It is preferred to set the `name` and `description` to their exact values or to set the `id`. However, this will require updating your configuration if the accounts products ever change. To avoid errors when account products change, you may set the `name` of a license to a valid substring such as `"Full User"` or `"Stakeholder"`.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const invalidRoles = ["owner"];
+ * const fullUser = pagerduty.getLicense({
+ *     name: "Full User",
+ *     description: "",
+ * });
+ * const example = new pagerduty.User("example", {
+ *     email: "125.greenholt.earline@graham.name",
+ *     license: fullUser.then(fullUser => fullUser.id),
+ *     role: "user",
+ * });
+ * ```
  */
 export function getLicenseOutput(args?: GetLicenseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLicenseResult> {
     return pulumi.output(args).apply((a: any) => getLicense(a, opts))

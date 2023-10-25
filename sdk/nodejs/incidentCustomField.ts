@@ -7,6 +7,22 @@ import * as utilities from "./utilities";
 /**
  * An [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents) defines a field which can be set on incidents in the target account.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const csImpact = new pagerduty.IncidentCustomField("csImpact", {
+ *     dataType: "string",
+ *     fieldType: "single_value",
+ * });
+ * const sreEnvironment = new pagerduty.IncidentCustomField("sreEnvironment", {
+ *     dataType: "string",
+ *     fieldType: "single_value_fixed",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Fields can be imported using the `id`, e.g.

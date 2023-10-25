@@ -10,6 +10,129 @@ using Pulumi.Serialization;
 namespace Pulumi.Pagerduty
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Pagerduty = Pulumi.Pagerduty;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Pagerduty.Service("example", new()
+    ///     {
+    ///         AutoResolveTimeout = "14400",
+    ///         AcknowledgementTimeout = "600",
+    ///         EscalationPolicy = pagerduty_escalation_policy.Example.Id,
+    ///         AlertCreation = "create_alerts_and_incidents",
+    ///     });
+    /// 
+    ///     var foo = new Pagerduty.ServiceEventRule("foo", new()
+    ///     {
+    ///         Service = example.Id,
+    ///         Position = 0,
+    ///         Disabled = true,
+    ///         Conditions = new Pagerduty.Inputs.ServiceEventRuleConditionsArgs
+    ///         {
+    ///             Operator = "and",
+    ///             Subconditions = new[]
+    ///             {
+    ///                 new Pagerduty.Inputs.ServiceEventRuleConditionsSubconditionArgs
+    ///                 {
+    ///                     Operator = "contains",
+    ///                     Parameters = new[]
+    ///                     {
+    ///                         new Pagerduty.Inputs.ServiceEventRuleConditionsSubconditionParameterArgs
+    ///                         {
+    ///                             Value = "disk space",
+    ///                             Path = "summary",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Variables = new[]
+    ///         {
+    ///             new Pagerduty.Inputs.ServiceEventRuleVariableArgs
+    ///             {
+    ///                 Type = "regex",
+    ///                 Name = "Src",
+    ///                 Parameters = new[]
+    ///                 {
+    ///                     new Pagerduty.Inputs.ServiceEventRuleVariableParameterArgs
+    ///                     {
+    ///                         Value = "(.*)",
+    ///                         Path = "source",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Actions = new Pagerduty.Inputs.ServiceEventRuleActionsArgs
+    ///         {
+    ///             Annotates = new[]
+    ///             {
+    ///                 new Pagerduty.Inputs.ServiceEventRuleActionsAnnotateArgs
+    ///                 {
+    ///                     Value = "From Terraform",
+    ///                 },
+    ///             },
+    ///             Extractions = new[]
+    ///             {
+    ///                 new Pagerduty.Inputs.ServiceEventRuleActionsExtractionArgs
+    ///                 {
+    ///                     Target = "dedup_key",
+    ///                     Source = "source",
+    ///                     Regex = "(.*)",
+    ///                 },
+    ///                 new Pagerduty.Inputs.ServiceEventRuleActionsExtractionArgs
+    ///                 {
+    ///                     Target = "summary",
+    ///                     Template = "Warning: Disk Space Low on {{Src}}",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var bar = new Pagerduty.ServiceEventRule("bar", new()
+    ///     {
+    ///         Service = pagerduty_service.Foo.Id,
+    ///         Position = 1,
+    ///         Disabled = true,
+    ///         Conditions = new Pagerduty.Inputs.ServiceEventRuleConditionsArgs
+    ///         {
+    ///             Operator = "and",
+    ///             Subconditions = new[]
+    ///             {
+    ///                 new Pagerduty.Inputs.ServiceEventRuleConditionsSubconditionArgs
+    ///                 {
+    ///                     Operator = "contains",
+    ///                     Parameters = new[]
+    ///                     {
+    ///                         new Pagerduty.Inputs.ServiceEventRuleConditionsSubconditionParameterArgs
+    ///                         {
+    ///                             Value = "cpu spike",
+    ///                             Path = "summary",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Actions = new Pagerduty.Inputs.ServiceEventRuleActionsArgs
+    ///         {
+    ///             Annotates = new[]
+    ///             {
+    ///                 new Pagerduty.Inputs.ServiceEventRuleActionsAnnotateArgs
+    ///                 {
+    ///                     Value = "From Terraform",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Service event rules can be imported using using the related `service` id and the `service_event_rule` id separated by a dot, e.g.

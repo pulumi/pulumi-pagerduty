@@ -13,6 +13,40 @@ import (
 )
 
 // Use this data source to get information as a list about specific Global [Event Orchestrations](https://developer.pagerduty.com/api-reference/7ba0fe7bdb26a-list-event-orchestrations) filtered by a Regular Expression provided.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := pagerduty.NewEventOrchestration(ctx, "tfOrchA", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewEventOrchestration(ctx, "tfOrchB", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.GetEventOrchestrations(ctx, &pagerduty.GetEventOrchestrationsArgs{
+//				NameFilter: ".*Orchestration$",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetEventOrchestrations(ctx *pulumi.Context, args *GetEventOrchestrationsArgs, opts ...pulumi.InvokeOption) (*GetEventOrchestrationsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEventOrchestrationsResult

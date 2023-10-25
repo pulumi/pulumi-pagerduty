@@ -8,6 +8,25 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to get information about a specific [service](https://api-reference.pagerduty.com/#!/Services/get_services).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const exampleService = pagerduty.getService({
+ *     name: "My Service",
+ * });
+ * const datadog = pagerduty.getVendor({
+ *     name: "Datadog",
+ * });
+ * const exampleServiceIntegration = new pagerduty.ServiceIntegration("exampleServiceIntegration", {
+ *     vendor: datadog.then(datadog => datadog.id),
+ *     service: exampleService.then(exampleService => exampleService.id),
+ *     type: "generic_events_api_inbound_integration",
+ * });
+ * ```
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
 
@@ -70,6 +89,25 @@ export interface GetServiceResult {
 }
 /**
  * Use this data source to get information about a specific [service](https://api-reference.pagerduty.com/#!/Services/get_services).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const exampleService = pagerduty.getService({
+ *     name: "My Service",
+ * });
+ * const datadog = pagerduty.getVendor({
+ *     name: "Datadog",
+ * });
+ * const exampleServiceIntegration = new pagerduty.ServiceIntegration("exampleServiceIntegration", {
+ *     vendor: datadog.then(datadog => datadog.id),
+ *     service: exampleService.then(exampleService => exampleService.id),
+ *     type: "generic_events_api_inbound_integration",
+ * });
+ * ```
  */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
     return pulumi.output(args).apply((a: any) => getService(a, opts))

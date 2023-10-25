@@ -6,6 +6,26 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to get information about a specific [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) so that you can create a trigger for it.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const myWorkflow = pagerduty.getIncidentWorkflow({
+ *     name: "Some Workflow Name",
+ * });
+ * const firstService = pagerduty.getService({
+ *     name: "My First Service",
+ * });
+ * const automaticTrigger = new pagerduty.IncidentWorkflowTrigger("automaticTrigger", {
+ *     type: "conditional",
+ *     workflow: myWorkflow.then(myWorkflow => myWorkflow.id),
+ *     services: [firstService.then(firstService => firstService.id)],
+ *     condition: "incident.priority matches 'P1'",
+ * });
+ * ```
  */
 export function getIncidentWorkflow(args: GetIncidentWorkflowArgs, opts?: pulumi.InvokeOptions): Promise<GetIncidentWorkflowResult> {
 
@@ -38,6 +58,26 @@ export interface GetIncidentWorkflowResult {
 }
 /**
  * Use this data source to get information about a specific [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) so that you can create a trigger for it.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const myWorkflow = pagerduty.getIncidentWorkflow({
+ *     name: "Some Workflow Name",
+ * });
+ * const firstService = pagerduty.getService({
+ *     name: "My First Service",
+ * });
+ * const automaticTrigger = new pagerduty.IncidentWorkflowTrigger("automaticTrigger", {
+ *     type: "conditional",
+ *     workflow: myWorkflow.then(myWorkflow => myWorkflow.id),
+ *     services: [firstService.then(firstService => firstService.id)],
+ *     condition: "incident.priority matches 'P1'",
+ * });
+ * ```
  */
 export function getIncidentWorkflowOutput(args: GetIncidentWorkflowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIncidentWorkflowResult> {
     return pulumi.output(args).apply((a: any) => getIncidentWorkflow(a, opts))

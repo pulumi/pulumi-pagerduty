@@ -166,6 +166,18 @@ class Ruleset(pulumi.CustomResource):
                  team: Optional[pulumi.Input[pulumi.InputType['RulesetTeamArgs']]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        foo_team = pagerduty.Team("fooTeam")
+        foo_ruleset = pagerduty.Ruleset("fooRuleset", team=pagerduty.RulesetTeamArgs(
+            id=foo_team.id,
+        ))
+        ```
+
         ## Import
 
         Rulesets can be imported using the `id`, e.g.
@@ -186,6 +198,18 @@ class Ruleset(pulumi.CustomResource):
                  args: Optional[RulesetArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        foo_team = pagerduty.Team("fooTeam")
+        foo_ruleset = pagerduty.Ruleset("fooRuleset", team=pagerduty.RulesetTeamArgs(
+            id=foo_team.id,
+        ))
+        ```
+
         ## Import
 
         Rulesets can be imported using the `id`, e.g.

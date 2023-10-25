@@ -9,6 +9,32 @@ import * as utilities from "./utilities";
 /**
  * A [schedule](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE4Mg-create-a-schedule) determines the time periods that users are on call. Only on-call users are eligible to receive notifications from incidents.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const exampleUser = new pagerduty.User("exampleUser", {email: "125.greenholt.earline@graham.name"});
+ * const exampleTeam = new pagerduty.Team("exampleTeam", {});
+ * const foo = new pagerduty.Schedule("foo", {
+ *     timeZone: "America/New_York",
+ *     layers: [{
+ *         name: "Night Shift",
+ *         start: "2015-11-06T20:00:00-05:00",
+ *         rotationVirtualStart: "2015-11-06T20:00:00-05:00",
+ *         rotationTurnLengthSeconds: 86400,
+ *         users: [exampleUser.id],
+ *         restrictions: [{
+ *             type: "daily_restriction",
+ *             startTimeOfDay: "08:00:00",
+ *             durationSeconds: 32400,
+ *         }],
+ *     }],
+ *     teams: [exampleTeam.id],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Schedules can be imported using the `id`, e.g.

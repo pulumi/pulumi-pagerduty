@@ -15,6 +15,70 @@ namespace Pulumi.Pagerduty
         /// Use this data source to get information about a specific [vendor](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODI1OQ-list-vendors) that you can use for a service integration (e.g. Amazon Cloudwatch, Splunk, Datadog).
         /// 
         /// &gt; For the case of vendors that rely on [Change Events](https://support.pagerduty.com/docs/change-events) (e.g. Jekings CI, Github, Gitlab, ...) is important to know that those vendors are only available with [PagerDuty AIOps](https://support.pagerduty.com/docs/aiops) add-on. Therefore, they won't be accessible as result of `pagerduty.getVendor` data source without the proper entitlements.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var datadog = Pagerduty.GetVendor.Invoke(new()
+        ///     {
+        ///         Name = "Datadog",
+        ///     });
+        /// 
+        ///     var exampleUser = new Pagerduty.User("exampleUser", new()
+        ///     {
+        ///         Email = "125.greenholt.earline@graham.name",
+        ///         Teams = new[]
+        ///         {
+        ///             pagerduty_team.Example.Id,
+        ///         },
+        ///     });
+        /// 
+        ///     var foo = new Pagerduty.EscalationPolicy("foo", new()
+        ///     {
+        ///         NumLoops = 2,
+        ///         Rules = new[]
+        ///         {
+        ///             new Pagerduty.Inputs.EscalationPolicyRuleArgs
+        ///             {
+        ///                 EscalationDelayInMinutes = 10,
+        ///                 Targets = new[]
+        ///                 {
+        ///                     new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
+        ///                     {
+        ///                         Type = "user",
+        ///                         Id = exampleUser.Id,
+        ///                     },
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleService = new Pagerduty.Service("exampleService", new()
+        ///     {
+        ///         AutoResolveTimeout = "14400",
+        ///         AcknowledgementTimeout = "600",
+        ///         EscalationPolicy = pagerduty_escalation_policy.Example.Id,
+        ///     });
+        /// 
+        ///     var exampleServiceIntegration = new Pagerduty.ServiceIntegration("exampleServiceIntegration", new()
+        ///     {
+        ///         Vendor = datadog.Apply(getVendorResult =&gt; getVendorResult.Id),
+        ///         Service = exampleService.Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetVendorResult> InvokeAsync(GetVendorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVendorResult>("pagerduty:index/getVendor:getVendor", args ?? new GetVendorArgs(), options.WithDefaults());
@@ -23,6 +87,70 @@ namespace Pulumi.Pagerduty
         /// Use this data source to get information about a specific [vendor](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODI1OQ-list-vendors) that you can use for a service integration (e.g. Amazon Cloudwatch, Splunk, Datadog).
         /// 
         /// &gt; For the case of vendors that rely on [Change Events](https://support.pagerduty.com/docs/change-events) (e.g. Jekings CI, Github, Gitlab, ...) is important to know that those vendors are only available with [PagerDuty AIOps](https://support.pagerduty.com/docs/aiops) add-on. Therefore, they won't be accessible as result of `pagerduty.getVendor` data source without the proper entitlements.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var datadog = Pagerduty.GetVendor.Invoke(new()
+        ///     {
+        ///         Name = "Datadog",
+        ///     });
+        /// 
+        ///     var exampleUser = new Pagerduty.User("exampleUser", new()
+        ///     {
+        ///         Email = "125.greenholt.earline@graham.name",
+        ///         Teams = new[]
+        ///         {
+        ///             pagerduty_team.Example.Id,
+        ///         },
+        ///     });
+        /// 
+        ///     var foo = new Pagerduty.EscalationPolicy("foo", new()
+        ///     {
+        ///         NumLoops = 2,
+        ///         Rules = new[]
+        ///         {
+        ///             new Pagerduty.Inputs.EscalationPolicyRuleArgs
+        ///             {
+        ///                 EscalationDelayInMinutes = 10,
+        ///                 Targets = new[]
+        ///                 {
+        ///                     new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
+        ///                     {
+        ///                         Type = "user",
+        ///                         Id = exampleUser.Id,
+        ///                     },
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleService = new Pagerduty.Service("exampleService", new()
+        ///     {
+        ///         AutoResolveTimeout = "14400",
+        ///         AcknowledgementTimeout = "600",
+        ///         EscalationPolicy = pagerduty_escalation_policy.Example.Id,
+        ///     });
+        /// 
+        ///     var exampleServiceIntegration = new Pagerduty.ServiceIntegration("exampleServiceIntegration", new()
+        ///     {
+        ///         Vendor = datadog.Apply(getVendorResult =&gt; getVendorResult.Id),
+        ///         Service = exampleService.Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetVendorResult> Invoke(GetVendorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVendorResult>("pagerduty:index/getVendor:getVendor", args ?? new GetVendorInvokeArgs(), options.WithDefaults());

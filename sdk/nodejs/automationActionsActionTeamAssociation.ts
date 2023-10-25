@@ -7,6 +7,26 @@ import * as utilities from "./utilities";
 /**
  * An Automation Actions [action association with a team](https://developer.pagerduty.com/api-reference/8f722dd91a4ba-associate-an-automation-action-with-a-team) configures the relation of a specific Action with a Team.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const example = new pagerduty.Team("example", {description: "All engineering"});
+ * const paActionExample = new pagerduty.AutomationActionsAction("paActionExample", {
+ *     description: "Description of the PA Action created via TF",
+ *     actionType: "process_automation",
+ *     actionDataReference: {
+ *         processAutomationJobId: "P123456",
+ *     },
+ * });
+ * const foo = new pagerduty.AutomationActionsActionTeamAssociation("foo", {
+ *     actionId: paActionExample.id,
+ *     teamId: example.id,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Action team association can be imported using the `action_id` and `team_id` separated by a colon, e.g.

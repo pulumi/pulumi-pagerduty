@@ -13,6 +13,40 @@ import (
 )
 
 // Use this data source to get information about a specific [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			environment, err := pagerduty.LookupIncidentCustomField(ctx, &pagerduty.LookupIncidentCustomFieldArgs{
+//				Name: "environment",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewIncidentCustomFieldOption(ctx, "devEnvironment", &pagerduty.IncidentCustomFieldOptionArgs{
+//				Field:    *pulumi.String(environment.Id),
+//				Datatype: pulumi.String("string"),
+//				Value:    pulumi.String("dev"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupIncidentCustomField(ctx *pulumi.Context, args *LookupIncidentCustomFieldArgs, opts ...pulumi.InvokeOption) (*LookupIncidentCustomFieldResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupIncidentCustomFieldResult

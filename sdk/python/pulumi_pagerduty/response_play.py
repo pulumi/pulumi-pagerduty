@@ -517,6 +517,37 @@ class ResponsePlay(pulumi.CustomResource):
         """
         A [response play](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE2Ng-create-a-response-play) allows you to create packages of Incident Actions that can be applied during an Incident's life cycle.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        example_user = pagerduty.User("exampleUser",
+            email="125.greenholt.earline@graham.name",
+            teams=[pagerduty_team["example"]["id"]])
+        example_escalation_policy = pagerduty.EscalationPolicy("exampleEscalationPolicy",
+            num_loops=2,
+            rules=[pagerduty.EscalationPolicyRuleArgs(
+                escalation_delay_in_minutes=10,
+                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
+                    type="user",
+                    id=example_user.id,
+                )],
+            )])
+        example_response_play = pagerduty.ResponsePlay("exampleResponsePlay",
+            from_=example_user.email,
+            responders=[pagerduty.ResponsePlayResponderArgs(
+                type="escalation_policy_reference",
+                id=example_escalation_policy.id,
+            )],
+            subscribers=[pagerduty.ResponsePlaySubscriberArgs(
+                type="user_reference",
+                id=example_user.id,
+            )],
+            runnability="services")
+        ```
+
         ## Import
 
         Response Plays can be imported using the `id.from(email)`, e.g.
@@ -547,6 +578,37 @@ class ResponsePlay(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A [response play](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE2Ng-create-a-response-play) allows you to create packages of Incident Actions that can be applied during an Incident's life cycle.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        example_user = pagerduty.User("exampleUser",
+            email="125.greenholt.earline@graham.name",
+            teams=[pagerduty_team["example"]["id"]])
+        example_escalation_policy = pagerduty.EscalationPolicy("exampleEscalationPolicy",
+            num_loops=2,
+            rules=[pagerduty.EscalationPolicyRuleArgs(
+                escalation_delay_in_minutes=10,
+                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
+                    type="user",
+                    id=example_user.id,
+                )],
+            )])
+        example_response_play = pagerduty.ResponsePlay("exampleResponsePlay",
+            from_=example_user.email,
+            responders=[pagerduty.ResponsePlayResponderArgs(
+                type="escalation_policy_reference",
+                id=example_escalation_policy.id,
+            )],
+            subscribers=[pagerduty.ResponsePlaySubscriberArgs(
+                type="user_reference",
+                id=example_user.id,
+            )],
+            runnability="services")
+        ```
 
         ## Import
 

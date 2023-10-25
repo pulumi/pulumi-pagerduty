@@ -13,12 +13,80 @@ namespace Pulumi.Pagerduty
     {
         /// <summary>
         /// Use this data source to get information about a specific [service](https://api-reference.pagerduty.com/#!/Services/get_services).
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleService = Pagerduty.GetService.Invoke(new()
+        ///     {
+        ///         Name = "My Service",
+        ///     });
+        /// 
+        ///     var datadog = Pagerduty.GetVendor.Invoke(new()
+        ///     {
+        ///         Name = "Datadog",
+        ///     });
+        /// 
+        ///     var exampleServiceIntegration = new Pagerduty.ServiceIntegration("exampleServiceIntegration", new()
+        ///     {
+        ///         Vendor = datadog.Apply(getVendorResult =&gt; getVendorResult.Id),
+        ///         Service = exampleService.Apply(getServiceResult =&gt; getServiceResult.Id),
+        ///         Type = "generic_events_api_inbound_integration",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("pagerduty:index/getService:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information about a specific [service](https://api-reference.pagerduty.com/#!/Services/get_services).
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleService = Pagerduty.GetService.Invoke(new()
+        ///     {
+        ///         Name = "My Service",
+        ///     });
+        /// 
+        ///     var datadog = Pagerduty.GetVendor.Invoke(new()
+        ///     {
+        ///         Name = "Datadog",
+        ///     });
+        /// 
+        ///     var exampleServiceIntegration = new Pagerduty.ServiceIntegration("exampleServiceIntegration", new()
+        ///     {
+        ///         Vendor = datadog.Apply(getVendorResult =&gt; getVendorResult.Id),
+        ///         Service = exampleService.Apply(getServiceResult =&gt; getServiceResult.Id),
+        ///         Type = "generic_events_api_inbound_integration",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("pagerduty:index/getService:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());

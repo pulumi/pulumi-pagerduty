@@ -12,6 +12,57 @@ namespace Pulumi.Pagerduty
     /// <summary>
     /// A [service](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE5Nw-create-a-service) represents something you monitor (like a web service, email service, or database service). It is a container for related incidents that associates them with escalation policies.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Pagerduty = Pulumi.Pagerduty;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleUser = new Pagerduty.User("exampleUser", new()
+    ///     {
+    ///         Email = "125.greenholt.earline@graham.name",
+    ///     });
+    /// 
+    ///     var foo = new Pagerduty.EscalationPolicy("foo", new()
+    ///     {
+    ///         NumLoops = 2,
+    ///         Rules = new[]
+    ///         {
+    ///             new Pagerduty.Inputs.EscalationPolicyRuleArgs
+    ///             {
+    ///                 EscalationDelayInMinutes = 10,
+    ///                 Targets = new[]
+    ///                 {
+    ///                     new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
+    ///                     {
+    ///                         Type = "user_reference",
+    ///                         Id = exampleUser.Id,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleService = new Pagerduty.Service("exampleService", new()
+    ///     {
+    ///         AutoResolveTimeout = "14400",
+    ///         AcknowledgementTimeout = "600",
+    ///         EscalationPolicy = foo.Id,
+    ///         AlertCreation = "create_alerts_and_incidents",
+    ///         AutoPauseNotificationsParameters = new Pagerduty.Inputs.ServiceAutoPauseNotificationsParametersArgs
+    ///         {
+    ///             Enabled = true,
+    ///             Timeout = 300,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Services can be imported using the `id`, e.g.

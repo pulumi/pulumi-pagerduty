@@ -17,6 +17,64 @@ import (
 //
 // The Unrouted Orchestration evaluates events sent to it against each of its rules, beginning with the rules in the "start" set. When a matching rule is found, it can modify and enhance the event and can route the event to another set of rules within this Unrouted Orchestration for further processing.
 //
+// ## Example of configuring Unrouted Rules for an Orchestration
+//
+// In this example of an Unrouted Orchestration, the rule matches only if the condition is matched.
+// Alerts created for events that do not match the rule will have severity level set to `info` as defined in `catchAll` block.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := pagerduty.NewEventOrchestrationUnrouted(ctx, "unrouted", &pagerduty.EventOrchestrationUnroutedArgs{
+//				EventOrchestration: pulumi.Any(pagerduty_event_orchestration.My_monitor.Id),
+//				Sets: pagerduty.EventOrchestrationUnroutedSetArray{
+//					&pagerduty.EventOrchestrationUnroutedSetArgs{
+//						Id: pulumi.String("start"),
+//						Rules: pagerduty.EventOrchestrationUnroutedSetRuleArray{
+//							&pagerduty.EventOrchestrationUnroutedSetRuleArgs{
+//								Label: pulumi.String("Update the summary of un-matched Critical alerts so they're easier to spot"),
+//								Conditions: pagerduty.EventOrchestrationUnroutedSetRuleConditionArray{
+//									&pagerduty.EventOrchestrationUnroutedSetRuleConditionArgs{
+//										Expression: pulumi.String("event.severity matches 'critical'"),
+//									},
+//								},
+//								Actions: &pagerduty.EventOrchestrationUnroutedSetRuleActionsArgs{
+//									Severity: pulumi.String("critical"),
+//									Extractions: pagerduty.EventOrchestrationUnroutedSetRuleActionsExtractionArray{
+//										&pagerduty.EventOrchestrationUnroutedSetRuleActionsExtractionArgs{
+//											Target:   pulumi.String("event.summary"),
+//											Template: pulumi.String("[Critical Unrouted] {{event.summary}}"),
+//										},
+//									},
+//								},
+//							},
+//						},
+//					},
+//				},
+//				CatchAll: &pagerduty.EventOrchestrationUnroutedCatchAllArgs{
+//					Actions: &pagerduty.EventOrchestrationUnroutedCatchAllActionsArgs{
+//						Severity: pulumi.String("info"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Unrouted Orchestration can be imported using the `id` of the Event Orchestration, e.g.

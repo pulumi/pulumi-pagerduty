@@ -13,6 +13,34 @@ import (
 )
 
 // Use this data source to get information about a specific [Integration](https://developer.pagerduty.com/api-reference/1c6607db389a8-get-an-integration-for-an-event-orchestration) for an Event Orchestration.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			eventOrchestration, err := pagerduty.NewEventOrchestration(ctx, "eventOrchestration", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_ = pagerduty.LookupEventOrchestrationIntegrationOutput(ctx, pagerduty.GetEventOrchestrationIntegrationOutputArgs{
+//				EventOrchestration: eventOrchestration.ID(),
+//				Label:              pulumi.String("Test Event Orchestration Default Integration"),
+//			}, nil)
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupEventOrchestrationIntegration(ctx *pulumi.Context, args *LookupEventOrchestrationIntegrationArgs, opts ...pulumi.InvokeOption) (*LookupEventOrchestrationIntegrationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEventOrchestrationIntegrationResult

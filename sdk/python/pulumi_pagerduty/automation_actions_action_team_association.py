@@ -138,6 +138,24 @@ class AutomationActionsActionTeamAssociation(pulumi.CustomResource):
         """
         An Automation Actions [action association with a team](https://developer.pagerduty.com/api-reference/8f722dd91a4ba-associate-an-automation-action-with-a-team) configures the relation of a specific Action with a Team.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        example = pagerduty.Team("example", description="All engineering")
+        pa_action_example = pagerduty.AutomationActionsAction("paActionExample",
+            description="Description of the PA Action created via TF",
+            action_type="process_automation",
+            action_data_reference=pagerduty.AutomationActionsActionActionDataReferenceArgs(
+                process_automation_job_id="P123456",
+            ))
+        foo = pagerduty.AutomationActionsActionTeamAssociation("foo",
+            action_id=pa_action_example.id,
+            team_id=example.id)
+        ```
+
         ## Import
 
         Action team association can be imported using the `action_id` and `team_id` separated by a colon, e.g.
@@ -159,6 +177,24 @@ class AutomationActionsActionTeamAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Automation Actions [action association with a team](https://developer.pagerduty.com/api-reference/8f722dd91a4ba-associate-an-automation-action-with-a-team) configures the relation of a specific Action with a Team.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        example = pagerduty.Team("example", description="All engineering")
+        pa_action_example = pagerduty.AutomationActionsAction("paActionExample",
+            description="Description of the PA Action created via TF",
+            action_type="process_automation",
+            action_data_reference=pagerduty.AutomationActionsActionActionDataReferenceArgs(
+                process_automation_job_id="P123456",
+            ))
+        foo = pagerduty.AutomationActionsActionTeamAssociation("foo",
+            action_id=pa_action_example.id,
+            team_id=example.id)
+        ```
 
         ## Import
 

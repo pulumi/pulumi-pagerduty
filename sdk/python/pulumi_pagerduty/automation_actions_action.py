@@ -456,6 +456,27 @@ class AutomationActionsAction(pulumi.CustomResource):
         """
         An Automation Actions [action](https://developer.pagerduty.com/api-reference/d64584a4371d3-create-an-automation-action) invokes jobs and workflows that are staged in Runbook Automation or Process Automation. It may also execute a command line script run by a Process Automation runner installed in your infrastructure.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        pa_action_example = pagerduty.AutomationActionsAction("paActionExample",
+            action_data_reference=pagerduty.AutomationActionsActionActionDataReferenceArgs(
+                process_automation_job_id="P123456",
+            ),
+            action_type="process_automation",
+            description="Description of the PA Action created via TF")
+        script_action_example = pagerduty.AutomationActionsAction("scriptActionExample",
+            action_data_reference=pagerduty.AutomationActionsActionActionDataReferenceArgs(
+                invocation_command="/usr/local/bin/python3",
+                script="print(\\"Hello from a Python script!\\")",
+            ),
+            action_type="script",
+            description="Description of the Script Action created via TF")
+        ```
+
         ## Import
 
         Actions can be imported using the `id`, e.g.
@@ -485,6 +506,27 @@ class AutomationActionsAction(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Automation Actions [action](https://developer.pagerduty.com/api-reference/d64584a4371d3-create-an-automation-action) invokes jobs and workflows that are staged in Runbook Automation or Process Automation. It may also execute a command line script run by a Process Automation runner installed in your infrastructure.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        pa_action_example = pagerduty.AutomationActionsAction("paActionExample",
+            action_data_reference=pagerduty.AutomationActionsActionActionDataReferenceArgs(
+                process_automation_job_id="P123456",
+            ),
+            action_type="process_automation",
+            description="Description of the PA Action created via TF")
+        script_action_example = pagerduty.AutomationActionsAction("scriptActionExample",
+            action_data_reference=pagerduty.AutomationActionsActionActionDataReferenceArgs(
+                invocation_command="/usr/local/bin/python3",
+                script="print(\\"Hello from a Python script!\\")",
+            ),
+            action_type="script",
+            description="Description of the Script Action created via TF")
+        ```
 
         ## Import
 

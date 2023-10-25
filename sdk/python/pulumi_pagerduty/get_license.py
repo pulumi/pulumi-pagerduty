@@ -163,6 +163,21 @@ def get_license(allocations_available: Optional[int] = None,
 
     > It is preferred to set the `name` and `description` to their exact values or to set the `id`. However, this will require updating your configuration if the accounts products ever change. To avoid errors when account products change, you may set the `name` of a license to a valid substring such as `"Full User"` or `"Stakeholder"`.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_pagerduty as pagerduty
+
+    invalid_roles = ["owner"]
+    full_user = pagerduty.get_license(name="Full User",
+        description="")
+    example = pagerduty.User("example",
+        email="125.greenholt.earline@graham.name",
+        license=full_user.id,
+        role="user")
+    ```
+
 
     :param int allocations_available: Available allocations to assign to users
     :param int current_value: The number of allocations already assigned to users
@@ -219,6 +234,21 @@ def get_license_output(allocations_available: Optional[pulumi.Input[Optional[int
     Use this data source to use a single purchased [license](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) to manage PagerDuty user resources. After applying changes to users' licenses, the `current_value` and `allocations_available` attributes of licenses will change.
 
     > It is preferred to set the `name` and `description` to their exact values or to set the `id`. However, this will require updating your configuration if the accounts products ever change. To avoid errors when account products change, you may set the `name` of a license to a valid substring such as `"Full User"` or `"Stakeholder"`.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_pagerduty as pagerduty
+
+    invalid_roles = ["owner"]
+    full_user = pagerduty.get_license(name="Full User",
+        description="")
+    example = pagerduty.User("example",
+        email="125.greenholt.earline@graham.name",
+        license=full_user.id,
+        role="user")
+    ```
 
 
     :param int allocations_available: Available allocations to assign to users

@@ -271,6 +271,20 @@ class IncidentCustomField(pulumi.CustomResource):
         """
         An [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents) defines a field which can be set on incidents in the target account.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        cs_impact = pagerduty.IncidentCustomField("csImpact",
+            data_type="string",
+            field_type="single_value")
+        sre_environment = pagerduty.IncidentCustomField("sreEnvironment",
+            data_type="string",
+            field_type="single_value_fixed")
+        ```
+
         ## Import
 
         Fields can be imported using the `id`, e.g.
@@ -293,6 +307,20 @@ class IncidentCustomField(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents) defines a field which can be set on incidents in the target account.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        cs_impact = pagerduty.IncidentCustomField("csImpact",
+            data_type="string",
+            field_type="single_value")
+        sre_environment = pagerduty.IncidentCustomField("sreEnvironment",
+            data_type="string",
+            field_type="single_value_fixed")
+        ```
 
         ## Import
 

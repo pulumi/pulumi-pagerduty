@@ -177,6 +177,15 @@ def get_automation_actions_action(action_classification: Optional[str] = None,
     """
     Use this data source to get information about a specific [automation actions action](https://developer.pagerduty.com/api-reference/357ed15419f64-get-an-automation-action).
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_pagerduty as pagerduty
+
+    example = pagerduty.get_automation_actions_action(id="01CS1685B2UDM4I3XUUOXPPORM")
+    ```
+
 
     :param str action_classification: (Optional) The category of the action. The only allowed values are `diagnostic` and `remediation`.
     :param str creation_time: The time action was created. Represented as an ISO 8601 timestamp.
@@ -225,6 +234,15 @@ def get_automation_actions_action_output(action_classification: Optional[pulumi.
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAutomationActionsActionResult]:
     """
     Use this data source to get information about a specific [automation actions action](https://developer.pagerduty.com/api-reference/357ed15419f64-get-an-automation-action).
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_pagerduty as pagerduty
+
+    example = pagerduty.get_automation_actions_action(id="01CS1685B2UDM4I3XUUOXPPORM")
+    ```
 
 
     :param str action_classification: (Optional) The category of the action. The only allowed values are `diagnostic` and `remediation`.

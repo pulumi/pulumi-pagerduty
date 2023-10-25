@@ -58,6 +58,20 @@ def get_tag(label: Optional[str] = None,
     """
     Use this data source to get information about a specific [tag](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIxNw-list-tags) that you can use to assign to users, teams, and escalation_policies.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_pagerduty as pagerduty
+
+    me = pagerduty.get_user(email="me@example.com")
+    devops = pagerduty.get_tag(label="devops")
+    foo = pagerduty.TagAssignment("foo",
+        tag_id=devops.id,
+        entity_id=me.id,
+        entity_type="users")
+    ```
+
 
     :param str label: The label of the tag to find in the PagerDuty API.
     """
@@ -76,6 +90,20 @@ def get_tag_output(label: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTagResult]:
     """
     Use this data source to get information about a specific [tag](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIxNw-list-tags) that you can use to assign to users, teams, and escalation_policies.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_pagerduty as pagerduty
+
+    me = pagerduty.get_user(email="me@example.com")
+    devops = pagerduty.get_tag(label="devops")
+    foo = pagerduty.TagAssignment("foo",
+        tag_id=devops.id,
+        entity_id=me.id,
+        entity_type="users")
+    ```
 
 
     :param str label: The label of the tag to find in the PagerDuty API.

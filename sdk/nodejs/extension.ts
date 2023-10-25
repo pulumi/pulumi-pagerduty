@@ -7,6 +7,48 @@ import * as utilities from "./utilities";
 /**
  * An [extension](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEzMw-create-an-extension) can be associated with a service.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as pagerduty from "@pulumi/pagerduty";
+ *
+ * const webhook = pagerduty.getExtensionSchema({
+ *     name: "Generic V2 Webhook",
+ * });
+ * const exampleUser = new pagerduty.User("exampleUser", {email: "howard.james@example.domain"});
+ * const exampleEscalationPolicy = new pagerduty.EscalationPolicy("exampleEscalationPolicy", {
+ *     numLoops: 2,
+ *     rules: [{
+ *         escalationDelayInMinutes: 10,
+ *         targets: [{
+ *             type: "user",
+ *             id: exampleUser.id,
+ *         }],
+ *     }],
+ * });
+ * const exampleService = new pagerduty.Service("exampleService", {
+ *     autoResolveTimeout: "14400",
+ *     acknowledgementTimeout: "600",
+ *     escalationPolicy: exampleEscalationPolicy.id,
+ * });
+ * const slack = new pagerduty.Extension("slack", {
+ *     endpointUrl: "https://generic_webhook_url/XXXXXX/BBBBBB",
+ *     extensionSchema: webhook.then(webhook => webhook.id),
+ *     extensionObjects: [exampleService.id],
+ *     config: `{
+ * 	"restrict": "any",
+ * 	"notify_types": {
+ * 			"resolve": false,
+ * 			"acknowledge": false,
+ * 			"assignments": false
+ * 	},
+ * 	"access_token": "XXX"
+ * }
+ * `,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Extensions can be imported using the id.e.g.

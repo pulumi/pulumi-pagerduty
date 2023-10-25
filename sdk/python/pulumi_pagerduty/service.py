@@ -715,6 +715,33 @@ class Service(pulumi.CustomResource):
         """
         A [service](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE5Nw-create-a-service) represents something you monitor (like a web service, email service, or database service). It is a container for related incidents that associates them with escalation policies.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        example_user = pagerduty.User("exampleUser", email="125.greenholt.earline@graham.name")
+        foo = pagerduty.EscalationPolicy("foo",
+            num_loops=2,
+            rules=[pagerduty.EscalationPolicyRuleArgs(
+                escalation_delay_in_minutes=10,
+                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
+                    type="user_reference",
+                    id=example_user.id,
+                )],
+            )])
+        example_service = pagerduty.Service("exampleService",
+            auto_resolve_timeout="14400",
+            acknowledgement_timeout="600",
+            escalation_policy=foo.id,
+            alert_creation="create_alerts_and_incidents",
+            auto_pause_notifications_parameters=pagerduty.ServiceAutoPauseNotificationsParametersArgs(
+                enabled=True,
+                timeout=300,
+            ))
+        ```
+
         ## Import
 
         Services can be imported using the `id`, e.g.
@@ -744,6 +771,33 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A [service](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE5Nw-create-a-service) represents something you monitor (like a web service, email service, or database service). It is a container for related incidents that associates them with escalation policies.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        example_user = pagerduty.User("exampleUser", email="125.greenholt.earline@graham.name")
+        foo = pagerduty.EscalationPolicy("foo",
+            num_loops=2,
+            rules=[pagerduty.EscalationPolicyRuleArgs(
+                escalation_delay_in_minutes=10,
+                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
+                    type="user_reference",
+                    id=example_user.id,
+                )],
+            )])
+        example_service = pagerduty.Service("exampleService",
+            auto_resolve_timeout="14400",
+            acknowledgement_timeout="600",
+            escalation_policy=foo.id,
+            alert_creation="create_alerts_and_incidents",
+            auto_pause_notifications_parameters=pagerduty.ServiceAutoPauseNotificationsParametersArgs(
+                enabled=True,
+                timeout=300,
+            ))
+        ```
 
         ## Import
 

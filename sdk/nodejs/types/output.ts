@@ -1943,6 +1943,50 @@ export interface ServiceScheduledActionAt {
      * Note that it is currently only possible to define the scheduled action when urgency is set to `high` for `duringSupportHours` and to `low`  for `outsideSupportHours` in `incidentUrgencyRule`.
      *
      * Below is an example for a `pagerduty.Service` resource with `incidentUrgencyRules` with `type = "useSupportHours"`, `supportHours` and a default `scheduledAction` as well.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * import * as pagerduty from "@pulumi/pagerduty";
+     *
+     * const foo = new pagerduty.Service("foo", {
+     *     description: "bar bar bar",
+     *     autoResolveTimeout: "3600",
+     *     acknowledgementTimeout: "3600",
+     *     escalationPolicy: pagerduty_escalation_policy.foo.id,
+     *     incidentUrgencyRule: {
+     *         type: "use_support_hours",
+     *         duringSupportHours: {
+     *             type: "constant",
+     *             urgency: "high",
+     *         },
+     *         outsideSupportHours: {
+     *             type: "constant",
+     *             urgency: "low",
+     *         },
+     *     },
+     *     supportHours: {
+     *         type: "fixed_time_per_day",
+     *         timeZone: "America/Lima",
+     *         startTime: "09:00:00",
+     *         endTime: "17:00:00",
+     *         daysOfWeeks: [
+     *             1,
+     *             2,
+     *             3,
+     *             4,
+     *             5,
+     *         ],
+     *     },
+     *     scheduledActions: [{
+     *         type: "urgency_change",
+     *         toUrgency: "high",
+     *         ats: [{
+     *             type: "named_time",
+     *             name: "support_hours_start",
+     *         }],
+     *     }],
+     * });
+     * ```
      */
     name?: string;
     /**

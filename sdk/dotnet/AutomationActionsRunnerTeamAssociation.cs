@@ -12,6 +12,38 @@ namespace Pulumi.Pagerduty
     /// <summary>
     /// An Automation Actions [runner association with a team](https://developer.pagerduty.com/api-reference/f662de6271a6e-associate-a-runner-with-a-team) configures the relation of a specific Runner with a Team.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Pagerduty = Pulumi.Pagerduty;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var teamEntEng = new Pagerduty.Team("teamEntEng", new()
+    ///     {
+    ///         Description = "Enterprise engineering",
+    ///     });
+    /// 
+    ///     var paRunbookRunner = new Pagerduty.AutomationActionsRunner("paRunbookRunner", new()
+    ///     {
+    ///         Description = "Description of the Runner created via TF",
+    ///         RunnerType = "runbook",
+    ///         RunbookBaseUri = "cat-cat",
+    ///         RunbookApiKey = "cat-secret",
+    ///     });
+    /// 
+    ///     var paRunnerEntEngAssoc = new Pagerduty.AutomationActionsRunnerTeamAssociation("paRunnerEntEngAssoc", new()
+    ///     {
+    ///         RunnerId = paRunbookRunner.Id,
+    ///         TeamId = teamEntEng.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Runner team association can be imported using the `runner_id` and `team_id` separated by a colon, e.g.

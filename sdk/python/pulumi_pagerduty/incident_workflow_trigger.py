@@ -246,6 +246,36 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
         """
         An [Incident Workflow Trigger](https://support.pagerduty.com/docs/incident-workflows#triggers) defines when and if an [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) will be triggered.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        my_first_workflow = pagerduty.IncidentWorkflow("myFirstWorkflow",
+            description="This Incident Workflow is an example",
+            steps=[pagerduty.IncidentWorkflowStepArgs(
+                name="Send Status Update",
+                action="pagerduty.com:incident-workflows:send-status-update:1",
+                inputs=[pagerduty.IncidentWorkflowStepInputArgs(
+                    name="Message",
+                    value="Example status message sent on {{current_date}}",
+                )],
+            )])
+        first_service = pagerduty.get_service(name="My First Service")
+        automatic_trigger = pagerduty.IncidentWorkflowTrigger("automaticTrigger",
+            type="conditional",
+            workflow=my_first_workflow.id,
+            services=[pagerduty_service["first_service"]["id"]],
+            condition="incident.priority matches 'P1'",
+            subscribed_to_all_services=False)
+        devops = pagerduty.get_team(name="devops")
+        manual_trigger = pagerduty.IncidentWorkflowTrigger("manualTrigger",
+            type="manual",
+            workflow=my_first_workflow.id,
+            services=[pagerduty_service["first_service"]["id"]])
+        ```
+
         ## Import
 
         Incident workflows can be imported using the `id`, e.g.
@@ -270,6 +300,36 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An [Incident Workflow Trigger](https://support.pagerduty.com/docs/incident-workflows#triggers) defines when and if an [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) will be triggered.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        my_first_workflow = pagerduty.IncidentWorkflow("myFirstWorkflow",
+            description="This Incident Workflow is an example",
+            steps=[pagerduty.IncidentWorkflowStepArgs(
+                name="Send Status Update",
+                action="pagerduty.com:incident-workflows:send-status-update:1",
+                inputs=[pagerduty.IncidentWorkflowStepInputArgs(
+                    name="Message",
+                    value="Example status message sent on {{current_date}}",
+                )],
+            )])
+        first_service = pagerduty.get_service(name="My First Service")
+        automatic_trigger = pagerduty.IncidentWorkflowTrigger("automaticTrigger",
+            type="conditional",
+            workflow=my_first_workflow.id,
+            services=[pagerduty_service["first_service"]["id"]],
+            condition="incident.priority matches 'P1'",
+            subscribed_to_all_services=False)
+        devops = pagerduty.get_team(name="devops")
+        manual_trigger = pagerduty.IncidentWorkflowTrigger("manualTrigger",
+            type="manual",
+            workflow=my_first_workflow.id,
+            services=[pagerduty_service["first_service"]["id"]])
+        ```
 
         ## Import
 

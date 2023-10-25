@@ -312,6 +312,31 @@ class Schedule(pulumi.CustomResource):
         """
         A [schedule](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE4Mg-create-a-schedule) determines the time periods that users are on call. Only on-call users are eligible to receive notifications from incidents.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        example_user = pagerduty.User("exampleUser", email="125.greenholt.earline@graham.name")
+        example_team = pagerduty.Team("exampleTeam")
+        foo = pagerduty.Schedule("foo",
+            time_zone="America/New_York",
+            layers=[pagerduty.ScheduleLayerArgs(
+                name="Night Shift",
+                start="2015-11-06T20:00:00-05:00",
+                rotation_virtual_start="2015-11-06T20:00:00-05:00",
+                rotation_turn_length_seconds=86400,
+                users=[example_user.id],
+                restrictions=[pagerduty.ScheduleLayerRestrictionArgs(
+                    type="daily_restriction",
+                    start_time_of_day="08:00:00",
+                    duration_seconds=32400,
+                )],
+            )],
+            teams=[example_team.id])
+        ```
+
         ## Import
 
         Schedules can be imported using the `id`, e.g.
@@ -339,6 +364,31 @@ class Schedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A [schedule](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE4Mg-create-a-schedule) determines the time periods that users are on call. Only on-call users are eligible to receive notifications from incidents.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        example_user = pagerduty.User("exampleUser", email="125.greenholt.earline@graham.name")
+        example_team = pagerduty.Team("exampleTeam")
+        foo = pagerduty.Schedule("foo",
+            time_zone="America/New_York",
+            layers=[pagerduty.ScheduleLayerArgs(
+                name="Night Shift",
+                start="2015-11-06T20:00:00-05:00",
+                rotation_virtual_start="2015-11-06T20:00:00-05:00",
+                rotation_turn_length_seconds=86400,
+                users=[example_user.id],
+                restrictions=[pagerduty.ScheduleLayerRestrictionArgs(
+                    type="daily_restriction",
+                    start_time_of_day="08:00:00",
+                    duration_seconds=32400,
+                )],
+            )],
+            teams=[example_team.id])
+        ```
 
         ## Import
 

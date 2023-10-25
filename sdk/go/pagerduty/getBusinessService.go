@@ -13,6 +13,32 @@ import (
 )
 
 // Use this data source to get information about a specific [business service](https://api-reference.pagerduty.com/#!/Business_Services/get_business_services).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := pagerduty.LookupBusinessService(ctx, &pagerduty.LookupBusinessServiceArgs{
+//				Name: "My Service",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupBusinessService(ctx *pulumi.Context, args *LookupBusinessServiceArgs, opts ...pulumi.InvokeOption) (*LookupBusinessServiceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBusinessServiceResult

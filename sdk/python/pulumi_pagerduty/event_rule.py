@@ -201,6 +201,113 @@ class EventRule(pulumi.CustomResource):
 
         An [event rule](https://developer.pagerduty.com/docs/rest-api-v2/global-event-rules-api/) determines what happens to an event that is sent to PagerDuty by monitoring tools and other integrations.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_pagerduty as pagerduty
+
+        second = pagerduty.EventRule("second",
+            action_json=json.dumps([
+                [
+                    "route",
+                    "P5DTL0K",
+                ],
+                [
+                    "severity",
+                    "warning",
+                ],
+                [
+                    "annotate",
+                    "2 Managed by terraform",
+                ],
+                [
+                    "priority",
+                    "PL451DT",
+                ],
+            ]),
+            condition_json=json.dumps([
+                "and",
+                [
+                    "contains",
+                    [
+                        "path",
+                        "payload",
+                        "source",
+                    ],
+                    "website",
+                ],
+                [
+                    "contains",
+                    [
+                        "path",
+                        "headers",
+                        "from",
+                        "0",
+                        "address",
+                    ],
+                    "homer",
+                ],
+            ]),
+            advanced_condition_json=json.dumps([[
+                "scheduled-weekly",
+                1565392127032,
+                3600000,
+                "America/Los_Angeles",
+                [
+                    1,
+                    2,
+                    3,
+                    5,
+                    7,
+                ],
+            ]]))
+        third = pagerduty.EventRule("third",
+            action_json=json.dumps([
+                [
+                    "route",
+                    "P5DTL0K",
+                ],
+                [
+                    "severity",
+                    "warning",
+                ],
+                [
+                    "annotate",
+                    "3 Managed by terraform",
+                ],
+                [
+                    "priority",
+                    "PL451DT",
+                ],
+            ]),
+            condition_json=json.dumps([
+                "and",
+                [
+                    "contains",
+                    [
+                        "path",
+                        "payload",
+                        "source",
+                    ],
+                    "website",
+                ],
+                [
+                    "contains",
+                    [
+                        "path",
+                        "headers",
+                        "from",
+                        "0",
+                        "address",
+                    ],
+                    "homer",
+                ],
+            ]),
+            opts=pulumi.ResourceOptions(depends_on=[pagerduty_event_rule["two"]]))
+        ```
+
         ## Import
 
         Event rules can be imported using the `id`, e.g.
@@ -225,6 +332,113 @@ class EventRule(pulumi.CustomResource):
         *NOTE: The `EventRule` resource has been deprecated in favor of the Ruleset and RulesetRule resources. Please use the `ruleset` based resources for working with Event Rules.*
 
         An [event rule](https://developer.pagerduty.com/docs/rest-api-v2/global-event-rules-api/) determines what happens to an event that is sent to PagerDuty by monitoring tools and other integrations.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_pagerduty as pagerduty
+
+        second = pagerduty.EventRule("second",
+            action_json=json.dumps([
+                [
+                    "route",
+                    "P5DTL0K",
+                ],
+                [
+                    "severity",
+                    "warning",
+                ],
+                [
+                    "annotate",
+                    "2 Managed by terraform",
+                ],
+                [
+                    "priority",
+                    "PL451DT",
+                ],
+            ]),
+            condition_json=json.dumps([
+                "and",
+                [
+                    "contains",
+                    [
+                        "path",
+                        "payload",
+                        "source",
+                    ],
+                    "website",
+                ],
+                [
+                    "contains",
+                    [
+                        "path",
+                        "headers",
+                        "from",
+                        "0",
+                        "address",
+                    ],
+                    "homer",
+                ],
+            ]),
+            advanced_condition_json=json.dumps([[
+                "scheduled-weekly",
+                1565392127032,
+                3600000,
+                "America/Los_Angeles",
+                [
+                    1,
+                    2,
+                    3,
+                    5,
+                    7,
+                ],
+            ]]))
+        third = pagerduty.EventRule("third",
+            action_json=json.dumps([
+                [
+                    "route",
+                    "P5DTL0K",
+                ],
+                [
+                    "severity",
+                    "warning",
+                ],
+                [
+                    "annotate",
+                    "3 Managed by terraform",
+                ],
+                [
+                    "priority",
+                    "PL451DT",
+                ],
+            ]),
+            condition_json=json.dumps([
+                "and",
+                [
+                    "contains",
+                    [
+                        "path",
+                        "payload",
+                        "source",
+                    ],
+                    "website",
+                ],
+                [
+                    "contains",
+                    [
+                        "path",
+                        "headers",
+                        "from",
+                        "0",
+                        "address",
+                    ],
+                    "homer",
+                ],
+            ]),
+            opts=pulumi.ResourceOptions(depends_on=[pagerduty_event_rule["two"]]))
+        ```
 
         ## Import
 

@@ -138,6 +138,42 @@ class AutomationActionsActionServiceAssociation(pulumi.CustomResource):
         """
         An Automation Actions [action association with a service](https://developer.pagerduty.com/api-reference/5d2f051f3fb43-associate-an-automation-action-with-a-service) configures the relation of a specific Action with a Service.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        example_user = pagerduty.User("exampleUser", email="125.greenholt.earline@graham.name")
+        foo_escalation_policy = pagerduty.EscalationPolicy("fooEscalationPolicy",
+            num_loops=2,
+            rules=[pagerduty.EscalationPolicyRuleArgs(
+                escalation_delay_in_minutes=10,
+                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
+                    type="user_reference",
+                    id=example_user.id,
+                )],
+            )])
+        example_service = pagerduty.Service("exampleService",
+            auto_resolve_timeout="14400",
+            acknowledgement_timeout="600",
+            escalation_policy=foo_escalation_policy.id,
+            alert_creation="create_alerts_and_incidents",
+            auto_pause_notifications_parameters=pagerduty.ServiceAutoPauseNotificationsParametersArgs(
+                enabled=True,
+                timeout=300,
+            ))
+        pa_action_example = pagerduty.AutomationActionsAction("paActionExample",
+            description="Description of the PA Action created via TF",
+            action_type="process_automation",
+            action_data_reference=pagerduty.AutomationActionsActionActionDataReferenceArgs(
+                process_automation_job_id="P123456",
+            ))
+        foo_automation_actions_action_service_association = pagerduty.AutomationActionsActionServiceAssociation("fooAutomationActionsActionServiceAssociation",
+            action_id=pa_action_example.id,
+            service_id=example_service.id)
+        ```
+
         ## Import
 
         Action service association can be imported using the `action_id` and `service_id` separated by a colon, e.g.
@@ -159,6 +195,42 @@ class AutomationActionsActionServiceAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Automation Actions [action association with a service](https://developer.pagerduty.com/api-reference/5d2f051f3fb43-associate-an-automation-action-with-a-service) configures the relation of a specific Action with a Service.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        example_user = pagerduty.User("exampleUser", email="125.greenholt.earline@graham.name")
+        foo_escalation_policy = pagerduty.EscalationPolicy("fooEscalationPolicy",
+            num_loops=2,
+            rules=[pagerduty.EscalationPolicyRuleArgs(
+                escalation_delay_in_minutes=10,
+                targets=[pagerduty.EscalationPolicyRuleTargetArgs(
+                    type="user_reference",
+                    id=example_user.id,
+                )],
+            )])
+        example_service = pagerduty.Service("exampleService",
+            auto_resolve_timeout="14400",
+            acknowledgement_timeout="600",
+            escalation_policy=foo_escalation_policy.id,
+            alert_creation="create_alerts_and_incidents",
+            auto_pause_notifications_parameters=pagerduty.ServiceAutoPauseNotificationsParametersArgs(
+                enabled=True,
+                timeout=300,
+            ))
+        pa_action_example = pagerduty.AutomationActionsAction("paActionExample",
+            description="Description of the PA Action created via TF",
+            action_type="process_automation",
+            action_data_reference=pagerduty.AutomationActionsActionActionDataReferenceArgs(
+                process_automation_job_id="P123456",
+            ))
+        foo_automation_actions_action_service_association = pagerduty.AutomationActionsActionServiceAssociation("fooAutomationActionsActionServiceAssociation",
+            action_id=pa_action_example.id,
+            service_id=example_service.id)
+        ```
 
         ## Import
 

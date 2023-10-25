@@ -75,6 +75,34 @@ def get_vendor(name: Optional[str] = None,
 
     > For the case of vendors that rely on [Change Events](https://support.pagerduty.com/docs/change-events) (e.g. Jekings CI, Github, Gitlab, ...) is important to know that those vendors are only available with [PagerDuty AIOps](https://support.pagerduty.com/docs/aiops) add-on. Therefore, they won't be accessible as result of `get_vendor` data source without the proper entitlements.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_pagerduty as pagerduty
+
+    datadog = pagerduty.get_vendor(name="Datadog")
+    example_user = pagerduty.User("exampleUser",
+        email="125.greenholt.earline@graham.name",
+        teams=[pagerduty_team["example"]["id"]])
+    foo = pagerduty.EscalationPolicy("foo",
+        num_loops=2,
+        rules=[pagerduty.EscalationPolicyRuleArgs(
+            escalation_delay_in_minutes=10,
+            targets=[pagerduty.EscalationPolicyRuleTargetArgs(
+                type="user",
+                id=example_user.id,
+            )],
+        )])
+    example_service = pagerduty.Service("exampleService",
+        auto_resolve_timeout="14400",
+        acknowledgement_timeout="600",
+        escalation_policy=pagerduty_escalation_policy["example"]["id"])
+    example_service_integration = pagerduty.ServiceIntegration("exampleServiceIntegration",
+        vendor=datadog.id,
+        service=example_service.id)
+    ```
+
 
     :param str name: The vendor name to use to find a vendor in the PagerDuty API.
     """
@@ -96,6 +124,34 @@ def get_vendor_output(name: Optional[pulumi.Input[str]] = None,
     Use this data source to get information about a specific [vendor](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODI1OQ-list-vendors) that you can use for a service integration (e.g. Amazon Cloudwatch, Splunk, Datadog).
 
     > For the case of vendors that rely on [Change Events](https://support.pagerduty.com/docs/change-events) (e.g. Jekings CI, Github, Gitlab, ...) is important to know that those vendors are only available with [PagerDuty AIOps](https://support.pagerduty.com/docs/aiops) add-on. Therefore, they won't be accessible as result of `get_vendor` data source without the proper entitlements.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_pagerduty as pagerduty
+
+    datadog = pagerduty.get_vendor(name="Datadog")
+    example_user = pagerduty.User("exampleUser",
+        email="125.greenholt.earline@graham.name",
+        teams=[pagerduty_team["example"]["id"]])
+    foo = pagerduty.EscalationPolicy("foo",
+        num_loops=2,
+        rules=[pagerduty.EscalationPolicyRuleArgs(
+            escalation_delay_in_minutes=10,
+            targets=[pagerduty.EscalationPolicyRuleTargetArgs(
+                type="user",
+                id=example_user.id,
+            )],
+        )])
+    example_service = pagerduty.Service("exampleService",
+        auto_resolve_timeout="14400",
+        acknowledgement_timeout="600",
+        escalation_policy=pagerduty_escalation_policy["example"]["id"])
+    example_service_integration = pagerduty.ServiceIntegration("exampleServiceIntegration",
+        vendor=datadog.id,
+        service=example_service.id)
+    ```
 
 
     :param str name: The vendor name to use to find a vendor in the PagerDuty API.

@@ -12,6 +12,71 @@ namespace Pulumi.Pagerduty
     /// <summary>
     /// A special case for [extension](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEzMw-create-an-extension) for ServiceNow.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Pagerduty = Pulumi.Pagerduty;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var servicenow = Pagerduty.GetExtensionSchema.Invoke(new()
+    ///     {
+    ///         Name = "ServiceNow (v7)",
+    ///     });
+    /// 
+    ///     var exampleUser = new Pagerduty.User("exampleUser", new()
+    ///     {
+    ///         Email = "howard.james@example.domain",
+    ///     });
+    /// 
+    ///     var exampleEscalationPolicy = new Pagerduty.EscalationPolicy("exampleEscalationPolicy", new()
+    ///     {
+    ///         NumLoops = 2,
+    ///         Rules = new[]
+    ///         {
+    ///             new Pagerduty.Inputs.EscalationPolicyRuleArgs
+    ///             {
+    ///                 EscalationDelayInMinutes = 10,
+    ///                 Targets = new[]
+    ///                 {
+    ///                     new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
+    ///                     {
+    ///                         Type = "user",
+    ///                         Id = exampleUser.Id,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleService = new Pagerduty.Service("exampleService", new()
+    ///     {
+    ///         AutoResolveTimeout = "14400",
+    ///         AcknowledgementTimeout = "600",
+    ///         EscalationPolicy = exampleEscalationPolicy.Id,
+    ///     });
+    /// 
+    ///     var snow = new Pagerduty.ExtensionServiceNow("snow", new()
+    ///     {
+    ///         ExtensionSchema = servicenow.Apply(getExtensionSchemaResult =&gt; getExtensionSchemaResult.Id),
+    ///         ExtensionObjects = new[]
+    ///         {
+    ///             exampleService.Id,
+    ///         },
+    ///         SnowUser = "meeps",
+    ///         SnowPassword = "zorz",
+    ///         SyncOptions = "manual_sync",
+    ///         Target = "https://foo.servicenow.com/webhook_foo",
+    ///         TaskType = "incident",
+    ///         Referer = "None",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Extensions can be imported using the id.e.g.

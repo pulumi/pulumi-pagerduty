@@ -19,6 +19,67 @@ import (
 // * To first use this resource you will need to [map your PagerDuty account to a valid Slack Workspace](https://support.pagerduty.com/docs/slack-integration-guide#integration-walkthrough). *This can only be done through the PagerDuty UI.*
 // * This resource requires a PagerDuty [user-level API key](https://support.pagerduty.com/docs/generating-api-keys#section-generating-a-personal-rest-api-key). This can be set as the `userToken` on the provider tag or as the `PAGERDUTY_USER_TOKEN` environment variable.
 // * This resource is for configuring Slack V2 Next Generation connections. If you configured your Slack integration (V1 or V2) prior to August 10, 2021, you may migrate to the Slack V2 Next Generation update using this [migration instructions](https://support.pagerduty.com/docs/slack-integration-guide#migrate-to-slack-v2-next-generation), but if you configured your Slack integration after that date, you will have access to the update out of the box.
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			fooTeam, err := pagerduty.NewTeam(ctx, "fooTeam", nil)
+//			if err != nil {
+//				return err
+//			}
+//			p1, err := pagerduty.GetPriority(ctx, &pagerduty.GetPriorityArgs{
+//				Name: "P1",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewSlackConnection(ctx, "fooSlackConnection", &pagerduty.SlackConnectionArgs{
+//				SourceId:         fooTeam.ID(),
+//				SourceType:       pulumi.String("team_reference"),
+//				WorkspaceId:      pulumi.String("T02A123LV1A"),
+//				ChannelId:        pulumi.String("C02CABCDAC9"),
+//				NotificationType: pulumi.String("responder"),
+//				Configs: pagerduty.SlackConnectionConfigArray{
+//					&pagerduty.SlackConnectionConfigArgs{
+//						Events: pulumi.StringArray{
+//							pulumi.String("incident.triggered"),
+//							pulumi.String("incident.acknowledged"),
+//							pulumi.String("incident.escalated"),
+//							pulumi.String("incident.resolved"),
+//							pulumi.String("incident.reassigned"),
+//							pulumi.String("incident.annotated"),
+//							pulumi.String("incident.unacknowledged"),
+//							pulumi.String("incident.delegated"),
+//							pulumi.String("incident.priority_updated"),
+//							pulumi.String("incident.responder.added"),
+//							pulumi.String("incident.responder.replied"),
+//							pulumi.String("incident.status_update_published"),
+//							pulumi.String("incident.reopened"),
+//						},
+//						Priorities: pulumi.StringArray{
+//							*pulumi.String(p1.Id),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //

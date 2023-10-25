@@ -156,6 +156,26 @@ def get_user_contact_method(label: Optional[str] = None,
     """
     Use this data source to get information about a specific [contact method](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzOQ-list-a-user-s-contact-methods) of a PagerDuty [user](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_pagerduty as pagerduty
+
+    me = pagerduty.get_user(email="me@example.com")
+    phone_push = pagerduty.get_user_contact_method(user_id=me.id,
+        type="push_notification_contact_method",
+        label="iPhone (John)")
+    low_urgency_sms = pagerduty.UserNotificationRule("lowUrgencySms",
+        user_id=me.id,
+        start_delay_in_minutes=5,
+        urgency="high",
+        contact_method={
+            "type": "push_notification_contact_method",
+            "id": phone_push.id,
+        })
+    ```
+
 
     :param str label: The label (e.g., "Work", "Mobile", "Ashley's iPhone", etc.).
     :param str type: The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
@@ -188,6 +208,26 @@ def get_user_contact_method_output(label: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserContactMethodResult]:
     """
     Use this data source to get information about a specific [contact method](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzOQ-list-a-user-s-contact-methods) of a PagerDuty [user](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_pagerduty as pagerduty
+
+    me = pagerduty.get_user(email="me@example.com")
+    phone_push = pagerduty.get_user_contact_method(user_id=me.id,
+        type="push_notification_contact_method",
+        label="iPhone (John)")
+    low_urgency_sms = pagerduty.UserNotificationRule("lowUrgencySms",
+        user_id=me.id,
+        start_delay_in_minutes=5,
+        urgency="high",
+        contact_method={
+            "type": "push_notification_contact_method",
+            "id": phone_push.id,
+        })
+    ```
 
 
     :param str label: The label (e.g., "Work", "Mobile", "Ashley's iPhone", etc.).

@@ -180,6 +180,40 @@ class EventOrchestrationUnrouted(pulumi.CustomResource):
 
         The Unrouted Orchestration evaluates events sent to it against each of its rules, beginning with the rules in the "start" set. When a matching rule is found, it can modify and enhance the event and can route the event to another set of rules within this Unrouted Orchestration for further processing.
 
+        ## Example of configuring Unrouted Rules for an Orchestration
+
+        In this example of an Unrouted Orchestration, the rule matches only if the condition is matched.
+        Alerts created for events that do not match the rule will have severity level set to `info` as defined in `catch_all` block.
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        unrouted = pagerduty.EventOrchestrationUnrouted("unrouted",
+            event_orchestration=pagerduty_event_orchestration["my_monitor"]["id"],
+            sets=[pagerduty.EventOrchestrationUnroutedSetArgs(
+                id="start",
+                rules=[pagerduty.EventOrchestrationUnroutedSetRuleArgs(
+                    label="Update the summary of un-matched Critical alerts so they're easier to spot",
+                    conditions=[pagerduty.EventOrchestrationUnroutedSetRuleConditionArgs(
+                        expression="event.severity matches 'critical'",
+                    )],
+                    actions=pagerduty.EventOrchestrationUnroutedSetRuleActionsArgs(
+                        severity="critical",
+                        extractions=[pagerduty.EventOrchestrationUnroutedSetRuleActionsExtractionArgs(
+                            target="event.summary",
+                            template="[Critical Unrouted] {{event.summary}}",
+                        )],
+                    ),
+                )],
+            )],
+            catch_all=pagerduty.EventOrchestrationUnroutedCatchAllArgs(
+                actions=pagerduty.EventOrchestrationUnroutedCatchAllActionsArgs(
+                    severity="info",
+                ),
+            ))
+        ```
+
         ## Import
 
         Unrouted Orchestration can be imported using the `id` of the Event Orchestration, e.g.
@@ -204,6 +238,40 @@ class EventOrchestrationUnrouted(pulumi.CustomResource):
         An Unrouted Orchestration allows users to create a set of Event Rules that will be evaluated against all events that don't match any rules in the Orchestration's Router.
 
         The Unrouted Orchestration evaluates events sent to it against each of its rules, beginning with the rules in the "start" set. When a matching rule is found, it can modify and enhance the event and can route the event to another set of rules within this Unrouted Orchestration for further processing.
+
+        ## Example of configuring Unrouted Rules for an Orchestration
+
+        In this example of an Unrouted Orchestration, the rule matches only if the condition is matched.
+        Alerts created for events that do not match the rule will have severity level set to `info` as defined in `catch_all` block.
+
+        ```python
+        import pulumi
+        import pulumi_pagerduty as pagerduty
+
+        unrouted = pagerduty.EventOrchestrationUnrouted("unrouted",
+            event_orchestration=pagerduty_event_orchestration["my_monitor"]["id"],
+            sets=[pagerduty.EventOrchestrationUnroutedSetArgs(
+                id="start",
+                rules=[pagerduty.EventOrchestrationUnroutedSetRuleArgs(
+                    label="Update the summary of un-matched Critical alerts so they're easier to spot",
+                    conditions=[pagerduty.EventOrchestrationUnroutedSetRuleConditionArgs(
+                        expression="event.severity matches 'critical'",
+                    )],
+                    actions=pagerduty.EventOrchestrationUnroutedSetRuleActionsArgs(
+                        severity="critical",
+                        extractions=[pagerduty.EventOrchestrationUnroutedSetRuleActionsExtractionArgs(
+                            target="event.summary",
+                            template="[Critical Unrouted] {{event.summary}}",
+                        )],
+                    ),
+                )],
+            )],
+            catch_all=pagerduty.EventOrchestrationUnroutedCatchAllArgs(
+                actions=pagerduty.EventOrchestrationUnroutedCatchAllActionsArgs(
+                    severity="info",
+                ),
+            ))
+        ```
 
         ## Import
 

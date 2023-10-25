@@ -15,6 +15,41 @@ namespace Pulumi.Pagerduty
         /// Use this data source to use a single purchased [license](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) to manage PagerDuty user resources. After applying changes to users' licenses, the `current_value` and `allocations_available` attributes of licenses will change.
         /// 
         /// &gt; It is preferred to set the `name` and `description` to their exact values or to set the `id`. However, this will require updating your configuration if the accounts products ever change. To avoid errors when account products change, you may set the `name` of a license to a valid substring such as `"Full User"` or `"Stakeholder"`.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var invalidRoles = new[]
+        ///     {
+        ///         "owner",
+        ///     };
+        /// 
+        ///     var fullUser = Pagerduty.GetLicense.Invoke(new()
+        ///     {
+        ///         Name = "Full User",
+        ///         Description = "",
+        ///     });
+        /// 
+        ///     var example = new Pagerduty.User("example", new()
+        ///     {
+        ///         Email = "125.greenholt.earline@graham.name",
+        ///         License = fullUser.Apply(getLicenseResult =&gt; getLicenseResult.Id),
+        ///         Role = "user",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetLicenseResult> InvokeAsync(GetLicenseArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLicenseResult>("pagerduty:index/getLicense:getLicense", args ?? new GetLicenseArgs(), options.WithDefaults());
@@ -23,6 +58,41 @@ namespace Pulumi.Pagerduty
         /// Use this data source to use a single purchased [license](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) to manage PagerDuty user resources. After applying changes to users' licenses, the `current_value` and `allocations_available` attributes of licenses will change.
         /// 
         /// &gt; It is preferred to set the `name` and `description` to their exact values or to set the `id`. However, this will require updating your configuration if the accounts products ever change. To avoid errors when account products change, you may set the `name` of a license to a valid substring such as `"Full User"` or `"Stakeholder"`.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pagerduty = Pulumi.Pagerduty;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var invalidRoles = new[]
+        ///     {
+        ///         "owner",
+        ///     };
+        /// 
+        ///     var fullUser = Pagerduty.GetLicense.Invoke(new()
+        ///     {
+        ///         Name = "Full User",
+        ///         Description = "",
+        ///     });
+        /// 
+        ///     var example = new Pagerduty.User("example", new()
+        ///     {
+        ///         Email = "125.greenholt.earline@graham.name",
+        ///         License = fullUser.Apply(getLicenseResult =&gt; getLicenseResult.Id),
+        ///         Role = "user",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetLicenseResult> Invoke(GetLicenseInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLicenseResult>("pagerduty:index/getLicense:getLicense", args ?? new GetLicenseInvokeArgs(), options.WithDefaults());

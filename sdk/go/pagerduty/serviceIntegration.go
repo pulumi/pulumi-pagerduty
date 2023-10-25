@@ -15,6 +15,184 @@ import (
 
 // A [service integration](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1services~1%7Bid%7D~1integrations/post) is an integration that belongs to a service.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
+//				Email: pulumi.String("125.greenholt.earline@graham.name"),
+//				Teams: pulumi.StringArray{
+//					pagerduty_team.Example.Id,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewEscalationPolicy(ctx, "foo", &pagerduty.EscalationPolicyArgs{
+//				NumLoops: pulumi.Int(2),
+//				Rules: pagerduty.EscalationPolicyRuleArray{
+//					&pagerduty.EscalationPolicyRuleArgs{
+//						EscalationDelayInMinutes: pulumi.Int(10),
+//						Targets: pagerduty.EscalationPolicyRuleTargetArray{
+//							&pagerduty.EscalationPolicyRuleTargetArgs{
+//								Type: pulumi.String("user"),
+//								Id:   exampleUser.ID(),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleService, err := pagerduty.NewService(ctx, "exampleService", &pagerduty.ServiceArgs{
+//				AutoResolveTimeout:     pulumi.String("14400"),
+//				AcknowledgementTimeout: pulumi.String("600"),
+//				EscalationPolicy:       pulumi.Any(pagerduty_escalation_policy.Example.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewServiceIntegration(ctx, "exampleServiceIntegration", &pagerduty.ServiceIntegrationArgs{
+//				Type:    pulumi.String("generic_events_api_inbound_integration"),
+//				Service: exampleService.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewServiceIntegration(ctx, "apiv2", &pagerduty.ServiceIntegrationArgs{
+//				Type:           pulumi.String("events_api_v2_inbound_integration"),
+//				IntegrationKey: pulumi.String("12345678910testtesttesttesttes"),
+//				Service:        exampleService.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewServiceIntegration(ctx, "emailX", &pagerduty.ServiceIntegrationArgs{
+//				Type:             pulumi.String("generic_email_inbound_integration"),
+//				IntegrationEmail: pulumi.String("ecommerce@subdomain.pagerduty.com"),
+//				Service:          exampleService.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			datadogVendor, err := pagerduty.GetVendor(ctx, &pagerduty.GetVendorArgs{
+//				Name: "Datadog",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewServiceIntegration(ctx, "datadogServiceIntegration", &pagerduty.ServiceIntegrationArgs{
+//				Service: exampleService.ID(),
+//				Vendor:  *pulumi.String(datadogVendor.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			cloudwatchVendor, err := pagerduty.GetVendor(ctx, &pagerduty.GetVendorArgs{
+//				Name: "Cloudwatch",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewServiceIntegration(ctx, "cloudwatchServiceIntegration", &pagerduty.ServiceIntegrationArgs{
+//				Service: exampleService.ID(),
+//				Vendor:  *pulumi.String(cloudwatchVendor.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			emailVendor, err := pagerduty.GetVendor(ctx, &pagerduty.GetVendorArgs{
+//				Name: "Email",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewServiceIntegration(ctx, "emailServiceIntegration", &pagerduty.ServiceIntegrationArgs{
+//				Service:               exampleService.ID(),
+//				Vendor:                *pulumi.String(emailVendor.Id),
+//				IntegrationEmail:      pulumi.String("s1@your_account.pagerduty.com"),
+//				EmailIncidentCreation: pulumi.String("use_rules"),
+//				EmailFilterMode:       pulumi.String("and-rules-email"),
+//				EmailFilters: pagerduty.ServiceIntegrationEmailFilterArray{
+//					&pagerduty.ServiceIntegrationEmailFilterArgs{
+//						BodyMode:       pulumi.String("always"),
+//						BodyRegex:      nil,
+//						FromEmailMode:  pulumi.String("match"),
+//						FromEmailRegex: pulumi.String("(@foo.test*)"),
+//						SubjectMode:    pulumi.String("match"),
+//						SubjectRegex:   pulumi.String("(CRITICAL*)"),
+//					},
+//					&pagerduty.ServiceIntegrationEmailFilterArgs{
+//						BodyMode:       pulumi.String("always"),
+//						BodyRegex:      nil,
+//						FromEmailMode:  pulumi.String("match"),
+//						FromEmailRegex: pulumi.String("(@bar.com*)"),
+//						SubjectMode:    pulumi.String("match"),
+//						SubjectRegex:   pulumi.String("(CRITICAL*)"),
+//					},
+//				},
+//				EmailParsers: pagerduty.ServiceIntegrationEmailParserArray{
+//					&pagerduty.ServiceIntegrationEmailParserArgs{
+//						Action: pulumi.String("resolve"),
+//						MatchPredicate: &pagerduty.ServiceIntegrationEmailParserMatchPredicateArgs{
+//							Type: pulumi.String("any"),
+//							Predicates: pagerduty.ServiceIntegrationEmailParserMatchPredicatePredicateArray{
+//								&pagerduty.ServiceIntegrationEmailParserMatchPredicatePredicateArgs{
+//									Matcher: pulumi.String("foo"),
+//									Part:    pulumi.String("subject"),
+//									Type:    pulumi.String("contains"),
+//								},
+//								&pagerduty.ServiceIntegrationEmailParserMatchPredicatePredicateArgs{
+//									Type: pulumi.String("not"),
+//									Predicates: pagerduty.ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArray{
+//										&pagerduty.ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs{
+//											Matcher: pulumi.String("(bar*)"),
+//											Part:    pulumi.String("body"),
+//											Type:    pulumi.String("regex"),
+//										},
+//									},
+//								},
+//							},
+//						},
+//						ValueExtractors: pagerduty.ServiceIntegrationEmailParserValueExtractorArray{
+//							&pagerduty.ServiceIntegrationEmailParserValueExtractorArgs{
+//								EndsBefore:  pulumi.String("end"),
+//								Part:        pulumi.String("subject"),
+//								StartsAfter: pulumi.String("start"),
+//								Type:        pulumi.String("between"),
+//								ValueName:   pulumi.String("incident_key"),
+//							},
+//							&pagerduty.ServiceIntegrationEmailParserValueExtractorArgs{
+//								EndsBefore:  pulumi.String("end"),
+//								Part:        pulumi.String("subject"),
+//								StartsAfter: pulumi.String("start"),
+//								Type:        pulumi.String("between"),
+//								ValueName:   pulumi.String("FieldName1"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Services can be imported using their related `service` id and service integration `id` separated by a dot, e.g.

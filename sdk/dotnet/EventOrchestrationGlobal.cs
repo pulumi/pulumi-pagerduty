@@ -12,6 +12,118 @@ namespace Pulumi.Pagerduty
     /// <summary>
     /// A [Global Orchestration](https://support.pagerduty.com/docs/event-orchestration#global-orchestrations) allows you to create a set of Event Rules. The Global Orchestration evaluates Events sent to it against each of its rules, beginning with the rules in the "start" set. When a matching rule is found, it can modify and enhance the event and can route the event to another set of rules within this Global Orchestration for further processing.
     /// 
+    /// ## Example of configuring a Global Orchestration
+    /// 
+    /// This example shows creating `Team`, and `Event Orchestration` resources followed by creating a Global Orchestration to handle Events sent to that Event Orchestration.
+    /// 
+    /// This example also shows using `priority` data source to configure `priority` action for a rule. If the Event matches the third rule in set "step-two" the resulting incident will have the Priority `P1`.
+    /// 
+    /// This example shows a Global Orchestration that has nested sets: a rule in the "start" set has a `route_to` action pointing at the "step-two" set.
+    /// 
+    /// The `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set. In this example the `catch_all` doesn't have any `actions` so it'll leave events as-is.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Pagerduty = Pulumi.Pagerduty;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var databaseTeam = new Pagerduty.Team("databaseTeam");
+    /// 
+    ///     var eventOrchestration = new Pagerduty.EventOrchestration("eventOrchestration", new()
+    ///     {
+    ///         Team = databaseTeam.Id,
+    ///     });
+    /// 
+    ///     var p1 = Pagerduty.GetPriority.Invoke(new()
+    ///     {
+    ///         Name = "P1",
+    ///     });
+    /// 
+    ///     var @global = new Pagerduty.EventOrchestrationGlobal("global", new()
+    ///     {
+    ///         EventOrchestration = eventOrchestration.Id,
+    ///         Sets = new[]
+    ///         {
+    ///             new Pagerduty.Inputs.EventOrchestrationGlobalSetArgs
+    ///             {
+    ///                 Id = "start",
+    ///                 Rules = new[]
+    ///                 {
+    ///                     new Pagerduty.Inputs.EventOrchestrationGlobalSetRuleArgs
+    ///                     {
+    ///                         Label = "Always annotate a note to all events",
+    ///                         Actions = new Pagerduty.Inputs.EventOrchestrationGlobalSetRuleActionsArgs
+    ///                         {
+    ///                             Annotate = "This incident was created by the Database Team via a Global Orchestration",
+    ///                             RouteTo = "step-two",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Pagerduty.Inputs.EventOrchestrationGlobalSetArgs
+    ///             {
+    ///                 Id = "step-two",
+    ///                 Rules = new[]
+    ///                 {
+    ///                     new Pagerduty.Inputs.EventOrchestrationGlobalSetRuleArgs
+    ///                     {
+    ///                         Label = "Drop events that are marked as no-op",
+    ///                         Conditions = new[]
+    ///                         {
+    ///                             new Pagerduty.Inputs.EventOrchestrationGlobalSetRuleConditionArgs
+    ///                             {
+    ///                                 Expression = "event.summary matches 'no-op'",
+    ///                             },
+    ///                         },
+    ///                         Actions = new Pagerduty.Inputs.EventOrchestrationGlobalSetRuleActionsArgs
+    ///                         {
+    ///                             DropEvent = true,
+    ///                         },
+    ///                     },
+    ///                     new Pagerduty.Inputs.EventOrchestrationGlobalSetRuleArgs
+    ///                     {
+    ///                         Label = "If there's something wrong on the replica, then mark the alert as a warning",
+    ///                         Conditions = new[]
+    ///                         {
+    ///                             new Pagerduty.Inputs.EventOrchestrationGlobalSetRuleConditionArgs
+    ///                             {
+    ///                                 Expression = "event.custom_details.hostname matches part 'replica'",
+    ///                             },
+    ///                         },
+    ///                         Actions = new Pagerduty.Inputs.EventOrchestrationGlobalSetRuleActionsArgs
+    ///                         {
+    ///                             Severity = "warning",
+    ///                         },
+    ///                     },
+    ///                     new Pagerduty.Inputs.EventOrchestrationGlobalSetRuleArgs
+    ///                     {
+    ///                         Label = "Otherwise, set the incident to P1 and run a diagnostic",
+    ///                         Actions = new Pagerduty.Inputs.EventOrchestrationGlobalSetRuleActionsArgs
+    ///                         {
+    ///                             Priority = p1.Apply(getPriorityResult =&gt; getPriorityResult.Id),
+    ///                             AutomationAction = new Pagerduty.Inputs.EventOrchestrationGlobalSetRuleActionsAutomationActionArgs
+    ///                             {
+    ///                                 Name = "db-diagnostic",
+    ///                                 Url = "https://example.com/run-diagnostic",
+    ///                                 AutoSend = true,
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         CatchAll = new Pagerduty.Inputs.EventOrchestrationGlobalCatchAllArgs
+    ///         {
+    ///             Actions = null,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Global Orchestration can be imported using the `id` of the Event Orchestration, e.g.

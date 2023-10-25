@@ -15,6 +15,71 @@ import (
 
 // A [response play](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE2Ng-create-a-response-play) allows you to create packages of Incident Actions that can be applied during an Incident's life cycle.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
+//				Email: pulumi.String("125.greenholt.earline@graham.name"),
+//				Teams: pulumi.StringArray{
+//					pagerduty_team.Example.Id,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleEscalationPolicy, err := pagerduty.NewEscalationPolicy(ctx, "exampleEscalationPolicy", &pagerduty.EscalationPolicyArgs{
+//				NumLoops: pulumi.Int(2),
+//				Rules: pagerduty.EscalationPolicyRuleArray{
+//					&pagerduty.EscalationPolicyRuleArgs{
+//						EscalationDelayInMinutes: pulumi.Int(10),
+//						Targets: pagerduty.EscalationPolicyRuleTargetArray{
+//							&pagerduty.EscalationPolicyRuleTargetArgs{
+//								Type: pulumi.String("user"),
+//								Id:   exampleUser.ID(),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewResponsePlay(ctx, "exampleResponsePlay", &pagerduty.ResponsePlayArgs{
+//				From: exampleUser.Email,
+//				Responders: pagerduty.ResponsePlayResponderArray{
+//					&pagerduty.ResponsePlayResponderArgs{
+//						Type: pulumi.String("escalation_policy_reference"),
+//						Id:   exampleEscalationPolicy.ID(),
+//					},
+//				},
+//				Subscribers: pagerduty.ResponsePlaySubscriberArray{
+//					&pagerduty.ResponsePlaySubscriberArgs{
+//						Type: pulumi.String("user_reference"),
+//						Id:   exampleUser.ID(),
+//					},
+//				},
+//				Runnability: pulumi.String("services"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Response Plays can be imported using the `id.from(email)`, e.g.

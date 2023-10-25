@@ -18260,6 +18260,66 @@ type ServiceScheduledActionAt struct {
 	// Note that it is currently only possible to define the scheduled action when urgency is set to `high` for `duringSupportHours` and to `low`  for `outsideSupportHours` in `incidentUrgencyRule`.
 	//
 	// Below is an example for a `Service` resource with `incidentUrgencyRules` with `type = "useSupportHours"`, `supportHours` and a default `scheduledAction` as well.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := pagerduty.NewService(ctx, "foo", &pagerduty.ServiceArgs{
+	// 			Description:            pulumi.String("bar bar bar"),
+	// 			AutoResolveTimeout:     pulumi.String("3600"),
+	// 			AcknowledgementTimeout: pulumi.String("3600"),
+	// 			EscalationPolicy:       pulumi.Any(pagerduty_escalation_policy.Foo.Id),
+	// 			IncidentUrgencyRule: &pagerduty.ServiceIncidentUrgencyRuleArgs{
+	// 				Type: pulumi.String("use_support_hours"),
+	// 				DuringSupportHours: &pagerduty.ServiceIncidentUrgencyRuleDuringSupportHoursArgs{
+	// 					Type:    pulumi.String("constant"),
+	// 					Urgency: pulumi.String("high"),
+	// 				},
+	// 				OutsideSupportHours: &pagerduty.ServiceIncidentUrgencyRuleOutsideSupportHoursArgs{
+	// 					Type:    pulumi.String("constant"),
+	// 					Urgency: pulumi.String("low"),
+	// 				},
+	// 			},
+	// 			SupportHours: &pagerduty.ServiceSupportHoursArgs{
+	// 				Type:      pulumi.String("fixed_time_per_day"),
+	// 				TimeZone:  pulumi.String("America/Lima"),
+	// 				StartTime: pulumi.String("09:00:00"),
+	// 				EndTime:   pulumi.String("17:00:00"),
+	// 				DaysOfWeeks: pulumi.IntArray{
+	// 					pulumi.Int(1),
+	// 					pulumi.Int(2),
+	// 					pulumi.Int(3),
+	// 					pulumi.Int(4),
+	// 					pulumi.Int(5),
+	// 				},
+	// 			},
+	// 			ScheduledActions: pagerduty.ServiceScheduledActionArray{
+	// 				&pagerduty.ServiceScheduledActionArgs{
+	// 					Type:      pulumi.String("urgency_change"),
+	// 					ToUrgency: pulumi.String("high"),
+	// 					Ats: pagerduty.ServiceScheduledActionAtArray{
+	// 						&pagerduty.ServiceScheduledActionAtArgs{
+	// 							Type: pulumi.String("named_time"),
+	// 							Name: pulumi.String("support_hours_start"),
+	// 						},
+	// 					},
+	// 				},
+	// 			},
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Name *string `pulumi:"name"`
 	// The type of time specification. Currently, this must be set to `namedTime`.
 	Type *string `pulumi:"type"`
@@ -18282,6 +18342,66 @@ type ServiceScheduledActionAtArgs struct {
 	// Note that it is currently only possible to define the scheduled action when urgency is set to `high` for `duringSupportHours` and to `low`  for `outsideSupportHours` in `incidentUrgencyRule`.
 	//
 	// Below is an example for a `Service` resource with `incidentUrgencyRules` with `type = "useSupportHours"`, `supportHours` and a default `scheduledAction` as well.
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := pagerduty.NewService(ctx, "foo", &pagerduty.ServiceArgs{
+	// 			Description:            pulumi.String("bar bar bar"),
+	// 			AutoResolveTimeout:     pulumi.String("3600"),
+	// 			AcknowledgementTimeout: pulumi.String("3600"),
+	// 			EscalationPolicy:       pulumi.Any(pagerduty_escalation_policy.Foo.Id),
+	// 			IncidentUrgencyRule: &pagerduty.ServiceIncidentUrgencyRuleArgs{
+	// 				Type: pulumi.String("use_support_hours"),
+	// 				DuringSupportHours: &pagerduty.ServiceIncidentUrgencyRuleDuringSupportHoursArgs{
+	// 					Type:    pulumi.String("constant"),
+	// 					Urgency: pulumi.String("high"),
+	// 				},
+	// 				OutsideSupportHours: &pagerduty.ServiceIncidentUrgencyRuleOutsideSupportHoursArgs{
+	// 					Type:    pulumi.String("constant"),
+	// 					Urgency: pulumi.String("low"),
+	// 				},
+	// 			},
+	// 			SupportHours: &pagerduty.ServiceSupportHoursArgs{
+	// 				Type:      pulumi.String("fixed_time_per_day"),
+	// 				TimeZone:  pulumi.String("America/Lima"),
+	// 				StartTime: pulumi.String("09:00:00"),
+	// 				EndTime:   pulumi.String("17:00:00"),
+	// 				DaysOfWeeks: pulumi.IntArray{
+	// 					pulumi.Int(1),
+	// 					pulumi.Int(2),
+	// 					pulumi.Int(3),
+	// 					pulumi.Int(4),
+	// 					pulumi.Int(5),
+	// 				},
+	// 			},
+	// 			ScheduledActions: pagerduty.ServiceScheduledActionArray{
+	// 				&pagerduty.ServiceScheduledActionArgs{
+	// 					Type:      pulumi.String("urgency_change"),
+	// 					ToUrgency: pulumi.String("high"),
+	// 					Ats: pagerduty.ServiceScheduledActionAtArray{
+	// 						&pagerduty.ServiceScheduledActionAtArgs{
+	// 							Type: pulumi.String("named_time"),
+	// 							Name: pulumi.String("support_hours_start"),
+	// 						},
+	// 					},
+	// 				},
+	// 			},
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The type of time specification. Currently, this must be set to `namedTime`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -18361,6 +18481,69 @@ func (o ServiceScheduledActionAtOutput) ToOutput(ctx context.Context) pulumix.Ou
 // Note that it is currently only possible to define the scheduled action when urgency is set to `high` for `duringSupportHours` and to `low`  for `outsideSupportHours` in `incidentUrgencyRule`.
 //
 // Below is an example for a `Service` resource with `incidentUrgencyRules` with `type = "useSupportHours"`, `supportHours` and a default `scheduledAction` as well.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := pagerduty.NewService(ctx, "foo", &pagerduty.ServiceArgs{
+//				Description:            pulumi.String("bar bar bar"),
+//				AutoResolveTimeout:     pulumi.String("3600"),
+//				AcknowledgementTimeout: pulumi.String("3600"),
+//				EscalationPolicy:       pulumi.Any(pagerduty_escalation_policy.Foo.Id),
+//				IncidentUrgencyRule: &pagerduty.ServiceIncidentUrgencyRuleArgs{
+//					Type: pulumi.String("use_support_hours"),
+//					DuringSupportHours: &pagerduty.ServiceIncidentUrgencyRuleDuringSupportHoursArgs{
+//						Type:    pulumi.String("constant"),
+//						Urgency: pulumi.String("high"),
+//					},
+//					OutsideSupportHours: &pagerduty.ServiceIncidentUrgencyRuleOutsideSupportHoursArgs{
+//						Type:    pulumi.String("constant"),
+//						Urgency: pulumi.String("low"),
+//					},
+//				},
+//				SupportHours: &pagerduty.ServiceSupportHoursArgs{
+//					Type:      pulumi.String("fixed_time_per_day"),
+//					TimeZone:  pulumi.String("America/Lima"),
+//					StartTime: pulumi.String("09:00:00"),
+//					EndTime:   pulumi.String("17:00:00"),
+//					DaysOfWeeks: pulumi.IntArray{
+//						pulumi.Int(1),
+//						pulumi.Int(2),
+//						pulumi.Int(3),
+//						pulumi.Int(4),
+//						pulumi.Int(5),
+//					},
+//				},
+//				ScheduledActions: pagerduty.ServiceScheduledActionArray{
+//					&pagerduty.ServiceScheduledActionArgs{
+//						Type:      pulumi.String("urgency_change"),
+//						ToUrgency: pulumi.String("high"),
+//						Ats: pagerduty.ServiceScheduledActionAtArray{
+//							&pagerduty.ServiceScheduledActionAtArgs{
+//								Type: pulumi.String("named_time"),
+//								Name: pulumi.String("support_hours_start"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o ServiceScheduledActionAtOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceScheduledActionAt) *string { return v.Name }).(pulumi.StringPtrOutput)
 }

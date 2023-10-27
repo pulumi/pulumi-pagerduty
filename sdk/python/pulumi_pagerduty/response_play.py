@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -42,76 +42,31 @@ class ResponsePlayArgs:
         :param pulumi.Input[str] team: The ID of the team associated with the response play.
         :param pulumi.Input[str] type: A string that determines the schema of the object. If not set, the default value is "response_play".
         """
-        ResponsePlayArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            from_=from_,
-            conference_number=conference_number,
-            conference_url=conference_url,
-            description=description,
-            name=name,
-            responders=responders,
-            responders_message=responders_message,
-            runnability=runnability,
-            subscribers=subscribers,
-            subscribers_message=subscribers_message,
-            team=team,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             from_: Optional[pulumi.Input[str]] = None,
-             conference_number: Optional[pulumi.Input[str]] = None,
-             conference_url: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             responders: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderArgs']]]] = None,
-             responders_message: Optional[pulumi.Input[str]] = None,
-             runnability: Optional[pulumi.Input[str]] = None,
-             subscribers: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlaySubscriberArgs']]]] = None,
-             subscribers_message: Optional[pulumi.Input[str]] = None,
-             team: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if from_ is None and 'from' in kwargs:
-            from_ = kwargs['from']
-        if from_ is None:
-            raise TypeError("Missing 'from_' argument")
-        if conference_number is None and 'conferenceNumber' in kwargs:
-            conference_number = kwargs['conferenceNumber']
-        if conference_url is None and 'conferenceUrl' in kwargs:
-            conference_url = kwargs['conferenceUrl']
-        if responders_message is None and 'respondersMessage' in kwargs:
-            responders_message = kwargs['respondersMessage']
-        if subscribers_message is None and 'subscribersMessage' in kwargs:
-            subscribers_message = kwargs['subscribersMessage']
-
-        _setter("from_", from_)
+        pulumi.set(__self__, "from_", from_)
         if conference_number is not None:
-            _setter("conference_number", conference_number)
+            pulumi.set(__self__, "conference_number", conference_number)
         if conference_url is not None:
-            _setter("conference_url", conference_url)
+            pulumi.set(__self__, "conference_url", conference_url)
         if description is None:
             description = 'Managed by Pulumi'
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if responders is not None:
-            _setter("responders", responders)
+            pulumi.set(__self__, "responders", responders)
         if responders_message is not None:
-            _setter("responders_message", responders_message)
+            pulumi.set(__self__, "responders_message", responders_message)
         if runnability is not None:
-            _setter("runnability", runnability)
+            pulumi.set(__self__, "runnability", runnability)
         if subscribers is not None:
-            _setter("subscribers", subscribers)
+            pulumi.set(__self__, "subscribers", subscribers)
         if subscribers_message is not None:
-            _setter("subscribers_message", subscribers_message)
+            pulumi.set(__self__, "subscribers_message", subscribers_message)
         if team is not None:
-            _setter("team", team)
+            pulumi.set(__self__, "team", team)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="from")
@@ -284,75 +239,32 @@ class _ResponsePlayState:
         :param pulumi.Input[str] team: The ID of the team associated with the response play.
         :param pulumi.Input[str] type: A string that determines the schema of the object. If not set, the default value is "response_play".
         """
-        _ResponsePlayState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            conference_number=conference_number,
-            conference_url=conference_url,
-            description=description,
-            from_=from_,
-            name=name,
-            responders=responders,
-            responders_message=responders_message,
-            runnability=runnability,
-            subscribers=subscribers,
-            subscribers_message=subscribers_message,
-            team=team,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             conference_number: Optional[pulumi.Input[str]] = None,
-             conference_url: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             from_: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             responders: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderArgs']]]] = None,
-             responders_message: Optional[pulumi.Input[str]] = None,
-             runnability: Optional[pulumi.Input[str]] = None,
-             subscribers: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlaySubscriberArgs']]]] = None,
-             subscribers_message: Optional[pulumi.Input[str]] = None,
-             team: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if conference_number is None and 'conferenceNumber' in kwargs:
-            conference_number = kwargs['conferenceNumber']
-        if conference_url is None and 'conferenceUrl' in kwargs:
-            conference_url = kwargs['conferenceUrl']
-        if from_ is None and 'from' in kwargs:
-            from_ = kwargs['from']
-        if responders_message is None and 'respondersMessage' in kwargs:
-            responders_message = kwargs['respondersMessage']
-        if subscribers_message is None and 'subscribersMessage' in kwargs:
-            subscribers_message = kwargs['subscribersMessage']
-
         if conference_number is not None:
-            _setter("conference_number", conference_number)
+            pulumi.set(__self__, "conference_number", conference_number)
         if conference_url is not None:
-            _setter("conference_url", conference_url)
+            pulumi.set(__self__, "conference_url", conference_url)
         if description is None:
             description = 'Managed by Pulumi'
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if from_ is not None:
-            _setter("from_", from_)
+            pulumi.set(__self__, "from_", from_)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if responders is not None:
-            _setter("responders", responders)
+            pulumi.set(__self__, "responders", responders)
         if responders_message is not None:
-            _setter("responders_message", responders_message)
+            pulumi.set(__self__, "responders_message", responders_message)
         if runnability is not None:
-            _setter("runnability", runnability)
+            pulumi.set(__self__, "runnability", runnability)
         if subscribers is not None:
-            _setter("subscribers", subscribers)
+            pulumi.set(__self__, "subscribers", subscribers)
         if subscribers_message is not None:
-            _setter("subscribers_message", subscribers_message)
+            pulumi.set(__self__, "subscribers_message", subscribers_message)
         if team is not None:
-            _setter("team", team)
+            pulumi.set(__self__, "team", team)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="conferenceNumber")
@@ -628,10 +540,6 @@ class ResponsePlay(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ResponsePlayArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

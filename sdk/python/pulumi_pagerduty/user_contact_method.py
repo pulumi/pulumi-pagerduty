@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['UserContactMethodArgs', 'UserContactMethod']
@@ -29,49 +29,14 @@ class UserContactMethodArgs:
         :param pulumi.Input[int] country_code: The 1-to-3 digit country calling code. Required when using `phone_contact_method` or `sms_contact_method`.
         :param pulumi.Input[bool] send_short_email: Send an abbreviated email message instead of the standard email output.
         """
-        UserContactMethodArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            address=address,
-            label=label,
-            type=type,
-            user_id=user_id,
-            country_code=country_code,
-            send_short_email=send_short_email,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             address: Optional[pulumi.Input[str]] = None,
-             label: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             user_id: Optional[pulumi.Input[str]] = None,
-             country_code: Optional[pulumi.Input[int]] = None,
-             send_short_email: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if address is None:
-            raise TypeError("Missing 'address' argument")
-        if label is None:
-            raise TypeError("Missing 'label' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if user_id is None and 'userId' in kwargs:
-            user_id = kwargs['userId']
-        if user_id is None:
-            raise TypeError("Missing 'user_id' argument")
-        if country_code is None and 'countryCode' in kwargs:
-            country_code = kwargs['countryCode']
-        if send_short_email is None and 'sendShortEmail' in kwargs:
-            send_short_email = kwargs['sendShortEmail']
-
-        _setter("address", address)
-        _setter("label", label)
-        _setter("type", type)
-        _setter("user_id", user_id)
+        pulumi.set(__self__, "address", address)
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "user_id", user_id)
         if country_code is not None:
-            _setter("country_code", country_code)
+            pulumi.set(__self__, "country_code", country_code)
         if send_short_email is not None:
-            _setter("send_short_email", send_short_email)
+            pulumi.set(__self__, "send_short_email", send_short_email)
 
     @property
     @pulumi.getter
@@ -168,53 +133,22 @@ class _UserContactMethodState:
         :param pulumi.Input[str] type: The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
         :param pulumi.Input[str] user_id: The ID of the user.
         """
-        _UserContactMethodState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            address=address,
-            blacklisted=blacklisted,
-            country_code=country_code,
-            enabled=enabled,
-            label=label,
-            send_short_email=send_short_email,
-            type=type,
-            user_id=user_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             address: Optional[pulumi.Input[str]] = None,
-             blacklisted: Optional[pulumi.Input[bool]] = None,
-             country_code: Optional[pulumi.Input[int]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             label: Optional[pulumi.Input[str]] = None,
-             send_short_email: Optional[pulumi.Input[bool]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             user_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if country_code is None and 'countryCode' in kwargs:
-            country_code = kwargs['countryCode']
-        if send_short_email is None and 'sendShortEmail' in kwargs:
-            send_short_email = kwargs['sendShortEmail']
-        if user_id is None and 'userId' in kwargs:
-            user_id = kwargs['userId']
-
         if address is not None:
-            _setter("address", address)
+            pulumi.set(__self__, "address", address)
         if blacklisted is not None:
-            _setter("blacklisted", blacklisted)
+            pulumi.set(__self__, "blacklisted", blacklisted)
         if country_code is not None:
-            _setter("country_code", country_code)
+            pulumi.set(__self__, "country_code", country_code)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if label is not None:
-            _setter("label", label)
+            pulumi.set(__self__, "label", label)
         if send_short_email is not None:
-            _setter("send_short_email", send_short_email)
+            pulumi.set(__self__, "send_short_email", send_short_email)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if user_id is not None:
-            _setter("user_id", user_id)
+            pulumi.set(__self__, "user_id", user_id)
 
     @property
     @pulumi.getter
@@ -424,10 +358,6 @@ class UserContactMethod(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            UserContactMethodArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

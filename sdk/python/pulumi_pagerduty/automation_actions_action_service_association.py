@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['AutomationActionsActionServiceAssociationArgs', 'AutomationActionsActionServiceAssociation']
@@ -21,29 +21,8 @@ class AutomationActionsActionServiceAssociationArgs:
         :param pulumi.Input[str] action_id: Id of the action.
         :param pulumi.Input[str] service_id: Id of the service associated to the action.
         """
-        AutomationActionsActionServiceAssociationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action_id=action_id,
-            service_id=service_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action_id: Optional[pulumi.Input[str]] = None,
-             service_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if action_id is None and 'actionId' in kwargs:
-            action_id = kwargs['actionId']
-        if action_id is None:
-            raise TypeError("Missing 'action_id' argument")
-        if service_id is None and 'serviceId' in kwargs:
-            service_id = kwargs['serviceId']
-        if service_id is None:
-            raise TypeError("Missing 'service_id' argument")
-
-        _setter("action_id", action_id)
-        _setter("service_id", service_id)
+        pulumi.set(__self__, "action_id", action_id)
+        pulumi.set(__self__, "service_id", service_id)
 
     @property
     @pulumi.getter(name="actionId")
@@ -80,27 +59,10 @@ class _AutomationActionsActionServiceAssociationState:
         :param pulumi.Input[str] action_id: Id of the action.
         :param pulumi.Input[str] service_id: Id of the service associated to the action.
         """
-        _AutomationActionsActionServiceAssociationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action_id=action_id,
-            service_id=service_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action_id: Optional[pulumi.Input[str]] = None,
-             service_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if action_id is None and 'actionId' in kwargs:
-            action_id = kwargs['actionId']
-        if service_id is None and 'serviceId' in kwargs:
-            service_id = kwargs['serviceId']
-
         if action_id is not None:
-            _setter("action_id", action_id)
+            pulumi.set(__self__, "action_id", action_id)
         if service_id is not None:
-            _setter("service_id", service_id)
+            pulumi.set(__self__, "service_id", service_id)
 
     @property
     @pulumi.getter(name="actionId")
@@ -250,10 +212,6 @@ class AutomationActionsActionServiceAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AutomationActionsActionServiceAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

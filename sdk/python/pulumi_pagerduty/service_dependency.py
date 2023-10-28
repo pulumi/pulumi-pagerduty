@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -21,20 +21,7 @@ class ServiceDependencyArgs:
         The set of arguments for constructing a ServiceDependency resource.
         :param pulumi.Input['ServiceDependencyDependencyArgs'] dependency: The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
         """
-        ServiceDependencyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            dependency=dependency,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             dependency: Optional[pulumi.Input['ServiceDependencyDependencyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if dependency is None:
-            raise TypeError("Missing 'dependency' argument")
-
-        _setter("dependency", dependency)
+        pulumi.set(__self__, "dependency", dependency)
 
     @property
     @pulumi.getter
@@ -57,19 +44,8 @@ class _ServiceDependencyState:
         Input properties used for looking up and filtering ServiceDependency resources.
         :param pulumi.Input['ServiceDependencyDependencyArgs'] dependency: The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
         """
-        _ServiceDependencyState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            dependency=dependency,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             dependency: Optional[pulumi.Input['ServiceDependencyDependencyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if dependency is not None:
-            _setter("dependency", dependency)
+            pulumi.set(__self__, "dependency", dependency)
 
     @property
     @pulumi.getter
@@ -189,10 +165,6 @@ class ServiceDependency(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ServiceDependencyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -208,7 +180,6 @@ class ServiceDependency(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceDependencyArgs.__new__(ServiceDependencyArgs)
 
-            dependency = _utilities.configure(dependency, ServiceDependencyDependencyArgs, True)
             if dependency is None and not opts.urn:
                 raise TypeError("Missing required property 'dependency'")
             __props__.__dict__["dependency"] = dependency

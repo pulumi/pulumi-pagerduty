@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['IncidentWorkflowTriggerArgs', 'IncidentWorkflowTrigger']
@@ -27,40 +27,13 @@ class IncidentWorkflowTriggerArgs:
         :param pulumi.Input[str] condition: A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] services: A list of service IDs. Incidents in any of the listed services are eligible to fire this trigger.
         """
-        IncidentWorkflowTriggerArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            subscribed_to_all_services=subscribed_to_all_services,
-            type=type,
-            workflow=workflow,
-            condition=condition,
-            services=services,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             subscribed_to_all_services: Optional[pulumi.Input[bool]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             workflow: Optional[pulumi.Input[str]] = None,
-             condition: Optional[pulumi.Input[str]] = None,
-             services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if subscribed_to_all_services is None and 'subscribedToAllServices' in kwargs:
-            subscribed_to_all_services = kwargs['subscribedToAllServices']
-        if subscribed_to_all_services is None:
-            raise TypeError("Missing 'subscribed_to_all_services' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if workflow is None:
-            raise TypeError("Missing 'workflow' argument")
-
-        _setter("subscribed_to_all_services", subscribed_to_all_services)
-        _setter("type", type)
-        _setter("workflow", workflow)
+        pulumi.set(__self__, "subscribed_to_all_services", subscribed_to_all_services)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "workflow", workflow)
         if condition is not None:
-            _setter("condition", condition)
+            pulumi.set(__self__, "condition", condition)
         if services is not None:
-            _setter("services", services)
+            pulumi.set(__self__, "services", services)
 
     @property
     @pulumi.getter(name="subscribedToAllServices")
@@ -139,37 +112,16 @@ class _IncidentWorkflowTriggerState:
         :param pulumi.Input[str] type: May be either `manual` or `conditional`.
         :param pulumi.Input[str] workflow: The workflow ID for the workflow to trigger.
         """
-        _IncidentWorkflowTriggerState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            condition=condition,
-            services=services,
-            subscribed_to_all_services=subscribed_to_all_services,
-            type=type,
-            workflow=workflow,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             condition: Optional[pulumi.Input[str]] = None,
-             services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             subscribed_to_all_services: Optional[pulumi.Input[bool]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             workflow: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if subscribed_to_all_services is None and 'subscribedToAllServices' in kwargs:
-            subscribed_to_all_services = kwargs['subscribedToAllServices']
-
         if condition is not None:
-            _setter("condition", condition)
+            pulumi.set(__self__, "condition", condition)
         if services is not None:
-            _setter("services", services)
+            pulumi.set(__self__, "services", services)
         if subscribed_to_all_services is not None:
-            _setter("subscribed_to_all_services", subscribed_to_all_services)
+            pulumi.set(__self__, "subscribed_to_all_services", subscribed_to_all_services)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if workflow is not None:
-            _setter("workflow", workflow)
+            pulumi.set(__self__, "workflow", workflow)
 
     @property
     @pulumi.getter
@@ -349,10 +301,6 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            IncidentWorkflowTriggerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

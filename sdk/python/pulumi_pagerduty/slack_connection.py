@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,55 +31,12 @@ class SlackConnectionArgs:
         :param pulumi.Input[str] source_type: The type of the source. Either `team_reference` or `service_reference`.
         :param pulumi.Input[str] workspace_id: The slack team (workspace) ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
         """
-        SlackConnectionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            channel_id=channel_id,
-            configs=configs,
-            notification_type=notification_type,
-            source_id=source_id,
-            source_type=source_type,
-            workspace_id=workspace_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             channel_id: Optional[pulumi.Input[str]] = None,
-             configs: Optional[pulumi.Input[Sequence[pulumi.Input['SlackConnectionConfigArgs']]]] = None,
-             notification_type: Optional[pulumi.Input[str]] = None,
-             source_id: Optional[pulumi.Input[str]] = None,
-             source_type: Optional[pulumi.Input[str]] = None,
-             workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if channel_id is None and 'channelId' in kwargs:
-            channel_id = kwargs['channelId']
-        if channel_id is None:
-            raise TypeError("Missing 'channel_id' argument")
-        if configs is None:
-            raise TypeError("Missing 'configs' argument")
-        if notification_type is None and 'notificationType' in kwargs:
-            notification_type = kwargs['notificationType']
-        if notification_type is None:
-            raise TypeError("Missing 'notification_type' argument")
-        if source_id is None and 'sourceId' in kwargs:
-            source_id = kwargs['sourceId']
-        if source_id is None:
-            raise TypeError("Missing 'source_id' argument")
-        if source_type is None and 'sourceType' in kwargs:
-            source_type = kwargs['sourceType']
-        if source_type is None:
-            raise TypeError("Missing 'source_type' argument")
-        if workspace_id is None and 'workspaceId' in kwargs:
-            workspace_id = kwargs['workspaceId']
-        if workspace_id is None:
-            raise TypeError("Missing 'workspace_id' argument")
-
-        _setter("channel_id", channel_id)
-        _setter("configs", configs)
-        _setter("notification_type", notification_type)
-        _setter("source_id", source_id)
-        _setter("source_type", source_type)
-        _setter("workspace_id", workspace_id)
+        pulumi.set(__self__, "channel_id", channel_id)
+        pulumi.set(__self__, "configs", configs)
+        pulumi.set(__self__, "notification_type", notification_type)
+        pulumi.set(__self__, "source_id", source_id)
+        pulumi.set(__self__, "source_type", source_type)
+        pulumi.set(__self__, "workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="channelId")
@@ -176,61 +133,22 @@ class _SlackConnectionState:
         :param pulumi.Input[str] source_type: The type of the source. Either `team_reference` or `service_reference`.
         :param pulumi.Input[str] workspace_id: The slack team (workspace) ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
         """
-        _SlackConnectionState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            channel_id=channel_id,
-            channel_name=channel_name,
-            configs=configs,
-            notification_type=notification_type,
-            source_id=source_id,
-            source_name=source_name,
-            source_type=source_type,
-            workspace_id=workspace_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             channel_id: Optional[pulumi.Input[str]] = None,
-             channel_name: Optional[pulumi.Input[str]] = None,
-             configs: Optional[pulumi.Input[Sequence[pulumi.Input['SlackConnectionConfigArgs']]]] = None,
-             notification_type: Optional[pulumi.Input[str]] = None,
-             source_id: Optional[pulumi.Input[str]] = None,
-             source_name: Optional[pulumi.Input[str]] = None,
-             source_type: Optional[pulumi.Input[str]] = None,
-             workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if channel_id is None and 'channelId' in kwargs:
-            channel_id = kwargs['channelId']
-        if channel_name is None and 'channelName' in kwargs:
-            channel_name = kwargs['channelName']
-        if notification_type is None and 'notificationType' in kwargs:
-            notification_type = kwargs['notificationType']
-        if source_id is None and 'sourceId' in kwargs:
-            source_id = kwargs['sourceId']
-        if source_name is None and 'sourceName' in kwargs:
-            source_name = kwargs['sourceName']
-        if source_type is None and 'sourceType' in kwargs:
-            source_type = kwargs['sourceType']
-        if workspace_id is None and 'workspaceId' in kwargs:
-            workspace_id = kwargs['workspaceId']
-
         if channel_id is not None:
-            _setter("channel_id", channel_id)
+            pulumi.set(__self__, "channel_id", channel_id)
         if channel_name is not None:
-            _setter("channel_name", channel_name)
+            pulumi.set(__self__, "channel_name", channel_name)
         if configs is not None:
-            _setter("configs", configs)
+            pulumi.set(__self__, "configs", configs)
         if notification_type is not None:
-            _setter("notification_type", notification_type)
+            pulumi.set(__self__, "notification_type", notification_type)
         if source_id is not None:
-            _setter("source_id", source_id)
+            pulumi.set(__self__, "source_id", source_id)
         if source_name is not None:
-            _setter("source_name", source_name)
+            pulumi.set(__self__, "source_name", source_name)
         if source_type is not None:
-            _setter("source_type", source_type)
+            pulumi.set(__self__, "source_type", source_type)
         if workspace_id is not None:
-            _setter("workspace_id", workspace_id)
+            pulumi.set(__self__, "workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="channelId")
@@ -464,10 +382,6 @@ class SlackConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SlackConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['IncidentCustomFieldOptionArgs', 'IncidentCustomFieldOption']
@@ -23,32 +23,9 @@ class IncidentCustomFieldOptionArgs:
         :param pulumi.Input[str] field: The ID of the field.
         :param pulumi.Input[str] value: The allowed value.
         """
-        IncidentCustomFieldOptionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_type=data_type,
-            field=field,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_type: Optional[pulumi.Input[str]] = None,
-             field: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if data_type is None and 'dataType' in kwargs:
-            data_type = kwargs['dataType']
-        if data_type is None:
-            raise TypeError("Missing 'data_type' argument")
-        if field is None:
-            raise TypeError("Missing 'field' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("data_type", data_type)
-        _setter("field", field)
-        _setter("value", value)
+        pulumi.set(__self__, "data_type", data_type)
+        pulumi.set(__self__, "field", field)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter(name="dataType")
@@ -99,29 +76,12 @@ class _IncidentCustomFieldOptionState:
         :param pulumi.Input[str] field: The ID of the field.
         :param pulumi.Input[str] value: The allowed value.
         """
-        _IncidentCustomFieldOptionState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_type=data_type,
-            field=field,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_type: Optional[pulumi.Input[str]] = None,
-             field: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if data_type is None and 'dataType' in kwargs:
-            data_type = kwargs['dataType']
-
         if data_type is not None:
-            _setter("data_type", data_type)
+            pulumi.set(__self__, "data_type", data_type)
         if field is not None:
-            _setter("field", field)
+            pulumi.set(__self__, "field", field)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter(name="dataType")
@@ -245,10 +205,6 @@ class IncidentCustomFieldOption(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            IncidentCustomFieldOptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

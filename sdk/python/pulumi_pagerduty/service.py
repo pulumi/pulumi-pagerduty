@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -43,104 +43,41 @@ class ServiceArgs:
         :param pulumi.Input[str] name: The name of the service.
         :param pulumi.Input[str] response_play: The response play used by this service.
         """
-        ServiceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            escalation_policy=escalation_policy,
-            acknowledgement_timeout=acknowledgement_timeout,
-            alert_creation=alert_creation,
-            alert_grouping=alert_grouping,
-            alert_grouping_parameters=alert_grouping_parameters,
-            alert_grouping_timeout=alert_grouping_timeout,
-            auto_pause_notifications_parameters=auto_pause_notifications_parameters,
-            auto_resolve_timeout=auto_resolve_timeout,
-            description=description,
-            incident_urgency_rule=incident_urgency_rule,
-            name=name,
-            response_play=response_play,
-            scheduled_actions=scheduled_actions,
-            support_hours=support_hours,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             escalation_policy: Optional[pulumi.Input[str]] = None,
-             acknowledgement_timeout: Optional[pulumi.Input[str]] = None,
-             alert_creation: Optional[pulumi.Input[str]] = None,
-             alert_grouping: Optional[pulumi.Input[str]] = None,
-             alert_grouping_parameters: Optional[pulumi.Input['ServiceAlertGroupingParametersArgs']] = None,
-             alert_grouping_timeout: Optional[pulumi.Input[str]] = None,
-             auto_pause_notifications_parameters: Optional[pulumi.Input['ServiceAutoPauseNotificationsParametersArgs']] = None,
-             auto_resolve_timeout: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             incident_urgency_rule: Optional[pulumi.Input['ServiceIncidentUrgencyRuleArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             response_play: Optional[pulumi.Input[str]] = None,
-             scheduled_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceScheduledActionArgs']]]] = None,
-             support_hours: Optional[pulumi.Input['ServiceSupportHoursArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if escalation_policy is None and 'escalationPolicy' in kwargs:
-            escalation_policy = kwargs['escalationPolicy']
-        if escalation_policy is None:
-            raise TypeError("Missing 'escalation_policy' argument")
-        if acknowledgement_timeout is None and 'acknowledgementTimeout' in kwargs:
-            acknowledgement_timeout = kwargs['acknowledgementTimeout']
-        if alert_creation is None and 'alertCreation' in kwargs:
-            alert_creation = kwargs['alertCreation']
-        if alert_grouping is None and 'alertGrouping' in kwargs:
-            alert_grouping = kwargs['alertGrouping']
-        if alert_grouping_parameters is None and 'alertGroupingParameters' in kwargs:
-            alert_grouping_parameters = kwargs['alertGroupingParameters']
-        if alert_grouping_timeout is None and 'alertGroupingTimeout' in kwargs:
-            alert_grouping_timeout = kwargs['alertGroupingTimeout']
-        if auto_pause_notifications_parameters is None and 'autoPauseNotificationsParameters' in kwargs:
-            auto_pause_notifications_parameters = kwargs['autoPauseNotificationsParameters']
-        if auto_resolve_timeout is None and 'autoResolveTimeout' in kwargs:
-            auto_resolve_timeout = kwargs['autoResolveTimeout']
-        if incident_urgency_rule is None and 'incidentUrgencyRule' in kwargs:
-            incident_urgency_rule = kwargs['incidentUrgencyRule']
-        if response_play is None and 'responsePlay' in kwargs:
-            response_play = kwargs['responsePlay']
-        if scheduled_actions is None and 'scheduledActions' in kwargs:
-            scheduled_actions = kwargs['scheduledActions']
-        if support_hours is None and 'supportHours' in kwargs:
-            support_hours = kwargs['supportHours']
-
-        _setter("escalation_policy", escalation_policy)
+        pulumi.set(__self__, "escalation_policy", escalation_policy)
         if acknowledgement_timeout is not None:
-            _setter("acknowledgement_timeout", acknowledgement_timeout)
+            pulumi.set(__self__, "acknowledgement_timeout", acknowledgement_timeout)
         if alert_creation is not None:
-            _setter("alert_creation", alert_creation)
+            pulumi.set(__self__, "alert_creation", alert_creation)
         if alert_grouping is not None:
             warnings.warn("""Use `alert_grouping_parameters.type`""", DeprecationWarning)
             pulumi.log.warn("""alert_grouping is deprecated: Use `alert_grouping_parameters.type`""")
         if alert_grouping is not None:
-            _setter("alert_grouping", alert_grouping)
+            pulumi.set(__self__, "alert_grouping", alert_grouping)
         if alert_grouping_parameters is not None:
-            _setter("alert_grouping_parameters", alert_grouping_parameters)
+            pulumi.set(__self__, "alert_grouping_parameters", alert_grouping_parameters)
         if alert_grouping_timeout is not None:
             warnings.warn("""Use `alert_grouping_parameters.config.timeout`""", DeprecationWarning)
             pulumi.log.warn("""alert_grouping_timeout is deprecated: Use `alert_grouping_parameters.config.timeout`""")
         if alert_grouping_timeout is not None:
-            _setter("alert_grouping_timeout", alert_grouping_timeout)
+            pulumi.set(__self__, "alert_grouping_timeout", alert_grouping_timeout)
         if auto_pause_notifications_parameters is not None:
-            _setter("auto_pause_notifications_parameters", auto_pause_notifications_parameters)
+            pulumi.set(__self__, "auto_pause_notifications_parameters", auto_pause_notifications_parameters)
         if auto_resolve_timeout is not None:
-            _setter("auto_resolve_timeout", auto_resolve_timeout)
+            pulumi.set(__self__, "auto_resolve_timeout", auto_resolve_timeout)
         if description is None:
             description = 'Managed by Pulumi'
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if incident_urgency_rule is not None:
-            _setter("incident_urgency_rule", incident_urgency_rule)
+            pulumi.set(__self__, "incident_urgency_rule", incident_urgency_rule)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if response_play is not None:
-            _setter("response_play", response_play)
+            pulumi.set(__self__, "response_play", response_play)
         if scheduled_actions is not None:
-            _setter("scheduled_actions", scheduled_actions)
+            pulumi.set(__self__, "scheduled_actions", scheduled_actions)
         if support_hours is not None:
-            _setter("support_hours", support_hours)
+            pulumi.set(__self__, "support_hours", support_hours)
 
     @property
     @pulumi.getter(name="escalationPolicy")
@@ -345,129 +282,52 @@ class _ServiceState:
         :param pulumi.Input[str] status: The status of the service.
         :param pulumi.Input[str] type: The type of alert grouping; one of `intelligent`, `time` or `content_based`.
         """
-        _ServiceState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            acknowledgement_timeout=acknowledgement_timeout,
-            alert_creation=alert_creation,
-            alert_grouping=alert_grouping,
-            alert_grouping_parameters=alert_grouping_parameters,
-            alert_grouping_timeout=alert_grouping_timeout,
-            auto_pause_notifications_parameters=auto_pause_notifications_parameters,
-            auto_resolve_timeout=auto_resolve_timeout,
-            created_at=created_at,
-            description=description,
-            escalation_policy=escalation_policy,
-            html_url=html_url,
-            incident_urgency_rule=incident_urgency_rule,
-            last_incident_timestamp=last_incident_timestamp,
-            name=name,
-            response_play=response_play,
-            scheduled_actions=scheduled_actions,
-            status=status,
-            support_hours=support_hours,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             acknowledgement_timeout: Optional[pulumi.Input[str]] = None,
-             alert_creation: Optional[pulumi.Input[str]] = None,
-             alert_grouping: Optional[pulumi.Input[str]] = None,
-             alert_grouping_parameters: Optional[pulumi.Input['ServiceAlertGroupingParametersArgs']] = None,
-             alert_grouping_timeout: Optional[pulumi.Input[str]] = None,
-             auto_pause_notifications_parameters: Optional[pulumi.Input['ServiceAutoPauseNotificationsParametersArgs']] = None,
-             auto_resolve_timeout: Optional[pulumi.Input[str]] = None,
-             created_at: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             escalation_policy: Optional[pulumi.Input[str]] = None,
-             html_url: Optional[pulumi.Input[str]] = None,
-             incident_urgency_rule: Optional[pulumi.Input['ServiceIncidentUrgencyRuleArgs']] = None,
-             last_incident_timestamp: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             response_play: Optional[pulumi.Input[str]] = None,
-             scheduled_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceScheduledActionArgs']]]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             support_hours: Optional[pulumi.Input['ServiceSupportHoursArgs']] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if acknowledgement_timeout is None and 'acknowledgementTimeout' in kwargs:
-            acknowledgement_timeout = kwargs['acknowledgementTimeout']
-        if alert_creation is None and 'alertCreation' in kwargs:
-            alert_creation = kwargs['alertCreation']
-        if alert_grouping is None and 'alertGrouping' in kwargs:
-            alert_grouping = kwargs['alertGrouping']
-        if alert_grouping_parameters is None and 'alertGroupingParameters' in kwargs:
-            alert_grouping_parameters = kwargs['alertGroupingParameters']
-        if alert_grouping_timeout is None and 'alertGroupingTimeout' in kwargs:
-            alert_grouping_timeout = kwargs['alertGroupingTimeout']
-        if auto_pause_notifications_parameters is None and 'autoPauseNotificationsParameters' in kwargs:
-            auto_pause_notifications_parameters = kwargs['autoPauseNotificationsParameters']
-        if auto_resolve_timeout is None and 'autoResolveTimeout' in kwargs:
-            auto_resolve_timeout = kwargs['autoResolveTimeout']
-        if created_at is None and 'createdAt' in kwargs:
-            created_at = kwargs['createdAt']
-        if escalation_policy is None and 'escalationPolicy' in kwargs:
-            escalation_policy = kwargs['escalationPolicy']
-        if html_url is None and 'htmlUrl' in kwargs:
-            html_url = kwargs['htmlUrl']
-        if incident_urgency_rule is None and 'incidentUrgencyRule' in kwargs:
-            incident_urgency_rule = kwargs['incidentUrgencyRule']
-        if last_incident_timestamp is None and 'lastIncidentTimestamp' in kwargs:
-            last_incident_timestamp = kwargs['lastIncidentTimestamp']
-        if response_play is None and 'responsePlay' in kwargs:
-            response_play = kwargs['responsePlay']
-        if scheduled_actions is None and 'scheduledActions' in kwargs:
-            scheduled_actions = kwargs['scheduledActions']
-        if support_hours is None and 'supportHours' in kwargs:
-            support_hours = kwargs['supportHours']
-
         if acknowledgement_timeout is not None:
-            _setter("acknowledgement_timeout", acknowledgement_timeout)
+            pulumi.set(__self__, "acknowledgement_timeout", acknowledgement_timeout)
         if alert_creation is not None:
-            _setter("alert_creation", alert_creation)
+            pulumi.set(__self__, "alert_creation", alert_creation)
         if alert_grouping is not None:
             warnings.warn("""Use `alert_grouping_parameters.type`""", DeprecationWarning)
             pulumi.log.warn("""alert_grouping is deprecated: Use `alert_grouping_parameters.type`""")
         if alert_grouping is not None:
-            _setter("alert_grouping", alert_grouping)
+            pulumi.set(__self__, "alert_grouping", alert_grouping)
         if alert_grouping_parameters is not None:
-            _setter("alert_grouping_parameters", alert_grouping_parameters)
+            pulumi.set(__self__, "alert_grouping_parameters", alert_grouping_parameters)
         if alert_grouping_timeout is not None:
             warnings.warn("""Use `alert_grouping_parameters.config.timeout`""", DeprecationWarning)
             pulumi.log.warn("""alert_grouping_timeout is deprecated: Use `alert_grouping_parameters.config.timeout`""")
         if alert_grouping_timeout is not None:
-            _setter("alert_grouping_timeout", alert_grouping_timeout)
+            pulumi.set(__self__, "alert_grouping_timeout", alert_grouping_timeout)
         if auto_pause_notifications_parameters is not None:
-            _setter("auto_pause_notifications_parameters", auto_pause_notifications_parameters)
+            pulumi.set(__self__, "auto_pause_notifications_parameters", auto_pause_notifications_parameters)
         if auto_resolve_timeout is not None:
-            _setter("auto_resolve_timeout", auto_resolve_timeout)
+            pulumi.set(__self__, "auto_resolve_timeout", auto_resolve_timeout)
         if created_at is not None:
-            _setter("created_at", created_at)
+            pulumi.set(__self__, "created_at", created_at)
         if description is None:
             description = 'Managed by Pulumi'
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if escalation_policy is not None:
-            _setter("escalation_policy", escalation_policy)
+            pulumi.set(__self__, "escalation_policy", escalation_policy)
         if html_url is not None:
-            _setter("html_url", html_url)
+            pulumi.set(__self__, "html_url", html_url)
         if incident_urgency_rule is not None:
-            _setter("incident_urgency_rule", incident_urgency_rule)
+            pulumi.set(__self__, "incident_urgency_rule", incident_urgency_rule)
         if last_incident_timestamp is not None:
-            _setter("last_incident_timestamp", last_incident_timestamp)
+            pulumi.set(__self__, "last_incident_timestamp", last_incident_timestamp)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if response_play is not None:
-            _setter("response_play", response_play)
+            pulumi.set(__self__, "response_play", response_play)
         if scheduled_actions is not None:
-            _setter("scheduled_actions", scheduled_actions)
+            pulumi.set(__self__, "scheduled_actions", scheduled_actions)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if support_hours is not None:
-            _setter("support_hours", support_hours)
+            pulumi.set(__self__, "support_hours", support_hours)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="acknowledgementTimeout")
@@ -817,10 +677,6 @@ class Service(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -852,10 +708,8 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["acknowledgement_timeout"] = acknowledgement_timeout
             __props__.__dict__["alert_creation"] = alert_creation
             __props__.__dict__["alert_grouping"] = alert_grouping
-            alert_grouping_parameters = _utilities.configure(alert_grouping_parameters, ServiceAlertGroupingParametersArgs, True)
             __props__.__dict__["alert_grouping_parameters"] = alert_grouping_parameters
             __props__.__dict__["alert_grouping_timeout"] = alert_grouping_timeout
-            auto_pause_notifications_parameters = _utilities.configure(auto_pause_notifications_parameters, ServiceAutoPauseNotificationsParametersArgs, True)
             __props__.__dict__["auto_pause_notifications_parameters"] = auto_pause_notifications_parameters
             __props__.__dict__["auto_resolve_timeout"] = auto_resolve_timeout
             if description is None:
@@ -864,12 +718,10 @@ class Service(pulumi.CustomResource):
             if escalation_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'escalation_policy'")
             __props__.__dict__["escalation_policy"] = escalation_policy
-            incident_urgency_rule = _utilities.configure(incident_urgency_rule, ServiceIncidentUrgencyRuleArgs, True)
             __props__.__dict__["incident_urgency_rule"] = incident_urgency_rule
             __props__.__dict__["name"] = name
             __props__.__dict__["response_play"] = response_play
             __props__.__dict__["scheduled_actions"] = scheduled_actions
-            support_hours = _utilities.configure(support_hours, ServiceSupportHoursArgs, True)
             __props__.__dict__["support_hours"] = support_hours
             __props__.__dict__["created_at"] = None
             __props__.__dict__["html_url"] = None

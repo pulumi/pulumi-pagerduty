@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,31 +27,14 @@ class EventOrchestrationArgs:
         :param pulumi.Input[str] name: Name of the Event Orchestration.
         :param pulumi.Input[str] team: ID of the team that owns the Event Orchestration. If none is specified, only admins have access.
         """
-        EventOrchestrationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            integrations=integrations,
-            name=name,
-            team=team,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             integrations: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationIntegrationArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             team: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if integrations is not None:
-            _setter("integrations", integrations)
+            pulumi.set(__self__, "integrations", integrations)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if team is not None:
-            _setter("team", team)
+            pulumi.set(__self__, "team", team)
 
     @property
     @pulumi.getter
@@ -117,35 +100,16 @@ class _EventOrchestrationState:
         :param pulumi.Input[str] name: Name of the Event Orchestration.
         :param pulumi.Input[str] team: ID of the team that owns the Event Orchestration. If none is specified, only admins have access.
         """
-        _EventOrchestrationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            integrations=integrations,
-            name=name,
-            routes=routes,
-            team=team,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             integrations: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationIntegrationArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             routes: Optional[pulumi.Input[int]] = None,
-             team: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if integrations is not None:
-            _setter("integrations", integrations)
+            pulumi.set(__self__, "integrations", integrations)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if routes is not None:
-            _setter("routes", routes)
+            pulumi.set(__self__, "routes", routes)
         if team is not None:
-            _setter("team", team)
+            pulumi.set(__self__, "team", team)
 
     @property
     @pulumi.getter
@@ -284,10 +248,6 @@ class EventOrchestration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            EventOrchestrationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

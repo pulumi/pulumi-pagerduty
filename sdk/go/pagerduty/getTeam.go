@@ -25,6 +25,8 @@ func LookupTeam(ctx *pulumi.Context, args *LookupTeamArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getTeam.
 type LookupTeamArgs struct {
+	// (Optional) The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
+	DefaultRole *string `pulumi:"defaultRole"`
 	// The name of the team to find in the PagerDuty API.
 	Name string `pulumi:"name"`
 	// ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
@@ -33,6 +35,8 @@ type LookupTeamArgs struct {
 
 // A collection of values returned by getTeam.
 type LookupTeamResult struct {
+	// (Optional) The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
+	DefaultRole *string `pulumi:"defaultRole"`
 	// A description of the found team.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
@@ -58,6 +62,8 @@ func LookupTeamOutput(ctx *pulumi.Context, args LookupTeamOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getTeam.
 type LookupTeamOutputArgs struct {
+	// (Optional) The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
+	DefaultRole pulumi.StringPtrInput `pulumi:"defaultRole"`
 	// The name of the team to find in the PagerDuty API.
 	Name pulumi.StringInput `pulumi:"name"`
 	// ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
@@ -87,6 +93,11 @@ func (o LookupTeamResultOutput) ToOutput(ctx context.Context) pulumix.Output[Loo
 	return pulumix.Output[LookupTeamResult]{
 		OutputState: o.OutputState,
 	}
+}
+
+// (Optional) The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
+func (o LookupTeamResultOutput) DefaultRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTeamResult) *string { return v.DefaultRole }).(pulumi.StringPtrOutput)
 }
 
 // A description of the found team.

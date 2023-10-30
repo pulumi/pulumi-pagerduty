@@ -58,6 +58,10 @@ export class Team extends pulumi.CustomResource {
         return obj['__pulumiType'] === Team.__pulumiType;
     }
 
+    /**
+     * The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
+     */
+    public readonly defaultRole!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string>;
     /**
      * URL at which the entity is uniquely displayed in the Web app
@@ -85,12 +89,14 @@ export class Team extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TeamState | undefined;
+            resourceInputs["defaultRole"] = state ? state.defaultRole : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["htmlUrl"] = state ? state.htmlUrl : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["parent"] = state ? state.parent : undefined;
         } else {
             const args = argsOrState as TeamArgs | undefined;
+            resourceInputs["defaultRole"] = args ? args.defaultRole : undefined;
             resourceInputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parent"] = args ? args.parent : undefined;
@@ -105,6 +111,10 @@ export class Team extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Team resources.
  */
 export interface TeamState {
+    /**
+     * The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
+     */
+    defaultRole?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     /**
      * URL at which the entity is uniquely displayed in the Web app
@@ -124,6 +134,10 @@ export interface TeamState {
  * The set of arguments for constructing a Team resource.
  */
 export interface TeamArgs {
+    /**
+     * The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
+     */
+    defaultRole?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     /**
      * The name of the group.

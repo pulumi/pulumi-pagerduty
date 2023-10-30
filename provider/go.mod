@@ -135,7 +135,7 @@ require (
 	github.com/hashicorp/vault/api v1.8.2 // indirect
 	github.com/hashicorp/vault/sdk v0.6.1 // indirect
 	github.com/hashicorp/yamux v0.1.1 // indirect
-	github.com/heimweh/go-pagerduty v0.0.0-20230908205257-a96e6c05f7ea // indirect
+	github.com/heimweh/go-pagerduty v0.0.0-20231025174125-1492ec59406f // indirect
 	github.com/huandu/xstrings v1.3.2 // indirect
 	github.com/iancoleman/strcase v0.2.0 // indirect
 	github.com/imdario/mergo v0.3.15 // indirect

@@ -12,6 +12,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetTeamResult {
     /**
+     * @return (Optional) The team is private if the value is &#34;none&#34;, or public if it is &#34;manager&#34; (the default permissions for a non-member of the team are either &#34;none&#34;, or their base role up until &#34;manager&#34;).
+     * 
+     */
+    private @Nullable String defaultRole;
+    /**
      * @return A description of the found team.
      * 
      */
@@ -33,6 +38,13 @@ public final class GetTeamResult {
     private @Nullable String parent;
 
     private GetTeamResult() {}
+    /**
+     * @return (Optional) The team is private if the value is &#34;none&#34;, or public if it is &#34;manager&#34; (the default permissions for a non-member of the team are either &#34;none&#34;, or their base role up until &#34;manager&#34;).
+     * 
+     */
+    public Optional<String> defaultRole() {
+        return Optional.ofNullable(this.defaultRole);
+    }
     /**
      * @return A description of the found team.
      * 
@@ -71,6 +83,7 @@ public final class GetTeamResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String defaultRole;
         private String description;
         private String id;
         private String name;
@@ -78,12 +91,18 @@ public final class GetTeamResult {
         public Builder() {}
         public Builder(GetTeamResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.defaultRole = defaults.defaultRole;
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.parent = defaults.parent;
         }
 
+        @CustomType.Setter
+        public Builder defaultRole(@Nullable String defaultRole) {
+            this.defaultRole = defaultRole;
+            return this;
+        }
         @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
@@ -106,6 +125,7 @@ public final class GetTeamResult {
         }
         public GetTeamResult build() {
             final var o = new GetTeamResult();
+            o.defaultRole = defaultRole;
             o.description = description;
             o.id = id;
             o.name = name;

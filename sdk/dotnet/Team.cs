@@ -49,6 +49,12 @@ namespace Pulumi.Pagerduty
     [PagerdutyResourceType("pagerduty:index/team:Team")]
     public partial class Team : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
+        /// </summary>
+        [Output("defaultRole")]
+        public Output<string> DefaultRole { get; private set; } = null!;
+
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
@@ -116,6 +122,12 @@ namespace Pulumi.Pagerduty
 
     public sealed class TeamArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
+        /// </summary>
+        [Input("defaultRole")]
+        public Input<string>? DefaultRole { get; set; }
+
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -140,6 +152,12 @@ namespace Pulumi.Pagerduty
 
     public sealed class TeamState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
+        /// </summary>
+        [Input("defaultRole")]
+        public Input<string>? DefaultRole { get; set; }
+
         [Input("description")]
         public Input<string>? Description { get; set; }
 

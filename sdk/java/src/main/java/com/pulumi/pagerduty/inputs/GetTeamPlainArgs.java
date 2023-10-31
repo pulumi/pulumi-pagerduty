@@ -15,6 +15,21 @@ public final class GetTeamPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetTeamPlainArgs Empty = new GetTeamPlainArgs();
 
     /**
+     * (Optional) The team is private if the value is &#34;none&#34;, or public if it is &#34;manager&#34; (the default permissions for a non-member of the team are either &#34;none&#34;, or their base role up until &#34;manager&#34;).
+     * 
+     */
+    @Import(name="defaultRole")
+    private @Nullable String defaultRole;
+
+    /**
+     * @return (Optional) The team is private if the value is &#34;none&#34;, or public if it is &#34;manager&#34; (the default permissions for a non-member of the team are either &#34;none&#34;, or their base role up until &#34;manager&#34;).
+     * 
+     */
+    public Optional<String> defaultRole() {
+        return Optional.ofNullable(this.defaultRole);
+    }
+
+    /**
      * The name of the team to find in the PagerDuty API.
      * 
      */
@@ -47,6 +62,7 @@ public final class GetTeamPlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetTeamPlainArgs() {}
 
     private GetTeamPlainArgs(GetTeamPlainArgs $) {
+        this.defaultRole = $.defaultRole;
         this.name = $.name;
         this.parent = $.parent;
     }
@@ -67,6 +83,17 @@ public final class GetTeamPlainArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetTeamPlainArgs defaults) {
             $ = new GetTeamPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param defaultRole (Optional) The team is private if the value is &#34;none&#34;, or public if it is &#34;manager&#34; (the default permissions for a non-member of the team are either &#34;none&#34;, or their base role up until &#34;manager&#34;).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultRole(@Nullable String defaultRole) {
+            $.defaultRole = defaultRole;
+            return this;
         }
 
         /**

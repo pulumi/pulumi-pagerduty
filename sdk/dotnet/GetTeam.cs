@@ -28,6 +28,12 @@ namespace Pulumi.Pagerduty
     public sealed class GetTeamArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// (Optional) The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
+        /// </summary>
+        [Input("defaultRole")]
+        public string? DefaultRole { get; set; }
+
+        /// <summary>
         /// The name of the team to find in the PagerDuty API.
         /// </summary>
         [Input("name", required: true)]
@@ -47,6 +53,12 @@ namespace Pulumi.Pagerduty
 
     public sealed class GetTeamInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// (Optional) The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
+        /// </summary>
+        [Input("defaultRole")]
+        public Input<string>? DefaultRole { get; set; }
+
         /// <summary>
         /// The name of the team to find in the PagerDuty API.
         /// </summary>
@@ -70,6 +82,10 @@ namespace Pulumi.Pagerduty
     public sealed class GetTeamResult
     {
         /// <summary>
+        /// (Optional) The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
+        /// </summary>
+        public readonly string? DefaultRole;
+        /// <summary>
         /// A description of the found team.
         /// </summary>
         public readonly string Description;
@@ -88,6 +104,8 @@ namespace Pulumi.Pagerduty
 
         [OutputConstructor]
         private GetTeamResult(
+            string? defaultRole,
+
             string description,
 
             string id,
@@ -96,6 +114,7 @@ namespace Pulumi.Pagerduty
 
             string? parent)
         {
+            DefaultRole = defaultRole;
             Description = description;
             Id = id;
             Name = name;

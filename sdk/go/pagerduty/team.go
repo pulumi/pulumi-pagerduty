@@ -61,6 +61,8 @@ import (
 type Team struct {
 	pulumi.CustomResourceState
 
+	// The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
+	DefaultRole pulumi.StringOutput `pulumi:"defaultRole"`
 	Description pulumi.StringOutput `pulumi:"description"`
 	// URL at which the entity is uniquely displayed in the Web app
 	HtmlUrl pulumi.StringOutput `pulumi:"htmlUrl"`
@@ -103,6 +105,8 @@ func GetTeam(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Team resources.
 type teamState struct {
+	// The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
+	DefaultRole *string `pulumi:"defaultRole"`
 	Description *string `pulumi:"description"`
 	// URL at which the entity is uniquely displayed in the Web app
 	HtmlUrl *string `pulumi:"htmlUrl"`
@@ -113,6 +117,8 @@ type teamState struct {
 }
 
 type TeamState struct {
+	// The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
+	DefaultRole pulumi.StringPtrInput
 	Description pulumi.StringPtrInput
 	// URL at which the entity is uniquely displayed in the Web app
 	HtmlUrl pulumi.StringPtrInput
@@ -127,6 +133,8 @@ func (TeamState) ElementType() reflect.Type {
 }
 
 type teamArgs struct {
+	// The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
+	DefaultRole *string `pulumi:"defaultRole"`
 	Description *string `pulumi:"description"`
 	// The name of the group.
 	Name *string `pulumi:"name"`
@@ -136,6 +144,8 @@ type teamArgs struct {
 
 // The set of arguments for constructing a Team resource.
 type TeamArgs struct {
+	// The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
+	DefaultRole pulumi.StringPtrInput
 	Description pulumi.StringPtrInput
 	// The name of the group.
 	Name pulumi.StringPtrInput
@@ -252,6 +262,11 @@ func (o TeamOutput) ToOutput(ctx context.Context) pulumix.Output[*Team] {
 	return pulumix.Output[*Team]{
 		OutputState: o.OutputState,
 	}
+}
+
+// The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
+func (o TeamOutput) DefaultRole() pulumi.StringOutput {
+	return o.ApplyT(func(v *Team) pulumi.StringOutput { return v.DefaultRole }).(pulumi.StringOutput)
 }
 
 func (o TeamOutput) Description() pulumi.StringOutput {

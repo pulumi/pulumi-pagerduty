@@ -1443,6 +1443,9 @@
                 "integrationSummary": "integration_summary",
                 "serviceName": "service_name"
             },
+            "pagerduty:index/getTeam:getTeam": {
+                "defaultRole": "default_role"
+            },
             "pagerduty:index/getUserContactMethod:getUserContactMethod": {
                 "countryCode": "country_code",
                 "deviceType": "device_type",
@@ -1542,6 +1545,7 @@
                 "tagId": "tag_id"
             },
             "pagerduty:index/team:Team": {
+                "defaultRole": "default_role",
                 "htmlUrl": "html_url"
             },
             "pagerduty:index/teamMembership:TeamMembership": {

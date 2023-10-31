@@ -16,6 +16,21 @@ public final class GetTeamArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetTeamArgs Empty = new GetTeamArgs();
 
     /**
+     * (Optional) The team is private if the value is &#34;none&#34;, or public if it is &#34;manager&#34; (the default permissions for a non-member of the team are either &#34;none&#34;, or their base role up until &#34;manager&#34;).
+     * 
+     */
+    @Import(name="defaultRole")
+    private @Nullable Output<String> defaultRole;
+
+    /**
+     * @return (Optional) The team is private if the value is &#34;none&#34;, or public if it is &#34;manager&#34; (the default permissions for a non-member of the team are either &#34;none&#34;, or their base role up until &#34;manager&#34;).
+     * 
+     */
+    public Optional<Output<String>> defaultRole() {
+        return Optional.ofNullable(this.defaultRole);
+    }
+
+    /**
      * The name of the team to find in the PagerDuty API.
      * 
      */
@@ -48,6 +63,7 @@ public final class GetTeamArgs extends com.pulumi.resources.InvokeArgs {
     private GetTeamArgs() {}
 
     private GetTeamArgs(GetTeamArgs $) {
+        this.defaultRole = $.defaultRole;
         this.name = $.name;
         this.parent = $.parent;
     }
@@ -68,6 +84,27 @@ public final class GetTeamArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetTeamArgs defaults) {
             $ = new GetTeamArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param defaultRole (Optional) The team is private if the value is &#34;none&#34;, or public if it is &#34;manager&#34; (the default permissions for a non-member of the team are either &#34;none&#34;, or their base role up until &#34;manager&#34;).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultRole(@Nullable Output<String> defaultRole) {
+            $.defaultRole = defaultRole;
+            return this;
+        }
+
+        /**
+         * @param defaultRole (Optional) The team is private if the value is &#34;none&#34;, or public if it is &#34;manager&#34; (the default permissions for a non-member of the team are either &#34;none&#34;, or their base role up until &#34;manager&#34;).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultRole(String defaultRole) {
+            return defaultRole(Output.of(defaultRole));
         }
 
         /**

@@ -11,6 +11,7 @@ export function getTeam(args: GetTeamArgs, opts?: pulumi.InvokeOptions): Promise
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("pagerduty:index/getTeam:getTeam", {
+        "defaultRole": args.defaultRole,
         "name": args.name,
         "parent": args.parent,
     }, opts);
@@ -20,6 +21,10 @@ export function getTeam(args: GetTeamArgs, opts?: pulumi.InvokeOptions): Promise
  * A collection of arguments for invoking getTeam.
  */
 export interface GetTeamArgs {
+    /**
+     * (Optional) The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
+     */
+    defaultRole?: string;
     /**
      * The name of the team to find in the PagerDuty API.
      */
@@ -34,6 +39,10 @@ export interface GetTeamArgs {
  * A collection of values returned by getTeam.
  */
 export interface GetTeamResult {
+    /**
+     * (Optional) The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
+     */
+    readonly defaultRole?: string;
     /**
      * A description of the found team.
      */
@@ -62,6 +71,10 @@ export function getTeamOutput(args: GetTeamOutputArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getTeam.
  */
 export interface GetTeamOutputArgs {
+    /**
+     * (Optional) The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
+     */
+    defaultRole?: pulumi.Input<string>;
     /**
      * The name of the team to find in the PagerDuty API.
      */

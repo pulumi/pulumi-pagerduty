@@ -14,14 +14,18 @@ __all__ = ['TeamArgs', 'Team']
 @pulumi.input_type
 class TeamArgs:
     def __init__(__self__, *,
+                 default_role: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parent: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Team resource.
+        :param pulumi.Input[str] default_role: The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
         :param pulumi.Input[str] name: The name of the group.
         :param pulumi.Input[str] parent: ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
         """
+        if default_role is not None:
+            pulumi.set(__self__, "default_role", default_role)
         if description is None:
             description = 'Managed by Pulumi'
         if description is not None:
@@ -30,6 +34,18 @@ class TeamArgs:
             pulumi.set(__self__, "name", name)
         if parent is not None:
             pulumi.set(__self__, "parent", parent)
+
+    @property
+    @pulumi.getter(name="defaultRole")
+    def default_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
+        """
+        return pulumi.get(self, "default_role")
+
+    @default_role.setter
+    def default_role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_role", value)
 
     @property
     @pulumi.getter
@@ -68,16 +84,20 @@ class TeamArgs:
 @pulumi.input_type
 class _TeamState:
     def __init__(__self__, *,
+                 default_role: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  html_url: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parent: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Team resources.
+        :param pulumi.Input[str] default_role: The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app
         :param pulumi.Input[str] name: The name of the group.
         :param pulumi.Input[str] parent: ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
         """
+        if default_role is not None:
+            pulumi.set(__self__, "default_role", default_role)
         if description is None:
             description = 'Managed by Pulumi'
         if description is not None:
@@ -88,6 +108,18 @@ class _TeamState:
             pulumi.set(__self__, "name", name)
         if parent is not None:
             pulumi.set(__self__, "parent", parent)
+
+    @property
+    @pulumi.getter(name="defaultRole")
+    def default_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
+        """
+        return pulumi.get(self, "default_role")
+
+    @default_role.setter
+    def default_role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_role", value)
 
     @property
     @pulumi.getter
@@ -140,6 +172,7 @@ class Team(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 default_role: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parent: Optional[pulumi.Input[str]] = None,
@@ -171,6 +204,7 @@ class Team(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] default_role: The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
         :param pulumi.Input[str] name: The name of the group.
         :param pulumi.Input[str] parent: ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
         """
@@ -220,6 +254,7 @@ class Team(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 default_role: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parent: Optional[pulumi.Input[str]] = None,
@@ -232,6 +267,7 @@ class Team(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TeamArgs.__new__(TeamArgs)
 
+            __props__.__dict__["default_role"] = default_role
             if description is None:
                 description = 'Managed by Pulumi'
             __props__.__dict__["description"] = description
@@ -248,6 +284,7 @@ class Team(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            default_role: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             html_url: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -259,6 +296,7 @@ class Team(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] default_role: The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app
         :param pulumi.Input[str] name: The name of the group.
         :param pulumi.Input[str] parent: ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
@@ -267,11 +305,20 @@ class Team(pulumi.CustomResource):
 
         __props__ = _TeamState.__new__(_TeamState)
 
+        __props__.__dict__["default_role"] = default_role
         __props__.__dict__["description"] = description
         __props__.__dict__["html_url"] = html_url
         __props__.__dict__["name"] = name
         __props__.__dict__["parent"] = parent
         return Team(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="defaultRole")
+    def default_role(self) -> pulumi.Output[str]:
+        """
+        The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
+        """
+        return pulumi.get(self, "default_role")
 
     @property
     @pulumi.getter

@@ -65,6 +65,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="pagerduty:index/team:Team")
 public class Team extends com.pulumi.resources.CustomResource {
+    /**
+     * The team is private if the value is &#34;none&#34;, or public if it is &#34;manager&#34; (the default permissions for a non-member of the team are either &#34;none&#34;, or their base role up until &#34;manager&#34;).
+     * 
+     */
+    @Export(name="defaultRole", refs={String.class}, tree="[0]")
+    private Output<String> defaultRole;
+
+    /**
+     * @return The team is private if the value is &#34;none&#34;, or public if it is &#34;manager&#34; (the default permissions for a non-member of the team are either &#34;none&#34;, or their base role up until &#34;manager&#34;).
+     * 
+     */
+    public Output<String> defaultRole() {
+        return this.defaultRole;
+    }
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 

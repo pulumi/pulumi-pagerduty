@@ -6840,6 +6840,7 @@
             "required": [
                 "address",
                 "blacklisted",
+                "countryCode",
                 "enabled",
                 "label",
                 "type",

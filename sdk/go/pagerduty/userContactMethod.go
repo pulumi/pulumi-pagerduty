@@ -88,7 +88,7 @@ type UserContactMethod struct {
 	// If true, this phone has been blacklisted by PagerDuty and no messages will be sent to it.
 	Blacklisted pulumi.BoolOutput `pulumi:"blacklisted"`
 	// The 1-to-3 digit country calling code. Required when using `phoneContactMethod` or `smsContactMethod`.
-	CountryCode pulumi.IntPtrOutput `pulumi:"countryCode"`
+	CountryCode pulumi.IntOutput `pulumi:"countryCode"`
 	// If true, this phone is capable of receiving SMS messages.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// The label (e.g., "Work", "Mobile", etc.).
@@ -337,8 +337,8 @@ func (o UserContactMethodOutput) Blacklisted() pulumi.BoolOutput {
 }
 
 // The 1-to-3 digit country calling code. Required when using `phoneContactMethod` or `smsContactMethod`.
-func (o UserContactMethodOutput) CountryCode() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *UserContactMethod) pulumi.IntPtrOutput { return v.CountryCode }).(pulumi.IntPtrOutput)
+func (o UserContactMethodOutput) CountryCode() pulumi.IntOutput {
+	return o.ApplyT(func(v *UserContactMethod) pulumi.IntOutput { return v.CountryCode }).(pulumi.IntOutput)
 }
 
 // If true, this phone is capable of receiving SMS messages.

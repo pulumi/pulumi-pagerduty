@@ -117,14 +117,14 @@ public class UserContactMethod extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="countryCode", refs={Integer.class}, tree="[0]")
-    private Output</* @Nullable */ Integer> countryCode;
+    private Output<Integer> countryCode;
 
     /**
      * @return The 1-to-3 digit country calling code. Required when using `phone_contact_method` or `sms_contact_method`.
      * 
      */
-    public Output<Optional<Integer>> countryCode() {
-        return Codegen.optional(this.countryCode);
+    public Output<Integer> countryCode() {
+        return this.countryCode;
     }
     /**
      * If true, this phone is capable of receiving SMS messages.

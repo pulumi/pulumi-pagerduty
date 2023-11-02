@@ -460,7 +460,7 @@ class UserContactMethod(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="countryCode")
-    def country_code(self) -> pulumi.Output[Optional[int]]:
+    def country_code(self) -> pulumi.Output[int]:
         """
         The 1-to-3 digit country calling code. Required when using `phone_contact_method` or `sms_contact_method`.
         """

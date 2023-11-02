@@ -84,7 +84,7 @@ export class UserContactMethod extends pulumi.CustomResource {
     /**
      * The 1-to-3 digit country calling code. Required when using `phoneContactMethod` or `smsContactMethod`.
      */
-    public readonly countryCode!: pulumi.Output<number | undefined>;
+    public readonly countryCode!: pulumi.Output<number>;
     /**
      * If true, this phone is capable of receiving SMS messages.
      */

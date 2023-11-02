@@ -85,7 +85,7 @@ namespace Pulumi.Pagerduty
         /// The 1-to-3 digit country calling code. Required when using `phone_contact_method` or `sms_contact_method`.
         /// </summary>
         [Output("countryCode")]
-        public Output<int?> CountryCode { get; private set; } = null!;
+        public Output<int> CountryCode { get; private set; } = null!;
 
         /// <summary>
         /// If true, this phone is capable of receiving SMS messages.

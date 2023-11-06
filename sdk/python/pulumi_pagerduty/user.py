@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['UserArgs', 'User']
@@ -38,28 +38,61 @@ class UserArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] teams: A list of teams the user should belong to. Please use `TeamMembership` instead.
         :param pulumi.Input[str] time_zone: The time zone of the user. Default is account default timezone.
         """
-        pulumi.set(__self__, "email", email)
+        UserArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email=email,
+            color=color,
+            description=description,
+            job_title=job_title,
+            license=license,
+            name=name,
+            role=role,
+            teams=teams,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email: Optional[pulumi.Input[str]] = None,
+             color: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             job_title: Optional[pulumi.Input[str]] = None,
+             license: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             role: Optional[pulumi.Input[str]] = None,
+             teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             time_zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if email is None:
+            raise TypeError("Missing 'email' argument")
+        if job_title is None and 'jobTitle' in kwargs:
+            job_title = kwargs['jobTitle']
+        if time_zone is None and 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
+        _setter("email", email)
         if color is not None:
-            pulumi.set(__self__, "color", color)
+            _setter("color", color)
         if description is None:
             description = 'Managed by Pulumi'
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if job_title is not None:
-            pulumi.set(__self__, "job_title", job_title)
+            _setter("job_title", job_title)
         if license is not None:
-            pulumi.set(__self__, "license", license)
+            _setter("license", license)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if role is not None:
-            pulumi.set(__self__, "role", role)
+            _setter("role", role)
         if teams is not None:
             warnings.warn("""Use the 'pagerduty_team_membership' resource instead.""", DeprecationWarning)
             pulumi.log.warn("""teams is deprecated: Use the 'pagerduty_team_membership' resource instead.""")
         if teams is not None:
-            pulumi.set(__self__, "teams", teams)
+            _setter("teams", teams)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter
@@ -207,35 +240,78 @@ class _UserState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] teams: A list of teams the user should belong to. Please use `TeamMembership` instead.
         :param pulumi.Input[str] time_zone: The time zone of the user. Default is account default timezone.
         """
+        _UserState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            avatar_url=avatar_url,
+            color=color,
+            description=description,
+            email=email,
+            html_url=html_url,
+            invitation_sent=invitation_sent,
+            job_title=job_title,
+            license=license,
+            name=name,
+            role=role,
+            teams=teams,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             avatar_url: Optional[pulumi.Input[str]] = None,
+             color: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             email: Optional[pulumi.Input[str]] = None,
+             html_url: Optional[pulumi.Input[str]] = None,
+             invitation_sent: Optional[pulumi.Input[bool]] = None,
+             job_title: Optional[pulumi.Input[str]] = None,
+             license: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             role: Optional[pulumi.Input[str]] = None,
+             teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             time_zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if avatar_url is None and 'avatarUrl' in kwargs:
+            avatar_url = kwargs['avatarUrl']
+        if html_url is None and 'htmlUrl' in kwargs:
+            html_url = kwargs['htmlUrl']
+        if invitation_sent is None and 'invitationSent' in kwargs:
+            invitation_sent = kwargs['invitationSent']
+        if job_title is None and 'jobTitle' in kwargs:
+            job_title = kwargs['jobTitle']
+        if time_zone is None and 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         if avatar_url is not None:
-            pulumi.set(__self__, "avatar_url", avatar_url)
+            _setter("avatar_url", avatar_url)
         if color is not None:
-            pulumi.set(__self__, "color", color)
+            _setter("color", color)
         if description is None:
             description = 'Managed by Pulumi'
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if html_url is not None:
-            pulumi.set(__self__, "html_url", html_url)
+            _setter("html_url", html_url)
         if invitation_sent is not None:
-            pulumi.set(__self__, "invitation_sent", invitation_sent)
+            _setter("invitation_sent", invitation_sent)
         if job_title is not None:
-            pulumi.set(__self__, "job_title", job_title)
+            _setter("job_title", job_title)
         if license is not None:
-            pulumi.set(__self__, "license", license)
+            _setter("license", license)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if role is not None:
-            pulumi.set(__self__, "role", role)
+            _setter("role", role)
         if teams is not None:
             warnings.warn("""Use the 'pagerduty_team_membership' resource instead.""", DeprecationWarning)
             pulumi.log.warn("""teams is deprecated: Use the 'pagerduty_team_membership' resource instead.""")
         if teams is not None:
-            pulumi.set(__self__, "teams", teams)
+            _setter("teams", teams)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter(name="avatarUrl")
@@ -472,6 +548,10 @@ class User(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

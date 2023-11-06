@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,10 +23,23 @@ class RulesetArgs:
         :param pulumi.Input[str] name: Name of the ruleset.
         :param pulumi.Input['RulesetTeamArgs'] team: Reference to the team that owns the ruleset. If none is specified, only admins have access.
         """
+        RulesetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            team=team,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             team: Optional[pulumi.Input['RulesetTeamArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if team is not None:
-            pulumi.set(__self__, "team", team)
+            _setter("team", team)
 
     @property
     @pulumi.getter
@@ -67,14 +80,33 @@ class _RulesetState:
         :param pulumi.Input['RulesetTeamArgs'] team: Reference to the team that owns the ruleset. If none is specified, only admins have access.
         :param pulumi.Input[str] type: Type of ruleset. Currently, only sets to `global`.
         """
+        _RulesetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            routing_keys=routing_keys,
+            team=team,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             routing_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             team: Optional[pulumi.Input['RulesetTeamArgs']] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if routing_keys is None and 'routingKeys' in kwargs:
+            routing_keys = kwargs['routingKeys']
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if routing_keys is not None:
-            pulumi.set(__self__, "routing_keys", routing_keys)
+            _setter("routing_keys", routing_keys)
         if team is not None:
-            pulumi.set(__self__, "team", team)
+            _setter("team", team)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -196,6 +228,10 @@ class Ruleset(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RulesetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -213,6 +249,11 @@ class Ruleset(pulumi.CustomResource):
             __props__ = RulesetArgs.__new__(RulesetArgs)
 
             __props__.__dict__["name"] = name
+            if team is not None and not isinstance(team, RulesetTeamArgs):
+                team = team or {}
+                def _setter(key, value):
+                    team[key] = value
+                RulesetTeamArgs._configure(_setter, **team)
             __props__.__dict__["team"] = team
             __props__.__dict__["routing_keys"] = None
             __props__.__dict__["type"] = None

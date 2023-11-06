@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['TeamArgs', 'Team']
@@ -24,16 +24,35 @@ class TeamArgs:
         :param pulumi.Input[str] name: The name of the group.
         :param pulumi.Input[str] parent: ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
         """
+        TeamArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_role=default_role,
+            description=description,
+            name=name,
+            parent=parent,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_role: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parent: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if default_role is None and 'defaultRole' in kwargs:
+            default_role = kwargs['defaultRole']
+
         if default_role is not None:
-            pulumi.set(__self__, "default_role", default_role)
+            _setter("default_role", default_role)
         if description is None:
             description = 'Managed by Pulumi'
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parent is not None:
-            pulumi.set(__self__, "parent", parent)
+            _setter("parent", parent)
 
     @property
     @pulumi.getter(name="defaultRole")
@@ -96,18 +115,41 @@ class _TeamState:
         :param pulumi.Input[str] name: The name of the group.
         :param pulumi.Input[str] parent: ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
         """
+        _TeamState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_role=default_role,
+            description=description,
+            html_url=html_url,
+            name=name,
+            parent=parent,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_role: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             html_url: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parent: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if default_role is None and 'defaultRole' in kwargs:
+            default_role = kwargs['defaultRole']
+        if html_url is None and 'htmlUrl' in kwargs:
+            html_url = kwargs['htmlUrl']
+
         if default_role is not None:
-            pulumi.set(__self__, "default_role", default_role)
+            _setter("default_role", default_role)
         if description is None:
             description = 'Managed by Pulumi'
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if html_url is not None:
-            pulumi.set(__self__, "html_url", html_url)
+            _setter("html_url", html_url)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parent is not None:
-            pulumi.set(__self__, "parent", parent)
+            _setter("parent", parent)
 
     @property
     @pulumi.getter(name="defaultRole")
@@ -249,6 +291,10 @@ class Team(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TeamArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

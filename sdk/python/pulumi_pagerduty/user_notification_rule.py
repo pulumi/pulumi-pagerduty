@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['UserNotificationRuleArgs', 'UserNotificationRule']
@@ -25,10 +25,41 @@ class UserNotificationRuleArgs:
         :param pulumi.Input[str] urgency: Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
         :param pulumi.Input[str] user_id: The ID of the user.
         """
-        pulumi.set(__self__, "contact_method", contact_method)
-        pulumi.set(__self__, "start_delay_in_minutes", start_delay_in_minutes)
-        pulumi.set(__self__, "urgency", urgency)
-        pulumi.set(__self__, "user_id", user_id)
+        UserNotificationRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            contact_method=contact_method,
+            start_delay_in_minutes=start_delay_in_minutes,
+            urgency=urgency,
+            user_id=user_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             contact_method: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             start_delay_in_minutes: Optional[pulumi.Input[int]] = None,
+             urgency: Optional[pulumi.Input[str]] = None,
+             user_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if contact_method is None and 'contactMethod' in kwargs:
+            contact_method = kwargs['contactMethod']
+        if contact_method is None:
+            raise TypeError("Missing 'contact_method' argument")
+        if start_delay_in_minutes is None and 'startDelayInMinutes' in kwargs:
+            start_delay_in_minutes = kwargs['startDelayInMinutes']
+        if start_delay_in_minutes is None:
+            raise TypeError("Missing 'start_delay_in_minutes' argument")
+        if urgency is None:
+            raise TypeError("Missing 'urgency' argument")
+        if user_id is None and 'userId' in kwargs:
+            user_id = kwargs['userId']
+        if user_id is None:
+            raise TypeError("Missing 'user_id' argument")
+
+        _setter("contact_method", contact_method)
+        _setter("start_delay_in_minutes", start_delay_in_minutes)
+        _setter("urgency", urgency)
+        _setter("user_id", user_id)
 
     @property
     @pulumi.getter(name="contactMethod")
@@ -93,14 +124,37 @@ class _UserNotificationRuleState:
         :param pulumi.Input[str] urgency: Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
         :param pulumi.Input[str] user_id: The ID of the user.
         """
+        _UserNotificationRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            contact_method=contact_method,
+            start_delay_in_minutes=start_delay_in_minutes,
+            urgency=urgency,
+            user_id=user_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             contact_method: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             start_delay_in_minutes: Optional[pulumi.Input[int]] = None,
+             urgency: Optional[pulumi.Input[str]] = None,
+             user_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if contact_method is None and 'contactMethod' in kwargs:
+            contact_method = kwargs['contactMethod']
+        if start_delay_in_minutes is None and 'startDelayInMinutes' in kwargs:
+            start_delay_in_minutes = kwargs['startDelayInMinutes']
+        if user_id is None and 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         if contact_method is not None:
-            pulumi.set(__self__, "contact_method", contact_method)
+            _setter("contact_method", contact_method)
         if start_delay_in_minutes is not None:
-            pulumi.set(__self__, "start_delay_in_minutes", start_delay_in_minutes)
+            _setter("start_delay_in_minutes", start_delay_in_minutes)
         if urgency is not None:
-            pulumi.set(__self__, "urgency", urgency)
+            _setter("urgency", urgency)
         if user_id is not None:
-            pulumi.set(__self__, "user_id", user_id)
+            _setter("user_id", user_id)
 
     @property
     @pulumi.getter(name="contactMethod")
@@ -306,6 +360,10 @@ class UserNotificationRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserNotificationRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

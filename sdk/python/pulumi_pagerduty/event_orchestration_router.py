@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,9 +25,34 @@ class EventOrchestrationRouterArgs:
         :param pulumi.Input[str] event_orchestration: ID of the Event Orchestration to which the Router belongs.
         :param pulumi.Input['EventOrchestrationRouterSetArgs'] set: The Router contains a single set of rules  (the "start" set).
         """
-        pulumi.set(__self__, "catch_all", catch_all)
-        pulumi.set(__self__, "event_orchestration", event_orchestration)
-        pulumi.set(__self__, "set", set)
+        EventOrchestrationRouterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catch_all=catch_all,
+            event_orchestration=event_orchestration,
+            set=set,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catch_all: Optional[pulumi.Input['EventOrchestrationRouterCatchAllArgs']] = None,
+             event_orchestration: Optional[pulumi.Input[str]] = None,
+             set: Optional[pulumi.Input['EventOrchestrationRouterSetArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if catch_all is None and 'catchAll' in kwargs:
+            catch_all = kwargs['catchAll']
+        if catch_all is None:
+            raise TypeError("Missing 'catch_all' argument")
+        if event_orchestration is None and 'eventOrchestration' in kwargs:
+            event_orchestration = kwargs['eventOrchestration']
+        if event_orchestration is None:
+            raise TypeError("Missing 'event_orchestration' argument")
+        if set is None:
+            raise TypeError("Missing 'set' argument")
+
+        _setter("catch_all", catch_all)
+        _setter("event_orchestration", event_orchestration)
+        _setter("set", set)
 
     @property
     @pulumi.getter(name="catchAll")
@@ -78,12 +103,31 @@ class _EventOrchestrationRouterState:
         :param pulumi.Input[str] event_orchestration: ID of the Event Orchestration to which the Router belongs.
         :param pulumi.Input['EventOrchestrationRouterSetArgs'] set: The Router contains a single set of rules  (the "start" set).
         """
+        _EventOrchestrationRouterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catch_all=catch_all,
+            event_orchestration=event_orchestration,
+            set=set,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catch_all: Optional[pulumi.Input['EventOrchestrationRouterCatchAllArgs']] = None,
+             event_orchestration: Optional[pulumi.Input[str]] = None,
+             set: Optional[pulumi.Input['EventOrchestrationRouterSetArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if catch_all is None and 'catchAll' in kwargs:
+            catch_all = kwargs['catchAll']
+        if event_orchestration is None and 'eventOrchestration' in kwargs:
+            event_orchestration = kwargs['eventOrchestration']
+
         if catch_all is not None:
-            pulumi.set(__self__, "catch_all", catch_all)
+            _setter("catch_all", catch_all)
         if event_orchestration is not None:
-            pulumi.set(__self__, "event_orchestration", event_orchestration)
+            _setter("event_orchestration", event_orchestration)
         if set is not None:
-            pulumi.set(__self__, "set", set)
+            _setter("set", set)
 
     @property
     @pulumi.getter(name="catchAll")
@@ -267,6 +311,10 @@ class EventOrchestrationRouter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EventOrchestrationRouterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -284,12 +332,22 @@ class EventOrchestrationRouter(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EventOrchestrationRouterArgs.__new__(EventOrchestrationRouterArgs)
 
+            if catch_all is not None and not isinstance(catch_all, EventOrchestrationRouterCatchAllArgs):
+                catch_all = catch_all or {}
+                def _setter(key, value):
+                    catch_all[key] = value
+                EventOrchestrationRouterCatchAllArgs._configure(_setter, **catch_all)
             if catch_all is None and not opts.urn:
                 raise TypeError("Missing required property 'catch_all'")
             __props__.__dict__["catch_all"] = catch_all
             if event_orchestration is None and not opts.urn:
                 raise TypeError("Missing required property 'event_orchestration'")
             __props__.__dict__["event_orchestration"] = event_orchestration
+            if set is not None and not isinstance(set, EventOrchestrationRouterSetArgs):
+                set = set or {}
+                def _setter(key, value):
+                    set[key] = value
+                EventOrchestrationRouterSetArgs._configure(_setter, **set)
             if set is None and not opts.urn:
                 raise TypeError("Missing required property 'set'")
             __props__.__dict__["set"] = set

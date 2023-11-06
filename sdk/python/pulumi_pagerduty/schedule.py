@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,18 +33,45 @@ class ScheduleArgs:
                If you do pass the `overflow` parameter, you will get one schedule entry returned with a start of `2011-06-01T00:00:00Z` and end of `2011-06-02T00:00:00Z`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] teams: Teams associated with the schedule.
         """
-        pulumi.set(__self__, "layers", layers)
-        pulumi.set(__self__, "time_zone", time_zone)
+        ScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            layers=layers,
+            time_zone=time_zone,
+            description=description,
+            name=name,
+            overflow=overflow,
+            teams=teams,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             layers: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleLayerArgs']]]] = None,
+             time_zone: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             overflow: Optional[pulumi.Input[bool]] = None,
+             teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if layers is None:
+            raise TypeError("Missing 'layers' argument")
+        if time_zone is None and 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+        if time_zone is None:
+            raise TypeError("Missing 'time_zone' argument")
+
+        _setter("layers", layers)
+        _setter("time_zone", time_zone)
         if description is None:
             description = 'Managed by Pulumi'
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if overflow is not None:
-            pulumi.set(__self__, "overflow", overflow)
+            _setter("overflow", overflow)
         if teams is not None:
-            pulumi.set(__self__, "teams", teams)
+            _setter("teams", teams)
 
     @property
     @pulumi.getter
@@ -142,22 +169,49 @@ class _ScheduleState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] teams: Teams associated with the schedule.
         :param pulumi.Input[str] time_zone: The time zone of the schedule (e.g. `Europe/Berlin`).
         """
+        _ScheduleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            final_schedules=final_schedules,
+            layers=layers,
+            name=name,
+            overflow=overflow,
+            teams=teams,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             final_schedules: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleFinalScheduleArgs']]]] = None,
+             layers: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleLayerArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             overflow: Optional[pulumi.Input[bool]] = None,
+             teams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             time_zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if final_schedules is None and 'finalSchedules' in kwargs:
+            final_schedules = kwargs['finalSchedules']
+        if time_zone is None and 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         if description is None:
             description = 'Managed by Pulumi'
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if final_schedules is not None:
-            pulumi.set(__self__, "final_schedules", final_schedules)
+            _setter("final_schedules", final_schedules)
         if layers is not None:
-            pulumi.set(__self__, "layers", layers)
+            _setter("layers", layers)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if overflow is not None:
-            pulumi.set(__self__, "overflow", overflow)
+            _setter("overflow", overflow)
         if teams is not None:
-            pulumi.set(__self__, "teams", teams)
+            _setter("teams", teams)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter
@@ -354,6 +408,10 @@ class Schedule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ScheduleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

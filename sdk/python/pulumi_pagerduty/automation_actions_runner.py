@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['AutomationActionsRunnerArgs', 'AutomationActionsRunner']
@@ -29,17 +29,48 @@ class AutomationActionsRunnerArgs:
         :param pulumi.Input[str] runbook_api_key: The unique User API Token created in Runbook Automation.
         :param pulumi.Input[str] runbook_base_uri: The subdomain for your Runbook Automation Instance.
         """
-        pulumi.set(__self__, "runner_type", runner_type)
+        AutomationActionsRunnerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            runner_type=runner_type,
+            description=description,
+            last_seen=last_seen,
+            name=name,
+            runbook_api_key=runbook_api_key,
+            runbook_base_uri=runbook_base_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             runner_type: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             last_seen: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             runbook_api_key: Optional[pulumi.Input[str]] = None,
+             runbook_base_uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if runner_type is None and 'runnerType' in kwargs:
+            runner_type = kwargs['runnerType']
+        if runner_type is None:
+            raise TypeError("Missing 'runner_type' argument")
+        if last_seen is None and 'lastSeen' in kwargs:
+            last_seen = kwargs['lastSeen']
+        if runbook_api_key is None and 'runbookApiKey' in kwargs:
+            runbook_api_key = kwargs['runbookApiKey']
+        if runbook_base_uri is None and 'runbookBaseUri' in kwargs:
+            runbook_base_uri = kwargs['runbookBaseUri']
+
+        _setter("runner_type", runner_type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if last_seen is not None:
-            pulumi.set(__self__, "last_seen", last_seen)
+            _setter("last_seen", last_seen)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if runbook_api_key is not None:
-            pulumi.set(__self__, "runbook_api_key", runbook_api_key)
+            _setter("runbook_api_key", runbook_api_key)
         if runbook_base_uri is not None:
-            pulumi.set(__self__, "runbook_base_uri", runbook_base_uri)
+            _setter("runbook_base_uri", runbook_base_uri)
 
     @property
     @pulumi.getter(name="runnerType")
@@ -136,22 +167,57 @@ class _AutomationActionsRunnerState:
         :param pulumi.Input[str] runner_type: The type of runner. The only allowed values is `runbook`.
         :param pulumi.Input[str] type: The type of object. The value returned will be `runner`.
         """
+        _AutomationActionsRunnerState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            creation_time=creation_time,
+            description=description,
+            last_seen=last_seen,
+            name=name,
+            runbook_api_key=runbook_api_key,
+            runbook_base_uri=runbook_base_uri,
+            runner_type=runner_type,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             creation_time: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             last_seen: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             runbook_api_key: Optional[pulumi.Input[str]] = None,
+             runbook_base_uri: Optional[pulumi.Input[str]] = None,
+             runner_type: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if creation_time is None and 'creationTime' in kwargs:
+            creation_time = kwargs['creationTime']
+        if last_seen is None and 'lastSeen' in kwargs:
+            last_seen = kwargs['lastSeen']
+        if runbook_api_key is None and 'runbookApiKey' in kwargs:
+            runbook_api_key = kwargs['runbookApiKey']
+        if runbook_base_uri is None and 'runbookBaseUri' in kwargs:
+            runbook_base_uri = kwargs['runbookBaseUri']
+        if runner_type is None and 'runnerType' in kwargs:
+            runner_type = kwargs['runnerType']
+
         if creation_time is not None:
-            pulumi.set(__self__, "creation_time", creation_time)
+            _setter("creation_time", creation_time)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if last_seen is not None:
-            pulumi.set(__self__, "last_seen", last_seen)
+            _setter("last_seen", last_seen)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if runbook_api_key is not None:
-            pulumi.set(__self__, "runbook_api_key", runbook_api_key)
+            _setter("runbook_api_key", runbook_api_key)
         if runbook_base_uri is not None:
-            pulumi.set(__self__, "runbook_base_uri", runbook_base_uri)
+            _setter("runbook_base_uri", runbook_base_uri)
         if runner_type is not None:
-            pulumi.set(__self__, "runner_type", runner_type)
+            _setter("runner_type", runner_type)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="creationTime")
@@ -359,6 +425,10 @@ class AutomationActionsRunner(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AutomationActionsRunnerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

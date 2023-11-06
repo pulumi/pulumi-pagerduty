@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['AutomationActionsRunnerTeamAssociationArgs', 'AutomationActionsRunnerTeamAssociation']
@@ -21,8 +21,29 @@ class AutomationActionsRunnerTeamAssociationArgs:
         :param pulumi.Input[str] runner_id: Id of the runner.
         :param pulumi.Input[str] team_id: Id of the team associated with the runner.
         """
-        pulumi.set(__self__, "runner_id", runner_id)
-        pulumi.set(__self__, "team_id", team_id)
+        AutomationActionsRunnerTeamAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            runner_id=runner_id,
+            team_id=team_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             runner_id: Optional[pulumi.Input[str]] = None,
+             team_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if runner_id is None and 'runnerId' in kwargs:
+            runner_id = kwargs['runnerId']
+        if runner_id is None:
+            raise TypeError("Missing 'runner_id' argument")
+        if team_id is None and 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+        if team_id is None:
+            raise TypeError("Missing 'team_id' argument")
+
+        _setter("runner_id", runner_id)
+        _setter("team_id", team_id)
 
     @property
     @pulumi.getter(name="runnerId")
@@ -59,10 +80,27 @@ class _AutomationActionsRunnerTeamAssociationState:
         :param pulumi.Input[str] runner_id: Id of the runner.
         :param pulumi.Input[str] team_id: Id of the team associated with the runner.
         """
+        _AutomationActionsRunnerTeamAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            runner_id=runner_id,
+            team_id=team_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             runner_id: Optional[pulumi.Input[str]] = None,
+             team_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if runner_id is None and 'runnerId' in kwargs:
+            runner_id = kwargs['runnerId']
+        if team_id is None and 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+
         if runner_id is not None:
-            pulumi.set(__self__, "runner_id", runner_id)
+            _setter("runner_id", runner_id)
         if team_id is not None:
-            pulumi.set(__self__, "team_id", team_id)
+            _setter("team_id", team_id)
 
     @property
     @pulumi.getter(name="runnerId")
@@ -174,6 +212,10 @@ class AutomationActionsRunnerTeamAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AutomationActionsRunnerTeamAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

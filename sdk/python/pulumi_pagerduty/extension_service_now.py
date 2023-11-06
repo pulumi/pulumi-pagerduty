@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ExtensionServiceNowArgs', 'ExtensionServiceNow']
@@ -39,22 +39,85 @@ class ExtensionServiceNowArgs:
         :param pulumi.Input[str] name: The name of the service extension.
         :param pulumi.Input[str] summary: A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
         """
-        pulumi.set(__self__, "extension_objects", extension_objects)
-        pulumi.set(__self__, "extension_schema", extension_schema)
-        pulumi.set(__self__, "referer", referer)
-        pulumi.set(__self__, "snow_password", snow_password)
-        pulumi.set(__self__, "snow_user", snow_user)
-        pulumi.set(__self__, "sync_options", sync_options)
-        pulumi.set(__self__, "target", target)
-        pulumi.set(__self__, "task_type", task_type)
+        ExtensionServiceNowArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            extension_objects=extension_objects,
+            extension_schema=extension_schema,
+            referer=referer,
+            snow_password=snow_password,
+            snow_user=snow_user,
+            sync_options=sync_options,
+            target=target,
+            task_type=task_type,
+            endpoint_url=endpoint_url,
+            name=name,
+            summary=summary,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             extension_objects: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             extension_schema: Optional[pulumi.Input[str]] = None,
+             referer: Optional[pulumi.Input[str]] = None,
+             snow_password: Optional[pulumi.Input[str]] = None,
+             snow_user: Optional[pulumi.Input[str]] = None,
+             sync_options: Optional[pulumi.Input[str]] = None,
+             target: Optional[pulumi.Input[str]] = None,
+             task_type: Optional[pulumi.Input[str]] = None,
+             endpoint_url: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             summary: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if extension_objects is None and 'extensionObjects' in kwargs:
+            extension_objects = kwargs['extensionObjects']
+        if extension_objects is None:
+            raise TypeError("Missing 'extension_objects' argument")
+        if extension_schema is None and 'extensionSchema' in kwargs:
+            extension_schema = kwargs['extensionSchema']
+        if extension_schema is None:
+            raise TypeError("Missing 'extension_schema' argument")
+        if referer is None:
+            raise TypeError("Missing 'referer' argument")
+        if snow_password is None and 'snowPassword' in kwargs:
+            snow_password = kwargs['snowPassword']
+        if snow_password is None:
+            raise TypeError("Missing 'snow_password' argument")
+        if snow_user is None and 'snowUser' in kwargs:
+            snow_user = kwargs['snowUser']
+        if snow_user is None:
+            raise TypeError("Missing 'snow_user' argument")
+        if sync_options is None and 'syncOptions' in kwargs:
+            sync_options = kwargs['syncOptions']
+        if sync_options is None:
+            raise TypeError("Missing 'sync_options' argument")
+        if target is None:
+            raise TypeError("Missing 'target' argument")
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if endpoint_url is None and 'endpointUrl' in kwargs:
+            endpoint_url = kwargs['endpointUrl']
+
+        _setter("extension_objects", extension_objects)
+        _setter("extension_schema", extension_schema)
+        _setter("referer", referer)
+        _setter("snow_password", snow_password)
+        _setter("snow_user", snow_user)
+        _setter("sync_options", sync_options)
+        _setter("target", target)
+        _setter("task_type", task_type)
         if endpoint_url is not None:
-            pulumi.set(__self__, "endpoint_url", endpoint_url)
+            _setter("endpoint_url", endpoint_url)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if summary is not None:
-            pulumi.set(__self__, "summary", summary)
+            _setter("summary", summary)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="extensionObjects")
@@ -225,32 +288,83 @@ class _ExtensionServiceNowState:
         :param pulumi.Input[str] target: Target Webhook URL.
         :param pulumi.Input[str] task_type: The ServiceNow task type, typically `incident`.
         """
+        _ExtensionServiceNowState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_url=endpoint_url,
+            extension_objects=extension_objects,
+            extension_schema=extension_schema,
+            html_url=html_url,
+            name=name,
+            referer=referer,
+            snow_password=snow_password,
+            snow_user=snow_user,
+            summary=summary,
+            sync_options=sync_options,
+            target=target,
+            task_type=task_type,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_url: Optional[pulumi.Input[str]] = None,
+             extension_objects: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             extension_schema: Optional[pulumi.Input[str]] = None,
+             html_url: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             referer: Optional[pulumi.Input[str]] = None,
+             snow_password: Optional[pulumi.Input[str]] = None,
+             snow_user: Optional[pulumi.Input[str]] = None,
+             summary: Optional[pulumi.Input[str]] = None,
+             sync_options: Optional[pulumi.Input[str]] = None,
+             target: Optional[pulumi.Input[str]] = None,
+             task_type: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if endpoint_url is None and 'endpointUrl' in kwargs:
+            endpoint_url = kwargs['endpointUrl']
+        if extension_objects is None and 'extensionObjects' in kwargs:
+            extension_objects = kwargs['extensionObjects']
+        if extension_schema is None and 'extensionSchema' in kwargs:
+            extension_schema = kwargs['extensionSchema']
+        if html_url is None and 'htmlUrl' in kwargs:
+            html_url = kwargs['htmlUrl']
+        if snow_password is None and 'snowPassword' in kwargs:
+            snow_password = kwargs['snowPassword']
+        if snow_user is None and 'snowUser' in kwargs:
+            snow_user = kwargs['snowUser']
+        if sync_options is None and 'syncOptions' in kwargs:
+            sync_options = kwargs['syncOptions']
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+
         if endpoint_url is not None:
-            pulumi.set(__self__, "endpoint_url", endpoint_url)
+            _setter("endpoint_url", endpoint_url)
         if extension_objects is not None:
-            pulumi.set(__self__, "extension_objects", extension_objects)
+            _setter("extension_objects", extension_objects)
         if extension_schema is not None:
-            pulumi.set(__self__, "extension_schema", extension_schema)
+            _setter("extension_schema", extension_schema)
         if html_url is not None:
-            pulumi.set(__self__, "html_url", html_url)
+            _setter("html_url", html_url)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if referer is not None:
-            pulumi.set(__self__, "referer", referer)
+            _setter("referer", referer)
         if snow_password is not None:
-            pulumi.set(__self__, "snow_password", snow_password)
+            _setter("snow_password", snow_password)
         if snow_user is not None:
-            pulumi.set(__self__, "snow_user", snow_user)
+            _setter("snow_user", snow_user)
         if summary is not None:
-            pulumi.set(__self__, "summary", summary)
+            _setter("summary", summary)
         if sync_options is not None:
-            pulumi.set(__self__, "sync_options", sync_options)
+            _setter("sync_options", sync_options)
         if target is not None:
-            pulumi.set(__self__, "target", target)
+            _setter("target", target)
         if task_type is not None:
-            pulumi.set(__self__, "task_type", task_type)
+            _setter("task_type", task_type)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="endpointUrl")
@@ -536,6 +650,10 @@ class ExtensionServiceNow(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ExtensionServiceNowArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

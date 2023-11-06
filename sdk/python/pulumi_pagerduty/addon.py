@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['AddonArgs', 'Addon']
@@ -21,9 +21,24 @@ class AddonArgs:
         :param pulumi.Input[str] src: The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.
         :param pulumi.Input[str] name: The name of the add-on.
         """
-        pulumi.set(__self__, "src", src)
+        AddonArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            src=src,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             src: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if src is None:
+            raise TypeError("Missing 'src' argument")
+
+        _setter("src", src)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -60,10 +75,23 @@ class _AddonState:
         :param pulumi.Input[str] name: The name of the add-on.
         :param pulumi.Input[str] src: The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.
         """
+        _AddonState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            src=src,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             src: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if src is not None:
-            pulumi.set(__self__, "src", src)
+            _setter("src", src)
 
     @property
     @pulumi.getter
@@ -159,6 +187,10 @@ class Addon(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AddonArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

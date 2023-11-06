@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,11 +27,38 @@ class EventOrchestrationServiceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetArgs']]] sets: A Service Orchestration must contain at least a "start" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.
         :param pulumi.Input[bool] enable_event_orchestration_for_service: Opt-in/out for switching the Service to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations).
         """
-        pulumi.set(__self__, "catch_all", catch_all)
-        pulumi.set(__self__, "service", service)
-        pulumi.set(__self__, "sets", sets)
+        EventOrchestrationServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catch_all=catch_all,
+            service=service,
+            sets=sets,
+            enable_event_orchestration_for_service=enable_event_orchestration_for_service,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catch_all: Optional[pulumi.Input['EventOrchestrationServiceCatchAllArgs']] = None,
+             service: Optional[pulumi.Input[str]] = None,
+             sets: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetArgs']]]] = None,
+             enable_event_orchestration_for_service: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if catch_all is None and 'catchAll' in kwargs:
+            catch_all = kwargs['catchAll']
+        if catch_all is None:
+            raise TypeError("Missing 'catch_all' argument")
+        if service is None:
+            raise TypeError("Missing 'service' argument")
+        if sets is None:
+            raise TypeError("Missing 'sets' argument")
+        if enable_event_orchestration_for_service is None and 'enableEventOrchestrationForService' in kwargs:
+            enable_event_orchestration_for_service = kwargs['enableEventOrchestrationForService']
+
+        _setter("catch_all", catch_all)
+        _setter("service", service)
+        _setter("sets", sets)
         if enable_event_orchestration_for_service is not None:
-            pulumi.set(__self__, "enable_event_orchestration_for_service", enable_event_orchestration_for_service)
+            _setter("enable_event_orchestration_for_service", enable_event_orchestration_for_service)
 
     @property
     @pulumi.getter(name="catchAll")
@@ -96,14 +123,35 @@ class _EventOrchestrationServiceState:
         :param pulumi.Input[str] service: ID of the Service to which this Service Orchestration belongs to.
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetArgs']]] sets: A Service Orchestration must contain at least a "start" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.
         """
+        _EventOrchestrationServiceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catch_all=catch_all,
+            enable_event_orchestration_for_service=enable_event_orchestration_for_service,
+            service=service,
+            sets=sets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catch_all: Optional[pulumi.Input['EventOrchestrationServiceCatchAllArgs']] = None,
+             enable_event_orchestration_for_service: Optional[pulumi.Input[bool]] = None,
+             service: Optional[pulumi.Input[str]] = None,
+             sets: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if catch_all is None and 'catchAll' in kwargs:
+            catch_all = kwargs['catchAll']
+        if enable_event_orchestration_for_service is None and 'enableEventOrchestrationForService' in kwargs:
+            enable_event_orchestration_for_service = kwargs['enableEventOrchestrationForService']
+
         if catch_all is not None:
-            pulumi.set(__self__, "catch_all", catch_all)
+            _setter("catch_all", catch_all)
         if enable_event_orchestration_for_service is not None:
-            pulumi.set(__self__, "enable_event_orchestration_for_service", enable_event_orchestration_for_service)
+            _setter("enable_event_orchestration_for_service", enable_event_orchestration_for_service)
         if service is not None:
-            pulumi.set(__self__, "service", service)
+            _setter("service", service)
         if sets is not None:
-            pulumi.set(__self__, "sets", sets)
+            _setter("sets", sets)
 
     @property
     @pulumi.getter(name="catchAll")
@@ -453,6 +501,10 @@ class EventOrchestrationService(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EventOrchestrationServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -471,6 +523,11 @@ class EventOrchestrationService(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EventOrchestrationServiceArgs.__new__(EventOrchestrationServiceArgs)
 
+            if catch_all is not None and not isinstance(catch_all, EventOrchestrationServiceCatchAllArgs):
+                catch_all = catch_all or {}
+                def _setter(key, value):
+                    catch_all[key] = value
+                EventOrchestrationServiceCatchAllArgs._configure(_setter, **catch_all)
             if catch_all is None and not opts.urn:
                 raise TypeError("Missing required property 'catch_all'")
             __props__.__dict__["catch_all"] = catch_all

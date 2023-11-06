@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,9 +25,34 @@ class EventOrchestrationUnroutedArgs:
         :param pulumi.Input[str] event_orchestration: The Event Orchestration to which this Unrouted Orchestration belongs to.
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedSetArgs']]] sets: An Unrouted Orchestration must contain at least a "start" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.
         """
-        pulumi.set(__self__, "catch_all", catch_all)
-        pulumi.set(__self__, "event_orchestration", event_orchestration)
-        pulumi.set(__self__, "sets", sets)
+        EventOrchestrationUnroutedArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catch_all=catch_all,
+            event_orchestration=event_orchestration,
+            sets=sets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catch_all: Optional[pulumi.Input['EventOrchestrationUnroutedCatchAllArgs']] = None,
+             event_orchestration: Optional[pulumi.Input[str]] = None,
+             sets: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedSetArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if catch_all is None and 'catchAll' in kwargs:
+            catch_all = kwargs['catchAll']
+        if catch_all is None:
+            raise TypeError("Missing 'catch_all' argument")
+        if event_orchestration is None and 'eventOrchestration' in kwargs:
+            event_orchestration = kwargs['eventOrchestration']
+        if event_orchestration is None:
+            raise TypeError("Missing 'event_orchestration' argument")
+        if sets is None:
+            raise TypeError("Missing 'sets' argument")
+
+        _setter("catch_all", catch_all)
+        _setter("event_orchestration", event_orchestration)
+        _setter("sets", sets)
 
     @property
     @pulumi.getter(name="catchAll")
@@ -78,12 +103,31 @@ class _EventOrchestrationUnroutedState:
         :param pulumi.Input[str] event_orchestration: The Event Orchestration to which this Unrouted Orchestration belongs to.
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedSetArgs']]] sets: An Unrouted Orchestration must contain at least a "start" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.
         """
+        _EventOrchestrationUnroutedState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catch_all=catch_all,
+            event_orchestration=event_orchestration,
+            sets=sets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catch_all: Optional[pulumi.Input['EventOrchestrationUnroutedCatchAllArgs']] = None,
+             event_orchestration: Optional[pulumi.Input[str]] = None,
+             sets: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationUnroutedSetArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if catch_all is None and 'catchAll' in kwargs:
+            catch_all = kwargs['catchAll']
+        if event_orchestration is None and 'eventOrchestration' in kwargs:
+            event_orchestration = kwargs['eventOrchestration']
+
         if catch_all is not None:
-            pulumi.set(__self__, "catch_all", catch_all)
+            _setter("catch_all", catch_all)
         if event_orchestration is not None:
-            pulumi.set(__self__, "event_orchestration", event_orchestration)
+            _setter("event_orchestration", event_orchestration)
         if sets is not None:
-            pulumi.set(__self__, "sets", sets)
+            _setter("sets", sets)
 
     @property
     @pulumi.getter(name="catchAll")
@@ -247,6 +291,10 @@ class EventOrchestrationUnrouted(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EventOrchestrationUnroutedArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -264,6 +312,11 @@ class EventOrchestrationUnrouted(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EventOrchestrationUnroutedArgs.__new__(EventOrchestrationUnroutedArgs)
 
+            if catch_all is not None and not isinstance(catch_all, EventOrchestrationUnroutedCatchAllArgs):
+                catch_all = catch_all or {}
+                def _setter(key, value):
+                    catch_all[key] = value
+                EventOrchestrationUnroutedCatchAllArgs._configure(_setter, **catch_all)
             if catch_all is None and not opts.urn:
                 raise TypeError("Missing required property 'catch_all'")
             __props__.__dict__["catch_all"] = catch_all

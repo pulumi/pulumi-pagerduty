@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -44,15 +44,44 @@ class WebhookSubscriptionArgs:
         :param pulumi.Input[str] description: A short description of the webhook subscription
         :param pulumi.Input[str] type: The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.
         """
-        pulumi.set(__self__, "delivery_methods", delivery_methods)
-        pulumi.set(__self__, "events", events)
-        pulumi.set(__self__, "filters", filters)
+        WebhookSubscriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delivery_methods=delivery_methods,
+            events=events,
+            filters=filters,
+            active=active,
+            description=description,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delivery_methods: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookSubscriptionDeliveryMethodArgs']]]] = None,
+             events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             filters: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookSubscriptionFilterArgs']]]] = None,
+             active: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if delivery_methods is None and 'deliveryMethods' in kwargs:
+            delivery_methods = kwargs['deliveryMethods']
+        if delivery_methods is None:
+            raise TypeError("Missing 'delivery_methods' argument")
+        if events is None:
+            raise TypeError("Missing 'events' argument")
+        if filters is None:
+            raise TypeError("Missing 'filters' argument")
+
+        _setter("delivery_methods", delivery_methods)
+        _setter("events", events)
+        _setter("filters", filters)
         if active is not None:
-            pulumi.set(__self__, "active", active)
+            _setter("active", active)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="deliveryMethods")
@@ -171,18 +200,41 @@ class _WebhookSubscriptionState:
         :param pulumi.Input[Sequence[pulumi.Input['WebhookSubscriptionFilterArgs']]] filters: determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `service_reference`, `team_reference` and `account_reference`.
         :param pulumi.Input[str] type: The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.
         """
+        _WebhookSubscriptionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            active=active,
+            delivery_methods=delivery_methods,
+            description=description,
+            events=events,
+            filters=filters,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             active: Optional[pulumi.Input[bool]] = None,
+             delivery_methods: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookSubscriptionDeliveryMethodArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             filters: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookSubscriptionFilterArgs']]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if delivery_methods is None and 'deliveryMethods' in kwargs:
+            delivery_methods = kwargs['deliveryMethods']
+
         if active is not None:
-            pulumi.set(__self__, "active", active)
+            _setter("active", active)
         if delivery_methods is not None:
-            pulumi.set(__self__, "delivery_methods", delivery_methods)
+            _setter("delivery_methods", delivery_methods)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if events is not None:
-            pulumi.set(__self__, "events", events)
+            _setter("events", events)
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -434,6 +486,10 @@ class WebhookSubscription(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WebhookSubscriptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

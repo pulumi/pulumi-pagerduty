@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['BusinessServiceArgs', 'BusinessService']
@@ -26,21 +26,42 @@ class BusinessServiceArgs:
         :param pulumi.Input[str] team: ID of the team that owns the business service.
         :param pulumi.Input[str] type: **Deprecated** (Optional) Default (and only supported) value is `business_service`.
         """
+        BusinessServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            name=name,
+            point_of_contact=point_of_contact,
+            team=team,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             point_of_contact: Optional[pulumi.Input[str]] = None,
+             team: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if point_of_contact is None and 'pointOfContact' in kwargs:
+            point_of_contact = kwargs['pointOfContact']
+
         if description is None:
             description = 'Managed by Pulumi'
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if point_of_contact is not None:
-            pulumi.set(__self__, "point_of_contact", point_of_contact)
+            _setter("point_of_contact", point_of_contact)
         if team is not None:
-            pulumi.set(__self__, "team", team)
+            _setter("team", team)
         if type is not None:
             warnings.warn("""This will change to a computed resource in the next major release.""", DeprecationWarning)
             pulumi.log.warn("""type is deprecated: This will change to a computed resource in the next major release.""")
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -124,27 +145,56 @@ class _BusinessServiceState:
         :param pulumi.Input[str] team: ID of the team that owns the business service.
         :param pulumi.Input[str] type: **Deprecated** (Optional) Default (and only supported) value is `business_service`.
         """
+        _BusinessServiceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            html_url=html_url,
+            name=name,
+            point_of_contact=point_of_contact,
+            self=self,
+            summary=summary,
+            team=team,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             html_url: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             point_of_contact: Optional[pulumi.Input[str]] = None,
+             self: Optional[pulumi.Input[str]] = None,
+             summary: Optional[pulumi.Input[str]] = None,
+             team: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if html_url is None and 'htmlUrl' in kwargs:
+            html_url = kwargs['htmlUrl']
+        if point_of_contact is None and 'pointOfContact' in kwargs:
+            point_of_contact = kwargs['pointOfContact']
+
         if description is None:
             description = 'Managed by Pulumi'
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if html_url is not None:
-            pulumi.set(__self__, "html_url", html_url)
+            _setter("html_url", html_url)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if point_of_contact is not None:
-            pulumi.set(__self__, "point_of_contact", point_of_contact)
+            _setter("point_of_contact", point_of_contact)
         if self is not None:
-            pulumi.set(__self__, "self", self)
+            _setter("self", self)
         if summary is not None:
-            pulumi.set(__self__, "summary", summary)
+            _setter("summary", summary)
         if team is not None:
-            pulumi.set(__self__, "team", team)
+            _setter("team", team)
         if type is not None:
             warnings.warn("""This will change to a computed resource in the next major release.""", DeprecationWarning)
             pulumi.log.warn("""type is deprecated: This will change to a computed resource in the next major release.""")
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -323,6 +373,10 @@ class BusinessService(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BusinessServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -51,27 +51,74 @@ class ServiceIntegrationArgs:
                To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
         :param pulumi.Input[str] vendor: The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
         """
-        pulumi.set(__self__, "service", service)
+        ServiceIntegrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            service=service,
+            email_filter_mode=email_filter_mode,
+            email_filters=email_filters,
+            email_incident_creation=email_incident_creation,
+            email_parsers=email_parsers,
+            email_parsing_fallback=email_parsing_fallback,
+            integration_email=integration_email,
+            integration_key=integration_key,
+            name=name,
+            type=type,
+            vendor=vendor,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             service: Optional[pulumi.Input[str]] = None,
+             email_filter_mode: Optional[pulumi.Input[str]] = None,
+             email_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceIntegrationEmailFilterArgs']]]] = None,
+             email_incident_creation: Optional[pulumi.Input[str]] = None,
+             email_parsers: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceIntegrationEmailParserArgs']]]] = None,
+             email_parsing_fallback: Optional[pulumi.Input[str]] = None,
+             integration_email: Optional[pulumi.Input[str]] = None,
+             integration_key: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             vendor: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if service is None:
+            raise TypeError("Missing 'service' argument")
+        if email_filter_mode is None and 'emailFilterMode' in kwargs:
+            email_filter_mode = kwargs['emailFilterMode']
+        if email_filters is None and 'emailFilters' in kwargs:
+            email_filters = kwargs['emailFilters']
+        if email_incident_creation is None and 'emailIncidentCreation' in kwargs:
+            email_incident_creation = kwargs['emailIncidentCreation']
+        if email_parsers is None and 'emailParsers' in kwargs:
+            email_parsers = kwargs['emailParsers']
+        if email_parsing_fallback is None and 'emailParsingFallback' in kwargs:
+            email_parsing_fallback = kwargs['emailParsingFallback']
+        if integration_email is None and 'integrationEmail' in kwargs:
+            integration_email = kwargs['integrationEmail']
+        if integration_key is None and 'integrationKey' in kwargs:
+            integration_key = kwargs['integrationKey']
+
+        _setter("service", service)
         if email_filter_mode is not None:
-            pulumi.set(__self__, "email_filter_mode", email_filter_mode)
+            _setter("email_filter_mode", email_filter_mode)
         if email_filters is not None:
-            pulumi.set(__self__, "email_filters", email_filters)
+            _setter("email_filters", email_filters)
         if email_incident_creation is not None:
-            pulumi.set(__self__, "email_incident_creation", email_incident_creation)
+            _setter("email_incident_creation", email_incident_creation)
         if email_parsers is not None:
-            pulumi.set(__self__, "email_parsers", email_parsers)
+            _setter("email_parsers", email_parsers)
         if email_parsing_fallback is not None:
-            pulumi.set(__self__, "email_parsing_fallback", email_parsing_fallback)
+            _setter("email_parsing_fallback", email_parsing_fallback)
         if integration_email is not None:
-            pulumi.set(__self__, "integration_email", integration_email)
+            _setter("integration_email", integration_email)
         if integration_key is not None:
-            pulumi.set(__self__, "integration_key", integration_key)
+            _setter("integration_key", integration_key)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if vendor is not None:
-            pulumi.set(__self__, "vendor", vendor)
+            _setter("vendor", vendor)
 
     @property
     @pulumi.getter
@@ -252,30 +299,79 @@ class _ServiceIntegrationState:
                To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
         :param pulumi.Input[str] vendor: The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
         """
+        _ServiceIntegrationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_filter_mode=email_filter_mode,
+            email_filters=email_filters,
+            email_incident_creation=email_incident_creation,
+            email_parsers=email_parsers,
+            email_parsing_fallback=email_parsing_fallback,
+            html_url=html_url,
+            integration_email=integration_email,
+            integration_key=integration_key,
+            name=name,
+            service=service,
+            type=type,
+            vendor=vendor,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_filter_mode: Optional[pulumi.Input[str]] = None,
+             email_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceIntegrationEmailFilterArgs']]]] = None,
+             email_incident_creation: Optional[pulumi.Input[str]] = None,
+             email_parsers: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceIntegrationEmailParserArgs']]]] = None,
+             email_parsing_fallback: Optional[pulumi.Input[str]] = None,
+             html_url: Optional[pulumi.Input[str]] = None,
+             integration_email: Optional[pulumi.Input[str]] = None,
+             integration_key: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             service: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             vendor: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if email_filter_mode is None and 'emailFilterMode' in kwargs:
+            email_filter_mode = kwargs['emailFilterMode']
+        if email_filters is None and 'emailFilters' in kwargs:
+            email_filters = kwargs['emailFilters']
+        if email_incident_creation is None and 'emailIncidentCreation' in kwargs:
+            email_incident_creation = kwargs['emailIncidentCreation']
+        if email_parsers is None and 'emailParsers' in kwargs:
+            email_parsers = kwargs['emailParsers']
+        if email_parsing_fallback is None and 'emailParsingFallback' in kwargs:
+            email_parsing_fallback = kwargs['emailParsingFallback']
+        if html_url is None and 'htmlUrl' in kwargs:
+            html_url = kwargs['htmlUrl']
+        if integration_email is None and 'integrationEmail' in kwargs:
+            integration_email = kwargs['integrationEmail']
+        if integration_key is None and 'integrationKey' in kwargs:
+            integration_key = kwargs['integrationKey']
+
         if email_filter_mode is not None:
-            pulumi.set(__self__, "email_filter_mode", email_filter_mode)
+            _setter("email_filter_mode", email_filter_mode)
         if email_filters is not None:
-            pulumi.set(__self__, "email_filters", email_filters)
+            _setter("email_filters", email_filters)
         if email_incident_creation is not None:
-            pulumi.set(__self__, "email_incident_creation", email_incident_creation)
+            _setter("email_incident_creation", email_incident_creation)
         if email_parsers is not None:
-            pulumi.set(__self__, "email_parsers", email_parsers)
+            _setter("email_parsers", email_parsers)
         if email_parsing_fallback is not None:
-            pulumi.set(__self__, "email_parsing_fallback", email_parsing_fallback)
+            _setter("email_parsing_fallback", email_parsing_fallback)
         if html_url is not None:
-            pulumi.set(__self__, "html_url", html_url)
+            _setter("html_url", html_url)
         if integration_email is not None:
-            pulumi.set(__self__, "integration_email", integration_email)
+            _setter("integration_email", integration_email)
         if integration_key is not None:
-            pulumi.set(__self__, "integration_key", integration_key)
+            _setter("integration_key", integration_key)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if service is not None:
-            pulumi.set(__self__, "service", service)
+            _setter("service", service)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if vendor is not None:
-            pulumi.set(__self__, "vendor", vendor)
+            _setter("vendor", vendor)
 
     @property
     @pulumi.getter(name="emailFilterMode")
@@ -717,6 +813,10 @@ class ServiceIntegration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceIntegrationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

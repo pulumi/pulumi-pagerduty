@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['MaintenanceWindowArgs', 'MaintenanceWindow']
@@ -25,13 +25,40 @@ class MaintenanceWindowArgs:
         :param pulumi.Input[str] start_time: The maintenance window's start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
         :param pulumi.Input[str] description: A description for the maintenance window.
         """
-        pulumi.set(__self__, "end_time", end_time)
-        pulumi.set(__self__, "services", services)
-        pulumi.set(__self__, "start_time", start_time)
+        MaintenanceWindowArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_time=end_time,
+            services=services,
+            start_time=start_time,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_time: Optional[pulumi.Input[str]] = None,
+             services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if end_time is None and 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if end_time is None:
+            raise TypeError("Missing 'end_time' argument")
+        if services is None:
+            raise TypeError("Missing 'services' argument")
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if start_time is None:
+            raise TypeError("Missing 'start_time' argument")
+
+        _setter("end_time", end_time)
+        _setter("services", services)
+        _setter("start_time", start_time)
         if description is None:
             description = 'Managed by Pulumi'
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="endTime")
@@ -96,16 +123,37 @@ class _MaintenanceWindowState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] services: A list of service IDs to include in the maintenance window.
         :param pulumi.Input[str] start_time: The maintenance window's start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
         """
+        _MaintenanceWindowState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            end_time=end_time,
+            services=services,
+            start_time=start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             end_time: Optional[pulumi.Input[str]] = None,
+             services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if end_time is None and 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         if description is None:
             description = 'Managed by Pulumi'
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if end_time is not None:
-            pulumi.set(__self__, "end_time", end_time)
+            _setter("end_time", end_time)
         if services is not None:
-            pulumi.set(__self__, "services", services)
+            _setter("services", services)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
 
     @property
     @pulumi.getter
@@ -239,6 +287,10 @@ class MaintenanceWindow(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MaintenanceWindowArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['EventRuleArgs', 'EventRule']
@@ -23,10 +23,35 @@ class EventRuleArgs:
         :param pulumi.Input[str] condition_json: Contains a list of conditions. The first field in the list is `and` or `or`, followed by a list of operators and values.
         :param pulumi.Input[str] advanced_condition_json: Contains a list of specific conditions including `active-between`,`scheduled-weekly`, and `frequency-over`. The first element in the list is the label for the condition, followed by a list of values for the specific condition. For more details on these conditions see [Advanced Condition](https://developer.pagerduty.com/docs/rest-api-v2/global-event-rules-api/#advanced-condition-parameter) in the PagerDuty API documentation.
         """
-        pulumi.set(__self__, "action_json", action_json)
-        pulumi.set(__self__, "condition_json", condition_json)
+        EventRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_json=action_json,
+            condition_json=condition_json,
+            advanced_condition_json=advanced_condition_json,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_json: Optional[pulumi.Input[str]] = None,
+             condition_json: Optional[pulumi.Input[str]] = None,
+             advanced_condition_json: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if action_json is None and 'actionJson' in kwargs:
+            action_json = kwargs['actionJson']
+        if action_json is None:
+            raise TypeError("Missing 'action_json' argument")
+        if condition_json is None and 'conditionJson' in kwargs:
+            condition_json = kwargs['conditionJson']
+        if condition_json is None:
+            raise TypeError("Missing 'condition_json' argument")
+        if advanced_condition_json is None and 'advancedConditionJson' in kwargs:
+            advanced_condition_json = kwargs['advancedConditionJson']
+
+        _setter("action_json", action_json)
+        _setter("condition_json", condition_json)
         if advanced_condition_json is not None:
-            pulumi.set(__self__, "advanced_condition_json", advanced_condition_json)
+            _setter("advanced_condition_json", advanced_condition_json)
 
     @property
     @pulumi.getter(name="actionJson")
@@ -79,14 +104,39 @@ class _EventRuleState:
         :param pulumi.Input[bool] catch_all: A boolean that indicates whether the rule is a catch-all for the account. This field is read-only through the PagerDuty API.
         :param pulumi.Input[str] condition_json: Contains a list of conditions. The first field in the list is `and` or `or`, followed by a list of operators and values.
         """
+        _EventRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_json=action_json,
+            advanced_condition_json=advanced_condition_json,
+            catch_all=catch_all,
+            condition_json=condition_json,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_json: Optional[pulumi.Input[str]] = None,
+             advanced_condition_json: Optional[pulumi.Input[str]] = None,
+             catch_all: Optional[pulumi.Input[bool]] = None,
+             condition_json: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if action_json is None and 'actionJson' in kwargs:
+            action_json = kwargs['actionJson']
+        if advanced_condition_json is None and 'advancedConditionJson' in kwargs:
+            advanced_condition_json = kwargs['advancedConditionJson']
+        if catch_all is None and 'catchAll' in kwargs:
+            catch_all = kwargs['catchAll']
+        if condition_json is None and 'conditionJson' in kwargs:
+            condition_json = kwargs['conditionJson']
+
         if action_json is not None:
-            pulumi.set(__self__, "action_json", action_json)
+            _setter("action_json", action_json)
         if advanced_condition_json is not None:
-            pulumi.set(__self__, "advanced_condition_json", advanced_condition_json)
+            _setter("advanced_condition_json", advanced_condition_json)
         if catch_all is not None:
-            pulumi.set(__self__, "catch_all", catch_all)
+            _setter("catch_all", catch_all)
         if condition_json is not None:
-            pulumi.set(__self__, "condition_json", condition_json)
+            _setter("condition_json", condition_json)
 
     @property
     @pulumi.getter(name="actionJson")
@@ -408,6 +458,10 @@ class EventRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EventRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

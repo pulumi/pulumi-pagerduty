@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['IncidentCustomFieldArgs', 'IncidentCustomField']
@@ -26,15 +26,50 @@ class IncidentCustomFieldArgs:
         :param pulumi.Input[str] field_type: The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
         :param pulumi.Input[str] name: The name of the field.
         """
-        pulumi.set(__self__, "data_type", data_type)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "field_type", field_type)
+        IncidentCustomFieldArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_type=data_type,
+            display_name=display_name,
+            field_type=field_type,
+            default_value=default_value,
+            description=description,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_type: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             field_type: Optional[pulumi.Input[str]] = None,
+             default_value: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if data_type is None and 'dataType' in kwargs:
+            data_type = kwargs['dataType']
+        if data_type is None:
+            raise TypeError("Missing 'data_type' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if field_type is None and 'fieldType' in kwargs:
+            field_type = kwargs['fieldType']
+        if field_type is None:
+            raise TypeError("Missing 'field_type' argument")
+        if default_value is None and 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+
+        _setter("data_type", data_type)
+        _setter("display_name", display_name)
+        _setter("field_type", field_type)
         if default_value is not None:
-            pulumi.set(__self__, "default_value", default_value)
+            _setter("default_value", default_value)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="dataType")
@@ -115,18 +150,47 @@ class _IncidentCustomFieldState:
         :param pulumi.Input[str] field_type: The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
         :param pulumi.Input[str] name: The name of the field.
         """
+        _IncidentCustomFieldState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_type=data_type,
+            default_value=default_value,
+            description=description,
+            display_name=display_name,
+            field_type=field_type,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_type: Optional[pulumi.Input[str]] = None,
+             default_value: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             field_type: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if data_type is None and 'dataType' in kwargs:
+            data_type = kwargs['dataType']
+        if default_value is None and 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if field_type is None and 'fieldType' in kwargs:
+            field_type = kwargs['fieldType']
+
         if data_type is not None:
-            pulumi.set(__self__, "data_type", data_type)
+            _setter("data_type", data_type)
         if default_value is not None:
-            pulumi.set(__self__, "default_value", default_value)
+            _setter("default_value", default_value)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if field_type is not None:
-            pulumi.set(__self__, "field_type", field_type)
+            _setter("field_type", field_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="dataType")
@@ -276,6 +340,10 @@ class IncidentCustomField(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IncidentCustomFieldArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

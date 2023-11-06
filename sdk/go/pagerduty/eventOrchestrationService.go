@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A [Service Orchestration](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations) allows you to create a set of Event Rules. The Service Orchestration evaluates Events sent to this Service against each of its rules, beginning with the rules in the "start" set. When a matching rule is found, it can modify and enhance the event and can route the event to another set of rules within this Service Orchestration for further processing.
@@ -323,12 +322,6 @@ func (i *EventOrchestrationService) ToEventOrchestrationServiceOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceOutput)
 }
 
-func (i *EventOrchestrationService) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationService] {
-	return pulumix.Output[*EventOrchestrationService]{
-		OutputState: i.ToEventOrchestrationServiceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventOrchestrationServiceArrayInput is an input type that accepts EventOrchestrationServiceArray and EventOrchestrationServiceArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationServiceArrayInput` via:
 //
@@ -352,12 +345,6 @@ func (i EventOrchestrationServiceArray) ToEventOrchestrationServiceArrayOutput()
 
 func (i EventOrchestrationServiceArray) ToEventOrchestrationServiceArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceArrayOutput)
-}
-
-func (i EventOrchestrationServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventOrchestrationService] {
-	return pulumix.Output[[]*EventOrchestrationService]{
-		OutputState: i.ToEventOrchestrationServiceArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EventOrchestrationServiceMapInput is an input type that accepts EventOrchestrationServiceMap and EventOrchestrationServiceMapOutput values.
@@ -385,12 +372,6 @@ func (i EventOrchestrationServiceMap) ToEventOrchestrationServiceMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceMapOutput)
 }
 
-func (i EventOrchestrationServiceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventOrchestrationService] {
-	return pulumix.Output[map[string]*EventOrchestrationService]{
-		OutputState: i.ToEventOrchestrationServiceMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventOrchestrationServiceOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationServiceOutput) ElementType() reflect.Type {
@@ -403,12 +384,6 @@ func (o EventOrchestrationServiceOutput) ToEventOrchestrationServiceOutput() Eve
 
 func (o EventOrchestrationServiceOutput) ToEventOrchestrationServiceOutputWithContext(ctx context.Context) EventOrchestrationServiceOutput {
 	return o
-}
-
-func (o EventOrchestrationServiceOutput) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationService] {
-	return pulumix.Output[*EventOrchestrationService]{
-		OutputState: o.OutputState,
-	}
 }
 
 // the `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
@@ -445,12 +420,6 @@ func (o EventOrchestrationServiceArrayOutput) ToEventOrchestrationServiceArrayOu
 	return o
 }
 
-func (o EventOrchestrationServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventOrchestrationService] {
-	return pulumix.Output[[]*EventOrchestrationService]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EventOrchestrationServiceArrayOutput) Index(i pulumi.IntInput) EventOrchestrationServiceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventOrchestrationService {
 		return vs[0].([]*EventOrchestrationService)[vs[1].(int)]
@@ -469,12 +438,6 @@ func (o EventOrchestrationServiceMapOutput) ToEventOrchestrationServiceMapOutput
 
 func (o EventOrchestrationServiceMapOutput) ToEventOrchestrationServiceMapOutputWithContext(ctx context.Context) EventOrchestrationServiceMapOutput {
 	return o
-}
-
-func (o EventOrchestrationServiceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventOrchestrationService] {
-	return pulumix.Output[map[string]*EventOrchestrationService]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventOrchestrationServiceMapOutput) MapIndex(k pulumi.StringInput) EventOrchestrationServiceOutput {

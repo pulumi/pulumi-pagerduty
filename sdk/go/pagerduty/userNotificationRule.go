@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A [notification rule](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODI0NQ-create-a-user-notification-rule) configures where and when a PagerDuty user is notified when a triggered incident is assigned to them. Unique notification rules can be created for both high and low-urgency incidents.
@@ -241,12 +240,6 @@ func (i *UserNotificationRule) ToUserNotificationRuleOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(UserNotificationRuleOutput)
 }
 
-func (i *UserNotificationRule) ToOutput(ctx context.Context) pulumix.Output[*UserNotificationRule] {
-	return pulumix.Output[*UserNotificationRule]{
-		OutputState: i.ToUserNotificationRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // UserNotificationRuleArrayInput is an input type that accepts UserNotificationRuleArray and UserNotificationRuleArrayOutput values.
 // You can construct a concrete instance of `UserNotificationRuleArrayInput` via:
 //
@@ -270,12 +263,6 @@ func (i UserNotificationRuleArray) ToUserNotificationRuleArrayOutput() UserNotif
 
 func (i UserNotificationRuleArray) ToUserNotificationRuleArrayOutputWithContext(ctx context.Context) UserNotificationRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserNotificationRuleArrayOutput)
-}
-
-func (i UserNotificationRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*UserNotificationRule] {
-	return pulumix.Output[[]*UserNotificationRule]{
-		OutputState: i.ToUserNotificationRuleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // UserNotificationRuleMapInput is an input type that accepts UserNotificationRuleMap and UserNotificationRuleMapOutput values.
@@ -303,12 +290,6 @@ func (i UserNotificationRuleMap) ToUserNotificationRuleMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(UserNotificationRuleMapOutput)
 }
 
-func (i UserNotificationRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserNotificationRule] {
-	return pulumix.Output[map[string]*UserNotificationRule]{
-		OutputState: i.ToUserNotificationRuleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserNotificationRuleOutput struct{ *pulumi.OutputState }
 
 func (UserNotificationRuleOutput) ElementType() reflect.Type {
@@ -321,12 +302,6 @@ func (o UserNotificationRuleOutput) ToUserNotificationRuleOutput() UserNotificat
 
 func (o UserNotificationRuleOutput) ToUserNotificationRuleOutputWithContext(ctx context.Context) UserNotificationRuleOutput {
 	return o
-}
-
-func (o UserNotificationRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*UserNotificationRule] {
-	return pulumix.Output[*UserNotificationRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A contact method block, configured as a block described below.
@@ -363,12 +338,6 @@ func (o UserNotificationRuleArrayOutput) ToUserNotificationRuleArrayOutputWithCo
 	return o
 }
 
-func (o UserNotificationRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*UserNotificationRule] {
-	return pulumix.Output[[]*UserNotificationRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserNotificationRuleArrayOutput) Index(i pulumi.IntInput) UserNotificationRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserNotificationRule {
 		return vs[0].([]*UserNotificationRule)[vs[1].(int)]
@@ -387,12 +356,6 @@ func (o UserNotificationRuleMapOutput) ToUserNotificationRuleMapOutput() UserNot
 
 func (o UserNotificationRuleMapOutput) ToUserNotificationRuleMapOutputWithContext(ctx context.Context) UserNotificationRuleMapOutput {
 	return o
-}
-
-func (o UserNotificationRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserNotificationRule] {
-	return pulumix.Output[map[string]*UserNotificationRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserNotificationRuleMapOutput) MapIndex(k pulumi.StringInput) UserNotificationRuleOutput {

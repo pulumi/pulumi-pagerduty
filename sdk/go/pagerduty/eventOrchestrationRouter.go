@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An Orchestration Router allows users to create a set of Event Rules. The Router evaluates events sent to this Orchestration against each of its rules, one at a time, and routes the event to a specific Service based on the first rule that matches. If an event doesn't match any rules, it'll be sent to service specified in the `catchAll` or to the "Unrouted" Orchestration if no service is specified.
@@ -201,12 +200,6 @@ func (i *EventOrchestrationRouter) ToEventOrchestrationRouterOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationRouterOutput)
 }
 
-func (i *EventOrchestrationRouter) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationRouter] {
-	return pulumix.Output[*EventOrchestrationRouter]{
-		OutputState: i.ToEventOrchestrationRouterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventOrchestrationRouterArrayInput is an input type that accepts EventOrchestrationRouterArray and EventOrchestrationRouterArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationRouterArrayInput` via:
 //
@@ -230,12 +223,6 @@ func (i EventOrchestrationRouterArray) ToEventOrchestrationRouterArrayOutput() E
 
 func (i EventOrchestrationRouterArray) ToEventOrchestrationRouterArrayOutputWithContext(ctx context.Context) EventOrchestrationRouterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationRouterArrayOutput)
-}
-
-func (i EventOrchestrationRouterArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventOrchestrationRouter] {
-	return pulumix.Output[[]*EventOrchestrationRouter]{
-		OutputState: i.ToEventOrchestrationRouterArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EventOrchestrationRouterMapInput is an input type that accepts EventOrchestrationRouterMap and EventOrchestrationRouterMapOutput values.
@@ -263,12 +250,6 @@ func (i EventOrchestrationRouterMap) ToEventOrchestrationRouterMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationRouterMapOutput)
 }
 
-func (i EventOrchestrationRouterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventOrchestrationRouter] {
-	return pulumix.Output[map[string]*EventOrchestrationRouter]{
-		OutputState: i.ToEventOrchestrationRouterMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventOrchestrationRouterOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationRouterOutput) ElementType() reflect.Type {
@@ -281,12 +262,6 @@ func (o EventOrchestrationRouterOutput) ToEventOrchestrationRouterOutput() Event
 
 func (o EventOrchestrationRouterOutput) ToEventOrchestrationRouterOutputWithContext(ctx context.Context) EventOrchestrationRouterOutput {
 	return o
-}
-
-func (o EventOrchestrationRouterOutput) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationRouter] {
-	return pulumix.Output[*EventOrchestrationRouter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // When none of the rules match an event, the event will be routed according to the catchAll settings.
@@ -318,12 +293,6 @@ func (o EventOrchestrationRouterArrayOutput) ToEventOrchestrationRouterArrayOutp
 	return o
 }
 
-func (o EventOrchestrationRouterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventOrchestrationRouter] {
-	return pulumix.Output[[]*EventOrchestrationRouter]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EventOrchestrationRouterArrayOutput) Index(i pulumi.IntInput) EventOrchestrationRouterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventOrchestrationRouter {
 		return vs[0].([]*EventOrchestrationRouter)[vs[1].(int)]
@@ -342,12 +311,6 @@ func (o EventOrchestrationRouterMapOutput) ToEventOrchestrationRouterMapOutput()
 
 func (o EventOrchestrationRouterMapOutput) ToEventOrchestrationRouterMapOutputWithContext(ctx context.Context) EventOrchestrationRouterMapOutput {
 	return o
-}
-
-func (o EventOrchestrationRouterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventOrchestrationRouter] {
-	return pulumix.Output[map[string]*EventOrchestrationRouter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventOrchestrationRouterMapOutput) MapIndex(k pulumi.StringInput) EventOrchestrationRouterOutput {

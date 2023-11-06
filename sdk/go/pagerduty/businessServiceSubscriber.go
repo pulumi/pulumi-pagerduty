@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A [business service subscriber](https://developer.pagerduty.com/api-reference/b3A6NDUwNDgxOQ-list-business-service-subscribers) allows you to subscribe users or teams to automatically receive updates about key business services.
@@ -191,12 +190,6 @@ func (i *BusinessServiceSubscriber) ToBusinessServiceSubscriberOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(BusinessServiceSubscriberOutput)
 }
 
-func (i *BusinessServiceSubscriber) ToOutput(ctx context.Context) pulumix.Output[*BusinessServiceSubscriber] {
-	return pulumix.Output[*BusinessServiceSubscriber]{
-		OutputState: i.ToBusinessServiceSubscriberOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BusinessServiceSubscriberArrayInput is an input type that accepts BusinessServiceSubscriberArray and BusinessServiceSubscriberArrayOutput values.
 // You can construct a concrete instance of `BusinessServiceSubscriberArrayInput` via:
 //
@@ -220,12 +213,6 @@ func (i BusinessServiceSubscriberArray) ToBusinessServiceSubscriberArrayOutput()
 
 func (i BusinessServiceSubscriberArray) ToBusinessServiceSubscriberArrayOutputWithContext(ctx context.Context) BusinessServiceSubscriberArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BusinessServiceSubscriberArrayOutput)
-}
-
-func (i BusinessServiceSubscriberArray) ToOutput(ctx context.Context) pulumix.Output[[]*BusinessServiceSubscriber] {
-	return pulumix.Output[[]*BusinessServiceSubscriber]{
-		OutputState: i.ToBusinessServiceSubscriberArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // BusinessServiceSubscriberMapInput is an input type that accepts BusinessServiceSubscriberMap and BusinessServiceSubscriberMapOutput values.
@@ -253,12 +240,6 @@ func (i BusinessServiceSubscriberMap) ToBusinessServiceSubscriberMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(BusinessServiceSubscriberMapOutput)
 }
 
-func (i BusinessServiceSubscriberMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BusinessServiceSubscriber] {
-	return pulumix.Output[map[string]*BusinessServiceSubscriber]{
-		OutputState: i.ToBusinessServiceSubscriberMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BusinessServiceSubscriberOutput struct{ *pulumi.OutputState }
 
 func (BusinessServiceSubscriberOutput) ElementType() reflect.Type {
@@ -271,12 +252,6 @@ func (o BusinessServiceSubscriberOutput) ToBusinessServiceSubscriberOutput() Bus
 
 func (o BusinessServiceSubscriberOutput) ToBusinessServiceSubscriberOutputWithContext(ctx context.Context) BusinessServiceSubscriberOutput {
 	return o
-}
-
-func (o BusinessServiceSubscriberOutput) ToOutput(ctx context.Context) pulumix.Output[*BusinessServiceSubscriber] {
-	return pulumix.Output[*BusinessServiceSubscriber]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the business service to subscribe to.
@@ -308,12 +283,6 @@ func (o BusinessServiceSubscriberArrayOutput) ToBusinessServiceSubscriberArrayOu
 	return o
 }
 
-func (o BusinessServiceSubscriberArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BusinessServiceSubscriber] {
-	return pulumix.Output[[]*BusinessServiceSubscriber]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BusinessServiceSubscriberArrayOutput) Index(i pulumi.IntInput) BusinessServiceSubscriberOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BusinessServiceSubscriber {
 		return vs[0].([]*BusinessServiceSubscriber)[vs[1].(int)]
@@ -332,12 +301,6 @@ func (o BusinessServiceSubscriberMapOutput) ToBusinessServiceSubscriberMapOutput
 
 func (o BusinessServiceSubscriberMapOutput) ToBusinessServiceSubscriberMapOutputWithContext(ctx context.Context) BusinessServiceSubscriberMapOutput {
 	return o
-}
-
-func (o BusinessServiceSubscriberMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BusinessServiceSubscriber] {
-	return pulumix.Output[map[string]*BusinessServiceSubscriber]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BusinessServiceSubscriberMapOutput) MapIndex(k pulumi.StringInput) BusinessServiceSubscriberOutput {

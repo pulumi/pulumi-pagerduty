@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An Unrouted Orchestration allows users to create a set of Event Rules that will be evaluated against all events that don't match any rules in the Orchestration's Router.
@@ -197,12 +196,6 @@ func (i *EventOrchestrationUnrouted) ToEventOrchestrationUnroutedOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedOutput)
 }
 
-func (i *EventOrchestrationUnrouted) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationUnrouted] {
-	return pulumix.Output[*EventOrchestrationUnrouted]{
-		OutputState: i.ToEventOrchestrationUnroutedOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventOrchestrationUnroutedArrayInput is an input type that accepts EventOrchestrationUnroutedArray and EventOrchestrationUnroutedArrayOutput values.
 // You can construct a concrete instance of `EventOrchestrationUnroutedArrayInput` via:
 //
@@ -226,12 +219,6 @@ func (i EventOrchestrationUnroutedArray) ToEventOrchestrationUnroutedArrayOutput
 
 func (i EventOrchestrationUnroutedArray) ToEventOrchestrationUnroutedArrayOutputWithContext(ctx context.Context) EventOrchestrationUnroutedArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedArrayOutput)
-}
-
-func (i EventOrchestrationUnroutedArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventOrchestrationUnrouted] {
-	return pulumix.Output[[]*EventOrchestrationUnrouted]{
-		OutputState: i.ToEventOrchestrationUnroutedArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EventOrchestrationUnroutedMapInput is an input type that accepts EventOrchestrationUnroutedMap and EventOrchestrationUnroutedMapOutput values.
@@ -259,12 +246,6 @@ func (i EventOrchestrationUnroutedMap) ToEventOrchestrationUnroutedMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationUnroutedMapOutput)
 }
 
-func (i EventOrchestrationUnroutedMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventOrchestrationUnrouted] {
-	return pulumix.Output[map[string]*EventOrchestrationUnrouted]{
-		OutputState: i.ToEventOrchestrationUnroutedMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventOrchestrationUnroutedOutput struct{ *pulumi.OutputState }
 
 func (EventOrchestrationUnroutedOutput) ElementType() reflect.Type {
@@ -277,12 +258,6 @@ func (o EventOrchestrationUnroutedOutput) ToEventOrchestrationUnroutedOutput() E
 
 func (o EventOrchestrationUnroutedOutput) ToEventOrchestrationUnroutedOutputWithContext(ctx context.Context) EventOrchestrationUnroutedOutput {
 	return o
-}
-
-func (o EventOrchestrationUnroutedOutput) ToOutput(ctx context.Context) pulumix.Output[*EventOrchestrationUnrouted] {
-	return pulumix.Output[*EventOrchestrationUnrouted]{
-		OutputState: o.OutputState,
-	}
 }
 
 // the `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set.
@@ -314,12 +289,6 @@ func (o EventOrchestrationUnroutedArrayOutput) ToEventOrchestrationUnroutedArray
 	return o
 }
 
-func (o EventOrchestrationUnroutedArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventOrchestrationUnrouted] {
-	return pulumix.Output[[]*EventOrchestrationUnrouted]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EventOrchestrationUnroutedArrayOutput) Index(i pulumi.IntInput) EventOrchestrationUnroutedOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventOrchestrationUnrouted {
 		return vs[0].([]*EventOrchestrationUnrouted)[vs[1].(int)]
@@ -338,12 +307,6 @@ func (o EventOrchestrationUnroutedMapOutput) ToEventOrchestrationUnroutedMapOutp
 
 func (o EventOrchestrationUnroutedMapOutput) ToEventOrchestrationUnroutedMapOutputWithContext(ctx context.Context) EventOrchestrationUnroutedMapOutput {
 	return o
-}
-
-func (o EventOrchestrationUnroutedMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventOrchestrationUnrouted] {
-	return pulumix.Output[map[string]*EventOrchestrationUnrouted]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventOrchestrationUnroutedMapOutput) MapIndex(k pulumi.StringInput) EventOrchestrationUnroutedOutput {

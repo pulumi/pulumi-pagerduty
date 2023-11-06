@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An [Incident Workflow Trigger](https://support.pagerduty.com/docs/incident-workflows#triggers) defines when and if an [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) will be triggered.
@@ -229,12 +228,6 @@ func (i *IncidentWorkflowTrigger) ToIncidentWorkflowTriggerOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentWorkflowTriggerOutput)
 }
 
-func (i *IncidentWorkflowTrigger) ToOutput(ctx context.Context) pulumix.Output[*IncidentWorkflowTrigger] {
-	return pulumix.Output[*IncidentWorkflowTrigger]{
-		OutputState: i.ToIncidentWorkflowTriggerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IncidentWorkflowTriggerArrayInput is an input type that accepts IncidentWorkflowTriggerArray and IncidentWorkflowTriggerArrayOutput values.
 // You can construct a concrete instance of `IncidentWorkflowTriggerArrayInput` via:
 //
@@ -258,12 +251,6 @@ func (i IncidentWorkflowTriggerArray) ToIncidentWorkflowTriggerArrayOutput() Inc
 
 func (i IncidentWorkflowTriggerArray) ToIncidentWorkflowTriggerArrayOutputWithContext(ctx context.Context) IncidentWorkflowTriggerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentWorkflowTriggerArrayOutput)
-}
-
-func (i IncidentWorkflowTriggerArray) ToOutput(ctx context.Context) pulumix.Output[[]*IncidentWorkflowTrigger] {
-	return pulumix.Output[[]*IncidentWorkflowTrigger]{
-		OutputState: i.ToIncidentWorkflowTriggerArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IncidentWorkflowTriggerMapInput is an input type that accepts IncidentWorkflowTriggerMap and IncidentWorkflowTriggerMapOutput values.
@@ -291,12 +278,6 @@ func (i IncidentWorkflowTriggerMap) ToIncidentWorkflowTriggerMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentWorkflowTriggerMapOutput)
 }
 
-func (i IncidentWorkflowTriggerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IncidentWorkflowTrigger] {
-	return pulumix.Output[map[string]*IncidentWorkflowTrigger]{
-		OutputState: i.ToIncidentWorkflowTriggerMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IncidentWorkflowTriggerOutput struct{ *pulumi.OutputState }
 
 func (IncidentWorkflowTriggerOutput) ElementType() reflect.Type {
@@ -309,12 +290,6 @@ func (o IncidentWorkflowTriggerOutput) ToIncidentWorkflowTriggerOutput() Inciden
 
 func (o IncidentWorkflowTriggerOutput) ToIncidentWorkflowTriggerOutputWithContext(ctx context.Context) IncidentWorkflowTriggerOutput {
 	return o
-}
-
-func (o IncidentWorkflowTriggerOutput) ToOutput(ctx context.Context) pulumix.Output[*IncidentWorkflowTrigger] {
-	return pulumix.Output[*IncidentWorkflowTrigger]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.
@@ -356,12 +331,6 @@ func (o IncidentWorkflowTriggerArrayOutput) ToIncidentWorkflowTriggerArrayOutput
 	return o
 }
 
-func (o IncidentWorkflowTriggerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IncidentWorkflowTrigger] {
-	return pulumix.Output[[]*IncidentWorkflowTrigger]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IncidentWorkflowTriggerArrayOutput) Index(i pulumi.IntInput) IncidentWorkflowTriggerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IncidentWorkflowTrigger {
 		return vs[0].([]*IncidentWorkflowTrigger)[vs[1].(int)]
@@ -380,12 +349,6 @@ func (o IncidentWorkflowTriggerMapOutput) ToIncidentWorkflowTriggerMapOutput() I
 
 func (o IncidentWorkflowTriggerMapOutput) ToIncidentWorkflowTriggerMapOutputWithContext(ctx context.Context) IncidentWorkflowTriggerMapOutput {
 	return o
-}
-
-func (o IncidentWorkflowTriggerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IncidentWorkflowTrigger] {
-	return pulumix.Output[map[string]*IncidentWorkflowTrigger]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IncidentWorkflowTriggerMapOutput) MapIndex(k pulumi.StringInput) IncidentWorkflowTriggerOutput {

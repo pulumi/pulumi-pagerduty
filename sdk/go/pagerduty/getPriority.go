@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about a specific [priority](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE2NA-list-priorities) that you can use for other PagerDuty resources. A priority is a label representing the importance and impact of an incident. This feature is only available on Standard and Enterprise plans.
@@ -148,12 +147,6 @@ func (o GetPriorityResultOutput) ToGetPriorityResultOutput() GetPriorityResultOu
 
 func (o GetPriorityResultOutput) ToGetPriorityResultOutputWithContext(ctx context.Context) GetPriorityResultOutput {
 	return o
-}
-
-func (o GetPriorityResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetPriorityResult] {
-	return pulumix.Output[GetPriorityResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A description of the found priority.

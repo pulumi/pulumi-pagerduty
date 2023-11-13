@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about a specific [business service](https://api-reference.pagerduty.com/#!/Business_Services/get_business_services).
@@ -101,12 +100,6 @@ func (o LookupBusinessServiceResultOutput) ToLookupBusinessServiceResultOutput()
 
 func (o LookupBusinessServiceResultOutput) ToLookupBusinessServiceResultOutputWithContext(ctx context.Context) LookupBusinessServiceResultOutput {
 	return o
-}
-
-func (o LookupBusinessServiceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupBusinessServiceResult] {
-	return pulumix.Output[LookupBusinessServiceResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i UseAppOauthScopedTokenArgs) ToUseAppOauthScopedTokenOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(UseAppOauthScopedTokenOutput)
 }
 
-func (i UseAppOauthScopedTokenArgs) ToOutput(ctx context.Context) pulumix.Output[UseAppOauthScopedToken] {
-	return pulumix.Output[UseAppOauthScopedToken]{
-		OutputState: i.ToUseAppOauthScopedTokenOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UseAppOauthScopedTokenOutput struct{ *pulumi.OutputState }
 
 func (UseAppOauthScopedTokenOutput) ElementType() reflect.Type {
@@ -67,12 +60,6 @@ func (o UseAppOauthScopedTokenOutput) ToUseAppOauthScopedTokenOutput() UseAppOau
 
 func (o UseAppOauthScopedTokenOutput) ToUseAppOauthScopedTokenOutputWithContext(ctx context.Context) UseAppOauthScopedTokenOutput {
 	return o
-}
-
-func (o UseAppOauthScopedTokenOutput) ToOutput(ctx context.Context) pulumix.Output[UseAppOauthScopedToken] {
-	return pulumix.Output[UseAppOauthScopedToken]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UseAppOauthScopedTokenOutput) PdClientId() pulumi.StringOutput {

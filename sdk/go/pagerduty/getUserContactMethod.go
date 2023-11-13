@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about a specific [contact method](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzOQ-list-a-user-s-contact-methods) of a PagerDuty [user](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources.
@@ -142,12 +141,6 @@ func (o LookupUserContactMethodResultOutput) ToLookupUserContactMethodResultOutp
 
 func (o LookupUserContactMethodResultOutput) ToLookupUserContactMethodResultOutputWithContext(ctx context.Context) LookupUserContactMethodResultOutput {
 	return o
-}
-
-func (o LookupUserContactMethodResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupUserContactMethodResult] {
-	return pulumix.Output[LookupUserContactMethodResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The "address" to deliver to: `email`, `phone number`, etc., depending on the type.

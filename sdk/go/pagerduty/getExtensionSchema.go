@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about a specific [extension](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEzMA-list-extension-schemas) vendor that you can use for a service (e.g: Slack, Generic Webhook, ServiceNow).
@@ -145,12 +144,6 @@ func (o GetExtensionSchemaResultOutput) ToGetExtensionSchemaResultOutput() GetEx
 
 func (o GetExtensionSchemaResultOutput) ToGetExtensionSchemaResultOutputWithContext(ctx context.Context) GetExtensionSchemaResultOutput {
 	return o
-}
-
-func (o GetExtensionSchemaResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetExtensionSchemaResult] {
-	return pulumix.Output[GetExtensionSchemaResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

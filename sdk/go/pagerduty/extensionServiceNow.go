@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A special case for [extension](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEzMw-create-an-extension) for ServiceNow.
@@ -321,12 +320,6 @@ func (i *ExtensionServiceNow) ToExtensionServiceNowOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionServiceNowOutput)
 }
 
-func (i *ExtensionServiceNow) ToOutput(ctx context.Context) pulumix.Output[*ExtensionServiceNow] {
-	return pulumix.Output[*ExtensionServiceNow]{
-		OutputState: i.ToExtensionServiceNowOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ExtensionServiceNowArrayInput is an input type that accepts ExtensionServiceNowArray and ExtensionServiceNowArrayOutput values.
 // You can construct a concrete instance of `ExtensionServiceNowArrayInput` via:
 //
@@ -350,12 +343,6 @@ func (i ExtensionServiceNowArray) ToExtensionServiceNowArrayOutput() ExtensionSe
 
 func (i ExtensionServiceNowArray) ToExtensionServiceNowArrayOutputWithContext(ctx context.Context) ExtensionServiceNowArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionServiceNowArrayOutput)
-}
-
-func (i ExtensionServiceNowArray) ToOutput(ctx context.Context) pulumix.Output[[]*ExtensionServiceNow] {
-	return pulumix.Output[[]*ExtensionServiceNow]{
-		OutputState: i.ToExtensionServiceNowArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ExtensionServiceNowMapInput is an input type that accepts ExtensionServiceNowMap and ExtensionServiceNowMapOutput values.
@@ -383,12 +370,6 @@ func (i ExtensionServiceNowMap) ToExtensionServiceNowMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionServiceNowMapOutput)
 }
 
-func (i ExtensionServiceNowMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ExtensionServiceNow] {
-	return pulumix.Output[map[string]*ExtensionServiceNow]{
-		OutputState: i.ToExtensionServiceNowMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ExtensionServiceNowOutput struct{ *pulumi.OutputState }
 
 func (ExtensionServiceNowOutput) ElementType() reflect.Type {
@@ -401,12 +382,6 @@ func (o ExtensionServiceNowOutput) ToExtensionServiceNowOutput() ExtensionServic
 
 func (o ExtensionServiceNowOutput) ToExtensionServiceNowOutputWithContext(ctx context.Context) ExtensionServiceNowOutput {
 	return o
-}
-
-func (o ExtensionServiceNowOutput) ToOutput(ctx context.Context) pulumix.Output[*ExtensionServiceNow] {
-	return pulumix.Output[*ExtensionServiceNow]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ExtensionServiceNowOutput) EndpointUrl() pulumi.StringPtrOutput {
@@ -486,12 +461,6 @@ func (o ExtensionServiceNowArrayOutput) ToExtensionServiceNowArrayOutputWithCont
 	return o
 }
 
-func (o ExtensionServiceNowArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ExtensionServiceNow] {
-	return pulumix.Output[[]*ExtensionServiceNow]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ExtensionServiceNowArrayOutput) Index(i pulumi.IntInput) ExtensionServiceNowOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ExtensionServiceNow {
 		return vs[0].([]*ExtensionServiceNow)[vs[1].(int)]
@@ -510,12 +479,6 @@ func (o ExtensionServiceNowMapOutput) ToExtensionServiceNowMapOutput() Extension
 
 func (o ExtensionServiceNowMapOutput) ToExtensionServiceNowMapOutputWithContext(ctx context.Context) ExtensionServiceNowMapOutput {
 	return o
-}
-
-func (o ExtensionServiceNowMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ExtensionServiceNow] {
-	return pulumix.Output[map[string]*ExtensionServiceNow]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ExtensionServiceNowMapOutput) MapIndex(k pulumi.StringInput) ExtensionServiceNowOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An Automation Actions [runner](https://developer.pagerduty.com/api-reference/d78999fb7e863-create-an-automation-action-runner) is the method for how actions are executed. This can be done locally using an installed runner agent or as a connection to a PD Runbook Automation instance.
@@ -222,12 +221,6 @@ func (i *AutomationActionsRunner) ToAutomationActionsRunnerOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionsRunnerOutput)
 }
 
-func (i *AutomationActionsRunner) ToOutput(ctx context.Context) pulumix.Output[*AutomationActionsRunner] {
-	return pulumix.Output[*AutomationActionsRunner]{
-		OutputState: i.ToAutomationActionsRunnerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AutomationActionsRunnerArrayInput is an input type that accepts AutomationActionsRunnerArray and AutomationActionsRunnerArrayOutput values.
 // You can construct a concrete instance of `AutomationActionsRunnerArrayInput` via:
 //
@@ -251,12 +244,6 @@ func (i AutomationActionsRunnerArray) ToAutomationActionsRunnerArrayOutput() Aut
 
 func (i AutomationActionsRunnerArray) ToAutomationActionsRunnerArrayOutputWithContext(ctx context.Context) AutomationActionsRunnerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionsRunnerArrayOutput)
-}
-
-func (i AutomationActionsRunnerArray) ToOutput(ctx context.Context) pulumix.Output[[]*AutomationActionsRunner] {
-	return pulumix.Output[[]*AutomationActionsRunner]{
-		OutputState: i.ToAutomationActionsRunnerArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AutomationActionsRunnerMapInput is an input type that accepts AutomationActionsRunnerMap and AutomationActionsRunnerMapOutput values.
@@ -284,12 +271,6 @@ func (i AutomationActionsRunnerMap) ToAutomationActionsRunnerMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionsRunnerMapOutput)
 }
 
-func (i AutomationActionsRunnerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AutomationActionsRunner] {
-	return pulumix.Output[map[string]*AutomationActionsRunner]{
-		OutputState: i.ToAutomationActionsRunnerMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutomationActionsRunnerOutput struct{ *pulumi.OutputState }
 
 func (AutomationActionsRunnerOutput) ElementType() reflect.Type {
@@ -302,12 +283,6 @@ func (o AutomationActionsRunnerOutput) ToAutomationActionsRunnerOutput() Automat
 
 func (o AutomationActionsRunnerOutput) ToAutomationActionsRunnerOutputWithContext(ctx context.Context) AutomationActionsRunnerOutput {
 	return o
-}
-
-func (o AutomationActionsRunnerOutput) ToOutput(ctx context.Context) pulumix.Output[*AutomationActionsRunner] {
-	return pulumix.Output[*AutomationActionsRunner]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The time runner was created. Represented as an ISO 8601 timestamp.
@@ -364,12 +339,6 @@ func (o AutomationActionsRunnerArrayOutput) ToAutomationActionsRunnerArrayOutput
 	return o
 }
 
-func (o AutomationActionsRunnerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AutomationActionsRunner] {
-	return pulumix.Output[[]*AutomationActionsRunner]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutomationActionsRunnerArrayOutput) Index(i pulumi.IntInput) AutomationActionsRunnerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AutomationActionsRunner {
 		return vs[0].([]*AutomationActionsRunner)[vs[1].(int)]
@@ -388,12 +357,6 @@ func (o AutomationActionsRunnerMapOutput) ToAutomationActionsRunnerMapOutput() A
 
 func (o AutomationActionsRunnerMapOutput) ToAutomationActionsRunnerMapOutputWithContext(ctx context.Context) AutomationActionsRunnerMapOutput {
 	return o
-}
-
-func (o AutomationActionsRunnerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AutomationActionsRunner] {
-	return pulumix.Output[map[string]*AutomationActionsRunner]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutomationActionsRunnerMapOutput) MapIndex(k pulumi.StringInput) AutomationActionsRunnerOutput {

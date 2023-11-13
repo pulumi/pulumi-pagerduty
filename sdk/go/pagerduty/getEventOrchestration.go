@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about a specific Global [Event Orchestration](https://developer.pagerduty.com/api-reference/7ba0fe7bdb26a-list-event-orchestrations)
@@ -79,12 +78,6 @@ func (o LookupEventOrchestrationResultOutput) ToLookupEventOrchestrationResultOu
 
 func (o LookupEventOrchestrationResultOutput) ToLookupEventOrchestrationResultOutputWithContext(ctx context.Context) LookupEventOrchestrationResultOutput {
 	return o
-}
-
-func (o LookupEventOrchestrationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEventOrchestrationResult] {
-	return pulumix.Output[LookupEventOrchestrationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

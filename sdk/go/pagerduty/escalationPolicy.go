@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An [escalation policy](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEyNQ-create-an-escalation-policy) determines what user or schedule will be notified first, second, and so on when an incident is triggered. Escalation policies are used by one or more services.
@@ -149,12 +148,6 @@ func (i *EscalationPolicy) ToEscalationPolicyOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(EscalationPolicyOutput)
 }
 
-func (i *EscalationPolicy) ToOutput(ctx context.Context) pulumix.Output[*EscalationPolicy] {
-	return pulumix.Output[*EscalationPolicy]{
-		OutputState: i.ToEscalationPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EscalationPolicyArrayInput is an input type that accepts EscalationPolicyArray and EscalationPolicyArrayOutput values.
 // You can construct a concrete instance of `EscalationPolicyArrayInput` via:
 //
@@ -178,12 +171,6 @@ func (i EscalationPolicyArray) ToEscalationPolicyArrayOutput() EscalationPolicyA
 
 func (i EscalationPolicyArray) ToEscalationPolicyArrayOutputWithContext(ctx context.Context) EscalationPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EscalationPolicyArrayOutput)
-}
-
-func (i EscalationPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*EscalationPolicy] {
-	return pulumix.Output[[]*EscalationPolicy]{
-		OutputState: i.ToEscalationPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EscalationPolicyMapInput is an input type that accepts EscalationPolicyMap and EscalationPolicyMapOutput values.
@@ -211,12 +198,6 @@ func (i EscalationPolicyMap) ToEscalationPolicyMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(EscalationPolicyMapOutput)
 }
 
-func (i EscalationPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EscalationPolicy] {
-	return pulumix.Output[map[string]*EscalationPolicy]{
-		OutputState: i.ToEscalationPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EscalationPolicyOutput struct{ *pulumi.OutputState }
 
 func (EscalationPolicyOutput) ElementType() reflect.Type {
@@ -229,12 +210,6 @@ func (o EscalationPolicyOutput) ToEscalationPolicyOutput() EscalationPolicyOutpu
 
 func (o EscalationPolicyOutput) ToEscalationPolicyOutputWithContext(ctx context.Context) EscalationPolicyOutput {
 	return o
-}
-
-func (o EscalationPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*EscalationPolicy] {
-	return pulumix.Output[*EscalationPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EscalationPolicyOutput) Description() pulumi.StringOutput {
@@ -275,12 +250,6 @@ func (o EscalationPolicyArrayOutput) ToEscalationPolicyArrayOutputWithContext(ct
 	return o
 }
 
-func (o EscalationPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EscalationPolicy] {
-	return pulumix.Output[[]*EscalationPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EscalationPolicyArrayOutput) Index(i pulumi.IntInput) EscalationPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EscalationPolicy {
 		return vs[0].([]*EscalationPolicy)[vs[1].(int)]
@@ -299,12 +268,6 @@ func (o EscalationPolicyMapOutput) ToEscalationPolicyMapOutput() EscalationPolic
 
 func (o EscalationPolicyMapOutput) ToEscalationPolicyMapOutputWithContext(ctx context.Context) EscalationPolicyMapOutput {
 	return o
-}
-
-func (o EscalationPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EscalationPolicy] {
-	return pulumix.Output[map[string]*EscalationPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EscalationPolicyMapOutput) MapIndex(k pulumi.StringInput) EscalationPolicyOutput {

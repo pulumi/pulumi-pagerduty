@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about a specific [schedule](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE4MQ-list-schedules) that you can use for other PagerDuty resources.
@@ -116,12 +115,6 @@ func (o LookupScheduleResultOutput) ToLookupScheduleResultOutput() LookupSchedul
 
 func (o LookupScheduleResultOutput) ToLookupScheduleResultOutputWithContext(ctx context.Context) LookupScheduleResultOutput {
 	return o
-}
-
-func (o LookupScheduleResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupScheduleResult] {
-	return pulumix.Output[LookupScheduleResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

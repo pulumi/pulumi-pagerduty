@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An Automation Actions [action association with a service](https://developer.pagerduty.com/api-reference/5d2f051f3fb43-associate-an-automation-action-with-a-service) configures the relation of a specific Action with a Service.
@@ -197,12 +196,6 @@ func (i *AutomationActionsActionServiceAssociation) ToAutomationActionsActionSer
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionsActionServiceAssociationOutput)
 }
 
-func (i *AutomationActionsActionServiceAssociation) ToOutput(ctx context.Context) pulumix.Output[*AutomationActionsActionServiceAssociation] {
-	return pulumix.Output[*AutomationActionsActionServiceAssociation]{
-		OutputState: i.ToAutomationActionsActionServiceAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AutomationActionsActionServiceAssociationArrayInput is an input type that accepts AutomationActionsActionServiceAssociationArray and AutomationActionsActionServiceAssociationArrayOutput values.
 // You can construct a concrete instance of `AutomationActionsActionServiceAssociationArrayInput` via:
 //
@@ -226,12 +219,6 @@ func (i AutomationActionsActionServiceAssociationArray) ToAutomationActionsActio
 
 func (i AutomationActionsActionServiceAssociationArray) ToAutomationActionsActionServiceAssociationArrayOutputWithContext(ctx context.Context) AutomationActionsActionServiceAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionsActionServiceAssociationArrayOutput)
-}
-
-func (i AutomationActionsActionServiceAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*AutomationActionsActionServiceAssociation] {
-	return pulumix.Output[[]*AutomationActionsActionServiceAssociation]{
-		OutputState: i.ToAutomationActionsActionServiceAssociationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AutomationActionsActionServiceAssociationMapInput is an input type that accepts AutomationActionsActionServiceAssociationMap and AutomationActionsActionServiceAssociationMapOutput values.
@@ -259,12 +246,6 @@ func (i AutomationActionsActionServiceAssociationMap) ToAutomationActionsActionS
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionsActionServiceAssociationMapOutput)
 }
 
-func (i AutomationActionsActionServiceAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AutomationActionsActionServiceAssociation] {
-	return pulumix.Output[map[string]*AutomationActionsActionServiceAssociation]{
-		OutputState: i.ToAutomationActionsActionServiceAssociationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutomationActionsActionServiceAssociationOutput struct{ *pulumi.OutputState }
 
 func (AutomationActionsActionServiceAssociationOutput) ElementType() reflect.Type {
@@ -277,12 +258,6 @@ func (o AutomationActionsActionServiceAssociationOutput) ToAutomationActionsActi
 
 func (o AutomationActionsActionServiceAssociationOutput) ToAutomationActionsActionServiceAssociationOutputWithContext(ctx context.Context) AutomationActionsActionServiceAssociationOutput {
 	return o
-}
-
-func (o AutomationActionsActionServiceAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*AutomationActionsActionServiceAssociation] {
-	return pulumix.Output[*AutomationActionsActionServiceAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Id of the action.
@@ -309,12 +284,6 @@ func (o AutomationActionsActionServiceAssociationArrayOutput) ToAutomationAction
 	return o
 }
 
-func (o AutomationActionsActionServiceAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AutomationActionsActionServiceAssociation] {
-	return pulumix.Output[[]*AutomationActionsActionServiceAssociation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutomationActionsActionServiceAssociationArrayOutput) Index(i pulumi.IntInput) AutomationActionsActionServiceAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AutomationActionsActionServiceAssociation {
 		return vs[0].([]*AutomationActionsActionServiceAssociation)[vs[1].(int)]
@@ -333,12 +302,6 @@ func (o AutomationActionsActionServiceAssociationMapOutput) ToAutomationActionsA
 
 func (o AutomationActionsActionServiceAssociationMapOutput) ToAutomationActionsActionServiceAssociationMapOutputWithContext(ctx context.Context) AutomationActionsActionServiceAssociationMapOutput {
 	return o
-}
-
-func (o AutomationActionsActionServiceAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AutomationActionsActionServiceAssociation] {
-	return pulumix.Output[map[string]*AutomationActionsActionServiceAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutomationActionsActionServiceAssociationMapOutput) MapIndex(k pulumi.StringInput) AutomationActionsActionServiceAssociationOutput {

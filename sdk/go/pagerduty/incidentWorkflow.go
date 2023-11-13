@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) is a series of steps which can be executed on an incident.
@@ -175,12 +174,6 @@ func (i *IncidentWorkflow) ToIncidentWorkflowOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentWorkflowOutput)
 }
 
-func (i *IncidentWorkflow) ToOutput(ctx context.Context) pulumix.Output[*IncidentWorkflow] {
-	return pulumix.Output[*IncidentWorkflow]{
-		OutputState: i.ToIncidentWorkflowOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IncidentWorkflowArrayInput is an input type that accepts IncidentWorkflowArray and IncidentWorkflowArrayOutput values.
 // You can construct a concrete instance of `IncidentWorkflowArrayInput` via:
 //
@@ -204,12 +197,6 @@ func (i IncidentWorkflowArray) ToIncidentWorkflowArrayOutput() IncidentWorkflowA
 
 func (i IncidentWorkflowArray) ToIncidentWorkflowArrayOutputWithContext(ctx context.Context) IncidentWorkflowArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentWorkflowArrayOutput)
-}
-
-func (i IncidentWorkflowArray) ToOutput(ctx context.Context) pulumix.Output[[]*IncidentWorkflow] {
-	return pulumix.Output[[]*IncidentWorkflow]{
-		OutputState: i.ToIncidentWorkflowArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IncidentWorkflowMapInput is an input type that accepts IncidentWorkflowMap and IncidentWorkflowMapOutput values.
@@ -237,12 +224,6 @@ func (i IncidentWorkflowMap) ToIncidentWorkflowMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentWorkflowMapOutput)
 }
 
-func (i IncidentWorkflowMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IncidentWorkflow] {
-	return pulumix.Output[map[string]*IncidentWorkflow]{
-		OutputState: i.ToIncidentWorkflowMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IncidentWorkflowOutput struct{ *pulumi.OutputState }
 
 func (IncidentWorkflowOutput) ElementType() reflect.Type {
@@ -255,12 +236,6 @@ func (o IncidentWorkflowOutput) ToIncidentWorkflowOutput() IncidentWorkflowOutpu
 
 func (o IncidentWorkflowOutput) ToIncidentWorkflowOutputWithContext(ctx context.Context) IncidentWorkflowOutput {
 	return o
-}
-
-func (o IncidentWorkflowOutput) ToOutput(ctx context.Context) pulumix.Output[*IncidentWorkflow] {
-	return pulumix.Output[*IncidentWorkflow]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The description of the workflow.
@@ -297,12 +272,6 @@ func (o IncidentWorkflowArrayOutput) ToIncidentWorkflowArrayOutputWithContext(ct
 	return o
 }
 
-func (o IncidentWorkflowArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IncidentWorkflow] {
-	return pulumix.Output[[]*IncidentWorkflow]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IncidentWorkflowArrayOutput) Index(i pulumi.IntInput) IncidentWorkflowOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IncidentWorkflow {
 		return vs[0].([]*IncidentWorkflow)[vs[1].(int)]
@@ -321,12 +290,6 @@ func (o IncidentWorkflowMapOutput) ToIncidentWorkflowMapOutput() IncidentWorkflo
 
 func (o IncidentWorkflowMapOutput) ToIncidentWorkflowMapOutputWithContext(ctx context.Context) IncidentWorkflowMapOutput {
 	return o
-}
-
-func (o IncidentWorkflowMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IncidentWorkflow] {
-	return pulumix.Output[map[string]*IncidentWorkflow]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IncidentWorkflowMapOutput) MapIndex(k pulumi.StringInput) IncidentWorkflowOutput {

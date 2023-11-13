@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about a specific [escalation policy](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEyNA-list-escalation-policies) that you can use for other PagerDuty resources.
@@ -107,12 +106,6 @@ func (o LookupEscalationPolicyResultOutput) ToLookupEscalationPolicyResultOutput
 
 func (o LookupEscalationPolicyResultOutput) ToLookupEscalationPolicyResultOutputWithContext(ctx context.Context) LookupEscalationPolicyResultOutput {
 	return o
-}
-
-func (o LookupEscalationPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEscalationPolicyResult] {
-	return pulumix.Output[LookupEscalationPolicyResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

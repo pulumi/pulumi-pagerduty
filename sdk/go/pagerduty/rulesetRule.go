@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -325,12 +324,6 @@ func (i *RulesetRule) ToRulesetRuleOutputWithContext(ctx context.Context) Rulese
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleOutput)
 }
 
-func (i *RulesetRule) ToOutput(ctx context.Context) pulumix.Output[*RulesetRule] {
-	return pulumix.Output[*RulesetRule]{
-		OutputState: i.ToRulesetRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RulesetRuleArrayInput is an input type that accepts RulesetRuleArray and RulesetRuleArrayOutput values.
 // You can construct a concrete instance of `RulesetRuleArrayInput` via:
 //
@@ -354,12 +347,6 @@ func (i RulesetRuleArray) ToRulesetRuleArrayOutput() RulesetRuleArrayOutput {
 
 func (i RulesetRuleArray) ToRulesetRuleArrayOutputWithContext(ctx context.Context) RulesetRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleArrayOutput)
-}
-
-func (i RulesetRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*RulesetRule] {
-	return pulumix.Output[[]*RulesetRule]{
-		OutputState: i.ToRulesetRuleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RulesetRuleMapInput is an input type that accepts RulesetRuleMap and RulesetRuleMapOutput values.
@@ -387,12 +374,6 @@ func (i RulesetRuleMap) ToRulesetRuleMapOutputWithContext(ctx context.Context) R
 	return pulumi.ToOutputWithContext(ctx, i).(RulesetRuleMapOutput)
 }
 
-func (i RulesetRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RulesetRule] {
-	return pulumix.Output[map[string]*RulesetRule]{
-		OutputState: i.ToRulesetRuleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RulesetRuleOutput struct{ *pulumi.OutputState }
 
 func (RulesetRuleOutput) ElementType() reflect.Type {
@@ -405,12 +386,6 @@ func (o RulesetRuleOutput) ToRulesetRuleOutput() RulesetRuleOutput {
 
 func (o RulesetRuleOutput) ToRulesetRuleOutputWithContext(ctx context.Context) RulesetRuleOutput {
 	return o
-}
-
-func (o RulesetRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*RulesetRule] {
-	return pulumix.Output[*RulesetRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Actions to apply to an event if the conditions match.
@@ -467,12 +442,6 @@ func (o RulesetRuleArrayOutput) ToRulesetRuleArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o RulesetRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RulesetRule] {
-	return pulumix.Output[[]*RulesetRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RulesetRuleArrayOutput) Index(i pulumi.IntInput) RulesetRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RulesetRule {
 		return vs[0].([]*RulesetRule)[vs[1].(int)]
@@ -491,12 +460,6 @@ func (o RulesetRuleMapOutput) ToRulesetRuleMapOutput() RulesetRuleMapOutput {
 
 func (o RulesetRuleMapOutput) ToRulesetRuleMapOutputWithContext(ctx context.Context) RulesetRuleMapOutput {
 	return o
-}
-
-func (o RulesetRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RulesetRule] {
-	return pulumix.Output[map[string]*RulesetRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RulesetRuleMapOutput) MapIndex(k pulumi.StringInput) RulesetRuleOutput {

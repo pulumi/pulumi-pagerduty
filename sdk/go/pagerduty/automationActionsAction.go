@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An Automation Actions [action](https://developer.pagerduty.com/api-reference/d64584a4371d3-create-an-automation-action) invokes jobs and workflows that are staged in Runbook Automation or Process Automation. It may also execute a command line script run by a Process Automation runner installed in your infrastructure.
@@ -245,12 +244,6 @@ func (i *AutomationActionsAction) ToAutomationActionsActionOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionsActionOutput)
 }
 
-func (i *AutomationActionsAction) ToOutput(ctx context.Context) pulumix.Output[*AutomationActionsAction] {
-	return pulumix.Output[*AutomationActionsAction]{
-		OutputState: i.ToAutomationActionsActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AutomationActionsActionArrayInput is an input type that accepts AutomationActionsActionArray and AutomationActionsActionArrayOutput values.
 // You can construct a concrete instance of `AutomationActionsActionArrayInput` via:
 //
@@ -274,12 +267,6 @@ func (i AutomationActionsActionArray) ToAutomationActionsActionArrayOutput() Aut
 
 func (i AutomationActionsActionArray) ToAutomationActionsActionArrayOutputWithContext(ctx context.Context) AutomationActionsActionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionsActionArrayOutput)
-}
-
-func (i AutomationActionsActionArray) ToOutput(ctx context.Context) pulumix.Output[[]*AutomationActionsAction] {
-	return pulumix.Output[[]*AutomationActionsAction]{
-		OutputState: i.ToAutomationActionsActionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AutomationActionsActionMapInput is an input type that accepts AutomationActionsActionMap and AutomationActionsActionMapOutput values.
@@ -307,12 +294,6 @@ func (i AutomationActionsActionMap) ToAutomationActionsActionMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionsActionMapOutput)
 }
 
-func (i AutomationActionsActionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AutomationActionsAction] {
-	return pulumix.Output[map[string]*AutomationActionsAction]{
-		OutputState: i.ToAutomationActionsActionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutomationActionsActionOutput struct{ *pulumi.OutputState }
 
 func (AutomationActionsActionOutput) ElementType() reflect.Type {
@@ -325,12 +306,6 @@ func (o AutomationActionsActionOutput) ToAutomationActionsActionOutput() Automat
 
 func (o AutomationActionsActionOutput) ToAutomationActionsActionOutputWithContext(ctx context.Context) AutomationActionsActionOutput {
 	return o
-}
-
-func (o AutomationActionsActionOutput) ToOutput(ctx context.Context) pulumix.Output[*AutomationActionsAction] {
-	return pulumix.Output[*AutomationActionsAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The category of the action. The only allowed values are `diagnostic` and `remediation`.
@@ -399,12 +374,6 @@ func (o AutomationActionsActionArrayOutput) ToAutomationActionsActionArrayOutput
 	return o
 }
 
-func (o AutomationActionsActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AutomationActionsAction] {
-	return pulumix.Output[[]*AutomationActionsAction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutomationActionsActionArrayOutput) Index(i pulumi.IntInput) AutomationActionsActionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AutomationActionsAction {
 		return vs[0].([]*AutomationActionsAction)[vs[1].(int)]
@@ -423,12 +392,6 @@ func (o AutomationActionsActionMapOutput) ToAutomationActionsActionMapOutput() A
 
 func (o AutomationActionsActionMapOutput) ToAutomationActionsActionMapOutputWithContext(ctx context.Context) AutomationActionsActionMapOutput {
 	return o
-}
-
-func (o AutomationActionsActionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AutomationActionsAction] {
-	return pulumix.Output[map[string]*AutomationActionsAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutomationActionsActionMapOutput) MapIndex(k pulumi.StringInput) AutomationActionsActionOutput {

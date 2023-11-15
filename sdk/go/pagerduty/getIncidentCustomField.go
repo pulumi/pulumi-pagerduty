@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about a specific [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents).
@@ -110,12 +109,6 @@ func (o LookupIncidentCustomFieldResultOutput) ToLookupIncidentCustomFieldResult
 
 func (o LookupIncidentCustomFieldResultOutput) ToLookupIncidentCustomFieldResultOutputWithContext(ctx context.Context) LookupIncidentCustomFieldResultOutput {
 	return o
-}
-
-func (o LookupIncidentCustomFieldResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupIncidentCustomFieldResult] {
-	return pulumix.Output[LookupIncidentCustomFieldResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupIncidentCustomFieldResultOutput) DataType() pulumi.StringOutput {

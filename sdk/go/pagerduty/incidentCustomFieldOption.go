@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A Incident Custom Field Option is a specific value that can be used for an [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents) that only allow values from a set of fixed options,
@@ -179,12 +178,6 @@ func (i *IncidentCustomFieldOption) ToIncidentCustomFieldOptionOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentCustomFieldOptionOutput)
 }
 
-func (i *IncidentCustomFieldOption) ToOutput(ctx context.Context) pulumix.Output[*IncidentCustomFieldOption] {
-	return pulumix.Output[*IncidentCustomFieldOption]{
-		OutputState: i.ToIncidentCustomFieldOptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IncidentCustomFieldOptionArrayInput is an input type that accepts IncidentCustomFieldOptionArray and IncidentCustomFieldOptionArrayOutput values.
 // You can construct a concrete instance of `IncidentCustomFieldOptionArrayInput` via:
 //
@@ -208,12 +201,6 @@ func (i IncidentCustomFieldOptionArray) ToIncidentCustomFieldOptionArrayOutput()
 
 func (i IncidentCustomFieldOptionArray) ToIncidentCustomFieldOptionArrayOutputWithContext(ctx context.Context) IncidentCustomFieldOptionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentCustomFieldOptionArrayOutput)
-}
-
-func (i IncidentCustomFieldOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]*IncidentCustomFieldOption] {
-	return pulumix.Output[[]*IncidentCustomFieldOption]{
-		OutputState: i.ToIncidentCustomFieldOptionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IncidentCustomFieldOptionMapInput is an input type that accepts IncidentCustomFieldOptionMap and IncidentCustomFieldOptionMapOutput values.
@@ -241,12 +228,6 @@ func (i IncidentCustomFieldOptionMap) ToIncidentCustomFieldOptionMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentCustomFieldOptionMapOutput)
 }
 
-func (i IncidentCustomFieldOptionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IncidentCustomFieldOption] {
-	return pulumix.Output[map[string]*IncidentCustomFieldOption]{
-		OutputState: i.ToIncidentCustomFieldOptionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IncidentCustomFieldOptionOutput struct{ *pulumi.OutputState }
 
 func (IncidentCustomFieldOptionOutput) ElementType() reflect.Type {
@@ -259,12 +240,6 @@ func (o IncidentCustomFieldOptionOutput) ToIncidentCustomFieldOptionOutput() Inc
 
 func (o IncidentCustomFieldOptionOutput) ToIncidentCustomFieldOptionOutputWithContext(ctx context.Context) IncidentCustomFieldOptionOutput {
 	return o
-}
-
-func (o IncidentCustomFieldOptionOutput) ToOutput(ctx context.Context) pulumix.Output[*IncidentCustomFieldOption] {
-	return pulumix.Output[*IncidentCustomFieldOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The datatype of the field option. Only `string` is allowed here at present.
@@ -296,12 +271,6 @@ func (o IncidentCustomFieldOptionArrayOutput) ToIncidentCustomFieldOptionArrayOu
 	return o
 }
 
-func (o IncidentCustomFieldOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IncidentCustomFieldOption] {
-	return pulumix.Output[[]*IncidentCustomFieldOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IncidentCustomFieldOptionArrayOutput) Index(i pulumi.IntInput) IncidentCustomFieldOptionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IncidentCustomFieldOption {
 		return vs[0].([]*IncidentCustomFieldOption)[vs[1].(int)]
@@ -320,12 +289,6 @@ func (o IncidentCustomFieldOptionMapOutput) ToIncidentCustomFieldOptionMapOutput
 
 func (o IncidentCustomFieldOptionMapOutput) ToIncidentCustomFieldOptionMapOutputWithContext(ctx context.Context) IncidentCustomFieldOptionMapOutput {
 	return o
-}
-
-func (o IncidentCustomFieldOptionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IncidentCustomFieldOption] {
-	return pulumix.Output[map[string]*IncidentCustomFieldOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IncidentCustomFieldOptionMapOutput) MapIndex(k pulumi.StringInput) IncidentCustomFieldOptionOutput {

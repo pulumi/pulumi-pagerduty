@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about a specific [service](https://api-reference.pagerduty.com/#!/Services/get_services).
@@ -127,12 +126,6 @@ func (o LookupServiceResultOutput) ToLookupServiceResultOutput() LookupServiceRe
 
 func (o LookupServiceResultOutput) ToLookupServiceResultOutputWithContext(ctx context.Context) LookupServiceResultOutput {
 	return o
-}
-
-func (o LookupServiceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupServiceResult] {
-	return pulumix.Output[LookupServiceResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Time in seconds that an incident changes to the Triggered State after being Acknowledged. Value is null if the feature is disabled. Value must not be negative. Setting this field to 0, null (or unset) will disable the feature.

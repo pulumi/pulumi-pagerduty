@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A [tag](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEwMA-assign-tags) is applied to Escalation Policies, Teams or Users and can be used to filter them.
@@ -175,12 +174,6 @@ func (i *TagAssignment) ToTagAssignmentOutputWithContext(ctx context.Context) Ta
 	return pulumi.ToOutputWithContext(ctx, i).(TagAssignmentOutput)
 }
 
-func (i *TagAssignment) ToOutput(ctx context.Context) pulumix.Output[*TagAssignment] {
-	return pulumix.Output[*TagAssignment]{
-		OutputState: i.ToTagAssignmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TagAssignmentArrayInput is an input type that accepts TagAssignmentArray and TagAssignmentArrayOutput values.
 // You can construct a concrete instance of `TagAssignmentArrayInput` via:
 //
@@ -204,12 +197,6 @@ func (i TagAssignmentArray) ToTagAssignmentArrayOutput() TagAssignmentArrayOutpu
 
 func (i TagAssignmentArray) ToTagAssignmentArrayOutputWithContext(ctx context.Context) TagAssignmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TagAssignmentArrayOutput)
-}
-
-func (i TagAssignmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*TagAssignment] {
-	return pulumix.Output[[]*TagAssignment]{
-		OutputState: i.ToTagAssignmentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TagAssignmentMapInput is an input type that accepts TagAssignmentMap and TagAssignmentMapOutput values.
@@ -237,12 +224,6 @@ func (i TagAssignmentMap) ToTagAssignmentMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(TagAssignmentMapOutput)
 }
 
-func (i TagAssignmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TagAssignment] {
-	return pulumix.Output[map[string]*TagAssignment]{
-		OutputState: i.ToTagAssignmentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TagAssignmentOutput struct{ *pulumi.OutputState }
 
 func (TagAssignmentOutput) ElementType() reflect.Type {
@@ -255,12 +236,6 @@ func (o TagAssignmentOutput) ToTagAssignmentOutput() TagAssignmentOutput {
 
 func (o TagAssignmentOutput) ToTagAssignmentOutputWithContext(ctx context.Context) TagAssignmentOutput {
 	return o
-}
-
-func (o TagAssignmentOutput) ToOutput(ctx context.Context) pulumix.Output[*TagAssignment] {
-	return pulumix.Output[*TagAssignment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the entity.
@@ -292,12 +267,6 @@ func (o TagAssignmentArrayOutput) ToTagAssignmentArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o TagAssignmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TagAssignment] {
-	return pulumix.Output[[]*TagAssignment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TagAssignmentArrayOutput) Index(i pulumi.IntInput) TagAssignmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TagAssignment {
 		return vs[0].([]*TagAssignment)[vs[1].(int)]
@@ -316,12 +285,6 @@ func (o TagAssignmentMapOutput) ToTagAssignmentMapOutput() TagAssignmentMapOutpu
 
 func (o TagAssignmentMapOutput) ToTagAssignmentMapOutputWithContext(ctx context.Context) TagAssignmentMapOutput {
 	return o
-}
-
-func (o TagAssignmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TagAssignment] {
-	return pulumix.Output[map[string]*TagAssignment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TagAssignmentMapOutput) MapIndex(k pulumi.StringInput) TagAssignmentOutput {

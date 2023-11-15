@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -279,12 +278,6 @@ func (i *ServiceEventRule) ToServiceEventRuleOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleOutput)
 }
 
-func (i *ServiceEventRule) ToOutput(ctx context.Context) pulumix.Output[*ServiceEventRule] {
-	return pulumix.Output[*ServiceEventRule]{
-		OutputState: i.ToServiceEventRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceEventRuleArrayInput is an input type that accepts ServiceEventRuleArray and ServiceEventRuleArrayOutput values.
 // You can construct a concrete instance of `ServiceEventRuleArrayInput` via:
 //
@@ -308,12 +301,6 @@ func (i ServiceEventRuleArray) ToServiceEventRuleArrayOutput() ServiceEventRuleA
 
 func (i ServiceEventRuleArray) ToServiceEventRuleArrayOutputWithContext(ctx context.Context) ServiceEventRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleArrayOutput)
-}
-
-func (i ServiceEventRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceEventRule] {
-	return pulumix.Output[[]*ServiceEventRule]{
-		OutputState: i.ToServiceEventRuleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServiceEventRuleMapInput is an input type that accepts ServiceEventRuleMap and ServiceEventRuleMapOutput values.
@@ -341,12 +328,6 @@ func (i ServiceEventRuleMap) ToServiceEventRuleMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEventRuleMapOutput)
 }
 
-func (i ServiceEventRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceEventRule] {
-	return pulumix.Output[map[string]*ServiceEventRule]{
-		OutputState: i.ToServiceEventRuleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceEventRuleOutput struct{ *pulumi.OutputState }
 
 func (ServiceEventRuleOutput) ElementType() reflect.Type {
@@ -359,12 +340,6 @@ func (o ServiceEventRuleOutput) ToServiceEventRuleOutput() ServiceEventRuleOutpu
 
 func (o ServiceEventRuleOutput) ToServiceEventRuleOutputWithContext(ctx context.Context) ServiceEventRuleOutput {
 	return o
-}
-
-func (o ServiceEventRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceEventRule] {
-	return pulumix.Output[*ServiceEventRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Actions to apply to an event if the conditions match.
@@ -416,12 +391,6 @@ func (o ServiceEventRuleArrayOutput) ToServiceEventRuleArrayOutputWithContext(ct
 	return o
 }
 
-func (o ServiceEventRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceEventRule] {
-	return pulumix.Output[[]*ServiceEventRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceEventRuleArrayOutput) Index(i pulumi.IntInput) ServiceEventRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceEventRule {
 		return vs[0].([]*ServiceEventRule)[vs[1].(int)]
@@ -440,12 +409,6 @@ func (o ServiceEventRuleMapOutput) ToServiceEventRuleMapOutput() ServiceEventRul
 
 func (o ServiceEventRuleMapOutput) ToServiceEventRuleMapOutputWithContext(ctx context.Context) ServiceEventRuleMapOutput {
 	return o
-}
-
-func (o ServiceEventRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceEventRule] {
-	return pulumix.Output[map[string]*ServiceEventRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceEventRuleMapOutput) MapIndex(k pulumi.StringInput) ServiceEventRuleOutput {

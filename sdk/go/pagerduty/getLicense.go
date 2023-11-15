@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to use a single purchased [license](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) to manage PagerDuty user resources. After applying changes to users' licenses, the `currentValue` and `allocationsAvailable` attributes of licenses will change.
@@ -159,12 +158,6 @@ func (o GetLicenseResultOutput) ToGetLicenseResultOutput() GetLicenseResultOutpu
 
 func (o GetLicenseResultOutput) ToGetLicenseResultOutputWithContext(ctx context.Context) GetLicenseResultOutput {
 	return o
-}
-
-func (o GetLicenseResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLicenseResult] {
-	return pulumix.Output[GetLicenseResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Available allocations to assign to users

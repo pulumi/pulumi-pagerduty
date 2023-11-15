@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A [slack connection](https://developer.pagerduty.com/api-reference/YXBpOjExMjA5NTQ0-pager-duty-slack-integration-api) allows you to connect a workspace in Slack to a PagerDuty service or team which allows you to acknowledge and resolve PagerDuty incidents from the Slack user interface.
@@ -254,12 +253,6 @@ func (i *SlackConnection) ToSlackConnectionOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(SlackConnectionOutput)
 }
 
-func (i *SlackConnection) ToOutput(ctx context.Context) pulumix.Output[*SlackConnection] {
-	return pulumix.Output[*SlackConnection]{
-		OutputState: i.ToSlackConnectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SlackConnectionArrayInput is an input type that accepts SlackConnectionArray and SlackConnectionArrayOutput values.
 // You can construct a concrete instance of `SlackConnectionArrayInput` via:
 //
@@ -283,12 +276,6 @@ func (i SlackConnectionArray) ToSlackConnectionArrayOutput() SlackConnectionArra
 
 func (i SlackConnectionArray) ToSlackConnectionArrayOutputWithContext(ctx context.Context) SlackConnectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SlackConnectionArrayOutput)
-}
-
-func (i SlackConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*SlackConnection] {
-	return pulumix.Output[[]*SlackConnection]{
-		OutputState: i.ToSlackConnectionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SlackConnectionMapInput is an input type that accepts SlackConnectionMap and SlackConnectionMapOutput values.
@@ -316,12 +303,6 @@ func (i SlackConnectionMap) ToSlackConnectionMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(SlackConnectionMapOutput)
 }
 
-func (i SlackConnectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SlackConnection] {
-	return pulumix.Output[map[string]*SlackConnection]{
-		OutputState: i.ToSlackConnectionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SlackConnectionOutput struct{ *pulumi.OutputState }
 
 func (SlackConnectionOutput) ElementType() reflect.Type {
@@ -334,12 +315,6 @@ func (o SlackConnectionOutput) ToSlackConnectionOutput() SlackConnectionOutput {
 
 func (o SlackConnectionOutput) ToSlackConnectionOutputWithContext(ctx context.Context) SlackConnectionOutput {
 	return o
-}
-
-func (o SlackConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*SlackConnection] {
-	return pulumix.Output[*SlackConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of a Slack channel in the workspace.
@@ -396,12 +371,6 @@ func (o SlackConnectionArrayOutput) ToSlackConnectionArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o SlackConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SlackConnection] {
-	return pulumix.Output[[]*SlackConnection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SlackConnectionArrayOutput) Index(i pulumi.IntInput) SlackConnectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SlackConnection {
 		return vs[0].([]*SlackConnection)[vs[1].(int)]
@@ -420,12 +389,6 @@ func (o SlackConnectionMapOutput) ToSlackConnectionMapOutput() SlackConnectionMa
 
 func (o SlackConnectionMapOutput) ToSlackConnectionMapOutputWithContext(ctx context.Context) SlackConnectionMapOutput {
 	return o
-}
-
-func (o SlackConnectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SlackConnection] {
-	return pulumix.Output[map[string]*SlackConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SlackConnectionMapOutput) MapIndex(k pulumi.StringInput) SlackConnectionOutput {

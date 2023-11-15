@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about a specific [Integration](https://developer.pagerduty.com/api-reference/1c6607db389a8-get-an-integration-for-an-event-orchestration) for an Event Orchestration.
@@ -109,12 +108,6 @@ func (o LookupEventOrchestrationIntegrationResultOutput) ToLookupEventOrchestrat
 
 func (o LookupEventOrchestrationIntegrationResultOutput) ToLookupEventOrchestrationIntegrationResultOutputWithContext(ctx context.Context) LookupEventOrchestrationIntegrationResultOutput {
 	return o
-}
-
-func (o LookupEventOrchestrationIntegrationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEventOrchestrationIntegrationResult] {
-	return pulumix.Output[LookupEventOrchestrationIntegrationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupEventOrchestrationIntegrationResultOutput) EventOrchestration() pulumi.StringOutput {

@@ -14,14 +14,14 @@ public final class EventOrchestrationServiceSetRuleActionsAutomationActionHeader
     public static final EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs Empty = new EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs();
 
     /**
-     * Name to identify the parameter
+     * Name to identify the header
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return Name to identify the parameter
+     * @return Name to identify the header
      * 
      */
     public Output<String> key() {
@@ -29,14 +29,14 @@ public final class EventOrchestrationServiceSetRuleActionsAutomationActionHeader
     }
 
     /**
-     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+     * Value of this header
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+     * @return Value of this header
      * 
      */
     public Output<String> value() {
@@ -69,7 +69,7 @@ public final class EventOrchestrationServiceSetRuleActionsAutomationActionHeader
         }
 
         /**
-         * @param key Name to identify the parameter
+         * @param key Name to identify the header
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class EventOrchestrationServiceSetRuleActionsAutomationActionHeader
         }
 
         /**
-         * @param key Name to identify the parameter
+         * @param key Name to identify the header
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class EventOrchestrationServiceSetRuleActionsAutomationActionHeader
         }
 
         /**
-         * @param value The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+         * @param value Value of this header
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class EventOrchestrationServiceSetRuleActionsAutomationActionHeader
         }
 
         /**
-         * @param value The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+         * @param value Value of this header
          * 
          * @return builder
          * 

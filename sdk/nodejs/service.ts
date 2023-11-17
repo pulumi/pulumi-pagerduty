@@ -139,7 +139,7 @@ export class Service extends pulumi.CustomResource {
     public /*out*/ readonly status!: pulumi.Output<string>;
     public readonly supportHours!: pulumi.Output<outputs.ServiceSupportHours | undefined>;
     /**
-     * The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+     * The type of scheduled action. Currently, this must be set to `urgencyChange`.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -274,7 +274,7 @@ export interface ServiceState {
     status?: pulumi.Input<string>;
     supportHours?: pulumi.Input<inputs.ServiceSupportHours>;
     /**
-     * The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+     * The type of scheduled action. Currently, this must be set to `urgencyChange`.
      */
     type?: pulumi.Input<string>;
 }

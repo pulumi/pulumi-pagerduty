@@ -107,20 +107,7 @@ export class WebhookSubscription extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * A set of outbound event types the webhook will receive. The follow event types are possible: 
-     * * `incident.acknowledged`
-     * * `incident.annotated`
-     * * `incident.delegated`
-     * * `incident.escalated`
-     * * `incident.priority_updated`
-     * * `incident.reassigned`
-     * * `incident.reopened`
-     * * `incident.resolved`
-     * * `incident.responder.added`
-     * * `incident.responder.replied`
-     * * `incident.status_update_published`
-     * * `incident.triggered`
-     * * `incident.unacknowledged`
+     * A set of outbound event types the webhook will receive. The follow event types are possible:
      */
     public readonly events!: pulumi.Output<string[]>;
     /**
@@ -191,20 +178,7 @@ export interface WebhookSubscriptionState {
      */
     description?: pulumi.Input<string>;
     /**
-     * A set of outbound event types the webhook will receive. The follow event types are possible: 
-     * * `incident.acknowledged`
-     * * `incident.annotated`
-     * * `incident.delegated`
-     * * `incident.escalated`
-     * * `incident.priority_updated`
-     * * `incident.reassigned`
-     * * `incident.reopened`
-     * * `incident.resolved`
-     * * `incident.responder.added`
-     * * `incident.responder.replied`
-     * * `incident.status_update_published`
-     * * `incident.triggered`
-     * * `incident.unacknowledged`
+     * A set of outbound event types the webhook will receive. The follow event types are possible:
      */
     events?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -234,20 +208,7 @@ export interface WebhookSubscriptionArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * A set of outbound event types the webhook will receive. The follow event types are possible: 
-     * * `incident.acknowledged`
-     * * `incident.annotated`
-     * * `incident.delegated`
-     * * `incident.escalated`
-     * * `incident.priority_updated`
-     * * `incident.reassigned`
-     * * `incident.reopened`
-     * * `incident.resolved`
-     * * `incident.responder.added`
-     * * `incident.responder.replied`
-     * * `incident.status_update_published`
-     * * `incident.triggered`
-     * * `incident.unacknowledged`
+     * A set of outbound event types the webhook will receive. The follow event types are possible:
      */
     events: pulumi.Input<pulumi.Input<string>[]>;
     /**

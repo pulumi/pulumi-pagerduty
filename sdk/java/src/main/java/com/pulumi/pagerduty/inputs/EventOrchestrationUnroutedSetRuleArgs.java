@@ -20,14 +20,14 @@ public final class EventOrchestrationUnroutedSetRuleArgs extends com.pulumi.reso
     public static final EventOrchestrationUnroutedSetRuleArgs Empty = new EventOrchestrationUnroutedSetRuleArgs();
 
     /**
-     * Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+     * These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` _except_ `route_to` action.
      * 
      */
     @Import(name="actions", required=true)
     private Output<EventOrchestrationUnroutedSetRuleActionsArgs> actions;
 
     /**
-     * @return Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+     * @return These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` _except_ `route_to` action.
      * 
      */
     public Output<EventOrchestrationUnroutedSetRuleActionsArgs> actions() {
@@ -123,7 +123,7 @@ public final class EventOrchestrationUnroutedSetRuleArgs extends com.pulumi.reso
         }
 
         /**
-         * @param actions Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+         * @param actions These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` _except_ `route_to` action.
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class EventOrchestrationUnroutedSetRuleArgs extends com.pulumi.reso
         }
 
         /**
-         * @param actions Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+         * @param actions These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` _except_ `route_to` action.
          * 
          * @return builder
          * 

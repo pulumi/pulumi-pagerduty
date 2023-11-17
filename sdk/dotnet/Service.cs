@@ -171,7 +171,7 @@ namespace Pulumi.Pagerduty
         public Output<Outputs.ServiceSupportHours?> SupportHours { get; private set; } = null!;
 
         /// <summary>
-        /// The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+        /// The type of scheduled action. Currently, this must be set to `urgency_change`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -410,7 +410,7 @@ namespace Pulumi.Pagerduty
         public Input<Inputs.ServiceSupportHoursGetArgs>? SupportHours { get; set; }
 
         /// <summary>
-        /// The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+        /// The type of scheduled action. Currently, this must be set to `urgency_change`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

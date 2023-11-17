@@ -31,7 +31,7 @@ namespace Pulumi.Pagerduty.Inputs
         }
 
         /// <summary>
-        /// The name of the variable
+        /// Name of this Webhook.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

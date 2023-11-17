@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceIncidentUrgencyRuleDuringSupportHours {
     /**
-     * @return The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+     * @return The type of scheduled action. Currently, this must be set to `urgency_change`.
      * 
      */
     private @Nullable String type;
@@ -24,7 +24,7 @@ public final class ServiceIncidentUrgencyRuleDuringSupportHours {
 
     private ServiceIncidentUrgencyRuleDuringSupportHours() {}
     /**
-     * @return The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+     * @return The type of scheduled action. Currently, this must be set to `urgency_change`.
      * 
      */
     public Optional<String> type() {

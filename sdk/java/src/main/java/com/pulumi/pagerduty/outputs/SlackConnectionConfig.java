@@ -14,18 +14,6 @@ import javax.annotation.Nullable;
 public final class SlackConnectionConfig {
     /**
      * @return A list of strings to filter events by PagerDuty event type. `&#34;incident.triggered&#34;` is required. The follow event types are also possible:
-     * - `incident.acknowledged`
-     * - `incident.escalated`
-     * - `incident.resolved`
-     * - `incident.reassigned`
-     * - `incident.annotated`
-     * - `incident.unacknowledged`
-     * - `incident.delegated`
-     * - `incident.priority_updated`
-     * - `incident.responder.added`
-     * - `incident.responder.replied`
-     * - `incident.status_update_published`
-     * - `incident.reopened`
      * 
      */
     private List<String> events;
@@ -45,18 +33,6 @@ public final class SlackConnectionConfig {
     private SlackConnectionConfig() {}
     /**
      * @return A list of strings to filter events by PagerDuty event type. `&#34;incident.triggered&#34;` is required. The follow event types are also possible:
-     * - `incident.acknowledged`
-     * - `incident.escalated`
-     * - `incident.resolved`
-     * - `incident.reassigned`
-     * - `incident.annotated`
-     * - `incident.unacknowledged`
-     * - `incident.delegated`
-     * - `incident.priority_updated`
-     * - `incident.responder.added`
-     * - `incident.responder.replied`
-     * - `incident.status_update_published`
-     * - `incident.reopened`
      * 
      */
     public List<String> events() {

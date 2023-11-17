@@ -29,14 +29,14 @@ public final class EventOrchestrationServiceSetRuleActionsAutomationActionParame
     }
 
     /**
-     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+     * Value of this parameter
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+     * @return Value of this parameter
      * 
      */
     public Output<String> value() {
@@ -90,7 +90,7 @@ public final class EventOrchestrationServiceSetRuleActionsAutomationActionParame
         }
 
         /**
-         * @param value The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+         * @param value Value of this parameter
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class EventOrchestrationServiceSetRuleActionsAutomationActionParame
         }
 
         /**
-         * @param value The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+         * @param value Value of this parameter
          * 
          * @return builder
          * 

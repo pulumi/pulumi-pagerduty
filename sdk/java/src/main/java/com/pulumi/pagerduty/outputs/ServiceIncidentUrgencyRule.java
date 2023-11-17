@@ -28,7 +28,7 @@ public final class ServiceIncidentUrgencyRule {
      */
     private @Nullable ServiceIncidentUrgencyRuleOutsideSupportHours outsideSupportHours;
     /**
-     * @return The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+     * @return The type of scheduled action. Currently, this must be set to `urgency_change`.
      * 
      */
     private String type;
@@ -58,7 +58,7 @@ public final class ServiceIncidentUrgencyRule {
         return Optional.ofNullable(this.outsideSupportHours);
     }
     /**
-     * @return The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+     * @return The type of scheduled action. Currently, this must be set to `urgency_change`.
      * 
      */
     public String type() {

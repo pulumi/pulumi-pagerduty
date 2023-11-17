@@ -25,7 +25,7 @@ public final class WebhookSubscriptionDeliveryMethod {
      */
     private @Nullable Boolean temporarilyDisabled;
     /**
-     * @return Indicates the type of the delivery method. Allowed and default value: `http_delivery_method`.
+     * @return The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.
      * 
      */
     private @Nullable String type;
@@ -51,7 +51,7 @@ public final class WebhookSubscriptionDeliveryMethod {
         return Optional.ofNullable(this.temporarilyDisabled);
     }
     /**
-     * @return Indicates the type of the delivery method. Allowed and default value: `http_delivery_method`.
+     * @return The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.
      * 
      */
     public Optional<String> type() {

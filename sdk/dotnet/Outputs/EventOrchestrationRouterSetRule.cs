@@ -14,7 +14,7 @@ namespace Pulumi.Pagerduty.Outputs
     public sealed class EventOrchestrationRouterSetRule
     {
         /// <summary>
-        /// Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+        /// These are the actions that will be taken to change the resulting alert and incident.
         /// </summary>
         public readonly Outputs.EventOrchestrationRouterSetRuleActions Actions;
         /// <summary>

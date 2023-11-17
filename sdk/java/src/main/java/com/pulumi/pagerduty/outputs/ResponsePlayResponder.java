@@ -57,7 +57,7 @@ public final class ResponsePlayResponder {
      */
     private @Nullable List<ResponsePlayResponderTeam> teams;
     /**
-     * @return Type of object of the target. Supported types are `user_reference`, `schedule_reference`.
+     * @return Should be set as `escalation_policy` for escalation policy responders.
      * 
      */
     private @Nullable String type;
@@ -120,7 +120,7 @@ public final class ResponsePlayResponder {
         return this.teams == null ? List.of() : this.teams;
     }
     /**
-     * @return Type of object of the target. Supported types are `user_reference`, `schedule_reference`.
+     * @return Should be set as `escalation_policy` for escalation policy responders.
      * 
      */
     public Optional<String> type() {

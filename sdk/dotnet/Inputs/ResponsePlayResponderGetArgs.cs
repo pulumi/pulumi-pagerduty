@@ -79,7 +79,7 @@ namespace Pulumi.Pagerduty.Inputs
         }
 
         /// <summary>
-        /// Type of object of the target. Supported types are `user_reference`, `schedule_reference`.
+        /// Should be set as `escalation_policy` for escalation policy responders.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

@@ -18,14 +18,14 @@ public final class ServiceEventRuleConditionsSubconditionArgs extends com.pulumi
     public static final ServiceEventRuleConditionsSubconditionArgs Empty = new ServiceEventRuleConditionsSubconditionArgs();
 
     /**
-     * Type of operator to apply to the sub-condition. Can be `exists`,`nexists`,`equals`,`nequals`,`contains`,`ncontains`,`matches`, or `nmatches`.
+     * Operator to combine sub-conditions. Can be `and` or `or`.
      * 
      */
     @Import(name="operator")
     private @Nullable Output<String> operator;
 
     /**
-     * @return Type of operator to apply to the sub-condition. Can be `exists`,`nexists`,`equals`,`nequals`,`contains`,`ncontains`,`matches`, or `nmatches`.
+     * @return Operator to combine sub-conditions. Can be `and` or `or`.
      * 
      */
     public Optional<Output<String>> operator() {
@@ -73,7 +73,7 @@ public final class ServiceEventRuleConditionsSubconditionArgs extends com.pulumi
         }
 
         /**
-         * @param operator Type of operator to apply to the sub-condition. Can be `exists`,`nexists`,`equals`,`nequals`,`contains`,`ncontains`,`matches`, or `nmatches`.
+         * @param operator Operator to combine sub-conditions. Can be `and` or `or`.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class ServiceEventRuleConditionsSubconditionArgs extends com.pulumi
         }
 
         /**
-         * @param operator Type of operator to apply to the sub-condition. Can be `exists`,`nexists`,`equals`,`nequals`,`contains`,`ncontains`,`matches`, or `nmatches`.
+         * @param operator Operator to combine sub-conditions. Can be `and` or `or`.
          * 
          * @return builder
          * 

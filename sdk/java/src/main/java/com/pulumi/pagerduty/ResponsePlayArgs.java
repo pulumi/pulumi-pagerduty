@@ -49,9 +49,17 @@ public final class ResponsePlayArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.conferenceUrl);
     }
 
+    /**
+     * Description of escalation policy
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return Description of escalation policy
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
@@ -72,14 +80,14 @@ public final class ResponsePlayArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the response play.
+     * Name of the escalation policy
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the response play.
+     * @return Name of the escalation policy
      * 
      */
     public Optional<Output<String>> name() {
@@ -162,14 +170,14 @@ public final class ResponsePlayArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the team associated with the response play.
+     * Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
      * 
      */
     @Import(name="team")
     private @Nullable Output<String> team;
 
     /**
-     * @return The ID of the team associated with the response play.
+     * @return Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
      * 
      */
     public Optional<Output<String>> team() {
@@ -177,14 +185,14 @@ public final class ResponsePlayArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
+     * Should be set as `escalation_policy` for escalation policy responders.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
+     * @return Should be set as `escalation_policy` for escalation policy responders.
      * 
      */
     public Optional<Output<String>> type() {
@@ -268,11 +276,23 @@ public final class ResponsePlayArgs extends com.pulumi.resources.ResourceArgs {
             return conferenceUrl(Output.of(conferenceUrl));
         }
 
+        /**
+         * @param description Description of escalation policy
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description Description of escalation policy
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
@@ -299,7 +319,7 @@ public final class ResponsePlayArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the response play.
+         * @param name Name of the escalation policy
          * 
          * @return builder
          * 
@@ -310,7 +330,7 @@ public final class ResponsePlayArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the response play.
+         * @param name Name of the escalation policy
          * 
          * @return builder
          * 
@@ -445,7 +465,7 @@ public final class ResponsePlayArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param team The ID of the team associated with the response play.
+         * @param team Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
          * 
          * @return builder
          * 
@@ -456,7 +476,7 @@ public final class ResponsePlayArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param team The ID of the team associated with the response play.
+         * @param team Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
          * 
          * @return builder
          * 
@@ -466,7 +486,7 @@ public final class ResponsePlayArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
+         * @param type Should be set as `escalation_policy` for escalation policy responders.
          * 
          * @return builder
          * 
@@ -477,7 +497,7 @@ public final class ResponsePlayArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
+         * @param type Should be set as `escalation_policy` for escalation policy responders.
          * 
          * @return builder
          * 

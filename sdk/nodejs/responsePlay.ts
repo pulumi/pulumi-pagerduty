@@ -87,13 +87,16 @@ export class ResponsePlay extends pulumi.CustomResource {
      * The URL that will be set as the conference URL for any incident on which this response play is run.
      */
     public readonly conferenceUrl!: pulumi.Output<string | undefined>;
+    /**
+     * Description of escalation policy
+     */
     public readonly description!: pulumi.Output<string>;
     /**
      * The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
      */
     public readonly from!: pulumi.Output<string>;
     /**
-     * The name of the response play.
+     * Name of the escalation policy
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -117,11 +120,11 @@ export class ResponsePlay extends pulumi.CustomResource {
      */
     public readonly subscribersMessage!: pulumi.Output<string | undefined>;
     /**
-     * The ID of the team associated with the response play.
+     * Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
      */
     public readonly team!: pulumi.Output<string | undefined>;
     /**
-     * A string that determines the schema of the object. If not set, the default value is "responsePlay".
+     * Should be set as `escalationPolicy` for escalation policy responders.
      */
     public readonly type!: pulumi.Output<string | undefined>;
 
@@ -185,13 +188,16 @@ export interface ResponsePlayState {
      * The URL that will be set as the conference URL for any incident on which this response play is run.
      */
     conferenceUrl?: pulumi.Input<string>;
+    /**
+     * Description of escalation policy
+     */
     description?: pulumi.Input<string>;
     /**
      * The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
      */
     from?: pulumi.Input<string>;
     /**
-     * The name of the response play.
+     * Name of the escalation policy
      */
     name?: pulumi.Input<string>;
     /**
@@ -215,11 +221,11 @@ export interface ResponsePlayState {
      */
     subscribersMessage?: pulumi.Input<string>;
     /**
-     * The ID of the team associated with the response play.
+     * Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
      */
     team?: pulumi.Input<string>;
     /**
-     * A string that determines the schema of the object. If not set, the default value is "responsePlay".
+     * Should be set as `escalationPolicy` for escalation policy responders.
      */
     type?: pulumi.Input<string>;
 }
@@ -236,13 +242,16 @@ export interface ResponsePlayArgs {
      * The URL that will be set as the conference URL for any incident on which this response play is run.
      */
     conferenceUrl?: pulumi.Input<string>;
+    /**
+     * Description of escalation policy
+     */
     description?: pulumi.Input<string>;
     /**
      * The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
      */
     from: pulumi.Input<string>;
     /**
-     * The name of the response play.
+     * Name of the escalation policy
      */
     name?: pulumi.Input<string>;
     /**
@@ -266,11 +275,11 @@ export interface ResponsePlayArgs {
      */
     subscribersMessage?: pulumi.Input<string>;
     /**
-     * The ID of the team associated with the response play.
+     * Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
      */
     team?: pulumi.Input<string>;
     /**
-     * A string that determines the schema of the object. If not set, the default value is "responsePlay".
+     * Should be set as `escalationPolicy` for escalation policy responders.
      */
     type?: pulumi.Input<string>;
 }

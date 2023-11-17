@@ -13,7 +13,7 @@ namespace Pulumi.Pagerduty.Inputs
     public sealed class EventOrchestrationRouterSetRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+        /// These are the actions that will be taken to change the resulting alert and incident.
         /// </summary>
         [Input("actions", required: true)]
         public Input<Inputs.EventOrchestrationRouterSetRuleActionsArgs> Actions { get; set; } = null!;

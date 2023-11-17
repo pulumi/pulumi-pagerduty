@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EventOrchestrationServiceSetRule {
     /**
-     * @return Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+     * @return These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` _except_ `route_to` action.
      * 
      */
     private EventOrchestrationServiceSetRuleActions actions;
@@ -43,7 +43,7 @@ public final class EventOrchestrationServiceSetRule {
 
     private EventOrchestrationServiceSetRule() {}
     /**
-     * @return Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+     * @return These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` _except_ `route_to` action.
      * 
      */
     public EventOrchestrationServiceSetRuleActions actions() {

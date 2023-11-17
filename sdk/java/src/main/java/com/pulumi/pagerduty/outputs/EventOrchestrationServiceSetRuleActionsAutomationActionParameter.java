@@ -15,7 +15,7 @@ public final class EventOrchestrationServiceSetRuleActionsAutomationActionParame
      */
     private String key;
     /**
-     * @return The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+     * @return Value of this parameter
      * 
      */
     private String value;
@@ -29,7 +29,7 @@ public final class EventOrchestrationServiceSetRuleActionsAutomationActionParame
         return this.key;
     }
     /**
-     * @return The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+     * @return Value of this parameter
      * 
      */
     public String value() {

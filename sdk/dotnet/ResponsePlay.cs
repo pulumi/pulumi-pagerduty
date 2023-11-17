@@ -99,6 +99,9 @@ namespace Pulumi.Pagerduty
         [Output("conferenceUrl")]
         public Output<string?> ConferenceUrl { get; private set; } = null!;
 
+        /// <summary>
+        /// Description of escalation policy
+        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
@@ -109,7 +112,7 @@ namespace Pulumi.Pagerduty
         public Output<string> From { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the response play.
+        /// Name of the escalation policy
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -145,13 +148,13 @@ namespace Pulumi.Pagerduty
         public Output<string?> SubscribersMessage { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the team associated with the response play.
+        /// Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
         /// </summary>
         [Output("team")]
         public Output<string?> Team { get; private set; } = null!;
 
         /// <summary>
-        /// A string that determines the schema of the object. If not set, the default value is "response_play".
+        /// Should be set as `escalation_policy` for escalation policy responders.
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
@@ -214,6 +217,9 @@ namespace Pulumi.Pagerduty
         [Input("conferenceUrl")]
         public Input<string>? ConferenceUrl { get; set; }
 
+        /// <summary>
+        /// Description of escalation policy
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -224,7 +230,7 @@ namespace Pulumi.Pagerduty
         public Input<string> From { get; set; } = null!;
 
         /// <summary>
-        /// The name of the response play.
+        /// Name of the escalation policy
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -272,13 +278,13 @@ namespace Pulumi.Pagerduty
         public Input<string>? SubscribersMessage { get; set; }
 
         /// <summary>
-        /// The ID of the team associated with the response play.
+        /// Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
         /// </summary>
         [Input("team")]
         public Input<string>? Team { get; set; }
 
         /// <summary>
-        /// A string that determines the schema of the object. If not set, the default value is "response_play".
+        /// Should be set as `escalation_policy` for escalation policy responders.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -304,6 +310,9 @@ namespace Pulumi.Pagerduty
         [Input("conferenceUrl")]
         public Input<string>? ConferenceUrl { get; set; }
 
+        /// <summary>
+        /// Description of escalation policy
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -314,7 +323,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? From { get; set; }
 
         /// <summary>
-        /// The name of the response play.
+        /// Name of the escalation policy
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -362,13 +371,13 @@ namespace Pulumi.Pagerduty
         public Input<string>? SubscribersMessage { get; set; }
 
         /// <summary>
-        /// The ID of the team associated with the response play.
+        /// Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
         /// </summary>
         [Input("team")]
         public Input<string>? Team { get; set; }
 
         /// <summary>
-        /// A string that determines the schema of the object. If not set, the default value is "response_play".
+        /// Should be set as `escalation_policy` for escalation policy responders.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

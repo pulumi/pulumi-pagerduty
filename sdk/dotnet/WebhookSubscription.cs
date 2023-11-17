@@ -112,20 +112,7 @@ namespace Pulumi.Pagerduty
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// A set of outbound event types the webhook will receive. The follow event types are possible: 
-        /// * `incident.acknowledged`
-        /// * `incident.annotated`
-        /// * `incident.delegated`
-        /// * `incident.escalated`
-        /// * `incident.priority_updated`
-        /// * `incident.reassigned`
-        /// * `incident.reopened`
-        /// * `incident.resolved`
-        /// * `incident.responder.added`
-        /// * `incident.responder.replied`
-        /// * `incident.status_update_published`
-        /// * `incident.triggered`
-        /// * `incident.unacknowledged`
+        /// A set of outbound event types the webhook will receive. The follow event types are possible:
         /// </summary>
         [Output("events")]
         public Output<ImmutableArray<string>> Events { get; private set; } = null!;
@@ -216,20 +203,7 @@ namespace Pulumi.Pagerduty
         private InputList<string>? _events;
 
         /// <summary>
-        /// A set of outbound event types the webhook will receive. The follow event types are possible: 
-        /// * `incident.acknowledged`
-        /// * `incident.annotated`
-        /// * `incident.delegated`
-        /// * `incident.escalated`
-        /// * `incident.priority_updated`
-        /// * `incident.reassigned`
-        /// * `incident.reopened`
-        /// * `incident.resolved`
-        /// * `incident.responder.added`
-        /// * `incident.responder.replied`
-        /// * `incident.status_update_published`
-        /// * `incident.triggered`
-        /// * `incident.unacknowledged`
+        /// A set of outbound event types the webhook will receive. The follow event types are possible:
         /// </summary>
         public InputList<string> Events
         {
@@ -291,20 +265,7 @@ namespace Pulumi.Pagerduty
         private InputList<string>? _events;
 
         /// <summary>
-        /// A set of outbound event types the webhook will receive. The follow event types are possible: 
-        /// * `incident.acknowledged`
-        /// * `incident.annotated`
-        /// * `incident.delegated`
-        /// * `incident.escalated`
-        /// * `incident.priority_updated`
-        /// * `incident.reassigned`
-        /// * `incident.reopened`
-        /// * `incident.resolved`
-        /// * `incident.responder.added`
-        /// * `incident.responder.replied`
-        /// * `incident.status_update_published`
-        /// * `incident.triggered`
-        /// * `incident.unacknowledged`
+        /// A set of outbound event types the webhook will receive. The follow event types are possible:
         /// </summary>
         public InputList<string> Events
         {

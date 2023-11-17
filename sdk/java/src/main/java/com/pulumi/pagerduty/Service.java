@@ -321,14 +321,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.supportHours);
     }
     /**
-     * The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+     * The type of scheduled action. Currently, this must be set to `urgency_change`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+     * @return The type of scheduled action. Currently, this must be set to `urgency_change`.
      * 
      */
     public Output<String> type() {

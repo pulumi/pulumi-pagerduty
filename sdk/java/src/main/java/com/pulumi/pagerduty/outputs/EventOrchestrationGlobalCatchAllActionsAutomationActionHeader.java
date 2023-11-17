@@ -10,26 +10,26 @@ import java.util.Objects;
 @CustomType
 public final class EventOrchestrationGlobalCatchAllActionsAutomationActionHeader {
     /**
-     * @return Name to identify the parameter
+     * @return Name to identify the header
      * 
      */
     private String key;
     /**
-     * @return The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+     * @return Value of this header
      * 
      */
     private String value;
 
     private EventOrchestrationGlobalCatchAllActionsAutomationActionHeader() {}
     /**
-     * @return Name to identify the parameter
+     * @return Name to identify the header
      * 
      */
     public String key() {
         return this.key;
     }
     /**
-     * @return The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+     * @return Value of this header
      * 
      */
     public String value() {

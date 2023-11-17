@@ -13,7 +13,7 @@ namespace Pulumi.Pagerduty.Inputs
     public sealed class EventOrchestrationServiceSetRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+        /// These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` _except_ `route_to` action.
         /// </summary>
         [Input("actions", required: true)]
         public Input<Inputs.EventOrchestrationServiceSetRuleActionsGetArgs> Actions { get; set; } = null!;

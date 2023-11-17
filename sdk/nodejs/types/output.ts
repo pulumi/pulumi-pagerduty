@@ -115,7 +115,7 @@ export interface EventOrchestrationGlobalCatchAllActionsAutomationAction {
      */
     headers?: outputs.EventOrchestrationGlobalCatchAllActionsAutomationActionHeader[];
     /**
-     * The name of the variable
+     * Name of this Webhook.
      */
     name: string;
     /**
@@ -130,11 +130,11 @@ export interface EventOrchestrationGlobalCatchAllActionsAutomationAction {
 
 export interface EventOrchestrationGlobalCatchAllActionsAutomationActionHeader {
     /**
-     * Name to identify the parameter
+     * Name to identify the header
      */
     key: string;
     /**
-     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+     * Value of this header
      */
     value: string;
 }
@@ -145,7 +145,7 @@ export interface EventOrchestrationGlobalCatchAllActionsAutomationActionParamete
      */
     key: string;
     /**
-     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+     * Value of this parameter
      */
     value: string;
 }
@@ -200,7 +200,7 @@ export interface EventOrchestrationGlobalSet {
 
 export interface EventOrchestrationGlobalSetRule {
     /**
-     * Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+     * These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
      */
     actions: outputs.EventOrchestrationGlobalSetRuleActions;
     /**
@@ -278,7 +278,7 @@ export interface EventOrchestrationGlobalSetRuleActionsAutomationAction {
      */
     headers?: outputs.EventOrchestrationGlobalSetRuleActionsAutomationActionHeader[];
     /**
-     * The name of the variable
+     * Name of this Webhook.
      */
     name: string;
     /**
@@ -293,11 +293,11 @@ export interface EventOrchestrationGlobalSetRuleActionsAutomationAction {
 
 export interface EventOrchestrationGlobalSetRuleActionsAutomationActionHeader {
     /**
-     * Name to identify the parameter
+     * Name to identify the header
      */
     key: string;
     /**
-     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+     * Value of this header
      */
     value: string;
 }
@@ -308,7 +308,7 @@ export interface EventOrchestrationGlobalSetRuleActionsAutomationActionParameter
      */
     key: string;
     /**
-     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+     * Value of this parameter
      */
     value: string;
 }
@@ -404,7 +404,7 @@ export interface EventOrchestrationRouterSet {
 
 export interface EventOrchestrationRouterSetRule {
     /**
-     * Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+     * These are the actions that will be taken to change the resulting alert and incident.
      */
     actions: outputs.EventOrchestrationRouterSetRuleActions;
     /**
@@ -503,7 +503,7 @@ export interface EventOrchestrationServiceCatchAllActionsAutomationAction {
      */
     headers?: outputs.EventOrchestrationServiceCatchAllActionsAutomationActionHeader[];
     /**
-     * The name of the variable
+     * Name of this Webhook.
      */
     name: string;
     /**
@@ -518,11 +518,11 @@ export interface EventOrchestrationServiceCatchAllActionsAutomationAction {
 
 export interface EventOrchestrationServiceCatchAllActionsAutomationActionHeader {
     /**
-     * Name to identify the parameter
+     * Name to identify the header
      */
     key: string;
     /**
-     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+     * Value of this header
      */
     value: string;
 }
@@ -533,7 +533,7 @@ export interface EventOrchestrationServiceCatchAllActionsAutomationActionParamet
      */
     key: string;
     /**
-     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+     * Value of this parameter
      */
     value: string;
 }
@@ -595,7 +595,7 @@ export interface EventOrchestrationServiceSet {
 
 export interface EventOrchestrationServiceSetRule {
     /**
-     * Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+     * These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
      */
     actions: outputs.EventOrchestrationServiceSetRuleActions;
     /**
@@ -673,7 +673,7 @@ export interface EventOrchestrationServiceSetRuleActionsAutomationAction {
      */
     headers?: outputs.EventOrchestrationServiceSetRuleActionsAutomationActionHeader[];
     /**
-     * The name of the variable
+     * Name of this Webhook.
      */
     name: string;
     /**
@@ -688,11 +688,11 @@ export interface EventOrchestrationServiceSetRuleActionsAutomationAction {
 
 export interface EventOrchestrationServiceSetRuleActionsAutomationActionHeader {
     /**
-     * Name to identify the parameter
+     * Name to identify the header
      */
     key: string;
     /**
-     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+     * Value of this header
      */
     value: string;
 }
@@ -703,7 +703,7 @@ export interface EventOrchestrationServiceSetRuleActionsAutomationActionParamete
      */
     key: string;
     /**
-     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+     * Value of this parameter
      */
     value: string;
 }
@@ -839,7 +839,7 @@ export interface EventOrchestrationUnroutedSet {
 
 export interface EventOrchestrationUnroutedSetRule {
     /**
-     * Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+     * These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
      */
     actions: outputs.EventOrchestrationUnroutedSetRuleActions;
     /**
@@ -1148,7 +1148,7 @@ export interface ResponsePlayResponder {
      */
     teams: outputs.ResponsePlayResponderTeam[];
     /**
-     * Type of object of the target. Supported types are `userReference`, `scheduleReference`.
+     * Should be set as `escalationPolicy` for escalation policy responders.
      */
     type?: string;
 }
@@ -1174,7 +1174,7 @@ export interface ResponsePlayResponderEscalationRuleTarget {
      */
     id: string;
     /**
-     * A string that determines the schema of the object. If not set, the default value is "responsePlay".
+     * Should be set as `escalationPolicy` for escalation policy responders.
      */
     type: string;
 }
@@ -1185,7 +1185,7 @@ export interface ResponsePlayResponderService {
      */
     id: string;
     /**
-     * A string that determines the schema of the object. If not set, the default value is "responsePlay".
+     * Should be set as `escalationPolicy` for escalation policy responders.
      */
     type: string;
 }
@@ -1196,7 +1196,7 @@ export interface ResponsePlayResponderTeam {
      */
     id: string;
     /**
-     * A string that determines the schema of the object. If not set, the default value is "responsePlay".
+     * Should be set as `escalationPolicy` for escalation policy responders.
      */
     type: string;
 }
@@ -1207,7 +1207,7 @@ export interface ResponsePlaySubscriber {
      */
     id?: string;
     /**
-     * A string that determines the schema of the object. If not set, the default value is "responsePlay".
+     * Should be set as `escalationPolicy` for escalation policy responders.
      */
     type?: string;
 }
@@ -1344,7 +1344,7 @@ export interface RulesetRuleConditions {
 
 export interface RulesetRuleConditionsSubcondition {
     /**
-     * Type of operator to apply to the sub-condition. Can be `exists`,`nexists`,`equals`,`nequals`,`contains`,`ncontains`,`matches`, or `nmatches`.
+     * Operator to combine sub-conditions. Can be `and` or `or`.
      */
     operator?: string;
     /**
@@ -1517,7 +1517,6 @@ export interface ServiceAutoPauseNotificationsParameters {
     /**
      * Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `enabled` is `true`. Must be omitted or set to `null` if `enabled` is `false`.
      *
-     *
      * You may specify one optional `incidentUrgencyRule` block configuring what urgencies to use.
      * Your PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.
      * The block contains the following arguments:
@@ -1683,7 +1682,7 @@ export interface ServiceEventRuleConditions {
 
 export interface ServiceEventRuleConditionsSubcondition {
     /**
-     * Type of operator to apply to the sub-condition. Can be `exists`,`nexists`,`equals`,`nequals`,`contains`,`ncontains`,`matches`, or `nmatches`.
+     * Operator to combine sub-conditions. Can be `and` or `or`.
      */
     operator?: string;
     /**
@@ -1784,7 +1783,7 @@ export interface ServiceIncidentUrgencyRule {
      */
     outsideSupportHours?: outputs.ServiceIncidentUrgencyRuleOutsideSupportHours;
     /**
-     * The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+     * The type of scheduled action. Currently, this must be set to `urgencyChange`.
      */
     type: string;
     /**
@@ -1795,7 +1794,7 @@ export interface ServiceIncidentUrgencyRule {
 
 export interface ServiceIncidentUrgencyRuleDuringSupportHours {
     /**
-     * The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+     * The type of scheduled action. Currently, this must be set to `urgencyChange`.
      */
     type?: string;
     /**
@@ -1806,7 +1805,7 @@ export interface ServiceIncidentUrgencyRuleDuringSupportHours {
 
 export interface ServiceIncidentUrgencyRuleOutsideSupportHours {
     /**
-     * The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+     * The type of scheduled action. Currently, this must be set to `urgencyChange`.
      */
     type?: string;
     /**
@@ -1931,7 +1930,7 @@ export interface ServiceScheduledAction {
      */
     toUrgency?: string;
     /**
-     * The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+     * The type of scheduled action. Currently, this must be set to `urgencyChange`.
      */
     type?: string;
 }
@@ -2018,7 +2017,7 @@ export interface ServiceSupportHours {
      */
     timeZone?: string;
     /**
-     * The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+     * The type of scheduled action. Currently, this must be set to `urgencyChange`.
      */
     type?: string;
 }
@@ -2026,18 +2025,6 @@ export interface ServiceSupportHours {
 export interface SlackConnectionConfig {
     /**
      * A list of strings to filter events by PagerDuty event type. `"incident.triggered"` is required. The follow event types are also possible:
-     * - `incident.acknowledged`
-     * - `incident.escalated`
-     * - `incident.resolved`
-     * - `incident.reassigned`
-     * - `incident.annotated`
-     * - `incident.unacknowledged`
-     * - `incident.delegated`
-     * - `incident.priority_updated`
-     * - `incident.responder.added`
-     * - `incident.responder.replied`
-     * - `incident.status_update_published`
-     * - `incident.reopened`
      */
     events: string[];
     /**
@@ -2062,7 +2049,7 @@ export interface WebhookSubscriptionDeliveryMethod {
      */
     temporarilyDisabled: boolean;
     /**
-     * Indicates the type of the delivery method. Allowed and default value: `httpDeliveryMethod`.
+     * The type indicating the schema of the object. The provider sets this as `webhookSubscription`, which is currently the only acceptable value.
      */
     type?: string;
     /**
@@ -2082,7 +2069,7 @@ export interface WebhookSubscriptionFilter {
      */
     id?: string;
     /**
-     * The type of object being used as the filter. Allowed values are `accountReference`, `serviceReference`, and `teamReference`.
+     * The type indicating the schema of the object. The provider sets this as `webhookSubscription`, which is currently the only acceptable value.
      */
     type: string;
 }

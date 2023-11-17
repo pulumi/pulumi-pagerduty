@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EventOrchestrationRouterSetRule {
     /**
-     * @return Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+     * @return These are the actions that will be taken to change the resulting alert and incident.
      * 
      */
     private EventOrchestrationRouterSetRuleActions actions;
@@ -43,7 +43,7 @@ public final class EventOrchestrationRouterSetRule {
 
     private EventOrchestrationRouterSetRule() {}
     /**
-     * @return Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+     * @return These are the actions that will be taken to change the resulting alert and incident.
      * 
      */
     public EventOrchestrationRouterSetRuleActions actions() {

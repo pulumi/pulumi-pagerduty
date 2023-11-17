@@ -49,14 +49,14 @@ public final class WebhookSubscriptionDeliveryMethodArgs extends com.pulumi.reso
     }
 
     /**
-     * Indicates the type of the delivery method. Allowed and default value: `http_delivery_method`.
+     * The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Indicates the type of the delivery method. Allowed and default value: `http_delivery_method`.
+     * @return The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.
      * 
      */
     public Optional<Output<String>> type() {
@@ -158,7 +158,7 @@ public final class WebhookSubscriptionDeliveryMethodArgs extends com.pulumi.reso
         }
 
         /**
-         * @param type Indicates the type of the delivery method. Allowed and default value: `http_delivery_method`.
+         * @param type The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class WebhookSubscriptionDeliveryMethodArgs extends com.pulumi.reso
         }
 
         /**
-         * @param type Indicates the type of the delivery method. Allowed and default value: `http_delivery_method`.
+         * @param type The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.
          * 
          * @return builder
          * 

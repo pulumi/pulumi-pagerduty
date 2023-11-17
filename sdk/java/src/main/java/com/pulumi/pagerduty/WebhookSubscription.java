@@ -147,19 +147,6 @@ public class WebhookSubscription extends com.pulumi.resources.CustomResource {
     }
     /**
      * A set of outbound event types the webhook will receive. The follow event types are possible:
-     * * `incident.acknowledged`
-     * * `incident.annotated`
-     * * `incident.delegated`
-     * * `incident.escalated`
-     * * `incident.priority_updated`
-     * * `incident.reassigned`
-     * * `incident.reopened`
-     * * `incident.resolved`
-     * * `incident.responder.added`
-     * * `incident.responder.replied`
-     * * `incident.status_update_published`
-     * * `incident.triggered`
-     * * `incident.unacknowledged`
      * 
      */
     @Export(name="events", refs={List.class,String.class}, tree="[0,1]")
@@ -167,19 +154,6 @@ public class WebhookSubscription extends com.pulumi.resources.CustomResource {
 
     /**
      * @return A set of outbound event types the webhook will receive. The follow event types are possible:
-     * * `incident.acknowledged`
-     * * `incident.annotated`
-     * * `incident.delegated`
-     * * `incident.escalated`
-     * * `incident.priority_updated`
-     * * `incident.reassigned`
-     * * `incident.reopened`
-     * * `incident.resolved`
-     * * `incident.responder.added`
-     * * `incident.responder.replied`
-     * * `incident.status_update_published`
-     * * `incident.triggered`
-     * * `incident.unacknowledged`
      * 
      */
     public Output<List<String>> events() {

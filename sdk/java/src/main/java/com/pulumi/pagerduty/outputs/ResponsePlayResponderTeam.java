@@ -17,7 +17,7 @@ public final class ResponsePlayResponderTeam {
      */
     private @Nullable String id;
     /**
-     * @return A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
+     * @return Should be set as `escalation_policy` for escalation policy responders.
      * 
      */
     private String type;
@@ -31,7 +31,7 @@ public final class ResponsePlayResponderTeam {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
+     * @return Should be set as `escalation_policy` for escalation policy responders.
      * 
      */
     public String type() {

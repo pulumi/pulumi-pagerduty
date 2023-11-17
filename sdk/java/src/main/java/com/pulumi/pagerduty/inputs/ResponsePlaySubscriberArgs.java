@@ -31,14 +31,14 @@ public final class ResponsePlaySubscriberArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
+     * Should be set as `escalation_policy` for escalation policy responders.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
+     * @return Should be set as `escalation_policy` for escalation policy responders.
      * 
      */
     public Optional<Output<String>> type() {
@@ -92,7 +92,7 @@ public final class ResponsePlaySubscriberArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param type A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
+         * @param type Should be set as `escalation_policy` for escalation policy responders.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ResponsePlaySubscriberArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param type A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
+         * @param type Should be set as `escalation_policy` for escalation policy responders.
          * 
          * @return builder
          * 

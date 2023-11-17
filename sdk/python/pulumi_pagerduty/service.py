@@ -280,7 +280,7 @@ class _ServiceState:
         :param pulumi.Input[str] name: The name of the service.
         :param pulumi.Input[str] response_play: The response play used by this service.
         :param pulumi.Input[str] status: The status of the service.
-        :param pulumi.Input[str] type: The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+        :param pulumi.Input[str] type: The type of scheduled action. Currently, this must be set to `urgency_change`.
         """
         if acknowledgement_timeout is not None:
             pulumi.set(__self__, "acknowledgement_timeout", acknowledgement_timeout)
@@ -543,7 +543,7 @@ class _ServiceState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+        The type of scheduled action. Currently, this must be set to `urgency_change`.
         """
         return pulumi.get(self, "type")
 
@@ -778,7 +778,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the service.
         :param pulumi.Input[str] response_play: The response play used by this service.
         :param pulumi.Input[str] status: The status of the service.
-        :param pulumi.Input[str] type: The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+        :param pulumi.Input[str] type: The type of scheduled action. Currently, this must be set to `urgency_change`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -947,7 +947,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+        The type of scheduled action. Currently, this must be set to `urgency_change`.
         """
         return pulumi.get(self, "type")
 

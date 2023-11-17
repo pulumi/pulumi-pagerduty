@@ -31,14 +31,14 @@ public final class WebhookSubscriptionFilterArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The type of object being used as the filter. Allowed values are `account_reference`, `service_reference`, and `team_reference`.
+     * The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of object being used as the filter. Allowed values are `account_reference`, `service_reference`, and `team_reference`.
+     * @return The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.
      * 
      */
     public Output<String> type() {
@@ -92,7 +92,7 @@ public final class WebhookSubscriptionFilterArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param type The type of object being used as the filter. Allowed values are `account_reference`, `service_reference`, and `team_reference`.
+         * @param type The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class WebhookSubscriptionFilterArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param type The type of object being used as the filter. Allowed values are `account_reference`, `service_reference`, and `team_reference`.
+         * @param type The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.
          * 
          * @return builder
          * 

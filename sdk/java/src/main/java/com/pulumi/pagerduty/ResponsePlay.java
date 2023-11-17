@@ -121,9 +121,17 @@ public class ResponsePlay extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> conferenceUrl() {
         return Codegen.optional(this.conferenceUrl);
     }
+    /**
+     * Description of escalation policy
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
+    /**
+     * @return Description of escalation policy
+     * 
+     */
     public Output<String> description() {
         return this.description;
     }
@@ -142,14 +150,14 @@ public class ResponsePlay extends com.pulumi.resources.CustomResource {
         return this.from;
     }
     /**
-     * The name of the response play.
+     * Name of the escalation policy
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the response play.
+     * @return Name of the escalation policy
      * 
      */
     public Output<String> name() {
@@ -226,28 +234,28 @@ public class ResponsePlay extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.subscribersMessage);
     }
     /**
-     * The ID of the team associated with the response play.
+     * Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
      * 
      */
     @Export(name="team", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> team;
 
     /**
-     * @return The ID of the team associated with the response play.
+     * @return Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
      * 
      */
     public Output<Optional<String>> team() {
         return Codegen.optional(this.team);
     }
     /**
-     * A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
+     * Should be set as `escalation_policy` for escalation policy responders.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**
-     * @return A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
+     * @return Should be set as `escalation_policy` for escalation policy responders.
      * 
      */
     public Output<Optional<String>> type() {

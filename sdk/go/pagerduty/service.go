@@ -118,7 +118,7 @@ type Service struct {
 	// The status of the service.
 	Status       pulumi.StringOutput          `pulumi:"status"`
 	SupportHours ServiceSupportHoursPtrOutput `pulumi:"supportHours"`
-	// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+	// The type of scheduled action. Currently, this must be set to `urgencyChange`.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -194,7 +194,7 @@ type serviceState struct {
 	// The status of the service.
 	Status       *string              `pulumi:"status"`
 	SupportHours *ServiceSupportHours `pulumi:"supportHours"`
-	// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+	// The type of scheduled action. Currently, this must be set to `urgencyChange`.
 	Type *string `pulumi:"type"`
 }
 
@@ -235,7 +235,7 @@ type ServiceState struct {
 	// The status of the service.
 	Status       pulumi.StringPtrInput
 	SupportHours ServiceSupportHoursPtrInput
-	// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+	// The type of scheduled action. Currently, this must be set to `urgencyChange`.
 	Type pulumi.StringPtrInput
 }
 
@@ -485,7 +485,7 @@ func (o ServiceOutput) SupportHours() ServiceSupportHoursPtrOutput {
 	return o.ApplyT(func(v *Service) ServiceSupportHoursPtrOutput { return v.SupportHours }).(ServiceSupportHoursPtrOutput)
 }
 
-// The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+// The type of scheduled action. Currently, this must be set to `urgencyChange`.
 func (o ServiceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

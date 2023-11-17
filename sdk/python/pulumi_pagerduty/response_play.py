@@ -33,14 +33,15 @@ class ResponsePlayArgs:
         :param pulumi.Input[str] from_: The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
         :param pulumi.Input[str] conference_number: The telephone number that will be set as the conference number for any incident on which this response play is run.
         :param pulumi.Input[str] conference_url: The URL that will be set as the conference URL for any incident on which this response play is run.
-        :param pulumi.Input[str] name: The name of the response play.
+        :param pulumi.Input[str] description: Description of escalation policy
+        :param pulumi.Input[str] name: Name of the escalation policy
         :param pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderArgs']]] responders: A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
         :param pulumi.Input[str] responders_message: The message body of the notification that will be sent to this response play's set of responders. If empty, a default response request notification will be sent.
         :param pulumi.Input[str] runnability: String representing how this response play is allowed to be run. Valid options are:
         :param pulumi.Input[Sequence[pulumi.Input['ResponsePlaySubscriberArgs']]] subscribers: A user and/or team to be added as a subscriber to any incident on which this response play is run. There can be multiple subscribers defined on a single response play.
         :param pulumi.Input[str] subscribers_message: The content of the notification that will be sent to all incident subscribers upon the running of this response play. Note that this includes any users who may have already been subscribed to the incident prior to the running of this response play. If empty, no notifications will be sent.
-        :param pulumi.Input[str] team: The ID of the team associated with the response play.
-        :param pulumi.Input[str] type: A string that determines the schema of the object. If not set, the default value is "response_play".
+        :param pulumi.Input[str] team: Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
+        :param pulumi.Input[str] type: Should be set as `escalation_policy` for escalation policy responders.
         """
         pulumi.set(__self__, "from_", from_)
         if conference_number is not None:
@@ -107,6 +108,9 @@ class ResponsePlayArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of escalation policy
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -117,7 +121,7 @@ class ResponsePlayArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the response play.
+        Name of the escalation policy
         """
         return pulumi.get(self, "name")
 
@@ -189,7 +193,7 @@ class ResponsePlayArgs:
     @pulumi.getter
     def team(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the team associated with the response play.
+        Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
         """
         return pulumi.get(self, "team")
 
@@ -201,7 +205,7 @@ class ResponsePlayArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        A string that determines the schema of the object. If not set, the default value is "response_play".
+        Should be set as `escalation_policy` for escalation policy responders.
         """
         return pulumi.get(self, "type")
 
@@ -229,15 +233,16 @@ class _ResponsePlayState:
         Input properties used for looking up and filtering ResponsePlay resources.
         :param pulumi.Input[str] conference_number: The telephone number that will be set as the conference number for any incident on which this response play is run.
         :param pulumi.Input[str] conference_url: The URL that will be set as the conference URL for any incident on which this response play is run.
+        :param pulumi.Input[str] description: Description of escalation policy
         :param pulumi.Input[str] from_: The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
-        :param pulumi.Input[str] name: The name of the response play.
+        :param pulumi.Input[str] name: Name of the escalation policy
         :param pulumi.Input[Sequence[pulumi.Input['ResponsePlayResponderArgs']]] responders: A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
         :param pulumi.Input[str] responders_message: The message body of the notification that will be sent to this response play's set of responders. If empty, a default response request notification will be sent.
         :param pulumi.Input[str] runnability: String representing how this response play is allowed to be run. Valid options are:
         :param pulumi.Input[Sequence[pulumi.Input['ResponsePlaySubscriberArgs']]] subscribers: A user and/or team to be added as a subscriber to any incident on which this response play is run. There can be multiple subscribers defined on a single response play.
         :param pulumi.Input[str] subscribers_message: The content of the notification that will be sent to all incident subscribers upon the running of this response play. Note that this includes any users who may have already been subscribed to the incident prior to the running of this response play. If empty, no notifications will be sent.
-        :param pulumi.Input[str] team: The ID of the team associated with the response play.
-        :param pulumi.Input[str] type: A string that determines the schema of the object. If not set, the default value is "response_play".
+        :param pulumi.Input[str] team: Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
+        :param pulumi.Input[str] type: Should be set as `escalation_policy` for escalation policy responders.
         """
         if conference_number is not None:
             pulumi.set(__self__, "conference_number", conference_number)
@@ -293,6 +298,9 @@ class _ResponsePlayState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of escalation policy
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -315,7 +323,7 @@ class _ResponsePlayState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the response play.
+        Name of the escalation policy
         """
         return pulumi.get(self, "name")
 
@@ -387,7 +395,7 @@ class _ResponsePlayState:
     @pulumi.getter
     def team(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the team associated with the response play.
+        Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
         """
         return pulumi.get(self, "team")
 
@@ -399,7 +407,7 @@ class _ResponsePlayState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        A string that determines the schema of the object. If not set, the default value is "response_play".
+        Should be set as `escalation_policy` for escalation policy responders.
         """
         return pulumi.get(self, "type")
 
@@ -472,15 +480,16 @@ class ResponsePlay(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] conference_number: The telephone number that will be set as the conference number for any incident on which this response play is run.
         :param pulumi.Input[str] conference_url: The URL that will be set as the conference URL for any incident on which this response play is run.
+        :param pulumi.Input[str] description: Description of escalation policy
         :param pulumi.Input[str] from_: The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
-        :param pulumi.Input[str] name: The name of the response play.
+        :param pulumi.Input[str] name: Name of the escalation policy
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResponsePlayResponderArgs']]]] responders: A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
         :param pulumi.Input[str] responders_message: The message body of the notification that will be sent to this response play's set of responders. If empty, a default response request notification will be sent.
         :param pulumi.Input[str] runnability: String representing how this response play is allowed to be run. Valid options are:
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResponsePlaySubscriberArgs']]]] subscribers: A user and/or team to be added as a subscriber to any incident on which this response play is run. There can be multiple subscribers defined on a single response play.
         :param pulumi.Input[str] subscribers_message: The content of the notification that will be sent to all incident subscribers upon the running of this response play. Note that this includes any users who may have already been subscribed to the incident prior to the running of this response play. If empty, no notifications will be sent.
-        :param pulumi.Input[str] team: The ID of the team associated with the response play.
-        :param pulumi.Input[str] type: A string that determines the schema of the object. If not set, the default value is "response_play".
+        :param pulumi.Input[str] team: Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
+        :param pulumi.Input[str] type: Should be set as `escalation_policy` for escalation policy responders.
         """
         ...
     @overload
@@ -613,15 +622,16 @@ class ResponsePlay(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] conference_number: The telephone number that will be set as the conference number for any incident on which this response play is run.
         :param pulumi.Input[str] conference_url: The URL that will be set as the conference URL for any incident on which this response play is run.
+        :param pulumi.Input[str] description: Description of escalation policy
         :param pulumi.Input[str] from_: The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
-        :param pulumi.Input[str] name: The name of the response play.
+        :param pulumi.Input[str] name: Name of the escalation policy
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResponsePlayResponderArgs']]]] responders: A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
         :param pulumi.Input[str] responders_message: The message body of the notification that will be sent to this response play's set of responders. If empty, a default response request notification will be sent.
         :param pulumi.Input[str] runnability: String representing how this response play is allowed to be run. Valid options are:
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResponsePlaySubscriberArgs']]]] subscribers: A user and/or team to be added as a subscriber to any incident on which this response play is run. There can be multiple subscribers defined on a single response play.
         :param pulumi.Input[str] subscribers_message: The content of the notification that will be sent to all incident subscribers upon the running of this response play. Note that this includes any users who may have already been subscribed to the incident prior to the running of this response play. If empty, no notifications will be sent.
-        :param pulumi.Input[str] team: The ID of the team associated with the response play.
-        :param pulumi.Input[str] type: A string that determines the schema of the object. If not set, the default value is "response_play".
+        :param pulumi.Input[str] team: Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
+        :param pulumi.Input[str] type: Should be set as `escalation_policy` for escalation policy responders.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -660,6 +670,9 @@ class ResponsePlay(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
+        """
+        Description of escalation policy
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -674,7 +687,7 @@ class ResponsePlay(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the response play.
+        Name of the escalation policy
         """
         return pulumi.get(self, "name")
 
@@ -722,7 +735,7 @@ class ResponsePlay(pulumi.CustomResource):
     @pulumi.getter
     def team(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID of the team associated with the response play.
+        Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
         """
         return pulumi.get(self, "team")
 
@@ -730,7 +743,7 @@ class ResponsePlay(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[str]]:
         """
-        A string that determines the schema of the object. If not set, the default value is "response_play".
+        Should be set as `escalation_policy` for escalation policy responders.
         """
         return pulumi.get(self, "type")
 

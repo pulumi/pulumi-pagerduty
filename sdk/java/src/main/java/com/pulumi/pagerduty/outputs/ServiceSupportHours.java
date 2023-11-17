@@ -39,7 +39,7 @@ public final class ServiceSupportHours {
      */
     private @Nullable String timeZone;
     /**
-     * @return The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+     * @return The type of scheduled action. Currently, this must be set to `urgency_change`.
      * 
      */
     private @Nullable String type;
@@ -79,7 +79,7 @@ public final class ServiceSupportHours {
         return Optional.ofNullable(this.timeZone);
     }
     /**
-     * @return The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+     * @return The type of scheduled action. Currently, this must be set to `urgency_change`.
      * 
      */
     public Optional<String> type() {

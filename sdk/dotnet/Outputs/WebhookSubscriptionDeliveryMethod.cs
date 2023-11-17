@@ -22,7 +22,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly bool? TemporarilyDisabled;
         /// <summary>
-        /// Indicates the type of the delivery method. Allowed and default value: `http_delivery_method`.
+        /// The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.
         /// </summary>
         public readonly string? Type;
         /// <summary>

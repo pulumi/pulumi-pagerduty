@@ -19,7 +19,7 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The type of object being used as the filter. Allowed values are `account_reference`, `service_reference`, and `team_reference`.
+        /// The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

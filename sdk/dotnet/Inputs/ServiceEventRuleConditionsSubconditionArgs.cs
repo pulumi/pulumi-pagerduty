@@ -13,7 +13,7 @@ namespace Pulumi.Pagerduty.Inputs
     public sealed class ServiceEventRuleConditionsSubconditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Type of operator to apply to the sub-condition. Can be `exists`,`nexists`,`equals`,`nequals`,`contains`,`ncontains`,`matches`, or `nmatches`.
+        /// Operator to combine sub-conditions. Can be `and` or `or`.
         /// </summary>
         [Input("operator")]
         public Input<string>? Operator { get; set; }

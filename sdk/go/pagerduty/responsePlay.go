@@ -95,10 +95,11 @@ type ResponsePlay struct {
 	ConferenceNumber pulumi.StringPtrOutput `pulumi:"conferenceNumber"`
 	// The URL that will be set as the conference URL for any incident on which this response play is run.
 	ConferenceUrl pulumi.StringPtrOutput `pulumi:"conferenceUrl"`
-	Description   pulumi.StringOutput    `pulumi:"description"`
+	// Description of escalation policy
+	Description pulumi.StringOutput `pulumi:"description"`
 	// The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
 	From pulumi.StringOutput `pulumi:"from"`
-	// The name of the response play.
+	// Name of the escalation policy
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
 	Responders ResponsePlayResponderArrayOutput `pulumi:"responders"`
@@ -110,9 +111,9 @@ type ResponsePlay struct {
 	Subscribers ResponsePlaySubscriberArrayOutput `pulumi:"subscribers"`
 	// The content of the notification that will be sent to all incident subscribers upon the running of this response play. Note that this includes any users who may have already been subscribed to the incident prior to the running of this response play. If empty, no notifications will be sent.
 	SubscribersMessage pulumi.StringPtrOutput `pulumi:"subscribersMessage"`
-	// The ID of the team associated with the response play.
+	// Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
 	Team pulumi.StringPtrOutput `pulumi:"team"`
-	// A string that determines the schema of the object. If not set, the default value is "responsePlay".
+	// Should be set as `escalationPolicy` for escalation policy responders.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
@@ -156,10 +157,11 @@ type responsePlayState struct {
 	ConferenceNumber *string `pulumi:"conferenceNumber"`
 	// The URL that will be set as the conference URL for any incident on which this response play is run.
 	ConferenceUrl *string `pulumi:"conferenceUrl"`
-	Description   *string `pulumi:"description"`
+	// Description of escalation policy
+	Description *string `pulumi:"description"`
 	// The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
 	From *string `pulumi:"from"`
-	// The name of the response play.
+	// Name of the escalation policy
 	Name *string `pulumi:"name"`
 	// A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
 	Responders []ResponsePlayResponder `pulumi:"responders"`
@@ -171,9 +173,9 @@ type responsePlayState struct {
 	Subscribers []ResponsePlaySubscriber `pulumi:"subscribers"`
 	// The content of the notification that will be sent to all incident subscribers upon the running of this response play. Note that this includes any users who may have already been subscribed to the incident prior to the running of this response play. If empty, no notifications will be sent.
 	SubscribersMessage *string `pulumi:"subscribersMessage"`
-	// The ID of the team associated with the response play.
+	// Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
 	Team *string `pulumi:"team"`
-	// A string that determines the schema of the object. If not set, the default value is "responsePlay".
+	// Should be set as `escalationPolicy` for escalation policy responders.
 	Type *string `pulumi:"type"`
 }
 
@@ -182,10 +184,11 @@ type ResponsePlayState struct {
 	ConferenceNumber pulumi.StringPtrInput
 	// The URL that will be set as the conference URL for any incident on which this response play is run.
 	ConferenceUrl pulumi.StringPtrInput
-	Description   pulumi.StringPtrInput
+	// Description of escalation policy
+	Description pulumi.StringPtrInput
 	// The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
 	From pulumi.StringPtrInput
-	// The name of the response play.
+	// Name of the escalation policy
 	Name pulumi.StringPtrInput
 	// A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
 	Responders ResponsePlayResponderArrayInput
@@ -197,9 +200,9 @@ type ResponsePlayState struct {
 	Subscribers ResponsePlaySubscriberArrayInput
 	// The content of the notification that will be sent to all incident subscribers upon the running of this response play. Note that this includes any users who may have already been subscribed to the incident prior to the running of this response play. If empty, no notifications will be sent.
 	SubscribersMessage pulumi.StringPtrInput
-	// The ID of the team associated with the response play.
+	// Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
 	Team pulumi.StringPtrInput
-	// A string that determines the schema of the object. If not set, the default value is "responsePlay".
+	// Should be set as `escalationPolicy` for escalation policy responders.
 	Type pulumi.StringPtrInput
 }
 
@@ -212,10 +215,11 @@ type responsePlayArgs struct {
 	ConferenceNumber *string `pulumi:"conferenceNumber"`
 	// The URL that will be set as the conference URL for any incident on which this response play is run.
 	ConferenceUrl *string `pulumi:"conferenceUrl"`
-	Description   *string `pulumi:"description"`
+	// Description of escalation policy
+	Description *string `pulumi:"description"`
 	// The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
 	From string `pulumi:"from"`
-	// The name of the response play.
+	// Name of the escalation policy
 	Name *string `pulumi:"name"`
 	// A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
 	Responders []ResponsePlayResponder `pulumi:"responders"`
@@ -227,9 +231,9 @@ type responsePlayArgs struct {
 	Subscribers []ResponsePlaySubscriber `pulumi:"subscribers"`
 	// The content of the notification that will be sent to all incident subscribers upon the running of this response play. Note that this includes any users who may have already been subscribed to the incident prior to the running of this response play. If empty, no notifications will be sent.
 	SubscribersMessage *string `pulumi:"subscribersMessage"`
-	// The ID of the team associated with the response play.
+	// Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
 	Team *string `pulumi:"team"`
-	// A string that determines the schema of the object. If not set, the default value is "responsePlay".
+	// Should be set as `escalationPolicy` for escalation policy responders.
 	Type *string `pulumi:"type"`
 }
 
@@ -239,10 +243,11 @@ type ResponsePlayArgs struct {
 	ConferenceNumber pulumi.StringPtrInput
 	// The URL that will be set as the conference URL for any incident on which this response play is run.
 	ConferenceUrl pulumi.StringPtrInput
-	Description   pulumi.StringPtrInput
+	// Description of escalation policy
+	Description pulumi.StringPtrInput
 	// The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
 	From pulumi.StringInput
-	// The name of the response play.
+	// Name of the escalation policy
 	Name pulumi.StringPtrInput
 	// A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
 	Responders ResponsePlayResponderArrayInput
@@ -254,9 +259,9 @@ type ResponsePlayArgs struct {
 	Subscribers ResponsePlaySubscriberArrayInput
 	// The content of the notification that will be sent to all incident subscribers upon the running of this response play. Note that this includes any users who may have already been subscribed to the incident prior to the running of this response play. If empty, no notifications will be sent.
 	SubscribersMessage pulumi.StringPtrInput
-	// The ID of the team associated with the response play.
+	// Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
 	Team pulumi.StringPtrInput
-	// A string that determines the schema of the object. If not set, the default value is "responsePlay".
+	// Should be set as `escalationPolicy` for escalation policy responders.
 	Type pulumi.StringPtrInput
 }
 
@@ -357,6 +362,7 @@ func (o ResponsePlayOutput) ConferenceUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResponsePlay) pulumi.StringPtrOutput { return v.ConferenceUrl }).(pulumi.StringPtrOutput)
 }
 
+// Description of escalation policy
 func (o ResponsePlayOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResponsePlay) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
@@ -366,7 +372,7 @@ func (o ResponsePlayOutput) From() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResponsePlay) pulumi.StringOutput { return v.From }).(pulumi.StringOutput)
 }
 
-// The name of the response play.
+// Name of the escalation policy
 func (o ResponsePlayOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResponsePlay) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -396,12 +402,12 @@ func (o ResponsePlayOutput) SubscribersMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResponsePlay) pulumi.StringPtrOutput { return v.SubscribersMessage }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the team associated with the response play.
+// Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.
 func (o ResponsePlayOutput) Team() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResponsePlay) pulumi.StringPtrOutput { return v.Team }).(pulumi.StringPtrOutput)
 }
 
-// A string that determines the schema of the object. If not set, the default value is "responsePlay".
+// Should be set as `escalationPolicy` for escalation policy responders.
 func (o ResponsePlayOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResponsePlay) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }

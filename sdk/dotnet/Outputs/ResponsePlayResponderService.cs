@@ -18,7 +18,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// A string that determines the schema of the object. If not set, the default value is "response_play".
+        /// Should be set as `escalation_policy` for escalation policy responders.
         /// </summary>
         public readonly string? Type;
 

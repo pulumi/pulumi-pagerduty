@@ -29,7 +29,7 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<Inputs.ServiceIncidentUrgencyRuleOutsideSupportHoursGetArgs>? OutsideSupportHours { get; set; }
 
         /// <summary>
-        /// The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+        /// The type of scheduled action. Currently, this must be set to `urgency_change`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

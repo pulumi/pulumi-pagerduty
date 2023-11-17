@@ -18,18 +18,6 @@ public final class SlackConnectionConfigArgs extends com.pulumi.resources.Resour
 
     /**
      * A list of strings to filter events by PagerDuty event type. `&#34;incident.triggered&#34;` is required. The follow event types are also possible:
-     * - `incident.acknowledged`
-     * - `incident.escalated`
-     * - `incident.resolved`
-     * - `incident.reassigned`
-     * - `incident.annotated`
-     * - `incident.unacknowledged`
-     * - `incident.delegated`
-     * - `incident.priority_updated`
-     * - `incident.responder.added`
-     * - `incident.responder.replied`
-     * - `incident.status_update_published`
-     * - `incident.reopened`
      * 
      */
     @Import(name="events", required=true)
@@ -37,18 +25,6 @@ public final class SlackConnectionConfigArgs extends com.pulumi.resources.Resour
 
     /**
      * @return A list of strings to filter events by PagerDuty event type. `&#34;incident.triggered&#34;` is required. The follow event types are also possible:
-     * - `incident.acknowledged`
-     * - `incident.escalated`
-     * - `incident.resolved`
-     * - `incident.reassigned`
-     * - `incident.annotated`
-     * - `incident.unacknowledged`
-     * - `incident.delegated`
-     * - `incident.priority_updated`
-     * - `incident.responder.added`
-     * - `incident.responder.replied`
-     * - `incident.status_update_published`
-     * - `incident.reopened`
      * 
      */
     public Output<List<String>> events() {
@@ -117,18 +93,6 @@ public final class SlackConnectionConfigArgs extends com.pulumi.resources.Resour
 
         /**
          * @param events A list of strings to filter events by PagerDuty event type. `&#34;incident.triggered&#34;` is required. The follow event types are also possible:
-         * - `incident.acknowledged`
-         * - `incident.escalated`
-         * - `incident.resolved`
-         * - `incident.reassigned`
-         * - `incident.annotated`
-         * - `incident.unacknowledged`
-         * - `incident.delegated`
-         * - `incident.priority_updated`
-         * - `incident.responder.added`
-         * - `incident.responder.replied`
-         * - `incident.status_update_published`
-         * - `incident.reopened`
          * 
          * @return builder
          * 
@@ -140,18 +104,6 @@ public final class SlackConnectionConfigArgs extends com.pulumi.resources.Resour
 
         /**
          * @param events A list of strings to filter events by PagerDuty event type. `&#34;incident.triggered&#34;` is required. The follow event types are also possible:
-         * - `incident.acknowledged`
-         * - `incident.escalated`
-         * - `incident.resolved`
-         * - `incident.reassigned`
-         * - `incident.annotated`
-         * - `incident.unacknowledged`
-         * - `incident.delegated`
-         * - `incident.priority_updated`
-         * - `incident.responder.added`
-         * - `incident.responder.replied`
-         * - `incident.status_update_published`
-         * - `incident.reopened`
          * 
          * @return builder
          * 
@@ -162,18 +114,6 @@ public final class SlackConnectionConfigArgs extends com.pulumi.resources.Resour
 
         /**
          * @param events A list of strings to filter events by PagerDuty event type. `&#34;incident.triggered&#34;` is required. The follow event types are also possible:
-         * - `incident.acknowledged`
-         * - `incident.escalated`
-         * - `incident.resolved`
-         * - `incident.reassigned`
-         * - `incident.annotated`
-         * - `incident.unacknowledged`
-         * - `incident.delegated`
-         * - `incident.priority_updated`
-         * - `incident.responder.added`
-         * - `incident.responder.replied`
-         * - `incident.status_update_published`
-         * - `incident.reopened`
          * 
          * @return builder
          * 

@@ -104,19 +104,6 @@ type WebhookSubscription struct {
 	// A short description of the webhook subscription
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A set of outbound event types the webhook will receive. The follow event types are possible:
-	// * `incident.acknowledged`
-	// * `incident.annotated`
-	// * `incident.delegated`
-	// * `incident.escalated`
-	// * `incident.priority_updated`
-	// * `incident.reassigned`
-	// * `incident.reopened`
-	// * `incident.resolved`
-	// * `incident.responder.added`
-	// * `incident.responder.replied`
-	// * `incident.status_update_published`
-	// * `incident.triggered`
-	// * `incident.unacknowledged`
 	Events pulumi.StringArrayOutput `pulumi:"events"`
 	// determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `serviceReference`, `teamReference` and `accountReference`.
 	Filters WebhookSubscriptionFilterArrayOutput `pulumi:"filters"`
@@ -170,19 +157,6 @@ type webhookSubscriptionState struct {
 	// A short description of the webhook subscription
 	Description *string `pulumi:"description"`
 	// A set of outbound event types the webhook will receive. The follow event types are possible:
-	// * `incident.acknowledged`
-	// * `incident.annotated`
-	// * `incident.delegated`
-	// * `incident.escalated`
-	// * `incident.priority_updated`
-	// * `incident.reassigned`
-	// * `incident.reopened`
-	// * `incident.resolved`
-	// * `incident.responder.added`
-	// * `incident.responder.replied`
-	// * `incident.status_update_published`
-	// * `incident.triggered`
-	// * `incident.unacknowledged`
 	Events []string `pulumi:"events"`
 	// determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `serviceReference`, `teamReference` and `accountReference`.
 	Filters []WebhookSubscriptionFilter `pulumi:"filters"`
@@ -198,19 +172,6 @@ type WebhookSubscriptionState struct {
 	// A short description of the webhook subscription
 	Description pulumi.StringPtrInput
 	// A set of outbound event types the webhook will receive. The follow event types are possible:
-	// * `incident.acknowledged`
-	// * `incident.annotated`
-	// * `incident.delegated`
-	// * `incident.escalated`
-	// * `incident.priority_updated`
-	// * `incident.reassigned`
-	// * `incident.reopened`
-	// * `incident.resolved`
-	// * `incident.responder.added`
-	// * `incident.responder.replied`
-	// * `incident.status_update_published`
-	// * `incident.triggered`
-	// * `incident.unacknowledged`
 	Events pulumi.StringArrayInput
 	// determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `serviceReference`, `teamReference` and `accountReference`.
 	Filters WebhookSubscriptionFilterArrayInput
@@ -230,19 +191,6 @@ type webhookSubscriptionArgs struct {
 	// A short description of the webhook subscription
 	Description *string `pulumi:"description"`
 	// A set of outbound event types the webhook will receive. The follow event types are possible:
-	// * `incident.acknowledged`
-	// * `incident.annotated`
-	// * `incident.delegated`
-	// * `incident.escalated`
-	// * `incident.priority_updated`
-	// * `incident.reassigned`
-	// * `incident.reopened`
-	// * `incident.resolved`
-	// * `incident.responder.added`
-	// * `incident.responder.replied`
-	// * `incident.status_update_published`
-	// * `incident.triggered`
-	// * `incident.unacknowledged`
 	Events []string `pulumi:"events"`
 	// determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `serviceReference`, `teamReference` and `accountReference`.
 	Filters []WebhookSubscriptionFilter `pulumi:"filters"`
@@ -259,19 +207,6 @@ type WebhookSubscriptionArgs struct {
 	// A short description of the webhook subscription
 	Description pulumi.StringPtrInput
 	// A set of outbound event types the webhook will receive. The follow event types are possible:
-	// * `incident.acknowledged`
-	// * `incident.annotated`
-	// * `incident.delegated`
-	// * `incident.escalated`
-	// * `incident.priority_updated`
-	// * `incident.reassigned`
-	// * `incident.reopened`
-	// * `incident.resolved`
-	// * `incident.responder.added`
-	// * `incident.responder.replied`
-	// * `incident.status_update_published`
-	// * `incident.triggered`
-	// * `incident.unacknowledged`
 	Events pulumi.StringArrayInput
 	// determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `serviceReference`, `teamReference` and `accountReference`.
 	Filters WebhookSubscriptionFilterArrayInput
@@ -382,19 +317,6 @@ func (o WebhookSubscriptionOutput) Description() pulumi.StringPtrOutput {
 }
 
 // A set of outbound event types the webhook will receive. The follow event types are possible:
-// * `incident.acknowledged`
-// * `incident.annotated`
-// * `incident.delegated`
-// * `incident.escalated`
-// * `incident.priority_updated`
-// * `incident.reassigned`
-// * `incident.reopened`
-// * `incident.resolved`
-// * `incident.responder.added`
-// * `incident.responder.replied`
-// * `incident.status_update_published`
-// * `incident.triggered`
-// * `incident.unacknowledged`
 func (o WebhookSubscriptionOutput) Events() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WebhookSubscription) pulumi.StringArrayOutput { return v.Events }).(pulumi.StringArrayOutput)
 }

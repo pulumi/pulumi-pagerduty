@@ -20,14 +20,14 @@ public final class EventOrchestrationRouterSetRuleArgs extends com.pulumi.resour
     public static final EventOrchestrationRouterSetRuleArgs Empty = new EventOrchestrationRouterSetRuleArgs();
 
     /**
-     * Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+     * These are the actions that will be taken to change the resulting alert and incident.
      * 
      */
     @Import(name="actions", required=true)
     private Output<EventOrchestrationRouterSetRuleActionsArgs> actions;
 
     /**
-     * @return Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+     * @return These are the actions that will be taken to change the resulting alert and incident.
      * 
      */
     public Output<EventOrchestrationRouterSetRuleActionsArgs> actions() {
@@ -123,7 +123,7 @@ public final class EventOrchestrationRouterSetRuleArgs extends com.pulumi.resour
         }
 
         /**
-         * @param actions Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+         * @param actions These are the actions that will be taken to change the resulting alert and incident.
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class EventOrchestrationRouterSetRuleArgs extends com.pulumi.resour
         }
 
         /**
-         * @param actions Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
+         * @param actions These are the actions that will be taken to change the resulting alert and incident.
          * 
          * @return builder
          * 

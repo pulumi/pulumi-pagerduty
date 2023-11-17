@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RulesetRuleConditionsSubcondition {
     /**
-     * @return Type of operator to apply to the sub-condition. Can be `exists`,`nexists`,`equals`,`nequals`,`contains`,`ncontains`,`matches`, or `nmatches`.
+     * @return Operator to combine sub-conditions. Can be `and` or `or`.
      * 
      */
     private @Nullable String operator;
@@ -26,7 +26,7 @@ public final class RulesetRuleConditionsSubcondition {
 
     private RulesetRuleConditionsSubcondition() {}
     /**
-     * @return Type of operator to apply to the sub-condition. Can be `exists`,`nexists`,`equals`,`nequals`,`contains`,`ncontains`,`matches`, or `nmatches`.
+     * @return Operator to combine sub-conditions. Can be `and` or `or`.
      * 
      */
     public Optional<String> operator() {

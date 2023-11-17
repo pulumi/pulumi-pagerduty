@@ -20,7 +20,6 @@ namespace Pulumi.Pagerduty.Outputs
         /// <summary>
         /// Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `enabled` is `true`. Must be omitted or set to `null` if `enabled` is `false`.
         /// 
-        /// 
         /// You may specify one optional `incident_urgency_rule` block configuring what urgencies to use.
         /// Your PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.
         /// The block contains the following arguments:

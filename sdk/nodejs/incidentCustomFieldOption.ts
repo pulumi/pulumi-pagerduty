@@ -15,6 +15,7 @@ import * as utilities from "./utilities";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
  * const sreEnvironment = new pagerduty.IncidentCustomField("sreEnvironment", {
+ *     displayName: "Environment",
  *     dataType: "string",
  *     fieldType: "single_value_fixed",
  * });

@@ -15,7 +15,6 @@ import com.pulumi.pagerduty.outputs.EventOrchestrationServiceSet;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -212,14 +211,14 @@ public class EventOrchestrationService extends com.pulumi.resources.CustomResour
      * 
      */
     @Export(name="enableEventOrchestrationForService", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> enableEventOrchestrationForService;
+    private Output<Boolean> enableEventOrchestrationForService;
 
     /**
      * @return Opt-in/out for switching the Service to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations).
      * 
      */
-    public Output<Optional<Boolean>> enableEventOrchestrationForService() {
-        return Codegen.optional(this.enableEventOrchestrationForService);
+    public Output<Boolean> enableEventOrchestrationForService() {
+        return this.enableEventOrchestrationForService;
     }
     /**
      * ID of the Service to which this Service Orchestration belongs to.

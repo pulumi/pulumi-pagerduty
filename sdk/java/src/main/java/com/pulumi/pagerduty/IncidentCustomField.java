@@ -41,12 +41,21 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var csImpact = new IncidentCustomField(&#34;csImpact&#34;, IncidentCustomFieldArgs.builder()        
  *             .dataType(&#34;string&#34;)
+ *             .displayName(&#34;Customer Impact&#34;)
  *             .fieldType(&#34;single_value&#34;)
  *             .build());
  * 
  *         var sreEnvironment = new IncidentCustomField(&#34;sreEnvironment&#34;, IncidentCustomFieldArgs.builder()        
  *             .dataType(&#34;string&#34;)
+ *             .displayName(&#34;Environment&#34;)
  *             .fieldType(&#34;single_value_fixed&#34;)
+ *             .build());
+ * 
+ *         var falseAlarm = new IncidentCustomField(&#34;falseAlarm&#34;, IncidentCustomFieldArgs.builder()        
+ *             .dataType(&#34;boolean&#34;)
+ *             .defaultValue(&#34;false&#34;)
+ *             .displayName(&#34;False Alarm&#34;)
+ *             .fieldType(&#34;single_value&#34;)
  *             .build());
  * 
  *     }
@@ -78,21 +87,45 @@ public class IncidentCustomField extends com.pulumi.resources.CustomResource {
     public Output<String> dataType() {
         return this.dataType;
     }
+    /**
+     * The default value to set when new incidents are created. Always specified as a string.
+     * 
+     */
     @Export(name="defaultValue", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultValue;
 
+    /**
+     * @return The default value to set when new incidents are created. Always specified as a string.
+     * 
+     */
     public Output<Optional<String>> defaultValue() {
         return Codegen.optional(this.defaultValue);
     }
+    /**
+     * The description of the field.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return The description of the field.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * The display name of the field.
+     * 
+     */
     @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
+    /**
+     * @return The display name of the field.
+     * 
+     */
     public Output<String> displayName() {
         return this.displayName;
     }

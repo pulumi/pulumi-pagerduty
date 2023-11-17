@@ -231,7 +231,7 @@ namespace Pulumi.Pagerduty
         /// Opt-in/out for switching the Service to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations).
         /// </summary>
         [Output("enableEventOrchestrationForService")]
-        public Output<bool?> EnableEventOrchestrationForService { get; private set; } = null!;
+        public Output<bool> EnableEventOrchestrationForService { get; private set; } = null!;
 
         /// <summary>
         /// ID of the Service to which this Service Orchestration belongs to.

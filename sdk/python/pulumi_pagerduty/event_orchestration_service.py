@@ -527,7 +527,7 @@ class EventOrchestrationService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableEventOrchestrationForService")
-    def enable_event_orchestration_for_service(self) -> pulumi.Output[Optional[bool]]:
+    def enable_event_orchestration_for_service(self) -> pulumi.Output[bool]:
         """
         Opt-in/out for switching the Service to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations).
         """

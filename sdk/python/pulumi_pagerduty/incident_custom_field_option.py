@@ -140,6 +140,7 @@ class IncidentCustomFieldOption(pulumi.CustomResource):
         import pulumi_pagerduty as pagerduty
 
         sre_environment = pagerduty.IncidentCustomField("sreEnvironment",
+            display_name="Environment",
             data_type="string",
             field_type="single_value_fixed")
         dev_environment = pagerduty.IncidentCustomFieldOption("devEnvironment",
@@ -179,6 +180,7 @@ class IncidentCustomFieldOption(pulumi.CustomResource):
         import pulumi_pagerduty as pagerduty
 
         sre_environment = pagerduty.IncidentCustomField("sreEnvironment",
+            display_name="Environment",
             data_type="string",
             field_type="single_value_fixed")
         dev_environment = pagerduty.IncidentCustomFieldOption("devEnvironment",

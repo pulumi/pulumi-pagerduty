@@ -1487,7 +1487,7 @@ export interface ServiceAlertGroupingParameters {
     /**
      * Alert grouping parameters dependent on `type`. If `type` is set to `intelligent` or empty then `config` can be empty.
      */
-    config?: outputs.ServiceAlertGroupingParametersConfig;
+    config: outputs.ServiceAlertGroupingParametersConfig;
     /**
      * The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
      */

@@ -30,23 +30,47 @@ public final class IncidentCustomFieldArgs extends com.pulumi.resources.Resource
         return this.dataType;
     }
 
+    /**
+     * The default value to set when new incidents are created. Always specified as a string.
+     * 
+     */
     @Import(name="defaultValue")
     private @Nullable Output<String> defaultValue;
 
+    /**
+     * @return The default value to set when new incidents are created. Always specified as a string.
+     * 
+     */
     public Optional<Output<String>> defaultValue() {
         return Optional.ofNullable(this.defaultValue);
     }
 
+    /**
+     * The description of the field.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return The description of the field.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * The display name of the field.
+     * 
+     */
     @Import(name="displayName", required=true)
     private Output<String> displayName;
 
+    /**
+     * @return The display name of the field.
+     * 
+     */
     public Output<String> displayName() {
         return this.displayName;
     }
@@ -131,29 +155,65 @@ public final class IncidentCustomFieldArgs extends com.pulumi.resources.Resource
             return dataType(Output.of(dataType));
         }
 
+        /**
+         * @param defaultValue The default value to set when new incidents are created. Always specified as a string.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultValue(@Nullable Output<String> defaultValue) {
             $.defaultValue = defaultValue;
             return this;
         }
 
+        /**
+         * @param defaultValue The default value to set when new incidents are created. Always specified as a string.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultValue(String defaultValue) {
             return defaultValue(Output.of(defaultValue));
         }
 
+        /**
+         * @param description The description of the field.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description The description of the field.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
+        /**
+         * @param displayName The display name of the field.
+         * 
+         * @return builder
+         * 
+         */
         public Builder displayName(Output<String> displayName) {
             $.displayName = displayName;
             return this;
         }
 
+        /**
+         * @param displayName The display name of the field.
+         * 
+         * @return builder
+         * 
+         */
         public Builder displayName(String displayName) {
             return displayName(Output.of(displayName));
         }

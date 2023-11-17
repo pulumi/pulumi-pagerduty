@@ -23,7 +23,10 @@ class IncidentCustomFieldArgs:
         """
         The set of arguments for constructing a IncidentCustomField resource.
         :param pulumi.Input[str] data_type: The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+        :param pulumi.Input[str] display_name: The display name of the field.
         :param pulumi.Input[str] field_type: The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
+        :param pulumi.Input[str] default_value: The default value to set when new incidents are created. Always specified as a string.
+        :param pulumi.Input[str] description: The description of the field.
         :param pulumi.Input[str] name: The name of the field.
         """
         pulumi.set(__self__, "data_type", data_type)
@@ -51,6 +54,9 @@ class IncidentCustomFieldArgs:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[str]:
+        """
+        The display name of the field.
+        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -72,6 +78,9 @@ class IncidentCustomFieldArgs:
     @property
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default value to set when new incidents are created. Always specified as a string.
+        """
         return pulumi.get(self, "default_value")
 
     @default_value.setter
@@ -81,6 +90,9 @@ class IncidentCustomFieldArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the field.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -112,6 +124,9 @@ class _IncidentCustomFieldState:
         """
         Input properties used for looking up and filtering IncidentCustomField resources.
         :param pulumi.Input[str] data_type: The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+        :param pulumi.Input[str] default_value: The default value to set when new incidents are created. Always specified as a string.
+        :param pulumi.Input[str] description: The description of the field.
+        :param pulumi.Input[str] display_name: The display name of the field.
         :param pulumi.Input[str] field_type: The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
         :param pulumi.Input[str] name: The name of the field.
         """
@@ -143,6 +158,9 @@ class _IncidentCustomFieldState:
     @property
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default value to set when new incidents are created. Always specified as a string.
+        """
         return pulumi.get(self, "default_value")
 
     @default_value.setter
@@ -152,6 +170,9 @@ class _IncidentCustomFieldState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the field.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -161,6 +182,9 @@ class _IncidentCustomFieldState:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The display name of the field.
+        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -215,10 +239,17 @@ class IncidentCustomField(pulumi.CustomResource):
 
         cs_impact = pagerduty.IncidentCustomField("csImpact",
             data_type="string",
+            display_name="Customer Impact",
             field_type="single_value")
         sre_environment = pagerduty.IncidentCustomField("sreEnvironment",
             data_type="string",
+            display_name="Environment",
             field_type="single_value_fixed")
+        false_alarm = pagerduty.IncidentCustomField("falseAlarm",
+            data_type="boolean",
+            default_value="false",
+            display_name="False Alarm",
+            field_type="single_value")
         ```
 
         ## Import
@@ -232,6 +263,9 @@ class IncidentCustomField(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_type: The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+        :param pulumi.Input[str] default_value: The default value to set when new incidents are created. Always specified as a string.
+        :param pulumi.Input[str] description: The description of the field.
+        :param pulumi.Input[str] display_name: The display name of the field.
         :param pulumi.Input[str] field_type: The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
         :param pulumi.Input[str] name: The name of the field.
         """
@@ -252,10 +286,17 @@ class IncidentCustomField(pulumi.CustomResource):
 
         cs_impact = pagerduty.IncidentCustomField("csImpact",
             data_type="string",
+            display_name="Customer Impact",
             field_type="single_value")
         sre_environment = pagerduty.IncidentCustomField("sreEnvironment",
             data_type="string",
+            display_name="Environment",
             field_type="single_value_fixed")
+        false_alarm = pagerduty.IncidentCustomField("falseAlarm",
+            data_type="boolean",
+            default_value="false",
+            display_name="False Alarm",
+            field_type="single_value")
         ```
 
         ## Import
@@ -332,6 +373,9 @@ class IncidentCustomField(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_type: The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
+        :param pulumi.Input[str] default_value: The default value to set when new incidents are created. Always specified as a string.
+        :param pulumi.Input[str] description: The description of the field.
+        :param pulumi.Input[str] display_name: The display name of the field.
         :param pulumi.Input[str] field_type: The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
         :param pulumi.Input[str] name: The name of the field.
         """
@@ -358,16 +402,25 @@ class IncidentCustomField(pulumi.CustomResource):
     @property
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> pulumi.Output[Optional[str]]:
+        """
+        The default value to set when new incidents are created. Always specified as a string.
+        """
         return pulumi.get(self, "default_value")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the field.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[str]:
+        """
+        The display name of the field.
+        """
         return pulumi.get(self, "display_name")
 
     @property

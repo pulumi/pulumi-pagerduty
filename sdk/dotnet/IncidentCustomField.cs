@@ -25,13 +25,23 @@ namespace Pulumi.Pagerduty
     ///     var csImpact = new Pagerduty.IncidentCustomField("csImpact", new()
     ///     {
     ///         DataType = "string",
+    ///         DisplayName = "Customer Impact",
     ///         FieldType = "single_value",
     ///     });
     /// 
     ///     var sreEnvironment = new Pagerduty.IncidentCustomField("sreEnvironment", new()
     ///     {
     ///         DataType = "string",
+    ///         DisplayName = "Environment",
     ///         FieldType = "single_value_fixed",
+    ///     });
+    /// 
+    ///     var falseAlarm = new Pagerduty.IncidentCustomField("falseAlarm", new()
+    ///     {
+    ///         DataType = "boolean",
+    ///         DefaultValue = "false",
+    ///         DisplayName = "False Alarm",
+    ///         FieldType = "single_value",
     ///     });
     /// 
     /// });
@@ -54,12 +64,21 @@ namespace Pulumi.Pagerduty
         [Output("dataType")]
         public Output<string> DataType { get; private set; } = null!;
 
+        /// <summary>
+        /// The default value to set when new incidents are created. Always specified as a string.
+        /// </summary>
         [Output("defaultValue")]
         public Output<string?> DefaultValue { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the field.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The display name of the field.
+        /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
 
@@ -127,12 +146,21 @@ namespace Pulumi.Pagerduty
         [Input("dataType", required: true)]
         public Input<string> DataType { get; set; } = null!;
 
+        /// <summary>
+        /// The default value to set when new incidents are created. Always specified as a string.
+        /// </summary>
         [Input("defaultValue")]
         public Input<string>? DefaultValue { get; set; }
 
+        /// <summary>
+        /// The description of the field.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The display name of the field.
+        /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
@@ -162,12 +190,21 @@ namespace Pulumi.Pagerduty
         [Input("dataType")]
         public Input<string>? DataType { get; set; }
 
+        /// <summary>
+        /// The default value to set when new incidents are created. Always specified as a string.
+        /// </summary>
         [Input("defaultValue")]
         public Input<string>? DefaultValue { get; set; }
 
+        /// <summary>
+        /// The description of the field.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The display name of the field.
+        /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 

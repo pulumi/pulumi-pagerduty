@@ -251,7 +251,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "The name of the variable\n"
+                    "description": "Name of this Webhook.\n"
                 },
                 "parameters": {
                     "type": "array",
@@ -275,11 +275,11 @@
             "properties": {
                 "key": {
                     "type": "string",
-                    "description": "Name to identify the parameter\n"
+                    "description": "Name to identify the header\n"
                 },
                 "value": {
                     "type": "string",
-                    "description": "The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.\n"
+                    "description": "Value of this header\n"
                 }
             },
             "type": "object",
@@ -296,7 +296,7 @@
                 },
                 "value": {
                     "type": "string",
-                    "description": "The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.\n"
+                    "description": "Value of this parameter\n"
                 }
             },
             "type": "object",
@@ -378,7 +378,7 @@
             "properties": {
                 "actions": {
                     "$ref": "#/types/pagerduty:index/EventOrchestrationGlobalSetRuleActions:EventOrchestrationGlobalSetRuleActions",
-                    "description": "Actions that will be taken to change the resulting alert and incident, when an event matches this rule.\n"
+                    "description": "These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` _except_ `route_to` action.\n"
                 },
                 "conditions": {
                     "type": "array",
@@ -483,7 +483,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "The name of the variable\n"
+                    "description": "Name of this Webhook.\n"
                 },
                 "parameters": {
                     "type": "array",
@@ -507,11 +507,11 @@
             "properties": {
                 "key": {
                     "type": "string",
-                    "description": "Name to identify the parameter\n"
+                    "description": "Name to identify the header\n"
                 },
                 "value": {
                     "type": "string",
-                    "description": "The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.\n"
+                    "description": "Value of this header\n"
                 }
             },
             "type": "object",
@@ -528,7 +528,7 @@
                 },
                 "value": {
                     "type": "string",
-                    "description": "The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.\n"
+                    "description": "Value of this parameter\n"
                 }
             },
             "type": "object",
@@ -694,7 +694,7 @@
             "properties": {
                 "actions": {
                     "$ref": "#/types/pagerduty:index/EventOrchestrationRouterSetRuleActions:EventOrchestrationRouterSetRuleActions",
-                    "description": "Actions that will be taken to change the resulting alert and incident, when an event matches this rule.\n"
+                    "description": "These are the actions that will be taken to change the resulting alert and incident.\n"
                 },
                 "conditions": {
                     "type": "array",
@@ -835,7 +835,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "The name of the variable\n"
+                    "description": "Name of this Webhook.\n"
                 },
                 "parameters": {
                     "type": "array",
@@ -859,11 +859,11 @@
             "properties": {
                 "key": {
                     "type": "string",
-                    "description": "Name to identify the parameter\n"
+                    "description": "Name to identify the header\n"
                 },
                 "value": {
                     "type": "string",
-                    "description": "The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.\n"
+                    "description": "Value of this header\n"
                 }
             },
             "type": "object",
@@ -880,7 +880,7 @@
                 },
                 "value": {
                     "type": "string",
-                    "description": "The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.\n"
+                    "description": "Value of this parameter\n"
                 }
             },
             "type": "object",
@@ -974,7 +974,7 @@
             "properties": {
                 "actions": {
                     "$ref": "#/types/pagerduty:index/EventOrchestrationServiceSetRuleActions:EventOrchestrationServiceSetRuleActions",
-                    "description": "Actions that will be taken to change the resulting alert and incident, when an event matches this rule.\n"
+                    "description": "These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` _except_ `route_to` action.\n"
                 },
                 "conditions": {
                     "type": "array",
@@ -1079,7 +1079,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "The name of the variable\n"
+                    "description": "Name of this Webhook.\n"
                 },
                 "parameters": {
                     "type": "array",
@@ -1103,11 +1103,11 @@
             "properties": {
                 "key": {
                     "type": "string",
-                    "description": "Name to identify the parameter\n"
+                    "description": "Name to identify the header\n"
                 },
                 "value": {
                     "type": "string",
-                    "description": "The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.\n"
+                    "description": "Value of this header\n"
                 }
             },
             "type": "object",
@@ -1124,7 +1124,7 @@
                 },
                 "value": {
                     "type": "string",
-                    "description": "The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.\n"
+                    "description": "Value of this parameter\n"
                 }
             },
             "type": "object",
@@ -1330,7 +1330,7 @@
             "properties": {
                 "actions": {
                     "$ref": "#/types/pagerduty:index/EventOrchestrationUnroutedSetRuleActions:EventOrchestrationUnroutedSetRuleActions",
-                    "description": "Actions that will be taken to change the resulting alert and incident, when an event matches this rule.\n"
+                    "description": "These are the actions that will be taken to change the resulting alert and incident. `catch_all` supports all actions described above for `rule` _except_ `route_to` action.\n"
                 },
                 "conditions": {
                     "type": "array",
@@ -1595,7 +1595,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "Type of object of the target. Supported types are `user_reference`, `schedule_reference`.\n"
+                    "description": "Should be set as `escalation_policy` for escalation policy responders.\n"
                 }
             },
             "type": "object",
@@ -1651,7 +1651,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "A string that determines the schema of the object. If not set, the default value is \"response_play\".\n"
+                    "description": "Should be set as `escalation_policy` for escalation policy responders.\n"
                 }
             },
             "type": "object",
@@ -1672,7 +1672,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "A string that determines the schema of the object. If not set, the default value is \"response_play\".\n"
+                    "description": "Should be set as `escalation_policy` for escalation policy responders.\n"
                 }
             },
             "type": "object",
@@ -1693,7 +1693,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "A string that determines the schema of the object. If not set, the default value is \"response_play\".\n"
+                    "description": "Should be set as `escalation_policy` for escalation policy responders.\n"
                 }
             },
             "type": "object",
@@ -1717,7 +1717,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "A string that determines the schema of the object. If not set, the default value is \"response_play\".\n"
+                    "description": "Should be set as `escalation_policy` for escalation policy responders.\n"
                 }
             },
             "type": "object"
@@ -1899,7 +1899,7 @@
             "properties": {
                 "operator": {
                     "type": "string",
-                    "description": "Type of operator to apply to the sub-condition. Can be `exists`,`nexists`,`equals`,`nequals`,`contains`,`ncontains`,`matches`, or `nmatches`.\n"
+                    "description": "Operator to combine sub-conditions. Can be `and` or `or`.\n"
                 },
                 "parameters": {
                     "type": "array",
@@ -2178,7 +2178,7 @@
                 },
                 "timeout": {
                     "type": "integer",
-                    "description": "Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `enabled` is `true`. Must be omitted or set to `null` if `enabled` is `false`.\n\n\nYou may specify one optional `incident_urgency_rule` block configuring what urgencies to use.\nYour PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.\nThe block contains the following arguments:\n"
+                    "description": "Indicates in seconds how long alerts should be suspended before triggering. Allowed values: `120`, `180`, `300`, `600`, `900` if `enabled` is `true`. Must be omitted or set to `null` if `enabled` is `false`.\n\nYou may specify one optional `incident_urgency_rule` block configuring what urgencies to use.\nYour PagerDuty account must have the `urgencies` ability to assign an incident urgency rule.\nThe block contains the following arguments:\n"
                 }
             },
             "type": "object",
@@ -2417,7 +2417,7 @@
             "properties": {
                 "operator": {
                     "type": "string",
-                    "description": "Type of operator to apply to the sub-condition. Can be `exists`,`nexists`,`equals`,`nequals`,`contains`,`ncontains`,`matches`, or `nmatches`.\n"
+                    "description": "Operator to combine sub-conditions. Can be `and` or `or`.\n"
                 },
                 "parameters": {
                     "type": "array",
@@ -2543,7 +2543,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "The type of alert grouping; one of `intelligent`, `time` or `content_based`.\n"
+                    "description": "The type of scheduled action. Currently, this must be set to `urgency_change`.\n"
                 },
                 "urgency": {
                     "type": "string",
@@ -2559,7 +2559,7 @@
             "properties": {
                 "type": {
                     "type": "string",
-                    "description": "The type of alert grouping; one of `intelligent`, `time` or `content_based`.\n"
+                    "description": "The type of scheduled action. Currently, this must be set to `urgency_change`.\n"
                 },
                 "urgency": {
                     "type": "string",
@@ -2572,7 +2572,7 @@
             "properties": {
                 "type": {
                     "type": "string",
-                    "description": "The type of alert grouping; one of `intelligent`, `time` or `content_based`.\n"
+                    "description": "The type of scheduled action. Currently, this must be set to `urgency_change`.\n"
                 },
                 "urgency": {
                     "type": "string",
@@ -2769,7 +2769,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "The type of alert grouping; one of `intelligent`, `time` or `content_based`.\n"
+                    "description": "The type of scheduled action. Currently, this must be set to `urgency_change`.\n"
                 }
             },
             "type": "object"
@@ -2810,7 +2810,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "The type of alert grouping; one of `intelligent`, `time` or `content_based`.\n"
+                    "description": "The type of scheduled action. Currently, this must be set to `urgency_change`.\n"
                 }
             },
             "type": "object"
@@ -2822,7 +2822,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of strings to filter events by PagerDuty event type. `\"incident.triggered\"` is required. The follow event types are also possible:\n- `incident.acknowledged`\n- `incident.escalated`\n- `incident.resolved`\n- `incident.reassigned`\n- `incident.annotated`\n- `incident.unacknowledged`\n- `incident.delegated`\n- `incident.priority_updated`\n- `incident.responder.added`\n- `incident.responder.replied`\n- `incident.status_update_published`\n- `incident.reopened`\n"
+                    "description": "A list of strings to filter events by PagerDuty event type. `\"incident.triggered\"` is required. The follow event types are also possible:\n"
                 },
                 "priorities": {
                     "type": "array",
@@ -2856,7 +2856,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "Indicates the type of the delivery method. Allowed and default value: `http_delivery_method`.\n"
+                    "description": "The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.\n"
                 },
                 "url": {
                     "type": "string",
@@ -2896,7 +2896,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "The type of object being used as the filter. Allowed values are `account_reference`, `service_reference`, and `team_reference`.\n"
+                    "description": "The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.\n"
                 }
             },
             "type": "object",
@@ -5199,6 +5199,7 @@
                 },
                 "description": {
                     "type": "string",
+                    "description": "Description of escalation policy\n",
                     "default": "Managed by Pulumi"
                 },
                 "from": {
@@ -5207,7 +5208,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "The name of the response play.\n"
+                    "description": "Name of the escalation policy\n"
                 },
                 "responders": {
                     "type": "array",
@@ -5237,11 +5238,11 @@
                 },
                 "team": {
                     "type": "string",
-                    "description": "The ID of the team associated with the response play.\n"
+                    "description": "Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.\n"
                 },
                 "type": {
                     "type": "string",
-                    "description": "A string that determines the schema of the object. If not set, the default value is \"response_play\".\n"
+                    "description": "Should be set as `escalation_policy` for escalation policy responders.\n"
                 }
             },
             "required": [
@@ -5260,6 +5261,7 @@
                 },
                 "description": {
                     "type": "string",
+                    "description": "Description of escalation policy\n",
                     "default": "Managed by Pulumi"
                 },
                 "from": {
@@ -5268,7 +5270,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "The name of the response play.\n"
+                    "description": "Name of the escalation policy\n"
                 },
                 "responders": {
                     "type": "array",
@@ -5298,11 +5300,11 @@
                 },
                 "team": {
                     "type": "string",
-                    "description": "The ID of the team associated with the response play.\n"
+                    "description": "Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.\n"
                 },
                 "type": {
                     "type": "string",
-                    "description": "A string that determines the schema of the object. If not set, the default value is \"response_play\".\n"
+                    "description": "Should be set as `escalation_policy` for escalation policy responders.\n"
                 }
             },
             "requiredInputs": [
@@ -5321,6 +5323,7 @@
                     },
                     "description": {
                         "type": "string",
+                        "description": "Description of escalation policy\n",
                         "default": "Managed by Pulumi"
                     },
                     "from": {
@@ -5329,7 +5332,7 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "The name of the response play.\n"
+                        "description": "Name of the escalation policy\n"
                     },
                     "responders": {
                         "type": "array",
@@ -5359,11 +5362,11 @@
                     },
                     "team": {
                         "type": "string",
-                        "description": "The ID of the team associated with the response play.\n"
+                        "description": "Teams associated with the policy. Account must have the `teams` ability to use this parameter. There can be multiple teams associated with a policy.\n"
                     },
                     "type": {
                         "type": "string",
-                        "description": "A string that determines the schema of the object. If not set, the default value is \"response_play\".\n"
+                        "description": "Should be set as `escalation_policy` for escalation policy responders.\n"
                     }
                 },
                 "type": "object"
@@ -5765,7 +5768,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "The type of alert grouping; one of `intelligent`, `time` or `content_based`.\n"
+                    "description": "The type of scheduled action. Currently, this must be set to `urgency_change`.\n"
                 }
             },
             "required": [
@@ -5926,7 +5929,7 @@
                     },
                     "type": {
                         "type": "string",
-                        "description": "The type of alert grouping; one of `intelligent`, `time` or `content_based`.\n"
+                        "description": "The type of scheduled action. Currently, this must be set to `urgency_change`.\n"
                     }
                 },
                 "type": "object"
@@ -7039,7 +7042,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A set of outbound event types the webhook will receive. The follow event types are possible: \n* `incident.acknowledged`\n* `incident.annotated`\n* `incident.delegated`\n* `incident.escalated`\n* `incident.priority_updated`\n* `incident.reassigned`\n* `incident.reopened`\n* `incident.resolved`\n* `incident.responder.added`\n* `incident.responder.replied`\n* `incident.status_update_published`\n* `incident.triggered`\n* `incident.unacknowledged`\n"
+                    "description": "A set of outbound event types the webhook will receive. The follow event types are possible:\n"
                 },
                 "filters": {
                     "type": "array",
@@ -7080,7 +7083,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A set of outbound event types the webhook will receive. The follow event types are possible: \n* `incident.acknowledged`\n* `incident.annotated`\n* `incident.delegated`\n* `incident.escalated`\n* `incident.priority_updated`\n* `incident.reassigned`\n* `incident.reopened`\n* `incident.resolved`\n* `incident.responder.added`\n* `incident.responder.replied`\n* `incident.status_update_published`\n* `incident.triggered`\n* `incident.unacknowledged`\n"
+                    "description": "A set of outbound event types the webhook will receive. The follow event types are possible:\n"
                 },
                 "filters": {
                     "type": "array",
@@ -7122,7 +7125,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "A set of outbound event types the webhook will receive. The follow event types are possible: \n* `incident.acknowledged`\n* `incident.annotated`\n* `incident.delegated`\n* `incident.escalated`\n* `incident.priority_updated`\n* `incident.reassigned`\n* `incident.reopened`\n* `incident.resolved`\n* `incident.responder.added`\n* `incident.responder.replied`\n* `incident.status_update_published`\n* `incident.triggered`\n* `incident.unacknowledged`\n"
+                        "description": "A set of outbound event types the webhook will receive. The follow event types are possible:\n"
                     },
                     "filters": {
                         "type": "array",

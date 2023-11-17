@@ -180,7 +180,7 @@ export class EventOrchestrationService extends pulumi.CustomResource {
     /**
      * Opt-in/out for switching the Service to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations).
      */
-    public readonly enableEventOrchestrationForService!: pulumi.Output<boolean | undefined>;
+    public readonly enableEventOrchestrationForService!: pulumi.Output<boolean>;
     /**
      * ID of the Service to which this Service Orchestration belongs to.
      */

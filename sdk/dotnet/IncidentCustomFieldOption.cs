@@ -25,6 +25,7 @@ namespace Pulumi.Pagerduty
     /// {
     ///     var sreEnvironment = new Pagerduty.IncidentCustomField("sreEnvironment", new()
     ///     {
+    ///         DisplayName = "Environment",
     ///         DataType = "string",
     ///         FieldType = "single_value_fixed",
     ///     });

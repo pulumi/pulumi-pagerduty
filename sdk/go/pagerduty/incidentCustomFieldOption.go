@@ -30,8 +30,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			sreEnvironment, err := pagerduty.NewIncidentCustomField(ctx, "sreEnvironment", &pagerduty.IncidentCustomFieldArgs{
-//				DataType:  pulumi.String("string"),
-//				FieldType: pulumi.String("single_value_fixed"),
+//				DisplayName: pulumi.String("Environment"),
+//				DataType:    pulumi.String("string"),
+//				FieldType:   pulumi.String("single_value_fixed"),
 //			})
 //			if err != nil {
 //				return err

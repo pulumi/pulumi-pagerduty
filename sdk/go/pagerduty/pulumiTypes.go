@@ -7577,7 +7577,9 @@ type IncidentWorkflowStep struct {
 	Action string `pulumi:"action"`
 	// The ID of the incident workflow.
 	Id *string `pulumi:"id"`
-	// The list of inputs for the workflow action.
+	// The list of inputs that contain a series of inline steps for the workflow action.
+	InlineStepsInputs []IncidentWorkflowStepInlineStepsInput `pulumi:"inlineStepsInputs"`
+	// The list of standard inputs for the workflow action.
 	Inputs []IncidentWorkflowStepInputType `pulumi:"inputs"`
 	// The name of the workflow step.
 	Name string `pulumi:"name"`
@@ -7599,7 +7601,9 @@ type IncidentWorkflowStepArgs struct {
 	Action pulumi.StringInput `pulumi:"action"`
 	// The ID of the incident workflow.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The list of inputs for the workflow action.
+	// The list of inputs that contain a series of inline steps for the workflow action.
+	InlineStepsInputs IncidentWorkflowStepInlineStepsInputArrayInput `pulumi:"inlineStepsInputs"`
+	// The list of standard inputs for the workflow action.
 	Inputs IncidentWorkflowStepInputTypeArrayInput `pulumi:"inputs"`
 	// The name of the workflow step.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -7666,7 +7670,12 @@ func (o IncidentWorkflowStepOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IncidentWorkflowStep) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The list of inputs for the workflow action.
+// The list of inputs that contain a series of inline steps for the workflow action.
+func (o IncidentWorkflowStepOutput) InlineStepsInputs() IncidentWorkflowStepInlineStepsInputArrayOutput {
+	return o.ApplyT(func(v IncidentWorkflowStep) []IncidentWorkflowStepInlineStepsInput { return v.InlineStepsInputs }).(IncidentWorkflowStepInlineStepsInputArrayOutput)
+}
+
+// The list of standard inputs for the workflow action.
 func (o IncidentWorkflowStepOutput) Inputs() IncidentWorkflowStepInputTypeArrayOutput {
 	return o.ApplyT(func(v IncidentWorkflowStep) []IncidentWorkflowStepInputType { return v.Inputs }).(IncidentWorkflowStepInputTypeArrayOutput)
 }
@@ -7694,6 +7703,343 @@ func (o IncidentWorkflowStepArrayOutput) Index(i pulumi.IntInput) IncidentWorkfl
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IncidentWorkflowStep {
 		return vs[0].([]IncidentWorkflowStep)[vs[1].(int)]
 	}).(IncidentWorkflowStepOutput)
+}
+
+type IncidentWorkflowStepInlineStepsInput struct {
+	// The name of the input.
+	Name string `pulumi:"name"`
+	// The inline steps of the input. An inline step adheres to the step schema described above.
+	Steps []IncidentWorkflowStepInlineStepsInputStep `pulumi:"steps"`
+}
+
+// IncidentWorkflowStepInlineStepsInputInput is an input type that accepts IncidentWorkflowStepInlineStepsInputArgs and IncidentWorkflowStepInlineStepsInputOutput values.
+// You can construct a concrete instance of `IncidentWorkflowStepInlineStepsInputInput` via:
+//
+//	IncidentWorkflowStepInlineStepsInputArgs{...}
+type IncidentWorkflowStepInlineStepsInputInput interface {
+	pulumi.Input
+
+	ToIncidentWorkflowStepInlineStepsInputOutput() IncidentWorkflowStepInlineStepsInputOutput
+	ToIncidentWorkflowStepInlineStepsInputOutputWithContext(context.Context) IncidentWorkflowStepInlineStepsInputOutput
+}
+
+type IncidentWorkflowStepInlineStepsInputArgs struct {
+	// The name of the input.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The inline steps of the input. An inline step adheres to the step schema described above.
+	Steps IncidentWorkflowStepInlineStepsInputStepArrayInput `pulumi:"steps"`
+}
+
+func (IncidentWorkflowStepInlineStepsInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentWorkflowStepInlineStepsInput)(nil)).Elem()
+}
+
+func (i IncidentWorkflowStepInlineStepsInputArgs) ToIncidentWorkflowStepInlineStepsInputOutput() IncidentWorkflowStepInlineStepsInputOutput {
+	return i.ToIncidentWorkflowStepInlineStepsInputOutputWithContext(context.Background())
+}
+
+func (i IncidentWorkflowStepInlineStepsInputArgs) ToIncidentWorkflowStepInlineStepsInputOutputWithContext(ctx context.Context) IncidentWorkflowStepInlineStepsInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentWorkflowStepInlineStepsInputOutput)
+}
+
+// IncidentWorkflowStepInlineStepsInputArrayInput is an input type that accepts IncidentWorkflowStepInlineStepsInputArray and IncidentWorkflowStepInlineStepsInputArrayOutput values.
+// You can construct a concrete instance of `IncidentWorkflowStepInlineStepsInputArrayInput` via:
+//
+//	IncidentWorkflowStepInlineStepsInputArray{ IncidentWorkflowStepInlineStepsInputArgs{...} }
+type IncidentWorkflowStepInlineStepsInputArrayInput interface {
+	pulumi.Input
+
+	ToIncidentWorkflowStepInlineStepsInputArrayOutput() IncidentWorkflowStepInlineStepsInputArrayOutput
+	ToIncidentWorkflowStepInlineStepsInputArrayOutputWithContext(context.Context) IncidentWorkflowStepInlineStepsInputArrayOutput
+}
+
+type IncidentWorkflowStepInlineStepsInputArray []IncidentWorkflowStepInlineStepsInputInput
+
+func (IncidentWorkflowStepInlineStepsInputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IncidentWorkflowStepInlineStepsInput)(nil)).Elem()
+}
+
+func (i IncidentWorkflowStepInlineStepsInputArray) ToIncidentWorkflowStepInlineStepsInputArrayOutput() IncidentWorkflowStepInlineStepsInputArrayOutput {
+	return i.ToIncidentWorkflowStepInlineStepsInputArrayOutputWithContext(context.Background())
+}
+
+func (i IncidentWorkflowStepInlineStepsInputArray) ToIncidentWorkflowStepInlineStepsInputArrayOutputWithContext(ctx context.Context) IncidentWorkflowStepInlineStepsInputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentWorkflowStepInlineStepsInputArrayOutput)
+}
+
+type IncidentWorkflowStepInlineStepsInputOutput struct{ *pulumi.OutputState }
+
+func (IncidentWorkflowStepInlineStepsInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentWorkflowStepInlineStepsInput)(nil)).Elem()
+}
+
+func (o IncidentWorkflowStepInlineStepsInputOutput) ToIncidentWorkflowStepInlineStepsInputOutput() IncidentWorkflowStepInlineStepsInputOutput {
+	return o
+}
+
+func (o IncidentWorkflowStepInlineStepsInputOutput) ToIncidentWorkflowStepInlineStepsInputOutputWithContext(ctx context.Context) IncidentWorkflowStepInlineStepsInputOutput {
+	return o
+}
+
+// The name of the input.
+func (o IncidentWorkflowStepInlineStepsInputOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v IncidentWorkflowStepInlineStepsInput) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The inline steps of the input. An inline step adheres to the step schema described above.
+func (o IncidentWorkflowStepInlineStepsInputOutput) Steps() IncidentWorkflowStepInlineStepsInputStepArrayOutput {
+	return o.ApplyT(func(v IncidentWorkflowStepInlineStepsInput) []IncidentWorkflowStepInlineStepsInputStep {
+		return v.Steps
+	}).(IncidentWorkflowStepInlineStepsInputStepArrayOutput)
+}
+
+type IncidentWorkflowStepInlineStepsInputArrayOutput struct{ *pulumi.OutputState }
+
+func (IncidentWorkflowStepInlineStepsInputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IncidentWorkflowStepInlineStepsInput)(nil)).Elem()
+}
+
+func (o IncidentWorkflowStepInlineStepsInputArrayOutput) ToIncidentWorkflowStepInlineStepsInputArrayOutput() IncidentWorkflowStepInlineStepsInputArrayOutput {
+	return o
+}
+
+func (o IncidentWorkflowStepInlineStepsInputArrayOutput) ToIncidentWorkflowStepInlineStepsInputArrayOutputWithContext(ctx context.Context) IncidentWorkflowStepInlineStepsInputArrayOutput {
+	return o
+}
+
+func (o IncidentWorkflowStepInlineStepsInputArrayOutput) Index(i pulumi.IntInput) IncidentWorkflowStepInlineStepsInputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IncidentWorkflowStepInlineStepsInput {
+		return vs[0].([]IncidentWorkflowStepInlineStepsInput)[vs[1].(int)]
+	}).(IncidentWorkflowStepInlineStepsInputOutput)
+}
+
+type IncidentWorkflowStepInlineStepsInputStep struct {
+	// The action id for the workflow step, including the version. A list of actions available can be retrieved using the [PagerDuty API](https://developer.pagerduty.com/api-reference/aa192a25fac39-list-actions).
+	Action string `pulumi:"action"`
+	// The list of standard inputs for the workflow action.
+	Inputs []IncidentWorkflowStepInlineStepsInputStepInputType `pulumi:"inputs"`
+	// The name of the workflow step.
+	Name string `pulumi:"name"`
+}
+
+// IncidentWorkflowStepInlineStepsInputStepInput is an input type that accepts IncidentWorkflowStepInlineStepsInputStepArgs and IncidentWorkflowStepInlineStepsInputStepOutput values.
+// You can construct a concrete instance of `IncidentWorkflowStepInlineStepsInputStepInput` via:
+//
+//	IncidentWorkflowStepInlineStepsInputStepArgs{...}
+type IncidentWorkflowStepInlineStepsInputStepInput interface {
+	pulumi.Input
+
+	ToIncidentWorkflowStepInlineStepsInputStepOutput() IncidentWorkflowStepInlineStepsInputStepOutput
+	ToIncidentWorkflowStepInlineStepsInputStepOutputWithContext(context.Context) IncidentWorkflowStepInlineStepsInputStepOutput
+}
+
+type IncidentWorkflowStepInlineStepsInputStepArgs struct {
+	// The action id for the workflow step, including the version. A list of actions available can be retrieved using the [PagerDuty API](https://developer.pagerduty.com/api-reference/aa192a25fac39-list-actions).
+	Action pulumi.StringInput `pulumi:"action"`
+	// The list of standard inputs for the workflow action.
+	Inputs IncidentWorkflowStepInlineStepsInputStepInputTypeArrayInput `pulumi:"inputs"`
+	// The name of the workflow step.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (IncidentWorkflowStepInlineStepsInputStepArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentWorkflowStepInlineStepsInputStep)(nil)).Elem()
+}
+
+func (i IncidentWorkflowStepInlineStepsInputStepArgs) ToIncidentWorkflowStepInlineStepsInputStepOutput() IncidentWorkflowStepInlineStepsInputStepOutput {
+	return i.ToIncidentWorkflowStepInlineStepsInputStepOutputWithContext(context.Background())
+}
+
+func (i IncidentWorkflowStepInlineStepsInputStepArgs) ToIncidentWorkflowStepInlineStepsInputStepOutputWithContext(ctx context.Context) IncidentWorkflowStepInlineStepsInputStepOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentWorkflowStepInlineStepsInputStepOutput)
+}
+
+// IncidentWorkflowStepInlineStepsInputStepArrayInput is an input type that accepts IncidentWorkflowStepInlineStepsInputStepArray and IncidentWorkflowStepInlineStepsInputStepArrayOutput values.
+// You can construct a concrete instance of `IncidentWorkflowStepInlineStepsInputStepArrayInput` via:
+//
+//	IncidentWorkflowStepInlineStepsInputStepArray{ IncidentWorkflowStepInlineStepsInputStepArgs{...} }
+type IncidentWorkflowStepInlineStepsInputStepArrayInput interface {
+	pulumi.Input
+
+	ToIncidentWorkflowStepInlineStepsInputStepArrayOutput() IncidentWorkflowStepInlineStepsInputStepArrayOutput
+	ToIncidentWorkflowStepInlineStepsInputStepArrayOutputWithContext(context.Context) IncidentWorkflowStepInlineStepsInputStepArrayOutput
+}
+
+type IncidentWorkflowStepInlineStepsInputStepArray []IncidentWorkflowStepInlineStepsInputStepInput
+
+func (IncidentWorkflowStepInlineStepsInputStepArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IncidentWorkflowStepInlineStepsInputStep)(nil)).Elem()
+}
+
+func (i IncidentWorkflowStepInlineStepsInputStepArray) ToIncidentWorkflowStepInlineStepsInputStepArrayOutput() IncidentWorkflowStepInlineStepsInputStepArrayOutput {
+	return i.ToIncidentWorkflowStepInlineStepsInputStepArrayOutputWithContext(context.Background())
+}
+
+func (i IncidentWorkflowStepInlineStepsInputStepArray) ToIncidentWorkflowStepInlineStepsInputStepArrayOutputWithContext(ctx context.Context) IncidentWorkflowStepInlineStepsInputStepArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentWorkflowStepInlineStepsInputStepArrayOutput)
+}
+
+type IncidentWorkflowStepInlineStepsInputStepOutput struct{ *pulumi.OutputState }
+
+func (IncidentWorkflowStepInlineStepsInputStepOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentWorkflowStepInlineStepsInputStep)(nil)).Elem()
+}
+
+func (o IncidentWorkflowStepInlineStepsInputStepOutput) ToIncidentWorkflowStepInlineStepsInputStepOutput() IncidentWorkflowStepInlineStepsInputStepOutput {
+	return o
+}
+
+func (o IncidentWorkflowStepInlineStepsInputStepOutput) ToIncidentWorkflowStepInlineStepsInputStepOutputWithContext(ctx context.Context) IncidentWorkflowStepInlineStepsInputStepOutput {
+	return o
+}
+
+// The action id for the workflow step, including the version. A list of actions available can be retrieved using the [PagerDuty API](https://developer.pagerduty.com/api-reference/aa192a25fac39-list-actions).
+func (o IncidentWorkflowStepInlineStepsInputStepOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v IncidentWorkflowStepInlineStepsInputStep) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// The list of standard inputs for the workflow action.
+func (o IncidentWorkflowStepInlineStepsInputStepOutput) Inputs() IncidentWorkflowStepInlineStepsInputStepInputTypeArrayOutput {
+	return o.ApplyT(func(v IncidentWorkflowStepInlineStepsInputStep) []IncidentWorkflowStepInlineStepsInputStepInputType {
+		return v.Inputs
+	}).(IncidentWorkflowStepInlineStepsInputStepInputTypeArrayOutput)
+}
+
+// The name of the workflow step.
+func (o IncidentWorkflowStepInlineStepsInputStepOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v IncidentWorkflowStepInlineStepsInputStep) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type IncidentWorkflowStepInlineStepsInputStepArrayOutput struct{ *pulumi.OutputState }
+
+func (IncidentWorkflowStepInlineStepsInputStepArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IncidentWorkflowStepInlineStepsInputStep)(nil)).Elem()
+}
+
+func (o IncidentWorkflowStepInlineStepsInputStepArrayOutput) ToIncidentWorkflowStepInlineStepsInputStepArrayOutput() IncidentWorkflowStepInlineStepsInputStepArrayOutput {
+	return o
+}
+
+func (o IncidentWorkflowStepInlineStepsInputStepArrayOutput) ToIncidentWorkflowStepInlineStepsInputStepArrayOutputWithContext(ctx context.Context) IncidentWorkflowStepInlineStepsInputStepArrayOutput {
+	return o
+}
+
+func (o IncidentWorkflowStepInlineStepsInputStepArrayOutput) Index(i pulumi.IntInput) IncidentWorkflowStepInlineStepsInputStepOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IncidentWorkflowStepInlineStepsInputStep {
+		return vs[0].([]IncidentWorkflowStepInlineStepsInputStep)[vs[1].(int)]
+	}).(IncidentWorkflowStepInlineStepsInputStepOutput)
+}
+
+type IncidentWorkflowStepInlineStepsInputStepInputType struct {
+	Generated *bool `pulumi:"generated"`
+	// The name of the input.
+	Name string `pulumi:"name"`
+	// The value of the input.
+	Value string `pulumi:"value"`
+}
+
+// IncidentWorkflowStepInlineStepsInputStepInputTypeInput is an input type that accepts IncidentWorkflowStepInlineStepsInputStepInputTypeArgs and IncidentWorkflowStepInlineStepsInputStepInputTypeOutput values.
+// You can construct a concrete instance of `IncidentWorkflowStepInlineStepsInputStepInputTypeInput` via:
+//
+//	IncidentWorkflowStepInlineStepsInputStepInputTypeArgs{...}
+type IncidentWorkflowStepInlineStepsInputStepInputTypeInput interface {
+	pulumi.Input
+
+	ToIncidentWorkflowStepInlineStepsInputStepInputTypeOutput() IncidentWorkflowStepInlineStepsInputStepInputTypeOutput
+	ToIncidentWorkflowStepInlineStepsInputStepInputTypeOutputWithContext(context.Context) IncidentWorkflowStepInlineStepsInputStepInputTypeOutput
+}
+
+type IncidentWorkflowStepInlineStepsInputStepInputTypeArgs struct {
+	Generated pulumi.BoolPtrInput `pulumi:"generated"`
+	// The name of the input.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of the input.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (IncidentWorkflowStepInlineStepsInputStepInputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentWorkflowStepInlineStepsInputStepInputType)(nil)).Elem()
+}
+
+func (i IncidentWorkflowStepInlineStepsInputStepInputTypeArgs) ToIncidentWorkflowStepInlineStepsInputStepInputTypeOutput() IncidentWorkflowStepInlineStepsInputStepInputTypeOutput {
+	return i.ToIncidentWorkflowStepInlineStepsInputStepInputTypeOutputWithContext(context.Background())
+}
+
+func (i IncidentWorkflowStepInlineStepsInputStepInputTypeArgs) ToIncidentWorkflowStepInlineStepsInputStepInputTypeOutputWithContext(ctx context.Context) IncidentWorkflowStepInlineStepsInputStepInputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentWorkflowStepInlineStepsInputStepInputTypeOutput)
+}
+
+// IncidentWorkflowStepInlineStepsInputStepInputTypeArrayInput is an input type that accepts IncidentWorkflowStepInlineStepsInputStepInputTypeArray and IncidentWorkflowStepInlineStepsInputStepInputTypeArrayOutput values.
+// You can construct a concrete instance of `IncidentWorkflowStepInlineStepsInputStepInputTypeArrayInput` via:
+//
+//	IncidentWorkflowStepInlineStepsInputStepInputTypeArray{ IncidentWorkflowStepInlineStepsInputStepInputTypeArgs{...} }
+type IncidentWorkflowStepInlineStepsInputStepInputTypeArrayInput interface {
+	pulumi.Input
+
+	ToIncidentWorkflowStepInlineStepsInputStepInputTypeArrayOutput() IncidentWorkflowStepInlineStepsInputStepInputTypeArrayOutput
+	ToIncidentWorkflowStepInlineStepsInputStepInputTypeArrayOutputWithContext(context.Context) IncidentWorkflowStepInlineStepsInputStepInputTypeArrayOutput
+}
+
+type IncidentWorkflowStepInlineStepsInputStepInputTypeArray []IncidentWorkflowStepInlineStepsInputStepInputTypeInput
+
+func (IncidentWorkflowStepInlineStepsInputStepInputTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IncidentWorkflowStepInlineStepsInputStepInputType)(nil)).Elem()
+}
+
+func (i IncidentWorkflowStepInlineStepsInputStepInputTypeArray) ToIncidentWorkflowStepInlineStepsInputStepInputTypeArrayOutput() IncidentWorkflowStepInlineStepsInputStepInputTypeArrayOutput {
+	return i.ToIncidentWorkflowStepInlineStepsInputStepInputTypeArrayOutputWithContext(context.Background())
+}
+
+func (i IncidentWorkflowStepInlineStepsInputStepInputTypeArray) ToIncidentWorkflowStepInlineStepsInputStepInputTypeArrayOutputWithContext(ctx context.Context) IncidentWorkflowStepInlineStepsInputStepInputTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncidentWorkflowStepInlineStepsInputStepInputTypeArrayOutput)
+}
+
+type IncidentWorkflowStepInlineStepsInputStepInputTypeOutput struct{ *pulumi.OutputState }
+
+func (IncidentWorkflowStepInlineStepsInputStepInputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncidentWorkflowStepInlineStepsInputStepInputType)(nil)).Elem()
+}
+
+func (o IncidentWorkflowStepInlineStepsInputStepInputTypeOutput) ToIncidentWorkflowStepInlineStepsInputStepInputTypeOutput() IncidentWorkflowStepInlineStepsInputStepInputTypeOutput {
+	return o
+}
+
+func (o IncidentWorkflowStepInlineStepsInputStepInputTypeOutput) ToIncidentWorkflowStepInlineStepsInputStepInputTypeOutputWithContext(ctx context.Context) IncidentWorkflowStepInlineStepsInputStepInputTypeOutput {
+	return o
+}
+
+func (o IncidentWorkflowStepInlineStepsInputStepInputTypeOutput) Generated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IncidentWorkflowStepInlineStepsInputStepInputType) *bool { return v.Generated }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the input.
+func (o IncidentWorkflowStepInlineStepsInputStepInputTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v IncidentWorkflowStepInlineStepsInputStepInputType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value of the input.
+func (o IncidentWorkflowStepInlineStepsInputStepInputTypeOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v IncidentWorkflowStepInlineStepsInputStepInputType) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type IncidentWorkflowStepInlineStepsInputStepInputTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (IncidentWorkflowStepInlineStepsInputStepInputTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IncidentWorkflowStepInlineStepsInputStepInputType)(nil)).Elem()
+}
+
+func (o IncidentWorkflowStepInlineStepsInputStepInputTypeArrayOutput) ToIncidentWorkflowStepInlineStepsInputStepInputTypeArrayOutput() IncidentWorkflowStepInlineStepsInputStepInputTypeArrayOutput {
+	return o
+}
+
+func (o IncidentWorkflowStepInlineStepsInputStepInputTypeArrayOutput) ToIncidentWorkflowStepInlineStepsInputStepInputTypeArrayOutputWithContext(ctx context.Context) IncidentWorkflowStepInlineStepsInputStepInputTypeArrayOutput {
+	return o
+}
+
+func (o IncidentWorkflowStepInlineStepsInputStepInputTypeArrayOutput) Index(i pulumi.IntInput) IncidentWorkflowStepInlineStepsInputStepInputTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IncidentWorkflowStepInlineStepsInputStepInputType {
+		return vs[0].([]IncidentWorkflowStepInlineStepsInputStepInputType)[vs[1].(int)]
+	}).(IncidentWorkflowStepInlineStepsInputStepInputTypeOutput)
 }
 
 type IncidentWorkflowStepInputType struct {
@@ -11443,6 +11789,8 @@ type ServiceAlertGroupingParametersConfig struct {
 	Aggregate *string `pulumi:"aggregate"`
 	// Alerts will be grouped together if the content of these fields match. This setting applies only when `type` is set to `contentBased`.
 	Fields []string `pulumi:"fields"`
+	// The maximum amount of time allowed between Alerts. Value must be between `300` and `3600`. Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
+	TimeWindow *int `pulumi:"timeWindow"`
 	// The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
 	Timeout *int `pulumi:"timeout"`
 }
@@ -11463,6 +11811,8 @@ type ServiceAlertGroupingParametersConfigArgs struct {
 	Aggregate pulumi.StringPtrInput `pulumi:"aggregate"`
 	// Alerts will be grouped together if the content of these fields match. This setting applies only when `type` is set to `contentBased`.
 	Fields pulumi.StringArrayInput `pulumi:"fields"`
+	// The maximum amount of time allowed between Alerts. Value must be between `300` and `3600`. Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
+	TimeWindow pulumi.IntPtrInput `pulumi:"timeWindow"`
 	// The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
 }
@@ -11554,6 +11904,11 @@ func (o ServiceAlertGroupingParametersConfigOutput) Fields() pulumi.StringArrayO
 	return o.ApplyT(func(v ServiceAlertGroupingParametersConfig) []string { return v.Fields }).(pulumi.StringArrayOutput)
 }
 
+// The maximum amount of time allowed between Alerts. Value must be between `300` and `3600`. Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
+func (o ServiceAlertGroupingParametersConfigOutput) TimeWindow() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceAlertGroupingParametersConfig) *int { return v.TimeWindow }).(pulumi.IntPtrOutput)
+}
+
 // The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
 func (o ServiceAlertGroupingParametersConfigOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceAlertGroupingParametersConfig) *int { return v.Timeout }).(pulumi.IntPtrOutput)
@@ -11601,6 +11956,16 @@ func (o ServiceAlertGroupingParametersConfigPtrOutput) Fields() pulumi.StringArr
 		}
 		return v.Fields
 	}).(pulumi.StringArrayOutput)
+}
+
+// The maximum amount of time allowed between Alerts. Value must be between `300` and `3600`. Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
+func (o ServiceAlertGroupingParametersConfigPtrOutput) TimeWindow() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceAlertGroupingParametersConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeWindow
+	}).(pulumi.IntPtrOutput)
 }
 
 // The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
@@ -17826,6 +18191,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationUnroutedSetRuleConditionArrayInput)(nil)).Elem(), EventOrchestrationUnroutedSetRuleConditionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IncidentWorkflowStepInput)(nil)).Elem(), IncidentWorkflowStepArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IncidentWorkflowStepArrayInput)(nil)).Elem(), IncidentWorkflowStepArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IncidentWorkflowStepInlineStepsInputInput)(nil)).Elem(), IncidentWorkflowStepInlineStepsInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IncidentWorkflowStepInlineStepsInputArrayInput)(nil)).Elem(), IncidentWorkflowStepInlineStepsInputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IncidentWorkflowStepInlineStepsInputStepInput)(nil)).Elem(), IncidentWorkflowStepInlineStepsInputStepArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IncidentWorkflowStepInlineStepsInputStepArrayInput)(nil)).Elem(), IncidentWorkflowStepInlineStepsInputStepArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IncidentWorkflowStepInlineStepsInputStepInputTypeInput)(nil)).Elem(), IncidentWorkflowStepInlineStepsInputStepInputTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IncidentWorkflowStepInlineStepsInputStepInputTypeArrayInput)(nil)).Elem(), IncidentWorkflowStepInlineStepsInputStepInputTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IncidentWorkflowStepInputTypeInput)(nil)).Elem(), IncidentWorkflowStepInputTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IncidentWorkflowStepInputTypeArrayInput)(nil)).Elem(), IncidentWorkflowStepInputTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderUseAppOauthScopedTokenInput)(nil)).Elem(), ProviderUseAppOauthScopedTokenArgs{})
@@ -18087,6 +18458,12 @@ func init() {
 	pulumi.RegisterOutputType(EventOrchestrationUnroutedSetRuleConditionArrayOutput{})
 	pulumi.RegisterOutputType(IncidentWorkflowStepOutput{})
 	pulumi.RegisterOutputType(IncidentWorkflowStepArrayOutput{})
+	pulumi.RegisterOutputType(IncidentWorkflowStepInlineStepsInputOutput{})
+	pulumi.RegisterOutputType(IncidentWorkflowStepInlineStepsInputArrayOutput{})
+	pulumi.RegisterOutputType(IncidentWorkflowStepInlineStepsInputStepOutput{})
+	pulumi.RegisterOutputType(IncidentWorkflowStepInlineStepsInputStepArrayOutput{})
+	pulumi.RegisterOutputType(IncidentWorkflowStepInlineStepsInputStepInputTypeOutput{})
+	pulumi.RegisterOutputType(IncidentWorkflowStepInlineStepsInputStepInputTypeArrayOutput{})
 	pulumi.RegisterOutputType(IncidentWorkflowStepInputTypeOutput{})
 	pulumi.RegisterOutputType(IncidentWorkflowStepInputTypeArrayOutput{})
 	pulumi.RegisterOutputType(ProviderUseAppOauthScopedTokenOutput{})

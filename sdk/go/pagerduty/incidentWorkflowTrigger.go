@@ -104,7 +104,7 @@ type IncidentWorkflowTrigger struct {
 	Services pulumi.StringArrayOutput `pulumi:"services"`
 	// Set to `true` if the trigger should be eligible for firing on all services. Only allowed to be `true` if the services list is not defined or empty.
 	SubscribedToAllServices pulumi.BoolOutput `pulumi:"subscribedToAllServices"`
-	// May be either `manual` or `conditional`.
+	// [Updating causes resource replacement] May be either `manual` or `conditional`.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The workflow ID for the workflow to trigger.
 	Workflow pulumi.StringOutput `pulumi:"workflow"`
@@ -155,7 +155,7 @@ type incidentWorkflowTriggerState struct {
 	Services []string `pulumi:"services"`
 	// Set to `true` if the trigger should be eligible for firing on all services. Only allowed to be `true` if the services list is not defined or empty.
 	SubscribedToAllServices *bool `pulumi:"subscribedToAllServices"`
-	// May be either `manual` or `conditional`.
+	// [Updating causes resource replacement] May be either `manual` or `conditional`.
 	Type *string `pulumi:"type"`
 	// The workflow ID for the workflow to trigger.
 	Workflow *string `pulumi:"workflow"`
@@ -168,7 +168,7 @@ type IncidentWorkflowTriggerState struct {
 	Services pulumi.StringArrayInput
 	// Set to `true` if the trigger should be eligible for firing on all services. Only allowed to be `true` if the services list is not defined or empty.
 	SubscribedToAllServices pulumi.BoolPtrInput
-	// May be either `manual` or `conditional`.
+	// [Updating causes resource replacement] May be either `manual` or `conditional`.
 	Type pulumi.StringPtrInput
 	// The workflow ID for the workflow to trigger.
 	Workflow pulumi.StringPtrInput
@@ -185,7 +185,7 @@ type incidentWorkflowTriggerArgs struct {
 	Services []string `pulumi:"services"`
 	// Set to `true` if the trigger should be eligible for firing on all services. Only allowed to be `true` if the services list is not defined or empty.
 	SubscribedToAllServices bool `pulumi:"subscribedToAllServices"`
-	// May be either `manual` or `conditional`.
+	// [Updating causes resource replacement] May be either `manual` or `conditional`.
 	Type string `pulumi:"type"`
 	// The workflow ID for the workflow to trigger.
 	Workflow string `pulumi:"workflow"`
@@ -199,7 +199,7 @@ type IncidentWorkflowTriggerArgs struct {
 	Services pulumi.StringArrayInput
 	// Set to `true` if the trigger should be eligible for firing on all services. Only allowed to be `true` if the services list is not defined or empty.
 	SubscribedToAllServices pulumi.BoolInput
-	// May be either `manual` or `conditional`.
+	// [Updating causes resource replacement] May be either `manual` or `conditional`.
 	Type pulumi.StringInput
 	// The workflow ID for the workflow to trigger.
 	Workflow pulumi.StringInput
@@ -307,7 +307,7 @@ func (o IncidentWorkflowTriggerOutput) SubscribedToAllServices() pulumi.BoolOutp
 	return o.ApplyT(func(v *IncidentWorkflowTrigger) pulumi.BoolOutput { return v.SubscribedToAllServices }).(pulumi.BoolOutput)
 }
 
-// May be either `manual` or `conditional`.
+// [Updating causes resource replacement] May be either `manual` or `conditional`.
 func (o IncidentWorkflowTriggerOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *IncidentWorkflowTrigger) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

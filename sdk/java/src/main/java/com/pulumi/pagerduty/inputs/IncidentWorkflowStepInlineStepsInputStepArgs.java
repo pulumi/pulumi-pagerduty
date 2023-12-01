@@ -5,8 +5,7 @@ package com.pulumi.pagerduty.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.pagerduty.inputs.IncidentWorkflowStepInlineStepsInputArgs;
-import com.pulumi.pagerduty.inputs.IncidentWorkflowStepInputArgs;
+import com.pulumi.pagerduty.inputs.IncidentWorkflowStepInlineStepsInputStepInputArgs;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -14,9 +13,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 
-public final class IncidentWorkflowStepArgs extends com.pulumi.resources.ResourceArgs {
+public final class IncidentWorkflowStepInlineStepsInputStepArgs extends com.pulumi.resources.ResourceArgs {
 
-    public static final IncidentWorkflowStepArgs Empty = new IncidentWorkflowStepArgs();
+    public static final IncidentWorkflowStepInlineStepsInputStepArgs Empty = new IncidentWorkflowStepInlineStepsInputStepArgs();
 
     /**
      * The action id for the workflow step, including the version. A list of actions available can be retrieved using the [PagerDuty API](https://developer.pagerduty.com/api-reference/aa192a25fac39-list-actions).
@@ -34,47 +33,17 @@ public final class IncidentWorkflowStepArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The ID of the incident workflow.
-     * 
-     */
-    @Import(name="id")
-    private @Nullable Output<String> id;
-
-    /**
-     * @return The ID of the incident workflow.
-     * 
-     */
-    public Optional<Output<String>> id() {
-        return Optional.ofNullable(this.id);
-    }
-
-    /**
-     * The list of inputs that contain a series of inline steps for the workflow action.
-     * 
-     */
-    @Import(name="inlineStepsInputs")
-    private @Nullable Output<List<IncidentWorkflowStepInlineStepsInputArgs>> inlineStepsInputs;
-
-    /**
-     * @return The list of inputs that contain a series of inline steps for the workflow action.
-     * 
-     */
-    public Optional<Output<List<IncidentWorkflowStepInlineStepsInputArgs>>> inlineStepsInputs() {
-        return Optional.ofNullable(this.inlineStepsInputs);
-    }
-
-    /**
      * The list of standard inputs for the workflow action.
      * 
      */
     @Import(name="inputs")
-    private @Nullable Output<List<IncidentWorkflowStepInputArgs>> inputs;
+    private @Nullable Output<List<IncidentWorkflowStepInlineStepsInputStepInputArgs>> inputs;
 
     /**
      * @return The list of standard inputs for the workflow action.
      * 
      */
-    public Optional<Output<List<IncidentWorkflowStepInputArgs>>> inputs() {
+    public Optional<Output<List<IncidentWorkflowStepInlineStepsInputStepInputArgs>>> inputs() {
         return Optional.ofNullable(this.inputs);
     }
 
@@ -93,12 +62,10 @@ public final class IncidentWorkflowStepArgs extends com.pulumi.resources.Resourc
         return this.name;
     }
 
-    private IncidentWorkflowStepArgs() {}
+    private IncidentWorkflowStepInlineStepsInputStepArgs() {}
 
-    private IncidentWorkflowStepArgs(IncidentWorkflowStepArgs $) {
+    private IncidentWorkflowStepInlineStepsInputStepArgs(IncidentWorkflowStepInlineStepsInputStepArgs $) {
         this.action = $.action;
-        this.id = $.id;
-        this.inlineStepsInputs = $.inlineStepsInputs;
         this.inputs = $.inputs;
         this.name = $.name;
     }
@@ -106,19 +73,19 @@ public final class IncidentWorkflowStepArgs extends com.pulumi.resources.Resourc
     public static Builder builder() {
         return new Builder();
     }
-    public static Builder builder(IncidentWorkflowStepArgs defaults) {
+    public static Builder builder(IncidentWorkflowStepInlineStepsInputStepArgs defaults) {
         return new Builder(defaults);
     }
 
     public static final class Builder {
-        private IncidentWorkflowStepArgs $;
+        private IncidentWorkflowStepInlineStepsInputStepArgs $;
 
         public Builder() {
-            $ = new IncidentWorkflowStepArgs();
+            $ = new IncidentWorkflowStepInlineStepsInputStepArgs();
         }
 
-        public Builder(IncidentWorkflowStepArgs defaults) {
-            $ = new IncidentWorkflowStepArgs(Objects.requireNonNull(defaults));
+        public Builder(IncidentWorkflowStepInlineStepsInputStepArgs defaults) {
+            $ = new IncidentWorkflowStepInlineStepsInputStepArgs(Objects.requireNonNull(defaults));
         }
 
         /**
@@ -143,64 +110,12 @@ public final class IncidentWorkflowStepArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param id The ID of the incident workflow.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder id(@Nullable Output<String> id) {
-            $.id = id;
-            return this;
-        }
-
-        /**
-         * @param id The ID of the incident workflow.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder id(String id) {
-            return id(Output.of(id));
-        }
-
-        /**
-         * @param inlineStepsInputs The list of inputs that contain a series of inline steps for the workflow action.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder inlineStepsInputs(@Nullable Output<List<IncidentWorkflowStepInlineStepsInputArgs>> inlineStepsInputs) {
-            $.inlineStepsInputs = inlineStepsInputs;
-            return this;
-        }
-
-        /**
-         * @param inlineStepsInputs The list of inputs that contain a series of inline steps for the workflow action.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder inlineStepsInputs(List<IncidentWorkflowStepInlineStepsInputArgs> inlineStepsInputs) {
-            return inlineStepsInputs(Output.of(inlineStepsInputs));
-        }
-
-        /**
-         * @param inlineStepsInputs The list of inputs that contain a series of inline steps for the workflow action.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder inlineStepsInputs(IncidentWorkflowStepInlineStepsInputArgs... inlineStepsInputs) {
-            return inlineStepsInputs(List.of(inlineStepsInputs));
-        }
-
-        /**
          * @param inputs The list of standard inputs for the workflow action.
          * 
          * @return builder
          * 
          */
-        public Builder inputs(@Nullable Output<List<IncidentWorkflowStepInputArgs>> inputs) {
+        public Builder inputs(@Nullable Output<List<IncidentWorkflowStepInlineStepsInputStepInputArgs>> inputs) {
             $.inputs = inputs;
             return this;
         }
@@ -211,7 +126,7 @@ public final class IncidentWorkflowStepArgs extends com.pulumi.resources.Resourc
          * @return builder
          * 
          */
-        public Builder inputs(List<IncidentWorkflowStepInputArgs> inputs) {
+        public Builder inputs(List<IncidentWorkflowStepInlineStepsInputStepInputArgs> inputs) {
             return inputs(Output.of(inputs));
         }
 
@@ -221,7 +136,7 @@ public final class IncidentWorkflowStepArgs extends com.pulumi.resources.Resourc
          * @return builder
          * 
          */
-        public Builder inputs(IncidentWorkflowStepInputArgs... inputs) {
+        public Builder inputs(IncidentWorkflowStepInlineStepsInputStepInputArgs... inputs) {
             return inputs(List.of(inputs));
         }
 
@@ -246,7 +161,7 @@ public final class IncidentWorkflowStepArgs extends com.pulumi.resources.Resourc
             return name(Output.of(name));
         }
 
-        public IncidentWorkflowStepArgs build() {
+        public IncidentWorkflowStepInlineStepsInputStepArgs build() {
             $.action = Objects.requireNonNull($.action, "expected parameter 'action' to be non-null");
             $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
             return $;

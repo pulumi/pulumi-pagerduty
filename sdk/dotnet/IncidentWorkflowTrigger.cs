@@ -108,7 +108,7 @@ namespace Pulumi.Pagerduty
         public Output<bool> SubscribedToAllServices { get; private set; } = null!;
 
         /// <summary>
-        /// May be either `manual` or `conditional`.
+        /// [Updating causes resource replacement] May be either `manual` or `conditional`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -190,7 +190,7 @@ namespace Pulumi.Pagerduty
         public Input<bool> SubscribedToAllServices { get; set; } = null!;
 
         /// <summary>
-        /// May be either `manual` or `conditional`.
+        /// [Updating causes resource replacement] May be either `manual` or `conditional`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -234,7 +234,7 @@ namespace Pulumi.Pagerduty
         public Input<bool>? SubscribedToAllServices { get; set; }
 
         /// <summary>
-        /// May be either `manual` or `conditional`.
+        /// [Updating causes resource replacement] May be either `manual` or `conditional`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

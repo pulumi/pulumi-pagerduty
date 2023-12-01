@@ -24,6 +24,11 @@ public final class ServiceAlertGroupingParametersConfig {
      */
     private @Nullable List<String> fields;
     /**
+     * @return The maximum amount of time allowed between Alerts. Value must be between `300` and `3600`. Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
+     * 
+     */
+    private @Nullable Integer timeWindow;
+    /**
      * @return The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
      * 
      */
@@ -45,6 +50,13 @@ public final class ServiceAlertGroupingParametersConfig {
         return this.fields == null ? List.of() : this.fields;
     }
     /**
+     * @return The maximum amount of time allowed between Alerts. Value must be between `300` and `3600`. Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
+     * 
+     */
+    public Optional<Integer> timeWindow() {
+        return Optional.ofNullable(this.timeWindow);
+    }
+    /**
      * @return The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
      * 
      */
@@ -63,12 +75,14 @@ public final class ServiceAlertGroupingParametersConfig {
     public static final class Builder {
         private @Nullable String aggregate;
         private @Nullable List<String> fields;
+        private @Nullable Integer timeWindow;
         private @Nullable Integer timeout;
         public Builder() {}
         public Builder(ServiceAlertGroupingParametersConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.aggregate = defaults.aggregate;
     	      this.fields = defaults.fields;
+    	      this.timeWindow = defaults.timeWindow;
     	      this.timeout = defaults.timeout;
         }
 
@@ -86,6 +100,11 @@ public final class ServiceAlertGroupingParametersConfig {
             return fields(List.of(fields));
         }
         @CustomType.Setter
+        public Builder timeWindow(@Nullable Integer timeWindow) {
+            this.timeWindow = timeWindow;
+            return this;
+        }
+        @CustomType.Setter
         public Builder timeout(@Nullable Integer timeout) {
             this.timeout = timeout;
             return this;
@@ -94,6 +113,7 @@ public final class ServiceAlertGroupingParametersConfig {
             final var o = new ServiceAlertGroupingParametersConfig();
             o.aggregate = aggregate;
             o.fields = fields;
+            o.timeWindow = timeWindow;
             o.timeout = timeout;
             return o;
         }

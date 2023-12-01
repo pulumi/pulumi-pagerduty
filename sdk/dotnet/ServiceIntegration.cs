@@ -67,7 +67,6 @@ namespace Pulumi.Pagerduty
     ///     var apiv2 = new Pagerduty.ServiceIntegration("apiv2", new()
     ///     {
     ///         Type = "events_api_v2_inbound_integration",
-    ///         IntegrationKey = "12345678910testtesttesttesttes",
     ///         Service = exampleService.Id,
     ///     });
     /// 
@@ -238,7 +237,7 @@ namespace Pulumi.Pagerduty
         public Output<string> IntegrationEmail { get; private set; } = null!;
 
         /// <summary>
-        /// This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+        /// (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
         /// </summary>
         [Output("integrationKey")]
         public Output<string> IntegrationKey { get; private set; } = null!;
@@ -366,7 +365,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? IntegrationEmail { get; set; }
 
         /// <summary>
-        /// This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+        /// (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
         /// </summary>
         [Input("integrationKey")]
         public Input<string>? IntegrationKey { get; set; }
@@ -462,7 +461,7 @@ namespace Pulumi.Pagerduty
         public Input<string>? IntegrationEmail { get; set; }
 
         /// <summary>
-        /// This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+        /// (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
         /// </summary>
         [Input("integrationKey")]
         public Input<string>? IntegrationKey { get; set; }

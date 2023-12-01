@@ -11,44 +11,30 @@ namespace Pulumi.Pagerduty.Outputs
 {
 
     [OutputType]
-    public sealed class IncidentWorkflowStep
+    public sealed class IncidentWorkflowStepInlineStepsInputStep
     {
         /// <summary>
         /// The action id for the workflow step, including the version. A list of actions available can be retrieved using the [PagerDuty API](https://developer.pagerduty.com/api-reference/aa192a25fac39-list-actions).
         /// </summary>
         public readonly string Action;
         /// <summary>
-        /// The ID of the incident workflow.
-        /// </summary>
-        public readonly string? Id;
-        /// <summary>
-        /// The list of inputs that contain a series of inline steps for the workflow action.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.IncidentWorkflowStepInlineStepsInput> InlineStepsInputs;
-        /// <summary>
         /// The list of standard inputs for the workflow action.
         /// </summary>
-        public readonly ImmutableArray<Outputs.IncidentWorkflowStepInput> Inputs;
+        public readonly ImmutableArray<Outputs.IncidentWorkflowStepInlineStepsInputStepInput> Inputs;
         /// <summary>
         /// The name of the workflow step.
         /// </summary>
         public readonly string Name;
 
         [OutputConstructor]
-        private IncidentWorkflowStep(
+        private IncidentWorkflowStepInlineStepsInputStep(
             string action,
 
-            string? id,
-
-            ImmutableArray<Outputs.IncidentWorkflowStepInlineStepsInput> inlineStepsInputs,
-
-            ImmutableArray<Outputs.IncidentWorkflowStepInput> inputs,
+            ImmutableArray<Outputs.IncidentWorkflowStepInlineStepsInputStepInput> inputs,
 
             string name)
         {
             Action = action;
-            Id = id;
-            InlineStepsInputs = inlineStepsInputs;
             Inputs = inputs;
             Name = name;
         }

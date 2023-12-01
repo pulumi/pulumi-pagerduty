@@ -48,6 +48,21 @@ public final class ServiceAlertGroupingParametersConfigArgs extends com.pulumi.r
     }
 
     /**
+     * The maximum amount of time allowed between Alerts. Value must be between `300` and `3600`. Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
+     * 
+     */
+    @Import(name="timeWindow")
+    private @Nullable Output<Integer> timeWindow;
+
+    /**
+     * @return The maximum amount of time allowed between Alerts. Value must be between `300` and `3600`. Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
+     * 
+     */
+    public Optional<Output<Integer>> timeWindow() {
+        return Optional.ofNullable(this.timeWindow);
+    }
+
+    /**
      * The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
      * 
      */
@@ -67,6 +82,7 @@ public final class ServiceAlertGroupingParametersConfigArgs extends com.pulumi.r
     private ServiceAlertGroupingParametersConfigArgs(ServiceAlertGroupingParametersConfigArgs $) {
         this.aggregate = $.aggregate;
         this.fields = $.fields;
+        this.timeWindow = $.timeWindow;
         this.timeout = $.timeout;
     }
 
@@ -138,6 +154,27 @@ public final class ServiceAlertGroupingParametersConfigArgs extends com.pulumi.r
          */
         public Builder fields(String... fields) {
             return fields(List.of(fields));
+        }
+
+        /**
+         * @param timeWindow The maximum amount of time allowed between Alerts. Value must be between `300` and `3600`. Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder timeWindow(@Nullable Output<Integer> timeWindow) {
+            $.timeWindow = timeWindow;
+            return this;
+        }
+
+        /**
+         * @param timeWindow The maximum amount of time allowed between Alerts. Value must be between `300` and `3600`. Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder timeWindow(Integer timeWindow) {
+            return timeWindow(Output.of(timeWindow));
         }
 
         /**

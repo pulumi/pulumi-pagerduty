@@ -67,6 +67,9 @@ __all__ = [
     'EventOrchestrationUnroutedSetRuleActionsVariable',
     'EventOrchestrationUnroutedSetRuleCondition',
     'IncidentWorkflowStep',
+    'IncidentWorkflowStepInlineStepsInput',
+    'IncidentWorkflowStepInlineStepsInputStep',
+    'IncidentWorkflowStepInlineStepsInputStepInput',
     'IncidentWorkflowStepInput',
     'ResponsePlayResponder',
     'ResponsePlayResponderEscalationRule',
@@ -3084,21 +3087,42 @@ class EventOrchestrationUnroutedSetRuleCondition(dict):
 
 @pulumi.output_type
 class IncidentWorkflowStep(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inlineStepsInputs":
+            suggest = "inline_steps_inputs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IncidentWorkflowStep. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IncidentWorkflowStep.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IncidentWorkflowStep.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action: str,
                  name: str,
                  id: Optional[str] = None,
+                 inline_steps_inputs: Optional[Sequence['outputs.IncidentWorkflowStepInlineStepsInput']] = None,
                  inputs: Optional[Sequence['outputs.IncidentWorkflowStepInput']] = None):
         """
         :param str action: The action id for the workflow step, including the version. A list of actions available can be retrieved using the [PagerDuty API](https://developer.pagerduty.com/api-reference/aa192a25fac39-list-actions).
         :param str name: The name of the workflow step.
         :param str id: The ID of the incident workflow.
-        :param Sequence['IncidentWorkflowStepInputArgs'] inputs: The list of inputs for the workflow action.
+        :param Sequence['IncidentWorkflowStepInlineStepsInputArgs'] inline_steps_inputs: The list of inputs that contain a series of inline steps for the workflow action.
+        :param Sequence['IncidentWorkflowStepInputArgs'] inputs: The list of standard inputs for the workflow action.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "name", name)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if inline_steps_inputs is not None:
+            pulumi.set(__self__, "inline_steps_inputs", inline_steps_inputs)
         if inputs is not None:
             pulumi.set(__self__, "inputs", inputs)
 
@@ -3127,12 +3151,128 @@ class IncidentWorkflowStep(dict):
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="inlineStepsInputs")
+    def inline_steps_inputs(self) -> Optional[Sequence['outputs.IncidentWorkflowStepInlineStepsInput']]:
+        """
+        The list of inputs that contain a series of inline steps for the workflow action.
+        """
+        return pulumi.get(self, "inline_steps_inputs")
+
+    @property
     @pulumi.getter
     def inputs(self) -> Optional[Sequence['outputs.IncidentWorkflowStepInput']]:
         """
-        The list of inputs for the workflow action.
+        The list of standard inputs for the workflow action.
         """
         return pulumi.get(self, "inputs")
+
+
+@pulumi.output_type
+class IncidentWorkflowStepInlineStepsInput(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 steps: Optional[Sequence['outputs.IncidentWorkflowStepInlineStepsInputStep']] = None):
+        """
+        :param str name: The name of the input.
+        :param Sequence['IncidentWorkflowStepInlineStepsInputStepArgs'] steps: The inline steps of the input. An inline step adheres to the step schema described above.
+        """
+        pulumi.set(__self__, "name", name)
+        if steps is not None:
+            pulumi.set(__self__, "steps", steps)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the input.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def steps(self) -> Optional[Sequence['outputs.IncidentWorkflowStepInlineStepsInputStep']]:
+        """
+        The inline steps of the input. An inline step adheres to the step schema described above.
+        """
+        return pulumi.get(self, "steps")
+
+
+@pulumi.output_type
+class IncidentWorkflowStepInlineStepsInputStep(dict):
+    def __init__(__self__, *,
+                 action: str,
+                 name: str,
+                 inputs: Optional[Sequence['outputs.IncidentWorkflowStepInlineStepsInputStepInput']] = None):
+        """
+        :param str action: The action id for the workflow step, including the version. A list of actions available can be retrieved using the [PagerDuty API](https://developer.pagerduty.com/api-reference/aa192a25fac39-list-actions).
+        :param str name: The name of the workflow step.
+        :param Sequence['IncidentWorkflowStepInlineStepsInputStepInputArgs'] inputs: The list of standard inputs for the workflow action.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "name", name)
+        if inputs is not None:
+            pulumi.set(__self__, "inputs", inputs)
+
+    @property
+    @pulumi.getter
+    def action(self) -> str:
+        """
+        The action id for the workflow step, including the version. A list of actions available can be retrieved using the [PagerDuty API](https://developer.pagerduty.com/api-reference/aa192a25fac39-list-actions).
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the workflow step.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def inputs(self) -> Optional[Sequence['outputs.IncidentWorkflowStepInlineStepsInputStepInput']]:
+        """
+        The list of standard inputs for the workflow action.
+        """
+        return pulumi.get(self, "inputs")
+
+
+@pulumi.output_type
+class IncidentWorkflowStepInlineStepsInputStepInput(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str,
+                 generated: Optional[bool] = None):
+        """
+        :param str name: The name of the input.
+        :param str value: The value of the input.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+        if generated is not None:
+            pulumi.set(__self__, "generated", generated)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the input.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of the input.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def generated(self) -> Optional[bool]:
+        return pulumi.get(self, "generated")
 
 
 @pulumi.output_type
@@ -4472,19 +4612,40 @@ class ServiceAlertGroupingParameters(dict):
 
 @pulumi.output_type
 class ServiceAlertGroupingParametersConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeWindow":
+            suggest = "time_window"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceAlertGroupingParametersConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceAlertGroupingParametersConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceAlertGroupingParametersConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  aggregate: Optional[str] = None,
                  fields: Optional[Sequence[str]] = None,
+                 time_window: Optional[int] = None,
                  timeout: Optional[int] = None):
         """
         :param str aggregate: One of `any` or `all`. This setting applies only when `type` is set to `content_based`. Group alerts based on one or all of `fields` value(s).
         :param Sequence[str] fields: Alerts will be grouped together if the content of these fields match. This setting applies only when `type` is set to `content_based`.
+        :param int time_window: The maximum amount of time allowed between Alerts. Value must be between `300` and `3600`. Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
         :param int timeout: The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
         """
         if aggregate is not None:
             pulumi.set(__self__, "aggregate", aggregate)
         if fields is not None:
             pulumi.set(__self__, "fields", fields)
+        if time_window is not None:
+            pulumi.set(__self__, "time_window", time_window)
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
 
@@ -4503,6 +4664,14 @@ class ServiceAlertGroupingParametersConfig(dict):
         Alerts will be grouped together if the content of these fields match. This setting applies only when `type` is set to `content_based`.
         """
         return pulumi.get(self, "fields")
+
+    @property
+    @pulumi.getter(name="timeWindow")
+    def time_window(self) -> Optional[int]:
+        """
+        The maximum amount of time allowed between Alerts. Value must be between `300` and `3600`. Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
+        """
+        return pulumi.get(self, "time_window")
 
     @property
     @pulumi.getter

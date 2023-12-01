@@ -63,14 +63,14 @@ public final class IncidentWorkflowTriggerState extends com.pulumi.resources.Res
     }
 
     /**
-     * May be either `manual` or `conditional`.
+     * [Updating causes resource replacement] May be either `manual` or `conditional`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return May be either `manual` or `conditional`.
+     * @return [Updating causes resource replacement] May be either `manual` or `conditional`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -194,7 +194,7 @@ public final class IncidentWorkflowTriggerState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param type May be either `manual` or `conditional`.
+         * @param type [Updating causes resource replacement] May be either `manual` or `conditional`.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class IncidentWorkflowTriggerState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param type May be either `manual` or `conditional`.
+         * @param type [Updating causes resource replacement] May be either `manual` or `conditional`.
          * 
          * @return builder
          * 

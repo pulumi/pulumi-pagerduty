@@ -139,14 +139,14 @@ public class IncidentWorkflowTrigger extends com.pulumi.resources.CustomResource
         return this.subscribedToAllServices;
     }
     /**
-     * May be either `manual` or `conditional`.
+     * [Updating causes resource replacement] May be either `manual` or `conditional`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return May be either `manual` or `conditional`.
+     * @return [Updating causes resource replacement] May be either `manual` or `conditional`.
      * 
      */
     public Output<String> type() {

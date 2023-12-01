@@ -83,7 +83,6 @@ import javax.annotation.Nullable;
  * 
  *         var apiv2 = new ServiceIntegration(&#34;apiv2&#34;, ServiceIntegrationArgs.builder()        
  *             .type(&#34;events_api_v2_inbound_integration&#34;)
- *             .integrationKey(&#34;12345678910testtesttesttesttes&#34;)
  *             .service(exampleService.id())
  *             .build());
  * 
@@ -273,14 +272,18 @@ public class ServiceIntegration extends com.pulumi.resources.CustomResource {
         return this.integrationEmail;
     }
     /**
-     * This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+     * (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+     * 
+     * @deprecated
+     * Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release
      * 
      */
+    @Deprecated /* Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release */
     @Export(name="integrationKey", refs={String.class}, tree="[0]")
     private Output<String> integrationKey;
 
     /**
-     * @return This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+     * @return (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
      * 
      */
     public Output<String> integrationKey() {

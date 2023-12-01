@@ -22,6 +22,10 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Fields;
         /// <summary>
+        /// The maximum amount of time allowed between Alerts. Value must be between `300` and `3600`. Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
+        /// </summary>
+        public readonly int? TimeWindow;
+        /// <summary>
         /// The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
         /// </summary>
         public readonly int? Timeout;
@@ -32,10 +36,13 @@ namespace Pulumi.Pagerduty.Outputs
 
             ImmutableArray<string> fields,
 
+            int? timeWindow,
+
             int? timeout)
         {
             Aggregate = aggregate;
             Fields = fields;
+            TimeWindow = timeWindow;
             Timeout = timeout;
         }
     }

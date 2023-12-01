@@ -34,7 +34,7 @@ class ServiceIntegrationArgs:
         :param pulumi.Input[str] email_incident_creation: Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `on_new_email`, `on_new_email_subject`, `only_if_no_open_incidents` or `use_rules`.
         :param pulumi.Input[str] email_parsing_fallback: Can be `open_new_incident` or `discard`.
         :param pulumi.Input[str] integration_email: This is the unique fully-qualified email address used for routing emails to this integration for processing.
-        :param pulumi.Input[str] integration_key: This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+        :param pulumi.Input[str] integration_key: (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
         :param pulumi.Input[str] name: The name of the service integration.
         :param pulumi.Input[str] type: The service type. Can be:
                `aws_cloudwatch_inbound_integration`,
@@ -64,6 +64,9 @@ class ServiceIntegrationArgs:
             pulumi.set(__self__, "email_parsing_fallback", email_parsing_fallback)
         if integration_email is not None:
             pulumi.set(__self__, "integration_email", integration_email)
+        if integration_key is not None:
+            warnings.warn("""Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release""", DeprecationWarning)
+            pulumi.log.warn("""integration_key is deprecated: Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release""")
         if integration_key is not None:
             pulumi.set(__self__, "integration_key", integration_key)
         if name is not None:
@@ -155,8 +158,11 @@ class ServiceIntegrationArgs:
     @pulumi.getter(name="integrationKey")
     def integration_key(self) -> Optional[pulumi.Input[str]]:
         """
-        This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+        (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
         """
+        warnings.warn("""Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release""", DeprecationWarning)
+        pulumi.log.warn("""integration_key is deprecated: Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release""")
+
         return pulumi.get(self, "integration_key")
 
     @integration_key.setter
@@ -234,7 +240,7 @@ class _ServiceIntegrationState:
         :param pulumi.Input[str] email_parsing_fallback: Can be `open_new_incident` or `discard`.
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app.
         :param pulumi.Input[str] integration_email: This is the unique fully-qualified email address used for routing emails to this integration for processing.
-        :param pulumi.Input[str] integration_key: This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+        :param pulumi.Input[str] integration_key: (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
         :param pulumi.Input[str] name: The name of the service integration.
         :param pulumi.Input[str] service: The ID of the service the integration should belong to.
         :param pulumi.Input[str] type: The service type. Can be:
@@ -266,6 +272,9 @@ class _ServiceIntegrationState:
             pulumi.set(__self__, "html_url", html_url)
         if integration_email is not None:
             pulumi.set(__self__, "integration_email", integration_email)
+        if integration_key is not None:
+            warnings.warn("""Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release""", DeprecationWarning)
+            pulumi.log.warn("""integration_key is deprecated: Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release""")
         if integration_key is not None:
             pulumi.set(__self__, "integration_key", integration_key)
         if name is not None:
@@ -359,8 +368,11 @@ class _ServiceIntegrationState:
     @pulumi.getter(name="integrationKey")
     def integration_key(self) -> Optional[pulumi.Input[str]]:
         """
-        This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+        (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
         """
+        warnings.warn("""Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release""", DeprecationWarning)
+        pulumi.log.warn("""integration_key is deprecated: Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release""")
+
         return pulumi.get(self, "integration_key")
 
     @integration_key.setter
@@ -475,7 +487,6 @@ class ServiceIntegration(pulumi.CustomResource):
             service=example_service.id)
         apiv2 = pagerduty.ServiceIntegration("apiv2",
             type="events_api_v2_inbound_integration",
-            integration_key="12345678910testtesttesttesttes",
             service=example_service.id)
         email_x = pagerduty.ServiceIntegration("emailX",
             type="generic_email_inbound_integration",
@@ -567,7 +578,7 @@ class ServiceIntegration(pulumi.CustomResource):
         :param pulumi.Input[str] email_incident_creation: Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `on_new_email`, `on_new_email_subject`, `only_if_no_open_incidents` or `use_rules`.
         :param pulumi.Input[str] email_parsing_fallback: Can be `open_new_incident` or `discard`.
         :param pulumi.Input[str] integration_email: This is the unique fully-qualified email address used for routing emails to this integration for processing.
-        :param pulumi.Input[str] integration_key: This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+        :param pulumi.Input[str] integration_key: (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
         :param pulumi.Input[str] name: The name of the service integration.
         :param pulumi.Input[str] service: The ID of the service the integration should belong to.
         :param pulumi.Input[str] type: The service type. Can be:
@@ -621,7 +632,6 @@ class ServiceIntegration(pulumi.CustomResource):
             service=example_service.id)
         apiv2 = pagerduty.ServiceIntegration("apiv2",
             type="events_api_v2_inbound_integration",
-            integration_key="12345678910testtesttesttesttes",
             service=example_service.id)
         email_x = pagerduty.ServiceIntegration("emailX",
             type="generic_email_inbound_integration",
@@ -790,7 +800,7 @@ class ServiceIntegration(pulumi.CustomResource):
         :param pulumi.Input[str] email_parsing_fallback: Can be `open_new_incident` or `discard`.
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app.
         :param pulumi.Input[str] integration_email: This is the unique fully-qualified email address used for routing emails to this integration for processing.
-        :param pulumi.Input[str] integration_key: This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+        :param pulumi.Input[str] integration_key: (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
         :param pulumi.Input[str] name: The name of the service integration.
         :param pulumi.Input[str] service: The ID of the service the integration should belong to.
         :param pulumi.Input[str] type: The service type. Can be:
@@ -880,8 +890,11 @@ class ServiceIntegration(pulumi.CustomResource):
     @pulumi.getter(name="integrationKey")
     def integration_key(self) -> pulumi.Output[str]:
         """
-        This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+        (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
         """
+        warnings.warn("""Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release""", DeprecationWarning)
+        pulumi.log.warn("""integration_key is deprecated: Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release""")
+
         return pulumi.get(self, "integration_key")
 
     @property

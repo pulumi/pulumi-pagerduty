@@ -40,7 +40,6 @@ import * as utilities from "./utilities";
  * });
  * const apiv2 = new pagerduty.ServiceIntegration("apiv2", {
  *     type: "events_api_v2_inbound_integration",
- *     integrationKey: "12345678910testtesttesttesttes",
  *     service: exampleService.id,
  * });
  * const emailX = new pagerduty.ServiceIntegration("emailX", {
@@ -188,7 +187,9 @@ export class ServiceIntegration extends pulumi.CustomResource {
      */
     public readonly integrationEmail!: pulumi.Output<string>;
     /**
-     * This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+     * (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+     *
+     * @deprecated Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release
      */
     public readonly integrationKey!: pulumi.Output<string>;
     /**
@@ -295,7 +296,9 @@ export interface ServiceIntegrationState {
      */
     integrationEmail?: pulumi.Input<string>;
     /**
-     * This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+     * (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+     *
+     * @deprecated Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release
      */
     integrationKey?: pulumi.Input<string>;
     /**
@@ -351,7 +354,9 @@ export interface ServiceIntegrationArgs {
      */
     integrationEmail?: pulumi.Input<string>;
     /**
-     * This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+     * (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+     *
+     * @deprecated Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release
      */
     integrationKey?: pulumi.Input<string>;
     /**

@@ -22,7 +22,7 @@ class IncidentWorkflowTriggerArgs:
         """
         The set of arguments for constructing a IncidentWorkflowTrigger resource.
         :param pulumi.Input[bool] subscribed_to_all_services: Set to `true` if the trigger should be eligible for firing on all services. Only allowed to be `true` if the services list is not defined or empty.
-        :param pulumi.Input[str] type: May be either `manual` or `conditional`.
+        :param pulumi.Input[str] type: [Updating causes resource replacement] May be either `manual` or `conditional`.
         :param pulumi.Input[str] workflow: The workflow ID for the workflow to trigger.
         :param pulumi.Input[str] condition: A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] services: A list of service IDs. Incidents in any of the listed services are eligible to fire this trigger.
@@ -51,7 +51,7 @@ class IncidentWorkflowTriggerArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        May be either `manual` or `conditional`.
+        [Updating causes resource replacement] May be either `manual` or `conditional`.
         """
         return pulumi.get(self, "type")
 
@@ -109,7 +109,7 @@ class _IncidentWorkflowTriggerState:
         :param pulumi.Input[str] condition: A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] services: A list of service IDs. Incidents in any of the listed services are eligible to fire this trigger.
         :param pulumi.Input[bool] subscribed_to_all_services: Set to `true` if the trigger should be eligible for firing on all services. Only allowed to be `true` if the services list is not defined or empty.
-        :param pulumi.Input[str] type: May be either `manual` or `conditional`.
+        :param pulumi.Input[str] type: [Updating causes resource replacement] May be either `manual` or `conditional`.
         :param pulumi.Input[str] workflow: The workflow ID for the workflow to trigger.
         """
         if condition is not None:
@@ -163,7 +163,7 @@ class _IncidentWorkflowTriggerState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        May be either `manual` or `conditional`.
+        [Updating causes resource replacement] May be either `manual` or `conditional`.
         """
         return pulumi.get(self, "type")
 
@@ -241,7 +241,7 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
         :param pulumi.Input[str] condition: A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] services: A list of service IDs. Incidents in any of the listed services are eligible to fire this trigger.
         :param pulumi.Input[bool] subscribed_to_all_services: Set to `true` if the trigger should be eligible for firing on all services. Only allowed to be `true` if the services list is not defined or empty.
-        :param pulumi.Input[str] type: May be either `manual` or `conditional`.
+        :param pulumi.Input[str] type: [Updating causes resource replacement] May be either `manual` or `conditional`.
         :param pulumi.Input[str] workflow: The workflow ID for the workflow to trigger.
         """
         ...
@@ -356,7 +356,7 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
         :param pulumi.Input[str] condition: A [PCL](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) condition string which must be satisfied for the trigger to fire.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] services: A list of service IDs. Incidents in any of the listed services are eligible to fire this trigger.
         :param pulumi.Input[bool] subscribed_to_all_services: Set to `true` if the trigger should be eligible for firing on all services. Only allowed to be `true` if the services list is not defined or empty.
-        :param pulumi.Input[str] type: May be either `manual` or `conditional`.
+        :param pulumi.Input[str] type: [Updating causes resource replacement] May be either `manual` or `conditional`.
         :param pulumi.Input[str] workflow: The workflow ID for the workflow to trigger.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -398,7 +398,7 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        May be either `manual` or `conditional`.
+        [Updating causes resource replacement] May be either `manual` or `conditional`.
         """
         return pulumi.get(self, "type")
 

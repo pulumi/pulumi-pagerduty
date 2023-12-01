@@ -93,7 +93,7 @@ export class IncidentWorkflowTrigger extends pulumi.CustomResource {
      */
     public readonly subscribedToAllServices!: pulumi.Output<boolean>;
     /**
-     * May be either `manual` or `conditional`.
+     * [Updating causes resource replacement] May be either `manual` or `conditional`.
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -158,7 +158,7 @@ export interface IncidentWorkflowTriggerState {
      */
     subscribedToAllServices?: pulumi.Input<boolean>;
     /**
-     * May be either `manual` or `conditional`.
+     * [Updating causes resource replacement] May be either `manual` or `conditional`.
      */
     type?: pulumi.Input<string>;
     /**
@@ -184,7 +184,7 @@ export interface IncidentWorkflowTriggerArgs {
      */
     subscribedToAllServices: pulumi.Input<boolean>;
     /**
-     * May be either `manual` or `conditional`.
+     * [Updating causes resource replacement] May be either `manual` or `conditional`.
      */
     type: pulumi.Input<string>;
     /**

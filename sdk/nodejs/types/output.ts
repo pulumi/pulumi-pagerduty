@@ -1093,13 +1093,55 @@ export interface IncidentWorkflowStep {
      */
     id: string;
     /**
-     * The list of inputs for the workflow action.
+     * The list of inputs that contain a series of inline steps for the workflow action.
+     */
+    inlineStepsInputs?: outputs.IncidentWorkflowStepInlineStepsInput[];
+    /**
+     * The list of standard inputs for the workflow action.
      */
     inputs: outputs.IncidentWorkflowStepInput[];
     /**
      * The name of the workflow step.
      */
     name: string;
+}
+
+export interface IncidentWorkflowStepInlineStepsInput {
+    /**
+     * The name of the input.
+     */
+    name: string;
+    /**
+     * The inline steps of the input. An inline step adheres to the step schema described above.
+     */
+    steps: outputs.IncidentWorkflowStepInlineStepsInputStep[];
+}
+
+export interface IncidentWorkflowStepInlineStepsInputStep {
+    /**
+     * The action id for the workflow step, including the version. A list of actions available can be retrieved using the [PagerDuty API](https://developer.pagerduty.com/api-reference/aa192a25fac39-list-actions).
+     */
+    action: string;
+    /**
+     * The list of standard inputs for the workflow action.
+     */
+    inputs: outputs.IncidentWorkflowStepInlineStepsInputStepInput[];
+    /**
+     * The name of the workflow step.
+     */
+    name: string;
+}
+
+export interface IncidentWorkflowStepInlineStepsInputStepInput {
+    generated: boolean;
+    /**
+     * The name of the input.
+     */
+    name: string;
+    /**
+     * The value of the input.
+     */
+    value: string;
 }
 
 export interface IncidentWorkflowStepInput {
@@ -1503,6 +1545,10 @@ export interface ServiceAlertGroupingParametersConfig {
      * Alerts will be grouped together if the content of these fields match. This setting applies only when `type` is set to `contentBased`.
      */
     fields?: string[];
+    /**
+     * The maximum amount of time allowed between Alerts. Value must be between `300` and `3600`. Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
+     */
+    timeWindow: number;
     /**
      * The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
      */

@@ -24,11 +24,23 @@ namespace Pulumi.Pagerduty.Inputs
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        [Input("inlineStepsInputs")]
+        private InputList<Inputs.IncidentWorkflowStepInlineStepsInputArgs>? _inlineStepsInputs;
+
+        /// <summary>
+        /// The list of inputs that contain a series of inline steps for the workflow action.
+        /// </summary>
+        public InputList<Inputs.IncidentWorkflowStepInlineStepsInputArgs> InlineStepsInputs
+        {
+            get => _inlineStepsInputs ?? (_inlineStepsInputs = new InputList<Inputs.IncidentWorkflowStepInlineStepsInputArgs>());
+            set => _inlineStepsInputs = value;
+        }
+
         [Input("inputs")]
         private InputList<Inputs.IncidentWorkflowStepInputArgs>? _inputs;
 
         /// <summary>
-        /// The list of inputs for the workflow action.
+        /// The list of standard inputs for the workflow action.
         /// </summary>
         public InputList<Inputs.IncidentWorkflowStepInputArgs> Inputs
         {

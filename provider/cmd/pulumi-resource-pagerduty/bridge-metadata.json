@@ -376,6 +376,23 @@
                         "maxItemsOne": false,
                         "elem": {
                             "fields": {
+                                "inline_steps_input": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "step": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "input": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
                                 "input": {
                                     "maxItemsOne": false
                                 }
@@ -1147,6 +1164,13 @@
                 "variables": "variable"
             },
             "pagerduty:index/IncidentWorkflowStep:IncidentWorkflowStep": {
+                "inlineStepsInputs": "inline_steps_input",
+                "inputs": "input"
+            },
+            "pagerduty:index/IncidentWorkflowStepInlineStepsInput:IncidentWorkflowStepInlineStepsInput": {
+                "steps": "step"
+            },
+            "pagerduty:index/IncidentWorkflowStepInlineStepsInputStep:IncidentWorkflowStepInlineStepsInputStep": {
                 "inputs": "input"
             },
             "pagerduty:index/ProviderUseAppOauthScopedToken:ProviderUseAppOauthScopedToken": {
@@ -1206,6 +1230,9 @@
                 "durationSeconds": "duration_seconds",
                 "startDayOfWeek": "start_day_of_week",
                 "startTimeOfDay": "start_time_of_day"
+            },
+            "pagerduty:index/ServiceAlertGroupingParametersConfig:ServiceAlertGroupingParametersConfig": {
+                "timeWindow": "time_window"
             },
             "pagerduty:index/ServiceDependencyDependency:ServiceDependencyDependency": {
                 "dependentServices": "dependent_service",

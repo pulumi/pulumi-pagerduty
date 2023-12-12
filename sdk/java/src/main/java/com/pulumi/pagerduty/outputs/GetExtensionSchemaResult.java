@@ -84,11 +84,11 @@ public final class GetExtensionSchemaResult {
             return this;
         }
         public GetExtensionSchemaResult build() {
-            final var o = new GetExtensionSchemaResult();
-            o.id = id;
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetExtensionSchemaResult();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

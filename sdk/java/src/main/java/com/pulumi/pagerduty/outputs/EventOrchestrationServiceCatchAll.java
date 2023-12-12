@@ -46,9 +46,9 @@ public final class EventOrchestrationServiceCatchAll {
             return this;
         }
         public EventOrchestrationServiceCatchAll build() {
-            final var o = new EventOrchestrationServiceCatchAll();
-            o.actions = actions;
-            return o;
+            final var _resultValue = new EventOrchestrationServiceCatchAll();
+            _resultValue.actions = actions;
+            return _resultValue;
         }
     }
 }

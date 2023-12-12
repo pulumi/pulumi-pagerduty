@@ -48,9 +48,9 @@ public final class ServiceEventRuleActionsSuspend {
             return this;
         }
         public ServiceEventRuleActionsSuspend build() {
-            final var o = new ServiceEventRuleActionsSuspend();
-            o.value = value;
-            return o;
+            final var _resultValue = new ServiceEventRuleActionsSuspend();
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

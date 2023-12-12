@@ -63,10 +63,10 @@ public final class EventOrchestrationUnroutedSet {
             return rules(List.of(rules));
         }
         public EventOrchestrationUnroutedSet build() {
-            final var o = new EventOrchestrationUnroutedSet();
-            o.id = id;
-            o.rules = rules;
-            return o;
+            final var _resultValue = new EventOrchestrationUnroutedSet();
+            _resultValue.id = id;
+            _resultValue.rules = rules;
+            return _resultValue;
         }
     }
 }

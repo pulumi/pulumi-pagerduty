@@ -104,12 +104,12 @@ public final class EscalationPolicyRule {
             return targets(List.of(targets));
         }
         public EscalationPolicyRule build() {
-            final var o = new EscalationPolicyRule();
-            o.escalationDelayInMinutes = escalationDelayInMinutes;
-            o.escalationRuleAssignmentStrategy = escalationRuleAssignmentStrategy;
-            o.id = id;
-            o.targets = targets;
-            return o;
+            final var _resultValue = new EscalationPolicyRule();
+            _resultValue.escalationDelayInMinutes = escalationDelayInMinutes;
+            _resultValue.escalationRuleAssignmentStrategy = escalationRuleAssignmentStrategy;
+            _resultValue.id = id;
+            _resultValue.targets = targets;
+            return _resultValue;
         }
     }
 }

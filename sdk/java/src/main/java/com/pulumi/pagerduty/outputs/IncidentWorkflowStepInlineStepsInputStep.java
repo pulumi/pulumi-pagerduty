@@ -90,11 +90,11 @@ public final class IncidentWorkflowStepInlineStepsInputStep {
             return this;
         }
         public IncidentWorkflowStepInlineStepsInputStep build() {
-            final var o = new IncidentWorkflowStepInlineStepsInputStep();
-            o.action = action;
-            o.inputs = inputs;
-            o.name = name;
-            return o;
+            final var _resultValue = new IncidentWorkflowStepInlineStepsInputStep();
+            _resultValue.action = action;
+            _resultValue.inputs = inputs;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

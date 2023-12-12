@@ -49,10 +49,10 @@ public final class WebhookSubscriptionDeliveryMethodCustomHeader {
             return this;
         }
         public WebhookSubscriptionDeliveryMethodCustomHeader build() {
-            final var o = new WebhookSubscriptionDeliveryMethodCustomHeader();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new WebhookSubscriptionDeliveryMethodCustomHeader();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

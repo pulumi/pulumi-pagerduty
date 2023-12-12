@@ -131,13 +131,13 @@ public final class EventOrchestrationRouterSetRule {
             return this;
         }
         public EventOrchestrationRouterSetRule build() {
-            final var o = new EventOrchestrationRouterSetRule();
-            o.actions = actions;
-            o.conditions = conditions;
-            o.disabled = disabled;
-            o.id = id;
-            o.label = label;
-            return o;
+            final var _resultValue = new EventOrchestrationRouterSetRule();
+            _resultValue.actions = actions;
+            _resultValue.conditions = conditions;
+            _resultValue.disabled = disabled;
+            _resultValue.id = id;
+            _resultValue.label = label;
+            return _resultValue;
         }
     }
 }

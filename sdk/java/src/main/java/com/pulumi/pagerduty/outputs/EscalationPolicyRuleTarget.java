@@ -67,10 +67,10 @@ public final class EscalationPolicyRuleTarget {
             return this;
         }
         public EscalationPolicyRuleTarget build() {
-            final var o = new EscalationPolicyRuleTarget();
-            o.id = id;
-            o.type = type;
-            return o;
+            final var _resultValue = new EscalationPolicyRuleTarget();
+            _resultValue.id = id;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

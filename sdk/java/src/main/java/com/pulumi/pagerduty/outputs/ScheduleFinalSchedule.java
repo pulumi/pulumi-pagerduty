@@ -59,10 +59,10 @@ public final class ScheduleFinalSchedule {
             return this;
         }
         public ScheduleFinalSchedule build() {
-            final var o = new ScheduleFinalSchedule();
-            o.name = name;
-            o.renderedCoveragePercentage = renderedCoveragePercentage;
-            return o;
+            final var _resultValue = new ScheduleFinalSchedule();
+            _resultValue.name = name;
+            _resultValue.renderedCoveragePercentage = renderedCoveragePercentage;
+            return _resultValue;
         }
     }
 }

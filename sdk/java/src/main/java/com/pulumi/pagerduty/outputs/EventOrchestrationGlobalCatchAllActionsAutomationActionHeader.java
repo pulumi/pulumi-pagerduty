@@ -65,10 +65,10 @@ public final class EventOrchestrationGlobalCatchAllActionsAutomationActionHeader
             return this;
         }
         public EventOrchestrationGlobalCatchAllActionsAutomationActionHeader build() {
-            final var o = new EventOrchestrationGlobalCatchAllActionsAutomationActionHeader();
-            o.key = key;
-            o.value = value;
-            return o;
+            final var _resultValue = new EventOrchestrationGlobalCatchAllActionsAutomationActionHeader();
+            _resultValue.key = key;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

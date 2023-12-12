@@ -91,11 +91,11 @@ public final class ServiceEventRuleVariable {
             return this;
         }
         public ServiceEventRuleVariable build() {
-            final var o = new ServiceEventRuleVariable();
-            o.name = name;
-            o.parameters = parameters;
-            o.type = type;
-            return o;
+            final var _resultValue = new ServiceEventRuleVariable();
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

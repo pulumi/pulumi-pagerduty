@@ -131,13 +131,13 @@ public final class EventOrchestrationGlobalSetRule {
             return this;
         }
         public EventOrchestrationGlobalSetRule build() {
-            final var o = new EventOrchestrationGlobalSetRule();
-            o.actions = actions;
-            o.conditions = conditions;
-            o.disabled = disabled;
-            o.id = id;
-            o.label = label;
-            return o;
+            final var _resultValue = new EventOrchestrationGlobalSetRule();
+            _resultValue.actions = actions;
+            _resultValue.conditions = conditions;
+            _resultValue.disabled = disabled;
+            _resultValue.id = id;
+            _resultValue.label = label;
+            return _resultValue;
         }
     }
 }

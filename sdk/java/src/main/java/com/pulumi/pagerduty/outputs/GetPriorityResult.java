@@ -84,11 +84,11 @@ public final class GetPriorityResult {
             return this;
         }
         public GetPriorityResult build() {
-            final var o = new GetPriorityResult();
-            o.description = description;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetPriorityResult();
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

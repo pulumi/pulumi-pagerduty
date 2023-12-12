@@ -63,10 +63,10 @@ public final class EventOrchestrationGlobalSet {
             return rules(List.of(rules));
         }
         public EventOrchestrationGlobalSet build() {
-            final var o = new EventOrchestrationGlobalSet();
-            o.id = id;
-            o.rules = rules;
-            return o;
+            final var _resultValue = new EventOrchestrationGlobalSet();
+            _resultValue.id = id;
+            _resultValue.rules = rules;
+            return _resultValue;
         }
     }
 }

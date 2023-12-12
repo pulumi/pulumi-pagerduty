@@ -67,10 +67,10 @@ public final class ServiceEventRuleTimeFrameActiveBetween {
             return this;
         }
         public ServiceEventRuleTimeFrameActiveBetween build() {
-            final var o = new ServiceEventRuleTimeFrameActiveBetween();
-            o.endTime = endTime;
-            o.startTime = startTime;
-            return o;
+            final var _resultValue = new ServiceEventRuleTimeFrameActiveBetween();
+            _resultValue.endTime = endTime;
+            _resultValue.startTime = startTime;
+            return _resultValue;
         }
     }
 }

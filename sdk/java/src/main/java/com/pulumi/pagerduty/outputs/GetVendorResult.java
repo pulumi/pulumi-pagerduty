@@ -84,11 +84,11 @@ public final class GetVendorResult {
             return this;
         }
         public GetVendorResult build() {
-            final var o = new GetVendorResult();
-            o.id = id;
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetVendorResult();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

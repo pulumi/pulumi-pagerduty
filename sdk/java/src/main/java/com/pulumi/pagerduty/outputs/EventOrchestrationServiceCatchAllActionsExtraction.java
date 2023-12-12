@@ -109,12 +109,12 @@ public final class EventOrchestrationServiceCatchAllActionsExtraction {
             return this;
         }
         public EventOrchestrationServiceCatchAllActionsExtraction build() {
-            final var o = new EventOrchestrationServiceCatchAllActionsExtraction();
-            o.regex = regex;
-            o.source = source;
-            o.target = target;
-            o.template = template;
-            return o;
+            final var _resultValue = new EventOrchestrationServiceCatchAllActionsExtraction();
+            _resultValue.regex = regex;
+            _resultValue.source = source;
+            _resultValue.target = target;
+            _resultValue.template = template;
+            return _resultValue;
         }
     }
 }

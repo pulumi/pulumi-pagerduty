@@ -241,19 +241,19 @@ public final class GetAutomationActionsActionResult {
             return this;
         }
         public GetAutomationActionsActionResult build() {
-            final var o = new GetAutomationActionsActionResult();
-            o.actionClassification = actionClassification;
-            o.actionDataReferences = actionDataReferences;
-            o.actionType = actionType;
-            o.creationTime = creationTime;
-            o.description = description;
-            o.id = id;
-            o.modifyTime = modifyTime;
-            o.name = name;
-            o.runnerId = runnerId;
-            o.runnerType = runnerType;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetAutomationActionsActionResult();
+            _resultValue.actionClassification = actionClassification;
+            _resultValue.actionDataReferences = actionDataReferences;
+            _resultValue.actionType = actionType;
+            _resultValue.creationTime = creationTime;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.modifyTime = modifyTime;
+            _resultValue.name = name;
+            _resultValue.runnerId = runnerId;
+            _resultValue.runnerType = runnerType;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

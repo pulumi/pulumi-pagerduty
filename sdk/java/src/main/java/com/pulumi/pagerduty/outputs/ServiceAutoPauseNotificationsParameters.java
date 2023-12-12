@@ -76,10 +76,10 @@ public final class ServiceAutoPauseNotificationsParameters {
             return this;
         }
         public ServiceAutoPauseNotificationsParameters build() {
-            final var o = new ServiceAutoPauseNotificationsParameters();
-            o.enabled = enabled;
-            o.timeout = timeout;
-            return o;
+            final var _resultValue = new ServiceAutoPauseNotificationsParameters();
+            _resultValue.enabled = enabled;
+            _resultValue.timeout = timeout;
+            return _resultValue;
         }
     }
 }

@@ -96,12 +96,12 @@ public final class ServiceIntegrationEmailParser {
             return valueExtractors(List.of(valueExtractors));
         }
         public ServiceIntegrationEmailParser build() {
-            final var o = new ServiceIntegrationEmailParser();
-            o.action = action;
-            o.id = id;
-            o.matchPredicate = matchPredicate;
-            o.valueExtractors = valueExtractors;
-            return o;
+            final var _resultValue = new ServiceIntegrationEmailParser();
+            _resultValue.action = action;
+            _resultValue.id = id;
+            _resultValue.matchPredicate = matchPredicate;
+            _resultValue.valueExtractors = valueExtractors;
+            return _resultValue;
         }
     }
 }

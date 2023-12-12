@@ -72,10 +72,10 @@ public final class ServiceEventRuleConditions {
             return subconditions(List.of(subconditions));
         }
         public ServiceEventRuleConditions build() {
-            final var o = new ServiceEventRuleConditions();
-            o.operator = operator;
-            o.subconditions = subconditions;
-            return o;
+            final var _resultValue = new ServiceEventRuleConditions();
+            _resultValue.operator = operator;
+            _resultValue.subconditions = subconditions;
+            return _resultValue;
         }
     }
 }

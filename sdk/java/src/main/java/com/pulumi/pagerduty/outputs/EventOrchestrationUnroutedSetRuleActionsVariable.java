@@ -103,12 +103,12 @@ public final class EventOrchestrationUnroutedSetRuleActionsVariable {
             return this;
         }
         public EventOrchestrationUnroutedSetRuleActionsVariable build() {
-            final var o = new EventOrchestrationUnroutedSetRuleActionsVariable();
-            o.name = name;
-            o.path = path;
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new EventOrchestrationUnroutedSetRuleActionsVariable();
+            _resultValue.name = name;
+            _resultValue.path = path;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

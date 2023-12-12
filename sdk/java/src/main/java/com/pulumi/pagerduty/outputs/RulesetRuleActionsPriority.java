@@ -48,9 +48,9 @@ public final class RulesetRuleActionsPriority {
             return this;
         }
         public RulesetRuleActionsPriority build() {
-            final var o = new RulesetRuleActionsPriority();
-            o.value = value;
-            return o;
+            final var _resultValue = new RulesetRuleActionsPriority();
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

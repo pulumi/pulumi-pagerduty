@@ -67,10 +67,10 @@ public final class ServiceEventRuleConditionsSubconditionParameter {
             return this;
         }
         public ServiceEventRuleConditionsSubconditionParameter build() {
-            final var o = new ServiceEventRuleConditionsSubconditionParameter();
-            o.path = path;
-            o.value = value;
-            return o;
+            final var _resultValue = new ServiceEventRuleConditionsSubconditionParameter();
+            _resultValue.path = path;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

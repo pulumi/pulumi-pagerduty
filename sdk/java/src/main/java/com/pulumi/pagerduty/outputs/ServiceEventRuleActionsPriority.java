@@ -48,9 +48,9 @@ public final class ServiceEventRuleActionsPriority {
             return this;
         }
         public ServiceEventRuleActionsPriority build() {
-            final var o = new ServiceEventRuleActionsPriority();
-            o.value = value;
-            return o;
+            final var _resultValue = new ServiceEventRuleActionsPriority();
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

@@ -92,11 +92,11 @@ public final class ResponsePlayResponderEscalationRule {
             return targets(List.of(targets));
         }
         public ResponsePlayResponderEscalationRule build() {
-            final var o = new ResponsePlayResponderEscalationRule();
-            o.escalationDelayInMinutes = escalationDelayInMinutes;
-            o.id = id;
-            o.targets = targets;
-            return o;
+            final var _resultValue = new ResponsePlayResponderEscalationRule();
+            _resultValue.escalationDelayInMinutes = escalationDelayInMinutes;
+            _resultValue.id = id;
+            _resultValue.targets = targets;
+            return _resultValue;
         }
     }
 }

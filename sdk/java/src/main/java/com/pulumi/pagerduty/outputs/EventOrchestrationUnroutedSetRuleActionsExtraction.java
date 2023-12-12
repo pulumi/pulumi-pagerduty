@@ -109,12 +109,12 @@ public final class EventOrchestrationUnroutedSetRuleActionsExtraction {
             return this;
         }
         public EventOrchestrationUnroutedSetRuleActionsExtraction build() {
-            final var o = new EventOrchestrationUnroutedSetRuleActionsExtraction();
-            o.regex = regex;
-            o.source = source;
-            o.target = target;
-            o.template = template;
-            return o;
+            final var _resultValue = new EventOrchestrationUnroutedSetRuleActionsExtraction();
+            _resultValue.regex = regex;
+            _resultValue.source = source;
+            _resultValue.target = target;
+            _resultValue.template = template;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class EventOrchestrationServiceSetRuleActionsAutomationActionHeader
             return this;
         }
         public EventOrchestrationServiceSetRuleActionsAutomationActionHeader build() {
-            final var o = new EventOrchestrationServiceSetRuleActionsAutomationActionHeader();
-            o.key = key;
-            o.value = value;
-            return o;
+            final var _resultValue = new EventOrchestrationServiceSetRuleActionsAutomationActionHeader();
+            _resultValue.key = key;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

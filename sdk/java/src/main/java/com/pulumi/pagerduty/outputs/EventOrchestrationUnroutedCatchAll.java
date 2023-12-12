@@ -46,9 +46,9 @@ public final class EventOrchestrationUnroutedCatchAll {
             return this;
         }
         public EventOrchestrationUnroutedCatchAll build() {
-            final var o = new EventOrchestrationUnroutedCatchAll();
-            o.actions = actions;
-            return o;
+            final var _resultValue = new EventOrchestrationUnroutedCatchAll();
+            _resultValue.actions = actions;
+            return _resultValue;
         }
     }
 }

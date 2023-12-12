@@ -89,11 +89,11 @@ public final class GetEventOrchestrationResult {
             return this;
         }
         public GetEventOrchestrationResult build() {
-            final var o = new GetEventOrchestrationResult();
-            o.id = id;
-            o.integrationDetail = integrationDetail;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetEventOrchestrationResult();
+            _resultValue.id = id;
+            _resultValue.integrationDetail = integrationDetail;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

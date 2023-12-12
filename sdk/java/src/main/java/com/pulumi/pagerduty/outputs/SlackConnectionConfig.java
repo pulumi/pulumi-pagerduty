@@ -121,11 +121,11 @@ public final class SlackConnectionConfig {
             return this;
         }
         public SlackConnectionConfig build() {
-            final var o = new SlackConnectionConfig();
-            o.events = events;
-            o.priorities = priorities;
-            o.urgency = urgency;
-            return o;
+            final var _resultValue = new SlackConnectionConfig();
+            _resultValue.events = events;
+            _resultValue.priorities = priorities;
+            _resultValue.urgency = urgency;
+            return _resultValue;
         }
     }
 }

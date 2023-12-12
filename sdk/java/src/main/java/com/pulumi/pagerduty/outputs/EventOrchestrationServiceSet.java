@@ -63,10 +63,10 @@ public final class EventOrchestrationServiceSet {
             return rules(List.of(rules));
         }
         public EventOrchestrationServiceSet build() {
-            final var o = new EventOrchestrationServiceSet();
-            o.id = id;
-            o.rules = rules;
-            return o;
+            final var _resultValue = new EventOrchestrationServiceSet();
+            _resultValue.id = id;
+            _resultValue.rules = rules;
+            return _resultValue;
         }
     }
 }

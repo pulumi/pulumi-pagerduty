@@ -211,18 +211,18 @@ public final class GetUserContactMethodResult {
             return this;
         }
         public GetUserContactMethodResult build() {
-            final var o = new GetUserContactMethodResult();
-            o.address = address;
-            o.blacklisted = blacklisted;
-            o.countryCode = countryCode;
-            o.deviceType = deviceType;
-            o.enabled = enabled;
-            o.id = id;
-            o.label = label;
-            o.sendShortEmail = sendShortEmail;
-            o.type = type;
-            o.userId = userId;
-            return o;
+            final var _resultValue = new GetUserContactMethodResult();
+            _resultValue.address = address;
+            _resultValue.blacklisted = blacklisted;
+            _resultValue.countryCode = countryCode;
+            _resultValue.deviceType = deviceType;
+            _resultValue.enabled = enabled;
+            _resultValue.id = id;
+            _resultValue.label = label;
+            _resultValue.sendShortEmail = sendShortEmail;
+            _resultValue.type = type;
+            _resultValue.userId = userId;
+            return _resultValue;
         }
     }
 }

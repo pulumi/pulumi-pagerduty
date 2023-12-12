@@ -67,10 +67,10 @@ public final class ServiceEventRuleVariableParameter {
             return this;
         }
         public ServiceEventRuleVariableParameter build() {
-            final var o = new ServiceEventRuleVariableParameter();
-            o.path = path;
-            o.value = value;
-            return o;
+            final var _resultValue = new ServiceEventRuleVariableParameter();
+            _resultValue.path = path;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

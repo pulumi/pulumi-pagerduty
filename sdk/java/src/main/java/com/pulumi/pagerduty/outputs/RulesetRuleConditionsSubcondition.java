@@ -72,10 +72,10 @@ public final class RulesetRuleConditionsSubcondition {
             return parameters(List.of(parameters));
         }
         public RulesetRuleConditionsSubcondition build() {
-            final var o = new RulesetRuleConditionsSubcondition();
-            o.operator = operator;
-            o.parameters = parameters;
-            return o;
+            final var _resultValue = new RulesetRuleConditionsSubcondition();
+            _resultValue.operator = operator;
+            _resultValue.parameters = parameters;
+            return _resultValue;
         }
     }
 }

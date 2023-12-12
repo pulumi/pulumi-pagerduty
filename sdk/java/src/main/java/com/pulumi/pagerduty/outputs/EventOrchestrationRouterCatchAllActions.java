@@ -46,9 +46,9 @@ public final class EventOrchestrationRouterCatchAllActions {
             return this;
         }
         public EventOrchestrationRouterCatchAllActions build() {
-            final var o = new EventOrchestrationRouterCatchAllActions();
-            o.routeTo = routeTo;
-            return o;
+            final var _resultValue = new EventOrchestrationRouterCatchAllActions();
+            _resultValue.routeTo = routeTo;
+            return _resultValue;
         }
     }
 }

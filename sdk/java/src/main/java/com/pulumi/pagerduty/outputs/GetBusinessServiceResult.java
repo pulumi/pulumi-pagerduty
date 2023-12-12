@@ -84,11 +84,11 @@ public final class GetBusinessServiceResult {
             return this;
         }
         public GetBusinessServiceResult build() {
-            final var o = new GetBusinessServiceResult();
-            o.id = id;
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetBusinessServiceResult();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

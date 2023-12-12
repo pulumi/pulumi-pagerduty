@@ -46,9 +46,9 @@ public final class EventOrchestrationRouterSetRuleCondition {
             return this;
         }
         public EventOrchestrationRouterSetRuleCondition build() {
-            final var o = new EventOrchestrationRouterSetRuleCondition();
-            o.expression = expression;
-            return o;
+            final var _resultValue = new EventOrchestrationRouterSetRuleCondition();
+            _resultValue.expression = expression;
+            return _resultValue;
         }
     }
 }

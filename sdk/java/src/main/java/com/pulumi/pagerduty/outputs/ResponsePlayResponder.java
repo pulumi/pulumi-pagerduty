@@ -214,17 +214,17 @@ public final class ResponsePlayResponder {
             return this;
         }
         public ResponsePlayResponder build() {
-            final var o = new ResponsePlayResponder();
-            o.description = description;
-            o.escalationRules = escalationRules;
-            o.id = id;
-            o.name = name;
-            o.numLoops = numLoops;
-            o.onCallHandoffNotifications = onCallHandoffNotifications;
-            o.services = services;
-            o.teams = teams;
-            o.type = type;
-            return o;
+            final var _resultValue = new ResponsePlayResponder();
+            _resultValue.description = description;
+            _resultValue.escalationRules = escalationRules;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.numLoops = numLoops;
+            _resultValue.onCallHandoffNotifications = onCallHandoffNotifications;
+            _resultValue.services = services;
+            _resultValue.teams = teams;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

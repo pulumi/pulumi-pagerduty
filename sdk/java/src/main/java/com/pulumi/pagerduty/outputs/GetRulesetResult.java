@@ -88,11 +88,11 @@ public final class GetRulesetResult {
             return routingKeys(List.of(routingKeys));
         }
         public GetRulesetResult build() {
-            final var o = new GetRulesetResult();
-            o.id = id;
-            o.name = name;
-            o.routingKeys = routingKeys;
-            return o;
+            final var _resultValue = new GetRulesetResult();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.routingKeys = routingKeys;
+            return _resultValue;
         }
     }
 }

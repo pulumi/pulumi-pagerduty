@@ -103,12 +103,12 @@ public final class EventOrchestrationGlobalSetRuleActionsVariable {
             return this;
         }
         public EventOrchestrationGlobalSetRuleActionsVariable build() {
-            final var o = new EventOrchestrationGlobalSetRuleActionsVariable();
-            o.name = name;
-            o.path = path;
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new EventOrchestrationGlobalSetRuleActionsVariable();
+            _resultValue.name = name;
+            _resultValue.path = path;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

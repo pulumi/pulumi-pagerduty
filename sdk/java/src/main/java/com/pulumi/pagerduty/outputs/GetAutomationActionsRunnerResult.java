@@ -179,16 +179,16 @@ public final class GetAutomationActionsRunnerResult {
             return this;
         }
         public GetAutomationActionsRunnerResult build() {
-            final var o = new GetAutomationActionsRunnerResult();
-            o.creationTime = creationTime;
-            o.description = description;
-            o.id = id;
-            o.lastSeen = lastSeen;
-            o.name = name;
-            o.runbookBaseUri = runbookBaseUri;
-            o.runnerType = runnerType;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetAutomationActionsRunnerResult();
+            _resultValue.creationTime = creationTime;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.lastSeen = lastSeen;
+            _resultValue.name = name;
+            _resultValue.runbookBaseUri = runbookBaseUri;
+            _resultValue.runnerType = runnerType;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

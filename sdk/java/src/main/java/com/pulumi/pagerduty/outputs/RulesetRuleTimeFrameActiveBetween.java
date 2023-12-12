@@ -59,10 +59,10 @@ public final class RulesetRuleTimeFrameActiveBetween {
             return this;
         }
         public RulesetRuleTimeFrameActiveBetween build() {
-            final var o = new RulesetRuleTimeFrameActiveBetween();
-            o.endTime = endTime;
-            o.startTime = startTime;
-            return o;
+            final var _resultValue = new RulesetRuleTimeFrameActiveBetween();
+            _resultValue.endTime = endTime;
+            _resultValue.startTime = startTime;
+            return _resultValue;
         }
     }
 }

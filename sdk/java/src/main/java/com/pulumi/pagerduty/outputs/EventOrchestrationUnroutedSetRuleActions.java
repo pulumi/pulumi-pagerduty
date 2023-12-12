@@ -133,13 +133,13 @@ public final class EventOrchestrationUnroutedSetRuleActions {
             return variables(List.of(variables));
         }
         public EventOrchestrationUnroutedSetRuleActions build() {
-            final var o = new EventOrchestrationUnroutedSetRuleActions();
-            o.eventAction = eventAction;
-            o.extractions = extractions;
-            o.routeTo = routeTo;
-            o.severity = severity;
-            o.variables = variables;
-            return o;
+            final var _resultValue = new EventOrchestrationUnroutedSetRuleActions();
+            _resultValue.eventAction = eventAction;
+            _resultValue.extractions = extractions;
+            _resultValue.routeTo = routeTo;
+            _resultValue.severity = severity;
+            _resultValue.variables = variables;
+            return _resultValue;
         }
     }
 }

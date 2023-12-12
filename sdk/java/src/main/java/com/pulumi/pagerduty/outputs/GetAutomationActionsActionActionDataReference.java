@@ -122,13 +122,13 @@ public final class GetAutomationActionsActionActionDataReference {
             return this;
         }
         public GetAutomationActionsActionActionDataReference build() {
-            final var o = new GetAutomationActionsActionActionDataReference();
-            o.invocationCommand = invocationCommand;
-            o.processAutomationJobArguments = processAutomationJobArguments;
-            o.processAutomationJobId = processAutomationJobId;
-            o.processAutomationNodeFilter = processAutomationNodeFilter;
-            o.script = script;
-            return o;
+            final var _resultValue = new GetAutomationActionsActionActionDataReference();
+            _resultValue.invocationCommand = invocationCommand;
+            _resultValue.processAutomationJobArguments = processAutomationJobArguments;
+            _resultValue.processAutomationJobId = processAutomationJobId;
+            _resultValue.processAutomationNodeFilter = processAutomationNodeFilter;
+            _resultValue.script = script;
+            return _resultValue;
         }
     }
 }

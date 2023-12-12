@@ -126,13 +126,13 @@ public final class EventOrchestrationUnroutedCatchAllActions {
             return variables(List.of(variables));
         }
         public EventOrchestrationUnroutedCatchAllActions build() {
-            final var o = new EventOrchestrationUnroutedCatchAllActions();
-            o.eventAction = eventAction;
-            o.extractions = extractions;
-            o.severity = severity;
-            o.suppress = suppress;
-            o.variables = variables;
-            return o;
+            final var _resultValue = new EventOrchestrationUnroutedCatchAllActions();
+            _resultValue.eventAction = eventAction;
+            _resultValue.extractions = extractions;
+            _resultValue.severity = severity;
+            _resultValue.suppress = suppress;
+            _resultValue.variables = variables;
+            return _resultValue;
         }
     }
 }

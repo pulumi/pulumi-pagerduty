@@ -68,11 +68,11 @@ public final class GetIncidentWorkflowResult {
             return this;
         }
         public GetIncidentWorkflowResult build() {
-            final var o = new GetIncidentWorkflowResult();
-            o.description = description;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetIncidentWorkflowResult();
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

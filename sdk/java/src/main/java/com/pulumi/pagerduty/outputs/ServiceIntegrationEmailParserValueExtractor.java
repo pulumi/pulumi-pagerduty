@@ -131,14 +131,14 @@ public final class ServiceIntegrationEmailParserValueExtractor {
             return this;
         }
         public ServiceIntegrationEmailParserValueExtractor build() {
-            final var o = new ServiceIntegrationEmailParserValueExtractor();
-            o.endsBefore = endsBefore;
-            o.part = part;
-            o.regex = regex;
-            o.startsAfter = startsAfter;
-            o.type = type;
-            o.valueName = valueName;
-            return o;
+            final var _resultValue = new ServiceIntegrationEmailParserValueExtractor();
+            _resultValue.endsBefore = endsBefore;
+            _resultValue.part = part;
+            _resultValue.regex = regex;
+            _resultValue.startsAfter = startsAfter;
+            _resultValue.type = type;
+            _resultValue.valueName = valueName;
+            return _resultValue;
         }
     }
 }

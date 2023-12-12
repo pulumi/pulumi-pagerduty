@@ -65,10 +65,10 @@ public final class EventOrchestrationGlobalSetRuleActionsAutomationActionParamet
             return this;
         }
         public EventOrchestrationGlobalSetRuleActionsAutomationActionParameter build() {
-            final var o = new EventOrchestrationGlobalSetRuleActionsAutomationActionParameter();
-            o.key = key;
-            o.value = value;
-            return o;
+            final var _resultValue = new EventOrchestrationGlobalSetRuleActionsAutomationActionParameter();
+            _resultValue.key = key;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

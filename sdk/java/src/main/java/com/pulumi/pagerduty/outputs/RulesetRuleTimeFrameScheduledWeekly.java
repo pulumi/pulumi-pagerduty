@@ -110,12 +110,12 @@ public final class RulesetRuleTimeFrameScheduledWeekly {
             return weekdays(List.of(weekdays));
         }
         public RulesetRuleTimeFrameScheduledWeekly build() {
-            final var o = new RulesetRuleTimeFrameScheduledWeekly();
-            o.duration = duration;
-            o.startTime = startTime;
-            o.timezone = timezone;
-            o.weekdays = weekdays;
-            return o;
+            final var _resultValue = new RulesetRuleTimeFrameScheduledWeekly();
+            _resultValue.duration = duration;
+            _resultValue.startTime = startTime;
+            _resultValue.timezone = timezone;
+            _resultValue.weekdays = weekdays;
+            return _resultValue;
         }
     }
 }

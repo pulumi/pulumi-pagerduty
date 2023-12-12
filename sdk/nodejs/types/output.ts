@@ -34,10 +34,21 @@ export interface EscalationPolicyRule {
      */
     escalationDelayInMinutes: number;
     /**
+     * The strategy used to assign the escalation rule to an incident. Documented below.
+     */
+    escalationRuleAssignmentStrategy: outputs.EscalationPolicyRuleEscalationRuleAssignmentStrategy;
+    /**
      * A target ID
      */
     id: string;
     targets: outputs.EscalationPolicyRuleTarget[];
+}
+
+export interface EscalationPolicyRuleEscalationRuleAssignmentStrategy {
+    /**
+     * Can be `roundRobin` or `assignToEveryone`.
+     */
+    type: string;
 }
 
 export interface EscalationPolicyRuleTarget {

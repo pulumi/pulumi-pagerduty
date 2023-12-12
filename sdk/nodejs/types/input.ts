@@ -34,10 +34,21 @@ export interface EscalationPolicyRule {
      */
     escalationDelayInMinutes: pulumi.Input<number>;
     /**
+     * The strategy used to assign the escalation rule to an incident. Documented below.
+     */
+    escalationRuleAssignmentStrategy?: pulumi.Input<inputs.EscalationPolicyRuleEscalationRuleAssignmentStrategy>;
+    /**
      * A target ID
      */
     id?: pulumi.Input<string>;
     targets: pulumi.Input<pulumi.Input<inputs.EscalationPolicyRuleTarget>[]>;
+}
+
+export interface EscalationPolicyRuleEscalationRuleAssignmentStrategy {
+    /**
+     * Can be `roundRobin` or `assignToEveryone`.
+     */
+    type?: pulumi.Input<string>;
 }
 
 export interface EscalationPolicyRuleTarget {

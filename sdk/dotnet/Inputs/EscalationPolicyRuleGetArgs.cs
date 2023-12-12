@@ -19,6 +19,12 @@ namespace Pulumi.Pagerduty.Inputs
         public Input<int> EscalationDelayInMinutes { get; set; } = null!;
 
         /// <summary>
+        /// The strategy used to assign the escalation rule to an incident. Documented below.
+        /// </summary>
+        [Input("escalationRuleAssignmentStrategy")]
+        public Input<Inputs.EscalationPolicyRuleEscalationRuleAssignmentStrategyGetArgs>? EscalationRuleAssignmentStrategy { get; set; }
+
+        /// <summary>
         /// A target ID
         /// </summary>
         [Input("id")]

@@ -5,6 +5,7 @@ package com.pulumi.pagerduty.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.pagerduty.inputs.EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs;
 import com.pulumi.pagerduty.inputs.EscalationPolicyRuleTargetArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -34,6 +35,21 @@ public final class EscalationPolicyRuleArgs extends com.pulumi.resources.Resourc
     }
 
     /**
+     * The strategy used to assign the escalation rule to an incident. Documented below.
+     * 
+     */
+    @Import(name="escalationRuleAssignmentStrategy")
+    private @Nullable Output<EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs> escalationRuleAssignmentStrategy;
+
+    /**
+     * @return The strategy used to assign the escalation rule to an incident. Documented below.
+     * 
+     */
+    public Optional<Output<EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs>> escalationRuleAssignmentStrategy() {
+        return Optional.ofNullable(this.escalationRuleAssignmentStrategy);
+    }
+
+    /**
      * A target ID
      * 
      */
@@ -59,6 +75,7 @@ public final class EscalationPolicyRuleArgs extends com.pulumi.resources.Resourc
 
     private EscalationPolicyRuleArgs(EscalationPolicyRuleArgs $) {
         this.escalationDelayInMinutes = $.escalationDelayInMinutes;
+        this.escalationRuleAssignmentStrategy = $.escalationRuleAssignmentStrategy;
         this.id = $.id;
         this.targets = $.targets;
     }
@@ -100,6 +117,27 @@ public final class EscalationPolicyRuleArgs extends com.pulumi.resources.Resourc
          */
         public Builder escalationDelayInMinutes(Integer escalationDelayInMinutes) {
             return escalationDelayInMinutes(Output.of(escalationDelayInMinutes));
+        }
+
+        /**
+         * @param escalationRuleAssignmentStrategy The strategy used to assign the escalation rule to an incident. Documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder escalationRuleAssignmentStrategy(@Nullable Output<EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs> escalationRuleAssignmentStrategy) {
+            $.escalationRuleAssignmentStrategy = escalationRuleAssignmentStrategy;
+            return this;
+        }
+
+        /**
+         * @param escalationRuleAssignmentStrategy The strategy used to assign the escalation rule to an incident. Documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder escalationRuleAssignmentStrategy(EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs escalationRuleAssignmentStrategy) {
+            return escalationRuleAssignmentStrategy(Output.of(escalationRuleAssignmentStrategy));
         }
 
         /**

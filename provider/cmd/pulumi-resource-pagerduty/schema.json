@@ -127,6 +127,10 @@
                     "type": "integer",
                     "description": "The number of minutes before an unacknowledged incident escalates away from this rule.\n"
                 },
+                "escalationRuleAssignmentStrategy": {
+                    "$ref": "#/types/pagerduty:index/EscalationPolicyRuleEscalationRuleAssignmentStrategy:EscalationPolicyRuleEscalationRuleAssignmentStrategy",
+                    "description": "The strategy used to assign the escalation rule to an incident. Documented below.\n"
+                },
                 "id": {
                     "type": "string",
                     "description": "A target ID\n"
@@ -147,8 +151,25 @@
                 "nodejs": {
                     "requiredOutputs": [
                         "escalationDelayInMinutes",
+                        "escalationRuleAssignmentStrategy",
                         "id",
                         "targets"
+                    ]
+                }
+            }
+        },
+        "pagerduty:index/EscalationPolicyRuleEscalationRuleAssignmentStrategy:EscalationPolicyRuleEscalationRuleAssignmentStrategy": {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "Can be `round_robin` or `assign_to_everyone`.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "type"
                     ]
                 }
             }

@@ -52,6 +52,9 @@
                         "maxItemsOne": false,
                         "elem": {
                             "fields": {
+                                "escalation_rule_assignment_strategy": {
+                                    "maxItemsOne": true
+                                },
                                 "target": {
                                     "maxItemsOne": false
                                 }
@@ -1059,6 +1062,7 @@
             },
             "pagerduty:index/EscalationPolicyRule:EscalationPolicyRule": {
                 "escalationDelayInMinutes": "escalation_delay_in_minutes",
+                "escalationRuleAssignmentStrategy": "escalation_rule_assignment_strategy",
                 "targets": "target"
             },
             "pagerduty:index/EventOrchestrationGlobalCatchAllActions:EventOrchestrationGlobalCatchAllActions": {

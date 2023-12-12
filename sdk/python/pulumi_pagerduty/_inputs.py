@@ -12,6 +12,7 @@ from . import _utilities
 __all__ = [
     'AutomationActionsActionActionDataReferenceArgs',
     'EscalationPolicyRuleArgs',
+    'EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs',
     'EscalationPolicyRuleTargetArgs',
     'EventOrchestrationGlobalCatchAllArgs',
     'EventOrchestrationGlobalCatchAllActionsArgs',
@@ -233,13 +234,17 @@ class EscalationPolicyRuleArgs:
     def __init__(__self__, *,
                  escalation_delay_in_minutes: pulumi.Input[int],
                  targets: pulumi.Input[Sequence[pulumi.Input['EscalationPolicyRuleTargetArgs']]],
+                 escalation_rule_assignment_strategy: Optional[pulumi.Input['EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs']] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[int] escalation_delay_in_minutes: The number of minutes before an unacknowledged incident escalates away from this rule.
+        :param pulumi.Input['EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs'] escalation_rule_assignment_strategy: The strategy used to assign the escalation rule to an incident. Documented below.
         :param pulumi.Input[str] id: A target ID
         """
         pulumi.set(__self__, "escalation_delay_in_minutes", escalation_delay_in_minutes)
         pulumi.set(__self__, "targets", targets)
+        if escalation_rule_assignment_strategy is not None:
+            pulumi.set(__self__, "escalation_rule_assignment_strategy", escalation_rule_assignment_strategy)
         if id is not None:
             pulumi.set(__self__, "id", id)
 
@@ -265,6 +270,18 @@ class EscalationPolicyRuleArgs:
         pulumi.set(self, "targets", value)
 
     @property
+    @pulumi.getter(name="escalationRuleAssignmentStrategy")
+    def escalation_rule_assignment_strategy(self) -> Optional[pulumi.Input['EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs']]:
+        """
+        The strategy used to assign the escalation rule to an incident. Documented below.
+        """
+        return pulumi.get(self, "escalation_rule_assignment_strategy")
+
+    @escalation_rule_assignment_strategy.setter
+    def escalation_rule_assignment_strategy(self, value: Optional[pulumi.Input['EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs']]):
+        pulumi.set(self, "escalation_rule_assignment_strategy", value)
+
+    @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -275,6 +292,29 @@ class EscalationPolicyRuleArgs:
     @id.setter
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: Can be `round_robin` or `assign_to_everyone`.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Can be `round_robin` or `assign_to_everyone`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

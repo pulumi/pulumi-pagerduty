@@ -229,6 +229,8 @@ func (o AutomationActionsActionActionDataReferencePtrOutput) Script() pulumi.Str
 type EscalationPolicyRule struct {
 	// The number of minutes before an unacknowledged incident escalates away from this rule.
 	EscalationDelayInMinutes int `pulumi:"escalationDelayInMinutes"`
+	// The strategy used to assign the escalation rule to an incident. Documented below.
+	EscalationRuleAssignmentStrategy *EscalationPolicyRuleEscalationRuleAssignmentStrategy `pulumi:"escalationRuleAssignmentStrategy"`
 	// A target ID
 	Id      *string                      `pulumi:"id"`
 	Targets []EscalationPolicyRuleTarget `pulumi:"targets"`
@@ -248,6 +250,8 @@ type EscalationPolicyRuleInput interface {
 type EscalationPolicyRuleArgs struct {
 	// The number of minutes before an unacknowledged incident escalates away from this rule.
 	EscalationDelayInMinutes pulumi.IntInput `pulumi:"escalationDelayInMinutes"`
+	// The strategy used to assign the escalation rule to an incident. Documented below.
+	EscalationRuleAssignmentStrategy EscalationPolicyRuleEscalationRuleAssignmentStrategyPtrInput `pulumi:"escalationRuleAssignmentStrategy"`
 	// A target ID
 	Id      pulumi.StringPtrInput                `pulumi:"id"`
 	Targets EscalationPolicyRuleTargetArrayInput `pulumi:"targets"`
@@ -309,6 +313,13 @@ func (o EscalationPolicyRuleOutput) EscalationDelayInMinutes() pulumi.IntOutput 
 	return o.ApplyT(func(v EscalationPolicyRule) int { return v.EscalationDelayInMinutes }).(pulumi.IntOutput)
 }
 
+// The strategy used to assign the escalation rule to an incident. Documented below.
+func (o EscalationPolicyRuleOutput) EscalationRuleAssignmentStrategy() EscalationPolicyRuleEscalationRuleAssignmentStrategyPtrOutput {
+	return o.ApplyT(func(v EscalationPolicyRule) *EscalationPolicyRuleEscalationRuleAssignmentStrategy {
+		return v.EscalationRuleAssignmentStrategy
+	}).(EscalationPolicyRuleEscalationRuleAssignmentStrategyPtrOutput)
+}
+
 // A target ID
 func (o EscalationPolicyRuleOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EscalationPolicyRule) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -336,6 +347,143 @@ func (o EscalationPolicyRuleArrayOutput) Index(i pulumi.IntInput) EscalationPoli
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EscalationPolicyRule {
 		return vs[0].([]EscalationPolicyRule)[vs[1].(int)]
 	}).(EscalationPolicyRuleOutput)
+}
+
+type EscalationPolicyRuleEscalationRuleAssignmentStrategy struct {
+	// Can be `roundRobin` or `assignToEveryone`.
+	Type *string `pulumi:"type"`
+}
+
+// EscalationPolicyRuleEscalationRuleAssignmentStrategyInput is an input type that accepts EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs and EscalationPolicyRuleEscalationRuleAssignmentStrategyOutput values.
+// You can construct a concrete instance of `EscalationPolicyRuleEscalationRuleAssignmentStrategyInput` via:
+//
+//	EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs{...}
+type EscalationPolicyRuleEscalationRuleAssignmentStrategyInput interface {
+	pulumi.Input
+
+	ToEscalationPolicyRuleEscalationRuleAssignmentStrategyOutput() EscalationPolicyRuleEscalationRuleAssignmentStrategyOutput
+	ToEscalationPolicyRuleEscalationRuleAssignmentStrategyOutputWithContext(context.Context) EscalationPolicyRuleEscalationRuleAssignmentStrategyOutput
+}
+
+type EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs struct {
+	// Can be `roundRobin` or `assignToEveryone`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EscalationPolicyRuleEscalationRuleAssignmentStrategy)(nil)).Elem()
+}
+
+func (i EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs) ToEscalationPolicyRuleEscalationRuleAssignmentStrategyOutput() EscalationPolicyRuleEscalationRuleAssignmentStrategyOutput {
+	return i.ToEscalationPolicyRuleEscalationRuleAssignmentStrategyOutputWithContext(context.Background())
+}
+
+func (i EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs) ToEscalationPolicyRuleEscalationRuleAssignmentStrategyOutputWithContext(ctx context.Context) EscalationPolicyRuleEscalationRuleAssignmentStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EscalationPolicyRuleEscalationRuleAssignmentStrategyOutput)
+}
+
+func (i EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs) ToEscalationPolicyRuleEscalationRuleAssignmentStrategyPtrOutput() EscalationPolicyRuleEscalationRuleAssignmentStrategyPtrOutput {
+	return i.ToEscalationPolicyRuleEscalationRuleAssignmentStrategyPtrOutputWithContext(context.Background())
+}
+
+func (i EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs) ToEscalationPolicyRuleEscalationRuleAssignmentStrategyPtrOutputWithContext(ctx context.Context) EscalationPolicyRuleEscalationRuleAssignmentStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EscalationPolicyRuleEscalationRuleAssignmentStrategyOutput).ToEscalationPolicyRuleEscalationRuleAssignmentStrategyPtrOutputWithContext(ctx)
+}
+
+// EscalationPolicyRuleEscalationRuleAssignmentStrategyPtrInput is an input type that accepts EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs, EscalationPolicyRuleEscalationRuleAssignmentStrategyPtr and EscalationPolicyRuleEscalationRuleAssignmentStrategyPtrOutput values.
+// You can construct a concrete instance of `EscalationPolicyRuleEscalationRuleAssignmentStrategyPtrInput` via:
+//
+//	        EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs{...}
+//
+//	or:
+//
+//	        nil
+type EscalationPolicyRuleEscalationRuleAssignmentStrategyPtrInput interface {
+	pulumi.Input
+
+	ToEscalationPolicyRuleEscalationRuleAssignmentStrategyPtrOutput() EscalationPolicyRuleEscalationRuleAssignmentStrategyPtrOutput
+	ToEscalationPolicyRuleEscalationRuleAssignmentStrategyPtrOutputWithContext(context.Context) EscalationPolicyRuleEscalationRuleAssignmentStrategyPtrOutput
+}
+
+type escalationPolicyRuleEscalationRuleAssignmentStrategyPtrType EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs
+
+func EscalationPolicyRuleEscalationRuleAssignmentStrategyPtr(v *EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs) EscalationPolicyRuleEscalationRuleAssignmentStrategyPtrInput {
+	return (*escalationPolicyRuleEscalationRuleAssignmentStrategyPtrType)(v)
+}
+
+func (*escalationPolicyRuleEscalationRuleAssignmentStrategyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EscalationPolicyRuleEscalationRuleAssignmentStrategy)(nil)).Elem()
+}
+
+func (i *escalationPolicyRuleEscalationRuleAssignmentStrategyPtrType) ToEscalationPolicyRuleEscalationRuleAssignmentStrategyPtrOutput() EscalationPolicyRuleEscalationRuleAssignmentStrategyPtrOutput {
+	return i.ToEscalationPolicyRuleEscalationRuleAssignmentStrategyPtrOutputWithContext(context.Background())
+}
+
+func (i *escalationPolicyRuleEscalationRuleAssignmentStrategyPtrType) ToEscalationPolicyRuleEscalationRuleAssignmentStrategyPtrOutputWithContext(ctx context.Context) EscalationPolicyRuleEscalationRuleAssignmentStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EscalationPolicyRuleEscalationRuleAssignmentStrategyPtrOutput)
+}
+
+type EscalationPolicyRuleEscalationRuleAssignmentStrategyOutput struct{ *pulumi.OutputState }
+
+func (EscalationPolicyRuleEscalationRuleAssignmentStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EscalationPolicyRuleEscalationRuleAssignmentStrategy)(nil)).Elem()
+}
+
+func (o EscalationPolicyRuleEscalationRuleAssignmentStrategyOutput) ToEscalationPolicyRuleEscalationRuleAssignmentStrategyOutput() EscalationPolicyRuleEscalationRuleAssignmentStrategyOutput {
+	return o
+}
+
+func (o EscalationPolicyRuleEscalationRuleAssignmentStrategyOutput) ToEscalationPolicyRuleEscalationRuleAssignmentStrategyOutputWithContext(ctx context.Context) EscalationPolicyRuleEscalationRuleAssignmentStrategyOutput {
+	return o
+}
+
+func (o EscalationPolicyRuleEscalationRuleAssignmentStrategyOutput) ToEscalationPolicyRuleEscalationRuleAssignmentStrategyPtrOutput() EscalationPolicyRuleEscalationRuleAssignmentStrategyPtrOutput {
+	return o.ToEscalationPolicyRuleEscalationRuleAssignmentStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o EscalationPolicyRuleEscalationRuleAssignmentStrategyOutput) ToEscalationPolicyRuleEscalationRuleAssignmentStrategyPtrOutputWithContext(ctx context.Context) EscalationPolicyRuleEscalationRuleAssignmentStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EscalationPolicyRuleEscalationRuleAssignmentStrategy) *EscalationPolicyRuleEscalationRuleAssignmentStrategy {
+		return &v
+	}).(EscalationPolicyRuleEscalationRuleAssignmentStrategyPtrOutput)
+}
+
+// Can be `roundRobin` or `assignToEveryone`.
+func (o EscalationPolicyRuleEscalationRuleAssignmentStrategyOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EscalationPolicyRuleEscalationRuleAssignmentStrategy) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type EscalationPolicyRuleEscalationRuleAssignmentStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (EscalationPolicyRuleEscalationRuleAssignmentStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EscalationPolicyRuleEscalationRuleAssignmentStrategy)(nil)).Elem()
+}
+
+func (o EscalationPolicyRuleEscalationRuleAssignmentStrategyPtrOutput) ToEscalationPolicyRuleEscalationRuleAssignmentStrategyPtrOutput() EscalationPolicyRuleEscalationRuleAssignmentStrategyPtrOutput {
+	return o
+}
+
+func (o EscalationPolicyRuleEscalationRuleAssignmentStrategyPtrOutput) ToEscalationPolicyRuleEscalationRuleAssignmentStrategyPtrOutputWithContext(ctx context.Context) EscalationPolicyRuleEscalationRuleAssignmentStrategyPtrOutput {
+	return o
+}
+
+func (o EscalationPolicyRuleEscalationRuleAssignmentStrategyPtrOutput) Elem() EscalationPolicyRuleEscalationRuleAssignmentStrategyOutput {
+	return o.ApplyT(func(v *EscalationPolicyRuleEscalationRuleAssignmentStrategy) EscalationPolicyRuleEscalationRuleAssignmentStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret EscalationPolicyRuleEscalationRuleAssignmentStrategy
+		return ret
+	}).(EscalationPolicyRuleEscalationRuleAssignmentStrategyOutput)
+}
+
+// Can be `roundRobin` or `assignToEveryone`.
+func (o EscalationPolicyRuleEscalationRuleAssignmentStrategyPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EscalationPolicyRuleEscalationRuleAssignmentStrategy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type EscalationPolicyRuleTarget struct {
@@ -18087,6 +18235,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationActionsActionActionDataReferencePtrInput)(nil)).Elem(), AutomationActionsActionActionDataReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EscalationPolicyRuleInput)(nil)).Elem(), EscalationPolicyRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EscalationPolicyRuleArrayInput)(nil)).Elem(), EscalationPolicyRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EscalationPolicyRuleEscalationRuleAssignmentStrategyInput)(nil)).Elem(), EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EscalationPolicyRuleEscalationRuleAssignmentStrategyPtrInput)(nil)).Elem(), EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EscalationPolicyRuleTargetInput)(nil)).Elem(), EscalationPolicyRuleTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EscalationPolicyRuleTargetArrayInput)(nil)).Elem(), EscalationPolicyRuleTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationGlobalCatchAllInput)(nil)).Elem(), EventOrchestrationGlobalCatchAllArgs{})
@@ -18354,6 +18504,8 @@ func init() {
 	pulumi.RegisterOutputType(AutomationActionsActionActionDataReferencePtrOutput{})
 	pulumi.RegisterOutputType(EscalationPolicyRuleOutput{})
 	pulumi.RegisterOutputType(EscalationPolicyRuleArrayOutput{})
+	pulumi.RegisterOutputType(EscalationPolicyRuleEscalationRuleAssignmentStrategyOutput{})
+	pulumi.RegisterOutputType(EscalationPolicyRuleEscalationRuleAssignmentStrategyPtrOutput{})
 	pulumi.RegisterOutputType(EscalationPolicyRuleTargetOutput{})
 	pulumi.RegisterOutputType(EscalationPolicyRuleTargetArrayOutput{})
 	pulumi.RegisterOutputType(EventOrchestrationGlobalCatchAllOutput{})

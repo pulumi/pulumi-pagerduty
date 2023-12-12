@@ -13,6 +13,7 @@ from . import outputs
 __all__ = [
     'AutomationActionsActionActionDataReference',
     'EscalationPolicyRule',
+    'EscalationPolicyRuleEscalationRuleAssignmentStrategy',
     'EscalationPolicyRuleTarget',
     'EventOrchestrationGlobalCatchAll',
     'EventOrchestrationGlobalCatchAllActions',
@@ -245,6 +246,8 @@ class EscalationPolicyRule(dict):
         suggest = None
         if key == "escalationDelayInMinutes":
             suggest = "escalation_delay_in_minutes"
+        elif key == "escalationRuleAssignmentStrategy":
+            suggest = "escalation_rule_assignment_strategy"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in EscalationPolicyRule. Access the value via the '{suggest}' property getter instead.")
@@ -260,13 +263,17 @@ class EscalationPolicyRule(dict):
     def __init__(__self__, *,
                  escalation_delay_in_minutes: int,
                  targets: Sequence['outputs.EscalationPolicyRuleTarget'],
+                 escalation_rule_assignment_strategy: Optional['outputs.EscalationPolicyRuleEscalationRuleAssignmentStrategy'] = None,
                  id: Optional[str] = None):
         """
         :param int escalation_delay_in_minutes: The number of minutes before an unacknowledged incident escalates away from this rule.
+        :param 'EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs' escalation_rule_assignment_strategy: The strategy used to assign the escalation rule to an incident. Documented below.
         :param str id: A target ID
         """
         pulumi.set(__self__, "escalation_delay_in_minutes", escalation_delay_in_minutes)
         pulumi.set(__self__, "targets", targets)
+        if escalation_rule_assignment_strategy is not None:
+            pulumi.set(__self__, "escalation_rule_assignment_strategy", escalation_rule_assignment_strategy)
         if id is not None:
             pulumi.set(__self__, "id", id)
 
@@ -284,12 +291,39 @@ class EscalationPolicyRule(dict):
         return pulumi.get(self, "targets")
 
     @property
+    @pulumi.getter(name="escalationRuleAssignmentStrategy")
+    def escalation_rule_assignment_strategy(self) -> Optional['outputs.EscalationPolicyRuleEscalationRuleAssignmentStrategy']:
+        """
+        The strategy used to assign the escalation rule to an incident. Documented below.
+        """
+        return pulumi.get(self, "escalation_rule_assignment_strategy")
+
+    @property
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
         A target ID
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class EscalationPolicyRuleEscalationRuleAssignmentStrategy(dict):
+    def __init__(__self__, *,
+                 type: Optional[str] = None):
+        """
+        :param str type: Can be `round_robin` or `assign_to_everyone`.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Can be `round_robin` or `assign_to_everyone`.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

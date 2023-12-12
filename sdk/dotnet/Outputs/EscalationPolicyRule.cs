@@ -18,6 +18,10 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly int EscalationDelayInMinutes;
         /// <summary>
+        /// The strategy used to assign the escalation rule to an incident. Documented below.
+        /// </summary>
+        public readonly Outputs.EscalationPolicyRuleEscalationRuleAssignmentStrategy? EscalationRuleAssignmentStrategy;
+        /// <summary>
         /// A target ID
         /// </summary>
         public readonly string? Id;
@@ -27,11 +31,14 @@ namespace Pulumi.Pagerduty.Outputs
         private EscalationPolicyRule(
             int escalationDelayInMinutes,
 
+            Outputs.EscalationPolicyRuleEscalationRuleAssignmentStrategy? escalationRuleAssignmentStrategy,
+
             string? id,
 
             ImmutableArray<Outputs.EscalationPolicyRuleTarget> targets)
         {
             EscalationDelayInMinutes = escalationDelayInMinutes;
+            EscalationRuleAssignmentStrategy = escalationRuleAssignmentStrategy;
             Id = id;
             Targets = targets;
         }

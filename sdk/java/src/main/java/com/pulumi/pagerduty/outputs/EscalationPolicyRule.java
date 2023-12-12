@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.pagerduty.outputs.EscalationPolicyRuleEscalationRuleAssignmentStrategy;
 import com.pulumi.pagerduty.outputs.EscalationPolicyRuleTarget;
 import java.lang.Integer;
 import java.lang.String;
@@ -20,6 +21,11 @@ public final class EscalationPolicyRule {
      */
     private Integer escalationDelayInMinutes;
     /**
+     * @return The strategy used to assign the escalation rule to an incident. Documented below.
+     * 
+     */
+    private @Nullable EscalationPolicyRuleEscalationRuleAssignmentStrategy escalationRuleAssignmentStrategy;
+    /**
      * @return A target ID
      * 
      */
@@ -33,6 +39,13 @@ public final class EscalationPolicyRule {
      */
     public Integer escalationDelayInMinutes() {
         return this.escalationDelayInMinutes;
+    }
+    /**
+     * @return The strategy used to assign the escalation rule to an incident. Documented below.
+     * 
+     */
+    public Optional<EscalationPolicyRuleEscalationRuleAssignmentStrategy> escalationRuleAssignmentStrategy() {
+        return Optional.ofNullable(this.escalationRuleAssignmentStrategy);
     }
     /**
      * @return A target ID
@@ -55,12 +68,14 @@ public final class EscalationPolicyRule {
     @CustomType.Builder
     public static final class Builder {
         private Integer escalationDelayInMinutes;
+        private @Nullable EscalationPolicyRuleEscalationRuleAssignmentStrategy escalationRuleAssignmentStrategy;
         private @Nullable String id;
         private List<EscalationPolicyRuleTarget> targets;
         public Builder() {}
         public Builder(EscalationPolicyRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.escalationDelayInMinutes = defaults.escalationDelayInMinutes;
+    	      this.escalationRuleAssignmentStrategy = defaults.escalationRuleAssignmentStrategy;
     	      this.id = defaults.id;
     	      this.targets = defaults.targets;
         }
@@ -68,6 +83,11 @@ public final class EscalationPolicyRule {
         @CustomType.Setter
         public Builder escalationDelayInMinutes(Integer escalationDelayInMinutes) {
             this.escalationDelayInMinutes = Objects.requireNonNull(escalationDelayInMinutes);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder escalationRuleAssignmentStrategy(@Nullable EscalationPolicyRuleEscalationRuleAssignmentStrategy escalationRuleAssignmentStrategy) {
+            this.escalationRuleAssignmentStrategy = escalationRuleAssignmentStrategy;
             return this;
         }
         @CustomType.Setter
@@ -86,6 +106,7 @@ public final class EscalationPolicyRule {
         public EscalationPolicyRule build() {
             final var o = new EscalationPolicyRule();
             o.escalationDelayInMinutes = escalationDelayInMinutes;
+            o.escalationRuleAssignmentStrategy = escalationRuleAssignmentStrategy;
             o.id = id;
             o.targets = targets;
             return o;

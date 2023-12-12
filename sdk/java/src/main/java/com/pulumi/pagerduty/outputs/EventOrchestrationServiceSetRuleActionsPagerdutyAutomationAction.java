@@ -46,9 +46,9 @@ public final class EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAct
             return this;
         }
         public EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction build() {
-            final var o = new EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction();
-            o.actionId = actionId;
-            return o;
+            final var _resultValue = new EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction();
+            _resultValue.actionId = actionId;
+            return _resultValue;
         }
     }
 }

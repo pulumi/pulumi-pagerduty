@@ -67,11 +67,11 @@ public final class RulesetRuleVariable {
             return this;
         }
         public RulesetRuleVariable build() {
-            final var o = new RulesetRuleVariable();
-            o.name = name;
-            o.parameters = parameters;
-            o.type = type;
-            return o;
+            final var _resultValue = new RulesetRuleVariable();
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

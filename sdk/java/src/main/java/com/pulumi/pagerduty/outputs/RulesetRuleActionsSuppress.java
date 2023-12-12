@@ -107,12 +107,12 @@ public final class RulesetRuleActionsSuppress {
             return this;
         }
         public RulesetRuleActionsSuppress build() {
-            final var o = new RulesetRuleActionsSuppress();
-            o.thresholdTimeAmount = thresholdTimeAmount;
-            o.thresholdTimeUnit = thresholdTimeUnit;
-            o.thresholdValue = thresholdValue;
-            o.value = value;
-            return o;
+            final var _resultValue = new RulesetRuleActionsSuppress();
+            _resultValue.thresholdTimeAmount = thresholdTimeAmount;
+            _resultValue.thresholdTimeUnit = thresholdTimeUnit;
+            _resultValue.thresholdValue = thresholdValue;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

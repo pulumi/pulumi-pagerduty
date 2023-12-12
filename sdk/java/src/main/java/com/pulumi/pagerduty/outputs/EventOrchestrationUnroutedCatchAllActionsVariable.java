@@ -103,12 +103,12 @@ public final class EventOrchestrationUnroutedCatchAllActionsVariable {
             return this;
         }
         public EventOrchestrationUnroutedCatchAllActionsVariable build() {
-            final var o = new EventOrchestrationUnroutedCatchAllActionsVariable();
-            o.name = name;
-            o.path = path;
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new EventOrchestrationUnroutedCatchAllActionsVariable();
+            _resultValue.name = name;
+            _resultValue.path = path;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

@@ -251,19 +251,19 @@ public final class EventOrchestrationServiceCatchAllActions {
             return variables(List.of(variables));
         }
         public EventOrchestrationServiceCatchAllActions build() {
-            final var o = new EventOrchestrationServiceCatchAllActions();
-            o.annotate = annotate;
-            o.automationAction = automationAction;
-            o.eventAction = eventAction;
-            o.extractions = extractions;
-            o.pagerdutyAutomationAction = pagerdutyAutomationAction;
-            o.priority = priority;
-            o.routeTo = routeTo;
-            o.severity = severity;
-            o.suppress = suppress;
-            o.suspend = suspend;
-            o.variables = variables;
-            return o;
+            final var _resultValue = new EventOrchestrationServiceCatchAllActions();
+            _resultValue.annotate = annotate;
+            _resultValue.automationAction = automationAction;
+            _resultValue.eventAction = eventAction;
+            _resultValue.extractions = extractions;
+            _resultValue.pagerdutyAutomationAction = pagerdutyAutomationAction;
+            _resultValue.priority = priority;
+            _resultValue.routeTo = routeTo;
+            _resultValue.severity = severity;
+            _resultValue.suppress = suppress;
+            _resultValue.suspend = suspend;
+            _resultValue.variables = variables;
+            return _resultValue;
         }
     }
 }

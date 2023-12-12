@@ -111,12 +111,12 @@ public final class WebhookSubscriptionDeliveryMethod {
             return this;
         }
         public WebhookSubscriptionDeliveryMethod build() {
-            final var o = new WebhookSubscriptionDeliveryMethod();
-            o.customHeaders = customHeaders;
-            o.temporarilyDisabled = temporarilyDisabled;
-            o.type = type;
-            o.url = url;
-            return o;
+            final var _resultValue = new WebhookSubscriptionDeliveryMethod();
+            _resultValue.customHeaders = customHeaders;
+            _resultValue.temporarilyDisabled = temporarilyDisabled;
+            _resultValue.type = type;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

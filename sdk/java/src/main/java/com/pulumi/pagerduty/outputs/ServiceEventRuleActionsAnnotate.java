@@ -48,9 +48,9 @@ public final class ServiceEventRuleActionsAnnotate {
             return this;
         }
         public ServiceEventRuleActionsAnnotate build() {
-            final var o = new ServiceEventRuleActionsAnnotate();
-            o.value = value;
-            return o;
+            final var _resultValue = new ServiceEventRuleActionsAnnotate();
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

@@ -84,11 +84,11 @@ public final class GetUsersUser {
             return this;
         }
         public GetUsersUser build() {
-            final var o = new GetUsersUser();
-            o.email = email;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetUsersUser();
+            _resultValue.email = email;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

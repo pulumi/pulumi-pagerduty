@@ -67,10 +67,10 @@ public final class ResponsePlaySubscriber {
             return this;
         }
         public ResponsePlaySubscriber build() {
-            final var o = new ResponsePlaySubscriber();
-            o.id = id;
-            o.type = type;
-            return o;
+            final var _resultValue = new ResponsePlaySubscriber();
+            _resultValue.id = id;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

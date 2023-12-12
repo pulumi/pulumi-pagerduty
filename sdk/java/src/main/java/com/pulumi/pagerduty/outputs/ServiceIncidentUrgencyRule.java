@@ -115,12 +115,12 @@ public final class ServiceIncidentUrgencyRule {
             return this;
         }
         public ServiceIncidentUrgencyRule build() {
-            final var o = new ServiceIncidentUrgencyRule();
-            o.duringSupportHours = duringSupportHours;
-            o.outsideSupportHours = outsideSupportHours;
-            o.type = type;
-            o.urgency = urgency;
-            return o;
+            final var _resultValue = new ServiceIncidentUrgencyRule();
+            _resultValue.duringSupportHours = duringSupportHours;
+            _resultValue.outsideSupportHours = outsideSupportHours;
+            _resultValue.type = type;
+            _resultValue.urgency = urgency;
+            return _resultValue;
         }
     }
 }

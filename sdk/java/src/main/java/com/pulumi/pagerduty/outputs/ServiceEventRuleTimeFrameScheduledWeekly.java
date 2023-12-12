@@ -110,12 +110,12 @@ public final class ServiceEventRuleTimeFrameScheduledWeekly {
             return weekdays(List.of(weekdays));
         }
         public ServiceEventRuleTimeFrameScheduledWeekly build() {
-            final var o = new ServiceEventRuleTimeFrameScheduledWeekly();
-            o.duration = duration;
-            o.startTime = startTime;
-            o.timezone = timezone;
-            o.weekdays = weekdays;
-            return o;
+            final var _resultValue = new ServiceEventRuleTimeFrameScheduledWeekly();
+            _resultValue.duration = duration;
+            _resultValue.startTime = startTime;
+            _resultValue.timezone = timezone;
+            _resultValue.weekdays = weekdays;
+            return _resultValue;
         }
     }
 }

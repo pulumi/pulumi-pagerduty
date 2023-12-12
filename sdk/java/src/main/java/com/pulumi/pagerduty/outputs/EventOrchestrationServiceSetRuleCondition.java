@@ -46,9 +46,9 @@ public final class EventOrchestrationServiceSetRuleCondition {
             return this;
         }
         public EventOrchestrationServiceSetRuleCondition build() {
-            final var o = new EventOrchestrationServiceSetRuleCondition();
-            o.expression = expression;
-            return o;
+            final var _resultValue = new EventOrchestrationServiceSetRuleCondition();
+            _resultValue.expression = expression;
+            return _resultValue;
         }
     }
 }

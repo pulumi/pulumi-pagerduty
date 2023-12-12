@@ -209,10 +209,10 @@ public final class ServiceScheduledActionAt {
             return this;
         }
         public ServiceScheduledActionAt build() {
-            final var o = new ServiceScheduledActionAt();
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new ServiceScheduledActionAt();
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

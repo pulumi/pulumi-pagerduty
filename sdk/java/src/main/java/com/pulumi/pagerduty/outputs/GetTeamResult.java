@@ -124,13 +124,13 @@ public final class GetTeamResult {
             return this;
         }
         public GetTeamResult build() {
-            final var o = new GetTeamResult();
-            o.defaultRole = defaultRole;
-            o.description = description;
-            o.id = id;
-            o.name = name;
-            o.parent = parent;
-            return o;
+            final var _resultValue = new GetTeamResult();
+            _resultValue.defaultRole = defaultRole;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.parent = parent;
+            return _resultValue;
         }
     }
 }

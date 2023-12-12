@@ -106,12 +106,12 @@ public final class ScheduleLayerRestriction {
             return this;
         }
         public ScheduleLayerRestriction build() {
-            final var o = new ScheduleLayerRestriction();
-            o.durationSeconds = durationSeconds;
-            o.startDayOfWeek = startDayOfWeek;
-            o.startTimeOfDay = startTimeOfDay;
-            o.type = type;
-            return o;
+            final var _resultValue = new ScheduleLayerRestriction();
+            _resultValue.durationSeconds = durationSeconds;
+            _resultValue.startDayOfWeek = startDayOfWeek;
+            _resultValue.startTimeOfDay = startTimeOfDay;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

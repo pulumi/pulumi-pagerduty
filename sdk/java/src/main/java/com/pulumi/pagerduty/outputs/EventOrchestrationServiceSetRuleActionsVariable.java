@@ -103,12 +103,12 @@ public final class EventOrchestrationServiceSetRuleActionsVariable {
             return this;
         }
         public EventOrchestrationServiceSetRuleActionsVariable build() {
-            final var o = new EventOrchestrationServiceSetRuleActionsVariable();
-            o.name = name;
-            o.path = path;
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new EventOrchestrationServiceSetRuleActionsVariable();
+            _resultValue.name = name;
+            _resultValue.path = path;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

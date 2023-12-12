@@ -101,14 +101,14 @@ public final class GetIncidentCustomFieldResult {
             return this;
         }
         public GetIncidentCustomFieldResult build() {
-            final var o = new GetIncidentCustomFieldResult();
-            o.dataType = dataType;
-            o.description = description;
-            o.displayName = displayName;
-            o.fieldType = fieldType;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetIncidentCustomFieldResult();
+            _resultValue.dataType = dataType;
+            _resultValue.description = description;
+            _resultValue.displayName = displayName;
+            _resultValue.fieldType = fieldType;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

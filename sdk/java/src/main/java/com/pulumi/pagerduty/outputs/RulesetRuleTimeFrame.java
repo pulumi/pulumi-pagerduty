@@ -74,10 +74,10 @@ public final class RulesetRuleTimeFrame {
             return scheduledWeeklies(List.of(scheduledWeeklies));
         }
         public RulesetRuleTimeFrame build() {
-            final var o = new RulesetRuleTimeFrame();
-            o.activeBetweens = activeBetweens;
-            o.scheduledWeeklies = scheduledWeeklies;
-            return o;
+            final var _resultValue = new RulesetRuleTimeFrame();
+            _resultValue.activeBetweens = activeBetweens;
+            _resultValue.scheduledWeeklies = scheduledWeeklies;
+            return _resultValue;
         }
     }
 }

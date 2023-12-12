@@ -217,19 +217,19 @@ public final class GetLicensesLicense {
             return validRoles(List.of(validRoles));
         }
         public GetLicensesLicense build() {
-            final var o = new GetLicensesLicense();
-            o.allocationsAvailable = allocationsAvailable;
-            o.currentValue = currentValue;
-            o.description = description;
-            o.htmlUrl = htmlUrl;
-            o.id = id;
-            o.name = name;
-            o.roleGroup = roleGroup;
-            o.self = self;
-            o.summary = summary;
-            o.type = type;
-            o.validRoles = validRoles;
-            return o;
+            final var _resultValue = new GetLicensesLicense();
+            _resultValue.allocationsAvailable = allocationsAvailable;
+            _resultValue.currentValue = currentValue;
+            _resultValue.description = description;
+            _resultValue.htmlUrl = htmlUrl;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.roleGroup = roleGroup;
+            _resultValue.self = self;
+            _resultValue.summary = summary;
+            _resultValue.type = type;
+            _resultValue.validRoles = validRoles;
+            return _resultValue;
         }
     }
 }

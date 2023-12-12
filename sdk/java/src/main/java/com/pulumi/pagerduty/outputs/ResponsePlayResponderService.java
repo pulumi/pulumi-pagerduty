@@ -67,10 +67,10 @@ public final class ResponsePlayResponderService {
             return this;
         }
         public ResponsePlayResponderService build() {
-            final var o = new ResponsePlayResponderService();
-            o.id = id;
-            o.type = type;
-            return o;
+            final var _resultValue = new ResponsePlayResponderService();
+            _resultValue.id = id;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

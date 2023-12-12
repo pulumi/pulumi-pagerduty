@@ -107,12 +107,12 @@ public final class ServiceEventRuleActionsSuppress {
             return this;
         }
         public ServiceEventRuleActionsSuppress build() {
-            final var o = new ServiceEventRuleActionsSuppress();
-            o.thresholdTimeAmount = thresholdTimeAmount;
-            o.thresholdTimeUnit = thresholdTimeUnit;
-            o.thresholdValue = thresholdValue;
-            o.value = value;
-            return o;
+            final var _resultValue = new ServiceEventRuleActionsSuppress();
+            _resultValue.thresholdTimeAmount = thresholdTimeAmount;
+            _resultValue.thresholdTimeUnit = thresholdTimeUnit;
+            _resultValue.thresholdValue = thresholdValue;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

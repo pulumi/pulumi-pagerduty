@@ -48,9 +48,9 @@ public final class RulesetRuleActionsSeverity {
             return this;
         }
         public RulesetRuleActionsSeverity build() {
-            final var o = new RulesetRuleActionsSeverity();
-            o.value = value;
-            return o;
+            final var _resultValue = new RulesetRuleActionsSeverity();
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

@@ -95,11 +95,11 @@ public final class ServiceDependencyDependency {
             return this;
         }
         public ServiceDependencyDependency build() {
-            final var o = new ServiceDependencyDependency();
-            o.dependentServices = dependentServices;
-            o.supportingServices = supportingServices;
-            o.type = type;
-            return o;
+            final var _resultValue = new ServiceDependencyDependency();
+            _resultValue.dependentServices = dependentServices;
+            _resultValue.supportingServices = supportingServices;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

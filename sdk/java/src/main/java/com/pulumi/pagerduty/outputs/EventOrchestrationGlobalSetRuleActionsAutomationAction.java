@@ -134,13 +134,13 @@ public final class EventOrchestrationGlobalSetRuleActionsAutomationAction {
             return this;
         }
         public EventOrchestrationGlobalSetRuleActionsAutomationAction build() {
-            final var o = new EventOrchestrationGlobalSetRuleActionsAutomationAction();
-            o.autoSend = autoSend;
-            o.headers = headers;
-            o.name = name;
-            o.parameters = parameters;
-            o.url = url;
-            return o;
+            final var _resultValue = new EventOrchestrationGlobalSetRuleActionsAutomationAction();
+            _resultValue.autoSend = autoSend;
+            _resultValue.headers = headers;
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

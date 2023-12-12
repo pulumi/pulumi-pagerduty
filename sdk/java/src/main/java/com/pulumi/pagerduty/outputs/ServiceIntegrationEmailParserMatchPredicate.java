@@ -63,10 +63,10 @@ public final class ServiceIntegrationEmailParserMatchPredicate {
             return this;
         }
         public ServiceIntegrationEmailParserMatchPredicate build() {
-            final var o = new ServiceIntegrationEmailParserMatchPredicate();
-            o.predicates = predicates;
-            o.type = type;
-            return o;
+            final var _resultValue = new ServiceIntegrationEmailParserMatchPredicate();
+            _resultValue.predicates = predicates;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -212,16 +212,16 @@ public final class RulesetRuleActions {
             return suspends(List.of(suspends));
         }
         public RulesetRuleActions build() {
-            final var o = new RulesetRuleActions();
-            o.annotates = annotates;
-            o.eventActions = eventActions;
-            o.extractions = extractions;
-            o.priorities = priorities;
-            o.routes = routes;
-            o.severities = severities;
-            o.suppresses = suppresses;
-            o.suspends = suspends;
-            return o;
+            final var _resultValue = new RulesetRuleActions();
+            _resultValue.annotates = annotates;
+            _resultValue.eventActions = eventActions;
+            _resultValue.extractions = extractions;
+            _resultValue.priorities = priorities;
+            _resultValue.routes = routes;
+            _resultValue.severities = severities;
+            _resultValue.suppresses = suppresses;
+            _resultValue.suspends = suspends;
+            return _resultValue;
         }
     }
 }

@@ -109,12 +109,12 @@ public final class EventOrchestrationGlobalSetRuleActionsExtraction {
             return this;
         }
         public EventOrchestrationGlobalSetRuleActionsExtraction build() {
-            final var o = new EventOrchestrationGlobalSetRuleActionsExtraction();
-            o.regex = regex;
-            o.source = source;
-            o.target = target;
-            o.template = template;
-            return o;
+            final var _resultValue = new EventOrchestrationGlobalSetRuleActionsExtraction();
+            _resultValue.regex = regex;
+            _resultValue.source = source;
+            _resultValue.target = target;
+            _resultValue.template = template;
+            return _resultValue;
         }
     }
 }

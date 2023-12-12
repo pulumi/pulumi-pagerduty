@@ -57,10 +57,10 @@ public final class GetTagResult {
             return this;
         }
         public GetTagResult build() {
-            final var o = new GetTagResult();
-            o.id = id;
-            o.label = label;
-            return o;
+            final var _resultValue = new GetTagResult();
+            _resultValue.id = id;
+            _resultValue.label = label;
+            return _resultValue;
         }
     }
 }

@@ -110,12 +110,12 @@ public final class ServiceAlertGroupingParametersConfig {
             return this;
         }
         public ServiceAlertGroupingParametersConfig build() {
-            final var o = new ServiceAlertGroupingParametersConfig();
-            o.aggregate = aggregate;
-            o.fields = fields;
-            o.timeWindow = timeWindow;
-            o.timeout = timeout;
-            return o;
+            final var _resultValue = new ServiceAlertGroupingParametersConfig();
+            _resultValue.aggregate = aggregate;
+            _resultValue.fields = fields;
+            _resultValue.timeWindow = timeWindow;
+            _resultValue.timeout = timeout;
+            return _resultValue;
         }
     }
 }

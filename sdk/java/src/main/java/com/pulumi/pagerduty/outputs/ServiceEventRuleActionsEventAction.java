@@ -48,9 +48,9 @@ public final class ServiceEventRuleActionsEventAction {
             return this;
         }
         public ServiceEventRuleActionsEventAction build() {
-            final var o = new ServiceEventRuleActionsEventAction();
-            o.value = value;
-            return o;
+            final var _resultValue = new ServiceEventRuleActionsEventAction();
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

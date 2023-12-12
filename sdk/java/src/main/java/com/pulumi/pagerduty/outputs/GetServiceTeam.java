@@ -65,10 +65,10 @@ public final class GetServiceTeam {
             return this;
         }
         public GetServiceTeam build() {
-            final var o = new GetServiceTeam();
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetServiceTeam();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -48,9 +48,9 @@ public final class RulesetRuleActionsEventAction {
             return this;
         }
         public RulesetRuleActionsEventAction build() {
-            final var o = new RulesetRuleActionsEventAction();
-            o.value = value;
-            return o;
+            final var _resultValue = new RulesetRuleActionsEventAction();
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

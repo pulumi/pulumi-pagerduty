@@ -65,10 +65,10 @@ public final class EventOrchestrationServiceSetRuleActionsAutomationActionParame
             return this;
         }
         public EventOrchestrationServiceSetRuleActionsAutomationActionParameter build() {
-            final var o = new EventOrchestrationServiceSetRuleActionsAutomationActionParameter();
-            o.key = key;
-            o.value = value;
-            return o;
+            final var _resultValue = new EventOrchestrationServiceSetRuleActionsAutomationActionParameter();
+            _resultValue.key = key;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

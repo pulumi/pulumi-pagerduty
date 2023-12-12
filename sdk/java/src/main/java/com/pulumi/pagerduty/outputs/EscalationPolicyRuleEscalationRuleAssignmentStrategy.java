@@ -48,9 +48,9 @@ public final class EscalationPolicyRuleEscalationRuleAssignmentStrategy {
             return this;
         }
         public EscalationPolicyRuleEscalationRuleAssignmentStrategy build() {
-            final var o = new EscalationPolicyRuleEscalationRuleAssignmentStrategy();
-            o.type = type;
-            return o;
+            final var _resultValue = new EscalationPolicyRuleEscalationRuleAssignmentStrategy();
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

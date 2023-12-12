@@ -65,10 +65,10 @@ public final class GetEscalationPolicyResult {
             return this;
         }
         public GetEscalationPolicyResult build() {
-            final var o = new GetEscalationPolicyResult();
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetEscalationPolicyResult();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

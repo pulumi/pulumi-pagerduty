@@ -74,10 +74,10 @@ public final class ServiceEventRuleTimeFrame {
             return scheduledWeeklies(List.of(scheduledWeeklies));
         }
         public ServiceEventRuleTimeFrame build() {
-            final var o = new ServiceEventRuleTimeFrame();
-            o.activeBetweens = activeBetweens;
-            o.scheduledWeeklies = scheduledWeeklies;
-            return o;
+            final var _resultValue = new ServiceEventRuleTimeFrame();
+            _resultValue.activeBetweens = activeBetweens;
+            _resultValue.scheduledWeeklies = scheduledWeeklies;
+            return _resultValue;
         }
     }
 }

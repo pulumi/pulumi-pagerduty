@@ -48,9 +48,9 @@ public final class ServiceEventRuleActionsSeverity {
             return this;
         }
         public ServiceEventRuleActionsSeverity build() {
-            final var o = new ServiceEventRuleActionsSeverity();
-            o.value = value;
-            return o;
+            final var _resultValue = new ServiceEventRuleActionsSeverity();
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

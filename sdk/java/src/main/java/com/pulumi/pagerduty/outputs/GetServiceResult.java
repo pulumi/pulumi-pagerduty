@@ -204,17 +204,17 @@ public final class GetServiceResult {
             return this;
         }
         public GetServiceResult build() {
-            final var o = new GetServiceResult();
-            o.acknowledgementTimeout = acknowledgementTimeout;
-            o.alertCreation = alertCreation;
-            o.autoResolveTimeout = autoResolveTimeout;
-            o.description = description;
-            o.escalationPolicy = escalationPolicy;
-            o.id = id;
-            o.name = name;
-            o.teams = teams;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetServiceResult();
+            _resultValue.acknowledgementTimeout = acknowledgementTimeout;
+            _resultValue.alertCreation = alertCreation;
+            _resultValue.autoResolveTimeout = autoResolveTimeout;
+            _resultValue.description = description;
+            _resultValue.escalationPolicy = escalationPolicy;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.teams = teams;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

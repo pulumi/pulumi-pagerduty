@@ -84,11 +84,11 @@ public final class ServiceIntegrationEmailParserMatchPredicatePredicatePredicate
             return this;
         }
         public ServiceIntegrationEmailParserMatchPredicatePredicatePredicate build() {
-            final var o = new ServiceIntegrationEmailParserMatchPredicatePredicatePredicate();
-            o.matcher = matcher;
-            o.part = part;
-            o.type = type;
-            return o;
+            final var _resultValue = new ServiceIntegrationEmailParserMatchPredicatePredicatePredicate();
+            _resultValue.matcher = matcher;
+            _resultValue.part = part;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

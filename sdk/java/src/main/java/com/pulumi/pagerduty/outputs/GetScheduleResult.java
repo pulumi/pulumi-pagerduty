@@ -65,10 +65,10 @@ public final class GetScheduleResult {
             return this;
         }
         public GetScheduleResult build() {
-            final var o = new GetScheduleResult();
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetScheduleResult();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

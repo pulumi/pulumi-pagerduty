@@ -48,9 +48,9 @@ public final class RulesetRuleActionsRoute {
             return this;
         }
         public RulesetRuleActionsRoute build() {
-            final var o = new RulesetRuleActionsRoute();
-            o.value = value;
-            return o;
+            final var _resultValue = new RulesetRuleActionsRoute();
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class EventOrchestrationRouterSetRuleActions {
             return this;
         }
         public EventOrchestrationRouterSetRuleActions build() {
-            final var o = new EventOrchestrationRouterSetRuleActions();
-            o.routeTo = routeTo;
-            return o;
+            final var _resultValue = new EventOrchestrationRouterSetRuleActions();
+            _resultValue.routeTo = routeTo;
+            return _resultValue;
         }
     }
 }

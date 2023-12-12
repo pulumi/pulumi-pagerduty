@@ -60,11 +60,11 @@ public final class UseAppOauthScopedToken {
             return this;
         }
         public UseAppOauthScopedToken build() {
-            final var o = new UseAppOauthScopedToken();
-            o.pdClientId = pdClientId;
-            o.pdClientSecret = pdClientSecret;
-            o.pdSubdomain = pdSubdomain;
-            return o;
+            final var _resultValue = new UseAppOauthScopedToken();
+            _resultValue.pdClientId = pdClientId;
+            _resultValue.pdClientSecret = pdClientSecret;
+            _resultValue.pdSubdomain = pdSubdomain;
+            return _resultValue;
         }
     }
 }

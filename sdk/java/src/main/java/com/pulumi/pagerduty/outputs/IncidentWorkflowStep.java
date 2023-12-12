@@ -133,13 +133,13 @@ public final class IncidentWorkflowStep {
             return this;
         }
         public IncidentWorkflowStep build() {
-            final var o = new IncidentWorkflowStep();
-            o.action = action;
-            o.id = id;
-            o.inlineStepsInputs = inlineStepsInputs;
-            o.inputs = inputs;
-            o.name = name;
-            return o;
+            final var _resultValue = new IncidentWorkflowStep();
+            _resultValue.action = action;
+            _resultValue.id = id;
+            _resultValue.inlineStepsInputs = inlineStepsInputs;
+            _resultValue.inputs = inputs;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -59,10 +59,10 @@ public final class RulesetRuleConditionsSubconditionParameter {
             return this;
         }
         public RulesetRuleConditionsSubconditionParameter build() {
-            final var o = new RulesetRuleConditionsSubconditionParameter();
-            o.path = path;
-            o.value = value;
-            return o;
+            final var _resultValue = new RulesetRuleConditionsSubconditionParameter();
+            _resultValue.path = path;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

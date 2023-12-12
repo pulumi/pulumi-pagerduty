@@ -139,13 +139,13 @@ public final class ServiceSupportHours {
             return this;
         }
         public ServiceSupportHours build() {
-            final var o = new ServiceSupportHours();
-            o.daysOfWeeks = daysOfWeeks;
-            o.endTime = endTime;
-            o.startTime = startTime;
-            o.timeZone = timeZone;
-            o.type = type;
-            return o;
+            final var _resultValue = new ServiceSupportHours();
+            _resultValue.daysOfWeeks = daysOfWeeks;
+            _resultValue.endTime = endTime;
+            _resultValue.startTime = startTime;
+            _resultValue.timeZone = timeZone;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

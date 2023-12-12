@@ -162,15 +162,15 @@ public final class ServiceIntegrationEmailFilter {
             return this;
         }
         public ServiceIntegrationEmailFilter build() {
-            final var o = new ServiceIntegrationEmailFilter();
-            o.bodyMode = bodyMode;
-            o.bodyRegex = bodyRegex;
-            o.fromEmailMode = fromEmailMode;
-            o.fromEmailRegex = fromEmailRegex;
-            o.id = id;
-            o.subjectMode = subjectMode;
-            o.subjectRegex = subjectRegex;
-            return o;
+            final var _resultValue = new ServiceIntegrationEmailFilter();
+            _resultValue.bodyMode = bodyMode;
+            _resultValue.bodyRegex = bodyRegex;
+            _resultValue.fromEmailMode = fromEmailMode;
+            _resultValue.fromEmailRegex = fromEmailRegex;
+            _resultValue.id = id;
+            _resultValue.subjectMode = subjectMode;
+            _resultValue.subjectRegex = subjectRegex;
+            return _resultValue;
         }
     }
 }

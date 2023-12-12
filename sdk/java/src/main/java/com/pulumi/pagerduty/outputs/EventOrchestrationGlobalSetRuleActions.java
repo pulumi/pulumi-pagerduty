@@ -250,19 +250,19 @@ public final class EventOrchestrationGlobalSetRuleActions {
             return variables(List.of(variables));
         }
         public EventOrchestrationGlobalSetRuleActions build() {
-            final var o = new EventOrchestrationGlobalSetRuleActions();
-            o.annotate = annotate;
-            o.automationAction = automationAction;
-            o.dropEvent = dropEvent;
-            o.eventAction = eventAction;
-            o.extractions = extractions;
-            o.priority = priority;
-            o.routeTo = routeTo;
-            o.severity = severity;
-            o.suppress = suppress;
-            o.suspend = suspend;
-            o.variables = variables;
-            return o;
+            final var _resultValue = new EventOrchestrationGlobalSetRuleActions();
+            _resultValue.annotate = annotate;
+            _resultValue.automationAction = automationAction;
+            _resultValue.dropEvent = dropEvent;
+            _resultValue.eventAction = eventAction;
+            _resultValue.extractions = extractions;
+            _resultValue.priority = priority;
+            _resultValue.routeTo = routeTo;
+            _resultValue.severity = severity;
+            _resultValue.suppress = suppress;
+            _resultValue.suspend = suspend;
+            _resultValue.variables = variables;
+            return _resultValue;
         }
     }
 }

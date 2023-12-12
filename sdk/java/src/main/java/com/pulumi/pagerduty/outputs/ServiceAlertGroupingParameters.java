@@ -68,10 +68,10 @@ public final class ServiceAlertGroupingParameters {
             return this;
         }
         public ServiceAlertGroupingParameters build() {
-            final var o = new ServiceAlertGroupingParameters();
-            o.config = config;
-            o.type = type;
-            return o;
+            final var _resultValue = new ServiceAlertGroupingParameters();
+            _resultValue.config = config;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

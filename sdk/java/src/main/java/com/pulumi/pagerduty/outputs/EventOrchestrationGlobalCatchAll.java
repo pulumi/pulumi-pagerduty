@@ -46,9 +46,9 @@ public final class EventOrchestrationGlobalCatchAll {
             return this;
         }
         public EventOrchestrationGlobalCatchAll build() {
-            final var o = new EventOrchestrationGlobalCatchAll();
-            o.actions = actions;
-            return o;
+            final var _resultValue = new EventOrchestrationGlobalCatchAll();
+            _resultValue.actions = actions;
+            return _resultValue;
         }
     }
 }

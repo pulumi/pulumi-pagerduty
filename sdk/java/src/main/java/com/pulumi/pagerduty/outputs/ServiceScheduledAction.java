@@ -91,11 +91,11 @@ public final class ServiceScheduledAction {
             return this;
         }
         public ServiceScheduledAction build() {
-            final var o = new ServiceScheduledAction();
-            o.ats = ats;
-            o.toUrgency = toUrgency;
-            o.type = type;
-            return o;
+            final var _resultValue = new ServiceScheduledAction();
+            _resultValue.ats = ats;
+            _resultValue.toUrgency = toUrgency;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

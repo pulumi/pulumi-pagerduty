@@ -65,10 +65,10 @@ public final class EventOrchestrationServiceCatchAllActionsAutomationActionParam
             return this;
         }
         public EventOrchestrationServiceCatchAllActionsAutomationActionParameter build() {
-            final var o = new EventOrchestrationServiceCatchAllActionsAutomationActionParameter();
-            o.key = key;
-            o.value = value;
-            return o;
+            final var _resultValue = new EventOrchestrationServiceCatchAllActionsAutomationActionParameter();
+            _resultValue.key = key;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

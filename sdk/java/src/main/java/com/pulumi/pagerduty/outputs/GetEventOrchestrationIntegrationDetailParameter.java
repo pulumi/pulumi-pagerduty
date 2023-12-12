@@ -65,10 +65,10 @@ public final class GetEventOrchestrationIntegrationDetailParameter {
             return this;
         }
         public GetEventOrchestrationIntegrationDetailParameter build() {
-            final var o = new GetEventOrchestrationIntegrationDetailParameter();
-            o.routingKey = routingKey;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetEventOrchestrationIntegrationDetailParameter();
+            _resultValue.routingKey = routingKey;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

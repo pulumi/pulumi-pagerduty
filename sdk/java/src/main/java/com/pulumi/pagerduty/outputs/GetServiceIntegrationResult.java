@@ -87,12 +87,12 @@ public final class GetServiceIntegrationResult {
             return this;
         }
         public GetServiceIntegrationResult build() {
-            final var o = new GetServiceIntegrationResult();
-            o.id = id;
-            o.integrationKey = integrationKey;
-            o.integrationSummary = integrationSummary;
-            o.serviceName = serviceName;
-            return o;
+            final var _resultValue = new GetServiceIntegrationResult();
+            _resultValue.id = id;
+            _resultValue.integrationKey = integrationKey;
+            _resultValue.integrationSummary = integrationSummary;
+            _resultValue.serviceName = serviceName;
+            return _resultValue;
         }
     }
 }

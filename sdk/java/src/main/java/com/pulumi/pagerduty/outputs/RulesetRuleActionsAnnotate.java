@@ -48,9 +48,9 @@ public final class RulesetRuleActionsAnnotate {
             return this;
         }
         public RulesetRuleActionsAnnotate build() {
-            final var o = new RulesetRuleActionsAnnotate();
-            o.value = value;
-            return o;
+            final var _resultValue = new RulesetRuleActionsAnnotate();
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

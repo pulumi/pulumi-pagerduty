@@ -65,10 +65,10 @@ public final class ServiceDependencyDependencyDependentService {
             return this;
         }
         public ServiceDependencyDependencyDependentService build() {
-            final var o = new ServiceDependencyDependencyDependentService();
-            o.id = id;
-            o.type = type;
-            return o;
+            final var _resultValue = new ServiceDependencyDependencyDependentService();
+            _resultValue.id = id;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

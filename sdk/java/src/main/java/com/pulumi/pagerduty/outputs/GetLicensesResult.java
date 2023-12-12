@@ -72,10 +72,10 @@ public final class GetLicensesResult {
             return licenses(List.of(licenses));
         }
         public GetLicensesResult build() {
-            final var o = new GetLicensesResult();
-            o.id = id;
-            o.licenses = licenses;
-            return o;
+            final var _resultValue = new GetLicensesResult();
+            _resultValue.id = id;
+            _resultValue.licenses = licenses;
+            return _resultValue;
         }
     }
 }

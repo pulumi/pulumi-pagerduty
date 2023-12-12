@@ -46,9 +46,9 @@ public final class EventOrchestrationUnroutedSetRuleCondition {
             return this;
         }
         public EventOrchestrationUnroutedSetRuleCondition build() {
-            final var o = new EventOrchestrationUnroutedSetRuleCondition();
-            o.expression = expression;
-            return o;
+            final var _resultValue = new EventOrchestrationUnroutedSetRuleCondition();
+            _resultValue.expression = expression;
+            return _resultValue;
         }
     }
 }

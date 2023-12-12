@@ -71,10 +71,10 @@ public final class IncidentWorkflowStepInlineStepsInput {
             return steps(List.of(steps));
         }
         public IncidentWorkflowStepInlineStepsInput build() {
-            final var o = new IncidentWorkflowStepInlineStepsInput();
-            o.name = name;
-            o.steps = steps;
-            return o;
+            final var _resultValue = new IncidentWorkflowStepInlineStepsInput();
+            _resultValue.name = name;
+            _resultValue.steps = steps;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class ResponsePlayResponderTeam {
             return this;
         }
         public ResponsePlayResponderTeam build() {
-            final var o = new ResponsePlayResponderTeam();
-            o.id = id;
-            o.type = type;
-            return o;
+            final var _resultValue = new ResponsePlayResponderTeam();
+            _resultValue.id = id;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

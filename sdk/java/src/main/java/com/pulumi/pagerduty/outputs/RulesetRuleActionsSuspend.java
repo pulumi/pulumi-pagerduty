@@ -48,9 +48,9 @@ public final class RulesetRuleActionsSuspend {
             return this;
         }
         public RulesetRuleActionsSuspend build() {
-            final var o = new RulesetRuleActionsSuspend();
-            o.value = value;
-            return o;
+            final var _resultValue = new RulesetRuleActionsSuspend();
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

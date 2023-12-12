@@ -67,10 +67,10 @@ public final class ServiceIncidentUrgencyRuleDuringSupportHours {
             return this;
         }
         public ServiceIncidentUrgencyRuleDuringSupportHours build() {
-            final var o = new ServiceIncidentUrgencyRuleDuringSupportHours();
-            o.type = type;
-            o.urgency = urgency;
-            return o;
+            final var _resultValue = new ServiceIncidentUrgencyRuleDuringSupportHours();
+            _resultValue.type = type;
+            _resultValue.urgency = urgency;
+            return _resultValue;
         }
     }
 }

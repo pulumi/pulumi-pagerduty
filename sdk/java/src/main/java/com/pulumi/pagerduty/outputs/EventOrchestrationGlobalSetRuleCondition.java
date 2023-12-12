@@ -46,9 +46,9 @@ public final class EventOrchestrationGlobalSetRuleCondition {
             return this;
         }
         public EventOrchestrationGlobalSetRuleCondition build() {
-            final var o = new EventOrchestrationGlobalSetRuleCondition();
-            o.expression = expression;
-            return o;
+            final var _resultValue = new EventOrchestrationGlobalSetRuleCondition();
+            _resultValue.expression = expression;
+            return _resultValue;
         }
     }
 }

@@ -59,10 +59,10 @@ public final class RulesetRuleVariableParameter {
             return this;
         }
         public RulesetRuleVariableParameter build() {
-            final var o = new RulesetRuleVariableParameter();
-            o.path = path;
-            o.value = value;
-            return o;
+            final var _resultValue = new RulesetRuleVariableParameter();
+            _resultValue.path = path;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

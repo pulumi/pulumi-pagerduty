@@ -201,17 +201,17 @@ public final class ScheduleLayer {
             return users(List.of(users));
         }
         public ScheduleLayer build() {
-            final var o = new ScheduleLayer();
-            o.end = end;
-            o.id = id;
-            o.name = name;
-            o.renderedCoveragePercentage = renderedCoveragePercentage;
-            o.restrictions = restrictions;
-            o.rotationTurnLengthSeconds = rotationTurnLengthSeconds;
-            o.rotationVirtualStart = rotationVirtualStart;
-            o.start = start;
-            o.users = users;
-            return o;
+            final var _resultValue = new ScheduleLayer();
+            _resultValue.end = end;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.renderedCoveragePercentage = renderedCoveragePercentage;
+            _resultValue.restrictions = restrictions;
+            _resultValue.rotationTurnLengthSeconds = rotationTurnLengthSeconds;
+            _resultValue.rotationVirtualStart = rotationVirtualStart;
+            _resultValue.start = start;
+            _resultValue.users = users;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class WebhookSubscriptionFilter {
             return this;
         }
         public WebhookSubscriptionFilter build() {
-            final var o = new WebhookSubscriptionFilter();
-            o.id = id;
-            o.type = type;
-            return o;
+            final var _resultValue = new WebhookSubscriptionFilter();
+            _resultValue.id = id;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

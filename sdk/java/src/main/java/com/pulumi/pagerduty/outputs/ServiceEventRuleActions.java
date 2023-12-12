@@ -189,15 +189,15 @@ public final class ServiceEventRuleActions {
             return suspends(List.of(suspends));
         }
         public ServiceEventRuleActions build() {
-            final var o = new ServiceEventRuleActions();
-            o.annotates = annotates;
-            o.eventActions = eventActions;
-            o.extractions = extractions;
-            o.priorities = priorities;
-            o.severities = severities;
-            o.suppresses = suppresses;
-            o.suspends = suspends;
-            return o;
+            final var _resultValue = new ServiceEventRuleActions();
+            _resultValue.annotates = annotates;
+            _resultValue.eventActions = eventActions;
+            _resultValue.extractions = extractions;
+            _resultValue.priorities = priorities;
+            _resultValue.severities = severities;
+            _resultValue.suppresses = suppresses;
+            _resultValue.suspends = suspends;
+            return _resultValue;
         }
     }
 }

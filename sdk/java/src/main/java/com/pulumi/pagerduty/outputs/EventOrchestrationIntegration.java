@@ -75,11 +75,11 @@ public final class EventOrchestrationIntegration {
             return parameters(List.of(parameters));
         }
         public EventOrchestrationIntegration build() {
-            final var o = new EventOrchestrationIntegration();
-            o.id = id;
-            o.label = label;
-            o.parameters = parameters;
-            return o;
+            final var _resultValue = new EventOrchestrationIntegration();
+            _resultValue.id = id;
+            _resultValue.label = label;
+            _resultValue.parameters = parameters;
+            return _resultValue;
         }
     }
 }

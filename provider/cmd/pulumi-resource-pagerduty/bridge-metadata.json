@@ -30,21 +30,6 @@
             "pagerduty_business_service_subscriber": {
                 "current": "pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber"
             },
-            "pagerduty_custom_field": {
-                "current": "pagerduty:index/customField:CustomField"
-            },
-            "pagerduty_custom_field_option": {
-                "current": "pagerduty:index/customFieldOption:CustomFieldOption"
-            },
-            "pagerduty_custom_field_schema": {
-                "current": "pagerduty:index/customFieldSchema:CustomFieldSchema"
-            },
-            "pagerduty_custom_field_schema_assignment": {
-                "current": "pagerduty:index/customFieldSchemaAssignment:CustomFieldSchemaAssignment"
-            },
-            "pagerduty_custom_field_schema_field_configuration": {
-                "current": "pagerduty:index/customFieldSchemaFieldConfiguration:CustomFieldSchemaFieldConfiguration"
-            },
             "pagerduty_escalation_policy": {
                 "current": "pagerduty:index/escalationPolicy:EscalationPolicy",
                 "fields": {
@@ -841,12 +826,6 @@
             "pagerduty_business_service": {
                 "current": "pagerduty:index/getBusinessService:getBusinessService"
             },
-            "pagerduty_custom_field": {
-                "current": "pagerduty:index/getCustomField:getCustomField"
-            },
-            "pagerduty_custom_field_schema": {
-                "current": "pagerduty:index/getCustomFieldSchema:getCustomFieldSchema"
-            },
             "pagerduty_escalation_policy": {
                 "current": "pagerduty:index/getEscalationPolicy:getEscalationPolicy"
             },
@@ -980,6 +959,7 @@
             }
         }
     },
+    "auto-settings": {},
     "renames": {
         "resources": {
             "pagerduty:index/addon:Addon": "pagerduty_addon",

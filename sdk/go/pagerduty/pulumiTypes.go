@@ -18115,6 +18115,130 @@ func (o GetServiceTeamArrayOutput) Index(i pulumi.IntInput) GetServiceTeamOutput
 	}).(GetServiceTeamOutput)
 }
 
+type GetTeamMembersMember struct {
+	// The ID of the found user.
+	Id string `pulumi:"id"`
+	// The team role of the found user.
+	Role string `pulumi:"role"`
+	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
+	Summary string `pulumi:"summary"`
+	// The type of object. The value returned will be `userReference`. Can be used for passing to another object as dependency.
+	Type string `pulumi:"type"`
+}
+
+// GetTeamMembersMemberInput is an input type that accepts GetTeamMembersMemberArgs and GetTeamMembersMemberOutput values.
+// You can construct a concrete instance of `GetTeamMembersMemberInput` via:
+//
+//	GetTeamMembersMemberArgs{...}
+type GetTeamMembersMemberInput interface {
+	pulumi.Input
+
+	ToGetTeamMembersMemberOutput() GetTeamMembersMemberOutput
+	ToGetTeamMembersMemberOutputWithContext(context.Context) GetTeamMembersMemberOutput
+}
+
+type GetTeamMembersMemberArgs struct {
+	// The ID of the found user.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The team role of the found user.
+	Role pulumi.StringInput `pulumi:"role"`
+	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
+	Summary pulumi.StringInput `pulumi:"summary"`
+	// The type of object. The value returned will be `userReference`. Can be used for passing to another object as dependency.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetTeamMembersMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTeamMembersMember)(nil)).Elem()
+}
+
+func (i GetTeamMembersMemberArgs) ToGetTeamMembersMemberOutput() GetTeamMembersMemberOutput {
+	return i.ToGetTeamMembersMemberOutputWithContext(context.Background())
+}
+
+func (i GetTeamMembersMemberArgs) ToGetTeamMembersMemberOutputWithContext(ctx context.Context) GetTeamMembersMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTeamMembersMemberOutput)
+}
+
+// GetTeamMembersMemberArrayInput is an input type that accepts GetTeamMembersMemberArray and GetTeamMembersMemberArrayOutput values.
+// You can construct a concrete instance of `GetTeamMembersMemberArrayInput` via:
+//
+//	GetTeamMembersMemberArray{ GetTeamMembersMemberArgs{...} }
+type GetTeamMembersMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetTeamMembersMemberArrayOutput() GetTeamMembersMemberArrayOutput
+	ToGetTeamMembersMemberArrayOutputWithContext(context.Context) GetTeamMembersMemberArrayOutput
+}
+
+type GetTeamMembersMemberArray []GetTeamMembersMemberInput
+
+func (GetTeamMembersMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTeamMembersMember)(nil)).Elem()
+}
+
+func (i GetTeamMembersMemberArray) ToGetTeamMembersMemberArrayOutput() GetTeamMembersMemberArrayOutput {
+	return i.ToGetTeamMembersMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetTeamMembersMemberArray) ToGetTeamMembersMemberArrayOutputWithContext(ctx context.Context) GetTeamMembersMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTeamMembersMemberArrayOutput)
+}
+
+type GetTeamMembersMemberOutput struct{ *pulumi.OutputState }
+
+func (GetTeamMembersMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTeamMembersMember)(nil)).Elem()
+}
+
+func (o GetTeamMembersMemberOutput) ToGetTeamMembersMemberOutput() GetTeamMembersMemberOutput {
+	return o
+}
+
+func (o GetTeamMembersMemberOutput) ToGetTeamMembersMemberOutputWithContext(ctx context.Context) GetTeamMembersMemberOutput {
+	return o
+}
+
+// The ID of the found user.
+func (o GetTeamMembersMemberOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTeamMembersMember) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The team role of the found user.
+func (o GetTeamMembersMemberOutput) Role() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTeamMembersMember) string { return v.Role }).(pulumi.StringOutput)
+}
+
+// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
+func (o GetTeamMembersMemberOutput) Summary() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTeamMembersMember) string { return v.Summary }).(pulumi.StringOutput)
+}
+
+// The type of object. The value returned will be `userReference`. Can be used for passing to another object as dependency.
+func (o GetTeamMembersMemberOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTeamMembersMember) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetTeamMembersMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTeamMembersMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTeamMembersMember)(nil)).Elem()
+}
+
+func (o GetTeamMembersMemberArrayOutput) ToGetTeamMembersMemberArrayOutput() GetTeamMembersMemberArrayOutput {
+	return o
+}
+
+func (o GetTeamMembersMemberArrayOutput) ToGetTeamMembersMemberArrayOutputWithContext(ctx context.Context) GetTeamMembersMemberArrayOutput {
+	return o
+}
+
+func (o GetTeamMembersMemberArrayOutput) Index(i pulumi.IntInput) GetTeamMembersMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTeamMembersMember {
+		return vs[0].([]GetTeamMembersMember)[vs[1].(int)]
+	}).(GetTeamMembersMemberOutput)
+}
+
 type GetUsersUser struct {
 	// The email to use to find a user in the PagerDuty API.
 	Email string `pulumi:"email"`
@@ -18498,6 +18622,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLicensesLicenseArrayInput)(nil)).Elem(), GetLicensesLicenseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceTeamInput)(nil)).Elem(), GetServiceTeamArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceTeamArrayInput)(nil)).Elem(), GetServiceTeamArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamMembersMemberInput)(nil)).Elem(), GetTeamMembersMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamMembersMemberArrayInput)(nil)).Elem(), GetTeamMembersMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserInput)(nil)).Elem(), GetUsersUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserArrayInput)(nil)).Elem(), GetUsersUserArray{})
 	pulumi.RegisterOutputType(AutomationActionsActionActionDataReferenceOutput{})
@@ -18767,6 +18893,8 @@ func init() {
 	pulumi.RegisterOutputType(GetLicensesLicenseArrayOutput{})
 	pulumi.RegisterOutputType(GetServiceTeamOutput{})
 	pulumi.RegisterOutputType(GetServiceTeamArrayOutput{})
+	pulumi.RegisterOutputType(GetTeamMembersMemberOutput{})
+	pulumi.RegisterOutputType(GetTeamMembersMemberArrayOutput{})
 	pulumi.RegisterOutputType(GetUsersUserOutput{})
 	pulumi.RegisterOutputType(GetUsersUserArrayOutput{})
 }

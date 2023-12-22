@@ -42,6 +42,7 @@ from .get_service import *
 from .get_service_integration import *
 from .get_tag import *
 from .get_team import *
+from .get_team_members import *
 from .get_user import *
 from .get_user_contact_method import *
 from .get_users import *

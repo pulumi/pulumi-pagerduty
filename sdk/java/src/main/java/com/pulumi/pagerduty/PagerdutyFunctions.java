@@ -45,6 +45,8 @@ import com.pulumi.pagerduty.inputs.GetServicePlainArgs;
 import com.pulumi.pagerduty.inputs.GetTagArgs;
 import com.pulumi.pagerduty.inputs.GetTagPlainArgs;
 import com.pulumi.pagerduty.inputs.GetTeamArgs;
+import com.pulumi.pagerduty.inputs.GetTeamMembersArgs;
+import com.pulumi.pagerduty.inputs.GetTeamMembersPlainArgs;
 import com.pulumi.pagerduty.inputs.GetTeamPlainArgs;
 import com.pulumi.pagerduty.inputs.GetUserArgs;
 import com.pulumi.pagerduty.inputs.GetUserContactMethodArgs;
@@ -72,6 +74,7 @@ import com.pulumi.pagerduty.outputs.GetScheduleResult;
 import com.pulumi.pagerduty.outputs.GetServiceIntegrationResult;
 import com.pulumi.pagerduty.outputs.GetServiceResult;
 import com.pulumi.pagerduty.outputs.GetTagResult;
+import com.pulumi.pagerduty.outputs.GetTeamMembersResult;
 import com.pulumi.pagerduty.outputs.GetTeamResult;
 import com.pulumi.pagerduty.outputs.GetUserContactMethodResult;
 import com.pulumi.pagerduty.outputs.GetUserResult;
@@ -4217,6 +4220,174 @@ public final class PagerdutyFunctions {
      */
     public static CompletableFuture<GetTeamResult> getTeamPlain(GetTeamPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("pagerduty:index/getTeam:getTeam", TypeShape.of(GetTeamResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [team&#39;s members][1].
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetTeamArgs;
+     * import com.pulumi.pagerduty.inputs.GetTeamMembersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()
+     *             .name(&#34;devops&#34;)
+     *             .build());
+     * 
+     *         final var devopsMembers = PagerdutyFunctions.getTeamMembers(GetTeamMembersArgs.builder()
+     *             .teamId(devops.applyValue(getTeamResult -&gt; getTeamResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetTeamMembersResult> getTeamMembers(GetTeamMembersArgs args) {
+        return getTeamMembers(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about a specific [team&#39;s members][1].
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetTeamArgs;
+     * import com.pulumi.pagerduty.inputs.GetTeamMembersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()
+     *             .name(&#34;devops&#34;)
+     *             .build());
+     * 
+     *         final var devopsMembers = PagerdutyFunctions.getTeamMembers(GetTeamMembersArgs.builder()
+     *             .teamId(devops.applyValue(getTeamResult -&gt; getTeamResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetTeamMembersResult> getTeamMembersPlain(GetTeamMembersPlainArgs args) {
+        return getTeamMembersPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about a specific [team&#39;s members][1].
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetTeamArgs;
+     * import com.pulumi.pagerduty.inputs.GetTeamMembersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()
+     *             .name(&#34;devops&#34;)
+     *             .build());
+     * 
+     *         final var devopsMembers = PagerdutyFunctions.getTeamMembers(GetTeamMembersArgs.builder()
+     *             .teamId(devops.applyValue(getTeamResult -&gt; getTeamResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetTeamMembersResult> getTeamMembers(GetTeamMembersArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getTeamMembers:getTeamMembers", TypeShape.of(GetTeamMembersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [team&#39;s members][1].
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetTeamArgs;
+     * import com.pulumi.pagerduty.inputs.GetTeamMembersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()
+     *             .name(&#34;devops&#34;)
+     *             .build());
+     * 
+     *         final var devopsMembers = PagerdutyFunctions.getTeamMembers(GetTeamMembersArgs.builder()
+     *             .teamId(devops.applyValue(getTeamResult -&gt; getTeamResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetTeamMembersResult> getTeamMembersPlain(GetTeamMembersPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("pagerduty:index/getTeamMembers:getTeamMembers", TypeShape.of(GetTeamMembersResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get information about a specific [user](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources.

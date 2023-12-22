@@ -52,6 +52,7 @@
         "getServiceIntegration.ts",
         "getTag.ts",
         "getTeam.ts",
+        "getTeamMembers.ts",
         "getUser.ts",
         "getUserContactMethod.ts",
         "getUsers.ts",

@@ -190,6 +190,11 @@ export const getTeam: typeof import("./getTeam").getTeam = null as any;
 export const getTeamOutput: typeof import("./getTeam").getTeamOutput = null as any;
 utilities.lazyLoad(exports, ["getTeam","getTeamOutput"], () => require("./getTeam"));
 
+export { GetTeamMembersArgs, GetTeamMembersResult, GetTeamMembersOutputArgs } from "./getTeamMembers";
+export const getTeamMembers: typeof import("./getTeamMembers").getTeamMembers = null as any;
+export const getTeamMembersOutput: typeof import("./getTeamMembers").getTeamMembersOutput = null as any;
+utilities.lazyLoad(exports, ["getTeamMembers","getTeamMembersOutput"], () => require("./getTeamMembers"));
+
 export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
 export const getUser: typeof import("./getUser").getUser = null as any;
 export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;

@@ -146,6 +146,7 @@ __all__ = [
     'GetEventOrchestrationsEventOrchestrationIntegrationParameterResult',
     'GetLicensesLicenseResult',
     'GetServiceTeamResult',
+    'GetTeamMembersMemberResult',
     'GetUsersUserResult',
 ]
 
@@ -6964,6 +6965,57 @@ class GetServiceTeamResult(dict):
         The service name to use to find a service in the PagerDuty API.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetTeamMembersMemberResult(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 role: str,
+                 summary: str,
+                 type: str):
+        """
+        :param str id: The ID of the found user.
+        :param str role: The team role of the found user.
+        :param str summary: A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
+        :param str type: The type of object. The value returned will be `user_reference`. Can be used for passing to another object as dependency.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "role", role)
+        pulumi.set(__self__, "summary", summary)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the found user.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def role(self) -> str:
+        """
+        The team role of the found user.
+        """
+        return pulumi.get(self, "role")
+
+    @property
+    @pulumi.getter
+    def summary(self) -> str:
+        """
+        A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
+        """
+        return pulumi.get(self, "summary")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of object. The value returned will be `user_reference`. Can be used for passing to another object as dependency.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

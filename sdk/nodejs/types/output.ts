@@ -1079,6 +1079,25 @@ export interface GetServiceTeam {
     name: string;
 }
 
+export interface GetTeamMembersMember {
+    /**
+     * The ID of the found user.
+     */
+    id: string;
+    /**
+     * The team role of the found user.
+     */
+    role: string;
+    /**
+     * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
+     */
+    summary: string;
+    /**
+     * The type of object. The value returned will be `userReference`. Can be used for passing to another object as dependency.
+     */
+    type: string;
+}
+
 export interface GetUsersUser {
     /**
      * The email to use to find a user in the PagerDuty API.

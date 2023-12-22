@@ -3310,6 +3310,38 @@
                 }
             }
         },
+        "pagerduty:index/getTeamMembersMember:getTeamMembersMember": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the found user.\n"
+                },
+                "role": {
+                    "type": "string",
+                    "description": "The team role of the found user.\n"
+                },
+                "summary": {
+                    "type": "string",
+                    "description": "A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of object. The value returned will be `user_reference`. Can be used for passing to another object as dependency.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "role",
+                "summary",
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "pagerduty:index/getUsersUser:getUsersUser": {
             "properties": {
                 "email": {
@@ -8269,6 +8301,47 @@
                 "required": [
                     "description",
                     "name",
+                    "id"
+                ]
+            }
+        },
+        "pagerduty:index/getTeamMembers:getTeamMembers": {
+            "description": "Use this data source to get information about a specific [team's members][1].\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst devops = pagerduty.getTeam({\n    name: \"devops\",\n});\nconst devopsMembers = devops.then(devops =\u003e pagerduty.getTeamMembers({\n    teamId: devops.id,\n}));\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\ndevops = pagerduty.get_team(name=\"devops\")\ndevops_members = pagerduty.get_team_members(team_id=devops.id)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var devops = Pagerduty.GetTeam.Invoke(new()\n    {\n        Name = \"devops\",\n    });\n\n    var devopsMembers = Pagerduty.GetTeamMembers.Invoke(new()\n    {\n        TeamId = devops.Apply(getTeamResult =\u003e getTeamResult.Id),\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tdevops, err := pagerduty.LookupTeam(ctx, \u0026pagerduty.LookupTeamArgs{\n\t\t\tName: \"devops\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.GetTeamMembers(ctx, \u0026pagerduty.GetTeamMembersArgs{\n\t\t\tTeamId: devops.Id,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.PagerdutyFunctions;\nimport com.pulumi.pagerduty.inputs.GetTeamArgs;\nimport com.pulumi.pagerduty.inputs.GetTeamMembersArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var devops = PagerdutyFunctions.getTeam(GetTeamArgs.builder()\n            .name(\"devops\")\n            .build());\n\n        final var devopsMembers = PagerdutyFunctions.getTeamMembers(GetTeamMembersArgs.builder()\n            .teamId(devops.applyValue(getTeamResult -\u003e getTeamResult.id()))\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  devops:\n    fn::invoke:\n      Function: pagerduty:getTeam\n      Arguments:\n        name: devops\n  devopsMembers:\n    fn::invoke:\n      Function: pagerduty:getTeamMembers\n      Arguments:\n        teamId: ${devops.id}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getTeamMembers.\n",
+                "properties": {
+                    "teamId": {
+                        "type": "string",
+                        "description": "The ID of the team to find in the PagerDuty API.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "teamId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getTeamMembers.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "members": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/pagerduty:index/getTeamMembersMember:getTeamMembersMember"
+                        },
+                        "description": "The users of the found team.\n"
+                    },
+                    "teamId": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "members",
+                    "teamId",
                     "id"
                 ]
             }

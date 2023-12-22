@@ -937,6 +937,14 @@
             "pagerduty_team": {
                 "current": "pagerduty:index/getTeam:getTeam"
             },
+            "pagerduty_team_members": {
+                "current": "pagerduty:index/getTeamMembers:getTeamMembers",
+                "fields": {
+                    "members": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "pagerduty_user": {
                 "current": "pagerduty:index/getUser:getUser"
             },
@@ -1023,6 +1031,7 @@
             "pagerduty:index/getServiceIntegration:getServiceIntegration": "pagerduty_service_integration",
             "pagerduty:index/getTag:getTag": "pagerduty_tag",
             "pagerduty:index/getTeam:getTeam": "pagerduty_team",
+            "pagerduty:index/getTeamMembers:getTeamMembers": "pagerduty_team_members",
             "pagerduty:index/getUser:getUser": "pagerduty_user",
             "pagerduty:index/getUserContactMethod:getUserContactMethod": "pagerduty_user_contact_method",
             "pagerduty:index/getUsers:getUsers": "pagerduty_users",
@@ -1456,6 +1465,9 @@
             },
             "pagerduty:index/getTeam:getTeam": {
                 "defaultRole": "default_role"
+            },
+            "pagerduty:index/getTeamMembers:getTeamMembers": {
+                "teamId": "team_id"
             },
             "pagerduty:index/getUserContactMethod:getUserContactMethod": {
                 "countryCode": "country_code",

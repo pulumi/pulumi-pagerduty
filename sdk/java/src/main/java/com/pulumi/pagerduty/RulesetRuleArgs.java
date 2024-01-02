@@ -5,6 +5,7 @@ package com.pulumi.pagerduty;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.inputs.RulesetRuleActionsArgs;
 import com.pulumi.pagerduty.inputs.RulesetRuleConditionsArgs;
 import com.pulumi.pagerduty.inputs.RulesetRuleTimeFrameArgs;
@@ -352,7 +353,9 @@ public final class RulesetRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RulesetRuleArgs build() {
-            $.ruleset = Objects.requireNonNull($.ruleset, "expected parameter 'ruleset' to be non-null");
+            if ($.ruleset == null) {
+                throw new MissingRequiredPropertyException("RulesetRuleArgs", "ruleset");
+            }
             return $;
         }
     }

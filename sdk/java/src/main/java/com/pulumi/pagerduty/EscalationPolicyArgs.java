@@ -6,6 +6,7 @@ package com.pulumi.pagerduty;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.core.internal.Codegen;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.inputs.EscalationPolicyRuleArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -219,7 +220,9 @@ public final class EscalationPolicyArgs extends com.pulumi.resources.ResourceArg
 
         public EscalationPolicyArgs build() {
             $.description = Codegen.stringProp("description").output().arg($.description).def("Managed by Pulumi").getNullable();
-            $.rules = Objects.requireNonNull($.rules, "expected parameter 'rules' to be non-null");
+            if ($.rules == null) {
+                throw new MissingRequiredPropertyException("EscalationPolicyArgs", "rules");
+            }
             return $;
         }
     }

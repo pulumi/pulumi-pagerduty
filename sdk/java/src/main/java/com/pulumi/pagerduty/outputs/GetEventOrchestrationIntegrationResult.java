@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.outputs.GetEventOrchestrationIntegrationParameter;
 import java.lang.String;
 import java.util.List;
@@ -56,22 +57,30 @@ public final class GetEventOrchestrationIntegrationResult {
 
         @CustomType.Setter
         public Builder eventOrchestration(String eventOrchestration) {
-            this.eventOrchestration = Objects.requireNonNull(eventOrchestration);
+            if (eventOrchestration == null) {
+              throw new MissingRequiredPropertyException("GetEventOrchestrationIntegrationResult", "eventOrchestration");
+            }
+            this.eventOrchestration = eventOrchestration;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder label(@Nullable String label) {
+
             this.label = label;
             return this;
         }
         @CustomType.Setter
         public Builder parameters(List<GetEventOrchestrationIntegrationParameter> parameters) {
-            this.parameters = Objects.requireNonNull(parameters);
+            if (parameters == null) {
+              throw new MissingRequiredPropertyException("GetEventOrchestrationIntegrationResult", "parameters");
+            }
+            this.parameters = parameters;
             return this;
         }
         public Builder parameters(GetEventOrchestrationIntegrationParameter... parameters) {

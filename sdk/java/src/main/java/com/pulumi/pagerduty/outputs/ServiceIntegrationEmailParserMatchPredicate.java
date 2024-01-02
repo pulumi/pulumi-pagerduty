@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.outputs.ServiceIntegrationEmailParserMatchPredicatePredicate;
 import java.lang.String;
 import java.util.List;
@@ -51,6 +52,7 @@ public final class ServiceIntegrationEmailParserMatchPredicate {
 
         @CustomType.Setter
         public Builder predicates(@Nullable List<ServiceIntegrationEmailParserMatchPredicatePredicate> predicates) {
+
             this.predicates = predicates;
             return this;
         }
@@ -59,7 +61,10 @@ public final class ServiceIntegrationEmailParserMatchPredicate {
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("ServiceIntegrationEmailParserMatchPredicate", "type");
+            }
+            this.type = type;
             return this;
         }
         public ServiceIntegrationEmailParserMatchPredicate build() {

@@ -134,6 +134,7 @@ public final class ServiceEventRuleActions {
 
         @CustomType.Setter
         public Builder annotates(@Nullable List<ServiceEventRuleActionsAnnotate> annotates) {
+
             this.annotates = annotates;
             return this;
         }
@@ -142,6 +143,7 @@ public final class ServiceEventRuleActions {
         }
         @CustomType.Setter
         public Builder eventActions(@Nullable List<ServiceEventRuleActionsEventAction> eventActions) {
+
             this.eventActions = eventActions;
             return this;
         }
@@ -150,6 +152,7 @@ public final class ServiceEventRuleActions {
         }
         @CustomType.Setter
         public Builder extractions(@Nullable List<ServiceEventRuleActionsExtraction> extractions) {
+
             this.extractions = extractions;
             return this;
         }
@@ -158,6 +161,7 @@ public final class ServiceEventRuleActions {
         }
         @CustomType.Setter
         public Builder priorities(@Nullable List<ServiceEventRuleActionsPriority> priorities) {
+
             this.priorities = priorities;
             return this;
         }
@@ -166,6 +170,7 @@ public final class ServiceEventRuleActions {
         }
         @CustomType.Setter
         public Builder severities(@Nullable List<ServiceEventRuleActionsSeverity> severities) {
+
             this.severities = severities;
             return this;
         }
@@ -174,6 +179,7 @@ public final class ServiceEventRuleActions {
         }
         @CustomType.Setter
         public Builder suppresses(@Nullable List<ServiceEventRuleActionsSuppress> suppresses) {
+
             this.suppresses = suppresses;
             return this;
         }
@@ -182,6 +188,7 @@ public final class ServiceEventRuleActions {
         }
         @CustomType.Setter
         public Builder suspends(@Nullable List<ServiceEventRuleActionsSuspend> suspends) {
+
             this.suspends = suspends;
             return this;
         }

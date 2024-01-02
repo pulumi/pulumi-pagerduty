@@ -100,26 +100,31 @@ public final class AutomationActionsActionActionDataReference {
 
         @CustomType.Setter
         public Builder invocationCommand(@Nullable String invocationCommand) {
+
             this.invocationCommand = invocationCommand;
             return this;
         }
         @CustomType.Setter
         public Builder processAutomationJobArguments(@Nullable String processAutomationJobArguments) {
+
             this.processAutomationJobArguments = processAutomationJobArguments;
             return this;
         }
         @CustomType.Setter
         public Builder processAutomationJobId(@Nullable String processAutomationJobId) {
+
             this.processAutomationJobId = processAutomationJobId;
             return this;
         }
         @CustomType.Setter
         public Builder processAutomationNodeFilter(@Nullable String processAutomationNodeFilter) {
+
             this.processAutomationNodeFilter = processAutomationNodeFilter;
             return this;
         }
         @CustomType.Setter
         public Builder script(@Nullable String script) {
+
             this.script = script;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.pagerduty.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.inputs.ResponsePlayResponderEscalationRuleTargetArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -163,7 +164,9 @@ public final class ResponsePlayResponderEscalationRuleArgs extends com.pulumi.re
         }
 
         public ResponsePlayResponderEscalationRuleArgs build() {
-            $.targets = Objects.requireNonNull($.targets, "expected parameter 'targets' to be non-null");
+            if ($.targets == null) {
+                throw new MissingRequiredPropertyException("ResponsePlayResponderEscalationRuleArgs", "targets");
+            }
             return $;
         }
     }

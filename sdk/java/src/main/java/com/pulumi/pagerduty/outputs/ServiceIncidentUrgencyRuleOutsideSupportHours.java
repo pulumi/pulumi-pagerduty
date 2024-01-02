@@ -58,11 +58,13 @@ public final class ServiceIncidentUrgencyRuleOutsideSupportHours {
 
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder urgency(@Nullable String urgency) {
+
             this.urgency = urgency;
             return this;
         }

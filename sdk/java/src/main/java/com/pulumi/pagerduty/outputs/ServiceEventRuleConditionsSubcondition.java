@@ -60,11 +60,13 @@ public final class ServiceEventRuleConditionsSubcondition {
 
         @CustomType.Setter
         public Builder operator(@Nullable String operator) {
+
             this.operator = operator;
             return this;
         }
         @CustomType.Setter
         public Builder parameters(@Nullable List<ServiceEventRuleConditionsSubconditionParameter> parameters) {
+
             this.parameters = parameters;
             return this;
         }

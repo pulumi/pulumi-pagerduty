@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -98,27 +99,42 @@ public final class GetAutomationActionsActionActionDataReference {
 
         @CustomType.Setter
         public Builder invocationCommand(String invocationCommand) {
-            this.invocationCommand = Objects.requireNonNull(invocationCommand);
+            if (invocationCommand == null) {
+              throw new MissingRequiredPropertyException("GetAutomationActionsActionActionDataReference", "invocationCommand");
+            }
+            this.invocationCommand = invocationCommand;
             return this;
         }
         @CustomType.Setter
         public Builder processAutomationJobArguments(String processAutomationJobArguments) {
-            this.processAutomationJobArguments = Objects.requireNonNull(processAutomationJobArguments);
+            if (processAutomationJobArguments == null) {
+              throw new MissingRequiredPropertyException("GetAutomationActionsActionActionDataReference", "processAutomationJobArguments");
+            }
+            this.processAutomationJobArguments = processAutomationJobArguments;
             return this;
         }
         @CustomType.Setter
         public Builder processAutomationJobId(String processAutomationJobId) {
-            this.processAutomationJobId = Objects.requireNonNull(processAutomationJobId);
+            if (processAutomationJobId == null) {
+              throw new MissingRequiredPropertyException("GetAutomationActionsActionActionDataReference", "processAutomationJobId");
+            }
+            this.processAutomationJobId = processAutomationJobId;
             return this;
         }
         @CustomType.Setter
         public Builder processAutomationNodeFilter(String processAutomationNodeFilter) {
-            this.processAutomationNodeFilter = Objects.requireNonNull(processAutomationNodeFilter);
+            if (processAutomationNodeFilter == null) {
+              throw new MissingRequiredPropertyException("GetAutomationActionsActionActionDataReference", "processAutomationNodeFilter");
+            }
+            this.processAutomationNodeFilter = processAutomationNodeFilter;
             return this;
         }
         @CustomType.Setter
         public Builder script(String script) {
-            this.script = Objects.requireNonNull(script);
+            if (script == null) {
+              throw new MissingRequiredPropertyException("GetAutomationActionsActionActionDataReference", "script");
+            }
+            this.script = script;
             return this;
         }
         public GetAutomationActionsActionActionDataReference build() {

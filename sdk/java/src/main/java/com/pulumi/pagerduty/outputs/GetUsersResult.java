@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.outputs.GetUsersUser;
 import java.lang.String;
 import java.util.List;
@@ -65,11 +66,15 @@ public final class GetUsersResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetUsersResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder teamIds(@Nullable List<String> teamIds) {
+
             this.teamIds = teamIds;
             return this;
         }
@@ -78,7 +83,10 @@ public final class GetUsersResult {
         }
         @CustomType.Setter
         public Builder users(List<GetUsersUser> users) {
-            this.users = Objects.requireNonNull(users);
+            if (users == null) {
+              throw new MissingRequiredPropertyException("GetUsersResult", "users");
+            }
+            this.users = users;
             return this;
         }
         public Builder users(GetUsersUser... users) {

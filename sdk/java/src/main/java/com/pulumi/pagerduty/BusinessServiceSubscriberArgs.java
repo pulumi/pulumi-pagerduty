@@ -5,6 +5,7 @@ package com.pulumi.pagerduty;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class BusinessServiceSubscriberArgs extends com.pulumi.resources.Re
         }
 
         public BusinessServiceSubscriberArgs build() {
-            $.businessServiceId = Objects.requireNonNull($.businessServiceId, "expected parameter 'businessServiceId' to be non-null");
-            $.subscriberId = Objects.requireNonNull($.subscriberId, "expected parameter 'subscriberId' to be non-null");
-            $.subscriberType = Objects.requireNonNull($.subscriberType, "expected parameter 'subscriberType' to be non-null");
+            if ($.businessServiceId == null) {
+                throw new MissingRequiredPropertyException("BusinessServiceSubscriberArgs", "businessServiceId");
+            }
+            if ($.subscriberId == null) {
+                throw new MissingRequiredPropertyException("BusinessServiceSubscriberArgs", "subscriberId");
+            }
+            if ($.subscriberType == null) {
+                throw new MissingRequiredPropertyException("BusinessServiceSubscriberArgs", "subscriberType");
+            }
             return $;
         }
     }

@@ -50,11 +50,13 @@ public final class RulesetRuleVariableParameter {
 
         @CustomType.Setter
         public Builder path(@Nullable String path) {
+
             this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder value(@Nullable String value) {
+
             this.value = value;
             return this;
         }

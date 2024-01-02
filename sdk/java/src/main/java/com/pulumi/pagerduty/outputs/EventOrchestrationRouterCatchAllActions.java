@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class EventOrchestrationRouterCatchAllActions {
 
         @CustomType.Setter
         public Builder routeTo(String routeTo) {
-            this.routeTo = Objects.requireNonNull(routeTo);
+            if (routeTo == null) {
+              throw new MissingRequiredPropertyException("EventOrchestrationRouterCatchAllActions", "routeTo");
+            }
+            this.routeTo = routeTo;
             return this;
         }
         public EventOrchestrationRouterCatchAllActions build() {

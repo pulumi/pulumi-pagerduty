@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.outputs.IncidentWorkflowStepInlineStepsInput;
 import com.pulumi.pagerduty.outputs.IncidentWorkflowStepInput;
 import java.lang.String;
@@ -103,16 +104,21 @@ public final class IncidentWorkflowStep {
 
         @CustomType.Setter
         public Builder action(String action) {
-            this.action = Objects.requireNonNull(action);
+            if (action == null) {
+              throw new MissingRequiredPropertyException("IncidentWorkflowStep", "action");
+            }
+            this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder inlineStepsInputs(@Nullable List<IncidentWorkflowStepInlineStepsInput> inlineStepsInputs) {
+
             this.inlineStepsInputs = inlineStepsInputs;
             return this;
         }
@@ -121,6 +127,7 @@ public final class IncidentWorkflowStep {
         }
         @CustomType.Setter
         public Builder inputs(@Nullable List<IncidentWorkflowStepInput> inputs) {
+
             this.inputs = inputs;
             return this;
         }
@@ -129,7 +136,10 @@ public final class IncidentWorkflowStep {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("IncidentWorkflowStep", "name");
+            }
+            this.name = name;
             return this;
         }
         public IncidentWorkflowStep build() {

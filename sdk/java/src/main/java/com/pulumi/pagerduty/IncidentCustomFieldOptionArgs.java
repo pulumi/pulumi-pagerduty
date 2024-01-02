@@ -5,6 +5,7 @@ package com.pulumi.pagerduty;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class IncidentCustomFieldOptionArgs extends com.pulumi.resources.Re
         }
 
         public IncidentCustomFieldOptionArgs build() {
-            $.dataType = Objects.requireNonNull($.dataType, "expected parameter 'dataType' to be non-null");
-            $.field = Objects.requireNonNull($.field, "expected parameter 'field' to be non-null");
-            $.value = Objects.requireNonNull($.value, "expected parameter 'value' to be non-null");
+            if ($.dataType == null) {
+                throw new MissingRequiredPropertyException("IncidentCustomFieldOptionArgs", "dataType");
+            }
+            if ($.field == null) {
+                throw new MissingRequiredPropertyException("IncidentCustomFieldOptionArgs", "field");
+            }
+            if ($.value == null) {
+                throw new MissingRequiredPropertyException("IncidentCustomFieldOptionArgs", "value");
+            }
             return $;
         }
     }

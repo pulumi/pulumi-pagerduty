@@ -5,6 +5,7 @@ package com.pulumi.pagerduty;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class AddonArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AddonArgs build() {
-            $.src = Objects.requireNonNull($.src, "expected parameter 'src' to be non-null");
+            if ($.src == null) {
+                throw new MissingRequiredPropertyException("AddonArgs", "src");
+            }
             return $;
         }
     }

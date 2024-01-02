@@ -5,6 +5,7 @@ package com.pulumi.pagerduty.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -188,9 +189,15 @@ public final class ScheduleLayerRestrictionArgs extends com.pulumi.resources.Res
         }
 
         public ScheduleLayerRestrictionArgs build() {
-            $.durationSeconds = Objects.requireNonNull($.durationSeconds, "expected parameter 'durationSeconds' to be non-null");
-            $.startTimeOfDay = Objects.requireNonNull($.startTimeOfDay, "expected parameter 'startTimeOfDay' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.durationSeconds == null) {
+                throw new MissingRequiredPropertyException("ScheduleLayerRestrictionArgs", "durationSeconds");
+            }
+            if ($.startTimeOfDay == null) {
+                throw new MissingRequiredPropertyException("ScheduleLayerRestrictionArgs", "startTimeOfDay");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("ScheduleLayerRestrictionArgs", "type");
+            }
             return $;
         }
     }

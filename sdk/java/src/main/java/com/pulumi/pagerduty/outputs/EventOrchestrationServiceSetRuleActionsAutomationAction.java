@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.outputs.EventOrchestrationServiceSetRuleActionsAutomationActionHeader;
 import com.pulumi.pagerduty.outputs.EventOrchestrationServiceSetRuleActionsAutomationActionParameter;
 import java.lang.Boolean;
@@ -104,11 +105,13 @@ public final class EventOrchestrationServiceSetRuleActionsAutomationAction {
 
         @CustomType.Setter
         public Builder autoSend(@Nullable Boolean autoSend) {
+
             this.autoSend = autoSend;
             return this;
         }
         @CustomType.Setter
         public Builder headers(@Nullable List<EventOrchestrationServiceSetRuleActionsAutomationActionHeader> headers) {
+
             this.headers = headers;
             return this;
         }
@@ -117,11 +120,15 @@ public final class EventOrchestrationServiceSetRuleActionsAutomationAction {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("EventOrchestrationServiceSetRuleActionsAutomationAction", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder parameters(@Nullable List<EventOrchestrationServiceSetRuleActionsAutomationActionParameter> parameters) {
+
             this.parameters = parameters;
             return this;
         }
@@ -130,7 +137,10 @@ public final class EventOrchestrationServiceSetRuleActionsAutomationAction {
         }
         @CustomType.Setter
         public Builder url(String url) {
-            this.url = Objects.requireNonNull(url);
+            if (url == null) {
+              throw new MissingRequiredPropertyException("EventOrchestrationServiceSetRuleActionsAutomationAction", "url");
+            }
+            this.url = url;
             return this;
         }
         public EventOrchestrationServiceSetRuleActionsAutomationAction build() {

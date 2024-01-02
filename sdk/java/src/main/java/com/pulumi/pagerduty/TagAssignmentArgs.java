@@ -5,6 +5,7 @@ package com.pulumi.pagerduty;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class TagAssignmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public TagAssignmentArgs build() {
-            $.entityId = Objects.requireNonNull($.entityId, "expected parameter 'entityId' to be non-null");
-            $.entityType = Objects.requireNonNull($.entityType, "expected parameter 'entityType' to be non-null");
-            $.tagId = Objects.requireNonNull($.tagId, "expected parameter 'tagId' to be non-null");
+            if ($.entityId == null) {
+                throw new MissingRequiredPropertyException("TagAssignmentArgs", "entityId");
+            }
+            if ($.entityType == null) {
+                throw new MissingRequiredPropertyException("TagAssignmentArgs", "entityType");
+            }
+            if ($.tagId == null) {
+                throw new MissingRequiredPropertyException("TagAssignmentArgs", "tagId");
+            }
             return $;
         }
     }

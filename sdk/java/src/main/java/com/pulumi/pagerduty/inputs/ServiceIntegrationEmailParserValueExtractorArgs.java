@@ -5,6 +5,7 @@ package com.pulumi.pagerduty.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -229,9 +230,15 @@ public final class ServiceIntegrationEmailParserValueExtractorArgs extends com.p
         }
 
         public ServiceIntegrationEmailParserValueExtractorArgs build() {
-            $.part = Objects.requireNonNull($.part, "expected parameter 'part' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
-            $.valueName = Objects.requireNonNull($.valueName, "expected parameter 'valueName' to be non-null");
+            if ($.part == null) {
+                throw new MissingRequiredPropertyException("ServiceIntegrationEmailParserValueExtractorArgs", "part");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("ServiceIntegrationEmailParserValueExtractorArgs", "type");
+            }
+            if ($.valueName == null) {
+                throw new MissingRequiredPropertyException("ServiceIntegrationEmailParserValueExtractorArgs", "valueName");
+            }
             return $;
         }
     }

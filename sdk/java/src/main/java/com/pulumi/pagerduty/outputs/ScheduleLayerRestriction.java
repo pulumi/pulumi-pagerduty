@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -87,22 +88,32 @@ public final class ScheduleLayerRestriction {
 
         @CustomType.Setter
         public Builder durationSeconds(Integer durationSeconds) {
-            this.durationSeconds = Objects.requireNonNull(durationSeconds);
+            if (durationSeconds == null) {
+              throw new MissingRequiredPropertyException("ScheduleLayerRestriction", "durationSeconds");
+            }
+            this.durationSeconds = durationSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder startDayOfWeek(@Nullable Integer startDayOfWeek) {
+
             this.startDayOfWeek = startDayOfWeek;
             return this;
         }
         @CustomType.Setter
         public Builder startTimeOfDay(String startTimeOfDay) {
-            this.startTimeOfDay = Objects.requireNonNull(startTimeOfDay);
+            if (startTimeOfDay == null) {
+              throw new MissingRequiredPropertyException("ScheduleLayerRestriction", "startTimeOfDay");
+            }
+            this.startTimeOfDay = startTimeOfDay;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("ScheduleLayerRestriction", "type");
+            }
+            this.type = type;
             return this;
         }
         public ScheduleLayerRestriction build() {

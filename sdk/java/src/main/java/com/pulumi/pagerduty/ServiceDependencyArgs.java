@@ -5,6 +5,7 @@ package com.pulumi.pagerduty;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.inputs.ServiceDependencyDependencyArgs;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class ServiceDependencyArgs extends com.pulumi.resources.ResourceAr
         }
 
         public ServiceDependencyArgs build() {
-            $.dependency = Objects.requireNonNull($.dependency, "expected parameter 'dependency' to be non-null");
+            if ($.dependency == null) {
+                throw new MissingRequiredPropertyException("ServiceDependencyArgs", "dependency");
+            }
             return $;
         }
     }

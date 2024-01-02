@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -140,42 +141,66 @@ public final class GetAutomationActionsRunnerResult {
 
         @CustomType.Setter
         public Builder creationTime(String creationTime) {
-            this.creationTime = Objects.requireNonNull(creationTime);
+            if (creationTime == null) {
+              throw new MissingRequiredPropertyException("GetAutomationActionsRunnerResult", "creationTime");
+            }
+            this.creationTime = creationTime;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetAutomationActionsRunnerResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAutomationActionsRunnerResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder lastSeen(String lastSeen) {
-            this.lastSeen = Objects.requireNonNull(lastSeen);
+            if (lastSeen == null) {
+              throw new MissingRequiredPropertyException("GetAutomationActionsRunnerResult", "lastSeen");
+            }
+            this.lastSeen = lastSeen;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetAutomationActionsRunnerResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder runbookBaseUri(String runbookBaseUri) {
-            this.runbookBaseUri = Objects.requireNonNull(runbookBaseUri);
+            if (runbookBaseUri == null) {
+              throw new MissingRequiredPropertyException("GetAutomationActionsRunnerResult", "runbookBaseUri");
+            }
+            this.runbookBaseUri = runbookBaseUri;
             return this;
         }
         @CustomType.Setter
         public Builder runnerType(String runnerType) {
-            this.runnerType = Objects.requireNonNull(runnerType);
+            if (runnerType == null) {
+              throw new MissingRequiredPropertyException("GetAutomationActionsRunnerResult", "runnerType");
+            }
+            this.runnerType = runnerType;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetAutomationActionsRunnerResult", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetAutomationActionsRunnerResult build() {

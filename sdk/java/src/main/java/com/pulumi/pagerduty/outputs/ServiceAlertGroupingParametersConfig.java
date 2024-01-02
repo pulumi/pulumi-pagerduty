@@ -88,11 +88,13 @@ public final class ServiceAlertGroupingParametersConfig {
 
         @CustomType.Setter
         public Builder aggregate(@Nullable String aggregate) {
+
             this.aggregate = aggregate;
             return this;
         }
         @CustomType.Setter
         public Builder fields(@Nullable List<String> fields) {
+
             this.fields = fields;
             return this;
         }
@@ -101,11 +103,13 @@ public final class ServiceAlertGroupingParametersConfig {
         }
         @CustomType.Setter
         public Builder timeWindow(@Nullable Integer timeWindow) {
+
             this.timeWindow = timeWindow;
             return this;
         }
         @CustomType.Setter
         public Builder timeout(@Nullable Integer timeout) {
+
             this.timeout = timeout;
             return this;
         }

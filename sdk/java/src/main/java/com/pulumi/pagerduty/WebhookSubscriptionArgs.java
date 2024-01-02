@@ -5,6 +5,7 @@ package com.pulumi.pagerduty;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.inputs.WebhookSubscriptionDeliveryMethodArgs;
 import com.pulumi.pagerduty.inputs.WebhookSubscriptionFilterArgs;
 import java.lang.Boolean;
@@ -360,9 +361,15 @@ public final class WebhookSubscriptionArgs extends com.pulumi.resources.Resource
         }
 
         public WebhookSubscriptionArgs build() {
-            $.deliveryMethods = Objects.requireNonNull($.deliveryMethods, "expected parameter 'deliveryMethods' to be non-null");
-            $.events = Objects.requireNonNull($.events, "expected parameter 'events' to be non-null");
-            $.filters = Objects.requireNonNull($.filters, "expected parameter 'filters' to be non-null");
+            if ($.deliveryMethods == null) {
+                throw new MissingRequiredPropertyException("WebhookSubscriptionArgs", "deliveryMethods");
+            }
+            if ($.events == null) {
+                throw new MissingRequiredPropertyException("WebhookSubscriptionArgs", "events");
+            }
+            if ($.filters == null) {
+                throw new MissingRequiredPropertyException("WebhookSubscriptionArgs", "filters");
+            }
             return $;
         }
     }

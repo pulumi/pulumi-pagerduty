@@ -58,16 +58,19 @@ public final class EventOrchestrationIntegration {
 
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder label(@Nullable String label) {
+
             this.label = label;
             return this;
         }
         @CustomType.Setter
         public Builder parameters(@Nullable List<EventOrchestrationIntegrationParameter> parameters) {
+
             this.parameters = parameters;
             return this;
         }

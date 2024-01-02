@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.outputs.GetServiceTeam;
 import java.lang.Integer;
 import java.lang.String;
@@ -157,42 +158,66 @@ public final class GetServiceResult {
 
         @CustomType.Setter
         public Builder acknowledgementTimeout(Integer acknowledgementTimeout) {
-            this.acknowledgementTimeout = Objects.requireNonNull(acknowledgementTimeout);
+            if (acknowledgementTimeout == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "acknowledgementTimeout");
+            }
+            this.acknowledgementTimeout = acknowledgementTimeout;
             return this;
         }
         @CustomType.Setter
         public Builder alertCreation(String alertCreation) {
-            this.alertCreation = Objects.requireNonNull(alertCreation);
+            if (alertCreation == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "alertCreation");
+            }
+            this.alertCreation = alertCreation;
             return this;
         }
         @CustomType.Setter
         public Builder autoResolveTimeout(Integer autoResolveTimeout) {
-            this.autoResolveTimeout = Objects.requireNonNull(autoResolveTimeout);
+            if (autoResolveTimeout == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "autoResolveTimeout");
+            }
+            this.autoResolveTimeout = autoResolveTimeout;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder escalationPolicy(String escalationPolicy) {
-            this.escalationPolicy = Objects.requireNonNull(escalationPolicy);
+            if (escalationPolicy == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "escalationPolicy");
+            }
+            this.escalationPolicy = escalationPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder teams(List<GetServiceTeam> teams) {
-            this.teams = Objects.requireNonNull(teams);
+            if (teams == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "teams");
+            }
+            this.teams = teams;
             return this;
         }
         public Builder teams(GetServiceTeam... teams) {
@@ -200,7 +225,10 @@ public final class GetServiceResult {
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetServiceResult build() {

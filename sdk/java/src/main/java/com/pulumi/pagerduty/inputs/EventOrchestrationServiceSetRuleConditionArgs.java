@@ -5,6 +5,7 @@ package com.pulumi.pagerduty.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class EventOrchestrationServiceSetRuleConditionArgs extends com.pul
         }
 
         public EventOrchestrationServiceSetRuleConditionArgs build() {
-            $.expression = Objects.requireNonNull($.expression, "expected parameter 'expression' to be non-null");
+            if ($.expression == null) {
+                throw new MissingRequiredPropertyException("EventOrchestrationServiceSetRuleConditionArgs", "expression");
+            }
             return $;
         }
     }

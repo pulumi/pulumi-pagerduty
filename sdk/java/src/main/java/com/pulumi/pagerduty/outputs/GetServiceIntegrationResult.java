@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -68,22 +69,34 @@ public final class GetServiceIntegrationResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetServiceIntegrationResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder integrationKey(String integrationKey) {
-            this.integrationKey = Objects.requireNonNull(integrationKey);
+            if (integrationKey == null) {
+              throw new MissingRequiredPropertyException("GetServiceIntegrationResult", "integrationKey");
+            }
+            this.integrationKey = integrationKey;
             return this;
         }
         @CustomType.Setter
         public Builder integrationSummary(String integrationSummary) {
-            this.integrationSummary = Objects.requireNonNull(integrationSummary);
+            if (integrationSummary == null) {
+              throw new MissingRequiredPropertyException("GetServiceIntegrationResult", "integrationSummary");
+            }
+            this.integrationSummary = integrationSummary;
             return this;
         }
         @CustomType.Setter
         public Builder serviceName(String serviceName) {
-            this.serviceName = Objects.requireNonNull(serviceName);
+            if (serviceName == null) {
+              throw new MissingRequiredPropertyException("GetServiceIntegrationResult", "serviceName");
+            }
+            this.serviceName = serviceName;
             return this;
         }
         public GetServiceIntegrationResult build() {

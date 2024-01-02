@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -146,7 +147,9 @@ public final class GetAutomationActionsRunnerPlainArgs extends com.pulumi.resour
         }
 
         public GetAutomationActionsRunnerPlainArgs build() {
-            $.id = Objects.requireNonNull($.id, "expected parameter 'id' to be non-null");
+            if ($.id == null) {
+                throw new MissingRequiredPropertyException("GetAutomationActionsRunnerPlainArgs", "id");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.pagerduty.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.inputs.EventOrchestrationGlobalCatchAllActionsArgs;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class EventOrchestrationGlobalCatchAllArgs extends com.pulumi.resou
         }
 
         public EventOrchestrationGlobalCatchAllArgs build() {
-            $.actions = Objects.requireNonNull($.actions, "expected parameter 'actions' to be non-null");
+            if ($.actions == null) {
+                throw new MissingRequiredPropertyException("EventOrchestrationGlobalCatchAllArgs", "actions");
+            }
             return $;
         }
     }

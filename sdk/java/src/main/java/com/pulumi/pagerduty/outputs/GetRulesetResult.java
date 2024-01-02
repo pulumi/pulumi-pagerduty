@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -71,17 +72,26 @@ public final class GetRulesetResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRulesetResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetRulesetResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder routingKeys(List<String> routingKeys) {
-            this.routingKeys = Objects.requireNonNull(routingKeys);
+            if (routingKeys == null) {
+              throw new MissingRequiredPropertyException("GetRulesetResult", "routingKeys");
+            }
+            this.routingKeys = routingKeys;
             return this;
         }
         public Builder routingKeys(String... routingKeys) {

@@ -5,6 +5,7 @@ package com.pulumi.pagerduty.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.inputs.ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs;
 import java.lang.String;
 import java.util.List;
@@ -173,7 +174,9 @@ public final class ServiceIntegrationEmailParserMatchPredicatePredicateArgs exte
         }
 
         public ServiceIntegrationEmailParserMatchPredicatePredicateArgs build() {
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("ServiceIntegrationEmailParserMatchPredicatePredicateArgs", "type");
+            }
             return $;
         }
     }

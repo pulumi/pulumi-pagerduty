@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.outputs.EventOrchestrationServiceSetRule;
 import java.lang.String;
 import java.util.List;
@@ -51,11 +52,15 @@ public final class EventOrchestrationServiceSet {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("EventOrchestrationServiceSet", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder rules(@Nullable List<EventOrchestrationServiceSetRule> rules) {
+
             this.rules = rules;
             return this;
         }

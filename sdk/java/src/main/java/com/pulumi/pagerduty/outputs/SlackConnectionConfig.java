@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -101,7 +102,10 @@ public final class SlackConnectionConfig {
 
         @CustomType.Setter
         public Builder events(List<String> events) {
-            this.events = Objects.requireNonNull(events);
+            if (events == null) {
+              throw new MissingRequiredPropertyException("SlackConnectionConfig", "events");
+            }
+            this.events = events;
             return this;
         }
         public Builder events(String... events) {
@@ -109,6 +113,7 @@ public final class SlackConnectionConfig {
         }
         @CustomType.Setter
         public Builder priorities(@Nullable List<String> priorities) {
+
             this.priorities = priorities;
             return this;
         }
@@ -117,6 +122,7 @@ public final class SlackConnectionConfig {
         }
         @CustomType.Setter
         public Builder urgency(@Nullable String urgency) {
+
             this.urgency = urgency;
             return this;
         }

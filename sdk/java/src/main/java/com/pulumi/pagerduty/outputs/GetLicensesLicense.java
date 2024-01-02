@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -160,57 +161,90 @@ public final class GetLicensesLicense {
 
         @CustomType.Setter
         public Builder allocationsAvailable(Integer allocationsAvailable) {
-            this.allocationsAvailable = Objects.requireNonNull(allocationsAvailable);
+            if (allocationsAvailable == null) {
+              throw new MissingRequiredPropertyException("GetLicensesLicense", "allocationsAvailable");
+            }
+            this.allocationsAvailable = allocationsAvailable;
             return this;
         }
         @CustomType.Setter
         public Builder currentValue(Integer currentValue) {
-            this.currentValue = Objects.requireNonNull(currentValue);
+            if (currentValue == null) {
+              throw new MissingRequiredPropertyException("GetLicensesLicense", "currentValue");
+            }
+            this.currentValue = currentValue;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetLicensesLicense", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder htmlUrl(String htmlUrl) {
-            this.htmlUrl = Objects.requireNonNull(htmlUrl);
+            if (htmlUrl == null) {
+              throw new MissingRequiredPropertyException("GetLicensesLicense", "htmlUrl");
+            }
+            this.htmlUrl = htmlUrl;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLicensesLicense", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetLicensesLicense", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder roleGroup(String roleGroup) {
-            this.roleGroup = Objects.requireNonNull(roleGroup);
+            if (roleGroup == null) {
+              throw new MissingRequiredPropertyException("GetLicensesLicense", "roleGroup");
+            }
+            this.roleGroup = roleGroup;
             return this;
         }
         @CustomType.Setter
         public Builder self(String self) {
-            this.self = Objects.requireNonNull(self);
+            if (self == null) {
+              throw new MissingRequiredPropertyException("GetLicensesLicense", "self");
+            }
+            this.self = self;
             return this;
         }
         @CustomType.Setter
         public Builder summary(String summary) {
-            this.summary = Objects.requireNonNull(summary);
+            if (summary == null) {
+              throw new MissingRequiredPropertyException("GetLicensesLicense", "summary");
+            }
+            this.summary = summary;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetLicensesLicense", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder validRoles(List<String> validRoles) {
-            this.validRoles = Objects.requireNonNull(validRoles);
+            if (validRoles == null) {
+              throw new MissingRequiredPropertyException("GetLicensesLicense", "validRoles");
+            }
+            this.validRoles = validRoles;
             return this;
         }
         public Builder validRoles(String... validRoles) {

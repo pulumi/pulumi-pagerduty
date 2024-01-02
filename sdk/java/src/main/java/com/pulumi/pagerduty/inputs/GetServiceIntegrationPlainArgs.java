@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -90,8 +91,12 @@ public final class GetServiceIntegrationPlainArgs extends com.pulumi.resources.I
         }
 
         public GetServiceIntegrationPlainArgs build() {
-            $.integrationSummary = Objects.requireNonNull($.integrationSummary, "expected parameter 'integrationSummary' to be non-null");
-            $.serviceName = Objects.requireNonNull($.serviceName, "expected parameter 'serviceName' to be non-null");
+            if ($.integrationSummary == null) {
+                throw new MissingRequiredPropertyException("GetServiceIntegrationPlainArgs", "integrationSummary");
+            }
+            if ($.serviceName == null) {
+                throw new MissingRequiredPropertyException("GetServiceIntegrationPlainArgs", "serviceName");
+            }
             return $;
         }
     }

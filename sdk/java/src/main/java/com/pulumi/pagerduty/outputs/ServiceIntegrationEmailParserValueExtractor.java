@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -102,32 +103,44 @@ public final class ServiceIntegrationEmailParserValueExtractor {
 
         @CustomType.Setter
         public Builder endsBefore(@Nullable String endsBefore) {
+
             this.endsBefore = endsBefore;
             return this;
         }
         @CustomType.Setter
         public Builder part(String part) {
-            this.part = Objects.requireNonNull(part);
+            if (part == null) {
+              throw new MissingRequiredPropertyException("ServiceIntegrationEmailParserValueExtractor", "part");
+            }
+            this.part = part;
             return this;
         }
         @CustomType.Setter
         public Builder regex(@Nullable String regex) {
+
             this.regex = regex;
             return this;
         }
         @CustomType.Setter
         public Builder startsAfter(@Nullable String startsAfter) {
+
             this.startsAfter = startsAfter;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("ServiceIntegrationEmailParserValueExtractor", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder valueName(String valueName) {
-            this.valueName = Objects.requireNonNull(valueName);
+            if (valueName == null) {
+              throw new MissingRequiredPropertyException("ServiceIntegrationEmailParserValueExtractor", "valueName");
+            }
+            this.valueName = valueName;
             return this;
         }
         public ServiceIntegrationEmailParserValueExtractor build() {

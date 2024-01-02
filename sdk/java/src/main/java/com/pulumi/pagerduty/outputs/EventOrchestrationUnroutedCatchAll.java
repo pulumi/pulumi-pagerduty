@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.outputs.EventOrchestrationUnroutedCatchAllActions;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class EventOrchestrationUnroutedCatchAll {
 
         @CustomType.Setter
         public Builder actions(EventOrchestrationUnroutedCatchAllActions actions) {
-            this.actions = Objects.requireNonNull(actions);
+            if (actions == null) {
+              throw new MissingRequiredPropertyException("EventOrchestrationUnroutedCatchAll", "actions");
+            }
+            this.actions = actions;
             return this;
         }
         public EventOrchestrationUnroutedCatchAll build() {

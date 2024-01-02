@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.outputs.GetEventOrchestrationsEventOrchestration;
 import java.lang.String;
 import java.util.List;
@@ -64,7 +65,10 @@ public final class GetEventOrchestrationsResult {
 
         @CustomType.Setter
         public Builder eventOrchestrations(List<GetEventOrchestrationsEventOrchestration> eventOrchestrations) {
-            this.eventOrchestrations = Objects.requireNonNull(eventOrchestrations);
+            if (eventOrchestrations == null) {
+              throw new MissingRequiredPropertyException("GetEventOrchestrationsResult", "eventOrchestrations");
+            }
+            this.eventOrchestrations = eventOrchestrations;
             return this;
         }
         public Builder eventOrchestrations(GetEventOrchestrationsEventOrchestration... eventOrchestrations) {
@@ -72,12 +76,18 @@ public final class GetEventOrchestrationsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetEventOrchestrationsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder nameFilter(String nameFilter) {
-            this.nameFilter = Objects.requireNonNull(nameFilter);
+            if (nameFilter == null) {
+              throw new MissingRequiredPropertyException("GetEventOrchestrationsResult", "nameFilter");
+            }
+            this.nameFilter = nameFilter;
             return this;
         }
         public GetEventOrchestrationsResult build() {

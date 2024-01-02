@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.config.inputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -46,17 +47,26 @@ public final class UseAppOauthScopedToken {
 
         @CustomType.Setter
         public Builder pdClientId(String pdClientId) {
-            this.pdClientId = Objects.requireNonNull(pdClientId);
+            if (pdClientId == null) {
+              throw new MissingRequiredPropertyException("UseAppOauthScopedToken", "pdClientId");
+            }
+            this.pdClientId = pdClientId;
             return this;
         }
         @CustomType.Setter
         public Builder pdClientSecret(String pdClientSecret) {
-            this.pdClientSecret = Objects.requireNonNull(pdClientSecret);
+            if (pdClientSecret == null) {
+              throw new MissingRequiredPropertyException("UseAppOauthScopedToken", "pdClientSecret");
+            }
+            this.pdClientSecret = pdClientSecret;
             return this;
         }
         @CustomType.Setter
         public Builder pdSubdomain(String pdSubdomain) {
-            this.pdSubdomain = Objects.requireNonNull(pdSubdomain);
+            if (pdSubdomain == null) {
+              throw new MissingRequiredPropertyException("UseAppOauthScopedToken", "pdSubdomain");
+            }
+            this.pdSubdomain = pdSubdomain;
             return this;
         }
         public UseAppOauthScopedToken build() {

@@ -5,6 +5,7 @@ package com.pulumi.pagerduty;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.inputs.EventOrchestrationServiceCatchAllArgs;
 import com.pulumi.pagerduty.inputs.EventOrchestrationServiceSetArgs;
 import java.lang.Boolean;
@@ -201,9 +202,15 @@ public final class EventOrchestrationServiceArgs extends com.pulumi.resources.Re
         }
 
         public EventOrchestrationServiceArgs build() {
-            $.catchAll = Objects.requireNonNull($.catchAll, "expected parameter 'catchAll' to be non-null");
-            $.service = Objects.requireNonNull($.service, "expected parameter 'service' to be non-null");
-            $.sets = Objects.requireNonNull($.sets, "expected parameter 'sets' to be non-null");
+            if ($.catchAll == null) {
+                throw new MissingRequiredPropertyException("EventOrchestrationServiceArgs", "catchAll");
+            }
+            if ($.service == null) {
+                throw new MissingRequiredPropertyException("EventOrchestrationServiceArgs", "service");
+            }
+            if ($.sets == null) {
+                throw new MissingRequiredPropertyException("EventOrchestrationServiceArgs", "sets");
+            }
             return $;
         }
     }

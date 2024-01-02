@@ -60,11 +60,13 @@ public final class RulesetRuleConditionsSubcondition {
 
         @CustomType.Setter
         public Builder operator(@Nullable String operator) {
+
             this.operator = operator;
             return this;
         }
         @CustomType.Setter
         public Builder parameters(@Nullable List<RulesetRuleConditionsSubconditionParameter> parameters) {
+
             this.parameters = parameters;
             return this;
         }

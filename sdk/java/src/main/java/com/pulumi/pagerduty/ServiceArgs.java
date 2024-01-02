@@ -6,6 +6,7 @@ package com.pulumi.pagerduty;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.core.internal.Codegen;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.inputs.ServiceAlertGroupingParametersArgs;
 import com.pulumi.pagerduty.inputs.ServiceAutoPauseNotificationsParametersArgs;
 import com.pulumi.pagerduty.inputs.ServiceIncidentUrgencyRuleArgs;
@@ -521,7 +522,9 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
 
         public ServiceArgs build() {
             $.description = Codegen.stringProp("description").output().arg($.description).def("Managed by Pulumi").getNullable();
-            $.escalationPolicy = Objects.requireNonNull($.escalationPolicy, "expected parameter 'escalationPolicy' to be non-null");
+            if ($.escalationPolicy == null) {
+                throw new MissingRequiredPropertyException("ServiceArgs", "escalationPolicy");
+            }
             return $;
         }
     }

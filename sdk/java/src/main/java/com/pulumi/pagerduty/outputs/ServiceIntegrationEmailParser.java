@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.outputs.ServiceIntegrationEmailParserMatchPredicate;
 import com.pulumi.pagerduty.outputs.ServiceIntegrationEmailParserValueExtractor;
 import java.lang.Integer;
@@ -74,21 +75,29 @@ public final class ServiceIntegrationEmailParser {
 
         @CustomType.Setter
         public Builder action(String action) {
-            this.action = Objects.requireNonNull(action);
+            if (action == null) {
+              throw new MissingRequiredPropertyException("ServiceIntegrationEmailParser", "action");
+            }
+            this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable Integer id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder matchPredicate(ServiceIntegrationEmailParserMatchPredicate matchPredicate) {
-            this.matchPredicate = Objects.requireNonNull(matchPredicate);
+            if (matchPredicate == null) {
+              throw new MissingRequiredPropertyException("ServiceIntegrationEmailParser", "matchPredicate");
+            }
+            this.matchPredicate = matchPredicate;
             return this;
         }
         @CustomType.Setter
         public Builder valueExtractors(@Nullable List<ServiceIntegrationEmailParserValueExtractor> valueExtractors) {
+
             this.valueExtractors = valueExtractors;
             return this;
         }

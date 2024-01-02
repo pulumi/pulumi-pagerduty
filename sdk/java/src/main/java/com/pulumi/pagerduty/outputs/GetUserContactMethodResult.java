@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -162,52 +163,82 @@ public final class GetUserContactMethodResult {
 
         @CustomType.Setter
         public Builder address(String address) {
-            this.address = Objects.requireNonNull(address);
+            if (address == null) {
+              throw new MissingRequiredPropertyException("GetUserContactMethodResult", "address");
+            }
+            this.address = address;
             return this;
         }
         @CustomType.Setter
         public Builder blacklisted(Boolean blacklisted) {
-            this.blacklisted = Objects.requireNonNull(blacklisted);
+            if (blacklisted == null) {
+              throw new MissingRequiredPropertyException("GetUserContactMethodResult", "blacklisted");
+            }
+            this.blacklisted = blacklisted;
             return this;
         }
         @CustomType.Setter
         public Builder countryCode(Integer countryCode) {
-            this.countryCode = Objects.requireNonNull(countryCode);
+            if (countryCode == null) {
+              throw new MissingRequiredPropertyException("GetUserContactMethodResult", "countryCode");
+            }
+            this.countryCode = countryCode;
             return this;
         }
         @CustomType.Setter
         public Builder deviceType(String deviceType) {
-            this.deviceType = Objects.requireNonNull(deviceType);
+            if (deviceType == null) {
+              throw new MissingRequiredPropertyException("GetUserContactMethodResult", "deviceType");
+            }
+            this.deviceType = deviceType;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetUserContactMethodResult", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetUserContactMethodResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder label(String label) {
-            this.label = Objects.requireNonNull(label);
+            if (label == null) {
+              throw new MissingRequiredPropertyException("GetUserContactMethodResult", "label");
+            }
+            this.label = label;
             return this;
         }
         @CustomType.Setter
         public Builder sendShortEmail(Boolean sendShortEmail) {
-            this.sendShortEmail = Objects.requireNonNull(sendShortEmail);
+            if (sendShortEmail == null) {
+              throw new MissingRequiredPropertyException("GetUserContactMethodResult", "sendShortEmail");
+            }
+            this.sendShortEmail = sendShortEmail;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetUserContactMethodResult", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder userId(String userId) {
-            this.userId = Objects.requireNonNull(userId);
+            if (userId == null) {
+              throw new MissingRequiredPropertyException("GetUserContactMethodResult", "userId");
+            }
+            this.userId = userId;
             return this;
         }
         public GetUserContactMethodResult build() {

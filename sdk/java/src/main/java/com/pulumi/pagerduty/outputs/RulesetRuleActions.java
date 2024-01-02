@@ -149,6 +149,7 @@ public final class RulesetRuleActions {
 
         @CustomType.Setter
         public Builder annotates(@Nullable List<RulesetRuleActionsAnnotate> annotates) {
+
             this.annotates = annotates;
             return this;
         }
@@ -157,6 +158,7 @@ public final class RulesetRuleActions {
         }
         @CustomType.Setter
         public Builder eventActions(@Nullable List<RulesetRuleActionsEventAction> eventActions) {
+
             this.eventActions = eventActions;
             return this;
         }
@@ -165,6 +167,7 @@ public final class RulesetRuleActions {
         }
         @CustomType.Setter
         public Builder extractions(@Nullable List<RulesetRuleActionsExtraction> extractions) {
+
             this.extractions = extractions;
             return this;
         }
@@ -173,6 +176,7 @@ public final class RulesetRuleActions {
         }
         @CustomType.Setter
         public Builder priorities(@Nullable List<RulesetRuleActionsPriority> priorities) {
+
             this.priorities = priorities;
             return this;
         }
@@ -181,6 +185,7 @@ public final class RulesetRuleActions {
         }
         @CustomType.Setter
         public Builder routes(@Nullable List<RulesetRuleActionsRoute> routes) {
+
             this.routes = routes;
             return this;
         }
@@ -189,6 +194,7 @@ public final class RulesetRuleActions {
         }
         @CustomType.Setter
         public Builder severities(@Nullable List<RulesetRuleActionsSeverity> severities) {
+
             this.severities = severities;
             return this;
         }
@@ -197,6 +203,7 @@ public final class RulesetRuleActions {
         }
         @CustomType.Setter
         public Builder suppresses(@Nullable List<RulesetRuleActionsSuppress> suppresses) {
+
             this.suppresses = suppresses;
             return this;
         }
@@ -205,6 +212,7 @@ public final class RulesetRuleActions {
         }
         @CustomType.Setter
         public Builder suspends(@Nullable List<RulesetRuleActionsSuspend> suspends) {
+
             this.suspends = suspends;
             return this;
         }

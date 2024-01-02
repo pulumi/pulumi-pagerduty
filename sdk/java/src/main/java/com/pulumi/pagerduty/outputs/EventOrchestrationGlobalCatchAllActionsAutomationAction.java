@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.outputs.EventOrchestrationGlobalCatchAllActionsAutomationActionHeader;
 import com.pulumi.pagerduty.outputs.EventOrchestrationGlobalCatchAllActionsAutomationActionParameter;
 import java.lang.Boolean;
@@ -104,11 +105,13 @@ public final class EventOrchestrationGlobalCatchAllActionsAutomationAction {
 
         @CustomType.Setter
         public Builder autoSend(@Nullable Boolean autoSend) {
+
             this.autoSend = autoSend;
             return this;
         }
         @CustomType.Setter
         public Builder headers(@Nullable List<EventOrchestrationGlobalCatchAllActionsAutomationActionHeader> headers) {
+
             this.headers = headers;
             return this;
         }
@@ -117,11 +120,15 @@ public final class EventOrchestrationGlobalCatchAllActionsAutomationAction {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("EventOrchestrationGlobalCatchAllActionsAutomationAction", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder parameters(@Nullable List<EventOrchestrationGlobalCatchAllActionsAutomationActionParameter> parameters) {
+
             this.parameters = parameters;
             return this;
         }
@@ -130,7 +137,10 @@ public final class EventOrchestrationGlobalCatchAllActionsAutomationAction {
         }
         @CustomType.Setter
         public Builder url(String url) {
-            this.url = Objects.requireNonNull(url);
+            if (url == null) {
+              throw new MissingRequiredPropertyException("EventOrchestrationGlobalCatchAllActionsAutomationAction", "url");
+            }
+            this.url = url;
             return this;
         }
         public EventOrchestrationGlobalCatchAllActionsAutomationAction build() {

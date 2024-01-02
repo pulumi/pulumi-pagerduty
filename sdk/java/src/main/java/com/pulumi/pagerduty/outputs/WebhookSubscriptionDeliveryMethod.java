@@ -89,6 +89,7 @@ public final class WebhookSubscriptionDeliveryMethod {
 
         @CustomType.Setter
         public Builder customHeaders(@Nullable List<WebhookSubscriptionDeliveryMethodCustomHeader> customHeaders) {
+
             this.customHeaders = customHeaders;
             return this;
         }
@@ -97,16 +98,19 @@ public final class WebhookSubscriptionDeliveryMethod {
         }
         @CustomType.Setter
         public Builder temporarilyDisabled(@Nullable Boolean temporarilyDisabled) {
+
             this.temporarilyDisabled = temporarilyDisabled;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder url(@Nullable String url) {
+
             this.url = url;
             return this;
         }

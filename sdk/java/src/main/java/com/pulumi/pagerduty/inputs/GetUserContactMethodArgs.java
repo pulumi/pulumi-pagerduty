@@ -5,6 +5,7 @@ package com.pulumi.pagerduty.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class GetUserContactMethodArgs extends com.pulumi.resources.InvokeA
         }
 
         public GetUserContactMethodArgs build() {
-            $.label = Objects.requireNonNull($.label, "expected parameter 'label' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
-            $.userId = Objects.requireNonNull($.userId, "expected parameter 'userId' to be non-null");
+            if ($.label == null) {
+                throw new MissingRequiredPropertyException("GetUserContactMethodArgs", "label");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("GetUserContactMethodArgs", "type");
+            }
+            if ($.userId == null) {
+                throw new MissingRequiredPropertyException("GetUserContactMethodArgs", "userId");
+            }
             return $;
         }
     }

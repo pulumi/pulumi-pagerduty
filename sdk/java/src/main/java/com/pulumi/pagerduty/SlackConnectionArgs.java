@@ -5,6 +5,7 @@ package com.pulumi.pagerduty;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.inputs.SlackConnectionConfigArgs;
 import java.lang.String;
 import java.util.List;
@@ -271,12 +272,24 @@ public final class SlackConnectionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public SlackConnectionArgs build() {
-            $.channelId = Objects.requireNonNull($.channelId, "expected parameter 'channelId' to be non-null");
-            $.configs = Objects.requireNonNull($.configs, "expected parameter 'configs' to be non-null");
-            $.notificationType = Objects.requireNonNull($.notificationType, "expected parameter 'notificationType' to be non-null");
-            $.sourceId = Objects.requireNonNull($.sourceId, "expected parameter 'sourceId' to be non-null");
-            $.sourceType = Objects.requireNonNull($.sourceType, "expected parameter 'sourceType' to be non-null");
-            $.workspaceId = Objects.requireNonNull($.workspaceId, "expected parameter 'workspaceId' to be non-null");
+            if ($.channelId == null) {
+                throw new MissingRequiredPropertyException("SlackConnectionArgs", "channelId");
+            }
+            if ($.configs == null) {
+                throw new MissingRequiredPropertyException("SlackConnectionArgs", "configs");
+            }
+            if ($.notificationType == null) {
+                throw new MissingRequiredPropertyException("SlackConnectionArgs", "notificationType");
+            }
+            if ($.sourceId == null) {
+                throw new MissingRequiredPropertyException("SlackConnectionArgs", "sourceId");
+            }
+            if ($.sourceType == null) {
+                throw new MissingRequiredPropertyException("SlackConnectionArgs", "sourceType");
+            }
+            if ($.workspaceId == null) {
+                throw new MissingRequiredPropertyException("SlackConnectionArgs", "workspaceId");
+            }
             return $;
         }
     }

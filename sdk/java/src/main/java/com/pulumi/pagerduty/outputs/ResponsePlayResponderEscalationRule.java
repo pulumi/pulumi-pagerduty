@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.outputs.ResponsePlayResponderEscalationRuleTarget;
 import java.lang.Integer;
 import java.lang.String;
@@ -75,17 +76,22 @@ public final class ResponsePlayResponderEscalationRule {
 
         @CustomType.Setter
         public Builder escalationDelayInMinutes(@Nullable Integer escalationDelayInMinutes) {
+
             this.escalationDelayInMinutes = escalationDelayInMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder targets(List<ResponsePlayResponderEscalationRuleTarget> targets) {
-            this.targets = Objects.requireNonNull(targets);
+            if (targets == null) {
+              throw new MissingRequiredPropertyException("ResponsePlayResponderEscalationRule", "targets");
+            }
+            this.targets = targets;
             return this;
         }
         public Builder targets(ResponsePlayResponderEscalationRuleTarget... targets) {

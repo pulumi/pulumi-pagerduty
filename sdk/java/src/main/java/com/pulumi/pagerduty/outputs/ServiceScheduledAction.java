@@ -74,6 +74,7 @@ public final class ServiceScheduledAction {
 
         @CustomType.Setter
         public Builder ats(@Nullable List<ServiceScheduledActionAt> ats) {
+
             this.ats = ats;
             return this;
         }
@@ -82,11 +83,13 @@ public final class ServiceScheduledAction {
         }
         @CustomType.Setter
         public Builder toUrgency(@Nullable String toUrgency) {
+
             this.toUrgency = toUrgency;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }

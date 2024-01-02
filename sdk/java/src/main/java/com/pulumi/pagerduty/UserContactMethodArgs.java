@@ -5,6 +5,7 @@ package com.pulumi.pagerduty;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -263,10 +264,18 @@ public final class UserContactMethodArgs extends com.pulumi.resources.ResourceAr
         }
 
         public UserContactMethodArgs build() {
-            $.address = Objects.requireNonNull($.address, "expected parameter 'address' to be non-null");
-            $.label = Objects.requireNonNull($.label, "expected parameter 'label' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
-            $.userId = Objects.requireNonNull($.userId, "expected parameter 'userId' to be non-null");
+            if ($.address == null) {
+                throw new MissingRequiredPropertyException("UserContactMethodArgs", "address");
+            }
+            if ($.label == null) {
+                throw new MissingRequiredPropertyException("UserContactMethodArgs", "label");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("UserContactMethodArgs", "type");
+            }
+            if ($.userId == null) {
+                throw new MissingRequiredPropertyException("UserContactMethodArgs", "userId");
+            }
             return $;
         }
     }

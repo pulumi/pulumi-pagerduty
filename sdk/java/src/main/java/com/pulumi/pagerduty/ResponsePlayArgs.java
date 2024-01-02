@@ -6,6 +6,7 @@ package com.pulumi.pagerduty;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.core.internal.Codegen;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.inputs.ResponsePlayResponderArgs;
 import com.pulumi.pagerduty.inputs.ResponsePlaySubscriberArgs;
 import java.lang.String;
@@ -488,7 +489,9 @@ public final class ResponsePlayArgs extends com.pulumi.resources.ResourceArgs {
 
         public ResponsePlayArgs build() {
             $.description = Codegen.stringProp("description").output().arg($.description).def("Managed by Pulumi").getNullable();
-            $.from = Objects.requireNonNull($.from, "expected parameter 'from' to be non-null");
+            if ($.from == null) {
+                throw new MissingRequiredPropertyException("ResponsePlayArgs", "from");
+            }
             return $;
         }
     }

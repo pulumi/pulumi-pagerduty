@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.outputs.ServiceDependencyDependencyDependentService;
 import com.pulumi.pagerduty.outputs.ServiceDependencyDependencySupportingService;
 import java.lang.String;
@@ -75,7 +76,10 @@ public final class ServiceDependencyDependency {
 
         @CustomType.Setter
         public Builder dependentServices(List<ServiceDependencyDependencyDependentService> dependentServices) {
-            this.dependentServices = Objects.requireNonNull(dependentServices);
+            if (dependentServices == null) {
+              throw new MissingRequiredPropertyException("ServiceDependencyDependency", "dependentServices");
+            }
+            this.dependentServices = dependentServices;
             return this;
         }
         public Builder dependentServices(ServiceDependencyDependencyDependentService... dependentServices) {
@@ -83,7 +87,10 @@ public final class ServiceDependencyDependency {
         }
         @CustomType.Setter
         public Builder supportingServices(List<ServiceDependencyDependencySupportingService> supportingServices) {
-            this.supportingServices = Objects.requireNonNull(supportingServices);
+            if (supportingServices == null) {
+              throw new MissingRequiredPropertyException("ServiceDependencyDependency", "supportingServices");
+            }
+            this.supportingServices = supportingServices;
             return this;
         }
         public Builder supportingServices(ServiceDependencyDependencySupportingService... supportingServices) {
@@ -91,6 +98,7 @@ public final class ServiceDependencyDependency {
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }

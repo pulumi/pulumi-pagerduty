@@ -44,6 +44,7 @@ public final class RulesetRuleActionsSuspend {
 
         @CustomType.Setter
         public Builder value(@Nullable Integer value) {
+
             this.value = value;
             return this;
         }

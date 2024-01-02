@@ -191,21 +191,25 @@ public final class EventOrchestrationServiceSetRuleActions {
 
         @CustomType.Setter
         public Builder annotate(@Nullable String annotate) {
+
             this.annotate = annotate;
             return this;
         }
         @CustomType.Setter
         public Builder automationAction(@Nullable EventOrchestrationServiceSetRuleActionsAutomationAction automationAction) {
+
             this.automationAction = automationAction;
             return this;
         }
         @CustomType.Setter
         public Builder eventAction(@Nullable String eventAction) {
+
             this.eventAction = eventAction;
             return this;
         }
         @CustomType.Setter
         public Builder extractions(@Nullable List<EventOrchestrationServiceSetRuleActionsExtraction> extractions) {
+
             this.extractions = extractions;
             return this;
         }
@@ -214,36 +218,43 @@ public final class EventOrchestrationServiceSetRuleActions {
         }
         @CustomType.Setter
         public Builder pagerdutyAutomationAction(@Nullable EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction pagerdutyAutomationAction) {
+
             this.pagerdutyAutomationAction = pagerdutyAutomationAction;
             return this;
         }
         @CustomType.Setter
         public Builder priority(@Nullable String priority) {
+
             this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder routeTo(@Nullable String routeTo) {
+
             this.routeTo = routeTo;
             return this;
         }
         @CustomType.Setter
         public Builder severity(@Nullable String severity) {
+
             this.severity = severity;
             return this;
         }
         @CustomType.Setter
         public Builder suppress(@Nullable Boolean suppress) {
+
             this.suppress = suppress;
             return this;
         }
         @CustomType.Setter
         public Builder suspend(@Nullable Integer suspend) {
+
             this.suspend = suspend;
             return this;
         }
         @CustomType.Setter
         public Builder variables(@Nullable List<EventOrchestrationServiceSetRuleActionsVariable> variables) {
+
             this.variables = variables;
             return this;
         }

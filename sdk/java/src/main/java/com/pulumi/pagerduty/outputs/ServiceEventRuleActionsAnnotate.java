@@ -44,6 +44,7 @@ public final class ServiceEventRuleActionsAnnotate {
 
         @CustomType.Setter
         public Builder value(@Nullable String value) {
+
             this.value = value;
             return this;
         }

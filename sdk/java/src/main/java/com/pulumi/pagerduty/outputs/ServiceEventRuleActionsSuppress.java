@@ -88,21 +88,25 @@ public final class ServiceEventRuleActionsSuppress {
 
         @CustomType.Setter
         public Builder thresholdTimeAmount(@Nullable Integer thresholdTimeAmount) {
+
             this.thresholdTimeAmount = thresholdTimeAmount;
             return this;
         }
         @CustomType.Setter
         public Builder thresholdTimeUnit(@Nullable String thresholdTimeUnit) {
+
             this.thresholdTimeUnit = thresholdTimeUnit;
             return this;
         }
         @CustomType.Setter
         public Builder thresholdValue(@Nullable Integer thresholdValue) {
+
             this.thresholdValue = thresholdValue;
             return this;
         }
         @CustomType.Setter
         public Builder value(@Nullable Boolean value) {
+
             this.value = value;
             return this;
         }

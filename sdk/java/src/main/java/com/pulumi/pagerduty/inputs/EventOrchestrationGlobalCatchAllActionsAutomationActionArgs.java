@@ -5,6 +5,7 @@ package com.pulumi.pagerduty.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.inputs.EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArgs;
 import com.pulumi.pagerduty.inputs.EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArgs;
 import java.lang.Boolean;
@@ -248,8 +249,12 @@ public final class EventOrchestrationGlobalCatchAllActionsAutomationActionArgs e
         }
 
         public EventOrchestrationGlobalCatchAllActionsAutomationActionArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.url = Objects.requireNonNull($.url, "expected parameter 'url' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("EventOrchestrationGlobalCatchAllActionsAutomationActionArgs", "name");
+            }
+            if ($.url == null) {
+                throw new MissingRequiredPropertyException("EventOrchestrationGlobalCatchAllActionsAutomationActionArgs", "url");
+            }
             return $;
         }
     }

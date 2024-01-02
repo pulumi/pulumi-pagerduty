@@ -5,6 +5,7 @@ package com.pulumi.pagerduty.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -88,9 +89,15 @@ public final class ProviderUseAppOauthScopedTokenArgs extends com.pulumi.resourc
         }
 
         public ProviderUseAppOauthScopedTokenArgs build() {
-            $.pdClientId = Objects.requireNonNull($.pdClientId, "expected parameter 'pdClientId' to be non-null");
-            $.pdClientSecret = Objects.requireNonNull($.pdClientSecret, "expected parameter 'pdClientSecret' to be non-null");
-            $.pdSubdomain = Objects.requireNonNull($.pdSubdomain, "expected parameter 'pdSubdomain' to be non-null");
+            if ($.pdClientId == null) {
+                throw new MissingRequiredPropertyException("ProviderUseAppOauthScopedTokenArgs", "pdClientId");
+            }
+            if ($.pdClientSecret == null) {
+                throw new MissingRequiredPropertyException("ProviderUseAppOauthScopedTokenArgs", "pdClientSecret");
+            }
+            if ($.pdSubdomain == null) {
+                throw new MissingRequiredPropertyException("ProviderUseAppOauthScopedTokenArgs", "pdSubdomain");
+            }
             return $;
         }
     }

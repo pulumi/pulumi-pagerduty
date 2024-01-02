@@ -5,6 +5,7 @@ package com.pulumi.pagerduty;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -236,9 +237,15 @@ public final class IncidentWorkflowTriggerArgs extends com.pulumi.resources.Reso
         }
 
         public IncidentWorkflowTriggerArgs build() {
-            $.subscribedToAllServices = Objects.requireNonNull($.subscribedToAllServices, "expected parameter 'subscribedToAllServices' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
-            $.workflow = Objects.requireNonNull($.workflow, "expected parameter 'workflow' to be non-null");
+            if ($.subscribedToAllServices == null) {
+                throw new MissingRequiredPropertyException("IncidentWorkflowTriggerArgs", "subscribedToAllServices");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("IncidentWorkflowTriggerArgs", "type");
+            }
+            if ($.workflow == null) {
+                throw new MissingRequiredPropertyException("IncidentWorkflowTriggerArgs", "workflow");
+            }
             return $;
         }
     }

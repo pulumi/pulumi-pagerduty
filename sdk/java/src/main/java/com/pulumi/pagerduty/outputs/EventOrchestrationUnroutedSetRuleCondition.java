@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class EventOrchestrationUnroutedSetRuleCondition {
 
         @CustomType.Setter
         public Builder expression(String expression) {
-            this.expression = Objects.requireNonNull(expression);
+            if (expression == null) {
+              throw new MissingRequiredPropertyException("EventOrchestrationUnroutedSetRuleCondition", "expression");
+            }
+            this.expression = expression;
             return this;
         }
         public EventOrchestrationUnroutedSetRuleCondition build() {

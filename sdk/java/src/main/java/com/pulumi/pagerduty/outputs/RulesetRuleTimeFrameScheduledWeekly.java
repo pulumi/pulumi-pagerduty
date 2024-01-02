@@ -88,21 +88,25 @@ public final class RulesetRuleTimeFrameScheduledWeekly {
 
         @CustomType.Setter
         public Builder duration(@Nullable Integer duration) {
+
             this.duration = duration;
             return this;
         }
         @CustomType.Setter
         public Builder startTime(@Nullable Integer startTime) {
+
             this.startTime = startTime;
             return this;
         }
         @CustomType.Setter
         public Builder timezone(@Nullable String timezone) {
+
             this.timezone = timezone;
             return this;
         }
         @CustomType.Setter
         public Builder weekdays(@Nullable List<Integer> weekdays) {
+
             this.weekdays = weekdays;
             return this;
         }

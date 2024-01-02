@@ -59,6 +59,7 @@ public final class ServiceEventRuleTimeFrame {
 
         @CustomType.Setter
         public Builder activeBetweens(@Nullable List<ServiceEventRuleTimeFrameActiveBetween> activeBetweens) {
+
             this.activeBetweens = activeBetweens;
             return this;
         }
@@ -67,6 +68,7 @@ public final class ServiceEventRuleTimeFrame {
         }
         @CustomType.Setter
         public Builder scheduledWeeklies(@Nullable List<ServiceEventRuleTimeFrameScheduledWeekly> scheduledWeeklies) {
+
             this.scheduledWeeklies = scheduledWeeklies;
             return this;
         }

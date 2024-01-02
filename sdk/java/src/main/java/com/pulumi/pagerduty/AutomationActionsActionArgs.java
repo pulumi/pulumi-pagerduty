@@ -5,6 +5,7 @@ package com.pulumi.pagerduty;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.inputs.AutomationActionsActionActionDataReferenceArgs;
 import java.lang.String;
 import java.util.Objects;
@@ -410,8 +411,12 @@ public final class AutomationActionsActionArgs extends com.pulumi.resources.Reso
         }
 
         public AutomationActionsActionArgs build() {
-            $.actionDataReference = Objects.requireNonNull($.actionDataReference, "expected parameter 'actionDataReference' to be non-null");
-            $.actionType = Objects.requireNonNull($.actionType, "expected parameter 'actionType' to be non-null");
+            if ($.actionDataReference == null) {
+                throw new MissingRequiredPropertyException("AutomationActionsActionArgs", "actionDataReference");
+            }
+            if ($.actionType == null) {
+                throw new MissingRequiredPropertyException("AutomationActionsActionArgs", "actionType");
+            }
             return $;
         }
     }

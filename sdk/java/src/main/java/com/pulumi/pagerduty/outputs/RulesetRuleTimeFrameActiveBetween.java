@@ -50,11 +50,13 @@ public final class RulesetRuleTimeFrameActiveBetween {
 
         @CustomType.Setter
         public Builder endTime(@Nullable Integer endTime) {
+
             this.endTime = endTime;
             return this;
         }
         @CustomType.Setter
         public Builder startTime(@Nullable Integer startTime) {
+
             this.startTime = startTime;
             return this;
         }

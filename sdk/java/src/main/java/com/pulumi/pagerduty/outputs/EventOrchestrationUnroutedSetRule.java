@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.outputs.EventOrchestrationUnroutedSetRuleActions;
 import com.pulumi.pagerduty.outputs.EventOrchestrationUnroutedSetRuleCondition;
 import java.lang.Boolean;
@@ -104,11 +105,15 @@ public final class EventOrchestrationUnroutedSetRule {
 
         @CustomType.Setter
         public Builder actions(EventOrchestrationUnroutedSetRuleActions actions) {
-            this.actions = Objects.requireNonNull(actions);
+            if (actions == null) {
+              throw new MissingRequiredPropertyException("EventOrchestrationUnroutedSetRule", "actions");
+            }
+            this.actions = actions;
             return this;
         }
         @CustomType.Setter
         public Builder conditions(@Nullable List<EventOrchestrationUnroutedSetRuleCondition> conditions) {
+
             this.conditions = conditions;
             return this;
         }
@@ -117,16 +122,19 @@ public final class EventOrchestrationUnroutedSetRule {
         }
         @CustomType.Setter
         public Builder disabled(@Nullable Boolean disabled) {
+
             this.disabled = disabled;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder label(@Nullable String label) {
+
             this.label = label;
             return this;
         }

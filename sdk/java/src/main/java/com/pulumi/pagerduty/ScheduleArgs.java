@@ -6,6 +6,7 @@ package com.pulumi.pagerduty;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.core.internal.Codegen;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.inputs.ScheduleLayerArgs;
 import java.lang.Boolean;
 import java.lang.String;
@@ -294,8 +295,12 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
 
         public ScheduleArgs build() {
             $.description = Codegen.stringProp("description").output().arg($.description).def("Managed by Pulumi").getNullable();
-            $.layers = Objects.requireNonNull($.layers, "expected parameter 'layers' to be non-null");
-            $.timeZone = Objects.requireNonNull($.timeZone, "expected parameter 'timeZone' to be non-null");
+            if ($.layers == null) {
+                throw new MissingRequiredPropertyException("ScheduleArgs", "layers");
+            }
+            if ($.timeZone == null) {
+                throw new MissingRequiredPropertyException("ScheduleArgs", "timeZone");
+            }
             return $;
         }
     }

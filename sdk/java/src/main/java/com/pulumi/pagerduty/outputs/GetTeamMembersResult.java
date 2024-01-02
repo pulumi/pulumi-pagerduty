@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.outputs.GetTeamMembersMember;
 import java.lang.String;
 import java.util.List;
@@ -64,12 +65,18 @@ public final class GetTeamMembersResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetTeamMembersResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder members(List<GetTeamMembersMember> members) {
-            this.members = Objects.requireNonNull(members);
+            if (members == null) {
+              throw new MissingRequiredPropertyException("GetTeamMembersResult", "members");
+            }
+            this.members = members;
             return this;
         }
         public Builder members(GetTeamMembersMember... members) {
@@ -77,7 +84,10 @@ public final class GetTeamMembersResult {
         }
         @CustomType.Setter
         public Builder teamId(String teamId) {
-            this.teamId = Objects.requireNonNull(teamId);
+            if (teamId == null) {
+              throw new MissingRequiredPropertyException("GetTeamMembersResult", "teamId");
+            }
+            this.teamId = teamId;
             return this;
         }
         public GetTeamMembersResult build() {

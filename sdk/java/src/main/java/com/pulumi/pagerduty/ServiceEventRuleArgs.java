@@ -5,6 +5,7 @@ package com.pulumi.pagerduty;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.inputs.ServiceEventRuleActionsArgs;
 import com.pulumi.pagerduty.inputs.ServiceEventRuleConditionsArgs;
 import com.pulumi.pagerduty.inputs.ServiceEventRuleTimeFrameArgs;
@@ -315,7 +316,9 @@ public final class ServiceEventRuleArgs extends com.pulumi.resources.ResourceArg
         }
 
         public ServiceEventRuleArgs build() {
-            $.service = Objects.requireNonNull($.service, "expected parameter 'service' to be non-null");
+            if ($.service == null) {
+                throw new MissingRequiredPropertyException("ServiceEventRuleArgs", "service");
+            }
             return $;
         }
     }

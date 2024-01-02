@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.outputs.ServiceIncidentUrgencyRuleDuringSupportHours;
 import com.pulumi.pagerduty.outputs.ServiceIncidentUrgencyRuleOutsideSupportHours;
 import java.lang.String;
@@ -96,21 +97,27 @@ public final class ServiceIncidentUrgencyRule {
 
         @CustomType.Setter
         public Builder duringSupportHours(@Nullable ServiceIncidentUrgencyRuleDuringSupportHours duringSupportHours) {
+
             this.duringSupportHours = duringSupportHours;
             return this;
         }
         @CustomType.Setter
         public Builder outsideSupportHours(@Nullable ServiceIncidentUrgencyRuleOutsideSupportHours outsideSupportHours) {
+
             this.outsideSupportHours = outsideSupportHours;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("ServiceIncidentUrgencyRule", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder urgency(@Nullable String urgency) {
+
             this.urgency = urgency;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class GetEventOrchestrationsEventOrchestrationIntegrationParameter 
 
         @CustomType.Setter
         public Builder routingKey(String routingKey) {
-            this.routingKey = Objects.requireNonNull(routingKey);
+            if (routingKey == null) {
+              throw new MissingRequiredPropertyException("GetEventOrchestrationsEventOrchestrationIntegrationParameter", "routingKey");
+            }
+            this.routingKey = routingKey;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetEventOrchestrationsEventOrchestrationIntegrationParameter", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetEventOrchestrationsEventOrchestrationIntegrationParameter build() {

@@ -5,6 +5,7 @@ package com.pulumi.pagerduty.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.inputs.EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs;
 import com.pulumi.pagerduty.inputs.EscalationPolicyRuleTargetArgs;
 import java.lang.Integer;
@@ -175,8 +176,12 @@ public final class EscalationPolicyRuleArgs extends com.pulumi.resources.Resourc
         }
 
         public EscalationPolicyRuleArgs build() {
-            $.escalationDelayInMinutes = Objects.requireNonNull($.escalationDelayInMinutes, "expected parameter 'escalationDelayInMinutes' to be non-null");
-            $.targets = Objects.requireNonNull($.targets, "expected parameter 'targets' to be non-null");
+            if ($.escalationDelayInMinutes == null) {
+                throw new MissingRequiredPropertyException("EscalationPolicyRuleArgs", "escalationDelayInMinutes");
+            }
+            if ($.targets == null) {
+                throw new MissingRequiredPropertyException("EscalationPolicyRuleArgs", "targets");
+            }
             return $;
         }
     }

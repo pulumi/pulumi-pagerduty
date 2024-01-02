@@ -5,6 +5,7 @@ package com.pulumi.pagerduty.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.inputs.GetEventOrchestrationIntegrationDetailArgs;
 import java.lang.String;
 import java.util.List;
@@ -125,7 +126,9 @@ public final class GetEventOrchestrationArgs extends com.pulumi.resources.Invoke
         }
 
         public GetEventOrchestrationArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetEventOrchestrationArgs", "name");
+            }
             return $;
         }
     }

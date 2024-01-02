@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -90,8 +91,12 @@ public final class GetEventOrchestrationIntegrationDetailParameter extends com.p
         }
 
         public GetEventOrchestrationIntegrationDetailParameter build() {
-            $.routingKey = Objects.requireNonNull($.routingKey, "expected parameter 'routingKey' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.routingKey == null) {
+                throw new MissingRequiredPropertyException("GetEventOrchestrationIntegrationDetailParameter", "routingKey");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("GetEventOrchestrationIntegrationDetailParameter", "type");
+            }
             return $;
         }
     }

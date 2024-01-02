@@ -50,11 +50,13 @@ public final class ScheduleFinalSchedule {
 
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder renderedCoveragePercentage(@Nullable String renderedCoveragePercentage) {
+
             this.renderedCoveragePercentage = renderedCoveragePercentage;
             return this;
         }

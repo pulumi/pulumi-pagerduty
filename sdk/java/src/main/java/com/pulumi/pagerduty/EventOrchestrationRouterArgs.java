@@ -5,6 +5,7 @@ package com.pulumi.pagerduty;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.inputs.EventOrchestrationRouterCatchAllArgs;
 import com.pulumi.pagerduty.inputs.EventOrchestrationRouterSetArgs;
 import java.lang.String;
@@ -150,9 +151,15 @@ public final class EventOrchestrationRouterArgs extends com.pulumi.resources.Res
         }
 
         public EventOrchestrationRouterArgs build() {
-            $.catchAll = Objects.requireNonNull($.catchAll, "expected parameter 'catchAll' to be non-null");
-            $.eventOrchestration = Objects.requireNonNull($.eventOrchestration, "expected parameter 'eventOrchestration' to be non-null");
-            $.set = Objects.requireNonNull($.set, "expected parameter 'set' to be non-null");
+            if ($.catchAll == null) {
+                throw new MissingRequiredPropertyException("EventOrchestrationRouterArgs", "catchAll");
+            }
+            if ($.eventOrchestration == null) {
+                throw new MissingRequiredPropertyException("EventOrchestrationRouterArgs", "eventOrchestration");
+            }
+            if ($.set == null) {
+                throw new MissingRequiredPropertyException("EventOrchestrationRouterArgs", "set");
+            }
             return $;
         }
     }

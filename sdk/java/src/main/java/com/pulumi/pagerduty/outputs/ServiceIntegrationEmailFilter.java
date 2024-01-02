@@ -128,36 +128,43 @@ public final class ServiceIntegrationEmailFilter {
 
         @CustomType.Setter
         public Builder bodyMode(@Nullable String bodyMode) {
+
             this.bodyMode = bodyMode;
             return this;
         }
         @CustomType.Setter
         public Builder bodyRegex(@Nullable String bodyRegex) {
+
             this.bodyRegex = bodyRegex;
             return this;
         }
         @CustomType.Setter
         public Builder fromEmailMode(@Nullable String fromEmailMode) {
+
             this.fromEmailMode = fromEmailMode;
             return this;
         }
         @CustomType.Setter
         public Builder fromEmailRegex(@Nullable String fromEmailRegex) {
+
             this.fromEmailRegex = fromEmailRegex;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder subjectMode(@Nullable String subjectMode) {
+
             this.subjectMode = subjectMode;
             return this;
         }
         @CustomType.Setter
         public Builder subjectRegex(@Nullable String subjectRegex) {
+
             this.subjectRegex = subjectRegex;
             return this;
         }

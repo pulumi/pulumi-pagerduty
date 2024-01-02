@@ -5,6 +5,7 @@ package com.pulumi.pagerduty.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.inputs.IncidentWorkflowStepInlineStepsInputArgs;
 import com.pulumi.pagerduty.inputs.IncidentWorkflowStepInputArgs;
 import java.lang.String;
@@ -247,8 +248,12 @@ public final class IncidentWorkflowStepArgs extends com.pulumi.resources.Resourc
         }
 
         public IncidentWorkflowStepArgs build() {
-            $.action = Objects.requireNonNull($.action, "expected parameter 'action' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.action == null) {
+                throw new MissingRequiredPropertyException("IncidentWorkflowStepArgs", "action");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("IncidentWorkflowStepArgs", "name");
+            }
             return $;
         }
     }

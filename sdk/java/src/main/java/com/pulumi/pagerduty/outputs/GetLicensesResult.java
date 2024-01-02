@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.outputs.GetLicensesLicense;
 import java.lang.String;
 import java.util.List;
@@ -60,12 +61,16 @@ public final class GetLicensesResult {
 
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder licenses(List<GetLicensesLicense> licenses) {
-            this.licenses = Objects.requireNonNull(licenses);
+            if (licenses == null) {
+              throw new MissingRequiredPropertyException("GetLicensesResult", "licenses");
+            }
+            this.licenses = licenses;
             return this;
         }
         public Builder licenses(GetLicensesLicense... licenses) {

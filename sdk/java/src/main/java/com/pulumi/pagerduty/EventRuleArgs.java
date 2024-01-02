@@ -5,6 +5,7 @@ package com.pulumi.pagerduty;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class EventRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public EventRuleArgs build() {
-            $.actionJson = Objects.requireNonNull($.actionJson, "expected parameter 'actionJson' to be non-null");
-            $.conditionJson = Objects.requireNonNull($.conditionJson, "expected parameter 'conditionJson' to be non-null");
+            if ($.actionJson == null) {
+                throw new MissingRequiredPropertyException("EventRuleArgs", "actionJson");
+            }
+            if ($.conditionJson == null) {
+                throw new MissingRequiredPropertyException("EventRuleArgs", "conditionJson");
+            }
             return $;
         }
     }

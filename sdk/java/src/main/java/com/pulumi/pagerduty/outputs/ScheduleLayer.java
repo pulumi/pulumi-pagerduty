@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.outputs.ScheduleLayerRestriction;
 import java.lang.Integer;
 import java.lang.String;
@@ -151,26 +152,31 @@ public final class ScheduleLayer {
 
         @CustomType.Setter
         public Builder end(@Nullable String end) {
+
             this.end = end;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder renderedCoveragePercentage(@Nullable String renderedCoveragePercentage) {
+
             this.renderedCoveragePercentage = renderedCoveragePercentage;
             return this;
         }
         @CustomType.Setter
         public Builder restrictions(@Nullable List<ScheduleLayerRestriction> restrictions) {
+
             this.restrictions = restrictions;
             return this;
         }
@@ -179,22 +185,34 @@ public final class ScheduleLayer {
         }
         @CustomType.Setter
         public Builder rotationTurnLengthSeconds(Integer rotationTurnLengthSeconds) {
-            this.rotationTurnLengthSeconds = Objects.requireNonNull(rotationTurnLengthSeconds);
+            if (rotationTurnLengthSeconds == null) {
+              throw new MissingRequiredPropertyException("ScheduleLayer", "rotationTurnLengthSeconds");
+            }
+            this.rotationTurnLengthSeconds = rotationTurnLengthSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder rotationVirtualStart(String rotationVirtualStart) {
-            this.rotationVirtualStart = Objects.requireNonNull(rotationVirtualStart);
+            if (rotationVirtualStart == null) {
+              throw new MissingRequiredPropertyException("ScheduleLayer", "rotationVirtualStart");
+            }
+            this.rotationVirtualStart = rotationVirtualStart;
             return this;
         }
         @CustomType.Setter
         public Builder start(String start) {
-            this.start = Objects.requireNonNull(start);
+            if (start == null) {
+              throw new MissingRequiredPropertyException("ScheduleLayer", "start");
+            }
+            this.start = start;
             return this;
         }
         @CustomType.Setter
         public Builder users(List<String> users) {
-            this.users = Objects.requireNonNull(users);
+            if (users == null) {
+              throw new MissingRequiredPropertyException("ScheduleLayer", "users");
+            }
+            this.users = users;
             return this;
         }
         public Builder users(String... users) {

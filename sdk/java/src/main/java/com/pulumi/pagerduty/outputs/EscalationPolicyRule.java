@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.outputs.EscalationPolicyRuleEscalationRuleAssignmentStrategy;
 import com.pulumi.pagerduty.outputs.EscalationPolicyRuleTarget;
 import java.lang.Integer;
@@ -82,22 +83,30 @@ public final class EscalationPolicyRule {
 
         @CustomType.Setter
         public Builder escalationDelayInMinutes(Integer escalationDelayInMinutes) {
-            this.escalationDelayInMinutes = Objects.requireNonNull(escalationDelayInMinutes);
+            if (escalationDelayInMinutes == null) {
+              throw new MissingRequiredPropertyException("EscalationPolicyRule", "escalationDelayInMinutes");
+            }
+            this.escalationDelayInMinutes = escalationDelayInMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder escalationRuleAssignmentStrategy(@Nullable EscalationPolicyRuleEscalationRuleAssignmentStrategy escalationRuleAssignmentStrategy) {
+
             this.escalationRuleAssignmentStrategy = escalationRuleAssignmentStrategy;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder targets(List<EscalationPolicyRuleTarget> targets) {
-            this.targets = Objects.requireNonNull(targets);
+            if (targets == null) {
+              throw new MissingRequiredPropertyException("EscalationPolicyRule", "targets");
+            }
+            this.targets = targets;
             return this;
         }
         public Builder targets(EscalationPolicyRuleTarget... targets) {

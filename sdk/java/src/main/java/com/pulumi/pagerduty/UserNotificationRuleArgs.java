@@ -5,6 +5,7 @@ package com.pulumi.pagerduty;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -187,10 +188,18 @@ public final class UserNotificationRuleArgs extends com.pulumi.resources.Resourc
         }
 
         public UserNotificationRuleArgs build() {
-            $.contactMethod = Objects.requireNonNull($.contactMethod, "expected parameter 'contactMethod' to be non-null");
-            $.startDelayInMinutes = Objects.requireNonNull($.startDelayInMinutes, "expected parameter 'startDelayInMinutes' to be non-null");
-            $.urgency = Objects.requireNonNull($.urgency, "expected parameter 'urgency' to be non-null");
-            $.userId = Objects.requireNonNull($.userId, "expected parameter 'userId' to be non-null");
+            if ($.contactMethod == null) {
+                throw new MissingRequiredPropertyException("UserNotificationRuleArgs", "contactMethod");
+            }
+            if ($.startDelayInMinutes == null) {
+                throw new MissingRequiredPropertyException("UserNotificationRuleArgs", "startDelayInMinutes");
+            }
+            if ($.urgency == null) {
+                throw new MissingRequiredPropertyException("UserNotificationRuleArgs", "urgency");
+            }
+            if ($.userId == null) {
+                throw new MissingRequiredPropertyException("UserNotificationRuleArgs", "userId");
+            }
             return $;
         }
     }

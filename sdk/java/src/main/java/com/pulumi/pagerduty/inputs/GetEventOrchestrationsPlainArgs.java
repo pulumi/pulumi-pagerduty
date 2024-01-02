@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -63,7 +64,9 @@ public final class GetEventOrchestrationsPlainArgs extends com.pulumi.resources.
         }
 
         public GetEventOrchestrationsPlainArgs build() {
-            $.nameFilter = Objects.requireNonNull($.nameFilter, "expected parameter 'nameFilter' to be non-null");
+            if ($.nameFilter == null) {
+                throw new MissingRequiredPropertyException("GetEventOrchestrationsPlainArgs", "nameFilter");
+            }
             return $;
         }
     }

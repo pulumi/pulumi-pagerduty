@@ -5,6 +5,7 @@ package com.pulumi.pagerduty;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -454,14 +455,30 @@ public final class ExtensionServiceNowArgs extends com.pulumi.resources.Resource
         }
 
         public ExtensionServiceNowArgs build() {
-            $.extensionObjects = Objects.requireNonNull($.extensionObjects, "expected parameter 'extensionObjects' to be non-null");
-            $.extensionSchema = Objects.requireNonNull($.extensionSchema, "expected parameter 'extensionSchema' to be non-null");
-            $.referer = Objects.requireNonNull($.referer, "expected parameter 'referer' to be non-null");
-            $.snowPassword = Objects.requireNonNull($.snowPassword, "expected parameter 'snowPassword' to be non-null");
-            $.snowUser = Objects.requireNonNull($.snowUser, "expected parameter 'snowUser' to be non-null");
-            $.syncOptions = Objects.requireNonNull($.syncOptions, "expected parameter 'syncOptions' to be non-null");
-            $.target = Objects.requireNonNull($.target, "expected parameter 'target' to be non-null");
-            $.taskType = Objects.requireNonNull($.taskType, "expected parameter 'taskType' to be non-null");
+            if ($.extensionObjects == null) {
+                throw new MissingRequiredPropertyException("ExtensionServiceNowArgs", "extensionObjects");
+            }
+            if ($.extensionSchema == null) {
+                throw new MissingRequiredPropertyException("ExtensionServiceNowArgs", "extensionSchema");
+            }
+            if ($.referer == null) {
+                throw new MissingRequiredPropertyException("ExtensionServiceNowArgs", "referer");
+            }
+            if ($.snowPassword == null) {
+                throw new MissingRequiredPropertyException("ExtensionServiceNowArgs", "snowPassword");
+            }
+            if ($.snowUser == null) {
+                throw new MissingRequiredPropertyException("ExtensionServiceNowArgs", "snowUser");
+            }
+            if ($.syncOptions == null) {
+                throw new MissingRequiredPropertyException("ExtensionServiceNowArgs", "syncOptions");
+            }
+            if ($.target == null) {
+                throw new MissingRequiredPropertyException("ExtensionServiceNowArgs", "target");
+            }
+            if ($.taskType == null) {
+                throw new MissingRequiredPropertyException("ExtensionServiceNowArgs", "taskType");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -72,32 +73,50 @@ public final class GetIncidentCustomFieldResult {
 
         @CustomType.Setter
         public Builder dataType(String dataType) {
-            this.dataType = Objects.requireNonNull(dataType);
+            if (dataType == null) {
+              throw new MissingRequiredPropertyException("GetIncidentCustomFieldResult", "dataType");
+            }
+            this.dataType = dataType;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetIncidentCustomFieldResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetIncidentCustomFieldResult", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder fieldType(String fieldType) {
-            this.fieldType = Objects.requireNonNull(fieldType);
+            if (fieldType == null) {
+              throw new MissingRequiredPropertyException("GetIncidentCustomFieldResult", "fieldType");
+            }
+            this.fieldType = fieldType;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetIncidentCustomFieldResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetIncidentCustomFieldResult", "name");
+            }
+            this.name = name;
             return this;
         }
         public GetIncidentCustomFieldResult build() {

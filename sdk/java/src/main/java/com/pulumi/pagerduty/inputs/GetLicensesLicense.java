@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -303,17 +304,39 @@ public final class GetLicensesLicense extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetLicensesLicense build() {
-            $.allocationsAvailable = Objects.requireNonNull($.allocationsAvailable, "expected parameter 'allocationsAvailable' to be non-null");
-            $.currentValue = Objects.requireNonNull($.currentValue, "expected parameter 'currentValue' to be non-null");
-            $.description = Objects.requireNonNull($.description, "expected parameter 'description' to be non-null");
-            $.htmlUrl = Objects.requireNonNull($.htmlUrl, "expected parameter 'htmlUrl' to be non-null");
-            $.id = Objects.requireNonNull($.id, "expected parameter 'id' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.roleGroup = Objects.requireNonNull($.roleGroup, "expected parameter 'roleGroup' to be non-null");
-            $.self = Objects.requireNonNull($.self, "expected parameter 'self' to be non-null");
-            $.summary = Objects.requireNonNull($.summary, "expected parameter 'summary' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
-            $.validRoles = Objects.requireNonNull($.validRoles, "expected parameter 'validRoles' to be non-null");
+            if ($.allocationsAvailable == null) {
+                throw new MissingRequiredPropertyException("GetLicensesLicense", "allocationsAvailable");
+            }
+            if ($.currentValue == null) {
+                throw new MissingRequiredPropertyException("GetLicensesLicense", "currentValue");
+            }
+            if ($.description == null) {
+                throw new MissingRequiredPropertyException("GetLicensesLicense", "description");
+            }
+            if ($.htmlUrl == null) {
+                throw new MissingRequiredPropertyException("GetLicensesLicense", "htmlUrl");
+            }
+            if ($.id == null) {
+                throw new MissingRequiredPropertyException("GetLicensesLicense", "id");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetLicensesLicense", "name");
+            }
+            if ($.roleGroup == null) {
+                throw new MissingRequiredPropertyException("GetLicensesLicense", "roleGroup");
+            }
+            if ($.self == null) {
+                throw new MissingRequiredPropertyException("GetLicensesLicense", "self");
+            }
+            if ($.summary == null) {
+                throw new MissingRequiredPropertyException("GetLicensesLicense", "summary");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("GetLicensesLicense", "type");
+            }
+            if ($.validRoles == null) {
+                throw new MissingRequiredPropertyException("GetLicensesLicense", "validRoles");
+            }
             return $;
         }
     }

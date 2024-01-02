@@ -5,6 +5,7 @@ package com.pulumi.pagerduty;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class TagArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public TagArgs build() {
-            $.label = Objects.requireNonNull($.label, "expected parameter 'label' to be non-null");
+            if ($.label == null) {
+                throw new MissingRequiredPropertyException("TagArgs", "label");
+            }
             return $;
         }
     }

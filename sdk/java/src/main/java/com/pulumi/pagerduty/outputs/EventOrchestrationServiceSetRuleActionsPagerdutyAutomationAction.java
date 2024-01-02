@@ -4,6 +4,7 @@
 package com.pulumi.pagerduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAct
 
         @CustomType.Setter
         public Builder actionId(String actionId) {
-            this.actionId = Objects.requireNonNull(actionId);
+            if (actionId == null) {
+              throw new MissingRequiredPropertyException("EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction", "actionId");
+            }
+            this.actionId = actionId;
             return this;
         }
         public EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction build() {

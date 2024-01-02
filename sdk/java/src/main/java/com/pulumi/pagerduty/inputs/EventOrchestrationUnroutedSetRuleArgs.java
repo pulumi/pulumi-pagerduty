@@ -5,6 +5,7 @@ package com.pulumi.pagerduty.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.inputs.EventOrchestrationUnroutedSetRuleActionsArgs;
 import com.pulumi.pagerduty.inputs.EventOrchestrationUnroutedSetRuleConditionArgs;
 import java.lang.Boolean;
@@ -238,7 +239,9 @@ public final class EventOrchestrationUnroutedSetRuleArgs extends com.pulumi.reso
         }
 
         public EventOrchestrationUnroutedSetRuleArgs build() {
-            $.actions = Objects.requireNonNull($.actions, "expected parameter 'actions' to be non-null");
+            if ($.actions == null) {
+                throw new MissingRequiredPropertyException("EventOrchestrationUnroutedSetRuleArgs", "actions");
+            }
             return $;
         }
     }

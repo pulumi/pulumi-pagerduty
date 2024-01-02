@@ -96,11 +96,13 @@ public final class EventOrchestrationUnroutedCatchAllActions {
 
         @CustomType.Setter
         public Builder eventAction(@Nullable String eventAction) {
+
             this.eventAction = eventAction;
             return this;
         }
         @CustomType.Setter
         public Builder extractions(@Nullable List<EventOrchestrationUnroutedCatchAllActionsExtraction> extractions) {
+
             this.extractions = extractions;
             return this;
         }
@@ -109,16 +111,19 @@ public final class EventOrchestrationUnroutedCatchAllActions {
         }
         @CustomType.Setter
         public Builder severity(@Nullable String severity) {
+
             this.severity = severity;
             return this;
         }
         @CustomType.Setter
         public Builder suppress(@Nullable Boolean suppress) {
+
             this.suppress = suppress;
             return this;
         }
         @CustomType.Setter
         public Builder variables(@Nullable List<EventOrchestrationUnroutedCatchAllActionsVariable> variables) {
+
             this.variables = variables;
             return this;
         }

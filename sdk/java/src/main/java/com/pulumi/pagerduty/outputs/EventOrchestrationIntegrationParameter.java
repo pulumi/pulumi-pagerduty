@@ -58,11 +58,13 @@ public final class EventOrchestrationIntegrationParameter {
 
         @CustomType.Setter
         public Builder routingKey(@Nullable String routingKey) {
+
             this.routingKey = routingKey;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }

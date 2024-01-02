@@ -59,6 +59,7 @@ public final class RulesetRuleTimeFrame {
 
         @CustomType.Setter
         public Builder activeBetweens(@Nullable List<RulesetRuleTimeFrameActiveBetween> activeBetweens) {
+
             this.activeBetweens = activeBetweens;
             return this;
         }
@@ -67,6 +68,7 @@ public final class RulesetRuleTimeFrame {
         }
         @CustomType.Setter
         public Builder scheduledWeeklies(@Nullable List<RulesetRuleTimeFrameScheduledWeekly> scheduledWeeklies) {
+
             this.scheduledWeeklies = scheduledWeeklies;
             return this;
         }

@@ -6,6 +6,7 @@ package com.pulumi.pagerduty;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.core.internal.Codegen;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -200,9 +201,15 @@ public final class MaintenanceWindowArgs extends com.pulumi.resources.ResourceAr
 
         public MaintenanceWindowArgs build() {
             $.description = Codegen.stringProp("description").output().arg($.description).def("Managed by Pulumi").getNullable();
-            $.endTime = Objects.requireNonNull($.endTime, "expected parameter 'endTime' to be non-null");
-            $.services = Objects.requireNonNull($.services, "expected parameter 'services' to be non-null");
-            $.startTime = Objects.requireNonNull($.startTime, "expected parameter 'startTime' to be non-null");
+            if ($.endTime == null) {
+                throw new MissingRequiredPropertyException("MaintenanceWindowArgs", "endTime");
+            }
+            if ($.services == null) {
+                throw new MissingRequiredPropertyException("MaintenanceWindowArgs", "services");
+            }
+            if ($.startTime == null) {
+                throw new MissingRequiredPropertyException("MaintenanceWindowArgs", "startTime");
+            }
             return $;
         }
     }

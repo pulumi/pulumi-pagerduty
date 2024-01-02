@@ -5,6 +5,7 @@ package com.pulumi.pagerduty.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.pagerduty.inputs.ScheduleLayerRestrictionArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -375,10 +376,18 @@ public final class ScheduleLayerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ScheduleLayerArgs build() {
-            $.rotationTurnLengthSeconds = Objects.requireNonNull($.rotationTurnLengthSeconds, "expected parameter 'rotationTurnLengthSeconds' to be non-null");
-            $.rotationVirtualStart = Objects.requireNonNull($.rotationVirtualStart, "expected parameter 'rotationVirtualStart' to be non-null");
-            $.start = Objects.requireNonNull($.start, "expected parameter 'start' to be non-null");
-            $.users = Objects.requireNonNull($.users, "expected parameter 'users' to be non-null");
+            if ($.rotationTurnLengthSeconds == null) {
+                throw new MissingRequiredPropertyException("ScheduleLayerArgs", "rotationTurnLengthSeconds");
+            }
+            if ($.rotationVirtualStart == null) {
+                throw new MissingRequiredPropertyException("ScheduleLayerArgs", "rotationVirtualStart");
+            }
+            if ($.start == null) {
+                throw new MissingRequiredPropertyException("ScheduleLayerArgs", "start");
+            }
+            if ($.users == null) {
+                throw new MissingRequiredPropertyException("ScheduleLayerArgs", "users");
+            }
             return $;
         }
     }

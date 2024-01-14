@@ -16,20 +16,22 @@ package pagerduty
 
 import (
 	"fmt"
-	// embed is used to store bridge-metadata.json in the compiled binary
-	_ "embed"
 	"path/filepath"
-
-	// tzdata is used to ensure the provider works when deployed to OS-es that do not have it
-	_ "time/tzdata"
 	"unicode"
 
+	// embed is used to store bridge-metadata.json in the compiled binary
+	_ "embed"
+	// tzdata is used to ensure the provider works when deployed to OS-es that do not have it
+	_ "time/tzdata"
+
 	"github.com/PagerDuty/terraform-provider-pagerduty/pagerduty"
-	"github.com/pulumi/pulumi-pagerduty/provider/v4/pkg/version"
+
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	tfbridgetokens "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
+
+	"github.com/pulumi/pulumi-pagerduty/provider/v4/pkg/version"
 )
 
 // all of the token components used below.

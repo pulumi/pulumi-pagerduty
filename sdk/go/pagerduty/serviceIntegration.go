@@ -216,8 +216,6 @@ type ServiceIntegration struct {
 	// This is the unique fully-qualified email address used for routing emails to this integration for processing.
 	IntegrationEmail pulumi.StringOutput `pulumi:"integrationEmail"`
 	// (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
-	//
-	// Deprecated: Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release
 	IntegrationKey pulumi.StringOutput `pulumi:"integrationKey"`
 	// The name of the service integration.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -287,8 +285,6 @@ type serviceIntegrationState struct {
 	// This is the unique fully-qualified email address used for routing emails to this integration for processing.
 	IntegrationEmail *string `pulumi:"integrationEmail"`
 	// (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
-	//
-	// Deprecated: Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release
 	IntegrationKey *string `pulumi:"integrationKey"`
 	// The name of the service integration.
 	Name *string `pulumi:"name"`
@@ -326,8 +322,6 @@ type ServiceIntegrationState struct {
 	// This is the unique fully-qualified email address used for routing emails to this integration for processing.
 	IntegrationEmail pulumi.StringPtrInput
 	// (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
-	//
-	// Deprecated: Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release
 	IntegrationKey pulumi.StringPtrInput
 	// The name of the service integration.
 	Name pulumi.StringPtrInput
@@ -367,8 +361,6 @@ type serviceIntegrationArgs struct {
 	// This is the unique fully-qualified email address used for routing emails to this integration for processing.
 	IntegrationEmail *string `pulumi:"integrationEmail"`
 	// (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
-	//
-	// Deprecated: Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release
 	IntegrationKey *string `pulumi:"integrationKey"`
 	// The name of the service integration.
 	Name *string `pulumi:"name"`
@@ -405,8 +397,6 @@ type ServiceIntegrationArgs struct {
 	// This is the unique fully-qualified email address used for routing emails to this integration for processing.
 	IntegrationEmail pulumi.StringPtrInput
 	// (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
-	//
-	// Deprecated: Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release
 	IntegrationKey pulumi.StringPtrInput
 	// The name of the service integration.
 	Name pulumi.StringPtrInput
@@ -551,8 +541,6 @@ func (o ServiceIntegrationOutput) IntegrationEmail() pulumi.StringOutput {
 }
 
 // (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
-//
-// Deprecated: Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release
 func (o ServiceIntegrationOutput) IntegrationKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceIntegration) pulumi.StringOutput { return v.IntegrationKey }).(pulumi.StringOutput)
 }

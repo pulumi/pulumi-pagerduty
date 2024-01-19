@@ -11937,7 +11937,7 @@ type ServiceAlertGroupingParametersConfig struct {
 	Aggregate *string `pulumi:"aggregate"`
 	// Alerts will be grouped together if the content of these fields match. This setting applies only when `type` is set to `contentBased`.
 	Fields []string `pulumi:"fields"`
-	// The maximum amount of time allowed between Alerts. Value must be between `300` and `3600`. Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
+	// The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent` or `contentBased`. Value must be between `300` and `3600`. Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
 	TimeWindow *int `pulumi:"timeWindow"`
 	// The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
 	Timeout *int `pulumi:"timeout"`
@@ -11959,7 +11959,7 @@ type ServiceAlertGroupingParametersConfigArgs struct {
 	Aggregate pulumi.StringPtrInput `pulumi:"aggregate"`
 	// Alerts will be grouped together if the content of these fields match. This setting applies only when `type` is set to `contentBased`.
 	Fields pulumi.StringArrayInput `pulumi:"fields"`
-	// The maximum amount of time allowed between Alerts. Value must be between `300` and `3600`. Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
+	// The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent` or `contentBased`. Value must be between `300` and `3600`. Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
 	TimeWindow pulumi.IntPtrInput `pulumi:"timeWindow"`
 	// The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
@@ -12052,7 +12052,7 @@ func (o ServiceAlertGroupingParametersConfigOutput) Fields() pulumi.StringArrayO
 	return o.ApplyT(func(v ServiceAlertGroupingParametersConfig) []string { return v.Fields }).(pulumi.StringArrayOutput)
 }
 
-// The maximum amount of time allowed between Alerts. Value must be between `300` and `3600`. Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
+// The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent` or `contentBased`. Value must be between `300` and `3600`. Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
 func (o ServiceAlertGroupingParametersConfigOutput) TimeWindow() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceAlertGroupingParametersConfig) *int { return v.TimeWindow }).(pulumi.IntPtrOutput)
 }
@@ -12106,7 +12106,7 @@ func (o ServiceAlertGroupingParametersConfigPtrOutput) Fields() pulumi.StringArr
 	}).(pulumi.StringArrayOutput)
 }
 
-// The maximum amount of time allowed between Alerts. Value must be between `300` and `3600`. Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
+// The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent` or `contentBased`. Value must be between `300` and `3600`. Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
 func (o ServiceAlertGroupingParametersConfigPtrOutput) TimeWindow() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceAlertGroupingParametersConfig) *int {
 		if v == nil {

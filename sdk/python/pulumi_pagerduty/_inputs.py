@@ -5315,7 +5315,7 @@ class ServiceAlertGroupingParametersConfigArgs:
         """
         :param pulumi.Input[str] aggregate: One of `any` or `all`. This setting applies only when `type` is set to `content_based`. Group alerts based on one or all of `fields` value(s).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fields: Alerts will be grouped together if the content of these fields match. This setting applies only when `type` is set to `content_based`.
-        :param pulumi.Input[int] time_window: The maximum amount of time allowed between Alerts. Value must be between `300` and `3600`. Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
+        :param pulumi.Input[int] time_window: The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent` or `content_based`. Value must be between `300` and `3600`. Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
         :param pulumi.Input[int] timeout: The duration in minutes within which to automatically group incoming alerts. This setting applies only when `type` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`.
         """
         if aggregate is not None:
@@ -5355,7 +5355,7 @@ class ServiceAlertGroupingParametersConfigArgs:
     @pulumi.getter(name="timeWindow")
     def time_window(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum amount of time allowed between Alerts. Value must be between `300` and `3600`. Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
+        The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent` or `content_based`. Value must be between `300` and `3600`. Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
         """
         return pulumi.get(self, "time_window")
 

@@ -110,22 +110,14 @@ public final class ServiceIntegrationState extends com.pulumi.resources.Resource
     /**
      * (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
      * 
-     * @deprecated
-     * Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release
-     * 
      */
-    @Deprecated /* Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release */
     @Import(name="integrationKey")
     private @Nullable Output<String> integrationKey;
 
     /**
      * @return (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
      * 
-     * @deprecated
-     * Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release
-     * 
      */
-    @Deprecated /* Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release */
     public Optional<Output<String>> integrationKey() {
         return Optional.ofNullable(this.integrationKey);
     }
@@ -385,11 +377,7 @@ public final class ServiceIntegrationState extends com.pulumi.resources.Resource
          * 
          * @return builder
          * 
-         * @deprecated
-         * Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release
-         * 
          */
-        @Deprecated /* Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release */
         public Builder integrationKey(@Nullable Output<String> integrationKey) {
             $.integrationKey = integrationKey;
             return this;
@@ -400,11 +388,7 @@ public final class ServiceIntegrationState extends com.pulumi.resources.Resource
          * 
          * @return builder
          * 
-         * @deprecated
-         * Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release
-         * 
          */
-        @Deprecated /* Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release */
         public Builder integrationKey(String integrationKey) {
             return integrationKey(Output.of(integrationKey));
         }

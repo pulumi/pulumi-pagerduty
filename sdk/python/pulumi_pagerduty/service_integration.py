@@ -65,9 +65,6 @@ class ServiceIntegrationArgs:
         if integration_email is not None:
             pulumi.set(__self__, "integration_email", integration_email)
         if integration_key is not None:
-            warnings.warn("""Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release""", DeprecationWarning)
-            pulumi.log.warn("""integration_key is deprecated: Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release""")
-        if integration_key is not None:
             pulumi.set(__self__, "integration_key", integration_key)
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -160,9 +157,6 @@ class ServiceIntegrationArgs:
         """
         (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
         """
-        warnings.warn("""Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release""", DeprecationWarning)
-        pulumi.log.warn("""integration_key is deprecated: Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release""")
-
         return pulumi.get(self, "integration_key")
 
     @integration_key.setter
@@ -273,9 +267,6 @@ class _ServiceIntegrationState:
         if integration_email is not None:
             pulumi.set(__self__, "integration_email", integration_email)
         if integration_key is not None:
-            warnings.warn("""Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release""", DeprecationWarning)
-            pulumi.log.warn("""integration_key is deprecated: Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release""")
-        if integration_key is not None:
             pulumi.set(__self__, "integration_key", integration_key)
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -370,9 +361,6 @@ class _ServiceIntegrationState:
         """
         (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
         """
-        warnings.warn("""Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release""", DeprecationWarning)
-        pulumi.log.warn("""integration_key is deprecated: Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release""")
-
         return pulumi.get(self, "integration_key")
 
     @integration_key.setter
@@ -892,9 +880,6 @@ class ServiceIntegration(pulumi.CustomResource):
         """
         (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
         """
-        warnings.warn("""Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release""", DeprecationWarning)
-        pulumi.log.warn("""integration_key is deprecated: Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release""")
-
         return pulumi.get(self, "integration_key")
 
     @property

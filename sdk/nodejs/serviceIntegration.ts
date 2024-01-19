@@ -188,8 +188,6 @@ export class ServiceIntegration extends pulumi.CustomResource {
     public readonly integrationEmail!: pulumi.Output<string>;
     /**
      * (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
-     *
-     * @deprecated Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release
      */
     public readonly integrationKey!: pulumi.Output<string>;
     /**
@@ -297,8 +295,6 @@ export interface ServiceIntegrationState {
     integrationEmail?: pulumi.Input<string>;
     /**
      * (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
-     *
-     * @deprecated Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release
      */
     integrationKey?: pulumi.Input<string>;
     /**
@@ -355,8 +351,6 @@ export interface ServiceIntegrationArgs {
     integrationEmail?: pulumi.Input<string>;
     /**
      * (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
-     *
-     * @deprecated Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release
      */
     integrationKey?: pulumi.Input<string>;
     /**

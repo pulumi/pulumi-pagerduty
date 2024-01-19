@@ -2282,7 +2282,7 @@
                 },
                 "timeWindow": {
                     "type": "integer",
-                    "description": "The maximum amount of time allowed between Alerts. Value must be between `300` and `3600`. Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.\n"
+                    "description": "The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent` or `content_based`. Value must be between `300` and `3600`. Any Alerts arriving greater than `time_window` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.\n"
                 },
                 "timeout": {
                     "type": "integer",
@@ -6276,8 +6276,7 @@
                 },
                 "integrationKey": {
                     "type": "string",
-                    "description": "(Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.\n",
-                    "deprecationMessage": "Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release"
+                    "description": "(Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.\n"
                 },
                 "name": {
                     "type": "string",
@@ -6341,8 +6340,7 @@
                 },
                 "integrationKey": {
                     "type": "string",
-                    "description": "(Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.\n",
-                    "deprecationMessage": "Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release"
+                    "description": "(Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.\n"
                 },
                 "name": {
                     "type": "string",
@@ -6405,8 +6403,7 @@
                     },
                     "integrationKey": {
                         "type": "string",
-                        "description": "(Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.\n",
-                        "deprecationMessage": "Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release"
+                        "description": "(Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.\n"
                     },
                     "name": {
                         "type": "string",

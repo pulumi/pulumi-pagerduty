@@ -274,11 +274,7 @@ public class ServiceIntegration extends com.pulumi.resources.CustomResource {
     /**
      * (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
      * 
-     * @deprecated
-     * Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release
-     * 
      */
-    @Deprecated /* Assignments or updates to this attribute are not supported by Service Integrations API, it is a read-only value. Input support will be dropped in upcomming major release */
     @Export(name="integrationKey", refs={String.class}, tree="[0]")
     private Output<String> integrationKey;
 

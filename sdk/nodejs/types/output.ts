@@ -1576,7 +1576,7 @@ export interface ServiceAlertGroupingParametersConfig {
      */
     fields?: string[];
     /**
-     * The maximum amount of time allowed between Alerts. Value must be between `300` and `3600`. Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
+     * The maximum amount of time allowed between Alerts. This setting applies only when `type` is set to `intelligent` or `contentBased`. Value must be between `300` and `3600`. Any Alerts arriving greater than `timeWindow` seconds apart will not be grouped together. This is a rolling time window and is counted from the most recently grouped alert. The window is extended every time a new alert is added to the group, up to 24 hours.
      */
     timeWindow: number;
     /**

@@ -5,34 +5,35 @@ package com.pulumi.pagerduty.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ProviderUseAppOauthScopedTokenArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ProviderUseAppOauthScopedTokenArgs Empty = new ProviderUseAppOauthScopedTokenArgs();
 
-    @Import(name="pdClientId", required=true)
-    private Output<String> pdClientId;
+    @Import(name="pdClientId")
+    private @Nullable Output<String> pdClientId;
 
-    public Output<String> pdClientId() {
-        return this.pdClientId;
+    public Optional<Output<String>> pdClientId() {
+        return Optional.ofNullable(this.pdClientId);
     }
 
-    @Import(name="pdClientSecret", required=true)
-    private Output<String> pdClientSecret;
+    @Import(name="pdClientSecret")
+    private @Nullable Output<String> pdClientSecret;
 
-    public Output<String> pdClientSecret() {
-        return this.pdClientSecret;
+    public Optional<Output<String>> pdClientSecret() {
+        return Optional.ofNullable(this.pdClientSecret);
     }
 
-    @Import(name="pdSubdomain", required=true)
-    private Output<String> pdSubdomain;
+    @Import(name="pdSubdomain")
+    private @Nullable Output<String> pdSubdomain;
 
-    public Output<String> pdSubdomain() {
-        return this.pdSubdomain;
+    public Optional<Output<String>> pdSubdomain() {
+        return Optional.ofNullable(this.pdSubdomain);
     }
 
     private ProviderUseAppOauthScopedTokenArgs() {}
@@ -61,7 +62,7 @@ public final class ProviderUseAppOauthScopedTokenArgs extends com.pulumi.resourc
             $ = new ProviderUseAppOauthScopedTokenArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder pdClientId(Output<String> pdClientId) {
+        public Builder pdClientId(@Nullable Output<String> pdClientId) {
             $.pdClientId = pdClientId;
             return this;
         }
@@ -70,7 +71,7 @@ public final class ProviderUseAppOauthScopedTokenArgs extends com.pulumi.resourc
             return pdClientId(Output.of(pdClientId));
         }
 
-        public Builder pdClientSecret(Output<String> pdClientSecret) {
+        public Builder pdClientSecret(@Nullable Output<String> pdClientSecret) {
             $.pdClientSecret = pdClientSecret;
             return this;
         }
@@ -79,7 +80,7 @@ public final class ProviderUseAppOauthScopedTokenArgs extends com.pulumi.resourc
             return pdClientSecret(Output.of(pdClientSecret));
         }
 
-        public Builder pdSubdomain(Output<String> pdSubdomain) {
+        public Builder pdSubdomain(@Nullable Output<String> pdSubdomain) {
             $.pdSubdomain = pdSubdomain;
             return this;
         }
@@ -89,15 +90,6 @@ public final class ProviderUseAppOauthScopedTokenArgs extends com.pulumi.resourc
         }
 
         public ProviderUseAppOauthScopedTokenArgs build() {
-            if ($.pdClientId == null) {
-                throw new MissingRequiredPropertyException("ProviderUseAppOauthScopedTokenArgs", "pdClientId");
-            }
-            if ($.pdClientSecret == null) {
-                throw new MissingRequiredPropertyException("ProviderUseAppOauthScopedTokenArgs", "pdClientSecret");
-            }
-            if ($.pdSubdomain == null) {
-                throw new MissingRequiredPropertyException("ProviderUseAppOauthScopedTokenArgs", "pdSubdomain");
-            }
             return $;
         }
     }

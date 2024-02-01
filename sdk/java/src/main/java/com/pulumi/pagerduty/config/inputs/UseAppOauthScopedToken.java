@@ -4,25 +4,26 @@
 package com.pulumi.pagerduty.config.inputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class UseAppOauthScopedToken {
-    private String pdClientId;
-    private String pdClientSecret;
-    private String pdSubdomain;
+    private @Nullable String pdClientId;
+    private @Nullable String pdClientSecret;
+    private @Nullable String pdSubdomain;
 
     private UseAppOauthScopedToken() {}
-    public String pdClientId() {
-        return this.pdClientId;
+    public Optional<String> pdClientId() {
+        return Optional.ofNullable(this.pdClientId);
     }
-    public String pdClientSecret() {
-        return this.pdClientSecret;
+    public Optional<String> pdClientSecret() {
+        return Optional.ofNullable(this.pdClientSecret);
     }
-    public String pdSubdomain() {
-        return this.pdSubdomain;
+    public Optional<String> pdSubdomain() {
+        return Optional.ofNullable(this.pdSubdomain);
     }
 
     public static Builder builder() {
@@ -34,9 +35,9 @@ public final class UseAppOauthScopedToken {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String pdClientId;
-        private String pdClientSecret;
-        private String pdSubdomain;
+        private @Nullable String pdClientId;
+        private @Nullable String pdClientSecret;
+        private @Nullable String pdSubdomain;
         public Builder() {}
         public Builder(UseAppOauthScopedToken defaults) {
     	      Objects.requireNonNull(defaults);
@@ -46,26 +47,20 @@ public final class UseAppOauthScopedToken {
         }
 
         @CustomType.Setter
-        public Builder pdClientId(String pdClientId) {
-            if (pdClientId == null) {
-              throw new MissingRequiredPropertyException("UseAppOauthScopedToken", "pdClientId");
-            }
+        public Builder pdClientId(@Nullable String pdClientId) {
+
             this.pdClientId = pdClientId;
             return this;
         }
         @CustomType.Setter
-        public Builder pdClientSecret(String pdClientSecret) {
-            if (pdClientSecret == null) {
-              throw new MissingRequiredPropertyException("UseAppOauthScopedToken", "pdClientSecret");
-            }
+        public Builder pdClientSecret(@Nullable String pdClientSecret) {
+
             this.pdClientSecret = pdClientSecret;
             return this;
         }
         @CustomType.Setter
-        public Builder pdSubdomain(String pdSubdomain) {
-            if (pdSubdomain == null) {
-              throw new MissingRequiredPropertyException("UseAppOauthScopedToken", "pdSubdomain");
-            }
+        public Builder pdSubdomain(@Nullable String pdSubdomain) {
+
             this.pdSubdomain = pdSubdomain;
             return this;
         }

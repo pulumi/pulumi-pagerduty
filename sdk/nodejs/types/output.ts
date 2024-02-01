@@ -2165,9 +2165,9 @@ export interface WebhookSubscriptionFilter {
 
 export namespace config {
     export interface UseAppOauthScopedToken {
-        pdClientId: string;
-        pdClientSecret: string;
-        pdSubdomain: string;
+        pdClientId?: string;
+        pdClientSecret?: string;
+        pdSubdomain?: string;
     }
 
 }

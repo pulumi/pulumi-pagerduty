@@ -14,9 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type UseAppOauthScopedToken struct {
-	PdClientId     string `pulumi:"pdClientId"`
-	PdClientSecret string `pulumi:"pdClientSecret"`
-	PdSubdomain    string `pulumi:"pdSubdomain"`
+	PdClientId     *string `pulumi:"pdClientId"`
+	PdClientSecret *string `pulumi:"pdClientSecret"`
+	PdSubdomain    *string `pulumi:"pdSubdomain"`
 }
 
 // UseAppOauthScopedTokenInput is an input type that accepts UseAppOauthScopedTokenArgs and UseAppOauthScopedTokenOutput values.
@@ -31,9 +31,9 @@ type UseAppOauthScopedTokenInput interface {
 }
 
 type UseAppOauthScopedTokenArgs struct {
-	PdClientId     pulumi.StringInput `pulumi:"pdClientId"`
-	PdClientSecret pulumi.StringInput `pulumi:"pdClientSecret"`
-	PdSubdomain    pulumi.StringInput `pulumi:"pdSubdomain"`
+	PdClientId     pulumi.StringPtrInput `pulumi:"pdClientId"`
+	PdClientSecret pulumi.StringPtrInput `pulumi:"pdClientSecret"`
+	PdSubdomain    pulumi.StringPtrInput `pulumi:"pdSubdomain"`
 }
 
 func (UseAppOauthScopedTokenArgs) ElementType() reflect.Type {
@@ -62,16 +62,16 @@ func (o UseAppOauthScopedTokenOutput) ToUseAppOauthScopedTokenOutputWithContext(
 	return o
 }
 
-func (o UseAppOauthScopedTokenOutput) PdClientId() pulumi.StringOutput {
-	return o.ApplyT(func(v UseAppOauthScopedToken) string { return v.PdClientId }).(pulumi.StringOutput)
+func (o UseAppOauthScopedTokenOutput) PdClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UseAppOauthScopedToken) *string { return v.PdClientId }).(pulumi.StringPtrOutput)
 }
 
-func (o UseAppOauthScopedTokenOutput) PdClientSecret() pulumi.StringOutput {
-	return o.ApplyT(func(v UseAppOauthScopedToken) string { return v.PdClientSecret }).(pulumi.StringOutput)
+func (o UseAppOauthScopedTokenOutput) PdClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UseAppOauthScopedToken) *string { return v.PdClientSecret }).(pulumi.StringPtrOutput)
 }
 
-func (o UseAppOauthScopedTokenOutput) PdSubdomain() pulumi.StringOutput {
-	return o.ApplyT(func(v UseAppOauthScopedToken) string { return v.PdSubdomain }).(pulumi.StringOutput)
+func (o UseAppOauthScopedTokenOutput) PdSubdomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UseAppOauthScopedToken) *string { return v.PdSubdomain }).(pulumi.StringPtrOutput)
 }
 
 func init() {

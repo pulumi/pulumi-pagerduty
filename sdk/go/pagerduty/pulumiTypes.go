@@ -8303,9 +8303,9 @@ func (o IncidentWorkflowStepInputTypeArrayOutput) Index(i pulumi.IntInput) Incid
 }
 
 type ProviderUseAppOauthScopedToken struct {
-	PdClientId     string `pulumi:"pdClientId"`
-	PdClientSecret string `pulumi:"pdClientSecret"`
-	PdSubdomain    string `pulumi:"pdSubdomain"`
+	PdClientId     *string `pulumi:"pdClientId"`
+	PdClientSecret *string `pulumi:"pdClientSecret"`
+	PdSubdomain    *string `pulumi:"pdSubdomain"`
 }
 
 // ProviderUseAppOauthScopedTokenInput is an input type that accepts ProviderUseAppOauthScopedTokenArgs and ProviderUseAppOauthScopedTokenOutput values.
@@ -8320,9 +8320,9 @@ type ProviderUseAppOauthScopedTokenInput interface {
 }
 
 type ProviderUseAppOauthScopedTokenArgs struct {
-	PdClientId     pulumi.StringInput `pulumi:"pdClientId"`
-	PdClientSecret pulumi.StringInput `pulumi:"pdClientSecret"`
-	PdSubdomain    pulumi.StringInput `pulumi:"pdSubdomain"`
+	PdClientId     pulumi.StringPtrInput `pulumi:"pdClientId"`
+	PdClientSecret pulumi.StringPtrInput `pulumi:"pdClientSecret"`
+	PdSubdomain    pulumi.StringPtrInput `pulumi:"pdSubdomain"`
 }
 
 func (ProviderUseAppOauthScopedTokenArgs) ElementType() reflect.Type {
@@ -8402,16 +8402,16 @@ func (o ProviderUseAppOauthScopedTokenOutput) ToProviderUseAppOauthScopedTokenPt
 	}).(ProviderUseAppOauthScopedTokenPtrOutput)
 }
 
-func (o ProviderUseAppOauthScopedTokenOutput) PdClientId() pulumi.StringOutput {
-	return o.ApplyT(func(v ProviderUseAppOauthScopedToken) string { return v.PdClientId }).(pulumi.StringOutput)
+func (o ProviderUseAppOauthScopedTokenOutput) PdClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderUseAppOauthScopedToken) *string { return v.PdClientId }).(pulumi.StringPtrOutput)
 }
 
-func (o ProviderUseAppOauthScopedTokenOutput) PdClientSecret() pulumi.StringOutput {
-	return o.ApplyT(func(v ProviderUseAppOauthScopedToken) string { return v.PdClientSecret }).(pulumi.StringOutput)
+func (o ProviderUseAppOauthScopedTokenOutput) PdClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderUseAppOauthScopedToken) *string { return v.PdClientSecret }).(pulumi.StringPtrOutput)
 }
 
-func (o ProviderUseAppOauthScopedTokenOutput) PdSubdomain() pulumi.StringOutput {
-	return o.ApplyT(func(v ProviderUseAppOauthScopedToken) string { return v.PdSubdomain }).(pulumi.StringOutput)
+func (o ProviderUseAppOauthScopedTokenOutput) PdSubdomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderUseAppOauthScopedToken) *string { return v.PdSubdomain }).(pulumi.StringPtrOutput)
 }
 
 type ProviderUseAppOauthScopedTokenPtrOutput struct{ *pulumi.OutputState }
@@ -8443,7 +8443,7 @@ func (o ProviderUseAppOauthScopedTokenPtrOutput) PdClientId() pulumi.StringPtrOu
 		if v == nil {
 			return nil
 		}
-		return &v.PdClientId
+		return v.PdClientId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8452,7 +8452,7 @@ func (o ProviderUseAppOauthScopedTokenPtrOutput) PdClientSecret() pulumi.StringP
 		if v == nil {
 			return nil
 		}
-		return &v.PdClientSecret
+		return v.PdClientSecret
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8461,7 +8461,7 @@ func (o ProviderUseAppOauthScopedTokenPtrOutput) PdSubdomain() pulumi.StringPtrO
 		if v == nil {
 			return nil
 		}
-		return &v.PdSubdomain
+		return v.PdSubdomain
 	}).(pulumi.StringPtrOutput)
 }
 

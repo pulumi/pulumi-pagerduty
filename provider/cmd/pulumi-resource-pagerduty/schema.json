@@ -84,17 +84,7 @@
                     "type": "string"
                 }
             },
-            "type": "object",
-            "required": [
-                "pdClientId",
-                "pdClientSecret",
-                "pdSubdomain"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredInputs": []
-                }
-            }
+            "type": "object"
         },
         "pagerduty:index/AutomationActionsActionActionDataReference:AutomationActionsActionActionDataReference": {
             "properties": {
@@ -1655,17 +1645,7 @@
                     "type": "string"
                 }
             },
-            "type": "object",
-            "required": [
-                "pdClientId",
-                "pdClientSecret",
-                "pdSubdomain"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredOutputs": []
-                }
-            }
+            "type": "object"
         },
         "pagerduty:index/ResponsePlayResponder:ResponsePlayResponder": {
             "properties": {

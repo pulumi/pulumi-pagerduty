@@ -12,14 +12,14 @@ namespace Pulumi.Pagerduty.Inputs
 
     public sealed class ProviderUseAppOauthScopedTokenArgs : global::Pulumi.ResourceArgs
     {
-        [Input("pdClientId", required: true)]
-        public Input<string> PdClientId { get; set; } = null!;
+        [Input("pdClientId")]
+        public Input<string>? PdClientId { get; set; }
 
-        [Input("pdClientSecret", required: true)]
-        public Input<string> PdClientSecret { get; set; } = null!;
+        [Input("pdClientSecret")]
+        public Input<string>? PdClientSecret { get; set; }
 
-        [Input("pdSubdomain", required: true)]
-        public Input<string> PdSubdomain { get; set; } = null!;
+        [Input("pdSubdomain")]
+        public Input<string>? PdSubdomain { get; set; }
 
         public ProviderUseAppOauthScopedTokenArgs()
         {

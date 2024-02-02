@@ -1131,9 +1131,9 @@ export interface IncidentWorkflowStepInput {
 }
 
 export interface ProviderUseAppOauthScopedToken {
-    pdClientId: pulumi.Input<string>;
-    pdClientSecret: pulumi.Input<string>;
-    pdSubdomain: pulumi.Input<string>;
+    pdClientId?: pulumi.Input<string>;
+    pdClientSecret?: pulumi.Input<string>;
+    pdSubdomain?: pulumi.Input<string>;
 }
 
 export interface ResponsePlayResponder {

@@ -79,9 +79,9 @@ namespace Pulumi.Pagerduty
 
              public class UseAppOauthScopedToken
              {
-                public string PdClientId { get; set; }
-                public string PdClientSecret { get; set; }
-                public string PdSubdomain { get; set; }
+                public string? PdClientId { get; set; } = null!;
+                public string? PdClientSecret { get; set; } = null!;
+                public string? PdSubdomain { get; set; } = null!;
             }
         }
     }

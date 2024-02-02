@@ -1,0 +1,62 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Ian Wahbe <ian@wahbe.com>
+Date: Thu, 1 Feb 2024 17:55:48 +0100
+Subject: [PATCH] fix module patch
+
+
+diff --git a/go.mod b/go.mod
+index 87e4ba53..643bac04 100644
+--- a/go.mod
++++ b/go.mod
+@@ -1,4 +1,4 @@
+-module github.com/terraform-providers/terraform-provider-pagerduty
++module github.com/PagerDuty/terraform-provider-pagerduty
+ 
+ go 1.20
+ 
+diff --git a/main.go b/main.go
+index 531e5370..0af8430c 100644
+--- a/main.go
++++ b/main.go
+@@ -8,8 +8,10 @@ import (
+ 	"github.com/hashicorp/terraform-plugin-go/tfprotov5/tf5server"
+ 	"github.com/hashicorp/terraform-plugin-mux/tf5muxserver"
+ 
+-	"github.com/terraform-providers/terraform-provider-pagerduty/pagerduty"
+-	pagerdutyplugin "github.com/terraform-providers/terraform-provider-pagerduty/pagerdutyplugin"
++	"github.com/hashicorp/terraform-plugin-sdk/v2/plugin"
++
++	"github.com/PagerDuty/terraform-provider-pagerduty/pagerduty"
++	pagerdutyplugin "github.com/PagerDuty/terraform-provider-pagerduty/pagerdutyplugin"
+ )
+ 
+ func main() {
+diff --git a/pagerduty/util.go b/pagerduty/util.go
+index 3e44c575..4b0dcc1e 100644
+--- a/pagerduty/util.go
++++ b/pagerduty/util.go
+@@ -6,8 +6,8 @@ package pagerduty
+ import (
+ 	"time"
+ 
++	"github.com/PagerDuty/terraform-provider-pagerduty/util"
+ 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
+-	"github.com/terraform-providers/terraform-provider-pagerduty/util"
+ )
+ 
+ func timeToUTC(v string) (time.Time, error) {
+diff --git a/pagerdutyplugin/config.go b/pagerdutyplugin/config.go
+index 2d8656fd..5b9fee0e 100644
+--- a/pagerdutyplugin/config.go
++++ b/pagerdutyplugin/config.go
+@@ -11,9 +11,9 @@ import (
+ 	"time"
+ 
+ 	"github.com/PagerDuty/go-pagerduty"
++	"github.com/PagerDuty/terraform-provider-pagerduty/util"
+ 	"github.com/hashicorp/terraform-plugin-framework/diag"
+ 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/logging"
+-	"github.com/terraform-providers/terraform-provider-pagerduty/util"
+ )
+ 
+ // Config defines the configuration options for the PagerDuty client

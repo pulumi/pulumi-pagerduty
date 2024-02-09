@@ -39,7 +39,11 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Import
     /// 
-    /// -&gt; In the example below the `runbook_api_key` attribute has been omitted to avoid resource replacement after the import. Runners can be imported using the `id`, e.g. resource "pagerduty_automation_actions_runner" "example" {
+    /// -&gt; In the example below the `runbook_api_key` attribute has been omitted to avoid resource replacement after the import.
+    /// 
+    ///  Runners can be imported using the `id`, e.g.
+    /// 
+    ///  resource "pagerduty_automation_actions_runner" "example" {
     /// 
     ///  name = "Runner created via TF"
     /// 
@@ -47,10 +51,12 @@ namespace Pulumi.Pagerduty
     /// 
     ///  runner_type = "runbook"
     /// 
-    ///  runbook_base_uri = "rdcat.stg" }
+    ///  runbook_base_uri = "rdcat.stg"
+    /// 
+    ///  }
     /// 
     /// ```sh
-    ///  $ pulumi import pagerduty:index/automationActionsRunner:AutomationActionsRunner example 01DER7CUUBF7TH4116K0M4WKPU
+    /// $ pulumi import pagerduty:index/automationActionsRunner:AutomationActionsRunner example 01DER7CUUBF7TH4116K0M4WKPU
     /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/automationActionsRunner:AutomationActionsRunner")]

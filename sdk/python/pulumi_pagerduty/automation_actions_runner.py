@@ -284,7 +284,11 @@ class AutomationActionsRunner(pulumi.CustomResource):
 
         ## Import
 
-        -> In the example below the `runbook_api_key` attribute has been omitted to avoid resource replacement after the import. Runners can be imported using the `id`, e.g. resource "pagerduty_automation_actions_runner" "example" {
+        -> In the example below the `runbook_api_key` attribute has been omitted to avoid resource replacement after the import.
+
+         Runners can be imported using the `id`, e.g.
+
+         resource "pagerduty_automation_actions_runner" "example" {
 
          name = "Runner created via TF"
 
@@ -292,10 +296,12 @@ class AutomationActionsRunner(pulumi.CustomResource):
 
          runner_type = "runbook"
 
-         runbook_base_uri = "rdcat.stg" }
+         runbook_base_uri = "rdcat.stg"
+
+         }
 
         ```sh
-         $ pulumi import pagerduty:index/automationActionsRunner:AutomationActionsRunner example 01DER7CUUBF7TH4116K0M4WKPU
+        $ pulumi import pagerduty:index/automationActionsRunner:AutomationActionsRunner example 01DER7CUUBF7TH4116K0M4WKPU
         ```
 
         :param str resource_name: The name of the resource.
@@ -335,7 +341,11 @@ class AutomationActionsRunner(pulumi.CustomResource):
 
         ## Import
 
-        -> In the example below the `runbook_api_key` attribute has been omitted to avoid resource replacement after the import. Runners can be imported using the `id`, e.g. resource "pagerduty_automation_actions_runner" "example" {
+        -> In the example below the `runbook_api_key` attribute has been omitted to avoid resource replacement after the import.
+
+         Runners can be imported using the `id`, e.g.
+
+         resource "pagerduty_automation_actions_runner" "example" {
 
          name = "Runner created via TF"
 
@@ -343,10 +353,12 @@ class AutomationActionsRunner(pulumi.CustomResource):
 
          runner_type = "runbook"
 
-         runbook_base_uri = "rdcat.stg" }
+         runbook_base_uri = "rdcat.stg"
+
+         }
 
         ```sh
-         $ pulumi import pagerduty:index/automationActionsRunner:AutomationActionsRunner example 01DER7CUUBF7TH4116K0M4WKPU
+        $ pulumi import pagerduty:index/automationActionsRunner:AutomationActionsRunner example 01DER7CUUBF7TH4116K0M4WKPU
         ```
 
         :param str resource_name: The name of the resource.

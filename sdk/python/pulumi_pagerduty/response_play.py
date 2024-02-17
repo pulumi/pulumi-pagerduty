@@ -427,8 +427,6 @@ class ResponsePlay(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        A [response play](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE2Ng-create-a-response-play) allows you to create packages of Incident Actions that can be applied during an Incident's life cycle.
-
         ## Example Usage
 
         ```python
@@ -489,8 +487,6 @@ class ResponsePlay(pulumi.CustomResource):
                  args: ResponsePlayArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        A [response play](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE2Ng-create-a-response-play) allows you to create packages of Incident Actions that can be applied during an Incident's life cycle.
-
         ## Example Usage
 
         ```python

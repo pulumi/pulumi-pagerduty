@@ -3,13 +3,13 @@ module github.com/pulumi/pulumi-pagerduty/provider/v4
 go 1.21
 
 require (
-	github.com/PagerDuty/terraform-provider-pagerduty v0.0.0
+	github.com/PagerDuty/terraform-provider-pagerduty/v3 v3.0.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.74.0
 	github.com/pulumi/pulumi/sdk/v3 v3.105.0
 )
 
 replace (
-	github.com/PagerDuty/terraform-provider-pagerduty => ../upstream
+	github.com/PagerDuty/terraform-provider-pagerduty/v3 => ../upstream
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240202163305-e2a20ae13ef9
 )
 

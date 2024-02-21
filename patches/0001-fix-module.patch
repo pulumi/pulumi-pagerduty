@@ -1,0 +1,75 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Ian Wahbe <ian@wahbe.com>
+Date: Wed, 21 Feb 2024 20:32:54 +0100
+Subject: [PATCH] fixup! update CHANGELOG.md v3.8.1
+
+
+diff --git a/go.mod b/go.mod
+index 7860447f..8d3a35de 100644
+--- a/go.mod
++++ b/go.mod
+@@ -1,4 +1,4 @@
+-module github.com/PagerDuty/terraform-provider-pagerduty
++module github.com/PagerDuty/terraform-provider-pagerduty/v3
+ 
+ go 1.20
+ 
+diff --git a/main.go b/main.go
+index 3d0286da..ab96d4dd 100644
+--- a/main.go
++++ b/main.go
+@@ -8,8 +8,8 @@ import (
+ 	"github.com/hashicorp/terraform-plugin-go/tfprotov5/tf5server"
+ 	"github.com/hashicorp/terraform-plugin-mux/tf5muxserver"
+ 
+-	"github.com/PagerDuty/terraform-provider-pagerduty/pagerduty"
+-	pagerdutyplugin "github.com/PagerDuty/terraform-provider-pagerduty/pagerdutyplugin"
++	"github.com/PagerDuty/terraform-provider-pagerduty/v3/pagerduty"
++	pagerdutyplugin "github.com/PagerDuty/terraform-provider-pagerduty/v3/pagerdutyplugin"
+ )
+ 
+ func main() {
+diff --git a/pagerduty/util.go b/pagerduty/util.go
+index 4b0dcc1e..923000cd 100644
+--- a/pagerduty/util.go
++++ b/pagerduty/util.go
+@@ -6,8 +6,9 @@ package pagerduty
+ import (
+ 	"time"
+ 
+-	"github.com/PagerDuty/terraform-provider-pagerduty/util"
+ 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
++
++	"github.com/PagerDuty/terraform-provider-pagerduty/v3/util"
+ )
+ 
+ func timeToUTC(v string) (time.Time, error) {
+diff --git a/pagerdutyplugin/config.go b/pagerdutyplugin/config.go
+index 5b9fee0e..d4963b1f 100644
+--- a/pagerdutyplugin/config.go
++++ b/pagerdutyplugin/config.go
+@@ -11,9 +11,10 @@ import (
+ 	"time"
+ 
+ 	"github.com/PagerDuty/go-pagerduty"
+-	"github.com/PagerDuty/terraform-provider-pagerduty/util"
+ 	"github.com/hashicorp/terraform-plugin-framework/diag"
+ 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/logging"
++
++	"github.com/PagerDuty/terraform-provider-pagerduty/v3/util"
+ )
+ 
+ // Config defines the configuration options for the PagerDuty client
+diff --git a/pagerdutyplugin/provider_test.go b/pagerdutyplugin/provider_test.go
+index 91ed844d..f5adab3b 100644
+--- a/pagerdutyplugin/provider_test.go
++++ b/pagerdutyplugin/provider_test.go
+@@ -11,7 +11,7 @@ import (
+ 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
+ 	"github.com/hashicorp/terraform-plugin-testing/terraform"
+ 
+-	pd "github.com/PagerDuty/terraform-provider-pagerduty/pagerduty"
++	pd "github.com/PagerDuty/terraform-provider-pagerduty/v3/pagerduty"
+ )
+ 
+ func testAccPreCheck(t *testing.T) {

@@ -39,6 +39,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// The pagerduty_ruleset_rule.foo rule defined below
+//			// repeats daily from 9:30am - 11:30am using the America/New_York timezone.
+//			// Thus it requires a time_static instance to represent 9:30am on an arbitrary date in that timezone.
+//			// April 11th, 2019 was EDT (UTC-4) https://www.timeanddate.com/worldclock/converter.html?iso=20190411T133000&p1=179
 //			easternTimeAt0930, err := time.NewStatic(ctx, "easternTimeAt0930", &time.StaticArgs{
 //				Rfc3339: pulumi.String("2019-04-11T09:30:00-04:00"),
 //			})

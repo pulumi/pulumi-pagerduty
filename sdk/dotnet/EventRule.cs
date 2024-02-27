@@ -50,10 +50,10 @@ namespace Pulumi.Pagerduty
     ///                 "PL451DT",
     ///             },
     ///         }),
-    ///         ConditionJson = JsonSerializer.Serialize(new[]
+    ///         ConditionJson = JsonSerializer.Serialize(new object?[]
     ///         {
     ///             "and",
-    ///             new[]
+    ///             new object?[]
     ///             {
     ///                 "contains",
     ///                 new[]
@@ -64,7 +64,7 @@ namespace Pulumi.Pagerduty
     ///                 },
     ///                 "website",
     ///             },
-    ///             new[]
+    ///             new object?[]
     ///             {
     ///                 "contains",
     ///                 new[]
@@ -80,13 +80,13 @@ namespace Pulumi.Pagerduty
     ///         }),
     ///         AdvancedConditionJson = JsonSerializer.Serialize(new[]
     ///         {
-    ///             new[]
+    ///             new object?[]
     ///             {
     ///                 "scheduled-weekly",
     ///                 1565392127032,
     ///                 3600000,
     ///                 "America/Los_Angeles",
-    ///                 new[]
+    ///                 new object?[]
     ///                 {
     ///                     1,
     ///                     2,
@@ -123,10 +123,10 @@ namespace Pulumi.Pagerduty
     ///                 "PL451DT",
     ///             },
     ///         }),
-    ///         ConditionJson = JsonSerializer.Serialize(new[]
+    ///         ConditionJson = JsonSerializer.Serialize(new object?[]
     ///         {
     ///             "and",
-    ///             new[]
+    ///             new object?[]
     ///             {
     ///                 "contains",
     ///                 new[]
@@ -137,7 +137,7 @@ namespace Pulumi.Pagerduty
     ///                 },
     ///                 "website",
     ///             },
-    ///             new[]
+    ///             new object?[]
     ///             {
     ///                 "contains",
     ///                 new[]

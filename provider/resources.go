@@ -15,6 +15,7 @@
 package pagerduty
 
 import (
+	"context"
 	"fmt"
 	"path/filepath"
 	"unicode"
@@ -25,7 +26,9 @@ import (
 	_ "time/tzdata"
 
 	"github.com/PagerDuty/terraform-provider-pagerduty/v3/pagerduty"
+	pagerdutyplugin "github.com/PagerDuty/terraform-provider-pagerduty/v3/pagerdutyplugin"
 
+	pftfbridge "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	tfbridgetokens "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
@@ -66,7 +69,9 @@ var managedByPulumi = &tfbridge.DefaultInfo{Value: "Managed by Pulumi"}
 // Provider returns additional overlaid schema and metadata associated with the provider..
 func Provider() tfbridge.ProviderInfo {
 	// Instantiate the Terraform provider
-	p := shimv2.NewProvider(pagerduty.Provider())
+	sdkProv := shimv2.NewProvider(pagerduty.Provider(pagerduty.IsMuxed))
+
+	p := pftfbridge.MuxShimWithDisjointgPF(context.TODO(), sdkProv, pagerdutyplugin.New())
 
 	// Create a Pulumi provider mapping
 	prov := tfbridge.ProviderInfo{

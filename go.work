@@ -1,0 +1,13 @@
+go 1.21.7
+
+use (
+	./examples
+	./examples/addons/go
+	./provider
+	./sdk
+	./sdk/dotnet
+	./sdk/java
+	./sdk/nodejs
+	./sdk/python
+	./upstream
+)

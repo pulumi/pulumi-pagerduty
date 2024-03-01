@@ -184,23 +184,28 @@ class EventOrchestrationService(pulumi.CustomResource):
         import pulumi_pagerduty as pagerduty
 
         engineering = pagerduty.Team("engineering")
-        example_user = pagerduty.User("exampleUser",
-            email="125.greenholt.earline@graham.name",
-            teams=[engineering.id])
-        foo = pagerduty.EscalationPolicy("foo",
+        example_user = pagerduty.User("exampleUser", email="125.greenholt.earline@graham.name")
+        foo = pagerduty.TeamMembership("foo",
+            user_id=example_user.id,
+            team_id=engineering.id,
+            role="manager")
+        example_escalation_policy = pagerduty.EscalationPolicy("exampleEscalationPolicy",
             num_loops=2,
             rules=[pagerduty.EscalationPolicyRuleArgs(
                 escalation_delay_in_minutes=10,
                 targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                    type="user",
+                    type="user_reference",
                     id=example_user.id,
                 )],
             )])
         example_service = pagerduty.Service("exampleService",
             auto_resolve_timeout="14400",
             acknowledgement_timeout="600",
-            escalation_policy=pagerduty_escalation_policy["example"]["id"],
+            escalation_policy=example_escalation_policy.id,
             alert_creation="create_alerts_and_incidents")
+        cs_impact = pagerduty.IncidentCustomField("csImpact",
+            data_type="string",
+            field_type="single_value")
         p1 = pagerduty.get_priority(name="P1")
         www = pagerduty.EventOrchestrationService("www",
             service=example_service.id,
@@ -243,6 +248,10 @@ class EventOrchestrationService(pulumi.CustomResource):
                             actions=pagerduty.EventOrchestrationServiceSetRuleActionsArgs(
                                 annotate="Please use our P1 runbook: https://docs.test/p1-runbook",
                                 priority=p1.id,
+                                incident_custom_field_updates=[pagerduty.EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs(
+                                    id=cs_impact.id,
+                                    value="High Impact",
+                                )],
                             ),
                         ),
                         pagerduty.EventOrchestrationServiceSetRuleArgs(
@@ -330,23 +339,28 @@ class EventOrchestrationService(pulumi.CustomResource):
         import pulumi_pagerduty as pagerduty
 
         engineering = pagerduty.Team("engineering")
-        example_user = pagerduty.User("exampleUser",
-            email="125.greenholt.earline@graham.name",
-            teams=[engineering.id])
-        foo = pagerduty.EscalationPolicy("foo",
+        example_user = pagerduty.User("exampleUser", email="125.greenholt.earline@graham.name")
+        foo = pagerduty.TeamMembership("foo",
+            user_id=example_user.id,
+            team_id=engineering.id,
+            role="manager")
+        example_escalation_policy = pagerduty.EscalationPolicy("exampleEscalationPolicy",
             num_loops=2,
             rules=[pagerduty.EscalationPolicyRuleArgs(
                 escalation_delay_in_minutes=10,
                 targets=[pagerduty.EscalationPolicyRuleTargetArgs(
-                    type="user",
+                    type="user_reference",
                     id=example_user.id,
                 )],
             )])
         example_service = pagerduty.Service("exampleService",
             auto_resolve_timeout="14400",
             acknowledgement_timeout="600",
-            escalation_policy=pagerduty_escalation_policy["example"]["id"],
+            escalation_policy=example_escalation_policy.id,
             alert_creation="create_alerts_and_incidents")
+        cs_impact = pagerduty.IncidentCustomField("csImpact",
+            data_type="string",
+            field_type="single_value")
         p1 = pagerduty.get_priority(name="P1")
         www = pagerduty.EventOrchestrationService("www",
             service=example_service.id,
@@ -389,6 +403,10 @@ class EventOrchestrationService(pulumi.CustomResource):
                             actions=pagerduty.EventOrchestrationServiceSetRuleActionsArgs(
                                 annotate="Please use our P1 runbook: https://docs.test/p1-runbook",
                                 priority=p1.id,
+                                incident_custom_field_updates=[pagerduty.EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs(
+                                    id=cs_impact.id,
+                                    value="High Impact",
+                                )],
                             ),
                         ),
                         pagerduty.EventOrchestrationServiceSetRuleArgs(

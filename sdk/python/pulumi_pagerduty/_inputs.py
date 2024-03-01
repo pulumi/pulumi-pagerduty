@@ -20,6 +20,7 @@ __all__ = [
     'EventOrchestrationGlobalCatchAllActionsAutomationActionHeaderArgs',
     'EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArgs',
     'EventOrchestrationGlobalCatchAllActionsExtractionArgs',
+    'EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArgs',
     'EventOrchestrationGlobalCatchAllActionsVariableArgs',
     'EventOrchestrationGlobalSetArgs',
     'EventOrchestrationGlobalSetRuleArgs',
@@ -28,6 +29,7 @@ __all__ = [
     'EventOrchestrationGlobalSetRuleActionsAutomationActionHeaderArgs',
     'EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArgs',
     'EventOrchestrationGlobalSetRuleActionsExtractionArgs',
+    'EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArgs',
     'EventOrchestrationGlobalSetRuleActionsVariableArgs',
     'EventOrchestrationGlobalSetRuleConditionArgs',
     'EventOrchestrationIntegrationArgs',
@@ -44,6 +46,7 @@ __all__ = [
     'EventOrchestrationServiceCatchAllActionsAutomationActionHeaderArgs',
     'EventOrchestrationServiceCatchAllActionsAutomationActionParameterArgs',
     'EventOrchestrationServiceCatchAllActionsExtractionArgs',
+    'EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArgs',
     'EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs',
     'EventOrchestrationServiceCatchAllActionsVariableArgs',
     'EventOrchestrationServiceSetArgs',
@@ -53,6 +56,7 @@ __all__ = [
     'EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs',
     'EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs',
     'EventOrchestrationServiceSetRuleActionsExtractionArgs',
+    'EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs',
     'EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs',
     'EventOrchestrationServiceSetRuleActionsVariableArgs',
     'EventOrchestrationServiceSetRuleConditionArgs',
@@ -385,6 +389,7 @@ class EventOrchestrationGlobalCatchAllActionsArgs:
                  drop_event: Optional[pulumi.Input[bool]] = None,
                  event_action: Optional[pulumi.Input[str]] = None,
                  extractions: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsExtractionArgs']]]] = None,
+                 incident_custom_field_updates: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArgs']]]] = None,
                  priority: Optional[pulumi.Input[str]] = None,
                  route_to: Optional[pulumi.Input[str]] = None,
                  severity: Optional[pulumi.Input[str]] = None,
@@ -397,6 +402,7 @@ class EventOrchestrationGlobalCatchAllActionsArgs:
         :param pulumi.Input[bool] drop_event: When true, this event will be dropped. Dropped events will not trigger or resolve an alert or an incident. Dropped events will not be evaluated against router rules.
         :param pulumi.Input[str] event_action: sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsExtractionArgs']]] extractions: Replace any CEF field or Custom Details object field using custom variables.
+        :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArgs']]] incident_custom_field_updates: Assign a custom field to the resulting incident.
         :param pulumi.Input[str] priority: The ID of the priority you want to set on resulting incident. Consider using the `get_priority` data source.
         :param pulumi.Input[str] route_to: The ID of a Set from this Global Orchestration whose rules you also want to use with events that match this rule.
         :param pulumi.Input[str] severity: sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
@@ -414,6 +420,8 @@ class EventOrchestrationGlobalCatchAllActionsArgs:
             pulumi.set(__self__, "event_action", event_action)
         if extractions is not None:
             pulumi.set(__self__, "extractions", extractions)
+        if incident_custom_field_updates is not None:
+            pulumi.set(__self__, "incident_custom_field_updates", incident_custom_field_updates)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
         if route_to is not None:
@@ -486,6 +494,18 @@ class EventOrchestrationGlobalCatchAllActionsArgs:
     @extractions.setter
     def extractions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsExtractionArgs']]]]):
         pulumi.set(self, "extractions", value)
+
+    @property
+    @pulumi.getter(name="incidentCustomFieldUpdates")
+    def incident_custom_field_updates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArgs']]]]:
+        """
+        Assign a custom field to the resulting incident.
+        """
+        return pulumi.get(self, "incident_custom_field_updates")
+
+    @incident_custom_field_updates.setter
+    def incident_custom_field_updates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArgs']]]]):
+        pulumi.set(self, "incident_custom_field_updates", value)
 
     @property
     @pulumi.getter
@@ -794,6 +814,43 @@ class EventOrchestrationGlobalCatchAllActionsExtractionArgs:
 
 
 @pulumi.input_type
+class EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The custom field id
+        :param pulumi.Input[str] value: The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The custom field id
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class EventOrchestrationGlobalCatchAllActionsVariableArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -906,7 +963,7 @@ class EventOrchestrationGlobalSetRuleArgs:
         :param pulumi.Input['EventOrchestrationGlobalSetRuleActionsArgs'] actions: Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleConditionArgs']]] conditions: Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will `always` match against the rule.
         :param pulumi.Input[bool] disabled: Indicates whether the rule is disabled and would therefore not be evaluated.
-        :param pulumi.Input[str] id: The ID of this set of rules. Rules in other sets can route events into this set using the rule's `route_to` property.
+        :param pulumi.Input[str] id: The custom field id
         :param pulumi.Input[str] label: A description of this rule's purpose.
         """
         pulumi.set(__self__, "actions", actions)
@@ -959,7 +1016,7 @@ class EventOrchestrationGlobalSetRuleArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of this set of rules. Rules in other sets can route events into this set using the rule's `route_to` property.
+        The custom field id
         """
         return pulumi.get(self, "id")
 
@@ -988,6 +1045,7 @@ class EventOrchestrationGlobalSetRuleActionsArgs:
                  drop_event: Optional[pulumi.Input[bool]] = None,
                  event_action: Optional[pulumi.Input[str]] = None,
                  extractions: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsExtractionArgs']]]] = None,
+                 incident_custom_field_updates: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArgs']]]] = None,
                  priority: Optional[pulumi.Input[str]] = None,
                  route_to: Optional[pulumi.Input[str]] = None,
                  severity: Optional[pulumi.Input[str]] = None,
@@ -1000,6 +1058,7 @@ class EventOrchestrationGlobalSetRuleActionsArgs:
         :param pulumi.Input[bool] drop_event: When true, this event will be dropped. Dropped events will not trigger or resolve an alert or an incident. Dropped events will not be evaluated against router rules.
         :param pulumi.Input[str] event_action: sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsExtractionArgs']]] extractions: Replace any CEF field or Custom Details object field using custom variables.
+        :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArgs']]] incident_custom_field_updates: Assign a custom field to the resulting incident.
         :param pulumi.Input[str] priority: The ID of the priority you want to set on resulting incident. Consider using the `get_priority` data source.
         :param pulumi.Input[str] route_to: The ID of a Set from this Global Orchestration whose rules you also want to use with events that match this rule.
         :param pulumi.Input[str] severity: sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
@@ -1017,6 +1076,8 @@ class EventOrchestrationGlobalSetRuleActionsArgs:
             pulumi.set(__self__, "event_action", event_action)
         if extractions is not None:
             pulumi.set(__self__, "extractions", extractions)
+        if incident_custom_field_updates is not None:
+            pulumi.set(__self__, "incident_custom_field_updates", incident_custom_field_updates)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
         if route_to is not None:
@@ -1089,6 +1150,18 @@ class EventOrchestrationGlobalSetRuleActionsArgs:
     @extractions.setter
     def extractions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsExtractionArgs']]]]):
         pulumi.set(self, "extractions", value)
+
+    @property
+    @pulumi.getter(name="incidentCustomFieldUpdates")
+    def incident_custom_field_updates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArgs']]]]:
+        """
+        Assign a custom field to the resulting incident.
+        """
+        return pulumi.get(self, "incident_custom_field_updates")
+
+    @incident_custom_field_updates.setter
+    def incident_custom_field_updates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArgs']]]]):
+        pulumi.set(self, "incident_custom_field_updates", value)
 
     @property
     @pulumi.getter
@@ -1394,6 +1467,43 @@ class EventOrchestrationGlobalSetRuleActionsExtractionArgs:
     @template.setter
     def template(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "template", value)
+
+
+@pulumi.input_type
+class EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The custom field id
+        :param pulumi.Input[str] value: The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The custom field id
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -1808,6 +1918,7 @@ class EventOrchestrationServiceCatchAllActionsArgs:
                  automation_action: Optional[pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionArgs']] = None,
                  event_action: Optional[pulumi.Input[str]] = None,
                  extractions: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsExtractionArgs']]]] = None,
+                 incident_custom_field_updates: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArgs']]]] = None,
                  pagerduty_automation_action: Optional[pulumi.Input['EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs']] = None,
                  priority: Optional[pulumi.Input[str]] = None,
                  route_to: Optional[pulumi.Input[str]] = None,
@@ -1820,6 +1931,7 @@ class EventOrchestrationServiceCatchAllActionsArgs:
         :param pulumi.Input['EventOrchestrationServiceCatchAllActionsAutomationActionArgs'] automation_action: Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
         :param pulumi.Input[str] event_action: sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsExtractionArgs']]] extractions: Replace any CEF field or Custom Details object field using custom variables.
+        :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArgs']]] incident_custom_field_updates: Assign a custom field to the resulting incident.
         :param pulumi.Input['EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs'] pagerduty_automation_action: Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
         :param pulumi.Input[str] priority: The ID of the priority you want to set on resulting incident. Consider using the `get_priority` data source.
         :param pulumi.Input[str] route_to: The ID of a Set from this Service Orchestration whose rules you also want to use with events that match this rule.
@@ -1836,6 +1948,8 @@ class EventOrchestrationServiceCatchAllActionsArgs:
             pulumi.set(__self__, "event_action", event_action)
         if extractions is not None:
             pulumi.set(__self__, "extractions", extractions)
+        if incident_custom_field_updates is not None:
+            pulumi.set(__self__, "incident_custom_field_updates", incident_custom_field_updates)
         if pagerduty_automation_action is not None:
             pulumi.set(__self__, "pagerduty_automation_action", pagerduty_automation_action)
         if priority is not None:
@@ -1898,6 +2012,18 @@ class EventOrchestrationServiceCatchAllActionsArgs:
     @extractions.setter
     def extractions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsExtractionArgs']]]]):
         pulumi.set(self, "extractions", value)
+
+    @property
+    @pulumi.getter(name="incidentCustomFieldUpdates")
+    def incident_custom_field_updates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArgs']]]]:
+        """
+        Assign a custom field to the resulting incident.
+        """
+        return pulumi.get(self, "incident_custom_field_updates")
+
+    @incident_custom_field_updates.setter
+    def incident_custom_field_updates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArgs']]]]):
+        pulumi.set(self, "incident_custom_field_updates", value)
 
     @property
     @pulumi.getter(name="pagerdutyAutomationAction")
@@ -2218,6 +2344,43 @@ class EventOrchestrationServiceCatchAllActionsExtractionArgs:
 
 
 @pulumi.input_type
+class EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The custom field id
+        :param pulumi.Input[str] value: The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The custom field id
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs:
     def __init__(__self__, *,
                  action_id: pulumi.Input[str]):
@@ -2352,7 +2515,7 @@ class EventOrchestrationServiceSetRuleArgs:
         :param pulumi.Input['EventOrchestrationServiceSetRuleActionsArgs'] actions: Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleConditionArgs']]] conditions: Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will `always` match against the rule.
         :param pulumi.Input[bool] disabled: Indicates whether the rule is disabled and would therefore not be evaluated.
-        :param pulumi.Input[str] id: The ID of this set of rules. Rules in other sets can route events into this set using the rule's `route_to` property.
+        :param pulumi.Input[str] id: The custom field id
         :param pulumi.Input[str] label: A description of this rule's purpose.
         """
         pulumi.set(__self__, "actions", actions)
@@ -2405,7 +2568,7 @@ class EventOrchestrationServiceSetRuleArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of this set of rules. Rules in other sets can route events into this set using the rule's `route_to` property.
+        The custom field id
         """
         return pulumi.get(self, "id")
 
@@ -2433,6 +2596,7 @@ class EventOrchestrationServiceSetRuleActionsArgs:
                  automation_action: Optional[pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionArgs']] = None,
                  event_action: Optional[pulumi.Input[str]] = None,
                  extractions: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsExtractionArgs']]]] = None,
+                 incident_custom_field_updates: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs']]]] = None,
                  pagerduty_automation_action: Optional[pulumi.Input['EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs']] = None,
                  priority: Optional[pulumi.Input[str]] = None,
                  route_to: Optional[pulumi.Input[str]] = None,
@@ -2445,6 +2609,7 @@ class EventOrchestrationServiceSetRuleActionsArgs:
         :param pulumi.Input['EventOrchestrationServiceSetRuleActionsAutomationActionArgs'] automation_action: Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
         :param pulumi.Input[str] event_action: sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
         :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsExtractionArgs']]] extractions: Replace any CEF field or Custom Details object field using custom variables.
+        :param pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs']]] incident_custom_field_updates: Assign a custom field to the resulting incident.
         :param pulumi.Input['EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs'] pagerduty_automation_action: Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
         :param pulumi.Input[str] priority: The ID of the priority you want to set on resulting incident. Consider using the `get_priority` data source.
         :param pulumi.Input[str] route_to: The ID of a Set from this Service Orchestration whose rules you also want to use with events that match this rule.
@@ -2461,6 +2626,8 @@ class EventOrchestrationServiceSetRuleActionsArgs:
             pulumi.set(__self__, "event_action", event_action)
         if extractions is not None:
             pulumi.set(__self__, "extractions", extractions)
+        if incident_custom_field_updates is not None:
+            pulumi.set(__self__, "incident_custom_field_updates", incident_custom_field_updates)
         if pagerduty_automation_action is not None:
             pulumi.set(__self__, "pagerduty_automation_action", pagerduty_automation_action)
         if priority is not None:
@@ -2523,6 +2690,18 @@ class EventOrchestrationServiceSetRuleActionsArgs:
     @extractions.setter
     def extractions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsExtractionArgs']]]]):
         pulumi.set(self, "extractions", value)
+
+    @property
+    @pulumi.getter(name="incidentCustomFieldUpdates")
+    def incident_custom_field_updates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs']]]]:
+        """
+        Assign a custom field to the resulting incident.
+        """
+        return pulumi.get(self, "incident_custom_field_updates")
+
+    @incident_custom_field_updates.setter
+    def incident_custom_field_updates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs']]]]):
+        pulumi.set(self, "incident_custom_field_updates", value)
 
     @property
     @pulumi.getter(name="pagerdutyAutomationAction")
@@ -2840,6 +3019,43 @@ class EventOrchestrationServiceSetRuleActionsExtractionArgs:
     @template.setter
     def template(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "template", value)
+
+
+@pulumi.input_type
+class EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] id: The custom field id
+        :param pulumi.Input[str] value: The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The custom field id
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

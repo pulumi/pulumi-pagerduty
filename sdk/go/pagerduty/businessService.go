@@ -68,8 +68,8 @@ type BusinessService struct {
 	Team pulumi.StringPtrOutput `pulumi:"team"`
 	// **Deprecated** (Optional) Default (and only supported) value is `businessService`.
 	//
-	// Deprecated: This will change to a computed resource in the next major release.
-	Type pulumi.StringPtrOutput `pulumi:"type"`
+	// Deprecated: This will become a computed attribute in the next major release.
+	Type pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewBusinessService registers a new resource with the given unique name, arguments, and options.
@@ -120,7 +120,7 @@ type businessServiceState struct {
 	Team *string `pulumi:"team"`
 	// **Deprecated** (Optional) Default (and only supported) value is `businessService`.
 	//
-	// Deprecated: This will change to a computed resource in the next major release.
+	// Deprecated: This will become a computed attribute in the next major release.
 	Type *string `pulumi:"type"`
 }
 
@@ -140,7 +140,7 @@ type BusinessServiceState struct {
 	Team pulumi.StringPtrInput
 	// **Deprecated** (Optional) Default (and only supported) value is `businessService`.
 	//
-	// Deprecated: This will change to a computed resource in the next major release.
+	// Deprecated: This will become a computed attribute in the next major release.
 	Type pulumi.StringPtrInput
 }
 
@@ -158,7 +158,7 @@ type businessServiceArgs struct {
 	Team *string `pulumi:"team"`
 	// **Deprecated** (Optional) Default (and only supported) value is `businessService`.
 	//
-	// Deprecated: This will change to a computed resource in the next major release.
+	// Deprecated: This will become a computed attribute in the next major release.
 	Type *string `pulumi:"type"`
 }
 
@@ -173,7 +173,7 @@ type BusinessServiceArgs struct {
 	Team pulumi.StringPtrInput
 	// **Deprecated** (Optional) Default (and only supported) value is `businessService`.
 	//
-	// Deprecated: This will change to a computed resource in the next major release.
+	// Deprecated: This will become a computed attribute in the next major release.
 	Type pulumi.StringPtrInput
 }
 
@@ -300,9 +300,9 @@ func (o BusinessServiceOutput) Team() pulumi.StringPtrOutput {
 
 // **Deprecated** (Optional) Default (and only supported) value is `businessService`.
 //
-// Deprecated: This will change to a computed resource in the next major release.
-func (o BusinessServiceOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BusinessService) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+// Deprecated: This will become a computed attribute in the next major release.
+func (o BusinessServiceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *BusinessService) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
 type BusinessServiceArrayOutput struct{ *pulumi.OutputState }

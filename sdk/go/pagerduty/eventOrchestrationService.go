@@ -44,21 +44,26 @@ import (
 //			}
 //			exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
 //				Email: pulumi.String("125.greenholt.earline@graham.name"),
-//				Teams: pulumi.StringArray{
-//					engineering.ID(),
-//				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewEscalationPolicy(ctx, "foo", &pagerduty.EscalationPolicyArgs{
+//			_, err = pagerduty.NewTeamMembership(ctx, "foo", &pagerduty.TeamMembershipArgs{
+//				UserId: exampleUser.ID(),
+//				TeamId: engineering.ID(),
+//				Role:   pulumi.String("manager"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleEscalationPolicy, err := pagerduty.NewEscalationPolicy(ctx, "exampleEscalationPolicy", &pagerduty.EscalationPolicyArgs{
 //				NumLoops: pulumi.Int(2),
 //				Rules: pagerduty.EscalationPolicyRuleArray{
 //					&pagerduty.EscalationPolicyRuleArgs{
 //						EscalationDelayInMinutes: pulumi.Int(10),
 //						Targets: pagerduty.EscalationPolicyRuleTargetArray{
 //							&pagerduty.EscalationPolicyRuleTargetArgs{
-//								Type: pulumi.String("user"),
+//								Type: pulumi.String("user_reference"),
 //								Id:   exampleUser.ID(),
 //							},
 //						},
@@ -71,8 +76,15 @@ import (
 //			exampleService, err := pagerduty.NewService(ctx, "exampleService", &pagerduty.ServiceArgs{
 //				AutoResolveTimeout:     pulumi.String("14400"),
 //				AcknowledgementTimeout: pulumi.String("600"),
-//				EscalationPolicy:       pulumi.Any(pagerduty_escalation_policy.Example.Id),
+//				EscalationPolicy:       exampleEscalationPolicy.ID(),
 //				AlertCreation:          pulumi.String("create_alerts_and_incidents"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			csImpact, err := pagerduty.NewIncidentCustomField(ctx, "csImpact", &pagerduty.IncidentCustomFieldArgs{
+//				DataType:  pulumi.String("string"),
+//				FieldType: pulumi.String("single_value"),
 //			})
 //			if err != nil {
 //				return err
@@ -130,6 +142,12 @@ import (
 //								Actions: &pagerduty.EventOrchestrationServiceSetRuleActionsArgs{
 //									Annotate: pulumi.String("Please use our P1 runbook: https://docs.test/p1-runbook"),
 //									Priority: *pulumi.String(p1.Id),
+//									IncidentCustomFieldUpdates: pagerduty.EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArray{
+//										&pagerduty.EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs{
+//											Id:    csImpact.ID(),
+//											Value: pulumi.String("High Impact"),
+//										},
+//									},
 //								},
 //							},
 //							&pagerduty.EventOrchestrationServiceSetRuleArgs{

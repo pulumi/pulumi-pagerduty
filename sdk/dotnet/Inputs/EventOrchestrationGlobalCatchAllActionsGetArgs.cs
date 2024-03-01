@@ -48,6 +48,18 @@ namespace Pulumi.Pagerduty.Inputs
             set => _extractions = value;
         }
 
+        [Input("incidentCustomFieldUpdates")]
+        private InputList<Inputs.EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateGetArgs>? _incidentCustomFieldUpdates;
+
+        /// <summary>
+        /// Assign a custom field to the resulting incident.
+        /// </summary>
+        public InputList<Inputs.EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateGetArgs> IncidentCustomFieldUpdates
+        {
+            get => _incidentCustomFieldUpdates ?? (_incidentCustomFieldUpdates = new InputList<Inputs.EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateGetArgs>());
+            set => _incidentCustomFieldUpdates = value;
+        }
+
         /// <summary>
         /// The ID of the priority you want to set on resulting incident. Consider using the `pagerduty.getPriority` data source.
         /// </summary>

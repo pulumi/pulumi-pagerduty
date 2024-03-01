@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.pagerduty.inputs.EventOrchestrationServiceCatchAllActionsAutomationActionArgs;
 import com.pulumi.pagerduty.inputs.EventOrchestrationServiceCatchAllActionsExtractionArgs;
+import com.pulumi.pagerduty.inputs.EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArgs;
 import com.pulumi.pagerduty.inputs.EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs;
 import com.pulumi.pagerduty.inputs.EventOrchestrationServiceCatchAllActionsVariableArgs;
 import java.lang.Boolean;
@@ -80,6 +81,21 @@ public final class EventOrchestrationServiceCatchAllActionsArgs extends com.pulu
      */
     public Optional<Output<List<EventOrchestrationServiceCatchAllActionsExtractionArgs>>> extractions() {
         return Optional.ofNullable(this.extractions);
+    }
+
+    /**
+     * Assign a custom field to the resulting incident.
+     * 
+     */
+    @Import(name="incidentCustomFieldUpdates")
+    private @Nullable Output<List<EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArgs>> incidentCustomFieldUpdates;
+
+    /**
+     * @return Assign a custom field to the resulting incident.
+     * 
+     */
+    public Optional<Output<List<EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArgs>>> incidentCustomFieldUpdates() {
+        return Optional.ofNullable(this.incidentCustomFieldUpdates);
     }
 
     /**
@@ -194,6 +210,7 @@ public final class EventOrchestrationServiceCatchAllActionsArgs extends com.pulu
         this.automationAction = $.automationAction;
         this.eventAction = $.eventAction;
         this.extractions = $.extractions;
+        this.incidentCustomFieldUpdates = $.incidentCustomFieldUpdates;
         this.pagerdutyAutomationAction = $.pagerdutyAutomationAction;
         this.priority = $.priority;
         this.routeTo = $.routeTo;
@@ -313,6 +330,37 @@ public final class EventOrchestrationServiceCatchAllActionsArgs extends com.pulu
          */
         public Builder extractions(EventOrchestrationServiceCatchAllActionsExtractionArgs... extractions) {
             return extractions(List.of(extractions));
+        }
+
+        /**
+         * @param incidentCustomFieldUpdates Assign a custom field to the resulting incident.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder incidentCustomFieldUpdates(@Nullable Output<List<EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArgs>> incidentCustomFieldUpdates) {
+            $.incidentCustomFieldUpdates = incidentCustomFieldUpdates;
+            return this;
+        }
+
+        /**
+         * @param incidentCustomFieldUpdates Assign a custom field to the resulting incident.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder incidentCustomFieldUpdates(List<EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArgs> incidentCustomFieldUpdates) {
+            return incidentCustomFieldUpdates(Output.of(incidentCustomFieldUpdates));
+        }
+
+        /**
+         * @param incidentCustomFieldUpdates Assign a custom field to the resulting incident.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder incidentCustomFieldUpdates(EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArgs... incidentCustomFieldUpdates) {
+            return incidentCustomFieldUpdates(List.of(incidentCustomFieldUpdates));
         }
 
         /**

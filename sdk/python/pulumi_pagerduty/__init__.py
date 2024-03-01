@@ -40,6 +40,9 @@ from .get_ruleset import *
 from .get_schedule import *
 from .get_service import *
 from .get_service_integration import *
+from .get_standards import *
+from .get_standards_resource_scores import *
+from .get_standards_resources_scores import *
 from .get_tag import *
 from .get_team import *
 from .get_team_members import *

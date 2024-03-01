@@ -32,7 +32,7 @@ public final class EventOrchestrationServiceSetRule {
      */
     private @Nullable Boolean disabled;
     /**
-     * @return The ID of this set of rules. Rules in other sets can route events into this set using the rule&#39;s `route_to` property.
+     * @return The custom field id
      * 
      */
     private @Nullable String id;
@@ -65,7 +65,7 @@ public final class EventOrchestrationServiceSetRule {
         return Optional.ofNullable(this.disabled);
     }
     /**
-     * @return The ID of this set of rules. Rules in other sets can route events into this set using the rule&#39;s `route_to` property.
+     * @return The custom field id
      * 
      */
     public Optional<String> id() {

@@ -91,6 +91,10 @@ export interface EventOrchestrationGlobalCatchAllActions {
      */
     extractions?: outputs.EventOrchestrationGlobalCatchAllActionsExtraction[];
     /**
+     * Assign a custom field to the resulting incident.
+     */
+    incidentCustomFieldUpdates?: outputs.EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdate[];
+    /**
      * The ID of the priority you want to set on resulting incident. Consider using the `pagerduty.getPriority` data source.
      */
     priority?: string;
@@ -182,6 +186,17 @@ export interface EventOrchestrationGlobalCatchAllActionsExtraction {
     template?: string;
 }
 
+export interface EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdate {
+    /**
+     * The custom field id
+     */
+    id: string;
+    /**
+     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+     */
+    value: string;
+}
+
 export interface EventOrchestrationGlobalCatchAllActionsVariable {
     /**
      * The name of the variable
@@ -223,7 +238,7 @@ export interface EventOrchestrationGlobalSetRule {
      */
     disabled?: boolean;
     /**
-     * The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
+     * The custom field id
      */
     id: string;
     /**
@@ -253,6 +268,10 @@ export interface EventOrchestrationGlobalSetRuleActions {
      * Replace any CEF field or Custom Details object field using custom variables.
      */
     extractions?: outputs.EventOrchestrationGlobalSetRuleActionsExtraction[];
+    /**
+     * Assign a custom field to the resulting incident.
+     */
+    incidentCustomFieldUpdates?: outputs.EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdate[];
     /**
      * The ID of the priority you want to set on resulting incident. Consider using the `pagerduty.getPriority` data source.
      */
@@ -343,6 +362,17 @@ export interface EventOrchestrationGlobalSetRuleActionsExtraction {
      * * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
      */
     template?: string;
+}
+
+export interface EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdate {
+    /**
+     * The custom field id
+     */
+    id: string;
+    /**
+     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+     */
+    value: string;
 }
 
 export interface EventOrchestrationGlobalSetRuleActionsVariable {
@@ -475,6 +505,10 @@ export interface EventOrchestrationServiceCatchAllActions {
      */
     extractions?: outputs.EventOrchestrationServiceCatchAllActionsExtraction[];
     /**
+     * Assign a custom field to the resulting incident.
+     */
+    incidentCustomFieldUpdates?: outputs.EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdate[];
+    /**
      * Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
      */
     pagerdutyAutomationAction?: outputs.EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction;
@@ -570,6 +604,17 @@ export interface EventOrchestrationServiceCatchAllActionsExtraction {
     template?: string;
 }
 
+export interface EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdate {
+    /**
+     * The custom field id
+     */
+    id: string;
+    /**
+     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+     */
+    value: string;
+}
+
 export interface EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction {
     /**
      * Id of the Process Automation action to be triggered.
@@ -618,7 +663,7 @@ export interface EventOrchestrationServiceSetRule {
      */
     disabled?: boolean;
     /**
-     * The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
+     * The custom field id
      */
     id: string;
     /**
@@ -644,6 +689,10 @@ export interface EventOrchestrationServiceSetRuleActions {
      * Replace any CEF field or Custom Details object field using custom variables.
      */
     extractions?: outputs.EventOrchestrationServiceSetRuleActionsExtraction[];
+    /**
+     * Assign a custom field to the resulting incident.
+     */
+    incidentCustomFieldUpdates?: outputs.EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate[];
     /**
      * Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
      */
@@ -738,6 +787,17 @@ export interface EventOrchestrationServiceSetRuleActionsExtraction {
      * * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
      */
     template?: string;
+}
+
+export interface EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate {
+    /**
+     * The custom field id
+     */
+    id: string;
+    /**
+     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+     */
+    value: string;
 }
 
 export interface EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction {
@@ -1077,6 +1137,158 @@ export interface GetServiceTeam {
      * The service name to use to find a service in the PagerDuty API.
      */
     name: string;
+}
+
+export interface GetStandardsResourceScoresScore {
+    /**
+     * Number of standards this resource successfully complies to.
+     */
+    passing: number;
+    /**
+     * Number of standards associated to this resource.
+     */
+    total: number;
+}
+
+export interface GetStandardsResourceScoresStandard {
+    /**
+     * Indicates whether the standard is currently active and applicable to the resource.
+     */
+    active: boolean;
+    /**
+     * Provides a textual description of the standard.
+     */
+    description: string;
+    /**
+     * Identifier of said resource.
+     */
+    id: string;
+    /**
+     * The human-readable name of the standard.
+     */
+    name: string;
+    /**
+     * Indicates whether the resource complies to this standard.
+     */
+    pass: boolean;
+    /**
+     * The type of the standard.
+     */
+    type: string;
+}
+
+export interface GetStandardsResourcesScoresResource {
+    /**
+     * Unique Identifier.
+     */
+    resourceId: string;
+    /**
+     * Type of the object the standards are associated to. Allowed values are `technicalServices`.
+     */
+    resourceType: string;
+    /**
+     * Summary of the scores for standards associated with this resource.
+     */
+    score: outputs.GetStandardsResourcesScoresResourceScore;
+    /**
+     * The list of standards evaluated against.
+     */
+    standards: outputs.GetStandardsResourcesScoresResourceStandard[];
+}
+
+export interface GetStandardsResourcesScoresResourceScore {
+    /**
+     * Number of standards this resource successfully complies to.
+     */
+    passing: number;
+    /**
+     * Number of standards associated to this resource.
+     */
+    total: number;
+}
+
+export interface GetStandardsResourcesScoresResourceStandard {
+    /**
+     * Indicates whether the standard is currently active and applicable to the resource.
+     */
+    active: boolean;
+    /**
+     * Provides a textual description of the standard.
+     */
+    description: string;
+    /**
+     * A unique identifier for the standard.
+     */
+    id: string;
+    /**
+     * The human-readable name of the standard.
+     */
+    name: string;
+    /**
+     * Indicates whether the resource complies to this standard.
+     */
+    pass: boolean;
+    /**
+     * The type of the standard.
+     */
+    type: string;
+}
+
+export interface GetStandardsStandard {
+    /**
+     * Indicates whether the standard is currently active and applicable to the resource.
+     */
+    active: boolean;
+    /**
+     * Provides a textual description of the standard.
+     */
+    description: string;
+    /**
+     * A list of exceptions for the application of this standard.
+     */
+    exclusions: outputs.GetStandardsStandardExclusion[];
+    /**
+     * The unique identifier for the resource being included.
+     */
+    id: string;
+    /**
+     * A list of explict instances this standard applies to.
+     */
+    inclusions: outputs.GetStandardsStandardInclusion[];
+    /**
+     * The human-readable name of the standard.
+     */
+    name: string;
+    /**
+     * Filter by `resourceType` the received standards. Allowed values are `technicalService`.
+     */
+    resourceType: string;
+    /**
+     * Specifies the type of resource this inclusion applies to.
+     */
+    type: string;
+}
+
+export interface GetStandardsStandardExclusion {
+    /**
+     * The unique identifier for the resource being included.
+     */
+    id: string;
+    /**
+     * Specifies the type of resource this inclusion applies to.
+     */
+    type: string;
+}
+
+export interface GetStandardsStandardInclusion {
+    /**
+     * The unique identifier for the resource being included.
+     */
+    id: string;
+    /**
+     * Specifies the type of resource this inclusion applies to.
+     */
+    type: string;
 }
 
 export interface GetTeamMembersMember {

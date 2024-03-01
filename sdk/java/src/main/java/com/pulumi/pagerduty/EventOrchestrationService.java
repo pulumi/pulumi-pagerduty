@@ -40,11 +40,15 @@ import javax.annotation.Nullable;
  * import com.pulumi.pagerduty.Team;
  * import com.pulumi.pagerduty.User;
  * import com.pulumi.pagerduty.UserArgs;
+ * import com.pulumi.pagerduty.TeamMembership;
+ * import com.pulumi.pagerduty.TeamMembershipArgs;
  * import com.pulumi.pagerduty.EscalationPolicy;
  * import com.pulumi.pagerduty.EscalationPolicyArgs;
  * import com.pulumi.pagerduty.inputs.EscalationPolicyRuleArgs;
  * import com.pulumi.pagerduty.Service;
  * import com.pulumi.pagerduty.ServiceArgs;
+ * import com.pulumi.pagerduty.IncidentCustomField;
+ * import com.pulumi.pagerduty.IncidentCustomFieldArgs;
  * import com.pulumi.pagerduty.PagerdutyFunctions;
  * import com.pulumi.pagerduty.inputs.GetPriorityArgs;
  * import com.pulumi.pagerduty.EventOrchestrationService;
@@ -69,15 +73,20 @@ import javax.annotation.Nullable;
  * 
  *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
  *             .email(&#34;125.greenholt.earline@graham.name&#34;)
- *             .teams(engineering.id())
  *             .build());
  * 
- *         var foo = new EscalationPolicy(&#34;foo&#34;, EscalationPolicyArgs.builder()        
+ *         var foo = new TeamMembership(&#34;foo&#34;, TeamMembershipArgs.builder()        
+ *             .userId(exampleUser.id())
+ *             .teamId(engineering.id())
+ *             .role(&#34;manager&#34;)
+ *             .build());
+ * 
+ *         var exampleEscalationPolicy = new EscalationPolicy(&#34;exampleEscalationPolicy&#34;, EscalationPolicyArgs.builder()        
  *             .numLoops(2)
  *             .rules(EscalationPolicyRuleArgs.builder()
  *                 .escalationDelayInMinutes(10)
  *                 .targets(EscalationPolicyRuleTargetArgs.builder()
- *                     .type(&#34;user&#34;)
+ *                     .type(&#34;user_reference&#34;)
  *                     .id(exampleUser.id())
  *                     .build())
  *                 .build())
@@ -86,8 +95,13 @@ import javax.annotation.Nullable;
  *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
  *             .autoResolveTimeout(14400)
  *             .acknowledgementTimeout(600)
- *             .escalationPolicy(pagerduty_escalation_policy.example().id())
+ *             .escalationPolicy(exampleEscalationPolicy.id())
  *             .alertCreation(&#34;create_alerts_and_incidents&#34;)
+ *             .build());
+ * 
+ *         var csImpact = new IncidentCustomField(&#34;csImpact&#34;, IncidentCustomFieldArgs.builder()        
+ *             .dataType(&#34;string&#34;)
+ *             .fieldType(&#34;single_value&#34;)
  *             .build());
  * 
  *         final var p1 = PagerdutyFunctions.getPriority(GetPriorityArgs.builder()
@@ -134,6 +148,10 @@ import javax.annotation.Nullable;
  *                             .actions(EventOrchestrationServiceSetRuleActionsArgs.builder()
  *                                 .annotate(&#34;Please use our P1 runbook: https://docs.test/p1-runbook&#34;)
  *                                 .priority(p1.applyValue(getPriorityResult -&gt; getPriorityResult.id()))
+ *                                 .incidentCustomFieldUpdates(EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs.builder()
+ *                                     .id(csImpact.id())
+ *                                     .value(&#34;High Impact&#34;)
+ *                                     .build())
  *                                 .build())
  *                             .build(),
  *                         EventOrchestrationServiceSetRuleArgs.builder()

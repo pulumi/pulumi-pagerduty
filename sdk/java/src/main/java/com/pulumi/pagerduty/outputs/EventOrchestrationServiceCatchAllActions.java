@@ -6,6 +6,7 @@ package com.pulumi.pagerduty.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.pagerduty.outputs.EventOrchestrationServiceCatchAllActionsAutomationAction;
 import com.pulumi.pagerduty.outputs.EventOrchestrationServiceCatchAllActionsExtraction;
+import com.pulumi.pagerduty.outputs.EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdate;
 import com.pulumi.pagerduty.outputs.EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction;
 import com.pulumi.pagerduty.outputs.EventOrchestrationServiceCatchAllActionsVariable;
 import java.lang.Boolean;
@@ -38,6 +39,11 @@ public final class EventOrchestrationServiceCatchAllActions {
      * 
      */
     private @Nullable List<EventOrchestrationServiceCatchAllActionsExtraction> extractions;
+    /**
+     * @return Assign a custom field to the resulting incident.
+     * 
+     */
+    private @Nullable List<EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdate> incidentCustomFieldUpdates;
     /**
      * @return Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
      * 
@@ -104,6 +110,13 @@ public final class EventOrchestrationServiceCatchAllActions {
         return this.extractions == null ? List.of() : this.extractions;
     }
     /**
+     * @return Assign a custom field to the resulting incident.
+     * 
+     */
+    public List<EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdate> incidentCustomFieldUpdates() {
+        return this.incidentCustomFieldUpdates == null ? List.of() : this.incidentCustomFieldUpdates;
+    }
+    /**
      * @return Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
      * 
      */
@@ -166,6 +179,7 @@ public final class EventOrchestrationServiceCatchAllActions {
         private @Nullable EventOrchestrationServiceCatchAllActionsAutomationAction automationAction;
         private @Nullable String eventAction;
         private @Nullable List<EventOrchestrationServiceCatchAllActionsExtraction> extractions;
+        private @Nullable List<EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdate> incidentCustomFieldUpdates;
         private @Nullable EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction pagerdutyAutomationAction;
         private @Nullable String priority;
         private @Nullable String routeTo;
@@ -180,6 +194,7 @@ public final class EventOrchestrationServiceCatchAllActions {
     	      this.automationAction = defaults.automationAction;
     	      this.eventAction = defaults.eventAction;
     	      this.extractions = defaults.extractions;
+    	      this.incidentCustomFieldUpdates = defaults.incidentCustomFieldUpdates;
     	      this.pagerdutyAutomationAction = defaults.pagerdutyAutomationAction;
     	      this.priority = defaults.priority;
     	      this.routeTo = defaults.routeTo;
@@ -215,6 +230,15 @@ public final class EventOrchestrationServiceCatchAllActions {
         }
         public Builder extractions(EventOrchestrationServiceCatchAllActionsExtraction... extractions) {
             return extractions(List.of(extractions));
+        }
+        @CustomType.Setter
+        public Builder incidentCustomFieldUpdates(@Nullable List<EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdate> incidentCustomFieldUpdates) {
+
+            this.incidentCustomFieldUpdates = incidentCustomFieldUpdates;
+            return this;
+        }
+        public Builder incidentCustomFieldUpdates(EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdate... incidentCustomFieldUpdates) {
+            return incidentCustomFieldUpdates(List.of(incidentCustomFieldUpdates));
         }
         @CustomType.Setter
         public Builder pagerdutyAutomationAction(@Nullable EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction pagerdutyAutomationAction) {
@@ -267,6 +291,7 @@ public final class EventOrchestrationServiceCatchAllActions {
             _resultValue.automationAction = automationAction;
             _resultValue.eventAction = eventAction;
             _resultValue.extractions = extractions;
+            _resultValue.incidentCustomFieldUpdates = incidentCustomFieldUpdates;
             _resultValue.pagerdutyAutomationAction = pagerdutyAutomationAction;
             _resultValue.priority = priority;
             _resultValue.routeTo = routeTo;

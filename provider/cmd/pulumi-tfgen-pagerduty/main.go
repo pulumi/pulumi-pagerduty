@@ -15,13 +15,12 @@
 package main
 
 import (
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfgen"
+	pftfgen "github.com/pulumi/pulumi-terraform-bridge/pf/tfgen"
 
 	pagerduty "github.com/pulumi/pulumi-pagerduty/provider/v4"
-	"github.com/pulumi/pulumi-pagerduty/provider/v4/pkg/version"
 )
 
 func main() {
 	// Modify the path to point to the new provider
-	tfgen.Main("pagerduty", version.Version, pagerduty.Provider())
+	pftfgen.MainWithMuxer("pagerduty", pagerduty.Provider())
 }

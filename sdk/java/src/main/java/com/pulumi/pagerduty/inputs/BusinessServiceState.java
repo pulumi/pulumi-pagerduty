@@ -117,10 +117,10 @@ public final class BusinessServiceState extends com.pulumi.resources.ResourceArg
      * **Deprecated** (Optional) Default (and only supported) value is `business_service`.
      * 
      * @deprecated
-     * This will change to a computed resource in the next major release.
+     * This will become a computed attribute in the next major release.
      * 
      */
-    @Deprecated /* This will change to a computed resource in the next major release. */
+    @Deprecated /* This will become a computed attribute in the next major release. */
     @Import(name="type")
     private @Nullable Output<String> type;
 
@@ -128,10 +128,10 @@ public final class BusinessServiceState extends com.pulumi.resources.ResourceArg
      * @return **Deprecated** (Optional) Default (and only supported) value is `business_service`.
      * 
      * @deprecated
-     * This will change to a computed resource in the next major release.
+     * This will become a computed attribute in the next major release.
      * 
      */
-    @Deprecated /* This will change to a computed resource in the next major release. */
+    @Deprecated /* This will become a computed attribute in the next major release. */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -308,10 +308,10 @@ public final class BusinessServiceState extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          * @deprecated
-         * This will change to a computed resource in the next major release.
+         * This will become a computed attribute in the next major release.
          * 
          */
-        @Deprecated /* This will change to a computed resource in the next major release. */
+        @Deprecated /* This will become a computed attribute in the next major release. */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
@@ -323,10 +323,10 @@ public final class BusinessServiceState extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          * @deprecated
-         * This will change to a computed resource in the next major release.
+         * This will become a computed attribute in the next major release.
          * 
          */
-        @Deprecated /* This will change to a computed resource in the next major release. */
+        @Deprecated /* This will become a computed attribute in the next major release. */
         public Builder type(String type) {
             return type(Output.of(type));
         }

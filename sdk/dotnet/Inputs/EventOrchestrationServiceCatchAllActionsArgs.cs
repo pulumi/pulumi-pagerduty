@@ -42,6 +42,18 @@ namespace Pulumi.Pagerduty.Inputs
             set => _extractions = value;
         }
 
+        [Input("incidentCustomFieldUpdates")]
+        private InputList<Inputs.EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArgs>? _incidentCustomFieldUpdates;
+
+        /// <summary>
+        /// Assign a custom field to the resulting incident.
+        /// </summary>
+        public InputList<Inputs.EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArgs> IncidentCustomFieldUpdates
+        {
+            get => _incidentCustomFieldUpdates ?? (_incidentCustomFieldUpdates = new InputList<Inputs.EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArgs>());
+            set => _incidentCustomFieldUpdates = value;
+        }
+
         /// <summary>
         /// Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
         /// </summary>

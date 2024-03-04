@@ -37,8 +37,8 @@ class BusinessServiceArgs:
         if team is not None:
             pulumi.set(__self__, "team", team)
         if type is not None:
-            warnings.warn("""This will change to a computed resource in the next major release.""", DeprecationWarning)
-            pulumi.log.warn("""type is deprecated: This will change to a computed resource in the next major release.""")
+            warnings.warn("""This will become a computed attribute in the next major release.""", DeprecationWarning)
+            pulumi.log.warn("""type is deprecated: This will become a computed attribute in the next major release.""")
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -93,8 +93,8 @@ class BusinessServiceArgs:
         """
         **Deprecated** (Optional) Default (and only supported) value is `business_service`.
         """
-        warnings.warn("""This will change to a computed resource in the next major release.""", DeprecationWarning)
-        pulumi.log.warn("""type is deprecated: This will change to a computed resource in the next major release.""")
+        warnings.warn("""This will become a computed attribute in the next major release.""", DeprecationWarning)
+        pulumi.log.warn("""type is deprecated: This will become a computed attribute in the next major release.""")
 
         return pulumi.get(self, "type")
 
@@ -141,8 +141,8 @@ class _BusinessServiceState:
         if team is not None:
             pulumi.set(__self__, "team", team)
         if type is not None:
-            warnings.warn("""This will change to a computed resource in the next major release.""", DeprecationWarning)
-            pulumi.log.warn("""type is deprecated: This will change to a computed resource in the next major release.""")
+            warnings.warn("""This will become a computed attribute in the next major release.""", DeprecationWarning)
+            pulumi.log.warn("""type is deprecated: This will become a computed attribute in the next major release.""")
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -233,8 +233,8 @@ class _BusinessServiceState:
         """
         **Deprecated** (Optional) Default (and only supported) value is `business_service`.
         """
-        warnings.warn("""This will change to a computed resource in the next major release.""", DeprecationWarning)
-        pulumi.log.warn("""type is deprecated: This will change to a computed resource in the next major release.""")
+        warnings.warn("""This will become a computed attribute in the next major release.""", DeprecationWarning)
+        pulumi.log.warn("""type is deprecated: This will become a computed attribute in the next major release.""")
 
         return pulumi.get(self, "type")
 
@@ -454,12 +454,12 @@ class BusinessService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[Optional[str]]:
+    def type(self) -> pulumi.Output[str]:
         """
         **Deprecated** (Optional) Default (and only supported) value is `business_service`.
         """
-        warnings.warn("""This will change to a computed resource in the next major release.""", DeprecationWarning)
-        pulumi.log.warn("""type is deprecated: This will change to a computed resource in the next major release.""")
+        warnings.warn("""This will become a computed attribute in the next major release.""", DeprecationWarning)
+        pulumi.log.warn("""type is deprecated: This will become a computed attribute in the next major release.""")
 
         return pulumi.get(self, "type")
 

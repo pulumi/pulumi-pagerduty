@@ -217,6 +217,13 @@
                     },
                     "description": "Replace any CEF field or Custom Details object field using custom variables.\n"
                 },
+                "incidentCustomFieldUpdates": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdate:EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdate"
+                    },
+                    "description": "Assign a custom field to the resulting incident.\n"
+                },
                 "priority": {
                     "type": "string",
                     "description": "The ID of the priority you want to set on resulting incident. Consider using the `pagerduty.getPriority` data source.\n"
@@ -340,6 +347,23 @@
                 "target"
             ]
         },
+        "pagerduty:index/EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdate:EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdate": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The custom field id\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "value"
+            ]
+        },
         "pagerduty:index/EventOrchestrationGlobalCatchAllActionsVariable:EventOrchestrationGlobalCatchAllActionsVariable": {
             "properties": {
                 "name": {
@@ -404,7 +428,7 @@
                 },
                 "id": {
                     "type": "string",
-                    "description": "The ID of this set of rules. Rules in other sets can route events into this set using the rule's `route_to` property.\n"
+                    "description": "The custom field id\n"
                 },
                 "label": {
                     "type": "string",
@@ -448,6 +472,13 @@
                         "$ref": "#/types/pagerduty:index/EventOrchestrationGlobalSetRuleActionsExtraction:EventOrchestrationGlobalSetRuleActionsExtraction"
                     },
                     "description": "Replace any CEF field or Custom Details object field using custom variables.\n"
+                },
+                "incidentCustomFieldUpdates": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdate:EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdate"
+                    },
+                    "description": "Assign a custom field to the resulting incident.\n"
                 },
                 "priority": {
                     "type": "string",
@@ -570,6 +601,23 @@
             "type": "object",
             "required": [
                 "target"
+            ]
+        },
+        "pagerduty:index/EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdate:EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdate": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The custom field id\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "value"
             ]
         },
         "pagerduty:index/EventOrchestrationGlobalSetRuleActionsVariable:EventOrchestrationGlobalSetRuleActionsVariable": {
@@ -797,6 +845,13 @@
                     },
                     "description": "Replace any CEF field or Custom Details object field using custom variables.\n"
                 },
+                "incidentCustomFieldUpdates": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdate:EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdate"
+                    },
+                    "description": "Assign a custom field to the resulting incident.\n"
+                },
                 "pagerdutyAutomationAction": {
                     "$ref": "#/types/pagerduty:index/EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction:EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction",
                     "description": "Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.\n"
@@ -924,6 +979,23 @@
                 "target"
             ]
         },
+        "pagerduty:index/EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdate:EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdate": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The custom field id\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "value"
+            ]
+        },
         "pagerduty:index/EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction:EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction": {
             "properties": {
                 "actionId": {
@@ -1000,7 +1072,7 @@
                 },
                 "id": {
                     "type": "string",
-                    "description": "The ID of this set of rules. Rules in other sets can route events into this set using the rule's `route_to` property.\n"
+                    "description": "The custom field id\n"
                 },
                 "label": {
                     "type": "string",
@@ -1040,6 +1112,13 @@
                         "$ref": "#/types/pagerduty:index/EventOrchestrationServiceSetRuleActionsExtraction:EventOrchestrationServiceSetRuleActionsExtraction"
                     },
                     "description": "Replace any CEF field or Custom Details object field using custom variables.\n"
+                },
+                "incidentCustomFieldUpdates": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate:EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate"
+                    },
+                    "description": "Assign a custom field to the resulting incident.\n"
                 },
                 "pagerdutyAutomationAction": {
                     "$ref": "#/types/pagerduty:index/EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction:EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction",
@@ -1166,6 +1245,23 @@
             "type": "object",
             "required": [
                 "target"
+            ]
+        },
+        "pagerduty:index/EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate:EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The custom field id\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "value"
             ]
         },
         "pagerduty:index/EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction:EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction": {
@@ -3290,6 +3386,271 @@
                 }
             }
         },
+        "pagerduty:index/getStandardsResourceScoresScore:getStandardsResourceScoresScore": {
+            "properties": {
+                "passing": {
+                    "type": "integer",
+                    "description": "Number of standards this resource successfully complies to.\n"
+                },
+                "total": {
+                    "type": "integer",
+                    "description": "Number of standards associated to this resource.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "passing",
+                "total"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "pagerduty:index/getStandardsResourceScoresStandard:getStandardsResourceScoresStandard": {
+            "properties": {
+                "active": {
+                    "type": "boolean",
+                    "description": "Indicates whether the standard is currently active and applicable to the resource.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Provides a textual description of the standard.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "Identifier of said resource.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The human-readable name of the standard.\n"
+                },
+                "pass": {
+                    "type": "boolean",
+                    "description": "Indicates whether the resource complies to this standard.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of the standard.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "active",
+                "description",
+                "id",
+                "name",
+                "pass",
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "pagerduty:index/getStandardsResourcesScoresResource:getStandardsResourcesScoresResource": {
+            "properties": {
+                "resourceId": {
+                    "type": "string",
+                    "description": "Unique Identifier.\n"
+                },
+                "resourceType": {
+                    "type": "string",
+                    "description": "Type of the object the standards are associated to. Allowed values are `technical_services`.\n"
+                },
+                "score": {
+                    "$ref": "#/types/pagerduty:index/getStandardsResourcesScoresResourceScore:getStandardsResourcesScoresResourceScore",
+                    "description": "Summary of the scores for standards associated with this resource.\n"
+                },
+                "standards": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/getStandardsResourcesScoresResourceStandard:getStandardsResourcesScoresResourceStandard"
+                    },
+                    "description": "The list of standards evaluated against.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "resourceId",
+                "resourceType",
+                "score",
+                "standards"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "pagerduty:index/getStandardsResourcesScoresResourceScore:getStandardsResourcesScoresResourceScore": {
+            "properties": {
+                "passing": {
+                    "type": "integer",
+                    "description": "Number of standards this resource successfully complies to.\n"
+                },
+                "total": {
+                    "type": "integer",
+                    "description": "Number of standards associated to this resource.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "passing",
+                "total"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "pagerduty:index/getStandardsResourcesScoresResourceStandard:getStandardsResourcesScoresResourceStandard": {
+            "properties": {
+                "active": {
+                    "type": "boolean",
+                    "description": "Indicates whether the standard is currently active and applicable to the resource.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Provides a textual description of the standard.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "A unique identifier for the standard.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The human-readable name of the standard.\n"
+                },
+                "pass": {
+                    "type": "boolean",
+                    "description": "Indicates whether the resource complies to this standard.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of the standard.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "active",
+                "description",
+                "id",
+                "name",
+                "pass",
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "pagerduty:index/getStandardsStandard:getStandardsStandard": {
+            "properties": {
+                "active": {
+                    "type": "boolean",
+                    "description": "Indicates whether the standard is currently active and applicable to the resource.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Provides a textual description of the standard.\n"
+                },
+                "exclusions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/getStandardsStandardExclusion:getStandardsStandardExclusion"
+                    },
+                    "description": "A list of exceptions for the application of this standard.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for the resource being included.\n"
+                },
+                "inclusions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/getStandardsStandardInclusion:getStandardsStandardInclusion"
+                    },
+                    "description": "A list of explict instances this standard applies to.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The human-readable name of the standard.\n"
+                },
+                "resourceType": {
+                    "type": "string",
+                    "description": "Filter by `resource_type` the received standards. Allowed values are `technical_service`.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Specifies the type of resource this inclusion applies to.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "active",
+                "description",
+                "exclusions",
+                "id",
+                "inclusions",
+                "name",
+                "resourceType",
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "pagerduty:index/getStandardsStandardExclusion:getStandardsStandardExclusion": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for the resource being included.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Specifies the type of resource this inclusion applies to.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "pagerduty:index/getStandardsStandardInclusion:getStandardsStandardInclusion": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for the resource being included.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Specifies the type of resource this inclusion applies to.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "pagerduty:index/getTeamMembersMember:getTeamMembersMember": {
             "properties": {
                 "id": {
@@ -3884,7 +4245,7 @@
                 "type": {
                     "type": "string",
                     "description": "**Deprecated** (Optional) Default (and only supported) value is `business_service`.\n",
-                    "deprecationMessage": "This will change to a computed resource in the next major release."
+                    "deprecationMessage": "This will become a computed attribute in the next major release."
                 }
             },
             "required": [
@@ -3892,7 +4253,8 @@
                 "htmlUrl",
                 "name",
                 "self",
-                "summary"
+                "summary",
+                "type"
             ],
             "inputProperties": {
                 "description": {
@@ -3914,7 +4276,7 @@
                 "type": {
                     "type": "string",
                     "description": "**Deprecated** (Optional) Default (and only supported) value is `business_service`.\n",
-                    "deprecationMessage": "This will change to a computed resource in the next major release."
+                    "deprecationMessage": "This will become a computed attribute in the next major release."
                 }
             },
             "stateInputs": {
@@ -3951,7 +4313,7 @@
                     "type": {
                         "type": "string",
                         "description": "**Deprecated** (Optional) Default (and only supported) value is `business_service`.\n",
-                        "deprecationMessage": "This will change to a computed resource in the next major release."
+                        "deprecationMessage": "This will become a computed attribute in the next major release."
                     }
                 },
                 "type": "object"
@@ -4379,7 +4741,7 @@
             }
         },
         "pagerduty:index/eventOrchestrationService:EventOrchestrationService": {
-            "description": "A [Service Orchestration](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations) allows you to create a set of Event Rules. The Service Orchestration evaluates Events sent to this Service against each of its rules, beginning with the rules in the \"start\" set. When a matching rule is found, it can modify and enhance the event and can route the event to another set of rules within this Service Orchestration for further processing.\n\n\u003e If you have a Service that uses [Service Event Rules](https://support.pagerduty.com/docs/rulesets#service-event-rules), you can switch to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations) at any time setting the attribute `enable_event_orchestration_for_service` to `true`. Please read the [Switch to Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#switch-to-service-orchestrations) instructions for more information.\n\n## Example of configuring a Service Orchestration\n\nThis example shows creating `Team`, `User`, `Escalation Policy`, and `Service` resources followed by creating a Service Orchestration to handle Events sent to that Service.\n\nThis example also shows using `priority` data source to configure `priority` action for a rule. If the Event matches the first rule in set \"step-two\" the resulting incident will have the Priority `P1`.\n\nThis example shows a Service Orchestration that has nested sets: a rule in the \"start\" set has a `route_to` action pointing at the \"step-two\" set.\n\nThe `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set. In this example the `catch_all` doesn't have any `actions` so it'll leave events as-is.\n\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst engineering = new pagerduty.Team(\"engineering\", {});\nconst exampleUser = new pagerduty.User(\"exampleUser\", {\n    email: \"125.greenholt.earline@graham.name\",\n    teams: [engineering.id],\n});\nconst foo = new pagerduty.EscalationPolicy(\"foo\", {\n    numLoops: 2,\n    rules: [{\n        escalationDelayInMinutes: 10,\n        targets: [{\n            type: \"user\",\n            id: exampleUser.id,\n        }],\n    }],\n});\nconst exampleService = new pagerduty.Service(\"exampleService\", {\n    autoResolveTimeout: \"14400\",\n    acknowledgementTimeout: \"600\",\n    escalationPolicy: pagerduty_escalation_policy.example.id,\n    alertCreation: \"create_alerts_and_incidents\",\n});\nconst p1 = pagerduty.getPriority({\n    name: \"P1\",\n});\nconst www = new pagerduty.EventOrchestrationService(\"www\", {\n    service: exampleService.id,\n    enableEventOrchestrationForService: true,\n    sets: [\n        {\n            id: \"start\",\n            rules: [{\n                label: \"Always apply some consistent event transformations to all events\",\n                actions: {\n                    variables: [{\n                        name: \"hostname\",\n                        path: \"event.component\",\n                        value: \"hostname: (.*)\",\n                        type: \"regex\",\n                    }],\n                    extractions: [\n                        {\n                            template: \"{{variables.hostname}}\",\n                            target: \"event.custom_details.hostname\",\n                        },\n                        {\n                            source: \"event.source\",\n                            regex: \"www (.*) service\",\n                            target: \"event.source\",\n                        },\n                    ],\n                    routeTo: \"step-two\",\n                },\n            }],\n        },\n        {\n            id: \"step-two\",\n            rules: [\n                {\n                    label: \"All critical alerts should be treated as P1 incident\",\n                    conditions: [{\n                        expression: \"event.severity matches 'critical'\",\n                    }],\n                    actions: {\n                        annotate: \"Please use our P1 runbook: https://docs.test/p1-runbook\",\n                        priority: p1.then(p1 =\u003e p1.id),\n                    },\n                },\n                {\n                    label: \"If there's something wrong on the canary let the team know about it in our deployments Slack channel\",\n                    conditions: [{\n                        expression: \"event.custom_details.hostname matches part 'canary'\",\n                    }],\n                    actions: {\n                        automationAction: {\n                            name: \"Canary Slack Notification\",\n                            url: \"https://our-slack-listerner.test/canary-notification\",\n                            autoSend: true,\n                            parameters: [\n                                {\n                                    key: \"channel\",\n                                    value: \"#my-team-channel\",\n                                },\n                                {\n                                    key: \"message\",\n                                    value: \"something is wrong with the canary deployment\",\n                                },\n                            ],\n                            headers: [{\n                                key: \"X-Notification-Source\",\n                                value: \"PagerDuty Incident Webhook\",\n                            }],\n                        },\n                    },\n                },\n                {\n                    label: \"Never bother the on-call for info-level events outside of work hours\",\n                    conditions: [{\n                        expression: \"event.severity matches 'info' and not (now in Mon,Tue,Wed,Thu,Fri 09:00:00 to 17:00:00 America/Los_Angeles)\",\n                    }],\n                    actions: {\n                        suppress: true,\n                    },\n                },\n            ],\n        },\n    ],\n    catchAll: {\n        actions: {},\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nengineering = pagerduty.Team(\"engineering\")\nexample_user = pagerduty.User(\"exampleUser\",\n    email=\"125.greenholt.earline@graham.name\",\n    teams=[engineering.id])\nfoo = pagerduty.EscalationPolicy(\"foo\",\n    num_loops=2,\n    rules=[pagerduty.EscalationPolicyRuleArgs(\n        escalation_delay_in_minutes=10,\n        targets=[pagerduty.EscalationPolicyRuleTargetArgs(\n            type=\"user\",\n            id=example_user.id,\n        )],\n    )])\nexample_service = pagerduty.Service(\"exampleService\",\n    auto_resolve_timeout=\"14400\",\n    acknowledgement_timeout=\"600\",\n    escalation_policy=pagerduty_escalation_policy[\"example\"][\"id\"],\n    alert_creation=\"create_alerts_and_incidents\")\np1 = pagerduty.get_priority(name=\"P1\")\nwww = pagerduty.EventOrchestrationService(\"www\",\n    service=example_service.id,\n    enable_event_orchestration_for_service=True,\n    sets=[\n        pagerduty.EventOrchestrationServiceSetArgs(\n            id=\"start\",\n            rules=[pagerduty.EventOrchestrationServiceSetRuleArgs(\n                label=\"Always apply some consistent event transformations to all events\",\n                actions=pagerduty.EventOrchestrationServiceSetRuleActionsArgs(\n                    variables=[pagerduty.EventOrchestrationServiceSetRuleActionsVariableArgs(\n                        name=\"hostname\",\n                        path=\"event.component\",\n                        value=\"hostname: (.*)\",\n                        type=\"regex\",\n                    )],\n                    extractions=[\n                        pagerduty.EventOrchestrationServiceSetRuleActionsExtractionArgs(\n                            template=\"{{variables.hostname}}\",\n                            target=\"event.custom_details.hostname\",\n                        ),\n                        pagerduty.EventOrchestrationServiceSetRuleActionsExtractionArgs(\n                            source=\"event.source\",\n                            regex=\"www (.*) service\",\n                            target=\"event.source\",\n                        ),\n                    ],\n                    route_to=\"step-two\",\n                ),\n            )],\n        ),\n        pagerduty.EventOrchestrationServiceSetArgs(\n            id=\"step-two\",\n            rules=[\n                pagerduty.EventOrchestrationServiceSetRuleArgs(\n                    label=\"All critical alerts should be treated as P1 incident\",\n                    conditions=[pagerduty.EventOrchestrationServiceSetRuleConditionArgs(\n                        expression=\"event.severity matches 'critical'\",\n                    )],\n                    actions=pagerduty.EventOrchestrationServiceSetRuleActionsArgs(\n                        annotate=\"Please use our P1 runbook: https://docs.test/p1-runbook\",\n                        priority=p1.id,\n                    ),\n                ),\n                pagerduty.EventOrchestrationServiceSetRuleArgs(\n                    label=\"If there's something wrong on the canary let the team know about it in our deployments Slack channel\",\n                    conditions=[pagerduty.EventOrchestrationServiceSetRuleConditionArgs(\n                        expression=\"event.custom_details.hostname matches part 'canary'\",\n                    )],\n                    actions=pagerduty.EventOrchestrationServiceSetRuleActionsArgs(\n                        automation_action=pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionArgs(\n                            name=\"Canary Slack Notification\",\n                            url=\"https://our-slack-listerner.test/canary-notification\",\n                            auto_send=True,\n                            parameters=[\n                                pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs(\n                                    key=\"channel\",\n                                    value=\"#my-team-channel\",\n                                ),\n                                pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs(\n                                    key=\"message\",\n                                    value=\"something is wrong with the canary deployment\",\n                                ),\n                            ],\n                            headers=[pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs(\n                                key=\"X-Notification-Source\",\n                                value=\"PagerDuty Incident Webhook\",\n                            )],\n                        ),\n                    ),\n                ),\n                pagerduty.EventOrchestrationServiceSetRuleArgs(\n                    label=\"Never bother the on-call for info-level events outside of work hours\",\n                    conditions=[pagerduty.EventOrchestrationServiceSetRuleConditionArgs(\n                        expression=\"event.severity matches 'info' and not (now in Mon,Tue,Wed,Thu,Fri 09:00:00 to 17:00:00 America/Los_Angeles)\",\n                    )],\n                    actions=pagerduty.EventOrchestrationServiceSetRuleActionsArgs(\n                        suppress=True,\n                    ),\n                ),\n            ],\n        ),\n    ],\n    catch_all=pagerduty.EventOrchestrationServiceCatchAllArgs(\n        actions=pagerduty.EventOrchestrationServiceCatchAllActionsArgs(),\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var engineering = new Pagerduty.Team(\"engineering\");\n\n    var exampleUser = new Pagerduty.User(\"exampleUser\", new()\n    {\n        Email = \"125.greenholt.earline@graham.name\",\n        Teams = new[]\n        {\n            engineering.Id,\n        },\n    });\n\n    var foo = new Pagerduty.EscalationPolicy(\"foo\", new()\n    {\n        NumLoops = 2,\n        Rules = new[]\n        {\n            new Pagerduty.Inputs.EscalationPolicyRuleArgs\n            {\n                EscalationDelayInMinutes = 10,\n                Targets = new[]\n                {\n                    new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs\n                    {\n                        Type = \"user\",\n                        Id = exampleUser.Id,\n                    },\n                },\n            },\n        },\n    });\n\n    var exampleService = new Pagerduty.Service(\"exampleService\", new()\n    {\n        AutoResolveTimeout = \"14400\",\n        AcknowledgementTimeout = \"600\",\n        EscalationPolicy = pagerduty_escalation_policy.Example.Id,\n        AlertCreation = \"create_alerts_and_incidents\",\n    });\n\n    var p1 = Pagerduty.GetPriority.Invoke(new()\n    {\n        Name = \"P1\",\n    });\n\n    var www = new Pagerduty.EventOrchestrationService(\"www\", new()\n    {\n        Service = exampleService.Id,\n        EnableEventOrchestrationForService = true,\n        Sets = new[]\n        {\n            new Pagerduty.Inputs.EventOrchestrationServiceSetArgs\n            {\n                Id = \"start\",\n                Rules = new[]\n                {\n                    new Pagerduty.Inputs.EventOrchestrationServiceSetRuleArgs\n                    {\n                        Label = \"Always apply some consistent event transformations to all events\",\n                        Actions = new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsArgs\n                        {\n                            Variables = new[]\n                            {\n                                new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsVariableArgs\n                                {\n                                    Name = \"hostname\",\n                                    Path = \"event.component\",\n                                    Value = \"hostname: (.*)\",\n                                    Type = \"regex\",\n                                },\n                            },\n                            Extractions = new[]\n                            {\n                                new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsExtractionArgs\n                                {\n                                    Template = \"{{variables.hostname}}\",\n                                    Target = \"event.custom_details.hostname\",\n                                },\n                                new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsExtractionArgs\n                                {\n                                    Source = \"event.source\",\n                                    Regex = \"www (.*) service\",\n                                    Target = \"event.source\",\n                                },\n                            },\n                            RouteTo = \"step-two\",\n                        },\n                    },\n                },\n            },\n            new Pagerduty.Inputs.EventOrchestrationServiceSetArgs\n            {\n                Id = \"step-two\",\n                Rules = new[]\n                {\n                    new Pagerduty.Inputs.EventOrchestrationServiceSetRuleArgs\n                    {\n                        Label = \"All critical alerts should be treated as P1 incident\",\n                        Conditions = new[]\n                        {\n                            new Pagerduty.Inputs.EventOrchestrationServiceSetRuleConditionArgs\n                            {\n                                Expression = \"event.severity matches 'critical'\",\n                            },\n                        },\n                        Actions = new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsArgs\n                        {\n                            Annotate = \"Please use our P1 runbook: https://docs.test/p1-runbook\",\n                            Priority = p1.Apply(getPriorityResult =\u003e getPriorityResult.Id),\n                        },\n                    },\n                    new Pagerduty.Inputs.EventOrchestrationServiceSetRuleArgs\n                    {\n                        Label = \"If there's something wrong on the canary let the team know about it in our deployments Slack channel\",\n                        Conditions = new[]\n                        {\n                            new Pagerduty.Inputs.EventOrchestrationServiceSetRuleConditionArgs\n                            {\n                                Expression = \"event.custom_details.hostname matches part 'canary'\",\n                            },\n                        },\n                        Actions = new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsArgs\n                        {\n                            AutomationAction = new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsAutomationActionArgs\n                            {\n                                Name = \"Canary Slack Notification\",\n                                Url = \"https://our-slack-listerner.test/canary-notification\",\n                                AutoSend = true,\n                                Parameters = new[]\n                                {\n                                    new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs\n                                    {\n                                        Key = \"channel\",\n                                        Value = \"#my-team-channel\",\n                                    },\n                                    new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs\n                                    {\n                                        Key = \"message\",\n                                        Value = \"something is wrong with the canary deployment\",\n                                    },\n                                },\n                                Headers = new[]\n                                {\n                                    new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs\n                                    {\n                                        Key = \"X-Notification-Source\",\n                                        Value = \"PagerDuty Incident Webhook\",\n                                    },\n                                },\n                            },\n                        },\n                    },\n                    new Pagerduty.Inputs.EventOrchestrationServiceSetRuleArgs\n                    {\n                        Label = \"Never bother the on-call for info-level events outside of work hours\",\n                        Conditions = new[]\n                        {\n                            new Pagerduty.Inputs.EventOrchestrationServiceSetRuleConditionArgs\n                            {\n                                Expression = \"event.severity matches 'info' and not (now in Mon,Tue,Wed,Thu,Fri 09:00:00 to 17:00:00 America/Los_Angeles)\",\n                            },\n                        },\n                        Actions = new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsArgs\n                        {\n                            Suppress = true,\n                        },\n                    },\n                },\n            },\n        },\n        CatchAll = new Pagerduty.Inputs.EventOrchestrationServiceCatchAllArgs\n        {\n            Actions = null,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tengineering, err := pagerduty.NewTeam(ctx, \"engineering\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleUser, err := pagerduty.NewUser(ctx, \"exampleUser\", \u0026pagerduty.UserArgs{\n\t\t\tEmail: pulumi.String(\"125.greenholt.earline@graham.name\"),\n\t\t\tTeams: pulumi.StringArray{\n\t\t\t\tengineering.ID(),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewEscalationPolicy(ctx, \"foo\", \u0026pagerduty.EscalationPolicyArgs{\n\t\t\tNumLoops: pulumi.Int(2),\n\t\t\tRules: pagerduty.EscalationPolicyRuleArray{\n\t\t\t\t\u0026pagerduty.EscalationPolicyRuleArgs{\n\t\t\t\t\tEscalationDelayInMinutes: pulumi.Int(10),\n\t\t\t\t\tTargets: pagerduty.EscalationPolicyRuleTargetArray{\n\t\t\t\t\t\t\u0026pagerduty.EscalationPolicyRuleTargetArgs{\n\t\t\t\t\t\t\tType: pulumi.String(\"user\"),\n\t\t\t\t\t\t\tId:   exampleUser.ID(),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleService, err := pagerduty.NewService(ctx, \"exampleService\", \u0026pagerduty.ServiceArgs{\n\t\t\tAutoResolveTimeout:     pulumi.String(\"14400\"),\n\t\t\tAcknowledgementTimeout: pulumi.String(\"600\"),\n\t\t\tEscalationPolicy:       pulumi.Any(pagerduty_escalation_policy.Example.Id),\n\t\t\tAlertCreation:          pulumi.String(\"create_alerts_and_incidents\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tp1, err := pagerduty.GetPriority(ctx, \u0026pagerduty.GetPriorityArgs{\n\t\t\tName: \"P1\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewEventOrchestrationService(ctx, \"www\", \u0026pagerduty.EventOrchestrationServiceArgs{\n\t\t\tService:                            exampleService.ID(),\n\t\t\tEnableEventOrchestrationForService: pulumi.Bool(true),\n\t\t\tSets: pagerduty.EventOrchestrationServiceSetArray{\n\t\t\t\t\u0026pagerduty.EventOrchestrationServiceSetArgs{\n\t\t\t\t\tId: pulumi.String(\"start\"),\n\t\t\t\t\tRules: pagerduty.EventOrchestrationServiceSetRuleArray{\n\t\t\t\t\t\t\u0026pagerduty.EventOrchestrationServiceSetRuleArgs{\n\t\t\t\t\t\t\tLabel: pulumi.String(\"Always apply some consistent event transformations to all events\"),\n\t\t\t\t\t\t\tActions: \u0026pagerduty.EventOrchestrationServiceSetRuleActionsArgs{\n\t\t\t\t\t\t\t\tVariables: pagerduty.EventOrchestrationServiceSetRuleActionsVariableArray{\n\t\t\t\t\t\t\t\t\t\u0026pagerduty.EventOrchestrationServiceSetRuleActionsVariableArgs{\n\t\t\t\t\t\t\t\t\t\tName:  pulumi.String(\"hostname\"),\n\t\t\t\t\t\t\t\t\t\tPath:  pulumi.String(\"event.component\"),\n\t\t\t\t\t\t\t\t\t\tValue: pulumi.String(\"hostname: (.*)\"),\n\t\t\t\t\t\t\t\t\t\tType:  pulumi.String(\"regex\"),\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\tExtractions: pagerduty.EventOrchestrationServiceSetRuleActionsExtractionArray{\n\t\t\t\t\t\t\t\t\t\u0026pagerduty.EventOrchestrationServiceSetRuleActionsExtractionArgs{\n\t\t\t\t\t\t\t\t\t\tTemplate: pulumi.String(\"{{variables.hostname}}\"),\n\t\t\t\t\t\t\t\t\t\tTarget:   pulumi.String(\"event.custom_details.hostname\"),\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\u0026pagerduty.EventOrchestrationServiceSetRuleActionsExtractionArgs{\n\t\t\t\t\t\t\t\t\t\tSource: pulumi.String(\"event.source\"),\n\t\t\t\t\t\t\t\t\t\tRegex:  pulumi.String(\"www (.*) service\"),\n\t\t\t\t\t\t\t\t\t\tTarget: pulumi.String(\"event.source\"),\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\tRouteTo: pulumi.String(\"step-two\"),\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026pagerduty.EventOrchestrationServiceSetArgs{\n\t\t\t\t\tId: pulumi.String(\"step-two\"),\n\t\t\t\t\tRules: pagerduty.EventOrchestrationServiceSetRuleArray{\n\t\t\t\t\t\t\u0026pagerduty.EventOrchestrationServiceSetRuleArgs{\n\t\t\t\t\t\t\tLabel: pulumi.String(\"All critical alerts should be treated as P1 incident\"),\n\t\t\t\t\t\t\tConditions: pagerduty.EventOrchestrationServiceSetRuleConditionArray{\n\t\t\t\t\t\t\t\t\u0026pagerduty.EventOrchestrationServiceSetRuleConditionArgs{\n\t\t\t\t\t\t\t\t\tExpression: pulumi.String(\"event.severity matches 'critical'\"),\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\tActions: \u0026pagerduty.EventOrchestrationServiceSetRuleActionsArgs{\n\t\t\t\t\t\t\t\tAnnotate: pulumi.String(\"Please use our P1 runbook: https://docs.test/p1-runbook\"),\n\t\t\t\t\t\t\t\tPriority: *pulumi.String(p1.Id),\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026pagerduty.EventOrchestrationServiceSetRuleArgs{\n\t\t\t\t\t\t\tLabel: pulumi.String(\"If there's something wrong on the canary let the team know about it in our deployments Slack channel\"),\n\t\t\t\t\t\t\tConditions: pagerduty.EventOrchestrationServiceSetRuleConditionArray{\n\t\t\t\t\t\t\t\t\u0026pagerduty.EventOrchestrationServiceSetRuleConditionArgs{\n\t\t\t\t\t\t\t\t\tExpression: pulumi.String(\"event.custom_details.hostname matches part 'canary'\"),\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\tActions: \u0026pagerduty.EventOrchestrationServiceSetRuleActionsArgs{\n\t\t\t\t\t\t\t\tAutomationAction: \u0026pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionArgs{\n\t\t\t\t\t\t\t\t\tName:     pulumi.String(\"Canary Slack Notification\"),\n\t\t\t\t\t\t\t\t\tUrl:      pulumi.String(\"https://our-slack-listerner.test/canary-notification\"),\n\t\t\t\t\t\t\t\t\tAutoSend: pulumi.Bool(true),\n\t\t\t\t\t\t\t\t\tParameters: pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionParameterArray{\n\t\t\t\t\t\t\t\t\t\t\u0026pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs{\n\t\t\t\t\t\t\t\t\t\t\tKey:   pulumi.String(\"channel\"),\n\t\t\t\t\t\t\t\t\t\t\tValue: pulumi.String(\"#my-team-channel\"),\n\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\u0026pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs{\n\t\t\t\t\t\t\t\t\t\t\tKey:   pulumi.String(\"message\"),\n\t\t\t\t\t\t\t\t\t\t\tValue: pulumi.String(\"something is wrong with the canary deployment\"),\n\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\tHeaders: pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArray{\n\t\t\t\t\t\t\t\t\t\t\u0026pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs{\n\t\t\t\t\t\t\t\t\t\t\tKey:   pulumi.String(\"X-Notification-Source\"),\n\t\t\t\t\t\t\t\t\t\t\tValue: pulumi.String(\"PagerDuty Incident Webhook\"),\n\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026pagerduty.EventOrchestrationServiceSetRuleArgs{\n\t\t\t\t\t\t\tLabel: pulumi.String(\"Never bother the on-call for info-level events outside of work hours\"),\n\t\t\t\t\t\t\tConditions: pagerduty.EventOrchestrationServiceSetRuleConditionArray{\n\t\t\t\t\t\t\t\t\u0026pagerduty.EventOrchestrationServiceSetRuleConditionArgs{\n\t\t\t\t\t\t\t\t\tExpression: pulumi.String(\"event.severity matches 'info' and not (now in Mon,Tue,Wed,Thu,Fri 09:00:00 to 17:00:00 America/Los_Angeles)\"),\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\tActions: \u0026pagerduty.EventOrchestrationServiceSetRuleActionsArgs{\n\t\t\t\t\t\t\t\tSuppress: pulumi.Bool(true),\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tCatchAll: \u0026pagerduty.EventOrchestrationServiceCatchAllArgs{\n\t\t\t\tActions: nil,\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.Team;\nimport com.pulumi.pagerduty.User;\nimport com.pulumi.pagerduty.UserArgs;\nimport com.pulumi.pagerduty.EscalationPolicy;\nimport com.pulumi.pagerduty.EscalationPolicyArgs;\nimport com.pulumi.pagerduty.inputs.EscalationPolicyRuleArgs;\nimport com.pulumi.pagerduty.Service;\nimport com.pulumi.pagerduty.ServiceArgs;\nimport com.pulumi.pagerduty.PagerdutyFunctions;\nimport com.pulumi.pagerduty.inputs.GetPriorityArgs;\nimport com.pulumi.pagerduty.EventOrchestrationService;\nimport com.pulumi.pagerduty.EventOrchestrationServiceArgs;\nimport com.pulumi.pagerduty.inputs.EventOrchestrationServiceSetArgs;\nimport com.pulumi.pagerduty.inputs.EventOrchestrationServiceCatchAllArgs;\nimport com.pulumi.pagerduty.inputs.EventOrchestrationServiceCatchAllActionsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var engineering = new Team(\"engineering\");\n\n        var exampleUser = new User(\"exampleUser\", UserArgs.builder()        \n            .email(\"125.greenholt.earline@graham.name\")\n            .teams(engineering.id())\n            .build());\n\n        var foo = new EscalationPolicy(\"foo\", EscalationPolicyArgs.builder()        \n            .numLoops(2)\n            .rules(EscalationPolicyRuleArgs.builder()\n                .escalationDelayInMinutes(10)\n                .targets(EscalationPolicyRuleTargetArgs.builder()\n                    .type(\"user\")\n                    .id(exampleUser.id())\n                    .build())\n                .build())\n            .build());\n\n        var exampleService = new Service(\"exampleService\", ServiceArgs.builder()        \n            .autoResolveTimeout(14400)\n            .acknowledgementTimeout(600)\n            .escalationPolicy(pagerduty_escalation_policy.example().id())\n            .alertCreation(\"create_alerts_and_incidents\")\n            .build());\n\n        final var p1 = PagerdutyFunctions.getPriority(GetPriorityArgs.builder()\n            .name(\"P1\")\n            .build());\n\n        var www = new EventOrchestrationService(\"www\", EventOrchestrationServiceArgs.builder()        \n            .service(exampleService.id())\n            .enableEventOrchestrationForService(true)\n            .sets(            \n                EventOrchestrationServiceSetArgs.builder()\n                    .id(\"start\")\n                    .rules(EventOrchestrationServiceSetRuleArgs.builder()\n                        .label(\"Always apply some consistent event transformations to all events\")\n                        .actions(EventOrchestrationServiceSetRuleActionsArgs.builder()\n                            .variables(EventOrchestrationServiceSetRuleActionsVariableArgs.builder()\n                                .name(\"hostname\")\n                                .path(\"event.component\")\n                                .value(\"hostname: (.*)\")\n                                .type(\"regex\")\n                                .build())\n                            .extractions(                            \n                                EventOrchestrationServiceSetRuleActionsExtractionArgs.builder()\n                                    .template(\"{{variables.hostname}}\")\n                                    .target(\"event.custom_details.hostname\")\n                                    .build(),\n                                EventOrchestrationServiceSetRuleActionsExtractionArgs.builder()\n                                    .source(\"event.source\")\n                                    .regex(\"www (.*) service\")\n                                    .target(\"event.source\")\n                                    .build())\n                            .routeTo(\"step-two\")\n                            .build())\n                        .build())\n                    .build(),\n                EventOrchestrationServiceSetArgs.builder()\n                    .id(\"step-two\")\n                    .rules(                    \n                        EventOrchestrationServiceSetRuleArgs.builder()\n                            .label(\"All critical alerts should be treated as P1 incident\")\n                            .conditions(EventOrchestrationServiceSetRuleConditionArgs.builder()\n                                .expression(\"event.severity matches 'critical'\")\n                                .build())\n                            .actions(EventOrchestrationServiceSetRuleActionsArgs.builder()\n                                .annotate(\"Please use our P1 runbook: https://docs.test/p1-runbook\")\n                                .priority(p1.applyValue(getPriorityResult -\u003e getPriorityResult.id()))\n                                .build())\n                            .build(),\n                        EventOrchestrationServiceSetRuleArgs.builder()\n                            .label(\"If there's something wrong on the canary let the team know about it in our deployments Slack channel\")\n                            .conditions(EventOrchestrationServiceSetRuleConditionArgs.builder()\n                                .expression(\"event.custom_details.hostname matches part 'canary'\")\n                                .build())\n                            .actions(EventOrchestrationServiceSetRuleActionsArgs.builder()\n                                .automationAction(EventOrchestrationServiceSetRuleActionsAutomationActionArgs.builder()\n                                    .name(\"Canary Slack Notification\")\n                                    .url(\"https://our-slack-listerner.test/canary-notification\")\n                                    .autoSend(true)\n                                    .parameters(                                    \n                                        EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs.builder()\n                                            .key(\"channel\")\n                                            .value(\"#my-team-channel\")\n                                            .build(),\n                                        EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs.builder()\n                                            .key(\"message\")\n                                            .value(\"something is wrong with the canary deployment\")\n                                            .build())\n                                    .headers(EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs.builder()\n                                        .key(\"X-Notification-Source\")\n                                        .value(\"PagerDuty Incident Webhook\")\n                                        .build())\n                                    .build())\n                                .build())\n                            .build(),\n                        EventOrchestrationServiceSetRuleArgs.builder()\n                            .label(\"Never bother the on-call for info-level events outside of work hours\")\n                            .conditions(EventOrchestrationServiceSetRuleConditionArgs.builder()\n                                .expression(\"event.severity matches 'info' and not (now in Mon,Tue,Wed,Thu,Fri 09:00:00 to 17:00:00 America/Los_Angeles)\")\n                                .build())\n                            .actions(EventOrchestrationServiceSetRuleActionsArgs.builder()\n                                .suppress(true)\n                                .build())\n                            .build())\n                    .build())\n            .catchAll(EventOrchestrationServiceCatchAllArgs.builder()\n                .actions()\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  engineering:\n    type: pagerduty:Team\n  exampleUser:\n    type: pagerduty:User\n    properties:\n      email: 125.greenholt.earline@graham.name\n      teams:\n        - ${engineering.id}\n  foo:\n    type: pagerduty:EscalationPolicy\n    properties:\n      numLoops: 2\n      rules:\n        - escalationDelayInMinutes: 10\n          targets:\n            - type: user\n              id: ${exampleUser.id}\n  exampleService:\n    type: pagerduty:Service\n    properties:\n      autoResolveTimeout: 14400\n      acknowledgementTimeout: 600\n      escalationPolicy: ${pagerduty_escalation_policy.example.id}\n      alertCreation: create_alerts_and_incidents\n  www:\n    type: pagerduty:EventOrchestrationService\n    properties:\n      service: ${exampleService.id}\n      enableEventOrchestrationForService: true\n      sets:\n        - id: start\n          rules:\n            - label: Always apply some consistent event transformations to all events\n              actions:\n                variables:\n                  - name: hostname\n                    path: event.component\n                    value: 'hostname: (.*)'\n                    type: regex\n                extractions:\n                  - template: '{{variables.hostname}}'\n                    target: event.custom_details.hostname\n                  - source: event.source\n                    regex: www (.*) service\n                    target: event.source\n                routeTo: step-two\n        - id: step-two\n          rules:\n            - label: All critical alerts should be treated as P1 incident\n              conditions:\n                - expression: event.severity matches 'critical'\n              actions:\n                annotate: 'Please use our P1 runbook: https://docs.test/p1-runbook'\n                priority: ${p1.id}\n            - label: If there's something wrong on the canary let the team know about it in our deployments Slack channel\n              conditions:\n                - expression: event.custom_details.hostname matches part 'canary'\n              actions:\n                automationAction:\n                  name: Canary Slack Notification\n                  url: https://our-slack-listerner.test/canary-notification\n                  autoSend: true\n                  parameters:\n                    - key: channel\n                      value: '#my-team-channel'\n                    - key: message\n                      value: something is wrong with the canary deployment\n                  headers:\n                    - key: X-Notification-Source\n                      value: PagerDuty Incident Webhook\n            - label: Never bother the on-call for info-level events outside of work hours\n              conditions:\n                - expression: event.severity matches 'info' and not (now in Mon,Tue,Wed,Thu,Fri 09:00:00 to 17:00:00 America/Los_Angeles)\n              actions:\n                suppress: true\n      catchAll:\n        actions: {}\nvariables:\n  p1:\n    fn::invoke:\n      Function: pagerduty:getPriority\n      Arguments:\n        name: P1\n```\n\n\n## Import\n\nService Orchestration can be imported using the `id` of the Service, e.g.\n\n```sh\n $ pulumi import pagerduty:index/eventOrchestrationService:EventOrchestrationService service PFEODA7\n```\n ",
+            "description": "A [Service Orchestration](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations) allows you to create a set of Event Rules. The Service Orchestration evaluates Events sent to this Service against each of its rules, beginning with the rules in the \"start\" set. When a matching rule is found, it can modify and enhance the event and can route the event to another set of rules within this Service Orchestration for further processing.\n\n\u003e If you have a Service that uses [Service Event Rules](https://support.pagerduty.com/docs/rulesets#service-event-rules), you can switch to [Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#service-orchestrations) at any time setting the attribute `enable_event_orchestration_for_service` to `true`. Please read the [Switch to Service Orchestrations](https://support.pagerduty.com/docs/event-orchestration#switch-to-service-orchestrations) instructions for more information.\n\n## Example of configuring a Service Orchestration\n\nThis example shows creating `Team`, `User`, `Escalation Policy`, and `Service` resources followed by creating a Service Orchestration to handle Events sent to that Service.\n\nThis example also shows using `priority` data source to configure `priority` action for a rule. If the Event matches the first rule in set \"step-two\" the resulting incident will have the Priority `P1`.\n\nThis example shows a Service Orchestration that has nested sets: a rule in the \"start\" set has a `route_to` action pointing at the \"step-two\" set.\n\nThe `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set. In this example the `catch_all` doesn't have any `actions` so it'll leave events as-is.\n\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst engineering = new pagerduty.Team(\"engineering\", {});\nconst exampleUser = new pagerduty.User(\"exampleUser\", {email: \"125.greenholt.earline@graham.name\"});\nconst foo = new pagerduty.TeamMembership(\"foo\", {\n    userId: exampleUser.id,\n    teamId: engineering.id,\n    role: \"manager\",\n});\nconst exampleEscalationPolicy = new pagerduty.EscalationPolicy(\"exampleEscalationPolicy\", {\n    numLoops: 2,\n    rules: [{\n        escalationDelayInMinutes: 10,\n        targets: [{\n            type: \"user_reference\",\n            id: exampleUser.id,\n        }],\n    }],\n});\nconst exampleService = new pagerduty.Service(\"exampleService\", {\n    autoResolveTimeout: \"14400\",\n    acknowledgementTimeout: \"600\",\n    escalationPolicy: exampleEscalationPolicy.id,\n    alertCreation: \"create_alerts_and_incidents\",\n});\nconst csImpact = new pagerduty.IncidentCustomField(\"csImpact\", {\n    dataType: \"string\",\n    fieldType: \"single_value\",\n});\nconst p1 = pagerduty.getPriority({\n    name: \"P1\",\n});\nconst www = new pagerduty.EventOrchestrationService(\"www\", {\n    service: exampleService.id,\n    enableEventOrchestrationForService: true,\n    sets: [\n        {\n            id: \"start\",\n            rules: [{\n                label: \"Always apply some consistent event transformations to all events\",\n                actions: {\n                    variables: [{\n                        name: \"hostname\",\n                        path: \"event.component\",\n                        value: \"hostname: (.*)\",\n                        type: \"regex\",\n                    }],\n                    extractions: [\n                        {\n                            template: \"{{variables.hostname}}\",\n                            target: \"event.custom_details.hostname\",\n                        },\n                        {\n                            source: \"event.source\",\n                            regex: \"www (.*) service\",\n                            target: \"event.source\",\n                        },\n                    ],\n                    routeTo: \"step-two\",\n                },\n            }],\n        },\n        {\n            id: \"step-two\",\n            rules: [\n                {\n                    label: \"All critical alerts should be treated as P1 incident\",\n                    conditions: [{\n                        expression: \"event.severity matches 'critical'\",\n                    }],\n                    actions: {\n                        annotate: \"Please use our P1 runbook: https://docs.test/p1-runbook\",\n                        priority: p1.then(p1 =\u003e p1.id),\n                        incidentCustomFieldUpdates: [{\n                            id: csImpact.id,\n                            value: \"High Impact\",\n                        }],\n                    },\n                },\n                {\n                    label: \"If there's something wrong on the canary let the team know about it in our deployments Slack channel\",\n                    conditions: [{\n                        expression: \"event.custom_details.hostname matches part 'canary'\",\n                    }],\n                    actions: {\n                        automationAction: {\n                            name: \"Canary Slack Notification\",\n                            url: \"https://our-slack-listerner.test/canary-notification\",\n                            autoSend: true,\n                            parameters: [\n                                {\n                                    key: \"channel\",\n                                    value: \"#my-team-channel\",\n                                },\n                                {\n                                    key: \"message\",\n                                    value: \"something is wrong with the canary deployment\",\n                                },\n                            ],\n                            headers: [{\n                                key: \"X-Notification-Source\",\n                                value: \"PagerDuty Incident Webhook\",\n                            }],\n                        },\n                    },\n                },\n                {\n                    label: \"Never bother the on-call for info-level events outside of work hours\",\n                    conditions: [{\n                        expression: \"event.severity matches 'info' and not (now in Mon,Tue,Wed,Thu,Fri 09:00:00 to 17:00:00 America/Los_Angeles)\",\n                    }],\n                    actions: {\n                        suppress: true,\n                    },\n                },\n            ],\n        },\n    ],\n    catchAll: {\n        actions: {},\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nengineering = pagerduty.Team(\"engineering\")\nexample_user = pagerduty.User(\"exampleUser\", email=\"125.greenholt.earline@graham.name\")\nfoo = pagerduty.TeamMembership(\"foo\",\n    user_id=example_user.id,\n    team_id=engineering.id,\n    role=\"manager\")\nexample_escalation_policy = pagerduty.EscalationPolicy(\"exampleEscalationPolicy\",\n    num_loops=2,\n    rules=[pagerduty.EscalationPolicyRuleArgs(\n        escalation_delay_in_minutes=10,\n        targets=[pagerduty.EscalationPolicyRuleTargetArgs(\n            type=\"user_reference\",\n            id=example_user.id,\n        )],\n    )])\nexample_service = pagerduty.Service(\"exampleService\",\n    auto_resolve_timeout=\"14400\",\n    acknowledgement_timeout=\"600\",\n    escalation_policy=example_escalation_policy.id,\n    alert_creation=\"create_alerts_and_incidents\")\ncs_impact = pagerduty.IncidentCustomField(\"csImpact\",\n    data_type=\"string\",\n    field_type=\"single_value\")\np1 = pagerduty.get_priority(name=\"P1\")\nwww = pagerduty.EventOrchestrationService(\"www\",\n    service=example_service.id,\n    enable_event_orchestration_for_service=True,\n    sets=[\n        pagerduty.EventOrchestrationServiceSetArgs(\n            id=\"start\",\n            rules=[pagerduty.EventOrchestrationServiceSetRuleArgs(\n                label=\"Always apply some consistent event transformations to all events\",\n                actions=pagerduty.EventOrchestrationServiceSetRuleActionsArgs(\n                    variables=[pagerduty.EventOrchestrationServiceSetRuleActionsVariableArgs(\n                        name=\"hostname\",\n                        path=\"event.component\",\n                        value=\"hostname: (.*)\",\n                        type=\"regex\",\n                    )],\n                    extractions=[\n                        pagerduty.EventOrchestrationServiceSetRuleActionsExtractionArgs(\n                            template=\"{{variables.hostname}}\",\n                            target=\"event.custom_details.hostname\",\n                        ),\n                        pagerduty.EventOrchestrationServiceSetRuleActionsExtractionArgs(\n                            source=\"event.source\",\n                            regex=\"www (.*) service\",\n                            target=\"event.source\",\n                        ),\n                    ],\n                    route_to=\"step-two\",\n                ),\n            )],\n        ),\n        pagerduty.EventOrchestrationServiceSetArgs(\n            id=\"step-two\",\n            rules=[\n                pagerduty.EventOrchestrationServiceSetRuleArgs(\n                    label=\"All critical alerts should be treated as P1 incident\",\n                    conditions=[pagerduty.EventOrchestrationServiceSetRuleConditionArgs(\n                        expression=\"event.severity matches 'critical'\",\n                    )],\n                    actions=pagerduty.EventOrchestrationServiceSetRuleActionsArgs(\n                        annotate=\"Please use our P1 runbook: https://docs.test/p1-runbook\",\n                        priority=p1.id,\n                        incident_custom_field_updates=[pagerduty.EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs(\n                            id=cs_impact.id,\n                            value=\"High Impact\",\n                        )],\n                    ),\n                ),\n                pagerduty.EventOrchestrationServiceSetRuleArgs(\n                    label=\"If there's something wrong on the canary let the team know about it in our deployments Slack channel\",\n                    conditions=[pagerduty.EventOrchestrationServiceSetRuleConditionArgs(\n                        expression=\"event.custom_details.hostname matches part 'canary'\",\n                    )],\n                    actions=pagerduty.EventOrchestrationServiceSetRuleActionsArgs(\n                        automation_action=pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionArgs(\n                            name=\"Canary Slack Notification\",\n                            url=\"https://our-slack-listerner.test/canary-notification\",\n                            auto_send=True,\n                            parameters=[\n                                pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs(\n                                    key=\"channel\",\n                                    value=\"#my-team-channel\",\n                                ),\n                                pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs(\n                                    key=\"message\",\n                                    value=\"something is wrong with the canary deployment\",\n                                ),\n                            ],\n                            headers=[pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs(\n                                key=\"X-Notification-Source\",\n                                value=\"PagerDuty Incident Webhook\",\n                            )],\n                        ),\n                    ),\n                ),\n                pagerduty.EventOrchestrationServiceSetRuleArgs(\n                    label=\"Never bother the on-call for info-level events outside of work hours\",\n                    conditions=[pagerduty.EventOrchestrationServiceSetRuleConditionArgs(\n                        expression=\"event.severity matches 'info' and not (now in Mon,Tue,Wed,Thu,Fri 09:00:00 to 17:00:00 America/Los_Angeles)\",\n                    )],\n                    actions=pagerduty.EventOrchestrationServiceSetRuleActionsArgs(\n                        suppress=True,\n                    ),\n                ),\n            ],\n        ),\n    ],\n    catch_all=pagerduty.EventOrchestrationServiceCatchAllArgs(\n        actions=pagerduty.EventOrchestrationServiceCatchAllActionsArgs(),\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var engineering = new Pagerduty.Team(\"engineering\");\n\n    var exampleUser = new Pagerduty.User(\"exampleUser\", new()\n    {\n        Email = \"125.greenholt.earline@graham.name\",\n    });\n\n    var foo = new Pagerduty.TeamMembership(\"foo\", new()\n    {\n        UserId = exampleUser.Id,\n        TeamId = engineering.Id,\n        Role = \"manager\",\n    });\n\n    var exampleEscalationPolicy = new Pagerduty.EscalationPolicy(\"exampleEscalationPolicy\", new()\n    {\n        NumLoops = 2,\n        Rules = new[]\n        {\n            new Pagerduty.Inputs.EscalationPolicyRuleArgs\n            {\n                EscalationDelayInMinutes = 10,\n                Targets = new[]\n                {\n                    new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs\n                    {\n                        Type = \"user_reference\",\n                        Id = exampleUser.Id,\n                    },\n                },\n            },\n        },\n    });\n\n    var exampleService = new Pagerduty.Service(\"exampleService\", new()\n    {\n        AutoResolveTimeout = \"14400\",\n        AcknowledgementTimeout = \"600\",\n        EscalationPolicy = exampleEscalationPolicy.Id,\n        AlertCreation = \"create_alerts_and_incidents\",\n    });\n\n    var csImpact = new Pagerduty.IncidentCustomField(\"csImpact\", new()\n    {\n        DataType = \"string\",\n        FieldType = \"single_value\",\n    });\n\n    var p1 = Pagerduty.GetPriority.Invoke(new()\n    {\n        Name = \"P1\",\n    });\n\n    var www = new Pagerduty.EventOrchestrationService(\"www\", new()\n    {\n        Service = exampleService.Id,\n        EnableEventOrchestrationForService = true,\n        Sets = new[]\n        {\n            new Pagerduty.Inputs.EventOrchestrationServiceSetArgs\n            {\n                Id = \"start\",\n                Rules = new[]\n                {\n                    new Pagerduty.Inputs.EventOrchestrationServiceSetRuleArgs\n                    {\n                        Label = \"Always apply some consistent event transformations to all events\",\n                        Actions = new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsArgs\n                        {\n                            Variables = new[]\n                            {\n                                new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsVariableArgs\n                                {\n                                    Name = \"hostname\",\n                                    Path = \"event.component\",\n                                    Value = \"hostname: (.*)\",\n                                    Type = \"regex\",\n                                },\n                            },\n                            Extractions = new[]\n                            {\n                                new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsExtractionArgs\n                                {\n                                    Template = \"{{variables.hostname}}\",\n                                    Target = \"event.custom_details.hostname\",\n                                },\n                                new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsExtractionArgs\n                                {\n                                    Source = \"event.source\",\n                                    Regex = \"www (.*) service\",\n                                    Target = \"event.source\",\n                                },\n                            },\n                            RouteTo = \"step-two\",\n                        },\n                    },\n                },\n            },\n            new Pagerduty.Inputs.EventOrchestrationServiceSetArgs\n            {\n                Id = \"step-two\",\n                Rules = new[]\n                {\n                    new Pagerduty.Inputs.EventOrchestrationServiceSetRuleArgs\n                    {\n                        Label = \"All critical alerts should be treated as P1 incident\",\n                        Conditions = new[]\n                        {\n                            new Pagerduty.Inputs.EventOrchestrationServiceSetRuleConditionArgs\n                            {\n                                Expression = \"event.severity matches 'critical'\",\n                            },\n                        },\n                        Actions = new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsArgs\n                        {\n                            Annotate = \"Please use our P1 runbook: https://docs.test/p1-runbook\",\n                            Priority = p1.Apply(getPriorityResult =\u003e getPriorityResult.Id),\n                            IncidentCustomFieldUpdates = new[]\n                            {\n                                new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs\n                                {\n                                    Id = csImpact.Id,\n                                    Value = \"High Impact\",\n                                },\n                            },\n                        },\n                    },\n                    new Pagerduty.Inputs.EventOrchestrationServiceSetRuleArgs\n                    {\n                        Label = \"If there's something wrong on the canary let the team know about it in our deployments Slack channel\",\n                        Conditions = new[]\n                        {\n                            new Pagerduty.Inputs.EventOrchestrationServiceSetRuleConditionArgs\n                            {\n                                Expression = \"event.custom_details.hostname matches part 'canary'\",\n                            },\n                        },\n                        Actions = new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsArgs\n                        {\n                            AutomationAction = new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsAutomationActionArgs\n                            {\n                                Name = \"Canary Slack Notification\",\n                                Url = \"https://our-slack-listerner.test/canary-notification\",\n                                AutoSend = true,\n                                Parameters = new[]\n                                {\n                                    new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs\n                                    {\n                                        Key = \"channel\",\n                                        Value = \"#my-team-channel\",\n                                    },\n                                    new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs\n                                    {\n                                        Key = \"message\",\n                                        Value = \"something is wrong with the canary deployment\",\n                                    },\n                                },\n                                Headers = new[]\n                                {\n                                    new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs\n                                    {\n                                        Key = \"X-Notification-Source\",\n                                        Value = \"PagerDuty Incident Webhook\",\n                                    },\n                                },\n                            },\n                        },\n                    },\n                    new Pagerduty.Inputs.EventOrchestrationServiceSetRuleArgs\n                    {\n                        Label = \"Never bother the on-call for info-level events outside of work hours\",\n                        Conditions = new[]\n                        {\n                            new Pagerduty.Inputs.EventOrchestrationServiceSetRuleConditionArgs\n                            {\n                                Expression = \"event.severity matches 'info' and not (now in Mon,Tue,Wed,Thu,Fri 09:00:00 to 17:00:00 America/Los_Angeles)\",\n                            },\n                        },\n                        Actions = new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsArgs\n                        {\n                            Suppress = true,\n                        },\n                    },\n                },\n            },\n        },\n        CatchAll = new Pagerduty.Inputs.EventOrchestrationServiceCatchAllArgs\n        {\n            Actions = null,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tengineering, err := pagerduty.NewTeam(ctx, \"engineering\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleUser, err := pagerduty.NewUser(ctx, \"exampleUser\", \u0026pagerduty.UserArgs{\n\t\t\tEmail: pulumi.String(\"125.greenholt.earline@graham.name\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewTeamMembership(ctx, \"foo\", \u0026pagerduty.TeamMembershipArgs{\n\t\t\tUserId: exampleUser.ID(),\n\t\t\tTeamId: engineering.ID(),\n\t\t\tRole:   pulumi.String(\"manager\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleEscalationPolicy, err := pagerduty.NewEscalationPolicy(ctx, \"exampleEscalationPolicy\", \u0026pagerduty.EscalationPolicyArgs{\n\t\t\tNumLoops: pulumi.Int(2),\n\t\t\tRules: pagerduty.EscalationPolicyRuleArray{\n\t\t\t\t\u0026pagerduty.EscalationPolicyRuleArgs{\n\t\t\t\t\tEscalationDelayInMinutes: pulumi.Int(10),\n\t\t\t\t\tTargets: pagerduty.EscalationPolicyRuleTargetArray{\n\t\t\t\t\t\t\u0026pagerduty.EscalationPolicyRuleTargetArgs{\n\t\t\t\t\t\t\tType: pulumi.String(\"user_reference\"),\n\t\t\t\t\t\t\tId:   exampleUser.ID(),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleService, err := pagerduty.NewService(ctx, \"exampleService\", \u0026pagerduty.ServiceArgs{\n\t\t\tAutoResolveTimeout:     pulumi.String(\"14400\"),\n\t\t\tAcknowledgementTimeout: pulumi.String(\"600\"),\n\t\t\tEscalationPolicy:       exampleEscalationPolicy.ID(),\n\t\t\tAlertCreation:          pulumi.String(\"create_alerts_and_incidents\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tcsImpact, err := pagerduty.NewIncidentCustomField(ctx, \"csImpact\", \u0026pagerduty.IncidentCustomFieldArgs{\n\t\t\tDataType:  pulumi.String(\"string\"),\n\t\t\tFieldType: pulumi.String(\"single_value\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tp1, err := pagerduty.GetPriority(ctx, \u0026pagerduty.GetPriorityArgs{\n\t\t\tName: \"P1\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewEventOrchestrationService(ctx, \"www\", \u0026pagerduty.EventOrchestrationServiceArgs{\n\t\t\tService:                            exampleService.ID(),\n\t\t\tEnableEventOrchestrationForService: pulumi.Bool(true),\n\t\t\tSets: pagerduty.EventOrchestrationServiceSetArray{\n\t\t\t\t\u0026pagerduty.EventOrchestrationServiceSetArgs{\n\t\t\t\t\tId: pulumi.String(\"start\"),\n\t\t\t\t\tRules: pagerduty.EventOrchestrationServiceSetRuleArray{\n\t\t\t\t\t\t\u0026pagerduty.EventOrchestrationServiceSetRuleArgs{\n\t\t\t\t\t\t\tLabel: pulumi.String(\"Always apply some consistent event transformations to all events\"),\n\t\t\t\t\t\t\tActions: \u0026pagerduty.EventOrchestrationServiceSetRuleActionsArgs{\n\t\t\t\t\t\t\t\tVariables: pagerduty.EventOrchestrationServiceSetRuleActionsVariableArray{\n\t\t\t\t\t\t\t\t\t\u0026pagerduty.EventOrchestrationServiceSetRuleActionsVariableArgs{\n\t\t\t\t\t\t\t\t\t\tName:  pulumi.String(\"hostname\"),\n\t\t\t\t\t\t\t\t\t\tPath:  pulumi.String(\"event.component\"),\n\t\t\t\t\t\t\t\t\t\tValue: pulumi.String(\"hostname: (.*)\"),\n\t\t\t\t\t\t\t\t\t\tType:  pulumi.String(\"regex\"),\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\tExtractions: pagerduty.EventOrchestrationServiceSetRuleActionsExtractionArray{\n\t\t\t\t\t\t\t\t\t\u0026pagerduty.EventOrchestrationServiceSetRuleActionsExtractionArgs{\n\t\t\t\t\t\t\t\t\t\tTemplate: pulumi.String(\"{{variables.hostname}}\"),\n\t\t\t\t\t\t\t\t\t\tTarget:   pulumi.String(\"event.custom_details.hostname\"),\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\u0026pagerduty.EventOrchestrationServiceSetRuleActionsExtractionArgs{\n\t\t\t\t\t\t\t\t\t\tSource: pulumi.String(\"event.source\"),\n\t\t\t\t\t\t\t\t\t\tRegex:  pulumi.String(\"www (.*) service\"),\n\t\t\t\t\t\t\t\t\t\tTarget: pulumi.String(\"event.source\"),\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\tRouteTo: pulumi.String(\"step-two\"),\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026pagerduty.EventOrchestrationServiceSetArgs{\n\t\t\t\t\tId: pulumi.String(\"step-two\"),\n\t\t\t\t\tRules: pagerduty.EventOrchestrationServiceSetRuleArray{\n\t\t\t\t\t\t\u0026pagerduty.EventOrchestrationServiceSetRuleArgs{\n\t\t\t\t\t\t\tLabel: pulumi.String(\"All critical alerts should be treated as P1 incident\"),\n\t\t\t\t\t\t\tConditions: pagerduty.EventOrchestrationServiceSetRuleConditionArray{\n\t\t\t\t\t\t\t\t\u0026pagerduty.EventOrchestrationServiceSetRuleConditionArgs{\n\t\t\t\t\t\t\t\t\tExpression: pulumi.String(\"event.severity matches 'critical'\"),\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\tActions: \u0026pagerduty.EventOrchestrationServiceSetRuleActionsArgs{\n\t\t\t\t\t\t\t\tAnnotate: pulumi.String(\"Please use our P1 runbook: https://docs.test/p1-runbook\"),\n\t\t\t\t\t\t\t\tPriority: *pulumi.String(p1.Id),\n\t\t\t\t\t\t\t\tIncidentCustomFieldUpdates: pagerduty.EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArray{\n\t\t\t\t\t\t\t\t\t\u0026pagerduty.EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs{\n\t\t\t\t\t\t\t\t\t\tId:    csImpact.ID(),\n\t\t\t\t\t\t\t\t\t\tValue: pulumi.String(\"High Impact\"),\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026pagerduty.EventOrchestrationServiceSetRuleArgs{\n\t\t\t\t\t\t\tLabel: pulumi.String(\"If there's something wrong on the canary let the team know about it in our deployments Slack channel\"),\n\t\t\t\t\t\t\tConditions: pagerduty.EventOrchestrationServiceSetRuleConditionArray{\n\t\t\t\t\t\t\t\t\u0026pagerduty.EventOrchestrationServiceSetRuleConditionArgs{\n\t\t\t\t\t\t\t\t\tExpression: pulumi.String(\"event.custom_details.hostname matches part 'canary'\"),\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\tActions: \u0026pagerduty.EventOrchestrationServiceSetRuleActionsArgs{\n\t\t\t\t\t\t\t\tAutomationAction: \u0026pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionArgs{\n\t\t\t\t\t\t\t\t\tName:     pulumi.String(\"Canary Slack Notification\"),\n\t\t\t\t\t\t\t\t\tUrl:      pulumi.String(\"https://our-slack-listerner.test/canary-notification\"),\n\t\t\t\t\t\t\t\t\tAutoSend: pulumi.Bool(true),\n\t\t\t\t\t\t\t\t\tParameters: pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionParameterArray{\n\t\t\t\t\t\t\t\t\t\t\u0026pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs{\n\t\t\t\t\t\t\t\t\t\t\tKey:   pulumi.String(\"channel\"),\n\t\t\t\t\t\t\t\t\t\t\tValue: pulumi.String(\"#my-team-channel\"),\n\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\u0026pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs{\n\t\t\t\t\t\t\t\t\t\t\tKey:   pulumi.String(\"message\"),\n\t\t\t\t\t\t\t\t\t\t\tValue: pulumi.String(\"something is wrong with the canary deployment\"),\n\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\tHeaders: pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArray{\n\t\t\t\t\t\t\t\t\t\t\u0026pagerduty.EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs{\n\t\t\t\t\t\t\t\t\t\t\tKey:   pulumi.String(\"X-Notification-Source\"),\n\t\t\t\t\t\t\t\t\t\t\tValue: pulumi.String(\"PagerDuty Incident Webhook\"),\n\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026pagerduty.EventOrchestrationServiceSetRuleArgs{\n\t\t\t\t\t\t\tLabel: pulumi.String(\"Never bother the on-call for info-level events outside of work hours\"),\n\t\t\t\t\t\t\tConditions: pagerduty.EventOrchestrationServiceSetRuleConditionArray{\n\t\t\t\t\t\t\t\t\u0026pagerduty.EventOrchestrationServiceSetRuleConditionArgs{\n\t\t\t\t\t\t\t\t\tExpression: pulumi.String(\"event.severity matches 'info' and not (now in Mon,Tue,Wed,Thu,Fri 09:00:00 to 17:00:00 America/Los_Angeles)\"),\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\tActions: \u0026pagerduty.EventOrchestrationServiceSetRuleActionsArgs{\n\t\t\t\t\t\t\t\tSuppress: pulumi.Bool(true),\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tCatchAll: \u0026pagerduty.EventOrchestrationServiceCatchAllArgs{\n\t\t\t\tActions: nil,\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.Team;\nimport com.pulumi.pagerduty.User;\nimport com.pulumi.pagerduty.UserArgs;\nimport com.pulumi.pagerduty.TeamMembership;\nimport com.pulumi.pagerduty.TeamMembershipArgs;\nimport com.pulumi.pagerduty.EscalationPolicy;\nimport com.pulumi.pagerduty.EscalationPolicyArgs;\nimport com.pulumi.pagerduty.inputs.EscalationPolicyRuleArgs;\nimport com.pulumi.pagerduty.Service;\nimport com.pulumi.pagerduty.ServiceArgs;\nimport com.pulumi.pagerduty.IncidentCustomField;\nimport com.pulumi.pagerduty.IncidentCustomFieldArgs;\nimport com.pulumi.pagerduty.PagerdutyFunctions;\nimport com.pulumi.pagerduty.inputs.GetPriorityArgs;\nimport com.pulumi.pagerduty.EventOrchestrationService;\nimport com.pulumi.pagerduty.EventOrchestrationServiceArgs;\nimport com.pulumi.pagerduty.inputs.EventOrchestrationServiceSetArgs;\nimport com.pulumi.pagerduty.inputs.EventOrchestrationServiceCatchAllArgs;\nimport com.pulumi.pagerduty.inputs.EventOrchestrationServiceCatchAllActionsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var engineering = new Team(\"engineering\");\n\n        var exampleUser = new User(\"exampleUser\", UserArgs.builder()        \n            .email(\"125.greenholt.earline@graham.name\")\n            .build());\n\n        var foo = new TeamMembership(\"foo\", TeamMembershipArgs.builder()        \n            .userId(exampleUser.id())\n            .teamId(engineering.id())\n            .role(\"manager\")\n            .build());\n\n        var exampleEscalationPolicy = new EscalationPolicy(\"exampleEscalationPolicy\", EscalationPolicyArgs.builder()        \n            .numLoops(2)\n            .rules(EscalationPolicyRuleArgs.builder()\n                .escalationDelayInMinutes(10)\n                .targets(EscalationPolicyRuleTargetArgs.builder()\n                    .type(\"user_reference\")\n                    .id(exampleUser.id())\n                    .build())\n                .build())\n            .build());\n\n        var exampleService = new Service(\"exampleService\", ServiceArgs.builder()        \n            .autoResolveTimeout(14400)\n            .acknowledgementTimeout(600)\n            .escalationPolicy(exampleEscalationPolicy.id())\n            .alertCreation(\"create_alerts_and_incidents\")\n            .build());\n\n        var csImpact = new IncidentCustomField(\"csImpact\", IncidentCustomFieldArgs.builder()        \n            .dataType(\"string\")\n            .fieldType(\"single_value\")\n            .build());\n\n        final var p1 = PagerdutyFunctions.getPriority(GetPriorityArgs.builder()\n            .name(\"P1\")\n            .build());\n\n        var www = new EventOrchestrationService(\"www\", EventOrchestrationServiceArgs.builder()        \n            .service(exampleService.id())\n            .enableEventOrchestrationForService(true)\n            .sets(            \n                EventOrchestrationServiceSetArgs.builder()\n                    .id(\"start\")\n                    .rules(EventOrchestrationServiceSetRuleArgs.builder()\n                        .label(\"Always apply some consistent event transformations to all events\")\n                        .actions(EventOrchestrationServiceSetRuleActionsArgs.builder()\n                            .variables(EventOrchestrationServiceSetRuleActionsVariableArgs.builder()\n                                .name(\"hostname\")\n                                .path(\"event.component\")\n                                .value(\"hostname: (.*)\")\n                                .type(\"regex\")\n                                .build())\n                            .extractions(                            \n                                EventOrchestrationServiceSetRuleActionsExtractionArgs.builder()\n                                    .template(\"{{variables.hostname}}\")\n                                    .target(\"event.custom_details.hostname\")\n                                    .build(),\n                                EventOrchestrationServiceSetRuleActionsExtractionArgs.builder()\n                                    .source(\"event.source\")\n                                    .regex(\"www (.*) service\")\n                                    .target(\"event.source\")\n                                    .build())\n                            .routeTo(\"step-two\")\n                            .build())\n                        .build())\n                    .build(),\n                EventOrchestrationServiceSetArgs.builder()\n                    .id(\"step-two\")\n                    .rules(                    \n                        EventOrchestrationServiceSetRuleArgs.builder()\n                            .label(\"All critical alerts should be treated as P1 incident\")\n                            .conditions(EventOrchestrationServiceSetRuleConditionArgs.builder()\n                                .expression(\"event.severity matches 'critical'\")\n                                .build())\n                            .actions(EventOrchestrationServiceSetRuleActionsArgs.builder()\n                                .annotate(\"Please use our P1 runbook: https://docs.test/p1-runbook\")\n                                .priority(p1.applyValue(getPriorityResult -\u003e getPriorityResult.id()))\n                                .incidentCustomFieldUpdates(EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs.builder()\n                                    .id(csImpact.id())\n                                    .value(\"High Impact\")\n                                    .build())\n                                .build())\n                            .build(),\n                        EventOrchestrationServiceSetRuleArgs.builder()\n                            .label(\"If there's something wrong on the canary let the team know about it in our deployments Slack channel\")\n                            .conditions(EventOrchestrationServiceSetRuleConditionArgs.builder()\n                                .expression(\"event.custom_details.hostname matches part 'canary'\")\n                                .build())\n                            .actions(EventOrchestrationServiceSetRuleActionsArgs.builder()\n                                .automationAction(EventOrchestrationServiceSetRuleActionsAutomationActionArgs.builder()\n                                    .name(\"Canary Slack Notification\")\n                                    .url(\"https://our-slack-listerner.test/canary-notification\")\n                                    .autoSend(true)\n                                    .parameters(                                    \n                                        EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs.builder()\n                                            .key(\"channel\")\n                                            .value(\"#my-team-channel\")\n                                            .build(),\n                                        EventOrchestrationServiceSetRuleActionsAutomationActionParameterArgs.builder()\n                                            .key(\"message\")\n                                            .value(\"something is wrong with the canary deployment\")\n                                            .build())\n                                    .headers(EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs.builder()\n                                        .key(\"X-Notification-Source\")\n                                        .value(\"PagerDuty Incident Webhook\")\n                                        .build())\n                                    .build())\n                                .build())\n                            .build(),\n                        EventOrchestrationServiceSetRuleArgs.builder()\n                            .label(\"Never bother the on-call for info-level events outside of work hours\")\n                            .conditions(EventOrchestrationServiceSetRuleConditionArgs.builder()\n                                .expression(\"event.severity matches 'info' and not (now in Mon,Tue,Wed,Thu,Fri 09:00:00 to 17:00:00 America/Los_Angeles)\")\n                                .build())\n                            .actions(EventOrchestrationServiceSetRuleActionsArgs.builder()\n                                .suppress(true)\n                                .build())\n                            .build())\n                    .build())\n            .catchAll(EventOrchestrationServiceCatchAllArgs.builder()\n                .actions()\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  engineering:\n    type: pagerduty:Team\n  exampleUser:\n    type: pagerduty:User\n    properties:\n      email: 125.greenholt.earline@graham.name\n  foo:\n    type: pagerduty:TeamMembership\n    properties:\n      userId: ${exampleUser.id}\n      teamId: ${engineering.id}\n      role: manager\n  exampleEscalationPolicy:\n    type: pagerduty:EscalationPolicy\n    properties:\n      numLoops: 2\n      rules:\n        - escalationDelayInMinutes: 10\n          targets:\n            - type: user_reference\n              id: ${exampleUser.id}\n  exampleService:\n    type: pagerduty:Service\n    properties:\n      autoResolveTimeout: 14400\n      acknowledgementTimeout: 600\n      escalationPolicy: ${exampleEscalationPolicy.id}\n      alertCreation: create_alerts_and_incidents\n  csImpact:\n    type: pagerduty:IncidentCustomField\n    properties:\n      dataType: string\n      fieldType: single_value\n  www:\n    type: pagerduty:EventOrchestrationService\n    properties:\n      service: ${exampleService.id}\n      enableEventOrchestrationForService: true\n      sets:\n        - id: start\n          rules:\n            - label: Always apply some consistent event transformations to all events\n              actions:\n                variables:\n                  - name: hostname\n                    path: event.component\n                    value: 'hostname: (.*)'\n                    type: regex\n                extractions:\n                  - template: '{{variables.hostname}}'\n                    target: event.custom_details.hostname\n                  - source: event.source\n                    regex: www (.*) service\n                    target: event.source\n                routeTo: step-two\n        - id: step-two\n          rules:\n            - label: All critical alerts should be treated as P1 incident\n              conditions:\n                - expression: event.severity matches 'critical'\n              actions:\n                annotate: 'Please use our P1 runbook: https://docs.test/p1-runbook'\n                priority: ${p1.id}\n                incidentCustomFieldUpdates:\n                  - id: ${csImpact.id}\n                    value: High Impact\n            - label: If there's something wrong on the canary let the team know about it in our deployments Slack channel\n              conditions:\n                - expression: event.custom_details.hostname matches part 'canary'\n              actions:\n                automationAction:\n                  name: Canary Slack Notification\n                  url: https://our-slack-listerner.test/canary-notification\n                  autoSend: true\n                  parameters:\n                    - key: channel\n                      value: '#my-team-channel'\n                    - key: message\n                      value: something is wrong with the canary deployment\n                  headers:\n                    - key: X-Notification-Source\n                      value: PagerDuty Incident Webhook\n            - label: Never bother the on-call for info-level events outside of work hours\n              conditions:\n                - expression: event.severity matches 'info' and not (now in Mon,Tue,Wed,Thu,Fri 09:00:00 to 17:00:00 America/Los_Angeles)\n              actions:\n                suppress: true\n      catchAll:\n        actions: {}\nvariables:\n  p1:\n    fn::invoke:\n      Function: pagerduty:getPriority\n      Arguments:\n        name: P1\n```\n\n\n## Import\n\nService Orchestration can be imported using the `id` of the Service, e.g.\n\n```sh\n $ pulumi import pagerduty:index/eventOrchestrationService:EventOrchestrationService service PFEODA7\n```\n ",
             "properties": {
                 "catchAll": {
                     "$ref": "#/types/pagerduty:index/EventOrchestrationServiceCatchAll:EventOrchestrationServiceCatchAll",
@@ -8190,6 +8552,153 @@
                     "integrationKey",
                     "integrationSummary",
                     "serviceName",
+                    "id"
+                ]
+            }
+        },
+        "pagerduty:index/getStandards:getStandards": {
+            "description": "Use this data source to get information about the [standards](https://developer.pagerduty.com/api-reference/dbed9a0ff9355-list-standards) applicable to\nthe PagerDuty account.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst standards = pagerduty.getStandards({});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nstandards = pagerduty.get_standards()\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var standards = Pagerduty.GetStandards.Invoke();\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := pagerduty.GetStandards(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.PagerdutyFunctions;\nimport com.pulumi.pagerduty.inputs.GetStandardsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var standards = PagerdutyFunctions.getStandards();\n\n    }\n}\n```\n```yaml\nvariables:\n  standards:\n    fn::invoke:\n      Function: pagerduty:getStandards\n      Arguments: {}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getStandards.\n",
+                "properties": {
+                    "resourceType": {
+                        "type": "string",
+                        "description": "Filter by `resource_type` the received standards. Allowed values are `technical_service`.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getStandards.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "resourceType": {
+                        "type": "string",
+                        "description": "Specifies the type of resource to which the standard applies.\n"
+                    },
+                    "standards": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/pagerduty:index/getStandardsStandard:getStandardsStandard"
+                        },
+                        "description": "The list of standards defined.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "standards",
+                    "id"
+                ]
+            }
+        },
+        "pagerduty:index/getStandardsResourceScores:getStandardsResourceScores": {
+            "description": "Use this data source to get information about the [scores for the standards of a\nresource][1].\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst example = pagerduty.getService({\n    name: \"My Service\",\n});\nconst scores = example.then(example =\u003e pagerduty.getStandardsResourceScores({\n    resourceType: \"technical_services\",\n    id: example.id,\n}));\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nexample = pagerduty.get_service(name=\"My Service\")\nscores = pagerduty.get_standards_resource_scores(resource_type=\"technical_services\",\n    id=example.id)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Pagerduty.GetService.Invoke(new()\n    {\n        Name = \"My Service\",\n    });\n\n    var scores = Pagerduty.GetStandardsResourceScores.Invoke(new()\n    {\n        ResourceType = \"technical_services\",\n        Id = example.Apply(getServiceResult =\u003e getServiceResult.Id),\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := pagerduty.LookupService(ctx, \u0026pagerduty.LookupServiceArgs{\n\t\t\tName: \"My Service\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.GetStandardsResourceScores(ctx, \u0026pagerduty.GetStandardsResourceScoresArgs{\n\t\t\tResourceType: \"technical_services\",\n\t\t\tId:           example.Id,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.PagerdutyFunctions;\nimport com.pulumi.pagerduty.inputs.GetServiceArgs;\nimport com.pulumi.pagerduty.inputs.GetStandardsResourceScoresArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = PagerdutyFunctions.getService(GetServiceArgs.builder()\n            .name(\"My Service\")\n            .build());\n\n        final var scores = PagerdutyFunctions.getStandardsResourceScores(GetStandardsResourceScoresArgs.builder()\n            .resourceType(\"technical_services\")\n            .id(example.applyValue(getServiceResult -\u003e getServiceResult.id()))\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      Function: pagerduty:getService\n      Arguments:\n        name: My Service\n  scores:\n    fn::invoke:\n      Function: pagerduty:getStandardsResourceScores\n      Arguments:\n        resourceType: technical_services\n        id: ${example.id}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getStandardsResourceScores.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Identifier of said resource.\n"
+                    },
+                    "resourceType": {
+                        "type": "string",
+                        "description": "Type of the object the standards are associated to. Allowed values are `technical_services`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id",
+                    "resourceType"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getStandardsResourceScores.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "A unique identifier for the standard.\n"
+                    },
+                    "resourceType": {
+                        "type": "string",
+                        "description": "Specifies the type of resource to which the standard applies.\n"
+                    },
+                    "score": {
+                        "$ref": "#/types/pagerduty:index/getStandardsResourceScoresScore:getStandardsResourceScoresScore",
+                        "description": "Summary of the scores for standards associated with this resource.\n"
+                    },
+                    "standards": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/pagerduty:index/getStandardsResourceScoresStandard:getStandardsResourceScoresStandard"
+                        },
+                        "description": "The list of standards evaluated against.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id",
+                    "resourceType",
+                    "score",
+                    "standards"
+                ]
+            }
+        },
+        "pagerduty:index/getStandardsResourcesScores:getStandardsResourcesScores": {
+            "description": "Use this data source to get information about the [scores for the standards for\nmany resources][1].\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst foo = pagerduty.getService({\n    name: \"foo\",\n});\nconst bar = pagerduty.getService({\n    name: \"bar\",\n});\nconst baz = pagerduty.getService({\n    name: \"baz\",\n});\nconst scores = Promise.all([foo, bar, baz]).then(([foo, bar, baz]) =\u003e pagerduty.getStandardsResourcesScores({\n    resourceType: \"technical_services\",\n    ids: [\n        foo.id,\n        bar.id,\n        baz.id,\n    ],\n}));\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nfoo = pagerduty.get_service(name=\"foo\")\nbar = pagerduty.get_service(name=\"bar\")\nbaz = pagerduty.get_service(name=\"baz\")\nscores = pagerduty.get_standards_resources_scores(resource_type=\"technical_services\",\n    ids=[\n        foo.id,\n        bar.id,\n        baz.id,\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var foo = Pagerduty.GetService.Invoke(new()\n    {\n        Name = \"foo\",\n    });\n\n    var bar = Pagerduty.GetService.Invoke(new()\n    {\n        Name = \"bar\",\n    });\n\n    var baz = Pagerduty.GetService.Invoke(new()\n    {\n        Name = \"baz\",\n    });\n\n    var scores = Pagerduty.GetStandardsResourcesScores.Invoke(new()\n    {\n        ResourceType = \"technical_services\",\n        Ids = new[]\n        {\n            foo.Apply(getServiceResult =\u003e getServiceResult.Id),\n            bar.Apply(getServiceResult =\u003e getServiceResult.Id),\n            baz.Apply(getServiceResult =\u003e getServiceResult.Id),\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\nfunc main() {\npulumi.Run(func(ctx *pulumi.Context) error {\nfoo, err := pagerduty.LookupService(ctx, \u0026pagerduty.LookupServiceArgs{\nName: \"foo\",\n}, nil);\nif err != nil {\nreturn err\n}\nbar, err := pagerduty.LookupService(ctx, \u0026pagerduty.LookupServiceArgs{\nName: \"bar\",\n}, nil);\nif err != nil {\nreturn err\n}\nbaz, err := pagerduty.LookupService(ctx, \u0026pagerduty.LookupServiceArgs{\nName: \"baz\",\n}, nil);\nif err != nil {\nreturn err\n}\n_, err = pagerduty.GetStandardsResourcesScores(ctx, \u0026pagerduty.GetStandardsResourcesScoresArgs{\nResourceType: \"technical_services\",\nIds: interface{}{\nfoo.Id,\nbar.Id,\nbaz.Id,\n},\n}, nil);\nif err != nil {\nreturn err\n}\nreturn nil\n})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.PagerdutyFunctions;\nimport com.pulumi.pagerduty.inputs.GetServiceArgs;\nimport com.pulumi.pagerduty.inputs.GetStandardsResourcesScoresArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var foo = PagerdutyFunctions.getService(GetServiceArgs.builder()\n            .name(\"foo\")\n            .build());\n\n        final var bar = PagerdutyFunctions.getService(GetServiceArgs.builder()\n            .name(\"bar\")\n            .build());\n\n        final var baz = PagerdutyFunctions.getService(GetServiceArgs.builder()\n            .name(\"baz\")\n            .build());\n\n        final var scores = PagerdutyFunctions.getStandardsResourcesScores(GetStandardsResourcesScoresArgs.builder()\n            .resourceType(\"technical_services\")\n            .ids(            \n                foo.applyValue(getServiceResult -\u003e getServiceResult.id()),\n                bar.applyValue(getServiceResult -\u003e getServiceResult.id()),\n                baz.applyValue(getServiceResult -\u003e getServiceResult.id()))\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  foo:\n    fn::invoke:\n      Function: pagerduty:getService\n      Arguments:\n        name: foo\n  bar:\n    fn::invoke:\n      Function: pagerduty:getService\n      Arguments:\n        name: bar\n  baz:\n    fn::invoke:\n      Function: pagerduty:getService\n      Arguments:\n        name: baz\n  scores:\n    fn::invoke:\n      Function: pagerduty:getStandardsResourcesScores\n      Arguments:\n        resourceType: technical_services\n        ids:\n          - ${foo.id}\n          - ${bar.id}\n          - ${baz.id}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getStandardsResourcesScores.\n",
+                "properties": {
+                    "ids": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of identifiers of the resources to query.\n"
+                    },
+                    "resourceType": {
+                        "type": "string",
+                        "description": "Type of the object the standards are associated to. Allowed values are `technical_services`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "ids",
+                    "resourceType"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getStandardsResourcesScores.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "ids": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "resourceType": {
+                        "type": "string",
+                        "description": "Specifies the type of resource to which the standard applies.\n"
+                    },
+                    "resources": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/pagerduty:index/getStandardsResourcesScoresResource:getStandardsResourcesScoresResource"
+                        },
+                        "description": "List of score results for each queried resource.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "ids",
+                    "resourceType",
+                    "resources",
                     "id"
                 ]
             }

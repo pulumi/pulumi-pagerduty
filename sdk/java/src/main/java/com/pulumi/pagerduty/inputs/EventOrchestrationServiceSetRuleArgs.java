@@ -66,14 +66,14 @@ public final class EventOrchestrationServiceSetRuleArgs extends com.pulumi.resou
     }
 
     /**
-     * The ID of this set of rules. Rules in other sets can route events into this set using the rule&#39;s `route_to` property.
+     * The custom field id
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return The ID of this set of rules. Rules in other sets can route events into this set using the rule&#39;s `route_to` property.
+     * @return The custom field id
      * 
      */
     public Optional<Output<String>> id() {
@@ -197,7 +197,7 @@ public final class EventOrchestrationServiceSetRuleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param id The ID of this set of rules. Rules in other sets can route events into this set using the rule&#39;s `route_to` property.
+         * @param id The custom field id
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class EventOrchestrationServiceSetRuleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param id The ID of this set of rules. Rules in other sets can route events into this set using the rule&#39;s `route_to` property.
+         * @param id The custom field id
          * 
          * @return builder
          * 

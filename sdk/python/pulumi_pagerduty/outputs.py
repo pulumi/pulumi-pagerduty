@@ -21,6 +21,7 @@ __all__ = [
     'EventOrchestrationGlobalCatchAllActionsAutomationActionHeader',
     'EventOrchestrationGlobalCatchAllActionsAutomationActionParameter',
     'EventOrchestrationGlobalCatchAllActionsExtraction',
+    'EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdate',
     'EventOrchestrationGlobalCatchAllActionsVariable',
     'EventOrchestrationGlobalSet',
     'EventOrchestrationGlobalSetRule',
@@ -29,6 +30,7 @@ __all__ = [
     'EventOrchestrationGlobalSetRuleActionsAutomationActionHeader',
     'EventOrchestrationGlobalSetRuleActionsAutomationActionParameter',
     'EventOrchestrationGlobalSetRuleActionsExtraction',
+    'EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdate',
     'EventOrchestrationGlobalSetRuleActionsVariable',
     'EventOrchestrationGlobalSetRuleCondition',
     'EventOrchestrationIntegration',
@@ -45,6 +47,7 @@ __all__ = [
     'EventOrchestrationServiceCatchAllActionsAutomationActionHeader',
     'EventOrchestrationServiceCatchAllActionsAutomationActionParameter',
     'EventOrchestrationServiceCatchAllActionsExtraction',
+    'EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdate',
     'EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction',
     'EventOrchestrationServiceCatchAllActionsVariable',
     'EventOrchestrationServiceSet',
@@ -54,6 +57,7 @@ __all__ = [
     'EventOrchestrationServiceSetRuleActionsAutomationActionHeader',
     'EventOrchestrationServiceSetRuleActionsAutomationActionParameter',
     'EventOrchestrationServiceSetRuleActionsExtraction',
+    'EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate',
     'EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction',
     'EventOrchestrationServiceSetRuleActionsVariable',
     'EventOrchestrationServiceSetRuleCondition',
@@ -146,6 +150,14 @@ __all__ = [
     'GetEventOrchestrationsEventOrchestrationIntegrationParameterResult',
     'GetLicensesLicenseResult',
     'GetServiceTeamResult',
+    'GetStandardsResourceScoresScoreResult',
+    'GetStandardsResourceScoresStandardResult',
+    'GetStandardsResourcesScoresResourceResult',
+    'GetStandardsResourcesScoresResourceScoreResult',
+    'GetStandardsResourcesScoresResourceStandardResult',
+    'GetStandardsStandardResult',
+    'GetStandardsStandardExclusionResult',
+    'GetStandardsStandardInclusionResult',
     'GetTeamMembersMemberResult',
     'GetUsersUserResult',
 ]
@@ -386,6 +398,8 @@ class EventOrchestrationGlobalCatchAllActions(dict):
             suggest = "drop_event"
         elif key == "eventAction":
             suggest = "event_action"
+        elif key == "incidentCustomFieldUpdates":
+            suggest = "incident_custom_field_updates"
         elif key == "routeTo":
             suggest = "route_to"
 
@@ -406,6 +420,7 @@ class EventOrchestrationGlobalCatchAllActions(dict):
                  drop_event: Optional[bool] = None,
                  event_action: Optional[str] = None,
                  extractions: Optional[Sequence['outputs.EventOrchestrationGlobalCatchAllActionsExtraction']] = None,
+                 incident_custom_field_updates: Optional[Sequence['outputs.EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdate']] = None,
                  priority: Optional[str] = None,
                  route_to: Optional[str] = None,
                  severity: Optional[str] = None,
@@ -418,6 +433,7 @@ class EventOrchestrationGlobalCatchAllActions(dict):
         :param bool drop_event: When true, this event will be dropped. Dropped events will not trigger or resolve an alert or an incident. Dropped events will not be evaluated against router rules.
         :param str event_action: sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
         :param Sequence['EventOrchestrationGlobalCatchAllActionsExtractionArgs'] extractions: Replace any CEF field or Custom Details object field using custom variables.
+        :param Sequence['EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArgs'] incident_custom_field_updates: Assign a custom field to the resulting incident.
         :param str priority: The ID of the priority you want to set on resulting incident. Consider using the `get_priority` data source.
         :param str route_to: The ID of a Set from this Global Orchestration whose rules you also want to use with events that match this rule.
         :param str severity: sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
@@ -435,6 +451,8 @@ class EventOrchestrationGlobalCatchAllActions(dict):
             pulumi.set(__self__, "event_action", event_action)
         if extractions is not None:
             pulumi.set(__self__, "extractions", extractions)
+        if incident_custom_field_updates is not None:
+            pulumi.set(__self__, "incident_custom_field_updates", incident_custom_field_updates)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
         if route_to is not None:
@@ -487,6 +505,14 @@ class EventOrchestrationGlobalCatchAllActions(dict):
         Replace any CEF field or Custom Details object field using custom variables.
         """
         return pulumi.get(self, "extractions")
+
+    @property
+    @pulumi.getter(name="incidentCustomFieldUpdates")
+    def incident_custom_field_updates(self) -> Optional[Sequence['outputs.EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdate']]:
+        """
+        Assign a custom field to the resulting incident.
+        """
+        return pulumi.get(self, "incident_custom_field_updates")
 
     @property
     @pulumi.getter
@@ -736,6 +762,35 @@ class EventOrchestrationGlobalCatchAllActionsExtraction(dict):
 
 
 @pulumi.output_type
+class EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdate(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 value: str):
+        """
+        :param str id: The custom field id
+        :param str value: The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The custom field id
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class EventOrchestrationGlobalCatchAllActionsVariable(dict):
     def __init__(__self__, *,
                  name: str,
@@ -824,7 +879,7 @@ class EventOrchestrationGlobalSetRule(dict):
         :param 'EventOrchestrationGlobalSetRuleActionsArgs' actions: Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
         :param Sequence['EventOrchestrationGlobalSetRuleConditionArgs'] conditions: Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will `always` match against the rule.
         :param bool disabled: Indicates whether the rule is disabled and would therefore not be evaluated.
-        :param str id: The ID of this set of rules. Rules in other sets can route events into this set using the rule's `route_to` property.
+        :param str id: The custom field id
         :param str label: A description of this rule's purpose.
         """
         pulumi.set(__self__, "actions", actions)
@@ -865,7 +920,7 @@ class EventOrchestrationGlobalSetRule(dict):
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        The ID of this set of rules. Rules in other sets can route events into this set using the rule's `route_to` property.
+        The custom field id
         """
         return pulumi.get(self, "id")
 
@@ -889,6 +944,8 @@ class EventOrchestrationGlobalSetRuleActions(dict):
             suggest = "drop_event"
         elif key == "eventAction":
             suggest = "event_action"
+        elif key == "incidentCustomFieldUpdates":
+            suggest = "incident_custom_field_updates"
         elif key == "routeTo":
             suggest = "route_to"
 
@@ -909,6 +966,7 @@ class EventOrchestrationGlobalSetRuleActions(dict):
                  drop_event: Optional[bool] = None,
                  event_action: Optional[str] = None,
                  extractions: Optional[Sequence['outputs.EventOrchestrationGlobalSetRuleActionsExtraction']] = None,
+                 incident_custom_field_updates: Optional[Sequence['outputs.EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdate']] = None,
                  priority: Optional[str] = None,
                  route_to: Optional[str] = None,
                  severity: Optional[str] = None,
@@ -921,6 +979,7 @@ class EventOrchestrationGlobalSetRuleActions(dict):
         :param bool drop_event: When true, this event will be dropped. Dropped events will not trigger or resolve an alert or an incident. Dropped events will not be evaluated against router rules.
         :param str event_action: sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
         :param Sequence['EventOrchestrationGlobalSetRuleActionsExtractionArgs'] extractions: Replace any CEF field or Custom Details object field using custom variables.
+        :param Sequence['EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArgs'] incident_custom_field_updates: Assign a custom field to the resulting incident.
         :param str priority: The ID of the priority you want to set on resulting incident. Consider using the `get_priority` data source.
         :param str route_to: The ID of a Set from this Global Orchestration whose rules you also want to use with events that match this rule.
         :param str severity: sets Severity of the resulting alert. Allowed values are: `info`, `error`, `warning`, `critical`
@@ -938,6 +997,8 @@ class EventOrchestrationGlobalSetRuleActions(dict):
             pulumi.set(__self__, "event_action", event_action)
         if extractions is not None:
             pulumi.set(__self__, "extractions", extractions)
+        if incident_custom_field_updates is not None:
+            pulumi.set(__self__, "incident_custom_field_updates", incident_custom_field_updates)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
         if route_to is not None:
@@ -990,6 +1051,14 @@ class EventOrchestrationGlobalSetRuleActions(dict):
         Replace any CEF field or Custom Details object field using custom variables.
         """
         return pulumi.get(self, "extractions")
+
+    @property
+    @pulumi.getter(name="incidentCustomFieldUpdates")
+    def incident_custom_field_updates(self) -> Optional[Sequence['outputs.EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdate']]:
+        """
+        Assign a custom field to the resulting incident.
+        """
+        return pulumi.get(self, "incident_custom_field_updates")
 
     @property
     @pulumi.getter
@@ -1236,6 +1305,35 @@ class EventOrchestrationGlobalSetRuleActionsExtraction(dict):
         * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
         """
         return pulumi.get(self, "template")
+
+
+@pulumi.output_type
+class EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdate(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 value: str):
+        """
+        :param str id: The custom field id
+        :param str value: The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The custom field id
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -1615,6 +1713,8 @@ class EventOrchestrationServiceCatchAllActions(dict):
             suggest = "automation_action"
         elif key == "eventAction":
             suggest = "event_action"
+        elif key == "incidentCustomFieldUpdates":
+            suggest = "incident_custom_field_updates"
         elif key == "pagerdutyAutomationAction":
             suggest = "pagerduty_automation_action"
         elif key == "routeTo":
@@ -1636,6 +1736,7 @@ class EventOrchestrationServiceCatchAllActions(dict):
                  automation_action: Optional['outputs.EventOrchestrationServiceCatchAllActionsAutomationAction'] = None,
                  event_action: Optional[str] = None,
                  extractions: Optional[Sequence['outputs.EventOrchestrationServiceCatchAllActionsExtraction']] = None,
+                 incident_custom_field_updates: Optional[Sequence['outputs.EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdate']] = None,
                  pagerduty_automation_action: Optional['outputs.EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction'] = None,
                  priority: Optional[str] = None,
                  route_to: Optional[str] = None,
@@ -1648,6 +1749,7 @@ class EventOrchestrationServiceCatchAllActions(dict):
         :param 'EventOrchestrationServiceCatchAllActionsAutomationActionArgs' automation_action: Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
         :param str event_action: sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
         :param Sequence['EventOrchestrationServiceCatchAllActionsExtractionArgs'] extractions: Replace any CEF field or Custom Details object field using custom variables.
+        :param Sequence['EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArgs'] incident_custom_field_updates: Assign a custom field to the resulting incident.
         :param 'EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs' pagerduty_automation_action: Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
         :param str priority: The ID of the priority you want to set on resulting incident. Consider using the `get_priority` data source.
         :param str route_to: The ID of a Set from this Service Orchestration whose rules you also want to use with events that match this rule.
@@ -1664,6 +1766,8 @@ class EventOrchestrationServiceCatchAllActions(dict):
             pulumi.set(__self__, "event_action", event_action)
         if extractions is not None:
             pulumi.set(__self__, "extractions", extractions)
+        if incident_custom_field_updates is not None:
+            pulumi.set(__self__, "incident_custom_field_updates", incident_custom_field_updates)
         if pagerduty_automation_action is not None:
             pulumi.set(__self__, "pagerduty_automation_action", pagerduty_automation_action)
         if priority is not None:
@@ -1710,6 +1814,14 @@ class EventOrchestrationServiceCatchAllActions(dict):
         Replace any CEF field or Custom Details object field using custom variables.
         """
         return pulumi.get(self, "extractions")
+
+    @property
+    @pulumi.getter(name="incidentCustomFieldUpdates")
+    def incident_custom_field_updates(self) -> Optional[Sequence['outputs.EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdate']]:
+        """
+        Assign a custom field to the resulting incident.
+        """
+        return pulumi.get(self, "incident_custom_field_updates")
 
     @property
     @pulumi.getter(name="pagerdutyAutomationAction")
@@ -1967,6 +2079,35 @@ class EventOrchestrationServiceCatchAllActionsExtraction(dict):
 
 
 @pulumi.output_type
+class EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdate(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 value: str):
+        """
+        :param str id: The custom field id
+        :param str value: The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The custom field id
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2090,7 +2231,7 @@ class EventOrchestrationServiceSetRule(dict):
         :param 'EventOrchestrationServiceSetRuleActionsArgs' actions: Actions that will be taken to change the resulting alert and incident, when an event matches this rule.
         :param Sequence['EventOrchestrationServiceSetRuleConditionArgs'] conditions: Each of these conditions is evaluated to check if an event matches this rule. The rule is considered a match if any of these conditions match. If none are provided, the event will `always` match against the rule.
         :param bool disabled: Indicates whether the rule is disabled and would therefore not be evaluated.
-        :param str id: The ID of this set of rules. Rules in other sets can route events into this set using the rule's `route_to` property.
+        :param str id: The custom field id
         :param str label: A description of this rule's purpose.
         """
         pulumi.set(__self__, "actions", actions)
@@ -2131,7 +2272,7 @@ class EventOrchestrationServiceSetRule(dict):
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        The ID of this set of rules. Rules in other sets can route events into this set using the rule's `route_to` property.
+        The custom field id
         """
         return pulumi.get(self, "id")
 
@@ -2153,6 +2294,8 @@ class EventOrchestrationServiceSetRuleActions(dict):
             suggest = "automation_action"
         elif key == "eventAction":
             suggest = "event_action"
+        elif key == "incidentCustomFieldUpdates":
+            suggest = "incident_custom_field_updates"
         elif key == "pagerdutyAutomationAction":
             suggest = "pagerduty_automation_action"
         elif key == "routeTo":
@@ -2174,6 +2317,7 @@ class EventOrchestrationServiceSetRuleActions(dict):
                  automation_action: Optional['outputs.EventOrchestrationServiceSetRuleActionsAutomationAction'] = None,
                  event_action: Optional[str] = None,
                  extractions: Optional[Sequence['outputs.EventOrchestrationServiceSetRuleActionsExtraction']] = None,
+                 incident_custom_field_updates: Optional[Sequence['outputs.EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate']] = None,
                  pagerduty_automation_action: Optional['outputs.EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction'] = None,
                  priority: Optional[str] = None,
                  route_to: Optional[str] = None,
@@ -2186,6 +2330,7 @@ class EventOrchestrationServiceSetRuleActions(dict):
         :param 'EventOrchestrationServiceSetRuleActionsAutomationActionArgs' automation_action: Create a [Webhook](https://support.pagerduty.com/docs/event-orchestration#webhooks) associated with the resulting incident.
         :param str event_action: sets whether the resulting alert status is trigger or resolve. Allowed values are: `trigger`, `resolve`
         :param Sequence['EventOrchestrationServiceSetRuleActionsExtractionArgs'] extractions: Replace any CEF field or Custom Details object field using custom variables.
+        :param Sequence['EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs'] incident_custom_field_updates: Assign a custom field to the resulting incident.
         :param 'EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs' pagerduty_automation_action: Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
         :param str priority: The ID of the priority you want to set on resulting incident. Consider using the `get_priority` data source.
         :param str route_to: The ID of a Set from this Service Orchestration whose rules you also want to use with events that match this rule.
@@ -2202,6 +2347,8 @@ class EventOrchestrationServiceSetRuleActions(dict):
             pulumi.set(__self__, "event_action", event_action)
         if extractions is not None:
             pulumi.set(__self__, "extractions", extractions)
+        if incident_custom_field_updates is not None:
+            pulumi.set(__self__, "incident_custom_field_updates", incident_custom_field_updates)
         if pagerduty_automation_action is not None:
             pulumi.set(__self__, "pagerduty_automation_action", pagerduty_automation_action)
         if priority is not None:
@@ -2248,6 +2395,14 @@ class EventOrchestrationServiceSetRuleActions(dict):
         Replace any CEF field or Custom Details object field using custom variables.
         """
         return pulumi.get(self, "extractions")
+
+    @property
+    @pulumi.getter(name="incidentCustomFieldUpdates")
+    def incident_custom_field_updates(self) -> Optional[Sequence['outputs.EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate']]:
+        """
+        Assign a custom field to the resulting incident.
+        """
+        return pulumi.get(self, "incident_custom_field_updates")
 
     @property
     @pulumi.getter(name="pagerdutyAutomationAction")
@@ -2502,6 +2657,35 @@ class EventOrchestrationServiceSetRuleActionsExtraction(dict):
         * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
         """
         return pulumi.get(self, "template")
+
+
+@pulumi.output_type
+class EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 value: str):
+        """
+        :param str id: The custom field id
+        :param str value: The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The custom field id
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -6965,6 +7149,414 @@ class GetServiceTeamResult(dict):
         The service name to use to find a service in the PagerDuty API.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetStandardsResourceScoresScoreResult(dict):
+    def __init__(__self__, *,
+                 passing: int,
+                 total: int):
+        """
+        :param int passing: Number of standards this resource successfully complies to.
+        :param int total: Number of standards associated to this resource.
+        """
+        pulumi.set(__self__, "passing", passing)
+        pulumi.set(__self__, "total", total)
+
+    @property
+    @pulumi.getter
+    def passing(self) -> int:
+        """
+        Number of standards this resource successfully complies to.
+        """
+        return pulumi.get(self, "passing")
+
+    @property
+    @pulumi.getter
+    def total(self) -> int:
+        """
+        Number of standards associated to this resource.
+        """
+        return pulumi.get(self, "total")
+
+
+@pulumi.output_type
+class GetStandardsResourceScoresStandardResult(dict):
+    def __init__(__self__, *,
+                 active: bool,
+                 description: str,
+                 id: str,
+                 name: str,
+                 pass_: bool,
+                 type: str):
+        """
+        :param bool active: Indicates whether the standard is currently active and applicable to the resource.
+        :param str description: Provides a textual description of the standard.
+        :param str id: Identifier of said resource.
+        :param str name: The human-readable name of the standard.
+        :param bool pass_: Indicates whether the resource complies to this standard.
+        :param str type: The type of the standard.
+        """
+        pulumi.set(__self__, "active", active)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "pass_", pass_)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def active(self) -> bool:
+        """
+        Indicates whether the standard is currently active and applicable to the resource.
+        """
+        return pulumi.get(self, "active")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Provides a textual description of the standard.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Identifier of said resource.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The human-readable name of the standard.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="pass")
+    def pass_(self) -> bool:
+        """
+        Indicates whether the resource complies to this standard.
+        """
+        return pulumi.get(self, "pass_")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the standard.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetStandardsResourcesScoresResourceResult(dict):
+    def __init__(__self__, *,
+                 resource_id: str,
+                 resource_type: str,
+                 score: 'outputs.GetStandardsResourcesScoresResourceScoreResult',
+                 standards: Sequence['outputs.GetStandardsResourcesScoresResourceStandardResult']):
+        """
+        :param str resource_id: Unique Identifier.
+        :param str resource_type: Type of the object the standards are associated to. Allowed values are `technical_services`.
+        :param 'GetStandardsResourcesScoresResourceScoreArgs' score: Summary of the scores for standards associated with this resource.
+        :param Sequence['GetStandardsResourcesScoresResourceStandardArgs'] standards: The list of standards evaluated against.
+        """
+        pulumi.set(__self__, "resource_id", resource_id)
+        pulumi.set(__self__, "resource_type", resource_type)
+        pulumi.set(__self__, "score", score)
+        pulumi.set(__self__, "standards", standards)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> str:
+        """
+        Unique Identifier.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> str:
+        """
+        Type of the object the standards are associated to. Allowed values are `technical_services`.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @property
+    @pulumi.getter
+    def score(self) -> 'outputs.GetStandardsResourcesScoresResourceScoreResult':
+        """
+        Summary of the scores for standards associated with this resource.
+        """
+        return pulumi.get(self, "score")
+
+    @property
+    @pulumi.getter
+    def standards(self) -> Sequence['outputs.GetStandardsResourcesScoresResourceStandardResult']:
+        """
+        The list of standards evaluated against.
+        """
+        return pulumi.get(self, "standards")
+
+
+@pulumi.output_type
+class GetStandardsResourcesScoresResourceScoreResult(dict):
+    def __init__(__self__, *,
+                 passing: int,
+                 total: int):
+        """
+        :param int passing: Number of standards this resource successfully complies to.
+        :param int total: Number of standards associated to this resource.
+        """
+        pulumi.set(__self__, "passing", passing)
+        pulumi.set(__self__, "total", total)
+
+    @property
+    @pulumi.getter
+    def passing(self) -> int:
+        """
+        Number of standards this resource successfully complies to.
+        """
+        return pulumi.get(self, "passing")
+
+    @property
+    @pulumi.getter
+    def total(self) -> int:
+        """
+        Number of standards associated to this resource.
+        """
+        return pulumi.get(self, "total")
+
+
+@pulumi.output_type
+class GetStandardsResourcesScoresResourceStandardResult(dict):
+    def __init__(__self__, *,
+                 active: bool,
+                 description: str,
+                 id: str,
+                 name: str,
+                 pass_: bool,
+                 type: str):
+        """
+        :param bool active: Indicates whether the standard is currently active and applicable to the resource.
+        :param str description: Provides a textual description of the standard.
+        :param str id: A unique identifier for the standard.
+        :param str name: The human-readable name of the standard.
+        :param bool pass_: Indicates whether the resource complies to this standard.
+        :param str type: The type of the standard.
+        """
+        pulumi.set(__self__, "active", active)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "pass_", pass_)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def active(self) -> bool:
+        """
+        Indicates whether the standard is currently active and applicable to the resource.
+        """
+        return pulumi.get(self, "active")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Provides a textual description of the standard.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        A unique identifier for the standard.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The human-readable name of the standard.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="pass")
+    def pass_(self) -> bool:
+        """
+        Indicates whether the resource complies to this standard.
+        """
+        return pulumi.get(self, "pass_")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the standard.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetStandardsStandardResult(dict):
+    def __init__(__self__, *,
+                 active: bool,
+                 description: str,
+                 exclusions: Sequence['outputs.GetStandardsStandardExclusionResult'],
+                 id: str,
+                 inclusions: Sequence['outputs.GetStandardsStandardInclusionResult'],
+                 name: str,
+                 resource_type: str,
+                 type: str):
+        """
+        :param bool active: Indicates whether the standard is currently active and applicable to the resource.
+        :param str description: Provides a textual description of the standard.
+        :param Sequence['GetStandardsStandardExclusionArgs'] exclusions: A list of exceptions for the application of this standard.
+        :param str id: The unique identifier for the resource being included.
+        :param Sequence['GetStandardsStandardInclusionArgs'] inclusions: A list of explict instances this standard applies to.
+        :param str name: The human-readable name of the standard.
+        :param str resource_type: Filter by `resource_type` the received standards. Allowed values are `technical_service`.
+        :param str type: Specifies the type of resource this inclusion applies to.
+        """
+        pulumi.set(__self__, "active", active)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "exclusions", exclusions)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "inclusions", inclusions)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "resource_type", resource_type)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def active(self) -> bool:
+        """
+        Indicates whether the standard is currently active and applicable to the resource.
+        """
+        return pulumi.get(self, "active")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Provides a textual description of the standard.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def exclusions(self) -> Sequence['outputs.GetStandardsStandardExclusionResult']:
+        """
+        A list of exceptions for the application of this standard.
+        """
+        return pulumi.get(self, "exclusions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The unique identifier for the resource being included.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def inclusions(self) -> Sequence['outputs.GetStandardsStandardInclusionResult']:
+        """
+        A list of explict instances this standard applies to.
+        """
+        return pulumi.get(self, "inclusions")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The human-readable name of the standard.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> str:
+        """
+        Filter by `resource_type` the received standards. Allowed values are `technical_service`.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the type of resource this inclusion applies to.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetStandardsStandardExclusionResult(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 type: str):
+        """
+        :param str id: The unique identifier for the resource being included.
+        :param str type: Specifies the type of resource this inclusion applies to.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The unique identifier for the resource being included.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the type of resource this inclusion applies to.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetStandardsStandardInclusionResult(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 type: str):
+        """
+        :param str id: The unique identifier for the resource being included.
+        :param str type: Specifies the type of resource this inclusion applies to.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The unique identifier for the resource being included.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the type of resource this inclusion applies to.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

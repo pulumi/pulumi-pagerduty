@@ -6,6 +6,7 @@ package com.pulumi.pagerduty.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.pagerduty.outputs.EventOrchestrationServiceSetRuleActionsAutomationAction;
 import com.pulumi.pagerduty.outputs.EventOrchestrationServiceSetRuleActionsExtraction;
+import com.pulumi.pagerduty.outputs.EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate;
 import com.pulumi.pagerduty.outputs.EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction;
 import com.pulumi.pagerduty.outputs.EventOrchestrationServiceSetRuleActionsVariable;
 import java.lang.Boolean;
@@ -38,6 +39,11 @@ public final class EventOrchestrationServiceSetRuleActions {
      * 
      */
     private @Nullable List<EventOrchestrationServiceSetRuleActionsExtraction> extractions;
+    /**
+     * @return Assign a custom field to the resulting incident.
+     * 
+     */
+    private @Nullable List<EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate> incidentCustomFieldUpdates;
     /**
      * @return Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
      * 
@@ -104,6 +110,13 @@ public final class EventOrchestrationServiceSetRuleActions {
         return this.extractions == null ? List.of() : this.extractions;
     }
     /**
+     * @return Assign a custom field to the resulting incident.
+     * 
+     */
+    public List<EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate> incidentCustomFieldUpdates() {
+        return this.incidentCustomFieldUpdates == null ? List.of() : this.incidentCustomFieldUpdates;
+    }
+    /**
      * @return Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
      * 
      */
@@ -166,6 +179,7 @@ public final class EventOrchestrationServiceSetRuleActions {
         private @Nullable EventOrchestrationServiceSetRuleActionsAutomationAction automationAction;
         private @Nullable String eventAction;
         private @Nullable List<EventOrchestrationServiceSetRuleActionsExtraction> extractions;
+        private @Nullable List<EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate> incidentCustomFieldUpdates;
         private @Nullable EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction pagerdutyAutomationAction;
         private @Nullable String priority;
         private @Nullable String routeTo;
@@ -180,6 +194,7 @@ public final class EventOrchestrationServiceSetRuleActions {
     	      this.automationAction = defaults.automationAction;
     	      this.eventAction = defaults.eventAction;
     	      this.extractions = defaults.extractions;
+    	      this.incidentCustomFieldUpdates = defaults.incidentCustomFieldUpdates;
     	      this.pagerdutyAutomationAction = defaults.pagerdutyAutomationAction;
     	      this.priority = defaults.priority;
     	      this.routeTo = defaults.routeTo;
@@ -215,6 +230,15 @@ public final class EventOrchestrationServiceSetRuleActions {
         }
         public Builder extractions(EventOrchestrationServiceSetRuleActionsExtraction... extractions) {
             return extractions(List.of(extractions));
+        }
+        @CustomType.Setter
+        public Builder incidentCustomFieldUpdates(@Nullable List<EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate> incidentCustomFieldUpdates) {
+
+            this.incidentCustomFieldUpdates = incidentCustomFieldUpdates;
+            return this;
+        }
+        public Builder incidentCustomFieldUpdates(EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate... incidentCustomFieldUpdates) {
+            return incidentCustomFieldUpdates(List.of(incidentCustomFieldUpdates));
         }
         @CustomType.Setter
         public Builder pagerdutyAutomationAction(@Nullable EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction pagerdutyAutomationAction) {
@@ -267,6 +291,7 @@ public final class EventOrchestrationServiceSetRuleActions {
             _resultValue.automationAction = automationAction;
             _resultValue.eventAction = eventAction;
             _resultValue.extractions = extractions;
+            _resultValue.incidentCustomFieldUpdates = incidentCustomFieldUpdates;
             _resultValue.pagerdutyAutomationAction = pagerdutyAutomationAction;
             _resultValue.priority = priority;
             _resultValue.routeTo = routeTo;

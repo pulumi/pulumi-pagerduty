@@ -740,6 +740,8 @@ type EventOrchestrationGlobalCatchAllActions struct {
 	EventAction *string `pulumi:"eventAction"`
 	// Replace any CEF field or Custom Details object field using custom variables.
 	Extractions []EventOrchestrationGlobalCatchAllActionsExtraction `pulumi:"extractions"`
+	// Assign a custom field to the resulting incident.
+	IncidentCustomFieldUpdates []EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdate `pulumi:"incidentCustomFieldUpdates"`
 	// The ID of the priority you want to set on resulting incident. Consider using the `getPriority` data source.
 	Priority *string `pulumi:"priority"`
 	// The ID of a Set from this Global Orchestration whose rules you also want to use with events that match this rule.
@@ -776,6 +778,8 @@ type EventOrchestrationGlobalCatchAllActionsArgs struct {
 	EventAction pulumi.StringPtrInput `pulumi:"eventAction"`
 	// Replace any CEF field or Custom Details object field using custom variables.
 	Extractions EventOrchestrationGlobalCatchAllActionsExtractionArrayInput `pulumi:"extractions"`
+	// Assign a custom field to the resulting incident.
+	IncidentCustomFieldUpdates EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArrayInput `pulumi:"incidentCustomFieldUpdates"`
 	// The ID of the priority you want to set on resulting incident. Consider using the `getPriority` data source.
 	Priority pulumi.StringPtrInput `pulumi:"priority"`
 	// The ID of a Set from this Global Orchestration whose rules you also want to use with events that match this rule.
@@ -896,6 +900,13 @@ func (o EventOrchestrationGlobalCatchAllActionsOutput) Extractions() EventOrches
 	}).(EventOrchestrationGlobalCatchAllActionsExtractionArrayOutput)
 }
 
+// Assign a custom field to the resulting incident.
+func (o EventOrchestrationGlobalCatchAllActionsOutput) IncidentCustomFieldUpdates() EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArrayOutput {
+	return o.ApplyT(func(v EventOrchestrationGlobalCatchAllActions) []EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdate {
+		return v.IncidentCustomFieldUpdates
+	}).(EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArrayOutput)
+}
+
 // The ID of the priority you want to set on resulting incident. Consider using the `getPriority` data source.
 func (o EventOrchestrationGlobalCatchAllActionsOutput) Priority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalCatchAllActions) *string { return v.Priority }).(pulumi.StringPtrOutput)
@@ -1000,6 +1011,16 @@ func (o EventOrchestrationGlobalCatchAllActionsPtrOutput) Extractions() EventOrc
 		}
 		return v.Extractions
 	}).(EventOrchestrationGlobalCatchAllActionsExtractionArrayOutput)
+}
+
+// Assign a custom field to the resulting incident.
+func (o EventOrchestrationGlobalCatchAllActionsPtrOutput) IncidentCustomFieldUpdates() EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArrayOutput {
+	return o.ApplyT(func(v *EventOrchestrationGlobalCatchAllActions) []EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdate {
+		if v == nil {
+			return nil
+		}
+		return v.IncidentCustomFieldUpdates
+	}).(EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArrayOutput)
 }
 
 // The ID of the priority you want to set on resulting incident. Consider using the `getPriority` data source.
@@ -1621,6 +1642,112 @@ func (o EventOrchestrationGlobalCatchAllActionsExtractionArrayOutput) Index(i pu
 	}).(EventOrchestrationGlobalCatchAllActionsExtractionOutput)
 }
 
+type EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdate struct {
+	// The custom field id
+	Id string `pulumi:"id"`
+	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+	Value string `pulumi:"value"`
+}
+
+// EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateInput is an input type that accepts EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArgs and EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateOutput values.
+// You can construct a concrete instance of `EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateInput` via:
+//
+//	EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArgs{...}
+type EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateOutput() EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateOutput
+	ToEventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateOutputWithContext(context.Context) EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateOutput
+}
+
+type EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArgs struct {
+	// The custom field id
+	Id pulumi.StringInput `pulumi:"id"`
+	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdate)(nil)).Elem()
+}
+
+func (i EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArgs) ToEventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateOutput() EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateOutput {
+	return i.ToEventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArgs) ToEventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateOutputWithContext(ctx context.Context) EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateOutput)
+}
+
+// EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArrayInput is an input type that accepts EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArray and EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArrayOutput values.
+// You can construct a concrete instance of `EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArrayInput` via:
+//
+//	EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArray{ EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArgs{...} }
+type EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArrayInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArrayOutput() EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArrayOutput
+	ToEventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArrayOutputWithContext(context.Context) EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArrayOutput
+}
+
+type EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArray []EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateInput
+
+func (EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdate)(nil)).Elem()
+}
+
+func (i EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArray) ToEventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArrayOutput() EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArrayOutput {
+	return i.ToEventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArrayOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArray) ToEventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArrayOutputWithContext(ctx context.Context) EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArrayOutput)
+}
+
+type EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdate)(nil)).Elem()
+}
+
+func (o EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateOutput) ToEventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateOutput() EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateOutput {
+	return o
+}
+
+func (o EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateOutput) ToEventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateOutputWithContext(ctx context.Context) EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateOutput {
+	return o
+}
+
+// The custom field id
+func (o EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdate) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+func (o EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdate) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArrayOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdate)(nil)).Elem()
+}
+
+func (o EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArrayOutput) ToEventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArrayOutput() EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArrayOutput) ToEventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArrayOutputWithContext(ctx context.Context) EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArrayOutput) Index(i pulumi.IntInput) EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdate {
+		return vs[0].([]EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdate)[vs[1].(int)]
+	}).(EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateOutput)
+}
+
 type EventOrchestrationGlobalCatchAllActionsVariable struct {
 	// The name of the variable
 	Name string `pulumi:"name"`
@@ -1855,7 +1982,7 @@ type EventOrchestrationGlobalSetRule struct {
 	Conditions []EventOrchestrationGlobalSetRuleCondition `pulumi:"conditions"`
 	// Indicates whether the rule is disabled and would therefore not be evaluated.
 	Disabled *bool `pulumi:"disabled"`
-	// The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
+	// The custom field id
 	Id *string `pulumi:"id"`
 	// A description of this rule's purpose.
 	Label *string `pulumi:"label"`
@@ -1879,7 +2006,7 @@ type EventOrchestrationGlobalSetRuleArgs struct {
 	Conditions EventOrchestrationGlobalSetRuleConditionArrayInput `pulumi:"conditions"`
 	// Indicates whether the rule is disabled and would therefore not be evaluated.
 	Disabled pulumi.BoolPtrInput `pulumi:"disabled"`
-	// The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
+	// The custom field id
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// A description of this rule's purpose.
 	Label pulumi.StringPtrInput `pulumi:"label"`
@@ -1953,7 +2080,7 @@ func (o EventOrchestrationGlobalSetRuleOutput) Disabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalSetRule) *bool { return v.Disabled }).(pulumi.BoolPtrOutput)
 }
 
-// The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
+// The custom field id
 func (o EventOrchestrationGlobalSetRuleOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventOrchestrationGlobalSetRule) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -1994,6 +2121,8 @@ type EventOrchestrationGlobalSetRuleActions struct {
 	EventAction *string `pulumi:"eventAction"`
 	// Replace any CEF field or Custom Details object field using custom variables.
 	Extractions []EventOrchestrationGlobalSetRuleActionsExtraction `pulumi:"extractions"`
+	// Assign a custom field to the resulting incident.
+	IncidentCustomFieldUpdates []EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdate `pulumi:"incidentCustomFieldUpdates"`
 	// The ID of the priority you want to set on resulting incident. Consider using the `getPriority` data source.
 	Priority *string `pulumi:"priority"`
 	// The ID of a Set from this Global Orchestration whose rules you also want to use with events that match this rule.
@@ -2030,6 +2159,8 @@ type EventOrchestrationGlobalSetRuleActionsArgs struct {
 	EventAction pulumi.StringPtrInput `pulumi:"eventAction"`
 	// Replace any CEF field or Custom Details object field using custom variables.
 	Extractions EventOrchestrationGlobalSetRuleActionsExtractionArrayInput `pulumi:"extractions"`
+	// Assign a custom field to the resulting incident.
+	IncidentCustomFieldUpdates EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArrayInput `pulumi:"incidentCustomFieldUpdates"`
 	// The ID of the priority you want to set on resulting incident. Consider using the `getPriority` data source.
 	Priority pulumi.StringPtrInput `pulumi:"priority"`
 	// The ID of a Set from this Global Orchestration whose rules you also want to use with events that match this rule.
@@ -2097,6 +2228,13 @@ func (o EventOrchestrationGlobalSetRuleActionsOutput) Extractions() EventOrchest
 	return o.ApplyT(func(v EventOrchestrationGlobalSetRuleActions) []EventOrchestrationGlobalSetRuleActionsExtraction {
 		return v.Extractions
 	}).(EventOrchestrationGlobalSetRuleActionsExtractionArrayOutput)
+}
+
+// Assign a custom field to the resulting incident.
+func (o EventOrchestrationGlobalSetRuleActionsOutput) IncidentCustomFieldUpdates() EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArrayOutput {
+	return o.ApplyT(func(v EventOrchestrationGlobalSetRuleActions) []EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdate {
+		return v.IncidentCustomFieldUpdates
+	}).(EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArrayOutput)
 }
 
 // The ID of the priority you want to set on resulting incident. Consider using the `getPriority` data source.
@@ -2688,6 +2826,112 @@ func (o EventOrchestrationGlobalSetRuleActionsExtractionArrayOutput) Index(i pul
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventOrchestrationGlobalSetRuleActionsExtraction {
 		return vs[0].([]EventOrchestrationGlobalSetRuleActionsExtraction)[vs[1].(int)]
 	}).(EventOrchestrationGlobalSetRuleActionsExtractionOutput)
+}
+
+type EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdate struct {
+	// The custom field id
+	Id string `pulumi:"id"`
+	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+	Value string `pulumi:"value"`
+}
+
+// EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateInput is an input type that accepts EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArgs and EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateOutput values.
+// You can construct a concrete instance of `EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateInput` via:
+//
+//	EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArgs{...}
+type EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateOutput() EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateOutput
+	ToEventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateOutputWithContext(context.Context) EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateOutput
+}
+
+type EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArgs struct {
+	// The custom field id
+	Id pulumi.StringInput `pulumi:"id"`
+	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdate)(nil)).Elem()
+}
+
+func (i EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArgs) ToEventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateOutput() EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateOutput {
+	return i.ToEventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArgs) ToEventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateOutputWithContext(ctx context.Context) EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateOutput)
+}
+
+// EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArrayInput is an input type that accepts EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArray and EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArrayOutput values.
+// You can construct a concrete instance of `EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArrayInput` via:
+//
+//	EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArray{ EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArgs{...} }
+type EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArrayInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArrayOutput() EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArrayOutput
+	ToEventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArrayOutputWithContext(context.Context) EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArrayOutput
+}
+
+type EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArray []EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateInput
+
+func (EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdate)(nil)).Elem()
+}
+
+func (i EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArray) ToEventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArrayOutput() EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArrayOutput {
+	return i.ToEventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArrayOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArray) ToEventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArrayOutputWithContext(ctx context.Context) EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArrayOutput)
+}
+
+type EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdate)(nil)).Elem()
+}
+
+func (o EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateOutput) ToEventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateOutput() EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateOutput {
+	return o
+}
+
+func (o EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateOutput) ToEventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateOutputWithContext(ctx context.Context) EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateOutput {
+	return o
+}
+
+// The custom field id
+func (o EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdate) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+func (o EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdate) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArrayOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdate)(nil)).Elem()
+}
+
+func (o EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArrayOutput) ToEventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArrayOutput() EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArrayOutput) ToEventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArrayOutputWithContext(ctx context.Context) EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArrayOutput) Index(i pulumi.IntInput) EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdate {
+		return vs[0].([]EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdate)[vs[1].(int)]
+	}).(EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateOutput)
 }
 
 type EventOrchestrationGlobalSetRuleActionsVariable struct {
@@ -3984,6 +4228,8 @@ type EventOrchestrationServiceCatchAllActions struct {
 	EventAction *string `pulumi:"eventAction"`
 	// Replace any CEF field or Custom Details object field using custom variables.
 	Extractions []EventOrchestrationServiceCatchAllActionsExtraction `pulumi:"extractions"`
+	// Assign a custom field to the resulting incident.
+	IncidentCustomFieldUpdates []EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdate `pulumi:"incidentCustomFieldUpdates"`
 	// Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
 	PagerdutyAutomationAction *EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction `pulumi:"pagerdutyAutomationAction"`
 	// The ID of the priority you want to set on resulting incident. Consider using the `getPriority` data source.
@@ -4020,6 +4266,8 @@ type EventOrchestrationServiceCatchAllActionsArgs struct {
 	EventAction pulumi.StringPtrInput `pulumi:"eventAction"`
 	// Replace any CEF field or Custom Details object field using custom variables.
 	Extractions EventOrchestrationServiceCatchAllActionsExtractionArrayInput `pulumi:"extractions"`
+	// Assign a custom field to the resulting incident.
+	IncidentCustomFieldUpdates EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArrayInput `pulumi:"incidentCustomFieldUpdates"`
 	// Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
 	PagerdutyAutomationAction EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrInput `pulumi:"pagerdutyAutomationAction"`
 	// The ID of the priority you want to set on resulting incident. Consider using the `getPriority` data source.
@@ -4137,6 +4385,13 @@ func (o EventOrchestrationServiceCatchAllActionsOutput) Extractions() EventOrche
 	}).(EventOrchestrationServiceCatchAllActionsExtractionArrayOutput)
 }
 
+// Assign a custom field to the resulting incident.
+func (o EventOrchestrationServiceCatchAllActionsOutput) IncidentCustomFieldUpdates() EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArrayOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActions) []EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdate {
+		return v.IncidentCustomFieldUpdates
+	}).(EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArrayOutput)
+}
+
 // Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
 func (o EventOrchestrationServiceCatchAllActionsOutput) PagerdutyAutomationAction() EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActions) *EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction {
@@ -4238,6 +4493,16 @@ func (o EventOrchestrationServiceCatchAllActionsPtrOutput) Extractions() EventOr
 		}
 		return v.Extractions
 	}).(EventOrchestrationServiceCatchAllActionsExtractionArrayOutput)
+}
+
+// Assign a custom field to the resulting incident.
+func (o EventOrchestrationServiceCatchAllActionsPtrOutput) IncidentCustomFieldUpdates() EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArrayOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceCatchAllActions) []EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdate {
+		if v == nil {
+			return nil
+		}
+		return v.IncidentCustomFieldUpdates
+	}).(EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArrayOutput)
 }
 
 // Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
@@ -4869,6 +5134,112 @@ func (o EventOrchestrationServiceCatchAllActionsExtractionArrayOutput) Index(i p
 	}).(EventOrchestrationServiceCatchAllActionsExtractionOutput)
 }
 
+type EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdate struct {
+	// The custom field id
+	Id string `pulumi:"id"`
+	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+	Value string `pulumi:"value"`
+}
+
+// EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateInput is an input type that accepts EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArgs and EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateInput` via:
+//
+//	EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArgs{...}
+type EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateOutput() EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateOutput
+	ToEventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateOutputWithContext(context.Context) EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateOutput
+}
+
+type EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArgs struct {
+	// The custom field id
+	Id pulumi.StringInput `pulumi:"id"`
+	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdate)(nil)).Elem()
+}
+
+func (i EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArgs) ToEventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateOutput() EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateOutput {
+	return i.ToEventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArgs) ToEventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateOutput)
+}
+
+// EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArrayInput is an input type that accepts EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArray and EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArrayOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArrayInput` via:
+//
+//	EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArray{ EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArgs{...} }
+type EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArrayInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArrayOutput() EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArrayOutput
+	ToEventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArrayOutputWithContext(context.Context) EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArrayOutput
+}
+
+type EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArray []EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateInput
+
+func (EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdate)(nil)).Elem()
+}
+
+func (i EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArray) ToEventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArrayOutput() EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArrayOutput {
+	return i.ToEventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArrayOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArray) ToEventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArrayOutput)
+}
+
+type EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdate)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateOutput) ToEventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateOutput() EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateOutput) ToEventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateOutput {
+	return o
+}
+
+// The custom field id
+func (o EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdate) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+func (o EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdate) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArrayOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdate)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArrayOutput) ToEventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArrayOutput() EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArrayOutput) ToEventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArrayOutput) Index(i pulumi.IntInput) EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdate {
+		return vs[0].([]EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdate)[vs[1].(int)]
+	}).(EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateOutput)
+}
+
 type EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction struct {
 	// Id of the Process Automation action to be triggered.
 	ActionId string `pulumi:"actionId"`
@@ -5240,7 +5611,7 @@ type EventOrchestrationServiceSetRule struct {
 	Conditions []EventOrchestrationServiceSetRuleCondition `pulumi:"conditions"`
 	// Indicates whether the rule is disabled and would therefore not be evaluated.
 	Disabled *bool `pulumi:"disabled"`
-	// The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
+	// The custom field id
 	Id *string `pulumi:"id"`
 	// A description of this rule's purpose.
 	Label *string `pulumi:"label"`
@@ -5264,7 +5635,7 @@ type EventOrchestrationServiceSetRuleArgs struct {
 	Conditions EventOrchestrationServiceSetRuleConditionArrayInput `pulumi:"conditions"`
 	// Indicates whether the rule is disabled and would therefore not be evaluated.
 	Disabled pulumi.BoolPtrInput `pulumi:"disabled"`
-	// The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
+	// The custom field id
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// A description of this rule's purpose.
 	Label pulumi.StringPtrInput `pulumi:"label"`
@@ -5338,7 +5709,7 @@ func (o EventOrchestrationServiceSetRuleOutput) Disabled() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v EventOrchestrationServiceSetRule) *bool { return v.Disabled }).(pulumi.BoolPtrOutput)
 }
 
-// The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
+// The custom field id
 func (o EventOrchestrationServiceSetRuleOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventOrchestrationServiceSetRule) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -5377,6 +5748,8 @@ type EventOrchestrationServiceSetRuleActions struct {
 	EventAction *string `pulumi:"eventAction"`
 	// Replace any CEF field or Custom Details object field using custom variables.
 	Extractions []EventOrchestrationServiceSetRuleActionsExtraction `pulumi:"extractions"`
+	// Assign a custom field to the resulting incident.
+	IncidentCustomFieldUpdates []EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate `pulumi:"incidentCustomFieldUpdates"`
 	// Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
 	PagerdutyAutomationAction *EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction `pulumi:"pagerdutyAutomationAction"`
 	// The ID of the priority you want to set on resulting incident. Consider using the `getPriority` data source.
@@ -5413,6 +5786,8 @@ type EventOrchestrationServiceSetRuleActionsArgs struct {
 	EventAction pulumi.StringPtrInput `pulumi:"eventAction"`
 	// Replace any CEF field or Custom Details object field using custom variables.
 	Extractions EventOrchestrationServiceSetRuleActionsExtractionArrayInput `pulumi:"extractions"`
+	// Assign a custom field to the resulting incident.
+	IncidentCustomFieldUpdates EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArrayInput `pulumi:"incidentCustomFieldUpdates"`
 	// Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
 	PagerdutyAutomationAction EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrInput `pulumi:"pagerdutyAutomationAction"`
 	// The ID of the priority you want to set on resulting incident. Consider using the `getPriority` data source.
@@ -5477,6 +5852,13 @@ func (o EventOrchestrationServiceSetRuleActionsOutput) Extractions() EventOrches
 	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActions) []EventOrchestrationServiceSetRuleActionsExtraction {
 		return v.Extractions
 	}).(EventOrchestrationServiceSetRuleActionsExtractionArrayOutput)
+}
+
+// Assign a custom field to the resulting incident.
+func (o EventOrchestrationServiceSetRuleActionsOutput) IncidentCustomFieldUpdates() EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArrayOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActions) []EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate {
+		return v.IncidentCustomFieldUpdates
+	}).(EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArrayOutput)
 }
 
 // Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
@@ -6075,6 +6457,112 @@ func (o EventOrchestrationServiceSetRuleActionsExtractionArrayOutput) Index(i pu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventOrchestrationServiceSetRuleActionsExtraction {
 		return vs[0].([]EventOrchestrationServiceSetRuleActionsExtraction)[vs[1].(int)]
 	}).(EventOrchestrationServiceSetRuleActionsExtractionOutput)
+}
+
+type EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate struct {
+	// The custom field id
+	Id string `pulumi:"id"`
+	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+	Value string `pulumi:"value"`
+}
+
+// EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateInput is an input type that accepts EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs and EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateInput` via:
+//
+//	EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs{...}
+type EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateOutput() EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateOutput
+	ToEventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateOutputWithContext(context.Context) EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateOutput
+}
+
+type EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs struct {
+	// The custom field id
+	Id pulumi.StringInput `pulumi:"id"`
+	// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate)(nil)).Elem()
+}
+
+func (i EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs) ToEventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateOutput() EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateOutput {
+	return i.ToEventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs) ToEventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateOutput)
+}
+
+// EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArrayInput is an input type that accepts EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArray and EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArrayOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArrayInput` via:
+//
+//	EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArray{ EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs{...} }
+type EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArrayInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArrayOutput() EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArrayOutput
+	ToEventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArrayOutputWithContext(context.Context) EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArrayOutput
+}
+
+type EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArray []EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateInput
+
+func (EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate)(nil)).Elem()
+}
+
+func (i EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArray) ToEventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArrayOutput() EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArrayOutput {
+	return i.ToEventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArrayOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArray) ToEventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArrayOutput)
+}
+
+type EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateOutput) ToEventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateOutput() EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateOutput) ToEventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateOutput {
+	return o
+}
+
+// The custom field id
+func (o EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+func (o EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArrayOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArrayOutput) ToEventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArrayOutput() EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArrayOutput) ToEventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArrayOutput) Index(i pulumi.IntInput) EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate {
+		return vs[0].([]EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate)[vs[1].(int)]
+	}).(EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateOutput)
 }
 
 type EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction struct {
@@ -18115,6 +18603,910 @@ func (o GetServiceTeamArrayOutput) Index(i pulumi.IntInput) GetServiceTeamOutput
 	}).(GetServiceTeamOutput)
 }
 
+type GetStandardsResourceScoresScore struct {
+	// Number of standards this resource successfully complies to.
+	Passing int `pulumi:"passing"`
+	// Number of standards associated to this resource.
+	Total int `pulumi:"total"`
+}
+
+// GetStandardsResourceScoresScoreInput is an input type that accepts GetStandardsResourceScoresScoreArgs and GetStandardsResourceScoresScoreOutput values.
+// You can construct a concrete instance of `GetStandardsResourceScoresScoreInput` via:
+//
+//	GetStandardsResourceScoresScoreArgs{...}
+type GetStandardsResourceScoresScoreInput interface {
+	pulumi.Input
+
+	ToGetStandardsResourceScoresScoreOutput() GetStandardsResourceScoresScoreOutput
+	ToGetStandardsResourceScoresScoreOutputWithContext(context.Context) GetStandardsResourceScoresScoreOutput
+}
+
+type GetStandardsResourceScoresScoreArgs struct {
+	// Number of standards this resource successfully complies to.
+	Passing pulumi.IntInput `pulumi:"passing"`
+	// Number of standards associated to this resource.
+	Total pulumi.IntInput `pulumi:"total"`
+}
+
+func (GetStandardsResourceScoresScoreArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStandardsResourceScoresScore)(nil)).Elem()
+}
+
+func (i GetStandardsResourceScoresScoreArgs) ToGetStandardsResourceScoresScoreOutput() GetStandardsResourceScoresScoreOutput {
+	return i.ToGetStandardsResourceScoresScoreOutputWithContext(context.Background())
+}
+
+func (i GetStandardsResourceScoresScoreArgs) ToGetStandardsResourceScoresScoreOutputWithContext(ctx context.Context) GetStandardsResourceScoresScoreOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStandardsResourceScoresScoreOutput)
+}
+
+type GetStandardsResourceScoresScoreOutput struct{ *pulumi.OutputState }
+
+func (GetStandardsResourceScoresScoreOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStandardsResourceScoresScore)(nil)).Elem()
+}
+
+func (o GetStandardsResourceScoresScoreOutput) ToGetStandardsResourceScoresScoreOutput() GetStandardsResourceScoresScoreOutput {
+	return o
+}
+
+func (o GetStandardsResourceScoresScoreOutput) ToGetStandardsResourceScoresScoreOutputWithContext(ctx context.Context) GetStandardsResourceScoresScoreOutput {
+	return o
+}
+
+// Number of standards this resource successfully complies to.
+func (o GetStandardsResourceScoresScoreOutput) Passing() pulumi.IntOutput {
+	return o.ApplyT(func(v GetStandardsResourceScoresScore) int { return v.Passing }).(pulumi.IntOutput)
+}
+
+// Number of standards associated to this resource.
+func (o GetStandardsResourceScoresScoreOutput) Total() pulumi.IntOutput {
+	return o.ApplyT(func(v GetStandardsResourceScoresScore) int { return v.Total }).(pulumi.IntOutput)
+}
+
+type GetStandardsResourceScoresStandard struct {
+	// Indicates whether the standard is currently active and applicable to the resource.
+	Active bool `pulumi:"active"`
+	// Provides a textual description of the standard.
+	Description string `pulumi:"description"`
+	// Identifier of said resource.
+	Id string `pulumi:"id"`
+	// The human-readable name of the standard.
+	Name string `pulumi:"name"`
+	// Indicates whether the resource complies to this standard.
+	Pass bool `pulumi:"pass"`
+	// The type of the standard.
+	Type string `pulumi:"type"`
+}
+
+// GetStandardsResourceScoresStandardInput is an input type that accepts GetStandardsResourceScoresStandardArgs and GetStandardsResourceScoresStandardOutput values.
+// You can construct a concrete instance of `GetStandardsResourceScoresStandardInput` via:
+//
+//	GetStandardsResourceScoresStandardArgs{...}
+type GetStandardsResourceScoresStandardInput interface {
+	pulumi.Input
+
+	ToGetStandardsResourceScoresStandardOutput() GetStandardsResourceScoresStandardOutput
+	ToGetStandardsResourceScoresStandardOutputWithContext(context.Context) GetStandardsResourceScoresStandardOutput
+}
+
+type GetStandardsResourceScoresStandardArgs struct {
+	// Indicates whether the standard is currently active and applicable to the resource.
+	Active pulumi.BoolInput `pulumi:"active"`
+	// Provides a textual description of the standard.
+	Description pulumi.StringInput `pulumi:"description"`
+	// Identifier of said resource.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The human-readable name of the standard.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Indicates whether the resource complies to this standard.
+	Pass pulumi.BoolInput `pulumi:"pass"`
+	// The type of the standard.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetStandardsResourceScoresStandardArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStandardsResourceScoresStandard)(nil)).Elem()
+}
+
+func (i GetStandardsResourceScoresStandardArgs) ToGetStandardsResourceScoresStandardOutput() GetStandardsResourceScoresStandardOutput {
+	return i.ToGetStandardsResourceScoresStandardOutputWithContext(context.Background())
+}
+
+func (i GetStandardsResourceScoresStandardArgs) ToGetStandardsResourceScoresStandardOutputWithContext(ctx context.Context) GetStandardsResourceScoresStandardOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStandardsResourceScoresStandardOutput)
+}
+
+// GetStandardsResourceScoresStandardArrayInput is an input type that accepts GetStandardsResourceScoresStandardArray and GetStandardsResourceScoresStandardArrayOutput values.
+// You can construct a concrete instance of `GetStandardsResourceScoresStandardArrayInput` via:
+//
+//	GetStandardsResourceScoresStandardArray{ GetStandardsResourceScoresStandardArgs{...} }
+type GetStandardsResourceScoresStandardArrayInput interface {
+	pulumi.Input
+
+	ToGetStandardsResourceScoresStandardArrayOutput() GetStandardsResourceScoresStandardArrayOutput
+	ToGetStandardsResourceScoresStandardArrayOutputWithContext(context.Context) GetStandardsResourceScoresStandardArrayOutput
+}
+
+type GetStandardsResourceScoresStandardArray []GetStandardsResourceScoresStandardInput
+
+func (GetStandardsResourceScoresStandardArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStandardsResourceScoresStandard)(nil)).Elem()
+}
+
+func (i GetStandardsResourceScoresStandardArray) ToGetStandardsResourceScoresStandardArrayOutput() GetStandardsResourceScoresStandardArrayOutput {
+	return i.ToGetStandardsResourceScoresStandardArrayOutputWithContext(context.Background())
+}
+
+func (i GetStandardsResourceScoresStandardArray) ToGetStandardsResourceScoresStandardArrayOutputWithContext(ctx context.Context) GetStandardsResourceScoresStandardArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStandardsResourceScoresStandardArrayOutput)
+}
+
+type GetStandardsResourceScoresStandardOutput struct{ *pulumi.OutputState }
+
+func (GetStandardsResourceScoresStandardOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStandardsResourceScoresStandard)(nil)).Elem()
+}
+
+func (o GetStandardsResourceScoresStandardOutput) ToGetStandardsResourceScoresStandardOutput() GetStandardsResourceScoresStandardOutput {
+	return o
+}
+
+func (o GetStandardsResourceScoresStandardOutput) ToGetStandardsResourceScoresStandardOutputWithContext(ctx context.Context) GetStandardsResourceScoresStandardOutput {
+	return o
+}
+
+// Indicates whether the standard is currently active and applicable to the resource.
+func (o GetStandardsResourceScoresStandardOutput) Active() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStandardsResourceScoresStandard) bool { return v.Active }).(pulumi.BoolOutput)
+}
+
+// Provides a textual description of the standard.
+func (o GetStandardsResourceScoresStandardOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardsResourceScoresStandard) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Identifier of said resource.
+func (o GetStandardsResourceScoresStandardOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardsResourceScoresStandard) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The human-readable name of the standard.
+func (o GetStandardsResourceScoresStandardOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardsResourceScoresStandard) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Indicates whether the resource complies to this standard.
+func (o GetStandardsResourceScoresStandardOutput) Pass() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStandardsResourceScoresStandard) bool { return v.Pass }).(pulumi.BoolOutput)
+}
+
+// The type of the standard.
+func (o GetStandardsResourceScoresStandardOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardsResourceScoresStandard) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetStandardsResourceScoresStandardArrayOutput struct{ *pulumi.OutputState }
+
+func (GetStandardsResourceScoresStandardArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStandardsResourceScoresStandard)(nil)).Elem()
+}
+
+func (o GetStandardsResourceScoresStandardArrayOutput) ToGetStandardsResourceScoresStandardArrayOutput() GetStandardsResourceScoresStandardArrayOutput {
+	return o
+}
+
+func (o GetStandardsResourceScoresStandardArrayOutput) ToGetStandardsResourceScoresStandardArrayOutputWithContext(ctx context.Context) GetStandardsResourceScoresStandardArrayOutput {
+	return o
+}
+
+func (o GetStandardsResourceScoresStandardArrayOutput) Index(i pulumi.IntInput) GetStandardsResourceScoresStandardOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetStandardsResourceScoresStandard {
+		return vs[0].([]GetStandardsResourceScoresStandard)[vs[1].(int)]
+	}).(GetStandardsResourceScoresStandardOutput)
+}
+
+type GetStandardsResourcesScoresResource struct {
+	// Unique Identifier.
+	ResourceId string `pulumi:"resourceId"`
+	// Type of the object the standards are associated to. Allowed values are `technicalServices`.
+	ResourceType string `pulumi:"resourceType"`
+	// Summary of the scores for standards associated with this resource.
+	Score GetStandardsResourcesScoresResourceScore `pulumi:"score"`
+	// The list of standards evaluated against.
+	Standards []GetStandardsResourcesScoresResourceStandard `pulumi:"standards"`
+}
+
+// GetStandardsResourcesScoresResourceInput is an input type that accepts GetStandardsResourcesScoresResourceArgs and GetStandardsResourcesScoresResourceOutput values.
+// You can construct a concrete instance of `GetStandardsResourcesScoresResourceInput` via:
+//
+//	GetStandardsResourcesScoresResourceArgs{...}
+type GetStandardsResourcesScoresResourceInput interface {
+	pulumi.Input
+
+	ToGetStandardsResourcesScoresResourceOutput() GetStandardsResourcesScoresResourceOutput
+	ToGetStandardsResourcesScoresResourceOutputWithContext(context.Context) GetStandardsResourcesScoresResourceOutput
+}
+
+type GetStandardsResourcesScoresResourceArgs struct {
+	// Unique Identifier.
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
+	// Type of the object the standards are associated to. Allowed values are `technicalServices`.
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+	// Summary of the scores for standards associated with this resource.
+	Score GetStandardsResourcesScoresResourceScoreInput `pulumi:"score"`
+	// The list of standards evaluated against.
+	Standards GetStandardsResourcesScoresResourceStandardArrayInput `pulumi:"standards"`
+}
+
+func (GetStandardsResourcesScoresResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStandardsResourcesScoresResource)(nil)).Elem()
+}
+
+func (i GetStandardsResourcesScoresResourceArgs) ToGetStandardsResourcesScoresResourceOutput() GetStandardsResourcesScoresResourceOutput {
+	return i.ToGetStandardsResourcesScoresResourceOutputWithContext(context.Background())
+}
+
+func (i GetStandardsResourcesScoresResourceArgs) ToGetStandardsResourcesScoresResourceOutputWithContext(ctx context.Context) GetStandardsResourcesScoresResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStandardsResourcesScoresResourceOutput)
+}
+
+// GetStandardsResourcesScoresResourceArrayInput is an input type that accepts GetStandardsResourcesScoresResourceArray and GetStandardsResourcesScoresResourceArrayOutput values.
+// You can construct a concrete instance of `GetStandardsResourcesScoresResourceArrayInput` via:
+//
+//	GetStandardsResourcesScoresResourceArray{ GetStandardsResourcesScoresResourceArgs{...} }
+type GetStandardsResourcesScoresResourceArrayInput interface {
+	pulumi.Input
+
+	ToGetStandardsResourcesScoresResourceArrayOutput() GetStandardsResourcesScoresResourceArrayOutput
+	ToGetStandardsResourcesScoresResourceArrayOutputWithContext(context.Context) GetStandardsResourcesScoresResourceArrayOutput
+}
+
+type GetStandardsResourcesScoresResourceArray []GetStandardsResourcesScoresResourceInput
+
+func (GetStandardsResourcesScoresResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStandardsResourcesScoresResource)(nil)).Elem()
+}
+
+func (i GetStandardsResourcesScoresResourceArray) ToGetStandardsResourcesScoresResourceArrayOutput() GetStandardsResourcesScoresResourceArrayOutput {
+	return i.ToGetStandardsResourcesScoresResourceArrayOutputWithContext(context.Background())
+}
+
+func (i GetStandardsResourcesScoresResourceArray) ToGetStandardsResourcesScoresResourceArrayOutputWithContext(ctx context.Context) GetStandardsResourcesScoresResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStandardsResourcesScoresResourceArrayOutput)
+}
+
+type GetStandardsResourcesScoresResourceOutput struct{ *pulumi.OutputState }
+
+func (GetStandardsResourcesScoresResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStandardsResourcesScoresResource)(nil)).Elem()
+}
+
+func (o GetStandardsResourcesScoresResourceOutput) ToGetStandardsResourcesScoresResourceOutput() GetStandardsResourcesScoresResourceOutput {
+	return o
+}
+
+func (o GetStandardsResourcesScoresResourceOutput) ToGetStandardsResourcesScoresResourceOutputWithContext(ctx context.Context) GetStandardsResourcesScoresResourceOutput {
+	return o
+}
+
+// Unique Identifier.
+func (o GetStandardsResourcesScoresResourceOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardsResourcesScoresResource) string { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+// Type of the object the standards are associated to. Allowed values are `technicalServices`.
+func (o GetStandardsResourcesScoresResourceOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardsResourcesScoresResource) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+// Summary of the scores for standards associated with this resource.
+func (o GetStandardsResourcesScoresResourceOutput) Score() GetStandardsResourcesScoresResourceScoreOutput {
+	return o.ApplyT(func(v GetStandardsResourcesScoresResource) GetStandardsResourcesScoresResourceScore { return v.Score }).(GetStandardsResourcesScoresResourceScoreOutput)
+}
+
+// The list of standards evaluated against.
+func (o GetStandardsResourcesScoresResourceOutput) Standards() GetStandardsResourcesScoresResourceStandardArrayOutput {
+	return o.ApplyT(func(v GetStandardsResourcesScoresResource) []GetStandardsResourcesScoresResourceStandard {
+		return v.Standards
+	}).(GetStandardsResourcesScoresResourceStandardArrayOutput)
+}
+
+type GetStandardsResourcesScoresResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetStandardsResourcesScoresResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStandardsResourcesScoresResource)(nil)).Elem()
+}
+
+func (o GetStandardsResourcesScoresResourceArrayOutput) ToGetStandardsResourcesScoresResourceArrayOutput() GetStandardsResourcesScoresResourceArrayOutput {
+	return o
+}
+
+func (o GetStandardsResourcesScoresResourceArrayOutput) ToGetStandardsResourcesScoresResourceArrayOutputWithContext(ctx context.Context) GetStandardsResourcesScoresResourceArrayOutput {
+	return o
+}
+
+func (o GetStandardsResourcesScoresResourceArrayOutput) Index(i pulumi.IntInput) GetStandardsResourcesScoresResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetStandardsResourcesScoresResource {
+		return vs[0].([]GetStandardsResourcesScoresResource)[vs[1].(int)]
+	}).(GetStandardsResourcesScoresResourceOutput)
+}
+
+type GetStandardsResourcesScoresResourceScore struct {
+	// Number of standards this resource successfully complies to.
+	Passing int `pulumi:"passing"`
+	// Number of standards associated to this resource.
+	Total int `pulumi:"total"`
+}
+
+// GetStandardsResourcesScoresResourceScoreInput is an input type that accepts GetStandardsResourcesScoresResourceScoreArgs and GetStandardsResourcesScoresResourceScoreOutput values.
+// You can construct a concrete instance of `GetStandardsResourcesScoresResourceScoreInput` via:
+//
+//	GetStandardsResourcesScoresResourceScoreArgs{...}
+type GetStandardsResourcesScoresResourceScoreInput interface {
+	pulumi.Input
+
+	ToGetStandardsResourcesScoresResourceScoreOutput() GetStandardsResourcesScoresResourceScoreOutput
+	ToGetStandardsResourcesScoresResourceScoreOutputWithContext(context.Context) GetStandardsResourcesScoresResourceScoreOutput
+}
+
+type GetStandardsResourcesScoresResourceScoreArgs struct {
+	// Number of standards this resource successfully complies to.
+	Passing pulumi.IntInput `pulumi:"passing"`
+	// Number of standards associated to this resource.
+	Total pulumi.IntInput `pulumi:"total"`
+}
+
+func (GetStandardsResourcesScoresResourceScoreArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStandardsResourcesScoresResourceScore)(nil)).Elem()
+}
+
+func (i GetStandardsResourcesScoresResourceScoreArgs) ToGetStandardsResourcesScoresResourceScoreOutput() GetStandardsResourcesScoresResourceScoreOutput {
+	return i.ToGetStandardsResourcesScoresResourceScoreOutputWithContext(context.Background())
+}
+
+func (i GetStandardsResourcesScoresResourceScoreArgs) ToGetStandardsResourcesScoresResourceScoreOutputWithContext(ctx context.Context) GetStandardsResourcesScoresResourceScoreOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStandardsResourcesScoresResourceScoreOutput)
+}
+
+type GetStandardsResourcesScoresResourceScoreOutput struct{ *pulumi.OutputState }
+
+func (GetStandardsResourcesScoresResourceScoreOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStandardsResourcesScoresResourceScore)(nil)).Elem()
+}
+
+func (o GetStandardsResourcesScoresResourceScoreOutput) ToGetStandardsResourcesScoresResourceScoreOutput() GetStandardsResourcesScoresResourceScoreOutput {
+	return o
+}
+
+func (o GetStandardsResourcesScoresResourceScoreOutput) ToGetStandardsResourcesScoresResourceScoreOutputWithContext(ctx context.Context) GetStandardsResourcesScoresResourceScoreOutput {
+	return o
+}
+
+// Number of standards this resource successfully complies to.
+func (o GetStandardsResourcesScoresResourceScoreOutput) Passing() pulumi.IntOutput {
+	return o.ApplyT(func(v GetStandardsResourcesScoresResourceScore) int { return v.Passing }).(pulumi.IntOutput)
+}
+
+// Number of standards associated to this resource.
+func (o GetStandardsResourcesScoresResourceScoreOutput) Total() pulumi.IntOutput {
+	return o.ApplyT(func(v GetStandardsResourcesScoresResourceScore) int { return v.Total }).(pulumi.IntOutput)
+}
+
+type GetStandardsResourcesScoresResourceStandard struct {
+	// Indicates whether the standard is currently active and applicable to the resource.
+	Active bool `pulumi:"active"`
+	// Provides a textual description of the standard.
+	Description string `pulumi:"description"`
+	// A unique identifier for the standard.
+	Id string `pulumi:"id"`
+	// The human-readable name of the standard.
+	Name string `pulumi:"name"`
+	// Indicates whether the resource complies to this standard.
+	Pass bool `pulumi:"pass"`
+	// The type of the standard.
+	Type string `pulumi:"type"`
+}
+
+// GetStandardsResourcesScoresResourceStandardInput is an input type that accepts GetStandardsResourcesScoresResourceStandardArgs and GetStandardsResourcesScoresResourceStandardOutput values.
+// You can construct a concrete instance of `GetStandardsResourcesScoresResourceStandardInput` via:
+//
+//	GetStandardsResourcesScoresResourceStandardArgs{...}
+type GetStandardsResourcesScoresResourceStandardInput interface {
+	pulumi.Input
+
+	ToGetStandardsResourcesScoresResourceStandardOutput() GetStandardsResourcesScoresResourceStandardOutput
+	ToGetStandardsResourcesScoresResourceStandardOutputWithContext(context.Context) GetStandardsResourcesScoresResourceStandardOutput
+}
+
+type GetStandardsResourcesScoresResourceStandardArgs struct {
+	// Indicates whether the standard is currently active and applicable to the resource.
+	Active pulumi.BoolInput `pulumi:"active"`
+	// Provides a textual description of the standard.
+	Description pulumi.StringInput `pulumi:"description"`
+	// A unique identifier for the standard.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The human-readable name of the standard.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Indicates whether the resource complies to this standard.
+	Pass pulumi.BoolInput `pulumi:"pass"`
+	// The type of the standard.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetStandardsResourcesScoresResourceStandardArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStandardsResourcesScoresResourceStandard)(nil)).Elem()
+}
+
+func (i GetStandardsResourcesScoresResourceStandardArgs) ToGetStandardsResourcesScoresResourceStandardOutput() GetStandardsResourcesScoresResourceStandardOutput {
+	return i.ToGetStandardsResourcesScoresResourceStandardOutputWithContext(context.Background())
+}
+
+func (i GetStandardsResourcesScoresResourceStandardArgs) ToGetStandardsResourcesScoresResourceStandardOutputWithContext(ctx context.Context) GetStandardsResourcesScoresResourceStandardOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStandardsResourcesScoresResourceStandardOutput)
+}
+
+// GetStandardsResourcesScoresResourceStandardArrayInput is an input type that accepts GetStandardsResourcesScoresResourceStandardArray and GetStandardsResourcesScoresResourceStandardArrayOutput values.
+// You can construct a concrete instance of `GetStandardsResourcesScoresResourceStandardArrayInput` via:
+//
+//	GetStandardsResourcesScoresResourceStandardArray{ GetStandardsResourcesScoresResourceStandardArgs{...} }
+type GetStandardsResourcesScoresResourceStandardArrayInput interface {
+	pulumi.Input
+
+	ToGetStandardsResourcesScoresResourceStandardArrayOutput() GetStandardsResourcesScoresResourceStandardArrayOutput
+	ToGetStandardsResourcesScoresResourceStandardArrayOutputWithContext(context.Context) GetStandardsResourcesScoresResourceStandardArrayOutput
+}
+
+type GetStandardsResourcesScoresResourceStandardArray []GetStandardsResourcesScoresResourceStandardInput
+
+func (GetStandardsResourcesScoresResourceStandardArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStandardsResourcesScoresResourceStandard)(nil)).Elem()
+}
+
+func (i GetStandardsResourcesScoresResourceStandardArray) ToGetStandardsResourcesScoresResourceStandardArrayOutput() GetStandardsResourcesScoresResourceStandardArrayOutput {
+	return i.ToGetStandardsResourcesScoresResourceStandardArrayOutputWithContext(context.Background())
+}
+
+func (i GetStandardsResourcesScoresResourceStandardArray) ToGetStandardsResourcesScoresResourceStandardArrayOutputWithContext(ctx context.Context) GetStandardsResourcesScoresResourceStandardArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStandardsResourcesScoresResourceStandardArrayOutput)
+}
+
+type GetStandardsResourcesScoresResourceStandardOutput struct{ *pulumi.OutputState }
+
+func (GetStandardsResourcesScoresResourceStandardOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStandardsResourcesScoresResourceStandard)(nil)).Elem()
+}
+
+func (o GetStandardsResourcesScoresResourceStandardOutput) ToGetStandardsResourcesScoresResourceStandardOutput() GetStandardsResourcesScoresResourceStandardOutput {
+	return o
+}
+
+func (o GetStandardsResourcesScoresResourceStandardOutput) ToGetStandardsResourcesScoresResourceStandardOutputWithContext(ctx context.Context) GetStandardsResourcesScoresResourceStandardOutput {
+	return o
+}
+
+// Indicates whether the standard is currently active and applicable to the resource.
+func (o GetStandardsResourcesScoresResourceStandardOutput) Active() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStandardsResourcesScoresResourceStandard) bool { return v.Active }).(pulumi.BoolOutput)
+}
+
+// Provides a textual description of the standard.
+func (o GetStandardsResourcesScoresResourceStandardOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardsResourcesScoresResourceStandard) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// A unique identifier for the standard.
+func (o GetStandardsResourcesScoresResourceStandardOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardsResourcesScoresResourceStandard) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The human-readable name of the standard.
+func (o GetStandardsResourcesScoresResourceStandardOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardsResourcesScoresResourceStandard) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Indicates whether the resource complies to this standard.
+func (o GetStandardsResourcesScoresResourceStandardOutput) Pass() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStandardsResourcesScoresResourceStandard) bool { return v.Pass }).(pulumi.BoolOutput)
+}
+
+// The type of the standard.
+func (o GetStandardsResourcesScoresResourceStandardOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardsResourcesScoresResourceStandard) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetStandardsResourcesScoresResourceStandardArrayOutput struct{ *pulumi.OutputState }
+
+func (GetStandardsResourcesScoresResourceStandardArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStandardsResourcesScoresResourceStandard)(nil)).Elem()
+}
+
+func (o GetStandardsResourcesScoresResourceStandardArrayOutput) ToGetStandardsResourcesScoresResourceStandardArrayOutput() GetStandardsResourcesScoresResourceStandardArrayOutput {
+	return o
+}
+
+func (o GetStandardsResourcesScoresResourceStandardArrayOutput) ToGetStandardsResourcesScoresResourceStandardArrayOutputWithContext(ctx context.Context) GetStandardsResourcesScoresResourceStandardArrayOutput {
+	return o
+}
+
+func (o GetStandardsResourcesScoresResourceStandardArrayOutput) Index(i pulumi.IntInput) GetStandardsResourcesScoresResourceStandardOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetStandardsResourcesScoresResourceStandard {
+		return vs[0].([]GetStandardsResourcesScoresResourceStandard)[vs[1].(int)]
+	}).(GetStandardsResourcesScoresResourceStandardOutput)
+}
+
+type GetStandardsStandard struct {
+	// Indicates whether the standard is currently active and applicable to the resource.
+	Active bool `pulumi:"active"`
+	// Provides a textual description of the standard.
+	Description string `pulumi:"description"`
+	// A list of exceptions for the application of this standard.
+	Exclusions []GetStandardsStandardExclusion `pulumi:"exclusions"`
+	// The unique identifier for the resource being included.
+	Id string `pulumi:"id"`
+	// A list of explict instances this standard applies to.
+	Inclusions []GetStandardsStandardInclusion `pulumi:"inclusions"`
+	// The human-readable name of the standard.
+	Name string `pulumi:"name"`
+	// Filter by `resourceType` the received standards. Allowed values are `technicalService`.
+	ResourceType string `pulumi:"resourceType"`
+	// Specifies the type of resource this inclusion applies to.
+	Type string `pulumi:"type"`
+}
+
+// GetStandardsStandardInput is an input type that accepts GetStandardsStandardArgs and GetStandardsStandardOutput values.
+// You can construct a concrete instance of `GetStandardsStandardInput` via:
+//
+//	GetStandardsStandardArgs{...}
+type GetStandardsStandardInput interface {
+	pulumi.Input
+
+	ToGetStandardsStandardOutput() GetStandardsStandardOutput
+	ToGetStandardsStandardOutputWithContext(context.Context) GetStandardsStandardOutput
+}
+
+type GetStandardsStandardArgs struct {
+	// Indicates whether the standard is currently active and applicable to the resource.
+	Active pulumi.BoolInput `pulumi:"active"`
+	// Provides a textual description of the standard.
+	Description pulumi.StringInput `pulumi:"description"`
+	// A list of exceptions for the application of this standard.
+	Exclusions GetStandardsStandardExclusionArrayInput `pulumi:"exclusions"`
+	// The unique identifier for the resource being included.
+	Id pulumi.StringInput `pulumi:"id"`
+	// A list of explict instances this standard applies to.
+	Inclusions GetStandardsStandardInclusionArrayInput `pulumi:"inclusions"`
+	// The human-readable name of the standard.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Filter by `resourceType` the received standards. Allowed values are `technicalService`.
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+	// Specifies the type of resource this inclusion applies to.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetStandardsStandardArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStandardsStandard)(nil)).Elem()
+}
+
+func (i GetStandardsStandardArgs) ToGetStandardsStandardOutput() GetStandardsStandardOutput {
+	return i.ToGetStandardsStandardOutputWithContext(context.Background())
+}
+
+func (i GetStandardsStandardArgs) ToGetStandardsStandardOutputWithContext(ctx context.Context) GetStandardsStandardOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStandardsStandardOutput)
+}
+
+// GetStandardsStandardArrayInput is an input type that accepts GetStandardsStandardArray and GetStandardsStandardArrayOutput values.
+// You can construct a concrete instance of `GetStandardsStandardArrayInput` via:
+//
+//	GetStandardsStandardArray{ GetStandardsStandardArgs{...} }
+type GetStandardsStandardArrayInput interface {
+	pulumi.Input
+
+	ToGetStandardsStandardArrayOutput() GetStandardsStandardArrayOutput
+	ToGetStandardsStandardArrayOutputWithContext(context.Context) GetStandardsStandardArrayOutput
+}
+
+type GetStandardsStandardArray []GetStandardsStandardInput
+
+func (GetStandardsStandardArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStandardsStandard)(nil)).Elem()
+}
+
+func (i GetStandardsStandardArray) ToGetStandardsStandardArrayOutput() GetStandardsStandardArrayOutput {
+	return i.ToGetStandardsStandardArrayOutputWithContext(context.Background())
+}
+
+func (i GetStandardsStandardArray) ToGetStandardsStandardArrayOutputWithContext(ctx context.Context) GetStandardsStandardArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStandardsStandardArrayOutput)
+}
+
+type GetStandardsStandardOutput struct{ *pulumi.OutputState }
+
+func (GetStandardsStandardOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStandardsStandard)(nil)).Elem()
+}
+
+func (o GetStandardsStandardOutput) ToGetStandardsStandardOutput() GetStandardsStandardOutput {
+	return o
+}
+
+func (o GetStandardsStandardOutput) ToGetStandardsStandardOutputWithContext(ctx context.Context) GetStandardsStandardOutput {
+	return o
+}
+
+// Indicates whether the standard is currently active and applicable to the resource.
+func (o GetStandardsStandardOutput) Active() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStandardsStandard) bool { return v.Active }).(pulumi.BoolOutput)
+}
+
+// Provides a textual description of the standard.
+func (o GetStandardsStandardOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardsStandard) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// A list of exceptions for the application of this standard.
+func (o GetStandardsStandardOutput) Exclusions() GetStandardsStandardExclusionArrayOutput {
+	return o.ApplyT(func(v GetStandardsStandard) []GetStandardsStandardExclusion { return v.Exclusions }).(GetStandardsStandardExclusionArrayOutput)
+}
+
+// The unique identifier for the resource being included.
+func (o GetStandardsStandardOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardsStandard) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A list of explict instances this standard applies to.
+func (o GetStandardsStandardOutput) Inclusions() GetStandardsStandardInclusionArrayOutput {
+	return o.ApplyT(func(v GetStandardsStandard) []GetStandardsStandardInclusion { return v.Inclusions }).(GetStandardsStandardInclusionArrayOutput)
+}
+
+// The human-readable name of the standard.
+func (o GetStandardsStandardOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardsStandard) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Filter by `resourceType` the received standards. Allowed values are `technicalService`.
+func (o GetStandardsStandardOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardsStandard) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+// Specifies the type of resource this inclusion applies to.
+func (o GetStandardsStandardOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardsStandard) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetStandardsStandardArrayOutput struct{ *pulumi.OutputState }
+
+func (GetStandardsStandardArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStandardsStandard)(nil)).Elem()
+}
+
+func (o GetStandardsStandardArrayOutput) ToGetStandardsStandardArrayOutput() GetStandardsStandardArrayOutput {
+	return o
+}
+
+func (o GetStandardsStandardArrayOutput) ToGetStandardsStandardArrayOutputWithContext(ctx context.Context) GetStandardsStandardArrayOutput {
+	return o
+}
+
+func (o GetStandardsStandardArrayOutput) Index(i pulumi.IntInput) GetStandardsStandardOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetStandardsStandard {
+		return vs[0].([]GetStandardsStandard)[vs[1].(int)]
+	}).(GetStandardsStandardOutput)
+}
+
+type GetStandardsStandardExclusion struct {
+	// The unique identifier for the resource being included.
+	Id string `pulumi:"id"`
+	// Specifies the type of resource this inclusion applies to.
+	Type string `pulumi:"type"`
+}
+
+// GetStandardsStandardExclusionInput is an input type that accepts GetStandardsStandardExclusionArgs and GetStandardsStandardExclusionOutput values.
+// You can construct a concrete instance of `GetStandardsStandardExclusionInput` via:
+//
+//	GetStandardsStandardExclusionArgs{...}
+type GetStandardsStandardExclusionInput interface {
+	pulumi.Input
+
+	ToGetStandardsStandardExclusionOutput() GetStandardsStandardExclusionOutput
+	ToGetStandardsStandardExclusionOutputWithContext(context.Context) GetStandardsStandardExclusionOutput
+}
+
+type GetStandardsStandardExclusionArgs struct {
+	// The unique identifier for the resource being included.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Specifies the type of resource this inclusion applies to.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetStandardsStandardExclusionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStandardsStandardExclusion)(nil)).Elem()
+}
+
+func (i GetStandardsStandardExclusionArgs) ToGetStandardsStandardExclusionOutput() GetStandardsStandardExclusionOutput {
+	return i.ToGetStandardsStandardExclusionOutputWithContext(context.Background())
+}
+
+func (i GetStandardsStandardExclusionArgs) ToGetStandardsStandardExclusionOutputWithContext(ctx context.Context) GetStandardsStandardExclusionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStandardsStandardExclusionOutput)
+}
+
+// GetStandardsStandardExclusionArrayInput is an input type that accepts GetStandardsStandardExclusionArray and GetStandardsStandardExclusionArrayOutput values.
+// You can construct a concrete instance of `GetStandardsStandardExclusionArrayInput` via:
+//
+//	GetStandardsStandardExclusionArray{ GetStandardsStandardExclusionArgs{...} }
+type GetStandardsStandardExclusionArrayInput interface {
+	pulumi.Input
+
+	ToGetStandardsStandardExclusionArrayOutput() GetStandardsStandardExclusionArrayOutput
+	ToGetStandardsStandardExclusionArrayOutputWithContext(context.Context) GetStandardsStandardExclusionArrayOutput
+}
+
+type GetStandardsStandardExclusionArray []GetStandardsStandardExclusionInput
+
+func (GetStandardsStandardExclusionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStandardsStandardExclusion)(nil)).Elem()
+}
+
+func (i GetStandardsStandardExclusionArray) ToGetStandardsStandardExclusionArrayOutput() GetStandardsStandardExclusionArrayOutput {
+	return i.ToGetStandardsStandardExclusionArrayOutputWithContext(context.Background())
+}
+
+func (i GetStandardsStandardExclusionArray) ToGetStandardsStandardExclusionArrayOutputWithContext(ctx context.Context) GetStandardsStandardExclusionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStandardsStandardExclusionArrayOutput)
+}
+
+type GetStandardsStandardExclusionOutput struct{ *pulumi.OutputState }
+
+func (GetStandardsStandardExclusionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStandardsStandardExclusion)(nil)).Elem()
+}
+
+func (o GetStandardsStandardExclusionOutput) ToGetStandardsStandardExclusionOutput() GetStandardsStandardExclusionOutput {
+	return o
+}
+
+func (o GetStandardsStandardExclusionOutput) ToGetStandardsStandardExclusionOutputWithContext(ctx context.Context) GetStandardsStandardExclusionOutput {
+	return o
+}
+
+// The unique identifier for the resource being included.
+func (o GetStandardsStandardExclusionOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardsStandardExclusion) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Specifies the type of resource this inclusion applies to.
+func (o GetStandardsStandardExclusionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardsStandardExclusion) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetStandardsStandardExclusionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetStandardsStandardExclusionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStandardsStandardExclusion)(nil)).Elem()
+}
+
+func (o GetStandardsStandardExclusionArrayOutput) ToGetStandardsStandardExclusionArrayOutput() GetStandardsStandardExclusionArrayOutput {
+	return o
+}
+
+func (o GetStandardsStandardExclusionArrayOutput) ToGetStandardsStandardExclusionArrayOutputWithContext(ctx context.Context) GetStandardsStandardExclusionArrayOutput {
+	return o
+}
+
+func (o GetStandardsStandardExclusionArrayOutput) Index(i pulumi.IntInput) GetStandardsStandardExclusionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetStandardsStandardExclusion {
+		return vs[0].([]GetStandardsStandardExclusion)[vs[1].(int)]
+	}).(GetStandardsStandardExclusionOutput)
+}
+
+type GetStandardsStandardInclusion struct {
+	// The unique identifier for the resource being included.
+	Id string `pulumi:"id"`
+	// Specifies the type of resource this inclusion applies to.
+	Type string `pulumi:"type"`
+}
+
+// GetStandardsStandardInclusionInput is an input type that accepts GetStandardsStandardInclusionArgs and GetStandardsStandardInclusionOutput values.
+// You can construct a concrete instance of `GetStandardsStandardInclusionInput` via:
+//
+//	GetStandardsStandardInclusionArgs{...}
+type GetStandardsStandardInclusionInput interface {
+	pulumi.Input
+
+	ToGetStandardsStandardInclusionOutput() GetStandardsStandardInclusionOutput
+	ToGetStandardsStandardInclusionOutputWithContext(context.Context) GetStandardsStandardInclusionOutput
+}
+
+type GetStandardsStandardInclusionArgs struct {
+	// The unique identifier for the resource being included.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Specifies the type of resource this inclusion applies to.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetStandardsStandardInclusionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStandardsStandardInclusion)(nil)).Elem()
+}
+
+func (i GetStandardsStandardInclusionArgs) ToGetStandardsStandardInclusionOutput() GetStandardsStandardInclusionOutput {
+	return i.ToGetStandardsStandardInclusionOutputWithContext(context.Background())
+}
+
+func (i GetStandardsStandardInclusionArgs) ToGetStandardsStandardInclusionOutputWithContext(ctx context.Context) GetStandardsStandardInclusionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStandardsStandardInclusionOutput)
+}
+
+// GetStandardsStandardInclusionArrayInput is an input type that accepts GetStandardsStandardInclusionArray and GetStandardsStandardInclusionArrayOutput values.
+// You can construct a concrete instance of `GetStandardsStandardInclusionArrayInput` via:
+//
+//	GetStandardsStandardInclusionArray{ GetStandardsStandardInclusionArgs{...} }
+type GetStandardsStandardInclusionArrayInput interface {
+	pulumi.Input
+
+	ToGetStandardsStandardInclusionArrayOutput() GetStandardsStandardInclusionArrayOutput
+	ToGetStandardsStandardInclusionArrayOutputWithContext(context.Context) GetStandardsStandardInclusionArrayOutput
+}
+
+type GetStandardsStandardInclusionArray []GetStandardsStandardInclusionInput
+
+func (GetStandardsStandardInclusionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStandardsStandardInclusion)(nil)).Elem()
+}
+
+func (i GetStandardsStandardInclusionArray) ToGetStandardsStandardInclusionArrayOutput() GetStandardsStandardInclusionArrayOutput {
+	return i.ToGetStandardsStandardInclusionArrayOutputWithContext(context.Background())
+}
+
+func (i GetStandardsStandardInclusionArray) ToGetStandardsStandardInclusionArrayOutputWithContext(ctx context.Context) GetStandardsStandardInclusionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStandardsStandardInclusionArrayOutput)
+}
+
+type GetStandardsStandardInclusionOutput struct{ *pulumi.OutputState }
+
+func (GetStandardsStandardInclusionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStandardsStandardInclusion)(nil)).Elem()
+}
+
+func (o GetStandardsStandardInclusionOutput) ToGetStandardsStandardInclusionOutput() GetStandardsStandardInclusionOutput {
+	return o
+}
+
+func (o GetStandardsStandardInclusionOutput) ToGetStandardsStandardInclusionOutputWithContext(ctx context.Context) GetStandardsStandardInclusionOutput {
+	return o
+}
+
+// The unique identifier for the resource being included.
+func (o GetStandardsStandardInclusionOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardsStandardInclusion) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Specifies the type of resource this inclusion applies to.
+func (o GetStandardsStandardInclusionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardsStandardInclusion) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetStandardsStandardInclusionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetStandardsStandardInclusionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStandardsStandardInclusion)(nil)).Elem()
+}
+
+func (o GetStandardsStandardInclusionArrayOutput) ToGetStandardsStandardInclusionArrayOutput() GetStandardsStandardInclusionArrayOutput {
+	return o
+}
+
+func (o GetStandardsStandardInclusionArrayOutput) ToGetStandardsStandardInclusionArrayOutputWithContext(ctx context.Context) GetStandardsStandardInclusionArrayOutput {
+	return o
+}
+
+func (o GetStandardsStandardInclusionArrayOutput) Index(i pulumi.IntInput) GetStandardsStandardInclusionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetStandardsStandardInclusion {
+		return vs[0].([]GetStandardsStandardInclusion)[vs[1].(int)]
+	}).(GetStandardsStandardInclusionOutput)
+}
+
 type GetTeamMembersMember struct {
 	// The ID of the found user.
 	Id string `pulumi:"id"`
@@ -18375,6 +19767,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArrayInput)(nil)).Elem(), EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationGlobalCatchAllActionsExtractionInput)(nil)).Elem(), EventOrchestrationGlobalCatchAllActionsExtractionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationGlobalCatchAllActionsExtractionArrayInput)(nil)).Elem(), EventOrchestrationGlobalCatchAllActionsExtractionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateInput)(nil)).Elem(), EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArrayInput)(nil)).Elem(), EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationGlobalCatchAllActionsVariableInput)(nil)).Elem(), EventOrchestrationGlobalCatchAllActionsVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationGlobalCatchAllActionsVariableArrayInput)(nil)).Elem(), EventOrchestrationGlobalCatchAllActionsVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationGlobalSetInput)(nil)).Elem(), EventOrchestrationGlobalSetArgs{})
@@ -18390,6 +19784,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArrayInput)(nil)).Elem(), EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationGlobalSetRuleActionsExtractionInput)(nil)).Elem(), EventOrchestrationGlobalSetRuleActionsExtractionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationGlobalSetRuleActionsExtractionArrayInput)(nil)).Elem(), EventOrchestrationGlobalSetRuleActionsExtractionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateInput)(nil)).Elem(), EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArrayInput)(nil)).Elem(), EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationGlobalSetRuleActionsVariableInput)(nil)).Elem(), EventOrchestrationGlobalSetRuleActionsVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationGlobalSetRuleActionsVariableArrayInput)(nil)).Elem(), EventOrchestrationGlobalSetRuleActionsVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationGlobalSetRuleConditionInput)(nil)).Elem(), EventOrchestrationGlobalSetRuleConditionArgs{})
@@ -18421,6 +19817,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayInput)(nil)).Elem(), EventOrchestrationServiceCatchAllActionsAutomationActionParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceCatchAllActionsExtractionInput)(nil)).Elem(), EventOrchestrationServiceCatchAllActionsExtractionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceCatchAllActionsExtractionArrayInput)(nil)).Elem(), EventOrchestrationServiceCatchAllActionsExtractionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateInput)(nil)).Elem(), EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArrayInput)(nil)).Elem(), EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionInput)(nil)).Elem(), EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrInput)(nil)).Elem(), EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceCatchAllActionsVariableInput)(nil)).Elem(), EventOrchestrationServiceCatchAllActionsVariableArgs{})
@@ -18438,6 +19836,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayInput)(nil)).Elem(), EventOrchestrationServiceSetRuleActionsAutomationActionParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceSetRuleActionsExtractionInput)(nil)).Elem(), EventOrchestrationServiceSetRuleActionsExtractionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceSetRuleActionsExtractionArrayInput)(nil)).Elem(), EventOrchestrationServiceSetRuleActionsExtractionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateInput)(nil)).Elem(), EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArrayInput)(nil)).Elem(), EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionInput)(nil)).Elem(), EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrInput)(nil)).Elem(), EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceSetRuleActionsVariableInput)(nil)).Elem(), EventOrchestrationServiceSetRuleActionsVariableArgs{})
@@ -18622,6 +20022,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLicensesLicenseArrayInput)(nil)).Elem(), GetLicensesLicenseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceTeamInput)(nil)).Elem(), GetServiceTeamArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceTeamArrayInput)(nil)).Elem(), GetServiceTeamArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardsResourceScoresScoreInput)(nil)).Elem(), GetStandardsResourceScoresScoreArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardsResourceScoresStandardInput)(nil)).Elem(), GetStandardsResourceScoresStandardArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardsResourceScoresStandardArrayInput)(nil)).Elem(), GetStandardsResourceScoresStandardArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardsResourcesScoresResourceInput)(nil)).Elem(), GetStandardsResourcesScoresResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardsResourcesScoresResourceArrayInput)(nil)).Elem(), GetStandardsResourcesScoresResourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardsResourcesScoresResourceScoreInput)(nil)).Elem(), GetStandardsResourcesScoresResourceScoreArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardsResourcesScoresResourceStandardInput)(nil)).Elem(), GetStandardsResourcesScoresResourceStandardArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardsResourcesScoresResourceStandardArrayInput)(nil)).Elem(), GetStandardsResourcesScoresResourceStandardArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardsStandardInput)(nil)).Elem(), GetStandardsStandardArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardsStandardArrayInput)(nil)).Elem(), GetStandardsStandardArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardsStandardExclusionInput)(nil)).Elem(), GetStandardsStandardExclusionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardsStandardExclusionArrayInput)(nil)).Elem(), GetStandardsStandardExclusionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardsStandardInclusionInput)(nil)).Elem(), GetStandardsStandardInclusionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardsStandardInclusionArrayInput)(nil)).Elem(), GetStandardsStandardInclusionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamMembersMemberInput)(nil)).Elem(), GetTeamMembersMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamMembersMemberArrayInput)(nil)).Elem(), GetTeamMembersMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserInput)(nil)).Elem(), GetUsersUserArgs{})
@@ -18646,6 +20060,8 @@ func init() {
 	pulumi.RegisterOutputType(EventOrchestrationGlobalCatchAllActionsAutomationActionParameterArrayOutput{})
 	pulumi.RegisterOutputType(EventOrchestrationGlobalCatchAllActionsExtractionOutput{})
 	pulumi.RegisterOutputType(EventOrchestrationGlobalCatchAllActionsExtractionArrayOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdateArrayOutput{})
 	pulumi.RegisterOutputType(EventOrchestrationGlobalCatchAllActionsVariableOutput{})
 	pulumi.RegisterOutputType(EventOrchestrationGlobalCatchAllActionsVariableArrayOutput{})
 	pulumi.RegisterOutputType(EventOrchestrationGlobalSetOutput{})
@@ -18661,6 +20077,8 @@ func init() {
 	pulumi.RegisterOutputType(EventOrchestrationGlobalSetRuleActionsAutomationActionParameterArrayOutput{})
 	pulumi.RegisterOutputType(EventOrchestrationGlobalSetRuleActionsExtractionOutput{})
 	pulumi.RegisterOutputType(EventOrchestrationGlobalSetRuleActionsExtractionArrayOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdateArrayOutput{})
 	pulumi.RegisterOutputType(EventOrchestrationGlobalSetRuleActionsVariableOutput{})
 	pulumi.RegisterOutputType(EventOrchestrationGlobalSetRuleActionsVariableArrayOutput{})
 	pulumi.RegisterOutputType(EventOrchestrationGlobalSetRuleConditionOutput{})
@@ -18692,6 +20110,8 @@ func init() {
 	pulumi.RegisterOutputType(EventOrchestrationServiceCatchAllActionsAutomationActionParameterArrayOutput{})
 	pulumi.RegisterOutputType(EventOrchestrationServiceCatchAllActionsExtractionOutput{})
 	pulumi.RegisterOutputType(EventOrchestrationServiceCatchAllActionsExtractionArrayOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdateArrayOutput{})
 	pulumi.RegisterOutputType(EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionOutput{})
 	pulumi.RegisterOutputType(EventOrchestrationServiceCatchAllActionsPagerdutyAutomationActionPtrOutput{})
 	pulumi.RegisterOutputType(EventOrchestrationServiceCatchAllActionsVariableOutput{})
@@ -18709,6 +20129,8 @@ func init() {
 	pulumi.RegisterOutputType(EventOrchestrationServiceSetRuleActionsAutomationActionParameterArrayOutput{})
 	pulumi.RegisterOutputType(EventOrchestrationServiceSetRuleActionsExtractionOutput{})
 	pulumi.RegisterOutputType(EventOrchestrationServiceSetRuleActionsExtractionArrayOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArrayOutput{})
 	pulumi.RegisterOutputType(EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionOutput{})
 	pulumi.RegisterOutputType(EventOrchestrationServiceSetRuleActionsPagerdutyAutomationActionPtrOutput{})
 	pulumi.RegisterOutputType(EventOrchestrationServiceSetRuleActionsVariableOutput{})
@@ -18893,6 +20315,20 @@ func init() {
 	pulumi.RegisterOutputType(GetLicensesLicenseArrayOutput{})
 	pulumi.RegisterOutputType(GetServiceTeamOutput{})
 	pulumi.RegisterOutputType(GetServiceTeamArrayOutput{})
+	pulumi.RegisterOutputType(GetStandardsResourceScoresScoreOutput{})
+	pulumi.RegisterOutputType(GetStandardsResourceScoresStandardOutput{})
+	pulumi.RegisterOutputType(GetStandardsResourceScoresStandardArrayOutput{})
+	pulumi.RegisterOutputType(GetStandardsResourcesScoresResourceOutput{})
+	pulumi.RegisterOutputType(GetStandardsResourcesScoresResourceArrayOutput{})
+	pulumi.RegisterOutputType(GetStandardsResourcesScoresResourceScoreOutput{})
+	pulumi.RegisterOutputType(GetStandardsResourcesScoresResourceStandardOutput{})
+	pulumi.RegisterOutputType(GetStandardsResourcesScoresResourceStandardArrayOutput{})
+	pulumi.RegisterOutputType(GetStandardsStandardOutput{})
+	pulumi.RegisterOutputType(GetStandardsStandardArrayOutput{})
+	pulumi.RegisterOutputType(GetStandardsStandardExclusionOutput{})
+	pulumi.RegisterOutputType(GetStandardsStandardExclusionArrayOutput{})
+	pulumi.RegisterOutputType(GetStandardsStandardInclusionOutput{})
+	pulumi.RegisterOutputType(GetStandardsStandardInclusionArrayOutput{})
 	pulumi.RegisterOutputType(GetTeamMembersMemberOutput{})
 	pulumi.RegisterOutputType(GetTeamMembersMemberArrayOutput{})
 	pulumi.RegisterOutputType(GetUsersUserOutput{})

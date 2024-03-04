@@ -34,6 +34,10 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.EventOrchestrationGlobalSetRuleActionsExtraction> Extractions;
         /// <summary>
+        /// Assign a custom field to the resulting incident.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdate> IncidentCustomFieldUpdates;
+        /// <summary>
         /// The ID of the priority you want to set on resulting incident. Consider using the `pagerduty.getPriority` data source.
         /// </summary>
         public readonly string? Priority;
@@ -70,6 +74,8 @@ namespace Pulumi.Pagerduty.Outputs
 
             ImmutableArray<Outputs.EventOrchestrationGlobalSetRuleActionsExtraction> extractions,
 
+            ImmutableArray<Outputs.EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdate> incidentCustomFieldUpdates,
+
             string? priority,
 
             string? routeTo,
@@ -87,6 +93,7 @@ namespace Pulumi.Pagerduty.Outputs
             DropEvent = dropEvent;
             EventAction = eventAction;
             Extractions = extractions;
+            IncidentCustomFieldUpdates = incidentCustomFieldUpdates;
             Priority = priority;
             RouteTo = routeTo;
             Severity = severity;

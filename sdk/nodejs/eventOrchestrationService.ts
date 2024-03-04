@@ -26,16 +26,18 @@ import * as utilities from "./utilities";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
  * const engineering = new pagerduty.Team("engineering", {});
- * const exampleUser = new pagerduty.User("exampleUser", {
- *     email: "125.greenholt.earline@graham.name",
- *     teams: [engineering.id],
+ * const exampleUser = new pagerduty.User("exampleUser", {email: "125.greenholt.earline@graham.name"});
+ * const foo = new pagerduty.TeamMembership("foo", {
+ *     userId: exampleUser.id,
+ *     teamId: engineering.id,
+ *     role: "manager",
  * });
- * const foo = new pagerduty.EscalationPolicy("foo", {
+ * const exampleEscalationPolicy = new pagerduty.EscalationPolicy("exampleEscalationPolicy", {
  *     numLoops: 2,
  *     rules: [{
  *         escalationDelayInMinutes: 10,
  *         targets: [{
- *             type: "user",
+ *             type: "user_reference",
  *             id: exampleUser.id,
  *         }],
  *     }],
@@ -43,8 +45,12 @@ import * as utilities from "./utilities";
  * const exampleService = new pagerduty.Service("exampleService", {
  *     autoResolveTimeout: "14400",
  *     acknowledgementTimeout: "600",
- *     escalationPolicy: pagerduty_escalation_policy.example.id,
+ *     escalationPolicy: exampleEscalationPolicy.id,
  *     alertCreation: "create_alerts_and_incidents",
+ * });
+ * const csImpact = new pagerduty.IncidentCustomField("csImpact", {
+ *     dataType: "string",
+ *     fieldType: "single_value",
  * });
  * const p1 = pagerduty.getPriority({
  *     name: "P1",
@@ -90,6 +96,10 @@ import * as utilities from "./utilities";
  *                     actions: {
  *                         annotate: "Please use our P1 runbook: https://docs.test/p1-runbook",
  *                         priority: p1.then(p1 => p1.id),
+ *                         incidentCustomFieldUpdates: [{
+ *                             id: csImpact.id,
+ *                             value: "High Impact",
+ *                         }],
  *                     },
  *                 },
  *                 {

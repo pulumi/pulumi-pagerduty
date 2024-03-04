@@ -93,6 +93,9 @@
                                             "extraction": {
                                                 "maxItemsOne": false
                                             },
+                                            "incident_custom_field_update": {
+                                                "maxItemsOne": false
+                                            },
                                             "variable": {
                                                 "maxItemsOne": false
                                             }
@@ -128,6 +131,9 @@
                                                             }
                                                         },
                                                         "extraction": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "incident_custom_field_update": {
                                                             "maxItemsOne": false
                                                         },
                                                         "variable": {
@@ -217,6 +223,9 @@
                                             "extraction": {
                                                 "maxItemsOne": false
                                             },
+                                            "incident_custom_field_update": {
+                                                "maxItemsOne": false
+                                            },
                                             "pagerduty_automation_action": {
                                                 "maxItemsOne": true
                                             },
@@ -255,6 +264,9 @@
                                                             }
                                                         },
                                                         "extraction": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "incident_custom_field_update": {
                                                             "maxItemsOne": false
                                                         },
                                                         "pagerduty_automation_action": {
@@ -930,6 +942,50 @@
             },
             "pagerduty_service_integration": {
                 "current": "pagerduty:index/getServiceIntegration:getServiceIntegration"
+            },
+            "pagerduty_standards": {
+                "current": "pagerduty:index/getStandards:getStandards",
+                "fields": {
+                    "standards": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "exclusions": {
+                                    "maxItemsOne": false
+                                },
+                                "inclusions": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "pagerduty_standards_resource_scores": {
+                "current": "pagerduty:index/getStandardsResourceScores:getStandardsResourceScores",
+                "fields": {
+                    "standards": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "pagerduty_standards_resources_scores": {
+                "current": "pagerduty:index/getStandardsResourcesScores:getStandardsResourcesScores",
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    },
+                    "resources": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "standards": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "pagerduty_tag": {
                 "current": "pagerduty:index/getTag:getTag"

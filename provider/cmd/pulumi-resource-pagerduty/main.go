@@ -17,12 +17,13 @@
 package main
 
 import (
+	"context"
+
 	_ "embed"
 
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
+	pftfbridge "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
 
 	pagerduty "github.com/pulumi/pulumi-pagerduty/provider/v4"
-	"github.com/pulumi/pulumi-pagerduty/provider/v4/pkg/version"
 )
 
 //go:embed schema-embed.json
@@ -30,5 +31,5 @@ var pulumiSchema []byte
 
 func main() {
 	// Modify the path to point to the new provider
-	tfbridge.Main("pagerduty", version.Version, pagerduty.Provider(), pulumiSchema)
+	pftfbridge.MainWithMuxer(context.Background(), "pagerduty", pagerduty.Provider(), pulumiSchema)
 }

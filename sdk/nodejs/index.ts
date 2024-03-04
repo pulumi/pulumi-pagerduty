@@ -180,6 +180,21 @@ export const getServiceIntegration: typeof import("./getServiceIntegration").get
 export const getServiceIntegrationOutput: typeof import("./getServiceIntegration").getServiceIntegrationOutput = null as any;
 utilities.lazyLoad(exports, ["getServiceIntegration","getServiceIntegrationOutput"], () => require("./getServiceIntegration"));
 
+export { GetStandardsArgs, GetStandardsResult, GetStandardsOutputArgs } from "./getStandards";
+export const getStandards: typeof import("./getStandards").getStandards = null as any;
+export const getStandardsOutput: typeof import("./getStandards").getStandardsOutput = null as any;
+utilities.lazyLoad(exports, ["getStandards","getStandardsOutput"], () => require("./getStandards"));
+
+export { GetStandardsResourceScoresArgs, GetStandardsResourceScoresResult, GetStandardsResourceScoresOutputArgs } from "./getStandardsResourceScores";
+export const getStandardsResourceScores: typeof import("./getStandardsResourceScores").getStandardsResourceScores = null as any;
+export const getStandardsResourceScoresOutput: typeof import("./getStandardsResourceScores").getStandardsResourceScoresOutput = null as any;
+utilities.lazyLoad(exports, ["getStandardsResourceScores","getStandardsResourceScoresOutput"], () => require("./getStandardsResourceScores"));
+
+export { GetStandardsResourcesScoresArgs, GetStandardsResourcesScoresResult, GetStandardsResourcesScoresOutputArgs } from "./getStandardsResourcesScores";
+export const getStandardsResourcesScores: typeof import("./getStandardsResourcesScores").getStandardsResourcesScores = null as any;
+export const getStandardsResourcesScoresOutput: typeof import("./getStandardsResourcesScores").getStandardsResourcesScoresOutput = null as any;
+utilities.lazyLoad(exports, ["getStandardsResourcesScores","getStandardsResourcesScoresOutput"], () => require("./getStandardsResourcesScores"));
+
 export { GetTagArgs, GetTagResult, GetTagOutputArgs } from "./getTag";
 export const getTag: typeof import("./getTag").getTag = null as any;
 export const getTagOutput: typeof import("./getTag").getTagOutput = null as any;

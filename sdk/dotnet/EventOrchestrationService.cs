@@ -37,13 +37,16 @@ namespace Pulumi.Pagerduty
     ///     var exampleUser = new Pagerduty.User("exampleUser", new()
     ///     {
     ///         Email = "125.greenholt.earline@graham.name",
-    ///         Teams = new[]
-    ///         {
-    ///             engineering.Id,
-    ///         },
     ///     });
     /// 
-    ///     var foo = new Pagerduty.EscalationPolicy("foo", new()
+    ///     var foo = new Pagerduty.TeamMembership("foo", new()
+    ///     {
+    ///         UserId = exampleUser.Id,
+    ///         TeamId = engineering.Id,
+    ///         Role = "manager",
+    ///     });
+    /// 
+    ///     var exampleEscalationPolicy = new Pagerduty.EscalationPolicy("exampleEscalationPolicy", new()
     ///     {
     ///         NumLoops = 2,
     ///         Rules = new[]
@@ -55,7 +58,7 @@ namespace Pulumi.Pagerduty
     ///                 {
     ///                     new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
     ///                     {
-    ///                         Type = "user",
+    ///                         Type = "user_reference",
     ///                         Id = exampleUser.Id,
     ///                     },
     ///                 },
@@ -67,8 +70,14 @@ namespace Pulumi.Pagerduty
     ///     {
     ///         AutoResolveTimeout = "14400",
     ///         AcknowledgementTimeout = "600",
-    ///         EscalationPolicy = pagerduty_escalation_policy.Example.Id,
+    ///         EscalationPolicy = exampleEscalationPolicy.Id,
     ///         AlertCreation = "create_alerts_and_incidents",
+    ///     });
+    /// 
+    ///     var csImpact = new Pagerduty.IncidentCustomField("csImpact", new()
+    ///     {
+    ///         DataType = "string",
+    ///         FieldType = "single_value",
     ///     });
     /// 
     ///     var p1 = Pagerduty.GetPriority.Invoke(new()
@@ -140,6 +149,14 @@ namespace Pulumi.Pagerduty
     ///                         {
     ///                             Annotate = "Please use our P1 runbook: https://docs.test/p1-runbook",
     ///                             Priority = p1.Apply(getPriorityResult =&gt; getPriorityResult.Id),
+    ///                             IncidentCustomFieldUpdates = new[]
+    ///                             {
+    ///                                 new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs
+    ///                                 {
+    ///                                     Id = csImpact.Id,
+    ///                                     Value = "High Impact",
+    ///                                 },
+    ///                             },
     ///                         },
     ///                     },
     ///                     new Pagerduty.Inputs.EventOrchestrationServiceSetRuleArgs

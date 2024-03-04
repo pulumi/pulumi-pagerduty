@@ -30,6 +30,10 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.EventOrchestrationServiceSetRuleActionsExtraction> Extractions;
         /// <summary>
+        /// Assign a custom field to the resulting incident.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate> IncidentCustomFieldUpdates;
+        /// <summary>
         /// Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
         /// </summary>
         public readonly Outputs.EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction? PagerdutyAutomationAction;
@@ -68,6 +72,8 @@ namespace Pulumi.Pagerduty.Outputs
 
             ImmutableArray<Outputs.EventOrchestrationServiceSetRuleActionsExtraction> extractions,
 
+            ImmutableArray<Outputs.EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate> incidentCustomFieldUpdates,
+
             Outputs.EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction? pagerdutyAutomationAction,
 
             string? priority,
@@ -86,6 +92,7 @@ namespace Pulumi.Pagerduty.Outputs
             AutomationAction = automationAction;
             EventAction = eventAction;
             Extractions = extractions;
+            IncidentCustomFieldUpdates = incidentCustomFieldUpdates;
             PagerdutyAutomationAction = pagerdutyAutomationAction;
             Priority = priority;
             RouteTo = routeTo;

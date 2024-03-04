@@ -6,6 +6,7 @@ package com.pulumi.pagerduty.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.pagerduty.outputs.EventOrchestrationGlobalCatchAllActionsAutomationAction;
 import com.pulumi.pagerduty.outputs.EventOrchestrationGlobalCatchAllActionsExtraction;
+import com.pulumi.pagerduty.outputs.EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdate;
 import com.pulumi.pagerduty.outputs.EventOrchestrationGlobalCatchAllActionsVariable;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -42,6 +43,11 @@ public final class EventOrchestrationGlobalCatchAllActions {
      * 
      */
     private @Nullable List<EventOrchestrationGlobalCatchAllActionsExtraction> extractions;
+    /**
+     * @return Assign a custom field to the resulting incident.
+     * 
+     */
+    private @Nullable List<EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdate> incidentCustomFieldUpdates;
     /**
      * @return The ID of the priority you want to set on resulting incident. Consider using the `pagerduty.getPriority` data source.
      * 
@@ -110,6 +116,13 @@ public final class EventOrchestrationGlobalCatchAllActions {
         return this.extractions == null ? List.of() : this.extractions;
     }
     /**
+     * @return Assign a custom field to the resulting incident.
+     * 
+     */
+    public List<EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdate> incidentCustomFieldUpdates() {
+        return this.incidentCustomFieldUpdates == null ? List.of() : this.incidentCustomFieldUpdates;
+    }
+    /**
      * @return The ID of the priority you want to set on resulting incident. Consider using the `pagerduty.getPriority` data source.
      * 
      */
@@ -166,6 +179,7 @@ public final class EventOrchestrationGlobalCatchAllActions {
         private @Nullable Boolean dropEvent;
         private @Nullable String eventAction;
         private @Nullable List<EventOrchestrationGlobalCatchAllActionsExtraction> extractions;
+        private @Nullable List<EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdate> incidentCustomFieldUpdates;
         private @Nullable String priority;
         private @Nullable String routeTo;
         private @Nullable String severity;
@@ -180,6 +194,7 @@ public final class EventOrchestrationGlobalCatchAllActions {
     	      this.dropEvent = defaults.dropEvent;
     	      this.eventAction = defaults.eventAction;
     	      this.extractions = defaults.extractions;
+    	      this.incidentCustomFieldUpdates = defaults.incidentCustomFieldUpdates;
     	      this.priority = defaults.priority;
     	      this.routeTo = defaults.routeTo;
     	      this.severity = defaults.severity;
@@ -220,6 +235,15 @@ public final class EventOrchestrationGlobalCatchAllActions {
         }
         public Builder extractions(EventOrchestrationGlobalCatchAllActionsExtraction... extractions) {
             return extractions(List.of(extractions));
+        }
+        @CustomType.Setter
+        public Builder incidentCustomFieldUpdates(@Nullable List<EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdate> incidentCustomFieldUpdates) {
+
+            this.incidentCustomFieldUpdates = incidentCustomFieldUpdates;
+            return this;
+        }
+        public Builder incidentCustomFieldUpdates(EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdate... incidentCustomFieldUpdates) {
+            return incidentCustomFieldUpdates(List.of(incidentCustomFieldUpdates));
         }
         @CustomType.Setter
         public Builder priority(@Nullable String priority) {
@@ -267,6 +291,7 @@ public final class EventOrchestrationGlobalCatchAllActions {
             _resultValue.dropEvent = dropEvent;
             _resultValue.eventAction = eventAction;
             _resultValue.extractions = extractions;
+            _resultValue.incidentCustomFieldUpdates = incidentCustomFieldUpdates;
             _resultValue.priority = priority;
             _resultValue.routeTo = routeTo;
             _resultValue.severity = severity;

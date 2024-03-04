@@ -86,7 +86,7 @@ namespace Pulumi.Pagerduty
         /// **Deprecated** (Optional) Default (and only supported) value is `business_service`.
         /// </summary>
         [Output("type")]
-        public Output<string?> Type { get; private set; } = null!;
+        public Output<string> Type { get; private set; } = null!;
 
 
         /// <summary>

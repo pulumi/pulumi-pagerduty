@@ -42,6 +42,12 @@ import com.pulumi.pagerduty.inputs.GetServiceArgs;
 import com.pulumi.pagerduty.inputs.GetServiceIntegrationArgs;
 import com.pulumi.pagerduty.inputs.GetServiceIntegrationPlainArgs;
 import com.pulumi.pagerduty.inputs.GetServicePlainArgs;
+import com.pulumi.pagerduty.inputs.GetStandardsArgs;
+import com.pulumi.pagerduty.inputs.GetStandardsPlainArgs;
+import com.pulumi.pagerduty.inputs.GetStandardsResourceScoresArgs;
+import com.pulumi.pagerduty.inputs.GetStandardsResourceScoresPlainArgs;
+import com.pulumi.pagerduty.inputs.GetStandardsResourcesScoresArgs;
+import com.pulumi.pagerduty.inputs.GetStandardsResourcesScoresPlainArgs;
 import com.pulumi.pagerduty.inputs.GetTagArgs;
 import com.pulumi.pagerduty.inputs.GetTagPlainArgs;
 import com.pulumi.pagerduty.inputs.GetTeamArgs;
@@ -73,6 +79,9 @@ import com.pulumi.pagerduty.outputs.GetRulesetResult;
 import com.pulumi.pagerduty.outputs.GetScheduleResult;
 import com.pulumi.pagerduty.outputs.GetServiceIntegrationResult;
 import com.pulumi.pagerduty.outputs.GetServiceResult;
+import com.pulumi.pagerduty.outputs.GetStandardsResourceScoresResult;
+import com.pulumi.pagerduty.outputs.GetStandardsResourcesScoresResult;
+import com.pulumi.pagerduty.outputs.GetStandardsResult;
 import com.pulumi.pagerduty.outputs.GetTagResult;
 import com.pulumi.pagerduty.outputs.GetTeamMembersResult;
 import com.pulumi.pagerduty.outputs.GetTeamResult;
@@ -3788,6 +3797,618 @@ public final class PagerdutyFunctions {
      */
     public static CompletableFuture<GetServiceIntegrationResult> getServiceIntegrationPlain(GetServiceIntegrationPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("pagerduty:index/getServiceIntegration:getServiceIntegration", TypeShape.of(GetServiceIntegrationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about the [standards](https://developer.pagerduty.com/api-reference/dbed9a0ff9355-list-standards) applicable to
+     * the PagerDuty account.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetStandardsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var standards = PagerdutyFunctions.getStandards();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetStandardsResult> getStandards() {
+        return getStandards(GetStandardsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about the [standards](https://developer.pagerduty.com/api-reference/dbed9a0ff9355-list-standards) applicable to
+     * the PagerDuty account.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetStandardsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var standards = PagerdutyFunctions.getStandards();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetStandardsResult> getStandardsPlain() {
+        return getStandardsPlain(GetStandardsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about the [standards](https://developer.pagerduty.com/api-reference/dbed9a0ff9355-list-standards) applicable to
+     * the PagerDuty account.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetStandardsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var standards = PagerdutyFunctions.getStandards();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetStandardsResult> getStandards(GetStandardsArgs args) {
+        return getStandards(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about the [standards](https://developer.pagerduty.com/api-reference/dbed9a0ff9355-list-standards) applicable to
+     * the PagerDuty account.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetStandardsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var standards = PagerdutyFunctions.getStandards();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetStandardsResult> getStandardsPlain(GetStandardsPlainArgs args) {
+        return getStandardsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about the [standards](https://developer.pagerduty.com/api-reference/dbed9a0ff9355-list-standards) applicable to
+     * the PagerDuty account.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetStandardsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var standards = PagerdutyFunctions.getStandards();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetStandardsResult> getStandards(GetStandardsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getStandards:getStandards", TypeShape.of(GetStandardsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about the [standards](https://developer.pagerduty.com/api-reference/dbed9a0ff9355-list-standards) applicable to
+     * the PagerDuty account.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetStandardsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var standards = PagerdutyFunctions.getStandards();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetStandardsResult> getStandardsPlain(GetStandardsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("pagerduty:index/getStandards:getStandards", TypeShape.of(GetStandardsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about the [scores for the standards of a
+     * resource][1].
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetServiceArgs;
+     * import com.pulumi.pagerduty.inputs.GetStandardsResourceScoresArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PagerdutyFunctions.getService(GetServiceArgs.builder()
+     *             .name(&#34;My Service&#34;)
+     *             .build());
+     * 
+     *         final var scores = PagerdutyFunctions.getStandardsResourceScores(GetStandardsResourceScoresArgs.builder()
+     *             .resourceType(&#34;technical_services&#34;)
+     *             .id(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetStandardsResourceScoresResult> getStandardsResourceScores(GetStandardsResourceScoresArgs args) {
+        return getStandardsResourceScores(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about the [scores for the standards of a
+     * resource][1].
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetServiceArgs;
+     * import com.pulumi.pagerduty.inputs.GetStandardsResourceScoresArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PagerdutyFunctions.getService(GetServiceArgs.builder()
+     *             .name(&#34;My Service&#34;)
+     *             .build());
+     * 
+     *         final var scores = PagerdutyFunctions.getStandardsResourceScores(GetStandardsResourceScoresArgs.builder()
+     *             .resourceType(&#34;technical_services&#34;)
+     *             .id(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetStandardsResourceScoresResult> getStandardsResourceScoresPlain(GetStandardsResourceScoresPlainArgs args) {
+        return getStandardsResourceScoresPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about the [scores for the standards of a
+     * resource][1].
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetServiceArgs;
+     * import com.pulumi.pagerduty.inputs.GetStandardsResourceScoresArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PagerdutyFunctions.getService(GetServiceArgs.builder()
+     *             .name(&#34;My Service&#34;)
+     *             .build());
+     * 
+     *         final var scores = PagerdutyFunctions.getStandardsResourceScores(GetStandardsResourceScoresArgs.builder()
+     *             .resourceType(&#34;technical_services&#34;)
+     *             .id(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetStandardsResourceScoresResult> getStandardsResourceScores(GetStandardsResourceScoresArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getStandardsResourceScores:getStandardsResourceScores", TypeShape.of(GetStandardsResourceScoresResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about the [scores for the standards of a
+     * resource][1].
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetServiceArgs;
+     * import com.pulumi.pagerduty.inputs.GetStandardsResourceScoresArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PagerdutyFunctions.getService(GetServiceArgs.builder()
+     *             .name(&#34;My Service&#34;)
+     *             .build());
+     * 
+     *         final var scores = PagerdutyFunctions.getStandardsResourceScores(GetStandardsResourceScoresArgs.builder()
+     *             .resourceType(&#34;technical_services&#34;)
+     *             .id(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetStandardsResourceScoresResult> getStandardsResourceScoresPlain(GetStandardsResourceScoresPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("pagerduty:index/getStandardsResourceScores:getStandardsResourceScores", TypeShape.of(GetStandardsResourceScoresResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about the [scores for the standards for
+     * many resources][1].
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetServiceArgs;
+     * import com.pulumi.pagerduty.inputs.GetStandardsResourcesScoresArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = PagerdutyFunctions.getService(GetServiceArgs.builder()
+     *             .name(&#34;foo&#34;)
+     *             .build());
+     * 
+     *         final var bar = PagerdutyFunctions.getService(GetServiceArgs.builder()
+     *             .name(&#34;bar&#34;)
+     *             .build());
+     * 
+     *         final var baz = PagerdutyFunctions.getService(GetServiceArgs.builder()
+     *             .name(&#34;baz&#34;)
+     *             .build());
+     * 
+     *         final var scores = PagerdutyFunctions.getStandardsResourcesScores(GetStandardsResourcesScoresArgs.builder()
+     *             .resourceType(&#34;technical_services&#34;)
+     *             .ids(            
+     *                 foo.applyValue(getServiceResult -&gt; getServiceResult.id()),
+     *                 bar.applyValue(getServiceResult -&gt; getServiceResult.id()),
+     *                 baz.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetStandardsResourcesScoresResult> getStandardsResourcesScores(GetStandardsResourcesScoresArgs args) {
+        return getStandardsResourcesScores(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about the [scores for the standards for
+     * many resources][1].
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetServiceArgs;
+     * import com.pulumi.pagerduty.inputs.GetStandardsResourcesScoresArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = PagerdutyFunctions.getService(GetServiceArgs.builder()
+     *             .name(&#34;foo&#34;)
+     *             .build());
+     * 
+     *         final var bar = PagerdutyFunctions.getService(GetServiceArgs.builder()
+     *             .name(&#34;bar&#34;)
+     *             .build());
+     * 
+     *         final var baz = PagerdutyFunctions.getService(GetServiceArgs.builder()
+     *             .name(&#34;baz&#34;)
+     *             .build());
+     * 
+     *         final var scores = PagerdutyFunctions.getStandardsResourcesScores(GetStandardsResourcesScoresArgs.builder()
+     *             .resourceType(&#34;technical_services&#34;)
+     *             .ids(            
+     *                 foo.applyValue(getServiceResult -&gt; getServiceResult.id()),
+     *                 bar.applyValue(getServiceResult -&gt; getServiceResult.id()),
+     *                 baz.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetStandardsResourcesScoresResult> getStandardsResourcesScoresPlain(GetStandardsResourcesScoresPlainArgs args) {
+        return getStandardsResourcesScoresPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about the [scores for the standards for
+     * many resources][1].
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetServiceArgs;
+     * import com.pulumi.pagerduty.inputs.GetStandardsResourcesScoresArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = PagerdutyFunctions.getService(GetServiceArgs.builder()
+     *             .name(&#34;foo&#34;)
+     *             .build());
+     * 
+     *         final var bar = PagerdutyFunctions.getService(GetServiceArgs.builder()
+     *             .name(&#34;bar&#34;)
+     *             .build());
+     * 
+     *         final var baz = PagerdutyFunctions.getService(GetServiceArgs.builder()
+     *             .name(&#34;baz&#34;)
+     *             .build());
+     * 
+     *         final var scores = PagerdutyFunctions.getStandardsResourcesScores(GetStandardsResourcesScoresArgs.builder()
+     *             .resourceType(&#34;technical_services&#34;)
+     *             .ids(            
+     *                 foo.applyValue(getServiceResult -&gt; getServiceResult.id()),
+     *                 bar.applyValue(getServiceResult -&gt; getServiceResult.id()),
+     *                 baz.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetStandardsResourcesScoresResult> getStandardsResourcesScores(GetStandardsResourcesScoresArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getStandardsResourcesScores:getStandardsResourcesScores", TypeShape.of(GetStandardsResourcesScoresResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about the [scores for the standards for
+     * many resources][1].
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetServiceArgs;
+     * import com.pulumi.pagerduty.inputs.GetStandardsResourcesScoresArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = PagerdutyFunctions.getService(GetServiceArgs.builder()
+     *             .name(&#34;foo&#34;)
+     *             .build());
+     * 
+     *         final var bar = PagerdutyFunctions.getService(GetServiceArgs.builder()
+     *             .name(&#34;bar&#34;)
+     *             .build());
+     * 
+     *         final var baz = PagerdutyFunctions.getService(GetServiceArgs.builder()
+     *             .name(&#34;baz&#34;)
+     *             .build());
+     * 
+     *         final var scores = PagerdutyFunctions.getStandardsResourcesScores(GetStandardsResourcesScoresArgs.builder()
+     *             .resourceType(&#34;technical_services&#34;)
+     *             .ids(            
+     *                 foo.applyValue(getServiceResult -&gt; getServiceResult.id()),
+     *                 bar.applyValue(getServiceResult -&gt; getServiceResult.id()),
+     *                 baz.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetStandardsResourcesScoresResult> getStandardsResourcesScoresPlain(GetStandardsResourcesScoresPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("pagerduty:index/getStandardsResourcesScores:getStandardsResourcesScores", TypeShape.of(GetStandardsResourcesScoresResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get information about a specific [tag](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIxNw-list-tags) that you can use to assign to users, teams, and escalation_policies.

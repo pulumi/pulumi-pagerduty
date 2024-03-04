@@ -91,6 +91,10 @@ export interface EventOrchestrationGlobalCatchAllActions {
      */
     extractions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationGlobalCatchAllActionsExtraction>[]>;
     /**
+     * Assign a custom field to the resulting incident.
+     */
+    incidentCustomFieldUpdates?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdate>[]>;
+    /**
      * The ID of the priority you want to set on resulting incident. Consider using the `pagerduty.getPriority` data source.
      */
     priority?: pulumi.Input<string>;
@@ -182,6 +186,17 @@ export interface EventOrchestrationGlobalCatchAllActionsExtraction {
     template?: pulumi.Input<string>;
 }
 
+export interface EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdate {
+    /**
+     * The custom field id
+     */
+    id: pulumi.Input<string>;
+    /**
+     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+     */
+    value: pulumi.Input<string>;
+}
+
 export interface EventOrchestrationGlobalCatchAllActionsVariable {
     /**
      * The name of the variable
@@ -223,7 +238,7 @@ export interface EventOrchestrationGlobalSetRule {
      */
     disabled?: pulumi.Input<boolean>;
     /**
-     * The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
+     * The custom field id
      */
     id?: pulumi.Input<string>;
     /**
@@ -253,6 +268,10 @@ export interface EventOrchestrationGlobalSetRuleActions {
      * Replace any CEF field or Custom Details object field using custom variables.
      */
     extractions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationGlobalSetRuleActionsExtraction>[]>;
+    /**
+     * Assign a custom field to the resulting incident.
+     */
+    incidentCustomFieldUpdates?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdate>[]>;
     /**
      * The ID of the priority you want to set on resulting incident. Consider using the `pagerduty.getPriority` data source.
      */
@@ -343,6 +362,17 @@ export interface EventOrchestrationGlobalSetRuleActionsExtraction {
      * * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
      */
     template?: pulumi.Input<string>;
+}
+
+export interface EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdate {
+    /**
+     * The custom field id
+     */
+    id: pulumi.Input<string>;
+    /**
+     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+     */
+    value: pulumi.Input<string>;
 }
 
 export interface EventOrchestrationGlobalSetRuleActionsVariable {
@@ -475,6 +505,10 @@ export interface EventOrchestrationServiceCatchAllActions {
      */
     extractions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceCatchAllActionsExtraction>[]>;
     /**
+     * Assign a custom field to the resulting incident.
+     */
+    incidentCustomFieldUpdates?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdate>[]>;
+    /**
      * Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
      */
     pagerdutyAutomationAction?: pulumi.Input<inputs.EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction>;
@@ -570,6 +604,17 @@ export interface EventOrchestrationServiceCatchAllActionsExtraction {
     template?: pulumi.Input<string>;
 }
 
+export interface EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpdate {
+    /**
+     * The custom field id
+     */
+    id: pulumi.Input<string>;
+    /**
+     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+     */
+    value: pulumi.Input<string>;
+}
+
 export interface EventOrchestrationServiceCatchAllActionsPagerdutyAutomationAction {
     /**
      * Id of the Process Automation action to be triggered.
@@ -618,7 +663,7 @@ export interface EventOrchestrationServiceSetRule {
      */
     disabled?: pulumi.Input<boolean>;
     /**
-     * The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
+     * The custom field id
      */
     id?: pulumi.Input<string>;
     /**
@@ -644,6 +689,10 @@ export interface EventOrchestrationServiceSetRuleActions {
      * Replace any CEF field or Custom Details object field using custom variables.
      */
     extractions?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceSetRuleActionsExtraction>[]>;
+    /**
+     * Assign a custom field to the resulting incident.
+     */
+    incidentCustomFieldUpdates?: pulumi.Input<pulumi.Input<inputs.EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate>[]>;
     /**
      * Configure a [Process Automation](https://support.pagerduty.com/docs/event-orchestration#process-automation) associated with the resulting incident.
      */
@@ -738,6 +787,17 @@ export interface EventOrchestrationServiceSetRuleActionsExtraction {
      * * Combine the event severity & summary with template like: `{{event.severity}}:{{event.summary}}`
      */
     template?: pulumi.Input<string>;
+}
+
+export interface EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdate {
+    /**
+     * The custom field id
+     */
+    id: pulumi.Input<string>;
+    /**
+     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+     */
+    value: pulumi.Input<string>;
 }
 
 export interface EventOrchestrationServiceSetRuleActionsPagerdutyAutomationAction {

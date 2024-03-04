@@ -71,7 +71,7 @@ func Provider() tfbridge.ProviderInfo {
 	// Instantiate the Terraform provider
 	sdkProv := shimv2.NewProvider(pagerduty.Provider(pagerduty.IsMuxed))
 
-	p := pftfbridge.MuxShimWithDisjointgPF(context.TODO(), sdkProv, pagerdutyplugin.New())
+	p := pftfbridge.MuxShimWithDisjointgPF(context.Background(), sdkProv, pagerdutyplugin.New())
 
 	// Create a Pulumi provider mapping
 	prov := tfbridge.ProviderInfo{

@@ -4,8 +4,8 @@ go 1.21
 
 require (
 	github.com/PagerDuty/terraform-provider-pagerduty/v3 v3.0.0
-	github.com/pulumi/pulumi-terraform-bridge/pf v0.29.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.76.1-0.20240229160000-f88bb0492dfa
+	github.com/pulumi/pulumi-terraform-bridge/pf v0.29.1-0.20240306111134-100d6495c5fa
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.76.1-0.20240306111134-100d6495c5fa
 	github.com/pulumi/pulumi/sdk/v3 v3.107.0
 )
 
@@ -128,7 +128,7 @@ require (
 	github.com/hashicorp/logutils v1.0.0 // indirect
 	github.com/hashicorp/terraform-exec v0.20.0 // indirect
 	github.com/hashicorp/terraform-json v0.21.0 // indirect
-	github.com/hashicorp/terraform-plugin-framework v1.6.0 // indirect
+	github.com/hashicorp/terraform-plugin-framework v1.6.1 // indirect
 	github.com/hashicorp/terraform-plugin-framework-validators v0.12.0 // indirect
 	github.com/hashicorp/terraform-plugin-go v0.22.0 // indirect
 	github.com/hashicorp/terraform-plugin-log v0.9.0 // indirect

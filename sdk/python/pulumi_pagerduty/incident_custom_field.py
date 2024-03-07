@@ -233,6 +233,7 @@ class IncidentCustomField(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -251,13 +252,14 @@ class IncidentCustomField(pulumi.CustomResource):
             display_name="False Alarm",
             field_type="single_value")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Fields can be imported using the `id`, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/incidentCustomField:IncidentCustomField sre_environment PLBP09X
+        $ pulumi import pagerduty:index/incidentCustomField:IncidentCustomField sre_environment PLBP09X
         ```
 
         :param str resource_name: The name of the resource.
@@ -280,6 +282,7 @@ class IncidentCustomField(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -298,13 +301,14 @@ class IncidentCustomField(pulumi.CustomResource):
             display_name="False Alarm",
             field_type="single_value")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Fields can be imported using the `id`, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/incidentCustomField:IncidentCustomField sre_environment PLBP09X
+        $ pulumi import pagerduty:index/incidentCustomField:IncidentCustomField sre_environment PLBP09X
         ```
 
         :param str resource_name: The name of the resource.

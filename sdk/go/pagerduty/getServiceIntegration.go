@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +40,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupServiceIntegration(ctx *pulumi.Context, args *LookupServiceIntegrationArgs, opts ...pulumi.InvokeOption) (*LookupServiceIntegrationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServiceIntegrationResult

@@ -13,6 +13,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -74,8 +75,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Default Global Ruleset
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -99,6 +103,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupRuleset(ctx *pulumi.Context, args *LookupRulesetArgs, opts ...pulumi.InvokeOption) (*LookupRulesetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRulesetResult

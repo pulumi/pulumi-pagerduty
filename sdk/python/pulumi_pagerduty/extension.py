@@ -266,6 +266,7 @@ class Extension(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -300,13 +301,14 @@ class Extension(pulumi.CustomResource):
         }
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Extensions can be imported using the id.e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/extension:Extension main PLBP09X
+        $ pulumi import pagerduty:index/extension:Extension main PLBP09X
         ```
 
         :param str resource_name: The name of the resource.
@@ -329,6 +331,7 @@ class Extension(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -363,13 +366,14 @@ class Extension(pulumi.CustomResource):
         }
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Extensions can be imported using the id.e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/extension:Extension main PLBP09X
+        $ pulumi import pagerduty:index/extension:Extension main PLBP09X
         ```
 
         :param str resource_name: The name of the resource.

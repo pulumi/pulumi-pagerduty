@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * A special case for [extension](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEzMw-create-an-extension) for ServiceNow.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -88,13 +90,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Extensions can be imported using the id.e.g.
  * 
  * ```sh
- *  $ pulumi import pagerduty:index/extensionServiceNow:ExtensionServiceNow main PLBP09X
+ * $ pulumi import pagerduty:index/extensionServiceNow:ExtensionServiceNow main PLBP09X
  * ```
  * 
  */

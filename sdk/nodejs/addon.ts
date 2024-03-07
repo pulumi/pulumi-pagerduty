@@ -9,19 +9,21 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
  * const example = new pagerduty.Addon("example", {src: "https://intranet.example.com/status"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Add-ons can be imported using the `id`, e.g.
  *
  * ```sh
- *  $ pulumi import pagerduty:index/addon:Addon example P3DH5M6
+ * $ pulumi import pagerduty:index/addon:Addon example P3DH5M6
  * ```
  */
 export class Addon extends pulumi.CustomResource {

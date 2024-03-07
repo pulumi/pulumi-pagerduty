@@ -14,6 +14,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -51,15 +52,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Team memberships can be imported using the `user_id` and `team_id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import pagerduty:index/teamMembership:TeamMembership main PLBP09X:PLB09Z
-//
+// $ pulumi import pagerduty:index/teamMembership:TeamMembership main PLBP09X:PLB09Z
 // ```
 type TeamMembership struct {
 	pulumi.CustomResourceState

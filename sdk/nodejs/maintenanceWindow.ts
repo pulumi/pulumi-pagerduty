@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -21,13 +22,14 @@ import * as utilities from "./utilities";
  *     services: [pagerduty_service.example.id],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Maintenance windows can be imported using the `id`, e.g.
  *
  * ```sh
- *  $ pulumi import pagerduty:index/maintenanceWindow:MaintenanceWindow main PLBP09X
+ * $ pulumi import pagerduty:index/maintenanceWindow:MaintenanceWindow main PLBP09X
  * ```
  */
 export class MaintenanceWindow extends pulumi.CustomResource {

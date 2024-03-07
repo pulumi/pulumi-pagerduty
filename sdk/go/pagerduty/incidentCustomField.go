@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -58,15 +59,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Fields can be imported using the `id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import pagerduty:index/incidentCustomField:IncidentCustomField sre_environment PLBP09X
-//
+// $ pulumi import pagerduty:index/incidentCustomField:IncidentCustomField sre_environment PLBP09X
 // ```
 type IncidentCustomField struct {
 	pulumi.CustomResourceState

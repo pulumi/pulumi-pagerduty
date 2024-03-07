@@ -87,6 +87,7 @@ def get_standards_resources_scores(ids: Optional[Sequence[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -101,6 +102,7 @@ def get_standards_resources_scores(ids: Optional[Sequence[str]] = None,
             baz.id,
         ])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[str] ids: List of identifiers of the resources to query.
@@ -129,6 +131,7 @@ def get_standards_resources_scores_output(ids: Optional[pulumi.Input[Sequence[st
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -143,6 +146,7 @@ def get_standards_resources_scores_output(ids: Optional[pulumi.Input[Sequence[st
             baz.id,
         ])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[str] ids: List of identifiers of the resources to query.

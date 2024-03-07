@@ -368,6 +368,7 @@ class AutomationActionsAction(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -386,13 +387,14 @@ class AutomationActionsAction(pulumi.CustomResource):
             action_type="script",
             description="Description of the Script Action created via TF")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Actions can be imported using the `id`, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/automationActionsAction:AutomationActionsAction example 01DER7CUUBF7TH4116K0M4WKPU
+        $ pulumi import pagerduty:index/automationActionsAction:AutomationActionsAction example 01DER7CUUBF7TH4116K0M4WKPU
         ```
 
         :param str resource_name: The name of the resource.
@@ -419,6 +421,7 @@ class AutomationActionsAction(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -437,13 +440,14 @@ class AutomationActionsAction(pulumi.CustomResource):
             action_type="script",
             description="Description of the Script Action created via TF")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Actions can be imported using the `id`, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/automationActionsAction:AutomationActionsAction example 01DER7CUUBF7TH4116K0M4WKPU
+        $ pulumi import pagerduty:index/automationActionsAction:AutomationActionsAction example 01DER7CUUBF7TH4116K0M4WKPU
         ```
 
         :param str resource_name: The name of the resource.

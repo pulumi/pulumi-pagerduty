@@ -184,6 +184,7 @@ class EventOrchestration(pulumi.CustomResource):
 
         ## Example of configuring an Event Orchestration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -193,13 +194,14 @@ class EventOrchestration(pulumi.CustomResource):
             description="Send events to a pair of services",
             team=engineering.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         EventOrchestrations can be imported using the `id`, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/eventOrchestration:EventOrchestration main 19acac92-027a-4ea0-b06c-bbf516519601
+        $ pulumi import pagerduty:index/eventOrchestration:EventOrchestration main 19acac92-027a-4ea0-b06c-bbf516519601
         ```
 
         :param str resource_name: The name of the resource.
@@ -220,6 +222,7 @@ class EventOrchestration(pulumi.CustomResource):
 
         ## Example of configuring an Event Orchestration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -229,13 +232,14 @@ class EventOrchestration(pulumi.CustomResource):
             description="Send events to a pair of services",
             team=engineering.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         EventOrchestrations can be imported using the `id`, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/eventOrchestration:EventOrchestration main 19acac92-027a-4ea0-b06c-bbf516519601
+        $ pulumi import pagerduty:index/eventOrchestration:EventOrchestration main 19acac92-027a-4ea0-b06c-bbf516519601
         ```
 
         :param str resource_name: The name of the resource.

@@ -14,6 +14,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -81,13 +82,14 @@ namespace Pulumi.Pagerduty
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Webhook Subscriptions can be imported using the `id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import pagerduty:index/webhookSubscription:WebhookSubscription main PUABCDL
+    /// $ pulumi import pagerduty:index/webhookSubscription:WebhookSubscription main PUABCDL
     /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/webhookSubscription:WebhookSubscription")]

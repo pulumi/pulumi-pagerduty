@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * An [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents) defines a field which can be set on incidents in the target account.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -61,13 +63,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Fields can be imported using the `id`, e.g.
  * 
  * ```sh
- *  $ pulumi import pagerduty:index/incidentCustomField:IncidentCustomField sre_environment PLBP09X
+ * $ pulumi import pagerduty:index/incidentCustomField:IncidentCustomField sre_environment PLBP09X
  * ```
  * 
  */

@@ -103,19 +103,21 @@ class Addon(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
         example = pagerduty.Addon("example", src="https://intranet.example.com/status")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Add-ons can be imported using the `id`, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/addon:Addon example P3DH5M6
+        $ pulumi import pagerduty:index/addon:Addon example P3DH5M6
         ```
 
         :param str resource_name: The name of the resource.
@@ -134,19 +136,21 @@ class Addon(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
         example = pagerduty.Addon("example", src="https://intranet.example.com/status")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Add-ons can be imported using the `id`, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/addon:Addon example P3DH5M6
+        $ pulumi import pagerduty:index/addon:Addon example P3DH5M6
         ```
 
         :param str resource_name: The name of the resource.

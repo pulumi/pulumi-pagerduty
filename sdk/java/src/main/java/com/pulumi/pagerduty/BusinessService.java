@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * A [business service](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODExNg-create-a-business-service) allows you to model capabilities that span multiple technical services and that may be owned by several different teams.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,13 +50,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Services can be imported using the `id`, e.g.
  * 
  * ```sh
- *  $ pulumi import pagerduty:index/businessService:BusinessService main PLBP09X
+ * $ pulumi import pagerduty:index/businessService:BusinessService main PLBP09X
  * ```
  * 
  */

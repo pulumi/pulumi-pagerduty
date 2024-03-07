@@ -200,6 +200,7 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -227,13 +228,14 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
             workflow=my_first_workflow.id,
             services=[pagerduty_service["first_service"]["id"]])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Incident workflows can be imported using the `id`, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger pagerduty_incident_workflow_trigger PLBP09X
+        $ pulumi import pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger pagerduty_incident_workflow_trigger PLBP09X
         ```
 
         :param str resource_name: The name of the resource.
@@ -255,6 +257,7 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -282,13 +285,14 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
             workflow=my_first_workflow.id,
             services=[pagerduty_service["first_service"]["id"]])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Incident workflows can be imported using the `id`, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger pagerduty_incident_workflow_trigger PLBP09X
+        $ pulumi import pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger pagerduty_incident_workflow_trigger PLBP09X
         ```
 
         :param str resource_name: The name of the resource.

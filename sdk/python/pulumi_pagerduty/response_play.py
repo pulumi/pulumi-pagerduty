@@ -429,6 +429,7 @@ class ResponsePlay(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -457,13 +458,14 @@ class ResponsePlay(pulumi.CustomResource):
             )],
             runnability="services")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Response Plays can be imported using the `id.from(email)`, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/responsePlay:ResponsePlay main 16208303-022b-f745-f2f5-560e537a2a74.user@email.com
+        $ pulumi import pagerduty:index/responsePlay:ResponsePlay main 16208303-022b-f745-f2f5-560e537a2a74.user@email.com
         ```
 
         :param str resource_name: The name of the resource.
@@ -489,6 +491,7 @@ class ResponsePlay(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -517,13 +520,14 @@ class ResponsePlay(pulumi.CustomResource):
             )],
             runnability="services")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Response Plays can be imported using the `id.from(email)`, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/responsePlay:ResponsePlay main 16208303-022b-f745-f2f5-560e537a2a74.user@email.com
+        $ pulumi import pagerduty:index/responsePlay:ResponsePlay main 16208303-022b-f745-f2f5-560e537a2a74.user@email.com
         ```
 
         :param str resource_name: The name of the resource.

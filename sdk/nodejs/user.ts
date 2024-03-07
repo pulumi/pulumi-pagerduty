@@ -9,19 +9,21 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
  * const example = new pagerduty.User("example", {email: "125.greenholt.earline@graham.name"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Users can be imported using the `id`, e.g.
  *
  * ```sh
- *  $ pulumi import pagerduty:index/user:User main PLBP09X
+ * $ pulumi import pagerduty:index/user:User main PLBP09X
  * ```
  */
 export class User extends pulumi.CustomResource {

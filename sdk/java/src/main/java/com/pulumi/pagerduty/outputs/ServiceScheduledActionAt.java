@@ -17,6 +17,8 @@ public final class ServiceScheduledActionAt {
      * Note that it is currently only possible to define the scheduled action when urgency is set to `high` for `during_support_hours` and to `low`  for `outside_support_hours` in `incident_urgency_rule`.
      * 
      * Below is an example for a `pagerduty.Service` resource with `incident_urgency_rules` with `type = &#34;use_support_hours&#34;`, `support_hours` and a default `scheduled_action` as well.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -84,6 +86,7 @@ public final class ServiceScheduledActionAt {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     private @Nullable String name;
@@ -100,6 +103,8 @@ public final class ServiceScheduledActionAt {
      * Note that it is currently only possible to define the scheduled action when urgency is set to `high` for `during_support_hours` and to `low`  for `outside_support_hours` in `incident_urgency_rule`.
      * 
      * Below is an example for a `pagerduty.Service` resource with `incident_urgency_rules` with `type = &#34;use_support_hours&#34;`, `support_hours` and a default `scheduled_action` as well.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -167,6 +172,7 @@ public final class ServiceScheduledActionAt {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Optional<String> name() {

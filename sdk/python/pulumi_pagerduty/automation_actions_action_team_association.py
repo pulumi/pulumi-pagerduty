@@ -102,6 +102,7 @@ class AutomationActionsActionTeamAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -117,13 +118,14 @@ class AutomationActionsActionTeamAssociation(pulumi.CustomResource):
             action_id=pa_action_example.id,
             team_id=example.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Action team association can be imported using the `action_id` and `team_id` separated by a colon, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/automationActionsActionTeamAssociation:AutomationActionsActionTeamAssociation example 01DER7CUUBF7TH4116K0M4WKPU:PLB09Z
+        $ pulumi import pagerduty:index/automationActionsActionTeamAssociation:AutomationActionsActionTeamAssociation example 01DER7CUUBF7TH4116K0M4WKPU:PLB09Z
         ```
 
         :param str resource_name: The name of the resource.
@@ -142,6 +144,7 @@ class AutomationActionsActionTeamAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -157,13 +160,14 @@ class AutomationActionsActionTeamAssociation(pulumi.CustomResource):
             action_id=pa_action_example.id,
             team_id=example.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Action team association can be imported using the `action_id` and `team_id` separated by a colon, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/automationActionsActionTeamAssociation:AutomationActionsActionTeamAssociation example 01DER7CUUBF7TH4116K0M4WKPU:PLB09Z
+        $ pulumi import pagerduty:index/automationActionsActionTeamAssociation:AutomationActionsActionTeamAssociation example 01DER7CUUBF7TH4116K0M4WKPU:PLB09Z
         ```
 
         :param str resource_name: The name of the resource.

@@ -14,10 +14,9 @@ namespace Pulumi.Pagerduty
         /// <summary>
         /// Use this data source to get information about a specific service_integration.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +33,7 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetServiceIntegrationResult> InvokeAsync(GetServiceIntegrationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceIntegrationResult>("pagerduty:index/getServiceIntegration:getServiceIntegration", args ?? new GetServiceIntegrationArgs(), options.WithDefaults());
@@ -43,10 +41,9 @@ namespace Pulumi.Pagerduty
         /// <summary>
         /// Use this data source to get information about a specific service_integration.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +60,7 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetServiceIntegrationResult> Invoke(GetServiceIntegrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceIntegrationResult>("pagerduty:index/getServiceIntegration:getServiceIntegration", args ?? new GetServiceIntegrationInvokeArgs(), options.WithDefaults());

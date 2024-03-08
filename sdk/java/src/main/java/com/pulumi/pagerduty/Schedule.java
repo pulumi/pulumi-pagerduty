@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * A [schedule](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE4Mg-create-a-schedule) determines the time periods that users are on call. Only on-call users are eligible to receive notifications from incidents.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -73,13 +75,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Schedules can be imported using the `id`, e.g.
  * 
  * ```sh
- *  $ pulumi import pagerduty:index/schedule:Schedule main PLBP09X
+ * $ pulumi import pagerduty:index/schedule:Schedule main PLBP09X
  * ```
  * 
  */

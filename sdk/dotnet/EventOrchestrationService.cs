@@ -24,6 +24,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// The `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set. In this example the `catch_all` doesn't have any `actions` so it'll leave events as-is.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -226,13 +227,14 @@ namespace Pulumi.Pagerduty
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Service Orchestration can be imported using the `id` of the Service, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import pagerduty:index/eventOrchestrationService:EventOrchestrationService service PFEODA7
+    /// $ pulumi import pagerduty:index/eventOrchestrationService:EventOrchestrationService service PFEODA7
     /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/eventOrchestrationService:EventOrchestrationService")]

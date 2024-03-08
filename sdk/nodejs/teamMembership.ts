@@ -7,6 +7,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -19,13 +20,14 @@ import * as utilities from "./utilities";
  *     role: "manager",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Team memberships can be imported using the `user_id` and `team_id`, e.g.
  *
  * ```sh
- *  $ pulumi import pagerduty:index/teamMembership:TeamMembership main PLBP09X:PLB09Z
+ * $ pulumi import pagerduty:index/teamMembership:TeamMembership main PLBP09X:PLB09Z
  * ```
  */
 export class TeamMembership extends pulumi.CustomResource {

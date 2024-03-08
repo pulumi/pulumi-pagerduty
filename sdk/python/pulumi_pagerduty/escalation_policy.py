@@ -203,7 +203,7 @@ class EscalationPolicy(pulumi.CustomResource):
         Escalation policies can be imported using the `id`, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/escalationPolicy:EscalationPolicy main PLBP09X
+        $ pulumi import pagerduty:index/escalationPolicy:EscalationPolicy main PLBP09X
         ```
 
         :param str resource_name: The name of the resource.
@@ -227,7 +227,7 @@ class EscalationPolicy(pulumi.CustomResource):
         Escalation policies can be imported using the `id`, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/escalationPolicy:EscalationPolicy main PLBP09X
+        $ pulumi import pagerduty:index/escalationPolicy:EscalationPolicy main PLBP09X
         ```
 
         :param str resource_name: The name of the resource.

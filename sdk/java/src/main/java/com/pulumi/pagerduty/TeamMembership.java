@@ -16,6 +16,8 @@ import javax.annotation.Nullable;
 
 /**
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -58,13 +60,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Team memberships can be imported using the `user_id` and `team_id`, e.g.
  * 
  * ```sh
- *  $ pulumi import pagerduty:index/teamMembership:TeamMembership main PLBP09X:PLB09Z
+ * $ pulumi import pagerduty:index/teamMembership:TeamMembership main PLBP09X:PLB09Z
  * ```
  * 
  */

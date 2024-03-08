@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
 
 /**
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -72,13 +74,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Contact methods can be imported using the `user_id` and the `id`, e.g.
  * 
  * ```sh
- *  $ pulumi import pagerduty:index/userContactMethod:UserContactMethod main PLBP09X:PLBP09X
+ * $ pulumi import pagerduty:index/userContactMethod:UserContactMethod main PLBP09X:PLBP09X
  * ```
  * 
  */

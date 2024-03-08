@@ -172,6 +172,7 @@ class IncidentWorkflow(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -187,13 +188,14 @@ class IncidentWorkflow(pulumi.CustomResource):
                 name="Send Status Update",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Incident workflows can be imported using the `id`, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/incidentWorkflow:IncidentWorkflow major_incident_workflow PLBP09X
+        $ pulumi import pagerduty:index/incidentWorkflow:IncidentWorkflow major_incident_workflow PLBP09X
         ```
 
         :param str resource_name: The name of the resource.
@@ -214,6 +216,7 @@ class IncidentWorkflow(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -229,13 +232,14 @@ class IncidentWorkflow(pulumi.CustomResource):
                 name="Send Status Update",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Incident workflows can be imported using the `id`, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/incidentWorkflow:IncidentWorkflow major_incident_workflow PLBP09X
+        $ pulumi import pagerduty:index/incidentWorkflow:IncidentWorkflow major_incident_workflow PLBP09X
         ```
 
         :param str resource_name: The name of the resource.

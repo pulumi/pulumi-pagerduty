@@ -19,6 +19,7 @@ namespace Pulumi.Pagerduty
     /// In this example of an Unrouted Orchestration, the rule matches only if the condition is matched.
     /// Alerts created for events that do not match the rule will have severity level set to `info` as defined in `catch_all` block.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -74,13 +75,14 @@ namespace Pulumi.Pagerduty
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Unrouted Orchestration can be imported using the `id` of the Event Orchestration, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted unrouted 1b49abe7-26db-4439-a715-c6d883acfb3e
+    /// $ pulumi import pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted unrouted 1b49abe7-26db-4439-a715-c6d883acfb3e
     /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted")]

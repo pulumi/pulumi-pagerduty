@@ -7,6 +7,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -44,8 +45,11 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Default Global Ruleset
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -54,6 +58,7 @@ import * as utilities from "./utilities";
  *     name: "Default Global",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRuleset(args: GetRulesetArgs, opts?: pulumi.InvokeOptions): Promise<GetRulesetResult> {
 
@@ -93,6 +98,7 @@ export interface GetRulesetResult {
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -130,8 +136,11 @@ export interface GetRulesetResult {
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Default Global Ruleset
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -140,6 +149,7 @@ export interface GetRulesetResult {
  *     name: "Default Global",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRulesetOutput(args: GetRulesetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRulesetResult> {
     return pulumi.output(args).apply((a: any) => getRuleset(a, opts))

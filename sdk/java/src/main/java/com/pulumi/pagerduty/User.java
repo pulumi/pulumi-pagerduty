@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * A [user](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user) is a member of a PagerDuty account that have the ability to interact with incidents and other data on the account.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,13 +50,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Users can be imported using the `id`, e.g.
  * 
  * ```sh
- *  $ pulumi import pagerduty:index/user:User main PLBP09X
+ * $ pulumi import pagerduty:index/user:User main PLBP09X
  * ```
  * 
  */

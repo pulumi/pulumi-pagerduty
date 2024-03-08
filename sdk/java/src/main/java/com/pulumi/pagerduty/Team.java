@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * The account must have the `teams` ability to use the following resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -53,13 +55,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Teams can be imported using the `id`, e.g.
  * 
  * ```sh
- *  $ pulumi import pagerduty:index/team:Team main PLBP09X
+ * $ pulumi import pagerduty:index/team:Team main PLBP09X
  * ```
  * 
  */

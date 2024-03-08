@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -37,6 +38,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetStandards(ctx *pulumi.Context, args *GetStandardsArgs, opts ...pulumi.InvokeOption) (*GetStandardsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetStandardsResult

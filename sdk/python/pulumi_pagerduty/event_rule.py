@@ -153,6 +153,7 @@ class EventRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -257,13 +258,14 @@ class EventRule(pulumi.CustomResource):
             ]),
             opts=pulumi.ResourceOptions(depends_on=[pagerduty_event_rule["two"]]))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Event rules can be imported using the `id`, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/eventRule:EventRule main 19acac92-027a-4ea0-b06c-bbf516519601
+        $ pulumi import pagerduty:index/eventRule:EventRule main 19acac92-027a-4ea0-b06c-bbf516519601
         ```
 
         :param str resource_name: The name of the resource.
@@ -285,6 +287,7 @@ class EventRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -389,13 +392,14 @@ class EventRule(pulumi.CustomResource):
             ]),
             opts=pulumi.ResourceOptions(depends_on=[pagerduty_event_rule["two"]]))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Event rules can be imported using the `id`, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/eventRule:EventRule main 19acac92-027a-4ea0-b06c-bbf516519601
+        $ pulumi import pagerduty:index/eventRule:EventRule main 19acac92-027a-4ea0-b06c-bbf516519601
         ```
 
         :param str resource_name: The name of the resource.

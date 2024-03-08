@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -48,13 +49,14 @@ import * as utilities from "./utilities";
  * `,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Extensions can be imported using the id.e.g.
  *
  * ```sh
- *  $ pulumi import pagerduty:index/extension:Extension main PLBP09X
+ * $ pulumi import pagerduty:index/extension:Extension main PLBP09X
  * ```
  */
 export class Extension extends pulumi.CustomResource {

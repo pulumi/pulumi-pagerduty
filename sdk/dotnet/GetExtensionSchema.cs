@@ -14,10 +14,9 @@ namespace Pulumi.Pagerduty
         /// <summary>
         /// Use this data source to get information about a specific [extension](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEzMA-list-extension-schemas) vendor that you can use for a service (e.g: Slack, Generic Webhook, ServiceNow).
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -79,8 +78,7 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetExtensionSchemaResult> InvokeAsync(GetExtensionSchemaArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExtensionSchemaResult>("pagerduty:index/getExtensionSchema:getExtensionSchema", args ?? new GetExtensionSchemaArgs(), options.WithDefaults());
@@ -88,10 +86,9 @@ namespace Pulumi.Pagerduty
         /// <summary>
         /// Use this data source to get information about a specific [extension](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEzMA-list-extension-schemas) vendor that you can use for a service (e.g: Slack, Generic Webhook, ServiceNow).
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -153,8 +150,7 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetExtensionSchemaResult> Invoke(GetExtensionSchemaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExtensionSchemaResult>("pagerduty:index/getExtensionSchema:getExtensionSchema", args ?? new GetExtensionSchemaInvokeArgs(), options.WithDefaults());

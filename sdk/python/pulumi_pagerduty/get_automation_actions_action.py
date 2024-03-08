@@ -179,12 +179,14 @@ def get_automation_actions_action(action_classification: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
 
     example = pagerduty.get_automation_actions_action(id="01CS1685B2UDM4I3XUUOXPPORM")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str action_classification: (Optional) The category of the action. The only allowed values are `diagnostic` and `remediation`.
@@ -237,12 +239,14 @@ def get_automation_actions_action_output(action_classification: Optional[pulumi.
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
 
     example = pagerduty.get_automation_actions_action(id="01CS1685B2UDM4I3XUUOXPPORM")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str action_classification: (Optional) The category of the action. The only allowed values are `diagnostic` and `remediation`.

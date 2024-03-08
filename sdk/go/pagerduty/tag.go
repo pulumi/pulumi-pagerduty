@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,15 +40,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Tags can be imported using the `id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import pagerduty:index/tag:Tag main PLBP09X
-//
+// $ pulumi import pagerduty:index/tag:Tag main PLBP09X
 // ```
 type Tag struct {
 	pulumi.CustomResourceState

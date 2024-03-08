@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -37,13 +38,14 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Services can be imported using the `id`, e.g.
  *
  * ```sh
- *  $ pulumi import pagerduty:index/service:Service main PLBP09X
+ * $ pulumi import pagerduty:index/service:Service main PLBP09X
  * ```
  */
 export class Service extends pulumi.CustomResource {

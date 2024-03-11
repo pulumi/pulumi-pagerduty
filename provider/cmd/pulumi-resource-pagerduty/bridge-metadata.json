@@ -2,10 +2,12 @@
     "auto-aliasing": {
         "resources": {
             "pagerduty_addon": {
-                "current": "pagerduty:index/addon:Addon"
+                "current": "pagerduty:index/addon:Addon",
+                "majorVersion": 4
             },
             "pagerduty_automation_actions_action": {
                 "current": "pagerduty:index/automationActionsAction:AutomationActionsAction",
+                "majorVersion": 4,
                 "fields": {
                     "action_data_reference": {
                         "maxItemsOne": true
@@ -13,25 +15,32 @@
                 }
             },
             "pagerduty_automation_actions_action_service_association": {
-                "current": "pagerduty:index/automationActionsActionServiceAssociation:AutomationActionsActionServiceAssociation"
+                "current": "pagerduty:index/automationActionsActionServiceAssociation:AutomationActionsActionServiceAssociation",
+                "majorVersion": 4
             },
             "pagerduty_automation_actions_action_team_association": {
-                "current": "pagerduty:index/automationActionsActionTeamAssociation:AutomationActionsActionTeamAssociation"
+                "current": "pagerduty:index/automationActionsActionTeamAssociation:AutomationActionsActionTeamAssociation",
+                "majorVersion": 4
             },
             "pagerduty_automation_actions_runner": {
-                "current": "pagerduty:index/automationActionsRunner:AutomationActionsRunner"
+                "current": "pagerduty:index/automationActionsRunner:AutomationActionsRunner",
+                "majorVersion": 4
             },
             "pagerduty_automation_actions_runner_team_association": {
-                "current": "pagerduty:index/automationActionsRunnerTeamAssociation:AutomationActionsRunnerTeamAssociation"
+                "current": "pagerduty:index/automationActionsRunnerTeamAssociation:AutomationActionsRunnerTeamAssociation",
+                "majorVersion": 4
             },
             "pagerduty_business_service": {
-                "current": "pagerduty:index/businessService:BusinessService"
+                "current": "pagerduty:index/businessService:BusinessService",
+                "majorVersion": 4
             },
             "pagerduty_business_service_subscriber": {
-                "current": "pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber"
+                "current": "pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber",
+                "majorVersion": 4
             },
             "pagerduty_escalation_policy": {
                 "current": "pagerduty:index/escalationPolicy:EscalationPolicy",
+                "majorVersion": 4,
                 "fields": {
                     "rule": {
                         "maxItemsOne": false,
@@ -53,6 +62,7 @@
             },
             "pagerduty_event_orchestration": {
                 "current": "pagerduty:index/eventOrchestration:EventOrchestration",
+                "majorVersion": 4,
                 "fields": {
                     "integration": {
                         "maxItemsOne": false,
@@ -68,6 +78,7 @@
             },
             "pagerduty_event_orchestration_global": {
                 "current": "pagerduty:index/eventOrchestrationGlobal:EventOrchestrationGlobal",
+                "majorVersion": 4,
                 "fields": {
                     "catch_all": {
                         "maxItemsOne": true,
@@ -155,6 +166,7 @@
             },
             "pagerduty_event_orchestration_integration": {
                 "current": "pagerduty:index/eventOrchestrationIntegration:EventOrchestrationIntegration",
+                "majorVersion": 4,
                 "fields": {
                     "parameters": {
                         "maxItemsOne": false
@@ -163,6 +175,7 @@
             },
             "pagerduty_event_orchestration_router": {
                 "current": "pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter",
+                "majorVersion": 4,
                 "fields": {
                     "catch_all": {
                         "maxItemsOne": true,
@@ -198,6 +211,7 @@
             },
             "pagerduty_event_orchestration_service": {
                 "current": "pagerduty:index/eventOrchestrationService:EventOrchestrationService",
+                "majorVersion": 4,
                 "fields": {
                     "catch_all": {
                         "maxItemsOne": true,
@@ -291,6 +305,7 @@
             },
             "pagerduty_event_orchestration_unrouted": {
                 "current": "pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted",
+                "majorVersion": 4,
                 "fields": {
                     "catch_all": {
                         "maxItemsOne": true,
@@ -345,10 +360,12 @@
                 }
             },
             "pagerduty_event_rule": {
-                "current": "pagerduty:index/eventRule:EventRule"
+                "current": "pagerduty:index/eventRule:EventRule",
+                "majorVersion": 4
             },
             "pagerduty_extension": {
                 "current": "pagerduty:index/extension:Extension",
+                "majorVersion": 4,
                 "fields": {
                     "extension_objects": {
                         "maxItemsOne": false
@@ -357,6 +374,7 @@
             },
             "pagerduty_extension_servicenow": {
                 "current": "pagerduty:index/extensionServiceNow:ExtensionServiceNow",
+                "majorVersion": 4,
                 "fields": {
                     "extension_objects": {
                         "maxItemsOne": false
@@ -364,13 +382,16 @@
                 }
             },
             "pagerduty_incident_custom_field": {
-                "current": "pagerduty:index/incidentCustomField:IncidentCustomField"
+                "current": "pagerduty:index/incidentCustomField:IncidentCustomField",
+                "majorVersion": 4
             },
             "pagerduty_incident_custom_field_option": {
-                "current": "pagerduty:index/incidentCustomFieldOption:IncidentCustomFieldOption"
+                "current": "pagerduty:index/incidentCustomFieldOption:IncidentCustomFieldOption",
+                "majorVersion": 4
             },
             "pagerduty_incident_workflow": {
                 "current": "pagerduty:index/incidentWorkflow:IncidentWorkflow",
+                "majorVersion": 4,
                 "fields": {
                     "step": {
                         "maxItemsOne": false,
@@ -403,6 +424,7 @@
             },
             "pagerduty_incident_workflow_trigger": {
                 "current": "pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger",
+                "majorVersion": 4,
                 "fields": {
                     "services": {
                         "maxItemsOne": false
@@ -411,6 +433,7 @@
             },
             "pagerduty_maintenance_window": {
                 "current": "pagerduty:index/maintenanceWindow:MaintenanceWindow",
+                "majorVersion": 4,
                 "fields": {
                     "services": {
                         "maxItemsOne": false
@@ -419,6 +442,7 @@
             },
             "pagerduty_response_play": {
                 "current": "pagerduty:index/responsePlay:ResponsePlay",
+                "majorVersion": 4,
                 "fields": {
                     "responder": {
                         "maxItemsOne": false,
@@ -450,6 +474,7 @@
             },
             "pagerduty_ruleset": {
                 "current": "pagerduty:index/ruleset:Ruleset",
+                "majorVersion": 4,
                 "fields": {
                     "routing_keys": {
                         "maxItemsOne": false
@@ -461,6 +486,7 @@
             },
             "pagerduty_ruleset_rule": {
                 "current": "pagerduty:index/rulesetRule:RulesetRule",
+                "majorVersion": 4,
                 "fields": {
                     "actions": {
                         "maxItemsOne": true,
@@ -544,6 +570,7 @@
             },
             "pagerduty_schedule": {
                 "current": "pagerduty:index/schedule:Schedule",
+                "majorVersion": 4,
                 "fields": {
                     "final_schedule": {
                         "maxItemsOne": false
@@ -568,6 +595,7 @@
             },
             "pagerduty_service": {
                 "current": "pagerduty:index/service:Service",
+                "majorVersion": 4,
                 "fields": {
                     "alert_grouping_parameters": {
                         "maxItemsOne": true,
@@ -626,6 +654,7 @@
             },
             "pagerduty_service_dependency": {
                 "current": "pagerduty:index/serviceDependency:ServiceDependency",
+                "majorVersion": 4,
                 "fields": {
                     "dependency": {
                         "maxItemsOne": true,
@@ -644,6 +673,7 @@
             },
             "pagerduty_service_event_rule": {
                 "current": "pagerduty:index/serviceEventRule:ServiceEventRule",
+                "majorVersion": 4,
                 "fields": {
                     "actions": {
                         "maxItemsOne": true,
@@ -724,6 +754,7 @@
             },
             "pagerduty_service_integration": {
                 "current": "pagerduty:index/serviceIntegration:ServiceIntegration",
+                "majorVersion": 4,
                 "fields": {
                     "email_filter": {
                         "maxItemsOne": false
@@ -759,6 +790,7 @@
             },
             "pagerduty_slack_connection": {
                 "current": "pagerduty:index/slackConnection:SlackConnection",
+                "majorVersion": 4,
                 "fields": {
                     "config": {
                         "maxItemsOne": false,
@@ -776,19 +808,24 @@
                 }
             },
             "pagerduty_tag": {
-                "current": "pagerduty:index/tag:Tag"
+                "current": "pagerduty:index/tag:Tag",
+                "majorVersion": 4
             },
             "pagerduty_tag_assignment": {
-                "current": "pagerduty:index/tagAssignment:TagAssignment"
+                "current": "pagerduty:index/tagAssignment:TagAssignment",
+                "majorVersion": 4
             },
             "pagerduty_team": {
-                "current": "pagerduty:index/team:Team"
+                "current": "pagerduty:index/team:Team",
+                "majorVersion": 4
             },
             "pagerduty_team_membership": {
-                "current": "pagerduty:index/teamMembership:TeamMembership"
+                "current": "pagerduty:index/teamMembership:TeamMembership",
+                "majorVersion": 4
             },
             "pagerduty_user": {
                 "current": "pagerduty:index/user:User",
+                "majorVersion": 4,
                 "fields": {
                     "teams": {
                         "maxItemsOne": false
@@ -796,13 +833,16 @@
                 }
             },
             "pagerduty_user_contact_method": {
-                "current": "pagerduty:index/userContactMethod:UserContactMethod"
+                "current": "pagerduty:index/userContactMethod:UserContactMethod",
+                "majorVersion": 4
             },
             "pagerduty_user_notification_rule": {
-                "current": "pagerduty:index/userNotificationRule:UserNotificationRule"
+                "current": "pagerduty:index/userNotificationRule:UserNotificationRule",
+                "majorVersion": 4
             },
             "pagerduty_webhook_subscription": {
                 "current": "pagerduty:index/webhookSubscription:WebhookSubscription",
+                "majorVersion": 4,
                 "fields": {
                     "delivery_method": {
                         "maxItemsOne": false,
@@ -826,6 +866,7 @@
         "datasources": {
             "pagerduty_automation_actions_action": {
                 "current": "pagerduty:index/getAutomationActionsAction:getAutomationActionsAction",
+                "majorVersion": 4,
                 "fields": {
                     "action_data_reference": {
                         "maxItemsOne": false
@@ -833,16 +874,20 @@
                 }
             },
             "pagerduty_automation_actions_runner": {
-                "current": "pagerduty:index/getAutomationActionsRunner:getAutomationActionsRunner"
+                "current": "pagerduty:index/getAutomationActionsRunner:getAutomationActionsRunner",
+                "majorVersion": 4
             },
             "pagerduty_business_service": {
-                "current": "pagerduty:index/getBusinessService:getBusinessService"
+                "current": "pagerduty:index/getBusinessService:getBusinessService",
+                "majorVersion": 4
             },
             "pagerduty_escalation_policy": {
-                "current": "pagerduty:index/getEscalationPolicy:getEscalationPolicy"
+                "current": "pagerduty:index/getEscalationPolicy:getEscalationPolicy",
+                "majorVersion": 4
             },
             "pagerduty_event_orchestration": {
                 "current": "pagerduty:index/getEventOrchestration:getEventOrchestration",
+                "majorVersion": 4,
                 "fields": {
                     "integration": {
                         "maxItemsOne": false,
@@ -858,6 +903,7 @@
             },
             "pagerduty_event_orchestration_integration": {
                 "current": "pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration",
+                "majorVersion": 4,
                 "fields": {
                     "parameters": {
                         "maxItemsOne": false
@@ -866,6 +912,7 @@
             },
             "pagerduty_event_orchestrations": {
                 "current": "pagerduty:index/getEventOrchestrations:getEventOrchestrations",
+                "majorVersion": 4,
                 "fields": {
                     "event_orchestrations": {
                         "maxItemsOne": false,
@@ -887,16 +934,20 @@
                 }
             },
             "pagerduty_extension_schema": {
-                "current": "pagerduty:index/getExtensionSchema:getExtensionSchema"
+                "current": "pagerduty:index/getExtensionSchema:getExtensionSchema",
+                "majorVersion": 4
             },
             "pagerduty_incident_custom_field": {
-                "current": "pagerduty:index/getIncidentCustomField:getIncidentCustomField"
+                "current": "pagerduty:index/getIncidentCustomField:getIncidentCustomField",
+                "majorVersion": 4
             },
             "pagerduty_incident_workflow": {
-                "current": "pagerduty:index/getIncidentWorkflow:getIncidentWorkflow"
+                "current": "pagerduty:index/getIncidentWorkflow:getIncidentWorkflow",
+                "majorVersion": 4
             },
             "pagerduty_license": {
                 "current": "pagerduty:index/getLicense:getLicense",
+                "majorVersion": 4,
                 "fields": {
                     "valid_roles": {
                         "maxItemsOne": false
@@ -905,6 +956,7 @@
             },
             "pagerduty_licenses": {
                 "current": "pagerduty:index/getLicenses:getLicenses",
+                "majorVersion": 4,
                 "fields": {
                     "licenses": {
                         "maxItemsOne": false,
@@ -919,10 +971,12 @@
                 }
             },
             "pagerduty_priority": {
-                "current": "pagerduty:index/getPriority:getPriority"
+                "current": "pagerduty:index/getPriority:getPriority",
+                "majorVersion": 4
             },
             "pagerduty_ruleset": {
                 "current": "pagerduty:index/getRuleset:getRuleset",
+                "majorVersion": 4,
                 "fields": {
                     "routing_keys": {
                         "maxItemsOne": false
@@ -930,10 +984,12 @@
                 }
             },
             "pagerduty_schedule": {
-                "current": "pagerduty:index/getSchedule:getSchedule"
+                "current": "pagerduty:index/getSchedule:getSchedule",
+                "majorVersion": 4
             },
             "pagerduty_service": {
                 "current": "pagerduty:index/getService:getService",
+                "majorVersion": 4,
                 "fields": {
                     "teams": {
                         "maxItemsOne": false
@@ -941,10 +997,12 @@
                 }
             },
             "pagerduty_service_integration": {
-                "current": "pagerduty:index/getServiceIntegration:getServiceIntegration"
+                "current": "pagerduty:index/getServiceIntegration:getServiceIntegration",
+                "majorVersion": 4
             },
             "pagerduty_standards": {
                 "current": "pagerduty:index/getStandards:getStandards",
+                "majorVersion": 4,
                 "fields": {
                     "standards": {
                         "maxItemsOne": false,
@@ -963,6 +1021,7 @@
             },
             "pagerduty_standards_resource_scores": {
                 "current": "pagerduty:index/getStandardsResourceScores:getStandardsResourceScores",
+                "majorVersion": 4,
                 "fields": {
                     "standards": {
                         "maxItemsOne": false
@@ -971,6 +1030,7 @@
             },
             "pagerduty_standards_resources_scores": {
                 "current": "pagerduty:index/getStandardsResourcesScores:getStandardsResourcesScores",
+                "majorVersion": 4,
                 "fields": {
                     "ids": {
                         "maxItemsOne": false
@@ -988,13 +1048,16 @@
                 }
             },
             "pagerduty_tag": {
-                "current": "pagerduty:index/getTag:getTag"
+                "current": "pagerduty:index/getTag:getTag",
+                "majorVersion": 4
             },
             "pagerduty_team": {
-                "current": "pagerduty:index/getTeam:getTeam"
+                "current": "pagerduty:index/getTeam:getTeam",
+                "majorVersion": 4
             },
             "pagerduty_team_members": {
                 "current": "pagerduty:index/getTeamMembers:getTeamMembers",
+                "majorVersion": 4,
                 "fields": {
                     "members": {
                         "maxItemsOne": false
@@ -1002,13 +1065,16 @@
                 }
             },
             "pagerduty_user": {
-                "current": "pagerduty:index/getUser:getUser"
+                "current": "pagerduty:index/getUser:getUser",
+                "majorVersion": 4
             },
             "pagerduty_user_contact_method": {
-                "current": "pagerduty:index/getUserContactMethod:getUserContactMethod"
+                "current": "pagerduty:index/getUserContactMethod:getUserContactMethod",
+                "majorVersion": 4
             },
             "pagerduty_users": {
                 "current": "pagerduty:index/getUsers:getUsers",
+                "majorVersion": 4,
                 "fields": {
                     "team_ids": {
                         "maxItemsOne": false
@@ -1019,11 +1085,85 @@
                 }
             },
             "pagerduty_vendor": {
-                "current": "pagerduty:index/getVendor:getVendor"
+                "current": "pagerduty:index/getVendor:getVendor",
+                "majorVersion": 4
             }
         }
     },
     "auto-settings": {},
+    "mux": {
+        "resources": {
+            "pagerduty:index/addon:Addon": 0,
+            "pagerduty:index/automationActionsAction:AutomationActionsAction": 0,
+            "pagerduty:index/automationActionsActionServiceAssociation:AutomationActionsActionServiceAssociation": 0,
+            "pagerduty:index/automationActionsActionTeamAssociation:AutomationActionsActionTeamAssociation": 0,
+            "pagerduty:index/automationActionsRunner:AutomationActionsRunner": 0,
+            "pagerduty:index/automationActionsRunnerTeamAssociation:AutomationActionsRunnerTeamAssociation": 0,
+            "pagerduty:index/businessService:BusinessService": 1,
+            "pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber": 0,
+            "pagerduty:index/escalationPolicy:EscalationPolicy": 0,
+            "pagerduty:index/eventOrchestration:EventOrchestration": 0,
+            "pagerduty:index/eventOrchestrationGlobal:EventOrchestrationGlobal": 0,
+            "pagerduty:index/eventOrchestrationIntegration:EventOrchestrationIntegration": 0,
+            "pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter": 0,
+            "pagerduty:index/eventOrchestrationService:EventOrchestrationService": 0,
+            "pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted": 0,
+            "pagerduty:index/eventRule:EventRule": 0,
+            "pagerduty:index/extension:Extension": 0,
+            "pagerduty:index/extensionServiceNow:ExtensionServiceNow": 0,
+            "pagerduty:index/incidentCustomField:IncidentCustomField": 0,
+            "pagerduty:index/incidentCustomFieldOption:IncidentCustomFieldOption": 0,
+            "pagerduty:index/incidentWorkflow:IncidentWorkflow": 0,
+            "pagerduty:index/incidentWorkflowTrigger:IncidentWorkflowTrigger": 0,
+            "pagerduty:index/maintenanceWindow:MaintenanceWindow": 0,
+            "pagerduty:index/responsePlay:ResponsePlay": 0,
+            "pagerduty:index/ruleset:Ruleset": 0,
+            "pagerduty:index/rulesetRule:RulesetRule": 0,
+            "pagerduty:index/schedule:Schedule": 0,
+            "pagerduty:index/service:Service": 0,
+            "pagerduty:index/serviceDependency:ServiceDependency": 0,
+            "pagerduty:index/serviceEventRule:ServiceEventRule": 0,
+            "pagerduty:index/serviceIntegration:ServiceIntegration": 0,
+            "pagerduty:index/slackConnection:SlackConnection": 0,
+            "pagerduty:index/tag:Tag": 0,
+            "pagerduty:index/tagAssignment:TagAssignment": 0,
+            "pagerduty:index/team:Team": 0,
+            "pagerduty:index/teamMembership:TeamMembership": 0,
+            "pagerduty:index/user:User": 0,
+            "pagerduty:index/userContactMethod:UserContactMethod": 0,
+            "pagerduty:index/userNotificationRule:UserNotificationRule": 0,
+            "pagerduty:index/webhookSubscription:WebhookSubscription": 0
+        },
+        "functions": {
+            "pagerduty:index/getAutomationActionsAction:getAutomationActionsAction": 0,
+            "pagerduty:index/getAutomationActionsRunner:getAutomationActionsRunner": 0,
+            "pagerduty:index/getBusinessService:getBusinessService": 0,
+            "pagerduty:index/getEscalationPolicy:getEscalationPolicy": 0,
+            "pagerduty:index/getEventOrchestration:getEventOrchestration": 0,
+            "pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration": 0,
+            "pagerduty:index/getEventOrchestrations:getEventOrchestrations": 0,
+            "pagerduty:index/getExtensionSchema:getExtensionSchema": 0,
+            "pagerduty:index/getIncidentCustomField:getIncidentCustomField": 0,
+            "pagerduty:index/getIncidentWorkflow:getIncidentWorkflow": 0,
+            "pagerduty:index/getLicense:getLicense": 0,
+            "pagerduty:index/getLicenses:getLicenses": 0,
+            "pagerduty:index/getPriority:getPriority": 0,
+            "pagerduty:index/getRuleset:getRuleset": 0,
+            "pagerduty:index/getSchedule:getSchedule": 0,
+            "pagerduty:index/getService:getService": 0,
+            "pagerduty:index/getServiceIntegration:getServiceIntegration": 0,
+            "pagerduty:index/getStandards:getStandards": 1,
+            "pagerduty:index/getStandardsResourceScores:getStandardsResourceScores": 1,
+            "pagerduty:index/getStandardsResourcesScores:getStandardsResourcesScores": 1,
+            "pagerduty:index/getTag:getTag": 0,
+            "pagerduty:index/getTeam:getTeam": 0,
+            "pagerduty:index/getTeamMembers:getTeamMembers": 0,
+            "pagerduty:index/getUser:getUser": 0,
+            "pagerduty:index/getUserContactMethod:getUserContactMethod": 0,
+            "pagerduty:index/getUsers:getUsers": 0,
+            "pagerduty:index/getVendor:getVendor": 0
+        }
+    },
     "renames": {
         "resources": {
             "pagerduty:index/addon:Addon": "pagerduty_addon",

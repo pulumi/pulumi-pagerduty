@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,15 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Services can be imported using the `id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import pagerduty:index/businessService:BusinessService main PLBP09X
-//
+// $ pulumi import pagerduty:index/businessService:BusinessService main PLBP09X
 // ```
 type BusinessService struct {
 	pulumi.CustomResourceState

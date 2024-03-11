@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * &gt; Only Runbook Automation (runbook) runners can be created.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -54,24 +56,25 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * -&gt; In the example below the `runbook_api_key` attribute has been omitted to avoid resource replacement after the import.
  * 
- *  Runners can be imported using the `id`, e.g.
+ * Runners can be imported using the `id`, e.g.
  * 
- *  resource &#34;pagerduty_automation_actions_runner&#34; &#34;example&#34; {
+ * resource &#34;pagerduty_automation_actions_runner&#34; &#34;example&#34; {
  * 
- *  name = &#34;Runner created via TF&#34;
+ *   name = &#34;Runner created via TF&#34;
  * 
- *  description = &#34;Description of the Runner created via TF&#34;
+ *   description = &#34;Description of the Runner created via TF&#34;
  * 
- *  runner_type = &#34;runbook&#34;
+ *   runner_type = &#34;runbook&#34;
  * 
- *  runbook_base_uri = &#34;rdcat.stg&#34;
+ *   runbook_base_uri = &#34;rdcat.stg&#34;
  * 
- *  }
+ * }
  * 
  * ```sh
  * $ pulumi import pagerduty:index/automationActionsRunner:AutomationActionsRunner example 01DER7CUUBF7TH4116K0M4WKPU

@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * i.e. has the `field_type` of `single_value_fixed` or `multi_value_fixed`.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -68,6 +70,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="pagerduty:index/incidentCustomFieldOption:IncidentCustomFieldOption")

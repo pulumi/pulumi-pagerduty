@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Maintenance windows are specified to start at a certain time and end after they have begun. Once started, a maintenance window cannot be deleted; it can only be ended immediately to re-enable the service.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,13 +52,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Maintenance windows can be imported using the `id`, e.g.
  * 
  * ```sh
- *  $ pulumi import pagerduty:index/maintenanceWindow:MaintenanceWindow main PLBP09X
+ * $ pulumi import pagerduty:index/maintenanceWindow:MaintenanceWindow main PLBP09X
  * ```
  * 
  */

@@ -12,6 +12,7 @@ namespace Pulumi.Pagerduty
     /// <summary>
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -57,13 +58,14 @@ namespace Pulumi.Pagerduty
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Contact methods can be imported using the `user_id` and the `id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import pagerduty:index/userContactMethod:UserContactMethod main PLBP09X:PLBP09X
+    /// $ pulumi import pagerduty:index/userContactMethod:UserContactMethod main PLBP09X:PLBP09X
     /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/userContactMethod:UserContactMethod")]

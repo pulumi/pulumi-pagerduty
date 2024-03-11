@@ -134,6 +134,7 @@ class BusinessServiceSubscriber(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -153,13 +154,14 @@ class BusinessServiceSubscriber(pulumi.CustomResource):
             subscriber_type="user",
             business_service_id=example_business_service.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Services can be imported using the `id` using the related business service ID, the subscriber type and the subscriber ID separated by a dot, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber main PLBP09X.team.PLBP09X
+        $ pulumi import pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber main PLBP09X.team.PLBP09X
         ```
 
         :param str resource_name: The name of the resource.
@@ -179,6 +181,7 @@ class BusinessServiceSubscriber(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -198,13 +201,14 @@ class BusinessServiceSubscriber(pulumi.CustomResource):
             subscriber_type="user",
             business_service_id=example_business_service.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Services can be imported using the `id` using the related business service ID, the subscriber type and the subscriber ID separated by a dot, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber main PLBP09X.team.PLBP09X
+        $ pulumi import pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber main PLBP09X.team.PLBP09X
         ```
 
         :param str resource_name: The name of the resource.

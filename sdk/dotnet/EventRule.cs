@@ -16,6 +16,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -161,13 +162,14 @@ namespace Pulumi.Pagerduty
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Event rules can be imported using the `id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import pagerduty:index/eventRule:EventRule main 19acac92-027a-4ea0-b06c-bbf516519601
+    /// $ pulumi import pagerduty:index/eventRule:EventRule main 19acac92-027a-4ea0-b06c-bbf516519601
     /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/eventRule:EventRule")]

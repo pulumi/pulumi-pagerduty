@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * An Automation Actions [runner association with a team](https://developer.pagerduty.com/api-reference/f662de6271a6e-associate-a-runner-with-a-team) configures the relation of a specific Runner with a Team.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -61,13 +63,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Runner team association can be imported using the `runner_id` and `team_id` separated by a colon, e.g.
  * 
  * ```sh
- *  $ pulumi import pagerduty:index/automationActionsRunnerTeamAssociation:AutomationActionsRunnerTeamAssociation example 01DER7CUUBF7TH4116K0M4WKPU:PLB09Z
+ * $ pulumi import pagerduty:index/automationActionsRunnerTeamAssociation:AutomationActionsRunnerTeamAssociation example 01DER7CUUBF7TH4116K0M4WKPU:PLB09Z
  * ```
  * 
  */

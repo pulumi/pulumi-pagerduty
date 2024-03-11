@@ -11300,7 +11300,7 @@ func (o RulesetRuleTimeFramePtrOutput) ScheduledWeeklies() RulesetRuleTimeFrameS
 
 type RulesetRuleTimeFrameActiveBetween struct {
 	EndTime *int `pulumi:"endTime"`
-	// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
+	// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](<https://www.epochconverter.com/timezones?q=1554989400000&tz=America%!F(MISSING)New_York>).
 	StartTime *int `pulumi:"startTime"`
 }
 
@@ -11317,7 +11317,7 @@ type RulesetRuleTimeFrameActiveBetweenInput interface {
 
 type RulesetRuleTimeFrameActiveBetweenArgs struct {
 	EndTime pulumi.IntPtrInput `pulumi:"endTime"`
-	// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
+	// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](<https://www.epochconverter.com/timezones?q=1554989400000&tz=America%!F(MISSING)New_York>).
 	StartTime pulumi.IntPtrInput `pulumi:"startTime"`
 }
 
@@ -11376,7 +11376,7 @@ func (o RulesetRuleTimeFrameActiveBetweenOutput) EndTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RulesetRuleTimeFrameActiveBetween) *int { return v.EndTime }).(pulumi.IntPtrOutput)
 }
 
-// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
+// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](<https://www.epochconverter.com/timezones?q=1554989400000&tz=America%!F(MISSING)New_York>).
 func (o RulesetRuleTimeFrameActiveBetweenOutput) StartTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RulesetRuleTimeFrameActiveBetween) *int { return v.StartTime }).(pulumi.IntPtrOutput)
 }
@@ -11404,7 +11404,7 @@ func (o RulesetRuleTimeFrameActiveBetweenArrayOutput) Index(i pulumi.IntInput) R
 type RulesetRuleTimeFrameScheduledWeekly struct {
 	// Length of time the schedule will be active in milliseconds. For example `duration = 2 * 60 * 60 * 1000` if you want your rule to apply for 2 hours, from the specified `startTime`.
 	Duration *int `pulumi:"duration"`
-	// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
+	// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](<https://www.epochconverter.com/timezones?q=1554989400000&tz=America%!F(MISSING)New_York>).
 	StartTime *int `pulumi:"startTime"`
 	// [The name of the timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for the given schedule, which will be used to determine UTC offset including adjustment for daylight saving time. For example: `timezone = "America/Toronto"`
 	Timezone *string `pulumi:"timezone"`
@@ -11426,7 +11426,7 @@ type RulesetRuleTimeFrameScheduledWeeklyInput interface {
 type RulesetRuleTimeFrameScheduledWeeklyArgs struct {
 	// Length of time the schedule will be active in milliseconds. For example `duration = 2 * 60 * 60 * 1000` if you want your rule to apply for 2 hours, from the specified `startTime`.
 	Duration pulumi.IntPtrInput `pulumi:"duration"`
-	// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
+	// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](<https://www.epochconverter.com/timezones?q=1554989400000&tz=America%!F(MISSING)New_York>).
 	StartTime pulumi.IntPtrInput `pulumi:"startTime"`
 	// [The name of the timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for the given schedule, which will be used to determine UTC offset including adjustment for daylight saving time. For example: `timezone = "America/Toronto"`
 	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
@@ -11490,7 +11490,7 @@ func (o RulesetRuleTimeFrameScheduledWeeklyOutput) Duration() pulumi.IntPtrOutpu
 	return o.ApplyT(func(v RulesetRuleTimeFrameScheduledWeekly) *int { return v.Duration }).(pulumi.IntPtrOutput)
 }
 
-// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
+// A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](<https://www.epochconverter.com/timezones?q=1554989400000&tz=America%!F(MISSING)New_York>).
 func (o RulesetRuleTimeFrameScheduledWeeklyOutput) StartTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RulesetRuleTimeFrameScheduledWeekly) *int { return v.StartTime }).(pulumi.IntPtrOutput)
 }
@@ -16513,6 +16513,7 @@ type ServiceScheduledActionAt struct {
 	//
 	// Below is an example for a `Service` resource with `incidentUrgencyRules` with `type = "useSupportHours"`, `supportHours` and a default `scheduledAction` as well.
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -16572,6 +16573,7 @@ type ServiceScheduledActionAt struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	Name *string `pulumi:"name"`
 	// The type of time specification. Currently, this must be set to `namedTime`.
 	Type *string `pulumi:"type"`
@@ -16595,6 +16597,7 @@ type ServiceScheduledActionAtArgs struct {
 	//
 	// Below is an example for a `Service` resource with `incidentUrgencyRules` with `type = "useSupportHours"`, `supportHours` and a default `scheduledAction` as well.
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -16654,6 +16657,7 @@ type ServiceScheduledActionAtArgs struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The type of time specification. Currently, this must be set to `namedTime`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -16716,6 +16720,7 @@ func (o ServiceScheduledActionAtOutput) ToServiceScheduledActionAtOutputWithCont
 //
 // Below is an example for a `Service` resource with `incidentUrgencyRules` with `type = "useSupportHours"`, `supportHours` and a default `scheduledAction` as well.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -16778,6 +16783,7 @@ func (o ServiceScheduledActionAtOutput) ToServiceScheduledActionAtOutputWithCont
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func (o ServiceScheduledActionAtOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceScheduledActionAt) *string { return v.Name }).(pulumi.StringPtrOutput)
 }

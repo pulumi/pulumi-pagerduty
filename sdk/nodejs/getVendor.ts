@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -42,6 +43,7 @@ import * as utilities from "./utilities";
  *     service: exampleService.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVendor(args: GetVendorArgs, opts?: pulumi.InvokeOptions): Promise<GetVendorResult> {
 
@@ -85,6 +87,7 @@ export interface GetVendorResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -116,6 +119,7 @@ export interface GetVendorResult {
  *     service: exampleService.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVendorOutput(args: GetVendorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVendorResult> {
     return pulumi.output(args).apply((a: any) => getVendor(a, opts))

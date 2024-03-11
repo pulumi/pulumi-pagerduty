@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * * This resource requires a PagerDuty [user-level API key](https://support.pagerduty.com/docs/generating-api-keys#section-generating-a-personal-rest-api-key). This can be set as the `user_token` on the provider tag or as the `PAGERDUTY_USER_TOKEN` environment variable.
  * * This resource is for configuring Slack V2 Next Generation connections. If you configured your Slack integration (V1 or V2) prior to August 10, 2021, you may migrate to the Slack V2 Next Generation update using this [migration instructions](https://support.pagerduty.com/docs/slack-integration-guide#migrate-to-slack-v2-next-generation), but if you configured your Slack integration after that date, you will have access to the update out of the box.
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -82,13 +84,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Slack connections can be imported using the related `workspace` ID and the `slack_connection` ID separated by a dot, e.g.
  * 
  * ```sh
- *  $ pulumi import pagerduty:index/slackConnection:SlackConnection main T02A123LV1A.PUABCDL
+ * $ pulumi import pagerduty:index/slackConnection:SlackConnection main T02A123LV1A.PUABCDL
  * ```
  * 
  */

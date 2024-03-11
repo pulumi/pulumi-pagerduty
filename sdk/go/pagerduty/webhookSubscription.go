@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -84,15 +85,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Webhook Subscriptions can be imported using the `id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import pagerduty:index/webhookSubscription:WebhookSubscription main PUABCDL
-//
+// $ pulumi import pagerduty:index/webhookSubscription:WebhookSubscription main PUABCDL
 // ```
 type WebhookSubscription struct {
 	pulumi.CustomResourceState

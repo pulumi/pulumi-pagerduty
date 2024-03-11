@@ -15,6 +15,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -53,6 +54,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/incidentCustomFieldOption:IncidentCustomFieldOption")]
     public partial class IncidentCustomFieldOption : global::Pulumi.CustomResource

@@ -262,6 +262,7 @@ class UserContactMethod(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -287,13 +288,14 @@ class UserContactMethod(pulumi.CustomResource):
             address="2025550199",
             label="Work")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Contact methods can be imported using the `user_id` and the `id`, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/userContactMethod:UserContactMethod main PLBP09X:PLBP09X
+        $ pulumi import pagerduty:index/userContactMethod:UserContactMethod main PLBP09X:PLBP09X
         ```
 
         :param str resource_name: The name of the resource.
@@ -314,6 +316,7 @@ class UserContactMethod(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -339,13 +342,14 @@ class UserContactMethod(pulumi.CustomResource):
             address="2025550199",
             label="Work")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Contact methods can be imported using the `user_id` and the `id`, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/userContactMethod:UserContactMethod main PLBP09X:PLBP09X
+        $ pulumi import pagerduty:index/userContactMethod:UserContactMethod main PLBP09X:PLBP09X
         ```
 
         :param str resource_name: The name of the resource.

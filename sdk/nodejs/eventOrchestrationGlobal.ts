@@ -19,6 +19,7 @@ import * as utilities from "./utilities";
  *
  * The `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set. In this example the `catchAll` doesn't have any `actions` so it'll leave events as-is.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -81,13 +82,14 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Global Orchestration can be imported using the `id` of the Event Orchestration, e.g.
  *
  * ```sh
- *  $ pulumi import pagerduty:index/eventOrchestrationGlobal:EventOrchestrationGlobal global 1b49abe7-26db-4439-a715-c6d883acfb3e
+ * $ pulumi import pagerduty:index/eventOrchestrationGlobal:EventOrchestrationGlobal global 1b49abe7-26db-4439-a715-c6d883acfb3e
  * ```
  */
 export class EventOrchestrationGlobal extends pulumi.CustomResource {

@@ -173,6 +173,7 @@ class MaintenanceWindow(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -182,13 +183,14 @@ class MaintenanceWindow(pulumi.CustomResource):
             end_time="2015-11-09T22:00:00-05:00",
             services=[pagerduty_service["example"]["id"]])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Maintenance windows can be imported using the `id`, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/maintenanceWindow:MaintenanceWindow main PLBP09X
+        $ pulumi import pagerduty:index/maintenanceWindow:MaintenanceWindow main PLBP09X
         ```
 
         :param str resource_name: The name of the resource.
@@ -211,6 +213,7 @@ class MaintenanceWindow(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -220,13 +223,14 @@ class MaintenanceWindow(pulumi.CustomResource):
             end_time="2015-11-09T22:00:00-05:00",
             services=[pagerduty_service["example"]["id"]])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Maintenance windows can be imported using the `id`, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/maintenanceWindow:MaintenanceWindow main PLBP09X
+        $ pulumi import pagerduty:index/maintenanceWindow:MaintenanceWindow main PLBP09X
         ```
 
         :param str resource_name: The name of the resource.

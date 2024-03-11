@@ -96,6 +96,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [automation actions action](https://developer.pagerduty.com/api-reference/357ed15419f64-get-an-automation-action).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -124,6 +126,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAutomationActionsActionResult> getAutomationActionsAction(GetAutomationActionsActionArgs args) {
@@ -133,6 +136,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [automation actions action](https://developer.pagerduty.com/api-reference/357ed15419f64-get-an-automation-action).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -161,6 +166,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAutomationActionsActionResult> getAutomationActionsActionPlain(GetAutomationActionsActionPlainArgs args) {
@@ -170,6 +176,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [automation actions action](https://developer.pagerduty.com/api-reference/357ed15419f64-get-an-automation-action).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -198,6 +206,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAutomationActionsActionResult> getAutomationActionsAction(GetAutomationActionsActionArgs args, InvokeOptions options) {
@@ -207,6 +216,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [automation actions action](https://developer.pagerduty.com/api-reference/357ed15419f64-get-an-automation-action).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -235,6 +246,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAutomationActionsActionResult> getAutomationActionsActionPlain(GetAutomationActionsActionPlainArgs args, InvokeOptions options) {
@@ -244,6 +256,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [automation actions runner](https://developer.pagerduty.com/api-reference/aace61f84cbd0-get-an-automation-action-runner).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -272,6 +286,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAutomationActionsRunnerResult> getAutomationActionsRunner(GetAutomationActionsRunnerArgs args) {
@@ -281,6 +296,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [automation actions runner](https://developer.pagerduty.com/api-reference/aace61f84cbd0-get-an-automation-action-runner).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -309,6 +326,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAutomationActionsRunnerResult> getAutomationActionsRunnerPlain(GetAutomationActionsRunnerPlainArgs args) {
@@ -318,6 +336,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [automation actions runner](https://developer.pagerduty.com/api-reference/aace61f84cbd0-get-an-automation-action-runner).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -346,6 +366,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAutomationActionsRunnerResult> getAutomationActionsRunner(GetAutomationActionsRunnerArgs args, InvokeOptions options) {
@@ -355,6 +376,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [automation actions runner](https://developer.pagerduty.com/api-reference/aace61f84cbd0-get-an-automation-action-runner).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -383,6 +406,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAutomationActionsRunnerResult> getAutomationActionsRunnerPlain(GetAutomationActionsRunnerPlainArgs args, InvokeOptions options) {
@@ -392,6 +416,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [business service](https://api-reference.pagerduty.com/#!/Business_Services/get_business_services).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -420,6 +446,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBusinessServiceResult> getBusinessService(GetBusinessServiceArgs args) {
@@ -429,6 +456,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [business service](https://api-reference.pagerduty.com/#!/Business_Services/get_business_services).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -457,6 +486,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBusinessServiceResult> getBusinessServicePlain(GetBusinessServicePlainArgs args) {
@@ -466,6 +496,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [business service](https://api-reference.pagerduty.com/#!/Business_Services/get_business_services).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -494,6 +526,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBusinessServiceResult> getBusinessService(GetBusinessServiceArgs args, InvokeOptions options) {
@@ -503,6 +536,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [business service](https://api-reference.pagerduty.com/#!/Business_Services/get_business_services).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -531,6 +566,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBusinessServiceResult> getBusinessServicePlain(GetBusinessServicePlainArgs args, InvokeOptions options) {
@@ -540,6 +576,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [escalation policy](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEyNA-list-escalation-policies) that you can use for other PagerDuty resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -576,6 +614,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEscalationPolicyResult> getEscalationPolicy(GetEscalationPolicyArgs args) {
@@ -585,6 +624,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [escalation policy](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEyNA-list-escalation-policies) that you can use for other PagerDuty resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -621,6 +662,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEscalationPolicyResult> getEscalationPolicyPlain(GetEscalationPolicyPlainArgs args) {
@@ -630,6 +672,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [escalation policy](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEyNA-list-escalation-policies) that you can use for other PagerDuty resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -666,6 +710,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEscalationPolicyResult> getEscalationPolicy(GetEscalationPolicyArgs args, InvokeOptions options) {
@@ -675,6 +720,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [escalation policy](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEyNA-list-escalation-policies) that you can use for other PagerDuty resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -711,6 +758,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEscalationPolicyResult> getEscalationPolicyPlain(GetEscalationPolicyPlainArgs args, InvokeOptions options) {
@@ -721,6 +769,7 @@ public final class PagerdutyFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -774,6 +823,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEventOrchestrationResult> getEventOrchestration(GetEventOrchestrationArgs args) {
@@ -784,6 +834,7 @@ public final class PagerdutyFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -837,6 +888,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEventOrchestrationResult> getEventOrchestrationPlain(GetEventOrchestrationPlainArgs args) {
@@ -847,6 +899,7 @@ public final class PagerdutyFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -900,6 +953,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEventOrchestrationResult> getEventOrchestration(GetEventOrchestrationArgs args, InvokeOptions options) {
@@ -910,6 +964,7 @@ public final class PagerdutyFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -963,6 +1018,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEventOrchestrationResult> getEventOrchestrationPlain(GetEventOrchestrationPlainArgs args, InvokeOptions options) {
@@ -972,6 +1028,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [Integration](https://developer.pagerduty.com/api-reference/1c6607db389a8-get-an-integration-for-an-event-orchestration) for an Event Orchestration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1004,6 +1062,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEventOrchestrationIntegrationResult> getEventOrchestrationIntegration(GetEventOrchestrationIntegrationArgs args) {
@@ -1013,6 +1072,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [Integration](https://developer.pagerduty.com/api-reference/1c6607db389a8-get-an-integration-for-an-event-orchestration) for an Event Orchestration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1045,6 +1106,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEventOrchestrationIntegrationResult> getEventOrchestrationIntegrationPlain(GetEventOrchestrationIntegrationPlainArgs args) {
@@ -1054,6 +1116,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [Integration](https://developer.pagerduty.com/api-reference/1c6607db389a8-get-an-integration-for-an-event-orchestration) for an Event Orchestration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1086,6 +1150,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEventOrchestrationIntegrationResult> getEventOrchestrationIntegration(GetEventOrchestrationIntegrationArgs args, InvokeOptions options) {
@@ -1095,6 +1160,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [Integration](https://developer.pagerduty.com/api-reference/1c6607db389a8-get-an-integration-for-an-event-orchestration) for an Event Orchestration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1127,6 +1194,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEventOrchestrationIntegrationResult> getEventOrchestrationIntegrationPlain(GetEventOrchestrationIntegrationPlainArgs args, InvokeOptions options) {
@@ -1136,6 +1204,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information as a list about specific Global [Event Orchestrations](https://developer.pagerduty.com/api-reference/7ba0fe7bdb26a-list-event-orchestrations) filtered by a Regular Expression provided.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1169,6 +1239,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEventOrchestrationsResult> getEventOrchestrations(GetEventOrchestrationsArgs args) {
@@ -1178,6 +1249,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information as a list about specific Global [Event Orchestrations](https://developer.pagerduty.com/api-reference/7ba0fe7bdb26a-list-event-orchestrations) filtered by a Regular Expression provided.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1211,6 +1284,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEventOrchestrationsResult> getEventOrchestrationsPlain(GetEventOrchestrationsPlainArgs args) {
@@ -1220,6 +1294,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information as a list about specific Global [Event Orchestrations](https://developer.pagerduty.com/api-reference/7ba0fe7bdb26a-list-event-orchestrations) filtered by a Regular Expression provided.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1253,6 +1329,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEventOrchestrationsResult> getEventOrchestrations(GetEventOrchestrationsArgs args, InvokeOptions options) {
@@ -1262,6 +1339,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information as a list about specific Global [Event Orchestrations](https://developer.pagerduty.com/api-reference/7ba0fe7bdb26a-list-event-orchestrations) filtered by a Regular Expression provided.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1295,6 +1374,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEventOrchestrationsResult> getEventOrchestrationsPlain(GetEventOrchestrationsPlainArgs args, InvokeOptions options) {
@@ -1304,6 +1384,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [extension](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEzMA-list-extension-schemas) vendor that you can use for a service (e.g: Slack, Generic Webhook, ServiceNow).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1369,6 +1451,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetExtensionSchemaResult> getExtensionSchema(GetExtensionSchemaArgs args) {
@@ -1378,6 +1461,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [extension](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEzMA-list-extension-schemas) vendor that you can use for a service (e.g: Slack, Generic Webhook, ServiceNow).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1443,6 +1528,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetExtensionSchemaResult> getExtensionSchemaPlain(GetExtensionSchemaPlainArgs args) {
@@ -1452,6 +1538,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [extension](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEzMA-list-extension-schemas) vendor that you can use for a service (e.g: Slack, Generic Webhook, ServiceNow).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1517,6 +1605,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetExtensionSchemaResult> getExtensionSchema(GetExtensionSchemaArgs args, InvokeOptions options) {
@@ -1526,6 +1615,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [extension](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEzMA-list-extension-schemas) vendor that you can use for a service (e.g: Slack, Generic Webhook, ServiceNow).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1591,6 +1682,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetExtensionSchemaResult> getExtensionSchemaPlain(GetExtensionSchemaPlainArgs args, InvokeOptions options) {
@@ -1600,6 +1692,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1636,6 +1730,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetIncidentCustomFieldResult> getIncidentCustomField(GetIncidentCustomFieldArgs args) {
@@ -1645,6 +1740,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1681,6 +1778,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetIncidentCustomFieldResult> getIncidentCustomFieldPlain(GetIncidentCustomFieldPlainArgs args) {
@@ -1690,6 +1788,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1726,6 +1826,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetIncidentCustomFieldResult> getIncidentCustomField(GetIncidentCustomFieldArgs args, InvokeOptions options) {
@@ -1735,6 +1836,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [Incident Custom Field](https://support.pagerduty.com/docs/custom-fields-on-incidents).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1771,6 +1874,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetIncidentCustomFieldResult> getIncidentCustomFieldPlain(GetIncidentCustomFieldPlainArgs args, InvokeOptions options) {
@@ -1780,6 +1884,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) so that you can create a trigger for it.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1822,6 +1928,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetIncidentWorkflowResult> getIncidentWorkflow(GetIncidentWorkflowArgs args) {
@@ -1831,6 +1938,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) so that you can create a trigger for it.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1873,6 +1982,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetIncidentWorkflowResult> getIncidentWorkflowPlain(GetIncidentWorkflowPlainArgs args) {
@@ -1882,6 +1992,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) so that you can create a trigger for it.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1924,6 +2036,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetIncidentWorkflowResult> getIncidentWorkflow(GetIncidentWorkflowArgs args, InvokeOptions options) {
@@ -1933,6 +2046,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) so that you can create a trigger for it.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1975,6 +2090,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetIncidentWorkflowResult> getIncidentWorkflowPlain(GetIncidentWorkflowPlainArgs args, InvokeOptions options) {
@@ -1986,6 +2102,8 @@ public final class PagerdutyFunctions {
      * &gt; It is preferred to set the `name` and `description` to their exact values or to set the `id`. However, this will require updating your configuration if the accounts products ever change. To avoid errors when account products change, you may set the `name` of a license to a valid substring such as `&#34;Full User&#34;` or `&#34;Stakeholder&#34;`.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2025,6 +2143,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLicenseResult> getLicense() {
@@ -2036,6 +2155,8 @@ public final class PagerdutyFunctions {
      * &gt; It is preferred to set the `name` and `description` to their exact values or to set the `id`. However, this will require updating your configuration if the accounts products ever change. To avoid errors when account products change, you may set the `name` of a license to a valid substring such as `&#34;Full User&#34;` or `&#34;Stakeholder&#34;`.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2075,6 +2196,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLicenseResult> getLicensePlain() {
@@ -2086,6 +2208,8 @@ public final class PagerdutyFunctions {
      * &gt; It is preferred to set the `name` and `description` to their exact values or to set the `id`. However, this will require updating your configuration if the accounts products ever change. To avoid errors when account products change, you may set the `name` of a license to a valid substring such as `&#34;Full User&#34;` or `&#34;Stakeholder&#34;`.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2125,6 +2249,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLicenseResult> getLicense(GetLicenseArgs args) {
@@ -2136,6 +2261,8 @@ public final class PagerdutyFunctions {
      * &gt; It is preferred to set the `name` and `description` to their exact values or to set the `id`. However, this will require updating your configuration if the accounts products ever change. To avoid errors when account products change, you may set the `name` of a license to a valid substring such as `&#34;Full User&#34;` or `&#34;Stakeholder&#34;`.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2175,6 +2302,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLicenseResult> getLicensePlain(GetLicensePlainArgs args) {
@@ -2186,6 +2314,8 @@ public final class PagerdutyFunctions {
      * &gt; It is preferred to set the `name` and `description` to their exact values or to set the `id`. However, this will require updating your configuration if the accounts products ever change. To avoid errors when account products change, you may set the `name` of a license to a valid substring such as `&#34;Full User&#34;` or `&#34;Stakeholder&#34;`.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2225,6 +2355,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLicenseResult> getLicense(GetLicenseArgs args, InvokeOptions options) {
@@ -2236,6 +2367,8 @@ public final class PagerdutyFunctions {
      * &gt; It is preferred to set the `name` and `description` to their exact values or to set the `id`. However, this will require updating your configuration if the accounts products ever change. To avoid errors when account products change, you may set the `name` of a license to a valid substring such as `&#34;Full User&#34;` or `&#34;Stakeholder&#34;`.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2275,6 +2408,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLicenseResult> getLicensePlain(GetLicensePlainArgs args, InvokeOptions options) {
@@ -2284,6 +2418,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2320,6 +2456,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLicensesResult> getLicenses() {
@@ -2329,6 +2466,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2365,6 +2504,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLicensesResult> getLicensesPlain() {
@@ -2374,6 +2514,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2410,6 +2552,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLicensesResult> getLicenses(GetLicensesArgs args) {
@@ -2419,6 +2562,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2455,6 +2600,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLicensesResult> getLicensesPlain(GetLicensesPlainArgs args) {
@@ -2464,6 +2610,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2500,6 +2648,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLicensesResult> getLicenses(GetLicensesArgs args, InvokeOptions options) {
@@ -2509,6 +2658,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about the purchased [licenses](https://developer.pagerduty.com/api-reference/4c10cb38f7381-list-licenses) that you can use for other managing PagerDuty user resources. To reference a unique license, see `pagerduty.getLicense` [data source](https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs/data-sources/pagerduty_license). After applying changes to users&#39; licenses, the `current_value` and `allocations_available` attributes of licenses will change.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2545,6 +2696,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLicensesResult> getLicensesPlain(GetLicensesPlainArgs args, InvokeOptions options) {
@@ -2554,6 +2706,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [priority](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE2NA-list-priorities) that you can use for other PagerDuty resources. A priority is a label representing the importance and impact of an incident. This feature is only available on Standard and Enterprise plans.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2621,6 +2775,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPriorityResult> getPriority(GetPriorityArgs args) {
@@ -2630,6 +2785,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [priority](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE2NA-list-priorities) that you can use for other PagerDuty resources. A priority is a label representing the importance and impact of an incident. This feature is only available on Standard and Enterprise plans.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2697,6 +2854,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPriorityResult> getPriorityPlain(GetPriorityPlainArgs args) {
@@ -2706,6 +2864,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [priority](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE2NA-list-priorities) that you can use for other PagerDuty resources. A priority is a label representing the importance and impact of an incident. This feature is only available on Standard and Enterprise plans.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2773,6 +2933,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPriorityResult> getPriority(GetPriorityArgs args, InvokeOptions options) {
@@ -2782,6 +2943,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [priority](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE2NA-list-priorities) that you can use for other PagerDuty resources. A priority is a label representing the importance and impact of an incident. This feature is only available on Standard and Enterprise plans.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2849,6 +3012,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPriorityResult> getPriorityPlain(GetPriorityPlainArgs args, InvokeOptions options) {
@@ -2856,6 +3020,8 @@ public final class PagerdutyFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2917,7 +3083,11 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Default Global Ruleset
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2946,6 +3116,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRulesetResult> getRuleset(GetRulesetArgs args) {
@@ -2953,6 +3124,8 @@ public final class PagerdutyFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3014,7 +3187,11 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Default Global Ruleset
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3043,6 +3220,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRulesetResult> getRulesetPlain(GetRulesetPlainArgs args) {
@@ -3050,6 +3228,8 @@ public final class PagerdutyFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3111,7 +3291,11 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Default Global Ruleset
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3140,6 +3324,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRulesetResult> getRuleset(GetRulesetArgs args, InvokeOptions options) {
@@ -3147,6 +3332,8 @@ public final class PagerdutyFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3208,7 +3395,11 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Default Global Ruleset
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3237,6 +3428,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRulesetResult> getRulesetPlain(GetRulesetPlainArgs args, InvokeOptions options) {
@@ -3246,6 +3438,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [schedule](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE4MQ-list-schedules) that you can use for other PagerDuty resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3288,6 +3482,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetScheduleResult> getSchedule(GetScheduleArgs args) {
@@ -3297,6 +3492,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [schedule](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE4MQ-list-schedules) that you can use for other PagerDuty resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3339,6 +3536,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetScheduleResult> getSchedulePlain(GetSchedulePlainArgs args) {
@@ -3348,6 +3546,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [schedule](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE4MQ-list-schedules) that you can use for other PagerDuty resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3390,6 +3590,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetScheduleResult> getSchedule(GetScheduleArgs args, InvokeOptions options) {
@@ -3399,6 +3600,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [schedule](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE4MQ-list-schedules) that you can use for other PagerDuty resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3441,6 +3644,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetScheduleResult> getSchedulePlain(GetSchedulePlainArgs args, InvokeOptions options) {
@@ -3450,6 +3654,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [service](https://api-reference.pagerduty.com/#!/Services/get_services).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3491,6 +3697,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args) {
@@ -3500,6 +3707,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [service](https://api-reference.pagerduty.com/#!/Services/get_services).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3541,6 +3750,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args) {
@@ -3550,6 +3760,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [service](https://api-reference.pagerduty.com/#!/Services/get_services).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3591,6 +3803,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOptions options) {
@@ -3600,6 +3813,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [service](https://api-reference.pagerduty.com/#!/Services/get_services).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3641,6 +3856,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args, InvokeOptions options) {
@@ -3650,6 +3866,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific service_integration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3679,6 +3897,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceIntegrationResult> getServiceIntegration(GetServiceIntegrationArgs args) {
@@ -3688,6 +3907,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific service_integration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3717,6 +3938,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceIntegrationResult> getServiceIntegrationPlain(GetServiceIntegrationPlainArgs args) {
@@ -3726,6 +3948,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific service_integration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3755,6 +3979,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceIntegrationResult> getServiceIntegration(GetServiceIntegrationArgs args, InvokeOptions options) {
@@ -3764,6 +3989,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific service_integration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3793,6 +4020,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceIntegrationResult> getServiceIntegrationPlain(GetServiceIntegrationPlainArgs args, InvokeOptions options) {
@@ -3803,6 +4031,8 @@ public final class PagerdutyFunctions {
      * the PagerDuty account.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3829,6 +4059,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetStandardsResult> getStandards() {
@@ -3839,6 +4070,8 @@ public final class PagerdutyFunctions {
      * the PagerDuty account.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3865,6 +4098,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetStandardsResult> getStandardsPlain() {
@@ -3875,6 +4109,8 @@ public final class PagerdutyFunctions {
      * the PagerDuty account.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3901,6 +4137,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetStandardsResult> getStandards(GetStandardsArgs args) {
@@ -3911,6 +4148,8 @@ public final class PagerdutyFunctions {
      * the PagerDuty account.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3937,6 +4176,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetStandardsResult> getStandardsPlain(GetStandardsPlainArgs args) {
@@ -3947,6 +4187,8 @@ public final class PagerdutyFunctions {
      * the PagerDuty account.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3973,6 +4215,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetStandardsResult> getStandards(GetStandardsArgs args, InvokeOptions options) {
@@ -3983,6 +4226,8 @@ public final class PagerdutyFunctions {
      * the PagerDuty account.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4009,6 +4254,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetStandardsResult> getStandardsPlain(GetStandardsPlainArgs args, InvokeOptions options) {
@@ -4019,6 +4265,8 @@ public final class PagerdutyFunctions {
      * resource][1].
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4053,6 +4301,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetStandardsResourceScoresResult> getStandardsResourceScores(GetStandardsResourceScoresArgs args) {
@@ -4063,6 +4312,8 @@ public final class PagerdutyFunctions {
      * resource][1].
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4097,6 +4348,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetStandardsResourceScoresResult> getStandardsResourceScoresPlain(GetStandardsResourceScoresPlainArgs args) {
@@ -4107,6 +4359,8 @@ public final class PagerdutyFunctions {
      * resource][1].
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4141,6 +4395,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetStandardsResourceScoresResult> getStandardsResourceScores(GetStandardsResourceScoresArgs args, InvokeOptions options) {
@@ -4151,6 +4406,8 @@ public final class PagerdutyFunctions {
      * resource][1].
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4185,6 +4442,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetStandardsResourceScoresResult> getStandardsResourceScoresPlain(GetStandardsResourceScoresPlainArgs args, InvokeOptions options) {
@@ -4195,6 +4453,8 @@ public final class PagerdutyFunctions {
      * many resources][1].
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4240,6 +4500,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetStandardsResourcesScoresResult> getStandardsResourcesScores(GetStandardsResourcesScoresArgs args) {
@@ -4250,6 +4511,8 @@ public final class PagerdutyFunctions {
      * many resources][1].
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4295,6 +4558,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetStandardsResourcesScoresResult> getStandardsResourcesScoresPlain(GetStandardsResourcesScoresPlainArgs args) {
@@ -4305,6 +4569,8 @@ public final class PagerdutyFunctions {
      * many resources][1].
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4350,6 +4616,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetStandardsResourcesScoresResult> getStandardsResourcesScores(GetStandardsResourcesScoresArgs args, InvokeOptions options) {
@@ -4360,6 +4627,8 @@ public final class PagerdutyFunctions {
      * many resources][1].
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4405,6 +4674,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetStandardsResourcesScoresResult> getStandardsResourcesScoresPlain(GetStandardsResourcesScoresPlainArgs args, InvokeOptions options) {
@@ -4414,6 +4684,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [tag](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIxNw-list-tags) that you can use to assign to users, teams, and escalation_policies.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4455,6 +4727,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTagResult> getTag(GetTagArgs args) {
@@ -4464,6 +4737,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [tag](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIxNw-list-tags) that you can use to assign to users, teams, and escalation_policies.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4505,6 +4780,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTagResult> getTagPlain(GetTagPlainArgs args) {
@@ -4514,6 +4790,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [tag](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIxNw-list-tags) that you can use to assign to users, teams, and escalation_policies.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4555,6 +4833,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTagResult> getTag(GetTagArgs args, InvokeOptions options) {
@@ -4564,6 +4843,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [tag](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIxNw-list-tags) that you can use to assign to users, teams, and escalation_policies.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4605,6 +4886,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTagResult> getTagPlain(GetTagPlainArgs args, InvokeOptions options) {
@@ -4615,6 +4897,7 @@ public final class PagerdutyFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4663,6 +4946,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTeamResult> getTeam(GetTeamArgs args) {
@@ -4673,6 +4957,7 @@ public final class PagerdutyFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4721,6 +5006,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTeamResult> getTeamPlain(GetTeamPlainArgs args) {
@@ -4731,6 +5017,7 @@ public final class PagerdutyFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4779,6 +5066,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTeamResult> getTeam(GetTeamArgs args, InvokeOptions options) {
@@ -4789,6 +5077,7 @@ public final class PagerdutyFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4837,6 +5126,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTeamResult> getTeamPlain(GetTeamPlainArgs args, InvokeOptions options) {
@@ -4846,6 +5136,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [team&#39;s members][1].
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4879,6 +5171,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTeamMembersResult> getTeamMembers(GetTeamMembersArgs args) {
@@ -4888,6 +5181,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [team&#39;s members][1].
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4921,6 +5216,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTeamMembersResult> getTeamMembersPlain(GetTeamMembersPlainArgs args) {
@@ -4930,6 +5226,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [team&#39;s members][1].
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4963,6 +5261,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTeamMembersResult> getTeamMembers(GetTeamMembersArgs args, InvokeOptions options) {
@@ -4972,6 +5271,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [team&#39;s members][1].
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5005,6 +5306,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTeamMembersResult> getTeamMembersPlain(GetTeamMembersPlainArgs args, InvokeOptions options) {
@@ -5014,6 +5316,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [user](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5056,6 +5360,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserResult> getUser(GetUserArgs args) {
@@ -5065,6 +5370,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [user](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5107,6 +5414,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserResult> getUserPlain(GetUserPlainArgs args) {
@@ -5116,6 +5424,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [user](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5158,6 +5468,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserResult> getUser(GetUserArgs args, InvokeOptions options) {
@@ -5167,6 +5478,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [user](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5209,6 +5522,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserResult> getUserPlain(GetUserPlainArgs args, InvokeOptions options) {
@@ -5218,6 +5532,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [contact method](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzOQ-list-a-user-s-contact-methods) of a PagerDuty [user](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5265,6 +5581,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserContactMethodResult> getUserContactMethod(GetUserContactMethodArgs args) {
@@ -5274,6 +5591,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [contact method](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzOQ-list-a-user-s-contact-methods) of a PagerDuty [user](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5321,6 +5640,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserContactMethodResult> getUserContactMethodPlain(GetUserContactMethodPlainArgs args) {
@@ -5330,6 +5650,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [contact method](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzOQ-list-a-user-s-contact-methods) of a PagerDuty [user](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5377,6 +5699,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserContactMethodResult> getUserContactMethod(GetUserContactMethodArgs args, InvokeOptions options) {
@@ -5386,6 +5709,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about a specific [contact method](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzOQ-list-a-user-s-contact-methods) of a PagerDuty [user](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5433,6 +5758,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserContactMethodResult> getUserContactMethodPlain(GetUserContactMethodPlainArgs args, InvokeOptions options) {
@@ -5442,6 +5768,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about [list of users](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources, optionally filtering by team ids.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5495,6 +5823,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUsersResult> getUsers() {
@@ -5504,6 +5833,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about [list of users](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources, optionally filtering by team ids.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5557,6 +5888,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUsersResult> getUsersPlain() {
@@ -5566,6 +5898,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about [list of users](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources, optionally filtering by team ids.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5619,6 +5953,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUsersResult> getUsers(GetUsersArgs args) {
@@ -5628,6 +5963,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about [list of users](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources, optionally filtering by team ids.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5681,6 +6018,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUsersResult> getUsersPlain(GetUsersPlainArgs args) {
@@ -5690,6 +6028,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about [list of users](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources, optionally filtering by team ids.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5743,6 +6083,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUsersResult> getUsers(GetUsersArgs args, InvokeOptions options) {
@@ -5752,6 +6093,8 @@ public final class PagerdutyFunctions {
      * Use this data source to get information about [list of users](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources, optionally filtering by team ids.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5805,6 +6148,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUsersResult> getUsersPlain(GetUsersPlainArgs args, InvokeOptions options) {
@@ -5816,6 +6160,8 @@ public final class PagerdutyFunctions {
      * &gt; For the case of vendors that rely on [Change Events](https://support.pagerduty.com/docs/change-events) (e.g. Jekings CI, Github, Gitlab, ...) is important to know that those vendors are only available with [PagerDuty AIOps](https://support.pagerduty.com/docs/aiops) add-on. Therefore, they won&#39;t be accessible as result of `pagerduty.getVendor` data source without the proper entitlements.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5880,6 +6226,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVendorResult> getVendor(GetVendorArgs args) {
@@ -5891,6 +6238,8 @@ public final class PagerdutyFunctions {
      * &gt; For the case of vendors that rely on [Change Events](https://support.pagerduty.com/docs/change-events) (e.g. Jekings CI, Github, Gitlab, ...) is important to know that those vendors are only available with [PagerDuty AIOps](https://support.pagerduty.com/docs/aiops) add-on. Therefore, they won&#39;t be accessible as result of `pagerduty.getVendor` data source without the proper entitlements.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -5955,6 +6304,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVendorResult> getVendorPlain(GetVendorPlainArgs args) {
@@ -5966,6 +6316,8 @@ public final class PagerdutyFunctions {
      * &gt; For the case of vendors that rely on [Change Events](https://support.pagerduty.com/docs/change-events) (e.g. Jekings CI, Github, Gitlab, ...) is important to know that those vendors are only available with [PagerDuty AIOps](https://support.pagerduty.com/docs/aiops) add-on. Therefore, they won&#39;t be accessible as result of `pagerduty.getVendor` data source without the proper entitlements.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6030,6 +6382,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVendorResult> getVendor(GetVendorArgs args, InvokeOptions options) {
@@ -6041,6 +6394,8 @@ public final class PagerdutyFunctions {
      * &gt; For the case of vendors that rely on [Change Events](https://support.pagerduty.com/docs/change-events) (e.g. Jekings CI, Github, Gitlab, ...) is important to know that those vendors are only available with [PagerDuty AIOps](https://support.pagerduty.com/docs/aiops) add-on. Therefore, they won&#39;t be accessible as result of `pagerduty.getVendor` data source without the proper entitlements.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -6105,6 +6460,7 @@ public final class PagerdutyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVendorResult> getVendorPlain(GetVendorPlainArgs args, InvokeOptions options) {

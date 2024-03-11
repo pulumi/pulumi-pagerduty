@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -92,15 +93,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Extensions can be imported using the id.e.g.
 //
 // ```sh
-//
-//	$ pulumi import pagerduty:index/extension:Extension main PLBP09X
-//
+// $ pulumi import pagerduty:index/extension:Extension main PLBP09X
 // ```
 type Extension struct {
 	pulumi.CustomResourceState

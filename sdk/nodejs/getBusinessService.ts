@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -17,6 +18,7 @@ import * as utilities from "./utilities";
  *     name: "My Service",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBusinessService(args: GetBusinessServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetBusinessServiceResult> {
 
@@ -58,6 +60,7 @@ export interface GetBusinessServiceResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -66,6 +69,7 @@ export interface GetBusinessServiceResult {
  *     name: "My Service",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBusinessServiceOutput(args: GetBusinessServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBusinessServiceResult> {
     return pulumi.output(args).apply((a: any) => getBusinessService(a, opts))

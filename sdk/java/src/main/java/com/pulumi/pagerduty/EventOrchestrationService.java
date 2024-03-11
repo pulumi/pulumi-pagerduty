@@ -31,6 +31,8 @@ import javax.annotation.Nullable;
  * This example shows a Service Orchestration that has nested sets: a rule in the &#34;start&#34; set has a `route_to` action pointing at the &#34;step-two&#34; set.
  * 
  * The `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set. In this example the `catch_all` doesn&#39;t have any `actions` so it&#39;ll leave events as-is.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -198,13 +200,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Service Orchestration can be imported using the `id` of the Service, e.g.
  * 
  * ```sh
- *  $ pulumi import pagerduty:index/eventOrchestrationService:EventOrchestrationService service PFEODA7
+ * $ pulumi import pagerduty:index/eventOrchestrationService:EventOrchestrationService service PFEODA7
  * ```
  * 
  */

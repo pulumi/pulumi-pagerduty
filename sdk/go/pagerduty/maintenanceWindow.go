@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,15 +46,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Maintenance windows can be imported using the `id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import pagerduty:index/maintenanceWindow:MaintenanceWindow main PLBP09X
-//
+// $ pulumi import pagerduty:index/maintenanceWindow:MaintenanceWindow main PLBP09X
 // ```
 type MaintenanceWindow struct {
 	pulumi.CustomResourceState

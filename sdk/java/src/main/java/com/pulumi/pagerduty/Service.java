@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * A [service](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODE5Nw-create-a-service) represents something you monitor (like a web service, email service, or database service). It is a container for related incidents that associates them with escalation policies.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -80,13 +82,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Services can be imported using the `id`, e.g.
  * 
  * ```sh
- *  $ pulumi import pagerduty:index/service:Service main PLBP09X
+ * $ pulumi import pagerduty:index/service:Service main PLBP09X
  * ```
  * 
  */

@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -31,6 +32,7 @@ import * as utilities from "./utilities";
  *     teamIds: [pagerduty_team.devops.id],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getUsers(args?: GetUsersArgs, opts?: pulumi.InvokeOptions): Promise<GetUsersResult> {
     args = args || {};
@@ -70,6 +72,7 @@ export interface GetUsersResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -90,6 +93,7 @@ export interface GetUsersResult {
  *     teamIds: [pagerduty_team.devops.id],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getUsersOutput(args?: GetUsersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUsersResult> {
     return pulumi.output(args).apply((a: any) => getUsers(a, opts))

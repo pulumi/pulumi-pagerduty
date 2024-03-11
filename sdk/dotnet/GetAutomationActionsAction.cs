@@ -14,10 +14,9 @@ namespace Pulumi.Pagerduty
         /// <summary>
         /// Use this data source to get information about a specific [automation actions action](https://developer.pagerduty.com/api-reference/357ed15419f64-get-an-automation-action).
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAutomationActionsActionResult> InvokeAsync(GetAutomationActionsActionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAutomationActionsActionResult>("pagerduty:index/getAutomationActionsAction:getAutomationActionsAction", args ?? new GetAutomationActionsActionArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Pagerduty
         /// <summary>
         /// Use this data source to get information about a specific [automation actions action](https://developer.pagerduty.com/api-reference/357ed15419f64-get-an-automation-action).
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAutomationActionsActionResult> Invoke(GetAutomationActionsActionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutomationActionsActionResult>("pagerduty:index/getAutomationActionsAction:getAutomationActionsAction", args ?? new GetAutomationActionsActionInvokeArgs(), options.WithDefaults());

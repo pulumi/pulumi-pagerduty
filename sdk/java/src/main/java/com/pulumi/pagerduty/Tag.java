@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * A [tag](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIxOA-create-a-tag) is applied to Escalation Policies, Teams or Users and can be used to filter them.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,13 +47,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Tags can be imported using the `id`, e.g.
  * 
  * ```sh
- *  $ pulumi import pagerduty:index/tag:Tag main PLBP09X
+ * $ pulumi import pagerduty:index/tag:Tag main PLBP09X
  * ```
  * 
  */

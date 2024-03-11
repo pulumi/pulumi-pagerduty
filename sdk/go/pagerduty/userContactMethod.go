@@ -14,6 +14,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -69,15 +70,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Contact methods can be imported using the `user_id` and the `id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import pagerduty:index/userContactMethod:UserContactMethod main PLBP09X:PLBP09X
-//
+// $ pulumi import pagerduty:index/userContactMethod:UserContactMethod main PLBP09X:PLBP09X
 // ```
 type UserContactMethod struct {
 	pulumi.CustomResourceState

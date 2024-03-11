@@ -14,10 +14,9 @@ namespace Pulumi.Pagerduty
         /// <summary>
         /// Use this data source to get information about a specific [team's members][1].
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -38,8 +37,7 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetTeamMembersResult> InvokeAsync(GetTeamMembersArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTeamMembersResult>("pagerduty:index/getTeamMembers:getTeamMembers", args ?? new GetTeamMembersArgs(), options.WithDefaults());
@@ -47,10 +45,9 @@ namespace Pulumi.Pagerduty
         /// <summary>
         /// Use this data source to get information about a specific [team's members][1].
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -71,8 +68,7 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetTeamMembersResult> Invoke(GetTeamMembersInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTeamMembersResult>("pagerduty:index/getTeamMembers:getTeamMembers", args ?? new GetTeamMembersInvokeArgs(), options.WithDefaults());

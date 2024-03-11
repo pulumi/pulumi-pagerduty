@@ -14,6 +14,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,13 +30,14 @@ namespace Pulumi.Pagerduty
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Add-ons can be imported using the `id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import pagerduty:index/addon:Addon example P3DH5M6
+    /// $ pulumi import pagerduty:index/addon:Addon example P3DH5M6
     /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/addon:Addon")]

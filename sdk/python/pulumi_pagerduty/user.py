@@ -406,19 +406,21 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
         example = pagerduty.User("example", email="125.greenholt.earline@graham.name")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Users can be imported using the `id`, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/user:User main PLBP09X
+        $ pulumi import pagerduty:index/user:User main PLBP09X
         ```
 
         :param str resource_name: The name of the resource.
@@ -447,19 +449,21 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
         example = pagerduty.User("example", email="125.greenholt.earline@graham.name")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Users can be imported using the `id`, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/user:User main PLBP09X
+        $ pulumi import pagerduty:index/user:User main PLBP09X
         ```
 
         :param str resource_name: The name of the resource.

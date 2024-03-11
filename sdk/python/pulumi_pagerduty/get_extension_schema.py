@@ -75,6 +75,7 @@ def get_extension_schema(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -101,6 +102,7 @@ def get_extension_schema(name: Optional[str] = None,
         extension_schema=webhook.id,
         extension_objects=[example_service.id])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The extension name to use to find an extension vendor in the PagerDuty API.
@@ -124,6 +126,7 @@ def get_extension_schema_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -150,6 +153,7 @@ def get_extension_schema_output(name: Optional[pulumi.Input[str]] = None,
         extension_schema=webhook.id,
         extension_objects=[example_service.id])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The extension name to use to find an extension vendor in the PagerDuty API.

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -70,15 +71,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Schedules can be imported using the `id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import pagerduty:index/schedule:Schedule main PLBP09X
-//
+// $ pulumi import pagerduty:index/schedule:Schedule main PLBP09X
 // ```
 type Schedule struct {
 	pulumi.CustomResourceState

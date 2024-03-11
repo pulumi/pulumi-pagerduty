@@ -72,6 +72,7 @@ class ServiceDependency(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -97,13 +98,14 @@ class ServiceDependency(pulumi.CustomResource):
             )],
         ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Service dependencies can be imported using the related supporting service id, supporting service type (`business_service` or `service`) and the dependency id separated by a dot, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/serviceDependency:ServiceDependency main P4B2Z7G.business_service.D5RTHKRNGU4PYE90PJ
+        $ pulumi import pagerduty:index/serviceDependency:ServiceDependency main P4B2Z7G.business_service.D5RTHKRNGU4PYE90PJ
         ```
 
         :param str resource_name: The name of the resource.
@@ -121,6 +123,7 @@ class ServiceDependency(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -146,13 +149,14 @@ class ServiceDependency(pulumi.CustomResource):
             )],
         ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Service dependencies can be imported using the related supporting service id, supporting service type (`business_service` or `service`) and the dependency id separated by a dot, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/serviceDependency:ServiceDependency main P4B2Z7G.business_service.D5RTHKRNGU4PYE90PJ
+        $ pulumi import pagerduty:index/serviceDependency:ServiceDependency main P4B2Z7G.business_service.D5RTHKRNGU4PYE90PJ
         ```
 
         :param str resource_name: The name of the resource.

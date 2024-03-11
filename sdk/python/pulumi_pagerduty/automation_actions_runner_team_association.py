@@ -102,6 +102,7 @@ class AutomationActionsRunnerTeamAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -116,13 +117,14 @@ class AutomationActionsRunnerTeamAssociation(pulumi.CustomResource):
             runner_id=pa_runbook_runner.id,
             team_id=team_ent_eng.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Runner team association can be imported using the `runner_id` and `team_id` separated by a colon, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/automationActionsRunnerTeamAssociation:AutomationActionsRunnerTeamAssociation example 01DER7CUUBF7TH4116K0M4WKPU:PLB09Z
+        $ pulumi import pagerduty:index/automationActionsRunnerTeamAssociation:AutomationActionsRunnerTeamAssociation example 01DER7CUUBF7TH4116K0M4WKPU:PLB09Z
         ```
 
         :param str resource_name: The name of the resource.
@@ -141,6 +143,7 @@ class AutomationActionsRunnerTeamAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -155,13 +158,14 @@ class AutomationActionsRunnerTeamAssociation(pulumi.CustomResource):
             runner_id=pa_runbook_runner.id,
             team_id=team_ent_eng.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Runner team association can be imported using the `runner_id` and `team_id` separated by a colon, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/automationActionsRunnerTeamAssociation:AutomationActionsRunnerTeamAssociation example 01DER7CUUBF7TH4116K0M4WKPU:PLB09Z
+        $ pulumi import pagerduty:index/automationActionsRunnerTeamAssociation:AutomationActionsRunnerTeamAssociation example 01DER7CUUBF7TH4116K0M4WKPU:PLB09Z
         ```
 
         :param str resource_name: The name of the resource.

@@ -426,6 +426,7 @@ class ExtensionServiceNow(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -455,13 +456,14 @@ class ExtensionServiceNow(pulumi.CustomResource):
             task_type="incident",
             referer="None")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Extensions can be imported using the id.e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/extensionServiceNow:ExtensionServiceNow main PLBP09X
+        $ pulumi import pagerduty:index/extensionServiceNow:ExtensionServiceNow main PLBP09X
         ```
 
         :param str resource_name: The name of the resource.
@@ -488,6 +490,7 @@ class ExtensionServiceNow(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -517,13 +520,14 @@ class ExtensionServiceNow(pulumi.CustomResource):
             task_type="incident",
             referer="None")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Extensions can be imported using the id.e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/extensionServiceNow:ExtensionServiceNow main PLBP09X
+        $ pulumi import pagerduty:index/extensionServiceNow:ExtensionServiceNow main PLBP09X
         ```
 
         :param str resource_name: The name of the resource.

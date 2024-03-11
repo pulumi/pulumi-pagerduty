@@ -12,10 +12,9 @@ namespace Pulumi.Pagerduty
     public static class GetRuleset
     {
         /// <summary>
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -79,10 +78,11 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### Default Global Ruleset
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -98,17 +98,15 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRulesetResult> InvokeAsync(GetRulesetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRulesetResult>("pagerduty:index/getRuleset:getRuleset", args ?? new GetRulesetArgs(), options.WithDefaults());
 
         /// <summary>
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -172,10 +170,11 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### Default Global Ruleset
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -191,8 +190,7 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRulesetResult> Invoke(GetRulesetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRulesetResult>("pagerduty:index/getRuleset:getRuleset", args ?? new GetRulesetInvokeArgs(), options.WithDefaults());

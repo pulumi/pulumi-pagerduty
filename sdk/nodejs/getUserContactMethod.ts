@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -31,6 +32,7 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getUserContactMethod(args: GetUserContactMethodArgs, opts?: pulumi.InvokeOptions): Promise<GetUserContactMethodResult> {
 
@@ -107,6 +109,7 @@ export interface GetUserContactMethodResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -129,6 +132,7 @@ export interface GetUserContactMethodResult {
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getUserContactMethodOutput(args: GetUserContactMethodOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserContactMethodResult> {
     return pulumi.output(args).apply((a: any) => getUserContactMethod(a, opts))

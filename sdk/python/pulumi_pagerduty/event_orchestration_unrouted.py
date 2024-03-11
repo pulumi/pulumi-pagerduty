@@ -141,6 +141,7 @@ class EventOrchestrationUnrouted(pulumi.CustomResource):
         In this example of an Unrouted Orchestration, the rule matches only if the condition is matched.
         Alerts created for events that do not match the rule will have severity level set to `info` as defined in `catch_all` block.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -169,13 +170,14 @@ class EventOrchestrationUnrouted(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Unrouted Orchestration can be imported using the `id` of the Event Orchestration, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted unrouted 1b49abe7-26db-4439-a715-c6d883acfb3e
+        $ pulumi import pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted unrouted 1b49abe7-26db-4439-a715-c6d883acfb3e
         ```
 
         :param str resource_name: The name of the resource.
@@ -200,6 +202,7 @@ class EventOrchestrationUnrouted(pulumi.CustomResource):
         In this example of an Unrouted Orchestration, the rule matches only if the condition is matched.
         Alerts created for events that do not match the rule will have severity level set to `info` as defined in `catch_all` block.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -228,13 +231,14 @@ class EventOrchestrationUnrouted(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Unrouted Orchestration can be imported using the `id` of the Event Orchestration, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted unrouted 1b49abe7-26db-4439-a715-c6d883acfb3e
+        $ pulumi import pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted unrouted 1b49abe7-26db-4439-a715-c6d883acfb3e
         ```
 
         :param str resource_name: The name of the resource.

@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * A [webhook subscription](https://developer.pagerduty.com/docs/ZG9jOjExMDI5NTkw-v3-overview) allow you to receive HTTP callbacks when incidents are created, updated and deleted. These are also known as V3 Webhooks.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -91,13 +93,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Webhook Subscriptions can be imported using the `id`, e.g.
  * 
  * ```sh
- *  $ pulumi import pagerduty:index/webhookSubscription:WebhookSubscription main PUABCDL
+ * $ pulumi import pagerduty:index/webhookSubscription:WebhookSubscription main PUABCDL
  * ```
  * 
  */

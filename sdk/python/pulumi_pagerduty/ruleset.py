@@ -136,6 +136,7 @@ class Ruleset(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -145,13 +146,14 @@ class Ruleset(pulumi.CustomResource):
             id=foo_team.id,
         ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Rulesets can be imported using the `id`, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/ruleset:Ruleset main 19acac92-027a-4ea0-b06c-bbf516519601
+        $ pulumi import pagerduty:index/ruleset:Ruleset main 19acac92-027a-4ea0-b06c-bbf516519601
         ```
 
         :param str resource_name: The name of the resource.
@@ -168,6 +170,7 @@ class Ruleset(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -177,13 +180,14 @@ class Ruleset(pulumi.CustomResource):
             id=foo_team.id,
         ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Rulesets can be imported using the `id`, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/ruleset:Ruleset main 19acac92-027a-4ea0-b06c-bbf516519601
+        $ pulumi import pagerduty:index/ruleset:Ruleset main 19acac92-027a-4ea0-b06c-bbf516519601
         ```
 
         :param str resource_name: The name of the resource.

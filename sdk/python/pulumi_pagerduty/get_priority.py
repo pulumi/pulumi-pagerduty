@@ -75,6 +75,7 @@ def get_priority(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -113,6 +114,7 @@ def get_priority(name: Optional[str] = None,
             )],
         ))
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the priority to find in the PagerDuty API.
@@ -136,6 +138,7 @@ def get_priority_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -174,6 +177,7 @@ def get_priority_output(name: Optional[pulumi.Input[str]] = None,
             )],
         ))
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the priority to find in the PagerDuty API.

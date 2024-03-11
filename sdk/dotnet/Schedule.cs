@@ -14,6 +14,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -63,13 +64,14 @@ namespace Pulumi.Pagerduty
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Schedules can be imported using the `id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import pagerduty:index/schedule:Schedule main PLBP09X
+    /// $ pulumi import pagerduty:index/schedule:Schedule main PLBP09X
     /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/schedule:Schedule")]

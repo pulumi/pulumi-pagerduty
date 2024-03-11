@@ -179,6 +179,7 @@ class EventOrchestrationService(pulumi.CustomResource):
 
         The `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set. In this example the `catch_all` doesn't have any `actions` so it'll leave events as-is.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -297,13 +298,14 @@ class EventOrchestrationService(pulumi.CustomResource):
                 actions=pagerduty.EventOrchestrationServiceCatchAllActionsArgs(),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Service Orchestration can be imported using the `id` of the Service, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/eventOrchestrationService:EventOrchestrationService service PFEODA7
+        $ pulumi import pagerduty:index/eventOrchestrationService:EventOrchestrationService service PFEODA7
         ```
 
         :param str resource_name: The name of the resource.
@@ -334,6 +336,7 @@ class EventOrchestrationService(pulumi.CustomResource):
 
         The `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set. In this example the `catch_all` doesn't have any `actions` so it'll leave events as-is.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -452,13 +455,14 @@ class EventOrchestrationService(pulumi.CustomResource):
                 actions=pagerduty.EventOrchestrationServiceCatchAllActionsArgs(),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Service Orchestration can be imported using the `id` of the Service, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/eventOrchestrationService:EventOrchestrationService service PFEODA7
+        $ pulumi import pagerduty:index/eventOrchestrationService:EventOrchestrationService service PFEODA7
         ```
 
         :param str resource_name: The name of the resource.

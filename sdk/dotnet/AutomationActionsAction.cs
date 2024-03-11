@@ -14,6 +14,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -45,13 +46,14 @@ namespace Pulumi.Pagerduty
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Actions can be imported using the `id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import pagerduty:index/automationActionsAction:AutomationActionsAction example 01DER7CUUBF7TH4116K0M4WKPU
+    /// $ pulumi import pagerduty:index/automationActionsAction:AutomationActionsAction example 01DER7CUUBF7TH4116K0M4WKPU
     /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/automationActionsAction:AutomationActionsAction")]

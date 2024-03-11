@@ -134,6 +134,7 @@ class TagAssignment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -145,13 +146,14 @@ class TagAssignment(pulumi.CustomResource):
             entity_type="teams",
             entity_id=engteam.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Tag assignments can be imported using the `id` which is constructed by taking the `entity` Type, `entity` ID and the `tag` ID separated by a dot, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/tagAssignment:TagAssignment main users.P7HHMVK.PYC7IQQ
+        $ pulumi import pagerduty:index/tagAssignment:TagAssignment main users.P7HHMVK.PYC7IQQ
         ```
 
         :param str resource_name: The name of the resource.
@@ -171,6 +173,7 @@ class TagAssignment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -182,13 +185,14 @@ class TagAssignment(pulumi.CustomResource):
             entity_type="teams",
             entity_id=engteam.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Tag assignments can be imported using the `id` which is constructed by taking the `entity` Type, `entity` ID and the `tag` ID separated by a dot, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/tagAssignment:TagAssignment main users.P7HHMVK.PYC7IQQ
+        $ pulumi import pagerduty:index/tagAssignment:TagAssignment main users.P7HHMVK.PYC7IQQ
         ```
 
         :param str resource_name: The name of the resource.

@@ -77,6 +77,7 @@ def get_vendor(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -102,6 +103,7 @@ def get_vendor(name: Optional[str] = None,
         vendor=datadog.id,
         service=example_service.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The vendor name to use to find a vendor in the PagerDuty API.
@@ -127,6 +129,7 @@ def get_vendor_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -152,6 +155,7 @@ def get_vendor_output(name: Optional[pulumi.Input[str]] = None,
         vendor=datadog.id,
         service=example_service.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The vendor name to use to find a vendor in the PagerDuty API.

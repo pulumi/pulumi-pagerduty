@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,15 +40,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Add-ons can be imported using the `id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import pagerduty:index/addon:Addon example P3DH5M6
-//
+// $ pulumi import pagerduty:index/addon:Addon example P3DH5M6
 // ```
 type Addon struct {
 	pulumi.CustomResourceState

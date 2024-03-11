@@ -16,6 +16,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -36,24 +37,25 @@ namespace Pulumi.Pagerduty
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// -&gt; In the example below the `runbook_api_key` attribute has been omitted to avoid resource replacement after the import.
     /// 
-    ///  Runners can be imported using the `id`, e.g.
+    /// Runners can be imported using the `id`, e.g.
     /// 
-    ///  resource "pagerduty_automation_actions_runner" "example" {
+    /// resource "pagerduty_automation_actions_runner" "example" {
     /// 
-    ///  name = "Runner created via TF"
+    ///   name = "Runner created via TF"
     /// 
-    ///  description = "Description of the Runner created via TF"
+    ///   description = "Description of the Runner created via TF"
     /// 
-    ///  runner_type = "runbook"
+    ///   runner_type = "runbook"
     /// 
-    ///  runbook_base_uri = "rdcat.stg"
+    ///   runbook_base_uri = "rdcat.stg"
     /// 
-    ///  }
+    /// }
     /// 
     /// ```sh
     /// $ pulumi import pagerduty:index/automationActionsRunner:AutomationActionsRunner example 01DER7CUUBF7TH4116K0M4WKPU

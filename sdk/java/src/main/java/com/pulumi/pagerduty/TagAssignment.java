@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * A [tag](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEwMA-assign-tags) is applied to Escalation Policies, Teams or Users and can be used to filter them.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -56,13 +58,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Tag assignments can be imported using the `id` which is constructed by taking the `entity` Type, `entity` ID and the `tag` ID separated by a dot, e.g.
  * 
  * ```sh
- *  $ pulumi import pagerduty:index/tagAssignment:TagAssignment main users.P7HHMVK.PYC7IQQ
+ * $ pulumi import pagerduty:index/tagAssignment:TagAssignment main users.P7HHMVK.PYC7IQQ
  * ```
  * 
  */

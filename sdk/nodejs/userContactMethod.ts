@@ -7,6 +7,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -36,13 +37,14 @@ import * as utilities from "./utilities";
  *     label: "Work",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Contact methods can be imported using the `user_id` and the `id`, e.g.
  *
  * ```sh
- *  $ pulumi import pagerduty:index/userContactMethod:UserContactMethod main PLBP09X:PLBP09X
+ * $ pulumi import pagerduty:index/userContactMethod:UserContactMethod main PLBP09X:PLBP09X
  * ```
  */
 export class UserContactMethod extends pulumi.CustomResource {

@@ -5041,7 +5041,7 @@ class RulesetRuleTimeFrameActiveBetweenArgs:
                  end_time: Optional[pulumi.Input[int]] = None,
                  start_time: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] start_time: A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `time_static` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
+        :param pulumi.Input[int] start_time: A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `time_static` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%!F(MISSING)New_York).
         """
         if end_time is not None:
             pulumi.set(__self__, "end_time", end_time)
@@ -5061,7 +5061,7 @@ class RulesetRuleTimeFrameActiveBetweenArgs:
     @pulumi.getter(name="startTime")
     def start_time(self) -> Optional[pulumi.Input[int]]:
         """
-        A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `time_static` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
+        A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `time_static` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%!F(MISSING)New_York).
         """
         return pulumi.get(self, "start_time")
 
@@ -5079,7 +5079,7 @@ class RulesetRuleTimeFrameScheduledWeeklyArgs:
                  weekdays: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
         """
         :param pulumi.Input[int] duration: Length of time the schedule will be active in milliseconds. For example `duration = 2 * 60 * 60 * 1000` if you want your rule to apply for 2 hours, from the specified `start_time`.
-        :param pulumi.Input[int] start_time: A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `time_static` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
+        :param pulumi.Input[int] start_time: A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `time_static` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%!F(MISSING)New_York).
         :param pulumi.Input[str] timezone: [The name of the timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for the given schedule, which will be used to determine UTC offset including adjustment for daylight saving time. For example: `timezone = "America/Toronto"`
         :param pulumi.Input[Sequence[pulumi.Input[int]]] weekdays: An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
         """
@@ -5108,7 +5108,7 @@ class RulesetRuleTimeFrameScheduledWeeklyArgs:
     @pulumi.getter(name="startTime")
     def start_time(self) -> Optional[pulumi.Input[int]]:
         """
-        A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `time_static` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
+        A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `time_static` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%!F(MISSING)New_York).
         """
         return pulumi.get(self, "start_time")
 
@@ -7166,6 +7166,7 @@ class ServiceScheduledActionAtArgs:
                
                Below is an example for a `Service` resource with `incident_urgency_rules` with `type = "use_support_hours"`, `support_hours` and a default `scheduled_action` as well.
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                import pulumi_pagerduty as pagerduty
@@ -7208,6 +7209,7 @@ class ServiceScheduledActionAtArgs:
                        )],
                    )])
                ```
+               <!--End PulumiCodeChooser -->
         :param pulumi.Input[str] type: The type of time specification. Currently, this must be set to `named_time`.
         """
         if name is not None:
@@ -7225,6 +7227,7 @@ class ServiceScheduledActionAtArgs:
 
         Below is an example for a `Service` resource with `incident_urgency_rules` with `type = "use_support_hours"`, `support_hours` and a default `scheduled_action` as well.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -7267,6 +7270,7 @@ class ServiceScheduledActionAtArgs:
                 )],
             )])
         ```
+        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "name")
 

@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -50,6 +51,7 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPriority(args: GetPriorityArgs, opts?: pulumi.InvokeOptions): Promise<GetPriorityResult> {
 
@@ -91,6 +93,7 @@ export interface GetPriorityResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -132,6 +135,7 @@ export interface GetPriorityResult {
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPriorityOutput(args: GetPriorityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPriorityResult> {
     return pulumi.output(args).apply((a: any) => getPriority(a, opts))

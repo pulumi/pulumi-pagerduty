@@ -166,6 +166,7 @@ class UserNotificationRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -213,13 +214,14 @@ class UserNotificationRule(pulumi.CustomResource):
                 "id": sms.id,
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         User notification rules can be imported using the `user_id` and the `id`, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/userNotificationRule:UserNotificationRule main PXPGF42:PPSCXAN
+        $ pulumi import pagerduty:index/userNotificationRule:UserNotificationRule main PXPGF42:PPSCXAN
         ```
 
         :param str resource_name: The name of the resource.
@@ -240,6 +242,7 @@ class UserNotificationRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -287,13 +290,14 @@ class UserNotificationRule(pulumi.CustomResource):
                 "id": sms.id,
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         User notification rules can be imported using the `user_id` and the `id`, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/userNotificationRule:UserNotificationRule main PXPGF42:PPSCXAN
+        $ pulumi import pagerduty:index/userNotificationRule:UserNotificationRule main PXPGF42:PPSCXAN
         ```
 
         :param str resource_name: The name of the resource.

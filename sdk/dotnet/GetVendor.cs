@@ -16,10 +16,9 @@ namespace Pulumi.Pagerduty
         /// 
         /// &gt; For the case of vendors that rely on [Change Events](https://support.pagerduty.com/docs/change-events) (e.g. Jekings CI, Github, Gitlab, ...) is important to know that those vendors are only available with [PagerDuty AIOps](https://support.pagerduty.com/docs/aiops) add-on. Therefore, they won't be accessible as result of `pagerduty.getVendor` data source without the proper entitlements.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -77,8 +76,7 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetVendorResult> InvokeAsync(GetVendorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVendorResult>("pagerduty:index/getVendor:getVendor", args ?? new GetVendorArgs(), options.WithDefaults());
@@ -88,10 +86,9 @@ namespace Pulumi.Pagerduty
         /// 
         /// &gt; For the case of vendors that rely on [Change Events](https://support.pagerduty.com/docs/change-events) (e.g. Jekings CI, Github, Gitlab, ...) is important to know that those vendors are only available with [PagerDuty AIOps](https://support.pagerduty.com/docs/aiops) add-on. Therefore, they won't be accessible as result of `pagerduty.getVendor` data source without the proper entitlements.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -149,8 +146,7 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetVendorResult> Invoke(GetVendorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVendorResult>("pagerduty:index/getVendor:getVendor", args ?? new GetVendorInvokeArgs(), options.WithDefaults());

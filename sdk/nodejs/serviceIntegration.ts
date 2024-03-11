@@ -7,10 +7,11 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * A [service integration](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1services~1%7Bid%7D~1integrations/post) is an integration that belongs to a service.
+ * A [service integration](<https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1services~1%!B(MISSING)id%!D(MISSING)~1integrations/post>) is an integration that belongs to a service.
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -127,13 +128,14 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Services can be imported using their related `service` id and service integration `id` separated by a dot, e.g.
  *
  * ```sh
- *  $ pulumi import pagerduty:index/serviceIntegration:ServiceIntegration main PLSSSSS.PLIIIII
+ * $ pulumi import pagerduty:index/serviceIntegration:ServiceIntegration main PLSSSSS.PLIIIII
  * ```
  */
 export class ServiceIntegration extends pulumi.CustomResource {

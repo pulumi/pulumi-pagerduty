@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -21,6 +22,7 @@ import * as utilities from "./utilities";
  *     nameFilter: ".*Orchestration$",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getEventOrchestrations(args: GetEventOrchestrationsArgs, opts?: pulumi.InvokeOptions): Promise<GetEventOrchestrationsResult> {
 
@@ -59,6 +61,7 @@ export interface GetEventOrchestrationsResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -69,6 +72,7 @@ export interface GetEventOrchestrationsResult {
  *     nameFilter: ".*Orchestration$",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getEventOrchestrationsOutput(args: GetEventOrchestrationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventOrchestrationsResult> {
     return pulumi.output(args).apply((a: any) => getEventOrchestrations(a, opts))

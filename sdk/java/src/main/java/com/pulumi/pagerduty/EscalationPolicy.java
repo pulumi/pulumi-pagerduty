@@ -22,6 +22,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -77,13 +78,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Escalation policies can be imported using the `id`, e.g.
  * 
  * ```sh
- *  $ pulumi import pagerduty:index/escalationPolicy:EscalationPolicy main PLBP09X
+ * $ pulumi import pagerduty:index/escalationPolicy:EscalationPolicy main PLBP09X
  * ```
  * 
  */

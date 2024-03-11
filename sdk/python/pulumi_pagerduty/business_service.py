@@ -259,6 +259,7 @@ class BusinessService(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -268,13 +269,14 @@ class BusinessService(pulumi.CustomResource):
             point_of_contact="PagerDuty Admin",
             team="P37RSRS")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Services can be imported using the `id`, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/businessService:BusinessService main PLBP09X
+        $ pulumi import pagerduty:index/businessService:BusinessService main PLBP09X
         ```
 
         :param str resource_name: The name of the resource.
@@ -295,6 +297,7 @@ class BusinessService(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -304,13 +307,14 @@ class BusinessService(pulumi.CustomResource):
             point_of_contact="PagerDuty Admin",
             team="P37RSRS")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Services can be imported using the `id`, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/businessService:BusinessService main PLBP09X
+        $ pulumi import pagerduty:index/businessService:BusinessService main PLBP09X
         ```
 
         :param str resource_name: The name of the resource.

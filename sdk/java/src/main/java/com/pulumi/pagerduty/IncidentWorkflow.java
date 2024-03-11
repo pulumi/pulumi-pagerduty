@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * An [Incident Workflow](https://support.pagerduty.com/docs/incident-workflows) is a series of steps which can be executed on an incident.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -57,13 +59,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Incident workflows can be imported using the `id`, e.g.
  * 
  * ```sh
- *  $ pulumi import pagerduty:index/incidentWorkflow:IncidentWorkflow major_incident_workflow PLBP09X
+ * $ pulumi import pagerduty:index/incidentWorkflow:IncidentWorkflow major_incident_workflow PLBP09X
  * ```
  * 
  */

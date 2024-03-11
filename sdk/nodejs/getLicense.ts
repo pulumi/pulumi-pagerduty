@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -26,6 +27,7 @@ import * as utilities from "./utilities";
  *     role: "user",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLicense(args?: GetLicenseArgs, opts?: pulumi.InvokeOptions): Promise<GetLicenseResult> {
     args = args || {};
@@ -125,6 +127,7 @@ export interface GetLicenseResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -140,6 +143,7 @@ export interface GetLicenseResult {
  *     role: "user",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLicenseOutput(args?: GetLicenseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLicenseResult> {
     return pulumi.output(args).apply((a: any) => getLicense(a, opts))

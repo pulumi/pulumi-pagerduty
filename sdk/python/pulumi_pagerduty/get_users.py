@@ -73,6 +73,7 @@ def get_users(team_ids: Optional[Sequence[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -86,6 +87,7 @@ def get_users(team_ids: Optional[Sequence[str]] = None,
     all_users = pagerduty.get_users()
     from_devops_team = pagerduty.get_users(team_ids=[pagerduty_team["devops"]["id"]])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[str] team_ids: List of team IDs. Only results related to these teams will be returned. Account must have the `teams` ability to use this parameter.
@@ -109,6 +111,7 @@ def get_users_output(team_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] =
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -122,6 +125,7 @@ def get_users_output(team_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] =
     all_users = pagerduty.get_users()
     from_devops_team = pagerduty.get_users(team_ids=[pagerduty_team["devops"]["id"]])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[str] team_ids: List of team IDs. Only results related to these teams will be returned. Account must have the `teams` ability to use this parameter.

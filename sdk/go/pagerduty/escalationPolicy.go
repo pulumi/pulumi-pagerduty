@@ -19,9 +19,7 @@ import (
 // Escalation policies can be imported using the `id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import pagerduty:index/escalationPolicy:EscalationPolicy main PLBP09X
-//
+// $ pulumi import pagerduty:index/escalationPolicy:EscalationPolicy main PLBP09X
 // ```
 type EscalationPolicy struct {
 	pulumi.CustomResourceState

@@ -12,6 +12,7 @@ namespace Pulumi.Pagerduty
     /// <summary>
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,13 +40,14 @@ namespace Pulumi.Pagerduty
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Team memberships can be imported using the `user_id` and `team_id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import pagerduty:index/teamMembership:TeamMembership main PLBP09X:PLB09Z
+    /// $ pulumi import pagerduty:index/teamMembership:TeamMembership main PLBP09X:PLB09Z
     /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/teamMembership:TeamMembership")]

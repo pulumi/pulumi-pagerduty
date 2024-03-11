@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * A [business service subscriber](https://developer.pagerduty.com/api-reference/b3A6NDUwNDgxOQ-list-business-service-subscribers) allows you to subscribe users or teams to automatically receive updates about key business services.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -70,13 +72,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Services can be imported using the `id` using the related business service ID, the subscriber type and the subscriber ID separated by a dot, e.g.
  * 
  * ```sh
- *  $ pulumi import pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber main PLBP09X.team.PLBP09X
+ * $ pulumi import pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber main PLBP09X.team.PLBP09X
  * ```
  * 
  */

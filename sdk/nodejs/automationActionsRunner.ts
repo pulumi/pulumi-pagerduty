@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -24,24 +25,25 @@ import * as utilities from "./utilities";
  *     runbookApiKey: rUNBOOKAPIKEY,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * -> In the example below the `runbook_api_key` attribute has been omitted to avoid resource replacement after the import.
  *
- *  Runners can be imported using the `id`, e.g.
+ * Runners can be imported using the `id`, e.g.
  *
- *  resource "pagerduty_automation_actions_runner" "example" {
+ * resource "pagerduty_automation_actions_runner" "example" {
  *
- *  name = "Runner created via TF"
+ *   name = "Runner created via TF"
  *
- *  description = "Description of the Runner created via TF"
+ *   description = "Description of the Runner created via TF"
  *
- *  runner_type = "runbook"
+ *   runner_type = "runbook"
  *
- *  runbook_base_uri = "rdcat.stg"
+ *   runbook_base_uri = "rdcat.stg"
  *
- *  }
+ * }
  *
  * ```sh
  * $ pulumi import pagerduty:index/automationActionsRunner:AutomationActionsRunner example 01DER7CUUBF7TH4116K0M4WKPU

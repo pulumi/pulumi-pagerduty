@@ -73,6 +73,7 @@ def get_ruleset(name: Optional[str] = None,
     """
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -107,14 +108,18 @@ def get_ruleset(name: Optional[str] = None,
             )],
         ))
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Default Global Ruleset
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
 
     default_global = pagerduty.get_ruleset(name="Default Global")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the ruleset to find in the PagerDuty API.
@@ -136,6 +141,7 @@ def get_ruleset_output(name: Optional[pulumi.Input[str]] = None,
     """
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -170,14 +176,18 @@ def get_ruleset_output(name: Optional[pulumi.Input[str]] = None,
             )],
         ))
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Default Global Ruleset
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
 
     default_global = pagerduty.get_ruleset(name="Default Global")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the ruleset to find in the PagerDuty API.

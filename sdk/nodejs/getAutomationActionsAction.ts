@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -19,6 +20,7 @@ import * as utilities from "./utilities";
  *     id: "01CS1685B2UDM4I3XUUOXPPORM",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAutomationActionsAction(args: GetAutomationActionsActionArgs, opts?: pulumi.InvokeOptions): Promise<GetAutomationActionsActionResult> {
 
@@ -127,6 +129,7 @@ export interface GetAutomationActionsActionResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -135,6 +138,7 @@ export interface GetAutomationActionsActionResult {
  *     id: "01CS1685B2UDM4I3XUUOXPPORM",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAutomationActionsActionOutput(args: GetAutomationActionsActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutomationActionsActionResult> {
     return pulumi.output(args).apply((a: any) => getAutomationActionsAction(a, opts))

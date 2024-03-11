@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * Escalation policies can be imported using the `id`, e.g.
  *
  * ```sh
- *  $ pulumi import pagerduty:index/escalationPolicy:EscalationPolicy main PLBP09X
+ * $ pulumi import pagerduty:index/escalationPolicy:EscalationPolicy main PLBP09X
  * ```
  */
 export class EscalationPolicy extends pulumi.CustomResource {

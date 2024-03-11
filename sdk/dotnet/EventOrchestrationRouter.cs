@@ -18,6 +18,7 @@ namespace Pulumi.Pagerduty
     /// 
     /// This example assumes services used in the `route_to` configuration already exists. So it does not show creation of service resource.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -80,13 +81,14 @@ namespace Pulumi.Pagerduty
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Router can be imported using the `id` of the Event Orchestration, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter router 1b49abe7-26db-4439-a715-c6d883acfb3e
+    /// $ pulumi import pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter router 1b49abe7-26db-4439-a715-c6d883acfb3e
     /// ```
     /// </summary>
     [PagerdutyResourceType("pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter")]

@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * [Event Orchestrations](https://support.pagerduty.com/docs/event-orchestration) allow you define a set of Event Rules, so that when you ingest events using the Orchestration&#39;s Routing Key your events will be routed to the correct Global and/or Service Orchestration, based on the event&#39;s content.
  * 
  * ## Example of configuring an Event Orchestration
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -53,13 +55,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * EventOrchestrations can be imported using the `id`, e.g.
  * 
  * ```sh
- *  $ pulumi import pagerduty:index/eventOrchestration:EventOrchestration main 19acac92-027a-4ea0-b06c-bbf516519601
+ * $ pulumi import pagerduty:index/eventOrchestration:EventOrchestration main 19acac92-027a-4ea0-b06c-bbf516519601
  * ```
  * 
  */

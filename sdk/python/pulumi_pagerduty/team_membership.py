@@ -145,6 +145,7 @@ class TeamMembership(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -156,13 +157,14 @@ class TeamMembership(pulumi.CustomResource):
             team_id=foo_team.id,
             role="manager")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Team memberships can be imported using the `user_id` and `team_id`, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/teamMembership:TeamMembership main PLBP09X:PLB09Z
+        $ pulumi import pagerduty:index/teamMembership:TeamMembership main PLBP09X:PLB09Z
         ```
 
         :param str resource_name: The name of the resource.
@@ -183,6 +185,7 @@ class TeamMembership(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -194,13 +197,14 @@ class TeamMembership(pulumi.CustomResource):
             team_id=foo_team.id,
             role="manager")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Team memberships can be imported using the `user_id` and `team_id`, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/teamMembership:TeamMembership main PLBP09X:PLB09Z
+        $ pulumi import pagerduty:index/teamMembership:TeamMembership main PLBP09X:PLB09Z
         ```
 
         :param str resource_name: The name of the resource.

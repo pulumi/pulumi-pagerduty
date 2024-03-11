@@ -102,6 +102,7 @@ class AutomationActionsActionServiceAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -135,13 +136,14 @@ class AutomationActionsActionServiceAssociation(pulumi.CustomResource):
             action_id=pa_action_example.id,
             service_id=example_service.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Action service association can be imported using the `action_id` and `service_id` separated by a colon, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/automationActionsActionServiceAssociation:AutomationActionsActionServiceAssociation example 01DER7CUUBF7TH4116K0M4WKPU:PLB09Z
+        $ pulumi import pagerduty:index/automationActionsActionServiceAssociation:AutomationActionsActionServiceAssociation example 01DER7CUUBF7TH4116K0M4WKPU:PLB09Z
         ```
 
         :param str resource_name: The name of the resource.
@@ -160,6 +162,7 @@ class AutomationActionsActionServiceAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -193,13 +196,14 @@ class AutomationActionsActionServiceAssociation(pulumi.CustomResource):
             action_id=pa_action_example.id,
             service_id=example_service.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Action service association can be imported using the `action_id` and `service_id` separated by a colon, e.g.
 
         ```sh
-         $ pulumi import pagerduty:index/automationActionsActionServiceAssociation:AutomationActionsActionServiceAssociation example 01DER7CUUBF7TH4116K0M4WKPU:PLB09Z
+        $ pulumi import pagerduty:index/automationActionsActionServiceAssociation:AutomationActionsActionServiceAssociation example 01DER7CUUBF7TH4116K0M4WKPU:PLB09Z
         ```
 
         :param str resource_name: The name of the resource.

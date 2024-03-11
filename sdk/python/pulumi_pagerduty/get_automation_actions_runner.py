@@ -138,12 +138,14 @@ def get_automation_actions_runner(description: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
 
     example = pagerduty.get_automation_actions_runner(id="01DBJLIGED17S1DQKQC2AV8XYZ")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str description: (Optional) The description of the runner.
@@ -181,12 +183,14 @@ def get_automation_actions_runner_output(description: Optional[pulumi.Input[Opti
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
 
     example = pagerduty.get_automation_actions_runner(id="01DBJLIGED17S1DQKQC2AV8XYZ")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str description: (Optional) The description of the runner.

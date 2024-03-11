@@ -9,19 +9,21 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
  * const example = new pagerduty.Tag("example", {label: "Product"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Tags can be imported using the `id`, e.g.
  *
  * ```sh
- *  $ pulumi import pagerduty:index/tag:Tag main PLBP09X
+ * $ pulumi import pagerduty:index/tag:Tag main PLBP09X
  * ```
  */
 export class Tag extends pulumi.CustomResource {

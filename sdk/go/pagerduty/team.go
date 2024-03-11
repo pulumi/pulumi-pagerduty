@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,15 +48,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Teams can be imported using the `id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import pagerduty:index/team:Team main PLBP09X
-//
+// $ pulumi import pagerduty:index/team:Team main PLBP09X
 // ```
 type Team struct {
 	pulumi.CustomResourceState

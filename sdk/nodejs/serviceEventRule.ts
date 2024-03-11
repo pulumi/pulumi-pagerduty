@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -79,13 +80,14 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Service event rules can be imported using using the related `service` id and the `service_event_rule` id separated by a dot, e.g.
  *
  * ```sh
- *  $ pulumi import pagerduty:index/serviceEventRule:ServiceEventRule main a19cdca1-3d5e-4b52-bfea-8c8de04da243.19acac92-027a-4ea0-b06c-bbf516519601
+ * $ pulumi import pagerduty:index/serviceEventRule:ServiceEventRule main a19cdca1-3d5e-4b52-bfea-8c8de04da243.19acac92-027a-4ea0-b06c-bbf516519601
  * ```
  */
 export class ServiceEventRule extends pulumi.CustomResource {

@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -50,15 +51,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Incident workflows can be imported using the `id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import pagerduty:index/incidentWorkflow:IncidentWorkflow major_incident_workflow PLBP09X
-//
+// $ pulumi import pagerduty:index/incidentWorkflow:IncidentWorkflow major_incident_workflow PLBP09X
 // ```
 type IncidentWorkflow struct {
 	pulumi.CustomResourceState

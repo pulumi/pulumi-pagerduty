@@ -71,7 +71,7 @@ import (
 //				Active: pulumi.Bool(true),
 //				Filters: pagerduty.WebhookSubscriptionFilterArray{
 //					&pagerduty.WebhookSubscriptionFilterArgs{
-//						Id:   *pulumi.String(example.Id),
+//						Id:   pulumi.String(example.Id),
 //						Type: pulumi.String("service_reference"),
 //					},
 //				},

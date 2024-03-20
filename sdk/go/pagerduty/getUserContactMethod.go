@@ -43,12 +43,12 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewUserNotificationRule(ctx, "lowUrgencySms", &pagerduty.UserNotificationRuleArgs{
-//				UserId:              *pulumi.String(me.Id),
+//				UserId:              pulumi.String(me.Id),
 //				StartDelayInMinutes: pulumi.Int(5),
 //				Urgency:             pulumi.String("high"),
 //				ContactMethod: pulumi.StringMap{
 //					"type": pulumi.String("push_notification_contact_method"),
-//					"id":   *pulumi.String(phonePush.Id),
+//					"id":   pulumi.String(phonePush.Id),
 //				},
 //			})
 //			if err != nil {

@@ -73,7 +73,7 @@ import (
 //					},
 //					Priorities: pagerduty.RulesetRuleActionsPriorityArray{
 //						&pagerduty.RulesetRuleActionsPriorityArgs{
-//							Value: *pulumi.String(p1.Id),
+//							Value: pulumi.String(p1.Id),
 //						},
 //					},
 //				},

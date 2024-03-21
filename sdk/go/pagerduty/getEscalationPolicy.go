@@ -37,7 +37,7 @@ import (
 //			_, err = pagerduty.NewService(ctx, "testService", &pagerduty.ServiceArgs{
 //				AutoResolveTimeout:     pulumi.String("14400"),
 //				AcknowledgementTimeout: pulumi.String("600"),
-//				EscalationPolicy:       *pulumi.String(testEscalationPolicy.Id),
+//				EscalationPolicy:       pulumi.String(testEscalationPolicy.Id),
 //			})
 //			if err != nil {
 //				return err

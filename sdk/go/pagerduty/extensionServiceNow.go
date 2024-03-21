@@ -67,7 +67,7 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewExtensionServiceNow(ctx, "snow", &pagerduty.ExtensionServiceNowArgs{
-//				ExtensionSchema: *pulumi.String(servicenow.Id),
+//				ExtensionSchema: pulumi.String(servicenow.Id),
 //				ExtensionObjects: pulumi.StringArray{
 //					exampleService.ID(),
 //				},

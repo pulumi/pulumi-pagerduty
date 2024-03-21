@@ -142,7 +142,7 @@ import (
 //								},
 //								Actions: &pagerduty.EventOrchestrationServiceSetRuleActionsArgs{
 //									Annotate: pulumi.String("Please use our P1 runbook: https://docs.test/p1-runbook"),
-//									Priority: *pulumi.String(p1.Id),
+//									Priority: pulumi.String(p1.Id),
 //									IncidentCustomFieldUpdates: pagerduty.EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArray{
 //										&pagerduty.EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdateArgs{
 //											Id:    csImpact.ID(),

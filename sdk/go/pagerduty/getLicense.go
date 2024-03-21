@@ -42,7 +42,7 @@ import (
 //			}
 //			_, err = pagerduty.NewUser(ctx, "example", &pagerduty.UserArgs{
 //				Email:   pulumi.String("125.greenholt.earline@graham.name"),
-//				License: *pulumi.String(fullUser.Id),
+//				License: pulumi.String(fullUser.Id),
 //				Role:    pulumi.String("user"),
 //			})
 //			if err != nil {

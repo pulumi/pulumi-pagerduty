@@ -93,7 +93,7 @@ import (
 //			}
 //			_, err = pagerduty.NewServiceIntegration(ctx, "datadogServiceIntegration", &pagerduty.ServiceIntegrationArgs{
 //				Service: exampleService.ID(),
-//				Vendor:  *pulumi.String(datadogVendor.Id),
+//				Vendor:  pulumi.String(datadogVendor.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -106,7 +106,7 @@ import (
 //			}
 //			_, err = pagerduty.NewServiceIntegration(ctx, "cloudwatchServiceIntegration", &pagerduty.ServiceIntegrationArgs{
 //				Service: exampleService.ID(),
-//				Vendor:  *pulumi.String(cloudwatchVendor.Id),
+//				Vendor:  pulumi.String(cloudwatchVendor.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -119,7 +119,7 @@ import (
 //			}
 //			_, err = pagerduty.NewServiceIntegration(ctx, "emailServiceIntegration", &pagerduty.ServiceIntegrationArgs{
 //				Service:               exampleService.ID(),
-//				Vendor:                *pulumi.String(emailVendor.Id),
+//				Vendor:                pulumi.String(emailVendor.Id),
 //				IntegrationEmail:      pulumi.String("s1@your_account.pagerduty.com"),
 //				EmailIncidentCreation: pulumi.String("use_rules"),
 //				EmailFilterMode:       pulumi.String("and-rules-email"),

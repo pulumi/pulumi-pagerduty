@@ -42,7 +42,7 @@ import (
 //						Targets: pagerduty.EscalationPolicyRuleTargetArray{
 //							&pagerduty.EscalationPolicyRuleTargetArgs{
 //								Type: pulumi.String("schedule"),
-//								Id:   *pulumi.String(test.Id),
+//								Id:   pulumi.String(test.Id),
 //							},
 //						},
 //					},

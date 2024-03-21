@@ -67,7 +67,7 @@ import (
 //							pulumi.String("incident.reopened"),
 //						},
 //						Priorities: pulumi.StringArray{
-//							*pulumi.String(p1.Id),
+//							pulumi.String(p1.Id),
 //						},
 //					},
 //				},

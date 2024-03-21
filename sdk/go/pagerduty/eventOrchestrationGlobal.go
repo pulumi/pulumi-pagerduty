@@ -96,7 +96,7 @@ import (
 //							&pagerduty.EventOrchestrationGlobalSetRuleArgs{
 //								Label: pulumi.String("Otherwise, set the incident to P1 and run a diagnostic"),
 //								Actions: &pagerduty.EventOrchestrationGlobalSetRuleActionsArgs{
-//									Priority: *pulumi.String(p1.Id),
+//									Priority: pulumi.String(p1.Id),
 //									AutomationAction: &pagerduty.EventOrchestrationGlobalSetRuleActionsAutomationActionArgs{
 //										Name:     pulumi.String("db-diagnostic"),
 //										Url:      pulumi.String("https://example.com/run-diagnostic"),

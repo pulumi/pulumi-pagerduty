@@ -68,7 +68,7 @@ import (
 //			}
 //			_, err = pagerduty.NewExtension(ctx, "slack", &pagerduty.ExtensionArgs{
 //				EndpointUrl:     pulumi.String("https://generic_webhook_url/XXXXXX/BBBBBB"),
-//				ExtensionSchema: *pulumi.String(webhook.Id),
+//				ExtensionSchema: pulumi.String(webhook.Id),
 //				ExtensionObjects: pulumi.StringArray{
 //					exampleService.ID(),
 //				},

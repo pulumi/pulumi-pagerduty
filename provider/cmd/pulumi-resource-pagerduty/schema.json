@@ -3685,24 +3685,48 @@
         },
         "pagerduty:index/getUsersUser:getUsersUser": {
             "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "The human-friendly description of the found user.\n"
+                },
                 "email": {
                     "type": "string",
-                    "description": "The email to use to find a user in the PagerDuty API.\n"
+                    "description": "The email of the found user.\n"
                 },
                 "id": {
                     "type": "string",
                     "description": "The ID of the found user.\n"
                 },
+                "jobTitle": {
+                    "type": "string",
+                    "description": "The job title of the found user.\n"
+                },
                 "name": {
                     "type": "string",
                     "description": "The short name of the found user.\n"
+                },
+                "role": {
+                    "type": "string",
+                    "description": "The role of the found user.\n"
+                },
+                "timeZone": {
+                    "type": "string",
+                    "description": "The timezone of the found user.\n"
+                },
+                "type": {
+                    "type": "string"
                 }
             },
             "type": "object",
             "required": [
+                "description",
                 "email",
                 "id",
-                "name"
+                "jobTitle",
+                "name",
+                "role",
+                "timeZone",
+                "type"
             ],
             "language": {
                 "nodejs": {
@@ -6199,7 +6223,7 @@
                 },
                 "alertCreation": {
                     "type": "string",
-                    "description": "Must be one of two values. PagerDuty receives events from your monitoring systems and can then create incidents in different ways. Value \"create_incidents\" is default: events will create an incident that cannot be merged. Value \"create_alerts_and_incidents\" is the alternative: events will create an alert and then add it to a new incident, these incidents can be merged. This option is recommended.\n"
+                    "description": "(Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service.\n"
                 },
                 "alertGrouping": {
                     "type": "string",
@@ -6295,7 +6319,7 @@
                 },
                 "alertCreation": {
                     "type": "string",
-                    "description": "Must be one of two values. PagerDuty receives events from your monitoring systems and can then create incidents in different ways. Value \"create_incidents\" is default: events will create an incident that cannot be merged. Value \"create_alerts_and_incidents\" is the alternative: events will create an alert and then add it to a new incident, these incidents can be merged. This option is recommended.\n"
+                    "description": "(Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service.\n"
                 },
                 "alertGrouping": {
                     "type": "string",
@@ -6360,7 +6384,7 @@
                     },
                     "alertCreation": {
                         "type": "string",
-                        "description": "Must be one of two values. PagerDuty receives events from your monitoring systems and can then create incidents in different ways. Value \"create_incidents\" is default: events will create an incident that cannot be merged. Value \"create_alerts_and_incidents\" is the alternative: events will create an alert and then add it to a new incident, these incidents can be merged. This option is recommended.\n"
+                        "description": "(Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service.\n"
                     },
                     "alertGrouping": {
                         "type": "string",
@@ -7851,7 +7875,7 @@
                 "properties": {
                     "id": {
                         "type": "string",
-                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                        "description": "The ID of the found business service.\n"
                     },
                     "name": {
                         "type": "string",
@@ -7864,9 +7888,9 @@
                 },
                 "type": "object",
                 "required": [
+                    "id",
                     "name",
-                    "type",
-                    "id"
+                    "type"
                 ]
             }
         },
@@ -8850,6 +8874,10 @@
             "outputs": {
                 "description": "A collection of values returned by getUser.\n",
                 "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "The human-friendly description of the found user.\n"
+                    },
                     "email": {
                         "type": "string"
                     },
@@ -8857,15 +8885,31 @@
                         "type": "string",
                         "description": "The provider-assigned unique ID for this managed resource.\n"
                     },
+                    "jobTitle": {
+                        "type": "string",
+                        "description": "The job title of the found user.\n"
+                    },
                     "name": {
                         "type": "string",
                         "description": "The short name of the found user.\n"
+                    },
+                    "role": {
+                        "type": "string",
+                        "description": "The role of the found user.\n"
+                    },
+                    "timeZone": {
+                        "type": "string",
+                        "description": "The timezone of the found user.\n"
                     }
                 },
                 "type": "object",
                 "required": [
+                    "description",
                     "email",
+                    "jobTitle",
                     "name",
+                    "role",
+                    "timeZone",
                     "id"
                 ]
             }

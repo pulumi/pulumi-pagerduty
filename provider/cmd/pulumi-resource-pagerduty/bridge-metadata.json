@@ -1137,7 +1137,7 @@
         "functions": {
             "pagerduty:index/getAutomationActionsAction:getAutomationActionsAction": 0,
             "pagerduty:index/getAutomationActionsRunner:getAutomationActionsRunner": 0,
-            "pagerduty:index/getBusinessService:getBusinessService": 0,
+            "pagerduty:index/getBusinessService:getBusinessService": 1,
             "pagerduty:index/getEscalationPolicy:getEscalationPolicy": 0,
             "pagerduty:index/getEventOrchestration:getEventOrchestration": 0,
             "pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration": 0,

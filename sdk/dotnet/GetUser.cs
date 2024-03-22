@@ -137,27 +137,55 @@ namespace Pulumi.Pagerduty
     [OutputType]
     public sealed class GetUserResult
     {
+        /// <summary>
+        /// The human-friendly description of the found user.
+        /// </summary>
+        public readonly string Description;
         public readonly string Email;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The job title of the found user.
+        /// </summary>
+        public readonly string JobTitle;
+        /// <summary>
         /// The short name of the found user.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The role of the found user.
+        /// </summary>
+        public readonly string Role;
+        /// <summary>
+        /// The timezone of the found user.
+        /// </summary>
+        public readonly string TimeZone;
 
         [OutputConstructor]
         private GetUserResult(
+            string description,
+
             string email,
 
             string id,
 
-            string name)
+            string jobTitle,
+
+            string name,
+
+            string role,
+
+            string timeZone)
         {
+            Description = description;
             Email = email;
             Id = id;
+            JobTitle = jobTitle;
             Name = name;
+            Role = role;
+            TimeZone = timeZone;
         }
     }
 }

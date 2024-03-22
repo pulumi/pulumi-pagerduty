@@ -1312,7 +1312,11 @@ export interface GetTeamMembersMember {
 
 export interface GetUsersUser {
     /**
-     * The email to use to find a user in the PagerDuty API.
+     * The human-friendly description of the found user.
+     */
+    description: string;
+    /**
+     * The email of the found user.
      */
     email: string;
     /**
@@ -1320,9 +1324,22 @@ export interface GetUsersUser {
      */
     id: string;
     /**
+     * The job title of the found user.
+     */
+    jobTitle: string;
+    /**
      * The short name of the found user.
      */
     name: string;
+    /**
+     * The role of the found user.
+     */
+    role: string;
+    /**
+     * The timezone of the found user.
+     */
+    timeZone: string;
+    type: string;
 }
 
 export interface IncidentWorkflowStep {

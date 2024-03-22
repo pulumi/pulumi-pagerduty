@@ -11,7 +11,12 @@ import java.util.Objects;
 @CustomType
 public final class GetUsersUser {
     /**
-     * @return The email to use to find a user in the PagerDuty API.
+     * @return The human-friendly description of the found user.
+     * 
+     */
+    private String description;
+    /**
+     * @return The email of the found user.
      * 
      */
     private String email;
@@ -21,14 +26,37 @@ public final class GetUsersUser {
      */
     private String id;
     /**
+     * @return The job title of the found user.
+     * 
+     */
+    private String jobTitle;
+    /**
      * @return The short name of the found user.
      * 
      */
     private String name;
+    /**
+     * @return The role of the found user.
+     * 
+     */
+    private String role;
+    /**
+     * @return The timezone of the found user.
+     * 
+     */
+    private String timeZone;
+    private String type;
 
     private GetUsersUser() {}
     /**
-     * @return The email to use to find a user in the PagerDuty API.
+     * @return The human-friendly description of the found user.
+     * 
+     */
+    public String description() {
+        return this.description;
+    }
+    /**
+     * @return The email of the found user.
      * 
      */
     public String email() {
@@ -42,11 +70,35 @@ public final class GetUsersUser {
         return this.id;
     }
     /**
+     * @return The job title of the found user.
+     * 
+     */
+    public String jobTitle() {
+        return this.jobTitle;
+    }
+    /**
      * @return The short name of the found user.
      * 
      */
     public String name() {
         return this.name;
+    }
+    /**
+     * @return The role of the found user.
+     * 
+     */
+    public String role() {
+        return this.role;
+    }
+    /**
+     * @return The timezone of the found user.
+     * 
+     */
+    public String timeZone() {
+        return this.timeZone;
+    }
+    public String type() {
+        return this.type;
     }
 
     public static Builder builder() {
@@ -58,17 +110,35 @@ public final class GetUsersUser {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String description;
         private String email;
         private String id;
+        private String jobTitle;
         private String name;
+        private String role;
+        private String timeZone;
+        private String type;
         public Builder() {}
         public Builder(GetUsersUser defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.description = defaults.description;
     	      this.email = defaults.email;
     	      this.id = defaults.id;
+    	      this.jobTitle = defaults.jobTitle;
     	      this.name = defaults.name;
+    	      this.role = defaults.role;
+    	      this.timeZone = defaults.timeZone;
+    	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
+        public Builder description(String description) {
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetUsersUser", "description");
+            }
+            this.description = description;
+            return this;
+        }
         @CustomType.Setter
         public Builder email(String email) {
             if (email == null) {
@@ -86,6 +156,14 @@ public final class GetUsersUser {
             return this;
         }
         @CustomType.Setter
+        public Builder jobTitle(String jobTitle) {
+            if (jobTitle == null) {
+              throw new MissingRequiredPropertyException("GetUsersUser", "jobTitle");
+            }
+            this.jobTitle = jobTitle;
+            return this;
+        }
+        @CustomType.Setter
         public Builder name(String name) {
             if (name == null) {
               throw new MissingRequiredPropertyException("GetUsersUser", "name");
@@ -93,11 +171,40 @@ public final class GetUsersUser {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
+        public Builder role(String role) {
+            if (role == null) {
+              throw new MissingRequiredPropertyException("GetUsersUser", "role");
+            }
+            this.role = role;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder timeZone(String timeZone) {
+            if (timeZone == null) {
+              throw new MissingRequiredPropertyException("GetUsersUser", "timeZone");
+            }
+            this.timeZone = timeZone;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder type(String type) {
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetUsersUser", "type");
+            }
+            this.type = type;
+            return this;
+        }
         public GetUsersUser build() {
             final var _resultValue = new GetUsersUser();
+            _resultValue.description = description;
             _resultValue.email = email;
             _resultValue.id = id;
+            _resultValue.jobTitle = jobTitle;
             _resultValue.name = name;
+            _resultValue.role = role;
+            _resultValue.timeZone = timeZone;
+            _resultValue.type = type;
             return _resultValue;
         }
     }

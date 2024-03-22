@@ -10,6 +10,11 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserResult {
+    /**
+     * @return The human-friendly description of the found user.
+     * 
+     */
+    private String description;
     private String email;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -17,12 +22,34 @@ public final class GetUserResult {
      */
     private String id;
     /**
+     * @return The job title of the found user.
+     * 
+     */
+    private String jobTitle;
+    /**
      * @return The short name of the found user.
      * 
      */
     private String name;
+    /**
+     * @return The role of the found user.
+     * 
+     */
+    private String role;
+    /**
+     * @return The timezone of the found user.
+     * 
+     */
+    private String timeZone;
 
     private GetUserResult() {}
+    /**
+     * @return The human-friendly description of the found user.
+     * 
+     */
+    public String description() {
+        return this.description;
+    }
     public String email() {
         return this.email;
     }
@@ -34,11 +61,32 @@ public final class GetUserResult {
         return this.id;
     }
     /**
+     * @return The job title of the found user.
+     * 
+     */
+    public String jobTitle() {
+        return this.jobTitle;
+    }
+    /**
      * @return The short name of the found user.
      * 
      */
     public String name() {
         return this.name;
+    }
+    /**
+     * @return The role of the found user.
+     * 
+     */
+    public String role() {
+        return this.role;
+    }
+    /**
+     * @return The timezone of the found user.
+     * 
+     */
+    public String timeZone() {
+        return this.timeZone;
     }
 
     public static Builder builder() {
@@ -50,17 +98,33 @@ public final class GetUserResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String description;
         private String email;
         private String id;
+        private String jobTitle;
         private String name;
+        private String role;
+        private String timeZone;
         public Builder() {}
         public Builder(GetUserResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.description = defaults.description;
     	      this.email = defaults.email;
     	      this.id = defaults.id;
+    	      this.jobTitle = defaults.jobTitle;
     	      this.name = defaults.name;
+    	      this.role = defaults.role;
+    	      this.timeZone = defaults.timeZone;
         }
 
+        @CustomType.Setter
+        public Builder description(String description) {
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "description");
+            }
+            this.description = description;
+            return this;
+        }
         @CustomType.Setter
         public Builder email(String email) {
             if (email == null) {
@@ -78,6 +142,14 @@ public final class GetUserResult {
             return this;
         }
         @CustomType.Setter
+        public Builder jobTitle(String jobTitle) {
+            if (jobTitle == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "jobTitle");
+            }
+            this.jobTitle = jobTitle;
+            return this;
+        }
+        @CustomType.Setter
         public Builder name(String name) {
             if (name == null) {
               throw new MissingRequiredPropertyException("GetUserResult", "name");
@@ -85,11 +157,31 @@ public final class GetUserResult {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
+        public Builder role(String role) {
+            if (role == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "role");
+            }
+            this.role = role;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder timeZone(String timeZone) {
+            if (timeZone == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "timeZone");
+            }
+            this.timeZone = timeZone;
+            return this;
+        }
         public GetUserResult build() {
             final var _resultValue = new GetUserResult();
+            _resultValue.description = description;
             _resultValue.email = email;
             _resultValue.id = id;
+            _resultValue.jobTitle = jobTitle;
             _resultValue.name = name;
+            _resultValue.role = role;
+            _resultValue.timeZone = timeZone;
             return _resultValue;
         }
     }

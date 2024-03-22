@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetBusinessServiceResult {
     /**
-     * @return The provider-assigned unique ID for this managed resource.
+     * @return The ID of the found business service.
      * 
      */
     private String id;
@@ -28,7 +28,7 @@ public final class GetBusinessServiceResult {
 
     private GetBusinessServiceResult() {}
     /**
-     * @return The provider-assigned unique ID for this managed resource.
+     * @return The ID of the found business service.
      * 
      */
     public String id() {

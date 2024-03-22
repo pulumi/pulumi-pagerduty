@@ -52,15 +52,31 @@ export interface GetUserArgs {
  * A collection of values returned by getUser.
  */
 export interface GetUserResult {
+    /**
+     * The human-friendly description of the found user.
+     */
+    readonly description: string;
     readonly email: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     /**
+     * The job title of the found user.
+     */
+    readonly jobTitle: string;
+    /**
      * The short name of the found user.
      */
     readonly name: string;
+    /**
+     * The role of the found user.
+     */
+    readonly role: string;
+    /**
+     * The timezone of the found user.
+     */
+    readonly timeZone: string;
 }
 /**
  * Use this data source to get information about a specific [user](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzMw-list-users) that you can use for other PagerDuty resources.

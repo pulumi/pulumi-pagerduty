@@ -14,7 +14,11 @@ namespace Pulumi.Pagerduty.Outputs
     public sealed class GetUsersUserResult
     {
         /// <summary>
-        /// The email to use to find a user in the PagerDuty API.
+        /// The human-friendly description of the found user.
+        /// </summary>
+        public readonly string Description;
+        /// <summary>
+        /// The email of the found user.
         /// </summary>
         public readonly string Email;
         /// <summary>
@@ -22,21 +26,49 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The job title of the found user.
+        /// </summary>
+        public readonly string JobTitle;
+        /// <summary>
         /// The short name of the found user.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The role of the found user.
+        /// </summary>
+        public readonly string Role;
+        /// <summary>
+        /// The timezone of the found user.
+        /// </summary>
+        public readonly string TimeZone;
+        public readonly string Type;
 
         [OutputConstructor]
         private GetUsersUserResult(
+            string description,
+
             string email,
 
             string id,
 
-            string name)
+            string jobTitle,
+
+            string name,
+
+            string role,
+
+            string timeZone,
+
+            string type)
         {
+            Description = description;
             Email = email;
             Id = id;
+            JobTitle = jobTitle;
             Name = name;
+            Role = role;
+            TimeZone = timeZone;
+            Type = type;
         }
     }
 }

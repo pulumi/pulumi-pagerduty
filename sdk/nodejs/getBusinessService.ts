@@ -43,7 +43,7 @@ export interface GetBusinessServiceArgs {
  */
 export interface GetBusinessServiceResult {
     /**
-     * The provider-assigned unique ID for this managed resource.
+     * The ID of the found business service.
      */
     readonly id: string;
     /**

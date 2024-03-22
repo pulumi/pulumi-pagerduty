@@ -21,16 +21,36 @@ class GetUserResult:
     """
     A collection of values returned by getUser.
     """
-    def __init__(__self__, email=None, id=None, name=None):
+    def __init__(__self__, description=None, email=None, id=None, job_title=None, name=None, role=None, time_zone=None):
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
         if email and not isinstance(email, str):
             raise TypeError("Expected argument 'email' to be a str")
         pulumi.set(__self__, "email", email)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if job_title and not isinstance(job_title, str):
+            raise TypeError("Expected argument 'job_title' to be a str")
+        pulumi.set(__self__, "job_title", job_title)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if role and not isinstance(role, str):
+            raise TypeError("Expected argument 'role' to be a str")
+        pulumi.set(__self__, "role", role)
+        if time_zone and not isinstance(time_zone, str):
+            raise TypeError("Expected argument 'time_zone' to be a str")
+        pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The human-friendly description of the found user.
+        """
+        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
@@ -46,12 +66,36 @@ class GetUserResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="jobTitle")
+    def job_title(self) -> str:
+        """
+        The job title of the found user.
+        """
+        return pulumi.get(self, "job_title")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         """
         The short name of the found user.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def role(self) -> str:
+        """
+        The role of the found user.
+        """
+        return pulumi.get(self, "role")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> str:
+        """
+        The timezone of the found user.
+        """
+        return pulumi.get(self, "time_zone")
 
 
 class AwaitableGetUserResult(GetUserResult):
@@ -60,9 +104,13 @@ class AwaitableGetUserResult(GetUserResult):
         if False:
             yield self
         return GetUserResult(
+            description=self.description,
             email=self.email,
             id=self.id,
-            name=self.name)
+            job_title=self.job_title,
+            name=self.name,
+            role=self.role,
+            time_zone=self.time_zone)
 
 
 def get_user(email: Optional[str] = None,
@@ -99,9 +147,13 @@ def get_user(email: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('pagerduty:index/getUser:getUser', __args__, opts=opts, typ=GetUserResult).value
 
     return AwaitableGetUserResult(
+        description=pulumi.get(__ret__, 'description'),
         email=pulumi.get(__ret__, 'email'),
         id=pulumi.get(__ret__, 'id'),
-        name=pulumi.get(__ret__, 'name'))
+        job_title=pulumi.get(__ret__, 'job_title'),
+        name=pulumi.get(__ret__, 'name'),
+        role=pulumi.get(__ret__, 'role'),
+        time_zone=pulumi.get(__ret__, 'time_zone'))
 
 
 @_utilities.lift_output_func(get_user)

@@ -19638,12 +19638,21 @@ func (o GetTeamMembersMemberArrayOutput) Index(i pulumi.IntInput) GetTeamMembers
 }
 
 type GetUsersUser struct {
-	// The email to use to find a user in the PagerDuty API.
+	// The human-friendly description of the found user.
+	Description string `pulumi:"description"`
+	// The email of the found user.
 	Email string `pulumi:"email"`
 	// The ID of the found user.
 	Id string `pulumi:"id"`
+	// The job title of the found user.
+	JobTitle string `pulumi:"jobTitle"`
 	// The short name of the found user.
 	Name string `pulumi:"name"`
+	// The role of the found user.
+	Role string `pulumi:"role"`
+	// The timezone of the found user.
+	TimeZone string `pulumi:"timeZone"`
+	Type     string `pulumi:"type"`
 }
 
 // GetUsersUserInput is an input type that accepts GetUsersUserArgs and GetUsersUserOutput values.
@@ -19658,12 +19667,21 @@ type GetUsersUserInput interface {
 }
 
 type GetUsersUserArgs struct {
-	// The email to use to find a user in the PagerDuty API.
+	// The human-friendly description of the found user.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The email of the found user.
 	Email pulumi.StringInput `pulumi:"email"`
 	// The ID of the found user.
 	Id pulumi.StringInput `pulumi:"id"`
+	// The job title of the found user.
+	JobTitle pulumi.StringInput `pulumi:"jobTitle"`
 	// The short name of the found user.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The role of the found user.
+	Role pulumi.StringInput `pulumi:"role"`
+	// The timezone of the found user.
+	TimeZone pulumi.StringInput `pulumi:"timeZone"`
+	Type     pulumi.StringInput `pulumi:"type"`
 }
 
 func (GetUsersUserArgs) ElementType() reflect.Type {
@@ -19717,7 +19735,12 @@ func (o GetUsersUserOutput) ToGetUsersUserOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The email to use to find a user in the PagerDuty API.
+// The human-friendly description of the found user.
+func (o GetUsersUserOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUsersUser) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The email of the found user.
 func (o GetUsersUserOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.Email }).(pulumi.StringOutput)
 }
@@ -19727,9 +19750,28 @@ func (o GetUsersUserOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The job title of the found user.
+func (o GetUsersUserOutput) JobTitle() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUsersUser) string { return v.JobTitle }).(pulumi.StringOutput)
+}
+
 // The short name of the found user.
 func (o GetUsersUserOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The role of the found user.
+func (o GetUsersUserOutput) Role() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUsersUser) string { return v.Role }).(pulumi.StringOutput)
+}
+
+// The timezone of the found user.
+func (o GetUsersUserOutput) TimeZone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUsersUser) string { return v.TimeZone }).(pulumi.StringOutput)
+}
+
+func (o GetUsersUserOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUsersUser) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type GetUsersUserArrayOutput struct{ *pulumi.OutputState }

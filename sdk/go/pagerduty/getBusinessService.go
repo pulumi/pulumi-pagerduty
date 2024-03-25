@@ -58,7 +58,7 @@ type LookupBusinessServiceArgs struct {
 
 // A collection of values returned by getBusinessService.
 type LookupBusinessServiceResult struct {
-	// The provider-assigned unique ID for this managed resource.
+	// The ID of the found business service.
 	Id string `pulumi:"id"`
 	// The short name of the found business service.
 	Name string `pulumi:"name"`
@@ -104,7 +104,7 @@ func (o LookupBusinessServiceResultOutput) ToLookupBusinessServiceResultOutputWi
 	return o
 }
 
-// The provider-assigned unique ID for this managed resource.
+// The ID of the found business service.
 func (o LookupBusinessServiceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBusinessServiceResult) string { return v.Id }).(pulumi.StringOutput)
 }

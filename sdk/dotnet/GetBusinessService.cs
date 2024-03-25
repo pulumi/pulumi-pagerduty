@@ -98,7 +98,7 @@ namespace Pulumi.Pagerduty
     public sealed class GetBusinessServiceResult
     {
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
+        /// The ID of the found business service.
         /// </summary>
         public readonly string Id;
         /// <summary>

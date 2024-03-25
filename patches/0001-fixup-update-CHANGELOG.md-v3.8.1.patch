@@ -1,11 +1,11 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Ian Wahbe <ian@wahbe.com>
 Date: Wed, 21 Feb 2024 20:32:54 +0100
-Subject: [PATCH] fixup! update CHANGELOG.md v3.8.1
+Subject: [PATCH 1/2] fixup! update CHANGELOG.md v3.8.1
 
 
 diff --git a/go.mod b/go.mod
-index 7860447f..8d3a35de 100644
+index 967b43a7..5e116702 100644
 --- a/go.mod
 +++ b/go.mod
 @@ -1,4 +1,4 @@
@@ -15,7 +15,7 @@ index 7860447f..8d3a35de 100644
  go 1.20
  
 diff --git a/main.go b/main.go
-index 3d0286da..ab96d4dd 100644
+index b8782ded..b57b09ba 100644
 --- a/main.go
 +++ b/main.go
 @@ -8,8 +8,8 @@ import (
@@ -61,7 +61,7 @@ index 5b9fee0e..d4963b1f 100644
  
  // Config defines the configuration options for the PagerDuty client
 diff --git a/pagerdutyplugin/provider_test.go b/pagerdutyplugin/provider_test.go
-index 91ed844d..f5adab3b 100644
+index 66e63338..23c6b8ff 100644
 --- a/pagerdutyplugin/provider_test.go
 +++ b/pagerdutyplugin/provider_test.go
 @@ -11,7 +11,7 @@ import (
@@ -72,4 +72,4 @@ index 91ed844d..f5adab3b 100644
 +	pd "github.com/PagerDuty/terraform-provider-pagerduty/v3/pagerduty"
  )
  
- func testAccPreCheck(t *testing.T) {
+ var testAccProvider = New()

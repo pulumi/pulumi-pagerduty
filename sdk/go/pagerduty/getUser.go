@@ -75,11 +75,19 @@ type LookupUserArgs struct {
 
 // A collection of values returned by getUser.
 type LookupUserResult struct {
-	Email string `pulumi:"email"`
+	// The human-friendly description of the found user.
+	Description string `pulumi:"description"`
+	Email       string `pulumi:"email"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// The job title of the found user.
+	JobTitle string `pulumi:"jobTitle"`
 	// The short name of the found user.
 	Name string `pulumi:"name"`
+	// The role of the found user.
+	Role string `pulumi:"role"`
+	// The timezone of the found user.
+	TimeZone string `pulumi:"timeZone"`
 }
 
 func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pulumi.InvokeOption) LookupUserResultOutput {
@@ -120,6 +128,11 @@ func (o LookupUserResultOutput) ToLookupUserResultOutputWithContext(ctx context.
 	return o
 }
 
+// The human-friendly description of the found user.
+func (o LookupUserResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
 func (o LookupUserResultOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Email }).(pulumi.StringOutput)
 }
@@ -129,9 +142,24 @@ func (o LookupUserResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The job title of the found user.
+func (o LookupUserResultOutput) JobTitle() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.JobTitle }).(pulumi.StringOutput)
+}
+
 // The short name of the found user.
 func (o LookupUserResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The role of the found user.
+func (o LookupUserResultOutput) Role() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.Role }).(pulumi.StringOutput)
+}
+
+// The timezone of the found user.
+func (o LookupUserResultOutput) TimeZone() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.TimeZone }).(pulumi.StringOutput)
 }
 
 func init() {

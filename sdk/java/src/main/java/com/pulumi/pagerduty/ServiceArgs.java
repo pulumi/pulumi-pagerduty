@@ -39,14 +39,14 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Must be one of two values. PagerDuty receives events from your monitoring systems and can then create incidents in different ways. Value &#34;create_incidents&#34; is default: events will create an incident that cannot be merged. Value &#34;create_alerts_and_incidents&#34; is the alternative: events will create an alert and then add it to a new incident, these incidents can be merged. This option is recommended.
+     * (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service.
      * 
      */
     @Import(name="alertCreation")
     private @Nullable Output<String> alertCreation;
 
     /**
-     * @return Must be one of two values. PagerDuty receives events from your monitoring systems and can then create incidents in different ways. Value &#34;create_incidents&#34; is default: events will create an incident that cannot be merged. Value &#34;create_alerts_and_incidents&#34; is the alternative: events will create an alert and then add it to a new incident, these incidents can be merged. This option is recommended.
+     * @return (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service.
      * 
      */
     public Optional<Output<String>> alertCreation() {
@@ -276,7 +276,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param alertCreation Must be one of two values. PagerDuty receives events from your monitoring systems and can then create incidents in different ways. Value &#34;create_incidents&#34; is default: events will create an incident that cannot be merged. Value &#34;create_alerts_and_incidents&#34; is the alternative: events will create an alert and then add it to a new incident, these incidents can be merged. This option is recommended.
+         * @param alertCreation (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service.
          * 
          * @return builder
          * 
@@ -287,7 +287,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param alertCreation Must be one of two values. PagerDuty receives events from your monitoring systems and can then create incidents in different ways. Value &#34;create_incidents&#34; is default: events will create an incident that cannot be merged. Value &#34;create_alerts_and_incidents&#34; is the alternative: events will create an alert and then add it to a new incident, these incidents can be merged. This option is recommended.
+         * @param alertCreation (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service.
          * 
          * @return builder
          * 

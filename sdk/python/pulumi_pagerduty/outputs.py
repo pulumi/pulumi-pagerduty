@@ -7617,23 +7617,45 @@ class GetTeamMembersMemberResult(dict):
 @pulumi.output_type
 class GetUsersUserResult(dict):
     def __init__(__self__, *,
+                 description: str,
                  email: str,
                  id: str,
-                 name: str):
+                 job_title: str,
+                 name: str,
+                 role: str,
+                 time_zone: str,
+                 type: str):
         """
-        :param str email: The email to use to find a user in the PagerDuty API.
+        :param str description: The human-friendly description of the found user.
+        :param str email: The email of the found user.
         :param str id: The ID of the found user.
+        :param str job_title: The job title of the found user.
         :param str name: The short name of the found user.
+        :param str role: The role of the found user.
+        :param str time_zone: The timezone of the found user.
         """
+        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "email", email)
         pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "job_title", job_title)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "role", role)
+        pulumi.set(__self__, "time_zone", time_zone)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The human-friendly description of the found user.
+        """
+        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def email(self) -> str:
         """
-        The email to use to find a user in the PagerDuty API.
+        The email of the found user.
         """
         return pulumi.get(self, "email")
 
@@ -7646,11 +7668,40 @@ class GetUsersUserResult(dict):
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="jobTitle")
+    def job_title(self) -> str:
+        """
+        The job title of the found user.
+        """
+        return pulumi.get(self, "job_title")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         """
         The short name of the found user.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def role(self) -> str:
+        """
+        The role of the found user.
+        """
+        return pulumi.get(self, "role")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> str:
+        """
+        The timezone of the found user.
+        """
+        return pulumi.get(self, "time_zone")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
 
 

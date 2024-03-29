@@ -64,6 +64,10 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // The pagerduty_ruleset_rule.foo rule defined below
+ *         // repeats daily from 9:30am - 11:30am using the America/New_York timezone.
+ *         // Thus it requires a time_static instance to represent 9:30am on an arbitrary date in that timezone.
+ *         // April 11th, 2019 was EDT (UTC-4) https://www.timeanddate.com/worldclock/converter.html?iso=20190411T133000&amp;p1=179
  *         var easternTimeAt0930 = new Static(&#34;easternTimeAt0930&#34;, StaticArgs.builder()        
  *             .rfc3339(&#34;2019-04-11T09:30:00-04:00&#34;)
  *             .build());

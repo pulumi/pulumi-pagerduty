@@ -154,9 +154,9 @@ namespace Pulumi.Pagerduty
     ///         }),
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             pagerduty_event_rule.Two,
+    ///             pagerduty_event_rule.Two, 
     ///         },
     ///     });
     /// 

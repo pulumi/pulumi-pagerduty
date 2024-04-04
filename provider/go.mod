@@ -36,7 +36,7 @@ require (
 	github.com/Masterminds/semver/v3 v3.2.1 // indirect
 	github.com/Masterminds/sprig/v3 v3.2.3 // indirect
 	github.com/Microsoft/go-winio v0.6.1 // indirect
-	github.com/PagerDuty/go-pagerduty v1.8.1-0.20240118191642-803061c27c20 // indirect
+	github.com/PagerDuty/go-pagerduty v1.8.1-0.20240402164006-de82e6b1f7cf // indirect
 	github.com/ProtonMail/go-crypto v1.1.0-alpha.0 // indirect
 	github.com/aead/chacha20 v0.0.0-20180709150244-8b13a72661da // indirect
 	github.com/agext/levenshtein v1.2.3 // indirect
@@ -91,7 +91,7 @@ require (
 	github.com/golang-jwt/jwt/v5 v5.1.0 // indirect
 	github.com/golang/glog v1.2.0 // indirect
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
-	github.com/golang/protobuf v1.5.3 // indirect
+	github.com/golang/protobuf v1.5.4 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
 	github.com/google/go-cmp v0.6.0 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
@@ -139,7 +139,7 @@ require (
 	github.com/hashicorp/vault/api v1.8.2 // indirect
 	github.com/hashicorp/vault/sdk v0.6.1 // indirect
 	github.com/hashicorp/yamux v0.1.1 // indirect
-	github.com/heimweh/go-pagerduty v0.0.0-20240226201314-bfc8dce0a3ff // indirect
+	github.com/heimweh/go-pagerduty v0.0.0-20240403153232-5876af2ce24a // indirect
 	github.com/huandu/xstrings v1.4.0 // indirect
 	github.com/iancoleman/strcase v0.2.0 // indirect
 	github.com/imdario/mergo v0.3.15 // indirect
@@ -238,8 +238,8 @@ require (
 	golang.org/x/crypto v0.21.0 // indirect
 	golang.org/x/exp v0.0.0-20231110203233-9a3e6036ecaa // indirect
 	golang.org/x/mod v0.15.0 // indirect
-	golang.org/x/net v0.21.0 // indirect
-	golang.org/x/oauth2 v0.16.0 // indirect
+	golang.org/x/net v0.22.0 // indirect
+	golang.org/x/oauth2 v0.18.0 // indirect
 	golang.org/x/sync v0.6.0 // indirect
 	golang.org/x/sys v0.18.0 // indirect
 	golang.org/x/term v0.18.0 // indirect

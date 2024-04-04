@@ -180,6 +180,42 @@
                 "id"
             ]
         },
+        "pagerduty:index/EventOrchestrationGlobalCacheVariableCondition:EventOrchestrationGlobalCacheVariableCondition": {
+            "properties": {
+                "expression": {
+                    "type": "string",
+                    "description": "A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "expression"
+            ]
+        },
+        "pagerduty:index/EventOrchestrationGlobalCacheVariableConfiguration:EventOrchestrationGlobalCacheVariableConfiguration": {
+            "properties": {
+                "regex": {
+                    "type": "string",
+                    "description": "A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`\n"
+                },
+                "source": {
+                    "type": "string",
+                    "description": "The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recent_value`\n"
+                },
+                "ttlSeconds": {
+                    "type": "integer",
+                    "description": "The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count`\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value` or `trigger_event_count`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "type"
+            ]
+        },
         "pagerduty:index/EventOrchestrationGlobalCatchAll:EventOrchestrationGlobalCatchAll": {
             "properties": {
                 "actions": {
@@ -810,6 +846,42 @@
             "type": "object",
             "required": [
                 "expression"
+            ]
+        },
+        "pagerduty:index/EventOrchestrationServiceCacheVariableCondition:EventOrchestrationServiceCacheVariableCondition": {
+            "properties": {
+                "expression": {
+                    "type": "string",
+                    "description": "A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "expression"
+            ]
+        },
+        "pagerduty:index/EventOrchestrationServiceCacheVariableConfiguration:EventOrchestrationServiceCacheVariableConfiguration": {
+            "properties": {
+                "regex": {
+                    "type": "string",
+                    "description": "A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`\n"
+                },
+                "source": {
+                    "type": "string",
+                    "description": "The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recent_value`\n"
+                },
+                "ttlSeconds": {
+                    "type": "integer",
+                    "description": "The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count`\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value` or `trigger_event_count`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "type"
             ]
         },
         "pagerduty:index/EventOrchestrationServiceCatchAll:EventOrchestrationServiceCatchAll": {
@@ -3145,6 +3217,55 @@
                 }
             }
         },
+        "pagerduty:index/getEventOrchestrationGlobalCacheVariableCondition:getEventOrchestrationGlobalCacheVariableCondition": {
+            "properties": {
+                "expression": {
+                    "type": "string",
+                    "description": "A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "expression"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "pagerduty:index/getEventOrchestrationGlobalCacheVariableConfiguration:getEventOrchestrationGlobalCacheVariableConfiguration": {
+            "properties": {
+                "regex": {
+                    "type": "string",
+                    "description": "A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`\n"
+                },
+                "source": {
+                    "type": "string",
+                    "description": "The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recent_value`\n"
+                },
+                "ttlSeconds": {
+                    "type": "integer",
+                    "description": "The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count`\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value` or `trigger_event_count`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "regex",
+                "source",
+                "ttlSeconds",
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "pagerduty:index/getEventOrchestrationIntegrationDetail:getEventOrchestrationIntegrationDetail": {
             "properties": {
                 "id": {
@@ -3209,6 +3330,55 @@
             "type": "object",
             "required": [
                 "routingKey",
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "pagerduty:index/getEventOrchestrationServiceCacheVariableCondition:getEventOrchestrationServiceCacheVariableCondition": {
+            "properties": {
+                "expression": {
+                    "type": "string",
+                    "description": "A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "expression"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "pagerduty:index/getEventOrchestrationServiceCacheVariableConfiguration:getEventOrchestrationServiceCacheVariableConfiguration": {
+            "properties": {
+                "regex": {
+                    "type": "string",
+                    "description": "A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`\n"
+                },
+                "source": {
+                    "type": "string",
+                    "description": "The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recent_value`\n"
+                },
+                "ttlSeconds": {
+                    "type": "integer",
+                    "description": "The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count`\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value` or `trigger_event_count`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "regex",
+                "source",
+                "ttlSeconds",
                 "type"
             ],
             "language": {
@@ -4647,6 +4817,99 @@
                 "type": "object"
             }
         },
+        "pagerduty:index/eventOrchestrationGlobalCacheVariable:EventOrchestrationGlobalCacheVariable": {
+            "description": "A [Cache Variable](https://support.pagerduty.com/docs/event-orchestration-variables) can be created on a Global Event Orchestration, in order to temporarily store event data to be referenced later within the Global Event Orchestration\n\n## Example of configuring a Cache Variable for a Global Event Orchestration\n\nThis example shows creating a global `Event Orchestration` and a `Cache Variable`. All events that have the `event.source` field will have its `source` value stored in this Cache Variable, and appended as a note for the subsequent incident created by this Event Orchestration.\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst databaseTeam = new pagerduty.Team(\"databaseTeam\", {});\nconst eventOrchestration = new pagerduty.EventOrchestration(\"eventOrchestration\", {team: databaseTeam.id});\nconst cacheVar = new pagerduty.EventOrchestrationGlobalCacheVariable(\"cacheVar\", {\n    eventOrchestration: eventOrchestration.id,\n    conditions: [{\n        expression: \"event.source exists\",\n    }],\n    configuration: {\n        type: \"recent_value\",\n        source: \"event.source\",\n        regex: \".*\",\n    },\n});\nconst global = new pagerduty.EventOrchestrationGlobal(\"global\", {\n    eventOrchestration: eventOrchestration.id,\n    sets: [{\n        id: \"start\",\n        rules: [{\n            label: \"Always annotate the incident with the event source for all events\",\n            actions: {\n                annotate: \"Last time, we saw this incident occur on host: {{cache_var.recent_host}}\",\n            },\n        }],\n    }],\n    catchAll: {\n        actions: {},\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\ndatabase_team = pagerduty.Team(\"databaseTeam\")\nevent_orchestration = pagerduty.EventOrchestration(\"eventOrchestration\", team=database_team.id)\ncache_var = pagerduty.EventOrchestrationGlobalCacheVariable(\"cacheVar\",\n    event_orchestration=event_orchestration.id,\n    conditions=[pagerduty.EventOrchestrationGlobalCacheVariableConditionArgs(\n        expression=\"event.source exists\",\n    )],\n    configuration=pagerduty.EventOrchestrationGlobalCacheVariableConfigurationArgs(\n        type=\"recent_value\",\n        source=\"event.source\",\n        regex=\".*\",\n    ))\nglobal_ = pagerduty.EventOrchestrationGlobal(\"global\",\n    event_orchestration=event_orchestration.id,\n    sets=[pagerduty.EventOrchestrationGlobalSetArgs(\n        id=\"start\",\n        rules=[pagerduty.EventOrchestrationGlobalSetRuleArgs(\n            label=\"Always annotate the incident with the event source for all events\",\n            actions=pagerduty.EventOrchestrationGlobalSetRuleActionsArgs(\n                annotate=\"Last time, we saw this incident occur on host: {{cache_var.recent_host}}\",\n            ),\n        )],\n    )],\n    catch_all=pagerduty.EventOrchestrationGlobalCatchAllArgs(\n        actions=pagerduty.EventOrchestrationGlobalCatchAllActionsArgs(),\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var databaseTeam = new Pagerduty.Team(\"databaseTeam\");\n\n    var eventOrchestration = new Pagerduty.EventOrchestration(\"eventOrchestration\", new()\n    {\n        Team = databaseTeam.Id,\n    });\n\n    var cacheVar = new Pagerduty.EventOrchestrationGlobalCacheVariable(\"cacheVar\", new()\n    {\n        EventOrchestration = eventOrchestration.Id,\n        Conditions = new[]\n        {\n            new Pagerduty.Inputs.EventOrchestrationGlobalCacheVariableConditionArgs\n            {\n                Expression = \"event.source exists\",\n            },\n        },\n        Configuration = new Pagerduty.Inputs.EventOrchestrationGlobalCacheVariableConfigurationArgs\n        {\n            Type = \"recent_value\",\n            Source = \"event.source\",\n            Regex = \".*\",\n        },\n    });\n\n    var @global = new Pagerduty.EventOrchestrationGlobal(\"global\", new()\n    {\n        EventOrchestration = eventOrchestration.Id,\n        Sets = new[]\n        {\n            new Pagerduty.Inputs.EventOrchestrationGlobalSetArgs\n            {\n                Id = \"start\",\n                Rules = new[]\n                {\n                    new Pagerduty.Inputs.EventOrchestrationGlobalSetRuleArgs\n                    {\n                        Label = \"Always annotate the incident with the event source for all events\",\n                        Actions = new Pagerduty.Inputs.EventOrchestrationGlobalSetRuleActionsArgs\n                        {\n                            Annotate = \"Last time, we saw this incident occur on host: {{cache_var.recent_host}}\",\n                        },\n                    },\n                },\n            },\n        },\n        CatchAll = new Pagerduty.Inputs.EventOrchestrationGlobalCatchAllArgs\n        {\n            Actions = null,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tdatabaseTeam, err := pagerduty.NewTeam(ctx, \"databaseTeam\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\teventOrchestration, err := pagerduty.NewEventOrchestration(ctx, \"eventOrchestration\", \u0026pagerduty.EventOrchestrationArgs{\n\t\t\tTeam: databaseTeam.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewEventOrchestrationGlobalCacheVariable(ctx, \"cacheVar\", \u0026pagerduty.EventOrchestrationGlobalCacheVariableArgs{\n\t\t\tEventOrchestration: eventOrchestration.ID(),\n\t\t\tConditions: pagerduty.EventOrchestrationGlobalCacheVariableConditionArray{\n\t\t\t\t\u0026pagerduty.EventOrchestrationGlobalCacheVariableConditionArgs{\n\t\t\t\t\tExpression: pulumi.String(\"event.source exists\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tConfiguration: \u0026pagerduty.EventOrchestrationGlobalCacheVariableConfigurationArgs{\n\t\t\t\tType:   pulumi.String(\"recent_value\"),\n\t\t\t\tSource: pulumi.String(\"event.source\"),\n\t\t\t\tRegex:  pulumi.String(\".*\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewEventOrchestrationGlobal(ctx, \"global\", \u0026pagerduty.EventOrchestrationGlobalArgs{\n\t\t\tEventOrchestration: eventOrchestration.ID(),\n\t\t\tSets: pagerduty.EventOrchestrationGlobalSetArray{\n\t\t\t\t\u0026pagerduty.EventOrchestrationGlobalSetArgs{\n\t\t\t\t\tId: pulumi.String(\"start\"),\n\t\t\t\t\tRules: pagerduty.EventOrchestrationGlobalSetRuleArray{\n\t\t\t\t\t\t\u0026pagerduty.EventOrchestrationGlobalSetRuleArgs{\n\t\t\t\t\t\t\tLabel: pulumi.String(\"Always annotate the incident with the event source for all events\"),\n\t\t\t\t\t\t\tActions: \u0026pagerduty.EventOrchestrationGlobalSetRuleActionsArgs{\n\t\t\t\t\t\t\t\tAnnotate: pulumi.String(\"Last time, we saw this incident occur on host: {{cache_var.recent_host}}\"),\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tCatchAll: \u0026pagerduty.EventOrchestrationGlobalCatchAllArgs{\n\t\t\t\tActions: nil,\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.Team;\nimport com.pulumi.pagerduty.EventOrchestration;\nimport com.pulumi.pagerduty.EventOrchestrationArgs;\nimport com.pulumi.pagerduty.EventOrchestrationGlobalCacheVariable;\nimport com.pulumi.pagerduty.EventOrchestrationGlobalCacheVariableArgs;\nimport com.pulumi.pagerduty.inputs.EventOrchestrationGlobalCacheVariableConditionArgs;\nimport com.pulumi.pagerduty.inputs.EventOrchestrationGlobalCacheVariableConfigurationArgs;\nimport com.pulumi.pagerduty.EventOrchestrationGlobal;\nimport com.pulumi.pagerduty.EventOrchestrationGlobalArgs;\nimport com.pulumi.pagerduty.inputs.EventOrchestrationGlobalSetArgs;\nimport com.pulumi.pagerduty.inputs.EventOrchestrationGlobalCatchAllArgs;\nimport com.pulumi.pagerduty.inputs.EventOrchestrationGlobalCatchAllActionsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var databaseTeam = new Team(\"databaseTeam\");\n\n        var eventOrchestration = new EventOrchestration(\"eventOrchestration\", EventOrchestrationArgs.builder()        \n            .team(databaseTeam.id())\n            .build());\n\n        var cacheVar = new EventOrchestrationGlobalCacheVariable(\"cacheVar\", EventOrchestrationGlobalCacheVariableArgs.builder()        \n            .eventOrchestration(eventOrchestration.id())\n            .conditions(EventOrchestrationGlobalCacheVariableConditionArgs.builder()\n                .expression(\"event.source exists\")\n                .build())\n            .configuration(EventOrchestrationGlobalCacheVariableConfigurationArgs.builder()\n                .type(\"recent_value\")\n                .source(\"event.source\")\n                .regex(\".*\")\n                .build())\n            .build());\n\n        var global = new EventOrchestrationGlobal(\"global\", EventOrchestrationGlobalArgs.builder()        \n            .eventOrchestration(eventOrchestration.id())\n            .sets(EventOrchestrationGlobalSetArgs.builder()\n                .id(\"start\")\n                .rules(EventOrchestrationGlobalSetRuleArgs.builder()\n                    .label(\"Always annotate the incident with the event source for all events\")\n                    .actions(EventOrchestrationGlobalSetRuleActionsArgs.builder()\n                        .annotate(\"Last time, we saw this incident occur on host: {{cache_var.recent_host}}\")\n                        .build())\n                    .build())\n                .build())\n            .catchAll(EventOrchestrationGlobalCatchAllArgs.builder()\n                .actions()\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  databaseTeam:\n    type: pagerduty:Team\n  eventOrchestration:\n    type: pagerduty:EventOrchestration\n    properties:\n      team: ${databaseTeam.id}\n  cacheVar:\n    type: pagerduty:EventOrchestrationGlobalCacheVariable\n    properties:\n      eventOrchestration: ${eventOrchestration.id}\n      conditions:\n        - expression: event.source exists\n      configuration:\n        type: recent_value\n        source: event.source\n        regex: .*\n  global:\n    type: pagerduty:EventOrchestrationGlobal\n    properties:\n      eventOrchestration: ${eventOrchestration.id}\n      sets:\n        - id: start\n          rules:\n            - label: Always annotate the incident with the event source for all events\n              actions:\n                annotate: 'Last time, we saw this incident occur on host: {{cache_var.recent_host}}'\n      catchAll:\n        actions: {}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nCache Variables can be imported using colon-separated IDs, which is the combination of the Global Event Orchestration ID followed by the Cache Variable ID, e.g.\n\n```sh\n$ pulumi import pagerduty:index/eventOrchestrationGlobalCacheVariable:EventOrchestrationGlobalCacheVariable cache_variable 5e7110bf-0ee7-429e-9724-34ed1fe15ac3:138ed254-3444-44ad-8cc7-701d69def439\n```\n",
+            "properties": {
+                "conditions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/EventOrchestrationGlobalCacheVariableCondition:EventOrchestrationGlobalCacheVariableCondition"
+                    },
+                    "description": "Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.\n"
+                },
+                "configuration": {
+                    "$ref": "#/types/pagerduty:index/EventOrchestrationGlobalCacheVariableConfiguration:EventOrchestrationGlobalCacheVariableConfiguration",
+                    "description": "A configuration object to define what and how values will be stored in the Cache Variable.\n"
+                },
+                "disabled": {
+                    "type": "boolean",
+                    "description": "Indicates whether the Cache Variable is disabled and would therefore not be evaluated.\n"
+                },
+                "eventOrchestration": {
+                    "type": "string",
+                    "description": "ID of the Global Event Orchestration to which this Cache Variable belongs.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Cache Variable associated with the Global Event Orchestration.\n"
+                }
+            },
+            "required": [
+                "configuration",
+                "eventOrchestration",
+                "name"
+            ],
+            "inputProperties": {
+                "conditions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/EventOrchestrationGlobalCacheVariableCondition:EventOrchestrationGlobalCacheVariableCondition"
+                    },
+                    "description": "Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.\n"
+                },
+                "configuration": {
+                    "$ref": "#/types/pagerduty:index/EventOrchestrationGlobalCacheVariableConfiguration:EventOrchestrationGlobalCacheVariableConfiguration",
+                    "description": "A configuration object to define what and how values will be stored in the Cache Variable.\n"
+                },
+                "disabled": {
+                    "type": "boolean",
+                    "description": "Indicates whether the Cache Variable is disabled and would therefore not be evaluated.\n"
+                },
+                "eventOrchestration": {
+                    "type": "string",
+                    "description": "ID of the Global Event Orchestration to which this Cache Variable belongs.\n",
+                    "willReplaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Cache Variable associated with the Global Event Orchestration.\n"
+                }
+            },
+            "requiredInputs": [
+                "configuration",
+                "eventOrchestration"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering EventOrchestrationGlobalCacheVariable resources.\n",
+                "properties": {
+                    "conditions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/pagerduty:index/EventOrchestrationGlobalCacheVariableCondition:EventOrchestrationGlobalCacheVariableCondition"
+                        },
+                        "description": "Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.\n"
+                    },
+                    "configuration": {
+                        "$ref": "#/types/pagerduty:index/EventOrchestrationGlobalCacheVariableConfiguration:EventOrchestrationGlobalCacheVariableConfiguration",
+                        "description": "A configuration object to define what and how values will be stored in the Cache Variable.\n"
+                    },
+                    "disabled": {
+                        "type": "boolean",
+                        "description": "Indicates whether the Cache Variable is disabled and would therefore not be evaluated.\n"
+                    },
+                    "eventOrchestration": {
+                        "type": "string",
+                        "description": "ID of the Global Event Orchestration to which this Cache Variable belongs.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the Cache Variable associated with the Global Event Orchestration.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "pagerduty:index/eventOrchestrationIntegration:EventOrchestrationIntegration": {
             "description": "An Event Orchestration Integration allows you to create and manage multiple Integrations (and Routing Keys) per Event Orchestration _and_ will allow you to move (migrate) Integrations _between_ two Event Orchestrations.\n\n## Example of configuring an Integration for an Event Orchestration\n\nThis example shows creating `Event Orchestration` and `Team` resources followed by creating an Event Orchestration Integration to handle Events sent to that Event Orchestration.\n\n\u003e When a new Event Orchestration is created there will be one Integration (and Routing Key) included by default. Example below shows how to create an extra Integration associated with this Event Orchestration.\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst databaseTeam = new pagerduty.Team(\"databaseTeam\", {});\nconst eventOrchestration = new pagerduty.EventOrchestration(\"eventOrchestration\", {team: databaseTeam.id});\nconst integration = new pagerduty.EventOrchestrationIntegration(\"integration\", {\n    eventOrchestration: eventOrchestration.id,\n    label: \"Example integration\",\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\ndatabase_team = pagerduty.Team(\"databaseTeam\")\nevent_orchestration = pagerduty.EventOrchestration(\"eventOrchestration\", team=database_team.id)\nintegration = pagerduty.EventOrchestrationIntegration(\"integration\",\n    event_orchestration=event_orchestration.id,\n    label=\"Example integration\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var databaseTeam = new Pagerduty.Team(\"databaseTeam\");\n\n    var eventOrchestration = new Pagerduty.EventOrchestration(\"eventOrchestration\", new()\n    {\n        Team = databaseTeam.Id,\n    });\n\n    var integration = new Pagerduty.EventOrchestrationIntegration(\"integration\", new()\n    {\n        EventOrchestration = eventOrchestration.Id,\n        Label = \"Example integration\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tdatabaseTeam, err := pagerduty.NewTeam(ctx, \"databaseTeam\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\teventOrchestration, err := pagerduty.NewEventOrchestration(ctx, \"eventOrchestration\", \u0026pagerduty.EventOrchestrationArgs{\n\t\t\tTeam: databaseTeam.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewEventOrchestrationIntegration(ctx, \"integration\", \u0026pagerduty.EventOrchestrationIntegrationArgs{\n\t\t\tEventOrchestration: eventOrchestration.ID(),\n\t\t\tLabel:              pulumi.String(\"Example integration\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.Team;\nimport com.pulumi.pagerduty.EventOrchestration;\nimport com.pulumi.pagerduty.EventOrchestrationArgs;\nimport com.pulumi.pagerduty.EventOrchestrationIntegration;\nimport com.pulumi.pagerduty.EventOrchestrationIntegrationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var databaseTeam = new Team(\"databaseTeam\");\n\n        var eventOrchestration = new EventOrchestration(\"eventOrchestration\", EventOrchestrationArgs.builder()        \n            .team(databaseTeam.id())\n            .build());\n\n        var integration = new EventOrchestrationIntegration(\"integration\", EventOrchestrationIntegrationArgs.builder()        \n            .eventOrchestration(eventOrchestration.id())\n            .label(\"Example integration\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  databaseTeam:\n    type: pagerduty:Team\n  eventOrchestration:\n    type: pagerduty:EventOrchestration\n    properties:\n      team: ${databaseTeam.id}\n  integration:\n    type: pagerduty:EventOrchestrationIntegration\n    properties:\n      eventOrchestration: ${eventOrchestration.id}\n      label: Example integration\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nEvent Orchestration Integration can be imported using colon-separated IDs, which is the combination of the Event Orchestration ID followed by the Event Orchestration Integration ID, e.g.\n\n```sh\n$ pulumi import pagerduty:index/eventOrchestrationIntegration:EventOrchestrationIntegration integration 19acac92-027a-4ea0-b06c-bbf516519601:1b49abe7-26db-4439-a715-c6d883acfb3e\n```\n",
             "properties": {
@@ -4840,6 +5103,99 @@
                             "$ref": "#/types/pagerduty:index/EventOrchestrationServiceSet:EventOrchestrationServiceSet"
                         },
                         "description": "A Service Orchestration must contain at least a \"start\" set, but can contain any number of additional sets that are routed to by other rules to form a directional graph.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "pagerduty:index/eventOrchestrationServiceCacheVariable:EventOrchestrationServiceCacheVariable": {
+            "description": "A [Cache Variable](https://support.pagerduty.com/docs/event-orchestration-variables) can be created on a Service Event Orchestration, in order to temporarily store event data to be referenced later within the Service Event Orchestration\n\n## Example of configuring a Cache Variable for a Service Event Orchestration\n\nThis example shows creating a service `Event Orchestration` and a `Cache Variable`. This Cache Variable will count and store the number of trigger events with 'database' in its title. Then all alerts sent to this Event Orchestration will have its severity upped to 'critical' if the count has reached at least 5 triggers within the last 1 minute.\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst databaseTeam = new pagerduty.Team(\"databaseTeam\", {});\nconst user1 = new pagerduty.User(\"user1\", {\n    email: \"125.greenholt.earline@graham.name\",\n    teams: [databaseTeam.id],\n});\nconst dbEp = new pagerduty.EscalationPolicy(\"dbEp\", {\n    numLoops: 2,\n    rules: [{\n        escalationDelayInMinutes: 10,\n        targets: [{\n            type: \"user\",\n            id: user1.id,\n        }],\n    }],\n});\nconst svc = new pagerduty.Service(\"svc\", {\n    autoResolveTimeout: \"14400\",\n    acknowledgementTimeout: \"600\",\n    escalationPolicy: dbEp.id,\n    alertCreation: \"create_alerts_and_incidents\",\n});\nconst numDbTriggers = new pagerduty.EventOrchestrationServiceCacheVariable(\"numDbTriggers\", {\n    service: svc.id,\n    conditions: [{\n        expression: \"event.summary matches part 'database'\",\n    }],\n    configuration: {\n        type: \"trigger_event_count\",\n        ttlSeconds: 60,\n    },\n});\nconst eventOrchestration = new pagerduty.EventOrchestrationService(\"eventOrchestration\", {\n    service: svc.id,\n    enableEventOrchestrationForService: true,\n    sets: [{\n        id: \"start\",\n        rules: [{\n            label: \"Set severity to critical if we see at least 5 triggers on the DB within the last 1 minute\",\n            conditions: [{\n                expression: \"cache_var.num_db_triggers \u003e= 5\",\n            }],\n            actions: {\n                severity: \"critical\",\n            },\n        }],\n    }],\n    catchAll: {\n        actions: {},\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\ndatabase_team = pagerduty.Team(\"databaseTeam\")\nuser1 = pagerduty.User(\"user1\",\n    email=\"125.greenholt.earline@graham.name\",\n    teams=[database_team.id])\ndb_ep = pagerduty.EscalationPolicy(\"dbEp\",\n    num_loops=2,\n    rules=[pagerduty.EscalationPolicyRuleArgs(\n        escalation_delay_in_minutes=10,\n        targets=[pagerduty.EscalationPolicyRuleTargetArgs(\n            type=\"user\",\n            id=user1.id,\n        )],\n    )])\nsvc = pagerduty.Service(\"svc\",\n    auto_resolve_timeout=\"14400\",\n    acknowledgement_timeout=\"600\",\n    escalation_policy=db_ep.id,\n    alert_creation=\"create_alerts_and_incidents\")\nnum_db_triggers = pagerduty.EventOrchestrationServiceCacheVariable(\"numDbTriggers\",\n    service=svc.id,\n    conditions=[pagerduty.EventOrchestrationServiceCacheVariableConditionArgs(\n        expression=\"event.summary matches part 'database'\",\n    )],\n    configuration=pagerduty.EventOrchestrationServiceCacheVariableConfigurationArgs(\n        type=\"trigger_event_count\",\n        ttl_seconds=60,\n    ))\nevent_orchestration = pagerduty.EventOrchestrationService(\"eventOrchestration\",\n    service=svc.id,\n    enable_event_orchestration_for_service=True,\n    sets=[pagerduty.EventOrchestrationServiceSetArgs(\n        id=\"start\",\n        rules=[pagerduty.EventOrchestrationServiceSetRuleArgs(\n            label=\"Set severity to critical if we see at least 5 triggers on the DB within the last 1 minute\",\n            conditions=[pagerduty.EventOrchestrationServiceSetRuleConditionArgs(\n                expression=\"cache_var.num_db_triggers \u003e= 5\",\n            )],\n            actions=pagerduty.EventOrchestrationServiceSetRuleActionsArgs(\n                severity=\"critical\",\n            ),\n        )],\n    )],\n    catch_all=pagerduty.EventOrchestrationServiceCatchAllArgs(\n        actions=pagerduty.EventOrchestrationServiceCatchAllActionsArgs(),\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var databaseTeam = new Pagerduty.Team(\"databaseTeam\");\n\n    var user1 = new Pagerduty.User(\"user1\", new()\n    {\n        Email = \"125.greenholt.earline@graham.name\",\n        Teams = new[]\n        {\n            databaseTeam.Id,\n        },\n    });\n\n    var dbEp = new Pagerduty.EscalationPolicy(\"dbEp\", new()\n    {\n        NumLoops = 2,\n        Rules = new[]\n        {\n            new Pagerduty.Inputs.EscalationPolicyRuleArgs\n            {\n                EscalationDelayInMinutes = 10,\n                Targets = new[]\n                {\n                    new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs\n                    {\n                        Type = \"user\",\n                        Id = user1.Id,\n                    },\n                },\n            },\n        },\n    });\n\n    var svc = new Pagerduty.Service(\"svc\", new()\n    {\n        AutoResolveTimeout = \"14400\",\n        AcknowledgementTimeout = \"600\",\n        EscalationPolicy = dbEp.Id,\n        AlertCreation = \"create_alerts_and_incidents\",\n    });\n\n    var numDbTriggers = new Pagerduty.EventOrchestrationServiceCacheVariable(\"numDbTriggers\", new()\n    {\n        Service = svc.Id,\n        Conditions = new[]\n        {\n            new Pagerduty.Inputs.EventOrchestrationServiceCacheVariableConditionArgs\n            {\n                Expression = \"event.summary matches part 'database'\",\n            },\n        },\n        Configuration = new Pagerduty.Inputs.EventOrchestrationServiceCacheVariableConfigurationArgs\n        {\n            Type = \"trigger_event_count\",\n            TtlSeconds = 60,\n        },\n    });\n\n    var eventOrchestration = new Pagerduty.EventOrchestrationService(\"eventOrchestration\", new()\n    {\n        Service = svc.Id,\n        EnableEventOrchestrationForService = true,\n        Sets = new[]\n        {\n            new Pagerduty.Inputs.EventOrchestrationServiceSetArgs\n            {\n                Id = \"start\",\n                Rules = new[]\n                {\n                    new Pagerduty.Inputs.EventOrchestrationServiceSetRuleArgs\n                    {\n                        Label = \"Set severity to critical if we see at least 5 triggers on the DB within the last 1 minute\",\n                        Conditions = new[]\n                        {\n                            new Pagerduty.Inputs.EventOrchestrationServiceSetRuleConditionArgs\n                            {\n                                Expression = \"cache_var.num_db_triggers \u003e= 5\",\n                            },\n                        },\n                        Actions = new Pagerduty.Inputs.EventOrchestrationServiceSetRuleActionsArgs\n                        {\n                            Severity = \"critical\",\n                        },\n                    },\n                },\n            },\n        },\n        CatchAll = new Pagerduty.Inputs.EventOrchestrationServiceCatchAllArgs\n        {\n            Actions = null,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tdatabaseTeam, err := pagerduty.NewTeam(ctx, \"databaseTeam\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tuser1, err := pagerduty.NewUser(ctx, \"user1\", \u0026pagerduty.UserArgs{\n\t\t\tEmail: pulumi.String(\"125.greenholt.earline@graham.name\"),\n\t\t\tTeams: pulumi.StringArray{\n\t\t\t\tdatabaseTeam.ID(),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tdbEp, err := pagerduty.NewEscalationPolicy(ctx, \"dbEp\", \u0026pagerduty.EscalationPolicyArgs{\n\t\t\tNumLoops: pulumi.Int(2),\n\t\t\tRules: pagerduty.EscalationPolicyRuleArray{\n\t\t\t\t\u0026pagerduty.EscalationPolicyRuleArgs{\n\t\t\t\t\tEscalationDelayInMinutes: pulumi.Int(10),\n\t\t\t\t\tTargets: pagerduty.EscalationPolicyRuleTargetArray{\n\t\t\t\t\t\t\u0026pagerduty.EscalationPolicyRuleTargetArgs{\n\t\t\t\t\t\t\tType: pulumi.String(\"user\"),\n\t\t\t\t\t\t\tId:   user1.ID(),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tsvc, err := pagerduty.NewService(ctx, \"svc\", \u0026pagerduty.ServiceArgs{\n\t\t\tAutoResolveTimeout:     pulumi.String(\"14400\"),\n\t\t\tAcknowledgementTimeout: pulumi.String(\"600\"),\n\t\t\tEscalationPolicy:       dbEp.ID(),\n\t\t\tAlertCreation:          pulumi.String(\"create_alerts_and_incidents\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewEventOrchestrationServiceCacheVariable(ctx, \"numDbTriggers\", \u0026pagerduty.EventOrchestrationServiceCacheVariableArgs{\n\t\t\tService: svc.ID(),\n\t\t\tConditions: pagerduty.EventOrchestrationServiceCacheVariableConditionArray{\n\t\t\t\t\u0026pagerduty.EventOrchestrationServiceCacheVariableConditionArgs{\n\t\t\t\t\tExpression: pulumi.String(\"event.summary matches part 'database'\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tConfiguration: \u0026pagerduty.EventOrchestrationServiceCacheVariableConfigurationArgs{\n\t\t\t\tType:       pulumi.String(\"trigger_event_count\"),\n\t\t\t\tTtlSeconds: pulumi.Int(60),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pagerduty.NewEventOrchestrationService(ctx, \"eventOrchestration\", \u0026pagerduty.EventOrchestrationServiceArgs{\n\t\t\tService:                            svc.ID(),\n\t\t\tEnableEventOrchestrationForService: pulumi.Bool(true),\n\t\t\tSets: pagerduty.EventOrchestrationServiceSetArray{\n\t\t\t\t\u0026pagerduty.EventOrchestrationServiceSetArgs{\n\t\t\t\t\tId: pulumi.String(\"start\"),\n\t\t\t\t\tRules: pagerduty.EventOrchestrationServiceSetRuleArray{\n\t\t\t\t\t\t\u0026pagerduty.EventOrchestrationServiceSetRuleArgs{\n\t\t\t\t\t\t\tLabel: pulumi.String(\"Set severity to critical if we see at least 5 triggers on the DB within the last 1 minute\"),\n\t\t\t\t\t\t\tConditions: pagerduty.EventOrchestrationServiceSetRuleConditionArray{\n\t\t\t\t\t\t\t\t\u0026pagerduty.EventOrchestrationServiceSetRuleConditionArgs{\n\t\t\t\t\t\t\t\t\tExpression: pulumi.String(\"cache_var.num_db_triggers \u003e= 5\"),\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\tActions: \u0026pagerduty.EventOrchestrationServiceSetRuleActionsArgs{\n\t\t\t\t\t\t\t\tSeverity: pulumi.String(\"critical\"),\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tCatchAll: \u0026pagerduty.EventOrchestrationServiceCatchAllArgs{\n\t\t\t\tActions: nil,\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.Team;\nimport com.pulumi.pagerduty.User;\nimport com.pulumi.pagerduty.UserArgs;\nimport com.pulumi.pagerduty.EscalationPolicy;\nimport com.pulumi.pagerduty.EscalationPolicyArgs;\nimport com.pulumi.pagerduty.inputs.EscalationPolicyRuleArgs;\nimport com.pulumi.pagerduty.Service;\nimport com.pulumi.pagerduty.ServiceArgs;\nimport com.pulumi.pagerduty.EventOrchestrationServiceCacheVariable;\nimport com.pulumi.pagerduty.EventOrchestrationServiceCacheVariableArgs;\nimport com.pulumi.pagerduty.inputs.EventOrchestrationServiceCacheVariableConditionArgs;\nimport com.pulumi.pagerduty.inputs.EventOrchestrationServiceCacheVariableConfigurationArgs;\nimport com.pulumi.pagerduty.EventOrchestrationService;\nimport com.pulumi.pagerduty.EventOrchestrationServiceArgs;\nimport com.pulumi.pagerduty.inputs.EventOrchestrationServiceSetArgs;\nimport com.pulumi.pagerduty.inputs.EventOrchestrationServiceCatchAllArgs;\nimport com.pulumi.pagerduty.inputs.EventOrchestrationServiceCatchAllActionsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var databaseTeam = new Team(\"databaseTeam\");\n\n        var user1 = new User(\"user1\", UserArgs.builder()        \n            .email(\"125.greenholt.earline@graham.name\")\n            .teams(databaseTeam.id())\n            .build());\n\n        var dbEp = new EscalationPolicy(\"dbEp\", EscalationPolicyArgs.builder()        \n            .numLoops(2)\n            .rules(EscalationPolicyRuleArgs.builder()\n                .escalationDelayInMinutes(10)\n                .targets(EscalationPolicyRuleTargetArgs.builder()\n                    .type(\"user\")\n                    .id(user1.id())\n                    .build())\n                .build())\n            .build());\n\n        var svc = new Service(\"svc\", ServiceArgs.builder()        \n            .autoResolveTimeout(14400)\n            .acknowledgementTimeout(600)\n            .escalationPolicy(dbEp.id())\n            .alertCreation(\"create_alerts_and_incidents\")\n            .build());\n\n        var numDbTriggers = new EventOrchestrationServiceCacheVariable(\"numDbTriggers\", EventOrchestrationServiceCacheVariableArgs.builder()        \n            .service(svc.id())\n            .conditions(EventOrchestrationServiceCacheVariableConditionArgs.builder()\n                .expression(\"event.summary matches part 'database'\")\n                .build())\n            .configuration(EventOrchestrationServiceCacheVariableConfigurationArgs.builder()\n                .type(\"trigger_event_count\")\n                .ttlSeconds(60)\n                .build())\n            .build());\n\n        var eventOrchestration = new EventOrchestrationService(\"eventOrchestration\", EventOrchestrationServiceArgs.builder()        \n            .service(svc.id())\n            .enableEventOrchestrationForService(true)\n            .sets(EventOrchestrationServiceSetArgs.builder()\n                .id(\"start\")\n                .rules(EventOrchestrationServiceSetRuleArgs.builder()\n                    .label(\"Set severity to critical if we see at least 5 triggers on the DB within the last 1 minute\")\n                    .conditions(EventOrchestrationServiceSetRuleConditionArgs.builder()\n                        .expression(\"cache_var.num_db_triggers \u003e= 5\")\n                        .build())\n                    .actions(EventOrchestrationServiceSetRuleActionsArgs.builder()\n                        .severity(\"critical\")\n                        .build())\n                    .build())\n                .build())\n            .catchAll(EventOrchestrationServiceCatchAllArgs.builder()\n                .actions()\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  databaseTeam:\n    type: pagerduty:Team\n  user1:\n    type: pagerduty:User\n    properties:\n      email: 125.greenholt.earline@graham.name\n      teams:\n        - ${databaseTeam.id}\n  dbEp:\n    type: pagerduty:EscalationPolicy\n    properties:\n      numLoops: 2\n      rules:\n        - escalationDelayInMinutes: 10\n          targets:\n            - type: user\n              id: ${user1.id}\n  svc:\n    type: pagerduty:Service\n    properties:\n      autoResolveTimeout: 14400\n      acknowledgementTimeout: 600\n      escalationPolicy: ${dbEp.id}\n      alertCreation: create_alerts_and_incidents\n  numDbTriggers:\n    type: pagerduty:EventOrchestrationServiceCacheVariable\n    properties:\n      service: ${svc.id}\n      conditions:\n        - expression: event.summary matches part 'database'\n      configuration:\n        type: trigger_event_count\n        ttlSeconds: 60\n  eventOrchestration:\n    type: pagerduty:EventOrchestrationService\n    properties:\n      service: ${svc.id}\n      enableEventOrchestrationForService: true\n      sets:\n        - id: start\n          rules:\n            - label: Set severity to critical if we see at least 5 triggers on the DB within the last 1 minute\n              conditions:\n                - expression: cache_var.num_db_triggers \u003e= 5\n              actions:\n                severity: critical\n      catchAll:\n        actions: {}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nCache Variables can be imported using colon-separated IDs, which is the combination of the Service Event Orchestration ID followed by the Cache Variable ID, e.g.\n\n```sh\n$ pulumi import pagerduty:index/eventOrchestrationServiceCacheVariable:EventOrchestrationServiceCacheVariable cache_variable PLBP09X:138ed254-3444-44ad-8cc7-701d69def439\n```\n",
+            "properties": {
+                "conditions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/EventOrchestrationServiceCacheVariableCondition:EventOrchestrationServiceCacheVariableCondition"
+                    },
+                    "description": "Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.\n"
+                },
+                "configuration": {
+                    "$ref": "#/types/pagerduty:index/EventOrchestrationServiceCacheVariableConfiguration:EventOrchestrationServiceCacheVariableConfiguration",
+                    "description": "A configuration object to define what and how values will be stored in the Cache Variable.\n"
+                },
+                "disabled": {
+                    "type": "boolean",
+                    "description": "Indicates whether the Cache Variable is disabled and would therefore not be evaluated.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Cache Variable associated with the Service Event Orchestration.\n"
+                },
+                "service": {
+                    "type": "string",
+                    "description": "ID of the Service Event Orchestration to which this Cache Variable belongs.\n"
+                }
+            },
+            "required": [
+                "configuration",
+                "name",
+                "service"
+            ],
+            "inputProperties": {
+                "conditions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/pagerduty:index/EventOrchestrationServiceCacheVariableCondition:EventOrchestrationServiceCacheVariableCondition"
+                    },
+                    "description": "Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.\n"
+                },
+                "configuration": {
+                    "$ref": "#/types/pagerduty:index/EventOrchestrationServiceCacheVariableConfiguration:EventOrchestrationServiceCacheVariableConfiguration",
+                    "description": "A configuration object to define what and how values will be stored in the Cache Variable.\n"
+                },
+                "disabled": {
+                    "type": "boolean",
+                    "description": "Indicates whether the Cache Variable is disabled and would therefore not be evaluated.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Cache Variable associated with the Service Event Orchestration.\n"
+                },
+                "service": {
+                    "type": "string",
+                    "description": "ID of the Service Event Orchestration to which this Cache Variable belongs.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "configuration",
+                "service"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering EventOrchestrationServiceCacheVariable resources.\n",
+                "properties": {
+                    "conditions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/pagerduty:index/EventOrchestrationServiceCacheVariableCondition:EventOrchestrationServiceCacheVariableCondition"
+                        },
+                        "description": "Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.\n"
+                    },
+                    "configuration": {
+                        "$ref": "#/types/pagerduty:index/EventOrchestrationServiceCacheVariableConfiguration:EventOrchestrationServiceCacheVariableConfiguration",
+                        "description": "A configuration object to define what and how values will be stored in the Cache Variable.\n"
+                    },
+                    "disabled": {
+                        "type": "boolean",
+                        "description": "Indicates whether the Cache Variable is disabled and would therefore not be evaluated.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the Cache Variable associated with the Service Event Orchestration.\n"
+                    },
+                    "service": {
+                        "type": "string",
+                        "description": "ID of the Service Event Orchestration to which this Cache Variable belongs.\n",
+                        "willReplaceOnChanges": true
                     }
                 },
                 "type": "object"
@@ -7977,6 +8333,69 @@
                 ]
             }
         },
+        "pagerduty:index/getEventOrchestrationGlobalCacheVariable:getEventOrchestrationGlobalCacheVariable": {
+            "description": "Use this data source to get information about a specific [Cache Variable](https://support.pagerduty.com/docs/event-orchestration-variables) for a Global Event Orchestration.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst eventOrchestration = new pagerduty.EventOrchestration(\"eventOrchestration\", {});\nconst cacheVariable = pagerduty.getEventOrchestrationGlobalCacheVariableOutput({\n    eventOrchestration: eventOrchestration.id,\n    name: \"example_cache_variable\",\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nevent_orchestration = pagerduty.EventOrchestration(\"eventOrchestration\")\ncache_variable = pagerduty.get_event_orchestration_global_cache_variable_output(event_orchestration=event_orchestration.id,\n    name=\"example_cache_variable\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var eventOrchestration = new Pagerduty.EventOrchestration(\"eventOrchestration\");\n\n    var cacheVariable = Pagerduty.GetEventOrchestrationGlobalCacheVariable.Invoke(new()\n    {\n        EventOrchestration = eventOrchestration.Id,\n        Name = \"example_cache_variable\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\teventOrchestration, err := pagerduty.NewEventOrchestration(ctx, \"eventOrchestration\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_ = pagerduty.LookupEventOrchestrationGlobalCacheVariableOutput(ctx, pagerduty.GetEventOrchestrationGlobalCacheVariableOutputArgs{\n\t\t\tEventOrchestration: eventOrchestration.ID(),\n\t\t\tName:               pulumi.String(\"example_cache_variable\"),\n\t\t}, nil)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.EventOrchestration;\nimport com.pulumi.pagerduty.PagerdutyFunctions;\nimport com.pulumi.pagerduty.inputs.GetEventOrchestrationGlobalCacheVariableArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var eventOrchestration = new EventOrchestration(\"eventOrchestration\");\n\n        final var cacheVariable = PagerdutyFunctions.getEventOrchestrationGlobalCacheVariable(GetEventOrchestrationGlobalCacheVariableArgs.builder()\n            .eventOrchestration(eventOrchestration.id())\n            .name(\"example_cache_variable\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  eventOrchestration:\n    type: pagerduty:EventOrchestration\nvariables:\n  cacheVariable:\n    fn::invoke:\n      Function: pagerduty:getEventOrchestrationGlobalCacheVariable\n      Arguments:\n        eventOrchestration: ${eventOrchestration.id}\n        name: example_cache_variable\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getEventOrchestrationGlobalCacheVariable.\n",
+                "properties": {
+                    "eventOrchestration": {
+                        "type": "string",
+                        "description": "ID of the Global Event Orchestration to which this Cache Variable belongs.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "ID of the Cache Variable associated with the Global Event Orchestration. Specify either `id` or `name`. If both are specified `id` takes precedence.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the Cache Variable associated with the Global Event Orchestration. Specify either `id` or `name`. If both are specified `id` takes precedence.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "eventOrchestration"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getEventOrchestrationGlobalCacheVariable.\n",
+                "properties": {
+                    "conditions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/pagerduty:index/getEventOrchestrationGlobalCacheVariableCondition:getEventOrchestrationGlobalCacheVariableCondition"
+                        },
+                        "description": "Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.\n"
+                    },
+                    "configurations": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/pagerduty:index/getEventOrchestrationGlobalCacheVariableConfiguration:getEventOrchestrationGlobalCacheVariableConfiguration"
+                        },
+                        "description": "A configuration object to define what and how values will be stored in the Cache Variable.\n"
+                    },
+                    "disabled": {
+                        "type": "boolean",
+                        "description": "Indicates whether the Cache Variable is disabled and would therefore not be evaluated.\n"
+                    },
+                    "eventOrchestration": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "conditions",
+                    "configurations",
+                    "disabled",
+                    "eventOrchestration"
+                ]
+            }
+        },
         "pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration": {
             "description": "Use this data source to get information about a specific [Integration](https://developer.pagerduty.com/api-reference/1c6607db389a8-get-an-integration-for-an-event-orchestration) for an Event Orchestration.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst eventOrchestration = new pagerduty.EventOrchestration(\"eventOrchestration\", {});\nconst integration = pagerduty.getEventOrchestrationIntegrationOutput({\n    eventOrchestration: eventOrchestration.id,\n    label: \"Test Event Orchestration Default Integration\",\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nevent_orchestration = pagerduty.EventOrchestration(\"eventOrchestration\")\nintegration = pagerduty.get_event_orchestration_integration_output(event_orchestration=event_orchestration.id,\n    label=\"Test Event Orchestration Default Integration\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var eventOrchestration = new Pagerduty.EventOrchestration(\"eventOrchestration\");\n\n    var integration = Pagerduty.GetEventOrchestrationIntegration.Invoke(new()\n    {\n        EventOrchestration = eventOrchestration.Id,\n        Label = \"Test Event Orchestration Default Integration\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\teventOrchestration, err := pagerduty.NewEventOrchestration(ctx, \"eventOrchestration\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_ = pagerduty.LookupEventOrchestrationIntegrationOutput(ctx, pagerduty.GetEventOrchestrationIntegrationOutputArgs{\n\t\t\tEventOrchestration: eventOrchestration.ID(),\n\t\t\tLabel:              pulumi.String(\"Test Event Orchestration Default Integration\"),\n\t\t}, nil)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.EventOrchestration;\nimport com.pulumi.pagerduty.PagerdutyFunctions;\nimport com.pulumi.pagerduty.inputs.GetEventOrchestrationIntegrationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var eventOrchestration = new EventOrchestration(\"eventOrchestration\");\n\n        final var integration = PagerdutyFunctions.getEventOrchestrationIntegration(GetEventOrchestrationIntegrationArgs.builder()\n            .eventOrchestration(eventOrchestration.id())\n            .label(\"Test Event Orchestration Default Integration\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  eventOrchestration:\n    type: pagerduty:EventOrchestration\nvariables:\n  integration:\n    fn::invoke:\n      Function: pagerduty:getEventOrchestrationIntegration\n      Arguments:\n        eventOrchestration: ${eventOrchestration.id}\n        label: Test Event Orchestration Default Integration\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "inputs": {
@@ -8023,6 +8442,69 @@
                 "required": [
                     "eventOrchestration",
                     "parameters"
+                ]
+            }
+        },
+        "pagerduty:index/getEventOrchestrationServiceCacheVariable:getEventOrchestrationServiceCacheVariable": {
+            "description": "Use this data source to get information about a specific [Cache Variable](https://support.pagerduty.com/docs/event-orchestration-variables) for a Service Event Orchestration.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pagerduty from \"@pulumi/pagerduty\";\n\nconst engineering = new pagerduty.Team(\"engineering\", {});\nconst exampleUser = new pagerduty.User(\"exampleUser\", {\n    email: \"125.greenholt.earline@graham.name\",\n    teams: [engineering.id],\n});\nconst exampleEscalationPolicy = new pagerduty.EscalationPolicy(\"exampleEscalationPolicy\", {\n    numLoops: 2,\n    rules: [{\n        escalationDelayInMinutes: 10,\n        targets: [{\n            type: \"user\",\n            id: exampleUser.id,\n        }],\n    }],\n});\nconst service = new pagerduty.Service(\"service\", {\n    autoResolveTimeout: \"14400\",\n    acknowledgementTimeout: \"600\",\n    escalationPolicy: exampleEscalationPolicy.id,\n    alertCreation: \"create_alerts_and_incidents\",\n});\nconst cacheVariable = pagerduty.getEventOrchestrationServiceCacheVariableOutput({\n    service: service.id,\n    name: \"example_cache_variable\",\n});\n```\n```python\nimport pulumi\nimport pulumi_pagerduty as pagerduty\n\nengineering = pagerduty.Team(\"engineering\")\nexample_user = pagerduty.User(\"exampleUser\",\n    email=\"125.greenholt.earline@graham.name\",\n    teams=[engineering.id])\nexample_escalation_policy = pagerduty.EscalationPolicy(\"exampleEscalationPolicy\",\n    num_loops=2,\n    rules=[pagerduty.EscalationPolicyRuleArgs(\n        escalation_delay_in_minutes=10,\n        targets=[pagerduty.EscalationPolicyRuleTargetArgs(\n            type=\"user\",\n            id=example_user.id,\n        )],\n    )])\nservice = pagerduty.Service(\"service\",\n    auto_resolve_timeout=\"14400\",\n    acknowledgement_timeout=\"600\",\n    escalation_policy=example_escalation_policy.id,\n    alert_creation=\"create_alerts_and_incidents\")\ncache_variable = pagerduty.get_event_orchestration_service_cache_variable_output(service=service.id,\n    name=\"example_cache_variable\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Pagerduty = Pulumi.Pagerduty;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var engineering = new Pagerduty.Team(\"engineering\");\n\n    var exampleUser = new Pagerduty.User(\"exampleUser\", new()\n    {\n        Email = \"125.greenholt.earline@graham.name\",\n        Teams = new[]\n        {\n            engineering.Id,\n        },\n    });\n\n    var exampleEscalationPolicy = new Pagerduty.EscalationPolicy(\"exampleEscalationPolicy\", new()\n    {\n        NumLoops = 2,\n        Rules = new[]\n        {\n            new Pagerduty.Inputs.EscalationPolicyRuleArgs\n            {\n                EscalationDelayInMinutes = 10,\n                Targets = new[]\n                {\n                    new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs\n                    {\n                        Type = \"user\",\n                        Id = exampleUser.Id,\n                    },\n                },\n            },\n        },\n    });\n\n    var service = new Pagerduty.Service(\"service\", new()\n    {\n        AutoResolveTimeout = \"14400\",\n        AcknowledgementTimeout = \"600\",\n        EscalationPolicy = exampleEscalationPolicy.Id,\n        AlertCreation = \"create_alerts_and_incidents\",\n    });\n\n    var cacheVariable = Pagerduty.GetEventOrchestrationServiceCacheVariable.Invoke(new()\n    {\n        Service = service.Id,\n        Name = \"example_cache_variable\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tengineering, err := pagerduty.NewTeam(ctx, \"engineering\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleUser, err := pagerduty.NewUser(ctx, \"exampleUser\", \u0026pagerduty.UserArgs{\n\t\t\tEmail: pulumi.String(\"125.greenholt.earline@graham.name\"),\n\t\t\tTeams: pulumi.StringArray{\n\t\t\t\tengineering.ID(),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleEscalationPolicy, err := pagerduty.NewEscalationPolicy(ctx, \"exampleEscalationPolicy\", \u0026pagerduty.EscalationPolicyArgs{\n\t\t\tNumLoops: pulumi.Int(2),\n\t\t\tRules: pagerduty.EscalationPolicyRuleArray{\n\t\t\t\t\u0026pagerduty.EscalationPolicyRuleArgs{\n\t\t\t\t\tEscalationDelayInMinutes: pulumi.Int(10),\n\t\t\t\t\tTargets: pagerduty.EscalationPolicyRuleTargetArray{\n\t\t\t\t\t\t\u0026pagerduty.EscalationPolicyRuleTargetArgs{\n\t\t\t\t\t\t\tType: pulumi.String(\"user\"),\n\t\t\t\t\t\t\tId:   exampleUser.ID(),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tservice, err := pagerduty.NewService(ctx, \"service\", \u0026pagerduty.ServiceArgs{\n\t\t\tAutoResolveTimeout:     pulumi.String(\"14400\"),\n\t\t\tAcknowledgementTimeout: pulumi.String(\"600\"),\n\t\t\tEscalationPolicy:       exampleEscalationPolicy.ID(),\n\t\t\tAlertCreation:          pulumi.String(\"create_alerts_and_incidents\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_ = pagerduty.LookupEventOrchestrationServiceCacheVariableOutput(ctx, pagerduty.GetEventOrchestrationServiceCacheVariableOutputArgs{\n\t\t\tService: service.ID(),\n\t\t\tName:    pulumi.String(\"example_cache_variable\"),\n\t\t}, nil)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pagerduty.Team;\nimport com.pulumi.pagerduty.User;\nimport com.pulumi.pagerduty.UserArgs;\nimport com.pulumi.pagerduty.EscalationPolicy;\nimport com.pulumi.pagerduty.EscalationPolicyArgs;\nimport com.pulumi.pagerduty.inputs.EscalationPolicyRuleArgs;\nimport com.pulumi.pagerduty.Service;\nimport com.pulumi.pagerduty.ServiceArgs;\nimport com.pulumi.pagerduty.PagerdutyFunctions;\nimport com.pulumi.pagerduty.inputs.GetEventOrchestrationServiceCacheVariableArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var engineering = new Team(\"engineering\");\n\n        var exampleUser = new User(\"exampleUser\", UserArgs.builder()        \n            .email(\"125.greenholt.earline@graham.name\")\n            .teams(engineering.id())\n            .build());\n\n        var exampleEscalationPolicy = new EscalationPolicy(\"exampleEscalationPolicy\", EscalationPolicyArgs.builder()        \n            .numLoops(2)\n            .rules(EscalationPolicyRuleArgs.builder()\n                .escalationDelayInMinutes(10)\n                .targets(EscalationPolicyRuleTargetArgs.builder()\n                    .type(\"user\")\n                    .id(exampleUser.id())\n                    .build())\n                .build())\n            .build());\n\n        var service = new Service(\"service\", ServiceArgs.builder()        \n            .autoResolveTimeout(14400)\n            .acknowledgementTimeout(600)\n            .escalationPolicy(exampleEscalationPolicy.id())\n            .alertCreation(\"create_alerts_and_incidents\")\n            .build());\n\n        final var cacheVariable = PagerdutyFunctions.getEventOrchestrationServiceCacheVariable(GetEventOrchestrationServiceCacheVariableArgs.builder()\n            .service(service.id())\n            .name(\"example_cache_variable\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  engineering:\n    type: pagerduty:Team\n  exampleUser:\n    type: pagerduty:User\n    properties:\n      email: 125.greenholt.earline@graham.name\n      teams:\n        - ${engineering.id}\n  exampleEscalationPolicy:\n    type: pagerduty:EscalationPolicy\n    properties:\n      numLoops: 2\n      rules:\n        - escalationDelayInMinutes: 10\n          targets:\n            - type: user\n              id: ${exampleUser.id}\n  service:\n    type: pagerduty:Service\n    properties:\n      autoResolveTimeout: 14400\n      acknowledgementTimeout: 600\n      escalationPolicy: ${exampleEscalationPolicy.id}\n      alertCreation: create_alerts_and_incidents\nvariables:\n  cacheVariable:\n    fn::invoke:\n      Function: pagerduty:getEventOrchestrationServiceCacheVariable\n      Arguments:\n        service: ${service.id}\n        name: example_cache_variable\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getEventOrchestrationServiceCacheVariable.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "ID of the Cache Variable associated with the Service Event Orchestration. Specify either `id` or `name`. If both are specified `id` takes precedence.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the Cache Variable associated with the Service Event Orchestration. Specify either `id` or `name`. If both are specified `id` takes precedence.\n"
+                    },
+                    "service": {
+                        "type": "string",
+                        "description": "ID of the Service Event Orchestration to which this Cache Variable belongs.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "service"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getEventOrchestrationServiceCacheVariable.\n",
+                "properties": {
+                    "conditions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/pagerduty:index/getEventOrchestrationServiceCacheVariableCondition:getEventOrchestrationServiceCacheVariableCondition"
+                        },
+                        "description": "Conditions to be evaluated in order to determine whether or not to update the Cache Variable's stored value.\n"
+                    },
+                    "configurations": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/pagerduty:index/getEventOrchestrationServiceCacheVariableConfiguration:getEventOrchestrationServiceCacheVariableConfiguration"
+                        },
+                        "description": "A configuration object to define what and how values will be stored in the Cache Variable.\n"
+                    },
+                    "disabled": {
+                        "type": "boolean",
+                        "description": "Indicates whether the Cache Variable is disabled and would therefore not be evaluated.\n"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "service": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "conditions",
+                    "configurations",
+                    "disabled",
+                    "service"
                 ]
             }
         },

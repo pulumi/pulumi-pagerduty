@@ -164,6 +164,18 @@
                     }
                 }
             },
+            "pagerduty_event_orchestration_global_cache_variable": {
+                "current": "pagerduty:index/eventOrchestrationGlobalCacheVariable:EventOrchestrationGlobalCacheVariable",
+                "majorVersion": 4,
+                "fields": {
+                    "condition": {
+                        "maxItemsOne": false
+                    },
+                    "configuration": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "pagerduty_event_orchestration_integration": {
                 "current": "pagerduty:index/eventOrchestrationIntegration:EventOrchestrationIntegration",
                 "majorVersion": 4,
@@ -300,6 +312,18 @@
                                 }
                             }
                         }
+                    }
+                }
+            },
+            "pagerduty_event_orchestration_service_cache_variable": {
+                "current": "pagerduty:index/eventOrchestrationServiceCacheVariable:EventOrchestrationServiceCacheVariable",
+                "majorVersion": 4,
+                "fields": {
+                    "condition": {
+                        "maxItemsOne": false
+                    },
+                    "configuration": {
+                        "maxItemsOne": true
                     }
                 }
             },
@@ -901,11 +925,35 @@
                     }
                 }
             },
+            "pagerduty_event_orchestration_global_cache_variable": {
+                "current": "pagerduty:index/getEventOrchestrationGlobalCacheVariable:getEventOrchestrationGlobalCacheVariable",
+                "majorVersion": 4,
+                "fields": {
+                    "condition": {
+                        "maxItemsOne": false
+                    },
+                    "configuration": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "pagerduty_event_orchestration_integration": {
                 "current": "pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration",
                 "majorVersion": 4,
                 "fields": {
                     "parameters": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "pagerduty_event_orchestration_service_cache_variable": {
+                "current": "pagerduty:index/getEventOrchestrationServiceCacheVariable:getEventOrchestrationServiceCacheVariable",
+                "majorVersion": 4,
+                "fields": {
+                    "condition": {
+                        "maxItemsOne": false
+                    },
+                    "configuration": {
                         "maxItemsOne": false
                     }
                 }
@@ -1104,9 +1152,11 @@
             "pagerduty:index/escalationPolicy:EscalationPolicy": 0,
             "pagerduty:index/eventOrchestration:EventOrchestration": 0,
             "pagerduty:index/eventOrchestrationGlobal:EventOrchestrationGlobal": 0,
+            "pagerduty:index/eventOrchestrationGlobalCacheVariable:EventOrchestrationGlobalCacheVariable": 0,
             "pagerduty:index/eventOrchestrationIntegration:EventOrchestrationIntegration": 0,
             "pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter": 0,
             "pagerduty:index/eventOrchestrationService:EventOrchestrationService": 0,
+            "pagerduty:index/eventOrchestrationServiceCacheVariable:EventOrchestrationServiceCacheVariable": 0,
             "pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted": 0,
             "pagerduty:index/eventRule:EventRule": 0,
             "pagerduty:index/extension:Extension": 0,
@@ -1140,7 +1190,9 @@
             "pagerduty:index/getBusinessService:getBusinessService": 1,
             "pagerduty:index/getEscalationPolicy:getEscalationPolicy": 0,
             "pagerduty:index/getEventOrchestration:getEventOrchestration": 0,
+            "pagerduty:index/getEventOrchestrationGlobalCacheVariable:getEventOrchestrationGlobalCacheVariable": 0,
             "pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration": 0,
+            "pagerduty:index/getEventOrchestrationServiceCacheVariable:getEventOrchestrationServiceCacheVariable": 0,
             "pagerduty:index/getEventOrchestrations:getEventOrchestrations": 0,
             "pagerduty:index/getExtensionSchema:getExtensionSchema": 0,
             "pagerduty:index/getIncidentCustomField:getIncidentCustomField": 0,

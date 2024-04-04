@@ -4,8 +4,8 @@ go 1.21
 
 require (
 	github.com/PagerDuty/terraform-provider-pagerduty/v3 v3.0.0
-	github.com/pulumi/pulumi-terraform-bridge/pf v0.32.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.79.0
+	github.com/pulumi/pulumi-terraform-bridge/pf v0.32.1-0.20240404153132-0441ef3e0b01
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.79.1-0.20240404153132-0441ef3e0b01
 	github.com/pulumi/pulumi/sdk/v3 v3.112.0
 )
 

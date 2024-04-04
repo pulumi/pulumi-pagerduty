@@ -60,6 +60,11 @@ export type EventOrchestrationGlobal = import("./eventOrchestrationGlobal").Even
 export const EventOrchestrationGlobal: typeof import("./eventOrchestrationGlobal").EventOrchestrationGlobal = null as any;
 utilities.lazyLoad(exports, ["EventOrchestrationGlobal"], () => require("./eventOrchestrationGlobal"));
 
+export { EventOrchestrationGlobalCacheVariableArgs, EventOrchestrationGlobalCacheVariableState } from "./eventOrchestrationGlobalCacheVariable";
+export type EventOrchestrationGlobalCacheVariable = import("./eventOrchestrationGlobalCacheVariable").EventOrchestrationGlobalCacheVariable;
+export const EventOrchestrationGlobalCacheVariable: typeof import("./eventOrchestrationGlobalCacheVariable").EventOrchestrationGlobalCacheVariable = null as any;
+utilities.lazyLoad(exports, ["EventOrchestrationGlobalCacheVariable"], () => require("./eventOrchestrationGlobalCacheVariable"));
+
 export { EventOrchestrationIntegrationArgs, EventOrchestrationIntegrationState } from "./eventOrchestrationIntegration";
 export type EventOrchestrationIntegration = import("./eventOrchestrationIntegration").EventOrchestrationIntegration;
 export const EventOrchestrationIntegration: typeof import("./eventOrchestrationIntegration").EventOrchestrationIntegration = null as any;
@@ -74,6 +79,11 @@ export { EventOrchestrationServiceArgs, EventOrchestrationServiceState } from ".
 export type EventOrchestrationService = import("./eventOrchestrationService").EventOrchestrationService;
 export const EventOrchestrationService: typeof import("./eventOrchestrationService").EventOrchestrationService = null as any;
 utilities.lazyLoad(exports, ["EventOrchestrationService"], () => require("./eventOrchestrationService"));
+
+export { EventOrchestrationServiceCacheVariableArgs, EventOrchestrationServiceCacheVariableState } from "./eventOrchestrationServiceCacheVariable";
+export type EventOrchestrationServiceCacheVariable = import("./eventOrchestrationServiceCacheVariable").EventOrchestrationServiceCacheVariable;
+export const EventOrchestrationServiceCacheVariable: typeof import("./eventOrchestrationServiceCacheVariable").EventOrchestrationServiceCacheVariable = null as any;
+utilities.lazyLoad(exports, ["EventOrchestrationServiceCacheVariable"], () => require("./eventOrchestrationServiceCacheVariable"));
 
 export { EventOrchestrationUnroutedArgs, EventOrchestrationUnroutedState } from "./eventOrchestrationUnrouted";
 export type EventOrchestrationUnrouted = import("./eventOrchestrationUnrouted").EventOrchestrationUnrouted;
@@ -120,10 +130,20 @@ export const getEventOrchestration: typeof import("./getEventOrchestration").get
 export const getEventOrchestrationOutput: typeof import("./getEventOrchestration").getEventOrchestrationOutput = null as any;
 utilities.lazyLoad(exports, ["getEventOrchestration","getEventOrchestrationOutput"], () => require("./getEventOrchestration"));
 
+export { GetEventOrchestrationGlobalCacheVariableArgs, GetEventOrchestrationGlobalCacheVariableResult, GetEventOrchestrationGlobalCacheVariableOutputArgs } from "./getEventOrchestrationGlobalCacheVariable";
+export const getEventOrchestrationGlobalCacheVariable: typeof import("./getEventOrchestrationGlobalCacheVariable").getEventOrchestrationGlobalCacheVariable = null as any;
+export const getEventOrchestrationGlobalCacheVariableOutput: typeof import("./getEventOrchestrationGlobalCacheVariable").getEventOrchestrationGlobalCacheVariableOutput = null as any;
+utilities.lazyLoad(exports, ["getEventOrchestrationGlobalCacheVariable","getEventOrchestrationGlobalCacheVariableOutput"], () => require("./getEventOrchestrationGlobalCacheVariable"));
+
 export { GetEventOrchestrationIntegrationArgs, GetEventOrchestrationIntegrationResult, GetEventOrchestrationIntegrationOutputArgs } from "./getEventOrchestrationIntegration";
 export const getEventOrchestrationIntegration: typeof import("./getEventOrchestrationIntegration").getEventOrchestrationIntegration = null as any;
 export const getEventOrchestrationIntegrationOutput: typeof import("./getEventOrchestrationIntegration").getEventOrchestrationIntegrationOutput = null as any;
 utilities.lazyLoad(exports, ["getEventOrchestrationIntegration","getEventOrchestrationIntegrationOutput"], () => require("./getEventOrchestrationIntegration"));
+
+export { GetEventOrchestrationServiceCacheVariableArgs, GetEventOrchestrationServiceCacheVariableResult, GetEventOrchestrationServiceCacheVariableOutputArgs } from "./getEventOrchestrationServiceCacheVariable";
+export const getEventOrchestrationServiceCacheVariable: typeof import("./getEventOrchestrationServiceCacheVariable").getEventOrchestrationServiceCacheVariable = null as any;
+export const getEventOrchestrationServiceCacheVariableOutput: typeof import("./getEventOrchestrationServiceCacheVariable").getEventOrchestrationServiceCacheVariableOutput = null as any;
+utilities.lazyLoad(exports, ["getEventOrchestrationServiceCacheVariable","getEventOrchestrationServiceCacheVariableOutput"], () => require("./getEventOrchestrationServiceCacheVariable"));
 
 export { GetEventOrchestrationsArgs, GetEventOrchestrationsResult, GetEventOrchestrationsOutputArgs } from "./getEventOrchestrations";
 export const getEventOrchestrations: typeof import("./getEventOrchestrations").getEventOrchestrations = null as any;
@@ -381,12 +401,16 @@ const _module = {
                 return new EventOrchestration(name, <any>undefined, { urn })
             case "pagerduty:index/eventOrchestrationGlobal:EventOrchestrationGlobal":
                 return new EventOrchestrationGlobal(name, <any>undefined, { urn })
+            case "pagerduty:index/eventOrchestrationGlobalCacheVariable:EventOrchestrationGlobalCacheVariable":
+                return new EventOrchestrationGlobalCacheVariable(name, <any>undefined, { urn })
             case "pagerduty:index/eventOrchestrationIntegration:EventOrchestrationIntegration":
                 return new EventOrchestrationIntegration(name, <any>undefined, { urn })
             case "pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter":
                 return new EventOrchestrationRouter(name, <any>undefined, { urn })
             case "pagerduty:index/eventOrchestrationService:EventOrchestrationService":
                 return new EventOrchestrationService(name, <any>undefined, { urn })
+            case "pagerduty:index/eventOrchestrationServiceCacheVariable:EventOrchestrationServiceCacheVariable":
+                return new EventOrchestrationServiceCacheVariable(name, <any>undefined, { urn })
             case "pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted":
                 return new EventOrchestrationUnrouted(name, <any>undefined, { urn })
             case "pagerduty:index/eventRule:EventRule":
@@ -455,9 +479,11 @@ pulumi.runtime.registerResourceModule("pagerduty", "index/businessServiceSubscri
 pulumi.runtime.registerResourceModule("pagerduty", "index/escalationPolicy", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/eventOrchestration", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/eventOrchestrationGlobal", _module)
+pulumi.runtime.registerResourceModule("pagerduty", "index/eventOrchestrationGlobalCacheVariable", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/eventOrchestrationIntegration", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/eventOrchestrationRouter", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/eventOrchestrationService", _module)
+pulumi.runtime.registerResourceModule("pagerduty", "index/eventOrchestrationServiceCacheVariable", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/eventOrchestrationUnrouted", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/eventRule", _module)
 pulumi.runtime.registerResourceModule("pagerduty", "index/extension", _module)

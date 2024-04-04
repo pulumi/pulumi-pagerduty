@@ -62,6 +62,32 @@ export interface EscalationPolicyRuleTarget {
     type?: pulumi.Input<string>;
 }
 
+export interface EventOrchestrationGlobalCacheVariableCondition {
+    /**
+     * A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+     */
+    expression: pulumi.Input<string>;
+}
+
+export interface EventOrchestrationGlobalCacheVariableConfiguration {
+    /**
+     * A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
+     */
+    regex?: pulumi.Input<string>;
+    /**
+     * The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
+     */
+    source?: pulumi.Input<string>;
+    /**
+     * The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount`
+     */
+    ttlSeconds?: pulumi.Input<number>;
+    /**
+     * The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue` or `triggerEventCount`.
+     */
+    type: pulumi.Input<string>;
+}
+
 export interface EventOrchestrationGlobalCatchAll {
     /**
      * These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
@@ -478,6 +504,32 @@ export interface EventOrchestrationRouterSetRuleCondition {
      * A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
      */
     expression: pulumi.Input<string>;
+}
+
+export interface EventOrchestrationServiceCacheVariableCondition {
+    /**
+     * A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+     */
+    expression: pulumi.Input<string>;
+}
+
+export interface EventOrchestrationServiceCacheVariableConfiguration {
+    /**
+     * A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
+     */
+    regex?: pulumi.Input<string>;
+    /**
+     * The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
+     */
+    source?: pulumi.Input<string>;
+    /**
+     * The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount`
+     */
+    ttlSeconds?: pulumi.Input<number>;
+    /**
+     * The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue` or `triggerEventCount`.
+     */
+    type: pulumi.Input<string>;
 }
 
 export interface EventOrchestrationServiceCatchAll {

@@ -16,9 +16,11 @@ from .business_service_subscriber import *
 from .escalation_policy import *
 from .event_orchestration import *
 from .event_orchestration_global import *
+from .event_orchestration_global_cache_variable import *
 from .event_orchestration_integration import *
 from .event_orchestration_router import *
 from .event_orchestration_service import *
+from .event_orchestration_service_cache_variable import *
 from .event_orchestration_unrouted import *
 from .event_rule import *
 from .extension import *
@@ -28,7 +30,9 @@ from .get_automation_actions_runner import *
 from .get_business_service import *
 from .get_escalation_policy import *
 from .get_event_orchestration import *
+from .get_event_orchestration_global_cache_variable import *
 from .get_event_orchestration_integration import *
+from .get_event_orchestration_service_cache_variable import *
 from .get_event_orchestrations import *
 from .get_extension_schema import *
 from .get_incident_custom_field import *
@@ -176,6 +180,14 @@ _utilities.register(
  },
  {
   "pkg": "pagerduty",
+  "mod": "index/eventOrchestrationGlobalCacheVariable",
+  "fqn": "pulumi_pagerduty",
+  "classes": {
+   "pagerduty:index/eventOrchestrationGlobalCacheVariable:EventOrchestrationGlobalCacheVariable": "EventOrchestrationGlobalCacheVariable"
+  }
+ },
+ {
+  "pkg": "pagerduty",
   "mod": "index/eventOrchestrationIntegration",
   "fqn": "pulumi_pagerduty",
   "classes": {
@@ -196,6 +208,14 @@ _utilities.register(
   "fqn": "pulumi_pagerduty",
   "classes": {
    "pagerduty:index/eventOrchestrationService:EventOrchestrationService": "EventOrchestrationService"
+  }
+ },
+ {
+  "pkg": "pagerduty",
+  "mod": "index/eventOrchestrationServiceCacheVariable",
+  "fqn": "pulumi_pagerduty",
+  "classes": {
+   "pagerduty:index/eventOrchestrationServiceCacheVariable:EventOrchestrationServiceCacheVariable": "EventOrchestrationServiceCacheVariable"
   }
  },
  {

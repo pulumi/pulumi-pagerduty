@@ -43,12 +43,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EventOrchestration{}
 	case "pagerduty:index/eventOrchestrationGlobal:EventOrchestrationGlobal":
 		r = &EventOrchestrationGlobal{}
+	case "pagerduty:index/eventOrchestrationGlobalCacheVariable:EventOrchestrationGlobalCacheVariable":
+		r = &EventOrchestrationGlobalCacheVariable{}
 	case "pagerduty:index/eventOrchestrationIntegration:EventOrchestrationIntegration":
 		r = &EventOrchestrationIntegration{}
 	case "pagerduty:index/eventOrchestrationRouter:EventOrchestrationRouter":
 		r = &EventOrchestrationRouter{}
 	case "pagerduty:index/eventOrchestrationService:EventOrchestrationService":
 		r = &EventOrchestrationService{}
+	case "pagerduty:index/eventOrchestrationServiceCacheVariable:EventOrchestrationServiceCacheVariable":
+		r = &EventOrchestrationServiceCacheVariable{}
 	case "pagerduty:index/eventOrchestrationUnrouted:EventOrchestrationUnrouted":
 		r = &EventOrchestrationUnrouted{}
 	case "pagerduty:index/eventRule:EventRule":
@@ -189,6 +193,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"pagerduty",
+		"index/eventOrchestrationGlobalCacheVariable",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"pagerduty",
 		"index/eventOrchestrationIntegration",
 		&module{version},
 	)
@@ -200,6 +209,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"pagerduty",
 		"index/eventOrchestrationService",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"pagerduty",
+		"index/eventOrchestrationServiceCacheVariable",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

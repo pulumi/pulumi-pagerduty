@@ -592,6 +592,297 @@ func (o EscalationPolicyRuleTargetArrayOutput) Index(i pulumi.IntInput) Escalati
 	}).(EscalationPolicyRuleTargetOutput)
 }
 
+type EventOrchestrationGlobalCacheVariableCondition struct {
+	// A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+	Expression string `pulumi:"expression"`
+}
+
+// EventOrchestrationGlobalCacheVariableConditionInput is an input type that accepts EventOrchestrationGlobalCacheVariableConditionArgs and EventOrchestrationGlobalCacheVariableConditionOutput values.
+// You can construct a concrete instance of `EventOrchestrationGlobalCacheVariableConditionInput` via:
+//
+//	EventOrchestrationGlobalCacheVariableConditionArgs{...}
+type EventOrchestrationGlobalCacheVariableConditionInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationGlobalCacheVariableConditionOutput() EventOrchestrationGlobalCacheVariableConditionOutput
+	ToEventOrchestrationGlobalCacheVariableConditionOutputWithContext(context.Context) EventOrchestrationGlobalCacheVariableConditionOutput
+}
+
+type EventOrchestrationGlobalCacheVariableConditionArgs struct {
+	// A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+	Expression pulumi.StringInput `pulumi:"expression"`
+}
+
+func (EventOrchestrationGlobalCacheVariableConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationGlobalCacheVariableCondition)(nil)).Elem()
+}
+
+func (i EventOrchestrationGlobalCacheVariableConditionArgs) ToEventOrchestrationGlobalCacheVariableConditionOutput() EventOrchestrationGlobalCacheVariableConditionOutput {
+	return i.ToEventOrchestrationGlobalCacheVariableConditionOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationGlobalCacheVariableConditionArgs) ToEventOrchestrationGlobalCacheVariableConditionOutputWithContext(ctx context.Context) EventOrchestrationGlobalCacheVariableConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalCacheVariableConditionOutput)
+}
+
+// EventOrchestrationGlobalCacheVariableConditionArrayInput is an input type that accepts EventOrchestrationGlobalCacheVariableConditionArray and EventOrchestrationGlobalCacheVariableConditionArrayOutput values.
+// You can construct a concrete instance of `EventOrchestrationGlobalCacheVariableConditionArrayInput` via:
+//
+//	EventOrchestrationGlobalCacheVariableConditionArray{ EventOrchestrationGlobalCacheVariableConditionArgs{...} }
+type EventOrchestrationGlobalCacheVariableConditionArrayInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationGlobalCacheVariableConditionArrayOutput() EventOrchestrationGlobalCacheVariableConditionArrayOutput
+	ToEventOrchestrationGlobalCacheVariableConditionArrayOutputWithContext(context.Context) EventOrchestrationGlobalCacheVariableConditionArrayOutput
+}
+
+type EventOrchestrationGlobalCacheVariableConditionArray []EventOrchestrationGlobalCacheVariableConditionInput
+
+func (EventOrchestrationGlobalCacheVariableConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationGlobalCacheVariableCondition)(nil)).Elem()
+}
+
+func (i EventOrchestrationGlobalCacheVariableConditionArray) ToEventOrchestrationGlobalCacheVariableConditionArrayOutput() EventOrchestrationGlobalCacheVariableConditionArrayOutput {
+	return i.ToEventOrchestrationGlobalCacheVariableConditionArrayOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationGlobalCacheVariableConditionArray) ToEventOrchestrationGlobalCacheVariableConditionArrayOutputWithContext(ctx context.Context) EventOrchestrationGlobalCacheVariableConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalCacheVariableConditionArrayOutput)
+}
+
+type EventOrchestrationGlobalCacheVariableConditionOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationGlobalCacheVariableConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationGlobalCacheVariableCondition)(nil)).Elem()
+}
+
+func (o EventOrchestrationGlobalCacheVariableConditionOutput) ToEventOrchestrationGlobalCacheVariableConditionOutput() EventOrchestrationGlobalCacheVariableConditionOutput {
+	return o
+}
+
+func (o EventOrchestrationGlobalCacheVariableConditionOutput) ToEventOrchestrationGlobalCacheVariableConditionOutputWithContext(ctx context.Context) EventOrchestrationGlobalCacheVariableConditionOutput {
+	return o
+}
+
+// A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+func (o EventOrchestrationGlobalCacheVariableConditionOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationGlobalCacheVariableCondition) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+type EventOrchestrationGlobalCacheVariableConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationGlobalCacheVariableConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationGlobalCacheVariableCondition)(nil)).Elem()
+}
+
+func (o EventOrchestrationGlobalCacheVariableConditionArrayOutput) ToEventOrchestrationGlobalCacheVariableConditionArrayOutput() EventOrchestrationGlobalCacheVariableConditionArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationGlobalCacheVariableConditionArrayOutput) ToEventOrchestrationGlobalCacheVariableConditionArrayOutputWithContext(ctx context.Context) EventOrchestrationGlobalCacheVariableConditionArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationGlobalCacheVariableConditionArrayOutput) Index(i pulumi.IntInput) EventOrchestrationGlobalCacheVariableConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventOrchestrationGlobalCacheVariableCondition {
+		return vs[0].([]EventOrchestrationGlobalCacheVariableCondition)[vs[1].(int)]
+	}).(EventOrchestrationGlobalCacheVariableConditionOutput)
+}
+
+type EventOrchestrationGlobalCacheVariableConfiguration struct {
+	// A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
+	Regex *string `pulumi:"regex"`
+	// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
+	Source *string `pulumi:"source"`
+	// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount`
+	TtlSeconds *int `pulumi:"ttlSeconds"`
+	// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue` or `triggerEventCount`.
+	Type string `pulumi:"type"`
+}
+
+// EventOrchestrationGlobalCacheVariableConfigurationInput is an input type that accepts EventOrchestrationGlobalCacheVariableConfigurationArgs and EventOrchestrationGlobalCacheVariableConfigurationOutput values.
+// You can construct a concrete instance of `EventOrchestrationGlobalCacheVariableConfigurationInput` via:
+//
+//	EventOrchestrationGlobalCacheVariableConfigurationArgs{...}
+type EventOrchestrationGlobalCacheVariableConfigurationInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationGlobalCacheVariableConfigurationOutput() EventOrchestrationGlobalCacheVariableConfigurationOutput
+	ToEventOrchestrationGlobalCacheVariableConfigurationOutputWithContext(context.Context) EventOrchestrationGlobalCacheVariableConfigurationOutput
+}
+
+type EventOrchestrationGlobalCacheVariableConfigurationArgs struct {
+	// A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
+	Regex pulumi.StringPtrInput `pulumi:"regex"`
+	// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
+	Source pulumi.StringPtrInput `pulumi:"source"`
+	// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount`
+	TtlSeconds pulumi.IntPtrInput `pulumi:"ttlSeconds"`
+	// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue` or `triggerEventCount`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (EventOrchestrationGlobalCacheVariableConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationGlobalCacheVariableConfiguration)(nil)).Elem()
+}
+
+func (i EventOrchestrationGlobalCacheVariableConfigurationArgs) ToEventOrchestrationGlobalCacheVariableConfigurationOutput() EventOrchestrationGlobalCacheVariableConfigurationOutput {
+	return i.ToEventOrchestrationGlobalCacheVariableConfigurationOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationGlobalCacheVariableConfigurationArgs) ToEventOrchestrationGlobalCacheVariableConfigurationOutputWithContext(ctx context.Context) EventOrchestrationGlobalCacheVariableConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalCacheVariableConfigurationOutput)
+}
+
+func (i EventOrchestrationGlobalCacheVariableConfigurationArgs) ToEventOrchestrationGlobalCacheVariableConfigurationPtrOutput() EventOrchestrationGlobalCacheVariableConfigurationPtrOutput {
+	return i.ToEventOrchestrationGlobalCacheVariableConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationGlobalCacheVariableConfigurationArgs) ToEventOrchestrationGlobalCacheVariableConfigurationPtrOutputWithContext(ctx context.Context) EventOrchestrationGlobalCacheVariableConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalCacheVariableConfigurationOutput).ToEventOrchestrationGlobalCacheVariableConfigurationPtrOutputWithContext(ctx)
+}
+
+// EventOrchestrationGlobalCacheVariableConfigurationPtrInput is an input type that accepts EventOrchestrationGlobalCacheVariableConfigurationArgs, EventOrchestrationGlobalCacheVariableConfigurationPtr and EventOrchestrationGlobalCacheVariableConfigurationPtrOutput values.
+// You can construct a concrete instance of `EventOrchestrationGlobalCacheVariableConfigurationPtrInput` via:
+//
+//	        EventOrchestrationGlobalCacheVariableConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventOrchestrationGlobalCacheVariableConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationGlobalCacheVariableConfigurationPtrOutput() EventOrchestrationGlobalCacheVariableConfigurationPtrOutput
+	ToEventOrchestrationGlobalCacheVariableConfigurationPtrOutputWithContext(context.Context) EventOrchestrationGlobalCacheVariableConfigurationPtrOutput
+}
+
+type eventOrchestrationGlobalCacheVariableConfigurationPtrType EventOrchestrationGlobalCacheVariableConfigurationArgs
+
+func EventOrchestrationGlobalCacheVariableConfigurationPtr(v *EventOrchestrationGlobalCacheVariableConfigurationArgs) EventOrchestrationGlobalCacheVariableConfigurationPtrInput {
+	return (*eventOrchestrationGlobalCacheVariableConfigurationPtrType)(v)
+}
+
+func (*eventOrchestrationGlobalCacheVariableConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventOrchestrationGlobalCacheVariableConfiguration)(nil)).Elem()
+}
+
+func (i *eventOrchestrationGlobalCacheVariableConfigurationPtrType) ToEventOrchestrationGlobalCacheVariableConfigurationPtrOutput() EventOrchestrationGlobalCacheVariableConfigurationPtrOutput {
+	return i.ToEventOrchestrationGlobalCacheVariableConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *eventOrchestrationGlobalCacheVariableConfigurationPtrType) ToEventOrchestrationGlobalCacheVariableConfigurationPtrOutputWithContext(ctx context.Context) EventOrchestrationGlobalCacheVariableConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationGlobalCacheVariableConfigurationPtrOutput)
+}
+
+type EventOrchestrationGlobalCacheVariableConfigurationOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationGlobalCacheVariableConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationGlobalCacheVariableConfiguration)(nil)).Elem()
+}
+
+func (o EventOrchestrationGlobalCacheVariableConfigurationOutput) ToEventOrchestrationGlobalCacheVariableConfigurationOutput() EventOrchestrationGlobalCacheVariableConfigurationOutput {
+	return o
+}
+
+func (o EventOrchestrationGlobalCacheVariableConfigurationOutput) ToEventOrchestrationGlobalCacheVariableConfigurationOutputWithContext(ctx context.Context) EventOrchestrationGlobalCacheVariableConfigurationOutput {
+	return o
+}
+
+func (o EventOrchestrationGlobalCacheVariableConfigurationOutput) ToEventOrchestrationGlobalCacheVariableConfigurationPtrOutput() EventOrchestrationGlobalCacheVariableConfigurationPtrOutput {
+	return o.ToEventOrchestrationGlobalCacheVariableConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o EventOrchestrationGlobalCacheVariableConfigurationOutput) ToEventOrchestrationGlobalCacheVariableConfigurationPtrOutputWithContext(ctx context.Context) EventOrchestrationGlobalCacheVariableConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventOrchestrationGlobalCacheVariableConfiguration) *EventOrchestrationGlobalCacheVariableConfiguration {
+		return &v
+	}).(EventOrchestrationGlobalCacheVariableConfigurationPtrOutput)
+}
+
+// A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
+func (o EventOrchestrationGlobalCacheVariableConfigurationOutput) Regex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationGlobalCacheVariableConfiguration) *string { return v.Regex }).(pulumi.StringPtrOutput)
+}
+
+// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
+func (o EventOrchestrationGlobalCacheVariableConfigurationOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationGlobalCacheVariableConfiguration) *string { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount`
+func (o EventOrchestrationGlobalCacheVariableConfigurationOutput) TtlSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationGlobalCacheVariableConfiguration) *int { return v.TtlSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue` or `triggerEventCount`.
+func (o EventOrchestrationGlobalCacheVariableConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationGlobalCacheVariableConfiguration) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type EventOrchestrationGlobalCacheVariableConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationGlobalCacheVariableConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventOrchestrationGlobalCacheVariableConfiguration)(nil)).Elem()
+}
+
+func (o EventOrchestrationGlobalCacheVariableConfigurationPtrOutput) ToEventOrchestrationGlobalCacheVariableConfigurationPtrOutput() EventOrchestrationGlobalCacheVariableConfigurationPtrOutput {
+	return o
+}
+
+func (o EventOrchestrationGlobalCacheVariableConfigurationPtrOutput) ToEventOrchestrationGlobalCacheVariableConfigurationPtrOutputWithContext(ctx context.Context) EventOrchestrationGlobalCacheVariableConfigurationPtrOutput {
+	return o
+}
+
+func (o EventOrchestrationGlobalCacheVariableConfigurationPtrOutput) Elem() EventOrchestrationGlobalCacheVariableConfigurationOutput {
+	return o.ApplyT(func(v *EventOrchestrationGlobalCacheVariableConfiguration) EventOrchestrationGlobalCacheVariableConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret EventOrchestrationGlobalCacheVariableConfiguration
+		return ret
+	}).(EventOrchestrationGlobalCacheVariableConfigurationOutput)
+}
+
+// A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
+func (o EventOrchestrationGlobalCacheVariableConfigurationPtrOutput) Regex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationGlobalCacheVariableConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Regex
+	}).(pulumi.StringPtrOutput)
+}
+
+// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
+func (o EventOrchestrationGlobalCacheVariableConfigurationPtrOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationGlobalCacheVariableConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Source
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount`
+func (o EventOrchestrationGlobalCacheVariableConfigurationPtrOutput) TtlSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationGlobalCacheVariableConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TtlSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue` or `triggerEventCount`.
+func (o EventOrchestrationGlobalCacheVariableConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationGlobalCacheVariableConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type EventOrchestrationGlobalCatchAll struct {
 	// These are the actions that will be taken to change the resulting alert and incident. `catchAll` supports all actions described above for `rule` _except_ `routeTo` action.
 	Actions EventOrchestrationGlobalCatchAllActions `pulumi:"actions"`
@@ -4080,6 +4371,297 @@ func (o EventOrchestrationRouterSetRuleConditionArrayOutput) Index(i pulumi.IntI
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventOrchestrationRouterSetRuleCondition {
 		return vs[0].([]EventOrchestrationRouterSetRuleCondition)[vs[1].(int)]
 	}).(EventOrchestrationRouterSetRuleConditionOutput)
+}
+
+type EventOrchestrationServiceCacheVariableCondition struct {
+	// A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+	Expression string `pulumi:"expression"`
+}
+
+// EventOrchestrationServiceCacheVariableConditionInput is an input type that accepts EventOrchestrationServiceCacheVariableConditionArgs and EventOrchestrationServiceCacheVariableConditionOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceCacheVariableConditionInput` via:
+//
+//	EventOrchestrationServiceCacheVariableConditionArgs{...}
+type EventOrchestrationServiceCacheVariableConditionInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceCacheVariableConditionOutput() EventOrchestrationServiceCacheVariableConditionOutput
+	ToEventOrchestrationServiceCacheVariableConditionOutputWithContext(context.Context) EventOrchestrationServiceCacheVariableConditionOutput
+}
+
+type EventOrchestrationServiceCacheVariableConditionArgs struct {
+	// A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+	Expression pulumi.StringInput `pulumi:"expression"`
+}
+
+func (EventOrchestrationServiceCacheVariableConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceCacheVariableCondition)(nil)).Elem()
+}
+
+func (i EventOrchestrationServiceCacheVariableConditionArgs) ToEventOrchestrationServiceCacheVariableConditionOutput() EventOrchestrationServiceCacheVariableConditionOutput {
+	return i.ToEventOrchestrationServiceCacheVariableConditionOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceCacheVariableConditionArgs) ToEventOrchestrationServiceCacheVariableConditionOutputWithContext(ctx context.Context) EventOrchestrationServiceCacheVariableConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCacheVariableConditionOutput)
+}
+
+// EventOrchestrationServiceCacheVariableConditionArrayInput is an input type that accepts EventOrchestrationServiceCacheVariableConditionArray and EventOrchestrationServiceCacheVariableConditionArrayOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceCacheVariableConditionArrayInput` via:
+//
+//	EventOrchestrationServiceCacheVariableConditionArray{ EventOrchestrationServiceCacheVariableConditionArgs{...} }
+type EventOrchestrationServiceCacheVariableConditionArrayInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceCacheVariableConditionArrayOutput() EventOrchestrationServiceCacheVariableConditionArrayOutput
+	ToEventOrchestrationServiceCacheVariableConditionArrayOutputWithContext(context.Context) EventOrchestrationServiceCacheVariableConditionArrayOutput
+}
+
+type EventOrchestrationServiceCacheVariableConditionArray []EventOrchestrationServiceCacheVariableConditionInput
+
+func (EventOrchestrationServiceCacheVariableConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationServiceCacheVariableCondition)(nil)).Elem()
+}
+
+func (i EventOrchestrationServiceCacheVariableConditionArray) ToEventOrchestrationServiceCacheVariableConditionArrayOutput() EventOrchestrationServiceCacheVariableConditionArrayOutput {
+	return i.ToEventOrchestrationServiceCacheVariableConditionArrayOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceCacheVariableConditionArray) ToEventOrchestrationServiceCacheVariableConditionArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceCacheVariableConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCacheVariableConditionArrayOutput)
+}
+
+type EventOrchestrationServiceCacheVariableConditionOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceCacheVariableConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceCacheVariableCondition)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceCacheVariableConditionOutput) ToEventOrchestrationServiceCacheVariableConditionOutput() EventOrchestrationServiceCacheVariableConditionOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceCacheVariableConditionOutput) ToEventOrchestrationServiceCacheVariableConditionOutputWithContext(ctx context.Context) EventOrchestrationServiceCacheVariableConditionOutput {
+	return o
+}
+
+// A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+func (o EventOrchestrationServiceCacheVariableConditionOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCacheVariableCondition) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+type EventOrchestrationServiceCacheVariableConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceCacheVariableConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventOrchestrationServiceCacheVariableCondition)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceCacheVariableConditionArrayOutput) ToEventOrchestrationServiceCacheVariableConditionArrayOutput() EventOrchestrationServiceCacheVariableConditionArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceCacheVariableConditionArrayOutput) ToEventOrchestrationServiceCacheVariableConditionArrayOutputWithContext(ctx context.Context) EventOrchestrationServiceCacheVariableConditionArrayOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceCacheVariableConditionArrayOutput) Index(i pulumi.IntInput) EventOrchestrationServiceCacheVariableConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventOrchestrationServiceCacheVariableCondition {
+		return vs[0].([]EventOrchestrationServiceCacheVariableCondition)[vs[1].(int)]
+	}).(EventOrchestrationServiceCacheVariableConditionOutput)
+}
+
+type EventOrchestrationServiceCacheVariableConfiguration struct {
+	// A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
+	Regex *string `pulumi:"regex"`
+	// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
+	Source *string `pulumi:"source"`
+	// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount`
+	TtlSeconds *int `pulumi:"ttlSeconds"`
+	// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue` or `triggerEventCount`.
+	Type string `pulumi:"type"`
+}
+
+// EventOrchestrationServiceCacheVariableConfigurationInput is an input type that accepts EventOrchestrationServiceCacheVariableConfigurationArgs and EventOrchestrationServiceCacheVariableConfigurationOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceCacheVariableConfigurationInput` via:
+//
+//	EventOrchestrationServiceCacheVariableConfigurationArgs{...}
+type EventOrchestrationServiceCacheVariableConfigurationInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceCacheVariableConfigurationOutput() EventOrchestrationServiceCacheVariableConfigurationOutput
+	ToEventOrchestrationServiceCacheVariableConfigurationOutputWithContext(context.Context) EventOrchestrationServiceCacheVariableConfigurationOutput
+}
+
+type EventOrchestrationServiceCacheVariableConfigurationArgs struct {
+	// A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
+	Regex pulumi.StringPtrInput `pulumi:"regex"`
+	// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
+	Source pulumi.StringPtrInput `pulumi:"source"`
+	// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount`
+	TtlSeconds pulumi.IntPtrInput `pulumi:"ttlSeconds"`
+	// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue` or `triggerEventCount`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (EventOrchestrationServiceCacheVariableConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceCacheVariableConfiguration)(nil)).Elem()
+}
+
+func (i EventOrchestrationServiceCacheVariableConfigurationArgs) ToEventOrchestrationServiceCacheVariableConfigurationOutput() EventOrchestrationServiceCacheVariableConfigurationOutput {
+	return i.ToEventOrchestrationServiceCacheVariableConfigurationOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceCacheVariableConfigurationArgs) ToEventOrchestrationServiceCacheVariableConfigurationOutputWithContext(ctx context.Context) EventOrchestrationServiceCacheVariableConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCacheVariableConfigurationOutput)
+}
+
+func (i EventOrchestrationServiceCacheVariableConfigurationArgs) ToEventOrchestrationServiceCacheVariableConfigurationPtrOutput() EventOrchestrationServiceCacheVariableConfigurationPtrOutput {
+	return i.ToEventOrchestrationServiceCacheVariableConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i EventOrchestrationServiceCacheVariableConfigurationArgs) ToEventOrchestrationServiceCacheVariableConfigurationPtrOutputWithContext(ctx context.Context) EventOrchestrationServiceCacheVariableConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCacheVariableConfigurationOutput).ToEventOrchestrationServiceCacheVariableConfigurationPtrOutputWithContext(ctx)
+}
+
+// EventOrchestrationServiceCacheVariableConfigurationPtrInput is an input type that accepts EventOrchestrationServiceCacheVariableConfigurationArgs, EventOrchestrationServiceCacheVariableConfigurationPtr and EventOrchestrationServiceCacheVariableConfigurationPtrOutput values.
+// You can construct a concrete instance of `EventOrchestrationServiceCacheVariableConfigurationPtrInput` via:
+//
+//	        EventOrchestrationServiceCacheVariableConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventOrchestrationServiceCacheVariableConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToEventOrchestrationServiceCacheVariableConfigurationPtrOutput() EventOrchestrationServiceCacheVariableConfigurationPtrOutput
+	ToEventOrchestrationServiceCacheVariableConfigurationPtrOutputWithContext(context.Context) EventOrchestrationServiceCacheVariableConfigurationPtrOutput
+}
+
+type eventOrchestrationServiceCacheVariableConfigurationPtrType EventOrchestrationServiceCacheVariableConfigurationArgs
+
+func EventOrchestrationServiceCacheVariableConfigurationPtr(v *EventOrchestrationServiceCacheVariableConfigurationArgs) EventOrchestrationServiceCacheVariableConfigurationPtrInput {
+	return (*eventOrchestrationServiceCacheVariableConfigurationPtrType)(v)
+}
+
+func (*eventOrchestrationServiceCacheVariableConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventOrchestrationServiceCacheVariableConfiguration)(nil)).Elem()
+}
+
+func (i *eventOrchestrationServiceCacheVariableConfigurationPtrType) ToEventOrchestrationServiceCacheVariableConfigurationPtrOutput() EventOrchestrationServiceCacheVariableConfigurationPtrOutput {
+	return i.ToEventOrchestrationServiceCacheVariableConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *eventOrchestrationServiceCacheVariableConfigurationPtrType) ToEventOrchestrationServiceCacheVariableConfigurationPtrOutputWithContext(ctx context.Context) EventOrchestrationServiceCacheVariableConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventOrchestrationServiceCacheVariableConfigurationPtrOutput)
+}
+
+type EventOrchestrationServiceCacheVariableConfigurationOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceCacheVariableConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventOrchestrationServiceCacheVariableConfiguration)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceCacheVariableConfigurationOutput) ToEventOrchestrationServiceCacheVariableConfigurationOutput() EventOrchestrationServiceCacheVariableConfigurationOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceCacheVariableConfigurationOutput) ToEventOrchestrationServiceCacheVariableConfigurationOutputWithContext(ctx context.Context) EventOrchestrationServiceCacheVariableConfigurationOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceCacheVariableConfigurationOutput) ToEventOrchestrationServiceCacheVariableConfigurationPtrOutput() EventOrchestrationServiceCacheVariableConfigurationPtrOutput {
+	return o.ToEventOrchestrationServiceCacheVariableConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o EventOrchestrationServiceCacheVariableConfigurationOutput) ToEventOrchestrationServiceCacheVariableConfigurationPtrOutputWithContext(ctx context.Context) EventOrchestrationServiceCacheVariableConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventOrchestrationServiceCacheVariableConfiguration) *EventOrchestrationServiceCacheVariableConfiguration {
+		return &v
+	}).(EventOrchestrationServiceCacheVariableConfigurationPtrOutput)
+}
+
+// A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
+func (o EventOrchestrationServiceCacheVariableConfigurationOutput) Regex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCacheVariableConfiguration) *string { return v.Regex }).(pulumi.StringPtrOutput)
+}
+
+// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
+func (o EventOrchestrationServiceCacheVariableConfigurationOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCacheVariableConfiguration) *string { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount`
+func (o EventOrchestrationServiceCacheVariableConfigurationOutput) TtlSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCacheVariableConfiguration) *int { return v.TtlSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue` or `triggerEventCount`.
+func (o EventOrchestrationServiceCacheVariableConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EventOrchestrationServiceCacheVariableConfiguration) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type EventOrchestrationServiceCacheVariableConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (EventOrchestrationServiceCacheVariableConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventOrchestrationServiceCacheVariableConfiguration)(nil)).Elem()
+}
+
+func (o EventOrchestrationServiceCacheVariableConfigurationPtrOutput) ToEventOrchestrationServiceCacheVariableConfigurationPtrOutput() EventOrchestrationServiceCacheVariableConfigurationPtrOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceCacheVariableConfigurationPtrOutput) ToEventOrchestrationServiceCacheVariableConfigurationPtrOutputWithContext(ctx context.Context) EventOrchestrationServiceCacheVariableConfigurationPtrOutput {
+	return o
+}
+
+func (o EventOrchestrationServiceCacheVariableConfigurationPtrOutput) Elem() EventOrchestrationServiceCacheVariableConfigurationOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceCacheVariableConfiguration) EventOrchestrationServiceCacheVariableConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret EventOrchestrationServiceCacheVariableConfiguration
+		return ret
+	}).(EventOrchestrationServiceCacheVariableConfigurationOutput)
+}
+
+// A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
+func (o EventOrchestrationServiceCacheVariableConfigurationPtrOutput) Regex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceCacheVariableConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Regex
+	}).(pulumi.StringPtrOutput)
+}
+
+// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
+func (o EventOrchestrationServiceCacheVariableConfigurationPtrOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceCacheVariableConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Source
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount`
+func (o EventOrchestrationServiceCacheVariableConfigurationPtrOutput) TtlSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceCacheVariableConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TtlSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue` or `triggerEventCount`.
+func (o EventOrchestrationServiceCacheVariableConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventOrchestrationServiceCacheVariableConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type EventOrchestrationServiceCatchAll struct {
@@ -17668,6 +18250,227 @@ func (o GetAutomationActionsActionActionDataReferenceArrayOutput) Index(i pulumi
 	}).(GetAutomationActionsActionActionDataReferenceOutput)
 }
 
+type GetEventOrchestrationGlobalCacheVariableCondition struct {
+	// A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+	Expression string `pulumi:"expression"`
+}
+
+// GetEventOrchestrationGlobalCacheVariableConditionInput is an input type that accepts GetEventOrchestrationGlobalCacheVariableConditionArgs and GetEventOrchestrationGlobalCacheVariableConditionOutput values.
+// You can construct a concrete instance of `GetEventOrchestrationGlobalCacheVariableConditionInput` via:
+//
+//	GetEventOrchestrationGlobalCacheVariableConditionArgs{...}
+type GetEventOrchestrationGlobalCacheVariableConditionInput interface {
+	pulumi.Input
+
+	ToGetEventOrchestrationGlobalCacheVariableConditionOutput() GetEventOrchestrationGlobalCacheVariableConditionOutput
+	ToGetEventOrchestrationGlobalCacheVariableConditionOutputWithContext(context.Context) GetEventOrchestrationGlobalCacheVariableConditionOutput
+}
+
+type GetEventOrchestrationGlobalCacheVariableConditionArgs struct {
+	// A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+	Expression pulumi.StringInput `pulumi:"expression"`
+}
+
+func (GetEventOrchestrationGlobalCacheVariableConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEventOrchestrationGlobalCacheVariableCondition)(nil)).Elem()
+}
+
+func (i GetEventOrchestrationGlobalCacheVariableConditionArgs) ToGetEventOrchestrationGlobalCacheVariableConditionOutput() GetEventOrchestrationGlobalCacheVariableConditionOutput {
+	return i.ToGetEventOrchestrationGlobalCacheVariableConditionOutputWithContext(context.Background())
+}
+
+func (i GetEventOrchestrationGlobalCacheVariableConditionArgs) ToGetEventOrchestrationGlobalCacheVariableConditionOutputWithContext(ctx context.Context) GetEventOrchestrationGlobalCacheVariableConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEventOrchestrationGlobalCacheVariableConditionOutput)
+}
+
+// GetEventOrchestrationGlobalCacheVariableConditionArrayInput is an input type that accepts GetEventOrchestrationGlobalCacheVariableConditionArray and GetEventOrchestrationGlobalCacheVariableConditionArrayOutput values.
+// You can construct a concrete instance of `GetEventOrchestrationGlobalCacheVariableConditionArrayInput` via:
+//
+//	GetEventOrchestrationGlobalCacheVariableConditionArray{ GetEventOrchestrationGlobalCacheVariableConditionArgs{...} }
+type GetEventOrchestrationGlobalCacheVariableConditionArrayInput interface {
+	pulumi.Input
+
+	ToGetEventOrchestrationGlobalCacheVariableConditionArrayOutput() GetEventOrchestrationGlobalCacheVariableConditionArrayOutput
+	ToGetEventOrchestrationGlobalCacheVariableConditionArrayOutputWithContext(context.Context) GetEventOrchestrationGlobalCacheVariableConditionArrayOutput
+}
+
+type GetEventOrchestrationGlobalCacheVariableConditionArray []GetEventOrchestrationGlobalCacheVariableConditionInput
+
+func (GetEventOrchestrationGlobalCacheVariableConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEventOrchestrationGlobalCacheVariableCondition)(nil)).Elem()
+}
+
+func (i GetEventOrchestrationGlobalCacheVariableConditionArray) ToGetEventOrchestrationGlobalCacheVariableConditionArrayOutput() GetEventOrchestrationGlobalCacheVariableConditionArrayOutput {
+	return i.ToGetEventOrchestrationGlobalCacheVariableConditionArrayOutputWithContext(context.Background())
+}
+
+func (i GetEventOrchestrationGlobalCacheVariableConditionArray) ToGetEventOrchestrationGlobalCacheVariableConditionArrayOutputWithContext(ctx context.Context) GetEventOrchestrationGlobalCacheVariableConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEventOrchestrationGlobalCacheVariableConditionArrayOutput)
+}
+
+type GetEventOrchestrationGlobalCacheVariableConditionOutput struct{ *pulumi.OutputState }
+
+func (GetEventOrchestrationGlobalCacheVariableConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEventOrchestrationGlobalCacheVariableCondition)(nil)).Elem()
+}
+
+func (o GetEventOrchestrationGlobalCacheVariableConditionOutput) ToGetEventOrchestrationGlobalCacheVariableConditionOutput() GetEventOrchestrationGlobalCacheVariableConditionOutput {
+	return o
+}
+
+func (o GetEventOrchestrationGlobalCacheVariableConditionOutput) ToGetEventOrchestrationGlobalCacheVariableConditionOutputWithContext(ctx context.Context) GetEventOrchestrationGlobalCacheVariableConditionOutput {
+	return o
+}
+
+// A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+func (o GetEventOrchestrationGlobalCacheVariableConditionOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventOrchestrationGlobalCacheVariableCondition) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+type GetEventOrchestrationGlobalCacheVariableConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEventOrchestrationGlobalCacheVariableConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEventOrchestrationGlobalCacheVariableCondition)(nil)).Elem()
+}
+
+func (o GetEventOrchestrationGlobalCacheVariableConditionArrayOutput) ToGetEventOrchestrationGlobalCacheVariableConditionArrayOutput() GetEventOrchestrationGlobalCacheVariableConditionArrayOutput {
+	return o
+}
+
+func (o GetEventOrchestrationGlobalCacheVariableConditionArrayOutput) ToGetEventOrchestrationGlobalCacheVariableConditionArrayOutputWithContext(ctx context.Context) GetEventOrchestrationGlobalCacheVariableConditionArrayOutput {
+	return o
+}
+
+func (o GetEventOrchestrationGlobalCacheVariableConditionArrayOutput) Index(i pulumi.IntInput) GetEventOrchestrationGlobalCacheVariableConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEventOrchestrationGlobalCacheVariableCondition {
+		return vs[0].([]GetEventOrchestrationGlobalCacheVariableCondition)[vs[1].(int)]
+	}).(GetEventOrchestrationGlobalCacheVariableConditionOutput)
+}
+
+type GetEventOrchestrationGlobalCacheVariableConfiguration struct {
+	// A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
+	Regex string `pulumi:"regex"`
+	// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
+	Source string `pulumi:"source"`
+	// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount`
+	TtlSeconds int `pulumi:"ttlSeconds"`
+	// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue` or `triggerEventCount`.
+	Type string `pulumi:"type"`
+}
+
+// GetEventOrchestrationGlobalCacheVariableConfigurationInput is an input type that accepts GetEventOrchestrationGlobalCacheVariableConfigurationArgs and GetEventOrchestrationGlobalCacheVariableConfigurationOutput values.
+// You can construct a concrete instance of `GetEventOrchestrationGlobalCacheVariableConfigurationInput` via:
+//
+//	GetEventOrchestrationGlobalCacheVariableConfigurationArgs{...}
+type GetEventOrchestrationGlobalCacheVariableConfigurationInput interface {
+	pulumi.Input
+
+	ToGetEventOrchestrationGlobalCacheVariableConfigurationOutput() GetEventOrchestrationGlobalCacheVariableConfigurationOutput
+	ToGetEventOrchestrationGlobalCacheVariableConfigurationOutputWithContext(context.Context) GetEventOrchestrationGlobalCacheVariableConfigurationOutput
+}
+
+type GetEventOrchestrationGlobalCacheVariableConfigurationArgs struct {
+	// A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
+	Regex pulumi.StringInput `pulumi:"regex"`
+	// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
+	Source pulumi.StringInput `pulumi:"source"`
+	// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount`
+	TtlSeconds pulumi.IntInput `pulumi:"ttlSeconds"`
+	// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue` or `triggerEventCount`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetEventOrchestrationGlobalCacheVariableConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEventOrchestrationGlobalCacheVariableConfiguration)(nil)).Elem()
+}
+
+func (i GetEventOrchestrationGlobalCacheVariableConfigurationArgs) ToGetEventOrchestrationGlobalCacheVariableConfigurationOutput() GetEventOrchestrationGlobalCacheVariableConfigurationOutput {
+	return i.ToGetEventOrchestrationGlobalCacheVariableConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetEventOrchestrationGlobalCacheVariableConfigurationArgs) ToGetEventOrchestrationGlobalCacheVariableConfigurationOutputWithContext(ctx context.Context) GetEventOrchestrationGlobalCacheVariableConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEventOrchestrationGlobalCacheVariableConfigurationOutput)
+}
+
+// GetEventOrchestrationGlobalCacheVariableConfigurationArrayInput is an input type that accepts GetEventOrchestrationGlobalCacheVariableConfigurationArray and GetEventOrchestrationGlobalCacheVariableConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetEventOrchestrationGlobalCacheVariableConfigurationArrayInput` via:
+//
+//	GetEventOrchestrationGlobalCacheVariableConfigurationArray{ GetEventOrchestrationGlobalCacheVariableConfigurationArgs{...} }
+type GetEventOrchestrationGlobalCacheVariableConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetEventOrchestrationGlobalCacheVariableConfigurationArrayOutput() GetEventOrchestrationGlobalCacheVariableConfigurationArrayOutput
+	ToGetEventOrchestrationGlobalCacheVariableConfigurationArrayOutputWithContext(context.Context) GetEventOrchestrationGlobalCacheVariableConfigurationArrayOutput
+}
+
+type GetEventOrchestrationGlobalCacheVariableConfigurationArray []GetEventOrchestrationGlobalCacheVariableConfigurationInput
+
+func (GetEventOrchestrationGlobalCacheVariableConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEventOrchestrationGlobalCacheVariableConfiguration)(nil)).Elem()
+}
+
+func (i GetEventOrchestrationGlobalCacheVariableConfigurationArray) ToGetEventOrchestrationGlobalCacheVariableConfigurationArrayOutput() GetEventOrchestrationGlobalCacheVariableConfigurationArrayOutput {
+	return i.ToGetEventOrchestrationGlobalCacheVariableConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetEventOrchestrationGlobalCacheVariableConfigurationArray) ToGetEventOrchestrationGlobalCacheVariableConfigurationArrayOutputWithContext(ctx context.Context) GetEventOrchestrationGlobalCacheVariableConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEventOrchestrationGlobalCacheVariableConfigurationArrayOutput)
+}
+
+type GetEventOrchestrationGlobalCacheVariableConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetEventOrchestrationGlobalCacheVariableConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEventOrchestrationGlobalCacheVariableConfiguration)(nil)).Elem()
+}
+
+func (o GetEventOrchestrationGlobalCacheVariableConfigurationOutput) ToGetEventOrchestrationGlobalCacheVariableConfigurationOutput() GetEventOrchestrationGlobalCacheVariableConfigurationOutput {
+	return o
+}
+
+func (o GetEventOrchestrationGlobalCacheVariableConfigurationOutput) ToGetEventOrchestrationGlobalCacheVariableConfigurationOutputWithContext(ctx context.Context) GetEventOrchestrationGlobalCacheVariableConfigurationOutput {
+	return o
+}
+
+// A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
+func (o GetEventOrchestrationGlobalCacheVariableConfigurationOutput) Regex() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventOrchestrationGlobalCacheVariableConfiguration) string { return v.Regex }).(pulumi.StringOutput)
+}
+
+// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
+func (o GetEventOrchestrationGlobalCacheVariableConfigurationOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventOrchestrationGlobalCacheVariableConfiguration) string { return v.Source }).(pulumi.StringOutput)
+}
+
+// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount`
+func (o GetEventOrchestrationGlobalCacheVariableConfigurationOutput) TtlSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v GetEventOrchestrationGlobalCacheVariableConfiguration) int { return v.TtlSeconds }).(pulumi.IntOutput)
+}
+
+// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue` or `triggerEventCount`.
+func (o GetEventOrchestrationGlobalCacheVariableConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventOrchestrationGlobalCacheVariableConfiguration) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetEventOrchestrationGlobalCacheVariableConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEventOrchestrationGlobalCacheVariableConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEventOrchestrationGlobalCacheVariableConfiguration)(nil)).Elem()
+}
+
+func (o GetEventOrchestrationGlobalCacheVariableConfigurationArrayOutput) ToGetEventOrchestrationGlobalCacheVariableConfigurationArrayOutput() GetEventOrchestrationGlobalCacheVariableConfigurationArrayOutput {
+	return o
+}
+
+func (o GetEventOrchestrationGlobalCacheVariableConfigurationArrayOutput) ToGetEventOrchestrationGlobalCacheVariableConfigurationArrayOutputWithContext(ctx context.Context) GetEventOrchestrationGlobalCacheVariableConfigurationArrayOutput {
+	return o
+}
+
+func (o GetEventOrchestrationGlobalCacheVariableConfigurationArrayOutput) Index(i pulumi.IntInput) GetEventOrchestrationGlobalCacheVariableConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEventOrchestrationGlobalCacheVariableConfiguration {
+		return vs[0].([]GetEventOrchestrationGlobalCacheVariableConfiguration)[vs[1].(int)]
+	}).(GetEventOrchestrationGlobalCacheVariableConfigurationOutput)
+}
+
 type GetEventOrchestrationIntegrationDetail struct {
 	// ID of the integration
 	Id         string                                            `pulumi:"id"`
@@ -17989,6 +18792,227 @@ func (o GetEventOrchestrationIntegrationParameterArrayOutput) Index(i pulumi.Int
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEventOrchestrationIntegrationParameter {
 		return vs[0].([]GetEventOrchestrationIntegrationParameter)[vs[1].(int)]
 	}).(GetEventOrchestrationIntegrationParameterOutput)
+}
+
+type GetEventOrchestrationServiceCacheVariableCondition struct {
+	// A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+	Expression string `pulumi:"expression"`
+}
+
+// GetEventOrchestrationServiceCacheVariableConditionInput is an input type that accepts GetEventOrchestrationServiceCacheVariableConditionArgs and GetEventOrchestrationServiceCacheVariableConditionOutput values.
+// You can construct a concrete instance of `GetEventOrchestrationServiceCacheVariableConditionInput` via:
+//
+//	GetEventOrchestrationServiceCacheVariableConditionArgs{...}
+type GetEventOrchestrationServiceCacheVariableConditionInput interface {
+	pulumi.Input
+
+	ToGetEventOrchestrationServiceCacheVariableConditionOutput() GetEventOrchestrationServiceCacheVariableConditionOutput
+	ToGetEventOrchestrationServiceCacheVariableConditionOutputWithContext(context.Context) GetEventOrchestrationServiceCacheVariableConditionOutput
+}
+
+type GetEventOrchestrationServiceCacheVariableConditionArgs struct {
+	// A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+	Expression pulumi.StringInput `pulumi:"expression"`
+}
+
+func (GetEventOrchestrationServiceCacheVariableConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEventOrchestrationServiceCacheVariableCondition)(nil)).Elem()
+}
+
+func (i GetEventOrchestrationServiceCacheVariableConditionArgs) ToGetEventOrchestrationServiceCacheVariableConditionOutput() GetEventOrchestrationServiceCacheVariableConditionOutput {
+	return i.ToGetEventOrchestrationServiceCacheVariableConditionOutputWithContext(context.Background())
+}
+
+func (i GetEventOrchestrationServiceCacheVariableConditionArgs) ToGetEventOrchestrationServiceCacheVariableConditionOutputWithContext(ctx context.Context) GetEventOrchestrationServiceCacheVariableConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEventOrchestrationServiceCacheVariableConditionOutput)
+}
+
+// GetEventOrchestrationServiceCacheVariableConditionArrayInput is an input type that accepts GetEventOrchestrationServiceCacheVariableConditionArray and GetEventOrchestrationServiceCacheVariableConditionArrayOutput values.
+// You can construct a concrete instance of `GetEventOrchestrationServiceCacheVariableConditionArrayInput` via:
+//
+//	GetEventOrchestrationServiceCacheVariableConditionArray{ GetEventOrchestrationServiceCacheVariableConditionArgs{...} }
+type GetEventOrchestrationServiceCacheVariableConditionArrayInput interface {
+	pulumi.Input
+
+	ToGetEventOrchestrationServiceCacheVariableConditionArrayOutput() GetEventOrchestrationServiceCacheVariableConditionArrayOutput
+	ToGetEventOrchestrationServiceCacheVariableConditionArrayOutputWithContext(context.Context) GetEventOrchestrationServiceCacheVariableConditionArrayOutput
+}
+
+type GetEventOrchestrationServiceCacheVariableConditionArray []GetEventOrchestrationServiceCacheVariableConditionInput
+
+func (GetEventOrchestrationServiceCacheVariableConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEventOrchestrationServiceCacheVariableCondition)(nil)).Elem()
+}
+
+func (i GetEventOrchestrationServiceCacheVariableConditionArray) ToGetEventOrchestrationServiceCacheVariableConditionArrayOutput() GetEventOrchestrationServiceCacheVariableConditionArrayOutput {
+	return i.ToGetEventOrchestrationServiceCacheVariableConditionArrayOutputWithContext(context.Background())
+}
+
+func (i GetEventOrchestrationServiceCacheVariableConditionArray) ToGetEventOrchestrationServiceCacheVariableConditionArrayOutputWithContext(ctx context.Context) GetEventOrchestrationServiceCacheVariableConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEventOrchestrationServiceCacheVariableConditionArrayOutput)
+}
+
+type GetEventOrchestrationServiceCacheVariableConditionOutput struct{ *pulumi.OutputState }
+
+func (GetEventOrchestrationServiceCacheVariableConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEventOrchestrationServiceCacheVariableCondition)(nil)).Elem()
+}
+
+func (o GetEventOrchestrationServiceCacheVariableConditionOutput) ToGetEventOrchestrationServiceCacheVariableConditionOutput() GetEventOrchestrationServiceCacheVariableConditionOutput {
+	return o
+}
+
+func (o GetEventOrchestrationServiceCacheVariableConditionOutput) ToGetEventOrchestrationServiceCacheVariableConditionOutputWithContext(ctx context.Context) GetEventOrchestrationServiceCacheVariableConditionOutput {
+	return o
+}
+
+// A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+func (o GetEventOrchestrationServiceCacheVariableConditionOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventOrchestrationServiceCacheVariableCondition) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+type GetEventOrchestrationServiceCacheVariableConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEventOrchestrationServiceCacheVariableConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEventOrchestrationServiceCacheVariableCondition)(nil)).Elem()
+}
+
+func (o GetEventOrchestrationServiceCacheVariableConditionArrayOutput) ToGetEventOrchestrationServiceCacheVariableConditionArrayOutput() GetEventOrchestrationServiceCacheVariableConditionArrayOutput {
+	return o
+}
+
+func (o GetEventOrchestrationServiceCacheVariableConditionArrayOutput) ToGetEventOrchestrationServiceCacheVariableConditionArrayOutputWithContext(ctx context.Context) GetEventOrchestrationServiceCacheVariableConditionArrayOutput {
+	return o
+}
+
+func (o GetEventOrchestrationServiceCacheVariableConditionArrayOutput) Index(i pulumi.IntInput) GetEventOrchestrationServiceCacheVariableConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEventOrchestrationServiceCacheVariableCondition {
+		return vs[0].([]GetEventOrchestrationServiceCacheVariableCondition)[vs[1].(int)]
+	}).(GetEventOrchestrationServiceCacheVariableConditionOutput)
+}
+
+type GetEventOrchestrationServiceCacheVariableConfiguration struct {
+	// A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
+	Regex string `pulumi:"regex"`
+	// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
+	Source string `pulumi:"source"`
+	// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount`
+	TtlSeconds int `pulumi:"ttlSeconds"`
+	// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue` or `triggerEventCount`.
+	Type string `pulumi:"type"`
+}
+
+// GetEventOrchestrationServiceCacheVariableConfigurationInput is an input type that accepts GetEventOrchestrationServiceCacheVariableConfigurationArgs and GetEventOrchestrationServiceCacheVariableConfigurationOutput values.
+// You can construct a concrete instance of `GetEventOrchestrationServiceCacheVariableConfigurationInput` via:
+//
+//	GetEventOrchestrationServiceCacheVariableConfigurationArgs{...}
+type GetEventOrchestrationServiceCacheVariableConfigurationInput interface {
+	pulumi.Input
+
+	ToGetEventOrchestrationServiceCacheVariableConfigurationOutput() GetEventOrchestrationServiceCacheVariableConfigurationOutput
+	ToGetEventOrchestrationServiceCacheVariableConfigurationOutputWithContext(context.Context) GetEventOrchestrationServiceCacheVariableConfigurationOutput
+}
+
+type GetEventOrchestrationServiceCacheVariableConfigurationArgs struct {
+	// A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
+	Regex pulumi.StringInput `pulumi:"regex"`
+	// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
+	Source pulumi.StringInput `pulumi:"source"`
+	// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount`
+	TtlSeconds pulumi.IntInput `pulumi:"ttlSeconds"`
+	// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue` or `triggerEventCount`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetEventOrchestrationServiceCacheVariableConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEventOrchestrationServiceCacheVariableConfiguration)(nil)).Elem()
+}
+
+func (i GetEventOrchestrationServiceCacheVariableConfigurationArgs) ToGetEventOrchestrationServiceCacheVariableConfigurationOutput() GetEventOrchestrationServiceCacheVariableConfigurationOutput {
+	return i.ToGetEventOrchestrationServiceCacheVariableConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetEventOrchestrationServiceCacheVariableConfigurationArgs) ToGetEventOrchestrationServiceCacheVariableConfigurationOutputWithContext(ctx context.Context) GetEventOrchestrationServiceCacheVariableConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEventOrchestrationServiceCacheVariableConfigurationOutput)
+}
+
+// GetEventOrchestrationServiceCacheVariableConfigurationArrayInput is an input type that accepts GetEventOrchestrationServiceCacheVariableConfigurationArray and GetEventOrchestrationServiceCacheVariableConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetEventOrchestrationServiceCacheVariableConfigurationArrayInput` via:
+//
+//	GetEventOrchestrationServiceCacheVariableConfigurationArray{ GetEventOrchestrationServiceCacheVariableConfigurationArgs{...} }
+type GetEventOrchestrationServiceCacheVariableConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetEventOrchestrationServiceCacheVariableConfigurationArrayOutput() GetEventOrchestrationServiceCacheVariableConfigurationArrayOutput
+	ToGetEventOrchestrationServiceCacheVariableConfigurationArrayOutputWithContext(context.Context) GetEventOrchestrationServiceCacheVariableConfigurationArrayOutput
+}
+
+type GetEventOrchestrationServiceCacheVariableConfigurationArray []GetEventOrchestrationServiceCacheVariableConfigurationInput
+
+func (GetEventOrchestrationServiceCacheVariableConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEventOrchestrationServiceCacheVariableConfiguration)(nil)).Elem()
+}
+
+func (i GetEventOrchestrationServiceCacheVariableConfigurationArray) ToGetEventOrchestrationServiceCacheVariableConfigurationArrayOutput() GetEventOrchestrationServiceCacheVariableConfigurationArrayOutput {
+	return i.ToGetEventOrchestrationServiceCacheVariableConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetEventOrchestrationServiceCacheVariableConfigurationArray) ToGetEventOrchestrationServiceCacheVariableConfigurationArrayOutputWithContext(ctx context.Context) GetEventOrchestrationServiceCacheVariableConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEventOrchestrationServiceCacheVariableConfigurationArrayOutput)
+}
+
+type GetEventOrchestrationServiceCacheVariableConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetEventOrchestrationServiceCacheVariableConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEventOrchestrationServiceCacheVariableConfiguration)(nil)).Elem()
+}
+
+func (o GetEventOrchestrationServiceCacheVariableConfigurationOutput) ToGetEventOrchestrationServiceCacheVariableConfigurationOutput() GetEventOrchestrationServiceCacheVariableConfigurationOutput {
+	return o
+}
+
+func (o GetEventOrchestrationServiceCacheVariableConfigurationOutput) ToGetEventOrchestrationServiceCacheVariableConfigurationOutputWithContext(ctx context.Context) GetEventOrchestrationServiceCacheVariableConfigurationOutput {
+	return o
+}
+
+// A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recentValue`
+func (o GetEventOrchestrationServiceCacheVariableConfigurationOutput) Regex() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventOrchestrationServiceCacheVariableConfiguration) string { return v.Regex }).(pulumi.StringOutput)
+}
+
+// The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recentValue`
+func (o GetEventOrchestrationServiceCacheVariableConfigurationOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventOrchestrationServiceCacheVariableConfiguration) string { return v.Source }).(pulumi.StringOutput)
+}
+
+// The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `triggerEventCount`
+func (o GetEventOrchestrationServiceCacheVariableConfigurationOutput) TtlSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v GetEventOrchestrationServiceCacheVariableConfiguration) int { return v.TtlSeconds }).(pulumi.IntOutput)
+}
+
+// The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recentValue` or `triggerEventCount`.
+func (o GetEventOrchestrationServiceCacheVariableConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventOrchestrationServiceCacheVariableConfiguration) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetEventOrchestrationServiceCacheVariableConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEventOrchestrationServiceCacheVariableConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEventOrchestrationServiceCacheVariableConfiguration)(nil)).Elem()
+}
+
+func (o GetEventOrchestrationServiceCacheVariableConfigurationArrayOutput) ToGetEventOrchestrationServiceCacheVariableConfigurationArrayOutput() GetEventOrchestrationServiceCacheVariableConfigurationArrayOutput {
+	return o
+}
+
+func (o GetEventOrchestrationServiceCacheVariableConfigurationArrayOutput) ToGetEventOrchestrationServiceCacheVariableConfigurationArrayOutputWithContext(ctx context.Context) GetEventOrchestrationServiceCacheVariableConfigurationArrayOutput {
+	return o
+}
+
+func (o GetEventOrchestrationServiceCacheVariableConfigurationArrayOutput) Index(i pulumi.IntInput) GetEventOrchestrationServiceCacheVariableConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEventOrchestrationServiceCacheVariableConfiguration {
+		return vs[0].([]GetEventOrchestrationServiceCacheVariableConfiguration)[vs[1].(int)]
+	}).(GetEventOrchestrationServiceCacheVariableConfigurationOutput)
 }
 
 type GetEventOrchestrationsEventOrchestration struct {
@@ -19803,6 +20827,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EscalationPolicyRuleEscalationRuleAssignmentStrategyPtrInput)(nil)).Elem(), EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EscalationPolicyRuleTargetInput)(nil)).Elem(), EscalationPolicyRuleTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EscalationPolicyRuleTargetArrayInput)(nil)).Elem(), EscalationPolicyRuleTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationGlobalCacheVariableConditionInput)(nil)).Elem(), EventOrchestrationGlobalCacheVariableConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationGlobalCacheVariableConditionArrayInput)(nil)).Elem(), EventOrchestrationGlobalCacheVariableConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationGlobalCacheVariableConfigurationInput)(nil)).Elem(), EventOrchestrationGlobalCacheVariableConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationGlobalCacheVariableConfigurationPtrInput)(nil)).Elem(), EventOrchestrationGlobalCacheVariableConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationGlobalCatchAllInput)(nil)).Elem(), EventOrchestrationGlobalCatchAllArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationGlobalCatchAllPtrInput)(nil)).Elem(), EventOrchestrationGlobalCatchAllArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationGlobalCatchAllActionsInput)(nil)).Elem(), EventOrchestrationGlobalCatchAllActionsArgs{})
@@ -19853,6 +20881,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationRouterSetRuleActionsInput)(nil)).Elem(), EventOrchestrationRouterSetRuleActionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationRouterSetRuleConditionInput)(nil)).Elem(), EventOrchestrationRouterSetRuleConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationRouterSetRuleConditionArrayInput)(nil)).Elem(), EventOrchestrationRouterSetRuleConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceCacheVariableConditionInput)(nil)).Elem(), EventOrchestrationServiceCacheVariableConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceCacheVariableConditionArrayInput)(nil)).Elem(), EventOrchestrationServiceCacheVariableConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceCacheVariableConfigurationInput)(nil)).Elem(), EventOrchestrationServiceCacheVariableConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceCacheVariableConfigurationPtrInput)(nil)).Elem(), EventOrchestrationServiceCacheVariableConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceCatchAllInput)(nil)).Elem(), EventOrchestrationServiceCatchAllArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceCatchAllPtrInput)(nil)).Elem(), EventOrchestrationServiceCatchAllArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventOrchestrationServiceCatchAllActionsInput)(nil)).Elem(), EventOrchestrationServiceCatchAllActionsArgs{})
@@ -20054,12 +21086,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookSubscriptionFilterArrayInput)(nil)).Elem(), WebhookSubscriptionFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAutomationActionsActionActionDataReferenceInput)(nil)).Elem(), GetAutomationActionsActionActionDataReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAutomationActionsActionActionDataReferenceArrayInput)(nil)).Elem(), GetAutomationActionsActionActionDataReferenceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationGlobalCacheVariableConditionInput)(nil)).Elem(), GetEventOrchestrationGlobalCacheVariableConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationGlobalCacheVariableConditionArrayInput)(nil)).Elem(), GetEventOrchestrationGlobalCacheVariableConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationGlobalCacheVariableConfigurationInput)(nil)).Elem(), GetEventOrchestrationGlobalCacheVariableConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationGlobalCacheVariableConfigurationArrayInput)(nil)).Elem(), GetEventOrchestrationGlobalCacheVariableConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationIntegrationDetailInput)(nil)).Elem(), GetEventOrchestrationIntegrationDetailArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationIntegrationDetailArrayInput)(nil)).Elem(), GetEventOrchestrationIntegrationDetailArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationIntegrationDetailParameterInput)(nil)).Elem(), GetEventOrchestrationIntegrationDetailParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationIntegrationDetailParameterArrayInput)(nil)).Elem(), GetEventOrchestrationIntegrationDetailParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationIntegrationParameterInput)(nil)).Elem(), GetEventOrchestrationIntegrationParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationIntegrationParameterArrayInput)(nil)).Elem(), GetEventOrchestrationIntegrationParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationServiceCacheVariableConditionInput)(nil)).Elem(), GetEventOrchestrationServiceCacheVariableConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationServiceCacheVariableConditionArrayInput)(nil)).Elem(), GetEventOrchestrationServiceCacheVariableConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationServiceCacheVariableConfigurationInput)(nil)).Elem(), GetEventOrchestrationServiceCacheVariableConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationServiceCacheVariableConfigurationArrayInput)(nil)).Elem(), GetEventOrchestrationServiceCacheVariableConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationsEventOrchestrationInput)(nil)).Elem(), GetEventOrchestrationsEventOrchestrationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationsEventOrchestrationArrayInput)(nil)).Elem(), GetEventOrchestrationsEventOrchestrationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEventOrchestrationsEventOrchestrationIntegrationInput)(nil)).Elem(), GetEventOrchestrationsEventOrchestrationIntegrationArgs{})
@@ -20096,6 +21136,10 @@ func init() {
 	pulumi.RegisterOutputType(EscalationPolicyRuleEscalationRuleAssignmentStrategyPtrOutput{})
 	pulumi.RegisterOutputType(EscalationPolicyRuleTargetOutput{})
 	pulumi.RegisterOutputType(EscalationPolicyRuleTargetArrayOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationGlobalCacheVariableConditionOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationGlobalCacheVariableConditionArrayOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationGlobalCacheVariableConfigurationOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationGlobalCacheVariableConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(EventOrchestrationGlobalCatchAllOutput{})
 	pulumi.RegisterOutputType(EventOrchestrationGlobalCatchAllPtrOutput{})
 	pulumi.RegisterOutputType(EventOrchestrationGlobalCatchAllActionsOutput{})
@@ -20146,6 +21190,10 @@ func init() {
 	pulumi.RegisterOutputType(EventOrchestrationRouterSetRuleActionsOutput{})
 	pulumi.RegisterOutputType(EventOrchestrationRouterSetRuleConditionOutput{})
 	pulumi.RegisterOutputType(EventOrchestrationRouterSetRuleConditionArrayOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceCacheVariableConditionOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceCacheVariableConditionArrayOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceCacheVariableConfigurationOutput{})
+	pulumi.RegisterOutputType(EventOrchestrationServiceCacheVariableConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(EventOrchestrationServiceCatchAllOutput{})
 	pulumi.RegisterOutputType(EventOrchestrationServiceCatchAllPtrOutput{})
 	pulumi.RegisterOutputType(EventOrchestrationServiceCatchAllActionsOutput{})
@@ -20347,12 +21395,20 @@ func init() {
 	pulumi.RegisterOutputType(WebhookSubscriptionFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetAutomationActionsActionActionDataReferenceOutput{})
 	pulumi.RegisterOutputType(GetAutomationActionsActionActionDataReferenceArrayOutput{})
+	pulumi.RegisterOutputType(GetEventOrchestrationGlobalCacheVariableConditionOutput{})
+	pulumi.RegisterOutputType(GetEventOrchestrationGlobalCacheVariableConditionArrayOutput{})
+	pulumi.RegisterOutputType(GetEventOrchestrationGlobalCacheVariableConfigurationOutput{})
+	pulumi.RegisterOutputType(GetEventOrchestrationGlobalCacheVariableConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetEventOrchestrationIntegrationDetailOutput{})
 	pulumi.RegisterOutputType(GetEventOrchestrationIntegrationDetailArrayOutput{})
 	pulumi.RegisterOutputType(GetEventOrchestrationIntegrationDetailParameterOutput{})
 	pulumi.RegisterOutputType(GetEventOrchestrationIntegrationDetailParameterArrayOutput{})
 	pulumi.RegisterOutputType(GetEventOrchestrationIntegrationParameterOutput{})
 	pulumi.RegisterOutputType(GetEventOrchestrationIntegrationParameterArrayOutput{})
+	pulumi.RegisterOutputType(GetEventOrchestrationServiceCacheVariableConditionOutput{})
+	pulumi.RegisterOutputType(GetEventOrchestrationServiceCacheVariableConditionArrayOutput{})
+	pulumi.RegisterOutputType(GetEventOrchestrationServiceCacheVariableConfigurationOutput{})
+	pulumi.RegisterOutputType(GetEventOrchestrationServiceCacheVariableConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetEventOrchestrationsEventOrchestrationOutput{})
 	pulumi.RegisterOutputType(GetEventOrchestrationsEventOrchestrationArrayOutput{})
 	pulumi.RegisterOutputType(GetEventOrchestrationsEventOrchestrationIntegrationOutput{})

@@ -15,6 +15,8 @@ __all__ = [
     'EscalationPolicyRule',
     'EscalationPolicyRuleEscalationRuleAssignmentStrategy',
     'EscalationPolicyRuleTarget',
+    'EventOrchestrationGlobalCacheVariableCondition',
+    'EventOrchestrationGlobalCacheVariableConfiguration',
     'EventOrchestrationGlobalCatchAll',
     'EventOrchestrationGlobalCatchAllActions',
     'EventOrchestrationGlobalCatchAllActionsAutomationAction',
@@ -41,6 +43,8 @@ __all__ = [
     'EventOrchestrationRouterSetRule',
     'EventOrchestrationRouterSetRuleActions',
     'EventOrchestrationRouterSetRuleCondition',
+    'EventOrchestrationServiceCacheVariableCondition',
+    'EventOrchestrationServiceCacheVariableConfiguration',
     'EventOrchestrationServiceCatchAll',
     'EventOrchestrationServiceCatchAllActions',
     'EventOrchestrationServiceCatchAllActionsAutomationAction',
@@ -142,9 +146,13 @@ __all__ = [
     'WebhookSubscriptionDeliveryMethodCustomHeader',
     'WebhookSubscriptionFilter',
     'GetAutomationActionsActionActionDataReferenceResult',
+    'GetEventOrchestrationGlobalCacheVariableConditionResult',
+    'GetEventOrchestrationGlobalCacheVariableConfigurationResult',
     'GetEventOrchestrationIntegrationDetailResult',
     'GetEventOrchestrationIntegrationDetailParameterResult',
     'GetEventOrchestrationIntegrationParameterResult',
+    'GetEventOrchestrationServiceCacheVariableConditionResult',
+    'GetEventOrchestrationServiceCacheVariableConfigurationResult',
     'GetEventOrchestrationsEventOrchestrationResult',
     'GetEventOrchestrationsEventOrchestrationIntegrationResult',
     'GetEventOrchestrationsEventOrchestrationIntegrationParameterResult',
@@ -367,6 +375,95 @@ class EscalationPolicyRuleTarget(dict):
         Can be `user_reference` or `schedule_reference`. Defaults to `user_reference`. For multiple users as example, repeat the target.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class EventOrchestrationGlobalCacheVariableCondition(dict):
+    def __init__(__self__, *,
+                 expression: str):
+        """
+        :param str expression: A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+        """
+        pulumi.set(__self__, "expression", expression)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> str:
+        """
+        A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+        """
+        return pulumi.get(self, "expression")
+
+
+@pulumi.output_type
+class EventOrchestrationGlobalCacheVariableConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ttlSeconds":
+            suggest = "ttl_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventOrchestrationGlobalCacheVariableConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventOrchestrationGlobalCacheVariableConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventOrchestrationGlobalCacheVariableConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 regex: Optional[str] = None,
+                 source: Optional[str] = None,
+                 ttl_seconds: Optional[int] = None):
+        """
+        :param str type: The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value` or `trigger_event_count`.
+        :param str regex: A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
+        :param str source: The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recent_value`
+        :param int ttl_seconds: The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count`
+        """
+        pulumi.set(__self__, "type", type)
+        if regex is not None:
+            pulumi.set(__self__, "regex", regex)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+        if ttl_seconds is not None:
+            pulumi.set(__self__, "ttl_seconds", ttl_seconds)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value` or `trigger_event_count`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def regex(self) -> Optional[str]:
+        """
+        A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
+        """
+        return pulumi.get(self, "regex")
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[str]:
+        """
+        The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recent_value`
+        """
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter(name="ttlSeconds")
+    def ttl_seconds(self) -> Optional[int]:
+        """
+        The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count`
+        """
+        return pulumi.get(self, "ttl_seconds")
 
 
 @pulumi.output_type
@@ -1684,6 +1781,95 @@ class EventOrchestrationRouterSetRuleCondition(dict):
         A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
         """
         return pulumi.get(self, "expression")
+
+
+@pulumi.output_type
+class EventOrchestrationServiceCacheVariableCondition(dict):
+    def __init__(__self__, *,
+                 expression: str):
+        """
+        :param str expression: A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+        """
+        pulumi.set(__self__, "expression", expression)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> str:
+        """
+        A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+        """
+        return pulumi.get(self, "expression")
+
+
+@pulumi.output_type
+class EventOrchestrationServiceCacheVariableConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ttlSeconds":
+            suggest = "ttl_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventOrchestrationServiceCacheVariableConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventOrchestrationServiceCacheVariableConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventOrchestrationServiceCacheVariableConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 regex: Optional[str] = None,
+                 source: Optional[str] = None,
+                 ttl_seconds: Optional[int] = None):
+        """
+        :param str type: The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value` or `trigger_event_count`.
+        :param str regex: A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
+        :param str source: The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recent_value`
+        :param int ttl_seconds: The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count`
+        """
+        pulumi.set(__self__, "type", type)
+        if regex is not None:
+            pulumi.set(__self__, "regex", regex)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+        if ttl_seconds is not None:
+            pulumi.set(__self__, "ttl_seconds", ttl_seconds)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value` or `trigger_event_count`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def regex(self) -> Optional[str]:
+        """
+        A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
+        """
+        return pulumi.get(self, "regex")
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[str]:
+        """
+        The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recent_value`
+        """
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter(name="ttlSeconds")
+    def ttl_seconds(self) -> Optional[int]:
+        """
+        The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count`
+        """
+        return pulumi.get(self, "ttl_seconds")
 
 
 @pulumi.output_type
@@ -6820,6 +7006,75 @@ class GetAutomationActionsActionActionDataReferenceResult(dict):
 
 
 @pulumi.output_type
+class GetEventOrchestrationGlobalCacheVariableConditionResult(dict):
+    def __init__(__self__, *,
+                 expression: str):
+        """
+        :param str expression: A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+        """
+        pulumi.set(__self__, "expression", expression)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> str:
+        """
+        A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+        """
+        return pulumi.get(self, "expression")
+
+
+@pulumi.output_type
+class GetEventOrchestrationGlobalCacheVariableConfigurationResult(dict):
+    def __init__(__self__, *,
+                 regex: str,
+                 source: str,
+                 ttl_seconds: int,
+                 type: str):
+        """
+        :param str regex: A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
+        :param str source: The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recent_value`
+        :param int ttl_seconds: The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count`
+        :param str type: The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value` or `trigger_event_count`.
+        """
+        pulumi.set(__self__, "regex", regex)
+        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "ttl_seconds", ttl_seconds)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def regex(self) -> str:
+        """
+        A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
+        """
+        return pulumi.get(self, "regex")
+
+    @property
+    @pulumi.getter
+    def source(self) -> str:
+        """
+        The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recent_value`
+        """
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter(name="ttlSeconds")
+    def ttl_seconds(self) -> int:
+        """
+        The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count`
+        """
+        return pulumi.get(self, "ttl_seconds")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value` or `trigger_event_count`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class GetEventOrchestrationIntegrationDetailResult(dict):
     def __init__(__self__, *,
                  id: str,
@@ -6905,6 +7160,75 @@ class GetEventOrchestrationIntegrationParameterResult(dict):
     def type(self) -> str:
         """
         Type of the routing key. `global` is the default type.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetEventOrchestrationServiceCacheVariableConditionResult(dict):
+    def __init__(__self__, *,
+                 expression: str):
+        """
+        :param str expression: A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+        """
+        pulumi.set(__self__, "expression", expression)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> str:
+        """
+        A [PCL condition](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview) string.
+        """
+        return pulumi.get(self, "expression")
+
+
+@pulumi.output_type
+class GetEventOrchestrationServiceCacheVariableConfigurationResult(dict):
+    def __init__(__self__, *,
+                 regex: str,
+                 source: str,
+                 ttl_seconds: int,
+                 type: str):
+        """
+        :param str regex: A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
+        :param str source: The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recent_value`
+        :param int ttl_seconds: The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count`
+        :param str type: The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value` or `trigger_event_count`.
+        """
+        pulumi.set(__self__, "regex", regex)
+        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "ttl_seconds", ttl_seconds)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def regex(self) -> str:
+        """
+        A [RE2 regular expression][4] that will be matched against the field specified via the `source` argument. This field is only used when `type` is `recent_value`
+        """
+        return pulumi.get(self, "regex")
+
+    @property
+    @pulumi.getter
+    def source(self) -> str:
+        """
+        The path to the event field where the `regex` will be applied to extract a value. You can use any valid [PCL path](https://developer.pagerduty.com/docs/ZG9jOjM1NTE0MDc0-pcl-overview#paths). This field is only used when `type` is `recent_value`
+        """
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter(name="ttlSeconds")
+    def ttl_seconds(self) -> int:
+        """
+        The number of seconds indicating how long to count incoming trigger events for. This field is only used when `type` is `trigger_event_count`
+        """
+        return pulumi.get(self, "ttl_seconds")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The [type of value](https://support.pagerduty.com/docs/event-orchestration-variables) to store into the Cache Variable. Can be one of: `recent_value` or `trigger_event_count`.
         """
         return pulumi.get(self, "type")
 

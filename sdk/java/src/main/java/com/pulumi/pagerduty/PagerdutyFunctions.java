@@ -17,9 +17,13 @@ import com.pulumi.pagerduty.inputs.GetBusinessServicePlainArgs;
 import com.pulumi.pagerduty.inputs.GetEscalationPolicyArgs;
 import com.pulumi.pagerduty.inputs.GetEscalationPolicyPlainArgs;
 import com.pulumi.pagerduty.inputs.GetEventOrchestrationArgs;
+import com.pulumi.pagerduty.inputs.GetEventOrchestrationGlobalCacheVariableArgs;
+import com.pulumi.pagerduty.inputs.GetEventOrchestrationGlobalCacheVariablePlainArgs;
 import com.pulumi.pagerduty.inputs.GetEventOrchestrationIntegrationArgs;
 import com.pulumi.pagerduty.inputs.GetEventOrchestrationIntegrationPlainArgs;
 import com.pulumi.pagerduty.inputs.GetEventOrchestrationPlainArgs;
+import com.pulumi.pagerduty.inputs.GetEventOrchestrationServiceCacheVariableArgs;
+import com.pulumi.pagerduty.inputs.GetEventOrchestrationServiceCacheVariablePlainArgs;
 import com.pulumi.pagerduty.inputs.GetEventOrchestrationsArgs;
 import com.pulumi.pagerduty.inputs.GetEventOrchestrationsPlainArgs;
 import com.pulumi.pagerduty.inputs.GetExtensionSchemaArgs;
@@ -66,8 +70,10 @@ import com.pulumi.pagerduty.outputs.GetAutomationActionsActionResult;
 import com.pulumi.pagerduty.outputs.GetAutomationActionsRunnerResult;
 import com.pulumi.pagerduty.outputs.GetBusinessServiceResult;
 import com.pulumi.pagerduty.outputs.GetEscalationPolicyResult;
+import com.pulumi.pagerduty.outputs.GetEventOrchestrationGlobalCacheVariableResult;
 import com.pulumi.pagerduty.outputs.GetEventOrchestrationIntegrationResult;
 import com.pulumi.pagerduty.outputs.GetEventOrchestrationResult;
+import com.pulumi.pagerduty.outputs.GetEventOrchestrationServiceCacheVariableResult;
 import com.pulumi.pagerduty.outputs.GetEventOrchestrationsResult;
 import com.pulumi.pagerduty.outputs.GetExtensionSchemaResult;
 import com.pulumi.pagerduty.outputs.GetIncidentCustomFieldResult;
@@ -1025,6 +1031,182 @@ public final class PagerdutyFunctions {
         return Deployment.getInstance().invokeAsync("pagerduty:index/getEventOrchestration:getEventOrchestration", TypeShape.of(GetEventOrchestrationResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to get information about a specific [Cache Variable](https://support.pagerduty.com/docs/event-orchestration-variables) for a Global Event Orchestration.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.EventOrchestration;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetEventOrchestrationGlobalCacheVariableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var eventOrchestration = new EventOrchestration(&#34;eventOrchestration&#34;);
+     * 
+     *         final var cacheVariable = PagerdutyFunctions.getEventOrchestrationGlobalCacheVariable(GetEventOrchestrationGlobalCacheVariableArgs.builder()
+     *             .eventOrchestration(eventOrchestration.id())
+     *             .name(&#34;example_cache_variable&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetEventOrchestrationGlobalCacheVariableResult> getEventOrchestrationGlobalCacheVariable(GetEventOrchestrationGlobalCacheVariableArgs args) {
+        return getEventOrchestrationGlobalCacheVariable(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about a specific [Cache Variable](https://support.pagerduty.com/docs/event-orchestration-variables) for a Global Event Orchestration.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.EventOrchestration;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetEventOrchestrationGlobalCacheVariableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var eventOrchestration = new EventOrchestration(&#34;eventOrchestration&#34;);
+     * 
+     *         final var cacheVariable = PagerdutyFunctions.getEventOrchestrationGlobalCacheVariable(GetEventOrchestrationGlobalCacheVariableArgs.builder()
+     *             .eventOrchestration(eventOrchestration.id())
+     *             .name(&#34;example_cache_variable&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetEventOrchestrationGlobalCacheVariableResult> getEventOrchestrationGlobalCacheVariablePlain(GetEventOrchestrationGlobalCacheVariablePlainArgs args) {
+        return getEventOrchestrationGlobalCacheVariablePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about a specific [Cache Variable](https://support.pagerduty.com/docs/event-orchestration-variables) for a Global Event Orchestration.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.EventOrchestration;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetEventOrchestrationGlobalCacheVariableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var eventOrchestration = new EventOrchestration(&#34;eventOrchestration&#34;);
+     * 
+     *         final var cacheVariable = PagerdutyFunctions.getEventOrchestrationGlobalCacheVariable(GetEventOrchestrationGlobalCacheVariableArgs.builder()
+     *             .eventOrchestration(eventOrchestration.id())
+     *             .name(&#34;example_cache_variable&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetEventOrchestrationGlobalCacheVariableResult> getEventOrchestrationGlobalCacheVariable(GetEventOrchestrationGlobalCacheVariableArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getEventOrchestrationGlobalCacheVariable:getEventOrchestrationGlobalCacheVariable", TypeShape.of(GetEventOrchestrationGlobalCacheVariableResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [Cache Variable](https://support.pagerduty.com/docs/event-orchestration-variables) for a Global Event Orchestration.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.EventOrchestration;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetEventOrchestrationGlobalCacheVariableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var eventOrchestration = new EventOrchestration(&#34;eventOrchestration&#34;);
+     * 
+     *         final var cacheVariable = PagerdutyFunctions.getEventOrchestrationGlobalCacheVariable(GetEventOrchestrationGlobalCacheVariableArgs.builder()
+     *             .eventOrchestration(eventOrchestration.id())
+     *             .name(&#34;example_cache_variable&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetEventOrchestrationGlobalCacheVariableResult> getEventOrchestrationGlobalCacheVariablePlain(GetEventOrchestrationGlobalCacheVariablePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("pagerduty:index/getEventOrchestrationGlobalCacheVariable:getEventOrchestrationGlobalCacheVariable", TypeShape.of(GetEventOrchestrationGlobalCacheVariableResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Use this data source to get information about a specific [Integration](https://developer.pagerduty.com/api-reference/1c6607db389a8-get-an-integration-for-an-event-orchestration) for an Event Orchestration.
      * 
      * ## Example Usage
@@ -1199,6 +1381,302 @@ public final class PagerdutyFunctions {
      */
     public static CompletableFuture<GetEventOrchestrationIntegrationResult> getEventOrchestrationIntegrationPlain(GetEventOrchestrationIntegrationPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("pagerduty:index/getEventOrchestrationIntegration:getEventOrchestrationIntegration", TypeShape.of(GetEventOrchestrationIntegrationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [Cache Variable](https://support.pagerduty.com/docs/event-orchestration-variables) for a Service Event Orchestration.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.Team;
+     * import com.pulumi.pagerduty.User;
+     * import com.pulumi.pagerduty.UserArgs;
+     * import com.pulumi.pagerduty.EscalationPolicy;
+     * import com.pulumi.pagerduty.EscalationPolicyArgs;
+     * import com.pulumi.pagerduty.inputs.EscalationPolicyRuleArgs;
+     * import com.pulumi.pagerduty.Service;
+     * import com.pulumi.pagerduty.ServiceArgs;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetEventOrchestrationServiceCacheVariableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var engineering = new Team(&#34;engineering&#34;);
+     * 
+     *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
+     *             .email(&#34;125.greenholt.earline@graham.name&#34;)
+     *             .teams(engineering.id())
+     *             .build());
+     * 
+     *         var exampleEscalationPolicy = new EscalationPolicy(&#34;exampleEscalationPolicy&#34;, EscalationPolicyArgs.builder()        
+     *             .numLoops(2)
+     *             .rules(EscalationPolicyRuleArgs.builder()
+     *                 .escalationDelayInMinutes(10)
+     *                 .targets(EscalationPolicyRuleTargetArgs.builder()
+     *                     .type(&#34;user&#34;)
+     *                     .id(exampleUser.id())
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *         var service = new Service(&#34;service&#34;, ServiceArgs.builder()        
+     *             .autoResolveTimeout(14400)
+     *             .acknowledgementTimeout(600)
+     *             .escalationPolicy(exampleEscalationPolicy.id())
+     *             .alertCreation(&#34;create_alerts_and_incidents&#34;)
+     *             .build());
+     * 
+     *         final var cacheVariable = PagerdutyFunctions.getEventOrchestrationServiceCacheVariable(GetEventOrchestrationServiceCacheVariableArgs.builder()
+     *             .service(service.id())
+     *             .name(&#34;example_cache_variable&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetEventOrchestrationServiceCacheVariableResult> getEventOrchestrationServiceCacheVariable(GetEventOrchestrationServiceCacheVariableArgs args) {
+        return getEventOrchestrationServiceCacheVariable(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about a specific [Cache Variable](https://support.pagerduty.com/docs/event-orchestration-variables) for a Service Event Orchestration.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.Team;
+     * import com.pulumi.pagerduty.User;
+     * import com.pulumi.pagerduty.UserArgs;
+     * import com.pulumi.pagerduty.EscalationPolicy;
+     * import com.pulumi.pagerduty.EscalationPolicyArgs;
+     * import com.pulumi.pagerduty.inputs.EscalationPolicyRuleArgs;
+     * import com.pulumi.pagerduty.Service;
+     * import com.pulumi.pagerduty.ServiceArgs;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetEventOrchestrationServiceCacheVariableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var engineering = new Team(&#34;engineering&#34;);
+     * 
+     *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
+     *             .email(&#34;125.greenholt.earline@graham.name&#34;)
+     *             .teams(engineering.id())
+     *             .build());
+     * 
+     *         var exampleEscalationPolicy = new EscalationPolicy(&#34;exampleEscalationPolicy&#34;, EscalationPolicyArgs.builder()        
+     *             .numLoops(2)
+     *             .rules(EscalationPolicyRuleArgs.builder()
+     *                 .escalationDelayInMinutes(10)
+     *                 .targets(EscalationPolicyRuleTargetArgs.builder()
+     *                     .type(&#34;user&#34;)
+     *                     .id(exampleUser.id())
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *         var service = new Service(&#34;service&#34;, ServiceArgs.builder()        
+     *             .autoResolveTimeout(14400)
+     *             .acknowledgementTimeout(600)
+     *             .escalationPolicy(exampleEscalationPolicy.id())
+     *             .alertCreation(&#34;create_alerts_and_incidents&#34;)
+     *             .build());
+     * 
+     *         final var cacheVariable = PagerdutyFunctions.getEventOrchestrationServiceCacheVariable(GetEventOrchestrationServiceCacheVariableArgs.builder()
+     *             .service(service.id())
+     *             .name(&#34;example_cache_variable&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetEventOrchestrationServiceCacheVariableResult> getEventOrchestrationServiceCacheVariablePlain(GetEventOrchestrationServiceCacheVariablePlainArgs args) {
+        return getEventOrchestrationServiceCacheVariablePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get information about a specific [Cache Variable](https://support.pagerduty.com/docs/event-orchestration-variables) for a Service Event Orchestration.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.Team;
+     * import com.pulumi.pagerduty.User;
+     * import com.pulumi.pagerduty.UserArgs;
+     * import com.pulumi.pagerduty.EscalationPolicy;
+     * import com.pulumi.pagerduty.EscalationPolicyArgs;
+     * import com.pulumi.pagerduty.inputs.EscalationPolicyRuleArgs;
+     * import com.pulumi.pagerduty.Service;
+     * import com.pulumi.pagerduty.ServiceArgs;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetEventOrchestrationServiceCacheVariableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var engineering = new Team(&#34;engineering&#34;);
+     * 
+     *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
+     *             .email(&#34;125.greenholt.earline@graham.name&#34;)
+     *             .teams(engineering.id())
+     *             .build());
+     * 
+     *         var exampleEscalationPolicy = new EscalationPolicy(&#34;exampleEscalationPolicy&#34;, EscalationPolicyArgs.builder()        
+     *             .numLoops(2)
+     *             .rules(EscalationPolicyRuleArgs.builder()
+     *                 .escalationDelayInMinutes(10)
+     *                 .targets(EscalationPolicyRuleTargetArgs.builder()
+     *                     .type(&#34;user&#34;)
+     *                     .id(exampleUser.id())
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *         var service = new Service(&#34;service&#34;, ServiceArgs.builder()        
+     *             .autoResolveTimeout(14400)
+     *             .acknowledgementTimeout(600)
+     *             .escalationPolicy(exampleEscalationPolicy.id())
+     *             .alertCreation(&#34;create_alerts_and_incidents&#34;)
+     *             .build());
+     * 
+     *         final var cacheVariable = PagerdutyFunctions.getEventOrchestrationServiceCacheVariable(GetEventOrchestrationServiceCacheVariableArgs.builder()
+     *             .service(service.id())
+     *             .name(&#34;example_cache_variable&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetEventOrchestrationServiceCacheVariableResult> getEventOrchestrationServiceCacheVariable(GetEventOrchestrationServiceCacheVariableArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("pagerduty:index/getEventOrchestrationServiceCacheVariable:getEventOrchestrationServiceCacheVariable", TypeShape.of(GetEventOrchestrationServiceCacheVariableResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information about a specific [Cache Variable](https://support.pagerduty.com/docs/event-orchestration-variables) for a Service Event Orchestration.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.pagerduty.Team;
+     * import com.pulumi.pagerduty.User;
+     * import com.pulumi.pagerduty.UserArgs;
+     * import com.pulumi.pagerduty.EscalationPolicy;
+     * import com.pulumi.pagerduty.EscalationPolicyArgs;
+     * import com.pulumi.pagerduty.inputs.EscalationPolicyRuleArgs;
+     * import com.pulumi.pagerduty.Service;
+     * import com.pulumi.pagerduty.ServiceArgs;
+     * import com.pulumi.pagerduty.PagerdutyFunctions;
+     * import com.pulumi.pagerduty.inputs.GetEventOrchestrationServiceCacheVariableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var engineering = new Team(&#34;engineering&#34;);
+     * 
+     *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
+     *             .email(&#34;125.greenholt.earline@graham.name&#34;)
+     *             .teams(engineering.id())
+     *             .build());
+     * 
+     *         var exampleEscalationPolicy = new EscalationPolicy(&#34;exampleEscalationPolicy&#34;, EscalationPolicyArgs.builder()        
+     *             .numLoops(2)
+     *             .rules(EscalationPolicyRuleArgs.builder()
+     *                 .escalationDelayInMinutes(10)
+     *                 .targets(EscalationPolicyRuleTargetArgs.builder()
+     *                     .type(&#34;user&#34;)
+     *                     .id(exampleUser.id())
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *         var service = new Service(&#34;service&#34;, ServiceArgs.builder()        
+     *             .autoResolveTimeout(14400)
+     *             .acknowledgementTimeout(600)
+     *             .escalationPolicy(exampleEscalationPolicy.id())
+     *             .alertCreation(&#34;create_alerts_and_incidents&#34;)
+     *             .build());
+     * 
+     *         final var cacheVariable = PagerdutyFunctions.getEventOrchestrationServiceCacheVariable(GetEventOrchestrationServiceCacheVariableArgs.builder()
+     *             .service(service.id())
+     *             .name(&#34;example_cache_variable&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetEventOrchestrationServiceCacheVariableResult> getEventOrchestrationServiceCacheVariablePlain(GetEventOrchestrationServiceCacheVariablePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("pagerduty:index/getEventOrchestrationServiceCacheVariable:getEventOrchestrationServiceCacheVariable", TypeShape.of(GetEventOrchestrationServiceCacheVariableResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get information as a list about specific Global [Event Orchestrations](https://developer.pagerduty.com/api-reference/7ba0fe7bdb26a-list-event-orchestrations) filtered by a Regular Expression provided.

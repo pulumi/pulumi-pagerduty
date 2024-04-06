@@ -446,7 +446,7 @@ class ServiceIntegration(pulumi.CustomResource):
                  vendor: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        A [service integration](<https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1services~1%!B(MISSING)id%!D(MISSING)~1integrations/post>) is an integration that belongs to a service.
+        A [service integration](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1services~1%7Bid%7D~1integrations/post) is an integration that belongs to a service.
 
         ## Example Usage
 
@@ -593,7 +593,7 @@ class ServiceIntegration(pulumi.CustomResource):
                  args: ServiceIntegrationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        A [service integration](<https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1services~1%!B(MISSING)id%!D(MISSING)~1integrations/post>) is an integration that belongs to a service.
+        A [service integration](https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1services~1%7Bid%7D~1integrations/post) is an integration that belongs to a service.
 
         ## Example Usage
 

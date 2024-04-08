@@ -1,0 +1,29 @@
+name: index_serviceC4RpGFX96o6e
+runtime: yaml
+description: ""
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: https://www.pulumi.com/ai/api/project/c7f91218-3e35-4816-a414-55b818a5630e.zip
+resources:
+  myPagerDutyEscalationPolicy:
+    properties:
+      description: Managed by Pulumi
+      rules:
+        - escalationDelayInMinutes: 30
+          targets:
+            - id: ${myPagerDutyUser.id}
+              type: user_reference
+    type: pagerduty:EscalationPolicy
+  myPagerDutyService:
+    properties:
+      description: Managed by Pulumi
+      escalationPolicy: ${myPagerDutyEscalationPolicy.id}
+    type: pagerduty:Service
+  myPagerDutyUser:
+    properties:
+      color: green
+      description: Managed by Pulumi
+      email: example-user@pulumi.com
+      role: admin
+    type: pagerduty:User

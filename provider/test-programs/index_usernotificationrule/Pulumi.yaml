@@ -1,0 +1,32 @@
+name: index_usernotificationrule3QHQmt1TBMcW
+runtime: yaml
+description: ""
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: https://www.pulumi.com/ai/api/project/d1fa4539-6408-419f-aaf8-01c05371167c.zip
+resources:
+  pagerduty_contact_method:
+    properties:
+      address: user@pulumi.com
+      label: Work Email
+      type: email_contact_method
+      userId: ${pagerduty_user.id}
+    type: pagerduty:UserContactMethod
+  pagerduty_notification_rule:
+    properties:
+      contactMethod:
+        id: ${pagerduty_contact_method.id}
+        type: email_contact_method
+      startDelayInMinutes: 1
+      urgency: high
+      userId: ${pagerduty_user.id}
+    type: pagerduty:UserNotificationRule
+  pagerduty_user:
+    properties:
+      color: red
+      description: Managed by Pulumi
+      email: user@pulumi.com
+      role: admin
+      timeZone: America/Los_Angeles
+    type: pagerduty:User

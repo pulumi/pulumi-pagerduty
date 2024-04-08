@@ -1,0 +1,27 @@
+name: index_scheduleH0YN8AIQu29L
+runtime: yaml
+description: ""
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: https://www.pulumi.com/ai/api/project/cef0db59-fe2a-4712-abcf-9c645e17949b.zip
+resources:
+  pagerdutySchedule:
+    properties:
+      description: This is an example schedule managed by Pulumi
+      layers:
+        - restrictions: []
+          rotationTurnLengthSeconds: 604800
+          rotationVirtualStart: 2023-01-01T00:00:00Z
+          start: 2023-01-01T00:00:00Z
+          users:
+            - ${pagerdutyUser.id}
+      timeZone: Etc/UTC
+    type: pagerduty:Schedule
+  pagerdutyUser:
+    properties:
+      color: green
+      email: scheduled_user@pulumi.com
+      role: admin
+      teams: []
+    type: pagerduty:User

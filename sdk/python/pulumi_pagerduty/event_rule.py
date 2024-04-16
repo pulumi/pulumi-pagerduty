@@ -256,7 +256,7 @@ class EventRule(pulumi.CustomResource):
                     "homer",
                 ],
             ]),
-            opts=pulumi.ResourceOptions(depends_on=[pagerduty_event_rule["two"]]))
+            opts=pulumi.ResourceOptions(depends_on=[two]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -390,7 +390,7 @@ class EventRule(pulumi.CustomResource):
                     "homer",
                 ],
             ]),
-            opts=pulumi.ResourceOptions(depends_on=[pagerduty_event_rule["two"]]))
+            opts=pulumi.ResourceOptions(depends_on=[two]))
         ```
         <!--End PulumiCodeChooser -->
 

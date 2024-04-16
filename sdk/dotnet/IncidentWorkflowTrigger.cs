@@ -23,8 +23,9 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myFirstWorkflow = new Pagerduty.IncidentWorkflow("myFirstWorkflow", new()
+    ///     var myFirstWorkflow = new Pagerduty.IncidentWorkflow("my_first_workflow", new()
     ///     {
+    ///         Name = "Example Incident Workflow",
     ///         Description = "This Incident Workflow is an example",
     ///         Steps = new[]
     ///         {
@@ -49,13 +50,13 @@ namespace Pulumi.Pagerduty
     ///         Name = "My First Service",
     ///     });
     /// 
-    ///     var automaticTrigger = new Pagerduty.IncidentWorkflowTrigger("automaticTrigger", new()
+    ///     var automaticTrigger = new Pagerduty.IncidentWorkflowTrigger("automatic_trigger", new()
     ///     {
     ///         Type = "conditional",
     ///         Workflow = myFirstWorkflow.Id,
     ///         Services = new[]
     ///         {
-    ///             pagerduty_service.First_service.Id,
+    ///             firstServicePagerdutyService.Id,
     ///         },
     ///         Condition = "incident.priority matches 'P1'",
     ///         SubscribedToAllServices = false,
@@ -66,13 +67,13 @@ namespace Pulumi.Pagerduty
     ///         Name = "devops",
     ///     });
     /// 
-    ///     var manualTrigger = new Pagerduty.IncidentWorkflowTrigger("manualTrigger", new()
+    ///     var manualTrigger = new Pagerduty.IncidentWorkflowTrigger("manual_trigger", new()
     ///     {
     ///         Type = "manual",
     ///         Workflow = myFirstWorkflow.Id,
     ///         Services = new[]
     ///         {
-    ///             pagerduty_service.First_service.Id,
+    ///             firstServicePagerdutyService.Id,
     ///         },
     ///     });
     /// 

@@ -30,12 +30,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := pagerduty.NewTeam(ctx, "example", &pagerduty.TeamArgs{
+//				Name:        pulumi.String("Engineering"),
 //				Description: pulumi.String("All engineering"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			paActionExample, err := pagerduty.NewAutomationActionsAction(ctx, "paActionExample", &pagerduty.AutomationActionsActionArgs{
+//			paActionExample, err := pagerduty.NewAutomationActionsAction(ctx, "pa_action_example", &pagerduty.AutomationActionsActionArgs{
+//				Name:        pulumi.String("PA Action created via TF"),
 //				Description: pulumi.String("Description of the PA Action created via TF"),
 //				ActionType:  pulumi.String("process_automation"),
 //				ActionDataReference: &pagerduty.AutomationActionsActionActionDataReferenceArgs{

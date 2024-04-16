@@ -44,8 +44,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new User(&#34;example&#34;, UserArgs.builder()        
+ *             .name(&#34;Earline Greenholt&#34;)
  *             .email(&#34;125.greenholt.earline@graham.name&#34;)
- *             .teams(pagerduty_team.example().id())
+ *             .teams(examplePagerdutyTeam.id())
  *             .build());
  * 
  *         var email = new UserContactMethod(&#34;email&#34;, UserContactMethodArgs.builder()        

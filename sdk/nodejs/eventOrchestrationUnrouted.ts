@@ -22,7 +22,7 @@ import * as utilities from "./utilities";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
  * const unrouted = new pagerduty.EventOrchestrationUnrouted("unrouted", {
- *     eventOrchestration: pagerduty_event_orchestration.my_monitor.id,
+ *     eventOrchestration: myMonitor.id,
  *     sets: [{
  *         id: "start",
  *         rules: [{

@@ -42,6 +42,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BusinessService(&#34;example&#34;, BusinessServiceArgs.builder()        
+ *             .name(&#34;My Web App&#34;)
  *             .description(&#34;A very descriptive description of this business service&#34;)
  *             .pointOfContact(&#34;PagerDuty Admin&#34;)
  *             .team(&#34;P37RSRS&#34;)

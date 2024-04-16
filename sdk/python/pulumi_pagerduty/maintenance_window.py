@@ -181,7 +181,7 @@ class MaintenanceWindow(pulumi.CustomResource):
         example = pagerduty.MaintenanceWindow("example",
             start_time="2015-11-09T20:00:00-05:00",
             end_time="2015-11-09T22:00:00-05:00",
-            services=[pagerduty_service["example"]["id"]])
+            services=[example_pagerduty_service["id"]])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -221,7 +221,7 @@ class MaintenanceWindow(pulumi.CustomResource):
         example = pagerduty.MaintenanceWindow("example",
             start_time="2015-11-09T20:00:00-05:00",
             end_time="2015-11-09T22:00:00-05:00",
-            services=[pagerduty_service["example"]["id"]])
+            services=[example_pagerduty_service["id"]])
         ```
         <!--End PulumiCodeChooser -->
 

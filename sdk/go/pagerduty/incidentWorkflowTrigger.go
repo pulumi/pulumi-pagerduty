@@ -29,7 +29,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			myFirstWorkflow, err := pagerduty.NewIncidentWorkflow(ctx, "myFirstWorkflow", &pagerduty.IncidentWorkflowArgs{
+//			myFirstWorkflow, err := pagerduty.NewIncidentWorkflow(ctx, "my_first_workflow", &pagerduty.IncidentWorkflowArgs{
+//				Name:        pulumi.String("Example Incident Workflow"),
 //				Description: pulumi.String("This Incident Workflow is an example"),
 //				Steps: pagerduty.IncidentWorkflowStepArray{
 //					&pagerduty.IncidentWorkflowStepArgs{
@@ -53,11 +54,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewIncidentWorkflowTrigger(ctx, "automaticTrigger", &pagerduty.IncidentWorkflowTriggerArgs{
+//			_, err = pagerduty.NewIncidentWorkflowTrigger(ctx, "automatic_trigger", &pagerduty.IncidentWorkflowTriggerArgs{
 //				Type:     pulumi.String("conditional"),
 //				Workflow: myFirstWorkflow.ID(),
 //				Services: pulumi.StringArray{
-//					pagerduty_service.First_service.Id,
+//					firstServicePagerdutyService.Id,
 //				},
 //				Condition:               pulumi.String("incident.priority matches 'P1'"),
 //				SubscribedToAllServices: pulumi.Bool(false),
@@ -71,11 +72,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewIncidentWorkflowTrigger(ctx, "manualTrigger", &pagerduty.IncidentWorkflowTriggerArgs{
+//			_, err = pagerduty.NewIncidentWorkflowTrigger(ctx, "manual_trigger", &pagerduty.IncidentWorkflowTriggerArgs{
 //				Type:     pulumi.String("manual"),
 //				Workflow: myFirstWorkflow.ID(),
 //				Services: pulumi.StringArray{
-//					pagerduty_service.First_service.Id,
+//					firstServicePagerdutyService.Id,
 //				},
 //			})
 //			if err != nil {

@@ -25,16 +25,21 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var databaseTeam = new Pagerduty.Team("databaseTeam");
-    /// 
-    ///     var eventOrchestration = new Pagerduty.EventOrchestration("eventOrchestration", new()
+    ///     var databaseTeam = new Pagerduty.Team("database_team", new()
     ///     {
+    ///         Name = "Database Team",
+    ///     });
+    /// 
+    ///     var eventOrchestration = new Pagerduty.EventOrchestration("event_orchestration", new()
+    ///     {
+    ///         Name = "Example Orchestration",
     ///         Team = databaseTeam.Id,
     ///     });
     /// 
-    ///     var cacheVar = new Pagerduty.EventOrchestrationGlobalCacheVariable("cacheVar", new()
+    ///     var cacheVar = new Pagerduty.EventOrchestrationGlobalCacheVariable("cache_var", new()
     ///     {
     ///         EventOrchestration = eventOrchestration.Id,
+    ///         Name = "recent_host",
     ///         Conditions = new[]
     ///         {
     ///             new Pagerduty.Inputs.EventOrchestrationGlobalCacheVariableConditionArgs

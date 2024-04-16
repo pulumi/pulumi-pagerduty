@@ -35,14 +35,15 @@ namespace Pulumi.Pagerduty
         ///         Email = "me@example.com",
         ///     });
         /// 
-        ///     var exampleWTeam = new Pagerduty.User("exampleWTeam", new()
+        ///     var exampleWTeam = new Pagerduty.User("example_w_team", new()
         ///     {
+        ///         Name = "user-with-team",
         ///         Email = "user-with-team@example.com",
         ///     });
         /// 
         ///     var example = new Pagerduty.TeamMembership("example", new()
         ///     {
-        ///         TeamId = pagerduty_team.Devops.Id,
+        ///         TeamId = devopsPagerdutyTeam.Id,
         ///         UserId = exampleWTeam.Id,
         ///     });
         /// 
@@ -52,7 +53,7 @@ namespace Pulumi.Pagerduty
         ///     {
         ///         TeamIds = new[]
         ///         {
-        ///             pagerduty_team.Devops.Id,
+        ///             devopsPagerdutyTeam.Id,
         ///         },
         ///     });
         /// 
@@ -87,14 +88,15 @@ namespace Pulumi.Pagerduty
         ///         Email = "me@example.com",
         ///     });
         /// 
-        ///     var exampleWTeam = new Pagerduty.User("exampleWTeam", new()
+        ///     var exampleWTeam = new Pagerduty.User("example_w_team", new()
         ///     {
+        ///         Name = "user-with-team",
         ///         Email = "user-with-team@example.com",
         ///     });
         /// 
         ///     var example = new Pagerduty.TeamMembership("example", new()
         ///     {
-        ///         TeamId = pagerduty_team.Devops.Id,
+        ///         TeamId = devopsPagerdutyTeam.Id,
         ///         UserId = exampleWTeam.Id,
         ///     });
         /// 
@@ -104,7 +106,7 @@ namespace Pulumi.Pagerduty
         ///     {
         ///         TeamIds = new[]
         ///         {
-        ///             pagerduty_team.Devops.Id,
+        ///             devopsPagerdutyTeam.Id,
         ///         },
         ///     });
         /// 

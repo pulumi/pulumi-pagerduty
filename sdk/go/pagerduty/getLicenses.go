@@ -36,6 +36,7 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewUser(ctx, "example", &pagerduty.UserArgs{
+//				Name:    pulumi.String("Earline Greenholt"),
 //				Email:   pulumi.String("125.greenholt.earline@graham.name"),
 //				License: pulumi.String(licenses.Licenses[0].Id),
 //				Role:    pulumi.String("user"),

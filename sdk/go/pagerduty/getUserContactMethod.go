@@ -42,7 +42,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewUserNotificationRule(ctx, "lowUrgencySms", &pagerduty.UserNotificationRuleArgs{
+//			_, err = pagerduty.NewUserNotificationRule(ctx, "low_urgency_sms", &pagerduty.UserNotificationRuleArgs{
 //				UserId:              pulumi.String(me.Id),
 //				StartDelayInMinutes: pulumi.Int(5),
 //				Urgency:             pulumi.String("high"),

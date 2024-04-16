@@ -20,7 +20,7 @@ import * as utilities from "./utilities";
  * const firstService = pagerduty.getService({
  *     name: "My First Service",
  * });
- * const automaticTrigger = new pagerduty.IncidentWorkflowTrigger("automaticTrigger", {
+ * const automaticTrigger = new pagerduty.IncidentWorkflowTrigger("automatic_trigger", {
  *     type: "conditional",
  *     workflow: myWorkflow.then(myWorkflow => myWorkflow.id),
  *     services: [firstService.then(firstService => firstService.id)],
@@ -74,7 +74,7 @@ export interface GetIncidentWorkflowResult {
  * const firstService = pagerduty.getService({
  *     name: "My First Service",
  * });
- * const automaticTrigger = new pagerduty.IncidentWorkflowTrigger("automaticTrigger", {
+ * const automaticTrigger = new pagerduty.IncidentWorkflowTrigger("automatic_trigger", {
  *     type: "conditional",
  *     workflow: myWorkflow.then(myWorkflow => myWorkflow.id),
  *     services: [firstService.then(firstService => firstService.id)],

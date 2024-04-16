@@ -125,8 +125,10 @@ class EventOrchestrationIntegration(pulumi.CustomResource):
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        database_team = pagerduty.Team("databaseTeam")
-        event_orchestration = pagerduty.EventOrchestration("eventOrchestration", team=database_team.id)
+        database_team = pagerduty.Team("database_team", name="Database Team")
+        event_orchestration = pagerduty.EventOrchestration("event_orchestration",
+            name="Example Orchestration",
+            team=database_team.id)
         integration = pagerduty.EventOrchestrationIntegration("integration",
             event_orchestration=event_orchestration.id,
             label="Example integration")
@@ -166,8 +168,10 @@ class EventOrchestrationIntegration(pulumi.CustomResource):
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        database_team = pagerduty.Team("databaseTeam")
-        event_orchestration = pagerduty.EventOrchestration("eventOrchestration", team=database_team.id)
+        database_team = pagerduty.Team("database_team", name="Database Team")
+        event_orchestration = pagerduty.EventOrchestration("event_orchestration",
+            name="Example Orchestration",
+            team=database_team.id)
         integration = pagerduty.EventOrchestrationIntegration("integration",
             event_orchestration=event_orchestration.id,
             label="Example integration")

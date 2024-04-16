@@ -19,6 +19,7 @@ import * as utilities from "./utilities";
  * const invalidRoles = ["owner"];
  * const licenses = pagerduty.getLicenses({});
  * const example = new pagerduty.User("example", {
+ *     name: "Earline Greenholt",
  *     email: "125.greenholt.earline@graham.name",
  *     license: licenses.then(licenses => licenses.licenses?.[0]?.id),
  *     role: "user",
@@ -76,6 +77,7 @@ export interface GetLicensesResult {
  * const invalidRoles = ["owner"];
  * const licenses = pagerduty.getLicenses({});
  * const example = new pagerduty.User("example", {
+ *     name: "Earline Greenholt",
  *     email: "125.greenholt.earline@graham.name",
  *     license: licenses.then(licenses => licenses.licenses?.[0]?.id),
  *     role: "user",

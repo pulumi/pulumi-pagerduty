@@ -238,19 +238,22 @@ class IncidentCustomField(pulumi.CustomResource):
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        cs_impact = pagerduty.IncidentCustomField("csImpact",
-            data_type="string",
+        cs_impact = pagerduty.IncidentCustomField("cs_impact",
+            name="impact",
             display_name="Customer Impact",
-            field_type="single_value")
-        sre_environment = pagerduty.IncidentCustomField("sreEnvironment",
             data_type="string",
-            display_name="Environment",
-            field_type="single_value_fixed")
-        false_alarm = pagerduty.IncidentCustomField("falseAlarm",
-            data_type="boolean",
-            default_value="false",
-            display_name="False Alarm",
             field_type="single_value")
+        sre_environment = pagerduty.IncidentCustomField("sre_environment",
+            name="environment",
+            display_name="Environment",
+            data_type="string",
+            field_type="single_value_fixed")
+        false_alarm = pagerduty.IncidentCustomField("false_alarm",
+            name="false_alarm",
+            display_name="False Alarm",
+            data_type="boolean",
+            field_type="single_value",
+            default_value="false")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -287,19 +290,22 @@ class IncidentCustomField(pulumi.CustomResource):
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        cs_impact = pagerduty.IncidentCustomField("csImpact",
-            data_type="string",
+        cs_impact = pagerduty.IncidentCustomField("cs_impact",
+            name="impact",
             display_name="Customer Impact",
-            field_type="single_value")
-        sre_environment = pagerduty.IncidentCustomField("sreEnvironment",
             data_type="string",
-            display_name="Environment",
-            field_type="single_value_fixed")
-        false_alarm = pagerduty.IncidentCustomField("falseAlarm",
-            data_type="boolean",
-            default_value="false",
-            display_name="False Alarm",
             field_type="single_value")
+        sre_environment = pagerduty.IncidentCustomField("sre_environment",
+            name="environment",
+            display_name="Environment",
+            data_type="string",
+            field_type="single_value_fixed")
+        false_alarm = pagerduty.IncidentCustomField("false_alarm",
+            name="false_alarm",
+            display_name="False Alarm",
+            data_type="boolean",
+            field_type="single_value",
+            default_value="false")
         ```
         <!--End PulumiCodeChooser -->
 

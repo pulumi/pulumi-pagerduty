@@ -31,11 +31,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			databaseTeam, err := pagerduty.NewTeam(ctx, "databaseTeam", nil)
+//			databaseTeam, err := pagerduty.NewTeam(ctx, "database_team", &pagerduty.TeamArgs{
+//				Name: pulumi.String("Database Team"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			user1, err := pagerduty.NewUser(ctx, "user1", &pagerduty.UserArgs{
+//			user1, err := pagerduty.NewUser(ctx, "user_1", &pagerduty.UserArgs{
+//				Name:  pulumi.String("Earline Greenholt"),
 //				Email: pulumi.String("125.greenholt.earline@graham.name"),
 //				Teams: pulumi.StringArray{
 //					databaseTeam.ID(),
@@ -44,7 +47,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			dbEp, err := pagerduty.NewEscalationPolicy(ctx, "dbEp", &pagerduty.EscalationPolicyArgs{
+//			dbEp, err := pagerduty.NewEscalationPolicy(ctx, "db_ep", &pagerduty.EscalationPolicyArgs{
+//				Name:     pulumi.String("Database Escalation Policy"),
 //				NumLoops: pulumi.Int(2),
 //				Rules: pagerduty.EscalationPolicyRuleArray{
 //					&pagerduty.EscalationPolicyRuleArgs{
@@ -62,6 +66,7 @@ import (
 //				return err
 //			}
 //			svc, err := pagerduty.NewService(ctx, "svc", &pagerduty.ServiceArgs{
+//				Name:                   pulumi.String("My Database Service"),
 //				AutoResolveTimeout:     pulumi.String("14400"),
 //				AcknowledgementTimeout: pulumi.String("600"),
 //				EscalationPolicy:       dbEp.ID(),
@@ -70,8 +75,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewEventOrchestrationServiceCacheVariable(ctx, "numDbTriggers", &pagerduty.EventOrchestrationServiceCacheVariableArgs{
+//			_, err = pagerduty.NewEventOrchestrationServiceCacheVariable(ctx, "num_db_triggers", &pagerduty.EventOrchestrationServiceCacheVariableArgs{
 //				Service: svc.ID(),
+//				Name:    pulumi.String("num_db_triggers"),
 //				Conditions: pagerduty.EventOrchestrationServiceCacheVariableConditionArray{
 //					&pagerduty.EventOrchestrationServiceCacheVariableConditionArgs{
 //						Expression: pulumi.String("event.summary matches part 'database'"),
@@ -85,7 +91,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewEventOrchestrationService(ctx, "eventOrchestration", &pagerduty.EventOrchestrationServiceArgs{
+//			_, err = pagerduty.NewEventOrchestrationService(ctx, "event_orchestration", &pagerduty.EventOrchestrationServiceArgs{
 //				Service:                            svc.ID(),
 //				EnableEventOrchestrationForService: pulumi.Bool(true),
 //				Sets: pagerduty.EventOrchestrationServiceSetArray{

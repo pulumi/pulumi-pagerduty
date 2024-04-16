@@ -15,6 +15,7 @@ import * as utilities from "./utilities";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
  * const example = new pagerduty.BusinessService("example", {
+ *     name: "My Web App",
  *     description: "A very descriptive description of this business service",
  *     pointOfContact: "PagerDuty Admin",
  *     team: "P37RSRS",

@@ -35,7 +35,7 @@ namespace Pulumi.Pagerduty
         ///         Name = "My First Service",
         ///     });
         /// 
-        ///     var automaticTrigger = new Pagerduty.IncidentWorkflowTrigger("automaticTrigger", new()
+        ///     var automaticTrigger = new Pagerduty.IncidentWorkflowTrigger("automatic_trigger", new()
         ///     {
         ///         Type = "conditional",
         ///         Workflow = myWorkflow.Apply(getIncidentWorkflowResult =&gt; getIncidentWorkflowResult.Id),
@@ -77,7 +77,7 @@ namespace Pulumi.Pagerduty
         ///         Name = "My First Service",
         ///     });
         /// 
-        ///     var automaticTrigger = new Pagerduty.IncidentWorkflowTrigger("automaticTrigger", new()
+        ///     var automaticTrigger = new Pagerduty.IncidentWorkflowTrigger("automatic_trigger", new()
         ///     {
         ///         Type = "conditional",
         ///         Workflow = myWorkflow.Apply(getIncidentWorkflowResult =&gt; getIncidentWorkflowResult.Id),

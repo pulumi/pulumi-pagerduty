@@ -80,12 +80,14 @@ def get_users(team_ids: Optional[Sequence[str]] = None,
 
     devops = pagerduty.get_team(name="devops")
     me = pagerduty.get_user(email="me@example.com")
-    example_w_team = pagerduty.User("exampleWTeam", email="user-with-team@example.com")
+    example_w_team = pagerduty.User("example_w_team",
+        name="user-with-team",
+        email="user-with-team@example.com")
     example = pagerduty.TeamMembership("example",
-        team_id=pagerduty_team["devops"]["id"],
+        team_id=devops_pagerduty_team["id"],
         user_id=example_w_team.id)
     all_users = pagerduty.get_users()
-    from_devops_team = pagerduty.get_users(team_ids=[pagerduty_team["devops"]["id"]])
+    from_devops_team = pagerduty.get_users(team_ids=[devops_pagerduty_team["id"]])
     ```
     <!--End PulumiCodeChooser -->
 
@@ -118,12 +120,14 @@ def get_users_output(team_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] =
 
     devops = pagerduty.get_team(name="devops")
     me = pagerduty.get_user(email="me@example.com")
-    example_w_team = pagerduty.User("exampleWTeam", email="user-with-team@example.com")
+    example_w_team = pagerduty.User("example_w_team",
+        name="user-with-team",
+        email="user-with-team@example.com")
     example = pagerduty.TeamMembership("example",
-        team_id=pagerduty_team["devops"]["id"],
+        team_id=devops_pagerduty_team["id"],
         user_id=example_w_team.id)
     all_users = pagerduty.get_users()
-    from_devops_team = pagerduty.get_users(team_ids=[pagerduty_team["devops"]["id"]])
+    from_devops_team = pagerduty.get_users(team_ids=[devops_pagerduty_team["id"]])
     ```
     <!--End PulumiCodeChooser -->
 

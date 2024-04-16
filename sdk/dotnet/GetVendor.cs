@@ -32,17 +32,19 @@ namespace Pulumi.Pagerduty
         ///         Name = "Datadog",
         ///     });
         /// 
-        ///     var exampleUser = new Pagerduty.User("exampleUser", new()
+        ///     var example = new Pagerduty.User("example", new()
         ///     {
+        ///         Name = "Earline Greenholt",
         ///         Email = "125.greenholt.earline@graham.name",
         ///         Teams = new[]
         ///         {
-        ///             pagerduty_team.Example.Id,
+        ///             examplePagerdutyTeam.Id,
         ///         },
         ///     });
         /// 
         ///     var foo = new Pagerduty.EscalationPolicy("foo", new()
         ///     {
+        ///         Name = "Engineering Escalation Policy",
         ///         NumLoops = 2,
         ///         Rules = new[]
         ///         {
@@ -54,22 +56,24 @@ namespace Pulumi.Pagerduty
         ///                     new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
         ///                     {
         ///                         Type = "user",
-        ///                         Id = exampleUser.Id,
+        ///                         Id = example.Id,
         ///                     },
         ///                 },
         ///             },
         ///         },
         ///     });
         /// 
-        ///     var exampleService = new Pagerduty.Service("exampleService", new()
+        ///     var exampleService = new Pagerduty.Service("example", new()
         ///     {
+        ///         Name = "My Web App",
         ///         AutoResolveTimeout = "14400",
         ///         AcknowledgementTimeout = "600",
-        ///         EscalationPolicy = pagerduty_escalation_policy.Example.Id,
+        ///         EscalationPolicy = examplePagerdutyEscalationPolicy.Id,
         ///     });
         /// 
-        ///     var exampleServiceIntegration = new Pagerduty.ServiceIntegration("exampleServiceIntegration", new()
+        ///     var exampleServiceIntegration = new Pagerduty.ServiceIntegration("example", new()
         ///     {
+        ///         Name = "Datadog Integration",
         ///         Vendor = datadog.Apply(getVendorResult =&gt; getVendorResult.Id),
         ///         Service = exampleService.Id,
         ///     });
@@ -102,17 +106,19 @@ namespace Pulumi.Pagerduty
         ///         Name = "Datadog",
         ///     });
         /// 
-        ///     var exampleUser = new Pagerduty.User("exampleUser", new()
+        ///     var example = new Pagerduty.User("example", new()
         ///     {
+        ///         Name = "Earline Greenholt",
         ///         Email = "125.greenholt.earline@graham.name",
         ///         Teams = new[]
         ///         {
-        ///             pagerduty_team.Example.Id,
+        ///             examplePagerdutyTeam.Id,
         ///         },
         ///     });
         /// 
         ///     var foo = new Pagerduty.EscalationPolicy("foo", new()
         ///     {
+        ///         Name = "Engineering Escalation Policy",
         ///         NumLoops = 2,
         ///         Rules = new[]
         ///         {
@@ -124,22 +130,24 @@ namespace Pulumi.Pagerduty
         ///                     new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
         ///                     {
         ///                         Type = "user",
-        ///                         Id = exampleUser.Id,
+        ///                         Id = example.Id,
         ///                     },
         ///                 },
         ///             },
         ///         },
         ///     });
         /// 
-        ///     var exampleService = new Pagerduty.Service("exampleService", new()
+        ///     var exampleService = new Pagerduty.Service("example", new()
         ///     {
+        ///         Name = "My Web App",
         ///         AutoResolveTimeout = "14400",
         ///         AcknowledgementTimeout = "600",
-        ///         EscalationPolicy = pagerduty_escalation_policy.Example.Id,
+        ///         EscalationPolicy = examplePagerdutyEscalationPolicy.Id,
         ///     });
         /// 
-        ///     var exampleServiceIntegration = new Pagerduty.ServiceIntegration("exampleServiceIntegration", new()
+        ///     var exampleServiceIntegration = new Pagerduty.ServiceIntegration("example", new()
         ///     {
+        ///         Name = "Datadog Integration",
         ///         Vendor = datadog.Apply(getVendorResult =&gt; getVendorResult.Id),
         ///         Service = exampleService.Id,
         ///     });

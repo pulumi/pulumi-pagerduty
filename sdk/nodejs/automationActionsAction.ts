@@ -16,20 +16,22 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const paActionExample = new pagerduty.AutomationActionsAction("paActionExample", {
+ * const paActionExample = new pagerduty.AutomationActionsAction("pa_action_example", {
+ *     name: "PA Action created via TF",
+ *     description: "Description of the PA Action created via TF",
+ *     actionType: "process_automation",
  *     actionDataReference: {
  *         processAutomationJobId: "P123456",
  *     },
- *     actionType: "process_automation",
- *     description: "Description of the PA Action created via TF",
  * });
- * const scriptActionExample = new pagerduty.AutomationActionsAction("scriptActionExample", {
- *     actionDataReference: {
- *         invocationCommand: "/usr/local/bin/python3",
- *         script: "print(\"Hello from a Python script!\")",
- *     },
- *     actionType: "script",
+ * const scriptActionExample = new pagerduty.AutomationActionsAction("script_action_example", {
+ *     name: "Script Action created via TF",
  *     description: "Description of the Script Action created via TF",
+ *     actionType: "script",
+ *     actionDataReference: {
+ *         script: "print(\"Hello from a Python script!\")",
+ *         invocationCommand: "/usr/local/bin/python3",
+ *     },
  * });
  * ```
  * <!--End PulumiCodeChooser -->

@@ -30,7 +30,7 @@ namespace Pulumi.Pagerduty
         ///         Name = "environment",
         ///     });
         /// 
-        ///     var devEnvironment = new Pagerduty.IncidentCustomFieldOption("devEnvironment", new()
+        ///     var devEnvironment = new Pagerduty.IncidentCustomFieldOption("dev_environment", new()
         ///     {
         ///         Field = environment.Apply(getIncidentCustomFieldResult =&gt; getIncidentCustomFieldResult.Id),
         ///         Datatype = "string",
@@ -63,7 +63,7 @@ namespace Pulumi.Pagerduty
         ///         Name = "environment",
         ///     });
         /// 
-        ///     var devEnvironment = new Pagerduty.IncidentCustomFieldOption("devEnvironment", new()
+        ///     var devEnvironment = new Pagerduty.IncidentCustomFieldOption("dev_environment", new()
         ///     {
         ///         Field = environment.Apply(getIncidentCustomFieldResult =&gt; getIncidentCustomFieldResult.Id),
         ///         Datatype = "string",

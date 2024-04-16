@@ -46,10 +46,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Team(&#34;example&#34;, TeamArgs.builder()        
+ *             .name(&#34;Engineering&#34;)
  *             .description(&#34;All engineering&#34;)
  *             .build());
  * 
  *         var paActionExample = new AutomationActionsAction(&#34;paActionExample&#34;, AutomationActionsActionArgs.builder()        
+ *             .name(&#34;PA Action created via TF&#34;)
  *             .description(&#34;Description of the PA Action created via TF&#34;)
  *             .actionType(&#34;process_automation&#34;)
  *             .actionDataReference(AutomationActionsActionActionDataReferenceArgs.builder()

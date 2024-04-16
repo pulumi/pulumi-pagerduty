@@ -432,21 +432,26 @@ class ExtensionServiceNow(pulumi.CustomResource):
         import pulumi_pagerduty as pagerduty
 
         servicenow = pagerduty.get_extension_schema(name="ServiceNow (v7)")
-        example_user = pagerduty.User("exampleUser", email="howard.james@example.domain")
-        example_escalation_policy = pagerduty.EscalationPolicy("exampleEscalationPolicy",
+        example = pagerduty.User("example",
+            name="Howard James",
+            email="howard.james@example.domain")
+        example_escalation_policy = pagerduty.EscalationPolicy("example",
+            name="Engineering Escalation Policy",
             num_loops=2,
             rules=[pagerduty.EscalationPolicyRuleArgs(
                 escalation_delay_in_minutes=10,
                 targets=[pagerduty.EscalationPolicyRuleTargetArgs(
                     type="user",
-                    id=example_user.id,
+                    id=example.id,
                 )],
             )])
-        example_service = pagerduty.Service("exampleService",
+        example_service = pagerduty.Service("example",
+            name="My Web App",
             auto_resolve_timeout="14400",
             acknowledgement_timeout="600",
             escalation_policy=example_escalation_policy.id)
         snow = pagerduty.ExtensionServiceNow("snow",
+            name="My Web App Extension",
             extension_schema=servicenow.id,
             extension_objects=[example_service.id],
             snow_user="meeps",
@@ -496,21 +501,26 @@ class ExtensionServiceNow(pulumi.CustomResource):
         import pulumi_pagerduty as pagerduty
 
         servicenow = pagerduty.get_extension_schema(name="ServiceNow (v7)")
-        example_user = pagerduty.User("exampleUser", email="howard.james@example.domain")
-        example_escalation_policy = pagerduty.EscalationPolicy("exampleEscalationPolicy",
+        example = pagerduty.User("example",
+            name="Howard James",
+            email="howard.james@example.domain")
+        example_escalation_policy = pagerduty.EscalationPolicy("example",
+            name="Engineering Escalation Policy",
             num_loops=2,
             rules=[pagerduty.EscalationPolicyRuleArgs(
                 escalation_delay_in_minutes=10,
                 targets=[pagerduty.EscalationPolicyRuleTargetArgs(
                     type="user",
-                    id=example_user.id,
+                    id=example.id,
                 )],
             )])
-        example_service = pagerduty.Service("exampleService",
+        example_service = pagerduty.Service("example",
+            name="My Web App",
             auto_resolve_timeout="14400",
             acknowledgement_timeout="600",
             escalation_policy=example_escalation_policy.id)
         snow = pagerduty.ExtensionServiceNow("snow",
+            name="My Web App Extension",
             extension_schema=servicenow.id,
             extension_objects=[example_service.id],
             snow_user="meeps",

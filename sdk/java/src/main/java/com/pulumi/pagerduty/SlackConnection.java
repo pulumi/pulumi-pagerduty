@@ -32,6 +32,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.pagerduty.Team;
+ * import com.pulumi.pagerduty.TeamArgs;
  * import com.pulumi.pagerduty.PagerdutyFunctions;
  * import com.pulumi.pagerduty.inputs.GetPriorityArgs;
  * import com.pulumi.pagerduty.SlackConnection;
@@ -50,14 +51,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooTeam = new Team(&#34;fooTeam&#34;);
+ *         var foo = new Team(&#34;foo&#34;, TeamArgs.builder()        
+ *             .name(&#34;Team Foo&#34;)
+ *             .build());
  * 
  *         final var p1 = PagerdutyFunctions.getPriority(GetPriorityArgs.builder()
  *             .name(&#34;P1&#34;)
  *             .build());
  * 
  *         var fooSlackConnection = new SlackConnection(&#34;fooSlackConnection&#34;, SlackConnectionArgs.builder()        
- *             .sourceId(fooTeam.id())
+ *             .sourceId(foo.id())
  *             .sourceType(&#34;team_reference&#34;)
  *             .workspaceId(&#34;T02A123LV1A&#34;)
  *             .channelId(&#34;C02CABCDAC9&#34;)

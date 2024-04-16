@@ -210,10 +210,13 @@ class EventOrchestrationGlobalCacheVariable(pulumi.CustomResource):
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        database_team = pagerduty.Team("databaseTeam")
-        event_orchestration = pagerduty.EventOrchestration("eventOrchestration", team=database_team.id)
-        cache_var = pagerduty.EventOrchestrationGlobalCacheVariable("cacheVar",
+        database_team = pagerduty.Team("database_team", name="Database Team")
+        event_orchestration = pagerduty.EventOrchestration("event_orchestration",
+            name="Example Orchestration",
+            team=database_team.id)
+        cache_var = pagerduty.EventOrchestrationGlobalCacheVariable("cache_var",
             event_orchestration=event_orchestration.id,
+            name="recent_host",
             conditions=[pagerduty.EventOrchestrationGlobalCacheVariableConditionArgs(
                 expression="event.source exists",
             )],
@@ -273,10 +276,13 @@ class EventOrchestrationGlobalCacheVariable(pulumi.CustomResource):
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        database_team = pagerduty.Team("databaseTeam")
-        event_orchestration = pagerduty.EventOrchestration("eventOrchestration", team=database_team.id)
-        cache_var = pagerduty.EventOrchestrationGlobalCacheVariable("cacheVar",
+        database_team = pagerduty.Team("database_team", name="Database Team")
+        event_orchestration = pagerduty.EventOrchestration("event_orchestration",
+            name="Example Orchestration",
+            team=database_team.id)
+        cache_var = pagerduty.EventOrchestrationGlobalCacheVariable("cache_var",
             event_orchestration=event_orchestration.id,
+            name="recent_host",
             conditions=[pagerduty.EventOrchestrationGlobalCacheVariableConditionArgs(
                 expression="event.source exists",
             )],

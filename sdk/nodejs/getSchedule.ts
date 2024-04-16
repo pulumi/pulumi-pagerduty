@@ -18,6 +18,7 @@ import * as utilities from "./utilities";
  *     name: "Daily Engineering Rotation",
  * });
  * const foo = new pagerduty.EscalationPolicy("foo", {
+ *     name: "Engineering Escalation Policy",
  *     numLoops: 2,
  *     rules: [{
  *         escalationDelayInMinutes: 10,
@@ -75,6 +76,7 @@ export interface GetScheduleResult {
  *     name: "Daily Engineering Rotation",
  * });
  * const foo = new pagerduty.EscalationPolicy("foo", {
+ *     name: "Engineering Escalation Policy",
  *     numLoops: 2,
  *     rules: [{
  *         escalationDelayInMinutes: 10,

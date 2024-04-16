@@ -81,23 +81,27 @@ def get_extension_schema(name: Optional[str] = None,
     import pulumi_pagerduty as pagerduty
 
     webhook = pagerduty.get_extension_schema(name="Generic V2 Webhook")
-    example_user = pagerduty.User("exampleUser",
+    example = pagerduty.User("example",
+        name="Howard James",
         email="howard.james@example.domain",
-        teams=[pagerduty_team["example"]["id"]])
+        teams=[example_pagerduty_team["id"]])
     foo = pagerduty.EscalationPolicy("foo",
+        name="Engineering Escalation Policy",
         num_loops=2,
         rules=[pagerduty.EscalationPolicyRuleArgs(
             escalation_delay_in_minutes=10,
             targets=[pagerduty.EscalationPolicyRuleTargetArgs(
                 type="user",
-                id=example_user.id,
+                id=example.id,
             )],
         )])
-    example_service = pagerduty.Service("exampleService",
+    example_service = pagerduty.Service("example",
+        name="My Web App",
         auto_resolve_timeout="14400",
         acknowledgement_timeout="600",
-        escalation_policy=pagerduty_escalation_policy["example"]["id"])
+        escalation_policy=example_pagerduty_escalation_policy["id"])
     slack = pagerduty.Extension("slack",
+        name="My Web App Extension",
         endpoint_url="https://generic_webhook_url/XXXXXX/BBBBBB",
         extension_schema=webhook.id,
         extension_objects=[example_service.id])
@@ -132,23 +136,27 @@ def get_extension_schema_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi_pagerduty as pagerduty
 
     webhook = pagerduty.get_extension_schema(name="Generic V2 Webhook")
-    example_user = pagerduty.User("exampleUser",
+    example = pagerduty.User("example",
+        name="Howard James",
         email="howard.james@example.domain",
-        teams=[pagerduty_team["example"]["id"]])
+        teams=[example_pagerduty_team["id"]])
     foo = pagerduty.EscalationPolicy("foo",
+        name="Engineering Escalation Policy",
         num_loops=2,
         rules=[pagerduty.EscalationPolicyRuleArgs(
             escalation_delay_in_minutes=10,
             targets=[pagerduty.EscalationPolicyRuleTargetArgs(
                 type="user",
-                id=example_user.id,
+                id=example.id,
             )],
         )])
-    example_service = pagerduty.Service("exampleService",
+    example_service = pagerduty.Service("example",
+        name="My Web App",
         auto_resolve_timeout="14400",
         acknowledgement_timeout="600",
-        escalation_policy=pagerduty_escalation_policy["example"]["id"])
+        escalation_policy=example_pagerduty_escalation_policy["id"])
     slack = pagerduty.Extension("slack",
+        name="My Web App Extension",
         endpoint_url="https://generic_webhook_url/XXXXXX/BBBBBB",
         extension_schema=webhook.id,
         extension_objects=[example_service.id])

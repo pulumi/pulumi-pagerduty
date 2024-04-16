@@ -127,6 +127,7 @@ def get_user(email: Optional[str] = None,
 
     me = pagerduty.get_user(email="me@example.com")
     foo = pagerduty.EscalationPolicy("foo",
+        name="Engineering Escalation Policy",
         num_loops=2,
         rules=[pagerduty.EscalationPolicyRuleArgs(
             escalation_delay_in_minutes=10,
@@ -171,6 +172,7 @@ def get_user_output(email: Optional[pulumi.Input[str]] = None,
 
     me = pagerduty.get_user(email="me@example.com")
     foo = pagerduty.EscalationPolicy("foo",
+        name="Engineering Escalation Policy",
         num_loops=2,
         rules=[pagerduty.EscalationPolicyRuleArgs(
             escalation_delay_in_minutes=10,

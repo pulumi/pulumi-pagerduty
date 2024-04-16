@@ -49,31 +49,34 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
+ *         var example = new User(&#34;example&#34;, UserArgs.builder()        
+ *             .name(&#34;Earline Greenholt&#34;)
  *             .email(&#34;125.greenholt.earline@graham.name&#34;)
- *             .teams(pagerduty_team.example().id())
+ *             .teams(examplePagerdutyTeam.id())
  *             .build());
  * 
  *         var exampleEscalationPolicy = new EscalationPolicy(&#34;exampleEscalationPolicy&#34;, EscalationPolicyArgs.builder()        
+ *             .name(&#34;Engineering Escalation Policy&#34;)
  *             .numLoops(2)
  *             .rules(EscalationPolicyRuleArgs.builder()
  *                 .escalationDelayInMinutes(10)
  *                 .targets(EscalationPolicyRuleTargetArgs.builder()
  *                     .type(&#34;user&#34;)
- *                     .id(exampleUser.id())
+ *                     .id(example.id())
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *         var exampleResponsePlay = new ResponsePlay(&#34;exampleResponsePlay&#34;, ResponsePlayArgs.builder()        
- *             .from(exampleUser.email())
+ *             .name(&#34;My Response Play&#34;)
+ *             .from(example.email())
  *             .responders(ResponsePlayResponderArgs.builder()
  *                 .type(&#34;escalation_policy_reference&#34;)
  *                 .id(exampleEscalationPolicy.id())
  *                 .build())
  *             .subscribers(ResponsePlaySubscriberArgs.builder()
  *                 .type(&#34;user_reference&#34;)
- *                 .id(exampleUser.id())
+ *                 .id(example.id())
  *                 .build())
  *             .runnability(&#34;services&#34;)
  *             .build());

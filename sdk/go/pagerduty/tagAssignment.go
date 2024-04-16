@@ -29,18 +29,20 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleTag, err := pagerduty.NewTag(ctx, "exampleTag", &pagerduty.TagArgs{
+//			example, err := pagerduty.NewTag(ctx, "example", &pagerduty.TagArgs{
 //				Label: pulumi.String("API"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			engteam, err := pagerduty.NewTeam(ctx, "engteam", nil)
+//			engteam, err := pagerduty.NewTeam(ctx, "engteam", &pagerduty.TeamArgs{
+//				Name: pulumi.String("Engineering"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewTagAssignment(ctx, "exampleTagAssignment", &pagerduty.TagAssignmentArgs{
-//				TagId:      exampleTag.ID(),
+//			_, err = pagerduty.NewTagAssignment(ctx, "example", &pagerduty.TagAssignmentArgs{
+//				TagId:      example.ID(),
 //				EntityType: pulumi.String("teams"),
 //				EntityId:   engteam.ID(),
 //			})

@@ -25,6 +25,7 @@ namespace Pulumi.Pagerduty
     /// {
     ///     var example = new Pagerduty.Addon("example", new()
     ///     {
+    ///         Name = "Internal Status Page",
     ///         Src = "https://intranet.example.com/status",
     ///     });
     /// 

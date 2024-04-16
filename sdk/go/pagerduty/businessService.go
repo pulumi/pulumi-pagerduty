@@ -29,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := pagerduty.NewBusinessService(ctx, "example", &pagerduty.BusinessServiceArgs{
+//				Name:           pulumi.String("My Web App"),
 //				Description:    pulumi.String("A very descriptive description of this business service"),
 //				PointOfContact: pulumi.String("PagerDuty Admin"),
 //				Team:           pulumi.String("P37RSRS"),

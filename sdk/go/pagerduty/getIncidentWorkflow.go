@@ -40,7 +40,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewIncidentWorkflowTrigger(ctx, "automaticTrigger", &pagerduty.IncidentWorkflowTriggerArgs{
+//			_, err = pagerduty.NewIncidentWorkflowTrigger(ctx, "automatic_trigger", &pagerduty.IncidentWorkflowTriggerArgs{
 //				Type:     pulumi.String("conditional"),
 //				Workflow: pulumi.String(myWorkflow.Id),
 //				Services: pulumi.StringArray{

@@ -17107,10 +17107,11 @@ type ServiceScheduledActionAt struct {
 	// func main() {
 	// 	pulumi.Run(func(ctx *pulumi.Context) error {
 	// 		_, err := pagerduty.NewService(ctx, "foo", &pagerduty.ServiceArgs{
+	// 			Name:                   pulumi.String("bar"),
 	// 			Description:            pulumi.String("bar bar bar"),
 	// 			AutoResolveTimeout:     pulumi.String("3600"),
 	// 			AcknowledgementTimeout: pulumi.String("3600"),
-	// 			EscalationPolicy:       pulumi.Any(pagerduty_escalation_policy.Foo.Id),
+	// 			EscalationPolicy:       pulumi.Any(fooPagerdutyEscalationPolicy.Id),
 	// 			IncidentUrgencyRule: &pagerduty.ServiceIncidentUrgencyRuleArgs{
 	// 				Type: pulumi.String("use_support_hours"),
 	// 				DuringSupportHours: &pagerduty.ServiceIncidentUrgencyRuleDuringSupportHoursArgs{
@@ -17191,10 +17192,11 @@ type ServiceScheduledActionAtArgs struct {
 	// func main() {
 	// 	pulumi.Run(func(ctx *pulumi.Context) error {
 	// 		_, err := pagerduty.NewService(ctx, "foo", &pagerduty.ServiceArgs{
+	// 			Name:                   pulumi.String("bar"),
 	// 			Description:            pulumi.String("bar bar bar"),
 	// 			AutoResolveTimeout:     pulumi.String("3600"),
 	// 			AcknowledgementTimeout: pulumi.String("3600"),
-	// 			EscalationPolicy:       pulumi.Any(pagerduty_escalation_policy.Foo.Id),
+	// 			EscalationPolicy:       pulumi.Any(fooPagerdutyEscalationPolicy.Id),
 	// 			IncidentUrgencyRule: &pagerduty.ServiceIncidentUrgencyRuleArgs{
 	// 				Type: pulumi.String("use_support_hours"),
 	// 				DuringSupportHours: &pagerduty.ServiceIncidentUrgencyRuleDuringSupportHoursArgs{
@@ -17316,10 +17318,11 @@ func (o ServiceScheduledActionAtOutput) ToServiceScheduledActionAtOutputWithCont
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := pagerduty.NewService(ctx, "foo", &pagerduty.ServiceArgs{
+//				Name:                   pulumi.String("bar"),
 //				Description:            pulumi.String("bar bar bar"),
 //				AutoResolveTimeout:     pulumi.String("3600"),
 //				AcknowledgementTimeout: pulumi.String("3600"),
-//				EscalationPolicy:       pulumi.Any(pagerduty_escalation_policy.Foo.Id),
+//				EscalationPolicy:       pulumi.Any(fooPagerdutyEscalationPolicy.Id),
 //				IncidentUrgencyRule: &pagerduty.ServiceIncidentUrgencyRuleArgs{
 //					Type: pulumi.String("use_support_hours"),
 //					DuringSupportHours: &pagerduty.ServiceIncidentUrgencyRuleDuringSupportHoursArgs{

@@ -46,10 +46,11 @@ public final class ServiceScheduledActionAt {
      * 
      *     public static void stack(Context ctx) {
      *         var foo = new Service(&#34;foo&#34;, ServiceArgs.builder()        
+     *             .name(&#34;bar&#34;)
      *             .description(&#34;bar bar bar&#34;)
      *             .autoResolveTimeout(3600)
      *             .acknowledgementTimeout(3600)
-     *             .escalationPolicy(pagerduty_escalation_policy.foo().id())
+     *             .escalationPolicy(fooPagerdutyEscalationPolicy.id())
      *             .incidentUrgencyRule(ServiceIncidentUrgencyRuleArgs.builder()
      *                 .type(&#34;use_support_hours&#34;)
      *                 .duringSupportHours(ServiceIncidentUrgencyRuleDuringSupportHoursArgs.builder()
@@ -132,10 +133,11 @@ public final class ServiceScheduledActionAt {
      * 
      *     public static void stack(Context ctx) {
      *         var foo = new Service(&#34;foo&#34;, ServiceArgs.builder()        
+     *             .name(&#34;bar&#34;)
      *             .description(&#34;bar bar bar&#34;)
      *             .autoResolveTimeout(3600)
      *             .acknowledgementTimeout(3600)
-     *             .escalationPolicy(pagerduty_escalation_policy.foo().id())
+     *             .escalationPolicy(fooPagerdutyEscalationPolicy.id())
      *             .incidentUrgencyRule(ServiceIncidentUrgencyRuleArgs.builder()
      *                 .type(&#34;use_support_hours&#34;)
      *                 .duringSupportHours(ServiceIncidentUrgencyRuleDuringSupportHoursArgs.builder()

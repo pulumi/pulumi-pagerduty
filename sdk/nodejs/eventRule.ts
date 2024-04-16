@@ -115,7 +115,7 @@ import * as utilities from "./utilities";
  *         ],
  *     ]),
  * }, {
- *     dependsOn: [pagerduty_event_rule.two],
+ *     dependsOn: [two],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

@@ -16,22 +16,25 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const engineering = new pagerduty.Team("engineering", {});
- * const exampleUser = new pagerduty.User("exampleUser", {
+ * const engineering = new pagerduty.Team("engineering", {name: "Engineering"});
+ * const example = new pagerduty.User("example", {
+ *     name: "Earline Greenholt",
  *     email: "125.greenholt.earline@graham.name",
  *     teams: [engineering.id],
  * });
- * const exampleEscalationPolicy = new pagerduty.EscalationPolicy("exampleEscalationPolicy", {
+ * const exampleEscalationPolicy = new pagerduty.EscalationPolicy("example", {
+ *     name: "Engineering Escalation Policy",
  *     numLoops: 2,
  *     rules: [{
  *         escalationDelayInMinutes: 10,
  *         targets: [{
  *             type: "user",
- *             id: exampleUser.id,
+ *             id: example.id,
  *         }],
  *     }],
  * });
  * const service = new pagerduty.Service("service", {
+ *     name: "My Web App",
  *     autoResolveTimeout: "14400",
  *     acknowledgementTimeout: "600",
  *     escalationPolicy: exampleEscalationPolicy.id,
@@ -102,22 +105,25 @@ export interface GetEventOrchestrationServiceCacheVariableResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const engineering = new pagerduty.Team("engineering", {});
- * const exampleUser = new pagerduty.User("exampleUser", {
+ * const engineering = new pagerduty.Team("engineering", {name: "Engineering"});
+ * const example = new pagerduty.User("example", {
+ *     name: "Earline Greenholt",
  *     email: "125.greenholt.earline@graham.name",
  *     teams: [engineering.id],
  * });
- * const exampleEscalationPolicy = new pagerduty.EscalationPolicy("exampleEscalationPolicy", {
+ * const exampleEscalationPolicy = new pagerduty.EscalationPolicy("example", {
+ *     name: "Engineering Escalation Policy",
  *     numLoops: 2,
  *     rules: [{
  *         escalationDelayInMinutes: 10,
  *         targets: [{
  *             type: "user",
- *             id: exampleUser.id,
+ *             id: example.id,
  *         }],
  *     }],
  * });
  * const service = new pagerduty.Service("service", {
+ *     name: "My Web App",
  *     autoResolveTimeout: "14400",
  *     acknowledgementTimeout: "600",
  *     escalationPolicy: exampleEscalationPolicy.id,

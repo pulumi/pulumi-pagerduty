@@ -14,6 +14,68 @@ import (
 
 // An [escalation policy](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEyNQ-create-an-escalation-policy) determines what user or schedule will be notified first, second, and so on when an incident is triggered. Escalation policies are used by one or more services.
 //
+// ## Example Usage
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := pagerduty.NewTeam(ctx, "example", &pagerduty.TeamArgs{
+//				Name:        pulumi.String("Engineering"),
+//				Description: pulumi.String("All engineering"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleUser, err := pagerduty.NewUser(ctx, "example", &pagerduty.UserArgs{
+//				Name:  pulumi.String("Earline Greenholt"),
+//				Email: pulumi.String("125.greenholt.earline@graham.name"),
+//				Teams: pulumi.StringArray{
+//					example.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewEscalationPolicy(ctx, "example", &pagerduty.EscalationPolicyArgs{
+//				Name:     pulumi.String("Engineering Escalation Policy"),
+//				NumLoops: pulumi.Int(2),
+//				Teams:    example.ID(),
+//				Rules: pagerduty.EscalationPolicyRuleArray{
+//					&pagerduty.EscalationPolicyRuleArgs{
+//						EscalationDelayInMinutes: pulumi.Int(10),
+//						Targets: pagerduty.EscalationPolicyRuleTargetArray{
+//							&pagerduty.EscalationPolicyRuleTargetArgs{
+//								Type: pulumi.String("user_reference"),
+//								Id:   exampleUser.ID(),
+//							},
+//							&pagerduty.EscalationPolicyRuleTargetArgs{
+//								Type: pulumi.String("user_reference"),
+//								Id:   pulumi.Any(example2.Id),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Import
 //
 // Escalation policies can be imported using the `id`, e.g.

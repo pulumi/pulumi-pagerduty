@@ -35,6 +35,7 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewEscalationPolicy(ctx, "foo", &pagerduty.EscalationPolicyArgs{
+//				Name:     pulumi.String("Engineering Escalation Policy"),
 //				NumLoops: pulumi.Int(2),
 //				Rules: pagerduty.EscalationPolicyRuleArray{
 //					&pagerduty.EscalationPolicyRuleArgs{

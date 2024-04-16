@@ -22,6 +22,7 @@ import * as utilities from "./utilities";
  *     description: "",
  * });
  * const example = new pagerduty.User("example", {
+ *     name: "Earline Greenholt",
  *     email: "125.greenholt.earline@graham.name",
  *     license: fullUser.then(fullUser => fullUser.id),
  *     role: "user",
@@ -138,6 +139,7 @@ export interface GetLicenseResult {
  *     description: "",
  * });
  * const example = new pagerduty.User("example", {
+ *     name: "Earline Greenholt",
  *     email: "125.greenholt.earline@graham.name",
  *     license: fullUser.then(fullUser => fullUser.id),
  *     role: "user",

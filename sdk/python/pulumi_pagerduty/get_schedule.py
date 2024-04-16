@@ -70,6 +70,7 @@ def get_schedule(name: Optional[str] = None,
 
     test = pagerduty.get_schedule(name="Daily Engineering Rotation")
     foo = pagerduty.EscalationPolicy("foo",
+        name="Engineering Escalation Policy",
         num_loops=2,
         rules=[pagerduty.EscalationPolicyRuleArgs(
             escalation_delay_in_minutes=10,
@@ -109,6 +110,7 @@ def get_schedule_output(name: Optional[pulumi.Input[str]] = None,
 
     test = pagerduty.get_schedule(name="Daily Engineering Rotation")
     foo = pagerduty.EscalationPolicy("foo",
+        name="Engineering Escalation Policy",
         num_loops=2,
         rules=[pagerduty.EscalationPolicyRuleArgs(
             escalation_delay_in_minutes=10,

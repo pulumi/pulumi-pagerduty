@@ -28,6 +28,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.pagerduty.BusinessService;
  * import com.pulumi.pagerduty.BusinessServiceArgs;
  * import com.pulumi.pagerduty.Team;
+ * import com.pulumi.pagerduty.TeamArgs;
  * import com.pulumi.pagerduty.User;
  * import com.pulumi.pagerduty.UserArgs;
  * import com.pulumi.pagerduty.BusinessServiceSubscriber;
@@ -45,28 +46,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBusinessService = new BusinessService(&#34;exampleBusinessService&#34;, BusinessServiceArgs.builder()        
+ *         var example = new BusinessService(&#34;example&#34;, BusinessServiceArgs.builder()        
+ *             .name(&#34;My Web App&#34;)
  *             .description(&#34;A very descriptive description of this business service&#34;)
  *             .pointOfContact(&#34;PagerDuty Admin&#34;)
  *             .team(&#34;P37RSRS&#34;)
  *             .build());
  * 
- *         var engteam = new Team(&#34;engteam&#34;);
+ *         var engteam = new Team(&#34;engteam&#34;, TeamArgs.builder()        
+ *             .name(&#34;Engineering&#34;)
+ *             .build());
  * 
  *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
+ *             .name(&#34;Earline Greenholt&#34;)
  *             .email(&#34;125.greenholt.earline@graham.name&#34;)
  *             .build());
  * 
  *         var teamExample = new BusinessServiceSubscriber(&#34;teamExample&#34;, BusinessServiceSubscriberArgs.builder()        
  *             .subscriberId(engteam.id())
  *             .subscriberType(&#34;team&#34;)
- *             .businessServiceId(exampleBusinessService.id())
+ *             .businessServiceId(example.id())
  *             .build());
  * 
  *         var userExample = new BusinessServiceSubscriber(&#34;userExample&#34;, BusinessServiceSubscriberArgs.builder()        
  *             .subscriberId(exampleUser.id())
  *             .subscriberType(&#34;user&#34;)
- *             .businessServiceId(exampleBusinessService.id())
+ *             .businessServiceId(example.id())
  *             .build());
  * 
  *     }

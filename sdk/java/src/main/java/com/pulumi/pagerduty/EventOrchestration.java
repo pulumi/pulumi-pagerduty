@@ -30,6 +30,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.pagerduty.Team;
+ * import com.pulumi.pagerduty.TeamArgs;
  * import com.pulumi.pagerduty.EventOrchestration;
  * import com.pulumi.pagerduty.EventOrchestrationArgs;
  * import java.util.List;
@@ -45,9 +46,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var engineering = new Team(&#34;engineering&#34;);
+ *         var engineering = new Team(&#34;engineering&#34;, TeamArgs.builder()        
+ *             .name(&#34;Engineering&#34;)
+ *             .build());
  * 
  *         var myMonitor = new EventOrchestration(&#34;myMonitor&#34;, EventOrchestrationArgs.builder()        
+ *             .name(&#34;My Monitoring Orchestration&#34;)
  *             .description(&#34;Send events to a pair of services&#34;)
  *             .team(engineering.id())
  *             .build());

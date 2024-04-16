@@ -25,7 +25,7 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleService = Pagerduty.GetService.Invoke(new()
+        ///     var example = Pagerduty.GetService.Invoke(new()
         ///     {
         ///         Name = "My Service",
         ///     });
@@ -35,10 +35,11 @@ namespace Pulumi.Pagerduty
         ///         Name = "Datadog",
         ///     });
         /// 
-        ///     var exampleServiceIntegration = new Pagerduty.ServiceIntegration("exampleServiceIntegration", new()
+        ///     var exampleServiceIntegration = new Pagerduty.ServiceIntegration("example", new()
         ///     {
+        ///         Name = "Datadog Integration",
         ///         Vendor = datadog.Apply(getVendorResult =&gt; getVendorResult.Id),
-        ///         Service = exampleService.Apply(getServiceResult =&gt; getServiceResult.Id),
+        ///         Service = example.Apply(getServiceResult =&gt; getServiceResult.Id),
         ///         Type = "generic_events_api_inbound_integration",
         ///     });
         /// 
@@ -63,7 +64,7 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleService = Pagerduty.GetService.Invoke(new()
+        ///     var example = Pagerduty.GetService.Invoke(new()
         ///     {
         ///         Name = "My Service",
         ///     });
@@ -73,10 +74,11 @@ namespace Pulumi.Pagerduty
         ///         Name = "Datadog",
         ///     });
         /// 
-        ///     var exampleServiceIntegration = new Pagerduty.ServiceIntegration("exampleServiceIntegration", new()
+        ///     var exampleServiceIntegration = new Pagerduty.ServiceIntegration("example", new()
         ///     {
+        ///         Name = "Datadog Integration",
         ///         Vendor = datadog.Apply(getVendorResult =&gt; getVendorResult.Id),
-        ///         Service = exampleService.Apply(getServiceResult =&gt; getServiceResult.Id),
+        ///         Service = example.Apply(getServiceResult =&gt; getServiceResult.Id),
         ///         Type = "generic_events_api_inbound_integration",
         ///     });
         /// 

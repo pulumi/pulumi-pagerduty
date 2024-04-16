@@ -45,14 +45,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var myFirstWorkflow = new IncidentWorkflow(&#34;myFirstWorkflow&#34;, IncidentWorkflowArgs.builder()        
+ *             .name(&#34;Example Incident Workflow&#34;)
  *             .description(&#34;This Incident Workflow is an example&#34;)
  *             .steps(IncidentWorkflowStepArgs.builder()
+ *                 .name(&#34;Send Status Update&#34;)
  *                 .action(&#34;pagerduty.com:incident-workflows:send-status-update:1&#34;)
  *                 .inputs(IncidentWorkflowStepInputArgs.builder()
  *                     .name(&#34;Message&#34;)
  *                     .value(&#34;Example status message sent on {{current_date}}&#34;)
  *                     .build())
- *                 .name(&#34;Send Status Update&#34;)
  *                 .build())
  *             .build());
  * 

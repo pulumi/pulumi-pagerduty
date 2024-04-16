@@ -23,10 +23,11 @@ namespace Pulumi.Pagerduty
     /// {
     ///     var example = new Pagerduty.User("example", new()
     ///     {
+    ///         Name = "Earline Greenholt",
     ///         Email = "125.greenholt.earline@graham.name",
     ///         Teams = new[]
     ///         {
-    ///             pagerduty_team.Example.Id,
+    ///             examplePagerdutyTeam.Id,
     ///         },
     ///     });
     /// 

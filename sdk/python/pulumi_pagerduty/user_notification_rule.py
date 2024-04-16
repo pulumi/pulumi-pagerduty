@@ -171,7 +171,9 @@ class UserNotificationRule(pulumi.CustomResource):
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        example = pagerduty.User("example", email="125.greenholt.earline@graham.name")
+        example = pagerduty.User("example",
+            name="Earline Greenholt",
+            email="125.greenholt.earline@graham.name")
         email = pagerduty.UserContactMethod("email",
             user_id=example.id,
             type="email_contact_method",
@@ -189,7 +191,7 @@ class UserNotificationRule(pulumi.CustomResource):
             country_code=1,
             address="2025550199",
             label="Work")
-        high_urgency_phone = pagerduty.UserNotificationRule("highUrgencyPhone",
+        high_urgency_phone = pagerduty.UserNotificationRule("high_urgency_phone",
             user_id=example.id,
             start_delay_in_minutes=1,
             urgency="high",
@@ -197,7 +199,7 @@ class UserNotificationRule(pulumi.CustomResource):
                 "type": "phone_contact_method",
                 "id": phone.id,
             })
-        low_urgency_email = pagerduty.UserNotificationRule("lowUrgencyEmail",
+        low_urgency_email = pagerduty.UserNotificationRule("low_urgency_email",
             user_id=example.id,
             start_delay_in_minutes=1,
             urgency="low",
@@ -205,7 +207,7 @@ class UserNotificationRule(pulumi.CustomResource):
                 "type": "email_contact_method",
                 "id": email.id,
             })
-        low_urgency_sms = pagerduty.UserNotificationRule("lowUrgencySms",
+        low_urgency_sms = pagerduty.UserNotificationRule("low_urgency_sms",
             user_id=example.id,
             start_delay_in_minutes=10,
             urgency="low",
@@ -247,7 +249,9 @@ class UserNotificationRule(pulumi.CustomResource):
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        example = pagerduty.User("example", email="125.greenholt.earline@graham.name")
+        example = pagerduty.User("example",
+            name="Earline Greenholt",
+            email="125.greenholt.earline@graham.name")
         email = pagerduty.UserContactMethod("email",
             user_id=example.id,
             type="email_contact_method",
@@ -265,7 +269,7 @@ class UserNotificationRule(pulumi.CustomResource):
             country_code=1,
             address="2025550199",
             label="Work")
-        high_urgency_phone = pagerduty.UserNotificationRule("highUrgencyPhone",
+        high_urgency_phone = pagerduty.UserNotificationRule("high_urgency_phone",
             user_id=example.id,
             start_delay_in_minutes=1,
             urgency="high",
@@ -273,7 +277,7 @@ class UserNotificationRule(pulumi.CustomResource):
                 "type": "phone_contact_method",
                 "id": phone.id,
             })
-        low_urgency_email = pagerduty.UserNotificationRule("lowUrgencyEmail",
+        low_urgency_email = pagerduty.UserNotificationRule("low_urgency_email",
             user_id=example.id,
             start_delay_in_minutes=1,
             urgency="low",
@@ -281,7 +285,7 @@ class UserNotificationRule(pulumi.CustomResource):
                 "type": "email_contact_method",
                 "id": email.id,
             })
-        low_urgency_sms = pagerduty.UserNotificationRule("lowUrgencySms",
+        low_urgency_sms = pagerduty.UserNotificationRule("low_urgency_sms",
             user_id=example.id,
             start_delay_in_minutes=10,
             urgency="low",

@@ -16,16 +16,20 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const exampleUser = new pagerduty.User("exampleUser", {email: "125.greenholt.earline@graham.name"});
- * const exampleTeam = new pagerduty.Team("exampleTeam", {});
+ * const example = new pagerduty.User("example", {
+ *     name: "Earline Greenholt",
+ *     email: "125.greenholt.earline@graham.name",
+ * });
+ * const exampleTeam = new pagerduty.Team("example", {name: "A Team"});
  * const foo = new pagerduty.Schedule("foo", {
+ *     name: "Daily Engineering Rotation",
  *     timeZone: "America/New_York",
  *     layers: [{
  *         name: "Night Shift",
  *         start: "2015-11-06T20:00:00-05:00",
  *         rotationVirtualStart: "2015-11-06T20:00:00-05:00",
  *         rotationTurnLengthSeconds: 86400,
- *         users: [exampleUser.id],
+ *         users: [example.id],
  *         restrictions: [{
  *             type: "daily_restriction",
  *             startTimeOfDay: "08:00:00",

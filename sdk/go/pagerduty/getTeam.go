@@ -12,6 +12,59 @@ import (
 )
 
 // Use this data source to get information about a specific [team](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIyMw-list-teams) that you can use for other PagerDuty resources.
+//
+// ## Example Usage
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-pagerduty/sdk/v4/go/pagerduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			me, err := pagerduty.LookupUser(ctx, &pagerduty.LookupUserArgs{
+//				Email: "me@example.com",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			devops, err := pagerduty.LookupTeam(ctx, &pagerduty.LookupTeamArgs{
+//				Name: "devops",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pagerduty.NewEscalationPolicy(ctx, "foo", &pagerduty.EscalationPolicyArgs{
+//				Name:     pulumi.String("DevOps Escalation Policy"),
+//				NumLoops: pulumi.Int(2),
+//				Teams:    pulumi.String(devops.Id),
+//				Rules: pagerduty.EscalationPolicyRuleArray{
+//					&pagerduty.EscalationPolicyRuleArgs{
+//						EscalationDelayInMinutes: pulumi.Int(10),
+//						Targets: pagerduty.EscalationPolicyRuleTargetArray{
+//							&pagerduty.EscalationPolicyRuleTargetArgs{
+//								Type: pulumi.String("user"),
+//								Id:   pulumi.String(me.Id),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
 func LookupTeam(ctx *pulumi.Context, args *LookupTeamArgs, opts ...pulumi.InvokeOption) (*LookupTeamResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTeamResult

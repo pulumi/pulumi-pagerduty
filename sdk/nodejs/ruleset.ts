@@ -14,10 +14,13 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const fooTeam = new pagerduty.Team("fooTeam", {});
- * const fooRuleset = new pagerduty.Ruleset("fooRuleset", {team: {
- *     id: fooTeam.id,
- * }});
+ * const foo = new pagerduty.Team("foo", {name: "Engineering (Seattle)"});
+ * const fooRuleset = new pagerduty.Ruleset("foo", {
+ *     name: "Primary Ruleset",
+ *     team: {
+ *         id: foo.id,
+ *     },
+ * });
  * ```
  * <!--End PulumiCodeChooser -->
  *

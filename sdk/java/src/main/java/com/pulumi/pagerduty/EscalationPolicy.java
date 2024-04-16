@@ -49,18 +49,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleTeam = new Team(&#34;exampleTeam&#34;, TeamArgs.builder()        
+ *         var example = new Team(&#34;example&#34;, TeamArgs.builder()        
+ *             .name(&#34;Engineering&#34;)
  *             .description(&#34;All engineering&#34;)
  *             .build());
  * 
  *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
+ *             .name(&#34;Earline Greenholt&#34;)
  *             .email(&#34;125.greenholt.earline@graham.name&#34;)
- *             .teams(exampleTeam.id())
+ *             .teams(example.id())
  *             .build());
  * 
  *         var exampleEscalationPolicy = new EscalationPolicy(&#34;exampleEscalationPolicy&#34;, EscalationPolicyArgs.builder()        
+ *             .name(&#34;Engineering Escalation Policy&#34;)
  *             .numLoops(2)
- *             .teams(exampleTeam.id())
+ *             .teams(example.id())
  *             .rules(EscalationPolicyRuleArgs.builder()
  *                 .escalationDelayInMinutes(10)
  *                 .targets(                
@@ -70,7 +73,7 @@ import javax.annotation.Nullable;
  *                         .build(),
  *                     EscalationPolicyRuleTargetArgs.builder()
  *                         .type(&#34;user_reference&#34;)
- *                         .id(pagerduty_user.example2().id())
+ *                         .id(example2.id())
  *                         .build())
  *                 .build())
  *             .build());

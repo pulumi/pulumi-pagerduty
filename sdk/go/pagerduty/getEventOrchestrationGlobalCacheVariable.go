@@ -28,7 +28,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			eventOrchestration, err := pagerduty.NewEventOrchestration(ctx, "eventOrchestration", nil)
+//			eventOrchestration, err := pagerduty.NewEventOrchestration(ctx, "event_orchestration", &pagerduty.EventOrchestrationArgs{
+//				Name: pulumi.String("Test Event Orchestration"),
+//			})
 //			if err != nil {
 //				return err
 //			}

@@ -14,29 +14,32 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const exampleUser = new pagerduty.User("exampleUser", {
+ * const example = new pagerduty.User("example", {
+ *     name: "Earline Greenholt",
  *     email: "125.greenholt.earline@graham.name",
- *     teams: [pagerduty_team.example.id],
+ *     teams: [examplePagerdutyTeam.id],
  * });
- * const exampleEscalationPolicy = new pagerduty.EscalationPolicy("exampleEscalationPolicy", {
+ * const exampleEscalationPolicy = new pagerduty.EscalationPolicy("example", {
+ *     name: "Engineering Escalation Policy",
  *     numLoops: 2,
  *     rules: [{
  *         escalationDelayInMinutes: 10,
  *         targets: [{
  *             type: "user",
- *             id: exampleUser.id,
+ *             id: example.id,
  *         }],
  *     }],
  * });
- * const exampleResponsePlay = new pagerduty.ResponsePlay("exampleResponsePlay", {
- *     from: exampleUser.email,
+ * const exampleResponsePlay = new pagerduty.ResponsePlay("example", {
+ *     name: "My Response Play",
+ *     from: example.email,
  *     responders: [{
  *         type: "escalation_policy_reference",
  *         id: exampleEscalationPolicy.id,
  *     }],
  *     subscribers: [{
  *         type: "user_reference",
- *         id: exampleUser.id,
+ *         id: example.id,
  *     }],
  *     runnability: "services",
  * });

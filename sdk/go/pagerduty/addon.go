@@ -30,7 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := pagerduty.NewAddon(ctx, "example", &pagerduty.AddonArgs{
-//				Src: pulumi.String("https://intranet.example.com/status"),
+//				Name: pulumi.String("Internal Status Page"),
+//				Src:  pulumi.String("https://intranet.example.com/status"),
 //			})
 //			if err != nil {
 //				return err

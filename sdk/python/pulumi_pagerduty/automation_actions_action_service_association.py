@@ -107,32 +107,37 @@ class AutomationActionsActionServiceAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        example_user = pagerduty.User("exampleUser", email="125.greenholt.earline@graham.name")
-        foo_escalation_policy = pagerduty.EscalationPolicy("fooEscalationPolicy",
+        example = pagerduty.User("example",
+            name="Earline Greenholt",
+            email="125.greenholt.earline@graham.name")
+        foo = pagerduty.EscalationPolicy("foo",
+            name="Engineering Escalation Policy",
             num_loops=2,
             rules=[pagerduty.EscalationPolicyRuleArgs(
                 escalation_delay_in_minutes=10,
                 targets=[pagerduty.EscalationPolicyRuleTargetArgs(
                     type="user_reference",
-                    id=example_user.id,
+                    id=example.id,
                 )],
             )])
-        example_service = pagerduty.Service("exampleService",
+        example_service = pagerduty.Service("example",
+            name="My Web App",
             auto_resolve_timeout="14400",
             acknowledgement_timeout="600",
-            escalation_policy=foo_escalation_policy.id,
+            escalation_policy=foo.id,
             alert_creation="create_alerts_and_incidents",
             auto_pause_notifications_parameters=pagerduty.ServiceAutoPauseNotificationsParametersArgs(
                 enabled=True,
                 timeout=300,
             ))
-        pa_action_example = pagerduty.AutomationActionsAction("paActionExample",
+        pa_action_example = pagerduty.AutomationActionsAction("pa_action_example",
+            name="PA Action created via TF",
             description="Description of the PA Action created via TF",
             action_type="process_automation",
             action_data_reference=pagerduty.AutomationActionsActionActionDataReferenceArgs(
                 process_automation_job_id="P123456",
             ))
-        foo_automation_actions_action_service_association = pagerduty.AutomationActionsActionServiceAssociation("fooAutomationActionsActionServiceAssociation",
+        foo_automation_actions_action_service_association = pagerduty.AutomationActionsActionServiceAssociation("foo",
             action_id=pa_action_example.id,
             service_id=example_service.id)
         ```
@@ -167,32 +172,37 @@ class AutomationActionsActionServiceAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        example_user = pagerduty.User("exampleUser", email="125.greenholt.earline@graham.name")
-        foo_escalation_policy = pagerduty.EscalationPolicy("fooEscalationPolicy",
+        example = pagerduty.User("example",
+            name="Earline Greenholt",
+            email="125.greenholt.earline@graham.name")
+        foo = pagerduty.EscalationPolicy("foo",
+            name="Engineering Escalation Policy",
             num_loops=2,
             rules=[pagerduty.EscalationPolicyRuleArgs(
                 escalation_delay_in_minutes=10,
                 targets=[pagerduty.EscalationPolicyRuleTargetArgs(
                     type="user_reference",
-                    id=example_user.id,
+                    id=example.id,
                 )],
             )])
-        example_service = pagerduty.Service("exampleService",
+        example_service = pagerduty.Service("example",
+            name="My Web App",
             auto_resolve_timeout="14400",
             acknowledgement_timeout="600",
-            escalation_policy=foo_escalation_policy.id,
+            escalation_policy=foo.id,
             alert_creation="create_alerts_and_incidents",
             auto_pause_notifications_parameters=pagerduty.ServiceAutoPauseNotificationsParametersArgs(
                 enabled=True,
                 timeout=300,
             ))
-        pa_action_example = pagerduty.AutomationActionsAction("paActionExample",
+        pa_action_example = pagerduty.AutomationActionsAction("pa_action_example",
+            name="PA Action created via TF",
             description="Description of the PA Action created via TF",
             action_type="process_automation",
             action_data_reference=pagerduty.AutomationActionsActionActionDataReferenceArgs(
                 process_automation_job_id="P123456",
             ))
-        foo_automation_actions_action_service_association = pagerduty.AutomationActionsActionServiceAssociation("fooAutomationActionsActionServiceAssociation",
+        foo_automation_actions_action_service_association = pagerduty.AutomationActionsActionServiceAssociation("foo",
             action_id=pa_action_example.id,
             service_id=example_service.id)
         ```

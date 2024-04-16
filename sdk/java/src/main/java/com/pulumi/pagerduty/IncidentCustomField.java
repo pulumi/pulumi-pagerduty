@@ -42,22 +42,25 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var csImpact = new IncidentCustomField(&#34;csImpact&#34;, IncidentCustomFieldArgs.builder()        
- *             .dataType(&#34;string&#34;)
+ *             .name(&#34;impact&#34;)
  *             .displayName(&#34;Customer Impact&#34;)
+ *             .dataType(&#34;string&#34;)
  *             .fieldType(&#34;single_value&#34;)
  *             .build());
  * 
  *         var sreEnvironment = new IncidentCustomField(&#34;sreEnvironment&#34;, IncidentCustomFieldArgs.builder()        
- *             .dataType(&#34;string&#34;)
+ *             .name(&#34;environment&#34;)
  *             .displayName(&#34;Environment&#34;)
+ *             .dataType(&#34;string&#34;)
  *             .fieldType(&#34;single_value_fixed&#34;)
  *             .build());
  * 
  *         var falseAlarm = new IncidentCustomField(&#34;falseAlarm&#34;, IncidentCustomFieldArgs.builder()        
- *             .dataType(&#34;boolean&#34;)
- *             .defaultValue(&#34;false&#34;)
+ *             .name(&#34;false_alarm&#34;)
  *             .displayName(&#34;False Alarm&#34;)
+ *             .dataType(&#34;boolean&#34;)
  *             .fieldType(&#34;single_value&#34;)
+ *             .defaultValue(&#34;false&#34;)
  *             .build());
  * 
  *     }

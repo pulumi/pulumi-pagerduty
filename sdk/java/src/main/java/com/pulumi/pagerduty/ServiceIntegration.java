@@ -56,69 +56,78 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
+ *         var example = new User(&#34;example&#34;, UserArgs.builder()        
+ *             .name(&#34;Earline Greenholt&#34;)
  *             .email(&#34;125.greenholt.earline@graham.name&#34;)
- *             .teams(pagerduty_team.example().id())
+ *             .teams(examplePagerdutyTeam.id())
  *             .build());
  * 
  *         var foo = new EscalationPolicy(&#34;foo&#34;, EscalationPolicyArgs.builder()        
+ *             .name(&#34;Engineering Escalation Policy&#34;)
  *             .numLoops(2)
  *             .rules(EscalationPolicyRuleArgs.builder()
  *                 .escalationDelayInMinutes(10)
  *                 .targets(EscalationPolicyRuleTargetArgs.builder()
  *                     .type(&#34;user&#34;)
- *                     .id(exampleUser.id())
+ *                     .id(example.id())
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
+ *             .name(&#34;My Web App&#34;)
  *             .autoResolveTimeout(14400)
  *             .acknowledgementTimeout(600)
- *             .escalationPolicy(pagerduty_escalation_policy.example().id())
+ *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
  *             .build());
  * 
  *         var exampleServiceIntegration = new ServiceIntegration(&#34;exampleServiceIntegration&#34;, ServiceIntegrationArgs.builder()        
+ *             .name(&#34;Generic API Service Integration&#34;)
  *             .type(&#34;generic_events_api_inbound_integration&#34;)
  *             .service(exampleService.id())
  *             .build());
  * 
  *         var apiv2 = new ServiceIntegration(&#34;apiv2&#34;, ServiceIntegrationArgs.builder()        
+ *             .name(&#34;API V2&#34;)
  *             .type(&#34;events_api_v2_inbound_integration&#34;)
  *             .service(exampleService.id())
  *             .build());
  * 
  *         var emailX = new ServiceIntegration(&#34;emailX&#34;, ServiceIntegrationArgs.builder()        
+ *             .name(&#34;Email X&#34;)
  *             .type(&#34;generic_email_inbound_integration&#34;)
  *             .integrationEmail(&#34;ecommerce@subdomain.pagerduty.com&#34;)
  *             .service(exampleService.id())
  *             .build());
  * 
- *         final var datadogVendor = PagerdutyFunctions.getVendor(GetVendorArgs.builder()
+ *         final var datadog = PagerdutyFunctions.getVendor(GetVendorArgs.builder()
  *             .name(&#34;Datadog&#34;)
  *             .build());
  * 
  *         var datadogServiceIntegration = new ServiceIntegration(&#34;datadogServiceIntegration&#34;, ServiceIntegrationArgs.builder()        
+ *             .name(datadog.applyValue(getVendorResult -&gt; getVendorResult.name()))
  *             .service(exampleService.id())
- *             .vendor(datadogVendor.applyValue(getVendorResult -&gt; getVendorResult.id()))
+ *             .vendor(datadog.applyValue(getVendorResult -&gt; getVendorResult.id()))
  *             .build());
  * 
- *         final var cloudwatchVendor = PagerdutyFunctions.getVendor(GetVendorArgs.builder()
+ *         final var cloudwatch = PagerdutyFunctions.getVendor(GetVendorArgs.builder()
  *             .name(&#34;Cloudwatch&#34;)
  *             .build());
  * 
  *         var cloudwatchServiceIntegration = new ServiceIntegration(&#34;cloudwatchServiceIntegration&#34;, ServiceIntegrationArgs.builder()        
+ *             .name(cloudwatch.applyValue(getVendorResult -&gt; getVendorResult.name()))
  *             .service(exampleService.id())
- *             .vendor(cloudwatchVendor.applyValue(getVendorResult -&gt; getVendorResult.id()))
+ *             .vendor(cloudwatch.applyValue(getVendorResult -&gt; getVendorResult.id()))
  *             .build());
  * 
- *         final var emailVendor = PagerdutyFunctions.getVendor(GetVendorArgs.builder()
+ *         final var email = PagerdutyFunctions.getVendor(GetVendorArgs.builder()
  *             .name(&#34;Email&#34;)
  *             .build());
  * 
  *         var emailServiceIntegration = new ServiceIntegration(&#34;emailServiceIntegration&#34;, ServiceIntegrationArgs.builder()        
+ *             .name(email.applyValue(getVendorResult -&gt; getVendorResult.name()))
  *             .service(exampleService.id())
- *             .vendor(emailVendor.applyValue(getVendorResult -&gt; getVendorResult.id()))
+ *             .vendor(email.applyValue(getVendorResult -&gt; getVendorResult.id()))
  *             .integrationEmail(&#34;s1@your_account.pagerduty.com&#34;)
  *             .emailIncidentCreation(&#34;use_rules&#34;)
  *             .emailFilterMode(&#34;and-rules-email&#34;)

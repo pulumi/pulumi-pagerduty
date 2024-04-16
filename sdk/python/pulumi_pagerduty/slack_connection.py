@@ -273,10 +273,10 @@ class SlackConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        foo_team = pagerduty.Team("fooTeam")
+        foo = pagerduty.Team("foo", name="Team Foo")
         p1 = pagerduty.get_priority(name="P1")
-        foo_slack_connection = pagerduty.SlackConnection("fooSlackConnection",
-            source_id=foo_team.id,
+        foo_slack_connection = pagerduty.SlackConnection("foo",
+            source_id=foo.id,
             source_type="team_reference",
             workspace_id="T02A123LV1A",
             channel_id="C02CABCDAC9",
@@ -339,10 +339,10 @@ class SlackConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        foo_team = pagerduty.Team("fooTeam")
+        foo = pagerduty.Team("foo", name="Team Foo")
         p1 = pagerduty.get_priority(name="P1")
-        foo_slack_connection = pagerduty.SlackConnection("fooSlackConnection",
-            source_id=foo_team.id,
+        foo_slack_connection = pagerduty.SlackConnection("foo",
+            source_id=foo.id,
             source_type="team_reference",
             workspace_id="T02A123LV1A",
             channel_id="C02CABCDAC9",

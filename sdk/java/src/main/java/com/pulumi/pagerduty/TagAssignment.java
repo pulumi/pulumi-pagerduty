@@ -28,6 +28,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.pagerduty.Tag;
  * import com.pulumi.pagerduty.TagArgs;
  * import com.pulumi.pagerduty.Team;
+ * import com.pulumi.pagerduty.TeamArgs;
  * import com.pulumi.pagerduty.TagAssignment;
  * import com.pulumi.pagerduty.TagAssignmentArgs;
  * import java.util.List;
@@ -43,14 +44,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleTag = new Tag(&#34;exampleTag&#34;, TagArgs.builder()        
+ *         var example = new Tag(&#34;example&#34;, TagArgs.builder()        
  *             .label(&#34;API&#34;)
  *             .build());
  * 
- *         var engteam = new Team(&#34;engteam&#34;);
+ *         var engteam = new Team(&#34;engteam&#34;, TeamArgs.builder()        
+ *             .name(&#34;Engineering&#34;)
+ *             .build());
  * 
  *         var exampleTagAssignment = new TagAssignment(&#34;exampleTagAssignment&#34;, TagAssignmentArgs.builder()        
- *             .tagId(exampleTag.id())
+ *             .tagId(example.id())
  *             .entityType(&#34;teams&#34;)
  *             .entityId(engteam.id())
  *             .build());

@@ -107,13 +107,16 @@ class AutomationActionsRunnerTeamAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        team_ent_eng = pagerduty.Team("teamEntEng", description="Enterprise engineering")
-        pa_runbook_runner = pagerduty.AutomationActionsRunner("paRunbookRunner",
+        team_ent_eng = pagerduty.Team("team_ent_eng",
+            name="Enterprise Engineering",
+            description="Enterprise engineering")
+        pa_runbook_runner = pagerduty.AutomationActionsRunner("pa_runbook_runner",
+            name="Runner created via TF",
             description="Description of the Runner created via TF",
             runner_type="runbook",
             runbook_base_uri="cat-cat",
             runbook_api_key="cat-secret")
-        pa_runner_ent_eng_assoc = pagerduty.AutomationActionsRunnerTeamAssociation("paRunnerEntEngAssoc",
+        pa_runner_ent_eng_assoc = pagerduty.AutomationActionsRunnerTeamAssociation("pa_runner_ent_eng_assoc",
             runner_id=pa_runbook_runner.id,
             team_id=team_ent_eng.id)
         ```
@@ -148,13 +151,16 @@ class AutomationActionsRunnerTeamAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        team_ent_eng = pagerduty.Team("teamEntEng", description="Enterprise engineering")
-        pa_runbook_runner = pagerduty.AutomationActionsRunner("paRunbookRunner",
+        team_ent_eng = pagerduty.Team("team_ent_eng",
+            name="Enterprise Engineering",
+            description="Enterprise engineering")
+        pa_runbook_runner = pagerduty.AutomationActionsRunner("pa_runbook_runner",
+            name="Runner created via TF",
             description="Description of the Runner created via TF",
             runner_type="runbook",
             runbook_base_uri="cat-cat",
             runbook_api_key="cat-secret")
-        pa_runner_ent_eng_assoc = pagerduty.AutomationActionsRunnerTeamAssociation("paRunnerEntEngAssoc",
+        pa_runner_ent_eng_assoc = pagerduty.AutomationActionsRunnerTeamAssociation("pa_runner_ent_eng_assoc",
             runner_id=pa_runbook_runner.id,
             team_id=team_ent_eng.id)
         ```

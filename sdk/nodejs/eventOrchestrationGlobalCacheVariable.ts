@@ -18,10 +18,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const databaseTeam = new pagerduty.Team("databaseTeam", {});
- * const eventOrchestration = new pagerduty.EventOrchestration("eventOrchestration", {team: databaseTeam.id});
- * const cacheVar = new pagerduty.EventOrchestrationGlobalCacheVariable("cacheVar", {
+ * const databaseTeam = new pagerduty.Team("database_team", {name: "Database Team"});
+ * const eventOrchestration = new pagerduty.EventOrchestration("event_orchestration", {
+ *     name: "Example Orchestration",
+ *     team: databaseTeam.id,
+ * });
+ * const cacheVar = new pagerduty.EventOrchestrationGlobalCacheVariable("cache_var", {
  *     eventOrchestration: eventOrchestration.id,
+ *     name: "recent_host",
  *     conditions: [{
  *         expression: "event.source exists",
  *     }],

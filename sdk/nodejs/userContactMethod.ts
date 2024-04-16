@@ -13,8 +13,9 @@ import * as utilities from "./utilities";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
  * const example = new pagerduty.User("example", {
+ *     name: "Earline Greenholt",
  *     email: "125.greenholt.earline@graham.name",
- *     teams: [pagerduty_team.example.id],
+ *     teams: [examplePagerdutyTeam.id],
  * });
  * const email = new pagerduty.UserContactMethod("email", {
  *     userId: example.id,

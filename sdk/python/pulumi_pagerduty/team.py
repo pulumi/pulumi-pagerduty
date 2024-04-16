@@ -189,8 +189,11 @@ class Team(pulumi.CustomResource):
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        parent = pagerduty.Team("parent", description="Product and Engineering")
+        parent = pagerduty.Team("parent",
+            name="Product Development",
+            description="Product and Engineering")
         example = pagerduty.Team("example",
+            name="Engineering",
             description="All engineering",
             parent=parent.id)
         ```
@@ -228,8 +231,11 @@ class Team(pulumi.CustomResource):
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        parent = pagerduty.Team("parent", description="Product and Engineering")
+        parent = pagerduty.Team("parent",
+            name="Product Development",
+            description="Product and Engineering")
         example = pagerduty.Team("example",
+            name="Engineering",
             description="All engineering",
             parent=parent.id)
         ```

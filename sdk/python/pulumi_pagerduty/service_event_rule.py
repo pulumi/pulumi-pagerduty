@@ -274,9 +274,10 @@ class ServiceEventRule(pulumi.CustomResource):
         import pulumi_pagerduty as pagerduty
 
         example = pagerduty.Service("example",
+            name="Checkout API Service",
             auto_resolve_timeout="14400",
             acknowledgement_timeout="600",
-            escalation_policy=pagerduty_escalation_policy["example"]["id"],
+            escalation_policy=example_pagerduty_escalation_policy["id"],
             alert_creation="create_alerts_and_incidents")
         foo = pagerduty.ServiceEventRule("foo",
             service=example.id,
@@ -317,7 +318,7 @@ class ServiceEventRule(pulumi.CustomResource):
                 ],
             ))
         bar = pagerduty.ServiceEventRule("bar",
-            service=pagerduty_service["foo"]["id"],
+            service=foo_pagerduty_service["id"],
             position=1,
             disabled=True,
             conditions=pagerduty.ServiceEventRuleConditionsArgs(
@@ -371,9 +372,10 @@ class ServiceEventRule(pulumi.CustomResource):
         import pulumi_pagerduty as pagerduty
 
         example = pagerduty.Service("example",
+            name="Checkout API Service",
             auto_resolve_timeout="14400",
             acknowledgement_timeout="600",
-            escalation_policy=pagerduty_escalation_policy["example"]["id"],
+            escalation_policy=example_pagerduty_escalation_policy["id"],
             alert_creation="create_alerts_and_incidents")
         foo = pagerduty.ServiceEventRule("foo",
             service=example.id,
@@ -414,7 +416,7 @@ class ServiceEventRule(pulumi.CustomResource):
                 ],
             ))
         bar = pagerduty.ServiceEventRule("bar",
-            service=pagerduty_service["foo"]["id"],
+            service=foo_pagerduty_service["id"],
             position=1,
             disabled=True,
             conditions=pagerduty.ServiceEventRuleConditionsArgs(

@@ -110,20 +110,23 @@ def get_event_orchestration_service_cache_variable(id: Optional[str] = None,
     import pulumi
     import pulumi_pagerduty as pagerduty
 
-    engineering = pagerduty.Team("engineering")
-    example_user = pagerduty.User("exampleUser",
+    engineering = pagerduty.Team("engineering", name="Engineering")
+    example = pagerduty.User("example",
+        name="Earline Greenholt",
         email="125.greenholt.earline@graham.name",
         teams=[engineering.id])
-    example_escalation_policy = pagerduty.EscalationPolicy("exampleEscalationPolicy",
+    example_escalation_policy = pagerduty.EscalationPolicy("example",
+        name="Engineering Escalation Policy",
         num_loops=2,
         rules=[pagerduty.EscalationPolicyRuleArgs(
             escalation_delay_in_minutes=10,
             targets=[pagerduty.EscalationPolicyRuleTargetArgs(
                 type="user",
-                id=example_user.id,
+                id=example.id,
             )],
         )])
     service = pagerduty.Service("service",
+        name="My Web App",
         auto_resolve_timeout="14400",
         acknowledgement_timeout="600",
         escalation_policy=example_escalation_policy.id,
@@ -169,20 +172,23 @@ def get_event_orchestration_service_cache_variable_output(id: Optional[pulumi.In
     import pulumi
     import pulumi_pagerduty as pagerduty
 
-    engineering = pagerduty.Team("engineering")
-    example_user = pagerduty.User("exampleUser",
+    engineering = pagerduty.Team("engineering", name="Engineering")
+    example = pagerduty.User("example",
+        name="Earline Greenholt",
         email="125.greenholt.earline@graham.name",
         teams=[engineering.id])
-    example_escalation_policy = pagerduty.EscalationPolicy("exampleEscalationPolicy",
+    example_escalation_policy = pagerduty.EscalationPolicy("example",
+        name="Engineering Escalation Policy",
         num_loops=2,
         rules=[pagerduty.EscalationPolicyRuleArgs(
             escalation_delay_in_minutes=10,
             targets=[pagerduty.EscalationPolicyRuleTargetArgs(
                 type="user",
-                id=example_user.id,
+                id=example.id,
             )],
         )])
     service = pagerduty.Service("service",
+        name="My Web App",
         auto_resolve_timeout="14400",
         acknowledgement_timeout="600",
         escalation_policy=example_escalation_policy.id,

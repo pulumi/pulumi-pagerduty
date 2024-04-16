@@ -268,8 +268,9 @@ class UserContactMethod(pulumi.CustomResource):
         import pulumi_pagerduty as pagerduty
 
         example = pagerduty.User("example",
+            name="Earline Greenholt",
             email="125.greenholt.earline@graham.name",
-            teams=[pagerduty_team["example"]["id"]])
+            teams=[example_pagerduty_team["id"]])
         email = pagerduty.UserContactMethod("email",
             user_id=example.id,
             type="email_contact_method",
@@ -322,8 +323,9 @@ class UserContactMethod(pulumi.CustomResource):
         import pulumi_pagerduty as pagerduty
 
         example = pagerduty.User("example",
+            name="Earline Greenholt",
             email="125.greenholt.earline@graham.name",
-            teams=[pagerduty_team["example"]["id"]])
+            teams=[example_pagerduty_team["id"]])
         email = pagerduty.UserContactMethod("email",
             user_id=example.id,
             type="email_contact_method",

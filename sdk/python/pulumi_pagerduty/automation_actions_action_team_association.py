@@ -107,8 +107,11 @@ class AutomationActionsActionTeamAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        example = pagerduty.Team("example", description="All engineering")
-        pa_action_example = pagerduty.AutomationActionsAction("paActionExample",
+        example = pagerduty.Team("example",
+            name="Engineering",
+            description="All engineering")
+        pa_action_example = pagerduty.AutomationActionsAction("pa_action_example",
+            name="PA Action created via TF",
             description="Description of the PA Action created via TF",
             action_type="process_automation",
             action_data_reference=pagerduty.AutomationActionsActionActionDataReferenceArgs(
@@ -149,8 +152,11 @@ class AutomationActionsActionTeamAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        example = pagerduty.Team("example", description="All engineering")
-        pa_action_example = pagerduty.AutomationActionsAction("paActionExample",
+        example = pagerduty.Team("example",
+            name="Engineering",
+            description="All engineering")
+        pa_action_example = pagerduty.AutomationActionsAction("pa_action_example",
+            name="PA Action created via TF",
             description="Description of the PA Action created via TF",
             action_type="process_automation",
             action_data_reference=pagerduty.AutomationActionsActionActionDataReferenceArgs(

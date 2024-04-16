@@ -25,10 +25,14 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var engineering = new Pagerduty.Team("engineering");
-        /// 
-        ///     var exampleUser = new Pagerduty.User("exampleUser", new()
+        ///     var engineering = new Pagerduty.Team("engineering", new()
         ///     {
+        ///         Name = "Engineering",
+        ///     });
+        /// 
+        ///     var example = new Pagerduty.User("example", new()
+        ///     {
+        ///         Name = "Earline Greenholt",
         ///         Email = "125.greenholt.earline@graham.name",
         ///         Teams = new[]
         ///         {
@@ -36,8 +40,9 @@ namespace Pulumi.Pagerduty
         ///         },
         ///     });
         /// 
-        ///     var exampleEscalationPolicy = new Pagerduty.EscalationPolicy("exampleEscalationPolicy", new()
+        ///     var exampleEscalationPolicy = new Pagerduty.EscalationPolicy("example", new()
         ///     {
+        ///         Name = "Engineering Escalation Policy",
         ///         NumLoops = 2,
         ///         Rules = new[]
         ///         {
@@ -49,7 +54,7 @@ namespace Pulumi.Pagerduty
         ///                     new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
         ///                     {
         ///                         Type = "user",
-        ///                         Id = exampleUser.Id,
+        ///                         Id = example.Id,
         ///                     },
         ///                 },
         ///             },
@@ -58,6 +63,7 @@ namespace Pulumi.Pagerduty
         /// 
         ///     var service = new Pagerduty.Service("service", new()
         ///     {
+        ///         Name = "My Web App",
         ///         AutoResolveTimeout = "14400",
         ///         AcknowledgementTimeout = "600",
         ///         EscalationPolicy = exampleEscalationPolicy.Id,
@@ -91,10 +97,14 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var engineering = new Pagerduty.Team("engineering");
-        /// 
-        ///     var exampleUser = new Pagerduty.User("exampleUser", new()
+        ///     var engineering = new Pagerduty.Team("engineering", new()
         ///     {
+        ///         Name = "Engineering",
+        ///     });
+        /// 
+        ///     var example = new Pagerduty.User("example", new()
+        ///     {
+        ///         Name = "Earline Greenholt",
         ///         Email = "125.greenholt.earline@graham.name",
         ///         Teams = new[]
         ///         {
@@ -102,8 +112,9 @@ namespace Pulumi.Pagerduty
         ///         },
         ///     });
         /// 
-        ///     var exampleEscalationPolicy = new Pagerduty.EscalationPolicy("exampleEscalationPolicy", new()
+        ///     var exampleEscalationPolicy = new Pagerduty.EscalationPolicy("example", new()
         ///     {
+        ///         Name = "Engineering Escalation Policy",
         ///         NumLoops = 2,
         ///         Rules = new[]
         ///         {
@@ -115,7 +126,7 @@ namespace Pulumi.Pagerduty
         ///                     new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
         ///                     {
         ///                         Type = "user",
-        ///                         Id = exampleUser.Id,
+        ///                         Id = example.Id,
         ///                     },
         ///                 },
         ///             },
@@ -124,6 +135,7 @@ namespace Pulumi.Pagerduty
         /// 
         ///     var service = new Pagerduty.Service("service", new()
         ///     {
+        ///         Name = "My Web App",
         ///         AutoResolveTimeout = "14400",
         ///         AcknowledgementTimeout = "600",
         ///         EscalationPolicy = exampleEscalationPolicy.Id,

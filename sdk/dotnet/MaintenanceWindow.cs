@@ -31,7 +31,7 @@ namespace Pulumi.Pagerduty
     ///         EndTime = "2015-11-09T22:00:00-05:00",
     ///         Services = new[]
     ///         {
-    ///             pagerduty_service.Example.Id,
+    ///             examplePagerdutyService.Id,
     ///         },
     ///     });
     /// 

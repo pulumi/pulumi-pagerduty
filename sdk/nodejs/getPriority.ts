@@ -17,9 +17,9 @@ import * as utilities from "./utilities";
  * const p1 = pagerduty.getPriority({
  *     name: "P1",
  * });
- * const fooRuleset = new pagerduty.Ruleset("fooRuleset", {});
- * const fooRulesetRule = new pagerduty.RulesetRule("fooRulesetRule", {
- *     ruleset: fooRuleset.id,
+ * const foo = new pagerduty.Ruleset("foo", {name: "Primary Ruleset"});
+ * const fooRulesetRule = new pagerduty.RulesetRule("foo", {
+ *     ruleset: foo.id,
  *     position: 0,
  *     disabled: false,
  *     conditions: {
@@ -101,9 +101,9 @@ export interface GetPriorityResult {
  * const p1 = pagerduty.getPriority({
  *     name: "P1",
  * });
- * const fooRuleset = new pagerduty.Ruleset("fooRuleset", {});
- * const fooRulesetRule = new pagerduty.RulesetRule("fooRulesetRule", {
- *     ruleset: fooRuleset.id,
+ * const foo = new pagerduty.Ruleset("foo", {name: "Primary Ruleset"});
+ * const fooRulesetRule = new pagerduty.RulesetRule("foo", {
+ *     ruleset: foo.id,
  *     position: 0,
  *     disabled: false,
  *     conditions: {

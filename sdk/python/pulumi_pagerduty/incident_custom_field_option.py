@@ -140,19 +140,20 @@ class IncidentCustomFieldOption(pulumi.CustomResource):
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        sre_environment = pagerduty.IncidentCustomField("sreEnvironment",
+        sre_environment = pagerduty.IncidentCustomField("sre_environment",
+            name="environment",
             display_name="Environment",
             data_type="string",
             field_type="single_value_fixed")
-        dev_environment = pagerduty.IncidentCustomFieldOption("devEnvironment",
+        dev_environment = pagerduty.IncidentCustomFieldOption("dev_environment",
             field=sre_environment.id,
             data_type="string",
             value="dev")
-        stage_environment = pagerduty.IncidentCustomFieldOption("stageEnvironment",
+        stage_environment = pagerduty.IncidentCustomFieldOption("stage_environment",
             field=sre_environment.id,
             data_type="string",
             value="stage")
-        prod_environment = pagerduty.IncidentCustomFieldOption("prodEnvironment",
+        prod_environment = pagerduty.IncidentCustomFieldOption("prod_environment",
             field=sre_environment.id,
             data_type="string",
             value="prod")
@@ -182,19 +183,20 @@ class IncidentCustomFieldOption(pulumi.CustomResource):
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        sre_environment = pagerduty.IncidentCustomField("sreEnvironment",
+        sre_environment = pagerduty.IncidentCustomField("sre_environment",
+            name="environment",
             display_name="Environment",
             data_type="string",
             field_type="single_value_fixed")
-        dev_environment = pagerduty.IncidentCustomFieldOption("devEnvironment",
+        dev_environment = pagerduty.IncidentCustomFieldOption("dev_environment",
             field=sre_environment.id,
             data_type="string",
             value="dev")
-        stage_environment = pagerduty.IncidentCustomFieldOption("stageEnvironment",
+        stage_environment = pagerduty.IncidentCustomFieldOption("stage_environment",
             field=sre_environment.id,
             data_type="string",
             value="stage")
-        prod_environment = pagerduty.IncidentCustomFieldOption("prodEnvironment",
+        prod_environment = pagerduty.IncidentCustomFieldOption("prod_environment",
             field=sre_environment.id,
             data_type="string",
             value="prod")

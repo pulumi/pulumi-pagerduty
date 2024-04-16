@@ -14,35 +14,41 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const exampleUser = new pagerduty.User("exampleUser", {email: "125.greenholt.earline@graham.name"});
- * const fooEscalationPolicy = new pagerduty.EscalationPolicy("fooEscalationPolicy", {
+ * const example = new pagerduty.User("example", {
+ *     name: "Earline Greenholt",
+ *     email: "125.greenholt.earline@graham.name",
+ * });
+ * const foo = new pagerduty.EscalationPolicy("foo", {
+ *     name: "Engineering Escalation Policy",
  *     numLoops: 2,
  *     rules: [{
  *         escalationDelayInMinutes: 10,
  *         targets: [{
  *             type: "user_reference",
- *             id: exampleUser.id,
+ *             id: example.id,
  *         }],
  *     }],
  * });
- * const exampleService = new pagerduty.Service("exampleService", {
+ * const exampleService = new pagerduty.Service("example", {
+ *     name: "My Web App",
  *     autoResolveTimeout: "14400",
  *     acknowledgementTimeout: "600",
- *     escalationPolicy: fooEscalationPolicy.id,
+ *     escalationPolicy: foo.id,
  *     alertCreation: "create_alerts_and_incidents",
  *     autoPauseNotificationsParameters: {
  *         enabled: true,
  *         timeout: 300,
  *     },
  * });
- * const paActionExample = new pagerduty.AutomationActionsAction("paActionExample", {
+ * const paActionExample = new pagerduty.AutomationActionsAction("pa_action_example", {
+ *     name: "PA Action created via TF",
  *     description: "Description of the PA Action created via TF",
  *     actionType: "process_automation",
  *     actionDataReference: {
  *         processAutomationJobId: "P123456",
  *     },
  * });
- * const fooAutomationActionsActionServiceAssociation = new pagerduty.AutomationActionsActionServiceAssociation("fooAutomationActionsActionServiceAssociation", {
+ * const fooAutomationActionsActionServiceAssociation = new pagerduty.AutomationActionsActionServiceAssociation("foo", {
  *     actionId: paActionExample.id,
  *     serviceId: exampleService.id,
  * });

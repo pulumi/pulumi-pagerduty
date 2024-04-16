@@ -16,8 +16,8 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const tfOrchA = new pagerduty.EventOrchestration("tfOrchA", {});
- * const tfOrchB = new pagerduty.EventOrchestration("tfOrchB", {});
+ * const tfOrchA = new pagerduty.EventOrchestration("tf_orch_a", {name: "Test Event A Orchestration"});
+ * const tfOrchB = new pagerduty.EventOrchestration("tf_orch_b", {name: "Test Event B Orchestration"});
  * const tfMyMonitor = pagerduty.getEventOrchestrations({
  *     nameFilter: ".*Orchestration$",
  * });
@@ -66,8 +66,8 @@ export interface GetEventOrchestrationsResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const tfOrchA = new pagerduty.EventOrchestration("tfOrchA", {});
- * const tfOrchB = new pagerduty.EventOrchestration("tfOrchB", {});
+ * const tfOrchA = new pagerduty.EventOrchestration("tf_orch_a", {name: "Test Event A Orchestration"});
+ * const tfOrchB = new pagerduty.EventOrchestration("tf_orch_b", {name: "Test Event B Orchestration"});
  * const tfMyMonitor = pagerduty.getEventOrchestrations({
  *     nameFilter: ".*Orchestration$",
  * });

@@ -34,7 +34,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewIncidentCustomFieldOption(ctx, "devEnvironment", &pagerduty.IncidentCustomFieldOptionArgs{
+//			_, err = pagerduty.NewIncidentCustomFieldOption(ctx, "dev_environment", &pagerduty.IncidentCustomFieldOptionArgs{
 //				Field:    pulumi.String(environment.Id),
 //				Datatype: pulumi.String("string"),
 //				Value:    pulumi.String("dev"),

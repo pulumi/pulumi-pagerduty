@@ -31,18 +31,22 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			databaseTeam, err := pagerduty.NewTeam(ctx, "databaseTeam", nil)
+//			databaseTeam, err := pagerduty.NewTeam(ctx, "database_team", &pagerduty.TeamArgs{
+//				Name: pulumi.String("Database Team"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			eventOrchestration, err := pagerduty.NewEventOrchestration(ctx, "eventOrchestration", &pagerduty.EventOrchestrationArgs{
+//			eventOrchestration, err := pagerduty.NewEventOrchestration(ctx, "event_orchestration", &pagerduty.EventOrchestrationArgs{
+//				Name: pulumi.String("Example Orchestration"),
 //				Team: databaseTeam.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewEventOrchestrationGlobalCacheVariable(ctx, "cacheVar", &pagerduty.EventOrchestrationGlobalCacheVariableArgs{
+//			_, err = pagerduty.NewEventOrchestrationGlobalCacheVariable(ctx, "cache_var", &pagerduty.EventOrchestrationGlobalCacheVariableArgs{
 //				EventOrchestration: eventOrchestration.ID(),
+//				Name:               pulumi.String("recent_host"),
 //				Conditions: pagerduty.EventOrchestrationGlobalCacheVariableConditionArray{
 //					&pagerduty.EventOrchestrationGlobalCacheVariableConditionArgs{
 //						Expression: pulumi.String("event.source exists"),

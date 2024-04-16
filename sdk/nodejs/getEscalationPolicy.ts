@@ -14,13 +14,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const testEscalationPolicy = pagerduty.getEscalationPolicy({
+ * const test = pagerduty.getEscalationPolicy({
  *     name: "Engineering Escalation Policy",
  * });
- * const testService = new pagerduty.Service("testService", {
+ * const testService = new pagerduty.Service("test", {
+ *     name: "My Web App",
  *     autoResolveTimeout: "14400",
  *     acknowledgementTimeout: "600",
- *     escalationPolicy: testEscalationPolicy.then(testEscalationPolicy => testEscalationPolicy.id),
+ *     escalationPolicy: test.then(test => test.id),
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -66,13 +67,14 @@ export interface GetEscalationPolicyResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const testEscalationPolicy = pagerduty.getEscalationPolicy({
+ * const test = pagerduty.getEscalationPolicy({
  *     name: "Engineering Escalation Policy",
  * });
- * const testService = new pagerduty.Service("testService", {
+ * const testService = new pagerduty.Service("test", {
+ *     name: "My Web App",
  *     autoResolveTimeout: "14400",
  *     acknowledgementTimeout: "600",
- *     escalationPolicy: testEscalationPolicy.then(testEscalationPolicy => testEscalationPolicy.id),
+ *     escalationPolicy: test.then(test => test.id),
  * });
  * ```
  * <!--End PulumiCodeChooser -->

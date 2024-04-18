@@ -17,12 +17,13 @@ import * as utilities from "./utilities";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
  * const config = new pulumi.Config();
- * const rUNBOOKAPIKEY = config.require("rUNBOOKAPIKEY");
+ * const RUNBOOK_API_KEY = config.require("RUNBOOK_API_KEY");
  * const example = new pagerduty.AutomationActionsRunner("example", {
+ *     name: "Runner created via TF",
  *     description: "Description of the Runner created via TF",
  *     runnerType: "runbook",
  *     runbookBaseUri: "rdcat.stg",
- *     runbookApiKey: rUNBOOKAPIKEY,
+ *     runbookApiKey: RUNBOOK_API_KEY,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

@@ -15,8 +15,8 @@ import * as utilities from "./utilities";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
  * const example = pagerduty.getServiceIntegration({
- *     integrationSummary: "Datadog",
  *     serviceName: "My Service",
+ *     integrationSummary: "Datadog",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -70,8 +70,8 @@ export interface GetServiceIntegrationResult {
  * import * as pagerduty from "@pulumi/pagerduty";
  *
  * const example = pagerduty.getServiceIntegration({
- *     integrationSummary: "Datadog",
  *     serviceName: "My Service",
+ *     integrationSummary: "Datadog",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

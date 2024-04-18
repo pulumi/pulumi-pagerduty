@@ -14,7 +14,8 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const myFirstWorkflow = new pagerduty.IncidentWorkflow("myFirstWorkflow", {
+ * const myFirstWorkflow = new pagerduty.IncidentWorkflow("my_first_workflow", {
+ *     name: "Example Incident Workflow",
  *     description: "This Incident Workflow is an example",
  *     steps: [{
  *         name: "Send Status Update",
@@ -28,20 +29,20 @@ import * as utilities from "./utilities";
  * const firstService = pagerduty.getService({
  *     name: "My First Service",
  * });
- * const automaticTrigger = new pagerduty.IncidentWorkflowTrigger("automaticTrigger", {
+ * const automaticTrigger = new pagerduty.IncidentWorkflowTrigger("automatic_trigger", {
  *     type: "conditional",
  *     workflow: myFirstWorkflow.id,
- *     services: [pagerduty_service.first_service.id],
+ *     services: [firstServicePagerdutyService.id],
  *     condition: "incident.priority matches 'P1'",
  *     subscribedToAllServices: false,
  * });
  * const devops = pagerduty.getTeam({
  *     name: "devops",
  * });
- * const manualTrigger = new pagerduty.IncidentWorkflowTrigger("manualTrigger", {
+ * const manualTrigger = new pagerduty.IncidentWorkflowTrigger("manual_trigger", {
  *     type: "manual",
  *     workflow: myFirstWorkflow.id,
- *     services: [pagerduty_service.first_service.id],
+ *     services: [firstServicePagerdutyService.id],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

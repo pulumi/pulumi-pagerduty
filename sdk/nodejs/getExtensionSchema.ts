@@ -17,26 +17,30 @@ import * as utilities from "./utilities";
  * const webhook = pagerduty.getExtensionSchema({
  *     name: "Generic V2 Webhook",
  * });
- * const exampleUser = new pagerduty.User("exampleUser", {
+ * const example = new pagerduty.User("example", {
+ *     name: "Howard James",
  *     email: "howard.james@example.domain",
- *     teams: [pagerduty_team.example.id],
+ *     teams: [examplePagerdutyTeam.id],
  * });
  * const foo = new pagerduty.EscalationPolicy("foo", {
+ *     name: "Engineering Escalation Policy",
  *     numLoops: 2,
  *     rules: [{
  *         escalationDelayInMinutes: 10,
  *         targets: [{
  *             type: "user",
- *             id: exampleUser.id,
+ *             id: example.id,
  *         }],
  *     }],
  * });
- * const exampleService = new pagerduty.Service("exampleService", {
+ * const exampleService = new pagerduty.Service("example", {
+ *     name: "My Web App",
  *     autoResolveTimeout: "14400",
  *     acknowledgementTimeout: "600",
- *     escalationPolicy: pagerduty_escalation_policy.example.id,
+ *     escalationPolicy: examplePagerdutyEscalationPolicy.id,
  * });
  * const slack = new pagerduty.Extension("slack", {
+ *     name: "My Web App Extension",
  *     endpointUrl: "https://generic_webhook_url/XXXXXX/BBBBBB",
  *     extensionSchema: webhook.then(webhook => webhook.id),
  *     extensionObjects: [exampleService.id],
@@ -92,26 +96,30 @@ export interface GetExtensionSchemaResult {
  * const webhook = pagerduty.getExtensionSchema({
  *     name: "Generic V2 Webhook",
  * });
- * const exampleUser = new pagerduty.User("exampleUser", {
+ * const example = new pagerduty.User("example", {
+ *     name: "Howard James",
  *     email: "howard.james@example.domain",
- *     teams: [pagerduty_team.example.id],
+ *     teams: [examplePagerdutyTeam.id],
  * });
  * const foo = new pagerduty.EscalationPolicy("foo", {
+ *     name: "Engineering Escalation Policy",
  *     numLoops: 2,
  *     rules: [{
  *         escalationDelayInMinutes: 10,
  *         targets: [{
  *             type: "user",
- *             id: exampleUser.id,
+ *             id: example.id,
  *         }],
  *     }],
  * });
- * const exampleService = new pagerduty.Service("exampleService", {
+ * const exampleService = new pagerduty.Service("example", {
+ *     name: "My Web App",
  *     autoResolveTimeout: "14400",
  *     acknowledgementTimeout: "600",
- *     escalationPolicy: pagerduty_escalation_policy.example.id,
+ *     escalationPolicy: examplePagerdutyEscalationPolicy.id,
  * });
  * const slack = new pagerduty.Extension("slack", {
+ *     name: "My Web App Extension",
  *     endpointUrl: "https://generic_webhook_url/XXXXXX/BBBBBB",
  *     extensionSchema: webhook.then(webhook => webhook.id),
  *     extensionObjects: [exampleService.id],

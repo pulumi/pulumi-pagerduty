@@ -146,7 +146,7 @@ class EventOrchestrationRouter(pulumi.CustomResource):
         import pulumi_pagerduty as pagerduty
 
         router = pagerduty.EventOrchestrationRouter("router",
-            event_orchestration=pagerduty_event_orchestration["my_monitor"]["id"],
+            event_orchestration=my_monitor["id"],
             set=pagerduty.EventOrchestrationRouterSetArgs(
                 id="start",
                 rules=[
@@ -161,7 +161,7 @@ class EventOrchestrationRouter(pulumi.CustomResource):
                             ),
                         ],
                         actions=pagerduty.EventOrchestrationRouterSetRuleActionsArgs(
-                            route_to=pagerduty_service["database"]["id"],
+                            route_to=database["id"],
                         ),
                     ),
                     pagerduty.EventOrchestrationRouterSetRuleArgs(
@@ -169,7 +169,7 @@ class EventOrchestrationRouter(pulumi.CustomResource):
                             expression="event.summary matches part 'www'",
                         )],
                         actions=pagerduty.EventOrchestrationRouterSetRuleActionsArgs(
-                            route_to=pagerduty_service["www"]["id"],
+                            route_to=www["id"],
                         ),
                     ),
                 ],
@@ -217,7 +217,7 @@ class EventOrchestrationRouter(pulumi.CustomResource):
         import pulumi_pagerduty as pagerduty
 
         router = pagerduty.EventOrchestrationRouter("router",
-            event_orchestration=pagerduty_event_orchestration["my_monitor"]["id"],
+            event_orchestration=my_monitor["id"],
             set=pagerduty.EventOrchestrationRouterSetArgs(
                 id="start",
                 rules=[
@@ -232,7 +232,7 @@ class EventOrchestrationRouter(pulumi.CustomResource):
                             ),
                         ],
                         actions=pagerduty.EventOrchestrationRouterSetRuleActionsArgs(
-                            route_to=pagerduty_service["database"]["id"],
+                            route_to=database["id"],
                         ),
                     ),
                     pagerduty.EventOrchestrationRouterSetRuleArgs(
@@ -240,7 +240,7 @@ class EventOrchestrationRouter(pulumi.CustomResource):
                             expression="event.summary matches part 'www'",
                         )],
                         actions=pagerduty.EventOrchestrationRouterSetRuleActionsArgs(
-                            route_to=pagerduty_service["www"]["id"],
+                            route_to=www["id"],
                         ),
                     ),
                 ],

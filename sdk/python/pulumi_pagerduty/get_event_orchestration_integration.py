@@ -83,7 +83,7 @@ def get_event_orchestration_integration(event_orchestration: Optional[str] = Non
     import pulumi
     import pulumi_pagerduty as pagerduty
 
-    event_orchestration = pagerduty.EventOrchestration("eventOrchestration")
+    event_orchestration = pagerduty.EventOrchestration("event_orchestration", name="Test Event Orchestration")
     integration = pagerduty.get_event_orchestration_integration_output(event_orchestration=event_orchestration.id,
         label="Test Event Orchestration Default Integration")
     ```
@@ -123,7 +123,7 @@ def get_event_orchestration_integration_output(event_orchestration: Optional[pul
     import pulumi
     import pulumi_pagerduty as pagerduty
 
-    event_orchestration = pagerduty.EventOrchestration("eventOrchestration")
+    event_orchestration = pagerduty.EventOrchestration("event_orchestration", name="Test Event Orchestration")
     integration = pagerduty.get_event_orchestration_integration_output(event_orchestration=event_orchestration.id,
         label="Test Event Orchestration Default Integration")
     ```

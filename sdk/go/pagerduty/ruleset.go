@@ -26,13 +26,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooTeam, err := pagerduty.NewTeam(ctx, "fooTeam", nil)
+//			foo, err := pagerduty.NewTeam(ctx, "foo", &pagerduty.TeamArgs{
+//				Name: pulumi.String("Engineering (Seattle)"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewRuleset(ctx, "fooRuleset", &pagerduty.RulesetArgs{
+//			_, err = pagerduty.NewRuleset(ctx, "foo", &pagerduty.RulesetArgs{
+//				Name: pulumi.String("Primary Ruleset"),
 //				Team: &pagerduty.RulesetTeamArgs{
-//					Id: fooTeam.ID(),
+//					Id: foo.ID(),
 //				},
 //			})
 //			if err != nil {

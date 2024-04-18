@@ -29,13 +29,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
+//			example, err := pagerduty.NewUser(ctx, "example", &pagerduty.UserArgs{
+//				Name:  pulumi.String("Earline Greenholt"),
 //				Email: pulumi.String("125.greenholt.earline@graham.name"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			foo, err := pagerduty.NewEscalationPolicy(ctx, "foo", &pagerduty.EscalationPolicyArgs{
+//				Name:     pulumi.String("Engineering Escalation Policy"),
 //				NumLoops: pulumi.Int(2),
 //				Rules: pagerduty.EscalationPolicyRuleArray{
 //					&pagerduty.EscalationPolicyRuleArgs{
@@ -43,7 +45,7 @@ import (
 //						Targets: pagerduty.EscalationPolicyRuleTargetArray{
 //							&pagerduty.EscalationPolicyRuleTargetArgs{
 //								Type: pulumi.String("user_reference"),
-//								Id:   exampleUser.ID(),
+//								Id:   example.ID(),
 //							},
 //						},
 //					},
@@ -52,7 +54,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewService(ctx, "exampleService", &pagerduty.ServiceArgs{
+//			_, err = pagerduty.NewService(ctx, "example", &pagerduty.ServiceArgs{
+//				Name:                   pulumi.String("My Web App"),
 //				AutoResolveTimeout:     pulumi.String("14400"),
 //				AcknowledgementTimeout: pulumi.String("600"),
 //				EscalationPolicy:       foo.ID(),

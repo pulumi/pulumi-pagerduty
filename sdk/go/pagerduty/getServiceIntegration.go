@@ -29,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := pagerduty.LookupServiceIntegration(ctx, &pagerduty.LookupServiceIntegrationArgs{
-//				IntegrationSummary: "Datadog",
 //				ServiceName:        "My Service",
+//				IntegrationSummary: "Datadog",
 //			}, nil)
 //			if err != nil {
 //				return err

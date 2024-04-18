@@ -17,7 +17,7 @@ import * as utilities from "./utilities";
  * const environment = pagerduty.getIncidentCustomField({
  *     name: "environment",
  * });
- * const devEnvironment = new pagerduty.IncidentCustomFieldOption("devEnvironment", {
+ * const devEnvironment = new pagerduty.IncidentCustomFieldOption("dev_environment", {
  *     field: environment.then(environment => environment.id),
  *     datatype: "string",
  *     value: "dev",
@@ -70,7 +70,7 @@ export interface GetIncidentCustomFieldResult {
  * const environment = pagerduty.getIncidentCustomField({
  *     name: "environment",
  * });
- * const devEnvironment = new pagerduty.IncidentCustomFieldOption("devEnvironment", {
+ * const devEnvironment = new pagerduty.IncidentCustomFieldOption("dev_environment", {
  *     field: environment.then(environment => environment.id),
  *     datatype: "string",
  *     value: "dev",

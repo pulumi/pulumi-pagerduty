@@ -37,7 +37,7 @@ namespace Pulumi.Pagerduty
         ///         Label = "iPhone (John)",
         ///     });
         /// 
-        ///     var lowUrgencySms = new Pagerduty.UserNotificationRule("lowUrgencySms", new()
+        ///     var lowUrgencySms = new Pagerduty.UserNotificationRule("low_urgency_sms", new()
         ///     {
         ///         UserId = me.Apply(getUserResult =&gt; getUserResult.Id),
         ///         StartDelayInMinutes = 5,
@@ -82,7 +82,7 @@ namespace Pulumi.Pagerduty
         ///         Label = "iPhone (John)",
         ///     });
         /// 
-        ///     var lowUrgencySms = new Pagerduty.UserNotificationRule("lowUrgencySms", new()
+        ///     var lowUrgencySms = new Pagerduty.UserNotificationRule("low_urgency_sms", new()
         ///     {
         ///         UserId = me.Apply(getUserResult =&gt; getUserResult.Id),
         ///         StartDelayInMinutes = 5,

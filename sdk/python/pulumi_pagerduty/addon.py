@@ -108,7 +108,9 @@ class Addon(pulumi.CustomResource):
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        example = pagerduty.Addon("example", src="https://intranet.example.com/status")
+        example = pagerduty.Addon("example",
+            name="Internal Status Page",
+            src="https://intranet.example.com/status")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -141,7 +143,9 @@ class Addon(pulumi.CustomResource):
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        example = pagerduty.Addon("example", src="https://intranet.example.com/status")
+        example = pagerduty.Addon("example",
+            name="Internal Status Page",
+            src="https://intranet.example.com/status")
         ```
         <!--End PulumiCodeChooser -->
 

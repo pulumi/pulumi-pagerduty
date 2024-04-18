@@ -27,20 +27,22 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooUser, err := pagerduty.NewUser(ctx, "fooUser", &pagerduty.UserArgs{
+//			foo, err := pagerduty.NewUser(ctx, "foo", &pagerduty.UserArgs{
+//				Name:  pulumi.String("foo"),
 //				Email: pulumi.String("foo@bar.com"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			fooTeam, err := pagerduty.NewTeam(ctx, "fooTeam", &pagerduty.TeamArgs{
+//			fooTeam, err := pagerduty.NewTeam(ctx, "foo", &pagerduty.TeamArgs{
+//				Name:        pulumi.String("foo"),
 //				Description: pulumi.String("foo"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewTeamMembership(ctx, "fooTeamMembership", &pagerduty.TeamMembershipArgs{
-//				UserId: fooUser.ID(),
+//			_, err = pagerduty.NewTeamMembership(ctx, "foo", &pagerduty.TeamMembershipArgs{
+//				UserId: foo.ID(),
 //				TeamId: fooTeam.ID(),
 //				Role:   pulumi.String("manager"),
 //			})

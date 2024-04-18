@@ -25,6 +25,7 @@ namespace Pulumi.Pagerduty
     /// {
     ///     var example = new Pagerduty.User("example", new()
     ///     {
+    ///         Name = "Earline Greenholt",
     ///         Email = "125.greenholt.earline@graham.name",
     ///     });
     /// 

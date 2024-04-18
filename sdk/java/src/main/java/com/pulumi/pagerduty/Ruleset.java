@@ -27,6 +27,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.pagerduty.Team;
+ * import com.pulumi.pagerduty.TeamArgs;
  * import com.pulumi.pagerduty.Ruleset;
  * import com.pulumi.pagerduty.RulesetArgs;
  * import com.pulumi.pagerduty.inputs.RulesetTeamArgs;
@@ -43,11 +44,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooTeam = new Team(&#34;fooTeam&#34;);
+ *         var foo = new Team(&#34;foo&#34;, TeamArgs.builder()        
+ *             .name(&#34;Engineering (Seattle)&#34;)
+ *             .build());
  * 
  *         var fooRuleset = new Ruleset(&#34;fooRuleset&#34;, RulesetArgs.builder()        
+ *             .name(&#34;Primary Ruleset&#34;)
  *             .team(RulesetTeamArgs.builder()
- *                 .id(fooTeam.id())
+ *                 .id(foo.id())
  *                 .build())
  *             .build());
  * 

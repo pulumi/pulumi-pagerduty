@@ -79,22 +79,22 @@ class ServiceDependency(pulumi.CustomResource):
 
         foo = pagerduty.ServiceDependency("foo", dependency=pagerduty.ServiceDependencyDependencyArgs(
             dependent_services=[pagerduty.ServiceDependencyDependencyDependentServiceArgs(
-                id=pagerduty_business_service["foo"]["id"],
-                type=pagerduty_business_service["foo"]["type"],
+                id=foo_pagerduty_business_service["id"],
+                type=foo_pagerduty_business_service["type"],
             )],
             supporting_services=[pagerduty.ServiceDependencyDependencySupportingServiceArgs(
-                id=pagerduty_service["foo"]["id"],
-                type=pagerduty_service["foo"]["type"],
+                id=foo_pagerduty_service["id"],
+                type=foo_pagerduty_service["type"],
             )],
         ))
         bar = pagerduty.ServiceDependency("bar", dependency=pagerduty.ServiceDependencyDependencyArgs(
             dependent_services=[pagerduty.ServiceDependencyDependencyDependentServiceArgs(
-                id=pagerduty_business_service["foo"]["id"],
-                type=pagerduty_business_service["foo"]["type"],
+                id=foo_pagerduty_business_service["id"],
+                type=foo_pagerduty_business_service["type"],
             )],
             supporting_services=[pagerduty.ServiceDependencyDependencySupportingServiceArgs(
-                id=pagerduty_service["two"]["id"],
-                type=pagerduty_service["two"]["type"],
+                id=two["id"],
+                type=two["type"],
             )],
         ))
         ```
@@ -130,22 +130,22 @@ class ServiceDependency(pulumi.CustomResource):
 
         foo = pagerduty.ServiceDependency("foo", dependency=pagerduty.ServiceDependencyDependencyArgs(
             dependent_services=[pagerduty.ServiceDependencyDependencyDependentServiceArgs(
-                id=pagerduty_business_service["foo"]["id"],
-                type=pagerduty_business_service["foo"]["type"],
+                id=foo_pagerduty_business_service["id"],
+                type=foo_pagerduty_business_service["type"],
             )],
             supporting_services=[pagerduty.ServiceDependencyDependencySupportingServiceArgs(
-                id=pagerduty_service["foo"]["id"],
-                type=pagerduty_service["foo"]["type"],
+                id=foo_pagerduty_service["id"],
+                type=foo_pagerduty_service["type"],
             )],
         ))
         bar = pagerduty.ServiceDependency("bar", dependency=pagerduty.ServiceDependencyDependencyArgs(
             dependent_services=[pagerduty.ServiceDependencyDependencyDependentServiceArgs(
-                id=pagerduty_business_service["foo"]["id"],
-                type=pagerduty_business_service["foo"]["type"],
+                id=foo_pagerduty_business_service["id"],
+                type=foo_pagerduty_business_service["type"],
             )],
             supporting_services=[pagerduty.ServiceDependencyDependencySupportingServiceArgs(
-                id=pagerduty_service["two"]["id"],
-                type=pagerduty_service["two"]["type"],
+                id=two["id"],
+                type=two["type"],
             )],
         ))
         ```

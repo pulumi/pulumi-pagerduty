@@ -44,6 +44,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sreEnvironment = new IncidentCustomField(&#34;sreEnvironment&#34;, IncidentCustomFieldArgs.builder()        
+ *             .name(&#34;environment&#34;)
  *             .displayName(&#34;Environment&#34;)
  *             .dataType(&#34;string&#34;)
  *             .fieldType(&#34;single_value_fixed&#34;)

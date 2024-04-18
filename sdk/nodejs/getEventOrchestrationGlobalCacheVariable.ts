@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const eventOrchestration = new pagerduty.EventOrchestration("eventOrchestration", {});
+ * const eventOrchestration = new pagerduty.EventOrchestration("event_orchestration", {name: "Test Event Orchestration"});
  * const cacheVariable = pagerduty.getEventOrchestrationGlobalCacheVariableOutput({
  *     eventOrchestration: eventOrchestration.id,
  *     name: "example_cache_variable",
@@ -82,7 +82,7 @@ export interface GetEventOrchestrationGlobalCacheVariableResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const eventOrchestration = new pagerduty.EventOrchestration("eventOrchestration", {});
+ * const eventOrchestration = new pagerduty.EventOrchestration("event_orchestration", {name: "Test Event Orchestration"});
  * const cacheVariable = pagerduty.getEventOrchestrationGlobalCacheVariableOutput({
  *     eventOrchestration: eventOrchestration.id,
  *     name: "example_cache_variable",

@@ -30,7 +30,7 @@ namespace Pulumi.Pagerduty
     /// {
     ///     var unrouted = new Pagerduty.EventOrchestrationUnrouted("unrouted", new()
     ///     {
-    ///         EventOrchestration = pagerduty_event_orchestration.My_monitor.Id,
+    ///         EventOrchestration = myMonitor.Id,
     ///         Sets = new[]
     ///         {
     ///             new Pagerduty.Inputs.EventOrchestrationUnroutedSetArgs

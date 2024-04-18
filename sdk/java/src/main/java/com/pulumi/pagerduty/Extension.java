@@ -55,28 +55,32 @@ import javax.annotation.Nullable;
  *             .name(&#34;Generic V2 Webhook&#34;)
  *             .build());
  * 
- *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
+ *         var example = new User(&#34;example&#34;, UserArgs.builder()        
+ *             .name(&#34;Howard James&#34;)
  *             .email(&#34;howard.james@example.domain&#34;)
  *             .build());
  * 
  *         var exampleEscalationPolicy = new EscalationPolicy(&#34;exampleEscalationPolicy&#34;, EscalationPolicyArgs.builder()        
+ *             .name(&#34;Engineering Escalation Policy&#34;)
  *             .numLoops(2)
  *             .rules(EscalationPolicyRuleArgs.builder()
  *                 .escalationDelayInMinutes(10)
  *                 .targets(EscalationPolicyRuleTargetArgs.builder()
  *                     .type(&#34;user&#34;)
- *                     .id(exampleUser.id())
+ *                     .id(example.id())
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
+ *             .name(&#34;My Web App&#34;)
  *             .autoResolveTimeout(14400)
  *             .acknowledgementTimeout(600)
  *             .escalationPolicy(exampleEscalationPolicy.id())
  *             .build());
  * 
  *         var slack = new Extension(&#34;slack&#34;, ExtensionArgs.builder()        
+ *             .name(&#34;My Web App Extension&#34;)
  *             .endpointUrl(&#34;https://generic_webhook_url/XXXXXX/BBBBBB&#34;)
  *             .extensionSchema(webhook.applyValue(getExtensionSchemaResult -&gt; getExtensionSchemaResult.id()))
  *             .extensionObjects(exampleService.id())

@@ -22,14 +22,17 @@ import * as utilities from "./utilities";
  * const me = pagerduty.getUser({
  *     email: "me@example.com",
  * });
- * const exampleWTeam = new pagerduty.User("exampleWTeam", {email: "user-with-team@example.com"});
+ * const exampleWTeam = new pagerduty.User("example_w_team", {
+ *     name: "user-with-team",
+ *     email: "user-with-team@example.com",
+ * });
  * const example = new pagerduty.TeamMembership("example", {
- *     teamId: pagerduty_team.devops.id,
+ *     teamId: devopsPagerdutyTeam.id,
  *     userId: exampleWTeam.id,
  * });
  * const allUsers = pagerduty.getUsers({});
  * const fromDevopsTeam = pagerduty.getUsers({
- *     teamIds: [pagerduty_team.devops.id],
+ *     teamIds: [devopsPagerdutyTeam.id],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -83,14 +86,17 @@ export interface GetUsersResult {
  * const me = pagerduty.getUser({
  *     email: "me@example.com",
  * });
- * const exampleWTeam = new pagerduty.User("exampleWTeam", {email: "user-with-team@example.com"});
+ * const exampleWTeam = new pagerduty.User("example_w_team", {
+ *     name: "user-with-team",
+ *     email: "user-with-team@example.com",
+ * });
  * const example = new pagerduty.TeamMembership("example", {
- *     teamId: pagerduty_team.devops.id,
+ *     teamId: devopsPagerdutyTeam.id,
  *     userId: exampleWTeam.id,
  * });
  * const allUsers = pagerduty.getUsers({});
  * const fromDevopsTeam = pagerduty.getUsers({
- *     teamIds: [pagerduty_team.devops.id],
+ *     teamIds: [devopsPagerdutyTeam.id],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

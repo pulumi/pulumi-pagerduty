@@ -265,6 +265,7 @@ class BusinessService(pulumi.CustomResource):
         import pulumi_pagerduty as pagerduty
 
         example = pagerduty.BusinessService("example",
+            name="My Web App",
             description="A very descriptive description of this business service",
             point_of_contact="PagerDuty Admin",
             team="P37RSRS")
@@ -303,6 +304,7 @@ class BusinessService(pulumi.CustomResource):
         import pulumi_pagerduty as pagerduty
 
         example = pagerduty.BusinessService("example",
+            name="My Web App",
             description="A very descriptive description of this business service",
             point_of_contact="PagerDuty Admin",
             team="P37RSRS")

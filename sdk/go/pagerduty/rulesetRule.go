@@ -28,13 +28,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooTeam, err := pagerduty.NewTeam(ctx, "fooTeam", nil)
+//			foo, err := pagerduty.NewTeam(ctx, "foo", &pagerduty.TeamArgs{
+//				Name: pulumi.String("Engineering (Seattle)"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			fooRuleset, err := pagerduty.NewRuleset(ctx, "fooRuleset", &pagerduty.RulesetArgs{
+//			fooRuleset, err := pagerduty.NewRuleset(ctx, "foo", &pagerduty.RulesetArgs{
+//				Name: pulumi.String("Primary Ruleset"),
 //				Team: &pagerduty.RulesetTeamArgs{
-//					Id: fooTeam.ID(),
+//					Id: foo.ID(),
 //				},
 //			})
 //			if err != nil {
@@ -44,13 +47,13 @@ import (
 //			// repeats daily from 9:30am - 11:30am using the America/New_York timezone.
 //			// Thus it requires a time_static instance to represent 9:30am on an arbitrary date in that timezone.
 //			// April 11th, 2019 was EDT (UTC-4) https://www.timeanddate.com/worldclock/converter.html?iso=20190411T133000&p1=179
-//			easternTimeAt0930, err := time.NewStatic(ctx, "easternTimeAt0930", &time.StaticArgs{
+//			easternTimeAt0930, err := time.NewStatic(ctx, "eastern_time_at_0930", &time.StaticArgs{
 //				Rfc3339: pulumi.String("2019-04-11T09:30:00-04:00"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewRulesetRule(ctx, "fooRulesetRule", &pagerduty.RulesetRuleArgs{
+//			_, err = pagerduty.NewRulesetRule(ctx, "foo", &pagerduty.RulesetRuleArgs{
 //				Ruleset:  fooRuleset.ID(),
 //				Position: pulumi.Int(0),
 //				Disabled: pulumi.Bool(false),
@@ -108,7 +111,7 @@ import (
 //				Actions: &pagerduty.RulesetRuleActionsArgs{
 //					Routes: pagerduty.RulesetRuleActionsRouteArray{
 //						&pagerduty.RulesetRuleActionsRouteArgs{
-//							Value: pulumi.Any(pagerduty_service.Foo.Id),
+//							Value: pulumi.Any(fooPagerdutyService.Id),
 //						},
 //					},
 //					Severities: pagerduty.RulesetRuleActionsSeverityArray{
@@ -137,7 +140,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewRulesetRule(ctx, "catchAll", &pagerduty.RulesetRuleArgs{
+//			_, err = pagerduty.NewRulesetRule(ctx, "catch_all", &pagerduty.RulesetRuleArgs{
 //				Ruleset:  fooRuleset.ID(),
 //				Position: pulumi.Int(1),
 //				CatchAll: pulumi.Bool(true),

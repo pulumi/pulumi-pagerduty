@@ -35,7 +35,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := pagerduty.NewEventOrchestrationUnrouted(ctx, "unrouted", &pagerduty.EventOrchestrationUnroutedArgs{
-//				EventOrchestration: pulumi.Any(pagerduty_event_orchestration.My_monitor.Id),
+//				EventOrchestration: pulumi.Any(myMonitor.Id),
 //				Sets: pagerduty.EventOrchestrationUnroutedSetArray{
 //					&pagerduty.EventOrchestrationUnroutedSetArgs{
 //						Id: pulumi.String("start"),

@@ -18,6 +18,7 @@ import * as utilities from "./utilities";
  *     email: "me@example.com",
  * });
  * const foo = new pagerduty.EscalationPolicy("foo", {
+ *     name: "Engineering Escalation Policy",
  *     numLoops: 2,
  *     rules: [{
  *         escalationDelayInMinutes: 10,
@@ -92,6 +93,7 @@ export interface GetUserResult {
  *     email: "me@example.com",
  * });
  * const foo = new pagerduty.EscalationPolicy("foo", {
+ *     name: "Engineering Escalation Policy",
  *     numLoops: 2,
  *     rules: [{
  *         escalationDelayInMinutes: 10,

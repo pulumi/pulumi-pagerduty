@@ -19,7 +19,7 @@ import * as utilities from "./utilities";
  * const example = new pagerduty.MaintenanceWindow("example", {
  *     startTime: "2015-11-09T20:00:00-05:00",
  *     endTime: "2015-11-09T22:00:00-05:00",
- *     services: [pagerduty_service.example.id],
+ *     services: [examplePagerdutyService.id],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

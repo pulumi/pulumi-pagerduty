@@ -23,20 +23,22 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var teamEntEng = new Pagerduty.Team("teamEntEng", new()
+    ///     var teamEntEng = new Pagerduty.Team("team_ent_eng", new()
     ///     {
+    ///         Name = "Enterprise Engineering",
     ///         Description = "Enterprise engineering",
     ///     });
     /// 
-    ///     var paRunbookRunner = new Pagerduty.AutomationActionsRunner("paRunbookRunner", new()
+    ///     var paRunbookRunner = new Pagerduty.AutomationActionsRunner("pa_runbook_runner", new()
     ///     {
+    ///         Name = "Runner created via TF",
     ///         Description = "Description of the Runner created via TF",
     ///         RunnerType = "runbook",
     ///         RunbookBaseUri = "cat-cat",
     ///         RunbookApiKey = "cat-secret",
     ///     });
     /// 
-    ///     var paRunnerEntEngAssoc = new Pagerduty.AutomationActionsRunnerTeamAssociation("paRunnerEntEngAssoc", new()
+    ///     var paRunnerEntEngAssoc = new Pagerduty.AutomationActionsRunnerTeamAssociation("pa_runner_ent_eng_assoc", new()
     ///     {
     ///         RunnerId = paRunbookRunner.Id,
     ///         TeamId = teamEntEng.Id,

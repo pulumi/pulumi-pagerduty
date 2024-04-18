@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var router = new EventOrchestrationRouter(&#34;router&#34;, EventOrchestrationRouterArgs.builder()        
- *             .eventOrchestration(pagerduty_event_orchestration.my_monitor().id())
+ *             .eventOrchestration(myMonitor.id())
  *             .set(EventOrchestrationRouterSetArgs.builder()
  *                 .id(&#34;start&#34;)
  *                 .rules(                
@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *                                 .expression(&#34;event.source matches regex &#39;db[0-9]+-server&#39;&#34;)
  *                                 .build())
  *                         .actions(EventOrchestrationRouterSetRuleActionsArgs.builder()
- *                             .routeTo(pagerduty_service.database().id())
+ *                             .routeTo(database.id())
  *                             .build())
  *                         .build(),
  *                     EventOrchestrationRouterSetRuleArgs.builder()
@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  *                             .expression(&#34;event.summary matches part &#39;www&#39;&#34;)
  *                             .build())
  *                         .actions(EventOrchestrationRouterSetRuleActionsArgs.builder()
- *                             .routeTo(pagerduty_service.www().id())
+ *                             .routeTo(www.id())
  *                             .build())
  *                         .build())
  *                 .build())

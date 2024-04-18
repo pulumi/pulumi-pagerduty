@@ -45,12 +45,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
- *         final var rUNBOOKAPIKEY = config.get(&#34;rUNBOOKAPIKEY&#34;);
+ *         final var RUNBOOK_API_KEY = config.get(&#34;RUNBOOK_API_KEY&#34;);
  *         var example = new AutomationActionsRunner(&#34;example&#34;, AutomationActionsRunnerArgs.builder()        
+ *             .name(&#34;Runner created via TF&#34;)
  *             .description(&#34;Description of the Runner created via TF&#34;)
  *             .runnerType(&#34;runbook&#34;)
  *             .runbookBaseUri(&#34;rdcat.stg&#34;)
- *             .runbookApiKey(rUNBOOKAPIKEY)
+ *             .runbookApiKey(RUNBOOK_API_KEY)
  *             .build());
  * 
  *     }

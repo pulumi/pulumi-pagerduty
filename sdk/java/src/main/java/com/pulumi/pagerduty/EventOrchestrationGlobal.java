@@ -37,6 +37,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.pagerduty.Team;
+ * import com.pulumi.pagerduty.TeamArgs;
  * import com.pulumi.pagerduty.EventOrchestration;
  * import com.pulumi.pagerduty.EventOrchestrationArgs;
  * import com.pulumi.pagerduty.PagerdutyFunctions;
@@ -59,9 +60,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var databaseTeam = new Team(&#34;databaseTeam&#34;);
+ *         var databaseTeam = new Team(&#34;databaseTeam&#34;, TeamArgs.builder()        
+ *             .name(&#34;Database Team&#34;)
+ *             .build());
  * 
  *         var eventOrchestration = new EventOrchestration(&#34;eventOrchestration&#34;, EventOrchestrationArgs.builder()        
+ *             .name(&#34;Example Orchestration&#34;)
  *             .team(databaseTeam.id())
  *             .build());
  * 

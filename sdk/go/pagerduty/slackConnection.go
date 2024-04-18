@@ -33,7 +33,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooTeam, err := pagerduty.NewTeam(ctx, "fooTeam", nil)
+//			foo, err := pagerduty.NewTeam(ctx, "foo", &pagerduty.TeamArgs{
+//				Name: pulumi.String("Team Foo"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -43,8 +45,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewSlackConnection(ctx, "fooSlackConnection", &pagerduty.SlackConnectionArgs{
-//				SourceId:         fooTeam.ID(),
+//			_, err = pagerduty.NewSlackConnection(ctx, "foo", &pagerduty.SlackConnectionArgs{
+//				SourceId:         foo.ID(),
 //				SourceType:       pulumi.String("team_reference"),
 //				WorkspaceId:      pulumi.String("T02A123LV1A"),
 //				ChannelId:        pulumi.String("C02CABCDAC9"),

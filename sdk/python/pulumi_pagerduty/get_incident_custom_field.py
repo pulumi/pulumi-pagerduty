@@ -102,7 +102,7 @@ def get_incident_custom_field(name: Optional[str] = None,
     import pulumi_pagerduty as pagerduty
 
     environment = pagerduty.get_incident_custom_field(name="environment")
-    dev_environment = pagerduty.IncidentCustomFieldOption("devEnvironment",
+    dev_environment = pagerduty.IncidentCustomFieldOption("dev_environment",
         field=environment.id,
         datatype="string",
         value="dev")
@@ -140,7 +140,7 @@ def get_incident_custom_field_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi_pagerduty as pagerduty
 
     environment = pagerduty.get_incident_custom_field(name="environment")
-    dev_environment = pagerduty.IncidentCustomFieldOption("devEnvironment",
+    dev_environment = pagerduty.IncidentCustomFieldOption("dev_environment",
         field=environment.id,
         datatype="string",
         value="dev")

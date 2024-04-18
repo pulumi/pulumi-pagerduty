@@ -33,22 +33,27 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var engineering = new Pagerduty.Team("engineering");
-    /// 
-    ///     var exampleUser = new Pagerduty.User("exampleUser", new()
+    ///     var engineering = new Pagerduty.Team("engineering", new()
     ///     {
+    ///         Name = "Engineering",
+    ///     });
+    /// 
+    ///     var example = new Pagerduty.User("example", new()
+    ///     {
+    ///         Name = "Earline Greenholt",
     ///         Email = "125.greenholt.earline@graham.name",
     ///     });
     /// 
     ///     var foo = new Pagerduty.TeamMembership("foo", new()
     ///     {
-    ///         UserId = exampleUser.Id,
+    ///         UserId = example.Id,
     ///         TeamId = engineering.Id,
     ///         Role = "manager",
     ///     });
     /// 
-    ///     var exampleEscalationPolicy = new Pagerduty.EscalationPolicy("exampleEscalationPolicy", new()
+    ///     var exampleEscalationPolicy = new Pagerduty.EscalationPolicy("example", new()
     ///     {
+    ///         Name = "Engineering Escalation Policy",
     ///         NumLoops = 2,
     ///         Rules = new[]
     ///         {
@@ -60,23 +65,25 @@ namespace Pulumi.Pagerduty
     ///                     new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
     ///                     {
     ///                         Type = "user_reference",
-    ///                         Id = exampleUser.Id,
+    ///                         Id = example.Id,
     ///                     },
     ///                 },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleService = new Pagerduty.Service("exampleService", new()
+    ///     var exampleService = new Pagerduty.Service("example", new()
     ///     {
+    ///         Name = "My Web App",
     ///         AutoResolveTimeout = "14400",
     ///         AcknowledgementTimeout = "600",
     ///         EscalationPolicy = exampleEscalationPolicy.Id,
     ///         AlertCreation = "create_alerts_and_incidents",
     ///     });
     /// 
-    ///     var csImpact = new Pagerduty.IncidentCustomField("csImpact", new()
+    ///     var csImpact = new Pagerduty.IncidentCustomField("cs_impact", new()
     ///     {
+    ///         Name = "impact",
     ///         DataType = "string",
     ///         FieldType = "single_value",
     ///     });

@@ -23,9 +23,10 @@ namespace Pulumi.Pagerduty
     /// {
     ///     var example = new Pagerduty.Service("example", new()
     ///     {
+    ///         Name = "Checkout API Service",
     ///         AutoResolveTimeout = "14400",
     ///         AcknowledgementTimeout = "600",
-    ///         EscalationPolicy = pagerduty_escalation_policy.Example.Id,
+    ///         EscalationPolicy = examplePagerdutyEscalationPolicy.Id,
     ///         AlertCreation = "create_alerts_and_incidents",
     ///     });
     /// 
@@ -97,7 +98,7 @@ namespace Pulumi.Pagerduty
     /// 
     ///     var bar = new Pagerduty.ServiceEventRule("bar", new()
     ///     {
-    ///         Service = pagerduty_service.Foo.Id,
+    ///         Service = fooPagerdutyService.Id,
     ///         Position = 1,
     ///         Disabled = true,
     ///         Conditions = new Pagerduty.Inputs.ServiceEventRuleConditionsArgs

@@ -25,6 +25,7 @@ namespace Pulumi.Pagerduty
     /// {
     ///     var example = new Pagerduty.BusinessService("example", new()
     ///     {
+    ///         Name = "My Web App",
     ///         Description = "A very descriptive description of this business service",
     ///         PointOfContact = "PagerDuty Admin",
     ///         Team = "P37RSRS",

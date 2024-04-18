@@ -28,10 +28,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := pagerduty.NewIncidentWorkflow(ctx, "myFirstWorkflow", &pagerduty.IncidentWorkflowArgs{
+//			_, err := pagerduty.NewIncidentWorkflow(ctx, "my_first_workflow", &pagerduty.IncidentWorkflowArgs{
+//				Name:        pulumi.String("Example Incident Workflow"),
 //				Description: pulumi.String("This Incident Workflow is an example"),
 //				Steps: pagerduty.IncidentWorkflowStepArray{
 //					&pagerduty.IncidentWorkflowStepArgs{
+//						Name:   pulumi.String("Send Status Update"),
 //						Action: pulumi.String("pagerduty.com:incident-workflows:send-status-update:1"),
 //						Inputs: pagerduty.IncidentWorkflowStepInputTypeArray{
 //							&pagerduty.IncidentWorkflowStepInputTypeArgs{
@@ -39,7 +41,6 @@ import (
 //								Value: pulumi.String("Example status message sent on {{current_date}}"),
 //							},
 //						},
-//						Name: pulumi.String("Send Status Update"),
 //					},
 //				},
 //			})

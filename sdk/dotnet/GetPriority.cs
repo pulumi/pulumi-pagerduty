@@ -30,11 +30,14 @@ namespace Pulumi.Pagerduty
         ///         Name = "P1",
         ///     });
         /// 
-        ///     var fooRuleset = new Pagerduty.Ruleset("fooRuleset");
-        /// 
-        ///     var fooRulesetRule = new Pagerduty.RulesetRule("fooRulesetRule", new()
+        ///     var foo = new Pagerduty.Ruleset("foo", new()
         ///     {
-        ///         Ruleset = fooRuleset.Id,
+        ///         Name = "Primary Ruleset",
+        ///     });
+        /// 
+        ///     var fooRulesetRule = new Pagerduty.RulesetRule("foo", new()
+        ///     {
+        ///         Ruleset = foo.Id,
         ///         Position = 0,
         ///         Disabled = false,
         ///         Conditions = new Pagerduty.Inputs.RulesetRuleConditionsArgs
@@ -113,11 +116,14 @@ namespace Pulumi.Pagerduty
         ///         Name = "P1",
         ///     });
         /// 
-        ///     var fooRuleset = new Pagerduty.Ruleset("fooRuleset");
-        /// 
-        ///     var fooRulesetRule = new Pagerduty.RulesetRule("fooRulesetRule", new()
+        ///     var foo = new Pagerduty.Ruleset("foo", new()
         ///     {
-        ///         Ruleset = fooRuleset.Id,
+        ///         Name = "Primary Ruleset",
+        ///     });
+        /// 
+        ///     var fooRulesetRule = new Pagerduty.RulesetRule("foo", new()
+        ///     {
+        ///         Ruleset = foo.Id,
         ///         Position = 0,
         ///         Disabled = false,
         ///         Conditions = new Pagerduty.Inputs.RulesetRuleConditionsArgs

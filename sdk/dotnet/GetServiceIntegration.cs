@@ -27,8 +27,8 @@ namespace Pulumi.Pagerduty
         /// {
         ///     var example = Pagerduty.GetServiceIntegration.Invoke(new()
         ///     {
-        ///         IntegrationSummary = "Datadog",
         ///         ServiceName = "My Service",
+        ///         IntegrationSummary = "Datadog",
         ///     });
         /// 
         /// });
@@ -54,8 +54,8 @@ namespace Pulumi.Pagerduty
         /// {
         ///     var example = Pagerduty.GetServiceIntegration.Invoke(new()
         ///     {
-        ///         IntegrationSummary = "Datadog",
         ///         ServiceName = "My Service",
+        ///         IntegrationSummary = "Datadog",
         ///     });
         /// 
         /// });

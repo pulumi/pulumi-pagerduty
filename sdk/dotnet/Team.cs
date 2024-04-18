@@ -27,11 +27,13 @@ namespace Pulumi.Pagerduty
     /// {
     ///     var parent = new Pagerduty.Team("parent", new()
     ///     {
+    ///         Name = "Product Development",
     ///         Description = "Product and Engineering",
     ///     });
     /// 
     ///     var example = new Pagerduty.Team("example", new()
     ///     {
+    ///         Name = "Engineering",
     ///         Description = "All engineering",
     ///         Parent = parent.Id,
     ///     });

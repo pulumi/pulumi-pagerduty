@@ -18,22 +18,22 @@ import * as utilities from "./utilities";
  *
  * const foo = new pagerduty.ServiceDependency("foo", {dependency: {
  *     dependentServices: [{
- *         id: pagerduty_business_service.foo.id,
- *         type: pagerduty_business_service.foo.type,
+ *         id: fooPagerdutyBusinessService.id,
+ *         type: fooPagerdutyBusinessService.type,
  *     }],
  *     supportingServices: [{
- *         id: pagerduty_service.foo.id,
- *         type: pagerduty_service.foo.type,
+ *         id: fooPagerdutyService.id,
+ *         type: fooPagerdutyService.type,
  *     }],
  * }});
  * const bar = new pagerduty.ServiceDependency("bar", {dependency: {
  *     dependentServices: [{
- *         id: pagerduty_business_service.foo.id,
- *         type: pagerduty_business_service.foo.type,
+ *         id: fooPagerdutyBusinessService.id,
+ *         type: fooPagerdutyBusinessService.type,
  *     }],
  *     supportingServices: [{
- *         id: pagerduty_service.two.id,
- *         type: pagerduty_service.two.type,
+ *         id: two.id,
+ *         type: two.type,
  *     }],
  * }});
  * ```

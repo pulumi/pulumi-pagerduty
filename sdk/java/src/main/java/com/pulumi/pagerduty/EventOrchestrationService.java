@@ -40,6 +40,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.pagerduty.Team;
+ * import com.pulumi.pagerduty.TeamArgs;
  * import com.pulumi.pagerduty.User;
  * import com.pulumi.pagerduty.UserArgs;
  * import com.pulumi.pagerduty.TeamMembership;
@@ -71,30 +72,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var engineering = new Team(&#34;engineering&#34;);
+ *         var engineering = new Team(&#34;engineering&#34;, TeamArgs.builder()        
+ *             .name(&#34;Engineering&#34;)
+ *             .build());
  * 
- *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
+ *         var example = new User(&#34;example&#34;, UserArgs.builder()        
+ *             .name(&#34;Earline Greenholt&#34;)
  *             .email(&#34;125.greenholt.earline@graham.name&#34;)
  *             .build());
  * 
  *         var foo = new TeamMembership(&#34;foo&#34;, TeamMembershipArgs.builder()        
- *             .userId(exampleUser.id())
+ *             .userId(example.id())
  *             .teamId(engineering.id())
  *             .role(&#34;manager&#34;)
  *             .build());
  * 
  *         var exampleEscalationPolicy = new EscalationPolicy(&#34;exampleEscalationPolicy&#34;, EscalationPolicyArgs.builder()        
+ *             .name(&#34;Engineering Escalation Policy&#34;)
  *             .numLoops(2)
  *             .rules(EscalationPolicyRuleArgs.builder()
  *                 .escalationDelayInMinutes(10)
  *                 .targets(EscalationPolicyRuleTargetArgs.builder()
  *                     .type(&#34;user_reference&#34;)
- *                     .id(exampleUser.id())
+ *                     .id(example.id())
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
+ *             .name(&#34;My Web App&#34;)
  *             .autoResolveTimeout(14400)
  *             .acknowledgementTimeout(600)
  *             .escalationPolicy(exampleEscalationPolicy.id())
@@ -102,6 +108,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var csImpact = new IncidentCustomField(&#34;csImpact&#34;, IncidentCustomFieldArgs.builder()        
+ *             .name(&#34;impact&#34;)
  *             .dataType(&#34;string&#34;)
  *             .fieldType(&#34;single_value&#34;)
  *             .build());

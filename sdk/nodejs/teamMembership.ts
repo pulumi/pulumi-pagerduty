@@ -12,10 +12,16 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const fooUser = new pagerduty.User("fooUser", {email: "foo@bar.com"});
- * const fooTeam = new pagerduty.Team("fooTeam", {description: "foo"});
- * const fooTeamMembership = new pagerduty.TeamMembership("fooTeamMembership", {
- *     userId: fooUser.id,
+ * const foo = new pagerduty.User("foo", {
+ *     name: "foo",
+ *     email: "foo@bar.com",
+ * });
+ * const fooTeam = new pagerduty.Team("foo", {
+ *     name: "foo",
+ *     description: "foo",
+ * });
+ * const fooTeamMembership = new pagerduty.TeamMembership("foo", {
+ *     userId: foo.id,
  *     teamId: fooTeam.id,
  *     role: "manager",
  * });

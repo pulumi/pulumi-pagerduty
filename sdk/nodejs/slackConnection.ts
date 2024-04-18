@@ -20,12 +20,12 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const fooTeam = new pagerduty.Team("fooTeam", {});
+ * const foo = new pagerduty.Team("foo", {name: "Team Foo"});
  * const p1 = pagerduty.getPriority({
  *     name: "P1",
  * });
- * const fooSlackConnection = new pagerduty.SlackConnection("fooSlackConnection", {
- *     sourceId: fooTeam.id,
+ * const fooSlackConnection = new pagerduty.SlackConnection("foo", {
+ *     sourceId: foo.id,
  *     sourceType: "team_reference",
  *     workspaceId: "T02A123LV1A",
  *     channelId: "C02CABCDAC9",

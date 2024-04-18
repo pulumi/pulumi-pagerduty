@@ -35,13 +35,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
+//			example, err := pagerduty.NewUser(ctx, "example", &pagerduty.UserArgs{
+//				Name:  pulumi.String("Howard James"),
 //				Email: pulumi.String("howard.james@example.domain"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleEscalationPolicy, err := pagerduty.NewEscalationPolicy(ctx, "exampleEscalationPolicy", &pagerduty.EscalationPolicyArgs{
+//			exampleEscalationPolicy, err := pagerduty.NewEscalationPolicy(ctx, "example", &pagerduty.EscalationPolicyArgs{
+//				Name:     pulumi.String("Engineering Escalation Policy"),
 //				NumLoops: pulumi.Int(2),
 //				Rules: pagerduty.EscalationPolicyRuleArray{
 //					&pagerduty.EscalationPolicyRuleArgs{
@@ -49,7 +51,7 @@ import (
 //						Targets: pagerduty.EscalationPolicyRuleTargetArray{
 //							&pagerduty.EscalationPolicyRuleTargetArgs{
 //								Type: pulumi.String("user"),
-//								Id:   exampleUser.ID(),
+//								Id:   example.ID(),
 //							},
 //						},
 //					},
@@ -58,7 +60,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleService, err := pagerduty.NewService(ctx, "exampleService", &pagerduty.ServiceArgs{
+//			exampleService, err := pagerduty.NewService(ctx, "example", &pagerduty.ServiceArgs{
+//				Name:                   pulumi.String("My Web App"),
 //				AutoResolveTimeout:     pulumi.String("14400"),
 //				AcknowledgementTimeout: pulumi.String("600"),
 //				EscalationPolicy:       exampleEscalationPolicy.ID(),
@@ -67,6 +70,7 @@ import (
 //				return err
 //			}
 //			_, err = pagerduty.NewExtension(ctx, "slack", &pagerduty.ExtensionArgs{
+//				Name:            pulumi.String("My Web App Extension"),
 //				EndpointUrl:     pulumi.String("https://generic_webhook_url/XXXXXX/BBBBBB"),
 //				ExtensionSchema: pulumi.String(webhook.Id),
 //				ExtensionObjects: pulumi.StringArray{

@@ -14,21 +14,24 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const csImpact = new pagerduty.IncidentCustomField("csImpact", {
- *     dataType: "string",
+ * const csImpact = new pagerduty.IncidentCustomField("cs_impact", {
+ *     name: "impact",
  *     displayName: "Customer Impact",
+ *     dataType: "string",
  *     fieldType: "single_value",
  * });
- * const sreEnvironment = new pagerduty.IncidentCustomField("sreEnvironment", {
- *     dataType: "string",
+ * const sreEnvironment = new pagerduty.IncidentCustomField("sre_environment", {
+ *     name: "environment",
  *     displayName: "Environment",
+ *     dataType: "string",
  *     fieldType: "single_value_fixed",
  * });
- * const falseAlarm = new pagerduty.IncidentCustomField("falseAlarm", {
- *     dataType: "boolean",
- *     defaultValue: "false",
+ * const falseAlarm = new pagerduty.IncidentCustomField("false_alarm", {
+ *     name: "false_alarm",
  *     displayName: "False Alarm",
+ *     dataType: "boolean",
  *     fieldType: "single_value",
+ *     defaultValue: "false",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

@@ -23,25 +23,27 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var paActionExample = new Pagerduty.AutomationActionsAction("paActionExample", new()
+    ///     var paActionExample = new Pagerduty.AutomationActionsAction("pa_action_example", new()
     ///     {
+    ///         Name = "PA Action created via TF",
+    ///         Description = "Description of the PA Action created via TF",
+    ///         ActionType = "process_automation",
     ///         ActionDataReference = new Pagerduty.Inputs.AutomationActionsActionActionDataReferenceArgs
     ///         {
     ///             ProcessAutomationJobId = "P123456",
     ///         },
-    ///         ActionType = "process_automation",
-    ///         Description = "Description of the PA Action created via TF",
     ///     });
     /// 
-    ///     var scriptActionExample = new Pagerduty.AutomationActionsAction("scriptActionExample", new()
+    ///     var scriptActionExample = new Pagerduty.AutomationActionsAction("script_action_example", new()
     ///     {
+    ///         Name = "Script Action created via TF",
+    ///         Description = "Description of the Script Action created via TF",
+    ///         ActionType = "script",
     ///         ActionDataReference = new Pagerduty.Inputs.AutomationActionsActionActionDataReferenceArgs
     ///         {
-    ///             InvocationCommand = "/usr/local/bin/python3",
     ///             Script = "print(\"Hello from a Python script!\")",
+    ///             InvocationCommand = "/usr/local/bin/python3",
     ///         },
-    ///         ActionType = "script",
-    ///         Description = "Description of the Script Action created via TF",
     ///     });
     /// 
     /// });

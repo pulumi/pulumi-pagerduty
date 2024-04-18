@@ -25,7 +25,10 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var eventOrchestration = new Pagerduty.EventOrchestration("eventOrchestration");
+        ///     var eventOrchestration = new Pagerduty.EventOrchestration("event_orchestration", new()
+        ///     {
+        ///         Name = "Test Event Orchestration",
+        ///     });
         /// 
         ///     var cacheVariable = Pagerduty.GetEventOrchestrationGlobalCacheVariable.Invoke(new()
         ///     {
@@ -54,7 +57,10 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var eventOrchestration = new Pagerduty.EventOrchestration("eventOrchestration");
+        ///     var eventOrchestration = new Pagerduty.EventOrchestration("event_orchestration", new()
+        ///     {
+        ///         Name = "Test Event Orchestration",
+        ///     });
         /// 
         ///     var cacheVariable = Pagerduty.GetEventOrchestrationGlobalCacheVariable.Invoke(new()
         ///     {

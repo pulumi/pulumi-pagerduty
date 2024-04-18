@@ -44,10 +44,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var parent = new Team(&#34;parent&#34;, TeamArgs.builder()        
+ *             .name(&#34;Product Development&#34;)
  *             .description(&#34;Product and Engineering&#34;)
  *             .build());
  * 
  *         var example = new Team(&#34;example&#34;, TeamArgs.builder()        
+ *             .name(&#34;Engineering&#34;)
  *             .description(&#34;All engineering&#34;)
  *             .parent(parent.id())
  *             .build());

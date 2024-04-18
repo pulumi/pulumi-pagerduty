@@ -29,17 +29,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUser, err := pagerduty.NewUser(ctx, "exampleUser", &pagerduty.UserArgs{
+//			example, err := pagerduty.NewUser(ctx, "example", &pagerduty.UserArgs{
+//				Name:  pulumi.String("Earline Greenholt"),
 //				Email: pulumi.String("125.greenholt.earline@graham.name"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleTeam, err := pagerduty.NewTeam(ctx, "exampleTeam", nil)
+//			exampleTeam, err := pagerduty.NewTeam(ctx, "example", &pagerduty.TeamArgs{
+//				Name: pulumi.String("A Team"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = pagerduty.NewSchedule(ctx, "foo", &pagerduty.ScheduleArgs{
+//				Name:     pulumi.String("Daily Engineering Rotation"),
 //				TimeZone: pulumi.String("America/New_York"),
 //				Layers: pagerduty.ScheduleLayerArray{
 //					&pagerduty.ScheduleLayerArgs{
@@ -48,7 +52,7 @@ import (
 //						RotationVirtualStart:      pulumi.String("2015-11-06T20:00:00-05:00"),
 //						RotationTurnLengthSeconds: pulumi.Int(86400),
 //						Users: pulumi.StringArray{
-//							exampleUser.ID(),
+//							example.ID(),
 //						},
 //						Restrictions: pagerduty.ScheduleLayerRestrictionArray{
 //							&pagerduty.ScheduleLayerRestrictionArgs{

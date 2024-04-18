@@ -22,7 +22,7 @@ import * as utilities from "./utilities";
  *     type: "push_notification_contact_method",
  *     label: "iPhone (John)",
  * }));
- * const lowUrgencySms = new pagerduty.UserNotificationRule("lowUrgencySms", {
+ * const lowUrgencySms = new pagerduty.UserNotificationRule("low_urgency_sms", {
  *     userId: me.then(me => me.id),
  *     startDelayInMinutes: 5,
  *     urgency: "high",
@@ -122,7 +122,7 @@ export interface GetUserContactMethodResult {
  *     type: "push_notification_contact_method",
  *     label: "iPhone (John)",
  * }));
- * const lowUrgencySms = new pagerduty.UserNotificationRule("lowUrgencySms", {
+ * const lowUrgencySms = new pagerduty.UserNotificationRule("low_urgency_sms", {
  *     userId: me.then(me => me.id),
  *     startDelayInMinutes: 5,
  *     urgency: "high",

@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var unrouted = new EventOrchestrationUnrouted(&#34;unrouted&#34;, EventOrchestrationUnroutedArgs.builder()        
- *             .eventOrchestration(pagerduty_event_orchestration.my_monitor().id())
+ *             .eventOrchestration(myMonitor.id())
  *             .sets(EventOrchestrationUnroutedSetArgs.builder()
  *                 .id(&#34;start&#34;)
  *                 .rules(EventOrchestrationUnroutedSetRuleArgs.builder()

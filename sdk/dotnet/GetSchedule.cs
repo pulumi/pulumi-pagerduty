@@ -32,6 +32,7 @@ namespace Pulumi.Pagerduty
         /// 
         ///     var foo = new Pagerduty.EscalationPolicy("foo", new()
         ///     {
+        ///         Name = "Engineering Escalation Policy",
         ///         NumLoops = 2,
         ///         Rules = new[]
         ///         {
@@ -78,6 +79,7 @@ namespace Pulumi.Pagerduty
         /// 
         ///     var foo = new Pagerduty.EscalationPolicy("foo", new()
         ///     {
+        ///         Name = "Engineering Escalation Policy",
         ///         NumLoops = 2,
         ///         Rules = new[]
         ///         {

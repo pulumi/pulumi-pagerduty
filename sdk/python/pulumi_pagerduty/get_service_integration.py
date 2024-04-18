@@ -87,8 +87,8 @@ def get_service_integration(integration_summary: Optional[str] = None,
     import pulumi
     import pulumi_pagerduty as pagerduty
 
-    example = pagerduty.get_service_integration(integration_summary="Datadog",
-        service_name="My Service")
+    example = pagerduty.get_service_integration(service_name="My Service",
+        integration_summary="Datadog")
     ```
     <!--End PulumiCodeChooser -->
 
@@ -123,8 +123,8 @@ def get_service_integration_output(integration_summary: Optional[pulumi.Input[st
     import pulumi
     import pulumi_pagerduty as pagerduty
 
-    example = pagerduty.get_service_integration(integration_summary="Datadog",
-        service_name="My Service")
+    example = pagerduty.get_service_integration(service_name="My Service",
+        integration_summary="Datadog")
     ```
     <!--End PulumiCodeChooser -->
 

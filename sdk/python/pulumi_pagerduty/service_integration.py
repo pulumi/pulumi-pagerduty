@@ -455,44 +455,53 @@ class ServiceIntegration(pulumi.CustomResource):
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        example_user = pagerduty.User("exampleUser",
+        example = pagerduty.User("example",
+            name="Earline Greenholt",
             email="125.greenholt.earline@graham.name",
-            teams=[pagerduty_team["example"]["id"]])
+            teams=[example_pagerduty_team["id"]])
         foo = pagerduty.EscalationPolicy("foo",
+            name="Engineering Escalation Policy",
             num_loops=2,
             rules=[pagerduty.EscalationPolicyRuleArgs(
                 escalation_delay_in_minutes=10,
                 targets=[pagerduty.EscalationPolicyRuleTargetArgs(
                     type="user",
-                    id=example_user.id,
+                    id=example.id,
                 )],
             )])
-        example_service = pagerduty.Service("exampleService",
+        example_service = pagerduty.Service("example",
+            name="My Web App",
             auto_resolve_timeout="14400",
             acknowledgement_timeout="600",
-            escalation_policy=pagerduty_escalation_policy["example"]["id"])
-        example_service_integration = pagerduty.ServiceIntegration("exampleServiceIntegration",
+            escalation_policy=example_pagerduty_escalation_policy["id"])
+        example_service_integration = pagerduty.ServiceIntegration("example",
+            name="Generic API Service Integration",
             type="generic_events_api_inbound_integration",
             service=example_service.id)
         apiv2 = pagerduty.ServiceIntegration("apiv2",
+            name="API V2",
             type="events_api_v2_inbound_integration",
             service=example_service.id)
-        email_x = pagerduty.ServiceIntegration("emailX",
+        email_x = pagerduty.ServiceIntegration("email_x",
+            name="Email X",
             type="generic_email_inbound_integration",
             integration_email="ecommerce@subdomain.pagerduty.com",
             service=example_service.id)
-        datadog_vendor = pagerduty.get_vendor(name="Datadog")
-        datadog_service_integration = pagerduty.ServiceIntegration("datadogServiceIntegration",
+        datadog = pagerduty.get_vendor(name="Datadog")
+        datadog_service_integration = pagerduty.ServiceIntegration("datadog",
+            name=datadog.name,
             service=example_service.id,
-            vendor=datadog_vendor.id)
-        cloudwatch_vendor = pagerduty.get_vendor(name="Cloudwatch")
-        cloudwatch_service_integration = pagerduty.ServiceIntegration("cloudwatchServiceIntegration",
+            vendor=datadog.id)
+        cloudwatch = pagerduty.get_vendor(name="Cloudwatch")
+        cloudwatch_service_integration = pagerduty.ServiceIntegration("cloudwatch",
+            name=cloudwatch.name,
             service=example_service.id,
-            vendor=cloudwatch_vendor.id)
-        email_vendor = pagerduty.get_vendor(name="Email")
-        email_service_integration = pagerduty.ServiceIntegration("emailServiceIntegration",
+            vendor=cloudwatch.id)
+        email = pagerduty.get_vendor(name="Email")
+        email_service_integration = pagerduty.ServiceIntegration("email",
+            name=email.name,
             service=example_service.id,
-            vendor=email_vendor.id,
+            vendor=email.id,
             integration_email="s1@your_account.pagerduty.com",
             email_incident_creation="use_rules",
             email_filter_mode="and-rules-email",
@@ -602,44 +611,53 @@ class ServiceIntegration(pulumi.CustomResource):
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        example_user = pagerduty.User("exampleUser",
+        example = pagerduty.User("example",
+            name="Earline Greenholt",
             email="125.greenholt.earline@graham.name",
-            teams=[pagerduty_team["example"]["id"]])
+            teams=[example_pagerduty_team["id"]])
         foo = pagerduty.EscalationPolicy("foo",
+            name="Engineering Escalation Policy",
             num_loops=2,
             rules=[pagerduty.EscalationPolicyRuleArgs(
                 escalation_delay_in_minutes=10,
                 targets=[pagerduty.EscalationPolicyRuleTargetArgs(
                     type="user",
-                    id=example_user.id,
+                    id=example.id,
                 )],
             )])
-        example_service = pagerduty.Service("exampleService",
+        example_service = pagerduty.Service("example",
+            name="My Web App",
             auto_resolve_timeout="14400",
             acknowledgement_timeout="600",
-            escalation_policy=pagerduty_escalation_policy["example"]["id"])
-        example_service_integration = pagerduty.ServiceIntegration("exampleServiceIntegration",
+            escalation_policy=example_pagerduty_escalation_policy["id"])
+        example_service_integration = pagerduty.ServiceIntegration("example",
+            name="Generic API Service Integration",
             type="generic_events_api_inbound_integration",
             service=example_service.id)
         apiv2 = pagerduty.ServiceIntegration("apiv2",
+            name="API V2",
             type="events_api_v2_inbound_integration",
             service=example_service.id)
-        email_x = pagerduty.ServiceIntegration("emailX",
+        email_x = pagerduty.ServiceIntegration("email_x",
+            name="Email X",
             type="generic_email_inbound_integration",
             integration_email="ecommerce@subdomain.pagerduty.com",
             service=example_service.id)
-        datadog_vendor = pagerduty.get_vendor(name="Datadog")
-        datadog_service_integration = pagerduty.ServiceIntegration("datadogServiceIntegration",
+        datadog = pagerduty.get_vendor(name="Datadog")
+        datadog_service_integration = pagerduty.ServiceIntegration("datadog",
+            name=datadog.name,
             service=example_service.id,
-            vendor=datadog_vendor.id)
-        cloudwatch_vendor = pagerduty.get_vendor(name="Cloudwatch")
-        cloudwatch_service_integration = pagerduty.ServiceIntegration("cloudwatchServiceIntegration",
+            vendor=datadog.id)
+        cloudwatch = pagerduty.get_vendor(name="Cloudwatch")
+        cloudwatch_service_integration = pagerduty.ServiceIntegration("cloudwatch",
+            name=cloudwatch.name,
             service=example_service.id,
-            vendor=cloudwatch_vendor.id)
-        email_vendor = pagerduty.get_vendor(name="Email")
-        email_service_integration = pagerduty.ServiceIntegration("emailServiceIntegration",
+            vendor=cloudwatch.id)
+        email = pagerduty.get_vendor(name="Email")
+        email_service_integration = pagerduty.ServiceIntegration("email",
+            name=email.name,
             service=example_service.id,
-            vendor=email_vendor.id,
+            vendor=email.id,
             integration_email="s1@your_account.pagerduty.com",
             email_incident_creation="use_rules",
             email_filter_mode="and-rules-email",

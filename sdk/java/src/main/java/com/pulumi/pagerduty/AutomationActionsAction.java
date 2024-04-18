@@ -44,20 +44,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var paActionExample = new AutomationActionsAction(&#34;paActionExample&#34;, AutomationActionsActionArgs.builder()        
+ *             .name(&#34;PA Action created via TF&#34;)
+ *             .description(&#34;Description of the PA Action created via TF&#34;)
+ *             .actionType(&#34;process_automation&#34;)
  *             .actionDataReference(AutomationActionsActionActionDataReferenceArgs.builder()
  *                 .processAutomationJobId(&#34;P123456&#34;)
  *                 .build())
- *             .actionType(&#34;process_automation&#34;)
- *             .description(&#34;Description of the PA Action created via TF&#34;)
  *             .build());
  * 
  *         var scriptActionExample = new AutomationActionsAction(&#34;scriptActionExample&#34;, AutomationActionsActionArgs.builder()        
- *             .actionDataReference(AutomationActionsActionActionDataReferenceArgs.builder()
- *                 .invocationCommand(&#34;/usr/local/bin/python3&#34;)
- *                 .script(&#34;print(\&#34;Hello from a Python script!\&#34;)&#34;)
- *                 .build())
- *             .actionType(&#34;script&#34;)
+ *             .name(&#34;Script Action created via TF&#34;)
  *             .description(&#34;Description of the Script Action created via TF&#34;)
+ *             .actionType(&#34;script&#34;)
+ *             .actionDataReference(AutomationActionsActionActionDataReferenceArgs.builder()
+ *                 .script(&#34;print(\&#34;Hello from a Python script!\&#34;)&#34;)
+ *                 .invocationCommand(&#34;/usr/local/bin/python3&#34;)
+ *                 .build())
  *             .build());
  * 
  *     }

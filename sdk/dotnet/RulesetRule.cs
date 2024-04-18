@@ -22,13 +22,17 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooTeam = new Pagerduty.Team("fooTeam");
-    /// 
-    ///     var fooRuleset = new Pagerduty.Ruleset("fooRuleset", new()
+    ///     var foo = new Pagerduty.Team("foo", new()
     ///     {
+    ///         Name = "Engineering (Seattle)",
+    ///     });
+    /// 
+    ///     var fooRuleset = new Pagerduty.Ruleset("foo", new()
+    ///     {
+    ///         Name = "Primary Ruleset",
     ///         Team = new Pagerduty.Inputs.RulesetTeamArgs
     ///         {
-    ///             Id = fooTeam.Id,
+    ///             Id = foo.Id,
     ///         },
     ///     });
     /// 
@@ -36,12 +40,12 @@ namespace Pulumi.Pagerduty
     ///     // repeats daily from 9:30am - 11:30am using the America/New_York timezone.
     ///     // Thus it requires a time_static instance to represent 9:30am on an arbitrary date in that timezone.
     ///     // April 11th, 2019 was EDT (UTC-4) https://www.timeanddate.com/worldclock/converter.html?iso=20190411T133000&amp;p1=179
-    ///     var easternTimeAt0930 = new Time.Static("easternTimeAt0930", new()
+    ///     var easternTimeAt0930 = new Time.Static("eastern_time_at_0930", new()
     ///     {
     ///         Rfc3339 = "2019-04-11T09:30:00-04:00",
     ///     });
     /// 
-    ///     var fooRulesetRule = new Pagerduty.RulesetRule("fooRulesetRule", new()
+    ///     var fooRulesetRule = new Pagerduty.RulesetRule("foo", new()
     ///     {
     ///         Ruleset = fooRuleset.Id,
     ///         Position = 0,
@@ -117,7 +121,7 @@ namespace Pulumi.Pagerduty
     ///             {
     ///                 new Pagerduty.Inputs.RulesetRuleActionsRouteArgs
     ///                 {
-    ///                     Value = pagerduty_service.Foo.Id,
+    ///                     Value = fooPagerdutyService.Id,
     ///                 },
     ///             },
     ///             Severities = new[]
@@ -151,7 +155,7 @@ namespace Pulumi.Pagerduty
     ///         },
     ///     });
     /// 
-    ///     var catchAll = new Pagerduty.RulesetRule("catchAll", new()
+    ///     var catchAll = new Pagerduty.RulesetRule("catch_all", new()
     ///     {
     ///         Ruleset = fooRuleset.Id,
     ///         Position = 1,

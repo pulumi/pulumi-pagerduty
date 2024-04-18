@@ -26,13 +26,14 @@ namespace Pulumi.Pagerduty
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var config = new Config();
-    ///     var rUNBOOKAPIKEY = config.Require("rUNBOOKAPIKEY");
+    ///     var RUNBOOK_API_KEY = config.Require("RUNBOOK_API_KEY");
     ///     var example = new Pagerduty.AutomationActionsRunner("example", new()
     ///     {
+    ///         Name = "Runner created via TF",
     ///         Description = "Description of the Runner created via TF",
     ///         RunnerType = "runbook",
     ///         RunbookBaseUri = "rdcat.stg",
-    ///         RunbookApiKey = rUNBOOKAPIKEY,
+    ///         RunbookApiKey = RUNBOOK_API_KEY,
     ///     });
     /// 
     /// });

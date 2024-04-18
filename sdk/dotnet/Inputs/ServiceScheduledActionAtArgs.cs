@@ -30,10 +30,11 @@ namespace Pulumi.Pagerduty.Inputs
         /// {
         ///     var foo = new Pagerduty.Service("foo", new()
         ///     {
+        ///         Name = "bar",
         ///         Description = "bar bar bar",
         ///         AutoResolveTimeout = "3600",
         ///         AcknowledgementTimeout = "3600",
-        ///         EscalationPolicy = pagerduty_escalation_policy.Foo.Id,
+        ///         EscalationPolicy = fooPagerdutyEscalationPolicy.Id,
         ///         IncidentUrgencyRule = new Pagerduty.Inputs.ServiceIncidentUrgencyRuleArgs
         ///         {
         ///             Type = "use_support_hours",

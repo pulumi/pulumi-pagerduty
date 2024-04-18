@@ -17,23 +17,29 @@ import * as utilities from "./utilities";
  * const servicenow = pagerduty.getExtensionSchema({
  *     name: "ServiceNow (v7)",
  * });
- * const exampleUser = new pagerduty.User("exampleUser", {email: "howard.james@example.domain"});
- * const exampleEscalationPolicy = new pagerduty.EscalationPolicy("exampleEscalationPolicy", {
+ * const example = new pagerduty.User("example", {
+ *     name: "Howard James",
+ *     email: "howard.james@example.domain",
+ * });
+ * const exampleEscalationPolicy = new pagerduty.EscalationPolicy("example", {
+ *     name: "Engineering Escalation Policy",
  *     numLoops: 2,
  *     rules: [{
  *         escalationDelayInMinutes: 10,
  *         targets: [{
  *             type: "user",
- *             id: exampleUser.id,
+ *             id: example.id,
  *         }],
  *     }],
  * });
- * const exampleService = new pagerduty.Service("exampleService", {
+ * const exampleService = new pagerduty.Service("example", {
+ *     name: "My Web App",
  *     autoResolveTimeout: "14400",
  *     acknowledgementTimeout: "600",
  *     escalationPolicy: exampleEscalationPolicy.id,
  * });
  * const snow = new pagerduty.ExtensionServiceNow("snow", {
+ *     name: "My Web App Extension",
  *     extensionSchema: servicenow.then(servicenow => servicenow.id),
  *     extensionObjects: [exampleService.id],
  *     snowUser: "meeps",

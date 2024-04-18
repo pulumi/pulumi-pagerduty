@@ -151,7 +151,7 @@ import javax.annotation.Nullable;
  *                     )
  *                 )))
  *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(pagerduty_event_rule.two())
+ *                 .dependsOn(two)
  *                 .build());
  * 
  *     }

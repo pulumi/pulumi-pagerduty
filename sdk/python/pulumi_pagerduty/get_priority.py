@@ -81,9 +81,9 @@ def get_priority(name: Optional[str] = None,
     import pulumi_pagerduty as pagerduty
 
     p1 = pagerduty.get_priority(name="P1")
-    foo_ruleset = pagerduty.Ruleset("fooRuleset")
-    foo_ruleset_rule = pagerduty.RulesetRule("fooRulesetRule",
-        ruleset=foo_ruleset.id,
+    foo = pagerduty.Ruleset("foo", name="Primary Ruleset")
+    foo_ruleset_rule = pagerduty.RulesetRule("foo",
+        ruleset=foo.id,
         position=0,
         disabled=False,
         conditions=pagerduty.RulesetRuleConditionsArgs(
@@ -144,9 +144,9 @@ def get_priority_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi_pagerduty as pagerduty
 
     p1 = pagerduty.get_priority(name="P1")
-    foo_ruleset = pagerduty.Ruleset("fooRuleset")
-    foo_ruleset_rule = pagerduty.RulesetRule("fooRulesetRule",
-        ruleset=foo_ruleset.id,
+    foo = pagerduty.Ruleset("foo", name="Primary Ruleset")
+    foo_ruleset_rule = pagerduty.RulesetRule("foo",
+        ruleset=foo.id,
         position=0,
         disabled=False,
         conditions=pagerduty.RulesetRuleConditionsArgs(

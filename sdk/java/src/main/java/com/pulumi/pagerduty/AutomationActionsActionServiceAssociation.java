@@ -51,25 +51,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
+ *         var example = new User(&#34;example&#34;, UserArgs.builder()        
+ *             .name(&#34;Earline Greenholt&#34;)
  *             .email(&#34;125.greenholt.earline@graham.name&#34;)
  *             .build());
  * 
- *         var fooEscalationPolicy = new EscalationPolicy(&#34;fooEscalationPolicy&#34;, EscalationPolicyArgs.builder()        
+ *         var foo = new EscalationPolicy(&#34;foo&#34;, EscalationPolicyArgs.builder()        
+ *             .name(&#34;Engineering Escalation Policy&#34;)
  *             .numLoops(2)
  *             .rules(EscalationPolicyRuleArgs.builder()
  *                 .escalationDelayInMinutes(10)
  *                 .targets(EscalationPolicyRuleTargetArgs.builder()
  *                     .type(&#34;user_reference&#34;)
- *                     .id(exampleUser.id())
+ *                     .id(example.id())
  *                     .build())
  *                 .build())
  *             .build());
  * 
  *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
+ *             .name(&#34;My Web App&#34;)
  *             .autoResolveTimeout(14400)
  *             .acknowledgementTimeout(600)
- *             .escalationPolicy(fooEscalationPolicy.id())
+ *             .escalationPolicy(foo.id())
  *             .alertCreation(&#34;create_alerts_and_incidents&#34;)
  *             .autoPauseNotificationsParameters(ServiceAutoPauseNotificationsParametersArgs.builder()
  *                 .enabled(true)
@@ -78,6 +81,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var paActionExample = new AutomationActionsAction(&#34;paActionExample&#34;, AutomationActionsActionArgs.builder()        
+ *             .name(&#34;PA Action created via TF&#34;)
  *             .description(&#34;Description of the PA Action created via TF&#34;)
  *             .actionType(&#34;process_automation&#34;)
  *             .actionDataReference(AutomationActionsActionActionDataReferenceArgs.builder()

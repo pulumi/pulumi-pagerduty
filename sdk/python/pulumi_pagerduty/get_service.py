@@ -153,11 +153,12 @@ def get_service(name: Optional[str] = None,
     import pulumi
     import pulumi_pagerduty as pagerduty
 
-    example_service = pagerduty.get_service(name="My Service")
+    example = pagerduty.get_service(name="My Service")
     datadog = pagerduty.get_vendor(name="Datadog")
-    example_service_integration = pagerduty.ServiceIntegration("exampleServiceIntegration",
+    example_service_integration = pagerduty.ServiceIntegration("example",
+        name="Datadog Integration",
         vendor=datadog.id,
-        service=example_service.id,
+        service=example.id,
         type="generic_events_api_inbound_integration")
     ```
     <!--End PulumiCodeChooser -->
@@ -195,11 +196,12 @@ def get_service_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_pagerduty as pagerduty
 
-    example_service = pagerduty.get_service(name="My Service")
+    example = pagerduty.get_service(name="My Service")
     datadog = pagerduty.get_vendor(name="Datadog")
-    example_service_integration = pagerduty.ServiceIntegration("exampleServiceIntegration",
+    example_service_integration = pagerduty.ServiceIntegration("example",
+        name="Datadog Integration",
         vendor=datadog.id,
-        service=example_service.id,
+        service=example.id,
         type="generic_events_api_inbound_integration")
     ```
     <!--End PulumiCodeChooser -->

@@ -6539,10 +6539,11 @@ class ServiceScheduledActionAt(dict):
                import pulumi_pagerduty as pagerduty
                
                foo = pagerduty.Service("foo",
+                   name="bar",
                    description="bar bar bar",
                    auto_resolve_timeout="3600",
                    acknowledgement_timeout="3600",
-                   escalation_policy=pagerduty_escalation_policy["foo"]["id"],
+                   escalation_policy=foo_pagerduty_escalation_policy["id"],
                    incident_urgency_rule=pagerduty.ServiceIncidentUrgencyRuleArgs(
                        type="use_support_hours",
                        during_support_hours=pagerduty.ServiceIncidentUrgencyRuleDuringSupportHoursArgs(
@@ -6600,10 +6601,11 @@ class ServiceScheduledActionAt(dict):
         import pulumi_pagerduty as pagerduty
 
         foo = pagerduty.Service("foo",
+            name="bar",
             description="bar bar bar",
             auto_resolve_timeout="3600",
             acknowledgement_timeout="3600",
-            escalation_policy=pagerduty_escalation_policy["foo"]["id"],
+            escalation_policy=foo_pagerduty_escalation_policy["id"],
             incident_urgency_rule=pagerduty.ServiceIncidentUrgencyRuleArgs(
                 type="use_support_hours",
                 during_support_hours=pagerduty.ServiceIncidentUrgencyRuleDuringSupportHoursArgs(

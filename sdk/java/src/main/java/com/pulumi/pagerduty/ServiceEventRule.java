@@ -52,9 +52,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Service(&#34;example&#34;, ServiceArgs.builder()        
+ *             .name(&#34;Checkout API Service&#34;)
  *             .autoResolveTimeout(14400)
  *             .acknowledgementTimeout(600)
- *             .escalationPolicy(pagerduty_escalation_policy.example().id())
+ *             .escalationPolicy(examplePagerdutyEscalationPolicy.id())
  *             .alertCreation(&#34;create_alerts_and_incidents&#34;)
  *             .build());
  * 
@@ -98,7 +99,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var bar = new ServiceEventRule(&#34;bar&#34;, ServiceEventRuleArgs.builder()        
- *             .service(pagerduty_service.foo().id())
+ *             .service(fooPagerdutyService.id())
  *             .position(1)
  *             .disabled(true)
  *             .conditions(ServiceEventRuleConditionsArgs.builder()

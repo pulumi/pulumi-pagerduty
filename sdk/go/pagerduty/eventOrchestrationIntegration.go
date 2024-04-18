@@ -33,11 +33,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			databaseTeam, err := pagerduty.NewTeam(ctx, "databaseTeam", nil)
+//			databaseTeam, err := pagerduty.NewTeam(ctx, "database_team", &pagerduty.TeamArgs{
+//				Name: pulumi.String("Database Team"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			eventOrchestration, err := pagerduty.NewEventOrchestration(ctx, "eventOrchestration", &pagerduty.EventOrchestrationArgs{
+//			eventOrchestration, err := pagerduty.NewEventOrchestration(ctx, "event_orchestration", &pagerduty.EventOrchestrationArgs{
+//				Name: pulumi.String("Example Orchestration"),
 //				Team: databaseTeam.ID(),
 //			})
 //			if err != nil {

@@ -33,6 +33,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.pagerduty.Team;
+ * import com.pulumi.pagerduty.TeamArgs;
  * import com.pulumi.pagerduty.EventOrchestration;
  * import com.pulumi.pagerduty.EventOrchestrationArgs;
  * import com.pulumi.pagerduty.EventOrchestrationGlobalCacheVariable;
@@ -57,14 +58,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var databaseTeam = new Team(&#34;databaseTeam&#34;);
+ *         var databaseTeam = new Team(&#34;databaseTeam&#34;, TeamArgs.builder()        
+ *             .name(&#34;Database Team&#34;)
+ *             .build());
  * 
  *         var eventOrchestration = new EventOrchestration(&#34;eventOrchestration&#34;, EventOrchestrationArgs.builder()        
+ *             .name(&#34;Example Orchestration&#34;)
  *             .team(databaseTeam.id())
  *             .build());
  * 
  *         var cacheVar = new EventOrchestrationGlobalCacheVariable(&#34;cacheVar&#34;, EventOrchestrationGlobalCacheVariableArgs.builder()        
  *             .eventOrchestration(eventOrchestration.id())
+ *             .name(&#34;recent_host&#34;)
  *             .conditions(EventOrchestrationGlobalCacheVariableConditionArgs.builder()
  *                 .expression(&#34;event.source exists&#34;)
  *                 .build())

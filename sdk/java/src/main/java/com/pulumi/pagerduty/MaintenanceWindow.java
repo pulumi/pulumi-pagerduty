@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *         var example = new MaintenanceWindow(&#34;example&#34;, MaintenanceWindowArgs.builder()        
  *             .startTime(&#34;2015-11-09T20:00:00-05:00&#34;)
  *             .endTime(&#34;2015-11-09T22:00:00-05:00&#34;)
- *             .services(pagerduty_service.example().id())
+ *             .services(examplePagerdutyService.id())
  *             .build());
  * 
  *     }

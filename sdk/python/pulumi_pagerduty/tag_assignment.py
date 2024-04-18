@@ -139,10 +139,10 @@ class TagAssignment(pulumi.CustomResource):
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        example_tag = pagerduty.Tag("exampleTag", label="API")
-        engteam = pagerduty.Team("engteam")
-        example_tag_assignment = pagerduty.TagAssignment("exampleTagAssignment",
-            tag_id=example_tag.id,
+        example = pagerduty.Tag("example", label="API")
+        engteam = pagerduty.Team("engteam", name="Engineering")
+        example_tag_assignment = pagerduty.TagAssignment("example",
+            tag_id=example.id,
             entity_type="teams",
             entity_id=engteam.id)
         ```
@@ -178,10 +178,10 @@ class TagAssignment(pulumi.CustomResource):
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        example_tag = pagerduty.Tag("exampleTag", label="API")
-        engteam = pagerduty.Team("engteam")
-        example_tag_assignment = pagerduty.TagAssignment("exampleTagAssignment",
-            tag_id=example_tag.id,
+        example = pagerduty.Tag("example", label="API")
+        engteam = pagerduty.Team("engteam", name="Engineering")
+        example_tag_assignment = pagerduty.TagAssignment("example",
+            tag_id=example.id,
             entity_type="teams",
             entity_id=engteam.id)
         ```

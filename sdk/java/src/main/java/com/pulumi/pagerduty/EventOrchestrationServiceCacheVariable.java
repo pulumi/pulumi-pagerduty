@@ -33,6 +33,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.pagerduty.Team;
+ * import com.pulumi.pagerduty.TeamArgs;
  * import com.pulumi.pagerduty.User;
  * import com.pulumi.pagerduty.UserArgs;
  * import com.pulumi.pagerduty.EscalationPolicy;
@@ -62,14 +63,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var databaseTeam = new Team(&#34;databaseTeam&#34;);
+ *         var databaseTeam = new Team(&#34;databaseTeam&#34;, TeamArgs.builder()        
+ *             .name(&#34;Database Team&#34;)
+ *             .build());
  * 
  *         var user1 = new User(&#34;user1&#34;, UserArgs.builder()        
+ *             .name(&#34;Earline Greenholt&#34;)
  *             .email(&#34;125.greenholt.earline@graham.name&#34;)
  *             .teams(databaseTeam.id())
  *             .build());
  * 
  *         var dbEp = new EscalationPolicy(&#34;dbEp&#34;, EscalationPolicyArgs.builder()        
+ *             .name(&#34;Database Escalation Policy&#34;)
  *             .numLoops(2)
  *             .rules(EscalationPolicyRuleArgs.builder()
  *                 .escalationDelayInMinutes(10)
@@ -81,6 +86,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var svc = new Service(&#34;svc&#34;, ServiceArgs.builder()        
+ *             .name(&#34;My Database Service&#34;)
  *             .autoResolveTimeout(14400)
  *             .acknowledgementTimeout(600)
  *             .escalationPolicy(dbEp.id())
@@ -89,6 +95,7 @@ import javax.annotation.Nullable;
  * 
  *         var numDbTriggers = new EventOrchestrationServiceCacheVariable(&#34;numDbTriggers&#34;, EventOrchestrationServiceCacheVariableArgs.builder()        
  *             .service(svc.id())
+ *             .name(&#34;num_db_triggers&#34;)
  *             .conditions(EventOrchestrationServiceCacheVariableConditionArgs.builder()
  *                 .expression(&#34;event.summary matches part &#39;database&#39;&#34;)
  *                 .build())

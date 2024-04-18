@@ -2088,10 +2088,11 @@ export interface ServiceScheduledActionAt {
      * import * as pagerduty from "@pulumi/pagerduty";
      *
      * const foo = new pagerduty.Service("foo", {
+     *     name: "bar",
      *     description: "bar bar bar",
      *     autoResolveTimeout: "3600",
      *     acknowledgementTimeout: "3600",
-     *     escalationPolicy: pagerduty_escalation_policy.foo.id,
+     *     escalationPolicy: fooPagerdutyEscalationPolicy.id,
      *     incidentUrgencyRule: {
      *         type: "use_support_hours",
      *         duringSupportHours: {

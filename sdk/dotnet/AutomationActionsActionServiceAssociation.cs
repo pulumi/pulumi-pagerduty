@@ -23,13 +23,15 @@ namespace Pulumi.Pagerduty
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleUser = new Pagerduty.User("exampleUser", new()
+    ///     var example = new Pagerduty.User("example", new()
     ///     {
+    ///         Name = "Earline Greenholt",
     ///         Email = "125.greenholt.earline@graham.name",
     ///     });
     /// 
-    ///     var fooEscalationPolicy = new Pagerduty.EscalationPolicy("fooEscalationPolicy", new()
+    ///     var foo = new Pagerduty.EscalationPolicy("foo", new()
     ///     {
+    ///         Name = "Engineering Escalation Policy",
     ///         NumLoops = 2,
     ///         Rules = new[]
     ///         {
@@ -41,18 +43,19 @@ namespace Pulumi.Pagerduty
     ///                     new Pagerduty.Inputs.EscalationPolicyRuleTargetArgs
     ///                     {
     ///                         Type = "user_reference",
-    ///                         Id = exampleUser.Id,
+    ///                         Id = example.Id,
     ///                     },
     ///                 },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleService = new Pagerduty.Service("exampleService", new()
+    ///     var exampleService = new Pagerduty.Service("example", new()
     ///     {
+    ///         Name = "My Web App",
     ///         AutoResolveTimeout = "14400",
     ///         AcknowledgementTimeout = "600",
-    ///         EscalationPolicy = fooEscalationPolicy.Id,
+    ///         EscalationPolicy = foo.Id,
     ///         AlertCreation = "create_alerts_and_incidents",
     ///         AutoPauseNotificationsParameters = new Pagerduty.Inputs.ServiceAutoPauseNotificationsParametersArgs
     ///         {
@@ -61,8 +64,9 @@ namespace Pulumi.Pagerduty
     ///         },
     ///     });
     /// 
-    ///     var paActionExample = new Pagerduty.AutomationActionsAction("paActionExample", new()
+    ///     var paActionExample = new Pagerduty.AutomationActionsAction("pa_action_example", new()
     ///     {
+    ///         Name = "PA Action created via TF",
     ///         Description = "Description of the PA Action created via TF",
     ///         ActionType = "process_automation",
     ///         ActionDataReference = new Pagerduty.Inputs.AutomationActionsActionActionDataReferenceArgs
@@ -71,7 +75,7 @@ namespace Pulumi.Pagerduty
     ///         },
     ///     });
     /// 
-    ///     var fooAutomationActionsActionServiceAssociation = new Pagerduty.AutomationActionsActionServiceAssociation("fooAutomationActionsActionServiceAssociation", new()
+    ///     var fooAutomationActionsActionServiceAssociation = new Pagerduty.AutomationActionsActionServiceAssociation("foo", new()
     ///     {
     ///         ActionId = paActionExample.Id,
     ///         ServiceId = exampleService.Id,

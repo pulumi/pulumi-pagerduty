@@ -50,6 +50,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var myFirstWorkflow = new IncidentWorkflow(&#34;myFirstWorkflow&#34;, IncidentWorkflowArgs.builder()        
+ *             .name(&#34;Example Incident Workflow&#34;)
  *             .description(&#34;This Incident Workflow is an example&#34;)
  *             .steps(IncidentWorkflowStepArgs.builder()
  *                 .name(&#34;Send Status Update&#34;)
@@ -68,7 +69,7 @@ import javax.annotation.Nullable;
  *         var automaticTrigger = new IncidentWorkflowTrigger(&#34;automaticTrigger&#34;, IncidentWorkflowTriggerArgs.builder()        
  *             .type(&#34;conditional&#34;)
  *             .workflow(myFirstWorkflow.id())
- *             .services(pagerduty_service.first_service().id())
+ *             .services(firstServicePagerdutyService.id())
  *             .condition(&#34;incident.priority matches &#39;P1&#39;&#34;)
  *             .subscribedToAllServices(false)
  *             .build());
@@ -80,7 +81,7 @@ import javax.annotation.Nullable;
  *         var manualTrigger = new IncidentWorkflowTrigger(&#34;manualTrigger&#34;, IncidentWorkflowTriggerArgs.builder()        
  *             .type(&#34;manual&#34;)
  *             .workflow(myFirstWorkflow.id())
- *             .services(pagerduty_service.first_service().id())
+ *             .services(firstServicePagerdutyService.id())
  *             .build());
  * 
  *     }

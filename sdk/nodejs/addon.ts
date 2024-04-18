@@ -14,7 +14,10 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const example = new pagerduty.Addon("example", {src: "https://intranet.example.com/status"});
+ * const example = new pagerduty.Addon("example", {
+ *     name: "Internal Status Page",
+ *     src: "https://intranet.example.com/status",
+ * });
  * ```
  * <!--End PulumiCodeChooser -->
  *

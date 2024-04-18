@@ -29,27 +29,30 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := pagerduty.NewIncidentCustomField(ctx, "csImpact", &pagerduty.IncidentCustomFieldArgs{
-//				DataType:    pulumi.String("string"),
+//			_, err := pagerduty.NewIncidentCustomField(ctx, "cs_impact", &pagerduty.IncidentCustomFieldArgs{
+//				Name:        pulumi.String("impact"),
 //				DisplayName: pulumi.String("Customer Impact"),
+//				DataType:    pulumi.String("string"),
 //				FieldType:   pulumi.String("single_value"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewIncidentCustomField(ctx, "sreEnvironment", &pagerduty.IncidentCustomFieldArgs{
-//				DataType:    pulumi.String("string"),
+//			_, err = pagerduty.NewIncidentCustomField(ctx, "sre_environment", &pagerduty.IncidentCustomFieldArgs{
+//				Name:        pulumi.String("environment"),
 //				DisplayName: pulumi.String("Environment"),
+//				DataType:    pulumi.String("string"),
 //				FieldType:   pulumi.String("single_value_fixed"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pagerduty.NewIncidentCustomField(ctx, "falseAlarm", &pagerduty.IncidentCustomFieldArgs{
-//				DataType:     pulumi.String("boolean"),
-//				DefaultValue: pulumi.String("false"),
+//			_, err = pagerduty.NewIncidentCustomField(ctx, "false_alarm", &pagerduty.IncidentCustomFieldArgs{
+//				Name:         pulumi.String("false_alarm"),
 //				DisplayName:  pulumi.String("False Alarm"),
+//				DataType:     pulumi.String("boolean"),
 //				FieldType:    pulumi.String("single_value"),
+//				DefaultValue: pulumi.String("false"),
 //			})
 //			if err != nil {
 //				return err

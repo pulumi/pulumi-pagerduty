@@ -16,18 +16,23 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
- * const exampleUser = new pagerduty.User("exampleUser", {email: "125.greenholt.earline@graham.name"});
+ * const example = new pagerduty.User("example", {
+ *     name: "Earline Greenholt",
+ *     email: "125.greenholt.earline@graham.name",
+ * });
  * const foo = new pagerduty.EscalationPolicy("foo", {
+ *     name: "Engineering Escalation Policy",
  *     numLoops: 2,
  *     rules: [{
  *         escalationDelayInMinutes: 10,
  *         targets: [{
  *             type: "user_reference",
- *             id: exampleUser.id,
+ *             id: example.id,
  *         }],
  *     }],
  * });
- * const exampleService = new pagerduty.Service("exampleService", {
+ * const exampleService = new pagerduty.Service("example", {
+ *     name: "My Web App",
  *     autoResolveTimeout: "14400",
  *     acknowledgementTimeout: "600",
  *     escalationPolicy: foo.id,

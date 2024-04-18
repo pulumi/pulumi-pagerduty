@@ -34,6 +34,7 @@ namespace Pulumi.Pagerduty
         /// 
         ///     var example = new Pagerduty.User("example", new()
         ///     {
+        ///         Name = "Earline Greenholt",
         ///         Email = "125.greenholt.earline@graham.name",
         ///         License = licenses.Apply(getLicensesResult =&gt; getLicensesResult.Licenses[0]?.Id),
         ///         Role = "user",
@@ -69,6 +70,7 @@ namespace Pulumi.Pagerduty
         /// 
         ///     var example = new Pagerduty.User("example", new()
         ///     {
+        ///         Name = "Earline Greenholt",
         ///         Email = "125.greenholt.earline@graham.name",
         ///         License = licenses.Apply(getLicensesResult =&gt; getLicensesResult.Licenses[0]?.Id),
         ///         Role = "user",

@@ -43,16 +43,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooUser = new User(&#34;fooUser&#34;, UserArgs.builder()        
+ *         var foo = new User(&#34;foo&#34;, UserArgs.builder()        
+ *             .name(&#34;foo&#34;)
  *             .email(&#34;foo@bar.com&#34;)
  *             .build());
  * 
  *         var fooTeam = new Team(&#34;fooTeam&#34;, TeamArgs.builder()        
+ *             .name(&#34;foo&#34;)
  *             .description(&#34;foo&#34;)
  *             .build());
  * 
  *         var fooTeamMembership = new TeamMembership(&#34;fooTeamMembership&#34;, TeamMembershipArgs.builder()        
- *             .userId(fooUser.id())
+ *             .userId(foo.id())
  *             .teamId(fooTeam.id())
  *             .role(&#34;manager&#34;)
  *             .build());

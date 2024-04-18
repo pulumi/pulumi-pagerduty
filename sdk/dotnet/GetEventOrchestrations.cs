@@ -25,9 +25,15 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var tfOrchA = new Pagerduty.EventOrchestration("tfOrchA");
+        ///     var tfOrchA = new Pagerduty.EventOrchestration("tf_orch_a", new()
+        ///     {
+        ///         Name = "Test Event A Orchestration",
+        ///     });
         /// 
-        ///     var tfOrchB = new Pagerduty.EventOrchestration("tfOrchB");
+        ///     var tfOrchB = new Pagerduty.EventOrchestration("tf_orch_b", new()
+        ///     {
+        ///         Name = "Test Event B Orchestration",
+        ///     });
         /// 
         ///     var tfMyMonitor = Pagerduty.GetEventOrchestrations.Invoke(new()
         ///     {
@@ -55,9 +61,15 @@ namespace Pulumi.Pagerduty
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var tfOrchA = new Pagerduty.EventOrchestration("tfOrchA");
+        ///     var tfOrchA = new Pagerduty.EventOrchestration("tf_orch_a", new()
+        ///     {
+        ///         Name = "Test Event A Orchestration",
+        ///     });
         /// 
-        ///     var tfOrchB = new Pagerduty.EventOrchestration("tfOrchB");
+        ///     var tfOrchB = new Pagerduty.EventOrchestration("tf_orch_b", new()
+        ///     {
+        ///         Name = "Test Event B Orchestration",
+        ///     });
         /// 
         ///     var tfMyMonitor = Pagerduty.GetEventOrchestrations.Invoke(new()
         ///     {

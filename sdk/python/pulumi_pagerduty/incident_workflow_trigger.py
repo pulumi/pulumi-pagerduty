@@ -205,7 +205,8 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        my_first_workflow = pagerduty.IncidentWorkflow("myFirstWorkflow",
+        my_first_workflow = pagerduty.IncidentWorkflow("my_first_workflow",
+            name="Example Incident Workflow",
             description="This Incident Workflow is an example",
             steps=[pagerduty.IncidentWorkflowStepArgs(
                 name="Send Status Update",
@@ -216,17 +217,17 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
                 )],
             )])
         first_service = pagerduty.get_service(name="My First Service")
-        automatic_trigger = pagerduty.IncidentWorkflowTrigger("automaticTrigger",
+        automatic_trigger = pagerduty.IncidentWorkflowTrigger("automatic_trigger",
             type="conditional",
             workflow=my_first_workflow.id,
-            services=[pagerduty_service["first_service"]["id"]],
+            services=[first_service_pagerduty_service["id"]],
             condition="incident.priority matches 'P1'",
             subscribed_to_all_services=False)
         devops = pagerduty.get_team(name="devops")
-        manual_trigger = pagerduty.IncidentWorkflowTrigger("manualTrigger",
+        manual_trigger = pagerduty.IncidentWorkflowTrigger("manual_trigger",
             type="manual",
             workflow=my_first_workflow.id,
-            services=[pagerduty_service["first_service"]["id"]])
+            services=[first_service_pagerduty_service["id"]])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -262,7 +263,8 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
         import pulumi
         import pulumi_pagerduty as pagerduty
 
-        my_first_workflow = pagerduty.IncidentWorkflow("myFirstWorkflow",
+        my_first_workflow = pagerduty.IncidentWorkflow("my_first_workflow",
+            name="Example Incident Workflow",
             description="This Incident Workflow is an example",
             steps=[pagerduty.IncidentWorkflowStepArgs(
                 name="Send Status Update",
@@ -273,17 +275,17 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
                 )],
             )])
         first_service = pagerduty.get_service(name="My First Service")
-        automatic_trigger = pagerduty.IncidentWorkflowTrigger("automaticTrigger",
+        automatic_trigger = pagerduty.IncidentWorkflowTrigger("automatic_trigger",
             type="conditional",
             workflow=my_first_workflow.id,
-            services=[pagerduty_service["first_service"]["id"]],
+            services=[first_service_pagerduty_service["id"]],
             condition="incident.priority matches 'P1'",
             subscribed_to_all_services=False)
         devops = pagerduty.get_team(name="devops")
-        manual_trigger = pagerduty.IncidentWorkflowTrigger("manualTrigger",
+        manual_trigger = pagerduty.IncidentWorkflowTrigger("manual_trigger",
             type="manual",
             workflow=my_first_workflow.id,
-            services=[pagerduty_service["first_service"]["id"]])
+            services=[first_service_pagerduty_service["id"]])
         ```
         <!--End PulumiCodeChooser -->
 

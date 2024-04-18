@@ -45,10 +45,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var teamEntEng = new Team(&#34;teamEntEng&#34;, TeamArgs.builder()        
+ *             .name(&#34;Enterprise Engineering&#34;)
  *             .description(&#34;Enterprise engineering&#34;)
  *             .build());
  * 
  *         var paRunbookRunner = new AutomationActionsRunner(&#34;paRunbookRunner&#34;, AutomationActionsRunnerArgs.builder()        
+ *             .name(&#34;Runner created via TF&#34;)
  *             .description(&#34;Description of the Runner created via TF&#34;)
  *             .runnerType(&#34;runbook&#34;)
  *             .runbookBaseUri(&#34;cat-cat&#34;)

@@ -158,7 +158,6 @@ def get_user_contact_method(label: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -176,7 +175,6 @@ def get_user_contact_method(label: Optional[str] = None,
             "id": phone_push.id,
         })
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str label: The label (e.g., "Work", "Mobile", "Ashley's iPhone", etc.).
@@ -213,7 +211,6 @@ def get_user_contact_method_output(label: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -231,7 +228,6 @@ def get_user_contact_method_output(label: Optional[pulumi.Input[str]] = None,
             "id": phone_push.id,
         })
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str label: The label (e.g., "Work", "Mobile", "Ashley's iPhone", etc.).

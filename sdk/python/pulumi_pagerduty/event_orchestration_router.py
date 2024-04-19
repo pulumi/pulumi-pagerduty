@@ -140,7 +140,6 @@ class EventOrchestrationRouter(pulumi.CustomResource):
 
         This example assumes services used in the `route_to` configuration already exists. So it does not show creation of service resource.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -180,7 +179,6 @@ class EventOrchestrationRouter(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -211,7 +209,6 @@ class EventOrchestrationRouter(pulumi.CustomResource):
 
         This example assumes services used in the `route_to` configuration already exists. So it does not show creation of service resource.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -251,7 +248,6 @@ class EventOrchestrationRouter(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

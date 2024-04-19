@@ -184,7 +184,6 @@ class Team(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -197,7 +196,6 @@ class Team(pulumi.CustomResource):
             description="All engineering",
             parent=parent.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -226,7 +224,6 @@ class Team(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -239,7 +236,6 @@ class Team(pulumi.CustomResource):
             description="All engineering",
             parent=parent.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

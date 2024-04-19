@@ -96,7 +96,6 @@ def get_incident_custom_field(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -107,7 +106,6 @@ def get_incident_custom_field(name: Optional[str] = None,
         datatype="string",
         value="dev")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the field.
@@ -134,7 +132,6 @@ def get_incident_custom_field_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -145,7 +142,6 @@ def get_incident_custom_field_output(name: Optional[pulumi.Input[str]] = None,
         datatype="string",
         value="dev")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the field.

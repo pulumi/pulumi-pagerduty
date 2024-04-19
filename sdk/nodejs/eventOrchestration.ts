@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example of configuring an Event Orchestration
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -23,7 +22,6 @@ import * as utilities from "./utilities";
  *     team: engineering.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -23,7 +22,6 @@ import * as utilities from "./utilities";
  *     value: "dev",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getIncidentCustomField(args: GetIncidentCustomFieldArgs, opts?: pulumi.InvokeOptions): Promise<GetIncidentCustomFieldResult> {
 
@@ -62,7 +60,6 @@ export interface GetIncidentCustomFieldResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -76,7 +73,6 @@ export interface GetIncidentCustomFieldResult {
  *     value: "dev",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getIncidentCustomFieldOutput(args: GetIncidentCustomFieldOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIncidentCustomFieldResult> {
     return pulumi.output(args).apply((a: any) => getIncidentCustomField(a, opts))

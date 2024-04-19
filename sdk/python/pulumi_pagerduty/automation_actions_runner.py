@@ -269,7 +269,6 @@ class AutomationActionsRunner(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -283,7 +282,6 @@ class AutomationActionsRunner(pulumi.CustomResource):
             runbook_base_uri="rdcat.stg",
             runbook_api_key=runboo_k__ap_i__key)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -329,7 +327,6 @@ class AutomationActionsRunner(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -343,7 +340,6 @@ class AutomationActionsRunner(pulumi.CustomResource):
             runbook_base_uri="rdcat.stg",
             runbook_api_key=runboo_k__ap_i__key)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

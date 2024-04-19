@@ -2082,7 +2082,6 @@ export interface ServiceScheduledActionAt {
      *
      * Below is an example for a `pagerduty.Service` resource with `incidentUrgencyRules` with `type = "useSupportHours"`, `supportHours` and a default `scheduledAction` as well.
      *
-     * <!--Start PulumiCodeChooser -->
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
      * import * as pagerduty from "@pulumi/pagerduty";
@@ -2127,7 +2126,6 @@ export interface ServiceScheduledActionAt {
      *     }],
      * });
      * ```
-     * <!--End PulumiCodeChooser -->
      */
     name?: pulumi.Input<string>;
     /**

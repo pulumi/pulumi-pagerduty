@@ -134,7 +134,6 @@ class TagAssignment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -146,7 +145,6 @@ class TagAssignment(pulumi.CustomResource):
             entity_type="teams",
             entity_id=engteam.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -173,7 +171,6 @@ class TagAssignment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -185,7 +182,6 @@ class TagAssignment(pulumi.CustomResource):
             entity_type="teams",
             entity_id=engteam.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

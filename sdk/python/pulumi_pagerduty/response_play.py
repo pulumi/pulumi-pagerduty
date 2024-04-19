@@ -429,7 +429,6 @@ class ResponsePlay(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -461,7 +460,6 @@ class ResponsePlay(pulumi.CustomResource):
             )],
             runnability="services")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -494,7 +492,6 @@ class ResponsePlay(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -526,7 +523,6 @@ class ResponsePlay(pulumi.CustomResource):
             )],
             runnability="services")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

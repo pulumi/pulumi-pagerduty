@@ -406,7 +406,6 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -415,7 +414,6 @@ class User(pulumi.CustomResource):
             name="Earline Greenholt",
             email="125.greenholt.earline@graham.name")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -451,7 +449,6 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -460,7 +457,6 @@ class User(pulumi.CustomResource):
             name="Earline Greenholt",
             email="125.greenholt.earline@graham.name")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

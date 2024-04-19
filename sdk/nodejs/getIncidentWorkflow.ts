@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -27,7 +26,6 @@ import * as utilities from "./utilities";
  *     condition: "incident.priority matches 'P1'",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getIncidentWorkflow(args: GetIncidentWorkflowArgs, opts?: pulumi.InvokeOptions): Promise<GetIncidentWorkflowResult> {
 
@@ -63,7 +61,6 @@ export interface GetIncidentWorkflowResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -81,7 +78,6 @@ export interface GetIncidentWorkflowResult {
  *     condition: "incident.priority matches 'P1'",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getIncidentWorkflowOutput(args: GetIncidentWorkflowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIncidentWorkflowResult> {
     return pulumi.output(args).apply((a: any) => getIncidentWorkflow(a, opts))

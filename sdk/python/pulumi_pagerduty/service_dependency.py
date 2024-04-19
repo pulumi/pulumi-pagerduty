@@ -72,7 +72,6 @@ class ServiceDependency(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -98,7 +97,6 @@ class ServiceDependency(pulumi.CustomResource):
             )],
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -123,7 +121,6 @@ class ServiceDependency(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -149,7 +146,6 @@ class ServiceDependency(pulumi.CustomResource):
             )],
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

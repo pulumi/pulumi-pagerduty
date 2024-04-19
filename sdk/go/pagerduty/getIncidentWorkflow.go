@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -56,7 +55,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupIncidentWorkflow(ctx *pulumi.Context, args *LookupIncidentWorkflowArgs, opts ...pulumi.InvokeOption) (*LookupIncidentWorkflowResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupIncidentWorkflowResult

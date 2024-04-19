@@ -134,7 +134,6 @@ class BusinessServiceSubscriber(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -157,7 +156,6 @@ class BusinessServiceSubscriber(pulumi.CustomResource):
             subscriber_type="user",
             business_service_id=example.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -184,7 +182,6 @@ class BusinessServiceSubscriber(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -207,7 +204,6 @@ class BusinessServiceSubscriber(pulumi.CustomResource):
             subscriber_type="user",
             business_service_id=example.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

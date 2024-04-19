@@ -145,7 +145,6 @@ class TeamMembership(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -161,7 +160,6 @@ class TeamMembership(pulumi.CustomResource):
             team_id=foo_team.id,
             role="manager")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -189,7 +187,6 @@ class TeamMembership(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -205,7 +202,6 @@ class TeamMembership(pulumi.CustomResource):
             team_id=foo_team.id,
             role="manager")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

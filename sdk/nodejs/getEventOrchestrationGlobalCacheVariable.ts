@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -22,7 +21,6 @@ import * as utilities from "./utilities";
  *     name: "example_cache_variable",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getEventOrchestrationGlobalCacheVariable(args: GetEventOrchestrationGlobalCacheVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetEventOrchestrationGlobalCacheVariableResult> {
 
@@ -77,7 +75,6 @@ export interface GetEventOrchestrationGlobalCacheVariableResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -88,7 +85,6 @@ export interface GetEventOrchestrationGlobalCacheVariableResult {
  *     name: "example_cache_variable",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getEventOrchestrationGlobalCacheVariableOutput(args: GetEventOrchestrationGlobalCacheVariableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventOrchestrationGlobalCacheVariableResult> {
     return pulumi.output(args).apply((a: any) => getEventOrchestrationGlobalCacheVariable(a, opts))

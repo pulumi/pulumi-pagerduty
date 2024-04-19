@@ -16,7 +16,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -51,7 +50,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetUserContactMethodResult> InvokeAsync(GetUserContactMethodArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserContactMethodResult>("pagerduty:index/getUserContactMethod:getUserContactMethod", args ?? new GetUserContactMethodArgs(), options.WithDefaults());
@@ -61,7 +59,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -96,7 +93,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetUserContactMethodResult> Invoke(GetUserContactMethodInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserContactMethodResult>("pagerduty:index/getUserContactMethod:getUserContactMethod", args ?? new GetUserContactMethodInvokeArgs(), options.WithDefaults());

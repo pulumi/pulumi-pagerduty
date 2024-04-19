@@ -20,7 +20,6 @@ namespace Pulumi.Pagerduty.Outputs
         /// 
         /// Below is an example for a `pagerduty.Service` resource with `incident_urgency_rules` with `type = "use_support_hours"`, `support_hours` and a default `scheduled_action` as well.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -85,7 +84,6 @@ namespace Pulumi.Pagerduty.Outputs
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public readonly string? Name;
         /// <summary>

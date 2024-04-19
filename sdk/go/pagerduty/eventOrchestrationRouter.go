@@ -20,7 +20,6 @@ import (
 //
 // This example assumes services used in the `routeTo` configuration already exists. So it does not show creation of service resource.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -78,7 +77,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

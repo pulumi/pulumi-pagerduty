@@ -266,7 +266,6 @@ class Extension(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -296,17 +295,16 @@ class Extension(pulumi.CustomResource):
             extension_schema=webhook.id,
             extension_objects=[example_service.id],
             config=\"\"\"{
-        	"restrict": "any",
-        	"notify_types": {
-        			"resolve": false,
-        			"acknowledge": false,
-        			"assignments": false
-        	},
-        	"access_token": "XXX"
+        \\x09"restrict": "any",
+        \\x09"notify_types": {
+        \\x09\\x09\\x09"resolve": false,
+        \\x09\\x09\\x09"acknowledge": false,
+        \\x09\\x09\\x09"assignments": false
+        \\x09},
+        \\x09"access_token": "XXX"
         }
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -336,7 +334,6 @@ class Extension(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -366,17 +363,16 @@ class Extension(pulumi.CustomResource):
             extension_schema=webhook.id,
             extension_objects=[example_service.id],
             config=\"\"\"{
-        	"restrict": "any",
-        	"notify_types": {
-        			"resolve": false,
-        			"acknowledge": false,
-        			"assignments": false
-        	},
-        	"access_token": "XXX"
+        \\x09"restrict": "any",
+        \\x09"notify_types": {
+        \\x09\\x09\\x09"resolve": false,
+        \\x09\\x09\\x09"acknowledge": false,
+        \\x09\\x09\\x09"assignments": false
+        \\x09},
+        \\x09"access_token": "XXX"
         }
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

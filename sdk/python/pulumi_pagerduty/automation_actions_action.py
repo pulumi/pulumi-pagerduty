@@ -368,7 +368,6 @@ class AutomationActionsAction(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -389,7 +388,6 @@ class AutomationActionsAction(pulumi.CustomResource):
                 invocation_command="/usr/local/bin/python3",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -423,7 +421,6 @@ class AutomationActionsAction(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -444,7 +441,6 @@ class AutomationActionsAction(pulumi.CustomResource):
                 invocation_command="/usr/local/bin/python3",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

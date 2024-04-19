@@ -17095,7 +17095,6 @@ type ServiceScheduledActionAt struct {
 	//
 	// Below is an example for a `Service` resource with `incidentUrgencyRules` with `type = "useSupportHours"`, `supportHours` and a default `scheduledAction` as well.
 	//
-	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -17156,7 +17155,6 @@ type ServiceScheduledActionAt struct {
 	// 	})
 	// }
 	// ```
-	// <!--End PulumiCodeChooser -->
 	Name *string `pulumi:"name"`
 	// The type of time specification. Currently, this must be set to `namedTime`.
 	Type *string `pulumi:"type"`
@@ -17180,7 +17178,6 @@ type ServiceScheduledActionAtArgs struct {
 	//
 	// Below is an example for a `Service` resource with `incidentUrgencyRules` with `type = "useSupportHours"`, `supportHours` and a default `scheduledAction` as well.
 	//
-	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -17241,7 +17238,6 @@ type ServiceScheduledActionAtArgs struct {
 	// 	})
 	// }
 	// ```
-	// <!--End PulumiCodeChooser -->
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The type of time specification. Currently, this must be set to `namedTime`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -17304,7 +17300,6 @@ func (o ServiceScheduledActionAtOutput) ToServiceScheduledActionAtOutputWithCont
 //
 // Below is an example for a `Service` resource with `incidentUrgencyRules` with `type = "useSupportHours"`, `supportHours` and a default `scheduledAction` as well.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -17368,7 +17363,6 @@ func (o ServiceScheduledActionAtOutput) ToServiceScheduledActionAtOutputWithCont
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func (o ServiceScheduledActionAtOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceScheduledActionAt) *string { return v.Name }).(pulumi.StringPtrOutput)
 }

@@ -90,7 +90,6 @@ def get_standards_resource_scores(id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -99,7 +98,6 @@ def get_standards_resource_scores(id: Optional[str] = None,
     scores = pagerduty.get_standards_resource_scores(resource_type="technical_services",
         id=example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: Identifier of said resource.
@@ -128,7 +126,6 @@ def get_standards_resource_scores_output(id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -137,7 +134,6 @@ def get_standards_resource_scores_output(id: Optional[pulumi.Input[str]] = None,
     scores = pagerduty.get_standards_resource_scores(resource_type="technical_services",
         id=example.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: Identifier of said resource.

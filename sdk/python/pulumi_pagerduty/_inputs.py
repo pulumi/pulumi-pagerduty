@@ -7354,7 +7354,6 @@ class ServiceScheduledActionAtArgs:
                
                Below is an example for a `Service` resource with `incident_urgency_rules` with `type = "use_support_hours"`, `support_hours` and a default `scheduled_action` as well.
                
-               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                import pulumi_pagerduty as pagerduty
@@ -7398,7 +7397,6 @@ class ServiceScheduledActionAtArgs:
                        )],
                    )])
                ```
-               <!--End PulumiCodeChooser -->
         :param pulumi.Input[str] type: The type of time specification. Currently, this must be set to `named_time`.
         """
         if name is not None:
@@ -7416,7 +7414,6 @@ class ServiceScheduledActionAtArgs:
 
         Below is an example for a `Service` resource with `incident_urgency_rules` with `type = "use_support_hours"`, `support_hours` and a default `scheduled_action` as well.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -7460,7 +7457,6 @@ class ServiceScheduledActionAtArgs:
                 )],
             )])
         ```
-        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "name")
 

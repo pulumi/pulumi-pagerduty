@@ -82,7 +82,6 @@ def get_service_integration(integration_summary: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -90,7 +89,6 @@ def get_service_integration(integration_summary: Optional[str] = None,
     example = pagerduty.get_service_integration(service_name="My Service",
         integration_summary="Datadog")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str integration_summary: The integration summary used to find the desired integration on the service.
@@ -118,7 +116,6 @@ def get_service_integration_output(integration_summary: Optional[pulumi.Input[st
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -126,7 +123,6 @@ def get_service_integration_output(integration_summary: Optional[pulumi.Input[st
     example = pagerduty.get_service_integration(service_name="My Service",
         integration_summary="Datadog")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str integration_summary: The integration summary used to find the desired integration on the service.

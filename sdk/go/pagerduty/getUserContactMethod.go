@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -59,7 +58,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupUserContactMethod(ctx *pulumi.Context, args *LookupUserContactMethodArgs, opts ...pulumi.InvokeOption) (*LookupUserContactMethodResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupUserContactMethodResult

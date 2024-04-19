@@ -268,7 +268,6 @@ class SlackConnection(pulumi.CustomResource):
         * This resource is for configuring Slack V2 Next Generation connections. If you configured your Slack integration (V1 or V2) prior to August 10, 2021, you may migrate to the Slack V2 Next Generation update using this [migration instructions](https://support.pagerduty.com/docs/slack-integration-guide#migrate-to-slack-v2-next-generation), but if you configured your Slack integration after that date, you will have access to the update out of the box.
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -300,7 +299,6 @@ class SlackConnection(pulumi.CustomResource):
                 priorities=[p1.id],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -334,7 +332,6 @@ class SlackConnection(pulumi.CustomResource):
         * This resource is for configuring Slack V2 Next Generation connections. If you configured your Slack integration (V1 or V2) prior to August 10, 2021, you may migrate to the Slack V2 Next Generation update using this [migration instructions](https://support.pagerduty.com/docs/slack-integration-guide#migrate-to-slack-v2-next-generation), but if you configured your Slack integration after that date, you will have access to the update out of the box.
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -366,7 +363,6 @@ class SlackConnection(pulumi.CustomResource):
                 priorities=[p1.id],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

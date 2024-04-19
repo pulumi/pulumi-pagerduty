@@ -120,7 +120,6 @@ class EventOrchestrationIntegration(pulumi.CustomResource):
 
         > When a new Event Orchestration is created there will be one Integration (and Routing Key) included by default. Example below shows how to create an extra Integration associated with this Event Orchestration.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -133,7 +132,6 @@ class EventOrchestrationIntegration(pulumi.CustomResource):
             event_orchestration=event_orchestration.id,
             label="Example integration")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -163,7 +161,6 @@ class EventOrchestrationIntegration(pulumi.CustomResource):
 
         > When a new Event Orchestration is created there will be one Integration (and Routing Key) included by default. Example below shows how to create an extra Integration associated with this Event Orchestration.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -176,7 +173,6 @@ class EventOrchestrationIntegration(pulumi.CustomResource):
             event_orchestration=event_orchestration.id,
             label="Example integration")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

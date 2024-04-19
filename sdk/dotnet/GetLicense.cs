@@ -18,7 +18,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -48,7 +47,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetLicenseResult> InvokeAsync(GetLicenseArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLicenseResult>("pagerduty:index/getLicense:getLicense", args ?? new GetLicenseArgs(), options.WithDefaults());
@@ -60,7 +58,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -90,7 +87,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetLicenseResult> Invoke(GetLicenseInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLicenseResult>("pagerduty:index/getLicense:getLicense", args ?? new GetLicenseInvokeArgs(), options.WithDefaults());

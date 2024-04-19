@@ -18,7 +18,6 @@ import (
 //
 // This example shows creating a service `Event Orchestration` and a `Cache Variable`. This Cache Variable will count and store the number of trigger events with 'database' in its title. Then all alerts sent to this Event Orchestration will have its severity upped to 'critical' if the count has reached at least 5 triggers within the last 1 minute.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -124,7 +123,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -16,7 +16,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,7 +36,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetTeamMembersResult> InvokeAsync(GetTeamMembersArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTeamMembersResult>("pagerduty:index/getTeamMembers:getTeamMembers", args ?? new GetTeamMembersArgs(), options.WithDefaults());
@@ -47,7 +45,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -68,7 +65,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetTeamMembersResult> Invoke(GetTeamMembersInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTeamMembersResult>("pagerduty:index/getTeamMembers:getTeamMembers", args ?? new GetTeamMembersInvokeArgs(), options.WithDefaults());

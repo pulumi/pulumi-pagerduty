@@ -16,7 +16,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetBusinessServiceResult> InvokeAsync(GetBusinessServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBusinessServiceResult>("pagerduty:index/getBusinessService:getBusinessService", args ?? new GetBusinessServiceArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetBusinessServiceResult> Invoke(GetBusinessServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBusinessServiceResult>("pagerduty:index/getBusinessService:getBusinessService", args ?? new GetBusinessServiceInvokeArgs(), options.WithDefaults());

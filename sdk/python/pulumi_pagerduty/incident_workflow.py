@@ -172,7 +172,6 @@ class IncidentWorkflow(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -189,7 +188,6 @@ class IncidentWorkflow(pulumi.CustomResource):
                 )],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -217,7 +215,6 @@ class IncidentWorkflow(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -234,7 +231,6 @@ class IncidentWorkflow(pulumi.CustomResource):
                 )],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

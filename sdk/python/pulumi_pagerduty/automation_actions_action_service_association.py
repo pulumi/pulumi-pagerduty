@@ -102,7 +102,6 @@ class AutomationActionsActionServiceAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -141,7 +140,6 @@ class AutomationActionsActionServiceAssociation(pulumi.CustomResource):
             action_id=pa_action_example.id,
             service_id=example_service.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -167,7 +165,6 @@ class AutomationActionsActionServiceAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -206,7 +203,6 @@ class AutomationActionsActionServiceAssociation(pulumi.CustomResource):
             action_id=pa_action_example.id,
             service_id=example_service.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

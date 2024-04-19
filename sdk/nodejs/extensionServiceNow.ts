@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -50,7 +49,6 @@ import * as utilities from "./utilities";
  *     referer: "None",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

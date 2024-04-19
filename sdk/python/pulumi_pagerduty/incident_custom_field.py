@@ -233,7 +233,6 @@ class IncidentCustomField(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -255,7 +254,6 @@ class IncidentCustomField(pulumi.CustomResource):
             field_type="single_value",
             default_value="false")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -285,7 +283,6 @@ class IncidentCustomField(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -307,7 +304,6 @@ class IncidentCustomField(pulumi.CustomResource):
             field_type="single_value",
             default_value="false")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -173,7 +173,6 @@ class MaintenanceWindow(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -183,7 +182,6 @@ class MaintenanceWindow(pulumi.CustomResource):
             end_time="2015-11-09T22:00:00-05:00",
             services=[example_pagerduty_service["id"]])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -213,7 +211,6 @@ class MaintenanceWindow(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -223,7 +220,6 @@ class MaintenanceWindow(pulumi.CustomResource):
             end_time="2015-11-09T22:00:00-05:00",
             services=[example_pagerduty_service["id"]])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

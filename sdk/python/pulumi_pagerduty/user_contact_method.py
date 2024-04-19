@@ -262,7 +262,6 @@ class UserContactMethod(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -289,7 +288,6 @@ class UserContactMethod(pulumi.CustomResource):
             address="2025550199",
             label="Work")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -317,7 +315,6 @@ class UserContactMethod(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -344,7 +341,6 @@ class UserContactMethod(pulumi.CustomResource):
             address="2025550199",
             label="Work")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

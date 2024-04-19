@@ -73,7 +73,6 @@ def get_event_orchestrations(name_filter: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -82,7 +81,6 @@ def get_event_orchestrations(name_filter: Optional[str] = None,
     tf_orch_b = pagerduty.EventOrchestration("tf_orch_b", name="Test Event B Orchestration")
     tf_my_monitor = pagerduty.get_event_orchestrations(name_filter=".*Orchestration$")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name_filter: The regex name of Global Event orchestrations to find in the PagerDuty API.
@@ -106,7 +104,6 @@ def get_event_orchestrations_output(name_filter: Optional[pulumi.Input[str]] = N
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -115,7 +112,6 @@ def get_event_orchestrations_output(name_filter: Optional[pulumi.Input[str]] = N
     tf_orch_b = pagerduty.EventOrchestration("tf_orch_b", name="Test Event B Orchestration")
     tf_my_monitor = pagerduty.get_event_orchestrations(name_filter=".*Orchestration$")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name_filter: The regex name of Global Event orchestrations to find in the PagerDuty API.

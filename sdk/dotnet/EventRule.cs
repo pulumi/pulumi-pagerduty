@@ -156,7 +156,7 @@ namespace Pulumi.Pagerduty
     ///     {
     ///         DependsOn =
     ///         {
-    ///             two, 
+    ///             two,
     ///         },
     ///     });
     /// 

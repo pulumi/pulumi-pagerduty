@@ -44,13 +44,13 @@ import * as utilities from "./utilities";
  *     extensionSchema: webhook.then(webhook => webhook.id),
  *     extensionObjects: [exampleService.id],
  *     config: `{
- * 	"restrict": "any",
- * 	"notify_types": {
- * 			"resolve": false,
- * 			"acknowledge": false,
- * 			"assignments": false
- * 	},
- * 	"access_token": "XXX"
+ * \x09"restrict": "any",
+ * \x09"notify_types": {
+ * \x09\x09\x09"resolve": false,
+ * \x09\x09\x09"acknowledge": false,
+ * \x09\x09\x09"assignments": false
+ * \x09},
+ * \x09"access_token": "XXX"
  * }
  * `,
  * });

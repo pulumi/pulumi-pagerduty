@@ -14,45 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceIntegrationEmailParserMatchPredicatePredicate {
-    /**
-     * @return Predicate value or valid regex.
-     * 
-     */
     private @Nullable String matcher;
-    /**
-     * @return Can be `subject`, `body` or `from_addresses`.
-     * 
-     */
     private @Nullable String part;
     private @Nullable List<ServiceIntegrationEmailParserMatchPredicatePredicatePredicate> predicates;
-    /**
-     * @return Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.
-     * 
-     */
     private String type;
 
     private ServiceIntegrationEmailParserMatchPredicatePredicate() {}
-    /**
-     * @return Predicate value or valid regex.
-     * 
-     */
     public Optional<String> matcher() {
         return Optional.ofNullable(this.matcher);
     }
-    /**
-     * @return Can be `subject`, `body` or `from_addresses`.
-     * 
-     */
     public Optional<String> part() {
         return Optional.ofNullable(this.part);
     }
     public List<ServiceIntegrationEmailParserMatchPredicatePredicatePredicate> predicates() {
         return this.predicates == null ? List.of() : this.predicates;
     }
-    /**
-     * @return Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.
-     * 
-     */
     public String type() {
         return this.type;
     }

@@ -17,85 +17,43 @@ public final class ServiceSupportHoursArgs extends com.pulumi.resources.Resource
 
     public static final ServiceSupportHoursArgs Empty = new ServiceSupportHoursArgs();
 
-    /**
-     * Array of days of week as integers. `1` to `7`, `1` being
-     * Monday and `7` being Sunday.
-     * 
-     */
     @Import(name="daysOfWeeks")
     private @Nullable Output<List<Integer>> daysOfWeeks;
 
-    /**
-     * @return Array of days of week as integers. `1` to `7`, `1` being
-     * Monday and `7` being Sunday.
-     * 
-     */
     public Optional<Output<List<Integer>>> daysOfWeeks() {
         return Optional.ofNullable(this.daysOfWeeks);
     }
 
-    /**
-     * The support hours&#39; ending time of day.
-     * 
-     * A `scheduled_actions` block is required when using `type = &#34;use_support_hours&#34;` in `incident_urgency_rule`.
-     * 
-     * The block contains the following arguments:
-     * 
-     */
     @Import(name="endTime")
     private @Nullable Output<String> endTime;
 
-    /**
-     * @return The support hours&#39; ending time of day.
-     * 
-     * A `scheduled_actions` block is required when using `type = &#34;use_support_hours&#34;` in `incident_urgency_rule`.
-     * 
-     * The block contains the following arguments:
-     * 
-     */
     public Optional<Output<String>> endTime() {
         return Optional.ofNullable(this.endTime);
     }
 
-    /**
-     * The support hours&#39; starting time of day.
-     * 
-     */
     @Import(name="startTime")
     private @Nullable Output<String> startTime;
 
-    /**
-     * @return The support hours&#39; starting time of day.
-     * 
-     */
     public Optional<Output<String>> startTime() {
         return Optional.ofNullable(this.startTime);
     }
 
-    /**
-     * The time zone for the support hours.
-     * 
-     */
     @Import(name="timeZone")
     private @Nullable Output<String> timeZone;
 
-    /**
-     * @return The time zone for the support hours.
-     * 
-     */
     public Optional<Output<String>> timeZone() {
         return Optional.ofNullable(this.timeZone);
     }
 
     /**
-     * The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+     * The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+     * @return The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
      * 
      */
     public Optional<Output<String>> type() {
@@ -130,113 +88,48 @@ public final class ServiceSupportHoursArgs extends com.pulumi.resources.Resource
             $ = new ServiceSupportHoursArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param daysOfWeeks Array of days of week as integers. `1` to `7`, `1` being
-         * Monday and `7` being Sunday.
-         * 
-         * @return builder
-         * 
-         */
         public Builder daysOfWeeks(@Nullable Output<List<Integer>> daysOfWeeks) {
             $.daysOfWeeks = daysOfWeeks;
             return this;
         }
 
-        /**
-         * @param daysOfWeeks Array of days of week as integers. `1` to `7`, `1` being
-         * Monday and `7` being Sunday.
-         * 
-         * @return builder
-         * 
-         */
         public Builder daysOfWeeks(List<Integer> daysOfWeeks) {
             return daysOfWeeks(Output.of(daysOfWeeks));
         }
 
-        /**
-         * @param daysOfWeeks Array of days of week as integers. `1` to `7`, `1` being
-         * Monday and `7` being Sunday.
-         * 
-         * @return builder
-         * 
-         */
         public Builder daysOfWeeks(Integer... daysOfWeeks) {
             return daysOfWeeks(List.of(daysOfWeeks));
         }
 
-        /**
-         * @param endTime The support hours&#39; ending time of day.
-         * 
-         * A `scheduled_actions` block is required when using `type = &#34;use_support_hours&#34;` in `incident_urgency_rule`.
-         * 
-         * The block contains the following arguments:
-         * 
-         * @return builder
-         * 
-         */
         public Builder endTime(@Nullable Output<String> endTime) {
             $.endTime = endTime;
             return this;
         }
 
-        /**
-         * @param endTime The support hours&#39; ending time of day.
-         * 
-         * A `scheduled_actions` block is required when using `type = &#34;use_support_hours&#34;` in `incident_urgency_rule`.
-         * 
-         * The block contains the following arguments:
-         * 
-         * @return builder
-         * 
-         */
         public Builder endTime(String endTime) {
             return endTime(Output.of(endTime));
         }
 
-        /**
-         * @param startTime The support hours&#39; starting time of day.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startTime(@Nullable Output<String> startTime) {
             $.startTime = startTime;
             return this;
         }
 
-        /**
-         * @param startTime The support hours&#39; starting time of day.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startTime(String startTime) {
             return startTime(Output.of(startTime));
         }
 
-        /**
-         * @param timeZone The time zone for the support hours.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeZone(@Nullable Output<String> timeZone) {
             $.timeZone = timeZone;
             return this;
         }
 
-        /**
-         * @param timeZone The time zone for the support hours.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeZone(String timeZone) {
             return timeZone(Output.of(timeZone));
         }
 
         /**
-         * @param type The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+         * @param type The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
          * 
          * @return builder
          * 
@@ -247,7 +140,7 @@ public final class ServiceSupportHoursArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param type The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+         * @param type The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
          * 
          * @return builder
          * 

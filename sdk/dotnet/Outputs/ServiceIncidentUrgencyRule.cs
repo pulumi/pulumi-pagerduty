@@ -13,25 +13,12 @@ namespace Pulumi.Pagerduty.Outputs
     [OutputType]
     public sealed class ServiceIncidentUrgencyRule
     {
-        /// <summary>
-        /// Incidents' urgency during support hours.
-        /// </summary>
         public readonly Outputs.ServiceIncidentUrgencyRuleDuringSupportHours? DuringSupportHours;
-        /// <summary>
-        /// Incidents' urgency outside support hours.
-        /// 
-        /// When using `type = "use_support_hours"` in `incident_urgency_rule` you must specify exactly one (otherwise optional) `support_hours` block.
-        /// Your PagerDuty account must have the `service_support_hours` ability to assign support hours.
-        /// The block contains the following arguments:
-        /// </summary>
         public readonly Outputs.ServiceIncidentUrgencyRuleOutsideSupportHours? OutsideSupportHours;
         /// <summary>
-        /// The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+        /// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
-        /// </summary>
         public readonly string? Urgency;
 
         [OutputConstructor]

@@ -70,17 +70,9 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="pagerduty:index/team:Team")
 public class Team extends com.pulumi.resources.CustomResource {
-    /**
-     * The team is private if the value is &#34;none&#34;, or public if it is &#34;manager&#34; (the default permissions for a non-member of the team are either &#34;none&#34;, or their base role up until &#34;manager&#34;).
-     * 
-     */
     @Export(name="defaultRole", refs={String.class}, tree="[0]")
     private Output<String> defaultRole;
 
-    /**
-     * @return The team is private if the value is &#34;none&#34;, or public if it is &#34;manager&#34; (the default permissions for a non-member of the team are either &#34;none&#34;, or their base role up until &#34;manager&#34;).
-     * 
-     */
     public Output<String> defaultRole() {
         return this.defaultRole;
     }
@@ -104,31 +96,15 @@ public class Team extends com.pulumi.resources.CustomResource {
     public Output<String> htmlUrl() {
         return this.htmlUrl;
     }
-    /**
-     * The name of the group.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the group.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
-     * 
-     */
     @Export(name="parent", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> parent;
 
-    /**
-     * @return ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
-     * 
-     */
     public Output<Optional<String>> parent() {
         return Codegen.optional(this.parent);
     }

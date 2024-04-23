@@ -148,7 +148,6 @@ def get_service(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -161,7 +160,6 @@ def get_service(name: Optional[str] = None,
         service=example.id,
         type="generic_events_api_inbound_integration")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The service name to use to find a service in the PagerDuty API.
@@ -191,7 +189,6 @@ def get_service_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -204,7 +201,6 @@ def get_service_output(name: Optional[pulumi.Input[str]] = None,
         service=example.id,
         type="generic_events_api_inbound_integration")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The service name to use to find a service in the PagerDuty API.

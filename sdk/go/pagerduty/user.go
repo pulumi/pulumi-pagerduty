@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -54,33 +52,21 @@ type User struct {
 	pulumi.CustomResourceState
 
 	// The URL of the user's avatar.
-	AvatarUrl pulumi.StringOutput `pulumi:"avatarUrl"`
-	// The schedule color for the user. Valid options are purple, red, green, blue, teal, orange, brown, turquoise, dark-slate-blue, cayenne, orange-red, dark-orchid, dark-slate-grey, lime, dark-magenta, lime-green, midnight-blue, deep-pink, dark-green, dark-orange, dark-cyan, darkolive-green, dark-slate-gray, grey20, firebrick, maroon, crimson, dark-red, dark-goldenrod, chocolate, medium-violet-red, sea-green, olivedrab, forest-green, dark-olive-green, blue-violet, royal-blue, indigo, slate-blue, saddle-brown, or steel-blue.
+	AvatarUrl   pulumi.StringOutput `pulumi:"avatarUrl"`
 	Color       pulumi.StringOutput `pulumi:"color"`
 	Description pulumi.StringOutput `pulumi:"description"`
-	// The user's email address.
-	Email pulumi.StringOutput `pulumi:"email"`
+	Email       pulumi.StringOutput `pulumi:"email"`
 	// URL at which the entity is uniquely displayed in the Web app
 	HtmlUrl pulumi.StringOutput `pulumi:"htmlUrl"`
 	// If true, the user has an outstanding invitation.
-	InvitationSent pulumi.BoolOutput `pulumi:"invitationSent"`
-	// The user's title.
-	JobTitle pulumi.StringPtrOutput `pulumi:"jobTitle"`
-	// The license id assigned to the user. If provided the user's role must exist in the assigned license's `validRoles` list. To reference purchased licenses' ids see data source `getLicenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
-	License pulumi.StringOutput `pulumi:"license"`
-	// The name of the user.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The user role. Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser`, `readOnlyLimitedUser`, `restrictedAccess`, or `user`.
-	// Notes:
-	// * Account must have the `readOnlyUsers` ability to set a user as a `readOnlyUser` or a `readOnlyLimitedUser`, and must have advanced permissions abilities to set a user as `observer` or `restrictedAccess`.
-	// * With advanced permissions, users can have both a user role (base role) and a team role. The team role can be configured in the `TeamMembership` resource.
-	// * Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).
-	Role pulumi.StringPtrOutput `pulumi:"role"`
-	// A list of teams the user should belong to. Please use `TeamMembership` instead.
-	//
+	InvitationSent pulumi.BoolOutput      `pulumi:"invitationSent"`
+	JobTitle       pulumi.StringPtrOutput `pulumi:"jobTitle"`
+	License        pulumi.StringOutput    `pulumi:"license"`
+	Name           pulumi.StringOutput    `pulumi:"name"`
+	Role           pulumi.StringPtrOutput `pulumi:"role"`
 	// Deprecated: Use the 'pagerduty_team_membership' resource instead.
 	Teams pulumi.StringArrayOutput `pulumi:"teams"`
-	// The time zone of the user. Default is account default timezone.
+	// The timezone of the user.
 	TimeZone pulumi.StringOutput `pulumi:"timeZone"`
 }
 
@@ -121,65 +107,41 @@ func GetUser(ctx *pulumi.Context,
 // Input properties used for looking up and filtering User resources.
 type userState struct {
 	// The URL of the user's avatar.
-	AvatarUrl *string `pulumi:"avatarUrl"`
-	// The schedule color for the user. Valid options are purple, red, green, blue, teal, orange, brown, turquoise, dark-slate-blue, cayenne, orange-red, dark-orchid, dark-slate-grey, lime, dark-magenta, lime-green, midnight-blue, deep-pink, dark-green, dark-orange, dark-cyan, darkolive-green, dark-slate-gray, grey20, firebrick, maroon, crimson, dark-red, dark-goldenrod, chocolate, medium-violet-red, sea-green, olivedrab, forest-green, dark-olive-green, blue-violet, royal-blue, indigo, slate-blue, saddle-brown, or steel-blue.
+	AvatarUrl   *string `pulumi:"avatarUrl"`
 	Color       *string `pulumi:"color"`
 	Description *string `pulumi:"description"`
-	// The user's email address.
-	Email *string `pulumi:"email"`
+	Email       *string `pulumi:"email"`
 	// URL at which the entity is uniquely displayed in the Web app
 	HtmlUrl *string `pulumi:"htmlUrl"`
 	// If true, the user has an outstanding invitation.
-	InvitationSent *bool `pulumi:"invitationSent"`
-	// The user's title.
-	JobTitle *string `pulumi:"jobTitle"`
-	// The license id assigned to the user. If provided the user's role must exist in the assigned license's `validRoles` list. To reference purchased licenses' ids see data source `getLicenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
-	License *string `pulumi:"license"`
-	// The name of the user.
-	Name *string `pulumi:"name"`
-	// The user role. Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser`, `readOnlyLimitedUser`, `restrictedAccess`, or `user`.
-	// Notes:
-	// * Account must have the `readOnlyUsers` ability to set a user as a `readOnlyUser` or a `readOnlyLimitedUser`, and must have advanced permissions abilities to set a user as `observer` or `restrictedAccess`.
-	// * With advanced permissions, users can have both a user role (base role) and a team role. The team role can be configured in the `TeamMembership` resource.
-	// * Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).
-	Role *string `pulumi:"role"`
-	// A list of teams the user should belong to. Please use `TeamMembership` instead.
-	//
+	InvitationSent *bool   `pulumi:"invitationSent"`
+	JobTitle       *string `pulumi:"jobTitle"`
+	License        *string `pulumi:"license"`
+	Name           *string `pulumi:"name"`
+	Role           *string `pulumi:"role"`
 	// Deprecated: Use the 'pagerduty_team_membership' resource instead.
 	Teams []string `pulumi:"teams"`
-	// The time zone of the user. Default is account default timezone.
+	// The timezone of the user.
 	TimeZone *string `pulumi:"timeZone"`
 }
 
 type UserState struct {
 	// The URL of the user's avatar.
-	AvatarUrl pulumi.StringPtrInput
-	// The schedule color for the user. Valid options are purple, red, green, blue, teal, orange, brown, turquoise, dark-slate-blue, cayenne, orange-red, dark-orchid, dark-slate-grey, lime, dark-magenta, lime-green, midnight-blue, deep-pink, dark-green, dark-orange, dark-cyan, darkolive-green, dark-slate-gray, grey20, firebrick, maroon, crimson, dark-red, dark-goldenrod, chocolate, medium-violet-red, sea-green, olivedrab, forest-green, dark-olive-green, blue-violet, royal-blue, indigo, slate-blue, saddle-brown, or steel-blue.
+	AvatarUrl   pulumi.StringPtrInput
 	Color       pulumi.StringPtrInput
 	Description pulumi.StringPtrInput
-	// The user's email address.
-	Email pulumi.StringPtrInput
+	Email       pulumi.StringPtrInput
 	// URL at which the entity is uniquely displayed in the Web app
 	HtmlUrl pulumi.StringPtrInput
 	// If true, the user has an outstanding invitation.
 	InvitationSent pulumi.BoolPtrInput
-	// The user's title.
-	JobTitle pulumi.StringPtrInput
-	// The license id assigned to the user. If provided the user's role must exist in the assigned license's `validRoles` list. To reference purchased licenses' ids see data source `getLicenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
-	License pulumi.StringPtrInput
-	// The name of the user.
-	Name pulumi.StringPtrInput
-	// The user role. Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser`, `readOnlyLimitedUser`, `restrictedAccess`, or `user`.
-	// Notes:
-	// * Account must have the `readOnlyUsers` ability to set a user as a `readOnlyUser` or a `readOnlyLimitedUser`, and must have advanced permissions abilities to set a user as `observer` or `restrictedAccess`.
-	// * With advanced permissions, users can have both a user role (base role) and a team role. The team role can be configured in the `TeamMembership` resource.
-	// * Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).
-	Role pulumi.StringPtrInput
-	// A list of teams the user should belong to. Please use `TeamMembership` instead.
-	//
+	JobTitle       pulumi.StringPtrInput
+	License        pulumi.StringPtrInput
+	Name           pulumi.StringPtrInput
+	Role           pulumi.StringPtrInput
 	// Deprecated: Use the 'pagerduty_team_membership' resource instead.
 	Teams pulumi.StringArrayInput
-	// The time zone of the user. Default is account default timezone.
+	// The timezone of the user.
 	TimeZone pulumi.StringPtrInput
 }
 
@@ -188,55 +150,31 @@ func (UserState) ElementType() reflect.Type {
 }
 
 type userArgs struct {
-	// The schedule color for the user. Valid options are purple, red, green, blue, teal, orange, brown, turquoise, dark-slate-blue, cayenne, orange-red, dark-orchid, dark-slate-grey, lime, dark-magenta, lime-green, midnight-blue, deep-pink, dark-green, dark-orange, dark-cyan, darkolive-green, dark-slate-gray, grey20, firebrick, maroon, crimson, dark-red, dark-goldenrod, chocolate, medium-violet-red, sea-green, olivedrab, forest-green, dark-olive-green, blue-violet, royal-blue, indigo, slate-blue, saddle-brown, or steel-blue.
 	Color       *string `pulumi:"color"`
 	Description *string `pulumi:"description"`
-	// The user's email address.
-	Email string `pulumi:"email"`
-	// The user's title.
-	JobTitle *string `pulumi:"jobTitle"`
-	// The license id assigned to the user. If provided the user's role must exist in the assigned license's `validRoles` list. To reference purchased licenses' ids see data source `getLicenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
-	License *string `pulumi:"license"`
-	// The name of the user.
-	Name *string `pulumi:"name"`
-	// The user role. Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser`, `readOnlyLimitedUser`, `restrictedAccess`, or `user`.
-	// Notes:
-	// * Account must have the `readOnlyUsers` ability to set a user as a `readOnlyUser` or a `readOnlyLimitedUser`, and must have advanced permissions abilities to set a user as `observer` or `restrictedAccess`.
-	// * With advanced permissions, users can have both a user role (base role) and a team role. The team role can be configured in the `TeamMembership` resource.
-	// * Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).
-	Role *string `pulumi:"role"`
-	// A list of teams the user should belong to. Please use `TeamMembership` instead.
-	//
+	Email       string  `pulumi:"email"`
+	JobTitle    *string `pulumi:"jobTitle"`
+	License     *string `pulumi:"license"`
+	Name        *string `pulumi:"name"`
+	Role        *string `pulumi:"role"`
 	// Deprecated: Use the 'pagerduty_team_membership' resource instead.
 	Teams []string `pulumi:"teams"`
-	// The time zone of the user. Default is account default timezone.
+	// The timezone of the user.
 	TimeZone *string `pulumi:"timeZone"`
 }
 
 // The set of arguments for constructing a User resource.
 type UserArgs struct {
-	// The schedule color for the user. Valid options are purple, red, green, blue, teal, orange, brown, turquoise, dark-slate-blue, cayenne, orange-red, dark-orchid, dark-slate-grey, lime, dark-magenta, lime-green, midnight-blue, deep-pink, dark-green, dark-orange, dark-cyan, darkolive-green, dark-slate-gray, grey20, firebrick, maroon, crimson, dark-red, dark-goldenrod, chocolate, medium-violet-red, sea-green, olivedrab, forest-green, dark-olive-green, blue-violet, royal-blue, indigo, slate-blue, saddle-brown, or steel-blue.
 	Color       pulumi.StringPtrInput
 	Description pulumi.StringPtrInput
-	// The user's email address.
-	Email pulumi.StringInput
-	// The user's title.
-	JobTitle pulumi.StringPtrInput
-	// The license id assigned to the user. If provided the user's role must exist in the assigned license's `validRoles` list. To reference purchased licenses' ids see data source `getLicenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
-	License pulumi.StringPtrInput
-	// The name of the user.
-	Name pulumi.StringPtrInput
-	// The user role. Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser`, `readOnlyLimitedUser`, `restrictedAccess`, or `user`.
-	// Notes:
-	// * Account must have the `readOnlyUsers` ability to set a user as a `readOnlyUser` or a `readOnlyLimitedUser`, and must have advanced permissions abilities to set a user as `observer` or `restrictedAccess`.
-	// * With advanced permissions, users can have both a user role (base role) and a team role. The team role can be configured in the `TeamMembership` resource.
-	// * Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).
-	Role pulumi.StringPtrInput
-	// A list of teams the user should belong to. Please use `TeamMembership` instead.
-	//
+	Email       pulumi.StringInput
+	JobTitle    pulumi.StringPtrInput
+	License     pulumi.StringPtrInput
+	Name        pulumi.StringPtrInput
+	Role        pulumi.StringPtrInput
 	// Deprecated: Use the 'pagerduty_team_membership' resource instead.
 	Teams pulumi.StringArrayInput
-	// The time zone of the user. Default is account default timezone.
+	// The timezone of the user.
 	TimeZone pulumi.StringPtrInput
 }
 
@@ -332,7 +270,6 @@ func (o UserOutput) AvatarUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.AvatarUrl }).(pulumi.StringOutput)
 }
 
-// The schedule color for the user. Valid options are purple, red, green, blue, teal, orange, brown, turquoise, dark-slate-blue, cayenne, orange-red, dark-orchid, dark-slate-grey, lime, dark-magenta, lime-green, midnight-blue, deep-pink, dark-green, dark-orange, dark-cyan, darkolive-green, dark-slate-gray, grey20, firebrick, maroon, crimson, dark-red, dark-goldenrod, chocolate, medium-violet-red, sea-green, olivedrab, forest-green, dark-olive-green, blue-violet, royal-blue, indigo, slate-blue, saddle-brown, or steel-blue.
 func (o UserOutput) Color() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Color }).(pulumi.StringOutput)
 }
@@ -341,7 +278,6 @@ func (o UserOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// The user's email address.
 func (o UserOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Email }).(pulumi.StringOutput)
 }
@@ -356,38 +292,28 @@ func (o UserOutput) InvitationSent() pulumi.BoolOutput {
 	return o.ApplyT(func(v *User) pulumi.BoolOutput { return v.InvitationSent }).(pulumi.BoolOutput)
 }
 
-// The user's title.
 func (o UserOutput) JobTitle() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.JobTitle }).(pulumi.StringPtrOutput)
 }
 
-// The license id assigned to the user. If provided the user's role must exist in the assigned license's `validRoles` list. To reference purchased licenses' ids see data source `getLicenses` [data source](https://developer.pagerduty.com/api-reference/b3A6Mjc0ODIzNA-create-a-user).
 func (o UserOutput) License() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.License }).(pulumi.StringOutput)
 }
 
-// The name of the user.
 func (o UserOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The user role. Can be `admin`, `limitedUser`, `observer`, `owner`, `readOnlyUser`, `readOnlyLimitedUser`, `restrictedAccess`, or `user`.
-// Notes:
-// * Account must have the `readOnlyUsers` ability to set a user as a `readOnlyUser` or a `readOnlyLimitedUser`, and must have advanced permissions abilities to set a user as `observer` or `restrictedAccess`.
-// * With advanced permissions, users can have both a user role (base role) and a team role. The team role can be configured in the `TeamMembership` resource.
-// * Mapping of `role` values to Web UI user role names available in the [user roles support page](https://support.pagerduty.com/docs/advanced-permissions#roles-in-the-rest-api-and-saml).
 func (o UserOutput) Role() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Role }).(pulumi.StringPtrOutput)
 }
 
-// A list of teams the user should belong to. Please use `TeamMembership` instead.
-//
 // Deprecated: Use the 'pagerduty_team_membership' resource instead.
 func (o UserOutput) Teams() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *User) pulumi.StringArrayOutput { return v.Teams }).(pulumi.StringArrayOutput)
 }
 
-// The time zone of the user. Default is account default timezone.
+// The timezone of the user.
 func (o UserOutput) TimeZone() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.TimeZone }).(pulumi.StringOutput)
 }

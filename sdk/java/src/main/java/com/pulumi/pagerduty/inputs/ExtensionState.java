@@ -16,64 +16,30 @@ public final class ExtensionState extends com.pulumi.resources.ResourceArgs {
 
     public static final ExtensionState Empty = new ExtensionState();
 
-    /**
-     * The configuration of the service extension as string containing plain JSON-encoded data.
-     * 
-     */
     @Import(name="config")
     private @Nullable Output<String> config;
 
-    /**
-     * @return The configuration of the service extension as string containing plain JSON-encoded data.
-     * 
-     */
     public Optional<Output<String>> config() {
         return Optional.ofNullable(this.config);
     }
 
-    /**
-     * The url of the extension.
-     * **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `pagerduty.getExtensionSchema` named `Generic V2 Webhook` doesn&#39;t accept `pagerduty.Extension` with no `endpoint_url`, but one with named `Slack` accepts.
-     * 
-     */
     @Import(name="endpointUrl")
     private @Nullable Output<String> endpointUrl;
 
-    /**
-     * @return The url of the extension.
-     * **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `pagerduty.getExtensionSchema` named `Generic V2 Webhook` doesn&#39;t accept `pagerduty.Extension` with no `endpoint_url`, but one with named `Slack` accepts.
-     * 
-     */
     public Optional<Output<String>> endpointUrl() {
         return Optional.ofNullable(this.endpointUrl);
     }
 
-    /**
-     * This is the objects for which the extension applies (An array of service ids).
-     * 
-     */
     @Import(name="extensionObjects")
     private @Nullable Output<List<String>> extensionObjects;
 
-    /**
-     * @return This is the objects for which the extension applies (An array of service ids).
-     * 
-     */
     public Optional<Output<List<String>>> extensionObjects() {
         return Optional.ofNullable(this.extensionObjects);
     }
 
-    /**
-     * This is the schema for this extension.
-     * 
-     */
     @Import(name="extensionSchema")
     private @Nullable Output<String> extensionSchema;
 
-    /**
-     * @return This is the schema for this extension.
-     * 
-     */
     public Optional<Output<String>> extensionSchema() {
         return Optional.ofNullable(this.extensionSchema);
     }
@@ -93,36 +59,16 @@ public final class ExtensionState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.htmlUrl);
     }
 
-    /**
-     * The name of the service extension.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the service extension.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
-     * 
-     * **Note:** You can use the `pagerduty.getExtensionSchema` data source to locate the appropriate extension vendor ID.
-     * 
-     */
     @Import(name="summary")
     private @Nullable Output<String> summary;
 
-    /**
-     * @return A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
-     * 
-     * **Note:** You can use the `pagerduty.getExtensionSchema` data source to locate the appropriate extension vendor ID.
-     * 
-     */
     public Optional<Output<String>> summary() {
         return Optional.ofNullable(this.summary);
     }
@@ -165,98 +111,42 @@ public final class ExtensionState extends com.pulumi.resources.ResourceArgs {
             $ = new ExtensionState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param config The configuration of the service extension as string containing plain JSON-encoded data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder config(@Nullable Output<String> config) {
             $.config = config;
             return this;
         }
 
-        /**
-         * @param config The configuration of the service extension as string containing plain JSON-encoded data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder config(String config) {
             return config(Output.of(config));
         }
 
-        /**
-         * @param endpointUrl The url of the extension.
-         * **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `pagerduty.getExtensionSchema` named `Generic V2 Webhook` doesn&#39;t accept `pagerduty.Extension` with no `endpoint_url`, but one with named `Slack` accepts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointUrl(@Nullable Output<String> endpointUrl) {
             $.endpointUrl = endpointUrl;
             return this;
         }
 
-        /**
-         * @param endpointUrl The url of the extension.
-         * **Note:** The [endpoint URL is Optional API wise](https://api-reference.pagerduty.com/#!/Extensions/post_extensions) in most cases. But in some cases it is a _Required_ parameter. For example, `pagerduty.getExtensionSchema` named `Generic V2 Webhook` doesn&#39;t accept `pagerduty.Extension` with no `endpoint_url`, but one with named `Slack` accepts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointUrl(String endpointUrl) {
             return endpointUrl(Output.of(endpointUrl));
         }
 
-        /**
-         * @param extensionObjects This is the objects for which the extension applies (An array of service ids).
-         * 
-         * @return builder
-         * 
-         */
         public Builder extensionObjects(@Nullable Output<List<String>> extensionObjects) {
             $.extensionObjects = extensionObjects;
             return this;
         }
 
-        /**
-         * @param extensionObjects This is the objects for which the extension applies (An array of service ids).
-         * 
-         * @return builder
-         * 
-         */
         public Builder extensionObjects(List<String> extensionObjects) {
             return extensionObjects(Output.of(extensionObjects));
         }
 
-        /**
-         * @param extensionObjects This is the objects for which the extension applies (An array of service ids).
-         * 
-         * @return builder
-         * 
-         */
         public Builder extensionObjects(String... extensionObjects) {
             return extensionObjects(List.of(extensionObjects));
         }
 
-        /**
-         * @param extensionSchema This is the schema for this extension.
-         * 
-         * @return builder
-         * 
-         */
         public Builder extensionSchema(@Nullable Output<String> extensionSchema) {
             $.extensionSchema = extensionSchema;
             return this;
         }
 
-        /**
-         * @param extensionSchema This is the schema for this extension.
-         * 
-         * @return builder
-         * 
-         */
         public Builder extensionSchema(String extensionSchema) {
             return extensionSchema(Output.of(extensionSchema));
         }
@@ -282,48 +172,20 @@ public final class ExtensionState extends com.pulumi.resources.ResourceArgs {
             return htmlUrl(Output.of(htmlUrl));
         }
 
-        /**
-         * @param name The name of the service extension.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the service extension.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param summary A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
-         * 
-         * **Note:** You can use the `pagerduty.getExtensionSchema` data source to locate the appropriate extension vendor ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder summary(@Nullable Output<String> summary) {
             $.summary = summary;
             return this;
         }
 
-        /**
-         * @param summary A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
-         * 
-         * **Note:** You can use the `pagerduty.getExtensionSchema` data source to locate the appropriate extension vendor ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder summary(String summary) {
             return summary(Output.of(summary));
         }

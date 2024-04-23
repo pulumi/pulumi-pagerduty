@@ -9,14 +9,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
  * const example = new pagerduty.Tag("example", {label: "Product"});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -58,9 +56,6 @@ export class Tag extends pulumi.CustomResource {
      * URL at which the entity is uniquely displayed in the Web app.
      */
     public /*out*/ readonly htmlUrl!: pulumi.Output<string>;
-    /**
-     * The label of the tag.
-     */
     public readonly label!: pulumi.Output<string>;
     /**
      * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
@@ -105,9 +100,6 @@ export interface TagState {
      * URL at which the entity is uniquely displayed in the Web app.
      */
     htmlUrl?: pulumi.Input<string>;
-    /**
-     * The label of the tag.
-     */
     label?: pulumi.Input<string>;
     /**
      * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
@@ -119,8 +111,5 @@ export interface TagState {
  * The set of arguments for constructing a Tag resource.
  */
 export interface TagArgs {
-    /**
-     * The label of the tag.
-     */
     label: pulumi.Input<string>;
 }

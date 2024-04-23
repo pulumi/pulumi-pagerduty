@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -53,7 +52,6 @@ import * as utilities from "./utilities";
  *     serviceId: exampleService.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -91,13 +89,7 @@ export class AutomationActionsActionServiceAssociation extends pulumi.CustomReso
         return obj['__pulumiType'] === AutomationActionsActionServiceAssociation.__pulumiType;
     }
 
-    /**
-     * Id of the action.
-     */
     public readonly actionId!: pulumi.Output<string>;
-    /**
-     * Id of the service associated to the action.
-     */
     public readonly serviceId!: pulumi.Output<string>;
 
     /**
@@ -135,13 +127,7 @@ export class AutomationActionsActionServiceAssociation extends pulumi.CustomReso
  * Input properties used for looking up and filtering AutomationActionsActionServiceAssociation resources.
  */
 export interface AutomationActionsActionServiceAssociationState {
-    /**
-     * Id of the action.
-     */
     actionId?: pulumi.Input<string>;
-    /**
-     * Id of the service associated to the action.
-     */
     serviceId?: pulumi.Input<string>;
 }
 
@@ -149,12 +135,6 @@ export interface AutomationActionsActionServiceAssociationState {
  * The set of arguments for constructing a AutomationActionsActionServiceAssociation resource.
  */
 export interface AutomationActionsActionServiceAssociationArgs {
-    /**
-     * Id of the action.
-     */
     actionId: pulumi.Input<string>;
-    /**
-     * Id of the service associated to the action.
-     */
     serviceId: pulumi.Input<string>;
 }

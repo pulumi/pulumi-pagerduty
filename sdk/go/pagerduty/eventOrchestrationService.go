@@ -26,7 +26,6 @@ import (
 //
 // The `catchAll` actions will be applied if an Event reaches the end of any set without matching any rules in that set. In this example the `catchAll` doesn't have any `actions` so it'll leave events as-is.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -214,7 +213,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

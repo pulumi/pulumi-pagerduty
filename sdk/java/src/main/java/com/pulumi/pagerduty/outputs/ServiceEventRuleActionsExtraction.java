@@ -11,61 +11,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceEventRuleActionsExtraction {
-    /**
-     * @return The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
-     * 
-     * *- **OR** -*
-     * 
-     */
     private @Nullable String regex;
-    /**
-     * @return Field where the data is being copied from. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
-     * 
-     */
     private @Nullable String source;
-    /**
-     * @return Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
-     * 
-     * *NOTE: A rule can have multiple `extraction` objects attributed to it.*
-     * 
-     */
     private @Nullable String target;
-    /**
-     * @return A customized field message. This can also include variables extracted from the payload by using string interpolation.
-     * 
-     */
     private @Nullable String template;
 
     private ServiceEventRuleActionsExtraction() {}
-    /**
-     * @return The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
-     * 
-     * *- **OR** -*
-     * 
-     */
     public Optional<String> regex() {
         return Optional.ofNullable(this.regex);
     }
-    /**
-     * @return Field where the data is being copied from. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
-     * 
-     */
     public Optional<String> source() {
         return Optional.ofNullable(this.source);
     }
-    /**
-     * @return Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
-     * 
-     * *NOTE: A rule can have multiple `extraction` objects attributed to it.*
-     * 
-     */
     public Optional<String> target() {
         return Optional.ofNullable(this.target);
     }
-    /**
-     * @return A customized field message. This can also include variables extracted from the payload by using string interpolation.
-     * 
-     */
     public Optional<String> template() {
         return Optional.ofNullable(this.template);
     }

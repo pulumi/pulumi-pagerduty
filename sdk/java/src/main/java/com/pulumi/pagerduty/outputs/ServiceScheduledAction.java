@@ -13,39 +13,23 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceScheduledAction {
-    /**
-     * @return A block representing when the scheduled action will occur.
-     * 
-     */
     private @Nullable List<ServiceScheduledActionAt> ats;
-    /**
-     * @return The urgency to change to: `low` (does not escalate), or `high` (follows escalation rules).
-     * 
-     */
     private @Nullable String toUrgency;
     /**
-     * @return The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+     * @return The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
      * 
      */
     private @Nullable String type;
 
     private ServiceScheduledAction() {}
-    /**
-     * @return A block representing when the scheduled action will occur.
-     * 
-     */
     public List<ServiceScheduledActionAt> ats() {
         return this.ats == null ? List.of() : this.ats;
     }
-    /**
-     * @return The urgency to change to: `low` (does not escalate), or `high` (follows escalation rules).
-     * 
-     */
     public Optional<String> toUrgency() {
         return Optional.ofNullable(this.toUrgency);
     }
     /**
-     * @return The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+     * @return The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
      * 
      */
     public Optional<String> type() {

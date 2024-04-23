@@ -46,7 +46,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ResponsePlayResponderTeam> Teams;
         /// <summary>
-        /// Type of object of the target. Supported types are `user_reference`, `schedule_reference`.
+        /// Should be set as `escalation_policy` for escalation policy responders.
         /// </summary>
         public readonly string? Type;
 

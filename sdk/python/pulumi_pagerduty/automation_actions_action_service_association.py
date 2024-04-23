@@ -18,8 +18,6 @@ class AutomationActionsActionServiceAssociationArgs:
                  service_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a AutomationActionsActionServiceAssociation resource.
-        :param pulumi.Input[str] action_id: Id of the action.
-        :param pulumi.Input[str] service_id: Id of the service associated to the action.
         """
         pulumi.set(__self__, "action_id", action_id)
         pulumi.set(__self__, "service_id", service_id)
@@ -27,9 +25,6 @@ class AutomationActionsActionServiceAssociationArgs:
     @property
     @pulumi.getter(name="actionId")
     def action_id(self) -> pulumi.Input[str]:
-        """
-        Id of the action.
-        """
         return pulumi.get(self, "action_id")
 
     @action_id.setter
@@ -39,9 +34,6 @@ class AutomationActionsActionServiceAssociationArgs:
     @property
     @pulumi.getter(name="serviceId")
     def service_id(self) -> pulumi.Input[str]:
-        """
-        Id of the service associated to the action.
-        """
         return pulumi.get(self, "service_id")
 
     @service_id.setter
@@ -56,8 +48,6 @@ class _AutomationActionsActionServiceAssociationState:
                  service_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AutomationActionsActionServiceAssociation resources.
-        :param pulumi.Input[str] action_id: Id of the action.
-        :param pulumi.Input[str] service_id: Id of the service associated to the action.
         """
         if action_id is not None:
             pulumi.set(__self__, "action_id", action_id)
@@ -67,9 +57,6 @@ class _AutomationActionsActionServiceAssociationState:
     @property
     @pulumi.getter(name="actionId")
     def action_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Id of the action.
-        """
         return pulumi.get(self, "action_id")
 
     @action_id.setter
@@ -79,9 +66,6 @@ class _AutomationActionsActionServiceAssociationState:
     @property
     @pulumi.getter(name="serviceId")
     def service_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Id of the service associated to the action.
-        """
         return pulumi.get(self, "service_id")
 
     @service_id.setter
@@ -102,7 +86,6 @@ class AutomationActionsActionServiceAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -141,7 +124,6 @@ class AutomationActionsActionServiceAssociation(pulumi.CustomResource):
             action_id=pa_action_example.id,
             service_id=example_service.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -153,8 +135,6 @@ class AutomationActionsActionServiceAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] action_id: Id of the action.
-        :param pulumi.Input[str] service_id: Id of the service associated to the action.
         """
         ...
     @overload
@@ -167,7 +147,6 @@ class AutomationActionsActionServiceAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -206,7 +185,6 @@ class AutomationActionsActionServiceAssociation(pulumi.CustomResource):
             action_id=pa_action_example.id,
             service_id=example_service.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -267,8 +245,6 @@ class AutomationActionsActionServiceAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] action_id: Id of the action.
-        :param pulumi.Input[str] service_id: Id of the service associated to the action.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -281,16 +257,10 @@ class AutomationActionsActionServiceAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="actionId")
     def action_id(self) -> pulumi.Output[str]:
-        """
-        Id of the action.
-        """
         return pulumi.get(self, "action_id")
 
     @property
     @pulumi.getter(name="serviceId")
     def service_id(self) -> pulumi.Output[str]:
-        """
-        Id of the service associated to the action.
-        """
         return pulumi.get(self, "service_id")
 

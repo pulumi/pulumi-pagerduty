@@ -14,7 +14,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,7 +32,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -55,15 +53,9 @@ namespace Pulumi.Pagerduty
         [Output("htmlUrl")]
         public Output<string> HtmlUrl { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the business service.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The owner of the business service.
-        /// </summary>
         [Output("pointOfContact")]
         public Output<string?> PointOfContact { get; private set; } = null!;
 
@@ -79,15 +71,9 @@ namespace Pulumi.Pagerduty
         [Output("summary")]
         public Output<string> Summary { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the team that owns the business service.
-        /// </summary>
         [Output("team")]
         public Output<string?> Team { get; private set; } = null!;
 
-        /// <summary>
-        /// **Deprecated** (Optional) Default (and only supported) value is `business_service`.
-        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
@@ -140,27 +126,15 @@ namespace Pulumi.Pagerduty
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The name of the business service.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The owner of the business service.
-        /// </summary>
         [Input("pointOfContact")]
         public Input<string>? PointOfContact { get; set; }
 
-        /// <summary>
-        /// ID of the team that owns the business service.
-        /// </summary>
         [Input("team")]
         public Input<string>? Team { get; set; }
 
-        /// <summary>
-        /// **Deprecated** (Optional) Default (and only supported) value is `business_service`.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
@@ -182,15 +156,9 @@ namespace Pulumi.Pagerduty
         [Input("htmlUrl")]
         public Input<string>? HtmlUrl { get; set; }
 
-        /// <summary>
-        /// The name of the business service.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The owner of the business service.
-        /// </summary>
         [Input("pointOfContact")]
         public Input<string>? PointOfContact { get; set; }
 
@@ -206,15 +174,9 @@ namespace Pulumi.Pagerduty
         [Input("summary")]
         public Input<string>? Summary { get; set; }
 
-        /// <summary>
-        /// ID of the team that owns the business service.
-        /// </summary>
         [Input("team")]
         public Input<string>? Team { get; set; }
 
-        /// <summary>
-        /// **Deprecated** (Optional) Default (and only supported) value is `business_service`.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

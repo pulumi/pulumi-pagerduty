@@ -15,77 +15,37 @@ public final class AutomationActionsActionActionDataReferenceArgs extends com.pu
 
     public static final AutomationActionsActionActionDataReferenceArgs Empty = new AutomationActionsActionActionDataReferenceArgs();
 
-    /**
-     * The command to execute the script with.
-     * 
-     */
     @Import(name="invocationCommand")
     private @Nullable Output<String> invocationCommand;
 
-    /**
-     * @return The command to execute the script with.
-     * 
-     */
     public Optional<Output<String>> invocationCommand() {
         return Optional.ofNullable(this.invocationCommand);
     }
 
-    /**
-     * The arguments to pass to the Process Automation job execution.
-     * 
-     */
     @Import(name="processAutomationJobArguments")
     private @Nullable Output<String> processAutomationJobArguments;
 
-    /**
-     * @return The arguments to pass to the Process Automation job execution.
-     * 
-     */
     public Optional<Output<String>> processAutomationJobArguments() {
         return Optional.ofNullable(this.processAutomationJobArguments);
     }
 
-    /**
-     * The ID of the Process Automation job to execute.
-     * 
-     */
     @Import(name="processAutomationJobId")
     private @Nullable Output<String> processAutomationJobId;
 
-    /**
-     * @return The ID of the Process Automation job to execute.
-     * 
-     */
     public Optional<Output<String>> processAutomationJobId() {
         return Optional.ofNullable(this.processAutomationJobId);
     }
 
-    /**
-     * The expression that filters on which nodes a Process Automation Job executes [Learn more](https://docs.rundeck.com/docs/manual/05-nodes.html#node-filtering).
-     * 
-     */
     @Import(name="processAutomationNodeFilter")
     private @Nullable Output<String> processAutomationNodeFilter;
 
-    /**
-     * @return The expression that filters on which nodes a Process Automation Job executes [Learn more](https://docs.rundeck.com/docs/manual/05-nodes.html#node-filtering).
-     * 
-     */
     public Optional<Output<String>> processAutomationNodeFilter() {
         return Optional.ofNullable(this.processAutomationNodeFilter);
     }
 
-    /**
-     * Body of the script to be executed on the Runner. Max length is 16777215 characters.
-     * 
-     */
     @Import(name="script")
     private @Nullable Output<String> script;
 
-    /**
-     * @return Body of the script to be executed on the Runner. Max length is 16777215 characters.
-     * 
-     */
     public Optional<Output<String>> script() {
         return Optional.ofNullable(this.script);
     }
@@ -118,107 +78,47 @@ public final class AutomationActionsActionActionDataReferenceArgs extends com.pu
             $ = new AutomationActionsActionActionDataReferenceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param invocationCommand The command to execute the script with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder invocationCommand(@Nullable Output<String> invocationCommand) {
             $.invocationCommand = invocationCommand;
             return this;
         }
 
-        /**
-         * @param invocationCommand The command to execute the script with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder invocationCommand(String invocationCommand) {
             return invocationCommand(Output.of(invocationCommand));
         }
 
-        /**
-         * @param processAutomationJobArguments The arguments to pass to the Process Automation job execution.
-         * 
-         * @return builder
-         * 
-         */
         public Builder processAutomationJobArguments(@Nullable Output<String> processAutomationJobArguments) {
             $.processAutomationJobArguments = processAutomationJobArguments;
             return this;
         }
 
-        /**
-         * @param processAutomationJobArguments The arguments to pass to the Process Automation job execution.
-         * 
-         * @return builder
-         * 
-         */
         public Builder processAutomationJobArguments(String processAutomationJobArguments) {
             return processAutomationJobArguments(Output.of(processAutomationJobArguments));
         }
 
-        /**
-         * @param processAutomationJobId The ID of the Process Automation job to execute.
-         * 
-         * @return builder
-         * 
-         */
         public Builder processAutomationJobId(@Nullable Output<String> processAutomationJobId) {
             $.processAutomationJobId = processAutomationJobId;
             return this;
         }
 
-        /**
-         * @param processAutomationJobId The ID of the Process Automation job to execute.
-         * 
-         * @return builder
-         * 
-         */
         public Builder processAutomationJobId(String processAutomationJobId) {
             return processAutomationJobId(Output.of(processAutomationJobId));
         }
 
-        /**
-         * @param processAutomationNodeFilter The expression that filters on which nodes a Process Automation Job executes [Learn more](https://docs.rundeck.com/docs/manual/05-nodes.html#node-filtering).
-         * 
-         * @return builder
-         * 
-         */
         public Builder processAutomationNodeFilter(@Nullable Output<String> processAutomationNodeFilter) {
             $.processAutomationNodeFilter = processAutomationNodeFilter;
             return this;
         }
 
-        /**
-         * @param processAutomationNodeFilter The expression that filters on which nodes a Process Automation Job executes [Learn more](https://docs.rundeck.com/docs/manual/05-nodes.html#node-filtering).
-         * 
-         * @return builder
-         * 
-         */
         public Builder processAutomationNodeFilter(String processAutomationNodeFilter) {
             return processAutomationNodeFilter(Output.of(processAutomationNodeFilter));
         }
 
-        /**
-         * @param script Body of the script to be executed on the Runner. Max length is 16777215 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder script(@Nullable Output<String> script) {
             $.script = script;
             return this;
         }
 
-        /**
-         * @param script Body of the script to be executed on the Runner. Max length is 16777215 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder script(String script) {
             return script(Output.of(script));
         }

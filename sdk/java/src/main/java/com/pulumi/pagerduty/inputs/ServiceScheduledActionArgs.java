@@ -17,45 +17,29 @@ public final class ServiceScheduledActionArgs extends com.pulumi.resources.Resou
 
     public static final ServiceScheduledActionArgs Empty = new ServiceScheduledActionArgs();
 
-    /**
-     * A block representing when the scheduled action will occur.
-     * 
-     */
     @Import(name="ats")
     private @Nullable Output<List<ServiceScheduledActionAtArgs>> ats;
 
-    /**
-     * @return A block representing when the scheduled action will occur.
-     * 
-     */
     public Optional<Output<List<ServiceScheduledActionAtArgs>>> ats() {
         return Optional.ofNullable(this.ats);
     }
 
-    /**
-     * The urgency to change to: `low` (does not escalate), or `high` (follows escalation rules).
-     * 
-     */
     @Import(name="toUrgency")
     private @Nullable Output<String> toUrgency;
 
-    /**
-     * @return The urgency to change to: `low` (does not escalate), or `high` (follows escalation rules).
-     * 
-     */
     public Optional<Output<String>> toUrgency() {
         return Optional.ofNullable(this.toUrgency);
     }
 
     /**
-     * The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+     * The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+     * @return The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
      * 
      */
     public Optional<Output<String>> type() {
@@ -88,60 +72,30 @@ public final class ServiceScheduledActionArgs extends com.pulumi.resources.Resou
             $ = new ServiceScheduledActionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ats A block representing when the scheduled action will occur.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ats(@Nullable Output<List<ServiceScheduledActionAtArgs>> ats) {
             $.ats = ats;
             return this;
         }
 
-        /**
-         * @param ats A block representing when the scheduled action will occur.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ats(List<ServiceScheduledActionAtArgs> ats) {
             return ats(Output.of(ats));
         }
 
-        /**
-         * @param ats A block representing when the scheduled action will occur.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ats(ServiceScheduledActionAtArgs... ats) {
             return ats(List.of(ats));
         }
 
-        /**
-         * @param toUrgency The urgency to change to: `low` (does not escalate), or `high` (follows escalation rules).
-         * 
-         * @return builder
-         * 
-         */
         public Builder toUrgency(@Nullable Output<String> toUrgency) {
             $.toUrgency = toUrgency;
             return this;
         }
 
-        /**
-         * @param toUrgency The urgency to change to: `low` (does not escalate), or `high` (follows escalation rules).
-         * 
-         * @return builder
-         * 
-         */
         public Builder toUrgency(String toUrgency) {
             return toUrgency(Output.of(toUrgency));
         }
 
         /**
-         * @param type The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+         * @param type The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
          * 
          * @return builder
          * 
@@ -152,7 +106,7 @@ public final class ServiceScheduledActionArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param type The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+         * @param type The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
          * 
          * @return builder
          * 

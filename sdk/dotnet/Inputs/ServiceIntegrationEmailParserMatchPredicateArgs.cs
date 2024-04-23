@@ -20,9 +20,6 @@ namespace Pulumi.Pagerduty.Inputs
             set => _predicates = value;
         }
 
-        /// <summary>
-        /// Can be `any` or `all`.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

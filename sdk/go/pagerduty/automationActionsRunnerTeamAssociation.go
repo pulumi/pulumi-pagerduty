@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -58,7 +57,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -70,10 +68,8 @@ import (
 type AutomationActionsRunnerTeamAssociation struct {
 	pulumi.CustomResourceState
 
-	// Id of the runner.
 	RunnerId pulumi.StringOutput `pulumi:"runnerId"`
-	// Id of the team associated with the runner.
-	TeamId pulumi.StringOutput `pulumi:"teamId"`
+	TeamId   pulumi.StringOutput `pulumi:"teamId"`
 }
 
 // NewAutomationActionsRunnerTeamAssociation registers a new resource with the given unique name, arguments, and options.
@@ -112,17 +108,13 @@ func GetAutomationActionsRunnerTeamAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AutomationActionsRunnerTeamAssociation resources.
 type automationActionsRunnerTeamAssociationState struct {
-	// Id of the runner.
 	RunnerId *string `pulumi:"runnerId"`
-	// Id of the team associated with the runner.
-	TeamId *string `pulumi:"teamId"`
+	TeamId   *string `pulumi:"teamId"`
 }
 
 type AutomationActionsRunnerTeamAssociationState struct {
-	// Id of the runner.
 	RunnerId pulumi.StringPtrInput
-	// Id of the team associated with the runner.
-	TeamId pulumi.StringPtrInput
+	TeamId   pulumi.StringPtrInput
 }
 
 func (AutomationActionsRunnerTeamAssociationState) ElementType() reflect.Type {
@@ -130,18 +122,14 @@ func (AutomationActionsRunnerTeamAssociationState) ElementType() reflect.Type {
 }
 
 type automationActionsRunnerTeamAssociationArgs struct {
-	// Id of the runner.
 	RunnerId string `pulumi:"runnerId"`
-	// Id of the team associated with the runner.
-	TeamId string `pulumi:"teamId"`
+	TeamId   string `pulumi:"teamId"`
 }
 
 // The set of arguments for constructing a AutomationActionsRunnerTeamAssociation resource.
 type AutomationActionsRunnerTeamAssociationArgs struct {
-	// Id of the runner.
 	RunnerId pulumi.StringInput
-	// Id of the team associated with the runner.
-	TeamId pulumi.StringInput
+	TeamId   pulumi.StringInput
 }
 
 func (AutomationActionsRunnerTeamAssociationArgs) ElementType() reflect.Type {
@@ -231,12 +219,10 @@ func (o AutomationActionsRunnerTeamAssociationOutput) ToAutomationActionsRunnerT
 	return o
 }
 
-// Id of the runner.
 func (o AutomationActionsRunnerTeamAssociationOutput) RunnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationActionsRunnerTeamAssociation) pulumi.StringOutput { return v.RunnerId }).(pulumi.StringOutput)
 }
 
-// Id of the team associated with the runner.
 func (o AutomationActionsRunnerTeamAssociationOutput) TeamId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationActionsRunnerTeamAssociation) pulumi.StringOutput { return v.TeamId }).(pulumi.StringOutput)
 }

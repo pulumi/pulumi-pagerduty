@@ -69,7 +69,6 @@ def get_incident_workflow(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -82,7 +81,6 @@ def get_incident_workflow(name: Optional[str] = None,
         services=[first_service.id],
         condition="incident.priority matches 'P1'")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the workflow.
@@ -106,7 +104,6 @@ def get_incident_workflow_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -119,7 +116,6 @@ def get_incident_workflow_output(name: Optional[pulumi.Input[str]] = None,
         services=[first_service.id],
         condition="incident.priority matches 'P1'")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the workflow.

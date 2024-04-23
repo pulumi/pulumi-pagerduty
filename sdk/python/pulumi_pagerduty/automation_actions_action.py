@@ -28,14 +28,8 @@ class AutomationActionsActionArgs:
                  type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AutomationActionsAction resource.
-        :param pulumi.Input['AutomationActionsActionActionDataReferenceArgs'] action_data_reference: Action Data block. Action Data is documented below.
-        :param pulumi.Input[str] action_type: The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
-        :param pulumi.Input[str] action_classification: The category of the action. The only allowed values are `diagnostic` and `remediation`.
         :param pulumi.Input[str] creation_time: The time action was created. Represented as an ISO 8601 timestamp.
-        :param pulumi.Input[str] description: The description of the action. Max length is 1024 characters.
         :param pulumi.Input[str] modify_time: (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
-        :param pulumi.Input[str] name: The name of the action. Max length is 255 characters.
-        :param pulumi.Input[str] runner_id: The Process Automation Actions runner to associate the action with. Cannot be changed for the `process_automation` action type once set.
         :param pulumi.Input[str] runner_type: (Optional) The type of the runner associated with the action.
         :param pulumi.Input[str] type: The type of object. The value returned will be `action`.
         """
@@ -61,9 +55,6 @@ class AutomationActionsActionArgs:
     @property
     @pulumi.getter(name="actionDataReference")
     def action_data_reference(self) -> pulumi.Input['AutomationActionsActionActionDataReferenceArgs']:
-        """
-        Action Data block. Action Data is documented below.
-        """
         return pulumi.get(self, "action_data_reference")
 
     @action_data_reference.setter
@@ -73,9 +64,6 @@ class AutomationActionsActionArgs:
     @property
     @pulumi.getter(name="actionType")
     def action_type(self) -> pulumi.Input[str]:
-        """
-        The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
-        """
         return pulumi.get(self, "action_type")
 
     @action_type.setter
@@ -85,9 +73,6 @@ class AutomationActionsActionArgs:
     @property
     @pulumi.getter(name="actionClassification")
     def action_classification(self) -> Optional[pulumi.Input[str]]:
-        """
-        The category of the action. The only allowed values are `diagnostic` and `remediation`.
-        """
         return pulumi.get(self, "action_classification")
 
     @action_classification.setter
@@ -109,9 +94,6 @@ class AutomationActionsActionArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description of the action. Max length is 1024 characters.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -133,9 +115,6 @@ class AutomationActionsActionArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the action. Max length is 255 characters.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -145,9 +124,6 @@ class AutomationActionsActionArgs:
     @property
     @pulumi.getter(name="runnerId")
     def runner_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Process Automation Actions runner to associate the action with. Cannot be changed for the `process_automation` action type once set.
-        """
         return pulumi.get(self, "runner_id")
 
     @runner_id.setter
@@ -194,14 +170,8 @@ class _AutomationActionsActionState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AutomationActionsAction resources.
-        :param pulumi.Input[str] action_classification: The category of the action. The only allowed values are `diagnostic` and `remediation`.
-        :param pulumi.Input['AutomationActionsActionActionDataReferenceArgs'] action_data_reference: Action Data block. Action Data is documented below.
-        :param pulumi.Input[str] action_type: The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
         :param pulumi.Input[str] creation_time: The time action was created. Represented as an ISO 8601 timestamp.
-        :param pulumi.Input[str] description: The description of the action. Max length is 1024 characters.
         :param pulumi.Input[str] modify_time: (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
-        :param pulumi.Input[str] name: The name of the action. Max length is 255 characters.
-        :param pulumi.Input[str] runner_id: The Process Automation Actions runner to associate the action with. Cannot be changed for the `process_automation` action type once set.
         :param pulumi.Input[str] runner_type: (Optional) The type of the runner associated with the action.
         :param pulumi.Input[str] type: The type of object. The value returned will be `action`.
         """
@@ -229,9 +199,6 @@ class _AutomationActionsActionState:
     @property
     @pulumi.getter(name="actionClassification")
     def action_classification(self) -> Optional[pulumi.Input[str]]:
-        """
-        The category of the action. The only allowed values are `diagnostic` and `remediation`.
-        """
         return pulumi.get(self, "action_classification")
 
     @action_classification.setter
@@ -241,9 +208,6 @@ class _AutomationActionsActionState:
     @property
     @pulumi.getter(name="actionDataReference")
     def action_data_reference(self) -> Optional[pulumi.Input['AutomationActionsActionActionDataReferenceArgs']]:
-        """
-        Action Data block. Action Data is documented below.
-        """
         return pulumi.get(self, "action_data_reference")
 
     @action_data_reference.setter
@@ -253,9 +217,6 @@ class _AutomationActionsActionState:
     @property
     @pulumi.getter(name="actionType")
     def action_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
-        """
         return pulumi.get(self, "action_type")
 
     @action_type.setter
@@ -277,9 +238,6 @@ class _AutomationActionsActionState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description of the action. Max length is 1024 characters.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -301,9 +259,6 @@ class _AutomationActionsActionState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the action. Max length is 255 characters.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -313,9 +268,6 @@ class _AutomationActionsActionState:
     @property
     @pulumi.getter(name="runnerId")
     def runner_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Process Automation Actions runner to associate the action with. Cannot be changed for the `process_automation` action type once set.
-        """
         return pulumi.get(self, "runner_id")
 
     @runner_id.setter
@@ -368,7 +320,6 @@ class AutomationActionsAction(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -389,7 +340,6 @@ class AutomationActionsAction(pulumi.CustomResource):
                 invocation_command="/usr/local/bin/python3",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -401,14 +351,8 @@ class AutomationActionsAction(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] action_classification: The category of the action. The only allowed values are `diagnostic` and `remediation`.
-        :param pulumi.Input[pulumi.InputType['AutomationActionsActionActionDataReferenceArgs']] action_data_reference: Action Data block. Action Data is documented below.
-        :param pulumi.Input[str] action_type: The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
         :param pulumi.Input[str] creation_time: The time action was created. Represented as an ISO 8601 timestamp.
-        :param pulumi.Input[str] description: The description of the action. Max length is 1024 characters.
         :param pulumi.Input[str] modify_time: (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
-        :param pulumi.Input[str] name: The name of the action. Max length is 255 characters.
-        :param pulumi.Input[str] runner_id: The Process Automation Actions runner to associate the action with. Cannot be changed for the `process_automation` action type once set.
         :param pulumi.Input[str] runner_type: (Optional) The type of the runner associated with the action.
         :param pulumi.Input[str] type: The type of object. The value returned will be `action`.
         """
@@ -423,7 +367,6 @@ class AutomationActionsAction(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -444,7 +387,6 @@ class AutomationActionsAction(pulumi.CustomResource):
                 invocation_command="/usr/local/bin/python3",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -529,14 +471,8 @@ class AutomationActionsAction(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] action_classification: The category of the action. The only allowed values are `diagnostic` and `remediation`.
-        :param pulumi.Input[pulumi.InputType['AutomationActionsActionActionDataReferenceArgs']] action_data_reference: Action Data block. Action Data is documented below.
-        :param pulumi.Input[str] action_type: The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
         :param pulumi.Input[str] creation_time: The time action was created. Represented as an ISO 8601 timestamp.
-        :param pulumi.Input[str] description: The description of the action. Max length is 1024 characters.
         :param pulumi.Input[str] modify_time: (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
-        :param pulumi.Input[str] name: The name of the action. Max length is 255 characters.
-        :param pulumi.Input[str] runner_id: The Process Automation Actions runner to associate the action with. Cannot be changed for the `process_automation` action type once set.
         :param pulumi.Input[str] runner_type: (Optional) The type of the runner associated with the action.
         :param pulumi.Input[str] type: The type of object. The value returned will be `action`.
         """
@@ -559,25 +495,16 @@ class AutomationActionsAction(pulumi.CustomResource):
     @property
     @pulumi.getter(name="actionClassification")
     def action_classification(self) -> pulumi.Output[Optional[str]]:
-        """
-        The category of the action. The only allowed values are `diagnostic` and `remediation`.
-        """
         return pulumi.get(self, "action_classification")
 
     @property
     @pulumi.getter(name="actionDataReference")
     def action_data_reference(self) -> pulumi.Output['outputs.AutomationActionsActionActionDataReference']:
-        """
-        Action Data block. Action Data is documented below.
-        """
         return pulumi.get(self, "action_data_reference")
 
     @property
     @pulumi.getter(name="actionType")
     def action_type(self) -> pulumi.Output[str]:
-        """
-        The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
-        """
         return pulumi.get(self, "action_type")
 
     @property
@@ -591,9 +518,6 @@ class AutomationActionsAction(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        The description of the action. Max length is 1024 characters.
-        """
         return pulumi.get(self, "description")
 
     @property
@@ -607,17 +531,11 @@ class AutomationActionsAction(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The name of the action. Max length is 255 characters.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="runnerId")
     def runner_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The Process Automation Actions runner to associate the action with. Cannot be changed for the `process_automation` action type once set.
-        """
         return pulumi.get(self, "runner_id")
 
     @property

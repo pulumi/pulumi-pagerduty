@@ -14,24 +14,17 @@ namespace Pulumi.Pagerduty.Inputs
     {
         [Input("ats")]
         private InputList<Inputs.ServiceScheduledActionAtGetArgs>? _ats;
-
-        /// <summary>
-        /// A block representing when the scheduled action will occur.
-        /// </summary>
         public InputList<Inputs.ServiceScheduledActionAtGetArgs> Ats
         {
             get => _ats ?? (_ats = new InputList<Inputs.ServiceScheduledActionAtGetArgs>());
             set => _ats = value;
         }
 
-        /// <summary>
-        /// The urgency to change to: `low` (does not escalate), or `high` (follows escalation rules).
-        /// </summary>
         [Input("toUrgency")]
         public Input<string>? ToUrgency { get; set; }
 
         /// <summary>
-        /// The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+        /// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

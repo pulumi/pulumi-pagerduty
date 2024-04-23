@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -34,7 +33,6 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -72,37 +70,19 @@ export class AutomationActionsAction extends pulumi.CustomResource {
         return obj['__pulumiType'] === AutomationActionsAction.__pulumiType;
     }
 
-    /**
-     * The category of the action. The only allowed values are `diagnostic` and `remediation`.
-     */
     public readonly actionClassification!: pulumi.Output<string | undefined>;
-    /**
-     * Action Data block. Action Data is documented below.
-     */
     public readonly actionDataReference!: pulumi.Output<outputs.AutomationActionsActionActionDataReference>;
-    /**
-     * The type of the action. The only allowed values are `processAutomation` and `script`. Cannot be changed once set.
-     */
     public readonly actionType!: pulumi.Output<string>;
     /**
      * The time action was created. Represented as an ISO 8601 timestamp.
      */
     public readonly creationTime!: pulumi.Output<string>;
-    /**
-     * The description of the action. Max length is 1024 characters.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
      */
     public readonly modifyTime!: pulumi.Output<string>;
-    /**
-     * The name of the action. Max length is 255 characters.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The Process Automation Actions runner to associate the action with. Cannot be changed for the `processAutomation` action type once set.
-     */
     public readonly runnerId!: pulumi.Output<string | undefined>;
     /**
      * (Optional) The type of the runner associated with the action.
@@ -164,37 +144,19 @@ export class AutomationActionsAction extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AutomationActionsAction resources.
  */
 export interface AutomationActionsActionState {
-    /**
-     * The category of the action. The only allowed values are `diagnostic` and `remediation`.
-     */
     actionClassification?: pulumi.Input<string>;
-    /**
-     * Action Data block. Action Data is documented below.
-     */
     actionDataReference?: pulumi.Input<inputs.AutomationActionsActionActionDataReference>;
-    /**
-     * The type of the action. The only allowed values are `processAutomation` and `script`. Cannot be changed once set.
-     */
     actionType?: pulumi.Input<string>;
     /**
      * The time action was created. Represented as an ISO 8601 timestamp.
      */
     creationTime?: pulumi.Input<string>;
-    /**
-     * The description of the action. Max length is 1024 characters.
-     */
     description?: pulumi.Input<string>;
     /**
      * (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
      */
     modifyTime?: pulumi.Input<string>;
-    /**
-     * The name of the action. Max length is 255 characters.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The Process Automation Actions runner to associate the action with. Cannot be changed for the `processAutomation` action type once set.
-     */
     runnerId?: pulumi.Input<string>;
     /**
      * (Optional) The type of the runner associated with the action.
@@ -210,37 +172,19 @@ export interface AutomationActionsActionState {
  * The set of arguments for constructing a AutomationActionsAction resource.
  */
 export interface AutomationActionsActionArgs {
-    /**
-     * The category of the action. The only allowed values are `diagnostic` and `remediation`.
-     */
     actionClassification?: pulumi.Input<string>;
-    /**
-     * Action Data block. Action Data is documented below.
-     */
     actionDataReference: pulumi.Input<inputs.AutomationActionsActionActionDataReference>;
-    /**
-     * The type of the action. The only allowed values are `processAutomation` and `script`. Cannot be changed once set.
-     */
     actionType: pulumi.Input<string>;
     /**
      * The time action was created. Represented as an ISO 8601 timestamp.
      */
     creationTime?: pulumi.Input<string>;
-    /**
-     * The description of the action. Max length is 1024 characters.
-     */
     description?: pulumi.Input<string>;
     /**
      * (Optional) The last time action has been modified. Represented as an ISO 8601 timestamp.
      */
     modifyTime?: pulumi.Input<string>;
-    /**
-     * The name of the action. Max length is 255 characters.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The Process Automation Actions runner to associate the action with. Cannot be changed for the `processAutomation` action type once set.
-     */
     runnerId?: pulumi.Input<string>;
     /**
      * (Optional) The type of the runner associated with the action.

@@ -16,62 +16,30 @@ public final class UserNotificationRuleArgs extends com.pulumi.resources.Resourc
 
     public static final UserNotificationRuleArgs Empty = new UserNotificationRuleArgs();
 
-    /**
-     * A contact method block, configured as a block described below.
-     * 
-     */
     @Import(name="contactMethod", required=true)
     private Output<Map<String,String>> contactMethod;
 
-    /**
-     * @return A contact method block, configured as a block described below.
-     * 
-     */
     public Output<Map<String,String>> contactMethod() {
         return this.contactMethod;
     }
 
-    /**
-     * The delay before firing the rule, in minutes.
-     * 
-     */
     @Import(name="startDelayInMinutes", required=true)
     private Output<Integer> startDelayInMinutes;
 
-    /**
-     * @return The delay before firing the rule, in minutes.
-     * 
-     */
     public Output<Integer> startDelayInMinutes() {
         return this.startDelayInMinutes;
     }
 
-    /**
-     * Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
-     * 
-     */
     @Import(name="urgency", required=true)
     private Output<String> urgency;
 
-    /**
-     * @return Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
-     * 
-     */
     public Output<String> urgency() {
         return this.urgency;
     }
 
-    /**
-     * The ID of the user.
-     * 
-     */
     @Import(name="userId", required=true)
     private Output<String> userId;
 
-    /**
-     * @return The ID of the user.
-     * 
-     */
     public Output<String> userId() {
         return this.userId;
     }
@@ -103,86 +71,38 @@ public final class UserNotificationRuleArgs extends com.pulumi.resources.Resourc
             $ = new UserNotificationRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param contactMethod A contact method block, configured as a block described below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contactMethod(Output<Map<String,String>> contactMethod) {
             $.contactMethod = contactMethod;
             return this;
         }
 
-        /**
-         * @param contactMethod A contact method block, configured as a block described below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contactMethod(Map<String,String> contactMethod) {
             return contactMethod(Output.of(contactMethod));
         }
 
-        /**
-         * @param startDelayInMinutes The delay before firing the rule, in minutes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startDelayInMinutes(Output<Integer> startDelayInMinutes) {
             $.startDelayInMinutes = startDelayInMinutes;
             return this;
         }
 
-        /**
-         * @param startDelayInMinutes The delay before firing the rule, in minutes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startDelayInMinutes(Integer startDelayInMinutes) {
             return startDelayInMinutes(Output.of(startDelayInMinutes));
         }
 
-        /**
-         * @param urgency Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder urgency(Output<String> urgency) {
             $.urgency = urgency;
             return this;
         }
 
-        /**
-         * @param urgency Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder urgency(String urgency) {
             return urgency(Output.of(urgency));
         }
 
-        /**
-         * @param userId The ID of the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userId(Output<String> userId) {
             $.userId = userId;
             return this;
         }
 
-        /**
-         * @param userId The ID of the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userId(String userId) {
             return userId(Output.of(userId));
         }

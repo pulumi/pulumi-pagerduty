@@ -12,9 +12,6 @@ namespace Pulumi.Pagerduty.Inputs
 
     public sealed class ServiceIntegrationEmailParserArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Can be `resolve` or `trigger`.
-        /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 

@@ -101,7 +101,6 @@ def get_team(default_role: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -120,7 +119,6 @@ def get_team(default_role: Optional[str] = None,
             )],
         )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str default_role: (Optional) The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
@@ -152,7 +150,6 @@ def get_team_output(default_role: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -171,7 +168,6 @@ def get_team_output(default_role: Optional[pulumi.Input[Optional[str]]] = None,
             )],
         )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str default_role: (Optional) The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").

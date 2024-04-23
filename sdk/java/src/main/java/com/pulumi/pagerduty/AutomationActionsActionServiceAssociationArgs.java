@@ -14,32 +14,16 @@ public final class AutomationActionsActionServiceAssociationArgs extends com.pul
 
     public static final AutomationActionsActionServiceAssociationArgs Empty = new AutomationActionsActionServiceAssociationArgs();
 
-    /**
-     * Id of the action.
-     * 
-     */
     @Import(name="actionId", required=true)
     private Output<String> actionId;
 
-    /**
-     * @return Id of the action.
-     * 
-     */
     public Output<String> actionId() {
         return this.actionId;
     }
 
-    /**
-     * Id of the service associated to the action.
-     * 
-     */
     @Import(name="serviceId", required=true)
     private Output<String> serviceId;
 
-    /**
-     * @return Id of the service associated to the action.
-     * 
-     */
     public Output<String> serviceId() {
         return this.serviceId;
     }
@@ -69,44 +53,20 @@ public final class AutomationActionsActionServiceAssociationArgs extends com.pul
             $ = new AutomationActionsActionServiceAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param actionId Id of the action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actionId(Output<String> actionId) {
             $.actionId = actionId;
             return this;
         }
 
-        /**
-         * @param actionId Id of the action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actionId(String actionId) {
             return actionId(Output.of(actionId));
         }
 
-        /**
-         * @param serviceId Id of the service associated to the action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceId(Output<String> serviceId) {
             $.serviceId = serviceId;
             return this;
         }
 
-        /**
-         * @param serviceId Id of the service associated to the action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceId(String serviceId) {
             return serviceId(Output.of(serviceId));
         }

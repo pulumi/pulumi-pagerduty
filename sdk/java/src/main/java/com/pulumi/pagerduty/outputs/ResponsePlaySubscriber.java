@@ -12,28 +12,20 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ResponsePlaySubscriber {
     /**
-     * @return ID of the user defined as the responder
+     * @return The ID of the response play.
      * 
      */
     private @Nullable String id;
-    /**
-     * @return A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
-     * 
-     */
     private @Nullable String type;
 
     private ResponsePlaySubscriber() {}
     /**
-     * @return ID of the user defined as the responder
+     * @return The ID of the response play.
      * 
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
-    /**
-     * @return A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

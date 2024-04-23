@@ -7,7 +7,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -38,7 +37,6 @@ import * as utilities from "./utilities";
  *     label: "Work",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -76,37 +74,19 @@ export class UserContactMethod extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserContactMethod.__pulumiType;
     }
 
-    /**
-     * The "address" to deliver to: `email`, `phone number`, etc., depending on the type.
-     */
     public readonly address!: pulumi.Output<string>;
     /**
      * If true, this phone has been blacklisted by PagerDuty and no messages will be sent to it.
      */
     public /*out*/ readonly blacklisted!: pulumi.Output<boolean>;
-    /**
-     * The 1-to-3 digit country calling code. Required when using `phoneContactMethod` or `smsContactMethod`.
-     */
     public readonly countryCode!: pulumi.Output<number>;
     /**
      * If true, this phone is capable of receiving SMS messages.
      */
     public /*out*/ readonly enabled!: pulumi.Output<boolean>;
-    /**
-     * The label (e.g., "Work", "Mobile", etc.).
-     */
     public readonly label!: pulumi.Output<string>;
-    /**
-     * Send an abbreviated email message instead of the standard email output.
-     */
     public readonly sendShortEmail!: pulumi.Output<boolean | undefined>;
-    /**
-     * The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
-     */
     public readonly type!: pulumi.Output<string>;
-    /**
-     * The ID of the user.
-     */
     public readonly userId!: pulumi.Output<string>;
 
     /**
@@ -162,37 +142,19 @@ export class UserContactMethod extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UserContactMethod resources.
  */
 export interface UserContactMethodState {
-    /**
-     * The "address" to deliver to: `email`, `phone number`, etc., depending on the type.
-     */
     address?: pulumi.Input<string>;
     /**
      * If true, this phone has been blacklisted by PagerDuty and no messages will be sent to it.
      */
     blacklisted?: pulumi.Input<boolean>;
-    /**
-     * The 1-to-3 digit country calling code. Required when using `phoneContactMethod` or `smsContactMethod`.
-     */
     countryCode?: pulumi.Input<number>;
     /**
      * If true, this phone is capable of receiving SMS messages.
      */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * The label (e.g., "Work", "Mobile", etc.).
-     */
     label?: pulumi.Input<string>;
-    /**
-     * Send an abbreviated email message instead of the standard email output.
-     */
     sendShortEmail?: pulumi.Input<boolean>;
-    /**
-     * The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
-     */
     type?: pulumi.Input<string>;
-    /**
-     * The ID of the user.
-     */
     userId?: pulumi.Input<string>;
 }
 
@@ -200,28 +162,10 @@ export interface UserContactMethodState {
  * The set of arguments for constructing a UserContactMethod resource.
  */
 export interface UserContactMethodArgs {
-    /**
-     * The "address" to deliver to: `email`, `phone number`, etc., depending on the type.
-     */
     address: pulumi.Input<string>;
-    /**
-     * The 1-to-3 digit country calling code. Required when using `phoneContactMethod` or `smsContactMethod`.
-     */
     countryCode?: pulumi.Input<number>;
-    /**
-     * The label (e.g., "Work", "Mobile", etc.).
-     */
     label: pulumi.Input<string>;
-    /**
-     * Send an abbreviated email message instead of the standard email output.
-     */
     sendShortEmail?: pulumi.Input<boolean>;
-    /**
-     * The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
-     */
     type: pulumi.Input<string>;
-    /**
-     * The ID of the user.
-     */
     userId: pulumi.Input<string>;
 }

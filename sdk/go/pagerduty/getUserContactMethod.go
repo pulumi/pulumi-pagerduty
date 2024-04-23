@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -59,7 +58,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupUserContactMethod(ctx *pulumi.Context, args *LookupUserContactMethodArgs, opts ...pulumi.InvokeOption) (*LookupUserContactMethodResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupUserContactMethodResult
@@ -74,9 +72,8 @@ func LookupUserContactMethod(ctx *pulumi.Context, args *LookupUserContactMethodA
 type LookupUserContactMethodArgs struct {
 	// The label (e.g., "Work", "Mobile", "Ashley's iPhone", etc.).
 	Label string `pulumi:"label"`
-	// The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
-	Type string `pulumi:"type"`
-	// The ID of the user.
+	// The type of the found contact method. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
+	Type   string `pulumi:"type"`
 	UserId string `pulumi:"userId"`
 }
 
@@ -120,9 +117,8 @@ func LookupUserContactMethodOutput(ctx *pulumi.Context, args LookupUserContactMe
 type LookupUserContactMethodOutputArgs struct {
 	// The label (e.g., "Work", "Mobile", "Ashley's iPhone", etc.).
 	Label pulumi.StringInput `pulumi:"label"`
-	// The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
-	Type pulumi.StringInput `pulumi:"type"`
-	// The ID of the user.
+	// The type of the found contact method. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
+	Type   pulumi.StringInput `pulumi:"type"`
 	UserId pulumi.StringInput `pulumi:"userId"`
 }
 

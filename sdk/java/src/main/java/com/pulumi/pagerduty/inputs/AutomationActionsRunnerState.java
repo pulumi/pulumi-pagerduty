@@ -30,17 +30,9 @@ public final class AutomationActionsRunnerState extends com.pulumi.resources.Res
         return Optional.ofNullable(this.creationTime);
     }
 
-    /**
-     * The description of the runner. Max length is 1024 characters.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return The description of the runner. Max length is 1024 characters.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
@@ -60,62 +52,30 @@ public final class AutomationActionsRunnerState extends com.pulumi.resources.Res
         return Optional.ofNullable(this.lastSeen);
     }
 
-    /**
-     * The name of the runner. Max length is 255 characters.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the runner. Max length is 255 characters.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The unique User API Token created in Runbook Automation.
-     * 
-     */
     @Import(name="runbookApiKey")
     private @Nullable Output<String> runbookApiKey;
 
-    /**
-     * @return The unique User API Token created in Runbook Automation.
-     * 
-     */
     public Optional<Output<String>> runbookApiKey() {
         return Optional.ofNullable(this.runbookApiKey);
     }
 
-    /**
-     * The subdomain for your Runbook Automation Instance.
-     * 
-     */
     @Import(name="runbookBaseUri")
     private @Nullable Output<String> runbookBaseUri;
 
-    /**
-     * @return The subdomain for your Runbook Automation Instance.
-     * 
-     */
     public Optional<Output<String>> runbookBaseUri() {
         return Optional.ofNullable(this.runbookBaseUri);
     }
 
-    /**
-     * The type of runner. The only allowed values is `runbook`.
-     * 
-     */
     @Import(name="runnerType")
     private @Nullable Output<String> runnerType;
 
-    /**
-     * @return The type of runner. The only allowed values is `runbook`.
-     * 
-     */
     public Optional<Output<String>> runnerType() {
         return Optional.ofNullable(this.runnerType);
     }
@@ -187,23 +147,11 @@ public final class AutomationActionsRunnerState extends com.pulumi.resources.Res
             return creationTime(Output.of(creationTime));
         }
 
-        /**
-         * @param description The description of the runner. Max length is 1024 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description The description of the runner. Max length is 1024 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
@@ -229,86 +177,38 @@ public final class AutomationActionsRunnerState extends com.pulumi.resources.Res
             return lastSeen(Output.of(lastSeen));
         }
 
-        /**
-         * @param name The name of the runner. Max length is 255 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the runner. Max length is 255 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param runbookApiKey The unique User API Token created in Runbook Automation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder runbookApiKey(@Nullable Output<String> runbookApiKey) {
             $.runbookApiKey = runbookApiKey;
             return this;
         }
 
-        /**
-         * @param runbookApiKey The unique User API Token created in Runbook Automation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder runbookApiKey(String runbookApiKey) {
             return runbookApiKey(Output.of(runbookApiKey));
         }
 
-        /**
-         * @param runbookBaseUri The subdomain for your Runbook Automation Instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder runbookBaseUri(@Nullable Output<String> runbookBaseUri) {
             $.runbookBaseUri = runbookBaseUri;
             return this;
         }
 
-        /**
-         * @param runbookBaseUri The subdomain for your Runbook Automation Instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder runbookBaseUri(String runbookBaseUri) {
             return runbookBaseUri(Output.of(runbookBaseUri));
         }
 
-        /**
-         * @param runnerType The type of runner. The only allowed values is `runbook`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder runnerType(@Nullable Output<String> runnerType) {
             $.runnerType = runnerType;
             return this;
         }
 
-        /**
-         * @param runnerType The type of runner. The only allowed values is `runbook`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder runnerType(String runnerType) {
             return runnerType(Output.of(runnerType));
         }

@@ -15,32 +15,16 @@ public final class AddonState extends com.pulumi.resources.ResourceArgs {
 
     public static final AddonState Empty = new AddonState();
 
-    /**
-     * The name of the add-on.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the add-on.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.
-     * 
-     */
     @Import(name="src")
     private @Nullable Output<String> src;
 
-    /**
-     * @return The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.
-     * 
-     */
     public Optional<Output<String>> src() {
         return Optional.ofNullable(this.src);
     }
@@ -70,44 +54,20 @@ public final class AddonState extends com.pulumi.resources.ResourceArgs {
             $ = new AddonState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The name of the add-on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the add-on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param src The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder src(@Nullable Output<String> src) {
             $.src = src;
             return this;
         }
 
-        /**
-         * @param src The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder src(String src) {
             return src(Output.of(src));
         }

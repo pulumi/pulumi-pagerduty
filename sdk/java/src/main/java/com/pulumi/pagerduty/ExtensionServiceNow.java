@@ -113,31 +113,15 @@ public class ExtensionServiceNow extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> endpointUrl() {
         return Codegen.optional(this.endpointUrl);
     }
-    /**
-     * This is the objects for which the extension applies (An array of service ids).
-     * 
-     */
     @Export(name="extensionObjects", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> extensionObjects;
 
-    /**
-     * @return This is the objects for which the extension applies (An array of service ids).
-     * 
-     */
     public Output<List<String>> extensionObjects() {
         return this.extensionObjects;
     }
-    /**
-     * This is the schema for this extension.
-     * 
-     */
     @Export(name="extensionSchema", refs={String.class}, tree="[0]")
     private Output<String> extensionSchema;
 
-    /**
-     * @return This is the schema for this extension.
-     * 
-     */
     public Output<String> extensionSchema() {
         return this.extensionSchema;
     }
@@ -155,115 +139,51 @@ public class ExtensionServiceNow extends com.pulumi.resources.CustomResource {
     public Output<String> htmlUrl() {
         return this.htmlUrl;
     }
-    /**
-     * The name of the service extension.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the service extension.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The ServiceNow referer.
-     * 
-     */
     @Export(name="referer", refs={String.class}, tree="[0]")
     private Output<String> referer;
 
-    /**
-     * @return The ServiceNow referer.
-     * 
-     */
     public Output<String> referer() {
         return this.referer;
     }
-    /**
-     * The ServiceNow password.
-     * 
-     */
     @Export(name="snowPassword", refs={String.class}, tree="[0]")
     private Output<String> snowPassword;
 
-    /**
-     * @return The ServiceNow password.
-     * 
-     */
     public Output<String> snowPassword() {
         return this.snowPassword;
     }
-    /**
-     * The ServiceNow username.
-     * 
-     */
     @Export(name="snowUser", refs={String.class}, tree="[0]")
     private Output<String> snowUser;
 
-    /**
-     * @return The ServiceNow username.
-     * 
-     */
     public Output<String> snowUser() {
         return this.snowUser;
     }
-    /**
-     * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
-     * 
-     */
     @Export(name="summary", refs={String.class}, tree="[0]")
     private Output<String> summary;
 
-    /**
-     * @return A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
-     * 
-     */
     public Output<String> summary() {
         return this.summary;
     }
-    /**
-     * The ServiceNow sync option.
-     * 
-     */
     @Export(name="syncOptions", refs={String.class}, tree="[0]")
     private Output<String> syncOptions;
 
-    /**
-     * @return The ServiceNow sync option.
-     * 
-     */
     public Output<String> syncOptions() {
         return this.syncOptions;
     }
-    /**
-     * Target Webhook URL.
-     * 
-     */
     @Export(name="target", refs={String.class}, tree="[0]")
     private Output<String> target;
 
-    /**
-     * @return Target Webhook URL.
-     * 
-     */
     public Output<String> target() {
         return this.target;
     }
-    /**
-     * The ServiceNow task type, typically `incident`.
-     * 
-     */
     @Export(name="taskType", refs={String.class}, tree="[0]")
     private Output<String> taskType;
 
-    /**
-     * @return The ServiceNow task type, typically `incident`.
-     * 
-     */
     public Output<String> taskType() {
         return this.taskType;
     }

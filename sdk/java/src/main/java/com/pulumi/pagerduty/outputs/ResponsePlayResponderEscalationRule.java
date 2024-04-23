@@ -21,7 +21,7 @@ public final class ResponsePlayResponderEscalationRule {
      */
     private @Nullable Integer escalationDelayInMinutes;
     /**
-     * @return ID of the user defined as the responder
+     * @return The ID of the response play.
      * 
      */
     private @Nullable String id;
@@ -40,7 +40,7 @@ public final class ResponsePlayResponderEscalationRule {
         return Optional.ofNullable(this.escalationDelayInMinutes);
     }
     /**
-     * @return ID of the user defined as the responder
+     * @return The ID of the response play.
      * 
      */
     public Optional<String> id() {

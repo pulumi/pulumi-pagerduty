@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RulesetRuleActionsPriority {
-    /**
-     * @return Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-     * 
-     */
     private @Nullable String value;
 
     private RulesetRuleActionsPriority() {}
-    /**
-     * @return Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-     * 
-     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }

@@ -14,7 +14,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -93,7 +92,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -106,27 +104,15 @@ namespace Pulumi.Pagerduty
     [PagerdutyResourceType("pagerduty:index/userNotificationRule:UserNotificationRule")]
     public partial class UserNotificationRule : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// A contact method block, configured as a block described below.
-        /// </summary>
         [Output("contactMethod")]
         public Output<ImmutableDictionary<string, string>> ContactMethod { get; private set; } = null!;
 
-        /// <summary>
-        /// The delay before firing the rule, in minutes.
-        /// </summary>
         [Output("startDelayInMinutes")]
         public Output<int> StartDelayInMinutes { get; private set; } = null!;
 
-        /// <summary>
-        /// Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
-        /// </summary>
         [Output("urgency")]
         public Output<string> Urgency { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the user.
-        /// </summary>
         [Output("userId")]
         public Output<string> UserId { get; private set; } = null!;
 
@@ -178,31 +164,18 @@ namespace Pulumi.Pagerduty
     {
         [Input("contactMethod", required: true)]
         private InputMap<string>? _contactMethod;
-
-        /// <summary>
-        /// A contact method block, configured as a block described below.
-        /// </summary>
         public InputMap<string> ContactMethod
         {
             get => _contactMethod ?? (_contactMethod = new InputMap<string>());
             set => _contactMethod = value;
         }
 
-        /// <summary>
-        /// The delay before firing the rule, in minutes.
-        /// </summary>
         [Input("startDelayInMinutes", required: true)]
         public Input<int> StartDelayInMinutes { get; set; } = null!;
 
-        /// <summary>
-        /// Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
-        /// </summary>
         [Input("urgency", required: true)]
         public Input<string> Urgency { get; set; } = null!;
 
-        /// <summary>
-        /// The ID of the user.
-        /// </summary>
         [Input("userId", required: true)]
         public Input<string> UserId { get; set; } = null!;
 
@@ -216,31 +189,18 @@ namespace Pulumi.Pagerduty
     {
         [Input("contactMethod")]
         private InputMap<string>? _contactMethod;
-
-        /// <summary>
-        /// A contact method block, configured as a block described below.
-        /// </summary>
         public InputMap<string> ContactMethod
         {
             get => _contactMethod ?? (_contactMethod = new InputMap<string>());
             set => _contactMethod = value;
         }
 
-        /// <summary>
-        /// The delay before firing the rule, in minutes.
-        /// </summary>
         [Input("startDelayInMinutes")]
         public Input<int>? StartDelayInMinutes { get; set; }
 
-        /// <summary>
-        /// Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
-        /// </summary>
         [Input("urgency")]
         public Input<string>? Urgency { get; set; }
 
-        /// <summary>
-        /// The ID of the user.
-        /// </summary>
         [Input("userId")]
         public Input<string>? UserId { get; set; }
 

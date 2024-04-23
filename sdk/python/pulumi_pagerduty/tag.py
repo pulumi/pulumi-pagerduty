@@ -17,16 +17,12 @@ class TagArgs:
                  label: pulumi.Input[str]):
         """
         The set of arguments for constructing a Tag resource.
-        :param pulumi.Input[str] label: The label of the tag.
         """
         pulumi.set(__self__, "label", label)
 
     @property
     @pulumi.getter
     def label(self) -> pulumi.Input[str]:
-        """
-        The label of the tag.
-        """
         return pulumi.get(self, "label")
 
     @label.setter
@@ -43,7 +39,6 @@ class _TagState:
         """
         Input properties used for looking up and filtering Tag resources.
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app.
-        :param pulumi.Input[str] label: The label of the tag.
         :param pulumi.Input[str] summary: A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
         """
         if html_url is not None:
@@ -68,9 +63,6 @@ class _TagState:
     @property
     @pulumi.getter
     def label(self) -> Optional[pulumi.Input[str]]:
-        """
-        The label of the tag.
-        """
         return pulumi.get(self, "label")
 
     @label.setter
@@ -102,14 +94,12 @@ class Tag(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
         example = pagerduty.Tag("example", label="Product")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -121,7 +111,6 @@ class Tag(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] label: The label of the tag.
         """
         ...
     @overload
@@ -134,14 +123,12 @@ class Tag(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
 
         example = pagerduty.Tag("example", label="Product")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -202,7 +189,6 @@ class Tag(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app.
-        :param pulumi.Input[str] label: The label of the tag.
         :param pulumi.Input[str] summary: A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to name, though it is not intended to be an identifier.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -225,9 +211,6 @@ class Tag(pulumi.CustomResource):
     @property
     @pulumi.getter
     def label(self) -> pulumi.Output[str]:
-        """
-        The label of the tag.
-        """
         return pulumi.get(self, "label")
 
     @property

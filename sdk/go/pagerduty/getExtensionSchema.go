@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -87,7 +86,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetExtensionSchema(ctx *pulumi.Context, args *GetExtensionSchemaArgs, opts ...pulumi.InvokeOption) (*GetExtensionSchemaResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetExtensionSchemaResult

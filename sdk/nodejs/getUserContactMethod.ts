@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -32,7 +31,6 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getUserContactMethod(args: GetUserContactMethodArgs, opts?: pulumi.InvokeOptions): Promise<GetUserContactMethodResult> {
 
@@ -53,12 +51,9 @@ export interface GetUserContactMethodArgs {
      */
     label: string;
     /**
-     * The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
+     * The type of the found contact method. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
      */
     type: string;
-    /**
-     * The ID of the user.
-     */
     userId: string;
 }
 
@@ -109,7 +104,6 @@ export interface GetUserContactMethodResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -132,7 +126,6 @@ export interface GetUserContactMethodResult {
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getUserContactMethodOutput(args: GetUserContactMethodOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserContactMethodResult> {
     return pulumi.output(args).apply((a: any) => getUserContactMethod(a, opts))
@@ -147,11 +140,8 @@ export interface GetUserContactMethodOutputArgs {
      */
     label: pulumi.Input<string>;
     /**
-     * The contact method type. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
+     * The type of the found contact method. May be (`emailContactMethod`, `phoneContactMethod`, `smsContactMethod`, `pushNotificationContactMethod`).
      */
     type: pulumi.Input<string>;
-    /**
-     * The ID of the user.
-     */
     userId: pulumi.Input<string>;
 }

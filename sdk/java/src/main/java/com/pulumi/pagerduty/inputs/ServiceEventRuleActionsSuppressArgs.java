@@ -17,62 +17,30 @@ public final class ServiceEventRuleActionsSuppressArgs extends com.pulumi.resour
 
     public static final ServiceEventRuleActionsSuppressArgs Empty = new ServiceEventRuleActionsSuppressArgs();
 
-    /**
-     * The number value of the `threshold_time_unit` before an incident is created.
-     * 
-     */
     @Import(name="thresholdTimeAmount")
     private @Nullable Output<Integer> thresholdTimeAmount;
 
-    /**
-     * @return The number value of the `threshold_time_unit` before an incident is created.
-     * 
-     */
     public Optional<Output<Integer>> thresholdTimeAmount() {
         return Optional.ofNullable(this.thresholdTimeAmount);
     }
 
-    /**
-     * The `seconds`,`minutes`, or `hours` the `threshold_time_amount` should be measured.
-     * 
-     */
     @Import(name="thresholdTimeUnit")
     private @Nullable Output<String> thresholdTimeUnit;
 
-    /**
-     * @return The `seconds`,`minutes`, or `hours` the `threshold_time_amount` should be measured.
-     * 
-     */
     public Optional<Output<String>> thresholdTimeUnit() {
         return Optional.ofNullable(this.thresholdTimeUnit);
     }
 
-    /**
-     * The number of alerts that should be suppressed.
-     * 
-     */
     @Import(name="thresholdValue")
     private @Nullable Output<Integer> thresholdValue;
 
-    /**
-     * @return The number of alerts that should be suppressed.
-     * 
-     */
     public Optional<Output<Integer>> thresholdValue() {
         return Optional.ofNullable(this.thresholdValue);
     }
 
-    /**
-     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-     * 
-     */
     @Import(name="value")
     private @Nullable Output<Boolean> value;
 
-    /**
-     * @return Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-     * 
-     */
     public Optional<Output<Boolean>> value() {
         return Optional.ofNullable(this.value);
     }
@@ -104,86 +72,38 @@ public final class ServiceEventRuleActionsSuppressArgs extends com.pulumi.resour
             $ = new ServiceEventRuleActionsSuppressArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param thresholdTimeAmount The number value of the `threshold_time_unit` before an incident is created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder thresholdTimeAmount(@Nullable Output<Integer> thresholdTimeAmount) {
             $.thresholdTimeAmount = thresholdTimeAmount;
             return this;
         }
 
-        /**
-         * @param thresholdTimeAmount The number value of the `threshold_time_unit` before an incident is created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder thresholdTimeAmount(Integer thresholdTimeAmount) {
             return thresholdTimeAmount(Output.of(thresholdTimeAmount));
         }
 
-        /**
-         * @param thresholdTimeUnit The `seconds`,`minutes`, or `hours` the `threshold_time_amount` should be measured.
-         * 
-         * @return builder
-         * 
-         */
         public Builder thresholdTimeUnit(@Nullable Output<String> thresholdTimeUnit) {
             $.thresholdTimeUnit = thresholdTimeUnit;
             return this;
         }
 
-        /**
-         * @param thresholdTimeUnit The `seconds`,`minutes`, or `hours` the `threshold_time_amount` should be measured.
-         * 
-         * @return builder
-         * 
-         */
         public Builder thresholdTimeUnit(String thresholdTimeUnit) {
             return thresholdTimeUnit(Output.of(thresholdTimeUnit));
         }
 
-        /**
-         * @param thresholdValue The number of alerts that should be suppressed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder thresholdValue(@Nullable Output<Integer> thresholdValue) {
             $.thresholdValue = thresholdValue;
             return this;
         }
 
-        /**
-         * @param thresholdValue The number of alerts that should be suppressed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder thresholdValue(Integer thresholdValue) {
             return thresholdValue(Output.of(thresholdValue));
         }
 
-        /**
-         * @param value Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(@Nullable Output<Boolean> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Boolean value) {
             return value(Output.of(value));
         }

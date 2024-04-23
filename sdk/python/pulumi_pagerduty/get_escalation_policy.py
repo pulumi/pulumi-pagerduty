@@ -63,7 +63,6 @@ def get_escalation_policy(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -75,7 +74,6 @@ def get_escalation_policy(name: Optional[str] = None,
         acknowledgement_timeout="600",
         escalation_policy=test.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name to use to find an escalation policy in the PagerDuty API.
@@ -98,7 +96,6 @@ def get_escalation_policy_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -110,7 +107,6 @@ def get_escalation_policy_output(name: Optional[pulumi.Input[str]] = None,
         acknowledgement_timeout="600",
         escalation_policy=test.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name to use to find an escalation policy in the PagerDuty API.

@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class EventOrchestrationServiceCatchAllActionsAutomationActionHeader {
-    /**
-     * @return Name to identify the parameter
-     * 
-     */
     private String key;
-    /**
-     * @return The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
-     * 
-     */
     private String value;
 
     private EventOrchestrationServiceCatchAllActionsAutomationActionHeader() {}
-    /**
-     * @return Name to identify the parameter
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
-     * 
-     */
     public String value() {
         return this.value;
     }

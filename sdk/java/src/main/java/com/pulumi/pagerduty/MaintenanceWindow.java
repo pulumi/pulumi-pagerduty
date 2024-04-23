@@ -65,59 +65,27 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="pagerduty:index/maintenanceWindow:MaintenanceWindow")
 public class MaintenanceWindow extends com.pulumi.resources.CustomResource {
-    /**
-     * A description for the maintenance window.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
-    /**
-     * @return A description for the maintenance window.
-     * 
-     */
     public Output<String> description() {
         return this.description;
     }
-    /**
-     * The maintenance window&#39;s end time. This is when the services will start creating incidents again. This date must be in the future and after the `start_time`.
-     * 
-     */
     @Export(name="endTime", refs={String.class}, tree="[0]")
     private Output<String> endTime;
 
-    /**
-     * @return The maintenance window&#39;s end time. This is when the services will start creating incidents again. This date must be in the future and after the `start_time`.
-     * 
-     */
     public Output<String> endTime() {
         return this.endTime;
     }
-    /**
-     * A list of service IDs to include in the maintenance window.
-     * 
-     */
     @Export(name="services", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> services;
 
-    /**
-     * @return A list of service IDs to include in the maintenance window.
-     * 
-     */
     public Output<List<String>> services() {
         return this.services;
     }
-    /**
-     * The maintenance window&#39;s start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
-     * 
-     */
     @Export(name="startTime", refs={String.class}, tree="[0]")
     private Output<String> startTime;
 
-    /**
-     * @return The maintenance window&#39;s start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
-     * 
-     */
     public Output<String> startTime() {
         return this.startTime;
     }

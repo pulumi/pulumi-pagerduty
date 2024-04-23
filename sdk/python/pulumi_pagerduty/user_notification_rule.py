@@ -20,10 +20,6 @@ class UserNotificationRuleArgs:
                  user_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a UserNotificationRule resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] contact_method: A contact method block, configured as a block described below.
-        :param pulumi.Input[int] start_delay_in_minutes: The delay before firing the rule, in minutes.
-        :param pulumi.Input[str] urgency: Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
-        :param pulumi.Input[str] user_id: The ID of the user.
         """
         pulumi.set(__self__, "contact_method", contact_method)
         pulumi.set(__self__, "start_delay_in_minutes", start_delay_in_minutes)
@@ -33,9 +29,6 @@ class UserNotificationRuleArgs:
     @property
     @pulumi.getter(name="contactMethod")
     def contact_method(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
-        """
-        A contact method block, configured as a block described below.
-        """
         return pulumi.get(self, "contact_method")
 
     @contact_method.setter
@@ -45,9 +38,6 @@ class UserNotificationRuleArgs:
     @property
     @pulumi.getter(name="startDelayInMinutes")
     def start_delay_in_minutes(self) -> pulumi.Input[int]:
-        """
-        The delay before firing the rule, in minutes.
-        """
         return pulumi.get(self, "start_delay_in_minutes")
 
     @start_delay_in_minutes.setter
@@ -57,9 +47,6 @@ class UserNotificationRuleArgs:
     @property
     @pulumi.getter
     def urgency(self) -> pulumi.Input[str]:
-        """
-        Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
-        """
         return pulumi.get(self, "urgency")
 
     @urgency.setter
@@ -69,9 +56,6 @@ class UserNotificationRuleArgs:
     @property
     @pulumi.getter(name="userId")
     def user_id(self) -> pulumi.Input[str]:
-        """
-        The ID of the user.
-        """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
@@ -88,10 +72,6 @@ class _UserNotificationRuleState:
                  user_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering UserNotificationRule resources.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] contact_method: A contact method block, configured as a block described below.
-        :param pulumi.Input[int] start_delay_in_minutes: The delay before firing the rule, in minutes.
-        :param pulumi.Input[str] urgency: Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
-        :param pulumi.Input[str] user_id: The ID of the user.
         """
         if contact_method is not None:
             pulumi.set(__self__, "contact_method", contact_method)
@@ -105,9 +85,6 @@ class _UserNotificationRuleState:
     @property
     @pulumi.getter(name="contactMethod")
     def contact_method(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A contact method block, configured as a block described below.
-        """
         return pulumi.get(self, "contact_method")
 
     @contact_method.setter
@@ -117,9 +94,6 @@ class _UserNotificationRuleState:
     @property
     @pulumi.getter(name="startDelayInMinutes")
     def start_delay_in_minutes(self) -> Optional[pulumi.Input[int]]:
-        """
-        The delay before firing the rule, in minutes.
-        """
         return pulumi.get(self, "start_delay_in_minutes")
 
     @start_delay_in_minutes.setter
@@ -129,9 +103,6 @@ class _UserNotificationRuleState:
     @property
     @pulumi.getter
     def urgency(self) -> Optional[pulumi.Input[str]]:
-        """
-        Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
-        """
         return pulumi.get(self, "urgency")
 
     @urgency.setter
@@ -141,9 +112,6 @@ class _UserNotificationRuleState:
     @property
     @pulumi.getter(name="userId")
     def user_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the user.
-        """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
@@ -166,7 +134,6 @@ class UserNotificationRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -216,7 +183,6 @@ class UserNotificationRule(pulumi.CustomResource):
                 "id": sms.id,
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -228,10 +194,6 @@ class UserNotificationRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] contact_method: A contact method block, configured as a block described below.
-        :param pulumi.Input[int] start_delay_in_minutes: The delay before firing the rule, in minutes.
-        :param pulumi.Input[str] urgency: Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
-        :param pulumi.Input[str] user_id: The ID of the user.
         """
         ...
     @overload
@@ -244,7 +206,6 @@ class UserNotificationRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -294,7 +255,6 @@ class UserNotificationRule(pulumi.CustomResource):
                 "id": sms.id,
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -365,10 +325,6 @@ class UserNotificationRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] contact_method: A contact method block, configured as a block described below.
-        :param pulumi.Input[int] start_delay_in_minutes: The delay before firing the rule, in minutes.
-        :param pulumi.Input[str] urgency: Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
-        :param pulumi.Input[str] user_id: The ID of the user.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -383,32 +339,20 @@ class UserNotificationRule(pulumi.CustomResource):
     @property
     @pulumi.getter(name="contactMethod")
     def contact_method(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A contact method block, configured as a block described below.
-        """
         return pulumi.get(self, "contact_method")
 
     @property
     @pulumi.getter(name="startDelayInMinutes")
     def start_delay_in_minutes(self) -> pulumi.Output[int]:
-        """
-        The delay before firing the rule, in minutes.
-        """
         return pulumi.get(self, "start_delay_in_minutes")
 
     @property
     @pulumi.getter
     def urgency(self) -> pulumi.Output[str]:
-        """
-        Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
-        """
         return pulumi.get(self, "urgency")
 
     @property
     @pulumi.getter(name="userId")
     def user_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the user.
-        """
         return pulumi.get(self, "user_id")
 

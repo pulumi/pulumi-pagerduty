@@ -16,7 +16,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAutomationActionsRunnerResult> InvokeAsync(GetAutomationActionsRunnerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAutomationActionsRunnerResult>("pagerduty:index/getAutomationActionsRunner:getAutomationActionsRunner", args ?? new GetAutomationActionsRunnerArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAutomationActionsRunnerResult> Invoke(GetAutomationActionsRunnerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutomationActionsRunnerResult>("pagerduty:index/getAutomationActionsRunner:getAutomationActionsRunner", args ?? new GetAutomationActionsRunnerInvokeArgs(), options.WithDefaults());

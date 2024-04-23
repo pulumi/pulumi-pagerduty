@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -44,7 +43,6 @@ import * as utilities from "./utilities";
  *     runnability: "services",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -91,41 +89,14 @@ export class ResponsePlay extends pulumi.CustomResource {
      */
     public readonly conferenceUrl!: pulumi.Output<string | undefined>;
     public readonly description!: pulumi.Output<string>;
-    /**
-     * The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
-     */
     public readonly from!: pulumi.Output<string>;
-    /**
-     * The name of the response play.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
-     */
     public readonly responders!: pulumi.Output<outputs.ResponsePlayResponder[] | undefined>;
-    /**
-     * The message body of the notification that will be sent to this response play's set of responders. If empty, a default response request notification will be sent.
-     */
     public readonly respondersMessage!: pulumi.Output<string | undefined>;
-    /**
-     * String representing how this response play is allowed to be run. Valid options are:
-     */
     public readonly runnability!: pulumi.Output<string | undefined>;
-    /**
-     * A user and/or team to be added as a subscriber to any incident on which this response play is run. There can be multiple subscribers defined on a single response play.
-     */
     public readonly subscribers!: pulumi.Output<outputs.ResponsePlaySubscriber[] | undefined>;
-    /**
-     * The content of the notification that will be sent to all incident subscribers upon the running of this response play. Note that this includes any users who may have already been subscribed to the incident prior to the running of this response play. If empty, no notifications will be sent.
-     */
     public readonly subscribersMessage!: pulumi.Output<string | undefined>;
-    /**
-     * The ID of the team associated with the response play.
-     */
     public readonly team!: pulumi.Output<string | undefined>;
-    /**
-     * A string that determines the schema of the object. If not set, the default value is "responsePlay".
-     */
     public readonly type!: pulumi.Output<string | undefined>;
 
     /**
@@ -189,41 +160,14 @@ export interface ResponsePlayState {
      */
     conferenceUrl?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
-    /**
-     * The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
-     */
     from?: pulumi.Input<string>;
-    /**
-     * The name of the response play.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
-     */
     responders?: pulumi.Input<pulumi.Input<inputs.ResponsePlayResponder>[]>;
-    /**
-     * The message body of the notification that will be sent to this response play's set of responders. If empty, a default response request notification will be sent.
-     */
     respondersMessage?: pulumi.Input<string>;
-    /**
-     * String representing how this response play is allowed to be run. Valid options are:
-     */
     runnability?: pulumi.Input<string>;
-    /**
-     * A user and/or team to be added as a subscriber to any incident on which this response play is run. There can be multiple subscribers defined on a single response play.
-     */
     subscribers?: pulumi.Input<pulumi.Input<inputs.ResponsePlaySubscriber>[]>;
-    /**
-     * The content of the notification that will be sent to all incident subscribers upon the running of this response play. Note that this includes any users who may have already been subscribed to the incident prior to the running of this response play. If empty, no notifications will be sent.
-     */
     subscribersMessage?: pulumi.Input<string>;
-    /**
-     * The ID of the team associated with the response play.
-     */
     team?: pulumi.Input<string>;
-    /**
-     * A string that determines the schema of the object. If not set, the default value is "responsePlay".
-     */
     type?: pulumi.Input<string>;
 }
 
@@ -240,40 +184,13 @@ export interface ResponsePlayArgs {
      */
     conferenceUrl?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
-    /**
-     * The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
-     */
     from: pulumi.Input<string>;
-    /**
-     * The name of the response play.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
-     */
     responders?: pulumi.Input<pulumi.Input<inputs.ResponsePlayResponder>[]>;
-    /**
-     * The message body of the notification that will be sent to this response play's set of responders. If empty, a default response request notification will be sent.
-     */
     respondersMessage?: pulumi.Input<string>;
-    /**
-     * String representing how this response play is allowed to be run. Valid options are:
-     */
     runnability?: pulumi.Input<string>;
-    /**
-     * A user and/or team to be added as a subscriber to any incident on which this response play is run. There can be multiple subscribers defined on a single response play.
-     */
     subscribers?: pulumi.Input<pulumi.Input<inputs.ResponsePlaySubscriber>[]>;
-    /**
-     * The content of the notification that will be sent to all incident subscribers upon the running of this response play. Note that this includes any users who may have already been subscribed to the incident prior to the running of this response play. If empty, no notifications will be sent.
-     */
     subscribersMessage?: pulumi.Input<string>;
-    /**
-     * The ID of the team associated with the response play.
-     */
     team?: pulumi.Input<string>;
-    /**
-     * A string that determines the schema of the object. If not set, the default value is "responsePlay".
-     */
     type?: pulumi.Input<string>;
 }

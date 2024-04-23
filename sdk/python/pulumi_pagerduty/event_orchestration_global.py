@@ -144,7 +144,6 @@ class EventOrchestrationGlobal(pulumi.CustomResource):
 
         The `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set. In this example the `catch_all` doesn't have any `actions` so it'll leave events as-is.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -206,7 +205,6 @@ class EventOrchestrationGlobal(pulumi.CustomResource):
                 actions=pagerduty.EventOrchestrationGlobalCatchAllActionsArgs(),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -241,7 +239,6 @@ class EventOrchestrationGlobal(pulumi.CustomResource):
 
         The `catch_all` actions will be applied if an Event reaches the end of any set without matching any rules in that set. In this example the `catch_all` doesn't have any `actions` so it'll leave events as-is.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -303,7 +300,6 @@ class EventOrchestrationGlobal(pulumi.CustomResource):
                 actions=pagerduty.EventOrchestrationGlobalCatchAllActionsArgs(),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

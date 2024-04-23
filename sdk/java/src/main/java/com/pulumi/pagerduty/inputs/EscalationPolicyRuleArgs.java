@@ -20,45 +20,29 @@ public final class EscalationPolicyRuleArgs extends com.pulumi.resources.Resourc
 
     public static final EscalationPolicyRuleArgs Empty = new EscalationPolicyRuleArgs();
 
-    /**
-     * The number of minutes before an unacknowledged incident escalates away from this rule.
-     * 
-     */
     @Import(name="escalationDelayInMinutes", required=true)
     private Output<Integer> escalationDelayInMinutes;
 
-    /**
-     * @return The number of minutes before an unacknowledged incident escalates away from this rule.
-     * 
-     */
     public Output<Integer> escalationDelayInMinutes() {
         return this.escalationDelayInMinutes;
     }
 
-    /**
-     * The strategy used to assign the escalation rule to an incident. Documented below.
-     * 
-     */
     @Import(name="escalationRuleAssignmentStrategy")
     private @Nullable Output<EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs> escalationRuleAssignmentStrategy;
 
-    /**
-     * @return The strategy used to assign the escalation rule to an incident. Documented below.
-     * 
-     */
     public Optional<Output<EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs>> escalationRuleAssignmentStrategy() {
         return Optional.ofNullable(this.escalationRuleAssignmentStrategy);
     }
 
     /**
-     * A target ID
+     * The ID of the escalation policy.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return A target ID
+     * @return The ID of the escalation policy.
      * 
      */
     public Optional<Output<String>> id() {
@@ -99,50 +83,26 @@ public final class EscalationPolicyRuleArgs extends com.pulumi.resources.Resourc
             $ = new EscalationPolicyRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param escalationDelayInMinutes The number of minutes before an unacknowledged incident escalates away from this rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder escalationDelayInMinutes(Output<Integer> escalationDelayInMinutes) {
             $.escalationDelayInMinutes = escalationDelayInMinutes;
             return this;
         }
 
-        /**
-         * @param escalationDelayInMinutes The number of minutes before an unacknowledged incident escalates away from this rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder escalationDelayInMinutes(Integer escalationDelayInMinutes) {
             return escalationDelayInMinutes(Output.of(escalationDelayInMinutes));
         }
 
-        /**
-         * @param escalationRuleAssignmentStrategy The strategy used to assign the escalation rule to an incident. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder escalationRuleAssignmentStrategy(@Nullable Output<EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs> escalationRuleAssignmentStrategy) {
             $.escalationRuleAssignmentStrategy = escalationRuleAssignmentStrategy;
             return this;
         }
 
-        /**
-         * @param escalationRuleAssignmentStrategy The strategy used to assign the escalation rule to an incident. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder escalationRuleAssignmentStrategy(EscalationPolicyRuleEscalationRuleAssignmentStrategyArgs escalationRuleAssignmentStrategy) {
             return escalationRuleAssignmentStrategy(Output.of(escalationRuleAssignmentStrategy));
         }
 
         /**
-         * @param id A target ID
+         * @param id The ID of the escalation policy.
          * 
          * @return builder
          * 
@@ -153,7 +113,7 @@ public final class EscalationPolicyRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param id A target ID
+         * @param id The ID of the escalation policy.
          * 
          * @return builder
          * 

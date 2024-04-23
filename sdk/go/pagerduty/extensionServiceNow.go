@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -90,7 +89,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -102,30 +100,20 @@ import (
 type ExtensionServiceNow struct {
 	pulumi.CustomResourceState
 
-	EndpointUrl pulumi.StringPtrOutput `pulumi:"endpointUrl"`
-	// This is the objects for which the extension applies (An array of service ids).
+	EndpointUrl      pulumi.StringPtrOutput   `pulumi:"endpointUrl"`
 	ExtensionObjects pulumi.StringArrayOutput `pulumi:"extensionObjects"`
-	// This is the schema for this extension.
-	ExtensionSchema pulumi.StringOutput `pulumi:"extensionSchema"`
+	ExtensionSchema  pulumi.StringOutput      `pulumi:"extensionSchema"`
 	// URL at which the entity is uniquely displayed in the Web app.
-	HtmlUrl pulumi.StringOutput `pulumi:"htmlUrl"`
-	// The name of the service extension.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The ServiceNow referer.
-	Referer pulumi.StringOutput `pulumi:"referer"`
-	// The ServiceNow password.
+	HtmlUrl      pulumi.StringOutput `pulumi:"htmlUrl"`
+	Name         pulumi.StringOutput `pulumi:"name"`
+	Referer      pulumi.StringOutput `pulumi:"referer"`
 	SnowPassword pulumi.StringOutput `pulumi:"snowPassword"`
-	// The ServiceNow username.
-	SnowUser pulumi.StringOutput `pulumi:"snowUser"`
-	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
-	Summary pulumi.StringOutput `pulumi:"summary"`
-	// The ServiceNow sync option.
-	SyncOptions pulumi.StringOutput `pulumi:"syncOptions"`
-	// Target Webhook URL.
-	Target pulumi.StringOutput `pulumi:"target"`
-	// The ServiceNow task type, typically `incident`.
-	TaskType pulumi.StringOutput `pulumi:"taskType"`
-	Type     pulumi.StringOutput `pulumi:"type"`
+	SnowUser     pulumi.StringOutput `pulumi:"snowUser"`
+	Summary      pulumi.StringOutput `pulumi:"summary"`
+	SyncOptions  pulumi.StringOutput `pulumi:"syncOptions"`
+	Target       pulumi.StringOutput `pulumi:"target"`
+	TaskType     pulumi.StringOutput `pulumi:"taskType"`
+	Type         pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewExtensionServiceNow registers a new resource with the given unique name, arguments, and options.
@@ -193,57 +181,37 @@ func GetExtensionServiceNow(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ExtensionServiceNow resources.
 type extensionServiceNowState struct {
-	EndpointUrl *string `pulumi:"endpointUrl"`
-	// This is the objects for which the extension applies (An array of service ids).
+	EndpointUrl      *string  `pulumi:"endpointUrl"`
 	ExtensionObjects []string `pulumi:"extensionObjects"`
-	// This is the schema for this extension.
-	ExtensionSchema *string `pulumi:"extensionSchema"`
+	ExtensionSchema  *string  `pulumi:"extensionSchema"`
 	// URL at which the entity is uniquely displayed in the Web app.
-	HtmlUrl *string `pulumi:"htmlUrl"`
-	// The name of the service extension.
-	Name *string `pulumi:"name"`
-	// The ServiceNow referer.
-	Referer *string `pulumi:"referer"`
-	// The ServiceNow password.
+	HtmlUrl      *string `pulumi:"htmlUrl"`
+	Name         *string `pulumi:"name"`
+	Referer      *string `pulumi:"referer"`
 	SnowPassword *string `pulumi:"snowPassword"`
-	// The ServiceNow username.
-	SnowUser *string `pulumi:"snowUser"`
-	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
-	Summary *string `pulumi:"summary"`
-	// The ServiceNow sync option.
-	SyncOptions *string `pulumi:"syncOptions"`
-	// Target Webhook URL.
-	Target *string `pulumi:"target"`
-	// The ServiceNow task type, typically `incident`.
-	TaskType *string `pulumi:"taskType"`
-	Type     *string `pulumi:"type"`
+	SnowUser     *string `pulumi:"snowUser"`
+	Summary      *string `pulumi:"summary"`
+	SyncOptions  *string `pulumi:"syncOptions"`
+	Target       *string `pulumi:"target"`
+	TaskType     *string `pulumi:"taskType"`
+	Type         *string `pulumi:"type"`
 }
 
 type ExtensionServiceNowState struct {
-	EndpointUrl pulumi.StringPtrInput
-	// This is the objects for which the extension applies (An array of service ids).
+	EndpointUrl      pulumi.StringPtrInput
 	ExtensionObjects pulumi.StringArrayInput
-	// This is the schema for this extension.
-	ExtensionSchema pulumi.StringPtrInput
+	ExtensionSchema  pulumi.StringPtrInput
 	// URL at which the entity is uniquely displayed in the Web app.
-	HtmlUrl pulumi.StringPtrInput
-	// The name of the service extension.
-	Name pulumi.StringPtrInput
-	// The ServiceNow referer.
-	Referer pulumi.StringPtrInput
-	// The ServiceNow password.
+	HtmlUrl      pulumi.StringPtrInput
+	Name         pulumi.StringPtrInput
+	Referer      pulumi.StringPtrInput
 	SnowPassword pulumi.StringPtrInput
-	// The ServiceNow username.
-	SnowUser pulumi.StringPtrInput
-	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
-	Summary pulumi.StringPtrInput
-	// The ServiceNow sync option.
-	SyncOptions pulumi.StringPtrInput
-	// Target Webhook URL.
-	Target pulumi.StringPtrInput
-	// The ServiceNow task type, typically `incident`.
-	TaskType pulumi.StringPtrInput
-	Type     pulumi.StringPtrInput
+	SnowUser     pulumi.StringPtrInput
+	Summary      pulumi.StringPtrInput
+	SyncOptions  pulumi.StringPtrInput
+	Target       pulumi.StringPtrInput
+	TaskType     pulumi.StringPtrInput
+	Type         pulumi.StringPtrInput
 }
 
 func (ExtensionServiceNowState) ElementType() reflect.Type {
@@ -251,54 +219,34 @@ func (ExtensionServiceNowState) ElementType() reflect.Type {
 }
 
 type extensionServiceNowArgs struct {
-	EndpointUrl *string `pulumi:"endpointUrl"`
-	// This is the objects for which the extension applies (An array of service ids).
+	EndpointUrl      *string  `pulumi:"endpointUrl"`
 	ExtensionObjects []string `pulumi:"extensionObjects"`
-	// This is the schema for this extension.
-	ExtensionSchema string `pulumi:"extensionSchema"`
-	// The name of the service extension.
-	Name *string `pulumi:"name"`
-	// The ServiceNow referer.
-	Referer string `pulumi:"referer"`
-	// The ServiceNow password.
-	SnowPassword string `pulumi:"snowPassword"`
-	// The ServiceNow username.
-	SnowUser string `pulumi:"snowUser"`
-	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
-	Summary *string `pulumi:"summary"`
-	// The ServiceNow sync option.
-	SyncOptions string `pulumi:"syncOptions"`
-	// Target Webhook URL.
-	Target string `pulumi:"target"`
-	// The ServiceNow task type, typically `incident`.
-	TaskType string  `pulumi:"taskType"`
-	Type     *string `pulumi:"type"`
+	ExtensionSchema  string   `pulumi:"extensionSchema"`
+	Name             *string  `pulumi:"name"`
+	Referer          string   `pulumi:"referer"`
+	SnowPassword     string   `pulumi:"snowPassword"`
+	SnowUser         string   `pulumi:"snowUser"`
+	Summary          *string  `pulumi:"summary"`
+	SyncOptions      string   `pulumi:"syncOptions"`
+	Target           string   `pulumi:"target"`
+	TaskType         string   `pulumi:"taskType"`
+	Type             *string  `pulumi:"type"`
 }
 
 // The set of arguments for constructing a ExtensionServiceNow resource.
 type ExtensionServiceNowArgs struct {
-	EndpointUrl pulumi.StringPtrInput
-	// This is the objects for which the extension applies (An array of service ids).
+	EndpointUrl      pulumi.StringPtrInput
 	ExtensionObjects pulumi.StringArrayInput
-	// This is the schema for this extension.
-	ExtensionSchema pulumi.StringInput
-	// The name of the service extension.
-	Name pulumi.StringPtrInput
-	// The ServiceNow referer.
-	Referer pulumi.StringInput
-	// The ServiceNow password.
-	SnowPassword pulumi.StringInput
-	// The ServiceNow username.
-	SnowUser pulumi.StringInput
-	// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
-	Summary pulumi.StringPtrInput
-	// The ServiceNow sync option.
-	SyncOptions pulumi.StringInput
-	// Target Webhook URL.
-	Target pulumi.StringInput
-	// The ServiceNow task type, typically `incident`.
-	TaskType pulumi.StringInput
-	Type     pulumi.StringPtrInput
+	ExtensionSchema  pulumi.StringInput
+	Name             pulumi.StringPtrInput
+	Referer          pulumi.StringInput
+	SnowPassword     pulumi.StringInput
+	SnowUser         pulumi.StringInput
+	Summary          pulumi.StringPtrInput
+	SyncOptions      pulumi.StringInput
+	Target           pulumi.StringInput
+	TaskType         pulumi.StringInput
+	Type             pulumi.StringPtrInput
 }
 
 func (ExtensionServiceNowArgs) ElementType() reflect.Type {
@@ -392,12 +340,10 @@ func (o ExtensionServiceNowOutput) EndpointUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExtensionServiceNow) pulumi.StringPtrOutput { return v.EndpointUrl }).(pulumi.StringPtrOutput)
 }
 
-// This is the objects for which the extension applies (An array of service ids).
 func (o ExtensionServiceNowOutput) ExtensionObjects() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ExtensionServiceNow) pulumi.StringArrayOutput { return v.ExtensionObjects }).(pulumi.StringArrayOutput)
 }
 
-// This is the schema for this extension.
 func (o ExtensionServiceNowOutput) ExtensionSchema() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExtensionServiceNow) pulumi.StringOutput { return v.ExtensionSchema }).(pulumi.StringOutput)
 }
@@ -407,42 +353,34 @@ func (o ExtensionServiceNowOutput) HtmlUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExtensionServiceNow) pulumi.StringOutput { return v.HtmlUrl }).(pulumi.StringOutput)
 }
 
-// The name of the service extension.
 func (o ExtensionServiceNowOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExtensionServiceNow) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The ServiceNow referer.
 func (o ExtensionServiceNowOutput) Referer() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExtensionServiceNow) pulumi.StringOutput { return v.Referer }).(pulumi.StringOutput)
 }
 
-// The ServiceNow password.
 func (o ExtensionServiceNowOutput) SnowPassword() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExtensionServiceNow) pulumi.StringOutput { return v.SnowPassword }).(pulumi.StringOutput)
 }
 
-// The ServiceNow username.
 func (o ExtensionServiceNowOutput) SnowUser() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExtensionServiceNow) pulumi.StringOutput { return v.SnowUser }).(pulumi.StringOutput)
 }
 
-// A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
 func (o ExtensionServiceNowOutput) Summary() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExtensionServiceNow) pulumi.StringOutput { return v.Summary }).(pulumi.StringOutput)
 }
 
-// The ServiceNow sync option.
 func (o ExtensionServiceNowOutput) SyncOptions() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExtensionServiceNow) pulumi.StringOutput { return v.SyncOptions }).(pulumi.StringOutput)
 }
 
-// Target Webhook URL.
 func (o ExtensionServiceNowOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExtensionServiceNow) pulumi.StringOutput { return v.Target }).(pulumi.StringOutput)
 }
 
-// The ServiceNow task type, typically `incident`.
 func (o ExtensionServiceNowOutput) TaskType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExtensionServiceNow) pulumi.StringOutput { return v.TaskType }).(pulumi.StringOutput)
 }

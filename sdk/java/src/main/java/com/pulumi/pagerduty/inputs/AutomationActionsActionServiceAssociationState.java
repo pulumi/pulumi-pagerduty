@@ -15,32 +15,16 @@ public final class AutomationActionsActionServiceAssociationState extends com.pu
 
     public static final AutomationActionsActionServiceAssociationState Empty = new AutomationActionsActionServiceAssociationState();
 
-    /**
-     * Id of the action.
-     * 
-     */
     @Import(name="actionId")
     private @Nullable Output<String> actionId;
 
-    /**
-     * @return Id of the action.
-     * 
-     */
     public Optional<Output<String>> actionId() {
         return Optional.ofNullable(this.actionId);
     }
 
-    /**
-     * Id of the service associated to the action.
-     * 
-     */
     @Import(name="serviceId")
     private @Nullable Output<String> serviceId;
 
-    /**
-     * @return Id of the service associated to the action.
-     * 
-     */
     public Optional<Output<String>> serviceId() {
         return Optional.ofNullable(this.serviceId);
     }
@@ -70,44 +54,20 @@ public final class AutomationActionsActionServiceAssociationState extends com.pu
             $ = new AutomationActionsActionServiceAssociationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param actionId Id of the action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actionId(@Nullable Output<String> actionId) {
             $.actionId = actionId;
             return this;
         }
 
-        /**
-         * @param actionId Id of the action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actionId(String actionId) {
             return actionId(Output.of(actionId));
         }
 
-        /**
-         * @param serviceId Id of the service associated to the action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceId(@Nullable Output<String> serviceId) {
             $.serviceId = serviceId;
             return this;
         }
 
-        /**
-         * @param serviceId Id of the service associated to the action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceId(String serviceId) {
             return serviceId(Output.of(serviceId));
         }

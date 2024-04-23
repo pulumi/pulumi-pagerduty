@@ -11,177 +11,19 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceScheduledActionAt {
-    /**
-     * @return Designates either the start or the end of the scheduled action. Can be `support_hours_start` or `support_hours_end`.
-     * 
-     * Note that it is currently only possible to define the scheduled action when urgency is set to `high` for `during_support_hours` and to `low`  for `outside_support_hours` in `incident_urgency_rule`.
-     * 
-     * Below is an example for a `pagerduty.Service` resource with `incident_urgency_rules` with `type = &#34;use_support_hours&#34;`, `support_hours` and a default `scheduled_action` as well.
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.pagerduty.Service;
-     * import com.pulumi.pagerduty.ServiceArgs;
-     * import com.pulumi.pagerduty.inputs.ServiceIncidentUrgencyRuleArgs;
-     * import com.pulumi.pagerduty.inputs.ServiceIncidentUrgencyRuleDuringSupportHoursArgs;
-     * import com.pulumi.pagerduty.inputs.ServiceIncidentUrgencyRuleOutsideSupportHoursArgs;
-     * import com.pulumi.pagerduty.inputs.ServiceSupportHoursArgs;
-     * import com.pulumi.pagerduty.inputs.ServiceScheduledActionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var foo = new Service(&#34;foo&#34;, ServiceArgs.builder()        
-     *             .name(&#34;bar&#34;)
-     *             .description(&#34;bar bar bar&#34;)
-     *             .autoResolveTimeout(3600)
-     *             .acknowledgementTimeout(3600)
-     *             .escalationPolicy(fooPagerdutyEscalationPolicy.id())
-     *             .incidentUrgencyRule(ServiceIncidentUrgencyRuleArgs.builder()
-     *                 .type(&#34;use_support_hours&#34;)
-     *                 .duringSupportHours(ServiceIncidentUrgencyRuleDuringSupportHoursArgs.builder()
-     *                     .type(&#34;constant&#34;)
-     *                     .urgency(&#34;high&#34;)
-     *                     .build())
-     *                 .outsideSupportHours(ServiceIncidentUrgencyRuleOutsideSupportHoursArgs.builder()
-     *                     .type(&#34;constant&#34;)
-     *                     .urgency(&#34;low&#34;)
-     *                     .build())
-     *                 .build())
-     *             .supportHours(ServiceSupportHoursArgs.builder()
-     *                 .type(&#34;fixed_time_per_day&#34;)
-     *                 .timeZone(&#34;America/Lima&#34;)
-     *                 .startTime(&#34;09:00:00&#34;)
-     *                 .endTime(&#34;17:00:00&#34;)
-     *                 .daysOfWeeks(                
-     *                     1,
-     *                     2,
-     *                     3,
-     *                     4,
-     *                     5)
-     *                 .build())
-     *             .scheduledActions(ServiceScheduledActionArgs.builder()
-     *                 .type(&#34;urgency_change&#34;)
-     *                 .toUrgency(&#34;high&#34;)
-     *                 .ats(ServiceScheduledActionAtArgs.builder()
-     *                     .type(&#34;named_time&#34;)
-     *                     .name(&#34;support_hours_start&#34;)
-     *                     .build())
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     private @Nullable String name;
     /**
-     * @return The type of time specification. Currently, this must be set to `named_time`.
+     * @return The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
      * 
      */
     private @Nullable String type;
 
     private ServiceScheduledActionAt() {}
-    /**
-     * @return Designates either the start or the end of the scheduled action. Can be `support_hours_start` or `support_hours_end`.
-     * 
-     * Note that it is currently only possible to define the scheduled action when urgency is set to `high` for `during_support_hours` and to `low`  for `outside_support_hours` in `incident_urgency_rule`.
-     * 
-     * Below is an example for a `pagerduty.Service` resource with `incident_urgency_rules` with `type = &#34;use_support_hours&#34;`, `support_hours` and a default `scheduled_action` as well.
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.pagerduty.Service;
-     * import com.pulumi.pagerduty.ServiceArgs;
-     * import com.pulumi.pagerduty.inputs.ServiceIncidentUrgencyRuleArgs;
-     * import com.pulumi.pagerduty.inputs.ServiceIncidentUrgencyRuleDuringSupportHoursArgs;
-     * import com.pulumi.pagerduty.inputs.ServiceIncidentUrgencyRuleOutsideSupportHoursArgs;
-     * import com.pulumi.pagerduty.inputs.ServiceSupportHoursArgs;
-     * import com.pulumi.pagerduty.inputs.ServiceScheduledActionArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var foo = new Service(&#34;foo&#34;, ServiceArgs.builder()        
-     *             .name(&#34;bar&#34;)
-     *             .description(&#34;bar bar bar&#34;)
-     *             .autoResolveTimeout(3600)
-     *             .acknowledgementTimeout(3600)
-     *             .escalationPolicy(fooPagerdutyEscalationPolicy.id())
-     *             .incidentUrgencyRule(ServiceIncidentUrgencyRuleArgs.builder()
-     *                 .type(&#34;use_support_hours&#34;)
-     *                 .duringSupportHours(ServiceIncidentUrgencyRuleDuringSupportHoursArgs.builder()
-     *                     .type(&#34;constant&#34;)
-     *                     .urgency(&#34;high&#34;)
-     *                     .build())
-     *                 .outsideSupportHours(ServiceIncidentUrgencyRuleOutsideSupportHoursArgs.builder()
-     *                     .type(&#34;constant&#34;)
-     *                     .urgency(&#34;low&#34;)
-     *                     .build())
-     *                 .build())
-     *             .supportHours(ServiceSupportHoursArgs.builder()
-     *                 .type(&#34;fixed_time_per_day&#34;)
-     *                 .timeZone(&#34;America/Lima&#34;)
-     *                 .startTime(&#34;09:00:00&#34;)
-     *                 .endTime(&#34;17:00:00&#34;)
-     *                 .daysOfWeeks(                
-     *                     1,
-     *                     2,
-     *                     3,
-     *                     4,
-     *                     5)
-     *                 .build())
-     *             .scheduledActions(ServiceScheduledActionArgs.builder()
-     *                 .type(&#34;urgency_change&#34;)
-     *                 .toUrgency(&#34;high&#34;)
-     *                 .ats(ServiceScheduledActionAtArgs.builder()
-     *                     .type(&#34;named_time&#34;)
-     *                     .name(&#34;support_hours_start&#34;)
-     *                     .build())
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return The type of time specification. Currently, this must be set to `named_time`.
+     * @return The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
      * 
      */
     public Optional<String> type() {

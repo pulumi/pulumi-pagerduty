@@ -32,7 +32,7 @@ public final class EventOrchestrationRouterSetRule {
      */
     private @Nullable Boolean disabled;
     /**
-     * @return ID of the `start` set. Router supports only one set and it&#39;s id has to be `start`
+     * @return The ID of the rule within the `start` set.
      * 
      */
     private @Nullable String id;
@@ -65,7 +65,7 @@ public final class EventOrchestrationRouterSetRule {
         return Optional.ofNullable(this.disabled);
     }
     /**
-     * @return ID of the `start` set. Router supports only one set and it&#39;s id has to be `start`
+     * @return The ID of the rule within the `start` set.
      * 
      */
     public Optional<String> id() {

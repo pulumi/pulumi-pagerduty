@@ -105,7 +105,6 @@ def get_event_orchestration_service_cache_variable(id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -134,7 +133,6 @@ def get_event_orchestration_service_cache_variable(id: Optional[str] = None,
     cache_variable = pagerduty.get_event_orchestration_service_cache_variable_output(service=service.id,
         name="example_cache_variable")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: ID of the Cache Variable associated with the Service Event Orchestration. Specify either `id` or `name`. If both are specified `id` takes precedence.
@@ -167,7 +165,6 @@ def get_event_orchestration_service_cache_variable_output(id: Optional[pulumi.In
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -196,7 +193,6 @@ def get_event_orchestration_service_cache_variable_output(id: Optional[pulumi.In
     cache_variable = pagerduty.get_event_orchestration_service_cache_variable_output(service=service.id,
         name="example_cache_variable")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: ID of the Cache Variable associated with the Service Event Orchestration. Specify either `id` or `name`. If both are specified `id` takes precedence.

@@ -13,64 +13,28 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceIntegrationEmailParserValueExtractor {
     private @Nullable String endsBefore;
-    /**
-     * @return Can be `subject` or `body`.
-     * 
-     */
     private String part;
-    /**
-     * @return If `type` has value `regex` this value should contain valid regex.
-     * 
-     * **Note:** You can use the `pagerduty.getVendor` data source to locate the appropriate vendor ID.
-     * 
-     */
     private @Nullable String regex;
     private @Nullable String startsAfter;
-    /**
-     * @return Can be `between`, `entire` or `regex`.
-     * 
-     */
     private String type;
-    /**
-     * @return First value extractor should have name `incident_key` other value extractors should contain custom names.
-     * 
-     */
     private String valueName;
 
     private ServiceIntegrationEmailParserValueExtractor() {}
     public Optional<String> endsBefore() {
         return Optional.ofNullable(this.endsBefore);
     }
-    /**
-     * @return Can be `subject` or `body`.
-     * 
-     */
     public String part() {
         return this.part;
     }
-    /**
-     * @return If `type` has value `regex` this value should contain valid regex.
-     * 
-     * **Note:** You can use the `pagerduty.getVendor` data source to locate the appropriate vendor ID.
-     * 
-     */
     public Optional<String> regex() {
         return Optional.ofNullable(this.regex);
     }
     public Optional<String> startsAfter() {
         return Optional.ofNullable(this.startsAfter);
     }
-    /**
-     * @return Can be `between`, `entire` or `regex`.
-     * 
-     */
     public String type() {
         return this.type;
     }
-    /**
-     * @return First value extractor should have name `incident_key` other value extractors should contain custom names.
-     * 
-     */
     public String valueName() {
         return this.valueName;
     }

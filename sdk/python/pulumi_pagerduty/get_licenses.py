@@ -66,7 +66,6 @@ def get_licenses(id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -79,7 +78,6 @@ def get_licenses(id: Optional[str] = None,
         license=licenses.licenses[0].id,
         role="user")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: Allows to override the default behavior for setting the `id` attribute that is required for data sources.
@@ -105,7 +103,6 @@ def get_licenses_output(id: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -118,7 +115,6 @@ def get_licenses_output(id: Optional[pulumi.Input[Optional[str]]] = None,
         license=licenses.licenses[0].id,
         role="user")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: Allows to override the default behavior for setting the `id` attribute that is required for data sources.

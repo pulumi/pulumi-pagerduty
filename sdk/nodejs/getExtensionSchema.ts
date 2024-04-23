@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -46,7 +45,6 @@ import * as utilities from "./utilities";
  *     extensionObjects: [exampleService.id],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getExtensionSchema(args: GetExtensionSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetExtensionSchemaResult> {
 
@@ -88,7 +86,6 @@ export interface GetExtensionSchemaResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -125,7 +122,6 @@ export interface GetExtensionSchemaResult {
  *     extensionObjects: [exampleService.id],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getExtensionSchemaOutput(args: GetExtensionSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionSchemaResult> {
     return pulumi.output(args).apply((a: any) => getExtensionSchema(a, opts))

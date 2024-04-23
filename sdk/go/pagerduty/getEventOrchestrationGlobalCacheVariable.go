@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,7 +42,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupEventOrchestrationGlobalCacheVariable(ctx *pulumi.Context, args *LookupEventOrchestrationGlobalCacheVariableArgs, opts ...pulumi.InvokeOption) (*LookupEventOrchestrationGlobalCacheVariableResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEventOrchestrationGlobalCacheVariableResult

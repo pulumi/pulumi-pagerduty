@@ -16,7 +16,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -53,7 +52,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetScheduleResult> InvokeAsync(GetScheduleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduleResult>("pagerduty:index/getSchedule:getSchedule", args ?? new GetScheduleArgs(), options.WithDefaults());
@@ -63,7 +61,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -100,7 +97,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetScheduleResult> Invoke(GetScheduleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduleResult>("pagerduty:index/getSchedule:getSchedule", args ?? new GetScheduleInvokeArgs(), options.WithDefaults());

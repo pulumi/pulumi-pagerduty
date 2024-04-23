@@ -17,17 +17,9 @@ public final class UserContactMethodState extends com.pulumi.resources.ResourceA
 
     public static final UserContactMethodState Empty = new UserContactMethodState();
 
-    /**
-     * The &#34;address&#34; to deliver to: `email`, `phone number`, etc., depending on the type.
-     * 
-     */
     @Import(name="address")
     private @Nullable Output<String> address;
 
-    /**
-     * @return The &#34;address&#34; to deliver to: `email`, `phone number`, etc., depending on the type.
-     * 
-     */
     public Optional<Output<String>> address() {
         return Optional.ofNullable(this.address);
     }
@@ -47,17 +39,9 @@ public final class UserContactMethodState extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.blacklisted);
     }
 
-    /**
-     * The 1-to-3 digit country calling code. Required when using `phone_contact_method` or `sms_contact_method`.
-     * 
-     */
     @Import(name="countryCode")
     private @Nullable Output<Integer> countryCode;
 
-    /**
-     * @return The 1-to-3 digit country calling code. Required when using `phone_contact_method` or `sms_contact_method`.
-     * 
-     */
     public Optional<Output<Integer>> countryCode() {
         return Optional.ofNullable(this.countryCode);
     }
@@ -77,62 +61,30 @@ public final class UserContactMethodState extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * The label (e.g., &#34;Work&#34;, &#34;Mobile&#34;, etc.).
-     * 
-     */
     @Import(name="label")
     private @Nullable Output<String> label;
 
-    /**
-     * @return The label (e.g., &#34;Work&#34;, &#34;Mobile&#34;, etc.).
-     * 
-     */
     public Optional<Output<String>> label() {
         return Optional.ofNullable(this.label);
     }
 
-    /**
-     * Send an abbreviated email message instead of the standard email output.
-     * 
-     */
     @Import(name="sendShortEmail")
     private @Nullable Output<Boolean> sendShortEmail;
 
-    /**
-     * @return Send an abbreviated email message instead of the standard email output.
-     * 
-     */
     public Optional<Output<Boolean>> sendShortEmail() {
         return Optional.ofNullable(this.sendShortEmail);
     }
 
-    /**
-     * The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
 
-    /**
-     * The ID of the user.
-     * 
-     */
     @Import(name="userId")
     private @Nullable Output<String> userId;
 
-    /**
-     * @return The ID of the user.
-     * 
-     */
     public Optional<Output<String>> userId() {
         return Optional.ofNullable(this.userId);
     }
@@ -168,23 +120,11 @@ public final class UserContactMethodState extends com.pulumi.resources.ResourceA
             $ = new UserContactMethodState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param address The &#34;address&#34; to deliver to: `email`, `phone number`, etc., depending on the type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder address(@Nullable Output<String> address) {
             $.address = address;
             return this;
         }
 
-        /**
-         * @param address The &#34;address&#34; to deliver to: `email`, `phone number`, etc., depending on the type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder address(String address) {
             return address(Output.of(address));
         }
@@ -210,23 +150,11 @@ public final class UserContactMethodState extends com.pulumi.resources.ResourceA
             return blacklisted(Output.of(blacklisted));
         }
 
-        /**
-         * @param countryCode The 1-to-3 digit country calling code. Required when using `phone_contact_method` or `sms_contact_method`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder countryCode(@Nullable Output<Integer> countryCode) {
             $.countryCode = countryCode;
             return this;
         }
 
-        /**
-         * @param countryCode The 1-to-3 digit country calling code. Required when using `phone_contact_method` or `sms_contact_method`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder countryCode(Integer countryCode) {
             return countryCode(Output.of(countryCode));
         }
@@ -252,86 +180,38 @@ public final class UserContactMethodState extends com.pulumi.resources.ResourceA
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param label The label (e.g., &#34;Work&#34;, &#34;Mobile&#34;, etc.).
-         * 
-         * @return builder
-         * 
-         */
         public Builder label(@Nullable Output<String> label) {
             $.label = label;
             return this;
         }
 
-        /**
-         * @param label The label (e.g., &#34;Work&#34;, &#34;Mobile&#34;, etc.).
-         * 
-         * @return builder
-         * 
-         */
         public Builder label(String label) {
             return label(Output.of(label));
         }
 
-        /**
-         * @param sendShortEmail Send an abbreviated email message instead of the standard email output.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sendShortEmail(@Nullable Output<Boolean> sendShortEmail) {
             $.sendShortEmail = sendShortEmail;
             return this;
         }
 
-        /**
-         * @param sendShortEmail Send an abbreviated email message instead of the standard email output.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sendShortEmail(Boolean sendShortEmail) {
             return sendShortEmail(Output.of(sendShortEmail));
         }
 
-        /**
-         * @param type The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
-        /**
-         * @param userId The ID of the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userId(@Nullable Output<String> userId) {
             $.userId = userId;
             return this;
         }
 
-        /**
-         * @param userId The ID of the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userId(String userId) {
             return userId(Output.of(userId));
         }

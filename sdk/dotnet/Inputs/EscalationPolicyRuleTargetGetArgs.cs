@@ -13,14 +13,11 @@ namespace Pulumi.Pagerduty.Inputs
     public sealed class EscalationPolicyRuleTargetGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A target ID
+        /// The ID of the escalation policy.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
-        /// <summary>
-        /// Can be `user_reference` or `schedule_reference`. Defaults to `user_reference`. For multiple users as example, repeat the target.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

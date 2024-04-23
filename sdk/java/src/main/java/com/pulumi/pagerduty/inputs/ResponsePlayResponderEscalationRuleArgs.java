@@ -35,14 +35,14 @@ public final class ResponsePlayResponderEscalationRuleArgs extends com.pulumi.re
     }
 
     /**
-     * ID of the user defined as the responder
+     * The ID of the response play.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return ID of the user defined as the responder
+     * @return The ID of the response play.
      * 
      */
     public Optional<Output<String>> id() {
@@ -112,7 +112,7 @@ public final class ResponsePlayResponderEscalationRuleArgs extends com.pulumi.re
         }
 
         /**
-         * @param id ID of the user defined as the responder
+         * @param id The ID of the response play.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class ResponsePlayResponderEscalationRuleArgs extends com.pulumi.re
         }
 
         /**
-         * @param id ID of the user defined as the responder
+         * @param id The ID of the response play.
          * 
          * @return builder
          * 

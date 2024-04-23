@@ -15,7 +15,6 @@ import * as utilities from "./utilities";
  *
  * This example assumes services used in the `routeTo` configuration already exists. So it does not show creation of service resource.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -56,7 +55,6 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

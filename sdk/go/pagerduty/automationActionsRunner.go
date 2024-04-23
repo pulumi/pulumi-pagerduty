@@ -18,7 +18,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,7 +48,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -76,19 +74,14 @@ type AutomationActionsRunner struct {
 	pulumi.CustomResourceState
 
 	// The time runner was created. Represented as an ISO 8601 timestamp.
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
-	// The description of the runner. Max length is 1024 characters.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	CreationTime pulumi.StringOutput    `pulumi:"creationTime"`
+	Description  pulumi.StringPtrOutput `pulumi:"description"`
 	// (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
-	LastSeen pulumi.StringOutput `pulumi:"lastSeen"`
-	// The name of the runner. Max length is 255 characters.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The unique User API Token created in Runbook Automation.
-	RunbookApiKey pulumi.StringPtrOutput `pulumi:"runbookApiKey"`
-	// The subdomain for your Runbook Automation Instance.
+	LastSeen       pulumi.StringOutput    `pulumi:"lastSeen"`
+	Name           pulumi.StringOutput    `pulumi:"name"`
+	RunbookApiKey  pulumi.StringPtrOutput `pulumi:"runbookApiKey"`
 	RunbookBaseUri pulumi.StringPtrOutput `pulumi:"runbookBaseUri"`
-	// The type of runner. The only allowed values is `runbook`.
-	RunnerType pulumi.StringOutput `pulumi:"runnerType"`
+	RunnerType     pulumi.StringOutput    `pulumi:"runnerType"`
 	// The type of object. The value returned will be `runner`.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -135,18 +128,13 @@ func GetAutomationActionsRunner(ctx *pulumi.Context,
 type automationActionsRunnerState struct {
 	// The time runner was created. Represented as an ISO 8601 timestamp.
 	CreationTime *string `pulumi:"creationTime"`
-	// The description of the runner. Max length is 1024 characters.
-	Description *string `pulumi:"description"`
+	Description  *string `pulumi:"description"`
 	// (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
-	LastSeen *string `pulumi:"lastSeen"`
-	// The name of the runner. Max length is 255 characters.
-	Name *string `pulumi:"name"`
-	// The unique User API Token created in Runbook Automation.
-	RunbookApiKey *string `pulumi:"runbookApiKey"`
-	// The subdomain for your Runbook Automation Instance.
+	LastSeen       *string `pulumi:"lastSeen"`
+	Name           *string `pulumi:"name"`
+	RunbookApiKey  *string `pulumi:"runbookApiKey"`
 	RunbookBaseUri *string `pulumi:"runbookBaseUri"`
-	// The type of runner. The only allowed values is `runbook`.
-	RunnerType *string `pulumi:"runnerType"`
+	RunnerType     *string `pulumi:"runnerType"`
 	// The type of object. The value returned will be `runner`.
 	Type *string `pulumi:"type"`
 }
@@ -154,18 +142,13 @@ type automationActionsRunnerState struct {
 type AutomationActionsRunnerState struct {
 	// The time runner was created. Represented as an ISO 8601 timestamp.
 	CreationTime pulumi.StringPtrInput
-	// The description of the runner. Max length is 1024 characters.
-	Description pulumi.StringPtrInput
+	Description  pulumi.StringPtrInput
 	// (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
-	LastSeen pulumi.StringPtrInput
-	// The name of the runner. Max length is 255 characters.
-	Name pulumi.StringPtrInput
-	// The unique User API Token created in Runbook Automation.
-	RunbookApiKey pulumi.StringPtrInput
-	// The subdomain for your Runbook Automation Instance.
+	LastSeen       pulumi.StringPtrInput
+	Name           pulumi.StringPtrInput
+	RunbookApiKey  pulumi.StringPtrInput
 	RunbookBaseUri pulumi.StringPtrInput
-	// The type of runner. The only allowed values is `runbook`.
-	RunnerType pulumi.StringPtrInput
+	RunnerType     pulumi.StringPtrInput
 	// The type of object. The value returned will be `runner`.
 	Type pulumi.StringPtrInput
 }
@@ -175,34 +158,24 @@ func (AutomationActionsRunnerState) ElementType() reflect.Type {
 }
 
 type automationActionsRunnerArgs struct {
-	// The description of the runner. Max length is 1024 characters.
 	Description *string `pulumi:"description"`
 	// (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
-	LastSeen *string `pulumi:"lastSeen"`
-	// The name of the runner. Max length is 255 characters.
-	Name *string `pulumi:"name"`
-	// The unique User API Token created in Runbook Automation.
-	RunbookApiKey *string `pulumi:"runbookApiKey"`
-	// The subdomain for your Runbook Automation Instance.
+	LastSeen       *string `pulumi:"lastSeen"`
+	Name           *string `pulumi:"name"`
+	RunbookApiKey  *string `pulumi:"runbookApiKey"`
 	RunbookBaseUri *string `pulumi:"runbookBaseUri"`
-	// The type of runner. The only allowed values is `runbook`.
-	RunnerType string `pulumi:"runnerType"`
+	RunnerType     string  `pulumi:"runnerType"`
 }
 
 // The set of arguments for constructing a AutomationActionsRunner resource.
 type AutomationActionsRunnerArgs struct {
-	// The description of the runner. Max length is 1024 characters.
 	Description pulumi.StringPtrInput
 	// (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
-	LastSeen pulumi.StringPtrInput
-	// The name of the runner. Max length is 255 characters.
-	Name pulumi.StringPtrInput
-	// The unique User API Token created in Runbook Automation.
-	RunbookApiKey pulumi.StringPtrInput
-	// The subdomain for your Runbook Automation Instance.
+	LastSeen       pulumi.StringPtrInput
+	Name           pulumi.StringPtrInput
+	RunbookApiKey  pulumi.StringPtrInput
 	RunbookBaseUri pulumi.StringPtrInput
-	// The type of runner. The only allowed values is `runbook`.
-	RunnerType pulumi.StringInput
+	RunnerType     pulumi.StringInput
 }
 
 func (AutomationActionsRunnerArgs) ElementType() reflect.Type {
@@ -297,7 +270,6 @@ func (o AutomationActionsRunnerOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationActionsRunner) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
 }
 
-// The description of the runner. Max length is 1024 characters.
 func (o AutomationActionsRunnerOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutomationActionsRunner) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -307,22 +279,18 @@ func (o AutomationActionsRunnerOutput) LastSeen() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationActionsRunner) pulumi.StringOutput { return v.LastSeen }).(pulumi.StringOutput)
 }
 
-// The name of the runner. Max length is 255 characters.
 func (o AutomationActionsRunnerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationActionsRunner) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The unique User API Token created in Runbook Automation.
 func (o AutomationActionsRunnerOutput) RunbookApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutomationActionsRunner) pulumi.StringPtrOutput { return v.RunbookApiKey }).(pulumi.StringPtrOutput)
 }
 
-// The subdomain for your Runbook Automation Instance.
 func (o AutomationActionsRunnerOutput) RunbookBaseUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutomationActionsRunner) pulumi.StringPtrOutput { return v.RunbookBaseUri }).(pulumi.StringPtrOutput)
 }
 
-// The type of runner. The only allowed values is `runbook`.
 func (o AutomationActionsRunnerOutput) RunnerType() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationActionsRunner) pulumi.StringOutput { return v.RunnerType }).(pulumi.StringOutput)
 }

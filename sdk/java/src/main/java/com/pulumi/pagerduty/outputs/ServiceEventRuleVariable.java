@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceEventRuleVariable {
-    /**
-     * @return The name of the variable.
-     * 
-     */
     private @Nullable String name;
-    /**
-     * @return The parameters for performing the operation to populate the variable.
-     * 
-     */
     private @Nullable List<ServiceEventRuleVariableParameter> parameters;
-    /**
-     * @return Type of operation to populate the variable. Usually `regex`.
-     * 
-     */
     private @Nullable String type;
 
     private ServiceEventRuleVariable() {}
-    /**
-     * @return The name of the variable.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return The parameters for performing the operation to populate the variable.
-     * 
-     */
     public List<ServiceEventRuleVariableParameter> parameters() {
         return this.parameters == null ? List.of() : this.parameters;
     }
-    /**
-     * @return Type of operation to populate the variable. Usually `regex`.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

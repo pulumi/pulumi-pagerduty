@@ -100,17 +100,9 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="pagerduty:index/slackConnection:SlackConnection")
 public class SlackConnection extends com.pulumi.resources.CustomResource {
-    /**
-     * The ID of a Slack channel in the workspace.
-     * 
-     */
     @Export(name="channelId", refs={String.class}, tree="[0]")
     private Output<String> channelId;
 
-    /**
-     * @return The ID of a Slack channel in the workspace.
-     * 
-     */
     public Output<String> channelId() {
         return this.channelId;
     }
@@ -128,45 +120,21 @@ public class SlackConnection extends com.pulumi.resources.CustomResource {
     public Output<String> channelName() {
         return this.channelName;
     }
-    /**
-     * Configuration options for the Slack connection that provide options to filter events.
-     * 
-     */
     @Export(name="configs", refs={List.class,SlackConnectionConfig.class}, tree="[0,1]")
     private Output<List<SlackConnectionConfig>> configs;
 
-    /**
-     * @return Configuration options for the Slack connection that provide options to filter events.
-     * 
-     */
     public Output<List<SlackConnectionConfig>> configs() {
         return this.configs;
     }
-    /**
-     * Type of notification. Either `responder` or `stakeholder`.
-     * 
-     */
     @Export(name="notificationType", refs={String.class}, tree="[0]")
     private Output<String> notificationType;
 
-    /**
-     * @return Type of notification. Either `responder` or `stakeholder`.
-     * 
-     */
     public Output<String> notificationType() {
         return this.notificationType;
     }
-    /**
-     * The ID of the source in PagerDuty. Valid sources are services or teams.
-     * 
-     */
     @Export(name="sourceId", refs={String.class}, tree="[0]")
     private Output<String> sourceId;
 
-    /**
-     * @return The ID of the source in PagerDuty. Valid sources are services or teams.
-     * 
-     */
     public Output<String> sourceId() {
         return this.sourceId;
     }
@@ -184,31 +152,15 @@ public class SlackConnection extends com.pulumi.resources.CustomResource {
     public Output<String> sourceName() {
         return this.sourceName;
     }
-    /**
-     * The type of the source. Either `team_reference` or `service_reference`.
-     * 
-     */
     @Export(name="sourceType", refs={String.class}, tree="[0]")
     private Output<String> sourceType;
 
-    /**
-     * @return The type of the source. Either `team_reference` or `service_reference`.
-     * 
-     */
     public Output<String> sourceType() {
         return this.sourceType;
     }
-    /**
-     * The slack team (workspace) ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
-     * 
-     */
     @Export(name="workspaceId", refs={String.class}, tree="[0]")
     private Output<String> workspaceId;
 
-    /**
-     * @return The slack team (workspace) ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
-     * 
-     */
     public Output<String> workspaceId() {
         return this.workspaceId;
     }

@@ -22,12 +22,7 @@ class AutomationActionsRunnerArgs:
                  runbook_base_uri: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AutomationActionsRunner resource.
-        :param pulumi.Input[str] runner_type: The type of runner. The only allowed values is `runbook`.
-        :param pulumi.Input[str] description: The description of the runner. Max length is 1024 characters.
         :param pulumi.Input[str] last_seen: (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
-        :param pulumi.Input[str] name: The name of the runner. Max length is 255 characters.
-        :param pulumi.Input[str] runbook_api_key: The unique User API Token created in Runbook Automation.
-        :param pulumi.Input[str] runbook_base_uri: The subdomain for your Runbook Automation Instance.
         """
         pulumi.set(__self__, "runner_type", runner_type)
         if description is not None:
@@ -44,9 +39,6 @@ class AutomationActionsRunnerArgs:
     @property
     @pulumi.getter(name="runnerType")
     def runner_type(self) -> pulumi.Input[str]:
-        """
-        The type of runner. The only allowed values is `runbook`.
-        """
         return pulumi.get(self, "runner_type")
 
     @runner_type.setter
@@ -56,9 +48,6 @@ class AutomationActionsRunnerArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description of the runner. Max length is 1024 characters.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -80,9 +69,6 @@ class AutomationActionsRunnerArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the runner. Max length is 255 characters.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -92,9 +78,6 @@ class AutomationActionsRunnerArgs:
     @property
     @pulumi.getter(name="runbookApiKey")
     def runbook_api_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        The unique User API Token created in Runbook Automation.
-        """
         return pulumi.get(self, "runbook_api_key")
 
     @runbook_api_key.setter
@@ -104,9 +87,6 @@ class AutomationActionsRunnerArgs:
     @property
     @pulumi.getter(name="runbookBaseUri")
     def runbook_base_uri(self) -> Optional[pulumi.Input[str]]:
-        """
-        The subdomain for your Runbook Automation Instance.
-        """
         return pulumi.get(self, "runbook_base_uri")
 
     @runbook_base_uri.setter
@@ -128,12 +108,7 @@ class _AutomationActionsRunnerState:
         """
         Input properties used for looking up and filtering AutomationActionsRunner resources.
         :param pulumi.Input[str] creation_time: The time runner was created. Represented as an ISO 8601 timestamp.
-        :param pulumi.Input[str] description: The description of the runner. Max length is 1024 characters.
         :param pulumi.Input[str] last_seen: (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
-        :param pulumi.Input[str] name: The name of the runner. Max length is 255 characters.
-        :param pulumi.Input[str] runbook_api_key: The unique User API Token created in Runbook Automation.
-        :param pulumi.Input[str] runbook_base_uri: The subdomain for your Runbook Automation Instance.
-        :param pulumi.Input[str] runner_type: The type of runner. The only allowed values is `runbook`.
         :param pulumi.Input[str] type: The type of object. The value returned will be `runner`.
         """
         if creation_time is not None:
@@ -168,9 +143,6 @@ class _AutomationActionsRunnerState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description of the runner. Max length is 1024 characters.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -192,9 +164,6 @@ class _AutomationActionsRunnerState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the runner. Max length is 255 characters.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -204,9 +173,6 @@ class _AutomationActionsRunnerState:
     @property
     @pulumi.getter(name="runbookApiKey")
     def runbook_api_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        The unique User API Token created in Runbook Automation.
-        """
         return pulumi.get(self, "runbook_api_key")
 
     @runbook_api_key.setter
@@ -216,9 +182,6 @@ class _AutomationActionsRunnerState:
     @property
     @pulumi.getter(name="runbookBaseUri")
     def runbook_base_uri(self) -> Optional[pulumi.Input[str]]:
-        """
-        The subdomain for your Runbook Automation Instance.
-        """
         return pulumi.get(self, "runbook_base_uri")
 
     @runbook_base_uri.setter
@@ -228,9 +191,6 @@ class _AutomationActionsRunnerState:
     @property
     @pulumi.getter(name="runnerType")
     def runner_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The type of runner. The only allowed values is `runbook`.
-        """
         return pulumi.get(self, "runner_type")
 
     @runner_type.setter
@@ -269,7 +229,6 @@ class AutomationActionsRunner(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -283,7 +242,6 @@ class AutomationActionsRunner(pulumi.CustomResource):
             runbook_base_uri="rdcat.stg",
             runbook_api_key=runboo_k__ap_i__key)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -309,12 +267,7 @@ class AutomationActionsRunner(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: The description of the runner. Max length is 1024 characters.
         :param pulumi.Input[str] last_seen: (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
-        :param pulumi.Input[str] name: The name of the runner. Max length is 255 characters.
-        :param pulumi.Input[str] runbook_api_key: The unique User API Token created in Runbook Automation.
-        :param pulumi.Input[str] runbook_base_uri: The subdomain for your Runbook Automation Instance.
-        :param pulumi.Input[str] runner_type: The type of runner. The only allowed values is `runbook`.
         """
         ...
     @overload
@@ -329,7 +282,6 @@ class AutomationActionsRunner(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -343,7 +295,6 @@ class AutomationActionsRunner(pulumi.CustomResource):
             runbook_base_uri="rdcat.stg",
             runbook_api_key=runboo_k__ap_i__key)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -435,12 +386,7 @@ class AutomationActionsRunner(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] creation_time: The time runner was created. Represented as an ISO 8601 timestamp.
-        :param pulumi.Input[str] description: The description of the runner. Max length is 1024 characters.
         :param pulumi.Input[str] last_seen: (Optional) The last time runner has been seen. Represented as an ISO 8601 timestamp.
-        :param pulumi.Input[str] name: The name of the runner. Max length is 255 characters.
-        :param pulumi.Input[str] runbook_api_key: The unique User API Token created in Runbook Automation.
-        :param pulumi.Input[str] runbook_base_uri: The subdomain for your Runbook Automation Instance.
-        :param pulumi.Input[str] runner_type: The type of runner. The only allowed values is `runbook`.
         :param pulumi.Input[str] type: The type of object. The value returned will be `runner`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -468,9 +414,6 @@ class AutomationActionsRunner(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        The description of the runner. Max length is 1024 characters.
-        """
         return pulumi.get(self, "description")
 
     @property
@@ -484,33 +427,21 @@ class AutomationActionsRunner(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The name of the runner. Max length is 255 characters.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="runbookApiKey")
     def runbook_api_key(self) -> pulumi.Output[Optional[str]]:
-        """
-        The unique User API Token created in Runbook Automation.
-        """
         return pulumi.get(self, "runbook_api_key")
 
     @property
     @pulumi.getter(name="runbookBaseUri")
     def runbook_base_uri(self) -> pulumi.Output[Optional[str]]:
-        """
-        The subdomain for your Runbook Automation Instance.
-        """
         return pulumi.get(self, "runbook_base_uri")
 
     @property
     @pulumi.getter(name="runnerType")
     def runner_type(self) -> pulumi.Output[str]:
-        """
-        The type of runner. The only allowed values is `runbook`.
-        """
         return pulumi.get(self, "runner_type")
 
     @property

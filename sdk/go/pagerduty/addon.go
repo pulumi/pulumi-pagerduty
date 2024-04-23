@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -53,10 +51,8 @@ import (
 type Addon struct {
 	pulumi.CustomResourceState
 
-	// The name of the add-on.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.
-	Src pulumi.StringOutput `pulumi:"src"`
+	Src  pulumi.StringOutput `pulumi:"src"`
 }
 
 // NewAddon registers a new resource with the given unique name, arguments, and options.
@@ -92,17 +88,13 @@ func GetAddon(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Addon resources.
 type addonState struct {
-	// The name of the add-on.
 	Name *string `pulumi:"name"`
-	// The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.
-	Src *string `pulumi:"src"`
+	Src  *string `pulumi:"src"`
 }
 
 type AddonState struct {
-	// The name of the add-on.
 	Name pulumi.StringPtrInput
-	// The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.
-	Src pulumi.StringPtrInput
+	Src  pulumi.StringPtrInput
 }
 
 func (AddonState) ElementType() reflect.Type {
@@ -110,18 +102,14 @@ func (AddonState) ElementType() reflect.Type {
 }
 
 type addonArgs struct {
-	// The name of the add-on.
 	Name *string `pulumi:"name"`
-	// The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.
-	Src string `pulumi:"src"`
+	Src  string  `pulumi:"src"`
 }
 
 // The set of arguments for constructing a Addon resource.
 type AddonArgs struct {
-	// The name of the add-on.
 	Name pulumi.StringPtrInput
-	// The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.
-	Src pulumi.StringInput
+	Src  pulumi.StringInput
 }
 
 func (AddonArgs) ElementType() reflect.Type {
@@ -211,12 +199,10 @@ func (o AddonOutput) ToAddonOutputWithContext(ctx context.Context) AddonOutput {
 	return o
 }
 
-// The name of the add-on.
 func (o AddonOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Addon) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.
 func (o AddonOutput) Src() pulumi.StringOutput {
 	return o.ApplyT(func(v *Addon) pulumi.StringOutput { return v.Src }).(pulumi.StringOutput)
 }

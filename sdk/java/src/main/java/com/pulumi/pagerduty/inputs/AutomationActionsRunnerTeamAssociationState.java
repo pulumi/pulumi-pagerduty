@@ -15,32 +15,16 @@ public final class AutomationActionsRunnerTeamAssociationState extends com.pulum
 
     public static final AutomationActionsRunnerTeamAssociationState Empty = new AutomationActionsRunnerTeamAssociationState();
 
-    /**
-     * Id of the runner.
-     * 
-     */
     @Import(name="runnerId")
     private @Nullable Output<String> runnerId;
 
-    /**
-     * @return Id of the runner.
-     * 
-     */
     public Optional<Output<String>> runnerId() {
         return Optional.ofNullable(this.runnerId);
     }
 
-    /**
-     * Id of the team associated with the runner.
-     * 
-     */
     @Import(name="teamId")
     private @Nullable Output<String> teamId;
 
-    /**
-     * @return Id of the team associated with the runner.
-     * 
-     */
     public Optional<Output<String>> teamId() {
         return Optional.ofNullable(this.teamId);
     }
@@ -70,44 +54,20 @@ public final class AutomationActionsRunnerTeamAssociationState extends com.pulum
             $ = new AutomationActionsRunnerTeamAssociationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param runnerId Id of the runner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder runnerId(@Nullable Output<String> runnerId) {
             $.runnerId = runnerId;
             return this;
         }
 
-        /**
-         * @param runnerId Id of the runner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder runnerId(String runnerId) {
             return runnerId(Output.of(runnerId));
         }
 
-        /**
-         * @param teamId Id of the team associated with the runner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder teamId(@Nullable Output<String> teamId) {
             $.teamId = teamId;
             return this;
         }
 
-        /**
-         * @param teamId Id of the team associated with the runner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder teamId(String teamId) {
             return teamId(Output.of(teamId));
         }

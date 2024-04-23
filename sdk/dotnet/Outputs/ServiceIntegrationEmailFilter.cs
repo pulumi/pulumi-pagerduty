@@ -13,33 +13,15 @@ namespace Pulumi.Pagerduty.Outputs
     [OutputType]
     public sealed class ServiceIntegrationEmailFilter
     {
-        /// <summary>
-        /// Can be `always` or `match`.
-        /// </summary>
         public readonly string? BodyMode;
-        /// <summary>
-        /// Should be a valid regex or `null`
-        /// </summary>
         public readonly string? BodyRegex;
-        /// <summary>
-        /// Can be `always` or `match`.
-        /// </summary>
         public readonly string? FromEmailMode;
-        /// <summary>
-        /// Should be a valid regex or `null`
-        /// </summary>
         public readonly string? FromEmailRegex;
         /// <summary>
         /// The ID of the service integration.
         /// </summary>
         public readonly string? Id;
-        /// <summary>
-        /// Can be `always` or `match`.
-        /// </summary>
         public readonly string? SubjectMode;
-        /// <summary>
-        /// Should be a valid regex or `null`
-        /// </summary>
         public readonly string? SubjectRegex;
 
         [OutputConstructor]

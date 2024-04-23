@@ -205,7 +205,6 @@ class EventOrchestrationGlobalCacheVariable(pulumi.CustomResource):
 
         This example shows creating a global `Event Orchestration` and a `Cache Variable`. All events that have the `event.source` field will have its `source` value stored in this Cache Variable, and appended as a note for the subsequent incident created by this Event Orchestration.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -240,7 +239,6 @@ class EventOrchestrationGlobalCacheVariable(pulumi.CustomResource):
                 actions=pagerduty.EventOrchestrationGlobalCatchAllActionsArgs(),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -271,7 +269,6 @@ class EventOrchestrationGlobalCacheVariable(pulumi.CustomResource):
 
         This example shows creating a global `Event Orchestration` and a `Cache Variable`. All events that have the `event.source` field will have its `source` value stored in this Cache Variable, and appended as a note for the subsequent incident created by this Event Orchestration.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -306,7 +303,6 @@ class EventOrchestrationGlobalCacheVariable(pulumi.CustomResource):
                 actions=pagerduty.EventOrchestrationGlobalCatchAllActionsArgs(),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

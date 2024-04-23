@@ -17,31 +17,23 @@ public final class ResponsePlayResponderTeamArgs extends com.pulumi.resources.Re
     public static final ResponsePlayResponderTeamArgs Empty = new ResponsePlayResponderTeamArgs();
 
     /**
-     * ID of the user defined as the responder
+     * The ID of the response play.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return ID of the user defined as the responder
+     * @return The ID of the response play.
      * 
      */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -72,7 +64,7 @@ public final class ResponsePlayResponderTeamArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param id ID of the user defined as the responder
+         * @param id The ID of the response play.
          * 
          * @return builder
          * 
@@ -83,7 +75,7 @@ public final class ResponsePlayResponderTeamArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param id ID of the user defined as the responder
+         * @param id The ID of the response play.
          * 
          * @return builder
          * 
@@ -92,23 +84,11 @@ public final class ResponsePlayResponderTeamArgs extends com.pulumi.resources.Re
             return id(Output.of(id));
         }
 
-        /**
-         * @param type A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

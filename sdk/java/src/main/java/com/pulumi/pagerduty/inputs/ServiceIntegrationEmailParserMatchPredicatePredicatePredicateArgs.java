@@ -14,47 +14,23 @@ public final class ServiceIntegrationEmailParserMatchPredicatePredicatePredicate
 
     public static final ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs Empty = new ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs();
 
-    /**
-     * Predicate value or valid regex.
-     * 
-     */
     @Import(name="matcher", required=true)
     private Output<String> matcher;
 
-    /**
-     * @return Predicate value or valid regex.
-     * 
-     */
     public Output<String> matcher() {
         return this.matcher;
     }
 
-    /**
-     * Can be `subject`, `body` or `from_addresses`.
-     * 
-     */
     @Import(name="part", required=true)
     private Output<String> part;
 
-    /**
-     * @return Can be `subject`, `body` or `from_addresses`.
-     * 
-     */
     public Output<String> part() {
         return this.part;
     }
 
-    /**
-     * Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -85,65 +61,29 @@ public final class ServiceIntegrationEmailParserMatchPredicatePredicatePredicate
             $ = new ServiceIntegrationEmailParserMatchPredicatePredicatePredicateArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param matcher Predicate value or valid regex.
-         * 
-         * @return builder
-         * 
-         */
         public Builder matcher(Output<String> matcher) {
             $.matcher = matcher;
             return this;
         }
 
-        /**
-         * @param matcher Predicate value or valid regex.
-         * 
-         * @return builder
-         * 
-         */
         public Builder matcher(String matcher) {
             return matcher(Output.of(matcher));
         }
 
-        /**
-         * @param part Can be `subject`, `body` or `from_addresses`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder part(Output<String> part) {
             $.part = part;
             return this;
         }
 
-        /**
-         * @param part Can be `subject`, `body` or `from_addresses`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder part(String part) {
             return part(Output.of(part));
         }
 
-        /**
-         * @param type Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

@@ -13,16 +13,10 @@ namespace Pulumi.Pagerduty.Outputs
     [OutputType]
     public sealed class ServiceScheduledAction
     {
-        /// <summary>
-        /// A block representing when the scheduled action will occur.
-        /// </summary>
         public readonly ImmutableArray<Outputs.ServiceScheduledActionAt> Ats;
-        /// <summary>
-        /// The urgency to change to: `low` (does not escalate), or `high` (follows escalation rules).
-        /// </summary>
         public readonly string? ToUrgency;
         /// <summary>
-        /// The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+        /// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
         /// </summary>
         public readonly string? Type;
 

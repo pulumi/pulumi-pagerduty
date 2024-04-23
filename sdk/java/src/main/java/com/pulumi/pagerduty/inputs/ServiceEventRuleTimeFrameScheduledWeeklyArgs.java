@@ -17,62 +17,30 @@ public final class ServiceEventRuleTimeFrameScheduledWeeklyArgs extends com.pulu
 
     public static final ServiceEventRuleTimeFrameScheduledWeeklyArgs Empty = new ServiceEventRuleTimeFrameScheduledWeeklyArgs();
 
-    /**
-     * Length of time the schedule will be active.  Unix timestamp in milliseconds.
-     * 
-     */
     @Import(name="duration")
     private @Nullable Output<Integer> duration;
 
-    /**
-     * @return Length of time the schedule will be active.  Unix timestamp in milliseconds.
-     * 
-     */
     public Optional<Output<Integer>> duration() {
         return Optional.ofNullable(this.duration);
     }
 
-    /**
-     * Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
-     * 
-     */
     @Import(name="startTime")
     private @Nullable Output<Integer> startTime;
 
-    /**
-     * @return Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
-     * 
-     */
     public Optional<Output<Integer>> startTime() {
         return Optional.ofNullable(this.startTime);
     }
 
-    /**
-     * Timezone for the given schedule.
-     * 
-     */
     @Import(name="timezone")
     private @Nullable Output<String> timezone;
 
-    /**
-     * @return Timezone for the given schedule.
-     * 
-     */
     public Optional<Output<String>> timezone() {
         return Optional.ofNullable(this.timezone);
     }
 
-    /**
-     * An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
-     * 
-     */
     @Import(name="weekdays")
     private @Nullable Output<List<Integer>> weekdays;
 
-    /**
-     * @return An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
-     * 
-     */
     public Optional<Output<List<Integer>>> weekdays() {
         return Optional.ofNullable(this.weekdays);
     }
@@ -104,96 +72,42 @@ public final class ServiceEventRuleTimeFrameScheduledWeeklyArgs extends com.pulu
             $ = new ServiceEventRuleTimeFrameScheduledWeeklyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param duration Length of time the schedule will be active.  Unix timestamp in milliseconds.
-         * 
-         * @return builder
-         * 
-         */
         public Builder duration(@Nullable Output<Integer> duration) {
             $.duration = duration;
             return this;
         }
 
-        /**
-         * @param duration Length of time the schedule will be active.  Unix timestamp in milliseconds.
-         * 
-         * @return builder
-         * 
-         */
         public Builder duration(Integer duration) {
             return duration(Output.of(duration));
         }
 
-        /**
-         * @param startTime Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startTime(@Nullable Output<Integer> startTime) {
             $.startTime = startTime;
             return this;
         }
 
-        /**
-         * @param startTime Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startTime(Integer startTime) {
             return startTime(Output.of(startTime));
         }
 
-        /**
-         * @param timezone Timezone for the given schedule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timezone(@Nullable Output<String> timezone) {
             $.timezone = timezone;
             return this;
         }
 
-        /**
-         * @param timezone Timezone for the given schedule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timezone(String timezone) {
             return timezone(Output.of(timezone));
         }
 
-        /**
-         * @param weekdays An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
-         * 
-         * @return builder
-         * 
-         */
         public Builder weekdays(@Nullable Output<List<Integer>> weekdays) {
             $.weekdays = weekdays;
             return this;
         }
 
-        /**
-         * @param weekdays An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
-         * 
-         * @return builder
-         * 
-         */
         public Builder weekdays(List<Integer> weekdays) {
             return weekdays(Output.of(weekdays));
         }
 
-        /**
-         * @param weekdays An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
-         * 
-         * @return builder
-         * 
-         */
         public Builder weekdays(Integer... weekdays) {
             return weekdays(List.of(weekdays));
         }

@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -19,7 +18,6 @@ import * as utilities from "./utilities";
  *     src: "https://intranet.example.com/status",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -57,13 +55,7 @@ export class Addon extends pulumi.CustomResource {
         return obj['__pulumiType'] === Addon.__pulumiType;
     }
 
-    /**
-     * The name of the add-on.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.
-     */
     public readonly src!: pulumi.Output<string>;
 
     /**
@@ -98,13 +90,7 @@ export class Addon extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Addon resources.
  */
 export interface AddonState {
-    /**
-     * The name of the add-on.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.
-     */
     src?: pulumi.Input<string>;
 }
 
@@ -112,12 +98,6 @@ export interface AddonState {
  * The set of arguments for constructing a Addon resource.
  */
 export interface AddonArgs {
-    /**
-     * The name of the add-on.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The source URL to display in a frame in the PagerDuty UI. `HTTPS` is required.
-     */
     src: pulumi.Input<string>;
 }

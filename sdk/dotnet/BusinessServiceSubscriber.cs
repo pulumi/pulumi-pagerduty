@@ -14,7 +14,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -58,7 +57,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -71,21 +69,12 @@ namespace Pulumi.Pagerduty
     [PagerdutyResourceType("pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber")]
     public partial class BusinessServiceSubscriber : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ID of the business service to subscribe to.
-        /// </summary>
         [Output("businessServiceId")]
         public Output<string> BusinessServiceId { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the subscriber entity.
-        /// </summary>
         [Output("subscriberId")]
         public Output<string> SubscriberId { get; private set; } = null!;
 
-        /// <summary>
-        /// Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.
-        /// </summary>
         [Output("subscriberType")]
         public Output<string> SubscriberType { get; private set; } = null!;
 
@@ -135,21 +124,12 @@ namespace Pulumi.Pagerduty
 
     public sealed class BusinessServiceSubscriberArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the business service to subscribe to.
-        /// </summary>
         [Input("businessServiceId", required: true)]
         public Input<string> BusinessServiceId { get; set; } = null!;
 
-        /// <summary>
-        /// The ID of the subscriber entity.
-        /// </summary>
         [Input("subscriberId", required: true)]
         public Input<string> SubscriberId { get; set; } = null!;
 
-        /// <summary>
-        /// Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.
-        /// </summary>
         [Input("subscriberType", required: true)]
         public Input<string> SubscriberType { get; set; } = null!;
 
@@ -161,21 +141,12 @@ namespace Pulumi.Pagerduty
 
     public sealed class BusinessServiceSubscriberState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the business service to subscribe to.
-        /// </summary>
         [Input("businessServiceId")]
         public Input<string>? BusinessServiceId { get; set; }
 
-        /// <summary>
-        /// The ID of the subscriber entity.
-        /// </summary>
         [Input("subscriberId")]
         public Input<string>? SubscriberId { get; set; }
 
-        /// <summary>
-        /// Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.
-        /// </summary>
         [Input("subscriberType")]
         public Input<string>? SubscriberType { get; set; }
 

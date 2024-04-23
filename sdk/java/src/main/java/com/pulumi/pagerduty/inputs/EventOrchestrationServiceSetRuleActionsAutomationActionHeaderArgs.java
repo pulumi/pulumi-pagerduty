@@ -14,32 +14,16 @@ public final class EventOrchestrationServiceSetRuleActionsAutomationActionHeader
 
     public static final EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs Empty = new EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs();
 
-    /**
-     * Name to identify the parameter
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return Name to identify the parameter
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
 
-    /**
-     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -69,44 +53,20 @@ public final class EventOrchestrationServiceSetRuleActionsAutomationActionHeader
             $ = new EventOrchestrationServiceSetRuleActionsAutomationActionHeaderArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key Name to identify the parameter
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key Name to identify the parameter
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param value The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

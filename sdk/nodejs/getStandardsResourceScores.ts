@@ -12,7 +12,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -25,7 +24,6 @@ import * as utilities from "./utilities";
  *     id: example.id,
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getStandardsResourceScores(args: GetStandardsResourceScoresArgs, opts?: pulumi.InvokeOptions): Promise<GetStandardsResourceScoresResult> {
 
@@ -77,7 +75,6 @@ export interface GetStandardsResourceScoresResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -90,7 +87,6 @@ export interface GetStandardsResourceScoresResult {
  *     id: example.id,
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getStandardsResourceScoresOutput(args: GetStandardsResourceScoresOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStandardsResourceScoresResult> {
     return pulumi.output(args).apply((a: any) => getStandardsResourceScores(a, opts))

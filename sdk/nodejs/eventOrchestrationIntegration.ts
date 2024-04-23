@@ -15,7 +15,6 @@ import * as utilities from "./utilities";
  *
  * > When a new Event Orchestration is created there will be one Integration (and Routing Key) included by default. Example below shows how to create an extra Integration associated with this Event Orchestration.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -30,7 +29,6 @@ import * as utilities from "./utilities";
  *     label: "Example integration",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

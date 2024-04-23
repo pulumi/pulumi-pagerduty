@@ -14,61 +14,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceIncidentUrgencyRule {
-    /**
-     * @return Incidents&#39; urgency during support hours.
-     * 
-     */
     private @Nullable ServiceIncidentUrgencyRuleDuringSupportHours duringSupportHours;
-    /**
-     * @return Incidents&#39; urgency outside support hours.
-     * 
-     * When using `type = &#34;use_support_hours&#34;` in `incident_urgency_rule` you must specify exactly one (otherwise optional) `support_hours` block.
-     * Your PagerDuty account must have the `service_support_hours` ability to assign support hours.
-     * The block contains the following arguments:
-     * 
-     */
     private @Nullable ServiceIncidentUrgencyRuleOutsideSupportHours outsideSupportHours;
     /**
-     * @return The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+     * @return The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
      * 
      */
     private String type;
-    /**
-     * @return The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
-     * 
-     */
     private @Nullable String urgency;
 
     private ServiceIncidentUrgencyRule() {}
-    /**
-     * @return Incidents&#39; urgency during support hours.
-     * 
-     */
     public Optional<ServiceIncidentUrgencyRuleDuringSupportHours> duringSupportHours() {
         return Optional.ofNullable(this.duringSupportHours);
     }
-    /**
-     * @return Incidents&#39; urgency outside support hours.
-     * 
-     * When using `type = &#34;use_support_hours&#34;` in `incident_urgency_rule` you must specify exactly one (otherwise optional) `support_hours` block.
-     * Your PagerDuty account must have the `service_support_hours` ability to assign support hours.
-     * The block contains the following arguments:
-     * 
-     */
     public Optional<ServiceIncidentUrgencyRuleOutsideSupportHours> outsideSupportHours() {
         return Optional.ofNullable(this.outsideSupportHours);
     }
     /**
-     * @return The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+     * @return The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
      * 
      */
     public String type() {
         return this.type;
     }
-    /**
-     * @return The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
-     * 
-     */
     public Optional<String> urgency() {
         return Optional.ofNullable(this.urgency);
     }

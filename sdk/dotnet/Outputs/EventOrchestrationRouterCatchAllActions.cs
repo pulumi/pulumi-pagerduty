@@ -14,7 +14,7 @@ namespace Pulumi.Pagerduty.Outputs
     public sealed class EventOrchestrationRouterCatchAllActions
     {
         /// <summary>
-        /// The ID of the target Service for the resulting alert.
+        /// Defines where an alert will be sent if doesn't match any rules. Can either be the ID of a Service _or_ the string `"unrouted"` to send events to the Unrouted Orchestration.
         /// </summary>
         public readonly string RouteTo;
 

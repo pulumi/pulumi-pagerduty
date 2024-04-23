@@ -18,8 +18,6 @@ class AutomationActionsRunnerTeamAssociationArgs:
                  team_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a AutomationActionsRunnerTeamAssociation resource.
-        :param pulumi.Input[str] runner_id: Id of the runner.
-        :param pulumi.Input[str] team_id: Id of the team associated with the runner.
         """
         pulumi.set(__self__, "runner_id", runner_id)
         pulumi.set(__self__, "team_id", team_id)
@@ -27,9 +25,6 @@ class AutomationActionsRunnerTeamAssociationArgs:
     @property
     @pulumi.getter(name="runnerId")
     def runner_id(self) -> pulumi.Input[str]:
-        """
-        Id of the runner.
-        """
         return pulumi.get(self, "runner_id")
 
     @runner_id.setter
@@ -39,9 +34,6 @@ class AutomationActionsRunnerTeamAssociationArgs:
     @property
     @pulumi.getter(name="teamId")
     def team_id(self) -> pulumi.Input[str]:
-        """
-        Id of the team associated with the runner.
-        """
         return pulumi.get(self, "team_id")
 
     @team_id.setter
@@ -56,8 +48,6 @@ class _AutomationActionsRunnerTeamAssociationState:
                  team_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AutomationActionsRunnerTeamAssociation resources.
-        :param pulumi.Input[str] runner_id: Id of the runner.
-        :param pulumi.Input[str] team_id: Id of the team associated with the runner.
         """
         if runner_id is not None:
             pulumi.set(__self__, "runner_id", runner_id)
@@ -67,9 +57,6 @@ class _AutomationActionsRunnerTeamAssociationState:
     @property
     @pulumi.getter(name="runnerId")
     def runner_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Id of the runner.
-        """
         return pulumi.get(self, "runner_id")
 
     @runner_id.setter
@@ -79,9 +66,6 @@ class _AutomationActionsRunnerTeamAssociationState:
     @property
     @pulumi.getter(name="teamId")
     def team_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Id of the team associated with the runner.
-        """
         return pulumi.get(self, "team_id")
 
     @team_id.setter
@@ -102,7 +86,6 @@ class AutomationActionsRunnerTeamAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -120,7 +103,6 @@ class AutomationActionsRunnerTeamAssociation(pulumi.CustomResource):
             runner_id=pa_runbook_runner.id,
             team_id=team_ent_eng.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -132,8 +114,6 @@ class AutomationActionsRunnerTeamAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] runner_id: Id of the runner.
-        :param pulumi.Input[str] team_id: Id of the team associated with the runner.
         """
         ...
     @overload
@@ -146,7 +126,6 @@ class AutomationActionsRunnerTeamAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -164,7 +143,6 @@ class AutomationActionsRunnerTeamAssociation(pulumi.CustomResource):
             runner_id=pa_runbook_runner.id,
             team_id=team_ent_eng.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -225,8 +203,6 @@ class AutomationActionsRunnerTeamAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] runner_id: Id of the runner.
-        :param pulumi.Input[str] team_id: Id of the team associated with the runner.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -239,16 +215,10 @@ class AutomationActionsRunnerTeamAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="runnerId")
     def runner_id(self) -> pulumi.Output[str]:
-        """
-        Id of the runner.
-        """
         return pulumi.get(self, "runner_id")
 
     @property
     @pulumi.getter(name="teamId")
     def team_id(self) -> pulumi.Output[str]:
-        """
-        Id of the team associated with the runner.
-        """
         return pulumi.get(self, "team_id")
 

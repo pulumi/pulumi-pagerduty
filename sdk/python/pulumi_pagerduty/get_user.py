@@ -120,7 +120,6 @@ def get_user(email: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -137,7 +136,6 @@ def get_user(email: Optional[str] = None,
             )],
         )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str email: The email to use to find a user in the PagerDuty API.
@@ -165,7 +163,6 @@ def get_user_output(email: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -182,7 +179,6 @@ def get_user_output(email: Optional[pulumi.Input[str]] = None,
             )],
         )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str email: The email to use to find a user in the PagerDuty API.

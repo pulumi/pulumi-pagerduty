@@ -13,21 +13,9 @@ namespace Pulumi.Pagerduty.Outputs
     [OutputType]
     public sealed class ServiceEventRuleTimeFrameScheduledWeekly
     {
-        /// <summary>
-        /// Length of time the schedule will be active.  Unix timestamp in milliseconds.
-        /// </summary>
         public readonly int? Duration;
-        /// <summary>
-        /// Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
-        /// </summary>
         public readonly int? StartTime;
-        /// <summary>
-        /// Timezone for the given schedule.
-        /// </summary>
         public readonly string? Timezone;
-        /// <summary>
-        /// An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
-        /// </summary>
         public readonly ImmutableArray<int> Weekdays;
 
         [OutputConstructor]

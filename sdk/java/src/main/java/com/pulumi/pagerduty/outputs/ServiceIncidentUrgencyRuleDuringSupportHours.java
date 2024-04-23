@@ -12,28 +12,20 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceIncidentUrgencyRuleDuringSupportHours {
     /**
-     * @return The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+     * @return The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
      * 
      */
     private @Nullable String type;
-    /**
-     * @return The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
-     * 
-     */
     private @Nullable String urgency;
 
     private ServiceIncidentUrgencyRuleDuringSupportHours() {}
     /**
-     * @return The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+     * @return The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
      * 
      */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }
-    /**
-     * @return The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
-     * 
-     */
     public Optional<String> urgency() {
         return Optional.ofNullable(this.urgency);
     }

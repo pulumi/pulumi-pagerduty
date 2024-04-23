@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceEventRuleActionsSuspend {
-    /**
-     * @return Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-     * 
-     */
     private @Nullable Integer value;
 
     private ServiceEventRuleActionsSuspend() {}
-    /**
-     * @return Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-     * 
-     */
     public Optional<Integer> value() {
         return Optional.ofNullable(this.value);
     }

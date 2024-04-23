@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -26,7 +25,6 @@ import * as utilities from "./utilities";
  *     parent: parent.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -64,22 +62,13 @@ export class Team extends pulumi.CustomResource {
         return obj['__pulumiType'] === Team.__pulumiType;
     }
 
-    /**
-     * The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
-     */
     public readonly defaultRole!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string>;
     /**
      * URL at which the entity is uniquely displayed in the Web app
      */
     public /*out*/ readonly htmlUrl!: pulumi.Output<string>;
-    /**
-     * The name of the group.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
-     */
     public readonly parent!: pulumi.Output<string | undefined>;
 
     /**
@@ -117,22 +106,13 @@ export class Team extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Team resources.
  */
 export interface TeamState {
-    /**
-     * The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
-     */
     defaultRole?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     /**
      * URL at which the entity is uniquely displayed in the Web app
      */
     htmlUrl?: pulumi.Input<string>;
-    /**
-     * The name of the group.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
-     */
     parent?: pulumi.Input<string>;
 }
 
@@ -140,17 +120,8 @@ export interface TeamState {
  * The set of arguments for constructing a Team resource.
  */
 export interface TeamArgs {
-    /**
-     * The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
-     */
     defaultRole?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
-    /**
-     * The name of the group.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
-     */
     parent?: pulumi.Input<string>;
 }

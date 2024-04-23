@@ -21,10 +21,6 @@ class BusinessServiceArgs:
                  type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a BusinessService resource.
-        :param pulumi.Input[str] name: The name of the business service.
-        :param pulumi.Input[str] point_of_contact: The owner of the business service.
-        :param pulumi.Input[str] team: ID of the team that owns the business service.
-        :param pulumi.Input[str] type: **Deprecated** (Optional) Default (and only supported) value is `business_service`.
         """
         if description is None:
             description = 'Managed by Pulumi'
@@ -54,9 +50,6 @@ class BusinessServiceArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the business service.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -66,9 +59,6 @@ class BusinessServiceArgs:
     @property
     @pulumi.getter(name="pointOfContact")
     def point_of_contact(self) -> Optional[pulumi.Input[str]]:
-        """
-        The owner of the business service.
-        """
         return pulumi.get(self, "point_of_contact")
 
     @point_of_contact.setter
@@ -78,9 +68,6 @@ class BusinessServiceArgs:
     @property
     @pulumi.getter
     def team(self) -> Optional[pulumi.Input[str]]:
-        """
-        ID of the team that owns the business service.
-        """
         return pulumi.get(self, "team")
 
     @team.setter
@@ -90,9 +77,6 @@ class BusinessServiceArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        **Deprecated** (Optional) Default (and only supported) value is `business_service`.
-        """
         warnings.warn("""This will become a computed attribute in the next major release.""", DeprecationWarning)
         pulumi.log.warn("""type is deprecated: This will become a computed attribute in the next major release.""")
 
@@ -117,12 +101,8 @@ class _BusinessServiceState:
         """
         Input properties used for looking up and filtering BusinessService resources.
         :param pulumi.Input[str] html_url: A URL at which the entity is uniquely displayed in the Web app.
-        :param pulumi.Input[str] name: The name of the business service.
-        :param pulumi.Input[str] point_of_contact: The owner of the business service.
         :param pulumi.Input[str] self: The API show URL at which the object is accessible.
         :param pulumi.Input[str] summary: A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
-        :param pulumi.Input[str] team: ID of the team that owns the business service.
-        :param pulumi.Input[str] type: **Deprecated** (Optional) Default (and only supported) value is `business_service`.
         """
         if description is None:
             description = 'Managed by Pulumi'
@@ -170,9 +150,6 @@ class _BusinessServiceState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the business service.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -182,9 +159,6 @@ class _BusinessServiceState:
     @property
     @pulumi.getter(name="pointOfContact")
     def point_of_contact(self) -> Optional[pulumi.Input[str]]:
-        """
-        The owner of the business service.
-        """
         return pulumi.get(self, "point_of_contact")
 
     @point_of_contact.setter
@@ -218,9 +192,6 @@ class _BusinessServiceState:
     @property
     @pulumi.getter
     def team(self) -> Optional[pulumi.Input[str]]:
-        """
-        ID of the team that owns the business service.
-        """
         return pulumi.get(self, "team")
 
     @team.setter
@@ -230,9 +201,6 @@ class _BusinessServiceState:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        **Deprecated** (Optional) Default (and only supported) value is `business_service`.
-        """
         warnings.warn("""This will become a computed attribute in the next major release.""", DeprecationWarning)
         pulumi.log.warn("""type is deprecated: This will become a computed attribute in the next major release.""")
 
@@ -259,7 +227,6 @@ class BusinessService(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -270,7 +237,6 @@ class BusinessService(pulumi.CustomResource):
             point_of_contact="PagerDuty Admin",
             team="P37RSRS")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -282,10 +248,6 @@ class BusinessService(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the business service.
-        :param pulumi.Input[str] point_of_contact: The owner of the business service.
-        :param pulumi.Input[str] team: ID of the team that owns the business service.
-        :param pulumi.Input[str] type: **Deprecated** (Optional) Default (and only supported) value is `business_service`.
         """
         ...
     @overload
@@ -298,7 +260,6 @@ class BusinessService(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -309,7 +270,6 @@ class BusinessService(pulumi.CustomResource):
             point_of_contact="PagerDuty Admin",
             team="P37RSRS")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -384,12 +344,8 @@ class BusinessService(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] html_url: A URL at which the entity is uniquely displayed in the Web app.
-        :param pulumi.Input[str] name: The name of the business service.
-        :param pulumi.Input[str] point_of_contact: The owner of the business service.
         :param pulumi.Input[str] self: The API show URL at which the object is accessible.
         :param pulumi.Input[str] summary: A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
-        :param pulumi.Input[str] team: ID of the team that owns the business service.
-        :param pulumi.Input[str] type: **Deprecated** (Optional) Default (and only supported) value is `business_service`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -421,17 +377,11 @@ class BusinessService(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The name of the business service.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="pointOfContact")
     def point_of_contact(self) -> pulumi.Output[Optional[str]]:
-        """
-        The owner of the business service.
-        """
         return pulumi.get(self, "point_of_contact")
 
     @property
@@ -453,17 +403,11 @@ class BusinessService(pulumi.CustomResource):
     @property
     @pulumi.getter
     def team(self) -> pulumi.Output[Optional[str]]:
-        """
-        ID of the team that owns the business service.
-        """
         return pulumi.get(self, "team")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
-        """
-        **Deprecated** (Optional) Default (and only supported) value is `business_service`.
-        """
         warnings.warn("""This will become a computed attribute in the next major release.""", DeprecationWarning)
         pulumi.log.warn("""type is deprecated: This will become a computed attribute in the next major release.""")
 

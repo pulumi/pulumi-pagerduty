@@ -16,7 +16,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -37,7 +36,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -50,27 +48,15 @@ namespace Pulumi.Pagerduty
     [PagerdutyResourceType("pagerduty:index/maintenanceWindow:MaintenanceWindow")]
     public partial class MaintenanceWindow : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// A description for the maintenance window.
-        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `start_time`.
-        /// </summary>
         [Output("endTime")]
         public Output<string> EndTime { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of service IDs to include in the maintenance window.
-        /// </summary>
         [Output("services")]
         public Output<ImmutableArray<string>> Services { get; private set; } = null!;
 
-        /// <summary>
-        /// The maintenance window's start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
-        /// </summary>
         [Output("startTime")]
         public Output<string> StartTime { get; private set; } = null!;
 
@@ -120,33 +106,20 @@ namespace Pulumi.Pagerduty
 
     public sealed class MaintenanceWindowArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A description for the maintenance window.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `start_time`.
-        /// </summary>
         [Input("endTime", required: true)]
         public Input<string> EndTime { get; set; } = null!;
 
         [Input("services", required: true)]
         private InputList<string>? _services;
-
-        /// <summary>
-        /// A list of service IDs to include in the maintenance window.
-        /// </summary>
         public InputList<string> Services
         {
             get => _services ?? (_services = new InputList<string>());
             set => _services = value;
         }
 
-        /// <summary>
-        /// The maintenance window's start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
-        /// </summary>
         [Input("startTime", required: true)]
         public Input<string> StartTime { get; set; } = null!;
 
@@ -159,33 +132,20 @@ namespace Pulumi.Pagerduty
 
     public sealed class MaintenanceWindowState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A description for the maintenance window.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `start_time`.
-        /// </summary>
         [Input("endTime")]
         public Input<string>? EndTime { get; set; }
 
         [Input("services")]
         private InputList<string>? _services;
-
-        /// <summary>
-        /// A list of service IDs to include in the maintenance window.
-        /// </summary>
         public InputList<string> Services
         {
             get => _services ?? (_services = new InputList<string>());
             set => _services = value;
         }
 
-        /// <summary>
-        /// The maintenance window's start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
-        /// </summary>
         [Input("startTime")]
         public Input<string>? StartTime { get; set; }
 

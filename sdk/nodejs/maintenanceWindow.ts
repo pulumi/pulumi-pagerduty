@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -22,7 +21,6 @@ import * as utilities from "./utilities";
  *     services: [examplePagerdutyService.id],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -60,21 +58,9 @@ export class MaintenanceWindow extends pulumi.CustomResource {
         return obj['__pulumiType'] === MaintenanceWindow.__pulumiType;
     }
 
-    /**
-     * A description for the maintenance window.
-     */
     public readonly description!: pulumi.Output<string>;
-    /**
-     * The maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `startTime`.
-     */
     public readonly endTime!: pulumi.Output<string>;
-    /**
-     * A list of service IDs to include in the maintenance window.
-     */
     public readonly services!: pulumi.Output<string[]>;
-    /**
-     * The maintenance window's start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
-     */
     public readonly startTime!: pulumi.Output<string>;
 
     /**
@@ -119,21 +105,9 @@ export class MaintenanceWindow extends pulumi.CustomResource {
  * Input properties used for looking up and filtering MaintenanceWindow resources.
  */
 export interface MaintenanceWindowState {
-    /**
-     * A description for the maintenance window.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `startTime`.
-     */
     endTime?: pulumi.Input<string>;
-    /**
-     * A list of service IDs to include in the maintenance window.
-     */
     services?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The maintenance window's start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
-     */
     startTime?: pulumi.Input<string>;
 }
 
@@ -141,20 +115,8 @@ export interface MaintenanceWindowState {
  * The set of arguments for constructing a MaintenanceWindow resource.
  */
 export interface MaintenanceWindowArgs {
-    /**
-     * A description for the maintenance window.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The maintenance window's end time. This is when the services will start creating incidents again. This date must be in the future and after the `startTime`.
-     */
     endTime: pulumi.Input<string>;
-    /**
-     * A list of service IDs to include in the maintenance window.
-     */
     services: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The maintenance window's start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
-     */
     startTime: pulumi.Input<string>;
 }

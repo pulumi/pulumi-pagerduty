@@ -201,17 +201,9 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="pagerduty:index/serviceIntegration:ServiceIntegration")
 public class ServiceIntegration extends com.pulumi.resources.CustomResource {
-    /**
-     * Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.
-     * 
-     */
     @Export(name="emailFilterMode", refs={String.class}, tree="[0]")
     private Output<String> emailFilterMode;
 
-    /**
-     * @return Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.
-     * 
-     */
     public Output<String> emailFilterMode() {
         return this.emailFilterMode;
     }
@@ -221,17 +213,9 @@ public class ServiceIntegration extends com.pulumi.resources.CustomResource {
     public Output<List<ServiceIntegrationEmailFilter>> emailFilters() {
         return this.emailFilters;
     }
-    /**
-     * Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `on_new_email`, `on_new_email_subject`, `only_if_no_open_incidents` or `use_rules`.
-     * 
-     */
     @Export(name="emailIncidentCreation", refs={String.class}, tree="[0]")
     private Output<String> emailIncidentCreation;
 
-    /**
-     * @return Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `on_new_email`, `on_new_email_subject`, `only_if_no_open_incidents` or `use_rules`.
-     * 
-     */
     public Output<String> emailIncidentCreation() {
         return this.emailIncidentCreation;
     }
@@ -241,17 +225,9 @@ public class ServiceIntegration extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<ServiceIntegrationEmailParser>>> emailParsers() {
         return Codegen.optional(this.emailParsers);
     }
-    /**
-     * Can be `open_new_incident` or `discard`.
-     * 
-     */
     @Export(name="emailParsingFallback", refs={String.class}, tree="[0]")
     private Output<String> emailParsingFallback;
 
-    /**
-     * @return Can be `open_new_incident` or `discard`.
-     * 
-     */
     public Output<String> emailParsingFallback() {
         return this.emailParsingFallback;
     }
@@ -284,96 +260,40 @@ public class ServiceIntegration extends com.pulumi.resources.CustomResource {
         return this.integrationEmail;
     }
     /**
-     * (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+     * This is the unique key used to route events to this integration when received via the PagerDuty Events API.
      * 
      */
     @Export(name="integrationKey", refs={String.class}, tree="[0]")
     private Output<String> integrationKey;
 
     /**
-     * @return (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+     * @return This is the unique key used to route events to this integration when received via the PagerDuty Events API.
      * 
      */
     public Output<String> integrationKey() {
         return this.integrationKey;
     }
-    /**
-     * The name of the service integration.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the service integration.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The ID of the service the integration should belong to.
-     * 
-     */
     @Export(name="service", refs={String.class}, tree="[0]")
     private Output<String> service;
 
-    /**
-     * @return The ID of the service the integration should belong to.
-     * 
-     */
     public Output<String> service() {
         return this.service;
     }
-    /**
-     * The service type. Can be:
-     * `aws_cloudwatch_inbound_integration`,
-     * `cloudkick_inbound_integration`,
-     * `event_transformer_api_inbound_integration`,
-     * `events_api_v2_inbound_integration` (requires service `alert_creation` to be `create_alerts_and_incidents`),
-     * `generic_email_inbound_integration`,
-     * `generic_events_api_inbound_integration`,
-     * `keynote_inbound_integration`,
-     * `nagios_inbound_integration`,
-     * `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
-     * 
-     * **Note:** This is meant for **generic** service integrations.
-     * To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
-     * 
-     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
-    /**
-     * @return The service type. Can be:
-     * `aws_cloudwatch_inbound_integration`,
-     * `cloudkick_inbound_integration`,
-     * `event_transformer_api_inbound_integration`,
-     * `events_api_v2_inbound_integration` (requires service `alert_creation` to be `create_alerts_and_incidents`),
-     * `generic_email_inbound_integration`,
-     * `generic_events_api_inbound_integration`,
-     * `keynote_inbound_integration`,
-     * `nagios_inbound_integration`,
-     * `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
-     * 
-     * **Note:** This is meant for **generic** service integrations.
-     * To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
-    /**
-     * The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
-     * 
-     */
     @Export(name="vendor", refs={String.class}, tree="[0]")
     private Output<String> vendor;
 
-    /**
-     * @return The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
-     * 
-     */
     public Output<String> vendor() {
         return this.vendor;
     }

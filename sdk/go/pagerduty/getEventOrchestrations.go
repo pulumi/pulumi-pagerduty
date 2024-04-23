@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -51,7 +50,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetEventOrchestrations(ctx *pulumi.Context, args *GetEventOrchestrationsArgs, opts ...pulumi.InvokeOption) (*GetEventOrchestrationsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEventOrchestrationsResult

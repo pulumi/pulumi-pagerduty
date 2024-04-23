@@ -22,12 +22,6 @@ class IncidentCustomFieldArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a IncidentCustomField resource.
-        :param pulumi.Input[str] data_type: The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
-        :param pulumi.Input[str] display_name: The display name of the field.
-        :param pulumi.Input[str] field_type: The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
-        :param pulumi.Input[str] default_value: The default value to set when new incidents are created. Always specified as a string.
-        :param pulumi.Input[str] description: The description of the field.
-        :param pulumi.Input[str] name: The name of the field.
         """
         pulumi.set(__self__, "data_type", data_type)
         pulumi.set(__self__, "display_name", display_name)
@@ -42,9 +36,6 @@ class IncidentCustomFieldArgs:
     @property
     @pulumi.getter(name="dataType")
     def data_type(self) -> pulumi.Input[str]:
-        """
-        The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
-        """
         return pulumi.get(self, "data_type")
 
     @data_type.setter
@@ -54,9 +45,6 @@ class IncidentCustomFieldArgs:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[str]:
-        """
-        The display name of the field.
-        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -66,9 +54,6 @@ class IncidentCustomFieldArgs:
     @property
     @pulumi.getter(name="fieldType")
     def field_type(self) -> pulumi.Input[str]:
-        """
-        The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
-        """
         return pulumi.get(self, "field_type")
 
     @field_type.setter
@@ -78,9 +63,6 @@ class IncidentCustomFieldArgs:
     @property
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> Optional[pulumi.Input[str]]:
-        """
-        The default value to set when new incidents are created. Always specified as a string.
-        """
         return pulumi.get(self, "default_value")
 
     @default_value.setter
@@ -90,9 +72,6 @@ class IncidentCustomFieldArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description of the field.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -102,9 +81,6 @@ class IncidentCustomFieldArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the field.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -123,12 +99,6 @@ class _IncidentCustomFieldState:
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering IncidentCustomField resources.
-        :param pulumi.Input[str] data_type: The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
-        :param pulumi.Input[str] default_value: The default value to set when new incidents are created. Always specified as a string.
-        :param pulumi.Input[str] description: The description of the field.
-        :param pulumi.Input[str] display_name: The display name of the field.
-        :param pulumi.Input[str] field_type: The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
-        :param pulumi.Input[str] name: The name of the field.
         """
         if data_type is not None:
             pulumi.set(__self__, "data_type", data_type)
@@ -146,9 +116,6 @@ class _IncidentCustomFieldState:
     @property
     @pulumi.getter(name="dataType")
     def data_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
-        """
         return pulumi.get(self, "data_type")
 
     @data_type.setter
@@ -158,9 +125,6 @@ class _IncidentCustomFieldState:
     @property
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> Optional[pulumi.Input[str]]:
-        """
-        The default value to set when new incidents are created. Always specified as a string.
-        """
         return pulumi.get(self, "default_value")
 
     @default_value.setter
@@ -170,9 +134,6 @@ class _IncidentCustomFieldState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description of the field.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -182,9 +143,6 @@ class _IncidentCustomFieldState:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The display name of the field.
-        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -194,9 +152,6 @@ class _IncidentCustomFieldState:
     @property
     @pulumi.getter(name="fieldType")
     def field_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
-        """
         return pulumi.get(self, "field_type")
 
     @field_type.setter
@@ -206,9 +161,6 @@ class _IncidentCustomFieldState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the field.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -233,7 +185,6 @@ class IncidentCustomField(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -255,7 +206,6 @@ class IncidentCustomField(pulumi.CustomResource):
             field_type="single_value",
             default_value="false")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -267,12 +217,6 @@ class IncidentCustomField(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] data_type: The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
-        :param pulumi.Input[str] default_value: The default value to set when new incidents are created. Always specified as a string.
-        :param pulumi.Input[str] description: The description of the field.
-        :param pulumi.Input[str] display_name: The display name of the field.
-        :param pulumi.Input[str] field_type: The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
-        :param pulumi.Input[str] name: The name of the field.
         """
         ...
     @overload
@@ -285,7 +229,6 @@ class IncidentCustomField(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -307,7 +250,6 @@ class IncidentCustomField(pulumi.CustomResource):
             field_type="single_value",
             default_value="false")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -382,12 +324,6 @@ class IncidentCustomField(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] data_type: The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
-        :param pulumi.Input[str] default_value: The default value to set when new incidents are created. Always specified as a string.
-        :param pulumi.Input[str] description: The description of the field.
-        :param pulumi.Input[str] display_name: The display name of the field.
-        :param pulumi.Input[str] field_type: The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
-        :param pulumi.Input[str] name: The name of the field.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -404,48 +340,30 @@ class IncidentCustomField(pulumi.CustomResource):
     @property
     @pulumi.getter(name="dataType")
     def data_type(self) -> pulumi.Output[str]:
-        """
-        The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
-        """
         return pulumi.get(self, "data_type")
 
     @property
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> pulumi.Output[Optional[str]]:
-        """
-        The default value to set when new incidents are created. Always specified as a string.
-        """
         return pulumi.get(self, "default_value")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        The description of the field.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[str]:
-        """
-        The display name of the field.
-        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="fieldType")
     def field_type(self) -> pulumi.Output[str]:
-        """
-        The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
-        """
         return pulumi.get(self, "field_type")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The name of the field.
-        """
         return pulumi.get(self, "name")
 

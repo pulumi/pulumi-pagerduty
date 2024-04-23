@@ -66,14 +66,14 @@ public final class EventOrchestrationRouterSetRuleArgs extends com.pulumi.resour
     }
 
     /**
-     * ID of the `start` set. Router supports only one set and it&#39;s id has to be `start`
+     * The ID of the rule within the `start` set.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return ID of the `start` set. Router supports only one set and it&#39;s id has to be `start`
+     * @return The ID of the rule within the `start` set.
      * 
      */
     public Optional<Output<String>> id() {
@@ -197,7 +197,7 @@ public final class EventOrchestrationRouterSetRuleArgs extends com.pulumi.resour
         }
 
         /**
-         * @param id ID of the `start` set. Router supports only one set and it&#39;s id has to be `start`
+         * @param id The ID of the rule within the `start` set.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class EventOrchestrationRouterSetRuleArgs extends com.pulumi.resour
         }
 
         /**
-         * @param id ID of the `start` set. Router supports only one set and it&#39;s id has to be `start`
+         * @param id The ID of the rule within the `start` set.
          * 
          * @return builder
          * 

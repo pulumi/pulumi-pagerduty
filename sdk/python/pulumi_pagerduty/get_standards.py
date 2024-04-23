@@ -77,14 +77,12 @@ def get_standards(resource_type: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
 
     standards = pagerduty.get_standards()
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str resource_type: Filter by `resource_type` the received standards. Allowed values are `technical_service`.
@@ -109,14 +107,12 @@ def get_standards_output(resource_type: Optional[pulumi.Input[Optional[str]]] = 
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
 
     standards = pagerduty.get_standards()
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str resource_type: Filter by `resource_type` the received standards. Allowed values are `technical_service`.

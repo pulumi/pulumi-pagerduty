@@ -18,62 +18,30 @@ public final class MaintenanceWindowArgs extends com.pulumi.resources.ResourceAr
 
     public static final MaintenanceWindowArgs Empty = new MaintenanceWindowArgs();
 
-    /**
-     * A description for the maintenance window.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return A description for the maintenance window.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The maintenance window&#39;s end time. This is when the services will start creating incidents again. This date must be in the future and after the `start_time`.
-     * 
-     */
     @Import(name="endTime", required=true)
     private Output<String> endTime;
 
-    /**
-     * @return The maintenance window&#39;s end time. This is when the services will start creating incidents again. This date must be in the future and after the `start_time`.
-     * 
-     */
     public Output<String> endTime() {
         return this.endTime;
     }
 
-    /**
-     * A list of service IDs to include in the maintenance window.
-     * 
-     */
     @Import(name="services", required=true)
     private Output<List<String>> services;
 
-    /**
-     * @return A list of service IDs to include in the maintenance window.
-     * 
-     */
     public Output<List<String>> services() {
         return this.services;
     }
 
-    /**
-     * The maintenance window&#39;s start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
-     * 
-     */
     @Import(name="startTime", required=true)
     private Output<String> startTime;
 
-    /**
-     * @return The maintenance window&#39;s start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
-     * 
-     */
     public Output<String> startTime() {
         return this.startTime;
     }
@@ -105,96 +73,42 @@ public final class MaintenanceWindowArgs extends com.pulumi.resources.ResourceAr
             $ = new MaintenanceWindowArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description A description for the maintenance window.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description A description for the maintenance window.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param endTime The maintenance window&#39;s end time. This is when the services will start creating incidents again. This date must be in the future and after the `start_time`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endTime(Output<String> endTime) {
             $.endTime = endTime;
             return this;
         }
 
-        /**
-         * @param endTime The maintenance window&#39;s end time. This is when the services will start creating incidents again. This date must be in the future and after the `start_time`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endTime(String endTime) {
             return endTime(Output.of(endTime));
         }
 
-        /**
-         * @param services A list of service IDs to include in the maintenance window.
-         * 
-         * @return builder
-         * 
-         */
         public Builder services(Output<List<String>> services) {
             $.services = services;
             return this;
         }
 
-        /**
-         * @param services A list of service IDs to include in the maintenance window.
-         * 
-         * @return builder
-         * 
-         */
         public Builder services(List<String> services) {
             return services(Output.of(services));
         }
 
-        /**
-         * @param services A list of service IDs to include in the maintenance window.
-         * 
-         * @return builder
-         * 
-         */
         public Builder services(String... services) {
             return services(List.of(services));
         }
 
-        /**
-         * @param startTime The maintenance window&#39;s start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startTime(Output<String> startTime) {
             $.startTime = startTime;
             return this;
         }
 
-        /**
-         * @param startTime The maintenance window&#39;s start time. This is when the services will stop creating incidents. If this date is in the past, it will be updated to be the current time.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startTime(String startTime) {
             return startTime(Output.of(startTime));
         }

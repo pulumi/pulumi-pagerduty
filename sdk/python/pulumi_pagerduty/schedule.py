@@ -260,7 +260,6 @@ class Schedule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -286,7 +285,6 @@ class Schedule(pulumi.CustomResource):
             )],
             teams=[example_team.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -318,7 +316,6 @@ class Schedule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -344,7 +341,6 @@ class Schedule(pulumi.CustomResource):
             )],
             teams=[example_team.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -26,7 +25,6 @@ import * as utilities from "./utilities";
  *     entityType: "users",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTag(args: GetTagArgs, opts?: pulumi.InvokeOptions): Promise<GetTagResult> {
 
@@ -61,7 +59,6 @@ export interface GetTagResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -78,7 +75,6 @@ export interface GetTagResult {
  *     entityType: "users",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTagOutput(args: GetTagOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagResult> {
     return pulumi.output(args).apply((a: any) => getTag(a, opts))

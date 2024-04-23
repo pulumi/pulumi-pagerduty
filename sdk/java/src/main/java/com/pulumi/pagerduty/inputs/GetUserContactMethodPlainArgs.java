@@ -29,31 +29,23 @@ public final class GetUserContactMethodPlainArgs extends com.pulumi.resources.In
     }
 
     /**
-     * The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+     * The type of the found contact method. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
      * 
      */
     @Import(name="type", required=true)
     private String type;
 
     /**
-     * @return The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+     * @return The type of the found contact method. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
      * 
      */
     public String type() {
         return this.type;
     }
 
-    /**
-     * The ID of the user.
-     * 
-     */
     @Import(name="userId", required=true)
     private String userId;
 
-    /**
-     * @return The ID of the user.
-     * 
-     */
     public String userId() {
         return this.userId;
     }
@@ -96,7 +88,7 @@ public final class GetUserContactMethodPlainArgs extends com.pulumi.resources.In
         }
 
         /**
-         * @param type The contact method type. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
+         * @param type The type of the found contact method. May be (`email_contact_method`, `phone_contact_method`, `sms_contact_method`, `push_notification_contact_method`).
          * 
          * @return builder
          * 
@@ -106,12 +98,6 @@ public final class GetUserContactMethodPlainArgs extends com.pulumi.resources.In
             return this;
         }
 
-        /**
-         * @param userId The ID of the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userId(String userId) {
             $.userId = userId;
             return this;

@@ -13,14 +13,11 @@ namespace Pulumi.Pagerduty.Inputs
     public sealed class ServiceIncidentUrgencyRuleDuringSupportHoursArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+        /// The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        /// <summary>
-        /// The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
-        /// </summary>
         [Input("urgency")]
         public Input<string>? Urgency { get; set; }
 

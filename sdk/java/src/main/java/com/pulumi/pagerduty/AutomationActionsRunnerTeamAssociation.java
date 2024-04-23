@@ -78,31 +78,15 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="pagerduty:index/automationActionsRunnerTeamAssociation:AutomationActionsRunnerTeamAssociation")
 public class AutomationActionsRunnerTeamAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * Id of the runner.
-     * 
-     */
     @Export(name="runnerId", refs={String.class}, tree="[0]")
     private Output<String> runnerId;
 
-    /**
-     * @return Id of the runner.
-     * 
-     */
     public Output<String> runnerId() {
         return this.runnerId;
     }
-    /**
-     * Id of the team associated with the runner.
-     * 
-     */
     @Export(name="teamId", refs={String.class}, tree="[0]")
     private Output<String> teamId;
 
-    /**
-     * @return Id of the team associated with the runner.
-     * 
-     */
     public Output<String> teamId() {
         return this.teamId;
     }

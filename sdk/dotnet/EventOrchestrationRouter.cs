@@ -18,7 +18,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// This example assumes services used in the `route_to` configuration already exists. So it does not show creation of service resource.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -81,7 +80,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

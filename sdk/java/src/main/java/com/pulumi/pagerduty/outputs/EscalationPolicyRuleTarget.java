@@ -13,28 +13,20 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EscalationPolicyRuleTarget {
     /**
-     * @return A target ID
+     * @return The ID of the escalation policy.
      * 
      */
     private String id;
-    /**
-     * @return Can be `user_reference` or `schedule_reference`. Defaults to `user_reference`. For multiple users as example, repeat the target.
-     * 
-     */
     private @Nullable String type;
 
     private EscalationPolicyRuleTarget() {}
     /**
-     * @return A target ID
+     * @return The ID of the escalation policy.
      * 
      */
     public String id() {
         return this.id;
     }
-    /**
-     * @return Can be `user_reference` or `schedule_reference`. Defaults to `user_reference`. For multiple users as example, repeat the target.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

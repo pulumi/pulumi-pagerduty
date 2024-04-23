@@ -14,7 +14,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -50,7 +49,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -63,39 +61,21 @@ namespace Pulumi.Pagerduty
     [PagerdutyResourceType("pagerduty:index/incidentCustomField:IncidentCustomField")]
     public partial class IncidentCustomField : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
-        /// </summary>
         [Output("dataType")]
         public Output<string> DataType { get; private set; } = null!;
 
-        /// <summary>
-        /// The default value to set when new incidents are created. Always specified as a string.
-        /// </summary>
         [Output("defaultValue")]
         public Output<string?> DefaultValue { get; private set; } = null!;
 
-        /// <summary>
-        /// The description of the field.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The display name of the field.
-        /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
 
-        /// <summary>
-        /// The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
-        /// </summary>
         [Output("fieldType")]
         public Output<string> FieldType { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the field.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -145,39 +125,21 @@ namespace Pulumi.Pagerduty
 
     public sealed class IncidentCustomFieldArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
-        /// </summary>
         [Input("dataType", required: true)]
         public Input<string> DataType { get; set; } = null!;
 
-        /// <summary>
-        /// The default value to set when new incidents are created. Always specified as a string.
-        /// </summary>
         [Input("defaultValue")]
         public Input<string>? DefaultValue { get; set; }
 
-        /// <summary>
-        /// The description of the field.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The display name of the field.
-        /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
-        /// <summary>
-        /// The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
-        /// </summary>
         [Input("fieldType", required: true)]
         public Input<string> FieldType { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the field.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -189,39 +151,21 @@ namespace Pulumi.Pagerduty
 
     public sealed class IncidentCustomFieldState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The data type of the field. Must be one of `string`, `integer`, `float`, `boolean`, `datetime`, or `url`.
-        /// </summary>
         [Input("dataType")]
         public Input<string>? DataType { get; set; }
 
-        /// <summary>
-        /// The default value to set when new incidents are created. Always specified as a string.
-        /// </summary>
         [Input("defaultValue")]
         public Input<string>? DefaultValue { get; set; }
 
-        /// <summary>
-        /// The description of the field.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The display name of the field.
-        /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
-        /// <summary>
-        /// The field type of the field. Must be one of `single_value`, `single_value_fixed`, `multi_value`, or `multi_value_fixed`.
-        /// </summary>
         [Input("fieldType")]
         public Input<string>? FieldType { get; set; }
 
-        /// <summary>
-        /// The name of the field.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

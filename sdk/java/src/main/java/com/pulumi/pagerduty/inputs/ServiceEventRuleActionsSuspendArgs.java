@@ -15,17 +15,9 @@ public final class ServiceEventRuleActionsSuspendArgs extends com.pulumi.resourc
 
     public static final ServiceEventRuleActionsSuspendArgs Empty = new ServiceEventRuleActionsSuspendArgs();
 
-    /**
-     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-     * 
-     */
     @Import(name="value")
     private @Nullable Output<Integer> value;
 
-    /**
-     * @return Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-     * 
-     */
     public Optional<Output<Integer>> value() {
         return Optional.ofNullable(this.value);
     }
@@ -54,23 +46,11 @@ public final class ServiceEventRuleActionsSuspendArgs extends com.pulumi.resourc
             $ = new ServiceEventRuleActionsSuspendArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param value Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(@Nullable Output<Integer> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Integer value) {
             return value(Output.of(value));
         }

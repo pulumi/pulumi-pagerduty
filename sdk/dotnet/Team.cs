@@ -16,7 +16,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,7 +39,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -53,9 +51,6 @@ namespace Pulumi.Pagerduty
     [PagerdutyResourceType("pagerduty:index/team:Team")]
     public partial class Team : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
-        /// </summary>
         [Output("defaultRole")]
         public Output<string> DefaultRole { get; private set; } = null!;
 
@@ -68,15 +63,9 @@ namespace Pulumi.Pagerduty
         [Output("htmlUrl")]
         public Output<string> HtmlUrl { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the group.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
-        /// </summary>
         [Output("parent")]
         public Output<string?> Parent { get; private set; } = null!;
 
@@ -126,24 +115,15 @@ namespace Pulumi.Pagerduty
 
     public sealed class TeamArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
-        /// </summary>
         [Input("defaultRole")]
         public Input<string>? DefaultRole { get; set; }
 
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The name of the group.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
-        /// </summary>
         [Input("parent")]
         public Input<string>? Parent { get; set; }
 
@@ -156,9 +136,6 @@ namespace Pulumi.Pagerduty
 
     public sealed class TeamState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The team is private if the value is "none", or public if it is "manager" (the default permissions for a non-member of the team are either "none", or their base role up until "manager").
-        /// </summary>
         [Input("defaultRole")]
         public Input<string>? DefaultRole { get; set; }
 
@@ -171,15 +148,9 @@ namespace Pulumi.Pagerduty
         [Input("htmlUrl")]
         public Input<string>? HtmlUrl { get; set; }
 
-        /// <summary>
-        /// The name of the group.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// ID of the parent team. This is available to accounts with the Team Hierarchy feature enabled. Please contact your account manager for more information.
-        /// </summary>
         [Input("parent")]
         public Input<string>? Parent { get; set; }
 

@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class ServiceIntegrationEmailParserMatchPredicatePredicatePredicate {
-    /**
-     * @return Predicate value or valid regex.
-     * 
-     */
     private String matcher;
-    /**
-     * @return Can be `subject`, `body` or `from_addresses`.
-     * 
-     */
     private String part;
-    /**
-     * @return Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.
-     * 
-     */
     private String type;
 
     private ServiceIntegrationEmailParserMatchPredicatePredicatePredicate() {}
-    /**
-     * @return Predicate value or valid regex.
-     * 
-     */
     public String matcher() {
         return this.matcher;
     }
-    /**
-     * @return Can be `subject`, `body` or `from_addresses`.
-     * 
-     */
     public String part() {
         return this.part;
     }
-    /**
-     * @return Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.
-     * 
-     */
     public String type() {
         return this.type;
     }

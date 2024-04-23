@@ -12,9 +12,6 @@ namespace Pulumi.Pagerduty.Inputs
 
     public sealed class ServiceEventRuleActionsSuspendArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-        /// </summary>
         [Input("value")]
         public Input<int>? Value { get; set; }
 

@@ -13,9 +13,6 @@ namespace Pulumi.Pagerduty.Outputs
     [OutputType]
     public sealed class ServiceEventRuleActionsSuspend
     {
-        /// <summary>
-        /// Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-        /// </summary>
         public readonly int? Value;
 
         [OutputConstructor]

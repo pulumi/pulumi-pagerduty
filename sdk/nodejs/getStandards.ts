@@ -12,14 +12,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
  * const standards = pagerduty.getStandards({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getStandards(args?: GetStandardsArgs, opts?: pulumi.InvokeOptions): Promise<GetStandardsResult> {
     args = args || {};
@@ -63,14 +61,12 @@ export interface GetStandardsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
  *
  * const standards = pagerduty.getStandards({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getStandardsOutput(args?: GetStandardsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStandardsResult> {
     return pulumi.output(args).apply((a: any) => getStandards(a, opts))

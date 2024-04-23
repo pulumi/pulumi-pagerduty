@@ -7,7 +7,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -26,7 +25,6 @@ import * as utilities from "./utilities";
  *     role: "manager",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -65,18 +63,15 @@ export class TeamMembership extends pulumi.CustomResource {
     }
 
     /**
-     * The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  
-     * These roles match up to user roles in the following ways:
-     * * User role of `user` is a Team role of `manager`
-     * * User role of `limitedUser` is a Team role of `responder`
+     * The role of the user in the team.
      */
     public readonly role!: pulumi.Output<string | undefined>;
     /**
-     * The ID of the team in which the user will belong.
+     * The team ID the user belongs to.
      */
     public readonly teamId!: pulumi.Output<string>;
     /**
-     * The ID of the user to add to the team.
+     * The ID of the user belonging to the team.
      */
     public readonly userId!: pulumi.Output<string>;
 
@@ -118,18 +113,15 @@ export class TeamMembership extends pulumi.CustomResource {
  */
 export interface TeamMembershipState {
     /**
-     * The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  
-     * These roles match up to user roles in the following ways:
-     * * User role of `user` is a Team role of `manager`
-     * * User role of `limitedUser` is a Team role of `responder`
+     * The role of the user in the team.
      */
     role?: pulumi.Input<string>;
     /**
-     * The ID of the team in which the user will belong.
+     * The team ID the user belongs to.
      */
     teamId?: pulumi.Input<string>;
     /**
-     * The ID of the user to add to the team.
+     * The ID of the user belonging to the team.
      */
     userId?: pulumi.Input<string>;
 }
@@ -139,18 +131,15 @@ export interface TeamMembershipState {
  */
 export interface TeamMembershipArgs {
     /**
-     * The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  
-     * These roles match up to user roles in the following ways:
-     * * User role of `user` is a Team role of `manager`
-     * * User role of `limitedUser` is a Team role of `responder`
+     * The role of the user in the team.
      */
     role?: pulumi.Input<string>;
     /**
-     * The ID of the team in which the user will belong.
+     * The team ID the user belongs to.
      */
     teamId: pulumi.Input<string>;
     /**
-     * The ID of the user to add to the team.
+     * The ID of the user belonging to the team.
      */
     userId: pulumi.Input<string>;
 }

@@ -6,39 +6,18 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
 export interface AutomationActionsActionActionDataReference {
-    /**
-     * The command to execute the script with.
-     */
     invocationCommand?: string;
-    /**
-     * The arguments to pass to the Process Automation job execution.
-     */
     processAutomationJobArguments?: string;
-    /**
-     * The ID of the Process Automation job to execute.
-     */
     processAutomationJobId?: string;
-    /**
-     * The expression that filters on which nodes a Process Automation Job executes [Learn more](https://docs.rundeck.com/docs/manual/05-nodes.html#node-filtering).
-     */
     processAutomationNodeFilter?: string;
-    /**
-     * Body of the script to be executed on the Runner. Max length is 16777215 characters.
-     */
     script?: string;
 }
 
 export interface EscalationPolicyRule {
-    /**
-     * The number of minutes before an unacknowledged incident escalates away from this rule.
-     */
     escalationDelayInMinutes: number;
-    /**
-     * The strategy used to assign the escalation rule to an incident. Documented below.
-     */
     escalationRuleAssignmentStrategy: outputs.EscalationPolicyRuleEscalationRuleAssignmentStrategy;
     /**
-     * A target ID
+     * The ID of the escalation policy.
      */
     id: string;
     targets: outputs.EscalationPolicyRuleTarget[];
@@ -53,12 +32,9 @@ export interface EscalationPolicyRuleEscalationRuleAssignmentStrategy {
 
 export interface EscalationPolicyRuleTarget {
     /**
-     * A target ID
+     * The ID of the escalation policy.
      */
     id: string;
-    /**
-     * Can be `userReference` or `scheduleReference`. Defaults to `userReference`. For multiple users as example, repeat the target.
-     */
     type?: string;
 }
 
@@ -156,7 +132,7 @@ export interface EventOrchestrationGlobalCatchAllActionsAutomationAction {
      */
     headers?: outputs.EventOrchestrationGlobalCatchAllActionsAutomationActionHeader[];
     /**
-     * The name of the variable
+     * Name of this Webhook.
      */
     name: string;
     /**
@@ -170,24 +146,12 @@ export interface EventOrchestrationGlobalCatchAllActionsAutomationAction {
 }
 
 export interface EventOrchestrationGlobalCatchAllActionsAutomationActionHeader {
-    /**
-     * Name to identify the parameter
-     */
     key: string;
-    /**
-     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
-     */
     value: string;
 }
 
 export interface EventOrchestrationGlobalCatchAllActionsAutomationActionParameter {
-    /**
-     * Name to identify the parameter
-     */
     key: string;
-    /**
-     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
-     */
     value: string;
 }
 
@@ -218,7 +182,7 @@ export interface EventOrchestrationGlobalCatchAllActionsIncidentCustomFieldUpdat
      */
     id: string;
     /**
-     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+     * The value to assign to this custom field
      */
     value: string;
 }
@@ -264,7 +228,7 @@ export interface EventOrchestrationGlobalSetRule {
      */
     disabled?: boolean;
     /**
-     * The custom field id
+     * The ID of the rule within the set.
      */
     id: string;
     /**
@@ -334,7 +298,7 @@ export interface EventOrchestrationGlobalSetRuleActionsAutomationAction {
      */
     headers?: outputs.EventOrchestrationGlobalSetRuleActionsAutomationActionHeader[];
     /**
-     * The name of the variable
+     * Name of this Webhook.
      */
     name: string;
     /**
@@ -348,24 +312,12 @@ export interface EventOrchestrationGlobalSetRuleActionsAutomationAction {
 }
 
 export interface EventOrchestrationGlobalSetRuleActionsAutomationActionHeader {
-    /**
-     * Name to identify the parameter
-     */
     key: string;
-    /**
-     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
-     */
     value: string;
 }
 
 export interface EventOrchestrationGlobalSetRuleActionsAutomationActionParameter {
-    /**
-     * Name to identify the parameter
-     */
     key: string;
-    /**
-     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
-     */
     value: string;
 }
 
@@ -396,7 +348,7 @@ export interface EventOrchestrationGlobalSetRuleActionsIncidentCustomFieldUpdate
      */
     id: string;
     /**
-     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+     * The value to assign to this custom field
      */
     value: string;
 }
@@ -456,7 +408,7 @@ export interface EventOrchestrationRouterCatchAll {
 
 export interface EventOrchestrationRouterCatchAllActions {
     /**
-     * The ID of the target Service for the resulting alert.
+     * Defines where an alert will be sent if doesn't match any rules. Can either be the ID of a Service _or_ the string `"unrouted"` to send events to the Unrouted Orchestration.
      */
     routeTo: string;
 }
@@ -483,7 +435,7 @@ export interface EventOrchestrationRouterSetRule {
      */
     disabled?: boolean;
     /**
-     * ID of the `start` set. Router supports only one set and it's id has to be `start`
+     * The ID of the rule within the `start` set.
      */
     id: string;
     /**
@@ -600,7 +552,7 @@ export interface EventOrchestrationServiceCatchAllActionsAutomationAction {
      */
     headers?: outputs.EventOrchestrationServiceCatchAllActionsAutomationActionHeader[];
     /**
-     * The name of the variable
+     * Name of this Webhook.
      */
     name: string;
     /**
@@ -614,24 +566,12 @@ export interface EventOrchestrationServiceCatchAllActionsAutomationAction {
 }
 
 export interface EventOrchestrationServiceCatchAllActionsAutomationActionHeader {
-    /**
-     * Name to identify the parameter
-     */
     key: string;
-    /**
-     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
-     */
     value: string;
 }
 
 export interface EventOrchestrationServiceCatchAllActionsAutomationActionParameter {
-    /**
-     * Name to identify the parameter
-     */
     key: string;
-    /**
-     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
-     */
     value: string;
 }
 
@@ -662,7 +602,7 @@ export interface EventOrchestrationServiceCatchAllActionsIncidentCustomFieldUpda
      */
     id: string;
     /**
-     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+     * The value to assign to this custom field
      */
     value: string;
 }
@@ -715,7 +655,7 @@ export interface EventOrchestrationServiceSetRule {
      */
     disabled?: boolean;
     /**
-     * The custom field id
+     * The ID of the rule within the set.
      */
     id: string;
     /**
@@ -785,7 +725,7 @@ export interface EventOrchestrationServiceSetRuleActionsAutomationAction {
      */
     headers?: outputs.EventOrchestrationServiceSetRuleActionsAutomationActionHeader[];
     /**
-     * The name of the variable
+     * Name of this Webhook.
      */
     name: string;
     /**
@@ -799,24 +739,12 @@ export interface EventOrchestrationServiceSetRuleActionsAutomationAction {
 }
 
 export interface EventOrchestrationServiceSetRuleActionsAutomationActionHeader {
-    /**
-     * Name to identify the parameter
-     */
     key: string;
-    /**
-     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
-     */
     value: string;
 }
 
 export interface EventOrchestrationServiceSetRuleActionsAutomationActionParameter {
-    /**
-     * Name to identify the parameter
-     */
     key: string;
-    /**
-     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
-     */
     value: string;
 }
 
@@ -847,7 +775,7 @@ export interface EventOrchestrationServiceSetRuleActionsIncidentCustomFieldUpdat
      */
     id: string;
     /**
-     * The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+     * The value to assign to this custom field
      */
     value: string;
 }
@@ -974,7 +902,7 @@ export interface EventOrchestrationUnroutedSetRule {
      */
     disabled?: boolean;
     /**
-     * The ID of this set of rules. Rules in other sets can route events into this set using the rule's `routeTo` property.
+     * The ID of the rule within the set.
      */
     id: string;
     /**
@@ -1553,7 +1481,7 @@ export interface ResponsePlayResponder {
      */
     teams: outputs.ResponsePlayResponderTeam[];
     /**
-     * Type of object of the target. Supported types are `userReference`, `scheduleReference`.
+     * Should be set as `escalationPolicy` for escalation policy responders.
      */
     type?: string;
 }
@@ -1564,7 +1492,7 @@ export interface ResponsePlayResponderEscalationRule {
      */
     escalationDelayInMinutes: number;
     /**
-     * ID of the user defined as the responder
+     * The ID of the response play.
      */
     id: string;
     /**
@@ -1575,45 +1503,33 @@ export interface ResponsePlayResponderEscalationRule {
 
 export interface ResponsePlayResponderEscalationRuleTarget {
     /**
-     * ID of the user defined as the responder
+     * The ID of the response play.
      */
     id: string;
-    /**
-     * A string that determines the schema of the object. If not set, the default value is "responsePlay".
-     */
     type: string;
 }
 
 export interface ResponsePlayResponderService {
     /**
-     * ID of the user defined as the responder
+     * The ID of the response play.
      */
     id: string;
-    /**
-     * A string that determines the schema of the object. If not set, the default value is "responsePlay".
-     */
     type: string;
 }
 
 export interface ResponsePlayResponderTeam {
     /**
-     * ID of the user defined as the responder
+     * The ID of the response play.
      */
     id: string;
-    /**
-     * A string that determines the schema of the object. If not set, the default value is "responsePlay".
-     */
     type: string;
 }
 
 export interface ResponsePlaySubscriber {
     /**
-     * ID of the user defined as the responder
+     * The ID of the response play.
      */
     id?: string;
-    /**
-     * A string that determines the schema of the object. If not set, the default value is "responsePlay".
-     */
     type?: string;
 }
 
@@ -1653,16 +1569,10 @@ export interface RulesetRuleActions {
 }
 
 export interface RulesetRuleActionsAnnotate {
-    /**
-     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-     */
     value?: string;
 }
 
 export interface RulesetRuleActionsEventAction {
-    /**
-     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-     */
     value?: string;
 }
 
@@ -1690,23 +1600,14 @@ export interface RulesetRuleActionsExtraction {
 }
 
 export interface RulesetRuleActionsPriority {
-    /**
-     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-     */
     value?: string;
 }
 
 export interface RulesetRuleActionsRoute {
-    /**
-     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-     */
     value?: string;
 }
 
 export interface RulesetRuleActionsSeverity {
-    /**
-     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-     */
     value?: string;
 }
 
@@ -1730,9 +1631,6 @@ export interface RulesetRuleActionsSuppress {
 }
 
 export interface RulesetRuleActionsSuspend {
-    /**
-     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-     */
     value?: number;
 }
 
@@ -1760,9 +1658,6 @@ export interface RulesetRuleConditionsSubcondition {
 
 export interface RulesetRuleConditionsSubconditionParameter {
     path?: string;
-    /**
-     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-     */
     value?: string;
 }
 
@@ -1779,9 +1674,6 @@ export interface RulesetRuleTimeFrame {
 
 export interface RulesetRuleTimeFrameActiveBetween {
     endTime?: number;
-    /**
-     * A Unix timestamp in milliseconds which is combined with the `timezone` to determine the time this rule will start on each specified `weekday`. Note that the _date_ of the timestamp you specify does **not** matter, except that it lets you determine whether daylight saving time is in effect so that you use the correct UTC offset for the timezone you specify. In practice, you may want to use the `timeStatic` resource to generate this value, as demonstrated in the `resource.pagerduty_ruleset_rule.foo` code example at the top of this page. To generate this timestamp manually, if you want your rule to apply starting at 9:30am in the `America/New_York` timezone, use your programing language of choice to determine a Unix timestamp that represents 9:30am in that timezone, like [1554989400000](https://www.epochconverter.com/timezones?q=1554989400000&tz=America%2FNew_York).
-     */
     startTime?: number;
 }
 
@@ -1812,9 +1704,6 @@ export interface RulesetRuleVariable {
 
 export interface RulesetRuleVariableParameter {
     path?: string;
-    /**
-     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-     */
     value?: string;
 }
 
@@ -1935,13 +1824,7 @@ export interface ServiceAutoPauseNotificationsParameters {
 }
 
 export interface ServiceDependencyDependency {
-    /**
-     * The service that dependents on the supporting service. Dependency dependent service documented below.
-     */
     dependentServices: outputs.ServiceDependencyDependencyDependentService[];
-    /**
-     * The service that supports the dependent service. Dependency supporting service documented below.
-     */
     supportingServices: outputs.ServiceDependencyDependencySupportingService[];
     /**
      * Can be `businessService`,  `service`, `businessServiceReference` or `technicalServiceReference`.
@@ -2003,79 +1886,36 @@ export interface ServiceEventRuleActions {
 }
 
 export interface ServiceEventRuleActionsAnnotate {
-    /**
-     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-     */
     value?: string;
 }
 
 export interface ServiceEventRuleActionsEventAction {
-    /**
-     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-     */
     value?: string;
 }
 
 export interface ServiceEventRuleActionsExtraction {
-    /**
-     * The conditions that need to be met for the extraction to happen. Must use valid [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
-     *
-     * *- **OR** -*
-     */
     regex?: string;
-    /**
-     * Field where the data is being copied from. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
-     */
     source?: string;
-    /**
-     * Field where the data is being copied to. Must be a [PagerDuty Common Event Format (PD-CEF)](https://support.pagerduty.com/docs/pd-cef) field.
-     *
-     * *NOTE: A rule can have multiple `extraction` objects attributed to it.*
-     */
     target?: string;
-    /**
-     * A customized field message. This can also include variables extracted from the payload by using string interpolation.
-     */
     template?: string;
 }
 
 export interface ServiceEventRuleActionsPriority {
-    /**
-     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-     */
     value?: string;
 }
 
 export interface ServiceEventRuleActionsSeverity {
-    /**
-     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-     */
     value?: string;
 }
 
 export interface ServiceEventRuleActionsSuppress {
-    /**
-     * The number value of the `thresholdTimeUnit` before an incident is created.
-     */
     thresholdTimeAmount?: number;
-    /**
-     * The `seconds`,`minutes`, or `hours` the `thresholdTimeAmount` should be measured.
-     */
     thresholdTimeUnit?: string;
-    /**
-     * The number of alerts that should be suppressed.
-     */
     thresholdValue?: number;
-    /**
-     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-     */
     value?: boolean;
 }
 
 export interface ServiceEventRuleActionsSuspend {
-    /**
-     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-     */
     value?: number;
 }
 
@@ -2102,13 +1942,7 @@ export interface ServiceEventRuleConditionsSubcondition {
 }
 
 export interface ServiceEventRuleConditionsSubconditionParameter {
-    /**
-     * Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
-     */
     path?: string;
-    /**
-     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-     */
     value?: string;
 }
 
@@ -2124,141 +1958,68 @@ export interface ServiceEventRuleTimeFrame {
 }
 
 export interface ServiceEventRuleTimeFrameActiveBetween {
-    /**
-     * Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
-     */
     endTime?: number;
-    /**
-     * Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
-     */
     startTime?: number;
 }
 
 export interface ServiceEventRuleTimeFrameScheduledWeekly {
-    /**
-     * Length of time the schedule will be active.  Unix timestamp in milliseconds.
-     */
     duration?: number;
-    /**
-     * Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
-     */
     startTime?: number;
-    /**
-     * Timezone for the given schedule.
-     */
     timezone?: string;
-    /**
-     * An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
-     */
     weekdays?: number[];
 }
 
 export interface ServiceEventRuleVariable {
-    /**
-     * The name of the variable.
-     */
     name?: string;
-    /**
-     * The parameters for performing the operation to populate the variable.
-     */
     parameters?: outputs.ServiceEventRuleVariableParameter[];
-    /**
-     * Type of operation to populate the variable. Usually `regex`.
-     */
     type?: string;
 }
 
 export interface ServiceEventRuleVariableParameter {
-    /**
-     * Path to a field in an event, in dot-notation. For Event Rules on a Service, this will have to be a [PD-CEF field](https://support.pagerduty.com/docs/pd-cef).
-     */
     path?: string;
-    /**
-     * Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-     */
     value?: string;
 }
 
 export interface ServiceIncidentUrgencyRule {
-    /**
-     * Incidents' urgency during support hours.
-     */
     duringSupportHours?: outputs.ServiceIncidentUrgencyRuleDuringSupportHours;
-    /**
-     * Incidents' urgency outside support hours.
-     *
-     * When using `type = "useSupportHours"` in `incidentUrgencyRule` you must specify exactly one (otherwise optional) `supportHours` block.
-     * Your PagerDuty account must have the `serviceSupportHours` ability to assign support hours.
-     * The block contains the following arguments:
-     */
     outsideSupportHours?: outputs.ServiceIncidentUrgencyRuleOutsideSupportHours;
     /**
-     * The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+     * The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
      */
     type: string;
-    /**
-     * The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
-     */
     urgency?: string;
 }
 
 export interface ServiceIncidentUrgencyRuleDuringSupportHours {
     /**
-     * The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+     * The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
      */
     type?: string;
-    /**
-     * The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
-     */
     urgency?: string;
 }
 
 export interface ServiceIncidentUrgencyRuleOutsideSupportHours {
     /**
-     * The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+     * The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
      */
     type?: string;
-    /**
-     * The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severityBased` Set's the urgency of the incident based on the severity set by the triggering monitoring tool.
-     */
     urgency?: string;
 }
 
 export interface ServiceIntegrationEmailFilter {
-    /**
-     * Can be `always` or `match`.
-     */
     bodyMode?: string;
-    /**
-     * Should be a valid regex or `null`
-     */
     bodyRegex?: string;
-    /**
-     * Can be `always` or `match`.
-     */
     fromEmailMode?: string;
-    /**
-     * Should be a valid regex or `null`
-     */
     fromEmailRegex?: string;
     /**
      * The ID of the service integration.
      */
     id: string;
-    /**
-     * Can be `always` or `match`.
-     */
     subjectMode?: string;
-    /**
-     * Should be a valid regex or `null`
-     */
     subjectRegex?: string;
 }
 
 export interface ServiceIntegrationEmailParser {
-    /**
-     * Can be `resolve` or `trigger`.
-     */
     action: string;
     /**
      * The ID of the service integration.
@@ -2270,197 +2031,62 @@ export interface ServiceIntegrationEmailParser {
 
 export interface ServiceIntegrationEmailParserMatchPredicate {
     predicates?: outputs.ServiceIntegrationEmailParserMatchPredicatePredicate[];
-    /**
-     * Can be `any` or `all`.
-     */
     type: string;
 }
 
 export interface ServiceIntegrationEmailParserMatchPredicatePredicate {
-    /**
-     * Predicate value or valid regex.
-     */
     matcher?: string;
-    /**
-     * Can be `subject`, `body` or `fromAddresses`.
-     */
     part?: string;
     predicates?: outputs.ServiceIntegrationEmailParserMatchPredicatePredicatePredicate[];
-    /**
-     * Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.
-     */
     type: string;
 }
 
 export interface ServiceIntegrationEmailParserMatchPredicatePredicatePredicate {
-    /**
-     * Predicate value or valid regex.
-     */
     matcher: string;
-    /**
-     * Can be `subject`, `body` or `fromAddresses`.
-     */
     part: string;
-    /**
-     * Can be `contains`, `exactly`, `regex` or `not`. If type is `not` predicate should contain child predicate with all parameters.
-     */
     type: string;
 }
 
 export interface ServiceIntegrationEmailParserValueExtractor {
     endsBefore?: string;
-    /**
-     * Can be `subject` or `body`.
-     */
     part: string;
-    /**
-     * If `type` has value `regex` this value should contain valid regex.
-     *
-     * **Note:** You can use the `pagerduty.getVendor` data source to locate the appropriate vendor ID.
-     */
     regex?: string;
     startsAfter?: string;
-    /**
-     * Can be `between`, `entire` or `regex`.
-     */
     type: string;
-    /**
-     * First value extractor should have name `incidentKey` other value extractors should contain custom names.
-     */
     valueName: string;
 }
 
 export interface ServiceScheduledAction {
-    /**
-     * A block representing when the scheduled action will occur.
-     */
     ats?: outputs.ServiceScheduledActionAt[];
-    /**
-     * The urgency to change to: `low` (does not escalate), or `high` (follows escalation rules).
-     */
     toUrgency?: string;
     /**
-     * The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+     * The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
      */
     type?: string;
 }
 
 export interface ServiceScheduledActionAt {
-    /**
-     * Designates either the start or the end of the scheduled action. Can be `supportHoursStart` or `supportHoursEnd`.
-     *
-     * Note that it is currently only possible to define the scheduled action when urgency is set to `high` for `duringSupportHours` and to `low`  for `outsideSupportHours` in `incidentUrgencyRule`.
-     *
-     * Below is an example for a `pagerduty.Service` resource with `incidentUrgencyRules` with `type = "useSupportHours"`, `supportHours` and a default `scheduledAction` as well.
-     *
-     * <!--Start PulumiCodeChooser -->
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * import * as pagerduty from "@pulumi/pagerduty";
-     *
-     * const foo = new pagerduty.Service("foo", {
-     *     name: "bar",
-     *     description: "bar bar bar",
-     *     autoResolveTimeout: "3600",
-     *     acknowledgementTimeout: "3600",
-     *     escalationPolicy: fooPagerdutyEscalationPolicy.id,
-     *     incidentUrgencyRule: {
-     *         type: "use_support_hours",
-     *         duringSupportHours: {
-     *             type: "constant",
-     *             urgency: "high",
-     *         },
-     *         outsideSupportHours: {
-     *             type: "constant",
-     *             urgency: "low",
-     *         },
-     *     },
-     *     supportHours: {
-     *         type: "fixed_time_per_day",
-     *         timeZone: "America/Lima",
-     *         startTime: "09:00:00",
-     *         endTime: "17:00:00",
-     *         daysOfWeeks: [
-     *             1,
-     *             2,
-     *             3,
-     *             4,
-     *             5,
-     *         ],
-     *     },
-     *     scheduledActions: [{
-     *         type: "urgency_change",
-     *         toUrgency: "high",
-     *         ats: [{
-     *             type: "named_time",
-     *             name: "support_hours_start",
-     *         }],
-     *     }],
-     * });
-     * ```
-     * <!--End PulumiCodeChooser -->
-     */
     name?: string;
     /**
-     * The type of time specification. Currently, this must be set to `namedTime`.
+     * The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
      */
     type?: string;
 }
 
 export interface ServiceSupportHours {
-    /**
-     * Array of days of week as integers. `1` to `7`, `1` being
-     * Monday and `7` being Sunday.
-     */
     daysOfWeeks?: number[];
-    /**
-     * The support hours' ending time of day.
-     *
-     * A `scheduledActions` block is required when using `type = "useSupportHours"` in `incidentUrgencyRule`.
-     *
-     * The block contains the following arguments:
-     */
     endTime?: string;
-    /**
-     * The support hours' starting time of day.
-     */
     startTime?: string;
-    /**
-     * The time zone for the support hours.
-     */
     timeZone?: string;
     /**
-     * The type of alert grouping; one of `intelligent`, `time` or `contentBased`.
+     * The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
      */
     type?: string;
 }
 
 export interface SlackConnectionConfig {
-    /**
-     * A list of strings to filter events by PagerDuty event type. `"incident.triggered"` is required. The follow event types are also possible:
-     * - `incident.acknowledged`
-     * - `incident.escalated`
-     * - `incident.resolved`
-     * - `incident.reassigned`
-     * - `incident.annotated`
-     * - `incident.unacknowledged`
-     * - `incident.delegated`
-     * - `incident.priority_updated`
-     * - `incident.responder.added`
-     * - `incident.responder.replied`
-     * - `incident.status_update_published`
-     * - `incident.reopened`
-     */
     events: string[];
-    /**
-     * Allows you to filter events by priority. Needs to be an array of PagerDuty priority IDs. Available through pagerduty.getPriority data source.
-     * - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behaviour is to set `priorities` to `No Priority` value.
-     * - When set to `["*"]` its corresponding value for `priorities` in Slack Connection's configuration will be `Any Priority`.
-     */
     priorities?: string[];
-    /**
-     * Allows you to filter events by urgency. Either `high` or `low`.
-     */
     urgency?: string;
 }
 

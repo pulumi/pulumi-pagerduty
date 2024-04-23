@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,7 +46,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupIncidentCustomField(ctx *pulumi.Context, args *LookupIncidentCustomFieldArgs, opts ...pulumi.InvokeOption) (*LookupIncidentCustomFieldResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupIncidentCustomFieldResult

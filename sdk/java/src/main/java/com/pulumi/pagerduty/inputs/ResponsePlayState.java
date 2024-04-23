@@ -56,137 +56,65 @@ public final class ResponsePlayState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
-     * 
-     */
     @Import(name="from")
     private @Nullable Output<String> from;
 
-    /**
-     * @return The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
-     * 
-     */
     public Optional<Output<String>> from() {
         return Optional.ofNullable(this.from);
     }
 
-    /**
-     * The name of the response play.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the response play.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
-     * 
-     */
     @Import(name="responders")
     private @Nullable Output<List<ResponsePlayResponderArgs>> responders;
 
-    /**
-     * @return A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
-     * 
-     */
     public Optional<Output<List<ResponsePlayResponderArgs>>> responders() {
         return Optional.ofNullable(this.responders);
     }
 
-    /**
-     * The message body of the notification that will be sent to this response play&#39;s set of responders. If empty, a default response request notification will be sent.
-     * 
-     */
     @Import(name="respondersMessage")
     private @Nullable Output<String> respondersMessage;
 
-    /**
-     * @return The message body of the notification that will be sent to this response play&#39;s set of responders. If empty, a default response request notification will be sent.
-     * 
-     */
     public Optional<Output<String>> respondersMessage() {
         return Optional.ofNullable(this.respondersMessage);
     }
 
-    /**
-     * String representing how this response play is allowed to be run. Valid options are:
-     * 
-     */
     @Import(name="runnability")
     private @Nullable Output<String> runnability;
 
-    /**
-     * @return String representing how this response play is allowed to be run. Valid options are:
-     * 
-     */
     public Optional<Output<String>> runnability() {
         return Optional.ofNullable(this.runnability);
     }
 
-    /**
-     * A user and/or team to be added as a subscriber to any incident on which this response play is run. There can be multiple subscribers defined on a single response play.
-     * 
-     */
     @Import(name="subscribers")
     private @Nullable Output<List<ResponsePlaySubscriberArgs>> subscribers;
 
-    /**
-     * @return A user and/or team to be added as a subscriber to any incident on which this response play is run. There can be multiple subscribers defined on a single response play.
-     * 
-     */
     public Optional<Output<List<ResponsePlaySubscriberArgs>>> subscribers() {
         return Optional.ofNullable(this.subscribers);
     }
 
-    /**
-     * The content of the notification that will be sent to all incident subscribers upon the running of this response play. Note that this includes any users who may have already been subscribed to the incident prior to the running of this response play. If empty, no notifications will be sent.
-     * 
-     */
     @Import(name="subscribersMessage")
     private @Nullable Output<String> subscribersMessage;
 
-    /**
-     * @return The content of the notification that will be sent to all incident subscribers upon the running of this response play. Note that this includes any users who may have already been subscribed to the incident prior to the running of this response play. If empty, no notifications will be sent.
-     * 
-     */
     public Optional<Output<String>> subscribersMessage() {
         return Optional.ofNullable(this.subscribersMessage);
     }
 
-    /**
-     * The ID of the team associated with the response play.
-     * 
-     */
     @Import(name="team")
     private @Nullable Output<String> team;
 
-    /**
-     * @return The ID of the team associated with the response play.
-     * 
-     */
     public Optional<Output<String>> team() {
         return Optional.ofNullable(this.team);
     }
 
-    /**
-     * A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -277,211 +205,91 @@ public final class ResponsePlayState extends com.pulumi.resources.ResourceArgs {
             return description(Output.of(description));
         }
 
-        /**
-         * @param from The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder from(@Nullable Output<String> from) {
             $.from = from;
             return this;
         }
 
-        /**
-         * @param from The email of the user attributed to the request. Needs to be a valid email address of a user in the PagerDuty account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder from(String from) {
             return from(Output.of(from));
         }
 
-        /**
-         * @param name The name of the response play.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the response play.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param responders A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
-         * 
-         * @return builder
-         * 
-         */
         public Builder responders(@Nullable Output<List<ResponsePlayResponderArgs>> responders) {
             $.responders = responders;
             return this;
         }
 
-        /**
-         * @param responders A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
-         * 
-         * @return builder
-         * 
-         */
         public Builder responders(List<ResponsePlayResponderArgs> responders) {
             return responders(Output.of(responders));
         }
 
-        /**
-         * @param responders A user and/or escalation policy to be requested as a responder to any incident on which this response play is run. There can be multiple responders defined on a single response play.
-         * 
-         * @return builder
-         * 
-         */
         public Builder responders(ResponsePlayResponderArgs... responders) {
             return responders(List.of(responders));
         }
 
-        /**
-         * @param respondersMessage The message body of the notification that will be sent to this response play&#39;s set of responders. If empty, a default response request notification will be sent.
-         * 
-         * @return builder
-         * 
-         */
         public Builder respondersMessage(@Nullable Output<String> respondersMessage) {
             $.respondersMessage = respondersMessage;
             return this;
         }
 
-        /**
-         * @param respondersMessage The message body of the notification that will be sent to this response play&#39;s set of responders. If empty, a default response request notification will be sent.
-         * 
-         * @return builder
-         * 
-         */
         public Builder respondersMessage(String respondersMessage) {
             return respondersMessage(Output.of(respondersMessage));
         }
 
-        /**
-         * @param runnability String representing how this response play is allowed to be run. Valid options are:
-         * 
-         * @return builder
-         * 
-         */
         public Builder runnability(@Nullable Output<String> runnability) {
             $.runnability = runnability;
             return this;
         }
 
-        /**
-         * @param runnability String representing how this response play is allowed to be run. Valid options are:
-         * 
-         * @return builder
-         * 
-         */
         public Builder runnability(String runnability) {
             return runnability(Output.of(runnability));
         }
 
-        /**
-         * @param subscribers A user and/or team to be added as a subscriber to any incident on which this response play is run. There can be multiple subscribers defined on a single response play.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subscribers(@Nullable Output<List<ResponsePlaySubscriberArgs>> subscribers) {
             $.subscribers = subscribers;
             return this;
         }
 
-        /**
-         * @param subscribers A user and/or team to be added as a subscriber to any incident on which this response play is run. There can be multiple subscribers defined on a single response play.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subscribers(List<ResponsePlaySubscriberArgs> subscribers) {
             return subscribers(Output.of(subscribers));
         }
 
-        /**
-         * @param subscribers A user and/or team to be added as a subscriber to any incident on which this response play is run. There can be multiple subscribers defined on a single response play.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subscribers(ResponsePlaySubscriberArgs... subscribers) {
             return subscribers(List.of(subscribers));
         }
 
-        /**
-         * @param subscribersMessage The content of the notification that will be sent to all incident subscribers upon the running of this response play. Note that this includes any users who may have already been subscribed to the incident prior to the running of this response play. If empty, no notifications will be sent.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subscribersMessage(@Nullable Output<String> subscribersMessage) {
             $.subscribersMessage = subscribersMessage;
             return this;
         }
 
-        /**
-         * @param subscribersMessage The content of the notification that will be sent to all incident subscribers upon the running of this response play. Note that this includes any users who may have already been subscribed to the incident prior to the running of this response play. If empty, no notifications will be sent.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subscribersMessage(String subscribersMessage) {
             return subscribersMessage(Output.of(subscribersMessage));
         }
 
-        /**
-         * @param team The ID of the team associated with the response play.
-         * 
-         * @return builder
-         * 
-         */
         public Builder team(@Nullable Output<String> team) {
             $.team = team;
             return this;
         }
 
-        /**
-         * @param team The ID of the team associated with the response play.
-         * 
-         * @return builder
-         * 
-         */
         public Builder team(String team) {
             return team(Output.of(team));
         }
 
-        /**
-         * @param type A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type A string that determines the schema of the object. If not set, the default value is &#34;response_play&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

@@ -120,59 +120,27 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="pagerduty:index/userNotificationRule:UserNotificationRule")
 public class UserNotificationRule extends com.pulumi.resources.CustomResource {
-    /**
-     * A contact method block, configured as a block described below.
-     * 
-     */
     @Export(name="contactMethod", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> contactMethod;
 
-    /**
-     * @return A contact method block, configured as a block described below.
-     * 
-     */
     public Output<Map<String,String>> contactMethod() {
         return this.contactMethod;
     }
-    /**
-     * The delay before firing the rule, in minutes.
-     * 
-     */
     @Export(name="startDelayInMinutes", refs={Integer.class}, tree="[0]")
     private Output<Integer> startDelayInMinutes;
 
-    /**
-     * @return The delay before firing the rule, in minutes.
-     * 
-     */
     public Output<Integer> startDelayInMinutes() {
         return this.startDelayInMinutes;
     }
-    /**
-     * Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
-     * 
-     */
     @Export(name="urgency", refs={String.class}, tree="[0]")
     private Output<String> urgency;
 
-    /**
-     * @return Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
-     * 
-     */
     public Output<String> urgency() {
         return this.urgency;
     }
-    /**
-     * The ID of the user.
-     * 
-     */
     @Export(name="userId", refs={String.class}, tree="[0]")
     private Output<String> userId;
 
-    /**
-     * @return The ID of the user.
-     * 
-     */
     public Output<String> userId() {
         return this.userId;
     }

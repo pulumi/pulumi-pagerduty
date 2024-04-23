@@ -60,7 +60,6 @@ def get_tag(label: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -72,7 +71,6 @@ def get_tag(label: Optional[str] = None,
         entity_id=me.id,
         entity_type="users")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str label: The label of the tag to find in the PagerDuty API.
@@ -95,7 +93,6 @@ def get_tag_output(label: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -107,7 +104,6 @@ def get_tag_output(label: Optional[pulumi.Input[str]] = None,
         entity_id=me.id,
         entity_type="users")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str label: The label of the tag to find in the PagerDuty API.

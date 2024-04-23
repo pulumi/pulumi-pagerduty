@@ -16,31 +16,23 @@ public final class ServiceIncidentUrgencyRuleDuringSupportHoursArgs extends com.
     public static final ServiceIncidentUrgencyRuleDuringSupportHoursArgs Empty = new ServiceIncidentUrgencyRuleDuringSupportHoursArgs();
 
     /**
-     * The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+     * The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+     * @return The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
      * 
      */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
 
-    /**
-     * The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
-     * 
-     */
     @Import(name="urgency")
     private @Nullable Output<String> urgency;
 
-    /**
-     * @return The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
-     * 
-     */
     public Optional<Output<String>> urgency() {
         return Optional.ofNullable(this.urgency);
     }
@@ -71,7 +63,7 @@ public final class ServiceIncidentUrgencyRuleDuringSupportHoursArgs extends com.
         }
 
         /**
-         * @param type The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+         * @param type The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
          * 
          * @return builder
          * 
@@ -82,7 +74,7 @@ public final class ServiceIncidentUrgencyRuleDuringSupportHoursArgs extends com.
         }
 
         /**
-         * @param type The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+         * @param type The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
          * 
          * @return builder
          * 
@@ -91,23 +83,11 @@ public final class ServiceIncidentUrgencyRuleDuringSupportHoursArgs extends com.
             return type(Output.of(type));
         }
 
-        /**
-         * @param urgency The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder urgency(@Nullable Output<String> urgency) {
             $.urgency = urgency;
             return this;
         }
 
-        /**
-         * @param urgency The urgency: `low` Notify responders (does not escalate), `high` (follows escalation rules) or `severity_based` Set&#39;s the urgency of the incident based on the severity set by the triggering monitoring tool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder urgency(String urgency) {
             return urgency(Output.of(urgency));
         }

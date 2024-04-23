@@ -184,7 +184,6 @@ class EventOrchestration(pulumi.CustomResource):
 
         ## Example of configuring an Event Orchestration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -195,7 +194,6 @@ class EventOrchestration(pulumi.CustomResource):
             description="Send events to a pair of services",
             team=engineering.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -223,7 +221,6 @@ class EventOrchestration(pulumi.CustomResource):
 
         ## Example of configuring an Event Orchestration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -234,7 +231,6 @@ class EventOrchestration(pulumi.CustomResource):
             description="Send events to a pair of services",
             team=engineering.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

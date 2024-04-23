@@ -73,7 +73,6 @@ def get_team_members(team_id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -81,7 +80,6 @@ def get_team_members(team_id: Optional[str] = None,
     devops = pagerduty.get_team(name="devops")
     devops_members = pagerduty.get_team_members(team_id=devops.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str team_id: The ID of the team to find in the PagerDuty API.
@@ -105,7 +103,6 @@ def get_team_members_output(team_id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pagerduty as pagerduty
@@ -113,7 +110,6 @@ def get_team_members_output(team_id: Optional[pulumi.Input[str]] = None,
     devops = pagerduty.get_team(name="devops")
     devops_members = pagerduty.get_team_members(team_id=devops.id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str team_id: The ID of the team to find in the PagerDuty API.

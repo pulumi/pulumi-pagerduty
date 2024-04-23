@@ -13,69 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SlackConnectionConfig {
-    /**
-     * @return A list of strings to filter events by PagerDuty event type. `&#34;incident.triggered&#34;` is required. The follow event types are also possible:
-     * - `incident.acknowledged`
-     * - `incident.escalated`
-     * - `incident.resolved`
-     * - `incident.reassigned`
-     * - `incident.annotated`
-     * - `incident.unacknowledged`
-     * - `incident.delegated`
-     * - `incident.priority_updated`
-     * - `incident.responder.added`
-     * - `incident.responder.replied`
-     * - `incident.status_update_published`
-     * - `incident.reopened`
-     * 
-     */
     private List<String> events;
-    /**
-     * @return Allows you to filter events by priority. Needs to be an array of PagerDuty priority IDs. Available through pagerduty.getPriority data source.
-     * - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behaviour is to set `priorities` to `No Priority` value.
-     * - When set to `[&#34;*&#34;]` its corresponding value for `priorities` in Slack Connection&#39;s configuration will be `Any Priority`.
-     * 
-     */
     private @Nullable List<String> priorities;
-    /**
-     * @return Allows you to filter events by urgency. Either `high` or `low`.
-     * 
-     */
     private @Nullable String urgency;
 
     private SlackConnectionConfig() {}
-    /**
-     * @return A list of strings to filter events by PagerDuty event type. `&#34;incident.triggered&#34;` is required. The follow event types are also possible:
-     * - `incident.acknowledged`
-     * - `incident.escalated`
-     * - `incident.resolved`
-     * - `incident.reassigned`
-     * - `incident.annotated`
-     * - `incident.unacknowledged`
-     * - `incident.delegated`
-     * - `incident.priority_updated`
-     * - `incident.responder.added`
-     * - `incident.responder.replied`
-     * - `incident.status_update_published`
-     * - `incident.reopened`
-     * 
-     */
     public List<String> events() {
         return this.events;
     }
-    /**
-     * @return Allows you to filter events by priority. Needs to be an array of PagerDuty priority IDs. Available through pagerduty.getPriority data source.
-     * - When omitted or set to an empty array (`[]`) in the configuration for a Slack Connection, its default behaviour is to set `priorities` to `No Priority` value.
-     * - When set to `[&#34;*&#34;]` its corresponding value for `priorities` in Slack Connection&#39;s configuration will be `Any Priority`.
-     * 
-     */
     public List<String> priorities() {
         return this.priorities == null ? List.of() : this.priorities;
     }
-    /**
-     * @return Allows you to filter events by urgency. Either `high` or `low`.
-     * 
-     */
     public Optional<String> urgency() {
         return Optional.ofNullable(this.urgency);
     }

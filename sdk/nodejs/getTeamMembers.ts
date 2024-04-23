@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -23,7 +22,6 @@ import * as utilities from "./utilities";
  *     teamId: devops.id,
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTeamMembers(args: GetTeamMembersArgs, opts?: pulumi.InvokeOptions): Promise<GetTeamMembersResult> {
 
@@ -62,7 +60,6 @@ export interface GetTeamMembersResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -74,7 +71,6 @@ export interface GetTeamMembersResult {
  *     teamId: devops.id,
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTeamMembersOutput(args: GetTeamMembersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTeamMembersResult> {
     return pulumi.output(args).apply((a: any) => getTeamMembers(a, opts))

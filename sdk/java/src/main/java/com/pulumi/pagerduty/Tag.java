@@ -74,17 +74,9 @@ public class Tag extends com.pulumi.resources.CustomResource {
     public Output<String> htmlUrl() {
         return this.htmlUrl;
     }
-    /**
-     * The label of the tag.
-     * 
-     */
     @Export(name="label", refs={String.class}, tree="[0]")
     private Output<String> label;
 
-    /**
-     * @return The label of the tag.
-     * 
-     */
     public Output<String> label() {
         return this.label;
     }

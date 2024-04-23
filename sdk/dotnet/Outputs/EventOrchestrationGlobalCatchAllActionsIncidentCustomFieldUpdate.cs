@@ -18,7 +18,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The Regex expression to match against. Must use valid [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) syntax.
+        /// The value to assign to this custom field
         /// </summary>
         public readonly string Value;
 

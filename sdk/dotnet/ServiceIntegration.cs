@@ -14,7 +14,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -198,7 +197,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -211,27 +209,18 @@ namespace Pulumi.Pagerduty
     [PagerdutyResourceType("pagerduty:index/serviceIntegration:ServiceIntegration")]
     public partial class ServiceIntegration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.
-        /// </summary>
         [Output("emailFilterMode")]
         public Output<string> EmailFilterMode { get; private set; } = null!;
 
         [Output("emailFilters")]
         public Output<ImmutableArray<Outputs.ServiceIntegrationEmailFilter>> EmailFilters { get; private set; } = null!;
 
-        /// <summary>
-        /// Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `on_new_email`, `on_new_email_subject`, `only_if_no_open_incidents` or `use_rules`.
-        /// </summary>
         [Output("emailIncidentCreation")]
         public Output<string> EmailIncidentCreation { get; private set; } = null!;
 
         [Output("emailParsers")]
         public Output<ImmutableArray<Outputs.ServiceIntegrationEmailParser>> EmailParsers { get; private set; } = null!;
 
-        /// <summary>
-        /// Can be `open_new_incident` or `discard`.
-        /// </summary>
         [Output("emailParsingFallback")]
         public Output<string> EmailParsingFallback { get; private set; } = null!;
 
@@ -248,44 +237,20 @@ namespace Pulumi.Pagerduty
         public Output<string> IntegrationEmail { get; private set; } = null!;
 
         /// <summary>
-        /// (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+        /// This is the unique key used to route events to this integration when received via the PagerDuty Events API.
         /// </summary>
         [Output("integrationKey")]
         public Output<string> IntegrationKey { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the service integration.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the service the integration should belong to.
-        /// </summary>
         [Output("service")]
         public Output<string> Service { get; private set; } = null!;
 
-        /// <summary>
-        /// The service type. Can be:
-        /// `aws_cloudwatch_inbound_integration`,
-        /// `cloudkick_inbound_integration`,
-        /// `event_transformer_api_inbound_integration`,
-        /// `events_api_v2_inbound_integration` (requires service `alert_creation` to be `create_alerts_and_incidents`),
-        /// `generic_email_inbound_integration`,
-        /// `generic_events_api_inbound_integration`,
-        /// `keynote_inbound_integration`,
-        /// `nagios_inbound_integration`,
-        /// `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
-        /// 
-        /// **Note:** This is meant for **generic** service integrations.
-        /// To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
-        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
-        /// </summary>
         [Output("vendor")]
         public Output<string> Vendor { get; private set; } = null!;
 
@@ -335,9 +300,6 @@ namespace Pulumi.Pagerduty
 
     public sealed class ServiceIntegrationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.
-        /// </summary>
         [Input("emailFilterMode")]
         public Input<string>? EmailFilterMode { get; set; }
 
@@ -349,9 +311,6 @@ namespace Pulumi.Pagerduty
             set => _emailFilters = value;
         }
 
-        /// <summary>
-        /// Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `on_new_email`, `on_new_email_subject`, `only_if_no_open_incidents` or `use_rules`.
-        /// </summary>
         [Input("emailIncidentCreation")]
         public Input<string>? EmailIncidentCreation { get; set; }
 
@@ -363,9 +322,6 @@ namespace Pulumi.Pagerduty
             set => _emailParsers = value;
         }
 
-        /// <summary>
-        /// Can be `open_new_incident` or `discard`.
-        /// </summary>
         [Input("emailParsingFallback")]
         public Input<string>? EmailParsingFallback { get; set; }
 
@@ -376,44 +332,20 @@ namespace Pulumi.Pagerduty
         public Input<string>? IntegrationEmail { get; set; }
 
         /// <summary>
-        /// (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+        /// This is the unique key used to route events to this integration when received via the PagerDuty Events API.
         /// </summary>
         [Input("integrationKey")]
         public Input<string>? IntegrationKey { get; set; }
 
-        /// <summary>
-        /// The name of the service integration.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The ID of the service the integration should belong to.
-        /// </summary>
         [Input("service", required: true)]
         public Input<string> Service { get; set; } = null!;
 
-        /// <summary>
-        /// The service type. Can be:
-        /// `aws_cloudwatch_inbound_integration`,
-        /// `cloudkick_inbound_integration`,
-        /// `event_transformer_api_inbound_integration`,
-        /// `events_api_v2_inbound_integration` (requires service `alert_creation` to be `create_alerts_and_incidents`),
-        /// `generic_email_inbound_integration`,
-        /// `generic_events_api_inbound_integration`,
-        /// `keynote_inbound_integration`,
-        /// `nagios_inbound_integration`,
-        /// `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
-        /// 
-        /// **Note:** This is meant for **generic** service integrations.
-        /// To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        /// <summary>
-        /// The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
-        /// </summary>
         [Input("vendor")]
         public Input<string>? Vendor { get; set; }
 
@@ -425,9 +357,6 @@ namespace Pulumi.Pagerduty
 
     public sealed class ServiceIntegrationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Mode of Emails Filters feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#configure-a-regex-filter)). Can be `all-email`, `or-rules-email` or `and-rules-email`.
-        /// </summary>
         [Input("emailFilterMode")]
         public Input<string>? EmailFilterMode { get; set; }
 
@@ -439,9 +368,6 @@ namespace Pulumi.Pagerduty
             set => _emailFilters = value;
         }
 
-        /// <summary>
-        /// Behaviour of Email Management feature ([explained in PD docs](https://support.pagerduty.com/docs/email-management-filters-and-rules#control-when-a-new-incident-or-alert-is-triggered)). Can be `on_new_email`, `on_new_email_subject`, `only_if_no_open_incidents` or `use_rules`.
-        /// </summary>
         [Input("emailIncidentCreation")]
         public Input<string>? EmailIncidentCreation { get; set; }
 
@@ -453,9 +379,6 @@ namespace Pulumi.Pagerduty
             set => _emailParsers = value;
         }
 
-        /// <summary>
-        /// Can be `open_new_incident` or `discard`.
-        /// </summary>
         [Input("emailParsingFallback")]
         public Input<string>? EmailParsingFallback { get; set; }
 
@@ -472,44 +395,20 @@ namespace Pulumi.Pagerduty
         public Input<string>? IntegrationEmail { get; set; }
 
         /// <summary>
-        /// (Deprecated) This is the unique key used to route events to this integration when received via the PagerDuty Events API.
+        /// This is the unique key used to route events to this integration when received via the PagerDuty Events API.
         /// </summary>
         [Input("integrationKey")]
         public Input<string>? IntegrationKey { get; set; }
 
-        /// <summary>
-        /// The name of the service integration.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The ID of the service the integration should belong to.
-        /// </summary>
         [Input("service")]
         public Input<string>? Service { get; set; }
 
-        /// <summary>
-        /// The service type. Can be:
-        /// `aws_cloudwatch_inbound_integration`,
-        /// `cloudkick_inbound_integration`,
-        /// `event_transformer_api_inbound_integration`,
-        /// `events_api_v2_inbound_integration` (requires service `alert_creation` to be `create_alerts_and_incidents`),
-        /// `generic_email_inbound_integration`,
-        /// `generic_events_api_inbound_integration`,
-        /// `keynote_inbound_integration`,
-        /// `nagios_inbound_integration`,
-        /// `pingdom_inbound_integration`or `sql_monitor_inbound_integration`.
-        /// 
-        /// **Note:** This is meant for **generic** service integrations.
-        /// To integrate with a **vendor** (e.g. Datadog or Amazon Cloudwatch) use the `vendor` field instead.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        /// <summary>
-        /// The ID of the vendor the integration should integrate with (e.g. Datadog or Amazon Cloudwatch).
-        /// </summary>
         [Input("vendor")]
         public Input<string>? Vendor { get; set; }
 

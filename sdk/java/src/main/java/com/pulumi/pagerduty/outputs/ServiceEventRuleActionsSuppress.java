@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceEventRuleActionsSuppress {
-    /**
-     * @return The number value of the `threshold_time_unit` before an incident is created.
-     * 
-     */
     private @Nullable Integer thresholdTimeAmount;
-    /**
-     * @return The `seconds`,`minutes`, or `hours` the `threshold_time_amount` should be measured.
-     * 
-     */
     private @Nullable String thresholdTimeUnit;
-    /**
-     * @return The number of alerts that should be suppressed.
-     * 
-     */
     private @Nullable Integer thresholdValue;
-    /**
-     * @return Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-     * 
-     */
     private @Nullable Boolean value;
 
     private ServiceEventRuleActionsSuppress() {}
-    /**
-     * @return The number value of the `threshold_time_unit` before an incident is created.
-     * 
-     */
     public Optional<Integer> thresholdTimeAmount() {
         return Optional.ofNullable(this.thresholdTimeAmount);
     }
-    /**
-     * @return The `seconds`,`minutes`, or `hours` the `threshold_time_amount` should be measured.
-     * 
-     */
     public Optional<String> thresholdTimeUnit() {
         return Optional.ofNullable(this.thresholdTimeUnit);
     }
-    /**
-     * @return The number of alerts that should be suppressed.
-     * 
-     */
     public Optional<Integer> thresholdValue() {
         return Optional.ofNullable(this.thresholdValue);
     }
-    /**
-     * @return Boolean value that indicates if the alert should be suppressed before the indicated threshold values are met.
-     * 
-     */
     public Optional<Boolean> value() {
         return Optional.ofNullable(this.value);
     }

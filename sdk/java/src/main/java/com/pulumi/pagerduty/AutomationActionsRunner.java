@@ -98,17 +98,9 @@ public class AutomationActionsRunner extends com.pulumi.resources.CustomResource
     public Output<String> creationTime() {
         return this.creationTime;
     }
-    /**
-     * The description of the runner. Max length is 1024 characters.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return The description of the runner. Max length is 1024 characters.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
@@ -126,59 +118,27 @@ public class AutomationActionsRunner extends com.pulumi.resources.CustomResource
     public Output<String> lastSeen() {
         return this.lastSeen;
     }
-    /**
-     * The name of the runner. Max length is 255 characters.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the runner. Max length is 255 characters.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The unique User API Token created in Runbook Automation.
-     * 
-     */
     @Export(name="runbookApiKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runbookApiKey;
 
-    /**
-     * @return The unique User API Token created in Runbook Automation.
-     * 
-     */
     public Output<Optional<String>> runbookApiKey() {
         return Codegen.optional(this.runbookApiKey);
     }
-    /**
-     * The subdomain for your Runbook Automation Instance.
-     * 
-     */
     @Export(name="runbookBaseUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runbookBaseUri;
 
-    /**
-     * @return The subdomain for your Runbook Automation Instance.
-     * 
-     */
     public Output<Optional<String>> runbookBaseUri() {
         return Codegen.optional(this.runbookBaseUri);
     }
-    /**
-     * The type of runner. The only allowed values is `runbook`.
-     * 
-     */
     @Export(name="runnerType", refs={String.class}, tree="[0]")
     private Output<String> runnerType;
 
-    /**
-     * @return The type of runner. The only allowed values is `runbook`.
-     * 
-     */
     public Output<String> runnerType() {
         return this.runnerType;
     }

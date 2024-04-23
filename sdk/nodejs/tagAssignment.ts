@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -22,7 +21,6 @@ import * as utilities from "./utilities";
  *     entityId: engteam.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -60,17 +58,8 @@ export class TagAssignment extends pulumi.CustomResource {
         return obj['__pulumiType'] === TagAssignment.__pulumiType;
     }
 
-    /**
-     * The ID of the entity.
-     */
     public readonly entityId!: pulumi.Output<string>;
-    /**
-     * Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalationPolicies`.
-     */
     public readonly entityType!: pulumi.Output<string>;
-    /**
-     * The ID of the tag.
-     */
     public readonly tagId!: pulumi.Output<string>;
 
     /**
@@ -113,17 +102,8 @@ export class TagAssignment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TagAssignment resources.
  */
 export interface TagAssignmentState {
-    /**
-     * The ID of the entity.
-     */
     entityId?: pulumi.Input<string>;
-    /**
-     * Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalationPolicies`.
-     */
     entityType?: pulumi.Input<string>;
-    /**
-     * The ID of the tag.
-     */
     tagId?: pulumi.Input<string>;
 }
 
@@ -131,16 +111,7 @@ export interface TagAssignmentState {
  * The set of arguments for constructing a TagAssignment resource.
  */
 export interface TagAssignmentArgs {
-    /**
-     * The ID of the entity.
-     */
     entityId: pulumi.Input<string>;
-    /**
-     * Type of entity in the tag assignment. Possible values can be `users`, `teams`, and `escalationPolicies`.
-     */
     entityType: pulumi.Input<string>;
-    /**
-     * The ID of the tag.
-     */
     tagId: pulumi.Input<string>;
 }

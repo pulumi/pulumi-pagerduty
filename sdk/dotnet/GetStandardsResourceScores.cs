@@ -17,7 +17,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -39,7 +38,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetStandardsResourceScoresResult> InvokeAsync(GetStandardsResourceScoresArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStandardsResourceScoresResult>("pagerduty:index/getStandardsResourceScores:getStandardsResourceScores", args ?? new GetStandardsResourceScoresArgs(), options.WithDefaults());
@@ -50,7 +48,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -72,7 +69,6 @@ namespace Pulumi.Pagerduty
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetStandardsResourceScoresResult> Invoke(GetStandardsResourceScoresInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStandardsResourceScoresResult>("pagerduty:index/getStandardsResourceScores:getStandardsResourceScores", args ?? new GetStandardsResourceScoresInvokeArgs(), options.WithDefaults());

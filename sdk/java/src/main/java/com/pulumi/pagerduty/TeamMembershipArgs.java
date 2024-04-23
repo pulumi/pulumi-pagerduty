@@ -17,20 +17,14 @@ public final class TeamMembershipArgs extends com.pulumi.resources.ResourceArgs 
     public static final TeamMembershipArgs Empty = new TeamMembershipArgs();
 
     /**
-     * The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.\
-     * These roles match up to user roles in the following ways:
-     * * User role of `user` is a Team role of `manager`
-     * * User role of `limited_user` is a Team role of `responder`
+     * The role of the user in the team.
      * 
      */
     @Import(name="role")
     private @Nullable Output<String> role;
 
     /**
-     * @return The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.\
-     * These roles match up to user roles in the following ways:
-     * * User role of `user` is a Team role of `manager`
-     * * User role of `limited_user` is a Team role of `responder`
+     * @return The role of the user in the team.
      * 
      */
     public Optional<Output<String>> role() {
@@ -38,14 +32,14 @@ public final class TeamMembershipArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The ID of the team in which the user will belong.
+     * The team ID the user belongs to.
      * 
      */
     @Import(name="teamId", required=true)
     private Output<String> teamId;
 
     /**
-     * @return The ID of the team in which the user will belong.
+     * @return The team ID the user belongs to.
      * 
      */
     public Output<String> teamId() {
@@ -53,14 +47,14 @@ public final class TeamMembershipArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The ID of the user to add to the team.
+     * The ID of the user belonging to the team.
      * 
      */
     @Import(name="userId", required=true)
     private Output<String> userId;
 
     /**
-     * @return The ID of the user to add to the team.
+     * @return The ID of the user belonging to the team.
      * 
      */
     public Output<String> userId() {
@@ -94,10 +88,7 @@ public final class TeamMembershipArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param role The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.\
-         * These roles match up to user roles in the following ways:
-         * * User role of `user` is a Team role of `manager`
-         * * User role of `limited_user` is a Team role of `responder`
+         * @param role The role of the user in the team.
          * 
          * @return builder
          * 
@@ -108,10 +99,7 @@ public final class TeamMembershipArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param role The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.\
-         * These roles match up to user roles in the following ways:
-         * * User role of `user` is a Team role of `manager`
-         * * User role of `limited_user` is a Team role of `responder`
+         * @param role The role of the user in the team.
          * 
          * @return builder
          * 
@@ -121,7 +109,7 @@ public final class TeamMembershipArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param teamId The ID of the team in which the user will belong.
+         * @param teamId The team ID the user belongs to.
          * 
          * @return builder
          * 
@@ -132,7 +120,7 @@ public final class TeamMembershipArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param teamId The ID of the team in which the user will belong.
+         * @param teamId The team ID the user belongs to.
          * 
          * @return builder
          * 
@@ -142,7 +130,7 @@ public final class TeamMembershipArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param userId The ID of the user to add to the team.
+         * @param userId The ID of the user belonging to the team.
          * 
          * @return builder
          * 
@@ -153,7 +141,7 @@ public final class TeamMembershipArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param userId The ID of the user to add to the team.
+         * @param userId The ID of the user belonging to the team.
          * 
          * @return builder
          * 

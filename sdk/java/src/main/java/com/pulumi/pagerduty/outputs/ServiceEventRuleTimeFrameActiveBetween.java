@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceEventRuleTimeFrameActiveBetween {
-    /**
-     * @return Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
-     * 
-     */
     private @Nullable Integer endTime;
-    /**
-     * @return Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
-     * 
-     */
     private @Nullable Integer startTime;
 
     private ServiceEventRuleTimeFrameActiveBetween() {}
-    /**
-     * @return Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
-     * 
-     */
     public Optional<Integer> endTime() {
         return Optional.ofNullable(this.endTime);
     }
-    /**
-     * @return Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
-     * 
-     */
     public Optional<Integer> startTime() {
         return Optional.ofNullable(this.startTime);
     }

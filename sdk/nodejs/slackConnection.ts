@@ -15,7 +15,6 @@ import * as utilities from "./utilities";
  * * This resource is for configuring Slack V2 Next Generation connections. If you configured your Slack integration (V1 or V2) prior to August 10, 2021, you may migrate to the Slack V2 Next Generation update using this [migration instructions](https://support.pagerduty.com/docs/slack-integration-guide#migrate-to-slack-v2-next-generation), but if you configured your Slack integration after that date, you will have access to the update out of the box.
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pagerduty from "@pulumi/pagerduty";
@@ -50,7 +49,6 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -88,37 +86,19 @@ export class SlackConnection extends pulumi.CustomResource {
         return obj['__pulumiType'] === SlackConnection.__pulumiType;
     }
 
-    /**
-     * The ID of a Slack channel in the workspace.
-     */
     public readonly channelId!: pulumi.Output<string>;
     /**
      * Name of the Slack channel in Slack connection.
      */
     public /*out*/ readonly channelName!: pulumi.Output<string>;
-    /**
-     * Configuration options for the Slack connection that provide options to filter events.
-     */
     public readonly configs!: pulumi.Output<outputs.SlackConnectionConfig[]>;
-    /**
-     * Type of notification. Either `responder` or `stakeholder`.
-     */
     public readonly notificationType!: pulumi.Output<string>;
-    /**
-     * The ID of the source in PagerDuty. Valid sources are services or teams.
-     */
     public readonly sourceId!: pulumi.Output<string>;
     /**
      * Name of the source (team or service) in Slack connection.
      */
     public /*out*/ readonly sourceName!: pulumi.Output<string>;
-    /**
-     * The type of the source. Either `teamReference` or `serviceReference`.
-     */
     public readonly sourceType!: pulumi.Output<string>;
-    /**
-     * The slack team (workspace) ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
-     */
     public readonly workspaceId!: pulumi.Output<string>;
 
     /**
@@ -180,37 +160,19 @@ export class SlackConnection extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SlackConnection resources.
  */
 export interface SlackConnectionState {
-    /**
-     * The ID of a Slack channel in the workspace.
-     */
     channelId?: pulumi.Input<string>;
     /**
      * Name of the Slack channel in Slack connection.
      */
     channelName?: pulumi.Input<string>;
-    /**
-     * Configuration options for the Slack connection that provide options to filter events.
-     */
     configs?: pulumi.Input<pulumi.Input<inputs.SlackConnectionConfig>[]>;
-    /**
-     * Type of notification. Either `responder` or `stakeholder`.
-     */
     notificationType?: pulumi.Input<string>;
-    /**
-     * The ID of the source in PagerDuty. Valid sources are services or teams.
-     */
     sourceId?: pulumi.Input<string>;
     /**
      * Name of the source (team or service) in Slack connection.
      */
     sourceName?: pulumi.Input<string>;
-    /**
-     * The type of the source. Either `teamReference` or `serviceReference`.
-     */
     sourceType?: pulumi.Input<string>;
-    /**
-     * The slack team (workspace) ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
-     */
     workspaceId?: pulumi.Input<string>;
 }
 
@@ -218,28 +180,10 @@ export interface SlackConnectionState {
  * The set of arguments for constructing a SlackConnection resource.
  */
 export interface SlackConnectionArgs {
-    /**
-     * The ID of a Slack channel in the workspace.
-     */
     channelId: pulumi.Input<string>;
-    /**
-     * Configuration options for the Slack connection that provide options to filter events.
-     */
     configs: pulumi.Input<pulumi.Input<inputs.SlackConnectionConfig>[]>;
-    /**
-     * Type of notification. Either `responder` or `stakeholder`.
-     */
     notificationType: pulumi.Input<string>;
-    /**
-     * The ID of the source in PagerDuty. Valid sources are services or teams.
-     */
     sourceId: pulumi.Input<string>;
-    /**
-     * The type of the source. Either `teamReference` or `serviceReference`.
-     */
     sourceType: pulumi.Input<string>;
-    /**
-     * The slack team (workspace) ID of the connected Slack workspace. Can also be defined by the `SLACK_CONNECTION_WORKSPACE_ID` environment variable.
-     */
     workspaceId: pulumi.Input<string>;
 }

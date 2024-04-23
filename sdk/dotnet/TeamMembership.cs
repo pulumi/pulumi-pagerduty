@@ -12,7 +12,6 @@ namespace Pulumi.Pagerduty
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -42,7 +41,6 @@ namespace Pulumi.Pagerduty
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -56,22 +54,19 @@ namespace Pulumi.Pagerduty
     public partial class TeamMembership : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  
-        /// These roles match up to user roles in the following ways:
-        /// * User role of `user` is a Team role of `manager`
-        /// * User role of `limited_user` is a Team role of `responder`
+        /// The role of the user in the team.
         /// </summary>
         [Output("role")]
         public Output<string?> Role { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the team in which the user will belong.
+        /// The team ID the user belongs to.
         /// </summary>
         [Output("teamId")]
         public Output<string> TeamId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the user to add to the team.
+        /// The ID of the user belonging to the team.
         /// </summary>
         [Output("userId")]
         public Output<string> UserId { get; private set; } = null!;
@@ -123,22 +118,19 @@ namespace Pulumi.Pagerduty
     public sealed class TeamMembershipArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  
-        /// These roles match up to user roles in the following ways:
-        /// * User role of `user` is a Team role of `manager`
-        /// * User role of `limited_user` is a Team role of `responder`
+        /// The role of the user in the team.
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
 
         /// <summary>
-        /// The ID of the team in which the user will belong.
+        /// The team ID the user belongs to.
         /// </summary>
         [Input("teamId", required: true)]
         public Input<string> TeamId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the user to add to the team.
+        /// The ID of the user belonging to the team.
         /// </summary>
         [Input("userId", required: true)]
         public Input<string> UserId { get; set; } = null!;
@@ -152,22 +144,19 @@ namespace Pulumi.Pagerduty
     public sealed class TeamMembershipState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  
-        /// These roles match up to user roles in the following ways:
-        /// * User role of `user` is a Team role of `manager`
-        /// * User role of `limited_user` is a Team role of `responder`
+        /// The role of the user in the team.
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
 
         /// <summary>
-        /// The ID of the team in which the user will belong.
+        /// The team ID the user belongs to.
         /// </summary>
         [Input("teamId")]
         public Input<string>? TeamId { get; set; }
 
         /// <summary>
-        /// The ID of the user to add to the team.
+        /// The ID of the user belonging to the team.
         /// </summary>
         [Input("userId")]
         public Input<string>? UserId { get; set; }

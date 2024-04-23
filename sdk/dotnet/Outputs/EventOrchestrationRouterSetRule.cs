@@ -26,7 +26,7 @@ namespace Pulumi.Pagerduty.Outputs
         /// </summary>
         public readonly bool? Disabled;
         /// <summary>
-        /// ID of the `start` set. Router supports only one set and it's id has to be `start`
+        /// The ID of the rule within the `start` set.
         /// </summary>
         public readonly string? Id;
         /// <summary>

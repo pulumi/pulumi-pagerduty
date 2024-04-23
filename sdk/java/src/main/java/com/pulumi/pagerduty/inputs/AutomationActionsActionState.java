@@ -16,47 +16,23 @@ public final class AutomationActionsActionState extends com.pulumi.resources.Res
 
     public static final AutomationActionsActionState Empty = new AutomationActionsActionState();
 
-    /**
-     * The category of the action. The only allowed values are `diagnostic` and `remediation`.
-     * 
-     */
     @Import(name="actionClassification")
     private @Nullable Output<String> actionClassification;
 
-    /**
-     * @return The category of the action. The only allowed values are `diagnostic` and `remediation`.
-     * 
-     */
     public Optional<Output<String>> actionClassification() {
         return Optional.ofNullable(this.actionClassification);
     }
 
-    /**
-     * Action Data block. Action Data is documented below.
-     * 
-     */
     @Import(name="actionDataReference")
     private @Nullable Output<AutomationActionsActionActionDataReferenceArgs> actionDataReference;
 
-    /**
-     * @return Action Data block. Action Data is documented below.
-     * 
-     */
     public Optional<Output<AutomationActionsActionActionDataReferenceArgs>> actionDataReference() {
         return Optional.ofNullable(this.actionDataReference);
     }
 
-    /**
-     * The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
-     * 
-     */
     @Import(name="actionType")
     private @Nullable Output<String> actionType;
 
-    /**
-     * @return The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
-     * 
-     */
     public Optional<Output<String>> actionType() {
         return Optional.ofNullable(this.actionType);
     }
@@ -76,17 +52,9 @@ public final class AutomationActionsActionState extends com.pulumi.resources.Res
         return Optional.ofNullable(this.creationTime);
     }
 
-    /**
-     * The description of the action. Max length is 1024 characters.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return The description of the action. Max length is 1024 characters.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
@@ -106,32 +74,16 @@ public final class AutomationActionsActionState extends com.pulumi.resources.Res
         return Optional.ofNullable(this.modifyTime);
     }
 
-    /**
-     * The name of the action. Max length is 255 characters.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the action. Max length is 255 characters.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The Process Automation Actions runner to associate the action with. Cannot be changed for the `process_automation` action type once set.
-     * 
-     */
     @Import(name="runnerId")
     private @Nullable Output<String> runnerId;
 
-    /**
-     * @return The Process Automation Actions runner to associate the action with. Cannot be changed for the `process_automation` action type once set.
-     * 
-     */
     public Optional<Output<String>> runnerId() {
         return Optional.ofNullable(this.runnerId);
     }
@@ -199,65 +151,29 @@ public final class AutomationActionsActionState extends com.pulumi.resources.Res
             $ = new AutomationActionsActionState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param actionClassification The category of the action. The only allowed values are `diagnostic` and `remediation`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actionClassification(@Nullable Output<String> actionClassification) {
             $.actionClassification = actionClassification;
             return this;
         }
 
-        /**
-         * @param actionClassification The category of the action. The only allowed values are `diagnostic` and `remediation`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actionClassification(String actionClassification) {
             return actionClassification(Output.of(actionClassification));
         }
 
-        /**
-         * @param actionDataReference Action Data block. Action Data is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actionDataReference(@Nullable Output<AutomationActionsActionActionDataReferenceArgs> actionDataReference) {
             $.actionDataReference = actionDataReference;
             return this;
         }
 
-        /**
-         * @param actionDataReference Action Data block. Action Data is documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actionDataReference(AutomationActionsActionActionDataReferenceArgs actionDataReference) {
             return actionDataReference(Output.of(actionDataReference));
         }
 
-        /**
-         * @param actionType The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actionType(@Nullable Output<String> actionType) {
             $.actionType = actionType;
             return this;
         }
 
-        /**
-         * @param actionType The type of the action. The only allowed values are `process_automation` and `script`. Cannot be changed once set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actionType(String actionType) {
             return actionType(Output.of(actionType));
         }
@@ -283,23 +199,11 @@ public final class AutomationActionsActionState extends com.pulumi.resources.Res
             return creationTime(Output.of(creationTime));
         }
 
-        /**
-         * @param description The description of the action. Max length is 1024 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description The description of the action. Max length is 1024 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
@@ -325,44 +229,20 @@ public final class AutomationActionsActionState extends com.pulumi.resources.Res
             return modifyTime(Output.of(modifyTime));
         }
 
-        /**
-         * @param name The name of the action. Max length is 255 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the action. Max length is 255 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param runnerId The Process Automation Actions runner to associate the action with. Cannot be changed for the `process_automation` action type once set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder runnerId(@Nullable Output<String> runnerId) {
             $.runnerId = runnerId;
             return this;
         }
 
-        /**
-         * @param runnerId The Process Automation Actions runner to associate the action with. Cannot be changed for the `process_automation` action type once set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder runnerId(String runnerId) {
             return runnerId(Output.of(runnerId));
         }

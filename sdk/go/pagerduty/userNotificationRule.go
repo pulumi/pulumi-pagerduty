@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -106,7 +105,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -118,14 +116,10 @@ import (
 type UserNotificationRule struct {
 	pulumi.CustomResourceState
 
-	// A contact method block, configured as a block described below.
-	ContactMethod pulumi.StringMapOutput `pulumi:"contactMethod"`
-	// The delay before firing the rule, in minutes.
-	StartDelayInMinutes pulumi.IntOutput `pulumi:"startDelayInMinutes"`
-	// Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
-	Urgency pulumi.StringOutput `pulumi:"urgency"`
-	// The ID of the user.
-	UserId pulumi.StringOutput `pulumi:"userId"`
+	ContactMethod       pulumi.StringMapOutput `pulumi:"contactMethod"`
+	StartDelayInMinutes pulumi.IntOutput       `pulumi:"startDelayInMinutes"`
+	Urgency             pulumi.StringOutput    `pulumi:"urgency"`
+	UserId              pulumi.StringOutput    `pulumi:"userId"`
 }
 
 // NewUserNotificationRule registers a new resource with the given unique name, arguments, and options.
@@ -170,25 +164,17 @@ func GetUserNotificationRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserNotificationRule resources.
 type userNotificationRuleState struct {
-	// A contact method block, configured as a block described below.
-	ContactMethod map[string]string `pulumi:"contactMethod"`
-	// The delay before firing the rule, in minutes.
-	StartDelayInMinutes *int `pulumi:"startDelayInMinutes"`
-	// Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
-	Urgency *string `pulumi:"urgency"`
-	// The ID of the user.
-	UserId *string `pulumi:"userId"`
+	ContactMethod       map[string]string `pulumi:"contactMethod"`
+	StartDelayInMinutes *int              `pulumi:"startDelayInMinutes"`
+	Urgency             *string           `pulumi:"urgency"`
+	UserId              *string           `pulumi:"userId"`
 }
 
 type UserNotificationRuleState struct {
-	// A contact method block, configured as a block described below.
-	ContactMethod pulumi.StringMapInput
-	// The delay before firing the rule, in minutes.
+	ContactMethod       pulumi.StringMapInput
 	StartDelayInMinutes pulumi.IntPtrInput
-	// Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
-	Urgency pulumi.StringPtrInput
-	// The ID of the user.
-	UserId pulumi.StringPtrInput
+	Urgency             pulumi.StringPtrInput
+	UserId              pulumi.StringPtrInput
 }
 
 func (UserNotificationRuleState) ElementType() reflect.Type {
@@ -196,26 +182,18 @@ func (UserNotificationRuleState) ElementType() reflect.Type {
 }
 
 type userNotificationRuleArgs struct {
-	// A contact method block, configured as a block described below.
-	ContactMethod map[string]string `pulumi:"contactMethod"`
-	// The delay before firing the rule, in minutes.
-	StartDelayInMinutes int `pulumi:"startDelayInMinutes"`
-	// Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
-	Urgency string `pulumi:"urgency"`
-	// The ID of the user.
-	UserId string `pulumi:"userId"`
+	ContactMethod       map[string]string `pulumi:"contactMethod"`
+	StartDelayInMinutes int               `pulumi:"startDelayInMinutes"`
+	Urgency             string            `pulumi:"urgency"`
+	UserId              string            `pulumi:"userId"`
 }
 
 // The set of arguments for constructing a UserNotificationRule resource.
 type UserNotificationRuleArgs struct {
-	// A contact method block, configured as a block described below.
-	ContactMethod pulumi.StringMapInput
-	// The delay before firing the rule, in minutes.
+	ContactMethod       pulumi.StringMapInput
 	StartDelayInMinutes pulumi.IntInput
-	// Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
-	Urgency pulumi.StringInput
-	// The ID of the user.
-	UserId pulumi.StringInput
+	Urgency             pulumi.StringInput
+	UserId              pulumi.StringInput
 }
 
 func (UserNotificationRuleArgs) ElementType() reflect.Type {
@@ -305,22 +283,18 @@ func (o UserNotificationRuleOutput) ToUserNotificationRuleOutputWithContext(ctx 
 	return o
 }
 
-// A contact method block, configured as a block described below.
 func (o UserNotificationRuleOutput) ContactMethod() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *UserNotificationRule) pulumi.StringMapOutput { return v.ContactMethod }).(pulumi.StringMapOutput)
 }
 
-// The delay before firing the rule, in minutes.
 func (o UserNotificationRuleOutput) StartDelayInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v *UserNotificationRule) pulumi.IntOutput { return v.StartDelayInMinutes }).(pulumi.IntOutput)
 }
 
-// Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
 func (o UserNotificationRuleOutput) Urgency() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserNotificationRule) pulumi.StringOutput { return v.Urgency }).(pulumi.StringOutput)
 }
 
-// The ID of the user.
 func (o UserNotificationRuleOutput) UserId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserNotificationRule) pulumi.StringOutput { return v.UserId }).(pulumi.StringOutput)
 }

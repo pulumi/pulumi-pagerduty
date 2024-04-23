@@ -14,17 +14,9 @@ public final class ServiceDependencyArgs extends com.pulumi.resources.ResourceAr
 
     public static final ServiceDependencyArgs Empty = new ServiceDependencyArgs();
 
-    /**
-     * The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
-     * 
-     */
     @Import(name="dependency", required=true)
     private Output<ServiceDependencyDependencyArgs> dependency;
 
-    /**
-     * @return The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
-     * 
-     */
     public Output<ServiceDependencyDependencyArgs> dependency() {
         return this.dependency;
     }
@@ -53,23 +45,11 @@ public final class ServiceDependencyArgs extends com.pulumi.resources.ResourceAr
             $ = new ServiceDependencyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dependency The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dependency(Output<ServiceDependencyDependencyArgs> dependency) {
             $.dependency = dependency;
             return this;
         }
 
-        /**
-         * @param dependency The relationship between the `supporting_service` and `dependent_service`. One and only one dependency block must be defined.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dependency(ServiceDependencyDependencyArgs dependency) {
             return dependency(Output.of(dependency));
         }

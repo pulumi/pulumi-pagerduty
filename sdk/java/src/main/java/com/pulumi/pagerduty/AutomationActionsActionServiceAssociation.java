@@ -110,31 +110,15 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="pagerduty:index/automationActionsActionServiceAssociation:AutomationActionsActionServiceAssociation")
 public class AutomationActionsActionServiceAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * Id of the action.
-     * 
-     */
     @Export(name="actionId", refs={String.class}, tree="[0]")
     private Output<String> actionId;
 
-    /**
-     * @return Id of the action.
-     * 
-     */
     public Output<String> actionId() {
         return this.actionId;
     }
-    /**
-     * Id of the service associated to the action.
-     * 
-     */
     @Export(name="serviceId", refs={String.class}, tree="[0]")
     private Output<String> serviceId;
 
-    /**
-     * @return Id of the service associated to the action.
-     * 
-     */
     public Output<String> serviceId() {
         return this.serviceId;
     }

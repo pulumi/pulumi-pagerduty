@@ -98,37 +98,19 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="pagerduty:index/service:Service")
 public class Service extends com.pulumi.resources.CustomResource {
-    /**
-     * Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `&#34;null&#34;` string.  If not passed in, will default to &#39;&#34;1800&#34;&#39;.
-     * 
-     */
     @Export(name="acknowledgementTimeout", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> acknowledgementTimeout;
 
-    /**
-     * @return Time in seconds that an incident changes to the Triggered State after being Acknowledged. Disabled if set to the `&#34;null&#34;` string.  If not passed in, will default to &#39;&#34;1800&#34;&#39;.
-     * 
-     */
     public Output<Optional<String>> acknowledgementTimeout() {
         return Codegen.optional(this.acknowledgementTimeout);
     }
-    /**
-     * (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service.
-     * 
-     */
     @Export(name="alertCreation", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> alertCreation;
 
-    /**
-     * @return (Deprecated) This attribute has been deprecated as all services will be migrated to use alerts and incidents. The incident only service setting will be no longer available and this attribute will be removed in an upcoming version. See knowledge base for details https://support.pagerduty.com/docs/alerts#enable-and-disable-alerts-on-a-service.
-     * 
-     */
     public Output<Optional<String>> alertCreation() {
         return Codegen.optional(this.alertCreation);
     }
     /**
-     * (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan. This field is deprecated, use `alert_grouping_parameters.type` instead,
-     * 
      * @deprecated
      * Use `alert_grouping_parameters.type`
      * 
@@ -137,30 +119,16 @@ public class Service extends com.pulumi.resources.CustomResource {
     @Export(name="alertGrouping", refs={String.class}, tree="[0]")
     private Output<String> alertGrouping;
 
-    /**
-     * @return (Deprecated) Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident; If value is set to `time`: All alerts within a specified duration will be grouped into the same incident. This duration is set in the `alert_grouping_timeout` setting (described below). Available on Standard, Enterprise, and Event Intelligence plans; If value is set to `intelligent` - Alerts will be intelligently grouped based on a machine learning model that looks at the alert summary, timing, and the history of grouped alerts. Available on Enterprise and Event Intelligence plan. This field is deprecated, use `alert_grouping_parameters.type` instead,
-     * 
-     */
     public Output<String> alertGrouping() {
         return this.alertGrouping;
     }
-    /**
-     * Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
-     * 
-     */
     @Export(name="alertGroupingParameters", refs={ServiceAlertGroupingParameters.class}, tree="[0]")
     private Output<ServiceAlertGroupingParameters> alertGroupingParameters;
 
-    /**
-     * @return Defines how alerts on this service will be automatically grouped into incidents. Note that the alert grouping features are available only on certain plans. If not set, each alert will create a separate incident.
-     * 
-     */
     public Output<ServiceAlertGroupingParameters> alertGroupingParameters() {
         return this.alertGroupingParameters;
     }
     /**
-     * (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
-     * 
      * @deprecated
      * Use `alert_grouping_parameters.config.timeout`
      * 
@@ -169,38 +137,18 @@ public class Service extends com.pulumi.resources.CustomResource {
     @Export(name="alertGroupingTimeout", refs={String.class}, tree="[0]")
     private Output<String> alertGroupingTimeout;
 
-    /**
-     * @return (Deprecated) The duration in minutes within which to automatically group incoming alerts. This setting applies only when `alert_grouping` is set to `time`. To continue grouping alerts until the incident is resolved, set this value to `0`. This field is deprecated, use `alert_grouping_parameters.config.timeout` instead,
-     * 
-     */
     public Output<String> alertGroupingTimeout() {
         return this.alertGroupingTimeout;
     }
-    /**
-     * Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
-     * 
-     */
     @Export(name="autoPauseNotificationsParameters", refs={ServiceAutoPauseNotificationsParameters.class}, tree="[0]")
     private Output<ServiceAutoPauseNotificationsParameters> autoPauseNotificationsParameters;
 
-    /**
-     * @return Defines how alerts on this service are automatically suspended for a period of time before triggering, when identified as likely being transient. Note that automatically pausing notifications is only available on certain plans as mentioned [here](https://support.pagerduty.com/docs/auto-pause-incident-notifications).
-     * 
-     */
     public Output<ServiceAutoPauseNotificationsParameters> autoPauseNotificationsParameters() {
         return this.autoPauseNotificationsParameters;
     }
-    /**
-     * Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `&#34;null&#34;` string.
-     * 
-     */
     @Export(name="autoResolveTimeout", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> autoResolveTimeout;
 
-    /**
-     * @return Time in seconds that an incident is automatically resolved if left open for that long. Disabled if set to the `&#34;null&#34;` string.
-     * 
-     */
     public Output<Optional<String>> autoResolveTimeout() {
         return Codegen.optional(this.autoResolveTimeout);
     }
@@ -224,17 +172,9 @@ public class Service extends com.pulumi.resources.CustomResource {
     public Output<String> description() {
         return this.description;
     }
-    /**
-     * The escalation policy used by this service.
-     * 
-     */
     @Export(name="escalationPolicy", refs={String.class}, tree="[0]")
     private Output<String> escalationPolicy;
 
-    /**
-     * @return The escalation policy used by this service.
-     * 
-     */
     public Output<String> escalationPolicy() {
         return this.escalationPolicy;
     }
@@ -272,31 +212,15 @@ public class Service extends com.pulumi.resources.CustomResource {
     public Output<String> lastIncidentTimestamp() {
         return this.lastIncidentTimestamp;
     }
-    /**
-     * The name of the service.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the service.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The response play used by this service.
-     * 
-     */
     @Export(name="responsePlay", refs={String.class}, tree="[0]")
     private Output<String> responsePlay;
 
-    /**
-     * @return The response play used by this service.
-     * 
-     */
     public Output<String> responsePlay() {
         return this.responsePlay;
     }
@@ -327,14 +251,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.supportHours);
     }
     /**
-     * The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+     * The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return The type of alert grouping; one of `intelligent`, `time` or `content_based`.
+     * @return The type of object. The value returned will be `service`. Can be used for passing to a service dependency.
      * 
      */
     public Output<String> type() {

@@ -136,7 +136,6 @@ class Ruleset(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -148,7 +147,6 @@ class Ruleset(pulumi.CustomResource):
                 id=foo.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -172,7 +170,6 @@ class Ruleset(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -184,7 +181,6 @@ class Ruleset(pulumi.CustomResource):
                 id=foo.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

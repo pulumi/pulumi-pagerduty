@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -72,7 +71,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -84,7 +82,6 @@ import (
 type ServiceDependency struct {
 	pulumi.CustomResourceState
 
-	// The relationship between the `supportingService` and `dependentService`. One and only one dependency block must be defined.
 	Dependency ServiceDependencyDependencyOutput `pulumi:"dependency"`
 }
 
@@ -121,12 +118,10 @@ func GetServiceDependency(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceDependency resources.
 type serviceDependencyState struct {
-	// The relationship between the `supportingService` and `dependentService`. One and only one dependency block must be defined.
 	Dependency *ServiceDependencyDependency `pulumi:"dependency"`
 }
 
 type ServiceDependencyState struct {
-	// The relationship between the `supportingService` and `dependentService`. One and only one dependency block must be defined.
 	Dependency ServiceDependencyDependencyPtrInput
 }
 
@@ -135,13 +130,11 @@ func (ServiceDependencyState) ElementType() reflect.Type {
 }
 
 type serviceDependencyArgs struct {
-	// The relationship between the `supportingService` and `dependentService`. One and only one dependency block must be defined.
 	Dependency ServiceDependencyDependency `pulumi:"dependency"`
 }
 
 // The set of arguments for constructing a ServiceDependency resource.
 type ServiceDependencyArgs struct {
-	// The relationship between the `supportingService` and `dependentService`. One and only one dependency block must be defined.
 	Dependency ServiceDependencyDependencyInput
 }
 
@@ -232,7 +225,6 @@ func (o ServiceDependencyOutput) ToServiceDependencyOutputWithContext(ctx contex
 	return o
 }
 
-// The relationship between the `supportingService` and `dependentService`. One and only one dependency block must be defined.
 func (o ServiceDependencyOutput) Dependency() ServiceDependencyDependencyOutput {
 	return o.ApplyT(func(v *ServiceDependency) ServiceDependencyDependencyOutput { return v.Dependency }).(ServiceDependencyDependencyOutput)
 }

@@ -24,25 +24,6 @@ class WebhookSubscriptionArgs:
                  type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a WebhookSubscription resource.
-        :param pulumi.Input[Sequence[pulumi.Input['WebhookSubscriptionDeliveryMethodArgs']]] delivery_methods: The object describing where to send the webhooks.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] events: A set of outbound event types the webhook will receive. The follow event types are possible: 
-               * `incident.acknowledged`
-               * `incident.annotated`
-               * `incident.delegated`
-               * `incident.escalated`
-               * `incident.priority_updated`
-               * `incident.reassigned`
-               * `incident.reopened`
-               * `incident.resolved`
-               * `incident.responder.added`
-               * `incident.responder.replied`
-               * `incident.status_update_published`
-               * `incident.triggered`
-               * `incident.unacknowledged`
-        :param pulumi.Input[Sequence[pulumi.Input['WebhookSubscriptionFilterArgs']]] filters: determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `service_reference`, `team_reference` and `account_reference`.
-        :param pulumi.Input[bool] active: Determines whether the subscription will produce webhook events.
-        :param pulumi.Input[str] description: A short description of the webhook subscription
-        :param pulumi.Input[str] type: The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.
         """
         pulumi.set(__self__, "delivery_methods", delivery_methods)
         pulumi.set(__self__, "events", events)
@@ -57,9 +38,6 @@ class WebhookSubscriptionArgs:
     @property
     @pulumi.getter(name="deliveryMethods")
     def delivery_methods(self) -> pulumi.Input[Sequence[pulumi.Input['WebhookSubscriptionDeliveryMethodArgs']]]:
-        """
-        The object describing where to send the webhooks.
-        """
         return pulumi.get(self, "delivery_methods")
 
     @delivery_methods.setter
@@ -69,22 +47,6 @@ class WebhookSubscriptionArgs:
     @property
     @pulumi.getter
     def events(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        A set of outbound event types the webhook will receive. The follow event types are possible: 
-        * `incident.acknowledged`
-        * `incident.annotated`
-        * `incident.delegated`
-        * `incident.escalated`
-        * `incident.priority_updated`
-        * `incident.reassigned`
-        * `incident.reopened`
-        * `incident.resolved`
-        * `incident.responder.added`
-        * `incident.responder.replied`
-        * `incident.status_update_published`
-        * `incident.triggered`
-        * `incident.unacknowledged`
-        """
         return pulumi.get(self, "events")
 
     @events.setter
@@ -94,9 +56,6 @@ class WebhookSubscriptionArgs:
     @property
     @pulumi.getter
     def filters(self) -> pulumi.Input[Sequence[pulumi.Input['WebhookSubscriptionFilterArgs']]]:
-        """
-        determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `service_reference`, `team_reference` and `account_reference`.
-        """
         return pulumi.get(self, "filters")
 
     @filters.setter
@@ -106,9 +65,6 @@ class WebhookSubscriptionArgs:
     @property
     @pulumi.getter
     def active(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Determines whether the subscription will produce webhook events.
-        """
         return pulumi.get(self, "active")
 
     @active.setter
@@ -118,9 +74,6 @@ class WebhookSubscriptionArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        A short description of the webhook subscription
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -130,9 +83,6 @@ class WebhookSubscriptionArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -151,25 +101,6 @@ class _WebhookSubscriptionState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering WebhookSubscription resources.
-        :param pulumi.Input[bool] active: Determines whether the subscription will produce webhook events.
-        :param pulumi.Input[Sequence[pulumi.Input['WebhookSubscriptionDeliveryMethodArgs']]] delivery_methods: The object describing where to send the webhooks.
-        :param pulumi.Input[str] description: A short description of the webhook subscription
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] events: A set of outbound event types the webhook will receive. The follow event types are possible: 
-               * `incident.acknowledged`
-               * `incident.annotated`
-               * `incident.delegated`
-               * `incident.escalated`
-               * `incident.priority_updated`
-               * `incident.reassigned`
-               * `incident.reopened`
-               * `incident.resolved`
-               * `incident.responder.added`
-               * `incident.responder.replied`
-               * `incident.status_update_published`
-               * `incident.triggered`
-               * `incident.unacknowledged`
-        :param pulumi.Input[Sequence[pulumi.Input['WebhookSubscriptionFilterArgs']]] filters: determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `service_reference`, `team_reference` and `account_reference`.
-        :param pulumi.Input[str] type: The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.
         """
         if active is not None:
             pulumi.set(__self__, "active", active)
@@ -187,9 +118,6 @@ class _WebhookSubscriptionState:
     @property
     @pulumi.getter
     def active(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Determines whether the subscription will produce webhook events.
-        """
         return pulumi.get(self, "active")
 
     @active.setter
@@ -199,9 +127,6 @@ class _WebhookSubscriptionState:
     @property
     @pulumi.getter(name="deliveryMethods")
     def delivery_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebhookSubscriptionDeliveryMethodArgs']]]]:
-        """
-        The object describing where to send the webhooks.
-        """
         return pulumi.get(self, "delivery_methods")
 
     @delivery_methods.setter
@@ -211,9 +136,6 @@ class _WebhookSubscriptionState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        A short description of the webhook subscription
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -223,22 +145,6 @@ class _WebhookSubscriptionState:
     @property
     @pulumi.getter
     def events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A set of outbound event types the webhook will receive. The follow event types are possible: 
-        * `incident.acknowledged`
-        * `incident.annotated`
-        * `incident.delegated`
-        * `incident.escalated`
-        * `incident.priority_updated`
-        * `incident.reassigned`
-        * `incident.reopened`
-        * `incident.resolved`
-        * `incident.responder.added`
-        * `incident.responder.replied`
-        * `incident.status_update_published`
-        * `incident.triggered`
-        * `incident.unacknowledged`
-        """
         return pulumi.get(self, "events")
 
     @events.setter
@@ -248,9 +154,6 @@ class _WebhookSubscriptionState:
     @property
     @pulumi.getter
     def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebhookSubscriptionFilterArgs']]]]:
-        """
-        determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `service_reference`, `team_reference` and `account_reference`.
-        """
         return pulumi.get(self, "filters")
 
     @filters.setter
@@ -260,9 +163,6 @@ class _WebhookSubscriptionState:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -287,7 +187,6 @@ class WebhookSubscription(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -331,7 +230,6 @@ class WebhookSubscription(pulumi.CustomResource):
             )],
             type="webhook_subscription")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -343,25 +241,6 @@ class WebhookSubscription(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] active: Determines whether the subscription will produce webhook events.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookSubscriptionDeliveryMethodArgs']]]] delivery_methods: The object describing where to send the webhooks.
-        :param pulumi.Input[str] description: A short description of the webhook subscription
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] events: A set of outbound event types the webhook will receive. The follow event types are possible: 
-               * `incident.acknowledged`
-               * `incident.annotated`
-               * `incident.delegated`
-               * `incident.escalated`
-               * `incident.priority_updated`
-               * `incident.reassigned`
-               * `incident.reopened`
-               * `incident.resolved`
-               * `incident.responder.added`
-               * `incident.responder.replied`
-               * `incident.status_update_published`
-               * `incident.triggered`
-               * `incident.unacknowledged`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookSubscriptionFilterArgs']]]] filters: determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `service_reference`, `team_reference` and `account_reference`.
-        :param pulumi.Input[str] type: The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.
         """
         ...
     @overload
@@ -374,7 +253,6 @@ class WebhookSubscription(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -418,7 +296,6 @@ class WebhookSubscription(pulumi.CustomResource):
             )],
             type="webhook_subscription")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -493,25 +370,6 @@ class WebhookSubscription(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] active: Determines whether the subscription will produce webhook events.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookSubscriptionDeliveryMethodArgs']]]] delivery_methods: The object describing where to send the webhooks.
-        :param pulumi.Input[str] description: A short description of the webhook subscription
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] events: A set of outbound event types the webhook will receive. The follow event types are possible: 
-               * `incident.acknowledged`
-               * `incident.annotated`
-               * `incident.delegated`
-               * `incident.escalated`
-               * `incident.priority_updated`
-               * `incident.reassigned`
-               * `incident.reopened`
-               * `incident.resolved`
-               * `incident.responder.added`
-               * `incident.responder.replied`
-               * `incident.status_update_published`
-               * `incident.triggered`
-               * `incident.unacknowledged`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookSubscriptionFilterArgs']]]] filters: determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `service_reference`, `team_reference` and `account_reference`.
-        :param pulumi.Input[str] type: The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -528,61 +386,30 @@ class WebhookSubscription(pulumi.CustomResource):
     @property
     @pulumi.getter
     def active(self) -> pulumi.Output[bool]:
-        """
-        Determines whether the subscription will produce webhook events.
-        """
         return pulumi.get(self, "active")
 
     @property
     @pulumi.getter(name="deliveryMethods")
     def delivery_methods(self) -> pulumi.Output[Sequence['outputs.WebhookSubscriptionDeliveryMethod']]:
-        """
-        The object describing where to send the webhooks.
-        """
         return pulumi.get(self, "delivery_methods")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        A short description of the webhook subscription
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def events(self) -> pulumi.Output[Sequence[str]]:
-        """
-        A set of outbound event types the webhook will receive. The follow event types are possible: 
-        * `incident.acknowledged`
-        * `incident.annotated`
-        * `incident.delegated`
-        * `incident.escalated`
-        * `incident.priority_updated`
-        * `incident.reassigned`
-        * `incident.reopened`
-        * `incident.resolved`
-        * `incident.responder.added`
-        * `incident.responder.replied`
-        * `incident.status_update_published`
-        * `incident.triggered`
-        * `incident.unacknowledged`
-        """
         return pulumi.get(self, "events")
 
     @property
     @pulumi.getter
     def filters(self) -> pulumi.Output[Sequence['outputs.WebhookSubscriptionFilter']]:
-        """
-        determines which events will match and produce a webhook. There are currently three types of filters that can be applied to webhook subscriptions: `service_reference`, `team_reference` and `account_reference`.
-        """
         return pulumi.get(self, "filters")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[str]]:
-        """
-        The type indicating the schema of the object. The provider sets this as `webhook_subscription`, which is currently the only acceptable value.
-        """
         return pulumi.get(self, "type")
 

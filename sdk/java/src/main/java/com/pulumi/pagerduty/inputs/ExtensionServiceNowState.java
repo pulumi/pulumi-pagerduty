@@ -23,32 +23,16 @@ public final class ExtensionServiceNowState extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.endpointUrl);
     }
 
-    /**
-     * This is the objects for which the extension applies (An array of service ids).
-     * 
-     */
     @Import(name="extensionObjects")
     private @Nullable Output<List<String>> extensionObjects;
 
-    /**
-     * @return This is the objects for which the extension applies (An array of service ids).
-     * 
-     */
     public Optional<Output<List<String>>> extensionObjects() {
         return Optional.ofNullable(this.extensionObjects);
     }
 
-    /**
-     * This is the schema for this extension.
-     * 
-     */
     @Import(name="extensionSchema")
     private @Nullable Output<String> extensionSchema;
 
-    /**
-     * @return This is the schema for this extension.
-     * 
-     */
     public Optional<Output<String>> extensionSchema() {
         return Optional.ofNullable(this.extensionSchema);
     }
@@ -68,122 +52,58 @@ public final class ExtensionServiceNowState extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.htmlUrl);
     }
 
-    /**
-     * The name of the service extension.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the service extension.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The ServiceNow referer.
-     * 
-     */
     @Import(name="referer")
     private @Nullable Output<String> referer;
 
-    /**
-     * @return The ServiceNow referer.
-     * 
-     */
     public Optional<Output<String>> referer() {
         return Optional.ofNullable(this.referer);
     }
 
-    /**
-     * The ServiceNow password.
-     * 
-     */
     @Import(name="snowPassword")
     private @Nullable Output<String> snowPassword;
 
-    /**
-     * @return The ServiceNow password.
-     * 
-     */
     public Optional<Output<String>> snowPassword() {
         return Optional.ofNullable(this.snowPassword);
     }
 
-    /**
-     * The ServiceNow username.
-     * 
-     */
     @Import(name="snowUser")
     private @Nullable Output<String> snowUser;
 
-    /**
-     * @return The ServiceNow username.
-     * 
-     */
     public Optional<Output<String>> snowUser() {
         return Optional.ofNullable(this.snowUser);
     }
 
-    /**
-     * A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
-     * 
-     */
     @Import(name="summary")
     private @Nullable Output<String> summary;
 
-    /**
-     * @return A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
-     * 
-     */
     public Optional<Output<String>> summary() {
         return Optional.ofNullable(this.summary);
     }
 
-    /**
-     * The ServiceNow sync option.
-     * 
-     */
     @Import(name="syncOptions")
     private @Nullable Output<String> syncOptions;
 
-    /**
-     * @return The ServiceNow sync option.
-     * 
-     */
     public Optional<Output<String>> syncOptions() {
         return Optional.ofNullable(this.syncOptions);
     }
 
-    /**
-     * Target Webhook URL.
-     * 
-     */
     @Import(name="target")
     private @Nullable Output<String> target;
 
-    /**
-     * @return Target Webhook URL.
-     * 
-     */
     public Optional<Output<String>> target() {
         return Optional.ofNullable(this.target);
     }
 
-    /**
-     * The ServiceNow task type, typically `incident`.
-     * 
-     */
     @Import(name="taskType")
     private @Nullable Output<String> taskType;
 
-    /**
-     * @return The ServiceNow task type, typically `incident`.
-     * 
-     */
     public Optional<Output<String>> taskType() {
         return Optional.ofNullable(this.taskType);
     }
@@ -240,54 +160,24 @@ public final class ExtensionServiceNowState extends com.pulumi.resources.Resourc
             return endpointUrl(Output.of(endpointUrl));
         }
 
-        /**
-         * @param extensionObjects This is the objects for which the extension applies (An array of service ids).
-         * 
-         * @return builder
-         * 
-         */
         public Builder extensionObjects(@Nullable Output<List<String>> extensionObjects) {
             $.extensionObjects = extensionObjects;
             return this;
         }
 
-        /**
-         * @param extensionObjects This is the objects for which the extension applies (An array of service ids).
-         * 
-         * @return builder
-         * 
-         */
         public Builder extensionObjects(List<String> extensionObjects) {
             return extensionObjects(Output.of(extensionObjects));
         }
 
-        /**
-         * @param extensionObjects This is the objects for which the extension applies (An array of service ids).
-         * 
-         * @return builder
-         * 
-         */
         public Builder extensionObjects(String... extensionObjects) {
             return extensionObjects(List.of(extensionObjects));
         }
 
-        /**
-         * @param extensionSchema This is the schema for this extension.
-         * 
-         * @return builder
-         * 
-         */
         public Builder extensionSchema(@Nullable Output<String> extensionSchema) {
             $.extensionSchema = extensionSchema;
             return this;
         }
 
-        /**
-         * @param extensionSchema This is the schema for this extension.
-         * 
-         * @return builder
-         * 
-         */
         public Builder extensionSchema(String extensionSchema) {
             return extensionSchema(Output.of(extensionSchema));
         }
@@ -313,170 +203,74 @@ public final class ExtensionServiceNowState extends com.pulumi.resources.Resourc
             return htmlUrl(Output.of(htmlUrl));
         }
 
-        /**
-         * @param name The name of the service extension.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the service extension.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param referer The ServiceNow referer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder referer(@Nullable Output<String> referer) {
             $.referer = referer;
             return this;
         }
 
-        /**
-         * @param referer The ServiceNow referer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder referer(String referer) {
             return referer(Output.of(referer));
         }
 
-        /**
-         * @param snowPassword The ServiceNow password.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snowPassword(@Nullable Output<String> snowPassword) {
             $.snowPassword = snowPassword;
             return this;
         }
 
-        /**
-         * @param snowPassword The ServiceNow password.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snowPassword(String snowPassword) {
             return snowPassword(Output.of(snowPassword));
         }
 
-        /**
-         * @param snowUser The ServiceNow username.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snowUser(@Nullable Output<String> snowUser) {
             $.snowUser = snowUser;
             return this;
         }
 
-        /**
-         * @param snowUser The ServiceNow username.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snowUser(String snowUser) {
             return snowUser(Output.of(snowUser));
         }
 
-        /**
-         * @param summary A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder summary(@Nullable Output<String> summary) {
             $.summary = summary;
             return this;
         }
 
-        /**
-         * @param summary A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder summary(String summary) {
             return summary(Output.of(summary));
         }
 
-        /**
-         * @param syncOptions The ServiceNow sync option.
-         * 
-         * @return builder
-         * 
-         */
         public Builder syncOptions(@Nullable Output<String> syncOptions) {
             $.syncOptions = syncOptions;
             return this;
         }
 
-        /**
-         * @param syncOptions The ServiceNow sync option.
-         * 
-         * @return builder
-         * 
-         */
         public Builder syncOptions(String syncOptions) {
             return syncOptions(Output.of(syncOptions));
         }
 
-        /**
-         * @param target Target Webhook URL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder target(@Nullable Output<String> target) {
             $.target = target;
             return this;
         }
 
-        /**
-         * @param target Target Webhook URL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder target(String target) {
             return target(Output.of(target));
         }
 
-        /**
-         * @param taskType The ServiceNow task type, typically `incident`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder taskType(@Nullable Output<String> taskType) {
             $.taskType = taskType;
             return this;
         }
 
-        /**
-         * @param taskType The ServiceNow task type, typically `incident`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder taskType(String taskType) {
             return taskType(Output.of(taskType));
         }

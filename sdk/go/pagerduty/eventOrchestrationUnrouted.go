@@ -21,7 +21,6 @@ import (
 // In this example of an Unrouted Orchestration, the rule matches only if the condition is matched.
 // Alerts created for events that do not match the rule will have severity level set to `info` as defined in `catchAll` block.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -74,7 +73,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

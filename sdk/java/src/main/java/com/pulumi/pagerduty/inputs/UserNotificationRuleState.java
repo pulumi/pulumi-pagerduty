@@ -17,62 +17,30 @@ public final class UserNotificationRuleState extends com.pulumi.resources.Resour
 
     public static final UserNotificationRuleState Empty = new UserNotificationRuleState();
 
-    /**
-     * A contact method block, configured as a block described below.
-     * 
-     */
     @Import(name="contactMethod")
     private @Nullable Output<Map<String,String>> contactMethod;
 
-    /**
-     * @return A contact method block, configured as a block described below.
-     * 
-     */
     public Optional<Output<Map<String,String>>> contactMethod() {
         return Optional.ofNullable(this.contactMethod);
     }
 
-    /**
-     * The delay before firing the rule, in minutes.
-     * 
-     */
     @Import(name="startDelayInMinutes")
     private @Nullable Output<Integer> startDelayInMinutes;
 
-    /**
-     * @return The delay before firing the rule, in minutes.
-     * 
-     */
     public Optional<Output<Integer>> startDelayInMinutes() {
         return Optional.ofNullable(this.startDelayInMinutes);
     }
 
-    /**
-     * Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
-     * 
-     */
     @Import(name="urgency")
     private @Nullable Output<String> urgency;
 
-    /**
-     * @return Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
-     * 
-     */
     public Optional<Output<String>> urgency() {
         return Optional.ofNullable(this.urgency);
     }
 
-    /**
-     * The ID of the user.
-     * 
-     */
     @Import(name="userId")
     private @Nullable Output<String> userId;
 
-    /**
-     * @return The ID of the user.
-     * 
-     */
     public Optional<Output<String>> userId() {
         return Optional.ofNullable(this.userId);
     }
@@ -104,86 +72,38 @@ public final class UserNotificationRuleState extends com.pulumi.resources.Resour
             $ = new UserNotificationRuleState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param contactMethod A contact method block, configured as a block described below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contactMethod(@Nullable Output<Map<String,String>> contactMethod) {
             $.contactMethod = contactMethod;
             return this;
         }
 
-        /**
-         * @param contactMethod A contact method block, configured as a block described below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contactMethod(Map<String,String> contactMethod) {
             return contactMethod(Output.of(contactMethod));
         }
 
-        /**
-         * @param startDelayInMinutes The delay before firing the rule, in minutes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startDelayInMinutes(@Nullable Output<Integer> startDelayInMinutes) {
             $.startDelayInMinutes = startDelayInMinutes;
             return this;
         }
 
-        /**
-         * @param startDelayInMinutes The delay before firing the rule, in minutes.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startDelayInMinutes(Integer startDelayInMinutes) {
             return startDelayInMinutes(Output.of(startDelayInMinutes));
         }
 
-        /**
-         * @param urgency Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder urgency(@Nullable Output<String> urgency) {
             $.urgency = urgency;
             return this;
         }
 
-        /**
-         * @param urgency Which incident urgency this rule is used for. Account must have the `urgencies` ability to have a low urgency notification rule. Can be `high` or `low`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder urgency(String urgency) {
             return urgency(Output.of(urgency));
         }
 
-        /**
-         * @param userId The ID of the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userId(@Nullable Output<String> userId) {
             $.userId = userId;
             return this;
         }
 
-        /**
-         * @param userId The ID of the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userId(String userId) {
             return userId(Output.of(userId));
         }

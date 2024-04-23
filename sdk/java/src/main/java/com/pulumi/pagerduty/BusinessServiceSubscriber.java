@@ -90,45 +90,21 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="pagerduty:index/businessServiceSubscriber:BusinessServiceSubscriber")
 public class BusinessServiceSubscriber extends com.pulumi.resources.CustomResource {
-    /**
-     * The ID of the business service to subscribe to.
-     * 
-     */
     @Export(name="businessServiceId", refs={String.class}, tree="[0]")
     private Output<String> businessServiceId;
 
-    /**
-     * @return The ID of the business service to subscribe to.
-     * 
-     */
     public Output<String> businessServiceId() {
         return this.businessServiceId;
     }
-    /**
-     * The ID of the subscriber entity.
-     * 
-     */
     @Export(name="subscriberId", refs={String.class}, tree="[0]")
     private Output<String> subscriberId;
 
-    /**
-     * @return The ID of the subscriber entity.
-     * 
-     */
     public Output<String> subscriberId() {
         return this.subscriberId;
     }
-    /**
-     * Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.
-     * 
-     */
     @Export(name="subscriberType", refs={String.class}, tree="[0]")
     private Output<String> subscriberType;
 
-    /**
-     * @return Type of subscriber entity in the subscriber assignment. Possible values can be `user` and `team`.
-     * 
-     */
     public Output<String> subscriberType() {
         return this.subscriberType;
     }

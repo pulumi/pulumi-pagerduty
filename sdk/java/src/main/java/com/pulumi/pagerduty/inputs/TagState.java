@@ -30,17 +30,9 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.htmlUrl);
     }
 
-    /**
-     * The label of the tag.
-     * 
-     */
     @Import(name="label")
     private @Nullable Output<String> label;
 
-    /**
-     * @return The label of the tag.
-     * 
-     */
     public Optional<Output<String>> label() {
         return Optional.ofNullable(this.label);
     }
@@ -107,23 +99,11 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
             return htmlUrl(Output.of(htmlUrl));
         }
 
-        /**
-         * @param label The label of the tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder label(@Nullable Output<String> label) {
             $.label = label;
             return this;
         }
 
-        /**
-         * @param label The label of the tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder label(String label) {
             return label(Output.of(label));
         }

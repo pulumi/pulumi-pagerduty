@@ -12,15 +12,9 @@ namespace Pulumi.Pagerduty.Inputs
 
     public sealed class ServiceEventRuleTimeFrameActiveBetweenArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
-        /// </summary>
         [Input("endTime")]
         public Input<int>? EndTime { get; set; }
 
-        /// <summary>
-        /// Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
-        /// </summary>
         [Input("startTime")]
         public Input<int>? StartTime { get; set; }
 

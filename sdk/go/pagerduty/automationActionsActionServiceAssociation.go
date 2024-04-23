@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -91,7 +90,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -103,9 +101,7 @@ import (
 type AutomationActionsActionServiceAssociation struct {
 	pulumi.CustomResourceState
 
-	// Id of the action.
-	ActionId pulumi.StringOutput `pulumi:"actionId"`
-	// Id of the service associated to the action.
+	ActionId  pulumi.StringOutput `pulumi:"actionId"`
 	ServiceId pulumi.StringOutput `pulumi:"serviceId"`
 }
 
@@ -145,16 +141,12 @@ func GetAutomationActionsActionServiceAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AutomationActionsActionServiceAssociation resources.
 type automationActionsActionServiceAssociationState struct {
-	// Id of the action.
-	ActionId *string `pulumi:"actionId"`
-	// Id of the service associated to the action.
+	ActionId  *string `pulumi:"actionId"`
 	ServiceId *string `pulumi:"serviceId"`
 }
 
 type AutomationActionsActionServiceAssociationState struct {
-	// Id of the action.
-	ActionId pulumi.StringPtrInput
-	// Id of the service associated to the action.
+	ActionId  pulumi.StringPtrInput
 	ServiceId pulumi.StringPtrInput
 }
 
@@ -163,17 +155,13 @@ func (AutomationActionsActionServiceAssociationState) ElementType() reflect.Type
 }
 
 type automationActionsActionServiceAssociationArgs struct {
-	// Id of the action.
-	ActionId string `pulumi:"actionId"`
-	// Id of the service associated to the action.
+	ActionId  string `pulumi:"actionId"`
 	ServiceId string `pulumi:"serviceId"`
 }
 
 // The set of arguments for constructing a AutomationActionsActionServiceAssociation resource.
 type AutomationActionsActionServiceAssociationArgs struct {
-	// Id of the action.
-	ActionId pulumi.StringInput
-	// Id of the service associated to the action.
+	ActionId  pulumi.StringInput
 	ServiceId pulumi.StringInput
 }
 
@@ -264,12 +252,10 @@ func (o AutomationActionsActionServiceAssociationOutput) ToAutomationActionsActi
 	return o
 }
 
-// Id of the action.
 func (o AutomationActionsActionServiceAssociationOutput) ActionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationActionsActionServiceAssociation) pulumi.StringOutput { return v.ActionId }).(pulumi.StringOutput)
 }
 
-// Id of the service associated to the action.
 func (o AutomationActionsActionServiceAssociationOutput) ServiceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationActionsActionServiceAssociation) pulumi.StringOutput { return v.ServiceId }).(pulumi.StringOutput)
 }

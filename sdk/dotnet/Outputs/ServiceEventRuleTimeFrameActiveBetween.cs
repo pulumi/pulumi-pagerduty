@@ -13,13 +13,7 @@ namespace Pulumi.Pagerduty.Outputs
     [OutputType]
     public sealed class ServiceEventRuleTimeFrameActiveBetween
     {
-        /// <summary>
-        /// Ending of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
-        /// </summary>
         public readonly int? EndTime;
-        /// <summary>
-        /// Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
-        /// </summary>
         public readonly int? StartTime;
 
         [OutputConstructor]

@@ -200,7 +200,6 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -229,7 +228,6 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
             workflow=my_first_workflow.id,
             services=[first_service_pagerduty_service["id"]])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -258,7 +256,6 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -287,7 +284,6 @@ class IncidentWorkflowTrigger(pulumi.CustomResource):
             workflow=my_first_workflow.id,
             services=[first_service_pagerduty_service["id"]])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -19,32 +19,16 @@ public final class ServiceDependencyDependencyArgs extends com.pulumi.resources.
 
     public static final ServiceDependencyDependencyArgs Empty = new ServiceDependencyDependencyArgs();
 
-    /**
-     * The service that dependents on the supporting service. Dependency dependent service documented below.
-     * 
-     */
     @Import(name="dependentServices", required=true)
     private Output<List<ServiceDependencyDependencyDependentServiceArgs>> dependentServices;
 
-    /**
-     * @return The service that dependents on the supporting service. Dependency dependent service documented below.
-     * 
-     */
     public Output<List<ServiceDependencyDependencyDependentServiceArgs>> dependentServices() {
         return this.dependentServices;
     }
 
-    /**
-     * The service that supports the dependent service. Dependency supporting service documented below.
-     * 
-     */
     @Import(name="supportingServices", required=true)
     private Output<List<ServiceDependencyDependencySupportingServiceArgs>> supportingServices;
 
-    /**
-     * @return The service that supports the dependent service. Dependency supporting service documented below.
-     * 
-     */
     public Output<List<ServiceDependencyDependencySupportingServiceArgs>> supportingServices() {
         return this.supportingServices;
     }
@@ -90,64 +74,28 @@ public final class ServiceDependencyDependencyArgs extends com.pulumi.resources.
             $ = new ServiceDependencyDependencyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dependentServices The service that dependents on the supporting service. Dependency dependent service documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dependentServices(Output<List<ServiceDependencyDependencyDependentServiceArgs>> dependentServices) {
             $.dependentServices = dependentServices;
             return this;
         }
 
-        /**
-         * @param dependentServices The service that dependents on the supporting service. Dependency dependent service documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dependentServices(List<ServiceDependencyDependencyDependentServiceArgs> dependentServices) {
             return dependentServices(Output.of(dependentServices));
         }
 
-        /**
-         * @param dependentServices The service that dependents on the supporting service. Dependency dependent service documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dependentServices(ServiceDependencyDependencyDependentServiceArgs... dependentServices) {
             return dependentServices(List.of(dependentServices));
         }
 
-        /**
-         * @param supportingServices The service that supports the dependent service. Dependency supporting service documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder supportingServices(Output<List<ServiceDependencyDependencySupportingServiceArgs>> supportingServices) {
             $.supportingServices = supportingServices;
             return this;
         }
 
-        /**
-         * @param supportingServices The service that supports the dependent service. Dependency supporting service documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder supportingServices(List<ServiceDependencyDependencySupportingServiceArgs> supportingServices) {
             return supportingServices(Output.of(supportingServices));
         }
 
-        /**
-         * @param supportingServices The service that supports the dependent service. Dependency supporting service documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder supportingServices(ServiceDependencyDependencySupportingServiceArgs... supportingServices) {
             return supportingServices(List.of(supportingServices));
         }

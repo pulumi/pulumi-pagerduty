@@ -12,30 +12,17 @@ namespace Pulumi.Pagerduty.Inputs
 
     public sealed class ServiceEventRuleTimeFrameScheduledWeeklyGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Length of time the schedule will be active.  Unix timestamp in milliseconds.
-        /// </summary>
         [Input("duration")]
         public Input<int>? Duration { get; set; }
 
-        /// <summary>
-        /// Beginning of the scheduled time when the rule should execute.  Unix timestamp in milliseconds.
-        /// </summary>
         [Input("startTime")]
         public Input<int>? StartTime { get; set; }
 
-        /// <summary>
-        /// Timezone for the given schedule.
-        /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }
 
         [Input("weekdays")]
         private InputList<int>? _weekdays;
-
-        /// <summary>
-        /// An integer array representing which days during the week the rule executes. For example `weekdays = [1,3,7]` would execute on Monday, Wednesday and Sunday.
-        /// </summary>
         public InputList<int> Weekdays
         {
             get => _weekdays ?? (_weekdays = new InputList<int>());

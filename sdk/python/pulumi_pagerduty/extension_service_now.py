@@ -28,16 +28,6 @@ class ExtensionServiceNowArgs:
                  type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ExtensionServiceNow resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] extension_objects: This is the objects for which the extension applies (An array of service ids).
-        :param pulumi.Input[str] extension_schema: This is the schema for this extension.
-        :param pulumi.Input[str] referer: The ServiceNow referer.
-        :param pulumi.Input[str] snow_password: The ServiceNow password.
-        :param pulumi.Input[str] snow_user: The ServiceNow username.
-        :param pulumi.Input[str] sync_options: The ServiceNow sync option.
-        :param pulumi.Input[str] target: Target Webhook URL.
-        :param pulumi.Input[str] task_type: The ServiceNow task type, typically `incident`.
-        :param pulumi.Input[str] name: The name of the service extension.
-        :param pulumi.Input[str] summary: A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
         """
         pulumi.set(__self__, "extension_objects", extension_objects)
         pulumi.set(__self__, "extension_schema", extension_schema)
@@ -59,9 +49,6 @@ class ExtensionServiceNowArgs:
     @property
     @pulumi.getter(name="extensionObjects")
     def extension_objects(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        This is the objects for which the extension applies (An array of service ids).
-        """
         return pulumi.get(self, "extension_objects")
 
     @extension_objects.setter
@@ -71,9 +58,6 @@ class ExtensionServiceNowArgs:
     @property
     @pulumi.getter(name="extensionSchema")
     def extension_schema(self) -> pulumi.Input[str]:
-        """
-        This is the schema for this extension.
-        """
         return pulumi.get(self, "extension_schema")
 
     @extension_schema.setter
@@ -83,9 +67,6 @@ class ExtensionServiceNowArgs:
     @property
     @pulumi.getter
     def referer(self) -> pulumi.Input[str]:
-        """
-        The ServiceNow referer.
-        """
         return pulumi.get(self, "referer")
 
     @referer.setter
@@ -95,9 +76,6 @@ class ExtensionServiceNowArgs:
     @property
     @pulumi.getter(name="snowPassword")
     def snow_password(self) -> pulumi.Input[str]:
-        """
-        The ServiceNow password.
-        """
         return pulumi.get(self, "snow_password")
 
     @snow_password.setter
@@ -107,9 +85,6 @@ class ExtensionServiceNowArgs:
     @property
     @pulumi.getter(name="snowUser")
     def snow_user(self) -> pulumi.Input[str]:
-        """
-        The ServiceNow username.
-        """
         return pulumi.get(self, "snow_user")
 
     @snow_user.setter
@@ -119,9 +94,6 @@ class ExtensionServiceNowArgs:
     @property
     @pulumi.getter(name="syncOptions")
     def sync_options(self) -> pulumi.Input[str]:
-        """
-        The ServiceNow sync option.
-        """
         return pulumi.get(self, "sync_options")
 
     @sync_options.setter
@@ -131,9 +103,6 @@ class ExtensionServiceNowArgs:
     @property
     @pulumi.getter
     def target(self) -> pulumi.Input[str]:
-        """
-        Target Webhook URL.
-        """
         return pulumi.get(self, "target")
 
     @target.setter
@@ -143,9 +112,6 @@ class ExtensionServiceNowArgs:
     @property
     @pulumi.getter(name="taskType")
     def task_type(self) -> pulumi.Input[str]:
-        """
-        The ServiceNow task type, typically `incident`.
-        """
         return pulumi.get(self, "task_type")
 
     @task_type.setter
@@ -164,9 +130,6 @@ class ExtensionServiceNowArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the service extension.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -176,9 +139,6 @@ class ExtensionServiceNowArgs:
     @property
     @pulumi.getter
     def summary(self) -> Optional[pulumi.Input[str]]:
-        """
-        A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
-        """
         return pulumi.get(self, "summary")
 
     @summary.setter
@@ -213,17 +173,7 @@ class _ExtensionServiceNowState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ExtensionServiceNow resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] extension_objects: This is the objects for which the extension applies (An array of service ids).
-        :param pulumi.Input[str] extension_schema: This is the schema for this extension.
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app.
-        :param pulumi.Input[str] name: The name of the service extension.
-        :param pulumi.Input[str] referer: The ServiceNow referer.
-        :param pulumi.Input[str] snow_password: The ServiceNow password.
-        :param pulumi.Input[str] snow_user: The ServiceNow username.
-        :param pulumi.Input[str] summary: A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
-        :param pulumi.Input[str] sync_options: The ServiceNow sync option.
-        :param pulumi.Input[str] target: Target Webhook URL.
-        :param pulumi.Input[str] task_type: The ServiceNow task type, typically `incident`.
         """
         if endpoint_url is not None:
             pulumi.set(__self__, "endpoint_url", endpoint_url)
@@ -264,9 +214,6 @@ class _ExtensionServiceNowState:
     @property
     @pulumi.getter(name="extensionObjects")
     def extension_objects(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        This is the objects for which the extension applies (An array of service ids).
-        """
         return pulumi.get(self, "extension_objects")
 
     @extension_objects.setter
@@ -276,9 +223,6 @@ class _ExtensionServiceNowState:
     @property
     @pulumi.getter(name="extensionSchema")
     def extension_schema(self) -> Optional[pulumi.Input[str]]:
-        """
-        This is the schema for this extension.
-        """
         return pulumi.get(self, "extension_schema")
 
     @extension_schema.setter
@@ -300,9 +244,6 @@ class _ExtensionServiceNowState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the service extension.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -312,9 +253,6 @@ class _ExtensionServiceNowState:
     @property
     @pulumi.getter
     def referer(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ServiceNow referer.
-        """
         return pulumi.get(self, "referer")
 
     @referer.setter
@@ -324,9 +262,6 @@ class _ExtensionServiceNowState:
     @property
     @pulumi.getter(name="snowPassword")
     def snow_password(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ServiceNow password.
-        """
         return pulumi.get(self, "snow_password")
 
     @snow_password.setter
@@ -336,9 +271,6 @@ class _ExtensionServiceNowState:
     @property
     @pulumi.getter(name="snowUser")
     def snow_user(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ServiceNow username.
-        """
         return pulumi.get(self, "snow_user")
 
     @snow_user.setter
@@ -348,9 +280,6 @@ class _ExtensionServiceNowState:
     @property
     @pulumi.getter
     def summary(self) -> Optional[pulumi.Input[str]]:
-        """
-        A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
-        """
         return pulumi.get(self, "summary")
 
     @summary.setter
@@ -360,9 +289,6 @@ class _ExtensionServiceNowState:
     @property
     @pulumi.getter(name="syncOptions")
     def sync_options(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ServiceNow sync option.
-        """
         return pulumi.get(self, "sync_options")
 
     @sync_options.setter
@@ -372,9 +298,6 @@ class _ExtensionServiceNowState:
     @property
     @pulumi.getter
     def target(self) -> Optional[pulumi.Input[str]]:
-        """
-        Target Webhook URL.
-        """
         return pulumi.get(self, "target")
 
     @target.setter
@@ -384,9 +307,6 @@ class _ExtensionServiceNowState:
     @property
     @pulumi.getter(name="taskType")
     def task_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ServiceNow task type, typically `incident`.
-        """
         return pulumi.get(self, "task_type")
 
     @task_type.setter
@@ -426,7 +346,6 @@ class ExtensionServiceNow(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -461,7 +380,6 @@ class ExtensionServiceNow(pulumi.CustomResource):
             task_type="incident",
             referer="None")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -473,16 +391,6 @@ class ExtensionServiceNow(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] extension_objects: This is the objects for which the extension applies (An array of service ids).
-        :param pulumi.Input[str] extension_schema: This is the schema for this extension.
-        :param pulumi.Input[str] name: The name of the service extension.
-        :param pulumi.Input[str] referer: The ServiceNow referer.
-        :param pulumi.Input[str] snow_password: The ServiceNow password.
-        :param pulumi.Input[str] snow_user: The ServiceNow username.
-        :param pulumi.Input[str] summary: A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
-        :param pulumi.Input[str] sync_options: The ServiceNow sync option.
-        :param pulumi.Input[str] target: Target Webhook URL.
-        :param pulumi.Input[str] task_type: The ServiceNow task type, typically `incident`.
         """
         ...
     @overload
@@ -495,7 +403,6 @@ class ExtensionServiceNow(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -530,7 +437,6 @@ class ExtensionServiceNow(pulumi.CustomResource):
             task_type="incident",
             referer="None")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -637,17 +543,7 @@ class ExtensionServiceNow(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] extension_objects: This is the objects for which the extension applies (An array of service ids).
-        :param pulumi.Input[str] extension_schema: This is the schema for this extension.
         :param pulumi.Input[str] html_url: URL at which the entity is uniquely displayed in the Web app.
-        :param pulumi.Input[str] name: The name of the service extension.
-        :param pulumi.Input[str] referer: The ServiceNow referer.
-        :param pulumi.Input[str] snow_password: The ServiceNow password.
-        :param pulumi.Input[str] snow_user: The ServiceNow username.
-        :param pulumi.Input[str] summary: A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
-        :param pulumi.Input[str] sync_options: The ServiceNow sync option.
-        :param pulumi.Input[str] target: Target Webhook URL.
-        :param pulumi.Input[str] task_type: The ServiceNow task type, typically `incident`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -676,17 +572,11 @@ class ExtensionServiceNow(pulumi.CustomResource):
     @property
     @pulumi.getter(name="extensionObjects")
     def extension_objects(self) -> pulumi.Output[Sequence[str]]:
-        """
-        This is the objects for which the extension applies (An array of service ids).
-        """
         return pulumi.get(self, "extension_objects")
 
     @property
     @pulumi.getter(name="extensionSchema")
     def extension_schema(self) -> pulumi.Output[str]:
-        """
-        This is the schema for this extension.
-        """
         return pulumi.get(self, "extension_schema")
 
     @property
@@ -700,65 +590,41 @@ class ExtensionServiceNow(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The name of the service extension.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def referer(self) -> pulumi.Output[str]:
-        """
-        The ServiceNow referer.
-        """
         return pulumi.get(self, "referer")
 
     @property
     @pulumi.getter(name="snowPassword")
     def snow_password(self) -> pulumi.Output[str]:
-        """
-        The ServiceNow password.
-        """
         return pulumi.get(self, "snow_password")
 
     @property
     @pulumi.getter(name="snowUser")
     def snow_user(self) -> pulumi.Output[str]:
-        """
-        The ServiceNow username.
-        """
         return pulumi.get(self, "snow_user")
 
     @property
     @pulumi.getter
     def summary(self) -> pulumi.Output[str]:
-        """
-        A short-form, server-generated string that provides succinct, important information about an object suitable for primary labeling of an entity in a client. In many cases, this will be identical to `name`, though it is not intended to be an identifier.
-        """
         return pulumi.get(self, "summary")
 
     @property
     @pulumi.getter(name="syncOptions")
     def sync_options(self) -> pulumi.Output[str]:
-        """
-        The ServiceNow sync option.
-        """
         return pulumi.get(self, "sync_options")
 
     @property
     @pulumi.getter
     def target(self) -> pulumi.Output[str]:
-        """
-        Target Webhook URL.
-        """
         return pulumi.get(self, "target")
 
     @property
     @pulumi.getter(name="taskType")
     def task_type(self) -> pulumi.Output[str]:
-        """
-        The ServiceNow task type, typically `incident`.
-        """
         return pulumi.get(self, "task_type")
 
     @property

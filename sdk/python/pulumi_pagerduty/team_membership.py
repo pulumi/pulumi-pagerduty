@@ -19,12 +19,9 @@ class TeamMembershipArgs:
                  role: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a TeamMembership resource.
-        :param pulumi.Input[str] team_id: The ID of the team in which the user will belong.
-        :param pulumi.Input[str] user_id: The ID of the user to add to the team.
-        :param pulumi.Input[str] role: The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  
-               These roles match up to user roles in the following ways:
-               * User role of `user` is a Team role of `manager`
-               * User role of `limited_user` is a Team role of `responder`
+        :param pulumi.Input[str] team_id: The team ID the user belongs to.
+        :param pulumi.Input[str] user_id: The ID of the user belonging to the team.
+        :param pulumi.Input[str] role: The role of the user in the team.
         """
         pulumi.set(__self__, "team_id", team_id)
         pulumi.set(__self__, "user_id", user_id)
@@ -35,7 +32,7 @@ class TeamMembershipArgs:
     @pulumi.getter(name="teamId")
     def team_id(self) -> pulumi.Input[str]:
         """
-        The ID of the team in which the user will belong.
+        The team ID the user belongs to.
         """
         return pulumi.get(self, "team_id")
 
@@ -47,7 +44,7 @@ class TeamMembershipArgs:
     @pulumi.getter(name="userId")
     def user_id(self) -> pulumi.Input[str]:
         """
-        The ID of the user to add to the team.
+        The ID of the user belonging to the team.
         """
         return pulumi.get(self, "user_id")
 
@@ -59,10 +56,7 @@ class TeamMembershipArgs:
     @pulumi.getter
     def role(self) -> Optional[pulumi.Input[str]]:
         """
-        The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  
-        These roles match up to user roles in the following ways:
-        * User role of `user` is a Team role of `manager`
-        * User role of `limited_user` is a Team role of `responder`
+        The role of the user in the team.
         """
         return pulumi.get(self, "role")
 
@@ -79,12 +73,9 @@ class _TeamMembershipState:
                  user_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering TeamMembership resources.
-        :param pulumi.Input[str] role: The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  
-               These roles match up to user roles in the following ways:
-               * User role of `user` is a Team role of `manager`
-               * User role of `limited_user` is a Team role of `responder`
-        :param pulumi.Input[str] team_id: The ID of the team in which the user will belong.
-        :param pulumi.Input[str] user_id: The ID of the user to add to the team.
+        :param pulumi.Input[str] role: The role of the user in the team.
+        :param pulumi.Input[str] team_id: The team ID the user belongs to.
+        :param pulumi.Input[str] user_id: The ID of the user belonging to the team.
         """
         if role is not None:
             pulumi.set(__self__, "role", role)
@@ -97,10 +88,7 @@ class _TeamMembershipState:
     @pulumi.getter
     def role(self) -> Optional[pulumi.Input[str]]:
         """
-        The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  
-        These roles match up to user roles in the following ways:
-        * User role of `user` is a Team role of `manager`
-        * User role of `limited_user` is a Team role of `responder`
+        The role of the user in the team.
         """
         return pulumi.get(self, "role")
 
@@ -112,7 +100,7 @@ class _TeamMembershipState:
     @pulumi.getter(name="teamId")
     def team_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the team in which the user will belong.
+        The team ID the user belongs to.
         """
         return pulumi.get(self, "team_id")
 
@@ -124,7 +112,7 @@ class _TeamMembershipState:
     @pulumi.getter(name="userId")
     def user_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the user to add to the team.
+        The ID of the user belonging to the team.
         """
         return pulumi.get(self, "user_id")
 
@@ -145,7 +133,6 @@ class TeamMembership(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -161,7 +148,6 @@ class TeamMembership(pulumi.CustomResource):
             team_id=foo_team.id,
             role="manager")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -173,12 +159,9 @@ class TeamMembership(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] role: The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  
-               These roles match up to user roles in the following ways:
-               * User role of `user` is a Team role of `manager`
-               * User role of `limited_user` is a Team role of `responder`
-        :param pulumi.Input[str] team_id: The ID of the team in which the user will belong.
-        :param pulumi.Input[str] user_id: The ID of the user to add to the team.
+        :param pulumi.Input[str] role: The role of the user in the team.
+        :param pulumi.Input[str] team_id: The team ID the user belongs to.
+        :param pulumi.Input[str] user_id: The ID of the user belonging to the team.
         """
         ...
     @overload
@@ -189,7 +172,6 @@ class TeamMembership(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_pagerduty as pagerduty
@@ -205,7 +187,6 @@ class TeamMembership(pulumi.CustomResource):
             team_id=foo_team.id,
             role="manager")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -269,12 +250,9 @@ class TeamMembership(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] role: The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  
-               These roles match up to user roles in the following ways:
-               * User role of `user` is a Team role of `manager`
-               * User role of `limited_user` is a Team role of `responder`
-        :param pulumi.Input[str] team_id: The ID of the team in which the user will belong.
-        :param pulumi.Input[str] user_id: The ID of the user to add to the team.
+        :param pulumi.Input[str] role: The role of the user in the team.
+        :param pulumi.Input[str] team_id: The team ID the user belongs to.
+        :param pulumi.Input[str] user_id: The ID of the user belonging to the team.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -289,10 +267,7 @@ class TeamMembership(pulumi.CustomResource):
     @pulumi.getter
     def role(self) -> pulumi.Output[Optional[str]]:
         """
-        The role of the user in the team. One of `observer`, `responder`, or `manager`. Defaults to `manager`.  
-        These roles match up to user roles in the following ways:
-        * User role of `user` is a Team role of `manager`
-        * User role of `limited_user` is a Team role of `responder`
+        The role of the user in the team.
         """
         return pulumi.get(self, "role")
 
@@ -300,7 +275,7 @@ class TeamMembership(pulumi.CustomResource):
     @pulumi.getter(name="teamId")
     def team_id(self) -> pulumi.Output[str]:
         """
-        The ID of the team in which the user will belong.
+        The team ID the user belongs to.
         """
         return pulumi.get(self, "team_id")
 
@@ -308,7 +283,7 @@ class TeamMembership(pulumi.CustomResource):
     @pulumi.getter(name="userId")
     def user_id(self) -> pulumi.Output[str]:
         """
-        The ID of the user to add to the team.
+        The ID of the user belonging to the team.
         """
         return pulumi.get(self, "user_id")
 
